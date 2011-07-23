@@ -7527,7 +7527,9 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the OUT message      *      * @param name  the header name      * @return a expression builder clause to set the header      */
+comment|/**      * Adds a processor which sets the header on the OUT message      *      * @param name  the header name      * @return a expression builder clause to set the header      * @deprecated use {@link #setHeader(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|setOutHeader (String name)
 specifier|public
 name|ExpressionClause
@@ -7584,12 +7586,14 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the OUT message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
+comment|/**      * Adds a processor which sets the header on the OUT message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      * @deprecated use {@link #setHeader(String, org.apache.camel.Expression)}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|setOutHeader (String name, Expression expression)
 specifier|public
 name|Type
@@ -7625,7 +7629,9 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Adds a processor which sets the header on the FAULT message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      */
+comment|/**      * Adds a processor which sets the header on the FAULT message      *      * @param name  the header name      * @param expression  the expression used to set the header      * @return the builder      * @deprecated use {@link #setHeader(String, org.apache.camel.Expression)}      */
+annotation|@
+name|Deprecated
 DECL|method|setFaultHeader (String name, Expression expression)
 specifier|public
 name|Type

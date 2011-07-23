@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;setOutHeader/&gt; element  */
+comment|/**  * Represents an XML&lt;setOutHeader/&gt; element  *  * @deprecated not really needed, will be removed in the future  */
 end_comment
 
 begin_class
@@ -187,6 +187,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|SetOutHeaderDefinition
 specifier|public
 class|class
