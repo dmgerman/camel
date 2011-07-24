@@ -379,7 +379,7 @@ operator|)
 operator|+
 literal|"' could not be created. "
 operator|+
-literal|"Ensure that the dataformat is valid and the associated Camel component is present on the classpath"
+literal|"Ensure that the data format is valid and the associated Camel component is present on the classpath"
 argument_list|)
 throw|;
 block|}

@@ -929,6 +929,7 @@ comment|// must validate configuration before creating processor
 name|validateConfiguration
 argument_list|()
 expr_stmt|;
+comment|// TODO: the exceptions list should use classresolver to load
 name|Processor
 name|childProcessor
 init|=
