@@ -2311,7 +2311,7 @@ name|answer
 init|=
 literal|null
 decl_stmt|;
-comment|// at first evaluate it as a simple expression as it may contain references to headers, etc
+comment|// convert the parameter value to a String
 name|String
 name|exp
 init|=
@@ -2347,56 +2347,32 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
-comment|// TODO: make rule about how a parameter value should be defined
-comment|// and use this rule to pre determine if its class or not
-comment|// - boolean as true|false
-comment|// - numeric such as 5, 7, 123
-comment|// - string literals which must be quoted, either single or double
-comment|// so it can either be a type or a parameter value
-comment|// - type: Boolean, String etc.
-comment|// - value: true, 5, 'Hello World' etc
+comment|// check if its a valid parameter value
 name|boolean
-name|isClass
+name|valid
 init|=
-literal|false
+name|BeanHelper
+operator|.
+name|isValidParameterValue
+argument_list|(
+name|exp
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|exp
-operator|.
-name|startsWith
-argument_list|(
-literal|"'"
-argument_list|)
-operator|||
-name|exp
-operator|.
-name|startsWith
-argument_list|(
-literal|"\""
-argument_list|)
+operator|!
+name|valid
 condition|)
 block|{
-comment|// if the type starts with a quote, then its a parameter value
-name|exp
-operator|=
-name|StringHelper
-operator|.
-name|removeLeadingAndEndingQuotes
-argument_list|(
-name|exp
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// it could be a type, so lets so if we can resolve the class
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|expClass
+comment|// it may be a parameter type instead, and if so, then we should return null,
+comment|// as this method is only for evaluating parameter values
+name|Boolean
+name|isClass
 init|=
+name|BeanHelper
+operator|.
+name|isAssignableToExpectedType
+argument_list|(
 name|exchange
 operator|.
 name|getContext
@@ -2404,55 +2380,26 @@ argument_list|()
 operator|.
 name|getClassResolver
 argument_list|()
-operator|.
-name|resolveClass
-argument_list|(
+argument_list|,
 name|exp
+argument_list|,
+name|parameterType
 argument_list|)
 decl_stmt|;
+comment|// the method will return a non null value if exp is a class
 if|if
 condition|(
-name|expClass
+name|isClass
 operator|!=
 literal|null
 condition|)
 block|{
-name|isClass
-operator|=
-literal|true
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// lets try to match by simple name as well
-if|if
-condition|(
-name|exp
-operator|.
-name|equals
-argument_list|(
-name|parameterType
-operator|.
-name|getSimpleName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|isClass
-operator|=
-literal|true
-expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 block|}
-block|}
-comment|// if its a parameter value (not a class) then use the simple expression language to evaluate the expression
-comment|// and convert the result to the parameter type, so we can pass in the result to the method, when we invoke it
-if|if
-condition|(
-operator|!
-name|isClass
-condition|)
-block|{
+comment|// use simple language to evaluate the expression, as it may use the simple language to refer to message body, headers etc.
 name|parameterValue
 operator|=
 name|exchange
@@ -2486,9 +2433,78 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// the parameter value was not already valid, but since the simple language have evaluated the expression
+comment|// which may change the parameterValue, so we have to check it again to see if its now valid
+name|exp
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|,
+name|parameterValue
+argument_list|)
+expr_stmt|;
+comment|// String values from the simple language is always valid
+if|if
+condition|(
+operator|!
+name|valid
+condition|)
+block|{
+comment|// re validate if the parameter was not valid the first time (String values should be accepted)
+name|valid
+operator|=
+name|parameterValue
+operator|instanceof
+name|String
+operator|||
+name|BeanHelper
+operator|.
+name|isValidParameterValue
+argument_list|(
+name|exp
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|valid
+condition|)
+block|{
+comment|// we need to unquote String parameters, as the enclosing quotes is there to denote a parameter value
+if|if
+condition|(
+name|parameterValue
+operator|instanceof
+name|String
+condition|)
+block|{
+name|parameterValue
+operator|=
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+operator|(
+name|String
+operator|)
+name|parameterValue
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
-comment|// we got a value now try to convert it to the expected type
+comment|// its a valid parameter value, so convert it to the expected type of the parameter
 name|answer
 operator|=
 name|exchange
