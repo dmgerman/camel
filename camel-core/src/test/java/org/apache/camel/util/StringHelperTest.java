@@ -364,6 +364,99 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testRemoveLeadingAndEndingQuotes ()
+specifier|public
+name|void
+name|testRemoveLeadingAndEndingQuotes
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertEquals
+argument_list|(
+literal|null
+argument_list|,
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+literal|""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|" "
+argument_list|,
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+literal|"Hello World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+literal|"'Hello World'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello World"
+argument_list|,
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+literal|"\"Hello World\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Hello 'Camel'"
+argument_list|,
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+literal|"Hello 'Camel'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testHasUpper ()
 specifier|public
 name|void

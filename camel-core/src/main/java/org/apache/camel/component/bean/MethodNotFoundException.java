@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -49,6 +39,20 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -114,6 +118,15 @@ operator|+
 literal|" not found on bean: "
 operator|+
 name|pojo
+operator|+
+literal|" of type: "
+operator|+
+name|ObjectHelper
+operator|.
+name|className
+argument_list|(
+name|pojo
+argument_list|)
 argument_list|,
 name|exchange
 argument_list|)
@@ -154,6 +167,15 @@ operator|+
 literal|" not found on bean: "
 operator|+
 name|pojo
+operator|+
+literal|" of type:"
+operator|+
+name|ObjectHelper
+operator|.
+name|className
+argument_list|(
+name|pojo
+argument_list|)
 argument_list|,
 literal|null
 argument_list|,

@@ -865,6 +865,20 @@ operator|.
 name|InOut
 argument_list|)
 expr_stmt|;
+comment|// do not propagate any method name when using OGNL, as with OGNL we
+comment|// compute and provide the method name to explicit to invoke
+name|resultExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|BEAN_METHOD_NAME
+argument_list|)
+expr_stmt|;
 comment|// current ognl path as we go along
 name|String
 name|ognlPath
