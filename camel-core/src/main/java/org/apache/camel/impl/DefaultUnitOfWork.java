@@ -1302,6 +1302,11 @@ name|RouteContext
 name|getRouteContext
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|routeContextStack
+init|)
+block|{
 if|if
 condition|(
 name|routeContextStack
@@ -1321,6 +1326,7 @@ name|peek
 argument_list|()
 return|;
 block|}
+block|}
 DECL|method|pushRouteContext (RouteContext routeContext)
 specifier|public
 name|void
@@ -1330,6 +1336,11 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
+synchronized|synchronized
+init|(
+name|routeContext
+init|)
+block|{
 name|routeContextStack
 operator|.
 name|add
@@ -1338,11 +1349,17 @@ name|routeContext
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|popRouteContext ()
 specifier|public
 name|RouteContext
 name|popRouteContext
 parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|routeContextStack
+init|)
 block|{
 if|if
 condition|(
@@ -1362,6 +1379,7 @@ operator|.
 name|pop
 argument_list|()
 return|;
+block|}
 block|}
 DECL|method|beforeProcess (Processor processor, Exchange exchange, AsyncCallback callback)
 specifier|public
