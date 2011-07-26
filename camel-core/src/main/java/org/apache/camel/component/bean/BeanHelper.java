@@ -300,45 +300,31 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// it was not the FQN class name, but the simple name instead, so we can infer the type
-name|parameterClass
-operator|=
-name|expectedType
-expr_stmt|;
+comment|// it was not the FQN class name, but the simple name instead, which matched
+return|return
+literal|true
+return|;
 block|}
-comment|// if there was a class, then it must be assignable to match
+comment|// not a class so return null
 if|if
 condition|(
 name|parameterClass
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-operator|!
+return|return
+literal|null
+return|;
+block|}
+comment|// if there was a class, then it must be assignable to match
+return|return
 name|parameterClass
 operator|.
 name|isAssignableFrom
 argument_list|(
 name|expectedType
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
-comment|// not a class so return null
-return|return
-literal|null
 return|;
 block|}
 block|}
