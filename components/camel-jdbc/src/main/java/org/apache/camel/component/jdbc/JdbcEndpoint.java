@@ -122,6 +122,13 @@ specifier|private
 name|boolean
 name|transacted
 decl_stmt|;
+DECL|field|resetAutoCommit
+specifier|private
+name|boolean
+name|resetAutoCommit
+init|=
+literal|true
+decl_stmt|;
 DECL|field|dataSource
 specifier|private
 name|DataSource
@@ -278,6 +285,32 @@ operator|.
 name|transacted
 operator|=
 name|transacted
+expr_stmt|;
+block|}
+DECL|method|isResetAutoCommit ()
+specifier|public
+name|boolean
+name|isResetAutoCommit
+parameter_list|()
+block|{
+return|return
+name|resetAutoCommit
+return|;
+block|}
+DECL|method|setResetAutoCommit (boolean resetAutoCommit)
+specifier|public
+name|void
+name|setResetAutoCommit
+parameter_list|(
+name|boolean
+name|resetAutoCommit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resetAutoCommit
+operator|=
+name|resetAutoCommit
 expr_stmt|;
 block|}
 DECL|method|getDataSource ()
