@@ -178,6 +178,21 @@ return|return
 literal|true
 return|;
 block|}
+comment|// null is valid (to force a null value)
+if|if
+condition|(
+name|value
+operator|.
+name|equals
+argument_list|(
+literal|"null"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|// simple language tokens is valid
 if|if
 condition|(

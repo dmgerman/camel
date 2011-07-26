@@ -212,6 +212,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExpressionEvaluationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoTypeConversionAvailableException
 import|;
 end_import
@@ -2270,6 +2282,15 @@ expr_stmt|;
 block|}
 block|}
 comment|// remember the value to use
+if|if
+condition|(
+name|value
+operator|!=
+name|Void
+operator|.
+name|TYPE
+condition|)
+block|{
 name|answer
 index|[
 name|i
@@ -2278,6 +2299,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+block|}
 return|return
 operator|(
 name|T
@@ -2285,7 +2307,7 @@ operator|)
 name|answer
 return|;
 block|}
-comment|/**              * Evaluate using parameter values where the values can be provided in the method name syntax.              *              * @since 2.9              */
+comment|/**              * Evaluate using parameter values where the values can be provided in the method name syntax.              *<p/>              * This methods returns accordingly:              *<ul>              *<li><tt>null</tt> - if not a parameter value</li>              *<li><tt>Void.TYPE</tt> - if an explicit null, forcing Camel to pass in<tt>null</tt> for that given parameter</li>              *<li>a non<tt>null</tt> value - if the parameter was a parameter value, and to be used</li>              *</ul>              *              * @since 2.9              */
 specifier|private
 name|Object
 name|evaluateParameterValue
@@ -2400,7 +2422,14 @@ return|;
 block|}
 block|}
 comment|// use simple language to evaluate the expression, as it may use the simple language to refer to message body, headers etc.
-name|parameterValue
+name|Expression
+name|expression
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|expression
 operator|=
 name|exchange
 operator|.
@@ -2416,6 +2445,10 @@ name|createExpression
 argument_list|(
 name|exp
 argument_list|)
+expr_stmt|;
+name|parameterValue
+operator|=
+name|expression
 operator|.
 name|evaluate
 argument_list|(
@@ -2426,6 +2459,38 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ExpressionEvaluationException
+argument_list|(
+name|expression
+argument_list|,
+literal|"Cannot create/evaluate simple expression: "
+operator|+
+name|exp
+operator|+
+literal|" to be bound to parameter at index: "
+operator|+
+name|index
+operator|+
+literal|" on method: "
+operator|+
+name|getMethod
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|parameterValue
@@ -2433,6 +2498,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// special for explicit null parameter values (as end users can explicit indicate they want null as parameter)
+comment|// see method javadoc for details
+if|if
+condition|(
+literal|"null"
+operator|.
+name|equals
+argument_list|(
+name|parameterValue
+argument_list|)
+condition|)
+block|{
+return|return
+name|Void
+operator|.
+name|TYPE
+return|;
+block|}
 comment|// the parameter value was not already valid, but since the simple language have evaluated the expression
 comment|// which may change the parameterValue, so we have to check it again to see if its now valid
 name|exp
