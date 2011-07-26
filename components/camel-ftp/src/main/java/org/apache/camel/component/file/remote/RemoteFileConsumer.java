@@ -378,7 +378,12 @@ name|void
 name|disconnect
 parameter_list|()
 block|{
-comment|// disconnect when stopping
+comment|// eager indicate we are no longer logged in
+name|loggedIn
+operator|=
+literal|false
+expr_stmt|;
+comment|// disconnect
 try|try
 block|{
 if|if
@@ -390,10 +395,6 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
-name|loggedIn
-operator|=
-literal|false
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -432,10 +433,19 @@ name|log
 operator|.
 name|warn
 argument_list|(
+literal|"Error occurred while disconnecting from "
+operator|+
+name|remoteServer
+argument_list|()
+operator|+
+literal|" due: "
+operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception will be ignored."
 argument_list|)
 expr_stmt|;
 block|}
