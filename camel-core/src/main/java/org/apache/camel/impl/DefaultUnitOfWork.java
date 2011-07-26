@@ -774,6 +774,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+synchronized|synchronized
+init|(
+name|routeContextStack
+init|)
+block|{
 if|if
 condition|(
 operator|!
@@ -788,6 +793,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1338,7 +1344,7 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|routeContext
+name|routeContextStack
 init|)
 block|{
 name|routeContextStack
