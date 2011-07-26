@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -313,8 +325,12 @@ comment|// turn the route to in only as we do not want jetty to wait for the res
 comment|// we can do this by changing the MEP and sending to a seda endpoint to spin off
 comment|// a new thread continue doing the routing
 operator|.
-name|inOnly
-argument_list|()
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
 operator|.
 name|to
 argument_list|(

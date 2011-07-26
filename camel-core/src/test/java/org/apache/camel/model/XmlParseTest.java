@@ -758,6 +758,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|testParseSetOutHeaderXml ()
 specifier|public
 name|void
@@ -827,6 +832,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|testParseSetOutHeaderToConstantXml ()
 specifier|public
 name|void

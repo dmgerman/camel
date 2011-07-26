@@ -1898,6 +1898,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws CamelExchangeException is thrown if error creating RequestEntity      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|createMethod (Exchange exchange)
 specifier|protected
 name|HttpMethod

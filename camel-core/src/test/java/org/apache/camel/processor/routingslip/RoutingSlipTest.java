@@ -557,7 +557,10 @@ argument_list|)
 operator|.
 name|routingSlip
 argument_list|(
+name|header
+argument_list|(
 literal|"myHeader"
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -591,7 +594,10 @@ argument_list|)
 operator|.
 name|routingSlip
 argument_list|(
+name|header
+argument_list|(
 literal|"aRoutingSlipHeader"
+argument_list|)
 argument_list|,
 literal|"#"
 argument_list|)

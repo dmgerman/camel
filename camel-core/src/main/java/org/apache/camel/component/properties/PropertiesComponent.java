@@ -1091,17 +1091,6 @@ operator|=
 name|locations
 expr_stmt|;
 block|}
-DECL|method|getLocations ()
-specifier|public
-name|String
-index|[]
-name|getLocations
-parameter_list|()
-block|{
-return|return
-name|locations
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|equals (Object o)
