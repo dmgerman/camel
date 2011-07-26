@@ -862,6 +862,31 @@ name|type
 argument_list|)
 return|;
 block|}
+comment|// headers expression
+if|if
+condition|(
+literal|"in.headers"
+operator|.
+name|equals
+argument_list|(
+name|expression
+argument_list|)
+operator|||
+literal|"headers"
+operator|.
+name|equals
+argument_list|(
+name|expression
+argument_list|)
+condition|)
+block|{
+return|return
+name|ExpressionBuilder
+operator|.
+name|headersExpression
+argument_list|()
+return|;
+block|}
 comment|// in header expression
 name|remainder
 operator|=

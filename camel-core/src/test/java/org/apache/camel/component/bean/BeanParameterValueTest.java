@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -260,6 +270,41 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testBeanParameterValueMap ()
+specifier|public
+name|void
+name|testBeanParameterValueMap
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:heads"
+argument_list|,
+literal|"World"
+argument_list|,
+literal|"hello"
+argument_list|,
+literal|"Hello"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRegistry ()
@@ -407,6 +452,21 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:heads"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"bean:foo?method=heads(${body}, ${headers})"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
@@ -504,6 +564,31 @@ argument_list|()
 return|;
 block|}
 return|return
+name|body
+return|;
+block|}
+DECL|method|heads (String body, Map headers)
+specifier|public
+name|String
+name|heads
+parameter_list|(
+name|String
+name|body
+parameter_list|,
+name|Map
+name|headers
+parameter_list|)
+block|{
+return|return
+name|headers
+operator|.
+name|get
+argument_list|(
+literal|"hello"
+argument_list|)
+operator|+
+literal|" "
+operator|+
 name|body
 return|;
 block|}
