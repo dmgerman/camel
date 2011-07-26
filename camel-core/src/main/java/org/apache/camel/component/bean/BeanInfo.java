@@ -3984,7 +3984,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|// trim the time
+comment|// trim the type
 name|qualifyType
 operator|=
 name|qualifyType
@@ -4038,6 +4038,7 @@ argument_list|,
 name|parameterType
 argument_list|)
 decl_stmt|;
+comment|// the method will return null if the qualifyType is not a class
 if|if
 condition|(
 name|assignable

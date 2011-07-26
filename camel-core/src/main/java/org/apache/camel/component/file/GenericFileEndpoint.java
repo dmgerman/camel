@@ -200,22 +200,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|idempotent
@@ -2528,11 +2512,13 @@ block|{
 comment|// if the expression already have ${ } placeholders then pass it unmodified
 if|if
 condition|(
-name|SimpleLanguage
+name|StringHelper
 operator|.
 name|hasStartToken
 argument_list|(
 name|expression
+argument_list|,
+literal|"simple"
 argument_list|)
 condition|)
 block|{
@@ -2968,11 +2954,13 @@ expr_stmt|;
 comment|// must be able to resolve all placeholders supported
 if|if
 condition|(
-name|SimpleLanguage
+name|StringHelper
 operator|.
 name|hasStartToken
 argument_list|(
 name|pattern
+argument_list|,
+literal|"simple"
 argument_list|)
 condition|)
 block|{
@@ -3076,11 +3064,13 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|SimpleLanguage
+name|StringHelper
 operator|.
 name|hasStartToken
 argument_list|(
 name|pattern
+argument_list|,
+literal|"simple"
 argument_list|)
 condition|)
 block|{
@@ -3156,11 +3146,13 @@ expr_stmt|;
 comment|// must be able to resolve all placeholders supported
 if|if
 condition|(
-name|SimpleLanguage
+name|StringHelper
 operator|.
 name|hasStartToken
 argument_list|(
 name|pattern
+argument_list|,
+literal|"simple"
 argument_list|)
 condition|)
 block|{

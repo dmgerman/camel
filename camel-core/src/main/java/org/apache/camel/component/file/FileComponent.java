@@ -46,11 +46,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|util
 operator|.
-name|simple
-operator|.
-name|SimpleLanguage
+name|StringHelper
 import|;
 end_import
 
@@ -117,11 +115,13 @@ block|{
 comment|// the starting directory must be a static (not containing dynamic expressions)
 if|if
 condition|(
-name|SimpleLanguage
+name|StringHelper
 operator|.
 name|hasStartToken
 argument_list|(
 name|remaining
+argument_list|,
+literal|"simple"
 argument_list|)
 condition|)
 block|{

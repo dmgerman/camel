@@ -26,22 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ClassResolver
@@ -62,8 +46,22 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * Helper for the bean component.  */
 end_comment
 
 begin_class
@@ -183,11 +181,13 @@ block|}
 comment|// simple language tokens is valid
 if|if
 condition|(
-name|SimpleLanguage
+name|StringHelper
 operator|.
 name|hasStartToken
 argument_list|(
 name|value
+argument_list|,
+literal|"simple"
 argument_list|)
 condition|)
 block|{
@@ -234,7 +234,7 @@ return|return
 name|numeric
 return|;
 block|}
-comment|/**      * Determines if the given parameter type is assignable to the expected type.      *<p/>      * This implementation will check if the given parameter type matches the expected type as class using either      *<ul>      *<li>FQN class name - com.foo.MyOrder</li>      *<li>Simple class name - MyOrder</li>      *</ul>      * If the given parameter type is<b>not</b> a class, then<tt>false</tt> is returned      *      * @param resolver          the class resolver      * @param parameterType     the parameter type as a String, can be a FQN or a simple name of the class      * @param expectedType      the expected type      * @return<tt>null</tt> if parameter type is<b>not</b> a class,<tt>true</tt> if parameter type is assignable,<tt>false</tt> otherwise      */
+comment|/**      * Determines if the given parameter type is assignable to the expected type.      *<p/>      * This implementation will check if the given parameter type matches the expected type as class using either      *<ul>      *<li>FQN class name - com.foo.MyOrder</li>      *<li>Simple class name - MyOrder</li>      *</ul>      * If the given parameter type is<b>not</b> a class, then<tt>null</tt> is returned      *      * @param resolver          the class resolver      * @param parameterType     the parameter type as a String, can be a FQN or a simple name of the class      * @param expectedType      the expected type      * @return<tt>null</tt> if parameter type is<b>not</b> a class,<tt>true</tt> if parameter type is assignable,<tt>false</tt> if not assignable      */
 DECL|method|isAssignableToExpectedType (ClassResolver resolver, String parameterType, Class<?> expectedType)
 specifier|public
 specifier|static
