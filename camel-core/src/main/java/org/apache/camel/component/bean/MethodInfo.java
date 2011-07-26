@@ -260,6 +260,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ExpressionAdapter
@@ -1891,6 +1903,8 @@ name|IllegalAccessException
 throws|,
 name|InvocationTargetException
 block|{
+try|try
+block|{
 return|return
 name|mth
 operator|.
@@ -1901,6 +1915,36 @@ argument_list|,
 name|arguments
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"IllegalArgumentException occurred invoking method: "
+operator|+
+name|mth
+operator|+
+literal|" using arguments: "
+operator|+
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|arguments
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|createParametersExpression ()
 specifier|protected
