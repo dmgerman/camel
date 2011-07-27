@@ -172,8 +172,8 @@ function_decl|;
 block|}
 DECL|class|EchoServiceImpl
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|EchoServiceImpl
 implements|implements
