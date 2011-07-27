@@ -213,7 +213,14 @@ specifier|final
 name|String
 name|JAXWS_SERVER_ADDRESS
 init|=
-literal|"http://localhost:9023/SoapContext/SoapPort"
+literal|"http://localhost:"
+operator|+
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+operator|+
+literal|"/CxfTimeoutTest/SoapContext/SoapPort"
 decl_stmt|;
 annotation|@
 name|BeforeClass

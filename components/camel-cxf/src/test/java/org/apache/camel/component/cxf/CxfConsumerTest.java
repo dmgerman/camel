@@ -239,12 +239,12 @@ name|SIMPLE_ENDPOINT_ADDRESS
 init|=
 literal|"http://localhost:"
 operator|+
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 operator|+
-literal|"/test"
+literal|"/CxfConsumerTest/test"
 decl_stmt|;
 DECL|field|SIMPLE_ENDPOINT_URI
 specifier|protected

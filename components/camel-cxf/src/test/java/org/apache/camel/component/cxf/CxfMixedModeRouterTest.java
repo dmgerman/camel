@@ -294,9 +294,9 @@ specifier|static
 name|int
 name|port1
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 decl_stmt|;
 DECL|field|port2
@@ -305,9 +305,9 @@ specifier|static
 name|int
 name|port2
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort2
 argument_list|()
 decl_stmt|;
 DECL|field|server
@@ -327,7 +327,7 @@ literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"/router"
+literal|"/CxfMixedModeRouterTest/router"
 decl_stmt|;
 DECL|field|SERVICE_ADDRESS
 specifier|protected
@@ -340,7 +340,7 @@ literal|"http://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"/helloworld"
+literal|"/CxfMixedModeRouterTest/helloworld"
 decl_stmt|;
 DECL|field|SERVICE_CLASS
 specifier|protected

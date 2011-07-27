@@ -244,9 +244,9 @@ specifier|static
 name|int
 name|port1
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 decl_stmt|;
 DECL|field|port2
@@ -255,9 +255,9 @@ specifier|static
 name|int
 name|port2
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort2
 argument_list|()
 decl_stmt|;
 DECL|field|port3
@@ -266,9 +266,9 @@ specifier|static
 name|int
 name|port3
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort3
 argument_list|()
 decl_stmt|;
 DECL|field|port4
@@ -277,9 +277,9 @@ specifier|static
 name|int
 name|port4
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort4
 argument_list|()
 decl_stmt|;
 DECL|method|createApplicationContext ()
@@ -394,7 +394,7 @@ literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"/PersonService/"
+literal|"/CXFWsdlOnlyTest/PersonService/"
 decl_stmt|;
 name|endpoint1
 operator|=
@@ -413,7 +413,7 @@ literal|"http://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"/PersonService/"
+literal|"/CXFWsdlOnlyTest/PersonService/"
 expr_stmt|;
 name|endpoint2
 operator|=
@@ -532,7 +532,7 @@ literal|"http://localhost:"
 operator|+
 name|port3
 operator|+
-literal|"/PersonService/"
+literal|"/CXFWsdlOnlyTest/PersonService/"
 argument_list|)
 expr_stmt|;
 name|Holder
@@ -694,7 +694,7 @@ literal|"http://localhost:"
 operator|+
 name|port4
 operator|+
-literal|"/PersonService/"
+literal|"/CXFWsdlOnlyTest/PersonService/"
 argument_list|)
 expr_stmt|;
 name|Holder

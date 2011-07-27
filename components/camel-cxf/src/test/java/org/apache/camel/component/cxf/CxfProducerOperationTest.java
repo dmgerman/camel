@@ -122,7 +122,8 @@ block|{
 return|return
 literal|"cxf://"
 operator|+
-name|SIMPLE_SERVER_ADDRESS
+name|getSimpleServerAddress
+argument_list|()
 operator|+
 literal|"?serviceClass=org.apache.camel.component.cxf.HelloService"
 operator|+
@@ -140,7 +141,8 @@ block|{
 return|return
 literal|"cxf://"
 operator|+
-name|JAXWS_SERVER_ADDRESS
+name|getJaxWsServerAddress
+argument_list|()
 operator|+
 literal|"?serviceClass=org.apache.hello_world_soap_http.Greeter"
 operator|+

@@ -97,7 +97,8 @@ name|routerEndpointURI
 init|=
 literal|"cxf://"
 operator|+
-name|ROUTER_ADDRESS
+name|getRouterAddress
+argument_list|()
 operator|+
 literal|"?"
 operator|+
@@ -168,7 +169,8 @@ name|Exchange
 operator|.
 name|DESTINATION_OVERRIDE_URL
 argument_list|,
-name|SERVICE_ADDRESS
+name|getServiceAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|CxfPayload

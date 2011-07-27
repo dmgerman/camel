@@ -126,9 +126,9 @@ specifier|static
 name|int
 name|port1
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 decl_stmt|;
 DECL|field|url
@@ -140,7 +140,7 @@ literal|"cxf://http://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"/helloworld"
+literal|"/CxfJavaOnlyPayloadModeTest/helloworld"
 operator|+
 literal|"?wsdlURL=classpath:person.wsdl"
 operator|+

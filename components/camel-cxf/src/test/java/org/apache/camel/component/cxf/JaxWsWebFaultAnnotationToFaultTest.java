@@ -155,7 +155,14 @@ specifier|final
 name|String
 name|ROUTER_ADDRESS
 init|=
-literal|"http://localhost:9002/router"
+literal|"http://localhost:"
+operator|+
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+operator|+
+literal|"/JaxWsWebFaultAnnotationToFaultTest/router"
 decl_stmt|;
 DECL|field|SERVICE_CLASS
 specifier|protected

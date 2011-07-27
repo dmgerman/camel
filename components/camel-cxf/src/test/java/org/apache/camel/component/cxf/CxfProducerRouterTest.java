@@ -302,7 +302,14 @@ specifier|final
 name|String
 name|SIMPLE_SERVER_ADDRESS
 init|=
-literal|"http://localhost:28080/test"
+literal|"http://localhost:"
+operator|+
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+operator|+
+literal|"/CxfProducerRouterTest/test"
 decl_stmt|;
 DECL|field|REQUEST_MESSAGE
 specifier|private

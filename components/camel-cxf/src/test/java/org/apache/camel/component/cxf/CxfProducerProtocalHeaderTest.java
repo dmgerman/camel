@@ -106,6 +106,20 @@ name|camel
 operator|.
 name|test
 operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
@@ -134,6 +148,17 @@ name|CxfProducerProtocalHeaderTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|port
+specifier|private
+specifier|static
+name|int
+name|port
+init|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+decl_stmt|;
 DECL|field|RESPONSE
 specifier|private
 specifier|static
@@ -167,7 +192,11 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9008/user"
+literal|"jetty:http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/CxfProducerProtocalHeaderTest/user"
 argument_list|)
 operator|.
 name|process
@@ -235,7 +264,7 @@ literal|"Transfer-Encoding"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// check the headers
+comment|//check the headers
 name|exchange
 operator|.
 name|getOut
@@ -262,7 +291,7 @@ argument_list|,
 literal|200
 argument_list|)
 expr_stmt|;
-comment|// send the response back
+comment|//send the response back
 name|exchange
 operator|.
 name|getOut
@@ -415,7 +444,11 @@ name|exchange
 init|=
 name|sendSimpleMessage
 argument_list|(
-literal|"cxf://http://localhost:9008/user"
+literal|"cxf://http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/CxfProducerProtocalHeaderTest/user"
 operator|+
 literal|"?serviceClass=org.apache.camel.component.cxf.HelloService"
 argument_list|)

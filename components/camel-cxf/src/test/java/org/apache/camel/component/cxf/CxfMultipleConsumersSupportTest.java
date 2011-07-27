@@ -102,9 +102,9 @@ specifier|static
 name|int
 name|port1
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 decl_stmt|;
 DECL|field|port2
@@ -113,9 +113,9 @@ specifier|static
 name|int
 name|port2
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort2
 argument_list|()
 decl_stmt|;
 DECL|field|SIMPLE_ENDPOINT_ADDRESS
@@ -129,7 +129,7 @@ literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"/test"
+literal|"/CxfMultipleConsumersSupportTest/test"
 decl_stmt|;
 DECL|field|SIMPLE_ENDPOINT_URI
 specifier|protected
@@ -155,7 +155,7 @@ literal|"http://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"/test"
+literal|"/CxfMultipleConsumersSupportTest/test"
 decl_stmt|;
 DECL|field|SIMPLE_OTHER_URI
 specifier|protected
@@ -263,7 +263,7 @@ literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[cxf:/
 operator|+
 name|port1
 operator|+
-literal|"/test?serviceClass=org.apache.camel.component.cxf.HelloService]"
+literal|"/CxfMultipleConsumersSupportTest/test?serviceClass=org.apache.camel.component.cxf.HelloService]"
 argument_list|)
 argument_list|)
 expr_stmt|;

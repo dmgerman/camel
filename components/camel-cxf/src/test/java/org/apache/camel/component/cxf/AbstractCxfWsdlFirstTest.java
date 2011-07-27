@@ -295,13 +295,34 @@ name|AbstractCxfWsdlFirstTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
-DECL|method|getPort ()
+DECL|method|getPort1 ()
 specifier|public
-specifier|abstract
-name|String
-name|getPort
+specifier|static
+name|int
+name|getPort1
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+return|;
+block|}
+DECL|method|getPort2 ()
+specifier|public
+specifier|static
+name|int
+name|getPort2
+parameter_list|()
+block|{
+return|return
+name|CXFTestSupport
+operator|.
+name|getPort2
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testInvokingServiceFromCXFClient ()
@@ -403,7 +424,15 @@ name|ENDPOINT_ADDRESS_PROPERTY
 argument_list|,
 literal|"http://localhost:"
 operator|+
-name|getPort
+name|getPort2
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
 argument_list|()
 operator|+
 literal|"/PersonService/"

@@ -204,9 +204,9 @@ DECL|field|port1
 name|int
 name|port1
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 decl_stmt|;
 DECL|method|createApplicationContext ()
@@ -215,20 +215,6 @@ name|ClassPathXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"CxfNonWrapperTest.port1"
-argument_list|,
-name|Integer
-operator|.
-name|toString
-argument_list|(
-name|port1
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|ClassPathXmlApplicationContext
@@ -323,7 +309,7 @@ literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"/PersonService/"
+literal|"/CxfNonWrapperTest/PersonService/"
 argument_list|)
 expr_stmt|;
 name|GetPerson

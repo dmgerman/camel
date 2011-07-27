@@ -102,6 +102,14 @@ literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
+literal|"/"
+operator|+
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
 literal|"/PersonService"
 argument_list|,
 operator|new

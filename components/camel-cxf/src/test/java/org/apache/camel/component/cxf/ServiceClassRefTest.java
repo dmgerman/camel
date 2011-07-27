@@ -112,6 +112,14 @@ name|ServiceClassRefTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{
+static|static
+block|{
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Autowired
 DECL|field|context

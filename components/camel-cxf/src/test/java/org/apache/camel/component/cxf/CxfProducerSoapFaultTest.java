@@ -221,7 +221,14 @@ specifier|final
 name|String
 name|JAXWS_SERVER_ADDRESS
 init|=
-literal|"http://localhost:28081/test"
+literal|"http://localhost:"
+operator|+
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+operator|+
+literal|"/CxfProducerSoapFaultTest/test"
 decl_stmt|;
 DECL|field|JAXWS_ENDPOINT_URI
 specifier|private

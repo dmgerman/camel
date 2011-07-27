@@ -97,7 +97,8 @@ name|routerEndpointURI
 init|=
 literal|"cxf://"
 operator|+
-name|ROUTER_ADDRESS
+name|getRouterAddress
+argument_list|()
 operator|+
 literal|"?"
 operator|+
@@ -112,7 +113,8 @@ name|serviceEndpointURI
 init|=
 literal|"cxf://"
 operator|+
-name|SERVICE_ADDRESS
+name|getServiceAddress
+argument_list|()
 operator|+
 literal|"?"
 operator|+
