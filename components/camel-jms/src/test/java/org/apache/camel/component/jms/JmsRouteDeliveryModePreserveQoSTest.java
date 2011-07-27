@@ -100,7 +100,19 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -134,6 +146,8 @@ name|JmsRouteDeliveryModePreserveQoSTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testSendDefault ()
 specifier|public
 name|void
@@ -209,6 +223,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendNonPersistent ()
 specifier|public
 name|void
@@ -290,6 +306,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendNonPersistentAsString ()
 specifier|public
 name|void
@@ -369,6 +387,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendPersistent ()
 specifier|public
 name|void
@@ -450,6 +470,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendPersistentAsString ()
 specifier|public
 name|void

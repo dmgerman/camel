@@ -94,7 +94,19 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -138,6 +150,8 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -175,6 +189,8 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSendNotMatchingMessage ()
 specifier|public
 name|void

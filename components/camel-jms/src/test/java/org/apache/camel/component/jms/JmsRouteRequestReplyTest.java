@@ -272,7 +272,29 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -1919,9 +1941,9 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -1937,6 +1959,8 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseMessageIDAsCorrelationID ()
 specifier|public
 name|void
@@ -1951,6 +1975,8 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseCorrelationID ()
 specifier|public
 name|void
@@ -1965,6 +1991,8 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseMessageIDAsCorrelationIDMultiNode ()
 specifier|public
 name|void
@@ -1979,6 +2007,8 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseCorrelationIDMultiNode ()
 specifier|public
 name|void
@@ -1993,6 +2023,8 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseMessageIDAsCorrelationIDPersistReplyToMultiNode ()
 specifier|public
 name|void
@@ -2007,6 +2039,8 @@ name|endpointReplyToUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseCorrelationIDPersistReplyToMultiNode ()
 specifier|public
 name|void
@@ -2029,6 +2063,8 @@ comment|// or testCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode
 comment|// for a faster way to do this. Note however that in this case the message copy has to occur
 comment|// between consumer -> producer as the selector value needs to be propagated to the ultimate
 comment|// destination, which in turn will copy this value back into the reply message
+annotation|@
+name|Test
 DECL|method|testUseMessageIDAsCorrelationIDPersistMultiReplyToMultiNode ()
 specifier|public
 name|void
@@ -2089,6 +2125,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// see (1)
+annotation|@
+name|Test
 DECL|method|testUseCorrelationIDPersistMultiReplyToMultiNode ()
 specifier|public
 name|void
@@ -2148,6 +2186,8 @@ name|oldMaxCalls
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
 DECL|method|testUseMessageIDAsCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode ()
 specifier|public
 name|void
@@ -2162,6 +2202,8 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseCorrelationIDPersistMultiReplyToWithNamedSelectorMultiNode ()
 specifier|public
 name|void
@@ -2176,6 +2218,8 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseCorrelationIDTimeout ()
 specifier|public
 name|void
@@ -2258,6 +2302,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseMessageIDAsCorrelationIDTimeout ()
 specifier|public
 name|void
@@ -2340,6 +2386,8 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseCorrelationIDMultiNodeDiffComponents ()
 specifier|public
 name|void
@@ -2354,6 +2402,8 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testUseMessageIDAsCorrelationIDMultiNodeDiffComponents ()
 specifier|public
 name|void
@@ -2552,7 +2602,9 @@ name|contextBuilders
 operator|.
 name|get
 argument_list|(
-name|getName
+name|testName
+operator|.
+name|getMethodName
 argument_list|()
 argument_list|)
 operator|.
@@ -2575,7 +2627,9 @@ name|routeBuilders
 operator|.
 name|get
 argument_list|(
-name|getName
+name|testName
+operator|.
+name|getMethodName
 argument_list|()
 argument_list|)
 return|;

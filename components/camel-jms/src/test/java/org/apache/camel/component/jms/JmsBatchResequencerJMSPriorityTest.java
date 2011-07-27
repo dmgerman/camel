@@ -92,7 +92,19 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -126,6 +138,8 @@ name|JmsBatchResequencerJMSPriorityTest
 extends|extends
 name|CamelTestSupport
 block|{
+annotation|@
+name|Test
 DECL|method|testBatchResequencerJMSPriority ()
 specifier|public
 name|void

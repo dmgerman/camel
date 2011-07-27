@@ -30,6 +30,8 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelSpringTestSupport
 import|;
 end_import
@@ -290,38 +292,6 @@ operator|+
 literal|" ms"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|canRunOnThisPlatform ()
-specifier|protected
-name|boolean
-name|canRunOnThisPlatform
-parameter_list|()
-block|{
-name|String
-name|os
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"os.name"
-argument_list|)
-decl_stmt|;
-comment|// HP-UX is just to slow to run this test
-return|return
-operator|!
-name|os
-operator|.
-name|toLowerCase
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"hp-ux"
-argument_list|)
-return|;
 block|}
 block|}
 end_class

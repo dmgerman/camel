@@ -132,7 +132,19 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -173,6 +185,8 @@ name|uri
 init|=
 literal|"activemq:queue:hello?jmsKeyFormatStrategy=default"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendWithHeaders ()
 specifier|public
 name|void
