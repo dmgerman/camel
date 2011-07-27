@@ -993,17 +993,6 @@ name|String
 name|channel
 parameter_list|)
 block|{
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|channels
-init|=
-name|configuration
-operator|.
-name|getChannels
-argument_list|()
-decl_stmt|;
 name|IRCConnection
 name|connection
 init|=

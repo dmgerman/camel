@@ -221,6 +221,9 @@ specifier|private
 specifier|static
 specifier|final
 name|SourceExtractor
+argument_list|<
+name|Object
+argument_list|>
 name|SOURCE_EXTRACTOR
 init|=
 operator|new
@@ -583,6 +586,9 @@ class|class
 name|NoopSourceExtractor
 implements|implements
 name|SourceExtractor
+argument_list|<
+name|Object
+argument_list|>
 block|{
 DECL|method|extractData (Source source)
 specifier|public

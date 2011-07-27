@@ -102,6 +102,8 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
 import|;
 end_import
@@ -113,6 +115,16 @@ operator|.
 name|junit
 operator|.
 name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -141,6 +153,8 @@ specifier|private
 name|ProducerTemplate
 name|producerTemplate
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testProduceAndConsume ()
 specifier|public
 name|void

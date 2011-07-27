@@ -148,7 +148,19 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -205,6 +217,8 @@ specifier|protected
 name|ProducerTemplate
 name|producer
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testUnMarshalSoap ()
 specifier|public
 name|void

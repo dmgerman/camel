@@ -247,10 +247,16 @@ specifier|private
 specifier|static
 specifier|final
 name|SourceExtractor
+argument_list|<
+name|Object
+argument_list|>
 name|NOOP_SOURCE_EXTRACTOR
 init|=
 operator|new
 name|SourceExtractor
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public

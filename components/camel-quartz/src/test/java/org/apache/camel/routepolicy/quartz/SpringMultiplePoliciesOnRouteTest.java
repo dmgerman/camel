@@ -28,6 +28,8 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelSpringTestSupport
 import|;
 end_import
@@ -41,6 +43,8 @@ operator|.
 name|camel
 operator|.
 name|test
+operator|.
+name|junit4
 operator|.
 name|CamelTestSupport
 import|;
