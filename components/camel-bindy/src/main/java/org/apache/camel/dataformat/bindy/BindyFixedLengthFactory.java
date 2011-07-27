@@ -332,6 +332,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|results
 decl_stmt|;
@@ -1229,6 +1232,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1317,6 +1323,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|sortValues
 init|=
@@ -1326,6 +1335,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|(
 name|results
@@ -1338,6 +1350,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|entry
 range|:
@@ -1451,6 +1466,9 @@ block|{
 comment|// Retrieve the format, pattern and precision associated to
 comment|// the type
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|field
@@ -1476,6 +1494,9 @@ argument_list|()
 decl_stmt|;
 comment|// Create format
 name|Format
+argument_list|<
+name|?
+argument_list|>
 name|format
 init|=
 name|FormatFactory
@@ -1837,10 +1858,16 @@ argument_list|)
 condition|)
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new
 name|LinkedList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|list
@@ -1863,6 +1890,9 @@ block|}
 else|else
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 name|results

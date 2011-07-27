@@ -395,6 +395,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|results
 decl_stmt|;
@@ -1168,6 +1171,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1578,7 +1584,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|product (Map<Integer, List> values)
+DECL|method|product (Map<Integer, List<String>> values)
 specifier|private
 name|List
 argument_list|<
@@ -1591,6 +1597,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|values
 parameter_list|)
@@ -1661,10 +1670,16 @@ operator|=
 literal|0
 expr_stmt|;
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|v
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1686,6 +1701,9 @@ operator|++
 control|)
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|l
 init|=
 name|values
@@ -2139,10 +2157,16 @@ argument_list|)
 condition|)
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new
 name|LinkedList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|list
@@ -2165,11 +2189,11 @@ block|}
 else|else
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
-operator|(
-name|LinkedList
-operator|)
 name|results
 operator|.
 name|get

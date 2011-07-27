@@ -564,10 +564,16 @@ argument_list|)
 expr_stmt|;
 comment|// use multiple values for the foo header in the reply
 name|List
+argument_list|<
+name|Integer
+argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|list

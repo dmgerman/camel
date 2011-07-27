@@ -116,6 +116,8 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
 import|;
 end_import
@@ -310,6 +312,8 @@ name|rec1
 operator|.
 name|getKlms
 argument_list|()
+argument_list|,
+literal|0.0001
 argument_list|)
 expr_stmt|;
 name|assertEquals

@@ -361,6 +361,9 @@ argument_list|<
 name|String
 argument_list|,
 name|List
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|lists
 init|=
@@ -370,6 +373,9 @@ argument_list|<
 name|String
 argument_list|,
 name|List
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -656,6 +662,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|results
 init|=
@@ -665,6 +674,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -759,10 +771,16 @@ argument_list|)
 condition|)
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new
 name|LinkedList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|list
@@ -785,11 +803,11 @@ block|}
 else|else
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
-operator|(
-name|LinkedList
-operator|)
 name|results
 operator|.
 name|get
@@ -851,7 +869,7 @@ block|}
 block|}
 block|}
 comment|/**      * @param clazz      * @param obj      * @param results      * @param line      * @throws Exception      */
-DECL|method|generateModelFromKeyValueMap (Class clazz, Object obj, Map<Integer, List> results, int line)
+DECL|method|generateModelFromKeyValueMap (Class clazz, Object obj, Map<Integer, List<String>> results, int line)
 specifier|private
 name|void
 name|generateModelFromKeyValueMap
@@ -867,6 +885,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|results
 parameter_list|,
@@ -1031,6 +1052,9 @@ block|{
 comment|/*                          * The relation is one to many So, we create an object                          * with empty fields and we don't check if the fields                          * are mandatory                          */
 comment|// Get List from Map
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|l
 init|=
 name|lists
@@ -1360,6 +1384,9 @@ else|else
 block|{
 comment|// Get List from Map
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|l
 init|=
 name|lists
@@ -1818,6 +1845,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2115,9 +2145,23 @@ name|precision
 argument_list|()
 decl_stmt|;
 comment|// Create format
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Format
+argument_list|<
+name|Object
+argument_list|>
 name|format
 init|=
+operator|(
+name|Format
+argument_list|<
+name|Object
+argument_list|>
+operator|)
 name|FormatFactory
 operator|.
 name|getFormat
