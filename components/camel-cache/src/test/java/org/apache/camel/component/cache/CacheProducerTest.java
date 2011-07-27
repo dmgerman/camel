@@ -266,18 +266,6 @@ name|MockEndpoint
 name|cacheExceptionEndpoint
 decl_stmt|;
 annotation|@
-name|EndpointInject
-argument_list|(
-name|uri
-operator|=
-literal|"mock:CacheProducerTest.noTypeConversionAvailableException"
-argument_list|)
-DECL|field|noTypeConversionAvailableExceptionEndpoint
-specifier|private
-name|MockEndpoint
-name|noTypeConversionAvailableExceptionEndpoint
-decl_stmt|;
-annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()
 specifier|public

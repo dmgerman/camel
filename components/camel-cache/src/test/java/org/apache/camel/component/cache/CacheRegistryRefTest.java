@@ -268,6 +268,8 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
 import|;
 end_import
@@ -768,15 +770,15 @@ name|TestLoader
 implements|implements
 name|CacheLoaderWrapper
 block|{
+DECL|field|cache
+specifier|protected
+name|Ehcache
+name|cache
+decl_stmt|;
 DECL|field|status
 specifier|private
 name|Status
 name|status
-decl_stmt|;
-DECL|field|cache
-specifier|private
-name|Ehcache
-name|cache
 decl_stmt|;
 DECL|method|TestLoader ()
 specifier|public
