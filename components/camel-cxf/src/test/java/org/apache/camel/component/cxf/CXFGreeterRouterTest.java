@@ -260,6 +260,35 @@ name|CXFGreeterRouterTest
 extends|extends
 name|AbstractCXFGreeterRouterTest
 block|{
+DECL|field|endpoint
+specifier|protected
+specifier|static
+name|Endpoint
+name|endpoint
+decl_stmt|;
+annotation|@
+name|AfterClass
+DECL|method|stopService ()
+specifier|public
+specifier|static
+name|void
+name|stopService
+parameter_list|()
+block|{
+if|if
+condition|(
+name|endpoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|BeforeClass
 DECL|method|startService ()
