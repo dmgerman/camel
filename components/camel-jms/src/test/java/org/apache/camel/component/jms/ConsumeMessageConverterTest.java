@@ -456,6 +456,7 @@ return|;
 block|}
 DECL|class|MyMessageConverter
 specifier|private
+specifier|static
 class|class
 name|MyMessageConverter
 implements|implements

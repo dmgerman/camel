@@ -122,6 +122,7 @@ literal|"META-INF/services/org/apache/camel/dataformat/"
 decl_stmt|;
 DECL|class|ListEnumeration
 specifier|private
+specifier|static
 class|class
 name|ListEnumeration
 implements|implements

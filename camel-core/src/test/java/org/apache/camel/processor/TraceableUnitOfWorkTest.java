@@ -307,6 +307,7 @@ comment|// END SNIPPET: e1
 comment|// START SNIPPET: e2
 DECL|class|MyErrorProcessor
 specifier|private
+specifier|static
 class|class
 name|MyErrorProcessor
 implements|implements

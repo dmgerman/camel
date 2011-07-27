@@ -772,6 +772,7 @@ expr_stmt|;
 block|}
 DECL|class|MyDataSet
 specifier|private
+specifier|static
 class|class
 name|MyDataSet
 extends|extends

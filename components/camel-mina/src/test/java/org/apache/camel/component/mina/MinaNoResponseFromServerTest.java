@@ -374,6 +374,7 @@ return|;
 block|}
 DECL|class|MyCodec
 specifier|private
+specifier|static
 class|class
 name|MyCodec
 implements|implements

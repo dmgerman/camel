@@ -243,6 +243,7 @@ return|;
 block|}
 DECL|class|MyExpression
 specifier|private
+specifier|static
 class|class
 name|MyExpression
 implements|implements

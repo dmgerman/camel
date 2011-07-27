@@ -578,6 +578,7 @@ return|;
 block|}
 DECL|class|MyValidatorProcessor
 specifier|private
+specifier|static
 class|class
 name|MyValidatorProcessor
 implements|implements

@@ -323,6 +323,7 @@ return|;
 block|}
 DECL|class|MyPollStrategy
 specifier|private
+specifier|static
 class|class
 name|MyPollStrategy
 implements|implements

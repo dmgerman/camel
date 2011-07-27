@@ -666,6 +666,7 @@ return|;
 block|}
 DECL|class|CustomComponent
 specifier|private
+specifier|static
 class|class
 name|CustomComponent
 extends|extends

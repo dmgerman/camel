@@ -479,6 +479,7 @@ literal|"unused"
 argument_list|)
 DECL|class|StringPrintWriter
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|StringPrintWriter

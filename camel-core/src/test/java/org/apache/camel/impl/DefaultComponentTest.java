@@ -128,6 +128,7 @@ name|ContextTestSupport
 block|{
 DECL|class|MyComponent
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyComponent

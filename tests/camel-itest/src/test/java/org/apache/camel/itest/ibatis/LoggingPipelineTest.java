@@ -220,6 +220,7 @@ name|CamelSpringTestSupport
 block|{
 DECL|class|MyException
 specifier|private
+specifier|static
 class|class
 name|MyException
 extends|extends

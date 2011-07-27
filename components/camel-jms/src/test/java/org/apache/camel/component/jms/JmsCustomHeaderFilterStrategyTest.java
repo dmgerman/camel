@@ -401,6 +401,7 @@ return|;
 block|}
 DECL|class|MyHeaderFilterStrategy
 specifier|private
+specifier|static
 class|class
 name|MyHeaderFilterStrategy
 implements|implements

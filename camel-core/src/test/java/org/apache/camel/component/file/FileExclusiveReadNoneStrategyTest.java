@@ -322,6 +322,7 @@ expr_stmt|;
 block|}
 DECL|class|MySlowFileProcessor
 specifier|private
+specifier|static
 class|class
 name|MySlowFileProcessor
 implements|implements

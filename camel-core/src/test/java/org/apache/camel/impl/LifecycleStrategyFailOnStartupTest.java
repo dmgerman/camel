@@ -154,6 +154,7 @@ block|}
 block|}
 DECL|class|MyLifecycleStrategy
 specifier|private
+specifier|static
 class|class
 name|MyLifecycleStrategy
 extends|extends

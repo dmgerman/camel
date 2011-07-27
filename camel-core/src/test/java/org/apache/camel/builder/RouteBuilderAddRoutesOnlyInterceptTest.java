@@ -118,6 +118,7 @@ expr_stmt|;
 block|}
 DECL|class|MyExtraRoute
 specifier|private
+specifier|static
 class|class
 name|MyExtraRoute
 extends|extends

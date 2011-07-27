@@ -231,6 +231,7 @@ return|;
 block|}
 DECL|class|ProcessReport
 specifier|private
+specifier|static
 class|class
 name|ProcessReport
 implements|implements

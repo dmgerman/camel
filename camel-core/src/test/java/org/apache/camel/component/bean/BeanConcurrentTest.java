@@ -401,6 +401,7 @@ literal|"unused"
 argument_list|)
 DECL|class|MyBean
 specifier|private
+specifier|static
 class|class
 name|MyBean
 block|{

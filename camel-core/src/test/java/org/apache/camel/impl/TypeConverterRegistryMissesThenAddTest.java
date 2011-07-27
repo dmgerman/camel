@@ -153,6 +153,7 @@ expr_stmt|;
 block|}
 DECL|class|MyOrder
 specifier|private
+specifier|static
 class|class
 name|MyOrder
 block|{
@@ -190,6 +191,7 @@ block|}
 block|}
 DECL|class|MyOrderTypeConverter
 specifier|private
+specifier|static
 class|class
 name|MyOrderTypeConverter
 implements|implements

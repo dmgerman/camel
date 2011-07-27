@@ -188,6 +188,7 @@ literal|"unused"
 argument_list|)
 DECL|class|Foo
 specifier|private
+specifier|static
 class|class
 name|Foo
 block|{

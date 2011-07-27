@@ -179,6 +179,7 @@ return|;
 block|}
 DECL|class|MyResponseBean
 specifier|private
+specifier|static
 class|class
 name|MyResponseBean
 block|{

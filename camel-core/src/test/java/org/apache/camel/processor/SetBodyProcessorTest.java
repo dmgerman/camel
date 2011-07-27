@@ -376,6 +376,7 @@ return|;
 block|}
 DECL|class|MyMessage
 specifier|private
+specifier|static
 class|class
 name|MyMessage
 extends|extends

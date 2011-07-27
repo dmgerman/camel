@@ -466,6 +466,7 @@ expr_stmt|;
 block|}
 DECL|class|MyDebuggerCheckingId
 specifier|private
+specifier|static
 class|class
 name|MyDebuggerCheckingId
 implements|implements

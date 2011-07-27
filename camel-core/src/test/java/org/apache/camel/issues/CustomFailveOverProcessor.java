@@ -280,6 +280,7 @@ return|;
 block|}
 DECL|class|MyFailOverProcessor
 specifier|private
+specifier|static
 class|class
 name|MyFailOverProcessor
 implements|implements

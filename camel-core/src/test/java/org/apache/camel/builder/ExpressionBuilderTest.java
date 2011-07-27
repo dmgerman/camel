@@ -809,6 +809,7 @@ expr_stmt|;
 block|}
 DECL|class|SortByName
 specifier|private
+specifier|static
 class|class
 name|SortByName
 implements|implements

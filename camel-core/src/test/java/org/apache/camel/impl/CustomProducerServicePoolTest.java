@@ -176,6 +176,7 @@ name|counter
 decl_stmt|;
 DECL|class|MyEndpoint
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyEndpoint
@@ -257,6 +258,7 @@ block|}
 block|}
 DECL|class|MyProducer
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyProducer
@@ -297,6 +299,7 @@ block|}
 block|}
 DECL|class|MyPool
 specifier|private
+specifier|static
 class|class
 name|MyPool
 implements|implements

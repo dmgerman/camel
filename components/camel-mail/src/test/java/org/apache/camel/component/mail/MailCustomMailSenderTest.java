@@ -210,6 +210,7 @@ expr_stmt|;
 block|}
 DECL|class|MySender
 specifier|private
+specifier|static
 class|class
 name|MySender
 implements|implements

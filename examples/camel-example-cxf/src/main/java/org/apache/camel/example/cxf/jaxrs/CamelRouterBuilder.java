@@ -513,6 +513,7 @@ block|}
 comment|// Mapping the request to object's invocation
 DECL|class|MappingProcessor
 specifier|private
+specifier|static
 class|class
 name|MappingProcessor
 implements|implements

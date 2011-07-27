@@ -106,6 +106,7 @@ name|logged
 decl_stmt|;
 DECL|class|MyLogger
 specifier|private
+specifier|static
 class|class
 name|MyLogger
 extends|extends

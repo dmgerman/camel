@@ -386,6 +386,7 @@ block|}
 comment|// START SNIPPET: e1
 DECL|class|MyInterceptor
 specifier|private
+specifier|static
 class|class
 name|MyInterceptor
 implements|implements

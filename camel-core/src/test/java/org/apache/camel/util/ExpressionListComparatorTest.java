@@ -100,6 +100,7 @@ name|ContextTestSupport
 block|{
 DECL|class|MyFooExpression
 specifier|private
+specifier|static
 class|class
 name|MyFooExpression
 implements|implements
@@ -138,6 +139,7 @@ block|}
 block|}
 DECL|class|MyBarExpression
 specifier|private
+specifier|static
 class|class
 name|MyBarExpression
 implements|implements

@@ -189,6 +189,7 @@ expr_stmt|;
 block|}
 DECL|class|BundleEntry
 specifier|private
+specifier|static
 class|class
 name|BundleEntry
 block|{

@@ -508,6 +508,7 @@ return|;
 block|}
 DECL|class|TestShiroSecurityTokenInjector
 specifier|private
+specifier|static
 class|class
 name|TestShiroSecurityTokenInjector
 extends|extends

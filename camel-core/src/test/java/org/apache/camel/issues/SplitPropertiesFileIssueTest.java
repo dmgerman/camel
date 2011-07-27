@@ -290,6 +290,7 @@ return|;
 block|}
 DECL|class|MyCustomExpression
 specifier|private
+specifier|static
 class|class
 name|MyCustomExpression
 implements|implements

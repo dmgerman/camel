@@ -118,6 +118,7 @@ return|;
 block|}
 DECL|class|MyStartupListener
 specifier|private
+specifier|static
 class|class
 name|MyStartupListener
 implements|implements

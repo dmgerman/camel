@@ -262,6 +262,7 @@ literal|"unused"
 argument_list|)
 DECL|class|MyNullFooBean
 specifier|private
+specifier|static
 class|class
 name|MyNullFooBean
 block|{

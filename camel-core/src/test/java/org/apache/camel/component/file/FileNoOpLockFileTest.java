@@ -373,6 +373,7 @@ return|;
 block|}
 DECL|class|MyNoopProcessor
 specifier|private
+specifier|static
 class|class
 name|MyNoopProcessor
 implements|implements

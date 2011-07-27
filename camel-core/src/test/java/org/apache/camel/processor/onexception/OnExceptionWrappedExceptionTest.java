@@ -245,6 +245,7 @@ name|LocalDateTime
 block|{     }
 DECL|class|MyLocalDateTimeConverter
 specifier|private
+specifier|static
 class|class
 name|MyLocalDateTimeConverter
 implements|implements

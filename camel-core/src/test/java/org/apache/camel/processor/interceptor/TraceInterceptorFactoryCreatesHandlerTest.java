@@ -128,6 +128,7 @@ name|TracingTestBase
 block|{
 DECL|class|TraceInterceptorFactoryCreatesHandlerTestFactory
 specifier|private
+specifier|static
 class|class
 name|TraceInterceptorFactoryCreatesHandlerTestFactory
 implements|implements

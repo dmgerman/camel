@@ -409,6 +409,7 @@ return|;
 block|}
 DECL|class|MyInterceptor
 specifier|private
+specifier|static
 class|class
 name|MyInterceptor
 implements|implements

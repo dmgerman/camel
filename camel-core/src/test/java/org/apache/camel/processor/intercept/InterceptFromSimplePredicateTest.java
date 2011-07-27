@@ -238,6 +238,7 @@ return|;
 block|}
 DECL|class|MyTestServiceProcessor
 specifier|private
+specifier|static
 class|class
 name|MyTestServiceProcessor
 implements|implements

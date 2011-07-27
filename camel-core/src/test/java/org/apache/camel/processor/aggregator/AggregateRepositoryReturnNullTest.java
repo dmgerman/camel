@@ -246,6 +246,7 @@ return|;
 block|}
 DECL|class|MyNullAggregationStrategy
 specifier|private
+specifier|static
 class|class
 name|MyNullAggregationStrategy
 implements|implements

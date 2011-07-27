@@ -363,6 +363,7 @@ decl_stmt|;
 comment|/**      * A holder class to hold an operator and the expression.      *<p/>      * This is used for expression with multiple expressions grouped using and/or operators      */
 DECL|class|ExpressionGroup
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|ExpressionGroup

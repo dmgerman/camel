@@ -202,6 +202,7 @@ expr_stmt|;
 block|}
 DECL|class|MyOrder
 specifier|private
+specifier|static
 class|class
 name|MyOrder
 block|{
@@ -240,6 +241,7 @@ block|}
 comment|// START SNIPPET: e2
 DECL|class|MyOrderTypeConverter
 specifier|private
+specifier|static
 class|class
 name|MyOrderTypeConverter
 implements|implements

@@ -236,6 +236,7 @@ return|;
 block|}
 DECL|class|MyTracer
 specifier|private
+specifier|static
 class|class
 name|MyTracer
 implements|implements

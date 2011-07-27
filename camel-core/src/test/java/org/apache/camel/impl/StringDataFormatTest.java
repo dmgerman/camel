@@ -597,6 +597,7 @@ expr_stmt|;
 block|}
 DECL|class|MyBookProcessor
 specifier|private
+specifier|static
 class|class
 name|MyBookProcessor
 implements|implements
@@ -708,6 +709,7 @@ block|}
 block|}
 DECL|class|MyBook
 specifier|private
+specifier|static
 class|class
 name|MyBook
 block|{

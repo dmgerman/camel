@@ -240,6 +240,7 @@ name|port2
 decl_stmt|;
 DECL|class|MultipartHeaderFilterStrategy
 specifier|private
+specifier|static
 class|class
 name|MultipartHeaderFilterStrategy
 extends|extends

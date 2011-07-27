@@ -514,6 +514,7 @@ return|;
 block|}
 DECL|class|FixateHeaderValuesProcessor
 specifier|private
+specifier|static
 class|class
 name|FixateHeaderValuesProcessor
 implements|implements
@@ -563,6 +564,7 @@ block|}
 block|}
 DECL|class|ReadLocalFile
 specifier|private
+specifier|static
 class|class
 name|ReadLocalFile
 implements|implements
@@ -616,6 +618,7 @@ block|}
 block|}
 DECL|class|FilterProcessor
 specifier|private
+specifier|static
 class|class
 name|FilterProcessor
 implements|implements

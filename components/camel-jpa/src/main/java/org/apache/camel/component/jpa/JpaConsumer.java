@@ -345,6 +345,7 @@ name|pendingExchanges
 decl_stmt|;
 DECL|class|DataHolder
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|DataHolder

@@ -296,6 +296,7 @@ expr_stmt|;
 block|}
 DECL|class|MyEndpoint
 specifier|private
+specifier|static
 class|class
 name|MyEndpoint
 extends|extends
@@ -371,6 +372,7 @@ block|}
 block|}
 DECL|class|MyOtherEndpoint
 specifier|private
+specifier|static
 class|class
 name|MyOtherEndpoint
 extends|extends

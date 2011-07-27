@@ -407,6 +407,7 @@ decl_stmt|;
 comment|/**      * A class for intercepting the hang up signal and do a graceful shutdown of the Camel.      */
 DECL|class|HangupInterceptor
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|HangupInterceptor

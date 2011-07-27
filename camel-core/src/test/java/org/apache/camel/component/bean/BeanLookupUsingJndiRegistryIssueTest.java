@@ -206,6 +206,7 @@ literal|"unused"
 argument_list|)
 DECL|class|MyOtherDummyBean
 specifier|private
+specifier|static
 class|class
 name|MyOtherDummyBean
 block|{

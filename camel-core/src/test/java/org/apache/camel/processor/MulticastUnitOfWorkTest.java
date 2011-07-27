@@ -312,6 +312,7 @@ return|;
 block|}
 DECL|class|MyUOWProcessor
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyUOWProcessor

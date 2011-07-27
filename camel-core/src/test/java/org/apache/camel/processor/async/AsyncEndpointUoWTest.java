@@ -391,6 +391,7 @@ return|;
 block|}
 DECL|class|MySynchronization
 specifier|private
+specifier|static
 class|class
 name|MySynchronization
 extends|extends

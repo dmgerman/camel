@@ -238,6 +238,7 @@ block|}
 comment|/**      * This route builder is a skeleton to add new routes at runtime      */
 DECL|class|MyDynamcRouteBuilder
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyDynamcRouteBuilder

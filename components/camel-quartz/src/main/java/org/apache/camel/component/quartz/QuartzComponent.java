@@ -395,6 +395,7 @@ literal|true
 decl_stmt|;
 DECL|class|JobToAdd
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|JobToAdd

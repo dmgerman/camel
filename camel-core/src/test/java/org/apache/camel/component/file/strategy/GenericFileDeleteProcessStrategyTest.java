@@ -158,6 +158,7 @@ name|deleteCounter
 decl_stmt|;
 DECL|class|MyGenericFileOperations
 specifier|private
+specifier|static
 class|class
 name|MyGenericFileOperations
 implements|implements

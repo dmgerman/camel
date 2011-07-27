@@ -496,6 +496,7 @@ expr_stmt|;
 block|}
 DECL|class|ZippedMessageProcessor
 specifier|private
+specifier|static
 class|class
 name|ZippedMessageProcessor
 implements|implements

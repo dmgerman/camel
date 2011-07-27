@@ -1048,6 +1048,7 @@ block|}
 comment|// This class will close the CachedOutputStream when it is closed
 DECL|class|WrappedInputStream
 specifier|private
+specifier|static
 class|class
 name|WrappedInputStream
 extends|extends

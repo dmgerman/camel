@@ -346,6 +346,7 @@ block|}
 block|}
 DECL|class|MessageCorrelationRule
 specifier|private
+specifier|static
 class|class
 name|MessageCorrelationRule
 block|{

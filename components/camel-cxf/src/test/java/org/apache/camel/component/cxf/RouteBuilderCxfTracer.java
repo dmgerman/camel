@@ -174,6 +174,7 @@ expr_stmt|;
 block|}
 DECL|class|DoSomethingProcessor
 specifier|private
+specifier|static
 class|class
 name|DoSomethingProcessor
 implements|implements
@@ -212,6 +213,7 @@ block|}
 block|}
 DECL|class|DoNothingProcessor
 specifier|private
+specifier|static
 class|class
 name|DoNothingProcessor
 implements|implements
@@ -248,6 +250,7 @@ block|}
 block|}
 DECL|class|BeforeProcessor
 specifier|private
+specifier|static
 class|class
 name|BeforeProcessor
 implements|implements
@@ -310,6 +313,7 @@ block|}
 block|}
 DECL|class|AfterProcessor
 specifier|private
+specifier|static
 class|class
 name|AfterProcessor
 implements|implements

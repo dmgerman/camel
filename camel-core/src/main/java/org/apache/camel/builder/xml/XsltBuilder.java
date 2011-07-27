@@ -1520,6 +1520,7 @@ block|}
 block|}
 DECL|class|XsltBuilderOnCompletion
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|XsltBuilderOnCompletion

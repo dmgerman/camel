@@ -169,6 +169,7 @@ name|pool
 decl_stmt|;
 DECL|class|MyProducer
 specifier|private
+specifier|static
 class|class
 name|MyProducer
 extends|extends

@@ -379,6 +379,7 @@ return|;
 block|}
 DECL|class|MyPolicy
 specifier|private
+specifier|static
 class|class
 name|MyPolicy
 extends|extends

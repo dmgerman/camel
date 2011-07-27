@@ -54,6 +54,7 @@ name|ContextTestSupport
 block|{
 DECL|class|MyExpression
 specifier|private
+specifier|static
 class|class
 name|MyExpression
 extends|extends

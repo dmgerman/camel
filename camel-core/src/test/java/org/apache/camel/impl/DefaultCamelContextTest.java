@@ -1975,6 +1975,7 @@ expr_stmt|;
 block|}
 DECL|class|MyService
 specifier|private
+specifier|static
 class|class
 name|MyService
 extends|extends

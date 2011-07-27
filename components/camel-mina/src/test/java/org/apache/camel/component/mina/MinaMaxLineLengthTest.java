@@ -184,6 +184,7 @@ block|}
 comment|// START SNIPPET: e2
 DECL|class|MyServerProcessor
 specifier|private
+specifier|static
 class|class
 name|MyServerProcessor
 implements|implements

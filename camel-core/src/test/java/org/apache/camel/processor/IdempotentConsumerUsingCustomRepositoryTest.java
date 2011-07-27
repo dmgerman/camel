@@ -440,6 +440,7 @@ expr_stmt|;
 block|}
 DECL|class|MyRepo
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyRepo

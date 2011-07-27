@@ -304,6 +304,7 @@ return|;
 block|}
 DECL|class|MyParamsProcessor
 specifier|private
+specifier|static
 class|class
 name|MyParamsProcessor
 implements|implements

@@ -141,6 +141,7 @@ block|{
 comment|/**      * Simple processor the copies the in to the out and increments a counter.      * Used to verify that the pipeline actually takes the output of one stage of       * the pipe and feeds it in as input into the next stage.      */
 DECL|class|InToOut
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|InToOut
@@ -219,6 +220,7 @@ block|}
 comment|/**      * Simple processor the copies the in to the fault and increments a counter.      */
 DECL|class|InToFault
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|InToFault

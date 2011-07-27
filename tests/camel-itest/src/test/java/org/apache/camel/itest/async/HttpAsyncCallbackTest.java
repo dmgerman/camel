@@ -280,6 +280,7 @@ comment|// START SNIPPET: e2
 comment|/**      * Our own callback that will gather all the responses.      * We extend the SynchronizationAdapter class as we then only need to override the onComplete method.      */
 DECL|class|MyCallback
 specifier|private
+specifier|static
 class|class
 name|MyCallback
 extends|extends

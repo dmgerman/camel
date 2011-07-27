@@ -197,6 +197,7 @@ expr_stmt|;
 block|}
 DECL|class|TracerInterceptorSubclass
 specifier|private
+specifier|static
 class|class
 name|TracerInterceptorSubclass
 extends|extends

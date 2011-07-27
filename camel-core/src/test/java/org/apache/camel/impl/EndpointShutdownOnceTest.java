@@ -224,6 +224,7 @@ expr_stmt|;
 block|}
 DECL|class|MyComponent
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyComponent
@@ -265,6 +266,7 @@ block|}
 block|}
 DECL|class|MyEndpoint
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyEndpoint

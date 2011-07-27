@@ -270,6 +270,7 @@ return|;
 block|}
 DECL|class|MyStrategy
 specifier|private
+specifier|static
 class|class
 name|MyStrategy
 implements|implements

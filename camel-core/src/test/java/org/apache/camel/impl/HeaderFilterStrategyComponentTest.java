@@ -126,6 +126,7 @@ name|TestCase
 block|{
 DECL|class|MyComponent
 specifier|private
+specifier|static
 class|class
 name|MyComponent
 extends|extends
@@ -160,6 +161,7 @@ block|}
 block|}
 DECL|class|MyEndpoint
 specifier|private
+specifier|static
 class|class
 name|MyEndpoint
 extends|extends

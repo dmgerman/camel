@@ -222,6 +222,7 @@ return|;
 block|}
 DECL|class|FooInterceptStrategy
 specifier|private
+specifier|static
 class|class
 name|FooInterceptStrategy
 implements|implements
@@ -322,6 +323,7 @@ block|}
 block|}
 DECL|class|BarInterceptStrategy
 specifier|private
+specifier|static
 class|class
 name|BarInterceptStrategy
 implements|implements

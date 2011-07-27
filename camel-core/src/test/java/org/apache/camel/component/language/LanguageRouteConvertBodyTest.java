@@ -140,6 +140,7 @@ return|;
 block|}
 DECL|class|MyOrder
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|MyOrder

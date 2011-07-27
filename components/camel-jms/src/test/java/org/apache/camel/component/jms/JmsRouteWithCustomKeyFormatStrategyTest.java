@@ -167,6 +167,7 @@ return|;
 block|}
 DECL|class|MyCustomKeyFormatStrategy
 specifier|private
+specifier|static
 class|class
 name|MyCustomKeyFormatStrategy
 implements|implements

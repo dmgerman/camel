@@ -42,6 +42,7 @@ name|TestSupport
 block|{
 DECL|class|MyService
 specifier|private
+specifier|static
 class|class
 name|MyService
 extends|extends
@@ -172,6 +173,7 @@ expr_stmt|;
 block|}
 DECL|class|MyShutdownService
 specifier|private
+specifier|static
 class|class
 name|MyShutdownService
 extends|extends

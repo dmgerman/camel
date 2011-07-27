@@ -404,6 +404,7 @@ return|;
 block|}
 DECL|class|MyEndpoint
 specifier|private
+specifier|static
 class|class
 name|MyEndpoint
 extends|extends

@@ -353,6 +353,7 @@ return|;
 block|}
 DECL|class|MyTraceHandler
 specifier|private
+specifier|static
 class|class
 name|MyTraceHandler
 implements|implements

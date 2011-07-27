@@ -304,6 +304,7 @@ return|;
 block|}
 DECL|class|CountProcessor
 specifier|private
+specifier|static
 class|class
 name|CountProcessor
 implements|implements

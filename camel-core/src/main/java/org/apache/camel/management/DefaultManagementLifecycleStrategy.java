@@ -3611,6 +3611,7 @@ block|}
 comment|/**      * Class which holds any pre registration details.      *      * @see org.apache.camel.management.DefaultManagementLifecycleStrategy#enlistPreRegisteredServices()      */
 DECL|class|PreRegisterService
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|PreRegisterService

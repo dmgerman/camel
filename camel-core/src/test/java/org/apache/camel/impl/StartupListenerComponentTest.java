@@ -142,6 +142,7 @@ expr_stmt|;
 block|}
 DECL|class|MyComponent
 specifier|private
+specifier|static
 class|class
 name|MyComponent
 extends|extends

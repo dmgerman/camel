@@ -982,6 +982,7 @@ expr_stmt|;
 block|}
 DECL|class|MyFuture
 specifier|private
+specifier|static
 class|class
 name|MyFuture
 extends|extends

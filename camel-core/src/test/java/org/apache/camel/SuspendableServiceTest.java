@@ -38,6 +38,7 @@ name|TestCase
 block|{
 DECL|class|MyService
 specifier|private
+specifier|static
 class|class
 name|MyService
 implements|implements

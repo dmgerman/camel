@@ -400,6 +400,7 @@ expr_stmt|;
 block|}
 DECL|class|MyMailBinding
 specifier|private
+specifier|static
 class|class
 name|MyMailBinding
 extends|extends

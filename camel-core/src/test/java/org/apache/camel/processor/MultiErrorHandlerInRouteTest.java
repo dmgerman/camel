@@ -367,6 +367,7 @@ return|;
 block|}
 DECL|class|MyProcessor
 specifier|private
+specifier|static
 class|class
 name|MyProcessor
 implements|implements

@@ -357,6 +357,7 @@ block|}
 block|}
 DECL|class|MyAggregationStrategy
 specifier|private
+specifier|static
 class|class
 name|MyAggregationStrategy
 implements|implements

@@ -109,6 +109,7 @@ argument_list|()
 decl_stmt|;
 DECL|class|MyFiler
 specifier|private
+specifier|static
 class|class
 name|MyFiler
 implements|implements

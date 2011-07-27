@@ -104,6 +104,7 @@ name|ContextTestSupport
 block|{
 DECL|class|MyProducer
 specifier|private
+specifier|static
 class|class
 name|MyProducer
 extends|extends

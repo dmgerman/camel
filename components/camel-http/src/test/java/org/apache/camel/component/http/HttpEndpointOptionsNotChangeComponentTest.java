@@ -266,6 +266,7 @@ expr_stmt|;
 block|}
 DECL|class|MyBinding
 specifier|private
+specifier|static
 class|class
 name|MyBinding
 extends|extends
@@ -286,6 +287,7 @@ block|}
 block|}
 DECL|class|MyOtherBinding
 specifier|private
+specifier|static
 class|class
 name|MyOtherBinding
 extends|extends
