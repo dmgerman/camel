@@ -3832,6 +3832,7 @@ expr_stmt|;
 block|}
 DECL|class|EventRecord
 specifier|private
+specifier|static
 class|class
 name|EventRecord
 block|{

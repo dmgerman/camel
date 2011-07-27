@@ -173,6 +173,7 @@ block|}
 DECL|class|EchoServiceImpl
 specifier|private
 specifier|final
+specifier|static
 class|class
 name|EchoServiceImpl
 implements|implements
