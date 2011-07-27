@@ -1375,7 +1375,9 @@ name|buffer
 init|=
 operator|new
 name|CollectionStringBuffer
-argument_list|()
+argument_list|(
+literal|"loadBalance["
+argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
@@ -1405,6 +1407,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"]"
+argument_list|)
+expr_stmt|;
 return|return
 name|buffer
 operator|.

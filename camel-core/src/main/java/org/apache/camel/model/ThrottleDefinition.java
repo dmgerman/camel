@@ -319,6 +319,24 @@ block|{
 return|return
 literal|"Throttle["
 operator|+
+name|description
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|getOutputs
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|description ()
+specifier|protected
+name|String
+name|description
+parameter_list|()
+block|{
+return|return
 name|getExpression
 argument_list|()
 operator|+
@@ -327,12 +345,7 @@ operator|+
 name|getTimePeriodMillis
 argument_list|()
 operator|+
-literal|" millis -> "
-operator|+
-name|getOutputs
-argument_list|()
-operator|+
-literal|"]"
+literal|" millis"
 return|;
 block|}
 annotation|@
@@ -356,17 +369,12 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|""
+literal|"throttle["
 operator|+
-name|getExpression
+name|description
 argument_list|()
 operator|+
-literal|" per "
-operator|+
-name|getTimePeriodMillis
-argument_list|()
-operator|+
-literal|" (ms)"
+literal|"]"
 return|;
 block|}
 annotation|@

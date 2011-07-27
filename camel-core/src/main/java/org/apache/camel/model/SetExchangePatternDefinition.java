@@ -287,9 +287,11 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"setExchangePattern: "
+literal|"setExchangePattern["
 operator|+
 name|pattern
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@

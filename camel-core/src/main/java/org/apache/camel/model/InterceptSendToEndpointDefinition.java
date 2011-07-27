@@ -303,7 +303,11 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"interceptEndpoint"
+literal|"interceptSendToEndpoint["
+operator|+
+name|uri
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@

@@ -298,7 +298,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"convertBodyTo["
+literal|"ConvertBodyTo["
 operator|+
 name|getType
 argument_list|()
@@ -316,6 +316,23 @@ parameter_list|()
 block|{
 return|return
 literal|"convertBodyTo"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"convertBodyTo["
+operator|+
+name|getType
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@

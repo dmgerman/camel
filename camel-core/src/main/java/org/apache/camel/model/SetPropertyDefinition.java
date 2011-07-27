@@ -320,6 +320,23 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"setProperty["
+operator|+
+name|getPropertyName
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getShortName ()
 specifier|public
 name|String

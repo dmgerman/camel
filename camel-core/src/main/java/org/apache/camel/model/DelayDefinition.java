@@ -310,7 +310,12 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"delay"
+literal|"delay["
+operator|+
+name|getExpression
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@

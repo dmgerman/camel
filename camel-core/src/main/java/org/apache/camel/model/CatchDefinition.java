@@ -442,11 +442,12 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
+literal|"doCatch[ "
+operator|+
 name|getExceptionClasses
 argument_list|()
-operator|.
-name|toString
-argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@

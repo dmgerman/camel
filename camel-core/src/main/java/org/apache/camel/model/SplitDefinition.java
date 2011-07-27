@@ -410,7 +410,12 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"split"
+literal|"split["
+operator|+
+name|getExpression
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@

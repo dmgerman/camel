@@ -267,6 +267,26 @@ name|String
 name|toString
 parameter_list|()
 block|{
+return|return
+literal|"Sample["
+operator|+
+name|description
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|getOutputs
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|description ()
+specifier|protected
+name|String
+name|description
+parameter_list|()
+block|{
 if|if
 condition|(
 name|messageFrequency
@@ -275,17 +295,12 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"Sample[1 Exchange per "
+literal|"1 Exchange per "
 operator|+
 name|getMessageFrequency
 argument_list|()
 operator|+
-literal|" messages received -> "
-operator|+
-name|getOutputs
-argument_list|()
-operator|+
-literal|"]"
+literal|" messages received"
 return|;
 block|}
 else|else
@@ -306,7 +321,7 @@ operator|.
 name|SECONDS
 decl_stmt|;
 return|return
-literal|"Sample[1 Exchange per "
+literal|"1 Exchange per "
 operator|+
 name|getSamplePeriod
 argument_list|()
@@ -320,13 +335,6 @@ argument_list|()
 operator|.
 name|toLowerCase
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
-name|getOutputs
-argument_list|()
-operator|+
-literal|"]"
 return|;
 block|}
 block|}
@@ -350,58 +358,14 @@ name|String
 name|getLabel
 parameter_list|()
 block|{
-if|if
-condition|(
-name|messageFrequency
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
-literal|"sample[1 Exchange per "
+literal|"sample["
 operator|+
-name|getMessageFrequency
-argument_list|()
-operator|+
-literal|" messages received]"
-return|;
-block|}
-else|else
-block|{
-name|TimeUnit
-name|tu
-init|=
-name|getUnits
-argument_list|()
-operator|!=
-literal|null
-condition|?
-name|getUnits
-argument_list|()
-else|:
-name|TimeUnit
-operator|.
-name|SECONDS
-decl_stmt|;
-return|return
-literal|"sample[1 Exchange per "
-operator|+
-name|getSamplePeriod
-argument_list|()
-operator|+
-literal|" "
-operator|+
-name|tu
-operator|.
-name|name
-argument_list|()
-operator|.
-name|toLowerCase
+name|description
 argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
 block|}
 annotation|@
 name|Override

@@ -217,7 +217,19 @@ block|{
 return|return
 literal|"ThrowException["
 operator|+
-operator|(
+name|description
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|description ()
+specifier|protected
+name|String
+name|description
+parameter_list|()
+block|{
+return|return
 name|exception
 operator|!=
 literal|null
@@ -233,7 +245,21 @@ else|:
 literal|"ref:"
 operator|+
 name|ref
-operator|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"throwException["
+operator|+
+name|description
+argument_list|()
 operator|+
 literal|"]"
 return|;

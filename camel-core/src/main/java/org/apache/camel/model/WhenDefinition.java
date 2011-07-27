@@ -146,6 +146,26 @@ name|String
 name|toString
 parameter_list|()
 block|{
+return|return
+literal|"When["
+operator|+
+name|description
+argument_list|()
+operator|+
+literal|" -> "
+operator|+
+name|getOutputs
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+DECL|method|description ()
+specifier|protected
+name|String
+name|description
+parameter_list|()
+block|{
 name|StringBuilder
 name|sb
 init|=
@@ -218,19 +238,10 @@ expr_stmt|;
 block|}
 block|}
 return|return
-literal|"When["
-operator|+
 name|sb
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|" -> "
-operator|+
-name|getOutputs
-argument_list|()
-operator|+
-literal|"]"
 return|;
 block|}
 annotation|@
@@ -243,6 +254,23 @@ parameter_list|()
 block|{
 return|return
 literal|"when"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"when["
+operator|+
+name|description
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@
