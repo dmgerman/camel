@@ -326,23 +326,6 @@ name|ApplicationContextAware
 implements|,
 name|HeaderFilterStrategyAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JmsComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|KEY_FORMAT_STRATEGY_PARAM
 specifier|private
 specifier|static
@@ -570,6 +553,11 @@ name|transactionManager
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|jmsComponentTransacted (ConnectionFactory connectionFactory, PlatformTransactionManager transactionManager)
 specifier|public
 specifier|static

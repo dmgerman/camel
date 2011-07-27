@@ -2766,6 +2766,8 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+annotation|@
+name|Deprecated
 DECL|method|isSubscriptionDurable ()
 specifier|public
 name|boolean
@@ -2798,6 +2800,8 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+annotation|@
+name|Deprecated
 DECL|method|isTransactedInOut ()
 specifier|public
 name|boolean
@@ -3554,6 +3558,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
+annotation|@
+name|Deprecated
 DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
 specifier|public
 name|void
@@ -3650,6 +3656,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
+annotation|@
+name|Deprecated
 DECL|method|setTransactedInOut (boolean transactedInOut)
 specifier|public
 name|void
