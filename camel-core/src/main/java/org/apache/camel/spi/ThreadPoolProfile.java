@@ -678,19 +678,19 @@ return|return
 name|eProfile
 return|;
 block|}
-comment|/**      * Overwrites each attribute that is null with the attribute from defaultProfile       *       * @param _defaultProfile      */
-DECL|method|addDefaults (ThreadPoolProfile _defaultProfile)
+comment|/**      * Overwrites each attribute that is null with the attribute from defaultProfile       *       * @param defaultProfile2      */
+DECL|method|addDefaults (ThreadPoolProfile defaultProfile2)
 specifier|public
 name|void
 name|addDefaults
 parameter_list|(
 name|ThreadPoolProfile
-name|_defaultProfile
+name|defaultProfile2
 parameter_list|)
 block|{
 if|if
 condition|(
-name|_defaultProfile
+name|defaultProfile2
 operator|==
 literal|null
 condition|)
@@ -706,7 +706,7 @@ condition|)
 block|{
 name|poolSize
 operator|=
-name|_defaultProfile
+name|defaultProfile2
 operator|.
 name|getPoolSize
 argument_list|()
@@ -721,7 +721,7 @@ condition|)
 block|{
 name|maxPoolSize
 operator|=
-name|_defaultProfile
+name|defaultProfile2
 operator|.
 name|getMaxPoolSize
 argument_list|()
@@ -736,7 +736,7 @@ condition|)
 block|{
 name|keepAliveTime
 operator|=
-name|_defaultProfile
+name|defaultProfile2
 operator|.
 name|getKeepAliveTime
 argument_list|()
@@ -751,7 +751,7 @@ condition|)
 block|{
 name|timeUnit
 operator|=
-name|_defaultProfile
+name|defaultProfile2
 operator|.
 name|getTimeUnit
 argument_list|()
@@ -766,7 +766,7 @@ condition|)
 block|{
 name|maxQueueSize
 operator|=
-name|_defaultProfile
+name|defaultProfile2
 operator|.
 name|getMaxQueueSize
 argument_list|()
@@ -781,7 +781,7 @@ condition|)
 block|{
 name|rejectedPolicy
 operator|=
-name|_defaultProfile
+name|defaultProfile2
 operator|.
 name|getRejectedPolicy
 argument_list|()
