@@ -56,6 +56,22 @@ name|component
 operator|.
 name|cxf
 operator|.
+name|CXFTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cxf
+operator|.
 name|jaxrs
 operator|.
 name|testbean
@@ -126,6 +142,18 @@ name|CxfOperationExceptionTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+DECL|field|PORT1
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|PORT1
+init|=
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createApplicationContext ()
@@ -138,7 +166,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/cxf/jaxrs/CxfRsSpringRouter.xml"
+literal|"org/apache/camel/component/cxf/jaxrs/CxfOperationException.xml"
 argument_list|)
 return|;
 block|}
@@ -179,7 +207,11 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"cxfrs:http://localhost:9002/customerservice/customers?throwExceptionOnFailure=true"
+literal|"cxfrs:http://localhost:"
+operator|+
+name|PORT1
+operator|+
+literal|"/CxfOperationExceptionTest/customerservice/customers?throwExceptionOnFailure=true"
 argument_list|,
 name|input
 argument_list|,
@@ -240,7 +272,11 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"cxfrs:http://localhost:9002/customerservice/customers?throwExceptionOnFailure=false"
+literal|"cxfrs:http://localhost:"
+operator|+
+name|PORT1
+operator|+
+literal|"/CxfOperationExceptionTest/customerservice/customers?throwExceptionOnFailure=false"
 argument_list|,
 name|input
 argument_list|,
@@ -266,7 +302,7 @@ name|response
 operator|.
 name|contains
 argument_list|(
-literal|"Problem accessing /customerservice/customers"
+literal|"Problem accessing /CxfOperationExceptionTest/customerservice/customers"
 argument_list|)
 argument_list|)
 expr_stmt|;

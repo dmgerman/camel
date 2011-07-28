@@ -343,7 +343,6 @@ literal|"wsdlURL=classpath:person.wsdl"
 decl_stmt|;
 DECL|field|endpoint
 specifier|protected
-specifier|static
 name|Endpoint
 name|endpoint
 decl_stmt|;

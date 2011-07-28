@@ -32,6 +32,22 @@ name|component
 operator|.
 name|cxf
 operator|.
+name|CXFTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cxf
+operator|.
 name|jaxrs
 operator|.
 name|testbean
@@ -74,6 +90,20 @@ name|CxfRsEndpointTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|CTX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CTX
+init|=
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+operator|+
+literal|"/CxfRsEndpointTest"
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testCreateCxfRsEndpoint ()
@@ -87,7 +117,11 @@ block|{
 name|String
 name|endpointUri
 init|=
-literal|"cxfrs://http://localhost:9000"
+literal|"cxfrs://http://localhost:"
+operator|+
+name|CTX
+operator|+
+literal|""
 operator|+
 literal|"?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService, "
 operator|+
@@ -198,7 +232,11 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"cxfrs://http://localhost:9000/templatetest/TID/ranges/start=0;end=1?"
+literal|"cxfrs://http://localhost:"
+operator|+
+name|CTX
+operator|+
+literal|"/templatetest/TID/ranges/start=0;end=1?"
 operator|+
 literal|"httpClientAPI=true&q1=11&q2=12"
 argument_list|)
@@ -207,7 +245,11 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong URI "
 argument_list|,
-literal|"cxfrs://http://localhost:9000/templatetest/TID/ranges/start=0;end=1?httpClientAPI=true&q1=11&q2=12"
+literal|"cxfrs://http://localhost:"
+operator|+
+name|CTX
+operator|+
+literal|"/templatetest/TID/ranges/start=0;end=1?httpClientAPI=true&q1=11&q2=12"
 argument_list|,
 name|endpoint
 operator|.
