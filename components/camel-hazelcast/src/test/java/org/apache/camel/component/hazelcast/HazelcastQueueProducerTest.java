@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Queue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|BlockingQueue
@@ -49,18 +39,6 @@ operator|.
 name|core
 operator|.
 name|Hazelcast
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|hazelcast
-operator|.
-name|core
-operator|.
-name|MultiMap
 import|;
 end_import
 

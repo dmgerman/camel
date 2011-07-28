@@ -58,18 +58,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|sound
-operator|.
-name|midi
-operator|.
-name|Soundbank
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

@@ -102,18 +102,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|activemq
-operator|.
-name|ActiveMQConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -175,24 +163,6 @@ operator|.
 name|JmsComponent
 operator|.
 name|jmsComponentAutoAcknowledge
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
-operator|.
-name|simple
 import|;
 end_import
 
