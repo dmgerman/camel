@@ -874,7 +874,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|" cannot be negative!"
+literal|" cannot be negative"
 argument_list|)
 throw|;
 block|}
@@ -1708,7 +1708,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" must be equal to R for RIGHT or L for LEFT !"
+literal|" must be equal to R for RIGHT or L for LEFT"
 argument_list|)
 throw|;
 block|}
@@ -1794,7 +1794,9 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" is a mandatory field and cannot be equal to zero or to be negative !"
+literal|" is a mandatory field and cannot be equal to zero or to be negative, was: "
+operator|+
+name|fieldLength
 argument_list|)
 throw|;
 block|}
@@ -2019,7 +2021,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Fixed length record : {}"
+literal|"Fixed length record: {}"
 argument_list|,
 name|record
 argument_list|)
@@ -2036,7 +2038,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Carriage return defined for the CSV : {}"
+literal|"Carriage return defined for the CSV: {}"
 argument_list|,
 name|crlf
 argument_list|)
@@ -2053,7 +2055,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Has Header :  {}"
+literal|"Has Header: {}"
 argument_list|,
 name|hasHeader
 argument_list|)
@@ -2070,7 +2072,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Has Footer :  {}"
+literal|"Has Footer: {}"
 argument_list|,
 name|hasFooter
 argument_list|)
@@ -2087,7 +2089,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Padding char :  {}"
+literal|"Padding char: {}"
 argument_list|,
 name|paddingChar
 argument_list|)
@@ -2104,7 +2106,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Length of the record : {}"
+literal|"Length of the record: {}"
 argument_list|,
 name|recordLength
 argument_list|)
@@ -2121,7 +2123,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Length of the record : {}"
+literal|"Length of the record: {}"
 argument_list|,
 name|recordLength
 argument_list|)

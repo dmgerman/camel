@@ -350,7 +350,7 @@ name|DataField
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|annotedFields
+DECL|field|annotatedFields
 specifier|private
 name|Map
 argument_list|<
@@ -358,7 +358,7 @@ name|Integer
 argument_list|,
 name|Field
 argument_list|>
-name|annotedFields
+name|annotatedFields
 init|=
 operator|new
 name|LinkedHashMap
@@ -523,7 +523,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class retrieved : {}"
+literal|"Class retrieved: {}"
 argument_list|,
 name|cl
 operator|.
@@ -574,7 +574,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Position defined in the class : {}, position : {}, Field : {}"
+literal|"Position defined in the class: {}, position: {}, Field: {}"
 argument_list|,
 operator|new
 name|Object
@@ -625,7 +625,7 @@ argument_list|,
 name|dataField
 argument_list|)
 expr_stmt|;
-name|annotedFields
+name|annotatedFields
 operator|.
 name|put
 argument_list|(
@@ -669,7 +669,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Class linked  : {}, Field {}"
+literal|"Class linked: {}, Field: {}"
 argument_list|,
 name|cl
 operator|.
@@ -729,7 +729,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of optional fields : {}"
+literal|"Number of optional fields: {}"
 argument_list|,
 name|numberOptionalFields
 argument_list|)
@@ -738,7 +738,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of mandatory fields : {}"
+literal|"Number of mandatory fields: {}"
 argument_list|,
 name|numberMandatoryFields
 argument_list|)
@@ -747,7 +747,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Total : {}"
+literal|"Total: {}"
 argument_list|,
 name|totalFields
 argument_list|)
@@ -819,11 +819,11 @@ literal|"No position "
 operator|+
 name|pos
 operator|+
-literal|" defined for the field : "
+literal|" defined for the field: "
 operator|+
 name|data
 operator|+
-literal|", line : "
+literal|", line: "
 operator|+
 name|line
 argument_list|)
@@ -876,7 +876,7 @@ literal|"The mandatory field defined at the position "
 operator|+
 name|pos
 operator|+
-literal|" is empty for the line : "
+literal|" is empty for the line: "
 operator|+
 name|line
 argument_list|)
@@ -887,7 +887,7 @@ comment|// Get Field to be setted
 name|Field
 name|field
 init|=
-name|annotedFields
+name|annotatedFields
 operator|.
 name|get
 argument_list|(
@@ -913,7 +913,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pos : {}, Data : {}, Field type : {}"
+literal|"Pos: {}, Data: {}, Field type: {}"
 argument_list|,
 operator|new
 name|Object
@@ -1030,11 +1030,11 @@ operator|.
 name|getMessage
 argument_list|()
 operator|+
-literal|", position : "
+literal|", position: "
 operator|+
 name|pos
 operator|+
-literal|", line : "
+literal|", line: "
 operator|+
 name|line
 argument_list|,
@@ -1052,11 +1052,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Parsing error detected for field defined at the position : "
+literal|"Parsing error detected for field defined at the position: "
 operator|+
 name|pos
 operator|+
-literal|", line : "
+literal|", line: "
 operator|+
 name|line
 argument_list|,
@@ -1095,7 +1095,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Counter mandatory fields : {}"
+literal|"Counter mandatory fields: {}"
 argument_list|,
 name|counterMandatoryFields
 argument_list|)
@@ -1111,7 +1111,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some fields are missing (optional or mandatory), line : "
+literal|"Some fields are missing (optional or mandatory), line: "
 operator|+
 name|line
 argument_list|)
@@ -1128,7 +1128,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Some mandatory fields are missing, line : "
+literal|"Some mandatory fields are missing, line: "
 operator|+
 name|line
 argument_list|)
@@ -1214,7 +1214,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator converted : '0x{}', from : {}"
+literal|"Separator converted: '0x{}', from: {}"
 argument_list|,
 name|Integer
 operator|.
@@ -1276,7 +1276,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Model object : {}, class : {}"
+literal|"Model object: {}, class: {}"
 argument_list|,
 name|obj
 argument_list|,
@@ -1409,9 +1409,6 @@ comment|// There is only one item in the list
 name|String
 name|value
 init|=
-operator|(
-name|String
-operator|)
 name|val
 operator|.
 name|get
@@ -1777,7 +1774,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value : {}, pos : {}, at : {}"
+literal|"Value: {}, pos: {}, at: {}"
 argument_list|,
 operator|new
 name|Object
@@ -1836,7 +1833,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value : {}, pos : {}, at index : {}"
+literal|"Value: {}, pos: {}, at index: {}"
 argument_list|,
 operator|new
 name|Object
@@ -1894,7 +1891,7 @@ return|return
 name|product
 return|;
 block|}
-comment|/**      *       * Generate a table containing the data formated and sorted with their position/offset      * If the model is Ordered than a key is created combining the annotation @Section and Position of the field      * If a relation @OneToMany is defined, than we iterate recursivelu through this function      * The result is placed in the Map<Integer, List> results      *       * @param clazz      * @param obj      * @throws Exception      */
+comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * If the model is Ordered than a key is created combining the annotation @Section and Position of the field      * If a relation @OneToMany is defined, than we iterate recursively through this function      * The result is placed in the Map<Integer, List> results      */
 DECL|method|generateCsvPositionMap (Class clazz, Object obj)
 specifier|private
 name|void
@@ -2034,7 +2031,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value to be formatted : {}, position : {}, and its formated value : {}"
+literal|"Value to be formatted: {}, position: {}, and its formatted value: {}"
 argument_list|,
 operator|new
 name|Object
@@ -2067,6 +2064,10 @@ if|if
 condition|(
 name|isMessageOrdered
 argument_list|()
+operator|&&
+name|obj
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// Generate a key using the number of the section
@@ -2117,7 +2118,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key generated : {}, for section : {}"
+literal|"Key generated: {}, for section: {}"
 argument_list|,
 name|String
 operator|.
@@ -2381,7 +2382,7 @@ comment|// Retrieve the field
 name|Field
 name|field
 init|=
-name|annotedFields
+name|annotatedFields
 operator|.
 name|get
 argument_list|(
@@ -2524,7 +2525,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Csv record : {}"
+literal|"Csv record: {}"
 argument_list|,
 name|record
 argument_list|)
@@ -2541,7 +2542,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Skip First Line parameter of the CSV : {}"
+literal|"Skip First Line parameter of the CSV: {}"
 operator|+
 name|skipFirstLine
 argument_list|)
@@ -2558,7 +2559,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Generate header column names parameter of the CSV : {}"
+literal|"Generate header column names parameter of the CSV: {}"
 argument_list|,
 name|generateHeaderColumnNames
 argument_list|)
@@ -2573,7 +2574,7 @@ operator|.
 name|separator
 argument_list|()
 argument_list|,
-literal|"No separator has been defined in the @Record annotation !"
+literal|"No separator has been defined in the @Record annotation"
 argument_list|)
 expr_stmt|;
 name|separator
@@ -2587,7 +2588,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator defined for the CSV : {}"
+literal|"Separator defined for the CSV: {}"
 argument_list|,
 name|separator
 argument_list|)
@@ -2604,7 +2605,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Carriage return defined for the CSV : {}"
+literal|"Carriage return defined for the CSV: {}"
 argument_list|,
 name|crlf
 argument_list|)
@@ -2621,7 +2622,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Must CSV record be ordered ? {}"
+literal|"Must CSV record be ordered: {}"
 argument_list|,
 name|messageOrdered
 argument_list|)
@@ -2644,7 +2645,7 @@ operator|.
 name|number
 argument_list|()
 argument_list|,
-literal|"No number has been defined for the section !"
+literal|"No number has been defined for the section"
 argument_list|)
 expr_stmt|;
 comment|// Get section number and add it to the sections

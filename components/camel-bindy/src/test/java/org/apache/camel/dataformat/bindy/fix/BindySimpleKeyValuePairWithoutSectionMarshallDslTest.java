@@ -449,7 +449,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"@Section and/or @KeyValuePairDataField have not been defined!"
+literal|"@Section and/or @KeyValuePairDataField have not been defined"
 argument_list|,
 name|cause
 operator|.

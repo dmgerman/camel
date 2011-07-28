@@ -727,21 +727,19 @@ name|lang
 operator|.
 name|IllegalArgumentException
 argument_list|(
-literal|"Size of the record : "
+literal|"Size of the record: "
 operator|+
 name|line
 operator|.
 name|length
 argument_list|()
 operator|+
-literal|" is not equal to the value provided in the model : "
+literal|" is not equal to the value provided in the model: "
 operator|+
 name|factory
 operator|.
 name|recordLength
 argument_list|()
-operator|+
-literal|" !"
 argument_list|)
 throw|;
 block|}
@@ -785,7 +783,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Graph of objects created : {}"
+literal|"Graph of objects created: {}"
 argument_list|,
 name|model
 argument_list|)
@@ -811,7 +809,7 @@ name|lang
 operator|.
 name|IllegalArgumentException
 argument_list|(
-literal|"No records have been defined in the message !"
+literal|"No records have been defined in the message"
 argument_list|)
 throw|;
 block|}

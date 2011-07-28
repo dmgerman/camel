@@ -464,7 +464,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Date provided does not fit the pattern defined, position : 11, line : 1"
+literal|"Date provided does not fit the pattern defined, position: 11, line: 1"
 argument_list|,
 name|cause
 operator|.

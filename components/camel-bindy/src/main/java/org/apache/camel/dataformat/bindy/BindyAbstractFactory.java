@@ -488,7 +488,7 @@ name|notNull
 argument_list|(
 name|to
 argument_list|,
-literal|"No @link annotation has been defined for the oject to link"
+literal|"No @link annotation has been defined for the object to link"
 argument_list|)
 expr_stmt|;
 name|field
@@ -602,7 +602,7 @@ name|key2
 parameter_list|)
 block|{
 name|String
-name|key2Formated
+name|key2Formatted
 decl_stmt|;
 name|String
 name|keyGenerated
@@ -623,7 +623,7 @@ literal|null
 operator|)
 condition|)
 block|{
-name|key2Formated
+name|key2Formatted
 operator|=
 name|getNumberFormat
 argument_list|()
@@ -645,7 +645,7 @@ argument_list|(
 name|key1
 argument_list|)
 operator|+
-name|key2Formated
+name|key2Formatted
 expr_stmt|;
 block|}
 else|else
@@ -654,7 +654,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"@Section and/or @KeyValuePairDataField have not been defined!"
+literal|"@Section and/or @KeyValuePairDataField have not been defined"
 argument_list|)
 throw|;
 block|}

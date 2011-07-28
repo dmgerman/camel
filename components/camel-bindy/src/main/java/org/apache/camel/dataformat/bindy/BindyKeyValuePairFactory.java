@@ -316,7 +316,7 @@ name|KeyValuePairField
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|annotedFields
+DECL|field|annotatedFields
 specifier|private
 name|Map
 argument_list|<
@@ -324,7 +324,7 @@ name|Integer
 argument_list|,
 name|Field
 argument_list|>
-name|annotedFields
+name|annotatedFields
 init|=
 operator|new
 name|LinkedHashMap
@@ -543,7 +543,7 @@ argument_list|,
 name|keyValuePairField
 argument_list|)
 expr_stmt|;
-name|annotedFields
+name|annotatedFields
 operator|.
 name|put
 argument_list|(
@@ -724,6 +724,16 @@ name|getKeyValuePairSeparator
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// Extract only if value is populated in key:value pair in incoming message.
+if|if
+condition|(
+name|keyValuePair
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
+block|{
 comment|// Extract Key
 name|int
 name|key
@@ -751,7 +761,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key : {}, value : {}"
+literal|"Key: {}, value: {}"
 argument_list|,
 name|key
 argument_list|,
@@ -824,6 +834,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 comment|// Iterate over the model
 for|for
 control|(
@@ -868,7 +879,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * @param clazz      * @param obj      * @param results      * @param line      * @throws Exception      */
 DECL|method|generateModelFromKeyValueMap (Class clazz, Object obj, Map<Integer, List<String>> results, int line)
 specifier|private
 name|void
@@ -1590,11 +1600,11 @@ literal|"Setting of field "
 operator|+
 name|field
 operator|+
-literal|" failed for object : "
+literal|" failed for object: "
 operator|+
 name|obj
 operator|+
-literal|" and result : "
+literal|" and result: "
 operator|+
 name|result
 argument_list|)
@@ -1669,11 +1679,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The list of values is empty for the following key : "
+literal|"The list of values is empty for the following key: "
 operator|+
 name|key
 operator|+
-literal|" defined in the class : "
+literal|" defined in the class: "
 operator|+
 name|clazz
 operator|.
@@ -1724,11 +1734,11 @@ literal|"Setting of field "
 operator|+
 name|field
 operator|+
-literal|" failed for object : "
+literal|" failed for object: "
 operator|+
 name|obj
 operator|+
-literal|" and result : "
+literal|" and result: "
 operator|+
 name|result
 argument_list|)
@@ -1888,7 +1898,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No target class has been defined in @OneToMany annotation !"
+literal|"No target class has been defined in @OneToMany annotation"
 argument_list|)
 throw|;
 block|}
@@ -2009,7 +2019,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Separator converted : '0x{}', from : {}"
+literal|"Separator converted: '0x{}', from: {}"
 argument_list|,
 name|Integer
 operator|.
@@ -2052,14 +2062,14 @@ name|notNull
 argument_list|(
 name|keyValuePairField
 argument_list|,
-literal|"KeyValuePair is null !"
+literal|"KeyValuePair"
 argument_list|)
 expr_stmt|;
 comment|// Retrieve the field
 name|Field
 name|field
 init|=
-name|annotedFields
+name|annotatedFields
 operator|.
 name|get
 argument_list|(
@@ -2089,7 +2099,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Tag : {}, Field type : {}, class : {}"
+literal|"Tag: {}, Field type: {}, class: {}"
 argument_list|,
 operator|new
 name|Object
@@ -2249,7 +2259,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key of the section : {}, and the field  : {}"
+literal|"Key of the section: {}, and the field: {}"
 argument_list|,
 name|key1
 argument_list|,
@@ -2278,7 +2288,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key generated : {}, for section : {}"
+literal|"Key generated: {}, for section: {}"
 argument_list|,
 name|String
 operator|.
@@ -2301,11 +2311,11 @@ condition|)
 block|{
 comment|// Format field value
 name|String
-name|valueFormated
+name|valueFormatted
 decl_stmt|;
 try|try
 block|{
-name|valueFormated
+name|valueFormatted
 operator|=
 name|format
 operator|.
@@ -2325,7 +2335,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Formating error detected for the tag : "
+literal|"Formatting error detected for the tag: "
 operator|+
 name|keyValuePairField
 operator|.
@@ -2350,7 +2360,7 @@ operator|.
 name|getKeyValuePairSeparator
 argument_list|()
 operator|+
-name|valueFormated
+name|valueFormatted
 decl_stmt|;
 if|if
 condition|(
@@ -2364,7 +2374,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value to be formatted : {}, for the tag : {}, and its formated value : {}"
+literal|"Value to be formatted: {}, for the tag: {}, and its formatted value: {}"
 argument_list|,
 operator|new
 name|Object
@@ -2377,7 +2387,7 @@ operator|.
 name|tag
 argument_list|()
 block|,
-name|valueFormated
+name|valueFormatted
 block|}
 argument_list|)
 expr_stmt|;
@@ -2405,7 +2415,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Positions size : {}"
+literal|"Positions size: {}"
 argument_list|,
 name|positions
 operator|.
@@ -2428,11 +2438,11 @@ condition|)
 block|{
 comment|// Format field value
 name|String
-name|valueFormated
+name|valueFormatted
 decl_stmt|;
 try|try
 block|{
-name|valueFormated
+name|valueFormatted
 operator|=
 name|format
 operator|.
@@ -2452,7 +2462,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Formating error detected for the tag : "
+literal|"Formatting error detected for the tag: "
 operator|+
 name|keyValuePairField
 operator|.
@@ -2477,7 +2487,7 @@ operator|.
 name|getKeyValuePairSeparator
 argument_list|()
 operator|+
-name|valueFormated
+name|valueFormatted
 operator|+
 name|separator
 decl_stmt|;
@@ -2501,7 +2511,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Value added : {}{}{}{}"
+literal|"Value added: {}{}{}{}"
 argument_list|,
 operator|new
 name|Object
@@ -2517,7 +2527,7 @@ operator|.
 name|getKeyValuePairSeparator
 argument_list|()
 block|,
-name|valueFormated
+name|valueFormatted
 block|,
 name|separator
 block|}
@@ -2673,11 +2683,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Parsing error detected for field defined at the tag : "
+literal|"Parsing error detected for field defined at the tag: "
 operator|+
 name|tag
 operator|+
-literal|", line : "
+literal|", line: "
 operator|+
 name|line
 argument_list|,
@@ -2799,7 +2809,7 @@ operator|.
 name|pairSeparator
 argument_list|()
 argument_list|,
-literal|"No Pair Separator has been defined in the @Message annotation !"
+literal|"No Pair Separator has been defined in the @Message annotation"
 argument_list|)
 expr_stmt|;
 name|pairSeparator
@@ -2813,7 +2823,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Pair Separator defined for the message : {}"
+literal|"Pair Separator defined for the message: {}"
 argument_list|,
 name|pairSeparator
 argument_list|)
@@ -2828,7 +2838,7 @@ operator|.
 name|keyValuePairSeparator
 argument_list|()
 argument_list|,
-literal|"No Key Value Pair Separator has been defined in the @Message annotation !"
+literal|"No Key Value Pair Separator has been defined in the @Message annotation"
 argument_list|)
 expr_stmt|;
 name|keyValuePairSeparator
@@ -2842,7 +2852,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Key Value Pair Separator defined for the message : {}"
+literal|"Key Value Pair Separator defined for the message: {}"
 argument_list|,
 name|keyValuePairSeparator
 argument_list|)
@@ -2859,12 +2869,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Carriage return defined for the message : {}"
+literal|"Carriage return defined for the message: {}"
 argument_list|,
 name|crlf
 argument_list|)
 expr_stmt|;
-comment|// Get isOrderer parameter
+comment|// Get isOrdered parameter
 name|messageOrdered
 operator|=
 name|message
@@ -2876,7 +2886,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Is the message ordered in output : {}"
+literal|"Is the message ordered in output: {}"
 argument_list|,
 name|messageOrdered
 argument_list|)
@@ -2899,7 +2909,7 @@ operator|.
 name|number
 argument_list|()
 argument_list|,
-literal|"No number has been defined for the section !"
+literal|"No number has been defined for the section"
 argument_list|)
 expr_stmt|;
 comment|// Get section number and add it to the sections

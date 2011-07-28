@@ -380,7 +380,7 @@ specifier|private
 name|FormatFactory
 parameter_list|()
 block|{     }
-comment|/**      * Retrieves the format to use for the given type      *       * @param clazz represents the type of the format (String, Integer, Byte)      * @param pattern is the pattern to be used during the formating of the data      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @param precision optional scale for BigDecimal parsing.      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      */
+comment|/**      * Retrieves the format to use for the given type      *       * @param clazz represents the type of the format (String, Integer, Byte)      * @param pattern is the pattern to be used during the formatting of the data      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @param precision optional scale for BigDecimal parsing.      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      */
 DECL|method|getFormat (Class<?> clazz, String pattern, String locale, int precision)
 specifier|public
 specifier|static

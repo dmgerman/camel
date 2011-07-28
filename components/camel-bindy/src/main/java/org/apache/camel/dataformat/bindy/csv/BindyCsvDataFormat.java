@@ -893,7 +893,7 @@ name|lang
 operator|.
 name|IllegalArgumentException
 argument_list|(
-literal|"No records have been defined in the CSV !"
+literal|"No records have been defined in the CSV"
 argument_list|)
 throw|;
 block|}
@@ -960,7 +960,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Graph of objects created : {}"
+literal|"Graph of objects created: {}"
 argument_list|,
 name|model
 argument_list|)
@@ -987,7 +987,7 @@ name|lang
 operator|.
 name|IllegalArgumentException
 argument_list|(
-literal|"No records have been defined in the CSV !"
+literal|"No records have been defined in the CSV"
 argument_list|)
 throw|;
 block|}
