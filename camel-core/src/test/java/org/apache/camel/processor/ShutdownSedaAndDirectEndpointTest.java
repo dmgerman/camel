@@ -58,20 +58,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ShutdownRoute
-operator|.
-name|Defer
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment

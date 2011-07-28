@@ -144,20 +144,6 @@ name|ErrorHandlerBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|EndpointHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a collection of routes  *  * @version   */
 end_comment

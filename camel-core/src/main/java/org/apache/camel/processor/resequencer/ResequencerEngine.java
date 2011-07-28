@@ -40,7 +40,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ExecutorServiceHelper
+name|ThreadHelper
 import|;
 end_import
 
@@ -144,9 +144,9 @@ operator|=
 operator|new
 name|Timer
 argument_list|(
-name|ExecutorServiceHelper
+name|ThreadHelper
 operator|.
-name|getThreadName
+name|resolveThreadName
 argument_list|(
 literal|"Camel Thread ${counter} - ${name}"
 argument_list|,

@@ -721,10 +721,10 @@ name|super
 argument_list|(
 name|camelContext
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getThreadName
+name|resolveThreadName
 argument_list|(
 literal|"Resequencer Delivery"
 argument_list|)

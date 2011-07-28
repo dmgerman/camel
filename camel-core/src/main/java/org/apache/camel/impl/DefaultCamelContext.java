@@ -958,7 +958,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExecutorServiceStrategy
+name|ExecutorServiceManager
 import|;
 end_import
 
@@ -2007,16 +2007,10 @@ name|ShutdownRunningTask
 operator|.
 name|CompleteCurrentTaskOnly
 decl_stmt|;
-DECL|field|executorServiceStrategy
+DECL|field|executorServiceManager
 specifier|private
-name|ExecutorServiceStrategy
-name|executorServiceStrategy
-init|=
-operator|new
-name|DefaultExecutorServiceStrategy
-argument_list|(
-name|this
-argument_list|)
+name|ExecutorServiceManager
+name|executorServiceManager
 decl_stmt|;
 DECL|field|debugger
 specifier|private
@@ -2055,6 +2049,20 @@ parameter_list|()
 block|{
 name|super
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|executorServiceManager
+operator|=
+operator|new
+name|DefaultExecutorServiceManager
+argument_list|(
+name|this
+argument_list|,
+operator|new
+name|DefaultThreadPoolFactory
+argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// create endpoint registry at first since end users may access endpoints before CamelContext is started
 name|this
@@ -7813,7 +7821,7 @@ argument_list|)
 expr_stmt|;
 name|addService
 argument_list|(
-name|executorServiceStrategy
+name|executorServiceManager
 argument_list|)
 expr_stmt|;
 name|addService
@@ -11545,33 +11553,35 @@ block|}
 end_function
 
 begin_function
-DECL|method|getExecutorServiceStrategy ()
+DECL|method|getExecutorServiceManager ()
 specifier|public
-name|ExecutorServiceStrategy
-name|getExecutorServiceStrategy
+name|ExecutorServiceManager
+name|getExecutorServiceManager
 parameter_list|()
 block|{
 return|return
-name|executorServiceStrategy
+name|this
+operator|.
+name|executorServiceManager
 return|;
 block|}
 end_function
 
 begin_function
-DECL|method|setExecutorServiceStrategy (ExecutorServiceStrategy executorServiceStrategy)
+DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceManager)
 specifier|public
 name|void
-name|setExecutorServiceStrategy
+name|setExecutorServiceManager
 parameter_list|(
-name|ExecutorServiceStrategy
-name|executorServiceStrategy
+name|ExecutorServiceManager
+name|executorServiceManager
 parameter_list|)
 block|{
 name|this
 operator|.
-name|executorServiceStrategy
+name|executorServiceManager
 operator|=
-name|executorServiceStrategy
+name|executorServiceManager
 expr_stmt|;
 block|}
 end_function

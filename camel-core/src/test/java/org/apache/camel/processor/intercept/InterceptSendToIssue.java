@@ -213,6 +213,16 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:foo"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Dummy"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;

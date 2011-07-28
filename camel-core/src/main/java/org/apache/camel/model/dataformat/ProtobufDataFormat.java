@@ -116,20 +116,6 @@ name|DataFormat
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a protobuf DataFormat {@link org.apache.camel.spi.DataFormat}  *  * @version   */
 end_comment

@@ -704,7 +704,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExecutorServiceStrategy
+name|ExecutorServiceManager
 import|;
 end_import
 
@@ -1222,12 +1222,12 @@ name|factoryFinderResolver
 argument_list|)
 expr_stmt|;
 block|}
-name|ExecutorServiceStrategy
+name|ExecutorServiceManager
 name|executorServiceStrategy
 init|=
 name|getBeanForType
 argument_list|(
-name|ExecutorServiceStrategy
+name|ExecutorServiceManager
 operator|.
 name|class
 argument_list|)
@@ -1251,7 +1251,7 @@ expr_stmt|;
 name|getContext
 argument_list|()
 operator|.
-name|setExecutorServiceStrategy
+name|setExecutorServiceManager
 argument_list|(
 name|executorServiceStrategy
 argument_list|)
@@ -3603,7 +3603,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|setDefaultThreadPoolProfile
@@ -3626,7 +3626,7 @@ else|else
 block|{
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|registerThreadPoolProfile
@@ -3688,7 +3688,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|setDefaultThreadPoolProfile
@@ -3716,7 +3716,7 @@ else|else
 block|{
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|registerThreadPoolProfile

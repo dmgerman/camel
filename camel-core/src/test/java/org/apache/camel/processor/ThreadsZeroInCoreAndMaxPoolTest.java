@@ -147,10 +147,9 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// expect to get the IllegalArgumentException
 name|fail
 argument_list|(
-literal|"Except the exception here"
+literal|"Expect FailedToCreateRouteException exception here"
 argument_list|)
 expr_stmt|;
 block|}

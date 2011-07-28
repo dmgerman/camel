@@ -80,20 +80,6 @@ name|DefaultEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Camel endpoint for communication with a kestrel based queue.  */
 end_comment

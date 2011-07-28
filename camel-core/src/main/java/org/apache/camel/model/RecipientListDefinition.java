@@ -212,22 +212,6 @@ name|CamelContextHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;recipientList/&gt; element  *  * @version   */
 end_comment
@@ -305,6 +289,8 @@ DECL|field|executorServiceRef
 specifier|private
 name|String
 name|executorServiceRef
+init|=
+literal|"RecipientList"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -623,19 +609,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|executorService
-operator|=
-name|ExecutorServiceHelper
-operator|.
-name|getConfiguredExecutorService
-argument_list|(
-name|routeContext
-argument_list|,
-literal|"RecipientList"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|isParallelProcessing
@@ -646,7 +619,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we are running in parallel so create a cached thread pool which grows/shrinks automatic
 name|executorService
 operator|=
 name|routeContext
@@ -654,14 +626,14 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newDefaultThreadPool
+name|getDefaultExecutorService
 argument_list|(
-name|this
+name|executorServiceRef
 argument_list|,
-literal|"RecipientList"
+name|this
 argument_list|)
 expr_stmt|;
 block|}

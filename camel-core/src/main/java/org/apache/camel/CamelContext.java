@@ -216,7 +216,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExecutorServiceStrategy
+name|ExecutorServiceManager
 import|;
 end_import
 
@@ -1397,17 +1397,17 @@ name|shutdownStrategy
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @return the strategy      */
-DECL|method|getExecutorServiceStrategy ()
-name|ExecutorServiceStrategy
-name|getExecutorServiceStrategy
+DECL|method|getExecutorServiceManager ()
+name|ExecutorServiceManager
+name|getExecutorServiceManager
 parameter_list|()
 function_decl|;
 comment|/**      * Sets a custom {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @param executorServiceStrategy the custom strategy      */
-DECL|method|setExecutorServiceStrategy (ExecutorServiceStrategy executorServiceStrategy)
+DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceStrategy)
 name|void
-name|setExecutorServiceStrategy
+name|setExecutorServiceManager
 parameter_list|(
-name|ExecutorServiceStrategy
+name|ExecutorServiceManager
 name|executorServiceStrategy
 parameter_list|)
 function_decl|;

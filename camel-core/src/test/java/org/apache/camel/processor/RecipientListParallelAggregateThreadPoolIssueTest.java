@@ -83,10 +83,10 @@ name|before
 init|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getThreadName
+name|resolveThreadName
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -152,10 +152,10 @@ name|after
 init|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getThreadName
+name|resolveThreadName
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -245,7 +245,7 @@ name|Exception
 block|{
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|setThreadNamePattern

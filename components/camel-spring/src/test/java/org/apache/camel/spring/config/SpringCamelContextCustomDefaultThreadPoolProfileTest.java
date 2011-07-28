@@ -160,7 +160,7 @@ name|profile
 init|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|getDefaultThreadPoolProfile

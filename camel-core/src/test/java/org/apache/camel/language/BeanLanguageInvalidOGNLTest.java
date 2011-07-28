@@ -114,22 +114,6 @@ name|MethodNotFoundException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|bean
-operator|.
-name|RuntimeBeanExpressionException
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment

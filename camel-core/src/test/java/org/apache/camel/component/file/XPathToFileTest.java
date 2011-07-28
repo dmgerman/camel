@@ -82,24 +82,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
-operator|.
-name|xpath
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment

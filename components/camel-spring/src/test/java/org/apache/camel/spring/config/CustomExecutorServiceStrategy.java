@@ -40,7 +40,21 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExecutorServiceStrategy
+name|DefaultExecutorServiceManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultThreadPoolFactory
 import|;
 end_import
 
@@ -54,7 +68,7 @@ specifier|public
 class|class
 name|CustomExecutorServiceStrategy
 extends|extends
-name|DefaultExecutorServiceStrategy
+name|DefaultExecutorServiceManager
 block|{
 DECL|method|CustomExecutorServiceStrategy (CamelContext camelContext)
 specifier|public
@@ -67,6 +81,10 @@ block|{
 name|super
 argument_list|(
 name|camelContext
+argument_list|,
+operator|new
+name|DefaultThreadPoolFactory
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

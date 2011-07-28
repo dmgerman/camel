@@ -121,7 +121,7 @@ name|assertTrue
 argument_list|(
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|instanceof
 name|CustomExecutorServiceStrategy

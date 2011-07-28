@@ -181,7 +181,7 @@ name|profile
 init|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|getThreadPoolProfile
@@ -251,18 +251,17 @@ name|executor
 init|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newThreadPool
+name|getDefaultExecutorService
 argument_list|(
-name|this
-argument_list|,
-literal|"MyLow"
-argument_list|,
 literal|"low"
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
+comment|// TODO check newThreadPool(this, "MyLow", "low");
 name|ThreadPoolExecutor
 name|tp
 init|=
@@ -350,7 +349,7 @@ name|profile
 init|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|getThreadPoolProfile
@@ -422,18 +421,17 @@ name|executor
 init|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newThreadPool
+name|getDefaultExecutorService
 argument_list|(
-name|this
-argument_list|,
-literal|"MyBig"
-argument_list|,
 literal|"big"
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
+comment|// TODO check newThreadPool(this, "MyBig", "big");
 name|ThreadPoolExecutor
 name|tp
 init|=

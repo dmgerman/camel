@@ -4408,14 +4408,14 @@ name|executor
 operator|=
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newDefaultThreadPool
+name|getDefaultExecutorService
 argument_list|(
-name|this
-argument_list|,
 literal|"ProducerTemplate"
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -4517,7 +4517,7 @@ condition|)
 block|{
 name|context
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|shutdownNow

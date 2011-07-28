@@ -28,16 +28,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Will load all type converters from camel-core without classpath scanning, which makes  * it much faster.  *<p/>  * The {@link CorePackageScanClassResolver} contains a hardcoded list of the type converter classes to load.  */
 end_comment

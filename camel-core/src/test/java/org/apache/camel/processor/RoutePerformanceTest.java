@@ -226,11 +226,9 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"RoutePerformanceTest: Sent: "
 operator|+

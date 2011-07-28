@@ -250,6 +250,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ThreadPoolBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|ServiceSupport
@@ -1911,21 +1925,26 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we only need a single for the JMX connector
+comment|// we only need a single thread for the JMX connector
 name|executorService
 operator|=
 name|camelContext
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newSingleThreadExecutor
+name|getExecutorService
 argument_list|(
-name|this
-argument_list|,
+name|ThreadPoolBuilder
+operator|.
+name|singleThreadExecutor
+argument_list|(
 literal|"JMXConnector: "
 operator|+
 name|url
+argument_list|)
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}

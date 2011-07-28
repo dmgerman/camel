@@ -1086,10 +1086,10 @@ name|super
 argument_list|(
 name|camelContext
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getThreadName
+name|resolveThreadName
 argument_list|(
 literal|"Batch Sender"
 argument_list|)

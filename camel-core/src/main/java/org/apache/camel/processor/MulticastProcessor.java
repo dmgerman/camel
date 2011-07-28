@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|notNull
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -606,22 +622,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ExecutorServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|SubmitOrderedCompletionService
 import|;
 end_import
@@ -643,22 +643,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|notNull
 import|;
 end_import
 
@@ -2441,13 +2425,24 @@ literal|true
 expr_stmt|;
 comment|// mark that index as timed out, which allows us to try to retrieve
 comment|// any already completed tasks in the next loop
-name|ExecutorServiceHelper
+if|if
+condition|(
+name|completion
+operator|instanceof
+name|SubmitOrderedCompletionService
+condition|)
+block|{
+operator|(
+operator|(
+name|SubmitOrderedCompletionService
+operator|)
+name|completion
+operator|)
 operator|.
 name|timeoutTask
-argument_list|(
-name|completion
-argument_list|)
+argument_list|()
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -4496,7 +4491,7 @@ comment|// use a cached thread pool so we each on-the-fly task has a dedicated t
 return|return
 name|camelContext
 operator|.
-name|getExecutorServiceStrategy
+name|getExecutorServiceManager
 argument_list|()
 operator|.
 name|newCachedThreadPool
