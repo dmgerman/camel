@@ -153,7 +153,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myservice"
+name|getTestServerEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|process
@@ -268,7 +269,8 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ahc:http:localhost:{{port}}/myapp/myservice"
+name|getAhcEndpointUri
+argument_list|()
 argument_list|,
 name|cool
 argument_list|,
@@ -322,7 +324,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myservice"
+name|getTestServerEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|process
@@ -449,7 +452,8 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"ahc:http://localhost:{{port}}/myapp/myservice"
+name|getAhcEndpointUri
+argument_list|()
 argument_list|,
 name|cool
 argument_list|,
@@ -516,7 +520,8 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myservice"
+name|getTestServerEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|process
@@ -619,7 +624,8 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ahc:http://localhost:{{port}}/myapp/myservice"
+name|getAhcEndpointUri
+argument_list|()
 argument_list|,
 literal|"Hello World"
 argument_list|,

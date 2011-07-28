@@ -168,6 +168,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|foo
 init|=
 name|out
@@ -370,6 +373,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|foo
 init|=
 name|out
@@ -496,6 +502,9 @@ name|from
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|to
 init|=
 name|exchange

@@ -149,7 +149,8 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"ahc:http://localhost:{{port}}/foo"
+name|getAhcEndpointUri
+argument_list|()
 argument_list|,
 literal|"World"
 argument_list|,
@@ -236,7 +237,8 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ahc:http://localhost:{{port}}/foo"
+name|getAhcEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -246,7 +248,8 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/foo"
+name|getTestServerEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|transform

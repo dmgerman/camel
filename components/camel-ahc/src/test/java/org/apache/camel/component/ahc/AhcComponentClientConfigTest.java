@@ -219,7 +219,8 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ahc:http://localhost:{{port}}/foo"
+name|getAhcEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -229,7 +230,8 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/foo"
+name|getTestServerEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|process
@@ -272,12 +274,8 @@ name|setHeader
 argument_list|(
 literal|"Location"
 argument_list|,
-literal|"http://localhost:"
-operator|+
-name|getPort
+name|getTestServerEndpointTwoUrl
 argument_list|()
-operator|+
-literal|"/bar"
 argument_list|)
 expr_stmt|;
 block|}
@@ -286,7 +284,8 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/bar"
+name|getTestServerEndpointTwoUri
+argument_list|()
 argument_list|)
 operator|.
 name|transform

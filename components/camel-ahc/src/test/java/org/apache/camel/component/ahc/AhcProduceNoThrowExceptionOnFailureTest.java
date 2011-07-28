@@ -123,6 +123,23 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getAhcEndpointUri ()
+specifier|protected
+name|String
+name|getAhcEndpointUri
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getAhcEndpointUri
+argument_list|()
+operator|+
+literal|"?throwExceptionOnFailure=false"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -152,7 +169,8 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"ahc:http://localhost:{{port}}/foo?throwExceptionOnFailure=false"
+name|getAhcEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -162,7 +180,8 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/foo"
+name|getTestServerEndpointUri
+argument_list|()
 argument_list|)
 operator|.
 name|process
