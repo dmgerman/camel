@@ -2072,6 +2072,9 @@ operator|.
 name|getFile
 argument_list|()
 operator|.
+name|toURI
+argument_list|()
+operator|.
 name|toURL
 argument_list|()
 argument_list|)
@@ -2138,6 +2141,9 @@ operator|.
 name|getOutputDirectory
 argument_list|()
 argument_list|)
+operator|.
+name|toURI
+argument_list|()
 operator|.
 name|toURL
 argument_list|()
@@ -2239,6 +2245,9 @@ operator|.
 name|add
 argument_list|(
 name|file
+operator|.
+name|toURI
+argument_list|()
 operator|.
 name|toURL
 argument_list|()
@@ -2525,6 +2534,8 @@ argument_list|,
 name|classifier
 argument_list|,
 name|scope
+argument_list|,
+literal|null
 argument_list|,
 name|optional
 argument_list|)

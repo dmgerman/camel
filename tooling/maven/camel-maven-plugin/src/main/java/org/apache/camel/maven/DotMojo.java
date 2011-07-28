@@ -1934,7 +1934,7 @@ argument_list|)
 expr_stmt|;
 name|cl
 operator|.
-name|createArgument
+name|createArg
 argument_list|()
 operator|.
 name|setValue
@@ -1946,7 +1946,7 @@ argument_list|)
 expr_stmt|;
 name|cl
 operator|.
-name|createArgument
+name|createArg
 argument_list|()
 operator|.
 name|setValue
@@ -1956,7 +1956,7 @@ argument_list|)
 expr_stmt|;
 name|cl
 operator|.
-name|createArgument
+name|createArg
 argument_list|()
 operator|.
 name|setValue
@@ -1966,7 +1966,7 @@ argument_list|)
 expr_stmt|;
 name|cl
 operator|.
-name|createArgument
+name|createArg
 argument_list|()
 operator|.
 name|setValue
@@ -2105,7 +2105,7 @@ argument_list|)
 expr_stmt|;
 name|cl
 operator|.
-name|createArgument
+name|createArg
 argument_list|()
 operator|.
 name|setValue

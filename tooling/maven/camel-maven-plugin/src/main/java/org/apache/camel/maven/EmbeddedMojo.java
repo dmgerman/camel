@@ -859,6 +859,9 @@ index|]
 operator|=
 name|file
 operator|.
+name|toURI
+argument_list|()
+operator|.
 name|toURL
 argument_list|()
 expr_stmt|;
