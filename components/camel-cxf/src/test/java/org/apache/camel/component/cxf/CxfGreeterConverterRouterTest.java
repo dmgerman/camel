@@ -151,7 +151,7 @@ operator|+
 name|getPort1
 argument_list|()
 operator|+
-literal|"/SoapContext/SoapPort/CxfGreeterConverterRouterTest"
+literal|"/CxfGreeterConverterRouterTest/SoapContext/SoapPort"
 decl_stmt|;
 name|endpoint
 operator|=

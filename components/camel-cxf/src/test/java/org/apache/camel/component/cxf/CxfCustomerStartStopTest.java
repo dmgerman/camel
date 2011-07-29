@@ -206,9 +206,9 @@ specifier|final
 name|int
 name|PORT1
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 decl_stmt|;
 DECL|field|PORT2
@@ -217,9 +217,9 @@ specifier|final
 name|int
 name|PORT2
 init|=
-name|AvailablePortFinder
+name|CXFTestSupport
 operator|.
-name|getNextAvailable
+name|getPort1
 argument_list|()
 decl_stmt|;
 annotation|@

@@ -295,6 +295,16 @@ name|AbstractCxfWsdlFirstTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+DECL|field|port1
+specifier|static
+name|int
+name|port1
+init|=
+name|CXFTestSupport
+operator|.
+name|getPort1
+argument_list|()
+decl_stmt|;
 DECL|method|getPort1 ()
 specifier|public
 specifier|static
@@ -303,10 +313,7 @@ name|getPort1
 parameter_list|()
 block|{
 return|return
-name|CXFTestSupport
-operator|.
-name|getPort1
-argument_list|()
+name|port1
 return|;
 block|}
 DECL|method|getPort2 ()

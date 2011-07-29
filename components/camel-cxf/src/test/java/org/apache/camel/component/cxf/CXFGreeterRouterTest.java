@@ -313,7 +313,7 @@ operator|+
 name|getPort1
 argument_list|()
 operator|+
-literal|"/SoapContext/SoapPort/CXFGreeterRouterTest"
+literal|"/CXFGreeterRouterTest/SoapContext/SoapPort"
 decl_stmt|;
 name|endpoint
 operator|=
