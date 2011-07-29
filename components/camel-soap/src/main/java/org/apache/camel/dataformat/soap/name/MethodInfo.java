@@ -20,8 +20,28 @@ name|name
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**  * Value object to hold information about a method in a JAX-WS service interface  */
+comment|/**  * Value object to hold information about a method in a JAX-WS service interface.  * Method can have many parameters in the signature, but only one response object.  */
 end_comment
 
 begin_class
@@ -44,6 +64,7 @@ decl_stmt|;
 DECL|field|in
 specifier|private
 name|TypeInfo
+index|[]
 name|in
 decl_stmt|;
 DECL|field|out
@@ -51,8 +72,19 @@ specifier|private
 name|TypeInfo
 name|out
 decl_stmt|;
-comment|/**      * Initialize       *       * @param name method name      * @param soapAction      * @param in input parameter (document style so only one parameter)      * @param out return type      */
-DECL|method|MethodInfo (String name, String soapAction, TypeInfo in, TypeInfo out)
+comment|// map of type name to qname
+DECL|field|inTypeMap
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|TypeInfo
+argument_list|>
+name|inTypeMap
+decl_stmt|;
+comment|/**      * Initialize       *       * @param name method name      * @param soapAction      * @param in input parameters      * @param out return types      */
+DECL|method|MethodInfo (String name, String soapAction, TypeInfo[] in, TypeInfo out)
 specifier|public
 name|MethodInfo
 parameter_list|(
@@ -63,6 +95,7 @@ name|String
 name|soapAction
 parameter_list|,
 name|TypeInfo
+index|[]
 name|in
 parameter_list|,
 name|TypeInfo
@@ -96,6 +129,55 @@ name|out
 operator|=
 name|out
 expr_stmt|;
+name|this
+operator|.
+name|inTypeMap
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|TypeInfo
+argument_list|>
+argument_list|()
+expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|in
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|inTypeMap
+operator|.
+name|put
+argument_list|(
+name|in
+index|[
+name|i
+index|]
+operator|.
+name|getTypeName
+argument_list|()
+argument_list|,
+name|in
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getName ()
 specifier|public
@@ -120,6 +202,7 @@ block|}
 DECL|method|getIn ()
 specifier|public
 name|TypeInfo
+index|[]
 name|getIn
 parameter_list|()
 block|{
@@ -135,6 +218,26 @@ parameter_list|()
 block|{
 return|return
 name|out
+return|;
+block|}
+DECL|method|getIn (String typeName)
+specifier|public
+name|TypeInfo
+name|getIn
+parameter_list|(
+name|String
+name|typeName
+parameter_list|)
+block|{
+return|return
+name|this
+operator|.
+name|inTypeMap
+operator|.
+name|get
+argument_list|(
+name|typeName
+argument_list|)
 return|;
 block|}
 block|}
