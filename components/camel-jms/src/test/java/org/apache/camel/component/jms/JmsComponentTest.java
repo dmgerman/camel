@@ -139,7 +139,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"activemq123:queue:hello?requestTimeout=5000"
+literal|"activemq123:queue:JmsComponentTest.hello?requestTimeout=5000"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -357,7 +357,7 @@ name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
-name|createConnectionFactory
+name|getSharedConnectionFactory
 argument_list|()
 decl_stmt|;
 name|JmsComponent
@@ -512,7 +512,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"queue:hello"
+literal|"queue:JmsComponentTest.hello"
 argument_list|)
 expr_stmt|;
 return|return

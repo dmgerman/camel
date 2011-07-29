@@ -382,6 +382,18 @@ operator|+
 literal|"&dataFormat=POJO"
 decl_stmt|;
 annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
 name|BeforeClass
 DECL|method|startService ()
 specifier|public

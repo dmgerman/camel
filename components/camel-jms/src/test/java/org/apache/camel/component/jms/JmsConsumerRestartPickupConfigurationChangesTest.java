@@ -153,7 +153,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"activemq:queue:foo"
+literal|"activemq:queue:JmsConsumerRestartPickupConfigurationChangesTest.foo"
 argument_list|,
 name|JmsEndpoint
 operator|.
@@ -218,7 +218,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:foo"
+literal|"activemq:queue:JmsConsumerRestartPickupConfigurationChangesTest.foo"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -268,7 +268,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:bar"
+literal|"activemq:queue:JmsConsumerRestartPickupConfigurationChangesTest.bar"
 argument_list|,
 literal|"Bye World"
 argument_list|)
@@ -303,7 +303,7 @@ name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
-name|createConnectionFactory
+name|getSharedConnectionFactory
 argument_list|()
 decl_stmt|;
 name|camelContext

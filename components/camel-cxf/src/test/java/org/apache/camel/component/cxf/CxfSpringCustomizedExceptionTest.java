@@ -291,6 +291,18 @@ expr_stmt|;
 comment|// END SNIPPET: FaultDefine
 block|}
 annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public

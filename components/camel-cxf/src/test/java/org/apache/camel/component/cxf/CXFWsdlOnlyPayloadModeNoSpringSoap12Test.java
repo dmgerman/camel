@@ -85,6 +85,18 @@ extends|extends
 name|CXFWsdlOnlyPayloadModeNoSpringTest
 block|{
 annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
 name|Before
 DECL|method|startService ()
 specifier|public

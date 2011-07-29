@@ -633,6 +633,17 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|idNumber
+operator|==
+name|currentId
+condition|)
+block|{
+operator|--
+name|currentId
+expr_stmt|;
+block|}
 return|return
 name|r
 return|;

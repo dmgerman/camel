@@ -192,6 +192,18 @@ operator|+
 literal|"?serviceClass=org.apache.camel.component.cxf.HelloService&dataFormat=MESSAGE&synchronous=false"
 decl_stmt|;
 annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
 name|BeforeClass
 DECL|method|startServer ()
 specifier|public

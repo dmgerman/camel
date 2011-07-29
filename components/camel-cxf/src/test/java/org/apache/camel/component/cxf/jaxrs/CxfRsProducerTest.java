@@ -357,6 +357,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getPort1 ()
 specifier|public
 name|int

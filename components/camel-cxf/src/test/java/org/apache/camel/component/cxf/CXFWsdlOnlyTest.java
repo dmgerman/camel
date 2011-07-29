@@ -282,6 +282,16 @@ operator|.
 name|getPort4
 argument_list|()
 decl_stmt|;
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|createApplicationContext ()
 specifier|protected
 name|ClassPathXmlApplicationContext

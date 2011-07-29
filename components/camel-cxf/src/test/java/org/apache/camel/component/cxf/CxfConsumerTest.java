@@ -301,6 +301,18 @@ name|TEST_MESSAGE
 init|=
 literal|"Hello World!"
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|// START SNIPPET: example
 DECL|method|createRouteBuilder ()
 specifier|protected
