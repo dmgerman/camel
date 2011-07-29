@@ -365,6 +365,23 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|NO_START
+specifier|private
+specifier|static
+specifier|final
+name|ThreadLocal
+argument_list|<
+name|Boolean
+argument_list|>
+name|NO_START
+init|=
+operator|new
+name|ThreadLocal
+argument_list|<
+name|Boolean
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext
@@ -393,6 +410,38 @@ argument_list|(
 name|applicationContext
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setNoStart (boolean b)
+specifier|public
+specifier|static
+name|void
+name|setNoStart
+parameter_list|(
+name|boolean
+name|b
+parameter_list|)
+block|{
+if|if
+condition|(
+name|b
+condition|)
+block|{
+name|NO_START
+operator|.
+name|set
+argument_list|(
+name|b
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|NO_START
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|springCamelContext (ApplicationContext applicationContext)
 specifier|public
@@ -954,26 +1003,14 @@ name|Exception
 block|{
 comment|// for example from unit testing we want to start Camel later and not when Spring framework
 comment|// publish a ContextRefreshedEvent
-name|String
-name|maybeStart
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"maybeStartCamelContext"
-argument_list|,
-literal|"true"
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-literal|"true"
+name|NO_START
 operator|.
-name|equals
-argument_list|(
-name|maybeStart
-argument_list|)
+name|get
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 if|if
@@ -1009,7 +1046,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Ignoring maybeStart() as System property maybeStartCamelContext is false"
+literal|"Ignoring maybeStart() as NO_START is false"
 argument_list|)
 expr_stmt|;
 block|}
