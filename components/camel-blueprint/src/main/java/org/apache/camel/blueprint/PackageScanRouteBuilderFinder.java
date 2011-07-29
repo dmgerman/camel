@@ -375,8 +375,8 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|BeanMetadata
-name|metadata
+name|Object
+name|metadataObject
 range|:
 name|blueprintContainer
 operator|.
@@ -388,6 +388,14 @@ name|class
 argument_list|)
 control|)
 block|{
+name|BeanMetadata
+name|metadata
+init|=
+operator|(
+name|BeanMetadata
+operator|)
+name|metadataObject
+decl_stmt|;
 if|if
 condition|(
 name|BeanMetadata

@@ -277,8 +277,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|String
-name|id
+name|Object
+name|componentId
 range|:
 name|container
 operator|.
@@ -286,6 +286,14 @@ name|getComponentIds
 argument_list|()
 control|)
 block|{
+name|String
+name|id
+init|=
+operator|(
+name|String
+operator|)
+name|componentId
+decl_stmt|;
 name|ComponentMetadata
 name|meta
 init|=
