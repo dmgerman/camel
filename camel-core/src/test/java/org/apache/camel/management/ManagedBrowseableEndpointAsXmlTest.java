@@ -287,7 +287,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<body type=\"java.lang.String\"><foo>Camel&gt; Donkey</foo></body>\n</message>"
+literal|"<message>\n<body type=\"java.lang.String\">&lt;foo&gt;Camel&amp;gt; Donkey&lt;/foo&gt;</body>\n</message>"
 argument_list|,
 name|out
 argument_list|)
@@ -383,7 +383,7 @@ name|assertEquals
 argument_list|(
 literal|"<message>\n<headers>\n<header key=\"name\" type=\"java.lang.String\">Me&amp; You</header>\n</headers>\n"
 operator|+
-literal|"<body type=\"java.lang.String\"><foo>Camel&gt; Donkey</foo></body>\n</message>"
+literal|"<body type=\"java.lang.String\">&lt;foo&gt;Camel&amp;gt; Donkey&lt;/foo&gt;</body>\n</message>"
 argument_list|,
 name|out
 argument_list|)
@@ -430,9 +430,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"title\" type=\"java.lang.String\"><title>Me&amp; You</title></header>\n</headers>\n"
+literal|"<message>\n<headers>\n<header key=\"title\" type=\"java.lang.String\">&lt;title&gt;Me&amp;amp; You&lt;/title&gt;</header>\n</headers>\n"
 operator|+
-literal|"<body type=\"java.lang.String\"><foo>Camel&gt; Donkey</foo></body>\n</message>"
+literal|"<body type=\"java.lang.String\">&lt;foo&gt;Camel&amp;gt; Donkey&lt;/foo&gt;</body>\n</message>"
 argument_list|,
 name|out
 argument_list|)
@@ -583,7 +583,7 @@ literal|"<header key=\"uid\" type=\"java.lang.Integer\">123</header>\n"
 operator|+
 literal|"<header key=\"user\" type=\"java.lang.Boolean\">false</header>\n</headers>\n"
 operator|+
-literal|"<body type=\"java.lang.String\"><animal><name>Donkey</name><age>17</age></animal></body>\n</message>"
+literal|"<body type=\"java.lang.String\">&lt;animal&gt;&lt;name&gt;Donkey&lt;/name&gt;&lt;age&gt;17&lt;/age&gt;&lt;/animal&gt;</body>\n</message>"
 argument_list|,
 name|out
 argument_list|)

@@ -1147,35 +1147,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// is the header value already XML
-if|if
-condition|(
-name|xml
-operator|.
-name|startsWith
-argument_list|(
-literal|"<"
-argument_list|)
-operator|&&
-name|xml
-operator|.
-name|endsWith
-argument_list|(
-literal|">"
-argument_list|)
-condition|)
-block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-name|xml
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// no its not xml so xml encode it
+comment|// must always xml encode
 name|sb
 operator|.
 name|append
@@ -1188,7 +1160,6 @@ name|xml
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|sb
@@ -1273,35 +1244,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// is the body already XML
-if|if
-condition|(
-name|xml
-operator|.
-name|startsWith
-argument_list|(
-literal|"<"
-argument_list|)
-operator|&&
-name|xml
-operator|.
-name|endsWith
-argument_list|(
-literal|">"
-argument_list|)
-condition|)
-block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-name|xml
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// no its not xml so xml encode it
+comment|// must always xml encode
 name|sb
 operator|.
 name|append
@@ -1314,7 +1257,6 @@ name|xml
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|sb
 operator|.
