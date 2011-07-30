@@ -215,7 +215,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:JmsAutoStartupTest.foo"
+literal|"activemq:queue:foo"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -282,7 +282,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"activemq:queue:JmsAutoStartupTest.foo?autoStartup=false"
+literal|"activemq:queue:foo?autoStartup=false"
 argument_list|,
 name|JmsEndpoint
 operator|.

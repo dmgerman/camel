@@ -170,7 +170,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -183,7 +183,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"B"
 argument_list|,
@@ -196,7 +196,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"C"
 argument_list|,
@@ -209,7 +209,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"D"
 argument_list|,
@@ -222,7 +222,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"E"
 argument_list|,
@@ -235,7 +235,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"F"
 argument_list|,
@@ -248,7 +248,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"G"
 argument_list|,
@@ -261,7 +261,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo?preserveMessageQos=true"
+literal|"jms:queue:foo?preserveMessageQos=true"
 argument_list|,
 literal|"H"
 argument_list|,
@@ -295,7 +295,7 @@ name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
-name|getSharedConnectionFactory
+name|createConnectionFactory
 argument_list|()
 decl_stmt|;
 name|camelContext
@@ -341,7 +341,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"jms:queue:JmsBatchResequencerJMSPriorityTest.foo"
+literal|"jms:queue:foo"
 argument_list|)
 comment|// sort by JMSPriority by allowing duplicates (message can have same JMSPriority)
 comment|// and use reverse ordering so 9 is first output (most important), and 0 is last

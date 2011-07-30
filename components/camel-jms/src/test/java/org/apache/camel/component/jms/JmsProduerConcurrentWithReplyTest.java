@@ -414,7 +414,7 @@ name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
-name|getSharedConnectionFactory
+name|createConnectionFactory
 argument_list|()
 decl_stmt|;
 name|camelContext
@@ -464,12 +464,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jms:queue:foo-JmsProduerConcurrentWithReplyTest"
+literal|"jms:queue:foo"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jms:queue:foo-JmsProduerConcurrentWithReplyTest?concurrentConsumers=5"
+literal|"jms:queue:foo?concurrentConsumers=5"
 argument_list|)
 operator|.
 name|transform

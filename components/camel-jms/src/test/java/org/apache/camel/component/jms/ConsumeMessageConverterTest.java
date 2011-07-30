@@ -206,7 +206,7 @@ name|jms
 operator|.
 name|JmsComponent
 operator|.
-name|jmsComponent
+name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
@@ -271,18 +271,23 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|ConnectionFactory
+name|connectionFactory
+init|=
+name|CamelJmsTestHelper
+operator|.
+name|createConnectionFactory
+argument_list|()
+decl_stmt|;
 name|camelContext
 operator|.
 name|addComponent
 argument_list|(
 literal|"activemq"
 argument_list|,
-name|jmsComponent
+name|jmsComponentAutoAcknowledge
 argument_list|(
-name|CamelJmsTestHelper
-operator|.
-name|getSharedConfig
-argument_list|()
+name|connectionFactory
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -336,7 +341,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:ConsumeMessageConverterTest.hello"
+literal|"activemq:queue:hello"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -391,7 +396,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:ConsumeMessageConverterTest.hello"
+literal|"activemq:queue:hello"
 argument_list|,
 literal|"Hello World"
 operator|.
@@ -425,7 +430,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"activemq:queue:ConsumeMessageConverterTest.hello?messageConverter=#myMessageConverter"
+literal|"activemq:queue:hello?messageConverter=#myMessageConverter"
 argument_list|)
 operator|.
 name|to
