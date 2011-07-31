@@ -1881,11 +1881,6 @@ if|if
 condition|(
 name|file
 operator|.
-name|isFile
-argument_list|()
-operator|&&
-name|file
-operator|.
 name|exists
 argument_list|()
 condition|)
