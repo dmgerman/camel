@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -70,7 +58,7 @@ specifier|public
 class|class
 name|VmQueueTest
 extends|extends
-name|ContextTestSupport
+name|AbstractVmTestSupport
 block|{
 DECL|method|testQueue ()
 specifier|public
@@ -101,7 +89,7 @@ argument_list|,
 literal|"Bar"
 argument_list|)
 expr_stmt|;
-name|template
+name|template2
 operator|.
 name|sendBody
 argument_list|(
@@ -110,7 +98,7 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|template
+name|template2
 operator|.
 name|sendBody
 argument_list|(
@@ -119,7 +107,7 @@ argument_list|,
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-name|template
+name|template2
 operator|.
 name|sendBody
 argument_list|(
@@ -164,7 +152,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"vm:foo?concurrentConsumers=2"
+literal|"vm:bar"
 argument_list|)
 operator|.
 name|to
@@ -172,9 +160,37 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createRouteBuilderForSecondContext ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilderForSecondContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|from
 argument_list|(
-literal|"vm:bar"
+literal|"vm:foo?concurrentConsumers=2"
 argument_list|)
 operator|.
 name|to

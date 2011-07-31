@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -70,7 +58,7 @@ specifier|public
 class|class
 name|VmConcurrentConsumersTest
 extends|extends
-name|ContextTestSupport
+name|AbstractVmTestSupport
 block|{
 DECL|method|testSendToSeda ()
 specifier|public
@@ -95,7 +83,7 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|template
+name|template2
 operator|.
 name|sendBody
 argument_list|(
