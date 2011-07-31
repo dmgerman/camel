@@ -22,9 +22,33 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|saxon
+operator|.
+name|query
+operator|.
+name|ModuleURIResolver
 import|;
 end_import
 
@@ -83,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/xquery.html">XQuery Component</a>  * for performing transforming messages  *  * @version   */
+comment|/**  * An<a href="http://camel.apache.org/xquery.html">XQuery Component</a>  * for performing transforming messages  */
 end_comment
 
 begin_class
@@ -94,6 +118,17 @@ name|XQueryComponent
 extends|extends
 name|ResourceBasedComponent
 block|{
+DECL|field|moduleURIResolver
+specifier|private
+name|ModuleURIResolver
+name|moduleURIResolver
+init|=
+operator|new
+name|XQueryModuleURIResolver
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -148,6 +183,14 @@ name|getURL
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|xslt
+operator|.
+name|setModuleURIResolver
+argument_list|(
+name|getModuleURIResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|configureXslt
 argument_list|(
 name|xslt
@@ -202,6 +245,53 @@ name|xQueryBuilder
 argument_list|,
 name|parameters
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|resolveModuleResource (String uri)
+specifier|public
+name|URL
+name|resolveModuleResource
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|resolveMandatoryResource
+argument_list|(
+name|uri
+argument_list|)
+operator|.
+name|getURL
+argument_list|()
+return|;
+block|}
+DECL|method|getModuleURIResolver ()
+specifier|public
+name|ModuleURIResolver
+name|getModuleURIResolver
+parameter_list|()
+block|{
+return|return
+name|moduleURIResolver
+return|;
+block|}
+DECL|method|setModuleURIResolver (ModuleURIResolver moduleURIResolver)
+specifier|public
+name|void
+name|setModuleURIResolver
+parameter_list|(
+name|ModuleURIResolver
+name|moduleURIResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|moduleURIResolver
+operator|=
+name|moduleURIResolver
 expr_stmt|;
 block|}
 block|}
