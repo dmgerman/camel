@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for tests that use authentication/authorization in the repository.  * Ensures that the transient repo is set up properly for each test.  *   * @author Paul Mietz Egli  *   */
+comment|/**  * Base class for tests that use authentication/authorization in the repository.  * Ensures that the transient repo is set up properly for each test.  */
 end_comment
 
 begin_class
