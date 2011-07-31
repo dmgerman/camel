@@ -1914,11 +1914,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|file
+operator|.
+name|isFile
+argument_list|()
+operator|&&
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Deletion of file: "
+operator|+
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|" failed"
+argument_list|,
 name|file
 operator|.
 name|delete
 argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * create the directory      *      * @param file the directory to be created      */
 DECL|method|createDirectory (String file)
