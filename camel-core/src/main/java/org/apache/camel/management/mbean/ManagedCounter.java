@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|management
 operator|.
-name|ManagementStrategy
+name|Statistic
 import|;
 end_import
 
@@ -36,13 +36,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|fusesource
+name|apache
 operator|.
-name|commons
+name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|Statistic
+name|ManagementStrategy
 import|;
 end_import
 

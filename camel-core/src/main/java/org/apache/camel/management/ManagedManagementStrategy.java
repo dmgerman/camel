@@ -274,36 +274,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|fusesource
-operator|.
-name|commons
-operator|.
-name|management
-operator|.
-name|Statistic
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|fusesource
-operator|.
-name|commons
-operator|.
-name|management
-operator|.
-name|basic
-operator|.
-name|StatisticImpl
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -405,7 +375,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|manageNamedObject (Object managedObject, Object preferedName)
+DECL|method|manageNamedObject (Object managedObject, Object preferredName)
 specifier|public
 name|void
 name|manageNamedObject
@@ -414,7 +384,7 @@ name|Object
 name|managedObject
 parameter_list|,
 name|Object
-name|preferedName
+name|preferredName
 parameter_list|)
 throws|throws
 name|Exception
@@ -426,7 +396,7 @@ name|getObjectName
 argument_list|(
 name|managedObject
 argument_list|,
-name|preferedName
+name|preferredName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1027,13 +997,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|isManaged (Object managableObject, Object name)
+DECL|method|isManaged (Object managedObject, Object name)
 specifier|public
 name|boolean
 name|isManaged
 parameter_list|(
 name|Object
-name|managableObject
+name|managedObject
 parameter_list|,
 name|Object
 name|name
@@ -1046,7 +1016,7 @@ name|objectName
 init|=
 name|getObjectName
 argument_list|(
-name|managableObject
+name|managedObject
 argument_list|,
 name|name
 argument_list|)
@@ -1128,7 +1098,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|StatisticImpl
+name|DefaultStatistic
 argument_list|(
 name|updateMode
 argument_list|)

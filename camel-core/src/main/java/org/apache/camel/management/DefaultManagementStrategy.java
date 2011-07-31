@@ -194,20 +194,6 @@ name|ServiceHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|fusesource
-operator|.
-name|commons
-operator|.
-name|management
-operator|.
-name|Statistic
-import|;
-end_import
-
 begin_comment
 comment|/**  * A default management strategy that does<b>not</b> manage.  *<p/>  * This is default only used if Camel detects that it cannot use the JMX capable  * {@link org.apache.camel.management.ManagedManagementStrategy} strategy. Then Camel will  * fallback to use this instead that is basically a simple and<tt>noop</tt> strategy.  *<p/>  * This class can also be used to extend your custom management implement. In fact the JMX capable  * provided by Camel extends this class as well.  *  * @see ManagedManagementStrategy  * @version   */
 end_comment
@@ -534,7 +520,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
-DECL|method|manageNamedObject (Object managedObject, Object preferedName)
+DECL|method|manageNamedObject (Object managedObject, Object preferredName)
 specifier|public
 name|void
 name|manageNamedObject
@@ -543,7 +529,7 @@ name|Object
 name|managedObject
 parameter_list|,
 name|Object
-name|preferedName
+name|preferredName
 parameter_list|)
 throws|throws
 name|Exception

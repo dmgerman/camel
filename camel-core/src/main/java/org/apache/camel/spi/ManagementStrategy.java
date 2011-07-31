@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|EventObject
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -58,6 +68,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|management
+operator|.
+name|Statistic
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ProcessorDefinition
@@ -74,18 +98,118 @@ specifier|public
 interface|interface
 name|ManagementStrategy
 extends|extends
-name|org
-operator|.
-name|fusesource
-operator|.
-name|commons
-operator|.
-name|management
-operator|.
-name|ManagementStrategy
-extends|,
 name|Service
 block|{
+comment|/**      * Adds a managed object allowing the ManagementStrategy implementation to record or expose      * the object as it sees fit.      *      * @param managedObject the managed object      * @throws Exception can be thrown if the object could not be added      */
+DECL|method|manageObject (Object managedObject)
+name|void
+name|manageObject
+parameter_list|(
+name|Object
+name|managedObject
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Adds a managed object allowing the ManagementStrategy implementation      * to record or expose the object as it sees fit.      *      * @param managedObject the managed object      * @param preferredName representing the preferred name, maybe a String, or a JMX ObjectName      * @throws Exception can be thrown if the object could not be added      */
+DECL|method|manageNamedObject (Object managedObject, Object preferredName)
+name|void
+name|manageNamedObject
+parameter_list|(
+name|Object
+name|managedObject
+parameter_list|,
+name|Object
+name|preferredName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Construct an object name, where either the object to be managed and/or      * a custom name component are provided      *      * @param managedObject the object to be managed      * @param customName a custom name component      * @param nameType the name type required      * @return an object name of the required type if supported, otherwise<tt>null</tt>      * @throws Exception can be thrown if the object name could not be created      */
+DECL|method|getManagedObjectName (Object managedObject, String customName, Class<T> nameType)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getManagedObjectName
+parameter_list|(
+name|Object
+name|managedObject
+parameter_list|,
+name|String
+name|customName
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|nameType
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes the managed object.      *      * @param managedObject the managed object      * @throws Exception can be thrown if the object could not be removed      */
+DECL|method|unmanageObject (Object managedObject)
+name|void
+name|unmanageObject
+parameter_list|(
+name|Object
+name|managedObject
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes a managed object by name.      *      * @param name an object name previously created by this strategy.      * @throws Exception can be thrown if the object could not be removed      */
+DECL|method|unmanageNamedObject (Object name)
+name|void
+name|unmanageNamedObject
+parameter_list|(
+name|Object
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Determines if an object or name is managed.      *      * @param managedObject the object to consider      * @param name the name to consider      * @return<tt>true</tt> if the given object or name is managed      */
+DECL|method|isManaged (Object managedObject, Object name)
+name|boolean
+name|isManaged
+parameter_list|(
+name|Object
+name|managedObject
+parameter_list|,
+name|Object
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Management events provide a single model for capturing information about execution points in the      * application code. Management strategy implementations decide if and where to record these events.      * Applications communicate events to management strategy implementations via the notify(EventObject)      * method.      *      * @param event the event      * @throws Exception can be thrown if the notification failed      */
+DECL|method|notify (EventObject event)
+name|void
+name|notify
+parameter_list|(
+name|EventObject
+name|event
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Creates a statistic; a representation of raw statistical data.      *      * @param name The unique name assigned to the statistic usage.      * @param owner The object whose identity is to be associated with the metric.      * @param updateMode The update mode to be assigned to the returned statistic.      * @return the statistic      *      * @see Statistic.UpdateMode      */
+DECL|method|createStatistic (String name, Object owner, Statistic.UpdateMode updateMode)
+name|Statistic
+name|createStatistic
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|owner
+parameter_list|,
+name|Statistic
+operator|.
+name|UpdateMode
+name|updateMode
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the event notifiers.      *      * @return event notifiers      */
 DECL|method|getEventNotifiers ()
 name|List
