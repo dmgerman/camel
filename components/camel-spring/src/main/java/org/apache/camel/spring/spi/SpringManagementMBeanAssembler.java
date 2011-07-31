@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.spring.spi
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spring
+operator|.
+name|spi
 package|;
 end_package
 
@@ -66,6 +68,18 @@ name|management
 operator|.
 name|modelmbean
 operator|.
+name|ModelMBean
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|modelmbean
+operator|.
 name|ModelMBeanInfo
 import|;
 end_import
@@ -79,6 +93,20 @@ operator|.
 name|modelmbean
 operator|.
 name|RequiredModelMBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
+name|DefaultManagementMBeanAssembler
 import|;
 end_import
 
@@ -109,26 +137,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 
@@ -181,56 +189,30 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.RequiredModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Spring JMX annotations to  * gather the list of JMX operations and attributes.  *  * @version   */
+comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Spring JMX annotations to  * gather the list of JMX operations and attributes.  *  */
 end_comment
 
 begin_class
-DECL|class|JmxMBeanAssembler
+DECL|class|SpringManagementMBeanAssembler
 specifier|public
 class|class
-name|JmxMBeanAssembler
+name|SpringManagementMBeanAssembler
+extends|extends
+name|DefaultManagementMBeanAssembler
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JmxMBeanAssembler
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|assembler
 specifier|private
 specifier|final
 name|MetadataMBeanInfoAssembler
 name|assembler
 decl_stmt|;
-DECL|field|server
-specifier|private
-specifier|final
-name|MBeanServer
-name|server
-decl_stmt|;
-DECL|method|JmxMBeanAssembler (MBeanServer server)
+DECL|method|SpringManagementMBeanAssembler ()
 specifier|public
-name|JmxMBeanAssembler
-parameter_list|(
-name|MBeanServer
-name|server
-parameter_list|)
+name|SpringManagementMBeanAssembler
+parameter_list|()
 block|{
-name|this
-operator|.
-name|server
-operator|=
-name|server
+name|super
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -252,11 +234,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assemble (Object obj, ObjectName name)
+DECL|method|assemble (MBeanServer mBeanServer, Object obj, ObjectName name)
 specifier|public
-name|RequiredModelMBean
+name|ModelMBean
 name|assemble
 parameter_list|(
+name|MBeanServer
+name|mBeanServer
+parameter_list|,
 name|Object
 name|obj
 parameter_list|,
@@ -266,6 +251,32 @@ parameter_list|)
 throws|throws
 name|JMException
 block|{
+comment|// try the default first, and if it could assemble the object, then use that as is
+name|ModelMBean
+name|mbean
+init|=
+name|super
+operator|.
+name|assemble
+argument_list|(
+name|mBeanServer
+argument_list|,
+name|obj
+argument_list|,
+name|name
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mbean
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|mbean
+return|;
+block|}
 name|ModelMBeanInfo
 name|mbi
 init|=
@@ -316,7 +327,7 @@ name|class
 argument_list|)
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -357,7 +368,7 @@ literal|null
 condition|)
 block|{
 comment|// use the default provided mbean which has been annotated with Spring JMX annotations
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -383,13 +394,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|RequiredModelMBean
 name|mbean
-init|=
+operator|=
 operator|(
 name|RequiredModelMBean
 operator|)
-name|server
+name|mBeanServer
 operator|.
 name|instantiate
 argument_list|(
@@ -400,7 +410,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|mbean
 operator|.
 name|setModelMBeanInfo

@@ -328,6 +328,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ManagementMBeanAssembler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ManagementStrategy
 import|;
 end_import
@@ -1026,6 +1040,12 @@ name|Injector
 name|getInjector
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the management mbean assembler      *      * @return the mbean assembler      */
+DECL|method|getManagementMBeanAssembler ()
+name|ManagementMBeanAssembler
+name|getManagementMBeanAssembler
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the lifecycle strategies used to handle lifecycle notifications      *      * @return the lifecycle strategies      */
 DECL|method|getLifecycleStrategies ()
 name|List
@@ -1396,19 +1416,19 @@ name|ShutdownStrategy
 name|shutdownStrategy
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @return the strategy      */
+comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceManager}      *      * @return the manager      */
 DECL|method|getExecutorServiceManager ()
 name|ExecutorServiceManager
 name|getExecutorServiceManager
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a custom {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @param executorServiceStrategy the custom strategy      */
-DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceStrategy)
+comment|/**      * Sets a custom {@link org.apache.camel.spi.ExecutorServiceManager}      *      * @param executorServiceManager the custom manager      */
+DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceManager)
 name|void
 name|setExecutorServiceManager
 parameter_list|(
 name|ExecutorServiceManager
-name|executorServiceStrategy
+name|executorServiceManager
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the current {@link org.apache.camel.spi.ProcessorFactory}      *      * @return the factory, can be<tt>null</tt> if no custom factory has been set      */

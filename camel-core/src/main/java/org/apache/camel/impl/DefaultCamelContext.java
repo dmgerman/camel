@@ -668,6 +668,20 @@ name|camel
 operator|.
 name|management
 operator|.
+name|DefaultManagementMBeanAssembler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|management
+operator|.
 name|DefaultManagementStrategy
 import|;
 end_import
@@ -1071,6 +1085,20 @@ operator|.
 name|spi
 operator|.
 name|LifecycleStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ManagementMBeanAssembler
 import|;
 end_import
 
@@ -1619,6 +1647,11 @@ DECL|field|managementStrategy
 specifier|private
 name|ManagementStrategy
 name|managementStrategy
+decl_stmt|;
+DECL|field|managementMBeanAssembler
+specifier|private
+name|ManagementMBeanAssembler
+name|managementMBeanAssembler
 decl_stmt|;
 DECL|field|managementStrategyInitialized
 specifier|private
@@ -5970,6 +6003,45 @@ operator|.
 name|injector
 operator|=
 name|injector
+expr_stmt|;
+block|}
+DECL|method|getManagementMBeanAssembler ()
+specifier|public
+name|ManagementMBeanAssembler
+name|getManagementMBeanAssembler
+parameter_list|()
+block|{
+if|if
+condition|(
+name|managementMBeanAssembler
+operator|==
+literal|null
+condition|)
+block|{
+name|managementMBeanAssembler
+operator|=
+name|createManagementMBeanAssembler
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|managementMBeanAssembler
+return|;
+block|}
+DECL|method|setManagementMBeanAssembler (ManagementMBeanAssembler managementMBeanAssembler)
+specifier|public
+name|void
+name|setManagementMBeanAssembler
+parameter_list|(
+name|ManagementMBeanAssembler
+name|managementMBeanAssembler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|managementMBeanAssembler
+operator|=
+name|managementMBeanAssembler
 expr_stmt|;
 block|}
 DECL|method|getComponentResolver ()
@@ -10440,6 +10512,25 @@ name|ReflectionInjector
 argument_list|()
 return|;
 block|}
+block|}
+end_function
+
+begin_comment
+comment|/**      * Lazily create a default implementation      */
+end_comment
+
+begin_function
+DECL|method|createManagementMBeanAssembler ()
+specifier|protected
+name|ManagementMBeanAssembler
+name|createManagementMBeanAssembler
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultManagementMBeanAssembler
+argument_list|()
+return|;
 block|}
 end_function
 

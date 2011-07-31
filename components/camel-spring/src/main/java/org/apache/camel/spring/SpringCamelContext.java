@@ -128,6 +128,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ManagementMBeanAssembler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -161,6 +175,22 @@ operator|.
 name|spi
 operator|.
 name|SpringInjector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|spi
+operator|.
+name|SpringManagementMBeanAssembler
 import|;
 end_import
 
@@ -396,7 +426,11 @@ DECL|method|SpringCamelContext ()
 specifier|public
 name|SpringCamelContext
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|SpringCamelContext (ApplicationContext applicationContext)
 specifier|public
 name|SpringCamelContext
@@ -405,6 +439,9 @@ name|ApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|setApplicationContext
 argument_list|(
 name|applicationContext
@@ -894,6 +931,21 @@ name|createInjector
 argument_list|()
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|createManagementMBeanAssembler ()
+specifier|protected
+name|ManagementMBeanAssembler
+name|createManagementMBeanAssembler
+parameter_list|()
+block|{
+comment|// use a spring mbean assembler
+return|return
+operator|new
+name|SpringManagementMBeanAssembler
+argument_list|()
+return|;
 block|}
 DECL|method|createEventEndpoint ()
 specifier|protected
