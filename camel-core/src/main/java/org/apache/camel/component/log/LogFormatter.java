@@ -218,6 +218,11 @@ specifier|private
 name|boolean
 name|showStreams
 decl_stmt|;
+DECL|field|showFiles
+specifier|private
+name|boolean
+name|showFiles
+decl_stmt|;
 DECL|field|maxChars
 specifier|private
 name|int
@@ -1365,11 +1370,38 @@ operator|=
 name|showStreams
 expr_stmt|;
 block|}
+DECL|method|isShowFiles ()
+specifier|public
+name|boolean
+name|isShowFiles
+parameter_list|()
+block|{
+return|return
+name|showFiles
+return|;
+block|}
+comment|/**      * If enabled Camel will output files      *<p/>      * Is default disabled.      */
+DECL|method|setShowFiles (boolean showFiles)
+specifier|public
+name|void
+name|setShowFiles
+parameter_list|(
+name|boolean
+name|showFiles
+parameter_list|)
+block|{
+name|this
+operator|.
+name|showFiles
+operator|=
+name|showFiles
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|getBodyAsString (Message message)
 specifier|protected
-name|Object
+name|String
 name|getBodyAsString
 parameter_list|(
 name|Message
@@ -1405,7 +1437,6 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|// is the body a stream cache then we can log it
 return|return
 name|MessageHelper
 operator|.
@@ -1418,6 +1449,9 @@ argument_list|,
 name|isShowStreams
 argument_list|()
 argument_list|,
+name|isShowFiles
+argument_list|()
+argument_list|,
 operator|-
 literal|1
 argument_list|)
@@ -1425,7 +1459,7 @@ return|;
 block|}
 DECL|method|getBodyTypeAsString (Message message)
 specifier|protected
-name|Object
+name|String
 name|getBodyTypeAsString
 parameter_list|(
 name|Message

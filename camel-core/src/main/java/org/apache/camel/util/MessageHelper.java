@@ -72,6 +72,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|AbstractList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -641,12 +651,14 @@ name|prepend
 argument_list|,
 name|streams
 argument_list|,
+literal|false
+argument_list|,
 name|maxChars
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param maxChars limit to maximum number of chars. Use 0 or negative value to not limit at all.      * @return the logging message      */
-DECL|method|extractBodyForLogging (Message message, String prepend, boolean allowStreams, int maxChars)
+comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed      * @param maxChars limit to maximum number of chars. Use 0 or negative value to not limit at all.      * @return the logging message      */
+DECL|method|extractBodyForLogging (Message message, String prepend, boolean allowStreams, boolean allowFiles, int maxChars)
 specifier|public
 specifier|static
 name|String
@@ -660,6 +672,9 @@ name|prepend
 parameter_list|,
 name|boolean
 name|allowStreams
+parameter_list|,
+name|boolean
+name|allowFiles
 parameter_list|,
 name|int
 name|maxChars
@@ -804,6 +819,10 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|allowFiles
+operator|&&
+operator|(
 name|obj
 operator|instanceof
 name|GenericFile
@@ -811,6 +830,7 @@ operator|||
 name|obj
 operator|instanceof
 name|File
+operator|)
 condition|)
 block|{
 return|return
@@ -1225,16 +1245,23 @@ literal|">"
 argument_list|)
 expr_stmt|;
 comment|// dump body value as XML, use Camel type converter to convert to String
+comment|// do not allow streams, but allow files, and clip very big message bodies (128kb)
 name|String
 name|xml
 init|=
-name|message
-operator|.
-name|getBody
+name|extractBodyForLogging
 argument_list|(
-name|String
-operator|.
-name|class
+name|message
+argument_list|,
+literal|""
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+literal|128
+operator|*
+literal|1024
 argument_list|)
 decl_stmt|;
 if|if
