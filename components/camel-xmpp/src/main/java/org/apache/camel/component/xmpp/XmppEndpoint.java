@@ -677,11 +677,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|createConnection ()
 specifier|public
 name|XMPPConnection
