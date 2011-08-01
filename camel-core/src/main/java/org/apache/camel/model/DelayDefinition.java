@@ -265,8 +265,6 @@ DECL|field|executorServiceRef
 specifier|private
 name|String
 name|executorServiceRef
-init|=
-literal|"Delay"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -401,6 +399,17 @@ name|getAsyncDelayed
 argument_list|()
 condition|)
 block|{
+name|String
+name|ref
+init|=
+name|executorServiceRef
+operator|!=
+literal|null
+condition|?
+name|executorServiceRef
+else|:
+literal|"Delay"
+decl_stmt|;
 name|ExecutorServiceManager
 name|manager
 init|=
@@ -418,7 +427,7 @@ name|manager
 operator|.
 name|getScheduledExecutorService
 argument_list|(
-name|executorServiceRef
+name|ref
 argument_list|,
 name|this
 argument_list|)

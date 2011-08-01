@@ -460,8 +460,6 @@ DECL|field|executorServiceRef
 specifier|private
 name|String
 name|executorServiceRef
-init|=
-literal|"Aggregator"
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -553,6 +551,9 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|predicate
@@ -579,6 +580,9 @@ name|Expression
 name|correlationExpression
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|correlationExpression
@@ -605,6 +609,9 @@ name|ExpressionDefinition
 name|correlationExpression
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|expression
@@ -787,6 +794,17 @@ operator|==
 literal|null
 condition|)
 block|{
+name|String
+name|ref
+init|=
+name|executorServiceRef
+operator|!=
+literal|null
+condition|?
+name|executorServiceRef
+else|:
+literal|"Aggregator"
+decl_stmt|;
 comment|// executor service is mandatory for the Aggregator
 name|ExecutorServiceManager
 name|executorServiceManager
@@ -811,7 +829,7 @@ name|executorServiceManager
 operator|.
 name|getDefaultExecutorService
 argument_list|(
-name|executorServiceRef
+name|ref
 argument_list|,
 name|this
 argument_list|)
@@ -825,7 +843,7 @@ name|executorServiceManager
 operator|.
 name|newSynchronousExecutorService
 argument_list|(
-name|executorServiceRef
+name|ref
 argument_list|,
 name|this
 argument_list|)
