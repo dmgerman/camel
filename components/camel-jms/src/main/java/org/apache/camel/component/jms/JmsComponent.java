@@ -1033,6 +1033,24 @@ name|idleTaskExecutionLimit
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setIdleConsumerLimit (int idleConsumerLimit)
+specifier|public
+name|void
+name|setIdleConsumerLimit
+parameter_list|(
+name|int
+name|idleConsumerLimit
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setIdleConsumerLimit
+argument_list|(
+name|idleConsumerLimit
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setMaxConcurrentConsumers (int maxConcurrentConsumers)
 specifier|public
 name|void

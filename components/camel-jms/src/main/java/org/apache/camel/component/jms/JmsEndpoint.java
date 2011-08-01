@@ -2294,6 +2294,22 @@ name|getIdleTaskExecutionLimit
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getIdleConsumerLimit ()
+specifier|public
+name|int
+name|getIdleConsumerLimit
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getIdleConsumerLimit
+argument_list|()
+return|;
+block|}
 DECL|method|getJmsOperations ()
 specifier|public
 name|JmsOperations
@@ -3220,6 +3236,26 @@ operator|.
 name|setIdleTaskExecutionLimit
 argument_list|(
 name|idleTaskExecutionLimit
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setIdleConsumerLimit (int idleConsumerLimit)
+specifier|public
+name|void
+name|setIdleConsumerLimit
+parameter_list|(
+name|int
+name|idleConsumerLimit
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setIdleConsumerLimit
+argument_list|(
+name|idleConsumerLimit
 argument_list|)
 expr_stmt|;
 block|}
