@@ -799,22 +799,6 @@ return|return
 name|outHeaders
 return|;
 block|}
-DECL|method|setOutHeaders (String outHeaders)
-specifier|public
-name|void
-name|setOutHeaders
-parameter_list|(
-name|String
-name|outHeaders
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outHeaders
-operator|=
-name|outHeaders
-expr_stmt|;
-block|}
 DECL|method|getCausedByException ()
 specifier|public
 name|String
@@ -1047,6 +1031,22 @@ operator|.
 name|outBodyType
 operator|=
 name|outBodyType
+expr_stmt|;
+block|}
+DECL|method|setOutHeaders (String outHeaders)
+specifier|public
+name|void
+name|setOutHeaders
+parameter_list|(
+name|String
+name|outHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outHeaders
+operator|=
+name|outHeaders
 expr_stmt|;
 block|}
 DECL|method|setCausedByException (String causedByException)

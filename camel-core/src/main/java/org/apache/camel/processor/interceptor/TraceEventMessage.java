@@ -79,6 +79,11 @@ name|String
 name|getExchangeId
 parameter_list|()
 function_decl|;
+DECL|method|getRouteId ()
+name|String
+name|getRouteId
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the exchange id without the leading hostname      */
 DECL|method|getShortExchangeId ()
 name|String
@@ -118,6 +123,11 @@ function_decl|;
 DECL|method|getOutBodyType ()
 name|String
 name|getOutBodyType
+parameter_list|()
+function_decl|;
+DECL|method|getOutHeaders ()
+name|String
+name|getOutHeaders
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the caused by exception (ie {@link org.apache.camel.Exchange#getException() Exchange#getException()}.      */
