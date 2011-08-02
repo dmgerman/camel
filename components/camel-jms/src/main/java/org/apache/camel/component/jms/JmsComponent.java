@@ -275,6 +275,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|ErrorHandler
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -976,6 +988,24 @@ operator|.
 name|setExceptionListener
 argument_list|(
 name|exceptionListener
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setErrorHandler (ErrorHandler errorHandler)
+specifier|public
+name|void
+name|setErrorHandler
+parameter_list|(
+name|ErrorHandler
+name|errorHandler
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setErrorHandler
+argument_list|(
+name|errorHandler
 argument_list|)
 expr_stmt|;
 block|}

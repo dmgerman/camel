@@ -562,6 +562,18 @@ name|PlatformTransactionManager
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|ErrorHandler
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  *  * @version   */
 end_comment
@@ -2363,6 +2375,20 @@ name|getExceptionListener
 argument_list|()
 return|;
 block|}
+DECL|method|getErrorHandler ()
+specifier|public
+name|ErrorHandler
+name|getErrorHandler
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getErrorHandler
+argument_list|()
+return|;
+block|}
 annotation|@
 name|ManagedAttribute
 DECL|method|getIdleTaskExecutionLimit ()
@@ -3261,6 +3287,24 @@ operator|.
 name|setExceptionListener
 argument_list|(
 name|exceptionListener
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setErrorHandler (ErrorHandler errorHandler)
+specifier|public
+name|void
+name|setErrorHandler
+parameter_list|(
+name|ErrorHandler
+name|errorHandler
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setErrorHandler
+argument_list|(
+name|errorHandler
 argument_list|)
 expr_stmt|;
 block|}

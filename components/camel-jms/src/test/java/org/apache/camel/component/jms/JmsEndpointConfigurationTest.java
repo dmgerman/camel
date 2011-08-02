@@ -245,6 +245,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|ErrorHandler
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1257,6 +1269,14 @@ name|getExceptionListener
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertNull
+argument_list|(
+name|endpoint
+operator|.
+name|getErrorHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -1927,6 +1947,33 @@ argument_list|(
 name|endpoint
 operator|.
 name|getExceptionListener
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setErrorHandler
+argument_list|(
+operator|new
+name|ErrorHandler
+argument_list|()
+block|{
+specifier|public
+name|void
+name|handleError
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{             }
+block|}
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|endpoint
+operator|.
+name|getErrorHandler
 argument_list|()
 argument_list|)
 expr_stmt|;

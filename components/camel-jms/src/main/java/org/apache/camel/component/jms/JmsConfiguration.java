@@ -315,6 +315,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|ErrorHandler
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -440,6 +452,11 @@ DECL|field|exceptionListener
 specifier|private
 name|ExceptionListener
 name|exceptionListener
+decl_stmt|;
+DECL|field|errorHandler
+specifier|private
+name|ErrorHandler
+name|errorHandler
 decl_stmt|;
 DECL|field|autoStartup
 specifier|private
@@ -2172,6 +2189,32 @@ operator|=
 name|exceptionListener
 expr_stmt|;
 block|}
+DECL|method|setErrorHandler (ErrorHandler errorHandler)
+specifier|public
+name|void
+name|setErrorHandler
+parameter_list|(
+name|ErrorHandler
+name|errorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandler
+operator|=
+name|errorHandler
+expr_stmt|;
+block|}
+DECL|method|getErrorHandler ()
+specifier|public
+name|ErrorHandler
+name|getErrorHandler
+parameter_list|()
+block|{
+return|return
+name|errorHandler
+return|;
+block|}
 annotation|@
 name|Deprecated
 DECL|method|isSubscriptionDurable ()
@@ -3381,6 +3424,21 @@ operator|.
 name|setExceptionListener
 argument_list|(
 name|exceptionListener
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|errorHandler
+operator|!=
+literal|null
+condition|)
+block|{
+name|container
+operator|.
+name|setErrorHandler
+argument_list|(
+name|errorHandler
 argument_list|)
 expr_stmt|;
 block|}
