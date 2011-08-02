@@ -134,11 +134,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Disabled unit jibx bundles is in central maven repo"
-argument_list|)
 DECL|class|CamelJibxTest
 specifier|public
 class|class
