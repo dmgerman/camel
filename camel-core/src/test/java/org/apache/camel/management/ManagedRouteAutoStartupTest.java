@@ -118,12 +118,71 @@ name|on
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        String name = (String) mbeanServer.getAttribute(on, "CamelId");
-comment|//        assertEquals("camel-1", name);
-comment|//        String state = (String) mbeanServer.getAttribute(onFoo, "State");
-comment|//        assertEquals("Stopped", state);
-comment|//        state = (String) mbeanServer.getAttribute(onBar, "State");
-comment|//        assertEquals("Started", state);
+name|String
+name|name
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"CamelId"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"camel-1"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+name|String
+name|state
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|onFoo
+argument_list|,
+literal|"State"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Stopped"
+argument_list|,
+name|state
+argument_list|)
+expr_stmt|;
+name|state
+operator|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|onBar
+argument_list|,
+literal|"State"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Started"
+argument_list|,
+name|state
+argument_list|)
+expr_stmt|;
 comment|// start the route
 name|mbeanServer
 operator|.
@@ -138,8 +197,27 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//        state = (String) mbeanServer.getAttribute(onFoo, "State");
-comment|//        assertEquals("Started", state);
+name|state
+operator|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|onFoo
+argument_list|,
+literal|"State"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Started"
+argument_list|,
+name|state
+argument_list|)
+expr_stmt|;
 name|Object
 name|reply
 init|=
