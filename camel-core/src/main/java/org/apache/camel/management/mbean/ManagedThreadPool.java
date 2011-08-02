@@ -627,12 +627,12 @@ name|description
 operator|=
 literal|"Keep alive time in seconds"
 argument_list|)
-DECL|method|setKeepAliveTime (int keepAliveTimeInSeconds)
+DECL|method|setKeepAliveTime (long keepAliveTimeInSeconds)
 specifier|public
 name|void
 name|setKeepAliveTime
 parameter_list|(
-name|int
+name|long
 name|keepAliveTimeInSeconds
 parameter_list|)
 block|{
