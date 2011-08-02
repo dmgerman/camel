@@ -84,38 +84,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jmx
-operator|.
-name|export
-operator|.
-name|annotation
-operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jmx
-operator|.
-name|export
-operator|.
-name|annotation
-operator|.
-name|ManagedResource
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -321,6 +289,8 @@ comment|// START SNIPPET: e1
 annotation|@
 name|ManagedResource
 argument_list|(
+name|description
+operator|=
 literal|"My Managed Component"
 argument_list|)
 DECL|class|MyCustomProcessor

@@ -158,54 +158,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jmx
-operator|.
-name|export
-operator|.
-name|annotation
-operator|.
-name|AnnotationJmxAttributeSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jmx
-operator|.
-name|export
-operator|.
-name|annotation
-operator|.
-name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jmx
-operator|.
-name|export
-operator|.
-name|assembler
-operator|.
-name|MetadataMBeanInfoAssembler
-import|;
-end_import
-
 begin_comment
 comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Camel JMX annotations to  * gather the list of JMX operations and attributes.  *  * @version   */
 end_comment
@@ -235,11 +187,9 @@ decl_stmt|;
 DECL|field|assembler
 specifier|private
 specifier|final
-name|MetadataMBeanInfoAssembler
+name|MBeanInfoAssembler
 name|assembler
 decl_stmt|;
-comment|// TODO: Introduce Camel JMX annotations and implement logic to assemble from those JMX annotations
-comment|// TODO: Remove spring logic when no longer needed
 DECL|method|DefaultManagementMBeanAssembler ()
 specifier|public
 name|DefaultManagementMBeanAssembler
@@ -250,19 +200,8 @@ operator|.
 name|assembler
 operator|=
 operator|new
-name|MetadataMBeanInfoAssembler
+name|MBeanInfoAssembler
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|assembler
-operator|.
-name|setAttributeSource
-argument_list|(
-operator|new
-name|AnnotationJmxAttributeSource
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|assemble (MBeanServer mBeanServer, Object obj, ObjectName name)

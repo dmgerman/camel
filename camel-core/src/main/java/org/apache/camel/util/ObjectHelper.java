@@ -4393,6 +4393,46 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Gets the annotation from the given instance.      *      * @param instance the instance      * @param type  the annotation      * @return the annotation, or<tt>null</tt> if the instance does not have the given annotation      */
+DECL|method|getAnnotation (Object instance, Class<A> type)
+specifier|public
+specifier|static
+parameter_list|<
+name|A
+extends|extends
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Annotation
+parameter_list|>
+name|A
+name|getAnnotation
+parameter_list|(
+name|Object
+name|instance
+parameter_list|,
+name|Class
+argument_list|<
+name|A
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|instance
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getAnnotation
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      * @deprecated will be removed in Camel 3.0. Instead use {@link org.apache.camel.util.IOHelper#close(java.io.Closeable, String, org.slf4j.Logger)} instead      */
 annotation|@
 name|Deprecated

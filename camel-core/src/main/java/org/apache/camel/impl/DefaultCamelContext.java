@@ -11875,37 +11875,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NoClassDefFoundError
-name|e
-parameter_list|)
-block|{
-name|answer
-operator|=
-literal|null
-expr_stmt|;
-comment|// if we can't instantiate the JMX enabled strategy then fallback to default
-comment|// could be because of missing .jars on the classpath
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot find needed classes for JMX lifecycle strategy."
-operator|+
-literal|" Needed class is in spring-context.jar using Spring 2.5 or newer"
-operator|+
-literal|" (spring-jmx.jar using Spring 2.0.x)."
-operator|+
-literal|" NoClassDefFoundError: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|Exception
 name|e
 parameter_list|)

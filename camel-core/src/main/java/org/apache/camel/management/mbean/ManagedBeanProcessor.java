@@ -54,9 +54,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|management
 operator|.
-name|ProcessorDefinition
+name|ManagedResource
 import|;
 end_import
 
@@ -64,15 +64,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|jmx
+name|camel
 operator|.
-name|export
+name|model
 operator|.
-name|annotation
-operator|.
-name|ManagedResource
+name|ProcessorDefinition
 import|;
 end_import
 
