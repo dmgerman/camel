@@ -194,7 +194,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"message"
 argument_list|,
-literal|"Keine gltige GPS-Daten!"
+literal|"Keine gltige GPS-Daten!"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -214,7 +214,7 @@ name|requestBody
 argument_list|(
 name|serverUri
 operator|+
-literal|"?message=Keine%20g%C3%BCltige%20GPS-Daten!"
+literal|"?message=Keine%20gltige%20GPS-Daten!"
 argument_list|,
 literal|null
 argument_list|,
@@ -253,7 +253,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"message"
 argument_list|,
-literal|"Keine gltige GPS-Daten!"
+literal|"Keine gltige GPS-Daten!"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -273,7 +273,7 @@ name|requestBody
 argument_list|(
 name|serverUri
 operator|+
-literal|"?message=Keine+g%FCltige+GPS-Daten%21"
+literal|"?message=Keine+gltige+GPS-Daten%21"
 argument_list|,
 literal|null
 argument_list|,
