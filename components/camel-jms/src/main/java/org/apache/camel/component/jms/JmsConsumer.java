@@ -489,10 +489,18 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|listenerContainer
-operator|.
-name|destroy
+operator|(
+operator|(
+name|JmsEndpoint
+operator|)
+name|getEndpoint
 argument_list|()
+operator|)
+operator|.
+name|destroyMessageListenerContainer
+argument_list|(
+name|listenerContainer
+argument_list|)
 expr_stmt|;
 block|}
 comment|// null container and listener so they are fully re created if this consumer is restarted
