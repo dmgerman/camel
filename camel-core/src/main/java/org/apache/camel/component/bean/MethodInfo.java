@@ -2177,6 +2177,34 @@ name|methodParameters
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remove headers as they should not be propagated
+comment|// we need to do this before the expressions gets evaluated as it may contain
+comment|// a @Bean expression which would by mistake read these headers. So the headers
+comment|// must be removed at this point of time
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|BEAN_MULTI_PARAMETER_ARRAY
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|BEAN_METHOD_NAME
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
