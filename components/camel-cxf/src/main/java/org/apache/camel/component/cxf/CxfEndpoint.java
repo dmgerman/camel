@@ -1043,13 +1043,6 @@ argument_list|<
 name|String
 argument_list|>
 name|schemaLocations
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|field|transportId
 specifier|private
@@ -1292,6 +1285,13 @@ argument_list|(
 name|features
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|schemaLocations
+operator|!=
+literal|null
+condition|)
+block|{
 name|sfb
 operator|.
 name|setSchemaLocations
@@ -1299,6 +1299,7 @@ argument_list|(
 name|schemaLocations
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|sfb
@@ -1323,6 +1324,13 @@ name|handlers
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|transportId
+operator|!=
+literal|null
+condition|)
+block|{
 name|sfb
 operator|.
 name|setTransportId
@@ -1330,6 +1338,14 @@ argument_list|(
 name|transportId
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|bindingId
+operator|!=
+literal|null
+condition|)
+block|{
 name|sfb
 operator|.
 name|setBindingId
@@ -1337,6 +1353,7 @@ argument_list|(
 name|bindingId
 argument_list|)
 expr_stmt|;
+block|}
 comment|// wsdl url
 if|if
 condition|(
@@ -1901,6 +1918,13 @@ name|handlers
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|transportId
+operator|!=
+literal|null
+condition|)
+block|{
 name|factoryBean
 operator|.
 name|setTransportId
@@ -1908,6 +1932,14 @@ argument_list|(
 name|transportId
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|bindingId
+operator|!=
+literal|null
+condition|)
+block|{
 name|factoryBean
 operator|.
 name|setBindingId
@@ -1915,6 +1947,7 @@ argument_list|(
 name|bindingId
 argument_list|)
 expr_stmt|;
+block|}
 comment|// address
 name|factoryBean
 operator|.
