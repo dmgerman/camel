@@ -120,6 +120,12 @@ name|AGGREGATION_STRATEGY
 init|=
 literal|"CamelAggregationStrategy"
 decl_stmt|;
+DECL|field|AGGREGATION_COMPLETE_ALL_GROUPS
+name|String
+name|AGGREGATION_COMPLETE_ALL_GROUPS
+init|=
+literal|"CamelAggregationCompleteAllGroups"
+decl_stmt|;
 DECL|field|ASYNC_WAIT
 name|String
 name|ASYNC_WAIT
