@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RouteBuilder} which has extended capabilities when using  * the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.  *  * @see org.apache.camel.model.RouteDefinition#adviceWith(org.apache.camel.CamelContext, RouteBuilder)  */
+comment|/**  * A {@link RouteBuilder} which has extended capabilities when using  * the<a href="http://camel.apache.org/advicewith.html">advice with</a> feature.  *<p/>  *<b>Important:</b> It is recommended to only advice a given route once (you can of course advice multiple routes).  * If you do it multiple times, then it may not work as expected, especially when any kind of error handling is involved.  * The Camel team plan for Camel 3.0 to support this as internal refactorings in the routing engine is needed to support this properly.  *  * @see org.apache.camel.model.RouteDefinition#adviceWith(org.apache.camel.CamelContext, RouteBuilder)  */
 end_comment
 
 begin_class
