@@ -542,7 +542,7 @@ name|contextPath
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Initialize the data format. The serviceInterface is necessary to      * determine the element name and namespace of the element inside the soap      * body when marshaling      *       * @param jaxbPackage      *            package for JAXB context      * @param serviceInterface      *            webservice interface      */
+comment|/**      * Initialize the data format. The serviceInterface is necessary to      * determine the element name and namespace of the element inside the soap      * body when marshalling      *       * @param contextPath      *            package for JAXB context      * @param serviceInterface      *            webservice interface      */
 DECL|method|SoapJaxbDataFormat (String contextPath, ElementNameStrategy elementNameStrategy)
 specifier|public
 name|SoapJaxbDataFormat
@@ -564,6 +564,30 @@ operator|.
 name|elementNameStrategy
 operator|=
 name|elementNameStrategy
+expr_stmt|;
+block|}
+comment|/**      * Initialize the data format. The serviceInterface is necessary to      * determine the element name and namespace of the element inside the soap      * body when marshalling      *       * @param contextPath      *            package for JAXB context      * @param elementNameStrategyRef      *            webservice interface referenced bean name      */
+DECL|method|SoapJaxbDataFormat (String contextPath, String elementNameStrategyRef)
+specifier|public
+name|SoapJaxbDataFormat
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|,
+name|String
+name|elementNameStrategyRef
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|contextPath
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|elementNameStrategyRef
+operator|=
+name|elementNameStrategyRef
 expr_stmt|;
 block|}
 DECL|method|setElementNameStrategy (Object nameStrategy)
@@ -1829,6 +1853,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|checkElementNameStrategy
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|String
 name|soapAction
 init|=
@@ -2511,6 +2540,22 @@ operator|.
 name|elementNameStrategy
 operator|=
 name|elementNameStrategy
+expr_stmt|;
+block|}
+DECL|method|setElementNameStrategyRef (String nameStrategyRef)
+specifier|public
+name|void
+name|setElementNameStrategyRef
+parameter_list|(
+name|String
+name|nameStrategyRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|elementNameStrategyRef
+operator|=
+name|nameStrategyRef
 expr_stmt|;
 block|}
 block|}
