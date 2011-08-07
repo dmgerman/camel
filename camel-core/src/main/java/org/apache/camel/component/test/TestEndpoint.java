@@ -267,6 +267,15 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Received message body {}"
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
 name|expectedBodies
 operator|.
 name|add
