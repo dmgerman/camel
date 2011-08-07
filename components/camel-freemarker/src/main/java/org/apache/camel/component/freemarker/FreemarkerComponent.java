@@ -88,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|ResourceBasedComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -108,6 +108,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Freemarker component.  */
 end_comment
@@ -118,7 +132,7 @@ specifier|public
 class|class
 name|FreemarkerComponent
 extends|extends
-name|ResourceBasedComponent
+name|DefaultComponent
 block|{
 DECL|field|configuration
 specifier|private
@@ -287,18 +301,35 @@ name|String
 name|name
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
-name|getResourceLoader
-argument_list|()
+name|ResourceHelper
 operator|.
-name|getClassLoader
-argument_list|()
-operator|.
-name|getResource
+name|resolveMandatoryResourceAsUrl
 argument_list|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|,
 name|name
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// freemarker prefers to ask for locale first (eg xxx_en_GB, xxX_en), and then fallback without locale
+comment|// so we should return null to signal the resource could not be found
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 argument_list|)

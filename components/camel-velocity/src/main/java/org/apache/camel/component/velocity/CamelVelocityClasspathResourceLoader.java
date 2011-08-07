@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel specific {@link ClasspathResourceLoader} that loads resources using the  * Camel {@link ClassResolver}  */
+comment|/**  * Camel specific {@link ClasspathResourceLoader} that loads resources using the  * Camel {@link ClassResolver} used by the Velocity.  */
 end_comment
 
 begin_class

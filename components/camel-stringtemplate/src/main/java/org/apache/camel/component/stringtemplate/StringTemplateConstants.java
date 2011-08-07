@@ -29,14 +29,14 @@ specifier|final
 class|class
 name|StringTemplateConstants
 block|{
-DECL|field|STRINGTEMPLATE_RESOURCE
+DECL|field|STRINGTEMPLATE_RESOURCE_URI
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|STRINGTEMPLATE_RESOURCE
+name|STRINGTEMPLATE_RESOURCE_URI
 init|=
-literal|"CamelStringTemplateResource"
+literal|"CamelStringTemplateResourceUri"
 decl_stmt|;
 DECL|method|StringTemplateConstants ()
 specifier|private

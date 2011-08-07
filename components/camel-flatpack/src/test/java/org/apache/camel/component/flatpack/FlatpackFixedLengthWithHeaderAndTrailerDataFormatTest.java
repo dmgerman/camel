@@ -122,20 +122,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|ClassPathResource
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for fixed length DataFormat.  */
 end_comment
@@ -422,11 +408,7 @@ name|df
 operator|.
 name|setDefinition
 argument_list|(
-operator|new
-name|ClassPathResource
-argument_list|(
 literal|"PEOPLE-HeaderAndTrailer.pzmap.xml"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|df

@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|ResourceBasedComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -70,20 +70,6 @@ name|ProcessorEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|Resource
-import|;
-end_import
-
 begin_comment
 comment|/**  * A component for validating XML payloads using the  *<a href="http://www.thaiopensource.com/relaxng/jing.html">Jing library</a>  *  * @version   */
 end_comment
@@ -94,7 +80,7 @@ specifier|public
 class|class
 name|JingComponent
 extends|extends
-name|ResourceBasedComponent
+name|DefaultComponent
 block|{
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
@@ -123,32 +109,16 @@ name|validator
 init|=
 operator|new
 name|JingValidator
-argument_list|()
-decl_stmt|;
-name|Resource
-name|resource
-init|=
-name|resolveMandatoryResource
 argument_list|(
-name|remaining
+name|getCamelContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|validator
 operator|.
-name|setSchemaResource
+name|setResourceUri
 argument_list|(
-name|resource
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"{} using schema resource: {}"
-argument_list|,
-name|this
-argument_list|,
-name|resource
+name|remaining
 argument_list|)
 expr_stmt|;
 name|configureValidator

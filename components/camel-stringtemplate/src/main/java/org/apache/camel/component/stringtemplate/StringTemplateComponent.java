@@ -48,9 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|ResourceBasedComponent
+name|DefaultComponent
 import|;
 end_import
 
@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|StringTemplateComponent
 extends|extends
-name|ResourceBasedComponent
+name|DefaultComponent
 block|{
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
@@ -88,7 +88,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|Endpoint
+name|answer
+init|=
 operator|new
 name|StringTemplateEndpoint
 argument_list|(
@@ -97,9 +99,17 @@ argument_list|,
 name|this
 argument_list|,
 name|remaining
+argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
 argument_list|,
 name|parameters
 argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 block|}

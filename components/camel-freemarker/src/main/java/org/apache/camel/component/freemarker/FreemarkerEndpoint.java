@@ -228,8 +228,6 @@ argument_list|,
 name|component
 argument_list|,
 name|resourceUri
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}

@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -107,18 +119,6 @@ operator|.
 name|camel
 operator|.
 name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -162,44 +162,20 @@ name|StringTemplateEndpoint
 extends|extends
 name|ResourceBasedEndpoint
 block|{
-DECL|method|StringTemplateEndpoint (String uri, StringTemplateComponent component, String resourceUri, Map parameters)
+DECL|method|StringTemplateEndpoint ()
 specifier|public
 name|StringTemplateEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|StringTemplateComponent
-name|component
-parameter_list|,
-name|String
-name|resourceUri
-parameter_list|,
-name|Map
-name|parameters
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|uri
-argument_list|,
-name|component
-argument_list|,
-name|resourceUri
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|StringTemplateEndpoint (String endpointUri, Processor processor, String resourceUri)
+parameter_list|()
+block|{     }
+DECL|method|StringTemplateEndpoint (String endpointUri, Component component, String resourceUri)
 specifier|public
 name|StringTemplateEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|Processor
-name|processor
+name|Component
+name|component
 parameter_list|,
 name|String
 name|resourceUri
@@ -209,7 +185,7 @@ name|super
 argument_list|(
 name|endpointUri
 argument_list|,
-name|processor
+name|component
 argument_list|,
 name|resourceUri
 argument_list|)
@@ -364,9 +340,9 @@ name|setHeader
 argument_list|(
 name|StringTemplateConstants
 operator|.
-name|STRINGTEMPLATE_RESOURCE
+name|STRINGTEMPLATE_RESOURCE_URI
 argument_list|,
-name|getResource
+name|getResourceUri
 argument_list|()
 argument_list|)
 expr_stmt|;

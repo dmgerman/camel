@@ -29,15 +29,6 @@ specifier|final
 class|class
 name|VelocityConstants
 block|{
-DECL|field|VELOCITY_RESOURCE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|VELOCITY_RESOURCE
-init|=
-literal|"CamelVelocityResource"
-decl_stmt|;
 DECL|field|VELOCITY_RESOURCE_URI
 specifier|public
 specifier|static

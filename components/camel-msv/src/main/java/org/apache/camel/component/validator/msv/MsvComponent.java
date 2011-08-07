@@ -52,7 +52,7 @@ name|component
 operator|.
 name|validator
 operator|.
-name|SpringValidator
+name|ValidatorComponent
 import|;
 end_import
 
@@ -64,11 +64,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|processor
 operator|.
-name|validator
+name|validation
 operator|.
-name|ValidatorComponent
+name|ValidatingProcessor
 import|;
 end_import
 
@@ -159,12 +159,14 @@ operator|=
 name|schemaFactory
 expr_stmt|;
 block|}
-DECL|method|configureValidator (SpringValidator validator, String uri, String remaining, Map<String, Object> parameters)
+annotation|@
+name|Override
+DECL|method|configureValidator (ValidatingProcessor validator, String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|void
 name|configureValidator
 parameter_list|(
-name|SpringValidator
+name|ValidatingProcessor
 name|validator
 parameter_list|,
 name|String
