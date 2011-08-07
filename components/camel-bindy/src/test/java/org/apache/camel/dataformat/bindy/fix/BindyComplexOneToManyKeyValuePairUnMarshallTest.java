@@ -171,11 +171,27 @@ operator|+
 literal|"
 literal|10=220"
 decl_stmt|;
+name|String
+name|message2
+init|=
+literal|"8=FIX 4.1
+literal|9=20
+literal|34=1
+literal|35=0
+literal|49=INVMGR
+literal|56=BRKR"
+operator|+
+literal|"
+literal|1=BE.CHM.001
+literal|11=CHM0001-01
+literal|58=this is a camel - bindy test
+literal|10=220"
+decl_stmt|;
 name|result
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|template
@@ -183,6 +199,13 @@ operator|.
 name|sendBody
 argument_list|(
 name|message
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+name|message2
 argument_list|)
 expr_stmt|;
 name|result

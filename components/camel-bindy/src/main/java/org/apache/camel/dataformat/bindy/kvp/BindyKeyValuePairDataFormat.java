@@ -76,6 +76,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -508,6 +518,30 @@ name|Object
 argument_list|>
 name|model
 decl_stmt|;
+comment|// Map to hold the model @OneToMany classes while binding
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|Object
+argument_list|>
+argument_list|>
+name|lists
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|Object
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|InputStreamReader
 name|in
 init|=
@@ -668,6 +702,8 @@ argument_list|,
 name|model
 argument_list|,
 name|count
+argument_list|,
+name|lists
 argument_list|)
 expr_stmt|;
 comment|// Link objects together
