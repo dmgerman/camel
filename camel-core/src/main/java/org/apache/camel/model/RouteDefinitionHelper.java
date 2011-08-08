@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for {@link RouteDefinition}  *<p/>  * Utility methods to help preparing {@link RouteDefinition} before they are added to  * {@link org.apache.camel.CamelContext}.  *  * @version   */
+comment|/**  * Helper for {@link RouteDefinition}  *<p/>  * Utility methods to help preparing {@link RouteDefinition} before they are added to  * {@link org.apache.camel.CamelContext}.  */
 end_comment
 
 begin_class
@@ -1611,6 +1611,78 @@ argument_list|(
 name|transacted
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+comment|/**      * Force assigning ids to the give node and all its children (recursively).      *<p/>      * This is needed when doing tracing or the likes, where each node should have its id assigned      * so the tracing can pin point exactly.      *      * @param context the camel context      * @param processor the node      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|forceAssignIds (CamelContext context, ProcessorDefinition processor)
+specifier|public
+specifier|static
+name|void
+name|forceAssignIds
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|ProcessorDefinition
+name|processor
+parameter_list|)
+block|{
+comment|// force id on the child
+name|processor
+operator|.
+name|idOrCreate
+argument_list|(
+name|context
+operator|.
+name|getNodeIdFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|>
+name|children
+init|=
+name|processor
+operator|.
+name|getOutputs
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|children
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|children
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|ProcessorDefinition
+name|child
+range|:
+name|children
+control|)
+block|{
+name|forceAssignIds
+argument_list|(
+name|context
+argument_list|,
+name|child
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

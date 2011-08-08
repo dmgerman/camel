@@ -122,6 +122,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteDefinitionHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|CamelLogger
@@ -470,14 +484,13 @@ name|Exception
 block|{
 comment|// Force the creation of an id, otherwise the id is not available when the trace formatter is
 comment|// outputting trace information
-name|definition
+name|RouteDefinitionHelper
 operator|.
-name|idOrCreate
+name|forceAssignIds
 argument_list|(
 name|context
-operator|.
-name|getNodeIdFactory
-argument_list|()
+argument_list|,
+name|definition
 argument_list|)
 expr_stmt|;
 return|return
