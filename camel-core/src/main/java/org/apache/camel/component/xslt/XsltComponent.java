@@ -42,6 +42,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -869,12 +879,13 @@ argument_list|,
 name|resourceUri
 argument_list|)
 expr_stmt|;
-name|InputStream
-name|is
+comment|// prefer to use URL over InputStream as it loads better with http
+name|URL
+name|url
 init|=
 name|ResourceHelper
 operator|.
-name|resolveMandatoryResourceAsInputStream
+name|resolveMandatoryResourceAsUrl
 argument_list|(
 name|getCamelContext
 argument_list|()
@@ -887,9 +898,9 @@ argument_list|)
 decl_stmt|;
 name|xslt
 operator|.
-name|setTransformerInputStream
+name|setTransformerURL
 argument_list|(
-name|is
+name|url
 argument_list|)
 expr_stmt|;
 block|}

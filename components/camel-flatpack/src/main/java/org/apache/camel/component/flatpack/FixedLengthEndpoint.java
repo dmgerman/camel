@@ -474,7 +474,7 @@ name|in
 operator|.
 name|setHeader
 argument_list|(
-literal|"camelFlatpackCounter"
+literal|"CamelFlatpackCounter"
 argument_list|,
 name|counter
 argument_list|)
