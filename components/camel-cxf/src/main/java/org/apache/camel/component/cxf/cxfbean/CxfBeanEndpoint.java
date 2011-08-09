@@ -254,20 +254,6 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|phase
-operator|.
-name|PhaseManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
 name|transport
 operator|.
 name|ConduitInitiatorManager
@@ -288,28 +274,8 @@ name|DestinationFactoryManager
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  * CXF Bean Endpoint is a {@link ProcessorEndpoint} which associated with   * a {@link CxfBeanDestination}.  It delegates the processing of Camel   * Exchanges to the associated CxfBeanDestination.  *    * @version   */
+comment|/**  * CXF Bean Endpoint is a {@link ProcessorEndpoint} which associated with   * a {@link CxfBeanDestination}.  It delegates the processing of Camel   * Exchanges to the associated CxfBeanDestination.  *    */
 end_comment
 
 begin_class
@@ -322,22 +288,6 @@ name|ProcessorEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CxfBeanEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|URI_PREFIX
 specifier|private
 specifier|static
