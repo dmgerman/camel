@@ -335,8 +335,11 @@ block|{
 try|try
 block|{
 name|beforePoll
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
+comment|// take will block waiting for message
 return|return
 name|queue
 operator|.
@@ -411,27 +414,15 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|// if the queue is empty and there is no wait then return null
-if|if
-condition|(
-name|timeout
-operator|==
-literal|0
-operator|&&
-name|queue
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 try|try
 block|{
+comment|// use the timeout value returned from beforePoll
+name|timeout
+operator|=
 name|beforePoll
-argument_list|()
+argument_list|(
+name|timeout
+argument_list|)
 expr_stmt|;
 return|return
 name|queue
@@ -531,11 +522,14 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|beforePoll ()
+DECL|method|beforePoll (long timeout)
 specifier|protected
-name|void
+name|long
 name|beforePoll
-parameter_list|()
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -554,10 +548,14 @@ name|consumer
 decl_stmt|;
 try|try
 block|{
+name|timeout
+operator|=
 name|strategy
 operator|.
 name|beforePoll
-argument_list|()
+argument_list|(
+name|timeout
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -581,6 +579,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|timeout
+return|;
 block|}
 DECL|method|afterPoll ()
 specifier|protected

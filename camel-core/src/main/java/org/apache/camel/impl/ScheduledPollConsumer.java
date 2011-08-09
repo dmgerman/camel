@@ -1319,7 +1319,43 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// start our self
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|beforePoll (long timeout)
+specifier|public
+name|long
+name|beforePoll
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Before poll {}"
+argument_list|,
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// resume or start our self
+if|if
+condition|(
+operator|!
+name|ServiceHelper
+operator|.
+name|resumeService
+argument_list|(
+name|this
+argument_list|)
+condition|)
+block|{
 name|ServiceHelper
 operator|.
 name|startService
@@ -1328,24 +1364,19 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|beforePoll ()
-specifier|public
-name|void
-name|beforePoll
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// resume our self
-name|ServiceHelper
+empty_stmt|;
+comment|// ensure at least timeout is as long as one poll delay
+return|return
+name|Math
 operator|.
-name|resumeService
+name|max
 argument_list|(
-name|this
+name|timeout
+argument_list|,
+name|getDelay
+argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
@@ -1357,14 +1388,36 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// suspend our self
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"After poll {}"
+argument_list|,
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// suspend or stop our self
+if|if
+condition|(
+operator|!
 name|ServiceHelper
 operator|.
 name|suspendService
 argument_list|(
 name|this
 argument_list|)
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

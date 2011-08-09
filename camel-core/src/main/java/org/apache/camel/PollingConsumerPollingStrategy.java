@@ -32,11 +32,14 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Callback invoked before the poll.      *      * @throws Exception can be thrown if error occurred      */
-DECL|method|beforePoll ()
-name|void
+comment|/**      * Callback invoked before the poll.      *      * @param timeout the timeout      * @throws Exception can be thrown if error occurred      * @return timeout to be used, this allows returning a higher timeout value      * to ensure at least one poll is being performed      */
+DECL|method|beforePoll (long timeout)
+name|long
 name|beforePoll
-parameter_list|()
+parameter_list|(
+name|long
+name|timeout
+parameter_list|)
 throws|throws
 name|Exception
 function_decl|;

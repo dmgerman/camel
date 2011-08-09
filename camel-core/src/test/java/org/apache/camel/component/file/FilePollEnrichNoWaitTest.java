@@ -111,10 +111,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|FilePollEnrichTest
+DECL|class|FilePollEnrichNoWaitTest
 specifier|public
 class|class
-name|FilePollEnrichTest
+name|FilePollEnrichNoWaitTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -139,10 +139,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testFilePollEnrich ()
+DECL|method|testFilePollEnrichNoWait ()
 specifier|public
 name|void
-name|testFilePollEnrich
+name|testFilePollEnrichNoWait
 parameter_list|()
 throws|throws
 name|Exception
@@ -258,8 +258,6 @@ operator|.
 name|pollEnrich
 argument_list|(
 literal|"file:target/pollenrich?move=done"
-argument_list|,
-literal|5000
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -268,6 +266,21 @@ name|String
 operator|.
 name|class
 argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|body
+argument_list|()
+operator|.
+name|isNull
+argument_list|()
+argument_list|)
+operator|.
+name|stop
+argument_list|()
+operator|.
+name|end
+argument_list|()
 operator|.
 name|log
 argument_list|(
