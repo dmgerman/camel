@@ -66,8 +66,6 @@ name|osgi
 operator|.
 name|cxf
 operator|.
-name|blueprint
-operator|.
 name|jaxrs
 operator|.
 name|testbean
@@ -1222,8 +1220,6 @@ name|osgi
 operator|.
 name|cxf
 operator|.
-name|blueprint
-operator|.
 name|jaxrs
 operator|.
 name|testbean
@@ -1246,8 +1242,6 @@ operator|.
 name|osgi
 operator|.
 name|cxf
-operator|.
-name|blueprint
 operator|.
 name|jaxrs
 operator|.
@@ -1272,8 +1266,6 @@ name|osgi
 operator|.
 name|cxf
 operator|.
-name|blueprint
-operator|.
 name|jaxrs
 operator|.
 name|testbean
@@ -1297,8 +1289,6 @@ name|osgi
 operator|.
 name|cxf
 operator|.
-name|blueprint
-operator|.
 name|jaxrs
 operator|.
 name|testbean
@@ -1321,8 +1311,6 @@ operator|.
 name|osgi
 operator|.
 name|cxf
-operator|.
-name|blueprint
 operator|.
 name|jaxrs
 operator|.

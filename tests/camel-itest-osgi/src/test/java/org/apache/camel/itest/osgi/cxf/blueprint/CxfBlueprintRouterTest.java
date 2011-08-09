@@ -799,11 +799,6 @@ argument_list|)
 operator|.
 name|noStart
 argument_list|()
-argument_list|,
-name|vmOption
-argument_list|(
-literal|"-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5006"
-argument_list|)
 argument_list|)
 decl_stmt|;
 return|return

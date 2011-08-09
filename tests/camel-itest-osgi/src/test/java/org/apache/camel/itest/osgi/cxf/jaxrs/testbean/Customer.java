@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi.cxf.blueprint.jaxrs.testbean
+DECL|package|org.apache.camel.itest.osgi.cxf.jaxrs.testbean
 package|package
 name|org
 operator|.
@@ -17,8 +17,6 @@ operator|.
 name|osgi
 operator|.
 name|cxf
-operator|.
-name|blueprint
 operator|.
 name|jaxrs
 operator|.
@@ -50,22 +48,22 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"Product"
+literal|"Customer"
 argument_list|)
-DECL|class|Product
+DECL|class|Customer
 specifier|public
 class|class
-name|Product
+name|Customer
 block|{
 DECL|field|id
 specifier|private
 name|long
 name|id
 decl_stmt|;
-DECL|field|description
+DECL|field|name
 specifier|private
 name|String
-name|description
+name|name
 decl_stmt|;
 DECL|method|getId ()
 specifier|public
@@ -93,30 +91,30 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|getDescription ()
+DECL|method|getName ()
 specifier|public
 name|String
-name|getDescription
+name|getName
 parameter_list|()
 block|{
 return|return
-name|description
+name|name
 return|;
 block|}
-DECL|method|setDescription (String d)
+DECL|method|setName (String name)
 specifier|public
 name|void
-name|setDescription
+name|setName
 parameter_list|(
 name|String
-name|d
+name|name
 parameter_list|)
 block|{
 name|this
 operator|.
-name|description
+name|name
 operator|=
-name|d
+name|name
 expr_stmt|;
 block|}
 block|}

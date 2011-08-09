@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.osgi.cxf.blueprint.jaxrs.testbean
+DECL|package|org.apache.camel.itest.osgi.cxf.jaxrs.testbean
 package|package
 name|org
 operator|.
@@ -17,8 +17,6 @@ operator|.
 name|osgi
 operator|.
 name|cxf
-operator|.
-name|blueprint
 operator|.
 name|jaxrs
 operator|.
