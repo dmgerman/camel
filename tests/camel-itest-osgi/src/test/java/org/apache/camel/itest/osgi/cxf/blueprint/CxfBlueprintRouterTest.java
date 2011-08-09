@@ -374,11 +374,7 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"This test will be failed with CXF 2.4.1, we need to use CXF 2.4.2"
-argument_list|)
+comment|//@Ignore("This test will be failed with CXF 2.4.1, we need to use CXF 2.4.2")
 DECL|class|CxfBlueprintRouterTest
 specifier|public
 class|class
@@ -684,6 +680,20 @@ operator|.
 name|getResource
 argument_list|(
 literal|"CxfBlueprintRouter.xml"
+argument_list|)
+argument_list|)
+operator|.
+name|add
+argument_list|(
+literal|"WSDL/report_incident.wsdl"
+argument_list|,
+name|CxfBlueprintRouterTest
+operator|.
+name|class
+operator|.
+name|getResource
+argument_list|(
+literal|"/report_incident.wsdl"
 argument_list|)
 argument_list|)
 operator|.
