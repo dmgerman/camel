@@ -859,6 +859,14 @@ name|name
 argument_list|)
 condition|)
 block|{
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+init|=
+literal|null
+decl_stmt|;
 for|for
 control|(
 name|ClassLoader
@@ -872,19 +880,15 @@ control|)
 block|{
 try|try
 block|{
-name|Class
-argument_list|<
-name|?
-argument_list|>
 name|clazz
-init|=
+operator|=
 name|loader
 operator|.
 name|loadClass
 argument_list|(
 name|name
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|LOG
 operator|.
 name|trace
@@ -912,6 +916,16 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// do nothing here
+block|}
+block|}
+if|if
+condition|(
+name|clazz
+operator|==
+literal|null
+condition|)
+block|{
 comment|// ignore as its not a class (will be package scan afterwards)
 name|packages
 operator|.
@@ -920,7 +934,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else
