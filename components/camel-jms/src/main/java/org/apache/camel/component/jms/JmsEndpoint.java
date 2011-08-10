@@ -46,6 +46,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|Executor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ExecutorService
 import|;
 end_import
@@ -514,7 +526,35 @@ name|jms
 operator|.
 name|listener
 operator|.
+name|AbstractMessageListenerContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jms
+operator|.
+name|listener
+operator|.
 name|DefaultMessageListenerContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jms
+operator|.
+name|listener
+operator|.
+name|SimpleMessageListenerContainer
 import|;
 end_import
 
@@ -1098,7 +1138,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|listenerContainer
 init|=
 name|createMessageListenerContainer
@@ -1113,12 +1153,12 @@ name|listenerContainer
 argument_list|)
 return|;
 block|}
-DECL|method|destroyMessageListenerContainerInternal (DefaultMessageListenerContainer listenerContainer)
+DECL|method|destroyMessageListenerContainerInternal (AbstractMessageListenerContainer listenerContainer)
 specifier|private
 name|void
 name|destroyMessageListenerContainerInternal
 parameter_list|(
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|listenerContainer
 parameter_list|)
 block|{
@@ -1141,13 +1181,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|destroyMessageListenerContainer (final DefaultMessageListenerContainer listenerContainer)
+DECL|method|destroyMessageListenerContainer (final AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|void
 name|destroyMessageListenerContainer
 parameter_list|(
 specifier|final
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|listenerContainer
 parameter_list|)
 block|{
@@ -1183,7 +1223,7 @@ expr_stmt|;
 block|}
 DECL|method|createMessageListenerContainer ()
 specifier|public
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|createMessageListenerContainer
 parameter_list|()
 throws|throws
@@ -1198,12 +1238,12 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|method|configureListenerContainer (DefaultMessageListenerContainer listenerContainer, JmsConsumer consumer)
+DECL|method|configureListenerContainer (AbstractMessageListenerContainer listenerContainer, JmsConsumer consumer)
 specifier|public
 name|void
 name|configureListenerContainer
 parameter_list|(
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|listenerContainer
 parameter_list|,
 name|JmsConsumer
@@ -1315,10 +1355,10 @@ name|listenerContainer
 argument_list|)
 expr_stmt|;
 block|}
-name|listenerContainer
-operator|.
-name|setTaskExecutor
+name|setContainerTaskExecutor
 argument_list|(
+name|listenerContainer
+argument_list|,
 name|configuration
 operator|.
 name|getTaskExecutor
@@ -1340,6 +1380,8 @@ operator|+
 literal|"]"
 decl_stmt|;
 comment|// use a cached pool as DefaultMessageListenerContainer will throttle pool sizing
+comment|// TODO: The refactored ExecutorServiceManager was not good, now we dont have the JDK API anymore
+comment|// we need the CachedThreadPool here, but the refactored API does not offer that anymore
 name|ExecutorService
 name|executor
 init|=
@@ -1356,7 +1398,61 @@ argument_list|,
 name|consumer
 argument_list|)
 decl_stmt|;
+name|setContainerTaskExecutor
+argument_list|(
 name|listenerContainer
+argument_list|,
+name|executor
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|setContainerTaskExecutor (AbstractMessageListenerContainer listenerContainer, Executor executor)
+specifier|private
+name|void
+name|setContainerTaskExecutor
+parameter_list|(
+name|AbstractMessageListenerContainer
+name|listenerContainer
+parameter_list|,
+name|Executor
+name|executor
+parameter_list|)
+block|{
+if|if
+condition|(
+name|listenerContainer
+operator|instanceof
+name|SimpleMessageListenerContainer
+condition|)
+block|{
+operator|(
+operator|(
+name|SimpleMessageListenerContainer
+operator|)
+name|listenerContainer
+operator|)
+operator|.
+name|setTaskExecutor
+argument_list|(
+name|executor
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|listenerContainer
+operator|instanceof
+name|DefaultMessageListenerContainer
+condition|)
+block|{
+operator|(
+operator|(
+name|DefaultMessageListenerContainer
+operator|)
+name|listenerContainer
+operator|)
 operator|.
 name|setTaskExecutor
 argument_list|(
@@ -1395,7 +1491,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a consumer using the given processor and listener container      *      * @param processor         the processor to use to process the messages      * @param listenerContainer the listener container      * @return a newly created consumer      * @throws Exception if the consumer cannot be created      */
-DECL|method|createConsumer (Processor processor, DefaultMessageListenerContainer listenerContainer)
+DECL|method|createConsumer (Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|JmsConsumer
 name|createConsumer
@@ -1403,7 +1499,7 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|,
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|listenerContainer
 parameter_list|)
 throws|throws

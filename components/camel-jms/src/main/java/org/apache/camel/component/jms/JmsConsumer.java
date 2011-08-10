@@ -88,7 +88,7 @@ name|jms
 operator|.
 name|listener
 operator|.
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 import|;
 end_import
 
@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer} which uses Spring's {@link DefaultMessageListenerContainer} implementations to consume JMS messages  *  * @version   */
+comment|/**  * A {@link org.apache.camel.Consumer} which uses Spring's {@link AbstractMessageListenerContainer} implementations  * to consume JMS messages.  *  * @version  * @see DefaultJmsMessageListenerContainer  * @see SimpleJmsMessageListenerContainer  */
 end_comment
 
 begin_class
@@ -122,7 +122,7 @@ name|SuspendableService
 block|{
 DECL|field|listenerContainer
 specifier|private
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|listenerContainer
 decl_stmt|;
 DECL|field|messageListener
@@ -136,7 +136,7 @@ specifier|volatile
 name|boolean
 name|initialized
 decl_stmt|;
-DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, DefaultMessageListenerContainer listenerContainer)
+DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
 name|JmsConsumer
 parameter_list|(
@@ -146,7 +146,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|listenerContainer
 parameter_list|)
 block|{
@@ -192,7 +192,7 @@ return|;
 block|}
 DECL|method|getListenerContainer ()
 specifier|public
-name|DefaultMessageListenerContainer
+name|AbstractMessageListenerContainer
 name|getListenerContainer
 parameter_list|()
 throws|throws
@@ -489,19 +489,13 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-operator|(
-operator|(
-name|JmsEndpoint
-operator|)
-name|getEndpoint
-argument_list|()
-operator|)
-operator|.
-name|destroyMessageListenerContainer
-argument_list|(
 name|listenerContainer
-argument_list|)
+operator|.
+name|destroy
+argument_list|()
 expr_stmt|;
+comment|// TODO: The async destroy code does not work well, there is a JIRA ticket
+comment|// getEndpoint().destroyMessageListenerContainer(listenerContainer);
 block|}
 comment|// null container and listener so they are fully re created if this consumer is restarted
 comment|// then we will use updated configuration from jms endpoint that may have been managed using JMX

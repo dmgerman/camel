@@ -33,14 +33,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link DefaultMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link DefaultMessageListenerContainer} supporting  * automatic recovery and throttling.  *  * @version   */
+comment|/**  * The default {@link DefaultMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link DefaultMessageListenerContainer} supporting  * automatic recovery and throttling.  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|JmsMessageListenerContainer
+DECL|class|DefaultJmsMessageListenerContainer
 specifier|public
 class|class
-name|JmsMessageListenerContainer
+name|DefaultJmsMessageListenerContainer
 extends|extends
 name|DefaultMessageListenerContainer
 block|{
@@ -50,9 +50,9 @@ specifier|final
 name|JmsEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|JmsMessageListenerContainer (JmsEndpoint endpoint)
+DECL|method|DefaultJmsMessageListenerContainer (JmsEndpoint endpoint)
 specifier|public
-name|JmsMessageListenerContainer
+name|DefaultJmsMessageListenerContainer
 parameter_list|(
 name|JmsEndpoint
 name|endpoint
