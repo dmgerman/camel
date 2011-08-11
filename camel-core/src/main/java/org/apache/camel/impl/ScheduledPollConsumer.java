@@ -1364,7 +1364,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 comment|// ensure at least timeout is as long as one poll delay
 return|return
 name|Math
