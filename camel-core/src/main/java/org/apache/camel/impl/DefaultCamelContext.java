@@ -2091,10 +2091,6 @@ operator|new
 name|DefaultExecutorServiceManager
 argument_list|(
 name|this
-argument_list|,
-operator|new
-name|DefaultThreadPoolFactory
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// create endpoint registry at first since end users may access endpoints before CamelContext is started

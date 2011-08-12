@@ -1153,13 +1153,13 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getDefaultExecutorService
+name|newDefaultThreadPool
 argument_list|(
-literal|"CamelInvocationHandler"
-argument_list|,
 name|CamelInvocationHandler
 operator|.
 name|class
+argument_list|,
+literal|"CamelInvocationHandler"
 argument_list|)
 expr_stmt|;
 block|}

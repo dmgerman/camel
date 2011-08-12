@@ -4411,11 +4411,11 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getDefaultExecutorService
+name|newDefaultThreadPool
 argument_list|(
-literal|"ProducerTemplate"
-argument_list|,
 name|this
+argument_list|,
+literal|"ProducerTemplate"
 argument_list|)
 expr_stmt|;
 block|}

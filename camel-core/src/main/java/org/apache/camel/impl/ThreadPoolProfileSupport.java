@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Use ThreadPoolProfile instead  */
+comment|/**  * Use {@link ThreadPoolProfile} instead  *  * @deprecated use {@link ThreadPoolProfile} instead.  */
 end_comment
 
 begin_class

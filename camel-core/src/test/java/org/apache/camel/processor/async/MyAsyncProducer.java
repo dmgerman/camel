@@ -195,11 +195,11 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getDefaultExecutorService
+name|newDefaultThreadPool
 argument_list|(
-literal|"MyProducer"
-argument_list|,
 name|this
+argument_list|,
+literal|"MyProducer"
 argument_list|)
 expr_stmt|;
 block|}

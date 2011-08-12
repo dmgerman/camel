@@ -254,14 +254,15 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getDefaultExecutorService
+name|newThreadPool
 argument_list|(
-literal|"low"
-argument_list|,
 name|this
+argument_list|,
+literal|"MyLow"
+argument_list|,
+literal|"low"
 argument_list|)
 decl_stmt|;
-comment|// TODO check newThreadPool(this, "MyLow", "low");
 name|ThreadPoolExecutor
 name|tp
 init|=
@@ -424,14 +425,15 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getDefaultExecutorService
+name|newThreadPool
 argument_list|(
-literal|"big"
-argument_list|,
 name|this
+argument_list|,
+literal|"MyBig"
+argument_list|,
+literal|"big"
 argument_list|)
 decl_stmt|;
-comment|// TODO check newThreadPool(this, "MyBig", "big");
 name|ThreadPoolExecutor
 name|tp
 init|=

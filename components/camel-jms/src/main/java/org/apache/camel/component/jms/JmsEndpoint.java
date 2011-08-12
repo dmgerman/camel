@@ -282,20 +282,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ThreadPoolBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|jms
@@ -1380,8 +1366,6 @@ operator|+
 literal|"]"
 decl_stmt|;
 comment|// use a cached pool as DefaultMessageListenerContainer will throttle pool sizing
-comment|// TODO: The refactored ExecutorServiceManager was not good, now we dont have the JDK API anymore
-comment|// we need the CachedThreadPool here, but the refactored API does not offer that anymore
 name|ExecutorService
 name|executor
 init|=
@@ -1391,11 +1375,11 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getDefaultExecutorService
+name|newCachedThreadPool
 argument_list|(
-name|name
-argument_list|,
 name|consumer
+argument_list|,
+name|name
 argument_list|)
 decl_stmt|;
 name|setContainerTaskExecutor
@@ -2195,16 +2179,11 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getScheduledExecutorService
-argument_list|(
-name|ThreadPoolBuilder
-operator|.
-name|singleThreadExecutor
+name|newSingleThreadScheduledExecutor
 argument_list|(
 name|name
-argument_list|)
 argument_list|,
-name|this
+name|name
 argument_list|)
 expr_stmt|;
 block|}

@@ -480,11 +480,11 @@ name|executorService
 operator|=
 name|manager
 operator|.
-name|getDefaultExecutorService
+name|newDefaultThreadPool
 argument_list|(
-name|ref
-argument_list|,
 name|this
+argument_list|,
+name|ref
 argument_list|)
 expr_stmt|;
 name|WireTapProcessor

@@ -46,6 +46,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Various helper method for thread naming.  */
+end_comment
+
 begin_class
 DECL|class|ThreadHelper
 specifier|public
@@ -91,7 +95,7 @@ name|getAndIncrement
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a new thread name with the given prefix      *      * @param pattern the pattern      * @param name    the name      * @return the thread name, which is unique      */
+comment|/**      * Creates a new thread name with the given pattern      *      * @param pattern the pattern      * @param name    the name      * @return the thread name, which is unique      */
 DECL|method|resolveThreadName (String pattern, String name)
 specifier|public
 specifier|static

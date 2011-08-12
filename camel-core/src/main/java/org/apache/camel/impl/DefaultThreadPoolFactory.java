@@ -150,22 +150,8 @@ name|ThreadPoolFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ThreadPoolProfile
-import|;
-end_import
-
 begin_comment
-comment|/**  * Factory for thread pools that uses the JDK methods for handling thread pools  */
+comment|/**  * Factory for thread pools that uses the JDK {@link Executors} for creating the thread pools.  */
 end_comment
 
 begin_class
@@ -176,60 +162,74 @@ name|DefaultThreadPoolFactory
 implements|implements
 name|ThreadPoolFactory
 block|{
-annotation|@
-name|Override
-DECL|method|newThreadPool (ThreadPoolProfile profile, ThreadFactory factory)
+DECL|method|newCachedThreadPool (ThreadFactory threadFactory)
 specifier|public
 name|ExecutorService
-name|newThreadPool
+name|newCachedThreadPool
 parameter_list|(
-name|ThreadPoolProfile
-name|profile
-parameter_list|,
 name|ThreadFactory
-name|factory
+name|threadFactory
 parameter_list|)
 block|{
 return|return
-name|newThreadPool
+name|Executors
+operator|.
+name|newCachedThreadPool
 argument_list|(
-name|profile
-operator|.
-name|getPoolSize
-argument_list|()
-argument_list|,
-name|profile
-operator|.
-name|getMaxPoolSize
-argument_list|()
-argument_list|,
-name|profile
-operator|.
-name|getKeepAliveTime
-argument_list|()
-argument_list|,
-name|profile
-operator|.
-name|getTimeUnit
-argument_list|()
-argument_list|,
-name|profile
-operator|.
-name|getMaxQueueSize
-argument_list|()
-argument_list|,
-name|profile
-operator|.
-name|getRejectedExecutionHandler
-argument_list|()
-argument_list|,
-name|factory
+name|threadFactory
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new custom thread pool      *      * @param pattern                  pattern of the thread name      * @param name                     ${name} in the pattern name      * @param corePoolSize             the core pool size      * @param maxPoolSize              the maximum pool size      * @param keepAliveTime            keep alive time      * @param timeUnit                 keep alive time unit      * @param maxQueueSize             the maximum number of tasks in the queue, use<tt>Integer.MAX_VALUE</tt> or<tt>-1</tt> to indicate unbounded      * @param rejectedExecutionHandler the handler for tasks which cannot be executed by the thread pool.      *                                 If<tt>null</tt> is provided then {@link java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy CallerRunsPolicy} is used.      * @param daemon                   whether the threads is daemon or not      * @return the created pool      * @throws IllegalArgumentException if parameters is not valid      */
-DECL|method|newThreadPool (int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, final ThreadFactory factory)
-specifier|private
+DECL|method|newFixedThreadPool (int poolSize, ThreadFactory threadFactory)
+specifier|public
+name|ExecutorService
+name|newFixedThreadPool
+parameter_list|(
+name|int
+name|poolSize
+parameter_list|,
+name|ThreadFactory
+name|threadFactory
+parameter_list|)
+block|{
+return|return
+name|Executors
+operator|.
+name|newFixedThreadPool
+argument_list|(
+name|poolSize
+argument_list|,
+name|threadFactory
+argument_list|)
+return|;
+block|}
+DECL|method|newScheduledThreadPool (int corePoolSize, ThreadFactory threadFactory)
+specifier|public
+name|ScheduledExecutorService
+name|newScheduledThreadPool
+parameter_list|(
+name|int
+name|corePoolSize
+parameter_list|,
+name|ThreadFactory
+name|threadFactory
+parameter_list|)
+throws|throws
+name|IllegalArgumentException
+block|{
+return|return
+name|Executors
+operator|.
+name|newScheduledThreadPool
+argument_list|(
+name|corePoolSize
+argument_list|,
+name|threadFactory
+argument_list|)
+return|;
+block|}
+DECL|method|newThreadPool (int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, ThreadFactory threadFactory)
+specifier|public
 name|ExecutorService
 name|newThreadPool
 parameter_list|(
@@ -251,10 +251,11 @@ parameter_list|,
 name|RejectedExecutionHandler
 name|rejectedExecutionHandler
 parameter_list|,
-specifier|final
 name|ThreadFactory
-name|factory
+name|threadFactory
 parameter_list|)
+throws|throws
+name|IllegalArgumentException
 block|{
 comment|// If we set the corePoolSize to be 0, the whole camel application will hang in JDK5
 comment|// just add a check here to throw the IllegalArgumentException
@@ -299,7 +300,7 @@ name|BlockingQueue
 argument_list|<
 name|Runnable
 argument_list|>
-name|queue
+name|workQueue
 decl_stmt|;
 if|if
 condition|(
@@ -313,7 +314,7 @@ literal|0
 condition|)
 block|{
 comment|// use a synchronous queue
-name|queue
+name|workQueue
 operator|=
 operator|new
 name|SynchronousQueue
@@ -341,7 +342,7 @@ literal|0
 condition|)
 block|{
 comment|// unbounded task queue
-name|queue
+name|workQueue
 operator|=
 operator|new
 name|LinkedBlockingQueue
@@ -354,7 +355,7 @@ block|}
 else|else
 block|{
 comment|// bounded task queue
-name|queue
+name|workQueue
 operator|=
 operator|new
 name|LinkedBlockingQueue
@@ -380,14 +381,14 @@ name|keepAliveTime
 argument_list|,
 name|timeUnit
 argument_list|,
-name|queue
+name|workQueue
 argument_list|)
 decl_stmt|;
 name|answer
 operator|.
 name|setThreadFactory
 argument_list|(
-name|factory
+name|threadFactory
 argument_list|)
 expr_stmt|;
 if|if
@@ -415,35 +416,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
-return|;
-block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.impl.ThreadPoolFactory#newScheduledThreadPool(java.lang.Integer, java.util.concurrent.ThreadFactory)      */
-annotation|@
-name|Override
-DECL|method|newScheduledThreadPool (ThreadPoolProfile profile, ThreadFactory threadFactory)
-specifier|public
-name|ScheduledExecutorService
-name|newScheduledThreadPool
-parameter_list|(
-name|ThreadPoolProfile
-name|profile
-parameter_list|,
-name|ThreadFactory
-name|threadFactory
-parameter_list|)
-block|{
-return|return
-name|Executors
-operator|.
-name|newScheduledThreadPool
-argument_list|(
-name|profile
-operator|.
-name|getPoolSize
-argument_list|()
-argument_list|,
-name|threadFactory
-argument_list|)
 return|;
 block|}
 block|}

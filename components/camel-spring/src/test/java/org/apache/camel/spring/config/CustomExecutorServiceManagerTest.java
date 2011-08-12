@@ -93,10 +93,10 @@ end_comment
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|CustomExecutorServiceStrategyTest
+DECL|class|CustomExecutorServiceManagerTest
 specifier|public
 class|class
-name|CustomExecutorServiceStrategyTest
+name|CustomExecutorServiceManagerTest
 extends|extends
 name|AbstractJUnit38SpringContextTests
 block|{
@@ -124,7 +124,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|instanceof
-name|CustomExecutorServiceStrategy
+name|CustomExecutorServiceManager
 argument_list|)
 expr_stmt|;
 block|}

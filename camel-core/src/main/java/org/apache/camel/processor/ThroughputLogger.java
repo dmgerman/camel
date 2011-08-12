@@ -754,11 +754,13 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getScheduledExecutorService
+name|newScheduledThreadPool
 argument_list|(
+name|this
+argument_list|,
 literal|"ThroughputLogger"
 argument_list|,
-name|this
+literal|1
 argument_list|)
 expr_stmt|;
 name|Runnable

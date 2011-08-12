@@ -922,15 +922,7 @@ name|this
 operator|.
 name|executorServiceRef
 operator|=
-operator|(
 name|executorServiceRef
-operator|!=
-literal|null
-operator|)
-condition|?
-name|executorServiceRef
-else|:
-literal|"ErrorHandlerRedeliveryTask"
 expr_stmt|;
 block|}
 DECL|method|supportTransacted ()
@@ -4387,6 +4379,66 @@ argument_list|,
 name|deadLetter
 argument_list|)
 expr_stmt|;
+comment|// use a shared scheduler
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+operator|||
+name|executorService
+operator|.
+name|isShutdown
+argument_list|()
+condition|)
+block|{
+comment|// camel context will shutdown the executor when it shutdown so no need to shut it down when stopping
+if|if
+condition|(
+name|executorServiceRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|executorService
+operator|=
+name|camelContext
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+name|executorServiceRef
+argument_list|,
+name|ScheduledExecutorService
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
+name|executorServiceRef
+operator|+
+literal|" not found in registry."
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+comment|// create a default scheduled thread pool
 name|executorService
 operator|=
 name|camelContext
@@ -4394,13 +4446,15 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getScheduledExecutorService
+name|newDefaultScheduledThreadPool
 argument_list|(
-name|executorServiceRef
-argument_list|,
 name|this
+argument_list|,
+literal|"ErrorHandlerRedeliveryTask"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 comment|// determine if redeliver is enabled or not
 name|redeliveryEnabled
 operator|=

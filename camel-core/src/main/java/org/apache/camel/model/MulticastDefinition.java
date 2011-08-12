@@ -693,11 +693,11 @@ name|executorService
 operator|=
 name|executorServiceManager
 operator|.
-name|getDefaultExecutorService
+name|newDefaultThreadPool
 argument_list|(
-name|ref
-argument_list|,
 name|this
+argument_list|,
+name|ref
 argument_list|)
 expr_stmt|;
 block|}

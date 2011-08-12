@@ -44,35 +44,21 @@ name|DefaultExecutorServiceManager
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultThreadPoolFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|CustomExecutorServiceStrategy
+DECL|class|CustomExecutorServiceManager
 specifier|public
 class|class
-name|CustomExecutorServiceStrategy
+name|CustomExecutorServiceManager
 extends|extends
 name|DefaultExecutorServiceManager
 block|{
-DECL|method|CustomExecutorServiceStrategy (CamelContext camelContext)
+DECL|method|CustomExecutorServiceManager (CamelContext camelContext)
 specifier|public
-name|CustomExecutorServiceStrategy
+name|CustomExecutorServiceManager
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -81,10 +67,6 @@ block|{
 name|super
 argument_list|(
 name|camelContext
-argument_list|,
-operator|new
-name|DefaultThreadPoolFactory
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

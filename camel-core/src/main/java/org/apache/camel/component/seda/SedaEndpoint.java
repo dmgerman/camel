@@ -724,14 +724,14 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|getDefaultExecutorService
+name|newDefaultThreadPool
 argument_list|(
+name|this
+argument_list|,
 name|getEndpointUri
 argument_list|()
 operator|+
 literal|"(multicast)"
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 block|}
