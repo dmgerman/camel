@@ -171,7 +171,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 comment|// drop a new file which should not be picked up by the consumer
@@ -220,19 +220,6 @@ name|file
 operator|.
 name|exists
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// and no exchange on consumer as
-name|exchange
-operator|=
-name|consumer
-operator|.
-name|receiveNoWait
-argument_list|()
-expr_stmt|;
-name|assertNull
-argument_list|(
-name|exchange
 argument_list|)
 expr_stmt|;
 name|consumer
