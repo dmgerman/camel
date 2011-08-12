@@ -230,6 +230,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExecutorServiceStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -1420,6 +1434,14 @@ comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceM
 DECL|method|getExecutorServiceManager ()
 name|ExecutorServiceManager
 name|getExecutorServiceManager
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceStrategy}      *      * @return the manager      * @deprecated use {@link #getExecutorServiceManager()}      */
+annotation|@
+name|Deprecated
+DECL|method|getExecutorServiceStrategy ()
+name|ExecutorServiceStrategy
+name|getExecutorServiceStrategy
 parameter_list|()
 function_decl|;
 comment|/**      * Sets a custom {@link org.apache.camel.spi.ExecutorServiceManager}      *      * @param executorServiceManager the custom manager      */

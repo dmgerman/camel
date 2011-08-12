@@ -986,6 +986,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExecutorServiceStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -11650,6 +11664,25 @@ return|return
 name|this
 operator|.
 name|executorServiceManager
+return|;
+block|}
+end_function
+
+begin_function
+DECL|method|getExecutorServiceStrategy ()
+specifier|public
+name|ExecutorServiceStrategy
+name|getExecutorServiceStrategy
+parameter_list|()
+block|{
+comment|// its okay to create a new instance as its stateless, and just delegate
+comment|// ExecutorServiceManager which is the new API
+return|return
+operator|new
+name|DefaultExecutorServiceStrategy
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 end_function

@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Use {@link ThreadPoolProfile} instead  *  * @deprecated use {@link ThreadPoolProfile} instead.  */
+comment|/**  * Use {@link ThreadPoolProfile} instead  *  * @deprecated use {@link ThreadPoolProfile} instead, will be removed in a future Camel release  */
 end_comment
 
 begin_class
