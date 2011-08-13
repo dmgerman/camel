@@ -20,6 +20,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -53,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A profile which defines thread pool settings.  *  * @version   */
+comment|/**  * A profile which defines thread pool settings.  *<p/>  * See more details at<a href="http://camel.apache.org/threading-model.html">threading model</a>  *  * @version   */
 end_comment
 
 begin_class
@@ -61,7 +71,19 @@ DECL|class|ThreadPoolProfile
 specifier|public
 class|class
 name|ThreadPoolProfile
+implements|implements
+name|Serializable
 block|{
+comment|// TODO: Camel 2.9/3.0 consider moving to org.apache.camel
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|field|id
 specifier|private
 name|String
@@ -390,19 +412,19 @@ literal|"ThreadPoolProfile["
 operator|+
 name|id
 operator|+
-literal|", "
+literal|" ("
 operator|+
 name|defaultProfile
 operator|+
-literal|", "
+literal|") size:"
 operator|+
 name|poolSize
 operator|+
-literal|", "
+literal|"-"
 operator|+
 name|maxPoolSize
 operator|+
-literal|", "
+literal|", keepAlive: "
 operator|+
 name|keepAliveTime
 operator|+
@@ -410,11 +432,11 @@ literal|" "
 operator|+
 name|timeUnit
 operator|+
-literal|", "
+literal|", maxQueue: "
 operator|+
-name|maxPoolSize
+name|maxQueueSize
 operator|+
-literal|", "
+literal|", rejectedPolicy:"
 operator|+
 name|rejectedPolicy
 operator|+

@@ -135,6 +135,7 @@ name|Service
 implements|,
 name|ShutdownableService
 block|{
+comment|// TODO: Camel 3.0 consider moving this to org.apache.camel.util
 DECL|field|started
 specifier|private
 specifier|final
