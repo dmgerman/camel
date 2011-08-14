@@ -451,6 +451,59 @@ return|return;
 block|}
 try|try
 block|{
+comment|// validate that replyToType and replyTo is configured accordingly
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getReplyToType
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// setting temporary with a fixed replyTo is not supported
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getReplyTo
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|endpoint
+operator|.
+name|getReplyToType
+argument_list|()
+operator|==
+name|ReplyToType
+operator|.
+name|Temporary
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ReplyToType "
+operator|+
+name|ReplyToType
+operator|.
+name|Temporary
+operator|+
+literal|" is not supported when replyTo "
+operator|+
+name|endpoint
+operator|.
+name|getReplyTo
+argument_list|()
+operator|+
+literal|" is also configured."
+argument_list|)
+throw|;
+block|}
+block|}
 if|if
 condition|(
 name|endpoint

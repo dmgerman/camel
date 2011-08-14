@@ -795,6 +795,11 @@ specifier|private
 name|boolean
 name|disableTimeToLive
 decl_stmt|;
+DECL|field|replyToType
+specifier|private
+name|ReplyToType
+name|replyToType
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -4640,6 +4645,33 @@ operator|.
 name|disableTimeToLive
 operator|=
 name|disableTimeToLive
+expr_stmt|;
+block|}
+comment|/**      * Gets the reply to type.      *<p/>      * Will only return a value if this option has been explicit configured.      *      * @return the reply type if configured, otherwise<tt>null</tt>      */
+DECL|method|getReplyToType ()
+specifier|public
+name|ReplyToType
+name|getReplyToType
+parameter_list|()
+block|{
+return|return
+name|replyToType
+return|;
+block|}
+DECL|method|setReplyToType (ReplyToType replyToType)
+specifier|public
+name|void
+name|setReplyToType
+parameter_list|(
+name|ReplyToType
+name|replyToType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToType
+operator|=
+name|replyToType
 expr_stmt|;
 block|}
 block|}

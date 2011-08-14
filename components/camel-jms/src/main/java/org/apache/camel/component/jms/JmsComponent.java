@@ -1551,6 +1551,36 @@ name|destinationResolver
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getReplyToType ()
+specifier|public
+name|ReplyToType
+name|getReplyToType
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getReplyToType
+argument_list|()
+return|;
+block|}
+DECL|method|setReplyToType (ReplyToType replyToType)
+specifier|public
+name|void
+name|setReplyToType
+parameter_list|(
+name|ReplyToType
+name|replyToType
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setReplyToType
+argument_list|(
+name|replyToType
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void
