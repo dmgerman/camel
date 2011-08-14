@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This {@link DefaultMessageListenerContainer} is used for persistent reply queues which are shared.  *<p/>  * This implementation supports using a fixed or dynamic JMS Message Selector to pickup the  * designated reply messages from the shared queue. Since the queue is shared, then we can only  * pickup the reply messages which is intended for us, so to support that we must use JMS  * Message Selectors.  *  * @see ExclusivePersistentQueueMessageListenerContainer  */
+comment|/**  * This {@link DefaultMessageListenerContainer} is used for persistent reply queues which are shared.  *<p/>  * This implementation supports using a fixed or dynamic JMS Message Selector to pickup the  * designated reply messages from the shared queue. Since the queue is shared, then we can only  * pickup the reply messages which is intended for us, so to support that we must use JMS  * Message Selectors.  *<p/>  * See more details at<a href="http://camel.apache.org/jms">camel-jms</a>.  *  * @see ExclusivePersistentQueueMessageListenerContainer  */
 end_comment
 
 begin_class

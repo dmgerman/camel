@@ -64,14 +64,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// perform the test, and send in 2 messages we expect
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
+comment|// now run the test and send in the message which we would expect
 name|template
 operator|.
 name|sendBody
@@ -79,15 +72,6 @@ argument_list|(
 literal|"seda:foo"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:foo"
-argument_list|,
-literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -118,7 +102,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// send 2 bodies to the seda:foo which is the messages we expect
+comment|// send 1 body to the seda:foo which is the messages we expect
 name|template
 operator|.
 name|sendBody
@@ -126,15 +110,6 @@ argument_list|(
 literal|"seda:foo"
 argument_list|,
 literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:foo"
-argument_list|,
-literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|from
