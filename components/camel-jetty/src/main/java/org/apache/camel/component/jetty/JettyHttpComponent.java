@@ -3354,6 +3354,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// let the thread names indicate they are from this component
+name|qtp
+operator|.
+name|setName
+argument_list|(
+literal|"CamelJetty("
+operator|+
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|this
+argument_list|)
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|qtp
@@ -3403,12 +3420,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-operator|(
-operator|(
-name|CamelHttpClient
-operator|)
 name|httpClient
-operator|)
 operator|.
 name|setSSLContext
 argument_list|(
