@@ -3354,18 +3354,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// let the thread names indicate they are from this component
+comment|// let the thread names indicate they are from the client
 name|qtp
 operator|.
 name|setName
 argument_list|(
-literal|"CamelJetty("
+literal|"CamelJettyClient("
 operator|+
 name|ObjectHelper
 operator|.
 name|getIdentityHashCode
 argument_list|(
-name|this
+name|httpClient
 argument_list|)
 operator|+
 literal|")"
@@ -4417,6 +4417,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// let the thread names indicate they are from the server
+name|qtp
+operator|.
+name|setName
+argument_list|(
+literal|"CamelJettyServer("
+operator|+
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|server
+argument_list|)
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|qtp
