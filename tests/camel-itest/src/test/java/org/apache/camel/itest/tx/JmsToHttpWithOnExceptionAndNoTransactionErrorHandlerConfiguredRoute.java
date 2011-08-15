@@ -70,6 +70,20 @@ name|HttpOperationFailedException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Route that listen on a JMS queue and send a request/reply over http  * before returning a response. Is transacted.  *<p/>  * Notice we use the SpringRouteBuilder that supports transacted  * error handler.  *  * @version   */
 end_comment
@@ -97,6 +111,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|8000
+argument_list|)
+expr_stmt|;
 comment|// if its a 404 then regard it as handled
 name|onException
 argument_list|(
@@ -179,7 +202,11 @@ comment|// send a request to http and get the response
 operator|.
 name|to
 argument_list|(
-literal|"http://localhost:8080/sender"
+literal|"http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/sender"
 argument_list|)
 comment|// convert the response to String so we can work with it and avoid streams only be readable once
 comment|// as the http component will return data as a stream
@@ -225,7 +252,11 @@ expr_stmt|;
 comment|// this is our http router
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8080/sender"
+literal|"jetty:http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/sender"
 argument_list|)
 operator|.
 name|process

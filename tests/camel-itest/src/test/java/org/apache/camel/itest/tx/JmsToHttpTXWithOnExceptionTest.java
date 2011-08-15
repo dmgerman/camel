@@ -293,7 +293,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// will rollback forver so we run 3 times or more
+comment|// will rollback forever so we run 3 times or more
 name|rollback
 operator|.
 name|expectedMinimumMessageCount

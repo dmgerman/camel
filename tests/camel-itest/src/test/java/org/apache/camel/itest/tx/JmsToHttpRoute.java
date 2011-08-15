@@ -106,6 +106,20 @@ name|SpringTransactionPolicy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Route that listen on a JMS queue and send a request/reply over http  * before returning a response. Is transacted.  *<p/>  * Notice we use the SpringRouteBuilder that supports transacted  * error handler.  *  * @version   */
 end_comment
@@ -123,6 +137,11 @@ specifier|protected
 specifier|static
 name|int
 name|counter
+decl_stmt|;
+DECL|field|port
+specifier|protected
+name|int
+name|port
 decl_stmt|;
 annotation|@
 name|Resource
@@ -170,6 +189,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|8000
+argument_list|)
+expr_stmt|;
 comment|// configure a global transacted error handler
 name|errorHandler
 argument_list|(
@@ -183,7 +211,7 @@ name|from
 argument_list|(
 name|data
 argument_list|)
-comment|// must setup policy for each route due CAMEL-1475 bug
+comment|// use transaction policy for this route
 operator|.
 name|policy
 argument_list|(
@@ -193,7 +221,11 @@ comment|// send a request to http and get the response
 operator|.
 name|to
 argument_list|(
-literal|"http://localhost:9091/sender"
+literal|"http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/sender"
 argument_list|)
 comment|// convert the response to String so we can work with it and avoid streams only be readable once
 comment|// as the http component will return data as a stream
@@ -264,7 +296,11 @@ comment|// this is our http route that will fail the first 2 attempts
 comment|// before it sends an ok response
 name|from
 argument_list|(
-literal|"jetty:http://localhost:9091/sender"
+literal|"jetty:http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/sender"
 argument_list|)
 operator|.
 name|process
