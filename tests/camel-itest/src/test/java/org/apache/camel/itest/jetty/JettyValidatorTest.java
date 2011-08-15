@@ -64,6 +64,20 @@ name|camel
 operator|.
 name|test
 operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
@@ -88,12 +102,17 @@ name|JettyValidatorTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|port
+specifier|private
+name|int
+name|port
+decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testValideRequest ()
+DECL|method|testValidRequest ()
 specifier|public
 name|void
-name|testValideRequest
+name|testValidRequest
 parameter_list|()
 throws|throws
 name|Exception
@@ -125,7 +144,11 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8192/test"
+literal|"http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/test"
 argument_list|,
 name|inputStream
 argument_list|,
@@ -146,10 +169,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testInvalideRequest ()
+DECL|method|testInvalidRequest ()
 specifier|public
 name|void
-name|testInvalideRequest
+name|testInvalidRequest
 parameter_list|()
 throws|throws
 name|Exception
@@ -181,7 +204,11 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8192/test"
+literal|"http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/test"
 argument_list|,
 name|inputStream
 argument_list|,
@@ -210,6 +237,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|8000
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|RouteBuilder
@@ -222,7 +258,11 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8192/test"
+literal|"jetty:http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/test"
 argument_list|)
 operator|.
 name|convertBodyTo

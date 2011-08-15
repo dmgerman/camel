@@ -58,6 +58,20 @@ name|camel
 operator|.
 name|test
 operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
@@ -86,6 +100,11 @@ name|JettyConstantSetHeaderTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|port
+specifier|private
+name|int
+name|port
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testJettyConstantSetHeader ()
@@ -153,7 +172,11 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8223/beer"
+literal|"http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/beer"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -183,6 +206,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|8000
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|RouteBuilder
@@ -199,7 +231,11 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:8223/beer"
+literal|"jetty:http://localhost:"
+operator|+
+name|port
+operator|+
+literal|"/beer"
 argument_list|)
 operator|.
 name|convertBodyTo
