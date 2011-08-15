@@ -283,23 +283,6 @@ operator|.
 name|getLocalName
 argument_list|()
 decl_stmt|;
-comment|// Setting the thread context classloader to workaround the issue BlueprintBus ClassLoader
-comment|// This line can be removed when CXF 2.4.2 is released.
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|setContextClassLoader
-argument_list|(
-name|BlueprintBus
-operator|.
-name|class
-operator|.
-name|getClassLoader
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 literal|"cxfEndpoint"
