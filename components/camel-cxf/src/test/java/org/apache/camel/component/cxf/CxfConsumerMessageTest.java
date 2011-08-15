@@ -376,10 +376,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testInvokingServiceFromCXFClient ()
+DECL|method|testInvokingServiceFromClient ()
 specifier|public
 name|void
-name|testInvokingServiceFromCXFClient
+name|testInvokingServiceFromClient
 parameter_list|()
 throws|throws
 name|Exception

@@ -188,6 +188,60 @@ literal|"<ns1:echoBoolean xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
 operator|+
 literal|"<arg0 xmlns=\"http://cxf.component.camel.apache.org/\">true</arg0></ns1:echoBoolean>"
 decl_stmt|;
+DECL|field|ELEMENT_NAMESPACE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ELEMENT_NAMESPACE
+init|=
+literal|"http://cxf.component.camel.apache.org/"
+decl_stmt|;
+DECL|method|checkRequest (String expect, String request)
+specifier|protected
+name|void
+name|checkRequest
+parameter_list|(
+name|String
+name|expect
+parameter_list|,
+name|String
+name|request
+parameter_list|)
+block|{
+if|if
+condition|(
+name|expect
+operator|.
+name|equals
+argument_list|(
+literal|"ECHO_REQUEST"
+argument_list|)
+condition|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Get a wrong request"
+argument_list|,
+name|ECHO_REQUEST
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|assertEquals
+argument_list|(
+literal|"Get a wrong request"
+argument_list|,
+name|ECHO_BOOLEAN_REQUEST
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// START SNIPPET: payload
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -309,6 +363,34 @@ name|documentString
 init|=
 name|ECHO_RESPONSE
 decl_stmt|;
+comment|// Just check the element namespace
+if|if
+condition|(
+operator|!
+name|inElements
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getNamespaceURI
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|ELEMENT_NAMESPACE
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Wrong element namespace"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|inElements
@@ -331,11 +413,9 @@ name|documentString
 operator|=
 name|ECHO_BOOLEAN_RESPONSE
 expr_stmt|;
-name|assertEquals
+name|checkRequest
 argument_list|(
-literal|"Get a wrong request"
-argument_list|,
-name|ECHO_BOOLEAN_REQUEST
+literal|"ECHO_BOOLEAN_REQUEST"
 argument_list|,
 name|request
 argument_list|)
@@ -343,11 +423,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|assertEquals
+name|documentString
+operator|=
+name|ECHO_RESPONSE
+expr_stmt|;
+name|checkRequest
 argument_list|(
-literal|"Get a wrong request"
-argument_list|,
-name|ECHO_REQUEST
+literal|"ECHO_REQUEST"
 argument_list|,
 name|request
 argument_list|)
