@@ -186,16 +186,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -374,7 +364,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-comment|//@Ignore("This test will be failed with CXF 2.4.1, we need to use CXF 2.4.2")
 DECL|class|CxfBlueprintRouterTest
 specifier|public
 class|class

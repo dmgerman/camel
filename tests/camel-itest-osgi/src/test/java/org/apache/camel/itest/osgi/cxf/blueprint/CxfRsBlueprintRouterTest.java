@@ -246,16 +246,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -374,26 +364,6 @@ name|ops4j
 operator|.
 name|pax
 operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|vmOption
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
 name|swissbox
 operator|.
 name|tinybundles
@@ -413,11 +383,6 @@ argument_list|(
 name|JUnit4TestRunner
 operator|.
 name|class
-argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"This test will be failed with CXF 2.4.1, we need to use CXF 2.4.2"
 argument_list|)
 DECL|class|CxfRsBlueprintRouterTest
 specifier|public
@@ -1345,11 +1310,6 @@ argument_list|)
 operator|.
 name|noStart
 argument_list|()
-argument_list|,
-name|vmOption
-argument_list|(
-literal|"-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5006"
-argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
