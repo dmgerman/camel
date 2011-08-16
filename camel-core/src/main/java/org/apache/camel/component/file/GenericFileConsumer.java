@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for remote file consumers.  */
+comment|/**  * Base class for file consumers.  */
 end_comment
 
 begin_class
@@ -324,6 +324,11 @@ specifier|volatile
 name|int
 name|pendingExchanges
 decl_stmt|;
+DECL|field|customProcessor
+specifier|protected
+name|Processor
+name|customProcessor
+decl_stmt|;
 DECL|method|GenericFileConsumer (GenericFileEndpoint<T> endpoint, Processor processor, GenericFileOperations<T> operations)
 specifier|public
 name|GenericFileConsumer
@@ -362,6 +367,33 @@ operator|.
 name|operations
 operator|=
 name|operations
+expr_stmt|;
+block|}
+DECL|method|getCustomProcessor ()
+specifier|public
+name|Processor
+name|getCustomProcessor
+parameter_list|()
+block|{
+return|return
+name|customProcessor
+return|;
+block|}
+comment|/**      * Use a custom processor to process the exchange.      *<p/>      * Only set this if you need to do custom processing, instead of the regular processing.      *<p/>      * This is for example used to browse file endpoints by leveraging the file consumer to poll      * the directory to gather the list of exchanges. But to avoid processing the files regularly      * we can use a custom processor.      *      * @param processor a custom processor      */
+DECL|method|setCustomProcessor (Processor processor)
+specifier|public
+name|void
+name|setCustomProcessor
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customProcessor
+operator|=
+name|processor
 expr_stmt|;
 block|}
 comment|/**      * Poll for files      */
@@ -819,11 +851,31 @@ operator|-
 literal|1
 expr_stmt|;
 comment|// process the current exchange
+if|if
+condition|(
+name|customProcessor
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use a custom processor
+name|customProcessExchange
+argument_list|(
+name|exchange
+argument_list|,
+name|customProcessor
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// process the exchange regular
 name|processExchange
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// remove the file from the in progress list in case the batch was limited by max messages per poll
 while|while
@@ -1431,6 +1483,117 @@ expr_stmt|;
 name|handleException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Processes the exchange using a custom processor.      *      * @param exchange the exchange      * @param processor the custom processor      */
+DECL|method|customProcessExchange (final Exchange exchange, final Processor processor)
+specifier|protected
+name|void
+name|customProcessExchange
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+init|=
+name|getExchangeFileProperty
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Custom processing file: {}"
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
+comment|// must extract the absolute name before the begin strategy as the file could potentially be pre moved
+comment|// and then the file name would be changed
+name|String
+name|absoluteFileName
+init|=
+name|file
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+comment|// process using the custom processor
+name|processor
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|endpoint
+operator|+
+literal|" error custom processing: "
+operator|+
+name|file
+operator|+
+literal|" due to: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+comment|// always remove file from the in progress list as its no longer in progress
+comment|// use the original file name that was used to add it to the repository
+comment|// as the name can be different when using preMove option
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}

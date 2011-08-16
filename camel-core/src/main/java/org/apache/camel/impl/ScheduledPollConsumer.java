@@ -225,6 +225,13 @@ argument_list|>
 name|future
 decl_stmt|;
 comment|// if adding more options then align with ScheduledPollEndpoint#configureScheduledPollConsumerProperties
+DECL|field|startScheduler
+specifier|private
+name|boolean
+name|startScheduler
+init|=
+literal|true
+decl_stmt|;
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -1066,6 +1073,33 @@ operator|=
 name|pollStrategy
 expr_stmt|;
 block|}
+DECL|method|isStartScheduler ()
+specifier|public
+name|boolean
+name|isStartScheduler
+parameter_list|()
+block|{
+return|return
+name|startScheduler
+return|;
+block|}
+comment|/**      * Sets whether the scheduler should be started when this consumer starts.      *<p/>      * This option is default true.      *      * @param startScheduler whether to start scheduler      */
+DECL|method|setStartScheduler (boolean startScheduler)
+specifier|public
+name|void
+name|setStartScheduler
+parameter_list|(
+name|boolean
+name|startScheduler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startScheduler
+operator|=
+name|startScheduler
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * The polling method which is invoked periodically to poll this consumer      *      * @return number of messages polled, will be<tt>0</tt> if no message was polled at all.      * @throws Exception can be thrown if an exception occurred during polling      */
@@ -1115,6 +1149,23 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isStartScheduler
+argument_list|()
+condition|)
+block|{
+name|startScheduler
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|startScheduler ()
+specifier|protected
+name|void
+name|startScheduler
+parameter_list|()
+block|{
 if|if
 condition|(
 name|isUseFixedDelay

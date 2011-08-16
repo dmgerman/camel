@@ -415,6 +415,16 @@ block|{
 comment|// special for scheduled poll consumers as we want to allow end users to configure its options
 comment|// from the URI parameters without the consumer. prefix
 name|Object
+name|startScheduler
+init|=
+name|options
+operator|.
+name|remove
+argument_list|(
+literal|"startScheduler"
+argument_list|)
+decl_stmt|;
+name|Object
 name|initialDelay
 init|=
 name|options
@@ -499,6 +509,10 @@ operator|||
 name|runLoggingLevel
 operator|!=
 literal|null
+operator|||
+name|startScheduler
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
@@ -534,6 +548,23 @@ argument_list|(
 literal|"initialDelay"
 argument_list|,
 name|initialDelay
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|startScheduler
+operator|!=
+literal|null
+condition|)
+block|{
+name|consumerProperties
+operator|.
+name|put
+argument_list|(
+literal|"startScheduler"
+argument_list|,
+name|startScheduler
 argument_list|)
 expr_stmt|;
 block|}
