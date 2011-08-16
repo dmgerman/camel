@@ -391,14 +391,17 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"src/test/resources/notfound.txt (No such file or directory)"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"notfound.txt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
