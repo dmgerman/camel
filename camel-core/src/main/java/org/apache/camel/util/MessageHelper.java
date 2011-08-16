@@ -1030,11 +1030,28 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+comment|// include exchangeId as attribute on the<message> tag
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"<message>\n"
+literal|"<message exchangeId=\""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\">\n"
 argument_list|)
 expr_stmt|;
 comment|// headers

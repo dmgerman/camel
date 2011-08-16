@@ -365,6 +365,34 @@ return|return
 name|body
 return|;
 block|}
+comment|/**      * @deprecated use {@link #browseAllMessagesAsXml(Boolean)} instead      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Get message as XML from queue by index"
+argument_list|)
+annotation|@
+name|Deprecated
+DECL|method|browseMessageAsXml (Integer index)
+specifier|public
+name|String
+name|browseMessageAsXml
+parameter_list|(
+name|Integer
+name|index
+parameter_list|)
+block|{
+return|return
+name|browseMessageAsXml
+argument_list|(
+name|index
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 annotation|@
 name|ManagedOperation
 argument_list|(

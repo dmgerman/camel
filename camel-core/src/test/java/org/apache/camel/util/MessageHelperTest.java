@@ -650,6 +650,24 @@ literal|"<body type=\"java.lang.String\">&lt;?xml version=&quot;1.0&quot;?&gt;&l
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should contain exchangeId"
+argument_list|,
+name|out
+operator|.
+name|contains
+argument_list|(
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|stop
@@ -718,7 +736,19 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>"
+literal|"<message exchangeId=\""
+operator|+
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">"
+operator|+
+literal|"\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>"
 argument_list|,
 name|out
 argument_list|)

@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -53,6 +63,18 @@ operator|.
 name|management
 operator|.
 name|ObjectName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -228,6 +250,20 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|exchanges
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -291,7 +327,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<body type=\"java.lang.String\">&lt;foo&gt;Camel&amp;gt; Donkey&lt;/foo&gt;</body>\n</message>"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<body type=\"java.lang.String\">&lt;foo&gt;Camel&amp;gt; Donkey&lt;/foo&gt;</body>\n</message>"
 argument_list|,
 name|out
 argument_list|)
@@ -342,7 +390,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<body type=\"java.lang.String\">Camel&gt; Donkey</body>\n</message>"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<body type=\"java.lang.String\">Camel&gt; Donkey</body>\n</message>"
 argument_list|,
 name|out
 argument_list|)
@@ -393,7 +453,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"name\" type=\"java.lang.String\">Me&amp; You</header>\n</headers>\n"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"name\" type=\"java.lang.String\">Me&amp; You</header>\n</headers>\n"
 operator|+
 literal|"<body type=\"java.lang.String\">&lt;foo&gt;Camel&amp;gt; Donkey&lt;/foo&gt;</body>\n</message>"
 argument_list|,
@@ -446,7 +518,21 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"title\" type=\"java.lang.String\">&lt;title&gt;Me&amp;amp; You&lt;/title&gt;</header>\n</headers>\n"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n"
+operator|+
+literal|"<header key=\"title\" type=\"java.lang.String\">&lt;title&gt;Me&amp;amp; You&lt;/title&gt;</header>\n</headers>\n"
 operator|+
 literal|"<body type=\"java.lang.String\">&lt;foo&gt;Camel&amp;gt; Donkey&lt;/foo&gt;</body>\n</message>"
 argument_list|,
@@ -499,7 +585,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"name\" type=\"java.lang.String\">Me&amp; You</header>\n</headers>\n"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|4
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"name\" type=\"java.lang.String\">Me&amp; You</header>\n</headers>\n"
 operator|+
 literal|"<body type=\"java.lang.String\">Camel&gt; Donkey</body>\n</message>"
 argument_list|,
@@ -552,7 +650,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"user\" type=\"java.lang.Boolean\">true</header>\n</headers>\n"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|5
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"user\" type=\"java.lang.Boolean\">true</header>\n</headers>\n"
 operator|+
 literal|"<body type=\"java.lang.Integer\">123</body>\n</message>"
 argument_list|,
@@ -605,7 +715,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"title\" type=\"java.lang.String\">Camel rocks</header>\n"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|6
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"title\" type=\"java.lang.String\">Camel rocks</header>\n"
 operator|+
 literal|"<header key=\"uid\" type=\"java.lang.Integer\">123</header>\n"
 operator|+
@@ -664,6 +786,20 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|exchanges
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -727,7 +863,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>"
 argument_list|,
 name|out
 argument_list|)
@@ -778,7 +926,19 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n</message>"
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n</message>"
 argument_list|,
 name|out
 argument_list|)
@@ -827,6 +987,20 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|exchanges
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -886,9 +1060,33 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<messages>\n<message>\n<body type=\"java.lang.String\">Hello World</body>\n</message>\n"
+literal|"<messages>\n<message exchangeId=\""
 operator|+
-literal|"<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n"
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<body type=\"java.lang.String\">Hello World</body>\n</message>\n"
+operator|+
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n"
 operator|+
 literal|"<body type=\"java.lang.String\">Bye World</body>\n</message>\n</messages>"
 argument_list|,
@@ -949,6 +1147,20 @@ init|=
 name|getMBeanServer
 argument_list|()
 decl_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|exchanges
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
 name|ObjectName
 name|name
 init|=
@@ -1002,9 +1214,37 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<messages>\n<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>\n"
+literal|"<messages>\n<message exchangeId=\""
 operator|+
-literal|"<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n</message>\n</messages>"
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n"
+operator|+
+literal|"<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>\n"
+operator|+
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n"
+operator|+
+literal|"</message>\n</messages>"
 argument_list|,
 name|out
 argument_list|)
@@ -1062,6 +1302,20 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|exchanges
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -1129,9 +1383,33 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<messages>\n<message>\n<body type=\"java.lang.String\">Hello World</body>\n</message>\n"
+literal|"<messages>\n<message exchangeId=\""
 operator|+
-literal|"<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n"
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<body type=\"java.lang.String\">Hello World</body>\n</message>\n"
+operator|+
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n"
 operator|+
 literal|"<body type=\"java.lang.String\">Bye World</body>\n</message>\n</messages>"
 argument_list|,
@@ -1195,6 +1473,20 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|exchanges
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|getReceivedExchanges
+argument_list|()
+decl_stmt|;
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -1262,9 +1554,35 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<messages>\n<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>\n"
+literal|"<messages>\n<message exchangeId=\""
 operator|+
-literal|"<message>\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n</message>\n</messages>"
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">123</header>\n</headers>\n</message>\n"
+operator|+
+literal|"<message exchangeId=\""
+operator|+
+name|exchanges
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|"\">\n<headers>\n<header key=\"foo\" type=\"java.lang.Integer\">456</header>\n</headers>\n"
+operator|+
+literal|"</message>\n</messages>"
 argument_list|,
 name|out
 argument_list|)
