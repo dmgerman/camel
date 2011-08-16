@@ -122,6 +122,21 @@ name|CxfConusmerNamespacePayLoadTest
 extends|extends
 name|CxfConsumerPayloadTest
 block|{
+DECL|field|ECHO_RESPONSE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ECHO_RESPONSE
+init|=
+literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">"
+operator|+
+literal|"<soap:Body><ns1:echoResponse xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
+operator|+
+literal|"<return xmlns=\"http://cxf.component.camel.apache.org/\">echo Hello World!</return>"
+operator|+
+literal|"</ns1:echoResponse></soap:Body></soap:Envelope>"
+decl_stmt|;
 DECL|field|ECHO_REQUEST
 specifier|private
 specifier|static
@@ -244,7 +259,19 @@ argument_list|(
 name|post
 argument_list|)
 decl_stmt|;
-comment|//assertEquals(200, response.getStatusLine().getStatusCode());
+name|assertEquals
+argument_list|(
+literal|200
+argument_list|,
+name|response
+operator|.
+name|getStatusLine
+argument_list|()
+operator|.
+name|getStatusCode
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|responseBody
 init|=
@@ -258,16 +285,15 @@ name|getEntity
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertEquals
 argument_list|(
+literal|"Get a wrong response"
+argument_list|,
+name|ECHO_RESPONSE
+argument_list|,
 name|responseBody
 argument_list|)
 expr_stmt|;
-comment|//assertEquals("Get a wrong response", correct, responseBody);
 block|}
 finally|finally
 block|{
