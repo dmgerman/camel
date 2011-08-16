@@ -1000,6 +1000,29 @@ name|Message
 name|message
 parameter_list|)
 block|{
+return|return
+name|dumpAsXml
+argument_list|(
+name|message
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Dumps the message as a generic XML structure.      *      * @param message  the message      * @param includeBody whether or not to include the message body      * @return the XML      */
+DECL|method|dumpAsXml (Message message, boolean includeBody)
+specifier|public
+specifier|static
+name|String
+name|dumpAsXml
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|boolean
+name|includeBody
+parameter_list|)
+block|{
 name|StringBuilder
 name|sb
 init|=
@@ -1198,6 +1221,11 @@ literal|"</headers>\n"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|includeBody
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -1292,6 +1320,7 @@ argument_list|(
 literal|"</body>\n"
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
