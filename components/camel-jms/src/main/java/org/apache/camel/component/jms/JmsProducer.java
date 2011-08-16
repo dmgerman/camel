@@ -476,10 +476,16 @@ name|endpoint
 operator|.
 name|getReplyToType
 argument_list|()
-operator|==
+operator|.
+name|equals
+argument_list|(
 name|ReplyToType
 operator|.
 name|Temporary
+operator|.
+name|name
+argument_list|()
+argument_list|)
 condition|)
 block|{
 throw|throw
