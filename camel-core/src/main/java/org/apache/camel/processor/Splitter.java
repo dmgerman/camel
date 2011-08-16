@@ -1053,6 +1053,7 @@ operator|instanceof
 name|Collection
 condition|)
 block|{
+comment|// non streaming mode, so we know the total size already
 name|exchange
 operator|.
 name|setProperty
@@ -1111,6 +1112,20 @@ argument_list|,
 name|Boolean
 operator|.
 name|TRUE
+argument_list|)
+expr_stmt|;
+comment|// streaming mode, so set total size when we are complete based on the index
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SPLIT_SIZE
+argument_list|,
+name|index
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
