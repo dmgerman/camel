@@ -81,6 +81,11 @@ comment|/**  * Unit test to ensure the {@link org.apache.camel.spi.ExecutorServi
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|DefaultExecutorServiceStrategyTest
 specifier|public
 class|class

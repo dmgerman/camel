@@ -986,20 +986,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExecutorServiceStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -11669,8 +11655,18 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Deprecated
 DECL|method|getExecutorServiceStrategy ()
 specifier|public
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ExecutorServiceStrategy
 name|getExecutorServiceStrategy
 parameter_list|()

@@ -230,20 +230,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExecutorServiceStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -1440,6 +1426,14 @@ comment|/**      * Gets the current {@link org.apache.camel.spi.ExecutorServiceS
 annotation|@
 name|Deprecated
 DECL|method|getExecutorServiceStrategy ()
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ExecutorServiceStrategy
 name|getExecutorServiceStrategy
 parameter_list|()
