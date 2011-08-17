@@ -1616,6 +1616,49 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the auto startup property on this route.      *      * @param autoStartup - String indicator ("true" or "false")      * @return the builder      */
+DECL|method|autoStartup (String autoStartup)
+specifier|public
+name|RouteDefinition
+name|autoStartup
+parameter_list|(
+name|String
+name|autoStartup
+parameter_list|)
+block|{
+name|setAutoStartup
+argument_list|(
+name|autoStartup
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the auto startup property on this route.      *      * @param autoStartup - boolean indicator      * @return the builder      */
+DECL|method|autoStartup (boolean autoStartup)
+specifier|public
+name|RouteDefinition
+name|autoStartup
+parameter_list|(
+name|boolean
+name|autoStartup
+parameter_list|)
+block|{
+name|setAutoStartup
+argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|autoStartup
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Configures the startup order for this route      *<p/>      * Camel will reorder routes and star them ordered by 0..N where 0 is the lowest number and N the highest number.      * Camel will stop routes in reverse order when its stopping.      *      * @param order the order represented as a number      * @return the builder      */
 DECL|method|startupOrder (int order)
 specifier|public
