@@ -363,7 +363,7 @@ if|if
 condition|(
 name|NagiosEncryptionMethod
 operator|.
-name|TripeDes
+name|TripleDes
 operator|==
 name|encryptionMethod
 condition|)
