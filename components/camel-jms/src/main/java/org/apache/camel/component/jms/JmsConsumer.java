@@ -494,7 +494,7 @@ operator|.
 name|destroy
 argument_list|()
 expr_stmt|;
-comment|// TODO: The async destroy code does not work well, there is a JIRA ticket
+comment|// TODO: The async destroy code does not work well see https://issues.apache.org/jira/browse/CAMEL-4309
 comment|// getEndpoint().destroyMessageListenerContainer(listenerContainer);
 block|}
 comment|// null container and listener so they are fully re created if this consumer is restarted
