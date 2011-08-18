@@ -30,12 +30,12 @@ name|NagiosEncryptionMethod
 block|{
 DECL|enumConstant|No
 DECL|enumConstant|Xor
-DECL|enumConstant|TripeDes
+DECL|enumConstant|TripleDes
 name|No
 block|,
 name|Xor
 block|,
-name|TripeDes
+name|TripleDes
 block|;  }
 end_enum
 
