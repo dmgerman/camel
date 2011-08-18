@@ -286,6 +286,20 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+DECL|method|newScheduledThreadPool (Object source, String name, ThreadPoolProfile profile)
+name|ScheduledExecutorService
+name|newScheduledThreadPool
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|ThreadPoolProfile
+name|profile
+parameter_list|)
+function_decl|;
 comment|/**      * Shutdown the given executor service.      *      * @param executorService the executor service to shutdown      * @see java.util.concurrent.ExecutorService#shutdown()      */
 DECL|method|shutdown (ExecutorService executorService)
 name|void

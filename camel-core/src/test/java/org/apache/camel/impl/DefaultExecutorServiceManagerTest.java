@@ -2446,6 +2446,8 @@ decl_stmt|;
 comment|// a fixed dont use keep alive
 name|assertEquals
 argument_list|(
+literal|"keepAliveTime"
+argument_list|,
 literal|0
 argument_list|,
 name|tp
@@ -2460,6 +2462,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"maximumPoolSize"
+argument_list|,
 literal|5
 argument_list|,
 name|tp
@@ -2543,6 +2547,8 @@ decl_stmt|;
 comment|// a single dont use keep alive
 name|assertEquals
 argument_list|(
+literal|"keepAliveTime"
+argument_list|,
 literal|0
 argument_list|,
 name|tp
@@ -2557,6 +2563,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"maximumPoolSize"
+argument_list|,
 literal|1
 argument_list|,
 name|tp
