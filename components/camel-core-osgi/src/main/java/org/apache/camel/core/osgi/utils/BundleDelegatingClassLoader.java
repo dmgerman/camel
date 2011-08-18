@@ -435,6 +435,25 @@ return|return
 name|bundle
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"BundleDelegatingClassLoader(%s)"
+argument_list|,
+name|bundle
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
