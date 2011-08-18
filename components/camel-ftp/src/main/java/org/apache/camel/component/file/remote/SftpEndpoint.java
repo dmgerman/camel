@@ -112,6 +112,23 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|SftpConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SftpConfiguration
+operator|)
+name|this
+operator|.
+name|configuration
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|buildConsumer (Processor processor)
 specifier|protected
 name|RemoteFileConsumer

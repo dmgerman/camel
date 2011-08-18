@@ -85,6 +85,11 @@ name|serverAliveCountMax
 init|=
 literal|1
 decl_stmt|;
+DECL|field|chmod
+specifier|private
+name|String
+name|chmod
+decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
 name|SftpConfiguration
@@ -278,6 +283,32 @@ parameter_list|()
 block|{
 return|return
 name|serverAliveCountMax
+return|;
+block|}
+DECL|method|setChmod (String chmod)
+specifier|public
+name|void
+name|setChmod
+parameter_list|(
+name|String
+name|chmod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|chmod
+operator|=
+name|chmod
+expr_stmt|;
+block|}
+DECL|method|getChmod ()
+specifier|public
+name|String
+name|getChmod
+parameter_list|()
+block|{
+return|return
+name|chmod
 return|;
 block|}
 block|}
