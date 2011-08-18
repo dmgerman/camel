@@ -1678,7 +1678,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> if the remote file is matched,<tt>false</tt> if not      */
+comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
 DECL|method|isMatched (GenericFile<T> file, boolean isDirectory)
 specifier|protected
 name|boolean
@@ -1937,6 +1937,42 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|isMatched
+argument_list|(
+name|file
+argument_list|,
+name|doneFileName
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+return|return
+literal|true
+return|;
+block|}
+comment|/**      * Strategy to perform file matching based on endpoint configuration in terms of done file name.      *      * @param file         the file      * @param doneFileName the done file name      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
+DECL|method|isMatched (GenericFile<T> file, String doneFileName)
+specifier|protected
+name|boolean
+name|isMatched
+parameter_list|(
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|,
+name|String
+name|doneFileName
+parameter_list|)
+block|{
 comment|// the file is only valid if the done file exist
 if|if
 condition|(
@@ -1962,7 +1998,7 @@ return|return
 literal|false
 return|;
 block|}
-block|}
+comment|// assume matched
 return|return
 literal|true
 return|;

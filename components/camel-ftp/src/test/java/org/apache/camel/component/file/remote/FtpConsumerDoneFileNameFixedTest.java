@@ -71,10 +71,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|FtpConsumerDoneFileNameTest
+DECL|class|FtpConsumerDoneFileNameFixedTest
 specifier|public
 class|class
-name|FtpConsumerDoneFileNameTest
+name|FtpConsumerDoneFileNameFixedTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -167,7 +167,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"hello.dat"
+literal|"fin.dat"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -190,7 +190,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.dat"
+literal|"done/fin.dat"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -238,7 +238,7 @@ argument_list|(
 name|getFtpUrl
 argument_list|()
 operator|+
-literal|"&doneFileName=${file:name.noext}.dat"
+literal|"&doneFileName=fin.dat"
 argument_list|)
 operator|.
 name|convertBodyTo
