@@ -582,6 +582,17 @@ operator|=
 name|useRouteBuilder
 expr_stmt|;
 block|}
+comment|/**      * Override when using<a href="http://camel.apache.org/advicewith.html">advice with</a> and return<tt>true</tt>.      * This helps knowing advice with is to be used, and {@link CamelContext} will not be started before      * the advice with takes place. This helps by ensuring the advice with has been property setup before the      * {@link CamelContext} is started      *<p/>      *<b>Important:</b> Its important to start {@link CamelContext} manually from the unit test      * after you are done doing all the advice with.      *      * @return<tt>true</tt> if you use advice with in your unit tests.      */
+DECL|method|isUseAdviceWith ()
+specifier|public
+name|boolean
+name|isUseAdviceWith
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Override to control whether {@link CamelContext} should be setup per test or per class.      *<p/>      * By default it will be setup/teardown per test (per test method). If you want to re-use      * {@link CamelContext} between test methods you can override this method and return<tt>true</tt>      *<p/>      *<b>Important:</b> Use this with care as the {@link CamelContext} will carry over state      * from previous tests, such as endpoints, components etc. So you cannot use this in all your tests.      *      * @return<tt>true</tt> per class,<tt>false</tt> per test.      */
 DECL|method|isCreateCamelContextPerClass ()
 specifier|public
@@ -894,9 +905,9 @@ name|builder
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
+name|boolean
+name|skip
+init|=
 literal|"true"
 operator|.
 name|equalsIgnoreCase
@@ -908,13 +919,11 @@ argument_list|(
 literal|"skipStartingCamelContext"
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|skip
 condition|)
-block|{
-name|startCamelContext
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 name|log
 operator|.
@@ -922,6 +931,27 @@ name|info
 argument_list|(
 literal|"Skipping starting CamelContext as system property skipStartingCamelContext is set to be true."
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|isUseAdviceWith
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Skipping starting CamelContext as isUseAdviceWith is set to true."
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|startCamelContext
+argument_list|()
 expr_stmt|;
 block|}
 block|}
