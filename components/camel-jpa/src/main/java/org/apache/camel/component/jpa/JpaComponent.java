@@ -68,6 +68,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -242,9 +256,12 @@ decl_stmt|;
 comment|// lets interpret the next string as a class
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|path
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 comment|// provide the class loader of this component to work in OSGi environments as camel-jpa must be able
