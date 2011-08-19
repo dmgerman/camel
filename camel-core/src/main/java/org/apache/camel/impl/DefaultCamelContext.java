@@ -2610,11 +2610,6 @@ argument_list|>
 name|getEndpoints
 parameter_list|()
 block|{
-synchronized|synchronized
-init|(
-name|endpoints
-init|)
-block|{
 return|return
 operator|new
 name|ArrayList
@@ -2629,7 +2624,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-block|}
 DECL|method|getEndpointMap ()
 specifier|public
 name|Map
@@ -2640,11 +2634,6 @@ name|Endpoint
 argument_list|>
 name|getEndpointMap
 parameter_list|()
-block|{
-synchronized|synchronized
-init|(
-name|endpoints
-init|)
 block|{
 name|TreeMap
 argument_list|<
@@ -2704,7 +2693,6 @@ return|return
 name|answer
 return|;
 block|}
-block|}
 DECL|method|hasEndpoint (String uri)
 specifier|public
 name|Endpoint
@@ -2713,11 +2701,6 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|)
-block|{
-synchronized|synchronized
-init|(
-name|endpoints
-init|)
 block|{
 return|return
 name|endpoints
@@ -2730,7 +2713,6 @@ name|uri
 argument_list|)
 argument_list|)
 return|;
-block|}
 block|}
 DECL|method|addEndpoint (String uri, Endpoint endpoint)
 specifier|public
@@ -2749,11 +2731,6 @@ block|{
 name|Endpoint
 name|oldEndpoint
 decl_stmt|;
-synchronized|synchronized
-init|(
-name|endpoints
-init|)
-block|{
 name|startServices
 argument_list|(
 name|endpoint
@@ -2806,7 +2783,6 @@ argument_list|(
 name|oldEndpoint
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|oldEndpoint
@@ -3058,11 +3034,6 @@ name|scheme
 init|=
 literal|null
 decl_stmt|;
-synchronized|synchronized
-init|(
-name|endpoints
-init|)
-block|{
 name|answer
 operator|=
 name|endpoints
@@ -3230,7 +3201,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 comment|// unknown scheme
