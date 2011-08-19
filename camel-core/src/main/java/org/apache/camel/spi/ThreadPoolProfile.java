@@ -73,6 +73,8 @@ class|class
 name|ThreadPoolProfile
 implements|implements
 name|Serializable
+implements|,
+name|Cloneable
 block|{
 comment|// TODO: Camel 2.9/3.0 consider moving to org.apache.camel
 DECL|field|serialVersionUID
@@ -399,19 +401,19 @@ operator|=
 name|rejectedPolicy
 expr_stmt|;
 block|}
-comment|/**      * Overwrites each attribute that is null with the attribute from defaultProfile       *       * @param defaultProfile2      */
-DECL|method|addDefaults (ThreadPoolProfile defaultProfile2)
+comment|/**      * Overwrites each attribute that is null with the attribute from defaultProfile       *       * @param defaultProfile profile with default values      */
+DECL|method|addDefaults (ThreadPoolProfile defaultProfile)
 specifier|public
 name|void
 name|addDefaults
 parameter_list|(
 name|ThreadPoolProfile
-name|defaultProfile2
+name|defaultProfile
 parameter_list|)
 block|{
 if|if
 condition|(
-name|defaultProfile2
+name|defaultProfile
 operator|==
 literal|null
 condition|)
@@ -427,7 +429,7 @@ condition|)
 block|{
 name|poolSize
 operator|=
-name|defaultProfile2
+name|defaultProfile
 operator|.
 name|getPoolSize
 argument_list|()
@@ -442,7 +444,7 @@ condition|)
 block|{
 name|maxPoolSize
 operator|=
-name|defaultProfile2
+name|defaultProfile
 operator|.
 name|getMaxPoolSize
 argument_list|()
@@ -457,7 +459,7 @@ condition|)
 block|{
 name|keepAliveTime
 operator|=
-name|defaultProfile2
+name|defaultProfile
 operator|.
 name|getKeepAliveTime
 argument_list|()
@@ -472,7 +474,7 @@ condition|)
 block|{
 name|timeUnit
 operator|=
-name|defaultProfile2
+name|defaultProfile
 operator|.
 name|getTimeUnit
 argument_list|()
@@ -487,7 +489,7 @@ condition|)
 block|{
 name|maxQueueSize
 operator|=
-name|defaultProfile2
+name|defaultProfile
 operator|.
 name|getMaxQueueSize
 argument_list|()
@@ -502,7 +504,7 @@ condition|)
 block|{
 name|rejectedPolicy
 operator|=
-name|defaultProfile2
+name|defaultProfile
 operator|.
 name|getRejectedPolicy
 argument_list|()

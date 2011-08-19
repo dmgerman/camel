@@ -286,6 +286,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a new scheduled thread pool using a profile      *       * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name name which is appended to the thread name      * @param profile      * @return created thread pool      */
 DECL|method|newScheduledThreadPool (Object source, String name, ThreadPoolProfile profile)
 name|ScheduledExecutorService
 name|newScheduledThreadPool

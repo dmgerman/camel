@@ -71,7 +71,7 @@ name|ThreadFactory
 name|threadFactory
 parameter_list|)
 function_decl|;
-comment|/**      * Create a thread pool using the given thread pool profile      *       * @param profile      * @param threadFactory      * @return      */
+comment|/**      * Create a thread pool using the given thread pool profile      *       * @param profile parameters of the thread pool      * @param threadFactory factory for creating threads      * @return the created thread pool      */
 DECL|method|newThreadPool (ThreadPoolProfile profile, ThreadFactory threadFactory)
 name|ExecutorService
 name|newThreadPool
@@ -83,7 +83,7 @@ name|ThreadFactory
 name|threadFactory
 parameter_list|)
 function_decl|;
-comment|/**      * Create a scheduled thread pool using the given thread pool profile      * @param profile      * @param threadFactory      * @return      */
+comment|/**      * Create a scheduled thread pool using the given thread pool profile      * @param profile parameters of the thread pool      * @param threadFactory factory for creating threads      * @return the created thread pool      */
 DECL|method|newScheduledThreadPool (ThreadPoolProfile profile, ThreadFactory threadFactory)
 name|ScheduledExecutorService
 name|newScheduledThreadPool
