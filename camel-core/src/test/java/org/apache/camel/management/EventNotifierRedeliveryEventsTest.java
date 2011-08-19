@@ -560,7 +560,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeFailureHandledEvent
+name|ExchangeSentEvent
 operator|.
 name|class
 argument_list|,
@@ -574,7 +574,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeCompletedEvent
+name|ExchangeFailureHandledEvent
 operator|.
 name|class
 argument_list|,
@@ -588,7 +588,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ExchangeSentEvent
+name|ExchangeCompletedEvent
 operator|.
 name|class
 argument_list|,
@@ -840,20 +840,6 @@ name|e
 operator|.
 name|getAttempt
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertIsInstanceOf
-argument_list|(
-name|ExchangeFailureHandledEvent
-operator|.
-name|class
-argument_list|,
-name|events
-operator|.
-name|get
-argument_list|(
-literal|5
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// since its async the ordering of the rest can be different depending per OS and timing
