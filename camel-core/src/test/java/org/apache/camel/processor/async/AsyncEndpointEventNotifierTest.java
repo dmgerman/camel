@@ -182,10 +182,10 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
-DECL|method|testAsyncEndpointEventNotifer ()
+DECL|method|testAsyncEndpointEventNotifier ()
 specifier|public
 name|void
-name|testAsyncEndpointEventNotifer
+name|testAsyncEndpointEventNotifier
 parameter_list|()
 throws|throws
 name|Exception
@@ -260,15 +260,24 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"ExchangeEventSent took ms: "
+operator|+
+name|delta
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should take about 1000 millis sec, was: "
+literal|"Should take about 250 millis sec, was: "
 operator|+
 name|delta
 argument_list|,
 name|delta
 operator|>
-literal|800
+literal|200
 argument_list|)
 expr_stmt|;
 block|}
@@ -458,7 +467,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel?delay=1000"
+literal|"async:Bye Camel?delay=250"
 argument_list|)
 operator|.
 name|to
