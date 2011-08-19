@@ -228,10 +228,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Replaces the route from endpoint with a new uri      *      * @param uri uri of the new endpoint      */
-DECL|method|replaceFrom (String uri)
+DECL|method|replaceFromWith (String uri)
 specifier|public
 name|void
-name|replaceFrom
+name|replaceFromWith
 parameter_list|(
 name|String
 name|uri
@@ -255,7 +255,7 @@ name|add
 argument_list|(
 name|AdviceWithTasks
 operator|.
-name|replaceFrom
+name|replaceFromWith
 argument_list|(
 name|originalRoute
 argument_list|,
@@ -265,10 +265,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Replaces the route from endpoint with a new endpoint      *      * @param endpoint the new endpoint      */
-DECL|method|replaceFrom (Endpoint endpoint)
+DECL|method|replaceFromWith (Endpoint endpoint)
 specifier|public
 name|void
-name|replaceFrom
+name|replaceFromWith
 parameter_list|(
 name|Endpoint
 name|endpoint

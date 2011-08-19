@@ -142,7 +142,7 @@ throws|throws
 name|Exception
 block|{
 comment|// replace the input in the route with a new endpoint uri
-name|replaceFrom
+name|replaceFromWith
 argument_list|(
 literal|"seda:foo"
 argument_list|)
@@ -222,7 +222,7 @@ throws|throws
 name|Exception
 block|{
 comment|// replace the input in the route with a new endpoint
-name|replaceFrom
+name|replaceFromWith
 argument_list|(
 name|endpoint
 argument_list|)
@@ -292,7 +292,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|replaceFrom
+name|replaceFromWith
 argument_list|(
 literal|"xxx:foo"
 argument_list|)

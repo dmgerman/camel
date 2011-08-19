@@ -118,7 +118,7 @@ throws|throws
 name|Exception
 block|{
 comment|// replace the from with seda:foo
-name|replaceFrom
+name|replaceFromWith
 argument_list|(
 literal|"seda:foo"
 argument_list|)

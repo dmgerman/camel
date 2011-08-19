@@ -2049,11 +2049,11 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|replaceFrom (final RouteDefinition route, final String uri)
+DECL|method|replaceFromWith (final RouteDefinition route, final String uri)
 specifier|public
 specifier|static
 name|AdviceWithTask
-name|replaceFrom
+name|replaceFromWith
 parameter_list|(
 specifier|final
 name|RouteDefinition
