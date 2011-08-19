@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -779,6 +791,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+comment|// this logic only applies if we are a transacted policy
 comment|// still no policy found then try lookup the platform transaction manager and use it as policy
 if|if
 condition|(
@@ -967,24 +980,17 @@ return|;
 block|}
 else|else
 block|{
-name|LOG
-operator|.
-name|warn
+comment|// camel-spring is missing on the classpath
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
 literal|"Cannot create a transacted policy as camel-spring.jar is not on the classpath!"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 else|else
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
 block|{
 if|if
 condition|(
@@ -994,31 +1000,34 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|LOG
-operator|.
-name|debug
+throw|throw
+operator|new
+name|NoSuchBeanException
 argument_list|(
-literal|"No PlatformTransactionManager found in registry."
+literal|null
+argument_list|,
+literal|"PlatformTransactionManager"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 else|else
 block|{
-name|LOG
-operator|.
-name|debug
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|"Found {} PlatformTransactionManager in registry. "
+literal|"Found "
 operator|+
-literal|"Cannot determine which one to use. Please configure a TransactionTemplate on the policy"
-argument_list|,
 name|maps
 operator|.
 name|size
 argument_list|()
+operator|+
+literal|" PlatformTransactionManager in registry. "
+operator|+
+literal|"Cannot determine which one to use. Please configure a TransactionTemplate on the transacted policy."
 argument_list|)
-expr_stmt|;
-block|}
+throw|;
 block|}
 block|}
 block|}

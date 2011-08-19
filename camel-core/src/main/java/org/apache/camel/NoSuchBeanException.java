@@ -77,9 +77,19 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"No bean could be found in the registry for: "
+literal|"No bean could be found in the registry"
+operator|+
+operator|(
+name|name
+operator|!=
+literal|null
+condition|?
+literal|" for: "
 operator|+
 name|name
+else|:
+literal|""
+operator|)
 operator|+
 literal|" of type: "
 operator|+
