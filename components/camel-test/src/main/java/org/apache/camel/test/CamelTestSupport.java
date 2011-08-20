@@ -493,6 +493,17 @@ operator|=
 name|useRouteBuilder
 expr_stmt|;
 block|}
+comment|/**      * Override to enable debugger      *<p/>      * Is default<tt>false</tt>      */
+DECL|method|isUseDebugger ()
+specifier|public
+name|boolean
+name|isUseDebugger
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Override when using<a href="http://camel.apache.org/advicewith.html">advice with</a> and return<tt>true</tt>.      * This helps knowing advice with is to be used, and {@link CamelContext} will not be started before      * the advice with takes place. This helps by ensuring the advice with has been property setup before the      * {@link CamelContext} is started      *<p/>      *<b>Important:</b> Its important to start {@link CamelContext} manually from the unit test      * after you are done doing all the advice with.      *      * @return<tt>true</tt> if you use advice with in your unit tests.      */
 DECL|method|isUseAdviceWith ()
 specifier|public
@@ -623,7 +634,13 @@ name|getShutdownTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// set debugger
+comment|// set debugger if enabled
+if|if
+condition|(
+name|isUseDebugger
+argument_list|()
+condition|)
+block|{
 name|context
 operator|.
 name|setDebugger
@@ -644,6 +661,7 @@ name|breakpoint
 argument_list|)
 expr_stmt|;
 comment|// note: when stopping CamelContext it will automatic remove the breakpoint
+block|}
 name|template
 operator|=
 name|context

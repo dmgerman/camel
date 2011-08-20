@@ -111,6 +111,19 @@ block|{
 comment|// START SNIPPET: e1
 annotation|@
 name|Override
+DECL|method|isUseDebugger ()
+specifier|public
+name|boolean
+name|isUseDebugger
+parameter_list|()
+block|{
+comment|// must enable debugger
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|debugBefore (Exchange exchange, Processor processor, ProcessorDefinition definition, String id, String shortName)
 specifier|protected
 name|void

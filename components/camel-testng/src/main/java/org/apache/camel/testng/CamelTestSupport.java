@@ -615,6 +615,17 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Override to enable debugger      *<p/>      * Is default<tt>false</tt>      */
+DECL|method|isUseDebugger ()
+specifier|public
+name|boolean
+name|isUseDebugger
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|getCamelContextService ()
 specifier|public
 name|Service
@@ -793,7 +804,13 @@ name|getShutdownTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// set debugger
+comment|// set debugger if enabled
+if|if
+condition|(
+name|isUseDebugger
+argument_list|()
+condition|)
+block|{
 name|context
 operator|.
 name|setDebugger
@@ -814,6 +831,7 @@ name|breakpoint
 argument_list|)
 expr_stmt|;
 comment|// note: when stopping CamelContext it will automatic remove the breakpoint
+block|}
 name|template
 operator|=
 name|context
