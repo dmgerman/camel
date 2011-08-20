@@ -72,16 +72,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|AbstractList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -872,6 +862,8 @@ block|}
 comment|// grab the message body as a string
 name|String
 name|body
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -882,6 +874,8 @@ argument_list|()
 operator|!=
 literal|null
 condition|)
+block|{
+try|try
 block|{
 name|body
 operator|=
@@ -906,7 +900,21 @@ name|obj
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore as the body is for logging purpose
+block|}
+block|}
+if|if
+condition|(
+name|body
+operator|==
+literal|null
+condition|)
 block|{
 name|body
 operator|=
@@ -1177,6 +1185,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|String
 name|xml
 init|=
@@ -1220,6 +1230,15 @@ name|xml
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore as the body is for logging purpose
 block|}
 block|}
 name|sb

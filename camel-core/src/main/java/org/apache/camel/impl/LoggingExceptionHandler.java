@@ -223,6 +223,8 @@ name|Throwable
 name|exception
 parameter_list|)
 block|{
+try|try
+block|{
 name|String
 name|msg
 init|=
@@ -265,6 +267,15 @@ argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// the logging exception handler must not cause new exceptions to occur
 block|}
 block|}
 DECL|method|isCausedByRollbackExchangeException (Throwable exception)
