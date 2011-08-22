@@ -216,6 +216,20 @@ name|OgnlHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Evaluates an expression using a bean method invocation  *  * @version   */
 end_comment
@@ -1131,6 +1145,19 @@ name|Object
 name|bean
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|key
+argument_list|,
+literal|"key"
+argument_list|,
+literal|"in Simple language ognl path: "
+operator|+
+name|ognlPath
+argument_list|)
+expr_stmt|;
 comment|// trim key
 name|key
 operator|=
@@ -1138,6 +1165,16 @@ name|key
 operator|.
 name|trim
 argument_list|()
+expr_stmt|;
+comment|// remove any enclosing quotes
+name|key
+operator|=
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+name|key
+argument_list|)
 expr_stmt|;
 comment|// try map first
 name|Map
