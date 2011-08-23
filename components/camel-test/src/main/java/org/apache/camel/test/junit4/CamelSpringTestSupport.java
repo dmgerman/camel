@@ -928,12 +928,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// don't start the springCamelContext if we
 return|return
 name|SpringCamelContext
 operator|.
 name|springCamelContext
 argument_list|(
 name|applicationContext
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
