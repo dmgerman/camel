@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|model
 operator|.
-name|ServiceSupport
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -99,6 +99,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 operator|.
 name|management
 operator|.
@@ -114,6 +116,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|management
+operator|.
+name|ManagedInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|management
 operator|.
 name|ManagedOperation
@@ -127,6 +147,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 operator|.
 name|management
 operator|.
@@ -142,9 +164,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|support
 operator|.
-name|ProcessorDefinition
+name|ServiceSupport
 import|;
 end_import
 

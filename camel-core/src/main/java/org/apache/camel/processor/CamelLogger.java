@@ -74,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ServiceSupport
+name|ExchangeFormatter
 import|;
 end_import
 
@@ -88,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|ExchangeFormatter
+name|ServiceSupport
 import|;
 end_import
 

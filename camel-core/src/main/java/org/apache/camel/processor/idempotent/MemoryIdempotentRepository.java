@@ -36,9 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ServiceSupport
+name|IdempotentRepository
 import|;
 end_import
 
@@ -49,6 +49,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 operator|.
 name|management
 operator|.
@@ -64,6 +66,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|management
 operator|.
 name|ManagedOperation
@@ -77,6 +81,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 operator|.
 name|management
 operator|.
@@ -92,9 +98,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|IdempotentRepository
+name|ServiceSupport
 import|;
 end_import
 

@@ -50,9 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ServiceSupport
+name|ManagementStrategy
 import|;
 end_import
 
@@ -63,6 +63,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 operator|.
 name|management
 operator|.
@@ -78,6 +80,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|management
+operator|.
+name|ManagedInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|management
 operator|.
 name|ManagedResource
@@ -92,9 +112,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|ManagementStrategy
+name|ServiceSupport
 import|;
 end_import
 

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.spi.management
 package|package
 name|org
 operator|.
@@ -12,91 +12,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|management
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|ElementType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|Retention
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|RetentionPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|Target
-import|;
-end_import
-
 begin_comment
-comment|/**  * A method level annotation to mark the method as being a JMX operation.  */
+comment|/**  * @version   */
 end_comment
 
-begin_annotation_defn
-annotation|@
-name|Target
-argument_list|(
-name|ElementType
-operator|.
-name|METHOD
-argument_list|)
-annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-DECL|annotation|ManagedOperation
+begin_interface
+DECL|interface|ManagedInstance
 specifier|public
-annotation_defn|@interface
-name|ManagedOperation
+interface|interface
+name|ManagedInstance
 block|{
-DECL|method|description ()
-name|String
-name|description
+comment|/**      * Gets the resource which is being managed.      *      * @return the resource, such as a {@link org.apache.camel.Processor}, {@link org.apache.camel.Consumer} etc.      */
+DECL|method|getInstance ()
+name|Object
+name|getInstance
 parameter_list|()
-default|default
-literal|""
 function_decl|;
 block|}
-end_annotation_defn
+end_interface
 
 end_unit
 

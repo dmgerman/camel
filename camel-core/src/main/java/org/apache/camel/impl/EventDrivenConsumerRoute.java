@@ -106,9 +106,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|processor
 operator|.
-name|InstrumentationProcessor
+name|DelegateAsyncProcessor
 import|;
 end_import
 
@@ -305,14 +305,14 @@ if|if
 condition|(
 name|answer
 operator|instanceof
-name|InstrumentationProcessor
+name|DelegateAsyncProcessor
 condition|)
 block|{
 name|answer
 operator|=
 operator|(
 operator|(
-name|InstrumentationProcessor
+name|DelegateAsyncProcessor
 operator|)
 name|answer
 operator|)

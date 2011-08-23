@@ -16,6 +16,22 @@ name|management
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|management
+operator|.
+name|Statistic
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default implementation of {@link Statistic}  */
 end_comment

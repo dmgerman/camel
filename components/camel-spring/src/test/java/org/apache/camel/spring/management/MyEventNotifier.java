@@ -56,7 +56,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|support
 operator|.
 name|EventNotifierSupport
 import|;

@@ -68,9 +68,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|model
 operator|.
-name|Statistic
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -82,9 +82,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spi
 operator|.
-name|ProcessorDefinition
+name|management
+operator|.
+name|Statistic
 import|;
 end_import
 

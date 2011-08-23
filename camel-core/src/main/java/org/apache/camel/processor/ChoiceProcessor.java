@@ -118,7 +118,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ServiceSupport
+name|converter
+operator|.
+name|AsyncProcessorTypeConverter
 import|;
 end_import
 
@@ -130,11 +132,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|converter
-operator|.
-name|AsyncProcessorTypeConverter
+name|ServiceSupport
 import|;
 end_import
 

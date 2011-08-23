@@ -62,6 +62,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|management
 operator|.
 name|ManagedOperation
@@ -75,6 +77,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 operator|.
 name|management
 operator|.

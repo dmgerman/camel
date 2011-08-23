@@ -120,6 +120,8 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
 name|management
 operator|.
 name|ManagedAttribute
@@ -133,6 +135,8 @@ operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|spi
 operator|.
 name|management
 operator|.

@@ -60,9 +60,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|ServiceSupport
+name|aggregate
+operator|.
+name|AggregationStrategy
 import|;
 end_import
 
@@ -74,11 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|support
 operator|.
-name|aggregate
-operator|.
-name|AggregationStrategy
+name|ServiceSupport
 import|;
 end_import
 

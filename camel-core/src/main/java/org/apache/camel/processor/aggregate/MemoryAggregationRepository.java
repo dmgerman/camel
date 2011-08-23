@@ -92,9 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ServiceSupport
+name|AggregationRepository
 import|;
 end_import
 
@@ -106,9 +106,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|AggregationRepository
+name|ServiceSupport
 import|;
 end_import
 

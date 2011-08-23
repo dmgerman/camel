@@ -102,9 +102,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|mbean
+name|ManagementMBeanAssembler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|management
 operator|.
 name|ManagedInstance
 import|;
@@ -120,7 +134,9 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ManagementMBeanAssembler
+name|management
+operator|.
+name|ManagedResource
 import|;
 end_import
 

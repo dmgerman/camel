@@ -118,9 +118,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|spi
 operator|.
-name|mbean
+name|management
 operator|.
 name|ManagedInstance
 import|;
