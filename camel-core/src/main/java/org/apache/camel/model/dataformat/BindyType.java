@@ -66,8 +66,11 @@ enum|enum
 name|BindyType
 block|{
 DECL|enumConstant|Csv
+DECL|enumConstant|Fixed
 DECL|enumConstant|KeyValue
 name|Csv
+block|,
+name|Fixed
 block|,
 name|KeyValue
 block|}
