@@ -933,6 +933,20 @@ expr_stmt|;
 comment|// then set parameters with the help of the camel context type converters
 name|EndpointHelper
 operator|.
+name|setReferenceProperties
+argument_list|(
+name|component
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|this
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|EndpointHelper
+operator|.
 name|setProperties
 argument_list|(
 name|component
