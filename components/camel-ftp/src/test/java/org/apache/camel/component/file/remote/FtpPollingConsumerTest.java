@@ -239,19 +239,6 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// and no exchange on consumer as
-name|exchange
-operator|=
-name|consumer
-operator|.
-name|receiveNoWait
-argument_list|()
-expr_stmt|;
-name|assertNull
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 name|consumer
 operator|.
 name|stop
