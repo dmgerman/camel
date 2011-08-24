@@ -158,7 +158,7 @@ comment|// we override this method and return true, to tell Camel test-kit that
 comment|// it should only create CamelContext once (per class), so we will
 comment|// re-use the CamelContext between each test method in this class
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
