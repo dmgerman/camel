@@ -120,9 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|SynchronizationAdapter
+name|ServiceSupport
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|SynchronizationAdapter
 import|;
 end_import
 
