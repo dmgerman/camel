@@ -240,7 +240,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ServiceSupport
+name|converter
+operator|.
+name|StaticMethodTypeConverter
 import|;
 end_import
 
@@ -252,11 +254,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|converter
-operator|.
-name|StaticMethodTypeConverter
+name|ServiceSupport
 import|;
 end_import
 

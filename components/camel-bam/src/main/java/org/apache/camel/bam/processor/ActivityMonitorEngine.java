@@ -142,7 +142,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|ServiceSupport
 import|;
@@ -247,18 +247,6 @@ operator|.
 name|support
 operator|.
 name|TransactionTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|ClassUtils
 import|;
 end_import
 

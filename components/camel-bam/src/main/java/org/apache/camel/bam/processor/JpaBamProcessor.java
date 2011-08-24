@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A concrete {@link Processor} for working on<a  * href="http://camel.apache.org/bam.html">BAM</a> which uses JPA as  * the persistence and uses the {@link ProcessInstance} entity to store the  * process information.  *   * @version   */
+comment|/**  * A concrete {@link org.apache.camel.Processor} for working on<a  * href="http://camel.apache.org/bam.html">BAM</a> which uses JPA as  * the persistence and uses the {@link ProcessInstance} entity to store the  * process information.  *   * @version   */
 end_comment
 
 begin_class
