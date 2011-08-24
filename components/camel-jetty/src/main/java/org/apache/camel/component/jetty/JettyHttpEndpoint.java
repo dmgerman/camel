@@ -234,6 +234,14 @@ specifier|private
 name|Filter
 name|multipartFilter
 decl_stmt|;
+DECL|field|filters
+specifier|private
+name|List
+argument_list|<
+name|Filter
+argument_list|>
+name|filters
+decl_stmt|;
 DECL|field|continuationTimeout
 specifier|private
 name|Long
@@ -609,6 +617,38 @@ parameter_list|()
 block|{
 return|return
 name|multipartFilter
+return|;
+block|}
+DECL|method|setFilters (List<Filter> filterList)
+specifier|public
+name|void
+name|setFilters
+parameter_list|(
+name|List
+argument_list|<
+name|Filter
+argument_list|>
+name|filterList
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filters
+operator|=
+name|filterList
+expr_stmt|;
+block|}
+DECL|method|getFilters ()
+specifier|public
+name|List
+argument_list|<
+name|Filter
+argument_list|>
+name|getFilters
+parameter_list|()
+block|{
+return|return
+name|filters
 return|;
 block|}
 DECL|method|getContinuationTimeout ()
