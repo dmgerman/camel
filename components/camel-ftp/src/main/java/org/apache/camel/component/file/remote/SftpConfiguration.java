@@ -90,6 +90,13 @@ specifier|private
 name|String
 name|chmod
 decl_stmt|;
+comment|// comma separated list of ciphers.
+comment|// null means default jsch list will be used
+DECL|field|ciphers
+specifier|private
+name|String
+name|ciphers
+decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
 name|SftpConfiguration
@@ -309,6 +316,32 @@ parameter_list|()
 block|{
 return|return
 name|chmod
+return|;
+block|}
+DECL|method|setCiphers (String ciphers)
+specifier|public
+name|void
+name|setCiphers
+parameter_list|(
+name|String
+name|ciphers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ciphers
+operator|=
+name|ciphers
+expr_stmt|;
+block|}
+DECL|method|getCiphers ()
+specifier|public
+name|String
+name|getCiphers
+parameter_list|()
+block|{
+return|return
+name|ciphers
 return|;
 block|}
 block|}
