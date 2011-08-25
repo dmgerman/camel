@@ -28,12 +28,17 @@ name|NotificationBroadcasterSupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * Strategy to use a custom {@link NotificationBroadcasterSupport} when broadcasting  * JMX notifications using for example the {@link org.apache.camel.management.JmxNotificationEventNotifier}.  */
+end_comment
+
 begin_interface
 DECL|interface|JmxNotificationBroadcasterAware
 specifier|public
 interface|interface
 name|JmxNotificationBroadcasterAware
 block|{
+comment|/**      * Sets to use a custom broadcaster      *      * @param broadcaster the custom broadcaster      */
 DECL|method|setNotificationBroadcaster (NotificationBroadcasterSupport broadcaster)
 name|void
 name|setNotificationBroadcaster
