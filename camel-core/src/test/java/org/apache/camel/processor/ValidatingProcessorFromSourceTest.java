@@ -34,10 +34,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
 name|StringSource
 import|;
 end_import

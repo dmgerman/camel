@@ -58,10 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
 name|StringSource
 import|;
 end_import
@@ -81,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.converter.jaxp.StringSource}s  */
+comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.StringSource}s  */
 end_comment
 
 begin_class

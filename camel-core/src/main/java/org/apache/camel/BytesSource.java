@@ -4,17 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.converter.jaxp
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|converter
-operator|.
-name|jaxp
 package|;
 end_package
 
@@ -82,20 +78,6 @@ name|StreamSource
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A helper class which provides a JAXP {@link javax.xml.transform.Source Source} from a byte[]  * which can be read as many times as required.  *  * @version   */
 end_comment
@@ -135,15 +117,21 @@ index|[]
 name|data
 parameter_list|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
+if|if
+condition|(
 name|data
-argument_list|,
-literal|"data"
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"data must be specified"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|this
 operator|.
 name|data
@@ -163,20 +151,10 @@ name|String
 name|systemId
 parameter_list|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
+name|this
 argument_list|(
 name|data
-argument_list|,
-literal|"data"
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|data
-operator|=
-name|data
 expr_stmt|;
 name|setSystemId
 argument_list|(

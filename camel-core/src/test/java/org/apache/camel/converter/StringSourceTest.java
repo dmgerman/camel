@@ -74,7 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
+name|StringSource
 import|;
 end_import
 
@@ -86,11 +86,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
-name|StringSource
+name|TypeConverter
 import|;
 end_import
 
