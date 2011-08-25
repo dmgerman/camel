@@ -84,37 +84,29 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|zookeeper
 operator|.
 name|ZooKeeper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -142,12 +134,12 @@ specifier|protected
 specifier|static
 specifier|final
 specifier|transient
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|ZooKeeperOperation
 operator|.
@@ -269,7 +261,7 @@ operator|=
 name|producesExchange
 expr_stmt|;
 block|}
-comment|/**      * Gets the result of this zookeeper operation, i.e. some data and the      * associated node stats      *      * @return      */
+comment|/**      * Gets the result of this zookeeper operation, i.e. some data and the      * associated node stats      */
 DECL|method|getResult ()
 specifier|public
 specifier|abstract
@@ -333,11 +325,11 @@ name|ExecutionException
 throws|,
 name|TimeoutException
 block|{
+comment|// TODO perhaps set a timer here
 return|return
 name|get
 argument_list|()
 return|;
-comment|// TODO ; perhaps set a timer here ....
 block|}
 DECL|method|cancel (boolean mayInterruptIfRunning)
 specifier|public
@@ -418,7 +410,7 @@ return|return
 name|producesExchange
 return|;
 block|}
-comment|// TODO: slightly different to a clone as it uses the constructor
+comment|// TODO slightly different to a clone as it uses the constructor
 DECL|method|createCopy ()
 specifier|public
 name|ZooKeeperOperation

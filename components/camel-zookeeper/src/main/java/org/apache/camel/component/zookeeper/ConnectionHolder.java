@@ -31,18 +31,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -65,34 +53,6 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
 import|;
 end_import
 
@@ -148,6 +108,26 @@ name|ZooKeeper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  *<code>ConnectionHolder</code> watches for Connection based events from  * {@link ZooKeeper} and can be used to block until a connection has been  * established.  */
 end_comment
@@ -165,12 +145,12 @@ specifier|private
 specifier|static
 specifier|final
 specifier|transient
-name|Log
+name|Logger
 name|LOG
 init|=
-name|LogFactory
+name|LoggerFactory
 operator|.
-name|getLog
+name|getLogger
 argument_list|(
 name|ConnectionHolder
 operator|.
@@ -372,15 +352,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-name|format
-argument_list|(
-literal|"Awaiting Connection event from Zookeeper cluster %s"
+literal|"Awaiting Connection event from Zookeeper cluster {}"
 argument_list|,
 name|configuration
 operator|.
 name|getConnectString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -465,15 +442,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-name|format
-argument_list|(
-literal|"Shutting down connection to Zookeeper cluster %s"
+literal|"Shutting down connection to Zookeeper cluster {}"
 argument_list|,
 name|configuration
 operator|.
 name|getConnectString
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -486,9 +460,16 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Error closing zookeeper connection."
+literal|"Error closing zookeeper connection "
+operator|+
+name|configuration
+operator|.
+name|getConnectString
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
