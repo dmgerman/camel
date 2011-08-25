@@ -114,11 +114,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFile
+name|StringSource
 import|;
 end_import
 
@@ -130,11 +126,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|component
 operator|.
-name|jaxp
+name|file
 operator|.
-name|StringSource
+name|GenericFile
 import|;
 end_import
 
