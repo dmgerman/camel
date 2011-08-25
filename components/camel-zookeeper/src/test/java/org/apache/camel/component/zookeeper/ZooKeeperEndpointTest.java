@@ -283,7 +283,7 @@ name|ObjectName
 argument_list|(
 name|domainName
 operator|+
-literal|":type=endpoints,*"
+literal|":type=endpoints,name=\"zoo:*\",*"
 argument_list|)
 argument_list|,
 literal|null
@@ -291,11 +291,11 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Could not find  endpoints: "
+literal|"Could not find zookeper endpoint: "
 operator|+
 name|s
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|s
 operator|.
