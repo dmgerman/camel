@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|BlockingQueue
@@ -169,7 +159,7 @@ block|{
 DECL|field|queue
 specifier|protected
 specifier|final
-name|Collection
+name|BlockingQueue
 argument_list|<
 name|Exchange
 argument_list|>
@@ -797,15 +787,7 @@ condition|)
 block|{
 try|try
 block|{
-operator|(
-operator|(
-name|BlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
-operator|)
 name|queue
-operator|)
 operator|.
 name|put
 argument_list|(
@@ -820,6 +802,19 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Put interrupted, are we stopping? {}"
+argument_list|,
+name|isStopping
+argument_list|()
+operator|||
+name|isStopped
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 else|else
