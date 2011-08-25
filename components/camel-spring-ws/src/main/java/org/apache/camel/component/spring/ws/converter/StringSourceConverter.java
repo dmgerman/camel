@@ -34,6 +34,18 @@ name|Converter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StringSource
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class to transform to and from {@link org.springframework.xml.transform.StringSource} implementations  * available in both Camel and Spring Webservices.  *<p/>  * Rationale: most of the time this converter will not be used since both Camel  * and Spring-WS use the {@Source} interface abstraction. There is  * however a chance that you may end up with incompatible {@link org.springframework.xml.transform.StringSource}  * implementations, this converter handles these (corner)cases.  *<p/>  * Note that conversion options are limited by Spring's {@link org.springframework.xml.transform.StringSource}  * since it's the most simple one. It has just one constructor that accepts a  * String as input.  */
 end_comment
@@ -58,16 +70,6 @@ name|Converter
 DECL|method|toStringSourceFromSpring (org.springframework.xml.transform.StringSource springStringSource)
 specifier|public
 specifier|static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
 name|StringSource
 name|toStringSourceFromSpring
 parameter_list|(
@@ -85,16 +87,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
 name|StringSource
 argument_list|(
 name|springStringSource
@@ -107,7 +99,7 @@ block|}
 comment|/**      * Converts a Camel {@link org.apache.camel.converter.jaxp.StringSource}      * to a Spring-WS {@link org.springframework.xml.transform.StringSource}      */
 annotation|@
 name|Converter
-DECL|method|toStringSourceFromCamel (org.apache.camel.converter.jaxp.StringSource camelStringSource)
+DECL|method|toStringSourceFromCamel (StringSource camelStringSource)
 specifier|public
 specifier|static
 name|org
@@ -121,16 +113,6 @@ operator|.
 name|StringSource
 name|toStringSourceFromCamel
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|jaxp
-operator|.
 name|StringSource
 name|camelStringSource
 parameter_list|)

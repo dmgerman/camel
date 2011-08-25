@@ -21,6 +21,30 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
 import|import
 name|javax
 operator|.
@@ -76,11 +100,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|StringSource
 import|;
 end_import
 
@@ -92,11 +112,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|component
 operator|.
-name|jaxp
+name|mock
 operator|.
-name|StringSource
+name|MockEndpoint
 import|;
 end_import
 
@@ -137,30 +157,6 @@ operator|.
 name|junit4
 operator|.
 name|AbstractJUnit4SpringContextTests
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
 import|;
 end_import
 
