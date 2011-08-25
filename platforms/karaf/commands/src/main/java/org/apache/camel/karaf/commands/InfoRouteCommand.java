@@ -126,7 +126,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteDefinition
+name|ModelHelper
 import|;
 end_import
 
@@ -138,9 +138,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|model
 operator|.
-name|ModelHelper
+name|RouteDefinition
 import|;
 end_import
 
