@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -78,6 +78,11 @@ name|SedaConfigureTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testBlockingQueueConfigured ()
 specifier|public
 name|void
@@ -110,6 +115,9 @@ name|getQueue
 argument_list|()
 decl_stmt|;
 name|LinkedBlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
 name|blockingQueue
 init|=
 name|assertIsInstanceOf
@@ -161,6 +169,102 @@ argument_list|,
 name|endpoint
 operator|.
 name|getConcurrentConsumers
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBlockWhenFull ()
+specifier|public
+name|void
+name|testBlockWhenFull
+parameter_list|()
+block|{
+name|SedaEndpoint
+name|endpoint
+init|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"seda:foo?size=2000&blockWhenFull=true"
+argument_list|,
+name|SedaEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"blockWhenFull"
+argument_list|,
+name|endpoint
+operator|.
+name|isBlockWhenFull
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDefaults ()
+specifier|public
+name|void
+name|testDefaults
+parameter_list|()
+block|{
+name|SedaEndpoint
+name|endpoint
+init|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"seda:foo"
+argument_list|,
+name|SedaEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertFalse
+argument_list|(
+literal|"blockWhenFull: wrong default"
+argument_list|,
+name|endpoint
+operator|.
+name|isBlockWhenFull
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"concurrentConsumers: wrong default"
+argument_list|,
+literal|1
+argument_list|,
+name|endpoint
+operator|.
+name|getConcurrentConsumers
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"size (remainingCapacity): wrong default"
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|,
+name|endpoint
+operator|.
+name|getSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"timeout: wrong default"
+argument_list|,
+literal|30000L
+argument_list|,
+name|endpoint
+operator|.
+name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

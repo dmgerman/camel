@@ -79,10 +79,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple {@link org.apache.camel.Producer} which just appends to a {@link Collection} the {@link Exchange} object.  *  * @version   */
+comment|/**  * A simple {@link org.apache.camel.Producer} which just appends to a {@link Collection} the {@link Exchange} object.  *  * @deprecated will be removed in a future Camel release  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CollectionProducer
 specifier|public
 class|class

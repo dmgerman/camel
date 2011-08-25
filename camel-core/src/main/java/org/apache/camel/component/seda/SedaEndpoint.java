@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version   */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  */
 end_comment
 
 begin_class
@@ -353,6 +353,11 @@ specifier|private
 specifier|volatile
 name|boolean
 name|multicastStarted
+decl_stmt|;
+DECL|field|blockWhenFull
+specifier|private
+name|boolean
+name|blockWhenFull
 decl_stmt|;
 DECL|method|SedaEndpoint ()
 specifier|public
@@ -526,6 +531,9 @@ name|getWaitForTaskToComplete
 argument_list|()
 argument_list|,
 name|getTimeout
+argument_list|()
+argument_list|,
+name|isBlockWhenFull
 argument_list|()
 argument_list|)
 return|;
@@ -866,6 +874,32 @@ name|size
 operator|=
 name|size
 expr_stmt|;
+block|}
+DECL|method|setBlockWhenFull (boolean blockWhenFull)
+specifier|public
+name|void
+name|setBlockWhenFull
+parameter_list|(
+name|boolean
+name|blockWhenFull
+parameter_list|)
+block|{
+name|this
+operator|.
+name|blockWhenFull
+operator|=
+name|blockWhenFull
+expr_stmt|;
+block|}
+DECL|method|isBlockWhenFull ()
+specifier|public
+name|boolean
+name|isBlockWhenFull
+parameter_list|()
+block|{
+return|return
+name|blockWhenFull
+return|;
 block|}
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
