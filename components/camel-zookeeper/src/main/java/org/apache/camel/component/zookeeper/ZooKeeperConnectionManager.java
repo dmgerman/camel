@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>ZookeeperConnectionManager</code> is a simple class to manage  * {@link ZooKeeper} connections.  *   * @author sgargan  */
+comment|/**  *<code>ZookeeperConnectionManager</code> is a simple class to manage  * {@link ZooKeeper} connections.  */
 end_comment
 
 begin_class

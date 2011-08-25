@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>ZookeeperConfiguration</code> encapsulates the configuration used to  * interact with a ZooKeeper cluster. Most typically it is parsed from endpoint  * uri but may also be configured programatically and applied to a  * {@link ZooKeeperComponent}. A copy of this component's configuration will be  * injected into any {@link ZooKeeperEndpoint}s the component creates.  *  * @version $  */
+comment|/**  *<code>ZookeeperConfiguration</code> encapsulates the configuration used to  * interact with a ZooKeeper cluster. Most typically it is parsed from endpoint  * uri but may also be configured programatically and applied to a  * {@link ZooKeeperComponent}. A copy of this component's configuration will be  * injected into any {@link ZooKeeperEndpoint}s the component creates.  */
 end_comment
 
 begin_class

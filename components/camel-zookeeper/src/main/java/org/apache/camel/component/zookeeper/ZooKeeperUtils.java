@@ -122,7 +122,7 @@ specifier|private
 name|ZooKeeperUtils
 parameter_list|()
 block|{ }
-comment|/**      * Pulls a createMode flag from the header keyed by      * {@link ZooKeeperMessage.ZOOKEEPER_CREATE_MODE} in the given message and      * attemps to parse a {@link CreateMode} from it.      *      * @param message the message that may contain a ZOOKEEPER_CREATE_MODE      *            header.      * @return the parsed {@link CreateMode} or null if the header was null or      *         not a valid mode flag.      */
+comment|/**      * Pulls a createMode flag from the header keyed by      * {@link ZooKeeperMessage#ZOOKEEPER_CREATE_MODE} in the given message and      * attempts to parse a {@link CreateMode} from it.      *      * @param message the message that may contain a ZOOKEEPER_CREATE_MODE      *            header.      * @return the parsed {@link CreateMode} or null if the header was null or      *         not a valid mode flag.      */
 DECL|method|getCreateMode (Message message, CreateMode defaultMode)
 specifier|public
 specifier|static
@@ -262,7 +262,7 @@ else|:
 name|mode
 return|;
 block|}
-comment|/**      * Pulls the target node from the header keyed by      * {@link ZooKeeperMessage.ZOOKEEPER_NODE}. This node is then typically used      * in place of the configured node extracted from the endpoint uri.      *      * @param message the message that may contain a ZOOKEEPER_NODE header.      * @return the node property or null if the header was null      */
+comment|/**      * Pulls the target node from the header keyed by      * {@link ZooKeeperMessage#ZOOKEEPER_NODE}. This node is then typically used      * in place of the configured node extracted from the endpoint uri.      *      * @param message the message that may contain a ZOOKEEPER_NODE header.      * @return the node property or null if the header was null      */
 DECL|method|getNodeFromMessage (Message message, String defaultNode)
 specifier|public
 specifier|static

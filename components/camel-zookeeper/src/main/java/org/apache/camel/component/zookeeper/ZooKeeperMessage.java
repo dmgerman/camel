@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>ZooKeeperMessage</code> is a {@link org.apache.camel.Message}  * representing interactions with a ZooKeeper service. It contains a number of  * optional Header Constants that are used by the Producer and consumer  * mechanisms to finely control these interactions.  *   * @version $  */
+comment|/**  *<code>ZooKeeperMessage</code> is a {@link org.apache.camel.Message}  * representing interactions with a ZooKeeper service. It contains a number of  * optional Header Constants that are used by the Producer and consumer  * mechanisms to finely control these interactions.  */
 end_comment
 
 begin_class
