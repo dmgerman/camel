@@ -142,33 +142,6 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|DirectEndpoint (String endpointUri)
-specifier|public
-name|DirectEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|consumers
-operator|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|DirectConsumer
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|DirectEndpoint (String endpointUri, Component component)
 specifier|public
 name|DirectEndpoint

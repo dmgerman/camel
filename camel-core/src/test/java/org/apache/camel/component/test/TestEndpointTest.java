@@ -263,12 +263,10 @@ name|camelContext
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|camelContext
-argument_list|)
+argument_list|()
 expr_stmt|;
+comment|// TODO: revisit; uri and context are not really needed
+comment|//  this is probably covered by the ProcessorEndpoint, test may not be needed at all
 block|}
 annotation|@
 name|Override

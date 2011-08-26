@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -214,14 +226,14 @@ specifier|public
 name|TimerEndpoint
 parameter_list|()
 block|{     }
-DECL|method|TimerEndpoint (String fullURI, TimerComponent component, String timerName)
+DECL|method|TimerEndpoint (String uri, Component component, String timerName)
 specifier|public
 name|TimerEndpoint
 parameter_list|(
 name|String
-name|fullURI
+name|uri
 parameter_list|,
-name|TimerComponent
+name|Component
 name|component
 parameter_list|,
 name|String
@@ -230,7 +242,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|fullURI
+name|uri
 argument_list|,
 name|component
 argument_list|)
@@ -240,43 +252,6 @@ operator|.
 name|timerName
 operator|=
 name|timerName
-expr_stmt|;
-block|}
-DECL|method|TimerEndpoint (String endpointUri, Timer timer)
-specifier|public
-name|TimerEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Timer
-name|timer
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|timer
-operator|=
-name|timer
-expr_stmt|;
-block|}
-DECL|method|TimerEndpoint (String endpointUri)
-specifier|public
-name|TimerEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createProducer ()

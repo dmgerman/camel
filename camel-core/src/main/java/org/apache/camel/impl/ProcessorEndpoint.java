@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of  * consumers.  *<p/>  *<br/>Implementators beware that this endpoint creates producers and consumers which  * doesn't allow you full control of its lifecycle as a {@link org.apache.camel.Service}  * or {@link org.apache.camel.SuspendableService} would do.  * If your producers/consumers need more control of its lifecycle its adviced instead to extend  * {@link org.apache.camel.impl.DefaultEndpoint}, {@link org.apache.camel.impl.DefaultProducer}  * and {@link org.apache.camel.impl.DefaultConsumer}.  *  * @version   */
+comment|/**  * An endpoint which allows exchanges to be sent into it which just invokes a  * given {@link Processor}. This component does not support the use of  * consumers.  *<p/>  *<br/>Implementors beware that this endpoint creates producers and consumers which  * doesn't allow you full control of its lifecycle as a {@link org.apache.camel.Service}  * or {@link org.apache.camel.SuspendableService} would do.  * If your producers/consumers need more control of its lifecycle its adviced instead to extend  * {@link org.apache.camel.impl.DefaultEndpoint}, {@link org.apache.camel.impl.DefaultProducer}  * and {@link org.apache.camel.impl.DefaultConsumer}.  *  * @version   */
 end_comment
 
 begin_class
@@ -110,20 +110,6 @@ specifier|protected
 name|ProcessorEndpoint
 parameter_list|()
 block|{     }
-DECL|method|ProcessorEndpoint (String endpointUri)
-specifier|protected
-name|ProcessorEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|ProcessorEndpoint (String endpointUri, CamelContext context, Processor processor)
 specifier|public
 name|ProcessorEndpoint
@@ -141,7 +127,12 @@ block|{
 name|super
 argument_list|(
 name|endpointUri
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|setCamelContext
+argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
@@ -171,29 +162,6 @@ argument_list|(
 name|endpointUri
 argument_list|,
 name|component
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|processor
-operator|=
-name|processor
-expr_stmt|;
-block|}
-DECL|method|ProcessorEndpoint (String endpointUri, Processor processor)
-specifier|public
-name|ProcessorEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
 argument_list|)
 expr_stmt|;
 name|this

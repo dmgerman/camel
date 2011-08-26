@@ -2271,6 +2271,13 @@ argument_list|()
 decl_stmt|;
 name|mock
 operator|.
+name|setCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|setEndpointUriIfNotSpecified
 argument_list|(
 literal|"mock:bar"

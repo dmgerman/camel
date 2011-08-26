@@ -66,18 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -194,25 +182,6 @@ specifier|public
 name|ResourceBasedEndpoint
 parameter_list|()
 block|{     }
-DECL|method|ResourceBasedEndpoint (String endpointUri, Processor processor)
-specifier|public
-name|ResourceBasedEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|processor
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|ResourceBasedEndpoint (String endpointUri, Component component, String resourceUri)
 specifier|public
 name|ResourceBasedEndpoint

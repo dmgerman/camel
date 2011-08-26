@@ -725,6 +725,8 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|MockEndpoint (String endpointUri)
 specifier|public
 name|MockEndpoint

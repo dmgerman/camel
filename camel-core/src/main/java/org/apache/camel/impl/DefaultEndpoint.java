@@ -277,14 +277,19 @@ name|component
 parameter_list|)
 block|{
 name|this
-argument_list|(
-name|endpointUri
-argument_list|,
+operator|.
+name|camelContext
+operator|=
+name|component
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
 name|component
 operator|.
 name|getCamelContext
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -292,8 +297,17 @@ name|component
 operator|=
 name|component
 expr_stmt|;
+name|this
+operator|.
+name|setEndpointUri
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Constructs a DefaultEndpoint instance which has<b>not</b> been created using a {@link Component}.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      *      * @param endpointUri the full URI used to create this endpoint      * @param camelContext the Camel Context in which this endpoint is operating      */
+annotation|@
+name|Deprecated
 DECL|method|DefaultEndpoint (String endpointUri, CamelContext camelContext)
 specifier|protected
 name|DefaultEndpoint
@@ -318,6 +332,8 @@ name|camelContext
 expr_stmt|;
 block|}
 comment|/**      * Constructs a partially-initialized DefaultEndpoint instance.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      *      * @param endpointUri the full URI used to create this endpoint      */
+annotation|@
+name|Deprecated
 DECL|method|DefaultEndpoint (String endpointUri)
 specifier|protected
 name|DefaultEndpoint
@@ -874,8 +890,52 @@ condition|(
 name|endpointUri
 operator|==
 literal|null
+operator|&&
+name|value
+operator|!=
+literal|null
 condition|)
 block|{
+comment|// FIXME: set the component first
+comment|// ObjectHelper.notNull(camelContext, "camelContext");
+name|int
+name|s
+init|=
+name|value
+operator|.
+name|indexOf
+argument_list|(
+literal|":"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|camelContext
+operator|!=
+literal|null
+operator|&&
+name|s
+operator|>
+literal|0
+condition|)
+block|{
+name|component
+operator|=
+name|camelContext
+operator|.
+name|getComponent
+argument_list|(
+name|value
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|s
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|setEndpointUri
 argument_list|(
 name|value

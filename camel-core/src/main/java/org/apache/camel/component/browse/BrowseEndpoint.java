@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Component
 import|;
 end_import
@@ -253,25 +241,6 @@ specifier|public
 name|BrowseEndpoint
 parameter_list|()
 block|{     }
-DECL|method|BrowseEndpoint (String uri, CamelContext camelContext)
-specifier|public
-name|BrowseEndpoint
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|uri
-argument_list|,
-name|camelContext
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|BrowseEndpoint (String uri, Component component)
 specifier|public
 name|BrowseEndpoint
@@ -288,20 +257,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|component
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|BrowseEndpoint (String endpointUri)
-specifier|public
-name|BrowseEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}

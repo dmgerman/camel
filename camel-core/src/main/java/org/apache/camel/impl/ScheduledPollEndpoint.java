@@ -154,6 +154,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|ScheduledPollEndpoint (String endpointUri, CamelContext context)
 specifier|protected
 name|ScheduledPollEndpoint
@@ -173,6 +175,8 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|ScheduledPollEndpoint (String endpointUri)
 specifier|protected
 name|ScheduledPollEndpoint

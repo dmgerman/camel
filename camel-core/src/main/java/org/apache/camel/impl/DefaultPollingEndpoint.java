@@ -82,20 +82,6 @@ specifier|protected
 name|DefaultPollingEndpoint
 parameter_list|()
 block|{     }
-DECL|method|DefaultPollingEndpoint (String endpointUri)
-specifier|protected
-name|DefaultPollingEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|DefaultPollingEndpoint (String endpointUri, Component component)
 specifier|protected
 name|DefaultPollingEndpoint
@@ -115,6 +101,24 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
+DECL|method|DefaultPollingEndpoint (String endpointUri)
+specifier|protected
+name|DefaultPollingEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Deprecated
 DECL|method|DefaultPollingEndpoint (String endpointUri, CamelContext context)
 specifier|protected
 name|DefaultPollingEndpoint

@@ -114,45 +114,6 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|BeanEndpoint (String endpointUri)
-specifier|public
-name|BeanEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|init
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|BeanEndpoint (String endpointUri, BeanProcessor processor)
-specifier|public
-name|BeanEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|BeanProcessor
-name|processor
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|processor
-argument_list|)
-expr_stmt|;
-name|init
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|BeanEndpoint (String endpointUri, Component component, BeanProcessor processor)
 specifier|public
 name|BeanEndpoint
