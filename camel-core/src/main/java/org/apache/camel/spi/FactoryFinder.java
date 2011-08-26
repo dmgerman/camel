@@ -138,6 +138,31 @@ name|ClassNotFoundException
 throws|,
 name|IOException
 function_decl|;
+comment|/**      * Finds the given factory class using the the key to lookup.      *      * @param key is the key to add to the path to find a text file containing the factory name      * @param propertyPrefix prefix on key      * @param clazz the class which is used for checking compatible      * @return the factory class      * @throws ClassNotFoundException is thrown if not found      * @throws java.io.IOException is thrown if loading the class or META-INF file not found      */
+DECL|method|findClass (String key, String propertyPrefix, Class<?> clazz)
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|findClass
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|propertyPrefix
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+parameter_list|)
+throws|throws
+name|ClassNotFoundException
+throws|,
+name|IOException
+function_decl|;
 block|}
 end_interface
 

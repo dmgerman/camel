@@ -1002,6 +1002,10 @@ name|getScheme
 argument_list|()
 argument_list|,
 literal|"strategy.factory."
+argument_list|,
+name|CamelContext
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

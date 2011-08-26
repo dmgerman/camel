@@ -499,6 +499,41 @@ return|return
 name|clazz
 return|;
 block|}
+DECL|method|findClass (String key, String propertyPrefix, Class<?> clazz)
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|findClass
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|propertyPrefix
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+parameter_list|)
+throws|throws
+name|ClassNotFoundException
+throws|,
+name|IOException
+block|{
+comment|// Just ignore clazz which is only useful for OSGiFactoryFinder
+return|return
+name|findClass
+argument_list|(
+name|key
+argument_list|,
+name|propertyPrefix
+argument_list|)
+return|;
+block|}
 DECL|method|newInstance (String key, String propertyPrefix)
 specifier|private
 name|Object

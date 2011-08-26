@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|el
@@ -473,6 +463,10 @@ argument_list|(
 literal|"el"
 argument_list|,
 literal|"impl."
+argument_list|,
+name|ExpressionFactory
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
