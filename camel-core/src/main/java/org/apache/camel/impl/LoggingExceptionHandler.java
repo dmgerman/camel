@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at DEBUG level.  *  * @version   */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at ERROR level.  *  * @version   */
 end_comment
 
 begin_class
@@ -145,7 +145,38 @@ argument_list|)
 argument_list|,
 name|LoggingLevel
 operator|.
-name|DEBUG
+name|ERROR
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|LoggingExceptionHandler (Class<?> ownerType, LoggingLevel level)
+specifier|public
+name|LoggingExceptionHandler
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|ownerType
+parameter_list|,
+name|LoggingLevel
+name|level
+parameter_list|)
+block|{
+name|this
+argument_list|(
+operator|new
+name|CamelLogger
+argument_list|(
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ownerType
+argument_list|)
+argument_list|,
+name|level
 argument_list|)
 argument_list|)
 expr_stmt|;
