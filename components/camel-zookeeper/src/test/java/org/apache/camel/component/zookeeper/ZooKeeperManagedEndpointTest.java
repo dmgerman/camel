@@ -316,7 +316,7 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:type=endpoints,name=\"zoo:*\",*"
+literal|"org.apache.camel:type=endpoints,name=\"zookeeper:*\",*"
 argument_list|)
 argument_list|,
 literal|null
@@ -699,7 +699,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"zoo://localhost:39913/node"
+literal|"zookeeper://localhost:39913/node"
 argument_list|)
 operator|.
 name|to

@@ -259,7 +259,7 @@ name|Exception
 block|{
 name|zookeeperUri
 operator|=
-literal|"zoo://localhost:39913/node?create=true"
+literal|"zookeeper://localhost:39913/node?create=true"
 expr_stmt|;
 name|from
 argument_list|(
@@ -307,7 +307,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"zoo://localhost:39913/doesnotexist"
+literal|"zookeeper://localhost:39913/doesnotexist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -331,12 +331,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"zoo://localhost:39913/notset?create=true"
+literal|"zookeeper://localhost:39913/notset?create=true"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"zoo://localhost:39913/set?create=true"
+literal|"zookeeper://localhost:39913/set?create=true"
 argument_list|)
 operator|.
 name|to
@@ -365,7 +365,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"zoo://localhost:39913/persistent?create=true&createMode=PERSISTENT"
+literal|"zookeeper://localhost:39913/persistent?create=true&createMode=PERSISTENT"
 argument_list|)
 operator|.
 name|to
@@ -891,7 +891,7 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"zoo://localhost:39913/set-listing?create=true&listChildren=true"
+literal|"zookeeper://localhost:39913/set-listing?create=true&listChildren=true"
 argument_list|,
 name|exchange
 argument_list|)

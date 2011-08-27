@@ -121,7 +121,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"zoo://localhost:39913/camel?repeat=true"
+literal|"zookeeper://localhost:39913/camel?repeat=true"
 argument_list|)
 operator|.
 name|to

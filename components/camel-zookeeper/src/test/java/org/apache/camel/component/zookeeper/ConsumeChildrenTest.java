@@ -204,7 +204,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"zoo://localhost:39913/grimm?repeat=true&listChildren=true"
+literal|"zookeeper://localhost:39913/grimm?repeat=true&listChildren=true"
 argument_list|)
 operator|.
 name|sort

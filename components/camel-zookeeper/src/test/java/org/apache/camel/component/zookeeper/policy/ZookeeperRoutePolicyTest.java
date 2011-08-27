@@ -195,7 +195,7 @@ init|=
 operator|new
 name|ZooKeeperRoutePolicy
 argument_list|(
-literal|"zoo:localhost:39913/someapp/somepolicy"
+literal|"zookeeper:localhost:39913/someapp/somepolicy"
 argument_list|,
 literal|1
 argument_list|)

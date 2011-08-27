@@ -113,7 +113,7 @@ init|=
 operator|new
 name|ZooKeeperEndpoint
 argument_list|(
-literal|"zoo:someserver/this/is/a/path"
+literal|"zookeeper:someserver/this/is/a/path"
 argument_list|,
 name|component
 argument_list|,
