@@ -223,11 +223,14 @@ name|val
 argument_list|)
 condition|)
 block|{
+comment|// set the property with the String value directly
 name|mapToProperty
 argument_list|(
 name|bean
 argument_list|,
 name|name
+operator|+
+literal|"String"
 argument_list|,
 name|val
 argument_list|)

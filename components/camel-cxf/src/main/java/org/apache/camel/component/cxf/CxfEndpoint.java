@@ -2913,6 +2913,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setServiceNameString (String service)
+specifier|public
+name|void
+name|setServiceNameString
+parameter_list|(
+name|String
+name|service
+parameter_list|)
+block|{
+name|serviceName
+operator|=
+name|QName
+operator|.
+name|valueOf
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setServiceName (QName service)
 specifier|public
 name|void
@@ -2925,26 +2944,6 @@ block|{
 name|serviceName
 operator|=
 name|service
-expr_stmt|;
-block|}
-DECL|method|setServiceName (String service)
-specifier|public
-name|void
-name|setServiceName
-parameter_list|(
-name|String
-name|service
-parameter_list|)
-block|{
-name|setServiceName
-argument_list|(
-name|QName
-operator|.
-name|valueOf
-argument_list|(
-name|service
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getServiceName ()
@@ -2981,6 +2980,25 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+DECL|method|setEndpointNameString (String port)
+specifier|public
+name|void
+name|setEndpointNameString
+parameter_list|(
+name|String
+name|port
+parameter_list|)
+block|{
+name|portName
+operator|=
+name|QName
+operator|.
+name|valueOf
+argument_list|(
+name|port
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setEndpointName (QName port)
 specifier|public
 name|void
@@ -2993,26 +3011,6 @@ block|{
 name|portName
 operator|=
 name|port
-expr_stmt|;
-block|}
-DECL|method|setEndpointName (String port)
-specifier|public
-name|void
-name|setEndpointName
-parameter_list|(
-name|String
-name|port
-parameter_list|)
-block|{
-name|setEndpointName
-argument_list|(
-name|QName
-operator|.
-name|valueOf
-argument_list|(
-name|port
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getDefaultOperationName ()
