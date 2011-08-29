@@ -1574,7 +1574,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 operator|.
 name|create
@@ -1630,7 +1630,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|2
+literal|1
 condition|;
 operator|++
 name|i
@@ -1812,7 +1812,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|i
 argument_list|)
