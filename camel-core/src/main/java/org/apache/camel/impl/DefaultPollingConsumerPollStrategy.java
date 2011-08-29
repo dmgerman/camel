@@ -48,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|PollingConsumerPollStrategy
+name|StatefulService
 import|;
 end_import
 
@@ -62,9 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|ServiceSupport
+name|PollingConsumerPollStrategy
 import|;
 end_import
 
@@ -177,14 +175,14 @@ if|if
 condition|(
 name|consumer
 operator|instanceof
-name|ServiceSupport
+name|StatefulService
 condition|)
 block|{
 name|runAllowed
 operator|=
 operator|(
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|consumer
 operator|)

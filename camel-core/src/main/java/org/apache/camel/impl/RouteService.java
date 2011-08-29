@@ -212,7 +212,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|ChildServiceSupport
 import|;
 end_import
 
@@ -274,7 +274,7 @@ specifier|public
 class|class
 name|RouteService
 extends|extends
-name|ServiceSupport
+name|ChildServiceSupport
 block|{
 DECL|field|LOG
 specifier|private

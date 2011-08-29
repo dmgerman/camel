@@ -78,7 +78,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|SuspendableService
+name|StatefulService
 import|;
 end_import
 
@@ -90,9 +90,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|ServiceSupport
+name|SuspendableService
 import|;
 end_import
 
@@ -165,52 +163,18 @@ name|Exception
 block|{
 if|if
 condition|(
-name|isStarted
-argument_list|(
-name|value
-argument_list|)
-condition|)
-block|{
-comment|// only start service if not already started
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Service already started: {}"
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
 name|value
 operator|instanceof
 name|Service
 condition|)
 block|{
-name|Service
-name|service
-init|=
+name|startService
+argument_list|(
 operator|(
 name|Service
 operator|)
 name|value
-decl_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Starting service: {}"
-argument_list|,
-name|service
 argument_list|)
-expr_stmt|;
-name|service
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -233,6 +197,25 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Starts all of the given services      */
+DECL|method|startService (Service service)
+specifier|public
+specifier|static
+name|void
+name|startService
+parameter_list|(
+name|Service
+name|service
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|service
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Starts all of the given services      */
 DECL|method|startServices (Object... services)
@@ -579,32 +562,23 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Stops and shutdowns all of the given services, throwing the first exception caught      */
-DECL|method|stopAndShutdownService (Object value)
+DECL|method|stopAndShutdownService (Service value)
 specifier|public
 specifier|static
 name|void
 name|stopAndShutdownService
 parameter_list|(
-name|Object
+name|Service
 name|value
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|value
-operator|instanceof
-name|Service
-condition|)
-block|{
-comment|// must stop it first
 name|stopService
 argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 comment|// then try to shutdown
 if|if
 condition|(
@@ -634,26 +608,6 @@ name|service
 operator|.
 name|shutdown
 argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|value
-operator|instanceof
-name|Collection
-condition|)
-block|{
-name|stopAndShutdownServices
-argument_list|(
-operator|(
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-operator|)
-name|value
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -901,13 +855,13 @@ throw|;
 block|}
 block|}
 comment|/**      * Resumes the given service.      *<p/>      * If the service is a {@link org.apache.camel.SuspendableService} then the<tt>resume</tt>      * operation is<b>only</b> invoked if the service is suspended.      *<p/>      * If the service is a {@link org.apache.camel.support.ServiceSupport} then the<tt>start</tt>      * operation is<b>only</b> invoked if the service is startable.      *<p/>      * Otherwise the service is started.      *      * @param service the service      * @return<tt>true</tt> if either<tt>resume</tt> or<tt>start</tt> was invoked,      *<tt>false</tt> if the service is already in the desired state.      * @throws Exception is thrown if error occurred      */
-DECL|method|resumeService (Object service)
+DECL|method|resumeService (Service service)
 specifier|public
 specifier|static
 name|boolean
 name|resumeService
 parameter_list|(
-name|Object
+name|Service
 name|service
 parameter_list|)
 throws|throws
@@ -1175,14 +1129,14 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|ServiceSupport
+name|StatefulService
 condition|)
 block|{
-name|ServiceSupport
+name|StatefulService
 name|service
 init|=
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|value
 decl_stmt|;
@@ -1223,14 +1177,14 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|ServiceSupport
+name|StatefulService
 condition|)
 block|{
-name|ServiceSupport
+name|StatefulService
 name|service
 init|=
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|value
 decl_stmt|;

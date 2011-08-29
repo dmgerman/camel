@@ -74,9 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|ServiceSupport
+name|StatefulService
 import|;
 end_import
 
@@ -450,7 +448,7 @@ literal|"Consumer should not be automatically started"
 argument_list|,
 operator|(
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|consumer
 operator|)
@@ -492,7 +490,7 @@ name|assertThat
 argument_list|(
 operator|(
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|consumer
 operator|)

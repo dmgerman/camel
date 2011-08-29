@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StatefulService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ManagementStrategy
@@ -101,20 +113,6 @@ operator|.
 name|management
 operator|.
 name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
 import|;
 end_import
 
@@ -229,7 +227,7 @@ if|if
 condition|(
 name|component
 operator|instanceof
-name|ServiceSupport
+name|StatefulService
 condition|)
 block|{
 name|ServiceStatus
@@ -237,7 +235,7 @@ name|status
 init|=
 operator|(
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|component
 operator|)

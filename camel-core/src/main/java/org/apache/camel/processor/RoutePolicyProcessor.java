@@ -94,9 +94,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|RoutePolicy
+name|StatefulService
 import|;
 end_import
 
@@ -108,9 +106,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|ServiceSupport
+name|RoutePolicy
 import|;
 end_import
 
@@ -440,14 +438,14 @@ if|if
 condition|(
 name|policy
 operator|instanceof
-name|ServiceSupport
+name|StatefulService
 condition|)
 block|{
-name|ServiceSupport
+name|StatefulService
 name|ss
 init|=
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|policy
 decl_stmt|;
@@ -476,14 +474,14 @@ if|if
 condition|(
 name|context
 operator|instanceof
-name|ServiceSupport
+name|StatefulService
 condition|)
 block|{
-name|ServiceSupport
+name|StatefulService
 name|ss
 init|=
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|context
 decl_stmt|;

@@ -170,7 +170,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|ChildServiceSupport
 import|;
 end_import
 
@@ -205,7 +205,7 @@ specifier|abstract
 class|class
 name|ErrorHandlerSupport
 extends|extends
-name|ServiceSupport
+name|ChildServiceSupport
 implements|implements
 name|ErrorHandler
 block|{

@@ -524,6 +524,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StatefulService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -2417,11 +2429,22 @@ argument_list|()
 condition|)
 block|{
 comment|// If the component is looked up after the context is started, lets start it up.
-name|startServices
+if|if
+condition|(
+name|component
+operator|instanceof
+name|Service
+condition|)
+block|{
+name|startService
 argument_list|(
+operator|(
+name|Service
+operator|)
 name|component
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -2703,7 +2726,7 @@ block|{
 name|Endpoint
 name|oldEndpoint
 decl_stmt|;
-name|startServices
+name|startService
 argument_list|(
 name|endpoint
 argument_list|)
@@ -5464,11 +5487,42 @@ block|}
 block|}
 block|}
 comment|// and then ensure service is started (as stated in the javadoc)
-name|startServices
+if|if
+condition|(
+name|object
+operator|instanceof
+name|Service
+condition|)
+block|{
+name|startService
 argument_list|(
+operator|(
+name|Service
+operator|)
 name|object
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|object
+operator|instanceof
+name|Collection
+argument_list|<
+name|?
+argument_list|>
+condition|)
+block|{
+name|startServices
+argument_list|(
+operator|(
+name|Collection
+operator|)
+name|object
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|hasService (Object object)
 specifier|public
@@ -6547,7 +6601,7 @@ expr_stmt|;
 comment|// start it so its ready to use
 try|try
 block|{
-name|startServices
+name|startService
 argument_list|(
 name|answer
 argument_list|)
@@ -6623,7 +6677,7 @@ expr_stmt|;
 comment|// start it so its ready to use
 try|try
 block|{
-name|startServices
+name|startService
 argument_list|(
 name|answer
 argument_list|)
@@ -7630,7 +7684,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|startServices
+name|startService
 argument_list|(
 name|getDebugger
 argument_list|()
@@ -7795,11 +7849,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|startServices
+if|if
+condition|(
+name|notifier
+operator|instanceof
+name|Service
+condition|)
+block|{
+name|startService
 argument_list|(
+operator|(
+name|Service
+operator|)
 name|notifier
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// must let some bootstrap service be started before we can notify the starting event
 name|EventHelper
@@ -8278,7 +8343,7 @@ if|if
 condition|(
 name|consumer
 operator|instanceof
-name|ServiceSupport
+name|StatefulService
 condition|)
 block|{
 comment|// consumer could be stopped, which is not reflected in the RouteService status
@@ -8286,7 +8351,7 @@ name|startable
 operator|=
 operator|(
 operator|(
-name|ServiceSupport
+name|StatefulService
 operator|)
 name|consumer
 operator|)
@@ -8446,13 +8511,46 @@ comment|// do not rethrow exception as we want to keep shutting down in case of 
 comment|// allow us to do custom work before delegating to service helper
 try|try
 block|{
+if|if
+condition|(
+name|service
+operator|instanceof
+name|Service
+condition|)
+block|{
 name|ServiceHelper
 operator|.
 name|stopAndShutdownService
 argument_list|(
+operator|(
+name|Service
+operator|)
 name|service
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|service
+operator|instanceof
+name|Collection
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+operator|(
+name|Collection
+argument_list|<
+name|?
+argument_list|>
+operator|)
+name|service
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -8583,49 +8681,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|startServices (Object service)
+DECL|method|startService (Service service)
 specifier|private
 name|void
-name|startServices
+name|startService
 parameter_list|(
-name|Object
+name|Service
 name|service
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// it can be a collection so ensure we look inside it
-if|if
-condition|(
-name|service
-operator|instanceof
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-condition|)
-block|{
-for|for
-control|(
-name|Object
-name|element
-operator|:
-operator|(
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-operator|)
-name|service
-control|)
-block|{
-name|startServices
-argument_list|(
-name|element
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// and register startup aware so they can be notified when
 comment|// camel context has been started
 if|if
@@ -8649,80 +8715,51 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-comment|// and then start the service
-name|ServiceHelper
-operator|.
-name|startService
-parameter_list|(
 name|service
-parameter_list|)
-constructor_decl|;
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
-end_class
-
-begin_function
-DECL|method|resumeServices (Object service)
+DECL|method|startServices (Collection services)
 specifier|private
 name|void
-name|resumeServices
+name|startServices
 parameter_list|(
-name|Object
-name|service
+name|Collection
+name|services
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-comment|// it can be a collection so ensure we look inside it
-if|if
-condition|(
-name|service
-operator|instanceof
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-condition|)
 block|{
 for|for
 control|(
 name|Object
 name|element
-operator|:
-operator|(
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-operator|)
-name|service
+range|:
+name|services
 control|)
 block|{
-name|resumeServices
+if|if
+condition|(
+name|element
+operator|instanceof
+name|Service
+condition|)
+block|{
+name|startService
 argument_list|(
+operator|(
+name|Service
+operator|)
 name|element
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_comment
-comment|// and then start the service
-end_comment
-
-begin_expr_stmt
-name|ServiceHelper
-operator|.
-name|resumeService
-argument_list|(
-name|service
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-
-begin_function
-unit|}      private
+block|}
 DECL|method|stopServices (Object service)
+specifier|private
 name|void
 name|stopServices
 parameter_list|(
@@ -8767,9 +8804,6 @@ name|e
 throw|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|startRouteDefinitions (Collection<RouteDefinition> list)
 specifier|protected
 name|void
@@ -8807,13 +8841,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-
-begin_comment
 comment|/**      * Starts the given route service      */
-end_comment
-
-begin_function
 DECL|method|startRouteService (RouteService routeService, boolean addingRoutes)
 specifier|protected
 specifier|synchronized
@@ -8955,13 +8983,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-
-begin_comment
 comment|/**      * Resumes the given route service      */
-end_comment
-
-begin_function
 DECL|method|resumeRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -9029,9 +9051,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|stopRouteService (RouteService routeService, boolean removingRoutes)
 specifier|protected
 specifier|synchronized
@@ -9060,9 +9079,6 @@ name|routeService
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|stopRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -9124,9 +9140,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|shutdownRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -9188,9 +9201,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|suspendRouteService (RouteService routeService)
 specifier|protected
 specifier|synchronized
@@ -9259,13 +9269,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-
-begin_comment
 comment|/**      * Starts the routes services in a proper manner which ensures the routes will be started in correct order,      * check for clash and that the routes will also be shutdown in correct order as well.      *<p/>      * This method<b>must</b> be used to start routes in a safe manner.      *      * @param checkClash     whether to check for startup order clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes   whether we are adding new routes      * @param routeServices  the routes      * @throws Exception is thrown if error starting the routes      */
-end_comment
-
-begin_function
 DECL|method|safelyStartRouteServices (boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes, Collection<RouteService> routeServices)
 specifier|protected
 specifier|synchronized
@@ -9403,13 +9407,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * @see #safelyStartRouteServices(boolean,boolean,boolean,boolean,java.util.Collection)      */
-end_comment
-
-begin_function
 DECL|method|safelyStartRouteServices (boolean forceAutoStart, boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes, RouteService... routeServices)
 specifier|protected
 specifier|synchronized
@@ -9457,9 +9455,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|doPrepareRouteToBeStarted (RouteService routeService)
 specifier|private
 name|DefaultRouteStartupOrder
@@ -9523,9 +9518,6 @@ name|routeService
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|doCheckStartupOrderClash (DefaultRouteStartupOrder answer, Map<Integer, DefaultRouteStartupOrder> inputs)
 specifier|private
 name|boolean
@@ -9693,9 +9685,6 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|doWarmUpRoutes (Map<Integer, DefaultRouteStartupOrder> inputs, boolean autoStartup)
 specifier|private
 name|void
@@ -9771,9 +9760,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|doResumeRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs, boolean addingRoutes)
 specifier|private
 name|void
@@ -9803,9 +9789,6 @@ name|addingRoutes
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|doStartRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs, boolean addingRoutes)
 specifier|private
 name|void
@@ -9835,9 +9818,6 @@ name|addingRoutes
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|doStartOrResumeRouteConsumers (Map<Integer, DefaultRouteStartupOrder> inputs, boolean resumeOnly, boolean addingRoute)
 specifier|private
 name|void
@@ -10072,7 +10052,9 @@ argument_list|()
 condition|)
 block|{
 comment|// if we are resuming and the route can be resumed
-name|resumeServices
+name|ServiceHelper
+operator|.
+name|resumeService
 argument_list|(
 name|consumer
 argument_list|)
@@ -10117,7 +10099,7 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-name|startServices
+name|startService
 argument_list|(
 name|consumer
 argument_list|)
@@ -10212,9 +10194,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|doCheckMultipleConsumerSupportClash (Endpoint endpoint, List<Endpoint> routeInputs)
 specifier|private
 name|boolean
@@ -10285,13 +10264,7 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Lets force some lazy initialization to occur upfront before we start any      * components and create routes      */
-end_comment
-
-begin_function
 DECL|method|forceLazyInitialization ()
 specifier|protected
 name|void
@@ -10311,13 +10284,7 @@ name|getTypeConverter
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Lets force clear lazy initialization so they can be re-created on restart      */
-end_comment
-
-begin_function
 DECL|method|forceStopLazyInitialization ()
 specifier|protected
 name|void
@@ -10341,13 +10308,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Lazily create a default implementation      */
-end_comment
-
-begin_function
 DECL|method|createTypeConverter ()
 specifier|protected
 name|TypeConverter
@@ -10404,13 +10365,7 @@ return|return
 name|answer
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Lazily create a default implementation      */
-end_comment
-
-begin_function
 DECL|method|createInjector ()
 specifier|protected
 name|Injector
@@ -10451,13 +10406,7 @@ argument_list|()
 return|;
 block|}
 block|}
-end_function
-
-begin_comment
 comment|/**      * Lazily create a default implementation      */
-end_comment
-
-begin_function
 DECL|method|createManagementMBeanAssembler ()
 specifier|protected
 name|ManagementMBeanAssembler
@@ -10470,13 +10419,7 @@ name|DefaultManagementMBeanAssembler
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Lazily create a default implementation      */
-end_comment
-
-begin_function
 DECL|method|createComponentResolver ()
 specifier|protected
 name|ComponentResolver
@@ -10489,13 +10432,7 @@ name|DefaultComponentResolver
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Lazily create a default implementation      */
-end_comment
-
-begin_function
 DECL|method|createRegistry ()
 specifier|protected
 name|Registry
@@ -10508,13 +10445,7 @@ name|JndiRegistry
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * A pluggable strategy to allow an endpoint to be created without requiring      * a component to be its factory, such as for looking up the URI inside some      * {@link Registry}      *      * @param uri the uri for the endpoint to be created      * @return the newly created endpoint or null if it could not be resolved      */
-end_comment
-
-begin_function
 DECL|method|createEndpoint (String uri)
 specifier|protected
 name|Endpoint
@@ -10593,13 +10524,7 @@ return|return
 literal|null
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Strategy method for attempting to convert the bean from a {@link Registry} to an endpoint using      * some kind of transformation or wrapper      *      * @param uri  the uri for the endpoint (and name in the registry)      * @param bean the bean to be converted to an endpoint, which will be not null      * @return a new endpoint      */
-end_comment
-
-begin_function
 DECL|method|convertBeanToEndpoint (String uri, Object bean)
 specifier|protected
 name|Endpoint
@@ -10628,13 +10553,7 @@ literal|" could not be converted to an Endpoint"
 argument_list|)
 throw|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Should we start newly added routes?      */
-end_comment
-
-begin_function
 DECL|method|shouldStartRoutes ()
 specifier|protected
 name|boolean
@@ -10650,9 +10569,6 @@ name|isStarting
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 specifier|public
 name|void
@@ -10674,9 +10590,6 @@ operator|=
 name|dataFormats
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getDataFormats ()
 specifier|public
 name|Map
@@ -10692,9 +10605,6 @@ return|return
 name|dataFormats
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -10710,9 +10620,6 @@ return|return
 name|properties
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setProperties (Map<String, String> properties)
 specifier|public
 name|void
@@ -10734,9 +10641,6 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getDefaultFactoryFinder ()
 specifier|public
 name|FactoryFinder
@@ -10765,9 +10669,6 @@ return|return
 name|defaultFactoryFinder
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setFactoryFinderResolver (FactoryFinderResolver resolver)
 specifier|public
 name|void
@@ -10784,9 +10685,6 @@ operator|=
 name|resolver
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getFactoryFinder (String path)
 specifier|public
 name|FactoryFinder
@@ -10847,9 +10745,6 @@ name|answer
 return|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|getClassResolver ()
 specifier|public
 name|ClassResolver
@@ -10860,9 +10755,6 @@ return|return
 name|classResolver
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setClassResolver (ClassResolver classResolver)
 specifier|public
 name|void
@@ -10879,9 +10771,6 @@ operator|=
 name|classResolver
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getPackageScanClassResolver ()
 specifier|public
 name|PackageScanClassResolver
@@ -10892,9 +10781,6 @@ return|return
 name|packageScanClassResolver
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setPackageScanClassResolver (PackageScanClassResolver packageScanClassResolver)
 specifier|public
 name|void
@@ -10911,9 +10797,6 @@ operator|=
 name|packageScanClassResolver
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getComponentNames ()
 specifier|public
 name|List
@@ -10965,9 +10848,6 @@ name|answer
 return|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|getLanguageNames ()
 specifier|public
 name|List
@@ -11019,9 +10899,6 @@ name|answer
 return|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|getNodeIdFactory ()
 specifier|public
 name|NodeIdFactory
@@ -11032,9 +10909,6 @@ return|return
 name|nodeIdFactory
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setNodeIdFactory (NodeIdFactory idFactory)
 specifier|public
 name|void
@@ -11051,9 +10925,6 @@ operator|=
 name|idFactory
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getManagementStrategy ()
 specifier|public
 name|ManagementStrategy
@@ -11088,9 +10959,6 @@ name|managementStrategy
 return|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|setManagementStrategy (ManagementStrategy managementStrategy)
 specifier|public
 name|void
@@ -11139,9 +11007,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-
-begin_function
 DECL|method|getDefaultTracer ()
 specifier|public
 name|InterceptStrategy
@@ -11166,9 +11031,6 @@ return|return
 name|defaultTracer
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setDefaultTracer (InterceptStrategy defaultTracer)
 specifier|public
 name|void
@@ -11185,9 +11047,6 @@ operator|=
 name|defaultTracer
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|disableJMX ()
 specifier|public
 name|void
@@ -11199,9 +11058,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getInflightRepository ()
 specifier|public
 name|InflightRepository
@@ -11212,9 +11068,6 @@ return|return
 name|inflightRepository
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setInflightRepository (InflightRepository repository)
 specifier|public
 name|void
@@ -11231,9 +11084,6 @@ operator|=
 name|repository
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|setAutoStartup (Boolean autoStartup)
 specifier|public
 name|void
@@ -11250,9 +11100,6 @@ operator|=
 name|autoStartup
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|isAutoStartup ()
 specifier|public
 name|Boolean
@@ -11267,9 +11114,6 @@ operator|&&
 name|autoStartup
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|isLazyLoadTypeConverters ()
 specifier|public
 name|Boolean
@@ -11284,9 +11128,6 @@ operator|&&
 name|lazyLoadTypeConverters
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
 specifier|public
 name|void
@@ -11303,9 +11144,6 @@ operator|=
 name|lazyLoadTypeConverters
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|isUseMDCLogging ()
 specifier|public
 name|Boolean
@@ -11320,9 +11158,6 @@ operator|&&
 name|useMDCLogging
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setUseMDCLogging (Boolean useMDCLogging)
 specifier|public
 name|void
@@ -11339,9 +11174,6 @@ operator|=
 name|useMDCLogging
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|isUseBreadcrumb ()
 specifier|public
 name|Boolean
@@ -11356,9 +11188,6 @@ operator|&&
 name|useBreadcrumb
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setUseBreadcrumb (Boolean useBreadcrumb)
 specifier|public
 name|void
@@ -11375,9 +11204,6 @@ operator|=
 name|useBreadcrumb
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getApplicationContextClassLoader ()
 specifier|public
 name|ClassLoader
@@ -11388,9 +11214,6 @@ return|return
 name|applicationContextClassLoader
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setApplicationContextClassLoader (ClassLoader classLoader)
 specifier|public
 name|void
@@ -11405,9 +11228,6 @@ operator|=
 name|classLoader
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getDataFormatResolver ()
 specifier|public
 name|DataFormatResolver
@@ -11418,9 +11238,6 @@ return|return
 name|dataFormatResolver
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setDataFormatResolver (DataFormatResolver dataFormatResolver)
 specifier|public
 name|void
@@ -11437,9 +11254,6 @@ operator|=
 name|dataFormatResolver
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|resolveDataFormat (String name)
 specifier|public
 name|DataFormat
@@ -11460,9 +11274,6 @@ name|this
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|resolveDataFormatDefinition (String name)
 specifier|public
 name|DataFormatDefinition
@@ -11483,9 +11294,6 @@ name|this
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|getShutdownStrategy ()
 specifier|public
 name|ShutdownStrategy
@@ -11496,9 +11304,6 @@ return|return
 name|shutdownStrategy
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setShutdownStrategy (ShutdownStrategy shutdownStrategy)
 specifier|public
 name|void
@@ -11515,9 +11320,6 @@ operator|=
 name|shutdownStrategy
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getShutdownRoute ()
 specifier|public
 name|ShutdownRoute
@@ -11528,9 +11330,6 @@ return|return
 name|shutdownRoute
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|void
@@ -11547,9 +11346,6 @@ operator|=
 name|shutdownRoute
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getShutdownRunningTask ()
 specifier|public
 name|ShutdownRunningTask
@@ -11560,9 +11356,6 @@ return|return
 name|shutdownRunningTask
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|void
@@ -11579,9 +11372,6 @@ operator|=
 name|shutdownRunningTask
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getExecutorServiceManager ()
 specifier|public
 name|ExecutorServiceManager
@@ -11594,9 +11384,6 @@ operator|.
 name|executorServiceManager
 return|;
 block|}
-end_function
-
-begin_function
 annotation|@
 name|Deprecated
 DECL|method|getExecutorServiceStrategy ()
@@ -11623,9 +11410,6 @@ name|this
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setExecutorServiceManager (ExecutorServiceManager executorServiceManager)
 specifier|public
 name|void
@@ -11642,9 +11426,6 @@ operator|=
 name|executorServiceManager
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getProcessorFactory ()
 specifier|public
 name|ProcessorFactory
@@ -11655,9 +11436,6 @@ return|return
 name|processorFactory
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setProcessorFactory (ProcessorFactory processorFactory)
 specifier|public
 name|void
@@ -11674,9 +11452,6 @@ operator|=
 name|processorFactory
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getDebugger ()
 specifier|public
 name|Debugger
@@ -11687,9 +11462,6 @@ return|return
 name|debugger
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setDebugger (Debugger debugger)
 specifier|public
 name|void
@@ -11706,9 +11478,6 @@ operator|=
 name|debugger
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getUuidGenerator ()
 specifier|public
 name|UuidGenerator
@@ -11719,9 +11488,6 @@ return|return
 name|uuidGenerator
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|setUuidGenerator (UuidGenerator uuidGenerator)
 specifier|public
 name|void
@@ -11738,9 +11504,6 @@ operator|=
 name|uuidGenerator
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|getRouteServices ()
 specifier|protected
 name|Map
@@ -11756,9 +11519,6 @@ return|return
 name|routeServices
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|createManagementStrategy ()
 specifier|protected
 name|ManagementStrategy
@@ -11787,9 +11547,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -11807,13 +11564,7 @@ operator|+
 literal|")"
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Reset context counter to a preset value. Mostly used for tests to ensure a predictable getName()      *      * @param value new value for the context counter      */
-end_comment
-
-begin_function
 DECL|method|setContextCounter (int value)
 specifier|public
 specifier|static
@@ -11832,9 +11583,6 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-
-begin_function
 DECL|method|createDefaultUuidGenerator ()
 specifier|private
 specifier|static
@@ -11870,8 +11618,8 @@ argument_list|()
 return|;
 block|}
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 

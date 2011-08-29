@@ -488,10 +488,9 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// will invoke StopEndpoint twice as shutdown will ensure we are stopped first
 name|assertEquals
 argument_list|(
-literal|"StopConsumerStopProducerStopEndpointStopEndpoint"
+literal|"StopConsumerStopProducerStopEndpoint"
 argument_list|,
 name|order
 argument_list|)
@@ -598,19 +597,14 @@ comment|// in this test we use start/stop to implement logic
 comment|// this is however discouraged, as you should prefer to use doStart/doStop
 annotation|@
 name|Override
-DECL|method|start ()
+DECL|method|doStart ()
 specifier|public
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|order
 operator|+=
 literal|"Endpoint"
@@ -618,19 +612,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
+DECL|method|doStop ()
 specifier|public
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 name|order
 operator|+=
 literal|"StopEndpoint"

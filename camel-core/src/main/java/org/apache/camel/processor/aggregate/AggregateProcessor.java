@@ -306,6 +306,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TimeoutMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|LoggingExceptionHandler
@@ -406,7 +418,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ServiceSupport
+name|DefaultTimeoutMap
 import|;
 end_import
 
@@ -418,9 +430,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|DefaultTimeoutMap
+name|ServiceSupport
 import|;
 end_import
 
@@ -505,20 +517,6 @@ operator|.
 name|util
 operator|.
 name|TimeUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|TimeoutMap
 import|;
 end_import
 
