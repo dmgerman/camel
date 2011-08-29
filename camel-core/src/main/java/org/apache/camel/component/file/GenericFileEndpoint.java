@@ -830,6 +830,9 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|GenericFileConsumer
+argument_list|<
+name|?
+argument_list|>
 name|consumer
 init|=
 literal|null

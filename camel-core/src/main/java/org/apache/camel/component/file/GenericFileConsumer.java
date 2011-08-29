@@ -1044,12 +1044,15 @@ name|shutdownRunningTask
 return|;
 block|}
 comment|/**      * Whether or not we can continue polling for more files      *      * @param fileList  the current list of gathered files      * @return<tt>true</tt> to continue,<tt>false</tt> to stop due hitting maxMessagesPerPoll limit      */
-DECL|method|canPollMoreFiles (List fileList)
+DECL|method|canPollMoreFiles (List<?> fileList)
 specifier|public
 name|boolean
 name|canPollMoreFiles
 parameter_list|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|fileList
 parameter_list|)
 block|{

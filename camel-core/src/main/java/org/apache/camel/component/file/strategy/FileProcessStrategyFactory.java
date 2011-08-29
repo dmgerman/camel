@@ -611,10 +611,16 @@ name|params
 parameter_list|)
 block|{
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|File
+argument_list|>
 name|strategy
 init|=
 operator|(
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|File
+argument_list|>
 operator|)
 name|params
 operator|.
@@ -856,6 +862,9 @@ argument_list|)
 condition|)
 block|{
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|File
+argument_list|>
 name|readLockStrategy
 init|=
 operator|new

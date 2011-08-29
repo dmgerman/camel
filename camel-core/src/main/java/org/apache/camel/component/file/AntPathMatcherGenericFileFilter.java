@@ -253,11 +253,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|init ()
 specifier|private
 name|void
@@ -270,6 +265,9 @@ comment|// we must use reflection to invoke the AntPathMatcherFileFilter that re
 comment|// and we don't want camel-core to have runtime dependency on camel-spring.jar
 comment|// use class resolver from CamelContext to ensure it works with OSGi as well
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|context
