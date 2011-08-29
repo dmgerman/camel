@@ -21,24 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|juel
-operator|.
-name|JuelExpression
-operator|.
-name|el
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -167,6 +149,24 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|juel
+operator|.
+name|JuelExpression
+operator|.
+name|el
 import|;
 end_import
 

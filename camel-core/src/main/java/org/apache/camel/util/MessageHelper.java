@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Some helper methods when working with {@link org.apache.camel.Message}.  *  * @version   */
+comment|/**  * Some helper methods when working with {@link org.apache.camel.Message}.  *   * @version  */
 end_comment
 
 begin_class
@@ -193,7 +193,7 @@ specifier|private
 name|MessageHelper
 parameter_list|()
 block|{     }
-comment|/**      * Extracts the given body and returns it as a String, that      * can be used for logging etc.      *<p/>      * Will handle stream based bodies wrapped in StreamCache.      *      * @param message  the message with the body      * @return the body as String, can return<tt>null</null> if no body      */
+comment|/**      * Extracts the given body and returns it as a String, that can be used for      * logging etc.      *<p/>      * Will handle stream based bodies wrapped in StreamCache.      *       * @param message the message with the body      * @return the body as String, can return<tt>null</null> if no body      */
 DECL|method|extractBodyAsString (Message message)
 specifier|public
 specifier|static
@@ -296,7 +296,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Gets the given body class type name as a String.      *<p/>      * Will skip java.lang. for the build in Java types.      *      * @param message  the message with the body      * @return the body typename as String, can return<tt>null</null> if no body      */
+comment|/**      * Gets the given body class type name as a String.      *<p/>      * Will skip java.lang. for the build in Java types.      *       * @param message the message with the body      * @return the body typename as String, can return      *<tt>null</null> if no body      */
 DECL|method|getBodyTypeName (Message message)
 specifier|public
 specifier|static
@@ -358,7 +358,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * If the message body contains a {@link StreamCache} instance, reset the cache to       * enable reading from it again.      *       * @param message the message for which to reset the body      */
+comment|/**      * If the message body contains a {@link StreamCache} instance, reset the      * cache to enable reading from it again.      *       * @param message the message for which to reset the body      */
 DECL|method|resetStreamCache (Message message)
 specifier|public
 specifier|static
@@ -403,7 +403,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the MIME content type on the message or<tt>null</tt> if none defined      */
+comment|/**      * Returns the MIME content type on the message or<tt>null</tt> if none      * defined      */
 DECL|method|getContentType (Message message)
 specifier|public
 specifier|static
@@ -429,7 +429,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the MIME content encoding on the message or<tt>null</tt> if none defined      */
+comment|/**      * Returns the MIME content encoding on the message or<tt>null</tt> if none      * defined      */
 DECL|method|getContentEncoding (Message message)
 specifier|public
 specifier|static
@@ -455,7 +455,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      * Will prepend the message with<tt>Message:</tt>      *      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_STREAMS      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @return the logging message      */
+comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging. Will prepend the message      * with<tt>Message:</tt>      *       * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_STREAMS      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @return the logging message      */
 DECL|method|extractBodyForLogging (Message message)
 specifier|public
 specifier|static
@@ -475,7 +475,7 @@ literal|"Message: "
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_STREAMS      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @return the logging message      */
+comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *       * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_STREAMS      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @return the logging message      */
 DECL|method|extractBodyForLogging (Message message, String prepend)
 specifier|public
 specifier|static
@@ -639,7 +639,7 @@ name|maxChars
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed      * @param maxChars limit to maximum number of chars. Use 0 or negative value to not limit at all.      * @return the logging message      */
+comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *       * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed      * @param maxChars limit to maximum number of chars. Use 0 or negative value      *            to not limit at all.      * @return the logging message      */
 DECL|method|extractBodyForLogging (Message message, String prepend, boolean allowStreams, boolean allowFiles, int maxChars)
 specifier|public
 specifier|static
@@ -707,7 +707,7 @@ name|BytesSource
 operator|)
 condition|)
 block|{
-comment|/* Generally do not log StreamSources but as StringSource and ByteSoure         		 * are memory based	they are ok */
+comment|/*                  * Generally do not log StreamSources but as StringSource and                  * ByteSoure are memory based they are ok                  */
 return|return
 name|prepend
 operator|+
@@ -971,7 +971,7 @@ operator|+
 name|body
 return|;
 block|}
-comment|/**      * Dumps the message as a generic XML structure.      *      * @param message  the message      * @return the XML      */
+comment|/**      * Dumps the message as a generic XML structure.      *       * @param message the message      * @return the XML      */
 DECL|method|dumpAsXml (Message message)
 specifier|public
 specifier|static
@@ -991,7 +991,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Dumps the message as a generic XML structure.      *      * @param message  the message      * @param includeBody whether or not to include the message body      * @return the XML      */
+comment|/**      * Dumps the message as a generic XML structure.      *       * @param message the message      * @param includeBody whether or not to include the message body      * @return the XML      */
 DECL|method|dumpAsXml (Message message, boolean includeBody)
 specifier|public
 specifier|static
@@ -1151,7 +1151,8 @@ argument_list|(
 literal|">"
 argument_list|)
 expr_stmt|;
-comment|// dump header value as XML, use Camel type converter to convert to String
+comment|// dump header value as XML, use Camel type converter to convert
+comment|// to String
 if|if
 condition|(
 name|value
@@ -1282,8 +1283,10 @@ argument_list|(
 literal|">"
 argument_list|)
 expr_stmt|;
-comment|// dump body value as XML, use Camel type converter to convert to String
-comment|// do not allow streams, but allow files, and clip very big message bodies (128kb)
+comment|// dump body value as XML, use Camel type converter to convert to
+comment|// String
+comment|// do not allow streams, but allow files, and clip very big message
+comment|// bodies (128kb)
 name|String
 name|xml
 init|=
@@ -1345,7 +1348,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Copies the headers from the source to the target message.      *      * @param source the source message      * @param target the target message      * @param override whether to override existing headers      */
+comment|/**      * Copies the headers from the source to the target message.      *       * @param source the source message      * @param target the target message      * @param override whether to override existing headers      */
 DECL|method|copyHeaders (Message source, Message target, boolean override)
 specifier|public
 specifier|static

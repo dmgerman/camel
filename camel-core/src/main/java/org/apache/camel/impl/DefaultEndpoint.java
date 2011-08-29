@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default endpoint useful for implementation inheritance.  *<p/>  * Components which leverages<a href="http://camel.apache.org/asynchronous-routing-engine.html">asynchronous processing model</a>  * should check the {@link #isSynchronous()} to determine if asynchronous processing is allowed.  * The<tt>synchronous</tt> option on the endpoint allows Camel end users to dictate whether they want the asynchronous model or not.  * The option is default<tt>false</tt> which means asynchronous processing is allowed.  *  * @version   */
+comment|/**  * A default endpoint useful for implementation inheritance.  *<p/>  * Components which leverages<a  * href="http://camel.apache.org/asynchronous-routing-engine.html">asynchronous  * processing model</a> should check the {@link #isSynchronous()} to determine  * if asynchronous processing is allowed. The<tt>synchronous</tt> option on the  * endpoint allows Camel end users to dictate whether they want the asynchronous  * model or not. The option is default<tt>false</tt> which means asynchronous  * processing is allowed.  *   * @version  */
 end_comment
 
 begin_class
@@ -247,7 +247,8 @@ name|ExchangePattern
 operator|.
 name|InOnly
 decl_stmt|;
-comment|// option to allow end user to dictate whether async processing should be used or not (if possible)
+comment|// option to allow end user to dictate whether async processing should be
+comment|// used or not (if possible)
 DECL|field|synchronous
 specifier|private
 name|boolean
@@ -264,7 +265,7 @@ operator|.
 name|createEndpointId
 argument_list|()
 decl_stmt|;
-comment|/**      * Constructs a fully-initialized DefaultEndpoint instance. This is the      * preferred method of constructing an object from Java code (as opposed to      * Spring beans, etc.).      *      * @param endpointUri the full URI used to create this endpoint      * @param component the component that created this endpoint      */
+comment|/**      * Constructs a fully-initialized DefaultEndpoint instance. This is the      * preferred method of constructing an object from Java code (as opposed to      * Spring beans, etc.).      *       * @param endpointUri the full URI used to create this endpoint      * @param component the component that created this endpoint      */
 DECL|method|DefaultEndpoint (String endpointUri, Component component)
 specifier|protected
 name|DefaultEndpoint
@@ -305,7 +306,7 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a DefaultEndpoint instance which has<b>not</b> been created using a {@link Component}.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      *      * @param endpointUri the full URI used to create this endpoint      * @param camelContext the Camel Context in which this endpoint is operating      */
+comment|/**      * Constructs a DefaultEndpoint instance which has<b>not</b> been created      * using a {@link Component}.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      *       * @param endpointUri the full URI used to create this endpoint      * @param camelContext the Camel Context in which this endpoint is operating      */
 annotation|@
 name|Deprecated
 DECL|method|DefaultEndpoint (String endpointUri, CamelContext camelContext)
@@ -331,7 +332,7 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-comment|/**      * Constructs a partially-initialized DefaultEndpoint instance.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      *      * @param endpointUri the full URI used to create this endpoint      */
+comment|/**      * Constructs a partially-initialized DefaultEndpoint instance.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      *       * @param endpointUri the full URI used to create this endpoint      */
 annotation|@
 name|Deprecated
 DECL|method|DefaultEndpoint (String endpointUri)
@@ -350,7 +351,7 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a partially-initialized DefaultEndpoint instance.      * Useful when creating endpoints manually (e.g., as beans in Spring).      *<p/>      * Please note that the endpoint URI must be set through properties (or      * overriding {@link #createEndpointUri()} if one uses this constructor.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated component.      */
+comment|/**      * Constructs a partially-initialized DefaultEndpoint instance. Useful when      * creating endpoints manually (e.g., as beans in Spring).      *<p/>      * Please note that the endpoint URI must be set through properties (or      * overriding {@link #createEndpointUri()} if one uses this constructor.      *<p/>      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      */
 DECL|method|DefaultEndpoint ()
 specifier|protected
 name|DefaultEndpoint
@@ -450,7 +451,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a unique String ID which can be used for aliasing without having to use the whole URI which      * is not unique      */
+comment|/**      * Returns a unique String ID which can be used for aliasing without having      * to use the whole URI which is not unique      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -519,7 +520,8 @@ name|isLenientProperties
 argument_list|()
 condition|)
 block|{
-comment|// only use the endpoint uri without parameters as the properties is lenient
+comment|// only use the endpoint uri without parameters as the properties is
+comment|// lenient
 name|String
 name|uri
 init|=
@@ -576,7 +578,7 @@ return|return
 name|camelContext
 return|;
 block|}
-comment|/**      * Returns the component that created this endpoint.      *      * @return the component that created this endpoint, or<tt>null</tt> if none set      */
+comment|/**      * Returns the component that created this endpoint.      *       * @return the component that created this endpoint, or<tt>null</tt> if      *         none set      */
 DECL|method|getComponent ()
 specifier|public
 name|Component
@@ -792,7 +794,7 @@ name|pattern
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the default exchange pattern to use for createExchange().      *      * @see #setExchangePattern(ExchangePattern exchangePattern)      */
+comment|/**      * Returns the default exchange pattern to use for createExchange().      *       * @see #setExchangePattern(ExchangePattern exchangePattern)      */
 DECL|method|getExchangePattern ()
 specifier|public
 name|ExchangePattern
@@ -820,7 +822,7 @@ operator|=
 name|exchangePattern
 expr_stmt|;
 block|}
-comment|/**      * Returns whether synchronous processing should be strictly used.      *      * @see #setSynchronous(boolean synchronous)      */
+comment|/**      * Returns whether synchronous processing should be strictly used.      *       * @see #setSynchronous(boolean synchronous)      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -831,7 +833,7 @@ return|return
 name|synchronous
 return|;
 block|}
-comment|/**      * Sets whether synchronous processing should be strictly used, or Camel is allowed to use      * asynchronous processing (if supported).      *      * @param synchronous<tt>true</tt> to enforce synchronous processing      */
+comment|/**      * Sets whether synchronous processing should be strictly used, or Camel is      * allowed to use asynchronous processing (if supported).      *       * @param synchronous<tt>true</tt> to enforce synchronous processing      */
 DECL|method|setSynchronous (boolean synchronous)
 specifier|public
 name|void
@@ -875,7 +877,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Sets the endpointUri if it has not been specified yet via some kind of dependency injection mechanism.      * This allows dependency injection frameworks such as Spring or Guice to set the default endpoint URI in cases      * where it has not been explicitly configured using the name/context in which an Endpoint is created.      */
+comment|/**      * Sets the endpointUri if it has not been specified yet via some kind of      * dependency injection mechanism. This allows dependency injection      * frameworks such as Spring or Guice to set the default endpoint URI in      * cases where it has not been explicitly configured using the name/context      * in which an Endpoint is created.      */
 DECL|method|setEndpointUriIfNotSpecified (String value)
 specifier|public
 name|void
