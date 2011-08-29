@@ -174,6 +174,11 @@ specifier|private
 name|boolean
 name|disconnect
 decl_stmt|;
+DECL|field|fastExist
+specifier|private
+name|boolean
+name|fastExist
+decl_stmt|;
 DECL|method|RemoteFileEndpoint ()
 specifier|public
 name|RemoteFileEndpoint
@@ -640,6 +645,32 @@ operator|.
 name|disconnect
 operator|=
 name|disconnect
+expr_stmt|;
+block|}
+DECL|method|isFastExist ()
+specifier|public
+name|boolean
+name|isFastExist
+parameter_list|()
+block|{
+return|return
+name|fastExist
+return|;
+block|}
+DECL|method|setFastExist (boolean fastExist)
+specifier|public
+name|void
+name|setFastExist
+parameter_list|(
+name|boolean
+name|fastExist
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fastExist
+operator|=
+name|fastExist
 expr_stmt|;
 block|}
 block|}
