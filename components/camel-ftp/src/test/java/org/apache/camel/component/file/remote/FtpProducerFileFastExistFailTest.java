@@ -134,7 +134,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/exist?fastExist=true&password=admin&delay=2000&noop=true&fileExist=Fail"
+literal|"/exist?fastExistsCheck=true&password=admin&delay=2000&noop=true&fileExist=Fail"
 return|;
 block|}
 block|}

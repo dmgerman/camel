@@ -2844,7 +2844,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|isFastExist
+name|isFastExistsCheck
 argument_list|()
 condition|)
 block|{
