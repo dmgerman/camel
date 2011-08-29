@@ -932,8 +932,21 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-comment|// TODO: fix me
-comment|// assertEquals("dest message should be of the same type as source message", sourceIn.getClass(), destIn.getClass());
+name|assertEquals
+argument_list|(
+literal|"Dest message should be of the same type as source message"
+argument_list|,
+name|sourceIn
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|destIn
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|class|MyMessage
 specifier|public
@@ -942,7 +955,22 @@ class|class
 name|MyMessage
 extends|extends
 name|DefaultMessage
-block|{      }
+block|{
+annotation|@
+name|Override
+DECL|method|newInstance ()
+specifier|public
+name|MyMessage
+name|newInstance
+parameter_list|()
+block|{
+return|return
+operator|new
+name|MyMessage
+argument_list|()
+return|;
+block|}
+block|}
 block|}
 end_class
 
