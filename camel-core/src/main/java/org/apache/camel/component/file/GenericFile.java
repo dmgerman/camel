@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|WrappedFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -120,6 +132,11 @@ name|GenericFile
 parameter_list|<
 name|T
 parameter_list|>
+implements|implements
+name|WrappedFile
+argument_list|<
+name|T
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -1184,6 +1201,9 @@ operator|=
 name|lastModified
 expr_stmt|;
 block|}
+comment|/* (non-Javadoc)      * @see org.apache.camel.component.file.WrappedFile#getFile()      */
+annotation|@
+name|Override
 DECL|method|getFile ()
 specifier|public
 name|T

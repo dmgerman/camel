@@ -168,11 +168,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFile
+name|WrappedFile
 import|;
 end_import
 
@@ -789,7 +785,7 @@ if|if
 condition|(
 name|obj
 operator|instanceof
-name|GenericFile
+name|WrappedFile
 operator|||
 name|obj
 operator|instanceof

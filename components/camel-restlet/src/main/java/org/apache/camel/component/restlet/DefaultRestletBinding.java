@@ -126,6 +126,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|WrappedFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -1454,7 +1466,7 @@ if|if
 condition|(
 name|body
 operator|instanceof
-name|GenericFile
+name|WrappedFile
 condition|)
 block|{
 comment|// grab body from generic file holder

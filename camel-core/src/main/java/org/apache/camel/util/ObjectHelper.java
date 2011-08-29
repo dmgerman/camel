@@ -356,11 +356,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|GenericFile
+name|WrappedFile
 import|;
 end_import
 
@@ -5260,18 +5256,18 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|GenericFile
+name|WrappedFile
 condition|)
 block|{
 comment|// generic file is just a wrapper for the real file so call again with the real file
-name|GenericFile
+name|WrappedFile
 argument_list|<
 name|?
 argument_list|>
 name|gf
 init|=
 operator|(
-name|GenericFile
+name|WrappedFile
 argument_list|<
 name|?
 argument_list|>

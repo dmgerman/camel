@@ -364,11 +364,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|BeanInvocation
+name|WrappedFile
 import|;
 end_import
 
@@ -382,9 +378,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
+name|bean
 operator|.
-name|GenericFile
+name|BeanInvocation
 import|;
 end_import
 
@@ -3590,7 +3586,7 @@ if|if
 condition|(
 name|answer
 operator|instanceof
-name|GenericFile
+name|WrappedFile
 condition|)
 block|{
 comment|// special for files so we can work with them out of the box
