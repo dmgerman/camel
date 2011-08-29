@@ -3047,13 +3047,11 @@ literal|false
 return|;
 block|}
 return|return
-operator|(
 name|names
 operator|.
 name|length
 operator|>=
 literal|1
-operator|)
 return|;
 block|}
 catch|catch

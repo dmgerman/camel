@@ -3807,14 +3807,12 @@ literal|false
 return|;
 block|}
 return|return
-operator|(
 name|files
 operator|.
 name|size
 argument_list|()
 operator|>=
 literal|1
-operator|)
 return|;
 block|}
 catch|catch
