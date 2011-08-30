@@ -14,70 +14,54 @@ name|camel
 package|;
 end_package
 
+begin_comment
+comment|/**  * A {@link Service} which has all the lifecycles events and offers details about its current state.  */
+end_comment
+
 begin_interface
 DECL|interface|StatefulService
 specifier|public
 interface|interface
 name|StatefulService
 extends|extends
-name|Service
+name|SuspendableService
 extends|,
 name|ShutdownableService
 block|{
-DECL|method|suspend ()
-name|void
-name|suspend
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-DECL|method|resume ()
-name|void
-name|resume
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Returns the current status      */
+comment|/**      * Returns the current status      *      * @return the current status      */
 DECL|method|getStatus ()
 name|ServiceStatus
 name|getStatus
 parameter_list|()
 function_decl|;
-comment|/**      * @return true if this service has been started      */
+comment|/**      * Whether the service is started      *      * @return true if this service has been started      */
 DECL|method|isStarted ()
 name|boolean
 name|isStarted
 parameter_list|()
 function_decl|;
-comment|/**      * @return true if this service is being started      */
+comment|/**      * Whether the service is starting      *      * @return true if this service is being started      */
 DECL|method|isStarting ()
 name|boolean
 name|isStarting
 parameter_list|()
 function_decl|;
-comment|/**      * @return true if this service is in the process of stopping      */
+comment|/**      * Whether the service is stopping      *      * @return true if this service is in the process of stopping      */
 DECL|method|isStopping ()
 name|boolean
 name|isStopping
 parameter_list|()
 function_decl|;
-comment|/**      * @return true if this service is stopped      */
+comment|/**      * Whether the service is stopped      *      * @return true if this service is stopped      */
 DECL|method|isStopped ()
 name|boolean
 name|isStopped
 parameter_list|()
 function_decl|;
-comment|/**      * @return true if this service is in the process of suspending      */
+comment|/**      * Whether the service is suspending      *      * @return true if this service is in the process of suspending      */
 DECL|method|isSuspending ()
 name|boolean
 name|isSuspending
-parameter_list|()
-function_decl|;
-comment|/**      * @return true if this service is suspended      */
-DECL|method|isSuspended ()
-name|boolean
-name|isSuspended
 parameter_list|()
 function_decl|;
 comment|/**      * Helper methods so the service knows if it should keep running.      * Returns<tt>false</tt> if the service is being stopped or is stopped.      *      * @return<tt>true</tt> if the service should continue to run.      */
@@ -86,7 +70,7 @@ name|boolean
 name|isRunAllowed
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the version of this service      */
+comment|/**      * Returns the version of this service      *      * @return the version      */
 DECL|method|getVersion ()
 name|String
 name|getVersion

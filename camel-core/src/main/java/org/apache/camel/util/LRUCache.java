@@ -219,7 +219,6 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-comment|//        super(initialCapacity, loadFactor, accessOrder);
 name|this
 operator|.
 name|maxCacheSize
@@ -390,6 +389,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|putAll (Map<? extends K, ? extends V> map)
 specifier|public
 name|void

@@ -14,6 +14,10 @@ name|camel
 package|;
 end_package
 
+begin_comment
+comment|/**  * Wraps a file.  */
+end_comment
+
 begin_interface
 DECL|interface|WrappedFile
 specifier|public
@@ -23,6 +27,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|/**      * Gets the file.      *      * @return the file.      */
 DECL|method|getFile ()
 name|T
 name|getFile

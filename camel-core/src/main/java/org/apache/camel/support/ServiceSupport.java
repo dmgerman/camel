@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ShutdownableService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|StatefulService
 import|;
 end_import
@@ -117,8 +105,6 @@ specifier|abstract
 class|class
 name|ServiceSupport
 implements|implements
-name|ShutdownableService
-implements|,
 name|StatefulService
 block|{
 DECL|field|LOG
