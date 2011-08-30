@@ -268,25 +268,11 @@ argument_list|(
 literal|"cxf://bean:serviceEndpoint"
 argument_list|)
 decl_stmt|;
-name|ServerFactoryBean
-name|svf
-init|=
-operator|new
-name|ServerFactoryBean
-argument_list|()
-decl_stmt|;
-name|endpoint
-operator|.
-name|configure
-argument_list|(
-name|svf
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Got the wrong endpoint address"
 argument_list|,
-name|svf
+name|endpoint
 operator|.
 name|getAddress
 argument_list|()
@@ -302,7 +288,7 @@ name|assertEquals
 argument_list|(
 literal|"Got the wrong endpont service class"
 argument_list|,
-name|svf
+name|endpoint
 operator|.
 name|getServiceClass
 argument_list|()

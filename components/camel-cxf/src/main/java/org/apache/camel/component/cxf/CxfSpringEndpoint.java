@@ -355,11 +355,6 @@ specifier|private
 name|String
 name|beanId
 decl_stmt|;
-DECL|field|configurer
-specifier|private
-name|ConfigurerImpl
-name|configurer
-decl_stmt|;
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext
@@ -591,12 +586,6 @@ argument_list|(
 name|cls
 argument_list|)
 decl_stmt|;
-comment|// configure client factory bean by CXF configurer
-name|configure
-argument_list|(
-name|factoryBean
-argument_list|)
-expr_stmt|;
 comment|// setup client factory bean
 name|setupClientFactoryBean
 argument_list|(
@@ -716,12 +705,6 @@ init|=
 name|createClientFactoryBean
 argument_list|()
 decl_stmt|;
-comment|// configure client factory bean by CXF configurer
-name|configure
-argument_list|(
-name|factoryBean
-argument_list|)
-expr_stmt|;
 comment|// setup client factory bean
 name|setupClientFactoryBean
 argument_list|(
@@ -944,12 +927,6 @@ name|ServerFactoryBean
 argument_list|()
 expr_stmt|;
 block|}
-comment|// configure server factory bean by CXF configurer
-name|configure
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
 comment|// setup server factory bean
 name|setupServerFactoryBean
 argument_list|(
@@ -1052,74 +1029,6 @@ block|}
 return|return
 name|answer
 return|;
-block|}
-DECL|method|configure (Object beanInstance)
-name|void
-name|configure
-parameter_list|(
-name|Object
-name|beanInstance
-parameter_list|)
-block|{
-comment|// check the ApplicationContext states first , and call the refresh if necessary
-if|if
-condition|(
-operator|(
-operator|(
-name|SpringCamelContext
-operator|)
-name|getCamelContext
-argument_list|()
-operator|)
-operator|.
-name|getApplicationContext
-argument_list|()
-operator|instanceof
-name|ConfigurableApplicationContext
-condition|)
-block|{
-name|ConfigurableApplicationContext
-name|context
-init|=
-call|(
-name|ConfigurableApplicationContext
-call|)
-argument_list|(
-operator|(
-name|SpringCamelContext
-operator|)
-name|getCamelContext
-argument_list|()
-argument_list|)
-operator|.
-name|getApplicationContext
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|context
-operator|.
-name|isActive
-argument_list|()
-condition|)
-block|{
-name|context
-operator|.
-name|refresh
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-name|configurer
-operator|.
-name|configureBean
-argument_list|(
-name|beanId
-argument_list|,
-name|beanInstance
-argument_list|)
-expr_stmt|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
@@ -1497,14 +1406,6 @@ block|{
 name|applicationContext
 operator|=
 name|ctx
-expr_stmt|;
-name|configurer
-operator|=
-operator|new
-name|ConfigurerImpl
-argument_list|(
-name|applicationContext
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
