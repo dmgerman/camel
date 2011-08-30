@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 package|;
 end_package
 
@@ -28,22 +28,8 @@ name|TestSupport
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -369,6 +355,121 @@ name|isShutdown
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testExceptionOnStart ()
+specifier|public
+name|void
+name|testExceptionOnStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceSupportTestExOnStart
+name|service
+init|=
+operator|new
+name|ServiceSupportTestExOnStart
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|service
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"RuntimeException expected"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|service
+operator|.
+name|isStopped
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|service
+operator|.
+name|isStopping
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|service
+operator|.
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|service
+operator|.
+name|isStarting
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|class|ServiceSupportTestExOnStart
+specifier|public
+specifier|static
+class|class
+name|ServiceSupportTestExOnStart
+extends|extends
+name|ServiceSupport
+block|{
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"This service throws an exception when starting"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
 block|}
 block|}
 end_class

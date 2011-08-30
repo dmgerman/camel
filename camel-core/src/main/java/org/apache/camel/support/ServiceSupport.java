@@ -271,6 +271,8 @@ argument_list|(
 literal|"Starting service"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|doStart
 argument_list|()
 expr_stmt|;
@@ -330,6 +332,31 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+try|try
+block|{
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e2
+parameter_list|)
+block|{
+comment|// Ignore exceptions as we want to show the original exception
+block|}
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 block|}
 DECL|method|stop ()
