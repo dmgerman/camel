@@ -394,7 +394,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"OSGI-INF/blueprint/fileTest.xml"
+literal|"OSGI-INF/blueprint/fileRoute.xml"
 argument_list|,
 name|OSGiBlueprintTestSupport
 operator|.
@@ -402,7 +402,7 @@ name|class
 operator|.
 name|getResource
 argument_list|(
-literal|"fileTest.xml"
+literal|"fileRouteBlueprint.xml"
 argument_list|)
 argument_list|)
 operator|.
