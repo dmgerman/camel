@@ -268,7 +268,7 @@ comment|// first is async, the 2nd is sync based
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye World?failFirstAttempts=5"
+literal|"async:bye:camel?failFirstAttempts=5"
 argument_list|,
 literal|"direct:ok"
 argument_list|)

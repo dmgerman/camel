@@ -181,7 +181,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Hi World"
+literal|"async:hi:world"
 argument_list|)
 operator|.
 name|transform

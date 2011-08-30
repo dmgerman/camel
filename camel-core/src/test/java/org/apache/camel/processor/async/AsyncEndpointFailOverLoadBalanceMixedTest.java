@@ -269,7 +269,7 @@ comment|// and make it complex by having a direct endpoint which is not a real a
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel?failFirstAttempts=5"
+literal|"async:bye:camel?failFirstAttempts=5"
 argument_list|,
 literal|"direct:fail"
 argument_list|,

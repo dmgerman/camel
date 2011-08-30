@@ -358,7 +358,7 @@ comment|// tx should be conveyed to this route as well
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|)
 operator|.
 name|process

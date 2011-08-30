@@ -467,7 +467,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel?delay=250"
+literal|"async:bye:camel?delay=250"
 argument_list|)
 operator|.
 name|to

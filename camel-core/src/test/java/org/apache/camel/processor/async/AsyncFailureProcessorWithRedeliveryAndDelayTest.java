@@ -270,7 +270,7 @@ comment|// test that we can do redelivery
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel?failFirstAttempts=2"
+literal|"async:bye:camel?failFirstAttempts=2"
 argument_list|)
 operator|.
 name|process

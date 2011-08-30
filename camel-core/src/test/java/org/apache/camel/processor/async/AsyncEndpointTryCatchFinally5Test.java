@@ -212,7 +212,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|)
 operator|.
 name|doFinally
@@ -230,7 +230,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye World"
+literal|"async:bye:world"
 argument_list|)
 operator|.
 name|end

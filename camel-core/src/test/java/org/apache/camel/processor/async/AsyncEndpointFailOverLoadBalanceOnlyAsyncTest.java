@@ -258,7 +258,7 @@ comment|// the last would succeed
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel?failFirstAttempts=5"
+literal|"async:bye:camel?failFirstAttempts=5"
 argument_list|,
 literal|"async:Bye Moon?failFirstAttempts=5"
 argument_list|,

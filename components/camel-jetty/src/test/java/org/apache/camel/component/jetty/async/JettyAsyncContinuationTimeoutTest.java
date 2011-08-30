@@ -267,7 +267,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye World?delay=6000"
+literal|"async:bye:world?delay=6000"
 argument_list|)
 operator|.
 name|to

@@ -251,7 +251,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel?synchronous=true"
+literal|"async:bye:camel?synchronous=true"
 argument_list|)
 operator|.
 name|process

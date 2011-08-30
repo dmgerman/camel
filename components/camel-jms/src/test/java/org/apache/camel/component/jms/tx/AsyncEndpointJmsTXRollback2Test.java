@@ -358,7 +358,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Hi Camel"
+literal|"async:hi:camel"
 argument_list|)
 operator|.
 name|process
@@ -431,7 +431,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|)
 operator|.
 name|process

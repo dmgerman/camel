@@ -179,7 +179,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:Bye World"
+literal|"async:bye:world"
 argument_list|)
 operator|.
 name|end

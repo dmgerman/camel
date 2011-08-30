@@ -251,7 +251,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"async:Hi Moon"
+literal|"async:hi:moon"
 argument_list|,
 literal|"direct:foo"
 argument_list|)
