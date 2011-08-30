@@ -74,22 +74,6 @@ name|ProcessorDefinition
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|management
-operator|.
-name|Statistic
-import|;
-end_import
-
 begin_comment
 comment|/**  * Strategy for management.  *<p/>  * This is totally pluggable allowing to use a custom or 3rd party management implementation with Camel.  *  * @see org.apache.camel.spi.EventNotifier  * @see org.apache.camel.spi.EventFactory  * @see org.apache.camel.spi.ManagementNamingStrategy  * @see org.apache.camel.spi.ManagementAgent  * @version   */
 end_comment
@@ -194,23 +178,6 @@ name|event
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
-comment|/**      * Creates a statistic; a representation of raw statistical data.      *      * @param name The unique name assigned to the statistic usage.      * @param owner The object whose identity is to be associated with the metric.      * @param updateMode The update mode to be assigned to the returned statistic.      * @return the statistic      *      * @see Statistic.UpdateMode      */
-DECL|method|createStatistic (String name, Object owner, Statistic.UpdateMode updateMode)
-name|Statistic
-name|createStatistic
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|Object
-name|owner
-parameter_list|,
-name|Statistic
-operator|.
-name|UpdateMode
-name|updateMode
-parameter_list|)
 function_decl|;
 comment|/**      * Gets the event notifiers.      *      * @return event notifiers      */
 DECL|method|getEventNotifiers ()

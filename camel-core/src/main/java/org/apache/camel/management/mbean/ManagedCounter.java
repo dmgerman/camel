@@ -80,22 +80,6 @@ name|ManagedResource
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|management
-operator|.
-name|Statistic
-import|;
-end_import
-
 begin_class
 annotation|@
 name|ManagedResource
@@ -128,9 +112,8 @@ name|this
 operator|.
 name|exchangesTotal
 operator|=
-name|strategy
-operator|.
-name|createStatistic
+operator|new
+name|Statistic
 argument_list|(
 literal|"org.apache.camel.exchangesTotal"
 argument_list|,

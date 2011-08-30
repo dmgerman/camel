@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -13,42 +13,45 @@ operator|.
 name|camel
 operator|.
 name|management
+operator|.
+name|mbean
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|management
-operator|.
-name|Statistic
-import|;
-end_import
 
 begin_comment
 comment|/**  * Default implementation of {@link Statistic}  */
 end_comment
 
 begin_class
-DECL|class|DefaultStatistic
+DECL|class|Statistic
 specifier|public
 class|class
-name|DefaultStatistic
-implements|implements
 name|Statistic
 block|{
+comment|/**      * Statistics mode      *<ul>      *<li>VALUE - A statistic with this update mode is a simple value that is a straight forward      * representation of the updated value.</li>      *<li>DIFFERENCE - A statistic with this update mode is a value that represents the difference      * between the last two recorded values (or the initial value if two updates have      * not been recorded).</li>      *<li>COUNTER - A statistic with this update mode interprets updates as increments (positive values)      * or decrements (negative values) to the current value.</li>      *<li>MAXIMUM - A statistic with this update mode is a value that represents the maximum value      * amongst the update values applied to this statistic.</li>      *<li>MINIMUM - A statistic with this update mode is a value that represents the minimum value      * amongst the update values applied to this statistic.</li>      *<ul>      */
+DECL|enum|UpdateMode
+specifier|public
+enum|enum
+name|UpdateMode
+block|{
+DECL|enumConstant|VALUE
+DECL|enumConstant|DIFFERENCE
+DECL|enumConstant|COUNTER
+DECL|enumConstant|MAXIMUM
+DECL|enumConstant|MINIMUM
+name|VALUE
+block|,
+name|DIFFERENCE
+block|,
+name|COUNTER
+block|,
+name|MAXIMUM
+block|,
+name|MINIMUM
+block|}
 DECL|field|updateMode
 specifier|private
 specifier|final
-name|Statistic
-operator|.
 name|UpdateMode
 name|updateMode
 decl_stmt|;
@@ -62,13 +65,17 @@ specifier|private
 name|long
 name|updateCount
 decl_stmt|;
-comment|/**      * Instantiates a new statistic.      *      * @param updateMode The statistic update mode.      */
-DECL|method|DefaultStatistic (Statistic.UpdateMode updateMode)
+comment|/**      * Instantiates a new statistic.      * @param owner       * @param name       *      * @param updateMode The statistic update mode.      */
+DECL|method|Statistic (String name, Object owner, UpdateMode updateMode)
 specifier|public
-name|DefaultStatistic
-parameter_list|(
 name|Statistic
-operator|.
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|owner
+parameter_list|,
 name|UpdateMode
 name|updateMode
 parameter_list|)
