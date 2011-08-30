@@ -2261,13 +2261,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|this
-operator|.
-name|cache
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
+comment|// noop
 block|}
 DECL|method|stop ()
 specifier|public
@@ -2277,11 +2271,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|this
-operator|.
 name|cache
 operator|.
-name|stop
+name|clear
 argument_list|()
 expr_stmt|;
 block|}
