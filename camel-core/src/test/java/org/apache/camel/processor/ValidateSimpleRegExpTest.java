@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -12,21 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|processor
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
-import|;
-end_import
 
 begin_import
 import|import
@@ -42,92 +30,23 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
 begin_comment
-comment|/**  * Unit test routing with simple language.  */
+comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|SimpleLanguageRouteTest
+DECL|class|ValidateSimpleRegExpTest
 specifier|public
 class|class
-name|SimpleLanguageRouteTest
+name|ValidateSimpleRegExpTest
 extends|extends
-name|ContextTestSupport
+name|ValidateRegExpTest
 block|{
-DECL|method|testSimpleFilter ()
-specifier|public
-name|void
-name|testSimpleFilter
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:foo"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello Foo"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:foo"
-argument_list|,
-literal|"Hello Bar"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"seda:foo"
-argument_list|,
-literal|"Hello Foo"
-argument_list|,
-literal|"foo"
-argument_list|,
-literal|"yes"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
 operator|new
@@ -138,25 +57,23 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"direct:start"
 argument_list|)
 operator|.
-name|filter
+name|validate
 argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"${header.foo}"
+literal|"${bodyAs(java.lang.String)} regex '^\\d{2}\\.\\d{2}\\.\\d{4}$'"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:foo"
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}

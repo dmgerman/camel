@@ -386,7 +386,7 @@ name|when
 argument_list|(
 name|simple
 argument_list|(
-literal|"${body} contains Camel"
+literal|"${body} contains 'Camel'"
 argument_list|)
 argument_list|)
 operator|.
@@ -419,7 +419,7 @@ name|when
 argument_list|(
 name|simple
 argument_list|(
-literal|"${body} contains Donkey"
+literal|"${body} contains 'Donkey'"
 argument_list|)
 argument_list|)
 operator|.

@@ -263,7 +263,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"in.header.one"
+literal|"${header.one}"
 argument_list|)
 operator|.
 name|to

@@ -499,7 +499,7 @@ name|SimpleLanguage
 operator|.
 name|simple
 argument_list|(
-literal|"file:modified"
+literal|"${file:modified}"
 argument_list|)
 operator|.
 name|evaluate
@@ -664,7 +664,7 @@ name|SimpleLanguage
 operator|.
 name|simple
 argument_list|(
-literal|"file:modified"
+literal|"${file:modified}"
 argument_list|)
 operator|.
 name|evaluate

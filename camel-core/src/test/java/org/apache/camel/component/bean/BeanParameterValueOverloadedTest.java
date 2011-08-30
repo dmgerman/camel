@@ -211,7 +211,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bean:foo?method=bar(body,false,true)"
+literal|"bean:foo?method=bar(${body},false,true)"
 argument_list|)
 operator|.
 name|to

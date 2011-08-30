@@ -104,7 +104,7 @@ name|MyBean
 operator|.
 name|class
 argument_list|,
-literal|"hello(body)"
+literal|"hello(${body})"
 argument_list|)
 operator|.
 name|to
@@ -265,7 +265,7 @@ name|MyBean
 operator|.
 name|class
 argument_list|,
-literal|"hello(body, header.country)"
+literal|"hello(${body}, ${header.country})"
 argument_list|)
 operator|.
 name|to
@@ -582,7 +582,7 @@ name|MyBean
 operator|.
 name|class
 argument_list|,
-literal|"times(byte[], header.times)"
+literal|"times(byte[], ${header.times})"
 argument_list|)
 operator|.
 name|to

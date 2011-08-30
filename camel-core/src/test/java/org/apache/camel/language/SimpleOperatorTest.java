@@ -117,7 +117,7 @@ argument_list|(
 literal|"Hello Big World"
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body} == 'Hello Big World'"
 argument_list|,
@@ -143,14 +143,14 @@ argument_list|(
 literal|"Value"
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body} != null"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${body} == null"
 argument_list|,
@@ -167,14 +167,14 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body} == null"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${body} != null"
 argument_list|,
@@ -190,42 +190,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc and ${in.header.bar} == 123"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc and ${in.header.bar} == 444"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == def and ${in.header.bar} == 123"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == def and ${in.header.bar} == 444"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc and ${in.header.bar}> 100"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc and ${in.header.bar}< 200"
 argument_list|,
@@ -251,28 +251,28 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc and ${in.header.bar} == 123 and ${body} == 'Hello World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' and ${in.header.bar} == 123 and ${body} == 'Hello World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc and ${in.header.bar} == 123 and ${body} == 'Bye World'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' and ${in.header.bar} == 123 and ${body} == 'Bye World'"
 argument_list|,
@@ -298,14 +298,14 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc and ${in.header.bar} == 123 and ${body} == 'Hello World' and ${in.header.xx}} == null"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' and ${in.header.bar} == 123 and ${body} == 'Hello World' and ${in.header.xx}} == null"
 argument_list|,
@@ -331,56 +331,56 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc or ${in.header.bar} == 44 or ${body} == 'Bye World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' or ${in.header.bar} == 44 or ${body} == 'Bye World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == xxx or ${in.header.bar} == 44 or ${body} == 'Bye World'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'xxx' or ${in.header.bar} == 44 or ${body} == 'Bye World'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == xxx or ${in.header.bar} == 44 or ${body} == 'Hello World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'xxx' or ${in.header.bar} == 44 or ${body} == 'Hello World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == xxx or ${in.header.bar} == 123 or ${body} == 'Bye World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'xxx' or ${in.header.bar} == 123 or ${body} == 'Bye World'"
 argument_list|,
@@ -406,70 +406,70 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == xxx or ${in.header.bar} == 44 or ${body} == 'Bye Moon' or ${body} contains 'World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'xxx' or ${in.header.bar} == 44 or ${body} == 'Bye Moon' or ${body} contains 'World'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == xxx or ${in.header.bar} == 44 or ${body} == 'Bye Moon' or ${body} contains 'Moon'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'xxx' or ${in.header.bar} == 44 or ${body} == 'Bye Moon' or ${body} contains 'Moon'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc or ${in.header.bar} == 44 or ${body} == 'Bye Moon' or ${body} contains 'Moon'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' or ${in.header.bar} == 44 or ${body} == 'Bye Moon' or ${body} contains 'Moon'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == xxx or ${in.header.bar} == 123 or ${body} == 'Bye Moon' or ${body} contains 'Moon'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'xxx' or ${in.header.bar} == 123 or ${body} == 'Bye Moon' or ${body} contains 'Moon'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == xxx or ${in.header.bar} == 44 or ${body} == 'Hello World' or ${body} contains 'Moon'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'xxx' or ${in.header.bar} == 44 or ${body} == 'Hello World' or ${body} contains 'Moon'"
 argument_list|,
@@ -485,42 +485,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' and ${in.header.bar} == '123'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' and ${in.header.bar} == '444'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'def' and ${in.header.bar} == '123'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'def' and ${in.header.bar} == '444'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' and ${in.header.bar}> '100'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' and ${in.header.bar}< '200'"
 argument_list|,
@@ -536,56 +536,56 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc or ${in.header.bar} == 123"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc or ${in.header.bar} == 444"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == def or ${in.header.bar} == 123"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == def or ${in.header.bar} == 444"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc or ${in.header.bar}< 100"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc or ${in.header.bar}< 200"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == def or ${in.header.bar}< 200"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == def or ${in.header.bar}< 100"
 argument_list|,
@@ -601,56 +601,56 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' or ${in.header.bar} == '123'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' or ${in.header.bar} == '444'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'def' or ${in.header.bar} == '123'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'def' or ${in.header.bar} == '444'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' or ${in.header.bar}< '100'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc' or ${in.header.bar}< '200'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'def' or ${in.header.bar}< '200'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'def' or ${in.header.bar}< '100'"
 argument_list|,
@@ -667,35 +667,35 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'abc'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == abc"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'def'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == def"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == '1'"
 argument_list|,
@@ -703,35 +703,35 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// integer to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} == '123'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} == 123"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} == '444'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} == 444"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} == '1'"
 argument_list|,
@@ -748,35 +748,35 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} != 'abc'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} != abc"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} != 'def'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} != def"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} != '1'"
 argument_list|,
@@ -784,35 +784,35 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// integer to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} != '123'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} != 123"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} != '444'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} != 444"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} != '1'"
 argument_list|,
@@ -829,28 +829,28 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}> 'aaa'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}> aaa"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}> 'def'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}> def"
 argument_list|,
@@ -858,35 +858,35 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// integer to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}> '100'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}> 100"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}> '123'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}> 123"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}> '200'"
 argument_list|,
@@ -916,77 +916,77 @@ literal|"70"
 argument_list|)
 expr_stmt|;
 comment|// string to int comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 100"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 100"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 80"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 800"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 1"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 8"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 48"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 69"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 71"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 88"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}> 777"
 argument_list|,
@@ -1016,77 +1016,77 @@ literal|"70"
 argument_list|)
 expr_stmt|;
 comment|// string to int comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 100"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 100"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 80"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 800"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 1"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 8"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 48"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 69"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 71"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 88"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.num}< 777"
 argument_list|,
@@ -1103,35 +1103,35 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}>= 'aaa'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}>= aaa"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}>= 'abc'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}>= abc"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}>= 'def'"
 argument_list|,
@@ -1139,35 +1139,35 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// integer to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}>= '100'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}>= 100"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}>= '123'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}>= 123"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}>= '200'"
 argument_list|,
@@ -1184,28 +1184,28 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}< 'aaa'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}< aaa"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}< 'def'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}< def"
 argument_list|,
@@ -1213,35 +1213,35 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// integer to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}< '100'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}< 100"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}< '123'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}< 123"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}< '200'"
 argument_list|,
@@ -1258,35 +1258,35 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}<= 'aaa'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}<= aaa"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}<= 'abc'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}<= abc"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo}<= 'def'"
 argument_list|,
@@ -1294,35 +1294,35 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// integer to string comparison
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}<= '100'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}<= 100"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}<= '123'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}<= 123"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}<= '200'"
 argument_list|,
@@ -1338,28 +1338,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == null"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.none} == null"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == 'null'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.none} == 'null'"
 argument_list|,
@@ -1375,28 +1375,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} != null"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.none} != null"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} != 'null'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.none} != 'null'"
 argument_list|,
@@ -1413,14 +1413,14 @@ throws|throws
 name|Exception
 block|{
 comment|// operator on right side is also using ${ } placeholders
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == ${in.header.foo}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == ${in.header.bar}"
 argument_list|,
@@ -1437,21 +1437,21 @@ throws|throws
 name|Exception
 block|{
 comment|// operator on right side is also using ${ } placeholders
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} == ${bean:generator.generateFilename}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} == ${bean:generator.generateId}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar}>= ${bean:generator.generateId}"
 argument_list|,
@@ -1467,42 +1467,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} contains 'a'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} contains a"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} contains 'ab'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} contains 'abc'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} contains 'def'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} contains def"
 argument_list|,
@@ -1518,42 +1518,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not contains 'a'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not contains a"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not contains 'ab'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not contains 'abc'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not contains 'def'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not contains def"
 argument_list|,
@@ -1569,56 +1569,56 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} regex '^a..$'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} regex '^ab.$'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} regex ^ab.$"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} regex ^d.*$"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} regex '^\\d{3}'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} regex '^\\d{2}'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} regex ^\\d{3}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} regex ^\\d{2}"
 argument_list|,
@@ -1634,56 +1634,56 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not regex '^a..$'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not regex '^ab.$'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not regex ^ab.$"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not regex ^d.*$"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not regex '^\\d{3}'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not regex '^\\d{2}'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not regex ^\\d{3}"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not regex ^\\d{2}"
 argument_list|,
@@ -1700,28 +1700,28 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} in 'foo,abc,def'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} in ${bean:generator.generateFilename}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} in foo,abc,def"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} in 'foo,def'"
 argument_list|,
@@ -1729,28 +1729,28 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// integer to string
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} in '100,123,200'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} in 100,123,200"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} in ${bean:generator.generateId}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} in '100,200'"
 argument_list|,
@@ -1767,28 +1767,28 @@ throws|throws
 name|Exception
 block|{
 comment|// string to string
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not in 'foo,abc,def'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not in ${bean:generator.generateFilename}"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not in foo,abc,def"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not in 'foo,def'"
 argument_list|,
@@ -1796,28 +1796,28 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// integer to string
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not in '100,123,200'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not in 100,123,200"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not in ${bean:generator.generateId}"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not in '100,200'"
 argument_list|,
@@ -1833,42 +1833,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} is 'java.lang.String'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} is 'java.lang.Integer'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} is 'String'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} is 'Integer'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} is String"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} is Integer"
 argument_list|,
@@ -1877,7 +1877,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} is com.mycompany.DoesNotExist"
 argument_list|,
@@ -1919,42 +1919,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is 'java.lang.String'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is 'java.lang.Integer'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is 'String'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is 'Integer'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is String"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is Integer"
 argument_list|,
@@ -1963,7 +1963,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not is com.mycompany.DoesNotExist"
 argument_list|,
@@ -2005,49 +2005,49 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} range 100..200"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} range 200..300"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} range 200..300"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} range 123..130"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} range 120..123"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} range 120..122"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} range 124..130"
 argument_list|,
@@ -2056,7 +2056,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} range abc..200"
 argument_list|,
@@ -2091,7 +2091,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} range abc.."
 argument_list|,
@@ -2126,7 +2126,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} range 100.200"
 argument_list|,
@@ -2159,28 +2159,28 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} range 100..200 and ${in.header.foo} == abc"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} range 200..300 and ${in.header.foo} == abc"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} range 200..300 or ${in.header.foo} == abc"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} range 200..300 or ${in.header.foo} == def"
 argument_list|,
@@ -2196,49 +2196,49 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not range 100..200"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.bar} not range 200..300"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not range 200..300"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} not range 123..130"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} not range 120..123"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} not range 120..122"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${bean:generator.generateId} not range 124..130"
 argument_list|,
@@ -2247,7 +2247,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not range abc..200"
 argument_list|,
@@ -2282,7 +2282,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not range abc.."
 argument_list|,
@@ -2317,7 +2317,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.header.foo} not range 100.200"
 argument_list|,

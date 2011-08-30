@@ -316,7 +316,7 @@ parameter_list|,
 annotation|@
 name|Simple
 argument_list|(
-literal|"header.foo"
+literal|"${header.foo}"
 argument_list|)
 name|String
 name|foo
