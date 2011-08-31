@@ -2261,7 +2261,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|cache
+operator|.
+name|resetStatistics
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|stop ()
 specifier|public
