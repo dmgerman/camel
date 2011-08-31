@@ -36,16 +36,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -202,18 +192,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Service
 import|;
 end_import
@@ -291,20 +269,6 @@ operator|.
 name|feature
 operator|.
 name|PayLoadDataFormatFeature
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
 import|;
 end_import
 
@@ -2830,13 +2794,8 @@ literal|null
 condition|)
 block|{
 return|return
-operator|(
-operator|(
-name|DefaultCamelContext
-operator|)
 name|getCamelContext
 argument_list|()
-operator|)
 operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
@@ -2858,8 +2817,9 @@ name|ex
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 argument_list|(
 name|ex
 argument_list|)
@@ -3593,10 +3553,15 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|e
+comment|// TODO: Why dont't we rethrown this exception
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|warn
+argument_list|(
+literal|"Error setting CamelContext. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3694,10 +3659,15 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|e
+comment|// TODO: Why dont't we rethrown this exception
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|warn
+argument_list|(
+literal|"Error setting properties. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3893,7 +3863,7 @@ name|message
 parameter_list|)
 block|{
 name|Object
-name|attachements
+name|attachments
 init|=
 name|message
 operator|.
@@ -3906,7 +3876,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|attachements
+name|attachments
 operator|!=
 literal|null
 condition|)
@@ -3921,7 +3891,7 @@ argument_list|<
 name|Attachment
 argument_list|>
 operator|)
-name|attachements
+name|attachments
 argument_list|)
 expr_stmt|;
 name|message
@@ -4086,7 +4056,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot set right payload paremeters. Please check the BindingOperation and PayLoadMessage."
+literal|"Cannot set right payload parameters. Please check the BindingOperation and PayLoadMessage."
 argument_list|)
 expr_stmt|;
 throw|throw
