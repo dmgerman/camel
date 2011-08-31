@@ -160,6 +160,19 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|isUseDebugger ()
+specifier|public
+name|boolean
+name|isUseDebugger
+parameter_list|()
+block|{
+comment|// must enable debugger
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractApplicationContext
