@@ -251,6 +251,8 @@ specifier|private
 name|Processor
 name|reporter
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|DataSetEndpoint ()
 specifier|public
 name|DataSetEndpoint

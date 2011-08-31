@@ -116,7 +116,9 @@ name|foo
 init|=
 operator|new
 name|MockEndpoint
-argument_list|()
+argument_list|(
+literal|"mock:foo"
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Override

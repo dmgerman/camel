@@ -133,7 +133,9 @@ name|cool
 init|=
 operator|new
 name|MockEndpoint
-argument_list|()
+argument_list|(
+literal|"mock:cool"
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
@@ -282,13 +284,6 @@ operator|.
 name|setCamelContext
 argument_list|(
 name|context
-argument_list|)
-expr_stmt|;
-name|cool
-operator|.
-name|setEndpointUriIfNotSpecified
-argument_list|(
-literal|"cool"
 argument_list|)
 expr_stmt|;
 name|from
