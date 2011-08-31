@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUSoftCache}.  *<p/>  * We use a soft reference cache to allow the JVM to re-claim memory if it runs low on memory.  *  * @version   */
+comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUSoftCache}.  *<p/>  * We use a soft reference cache to allow the JVM to re-claim memory if it runs low on memory.  */
 end_comment
 
 begin_class
