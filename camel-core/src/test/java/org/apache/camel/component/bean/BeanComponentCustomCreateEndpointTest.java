@@ -224,7 +224,7 @@ operator|new
 name|MyFooBean
 argument_list|()
 argument_list|,
-literal|"cheese"
+literal|"bean:cheese"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -242,7 +242,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"cheese"
+literal|"bean:cheese"
 argument_list|,
 name|uri
 argument_list|)
