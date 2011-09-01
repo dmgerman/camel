@@ -249,7 +249,7 @@ literal|"Hello World"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"mock:foo,async:Bye Camel,mock:bar,mock:baz"
+literal|"mock:foo,async:bye:camel,mock:bar,mock:baz"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

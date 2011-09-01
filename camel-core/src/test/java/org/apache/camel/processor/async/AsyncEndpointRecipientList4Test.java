@@ -256,7 +256,7 @@ name|recipientList
 argument_list|(
 name|constant
 argument_list|(
-literal|"async:Hi Camel,async:Hi World,direct:foo"
+literal|"async:hi:camel,async:hi:world,direct:foo"
 argument_list|)
 argument_list|)
 expr_stmt|;

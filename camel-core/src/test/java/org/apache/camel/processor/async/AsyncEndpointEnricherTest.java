@@ -251,7 +251,7 @@ argument_list|)
 operator|.
 name|enrich
 argument_list|(
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|)
 operator|.
 name|process

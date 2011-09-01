@@ -273,9 +273,9 @@ literal|"async:bye:camel?failFirstAttempts=5"
 argument_list|,
 literal|"direct:fail"
 argument_list|,
-literal|"async:Bye Moon?failFirstAttempts=5"
+literal|"async:bye:moon?failFirstAttempts=5"
 argument_list|,
-literal|"async:Bye World"
+literal|"async:bye:world"
 argument_list|)
 operator|.
 name|end

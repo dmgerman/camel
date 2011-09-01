@@ -124,7 +124,7 @@ name|to
 argument_list|(
 literal|"mock:foo"
 argument_list|,
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|,
 literal|"mock:bar"
 argument_list|)
@@ -249,7 +249,7 @@ name|to
 argument_list|(
 literal|"mock:foo"
 argument_list|,
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|)
 operator|.
 name|throwException

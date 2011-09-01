@@ -143,7 +143,7 @@ argument_list|)
 operator|.
 name|pipeline
 argument_list|(
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|,
 literal|"mock:result"
 argument_list|)
