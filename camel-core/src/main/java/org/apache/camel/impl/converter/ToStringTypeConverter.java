@@ -74,11 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|BeanInvocation
+name|WrappedFile
 import|;
 end_import
 
@@ -92,9 +88,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
+name|bean
 operator|.
-name|GenericFile
+name|BeanInvocation
 import|;
 end_import
 
@@ -218,7 +214,7 @@ block|}
 comment|// should not try to convert files
 if|if
 condition|(
-name|GenericFile
+name|WrappedFile
 operator|.
 name|class
 operator|.
