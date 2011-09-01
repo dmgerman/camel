@@ -374,7 +374,7 @@ name|doSomething
 parameter_list|()
 block|{
 return|return
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 return|;
 block|}
 block|}

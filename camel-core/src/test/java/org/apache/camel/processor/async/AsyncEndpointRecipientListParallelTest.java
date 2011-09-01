@@ -251,7 +251,7 @@ name|recipientList
 argument_list|(
 name|constant
 argument_list|(
-literal|"async:Bye Camel"
+literal|"async:bye:camel"
 argument_list|)
 argument_list|)
 operator|.

@@ -132,7 +132,7 @@ name|routingSlip
 argument_list|(
 name|constant
 argument_list|(
-literal|"async:Bye Camel,async:Bye World"
+literal|"async:bye:camel,async:bye:world"
 argument_list|)
 argument_list|)
 expr_stmt|;

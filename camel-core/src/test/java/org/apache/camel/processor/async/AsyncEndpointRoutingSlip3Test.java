@@ -253,7 +253,7 @@ name|routingSlip
 argument_list|(
 name|constant
 argument_list|(
-literal|"async:Hi World,direct:foo"
+literal|"async:hi:world, direct:foo"
 argument_list|)
 argument_list|)
 expr_stmt|;

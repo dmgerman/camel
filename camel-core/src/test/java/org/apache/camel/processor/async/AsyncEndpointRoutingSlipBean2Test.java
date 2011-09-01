@@ -211,7 +211,7 @@ name|doSomething
 parameter_list|()
 block|{
 return|return
-literal|"async:Bye Camel,async:Bye World"
+literal|"async:bye:camel,async:bye:world"
 return|;
 block|}
 block|}

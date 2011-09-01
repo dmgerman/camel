@@ -224,7 +224,7 @@ name|doSomething
 parameter_list|()
 block|{
 return|return
-literal|"async:Bye Camel,mock:result"
+literal|"async:bye:camel,mock:result"
 return|;
 block|}
 block|}

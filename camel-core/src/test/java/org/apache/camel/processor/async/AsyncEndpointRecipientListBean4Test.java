@@ -389,7 +389,7 @@ name|doSomething
 parameter_list|()
 block|{
 return|return
-literal|"async:Hi Camel,async:Hi World,direct:foo"
+literal|"async:hi:camel,async:hi:world,direct:foo"
 return|;
 block|}
 block|}

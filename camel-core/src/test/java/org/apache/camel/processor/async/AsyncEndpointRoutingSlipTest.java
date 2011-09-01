@@ -145,7 +145,7 @@ name|routingSlip
 argument_list|(
 name|constant
 argument_list|(
-literal|"async:Bye Camel,mock:result"
+literal|"async:bye:camel,mock:result"
 argument_list|)
 argument_list|)
 expr_stmt|;
