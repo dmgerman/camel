@@ -145,7 +145,7 @@ block|{
 name|String
 name|uri
 init|=
-literal|"myendpoint?id="
+literal|"my:endpoint?id="
 operator|+
 name|i
 decl_stmt|;
@@ -257,7 +257,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"myendpoint?id=3"
+literal|"my:endpoint?id=3"
 argument_list|,
 name|list
 operator|.
@@ -272,7 +272,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"myendpoint?id=1002"
+literal|"my:endpoint?id=1002"
 argument_list|,
 name|list
 operator|.

@@ -158,6 +158,20 @@ operator|new
 name|MyEndpoint
 argument_list|()
 decl_stmt|;
+name|my
+operator|.
+name|setCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|my
+operator|.
+name|setEndpointUriIfNotSpecified
+argument_list|(
+literal|"my:endpoint"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 name|my
@@ -220,7 +234,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[MyEndpoint]"
+literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[my:endpoint]"
 argument_list|)
 argument_list|)
 expr_stmt|;
