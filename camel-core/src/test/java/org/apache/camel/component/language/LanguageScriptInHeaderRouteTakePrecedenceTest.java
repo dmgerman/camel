@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URLEncoder
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -160,6 +170,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|script
+init|=
+name|URLEncoder
+operator|.
+name|encode
+argument_list|(
+literal|"Bye ${body}"
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -167,7 +189,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:Bye+${body}"
+literal|"language:simple:"
+operator|+
+name|script
 argument_list|)
 operator|.
 name|to

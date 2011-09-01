@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URLEncoder
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -118,6 +128,18 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
+name|String
+name|script
+init|=
+name|URLEncoder
+operator|.
+name|encode
+argument_list|(
+literal|"${mandatoryBodyAs(String)}"
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -125,7 +147,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:${mandatoryBodyAs(String)}"
+literal|"language:simple:"
+operator|+
+name|script
 argument_list|)
 operator|.
 name|to
