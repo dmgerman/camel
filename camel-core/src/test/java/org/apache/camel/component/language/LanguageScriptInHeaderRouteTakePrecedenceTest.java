@@ -167,7 +167,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:Bye ${body}"
+literal|"language:simple:Bye+${body}"
 argument_list|)
 operator|.
 name|to

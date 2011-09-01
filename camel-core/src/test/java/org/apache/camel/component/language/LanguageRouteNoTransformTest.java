@@ -118,7 +118,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:Hello ${body}?transform=false"
+literal|"language:simple:Hello+${body}?transform=false"
 argument_list|)
 operator|.
 name|to
