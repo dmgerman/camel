@@ -294,6 +294,8 @@ operator|+
 name|name
 operator|+
 literal|")"
+operator|+
+literal|"&&(camel.context.name=camel1)"
 argument_list|,
 literal|10000
 argument_list|)

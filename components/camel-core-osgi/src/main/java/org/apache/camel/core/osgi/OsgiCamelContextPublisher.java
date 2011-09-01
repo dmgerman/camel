@@ -218,6 +218,15 @@ name|CONTEXT_VERSION_PROPERTY
 init|=
 literal|"camel.context.version"
 decl_stmt|;
+DECL|field|CONTEXT_NAME_PROPERTY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CONTEXT_NAME_PROPERTY
+init|=
+literal|"camel.context.name"
+decl_stmt|;
 DECL|field|bundleContext
 specifier|private
 specifier|final
@@ -327,19 +336,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|log
+name|props
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
+name|put
 argument_list|(
-literal|"Registering CamelContext [{}] in OSGi registry"
+name|CONTEXT_NAME_PROPERTY
 argument_list|,
 name|context
 operator|.
@@ -347,7 +348,15 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Registering CamelContext [{}] of in OSGi registry"
+argument_list|,
+name|props
+argument_list|)
+expr_stmt|;
 name|ServiceRegistration
 name|reg
 init|=
