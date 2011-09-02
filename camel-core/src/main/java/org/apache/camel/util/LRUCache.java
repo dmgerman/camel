@@ -20,6 +20,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -93,6 +103,8 @@ name|K
 argument_list|,
 name|V
 argument_list|>
+implements|,
+name|Serializable
 block|{
 DECL|field|serialVersionUID
 specifier|private
