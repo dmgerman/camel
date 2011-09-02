@@ -766,8 +766,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
+comment|// FIXME: URI encoding @Test
 DECL|method|testGetRequestUrlEncoding ()
 specifier|public
 name|void
