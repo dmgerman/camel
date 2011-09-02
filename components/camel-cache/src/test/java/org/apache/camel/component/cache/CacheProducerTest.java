@@ -684,7 +684,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -955,7 +955,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -1147,7 +1147,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -1327,7 +1327,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -1428,7 +1428,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -1574,7 +1574,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -1718,7 +1718,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -1886,7 +1886,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
@@ -2054,7 +2054,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:*** LOGGER"
+literal|"log:LOGGER"
 argument_list|)
 operator|.
 name|to
