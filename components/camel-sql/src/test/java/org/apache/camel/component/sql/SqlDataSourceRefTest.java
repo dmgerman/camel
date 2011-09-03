@@ -289,6 +289,9 @@ argument_list|()
 expr_stmt|;
 comment|// the result is a List
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|received
 init|=
 name|assertIsInstanceOf
@@ -316,6 +319,11 @@ argument_list|)
 decl_stmt|;
 comment|// and each row in the list is a Map
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|row
 init|=
 name|assertIsInstanceOf

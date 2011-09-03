@@ -116,6 +116,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|PRIM_CLASSES
 init|=
@@ -125,6 +128,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|(
 literal|8
@@ -239,6 +245,9 @@ name|getContextClassLoader
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|cinterfaces
 init|=

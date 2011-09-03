@@ -423,15 +423,6 @@ literal|"org/apache/camel/processor/idempotent/jdbc/spring.xml"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"unchecked"
-block|,
-literal|"rawtypes"
-block|}
-argument_list|)
 DECL|method|setupRepository ()
 specifier|protected
 name|void
@@ -471,10 +462,13 @@ name|execute
 argument_list|(
 operator|new
 name|TransactionCallback
+argument_list|<
+name|Boolean
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|Boolean
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
