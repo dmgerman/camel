@@ -1596,6 +1596,38 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+comment|// bundle resource should be skipped
+if|if
+condition|(
+name|url
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"bundleresource:"
+argument_list|)
+operator|||
+name|urlPath
+operator|.
+name|startsWith
+argument_list|(
+literal|"bundleresource:"
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Skipping bundleresource: {}"
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 comment|// Else it's in a JAR, grab the path to the jar
 if|if
 condition|(
