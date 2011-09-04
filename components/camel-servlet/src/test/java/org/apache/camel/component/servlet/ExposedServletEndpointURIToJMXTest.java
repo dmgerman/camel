@@ -118,7 +118,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//Thread.sleep(1000000);
 name|checkServletEndpointURI
 argument_list|(
 literal|"\"servlet:///test1\\?matchOnUriPrefix=true\""
