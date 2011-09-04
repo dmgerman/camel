@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|http
@@ -241,23 +229,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProducer ()
-specifier|public
-name|Producer
-name|createProducer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-name|super
-operator|.
-name|createProducer
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -277,6 +248,19 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// in contrast to the HttpEndpoint, the ServletEndpoint knows about all it's options on the passed URI
+return|return
+literal|false
 return|;
 block|}
 block|}
