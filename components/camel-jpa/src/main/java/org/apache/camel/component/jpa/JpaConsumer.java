@@ -324,6 +324,9 @@ decl_stmt|;
 DECL|field|resultClass
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultClass
 decl_stmt|;
 DECL|field|maxMessagesPerPoll
@@ -433,6 +436,9 @@ name|execute
 argument_list|(
 operator|new
 name|JpaCallback
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -1126,6 +1132,9 @@ block|}
 DECL|method|getResultClass ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultClass
 parameter_list|()
 block|{
@@ -1133,12 +1142,15 @@ return|return
 name|resultClass
 return|;
 block|}
-DECL|method|setResultClass (Class resultClass)
+DECL|method|setResultClass (Class<?> resultClass)
 specifier|public
 name|void
 name|setResultClass
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultClass
 parameter_list|)
 block|{

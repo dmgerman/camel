@@ -167,6 +167,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      *       * @deprecated       */
 annotation|@
 name|Test
 DECL|method|testJpaEndpointCtrUrl ()
@@ -232,6 +233,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      *       * @deprecated      */
 annotation|@
 name|Test
 DECL|method|testJpaEndpointCtrUrlEMF ()
@@ -311,6 +313,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      *       * @deprecated      */
 annotation|@
 name|Test
 DECL|method|testJpaEndpointCtrUrlEMFandTM ()

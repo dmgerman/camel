@@ -43,11 +43,14 @@ interface|interface
 name|TransactionStrategy
 block|{
 comment|/**      * Executes in a transaction.      *      * @param callback the callback      * @return the result      */
-DECL|method|execute (JpaCallback callback)
+DECL|method|execute (JpaCallback<?> callback)
 name|Object
 name|execute
 parameter_list|(
 name|JpaCallback
+argument_list|<
+name|?
+argument_list|>
 name|callback
 parameter_list|)
 function_decl|;

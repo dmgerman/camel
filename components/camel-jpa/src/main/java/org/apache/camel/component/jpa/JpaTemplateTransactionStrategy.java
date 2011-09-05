@@ -309,18 +309,16 @@ name|tranasctionTemplate
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|execute (final JpaCallback callback)
+DECL|method|execute (final JpaCallback<?> callback)
 specifier|public
 name|Object
 name|execute
 parameter_list|(
 specifier|final
 name|JpaCallback
+argument_list|<
+name|?
+argument_list|>
 name|callback
 parameter_list|)
 block|{
@@ -331,6 +329,9 @@ name|execute
 argument_list|(
 operator|new
 name|TransactionCallback
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -348,6 +349,9 @@ name|execute
 argument_list|(
 operator|new
 name|JpaCallback
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public

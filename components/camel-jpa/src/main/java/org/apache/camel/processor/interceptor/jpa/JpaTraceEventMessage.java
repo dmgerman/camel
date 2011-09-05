@@ -171,6 +171,16 @@ name|TraceEventMessage
 implements|,
 name|Serializable
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|3577516047575267548L
+decl_stmt|;
 DECL|field|id
 specifier|protected
 name|Long

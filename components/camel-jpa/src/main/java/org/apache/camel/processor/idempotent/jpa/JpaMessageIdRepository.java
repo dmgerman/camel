@@ -443,11 +443,6 @@ name|description
 operator|=
 literal|"Adds the key to the store"
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|add (final String messageId)
 specifier|public
 name|boolean
@@ -462,19 +457,19 @@ comment|// Run this in single transaction.
 name|Boolean
 name|rc
 init|=
-operator|(
-name|Boolean
-operator|)
 name|transactionTemplate
 operator|.
 name|execute
 argument_list|(
 operator|new
 name|TransactionCallback
+argument_list|<
+name|Boolean
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|Boolean
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
@@ -482,6 +477,9 @@ name|arg0
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|jpaTemplate
@@ -577,11 +575,6 @@ name|description
 operator|=
 literal|"Does the store contain the given key"
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|contains (final String messageId)
 specifier|public
 name|boolean
@@ -596,19 +589,19 @@ comment|// Run this in single transaction.
 name|Boolean
 name|rc
 init|=
-operator|(
-name|Boolean
-operator|)
 name|transactionTemplate
 operator|.
 name|execute
 argument_list|(
 operator|new
 name|TransactionCallback
+argument_list|<
+name|Boolean
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|Boolean
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
@@ -616,6 +609,9 @@ name|arg0
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|jpaTemplate
@@ -669,11 +665,6 @@ name|description
 operator|=
 literal|"Remove the key from the store"
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|remove (final String messageId)
 specifier|public
 name|boolean
@@ -687,19 +678,19 @@ block|{
 name|Boolean
 name|rc
 init|=
-operator|(
-name|Boolean
-operator|)
 name|transactionTemplate
 operator|.
 name|execute
 argument_list|(
 operator|new
 name|TransactionCallback
+argument_list|<
+name|Boolean
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|Boolean
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
@@ -707,6 +698,9 @@ name|arg0
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|jpaTemplate

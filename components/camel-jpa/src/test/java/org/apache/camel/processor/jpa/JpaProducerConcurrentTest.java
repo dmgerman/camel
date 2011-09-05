@@ -424,6 +424,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|responses
 init|=
@@ -433,6 +436,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -458,6 +464,9 @@ init|=
 name|i
 decl_stmt|;
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|out
 init|=
 name|executor
@@ -529,6 +538,9 @@ comment|// get them so they are complete
 for|for
 control|(
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 range|:
 name|responses
@@ -642,9 +654,6 @@ name|Exception
 block|{
 name|jpaTemplate
 operator|=
-operator|(
-name|JpaTemplate
-operator|)
 name|applicationContext
 operator|.
 name|getBean
@@ -657,6 +666,9 @@ name|class
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|jpaTemplate
@@ -691,11 +703,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|cleanupRepository ()
 specifier|protected
 name|void
@@ -704,9 +711,6 @@ parameter_list|()
 block|{
 name|jpaTemplate
 operator|=
-operator|(
-name|JpaTemplate
-operator|)
 name|applicationContext
 operator|.
 name|getBean
@@ -754,6 +758,9 @@ name|execute
 argument_list|(
 operator|new
 name|TransactionCallback
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
@@ -765,6 +772,9 @@ name|arg0
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|jpaTemplate

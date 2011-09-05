@@ -255,7 +255,7 @@ block|}
 return|;
 block|}
 comment|/**      * Creates a native SQL query with a provided resultClass      */
-DECL|method|nativeQuery (final String nativeQuery, final Class resultClass)
+DECL|method|nativeQuery (final String nativeQuery, final Class<?> resultClass)
 specifier|public
 specifier|static
 name|QueryBuilder
@@ -267,6 +267,9 @@ name|nativeQuery
 parameter_list|,
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultClass
 parameter_list|)
 block|{
@@ -341,13 +344,16 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Specifies the parameters to the query as an ordered collection of      * parameters      *       * @param parameters the parameters to be configured on the query      * @return this query builder      */
-DECL|method|parameters (final Collection parameters)
+DECL|method|parameters (final Collection<?> parameters)
 specifier|public
 name|QueryBuilder
 name|parameters
 parameter_list|(
 specifier|final
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|parameters
 parameter_list|)
 block|{
