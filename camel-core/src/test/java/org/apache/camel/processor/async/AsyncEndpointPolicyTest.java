@@ -114,11 +114,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|model
 operator|.
-name|converter
-operator|.
-name|AsyncProcessorTypeConverter
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -130,9 +128,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|processor
 operator|.
-name|ProcessorDefinition
+name|AsyncProcessorConverterHelper
 import|;
 end_import
 
@@ -653,7 +651,7 @@ expr_stmt|;
 name|AsyncProcessor
 name|ap
 init|=
-name|AsyncProcessorTypeConverter
+name|AsyncProcessorConverterHelper
 operator|.
 name|convert
 argument_list|(

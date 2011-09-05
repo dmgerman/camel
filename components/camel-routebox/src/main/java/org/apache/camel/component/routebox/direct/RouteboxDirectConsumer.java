@@ -120,11 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|converter
-operator|.
-name|AsyncProcessorTypeConverter
+name|AsyncProcessorConverterHelper
 import|;
 end_import
 
@@ -356,7 +354,7 @@ condition|)
 block|{
 name|asyncProcessor
 operator|=
-name|AsyncProcessorTypeConverter
+name|AsyncProcessorConverterHelper
 operator|.
 name|convert
 argument_list|(
