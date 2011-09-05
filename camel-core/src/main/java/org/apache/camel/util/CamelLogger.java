@@ -133,11 +133,10 @@ name|log
 operator|=
 name|log
 expr_stmt|;
-name|this
-operator|.
+name|setLevel
+argument_list|(
 name|level
-operator|=
-name|level
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|CamelLogger (String logName)
@@ -370,6 +369,21 @@ name|LoggingLevel
 name|level
 parameter_list|)
 block|{
+if|if
+condition|(
+name|level
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Log level may not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|level
@@ -411,21 +425,6 @@ name|LoggingLevel
 name|level
 parameter_list|)
 block|{
-if|if
-condition|(
-name|level
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|NullPointerException
-argument_list|(
-literal|"Log level may not be null"
-argument_list|)
-throw|;
-block|}
 return|return
 name|level
 operator|==
@@ -499,21 +498,6 @@ name|String
 name|message
 parameter_list|)
 block|{
-if|if
-condition|(
-name|level
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|NullPointerException
-argument_list|(
-literal|"Log level may not be null"
-argument_list|)
-throw|;
-block|}
 switch|switch
 condition|(
 name|level
@@ -574,6 +558,7 @@ name|message
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
 block|}
 block|}
 DECL|method|log (Logger log, LoggingLevel level, String message, Throwable th)
@@ -595,21 +580,6 @@ name|Throwable
 name|th
 parameter_list|)
 block|{
-if|if
-condition|(
-name|level
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|NullPointerException
-argument_list|(
-literal|"Log level may not be null"
-argument_list|)
-throw|;
-block|}
 switch|switch
 condition|(
 name|level
@@ -680,6 +650,7 @@ name|th
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
 block|}
 block|}
 DECL|method|shouldLog ()
