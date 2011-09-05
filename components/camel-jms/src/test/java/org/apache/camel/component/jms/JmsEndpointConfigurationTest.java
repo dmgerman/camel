@@ -19,6 +19,24 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+operator|.
+name|jmsComponentAutoAcknowledge
+import|;
+end_import
+
+begin_import
 import|import
 name|javax
 operator|.
@@ -141,20 +159,6 @@ operator|.
 name|impl
 operator|.
 name|JndiRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|CamelLogger
 import|;
 end_import
 
@@ -296,24 +300,6 @@ name|ErrorHandler
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentAutoAcknowledge
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -326,6 +312,34 @@ name|JmsEndpointConfigurationTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|class|FailProcessor
+specifier|private
+specifier|final
+class|class
+name|FailProcessor
+implements|implements
+name|Processor
+block|{
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|fail
+argument_list|(
+literal|"Should not be reached"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|field|cf
 specifier|private
 name|ConnectionFactory
@@ -1055,7 +1069,7 @@ operator|.
 name|createConsumer
 argument_list|(
 operator|new
-name|CamelLogger
+name|FailProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1111,7 +1125,7 @@ operator|.
 name|createConsumer
 argument_list|(
 operator|new
-name|CamelLogger
+name|FailProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;

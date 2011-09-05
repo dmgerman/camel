@@ -80,6 +80,20 @@ name|ThroughputLogger
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelLogger
+import|;
+end_import
+
 begin_comment
 comment|/**  * A factory of {@link MockEndpoint} instances  *  * @version   */
 end_comment
@@ -154,9 +168,13 @@ init|=
 operator|new
 name|ThroughputLogger
 argument_list|(
+operator|new
+name|CamelLogger
+argument_list|(
 literal|"org.apache.camel.component.mock:"
 operator|+
 name|remaining
+argument_list|)
 argument_list|,
 name|value
 argument_list|)

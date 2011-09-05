@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|CamelLogger
+name|CamelLogProcessor
 import|;
 end_import
 
@@ -110,7 +110,7 @@ specifier|static
 class|class
 name|MyLogger
 extends|extends
-name|CamelLogger
+name|CamelLogProcessor
 block|{
 annotation|@
 name|Override
@@ -243,14 +243,6 @@ argument_list|,
 name|end
 operator|.
 name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|end
-operator|.
-name|getLogger
 argument_list|()
 argument_list|)
 expr_stmt|;

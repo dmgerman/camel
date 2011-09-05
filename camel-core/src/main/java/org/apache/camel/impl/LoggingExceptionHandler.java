@@ -72,9 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|CamelLogger
+name|ExceptionHandler
 import|;
 end_import
 
@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|ExceptionHandler
+name|CamelLogger
 import|;
 end_import
 

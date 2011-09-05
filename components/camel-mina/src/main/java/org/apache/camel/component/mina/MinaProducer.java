@@ -136,7 +136,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|util
 operator|.
 name|CamelLogger
 import|;

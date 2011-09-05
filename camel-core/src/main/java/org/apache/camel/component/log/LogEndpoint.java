@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Producer
 import|;
 end_import
@@ -53,20 +65,6 @@ operator|.
 name|impl
 operator|.
 name|ProcessorEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|CamelLogger
 import|;
 end_import
 
@@ -98,7 +96,7 @@ name|ProcessorEndpoint
 block|{
 DECL|field|logger
 specifier|private
-name|CamelLogger
+name|Processor
 name|logger
 decl_stmt|;
 DECL|method|LogEndpoint ()
@@ -125,7 +123,7 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|LogEndpoint (String endpointUri, Component component, CamelLogger logger)
+DECL|method|LogEndpoint (String endpointUri, Component component, Processor logger)
 specifier|public
 name|LogEndpoint
 parameter_list|(
@@ -135,7 +133,7 @@ parameter_list|,
 name|Component
 name|component
 parameter_list|,
-name|CamelLogger
+name|Processor
 name|logger
 parameter_list|)
 block|{
@@ -151,16 +149,6 @@ argument_list|(
 name|logger
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getLogger ()
-specifier|public
-name|CamelLogger
-name|getLogger
-parameter_list|()
-block|{
-return|return
-name|logger
-return|;
 block|}
 annotation|@
 name|Override
@@ -198,12 +186,12 @@ name|logger
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setLogger (CamelLogger logger)
+DECL|method|setLogger (Processor logger)
 specifier|public
 name|void
 name|setLogger
 parameter_list|(
-name|CamelLogger
+name|Processor
 name|logger
 parameter_list|)
 block|{
@@ -238,8 +226,9 @@ name|LogProducer
 argument_list|(
 name|this
 argument_list|,
-name|getLogger
-argument_list|()
+name|this
+operator|.
+name|logger
 argument_list|)
 return|;
 block|}

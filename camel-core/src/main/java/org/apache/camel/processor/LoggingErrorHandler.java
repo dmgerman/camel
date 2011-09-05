@@ -56,6 +56,20 @@ name|ExceptionPolicyStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelLogger
+import|;
+end_import
+
 begin_comment
 comment|/**  * An {@link ErrorHandler} which uses commons-logging to dump the error  *  * @version   */
 end_comment

@@ -78,6 +78,20 @@ name|AsyncProcessorHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelLogger
+import|;
+end_import
+
 begin_comment
 comment|/**  * A processor which evaluates an Expression and logs it.  *  * @version   */
 end_comment

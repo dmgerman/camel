@@ -182,9 +182,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|support
 operator|.
-name|CamelLogger
+name|EventNotifierSupport
 import|;
 end_import
 
@@ -196,9 +196,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|EventNotifierSupport
+name|CamelLogger
 import|;
 end_import
 

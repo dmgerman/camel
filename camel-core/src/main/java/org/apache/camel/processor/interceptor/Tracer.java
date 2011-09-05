@@ -138,7 +138,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|CamelLogger
+name|CamelLogProcessor
 import|;
 end_import
 
@@ -174,9 +174,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|LoggerFactory
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelLogger
 import|;
 end_import
 
@@ -284,7 +288,7 @@ name|useJpa
 decl_stmt|;
 DECL|field|logger
 specifier|private
-name|CamelLogger
+name|CamelLogProcessor
 name|logger
 decl_stmt|;
 DECL|field|traceInterceptorFactory
@@ -416,7 +420,7 @@ comment|/**      * Gets the logger to be used for tracers that can format and lo
 DECL|method|getLogger (ExchangeFormatter formatter)
 specifier|public
 specifier|synchronized
-name|CamelLogger
+name|CamelLogProcessor
 name|getLogger
 parameter_list|(
 name|ExchangeFormatter
@@ -433,25 +437,19 @@ block|{
 name|logger
 operator|=
 operator|new
+name|CamelLogProcessor
+argument_list|(
+operator|new
 name|CamelLogger
 argument_list|(
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
 name|getLogName
+argument_list|()
+argument_list|,
+name|getLogLevel
 argument_list|()
 argument_list|)
 argument_list|,
 name|formatter
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|setLevel
-argument_list|(
-name|getLogLevel
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -673,6 +671,9 @@ condition|)
 block|{
 name|logger
 operator|.
+name|getLogger
+argument_list|()
+operator|.
 name|setLevel
 argument_list|(
 name|logLevel
@@ -769,6 +770,9 @@ literal|null
 condition|)
 block|{
 name|logger
+operator|.
+name|getLogger
+argument_list|()
 operator|.
 name|setLogName
 argument_list|(

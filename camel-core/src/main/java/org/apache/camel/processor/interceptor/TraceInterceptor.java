@@ -328,7 +328,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|CamelLogger
+name|CamelLogProcessor
 import|;
 end_import
 
@@ -497,7 +497,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|logger
 specifier|private
-name|CamelLogger
+name|CamelLogProcessor
 name|logger
 decl_stmt|;
 DECL|field|traceEventProducer
@@ -1699,7 +1699,7 @@ return|;
 block|}
 DECL|method|getLogger ()
 specifier|public
-name|CamelLogger
+name|CamelLogProcessor
 name|getLogger
 parameter_list|()
 block|{
