@@ -489,9 +489,13 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
+comment|// set the endpoint uri with httpUri as we need to create http producer here
 name|super
 argument_list|(
-name|endpointUri
+name|httpUri
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|component
 argument_list|,
@@ -838,6 +842,19 @@ name|GHttpProducer
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// GHttpEndpoint knows about all it's options on the passed URI
+return|return
+literal|true
 return|;
 block|}
 block|}
