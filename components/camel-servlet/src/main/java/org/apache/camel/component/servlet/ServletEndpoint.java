@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|http
@@ -226,6 +238,24 @@ block|{
 return|return
 name|servletName
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createProducer ()
+specifier|public
+name|Producer
+name|createProducer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"You cannot create producer with servlet endpoint, please consider to use http or http4 endpoint."
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
