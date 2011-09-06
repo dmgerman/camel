@@ -300,19 +300,46 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
-comment|//encode URI string to the unsafe URI characters
-name|URI
-name|u
+comment|// check URI string to the unsafe URI characters
+name|String
+name|encodedUri
 init|=
-operator|new
-name|URI
-argument_list|(
 name|UnsafeUriCharactersEncoder
 operator|.
 name|encode
 argument_list|(
 name|uri
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|encodedUri
+operator|.
+name|equals
+argument_list|(
+name|uri
+argument_list|)
+condition|)
+block|{
+comment|// uri supplied is not really valid
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Supplied URI '{}' contains unsafe characters, please check encoding"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+name|URI
+name|u
+init|=
+operator|new
+name|URI
+argument_list|(
+name|encodedUri
 argument_list|)
 decl_stmt|;
 name|String
@@ -494,7 +521,7 @@ condition|)
 block|{
 name|validateParameters
 argument_list|(
-name|uri
+name|encodedUri
 argument_list|,
 name|parameters
 argument_list|,
@@ -505,7 +532,7 @@ block|}
 block|}
 name|afterConfiguration
 argument_list|(
-name|uri
+name|encodedUri
 argument_list|,
 name|path
 argument_list|,

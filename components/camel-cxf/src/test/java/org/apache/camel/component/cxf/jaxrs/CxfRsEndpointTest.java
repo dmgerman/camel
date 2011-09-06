@@ -123,9 +123,9 @@ name|CTX
 operator|+
 literal|""
 operator|+
-literal|"?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService, "
+literal|"?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService,"
 operator|+
-literal|"java.lang.String ; org.apache.camel.component.cxf.jaxrs.testbean.Order"
+literal|"java.lang.String;org.apache.camel.component.cxf.jaxrs.testbean.Order"
 decl_stmt|;
 name|CxfRsComponent
 name|component
