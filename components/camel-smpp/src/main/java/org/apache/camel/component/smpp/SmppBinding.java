@@ -601,6 +601,17 @@ argument_list|(
 name|shortMessage
 argument_list|)
 expr_stmt|;
+comment|// To avoid the NPE error
+name|submitSm
+operator|.
+name|setOptionalParametes
+argument_list|(
+operator|new
+name|OptionalParameter
+index|[]
+block|{}
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
