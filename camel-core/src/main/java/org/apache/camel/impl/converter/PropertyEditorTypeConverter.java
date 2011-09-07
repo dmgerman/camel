@@ -78,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|TypeConverter
 import|;
 end_import
@@ -153,8 +141,6 @@ class|class
 name|PropertyEditorTypeConverter
 implements|implements
 name|TypeConverter
-implements|,
-name|Service
 block|{
 DECL|field|LOG
 specifier|private
@@ -235,6 +221,23 @@ name|PropertyEditor
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|cache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|misses
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -621,36 +624,6 @@ argument_list|,
 name|value
 argument_list|)
 return|;
-block|}
-DECL|method|start ()
-specifier|public
-name|void
-name|start
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// clear caches so we dont leak
-name|cache
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|misses
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class

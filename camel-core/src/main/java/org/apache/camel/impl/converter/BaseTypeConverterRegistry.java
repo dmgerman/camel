@@ -2447,13 +2447,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
-name|propertyEditorTypeConverter
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -2475,13 +2469,10 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// let property editor type converter stop and cleanup resources
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
 name|propertyEditorTypeConverter
-argument_list|)
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Represents a mapping from one type (which can be null) to another      */
