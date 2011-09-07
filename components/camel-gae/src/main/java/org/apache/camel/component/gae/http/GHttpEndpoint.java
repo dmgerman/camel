@@ -852,7 +852,7 @@ name|boolean
 name|isLenientProperties
 parameter_list|()
 block|{
-comment|// GHttpEndpoint knows about all it's options on the passed URI
+comment|// GHttpEndpoint could not know about all it's options on the passed URI
 return|return
 literal|true
 return|;
