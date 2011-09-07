@@ -120,9 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spi
 operator|.
-name|AsyncProcessorConverterHelper
+name|ShutdownAware
 import|;
 end_import
 
@@ -134,9 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|ShutdownAware
+name|AsyncProcessorConverterHelper
 import|;
 end_import
 

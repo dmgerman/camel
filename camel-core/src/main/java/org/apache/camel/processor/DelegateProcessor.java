@@ -112,6 +112,14 @@ name|DelegateProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|DelegateProcessor
+implements|,
 name|Processor
 implements|,
 name|Navigate

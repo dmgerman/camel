@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|DelegateProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -185,20 +197,6 @@ operator|.
 name|processor
 operator|.
 name|DeadLetterChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DelegateProcessor
 import|;
 end_import
 
@@ -1555,6 +1553,14 @@ block|{
 name|interceptor1
 operator|=
 operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|DelegateProcessor
 argument_list|()
 block|{         }

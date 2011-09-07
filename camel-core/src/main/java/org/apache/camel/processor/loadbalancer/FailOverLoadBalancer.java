@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|AsyncProcessorConverterHelper
+name|Traceable
 import|;
 end_import
 
@@ -112,9 +112,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|util
 operator|.
-name|Traceable
+name|AsyncProcessorConverterHelper
 import|;
 end_import
 
