@@ -19,24 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jms
-operator|.
-name|JmsComponent
-operator|.
-name|jmsComponentAutoAcknowledge
-import|;
-end_import
-
-begin_import
 import|import
 name|javax
 operator|.
@@ -2975,6 +2957,8 @@ name|addComponent
 argument_list|(
 literal|"jms"
 argument_list|,
+name|JmsComponent
+operator|.
 name|jmsComponentAutoAcknowledge
 argument_list|(
 name|connectionFactory
