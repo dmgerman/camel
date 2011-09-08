@@ -74,6 +74,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -368,7 +378,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Creates the URL to invoke.      *      * @param exchange the exchange      * @param endpoint the endpoint      * @return the URL to invoke      * @throws java.net.URISyntaxException is thrown if the URL is invalid      */
+comment|/**      * Creates the URL to invoke.      *      * @param exchange the exchange      * @param endpoint the endpoint      * @return the URL to invoke      * @throws java.net.URISyntaxException is thrown if the URL is invalid      * @throws UnsupportedEncodingException       */
 DECL|method|createURL (Exchange exchange, AhcEndpoint endpoint)
 specifier|public
 specifier|static
@@ -383,6 +393,8 @@ name|endpoint
 parameter_list|)
 throws|throws
 name|URISyntaxException
+throws|,
+name|UnsupportedEncodingException
 block|{
 name|String
 name|url

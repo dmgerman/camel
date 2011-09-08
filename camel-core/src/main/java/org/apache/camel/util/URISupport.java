@@ -1147,7 +1147,7 @@ name|s
 argument_list|)
 return|;
 block|}
-comment|/**      * Normalizes the uri by reordering the parameters so they are sorted and thus      * we can use the uris for endpoint matching.      *      * @param uri the uri      * @return the normalized uri      * @throws URISyntaxException in thrown if the uri syntax is invalid      */
+comment|/**      * Normalizes the uri by reordering the parameters so they are sorted and thus      * we can use the uris for endpoint matching.      *      * @param uri the uri      * @return the normalized uri      * @throws URISyntaxException in thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException       */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1164,6 +1164,8 @@ name|uri
 parameter_list|)
 throws|throws
 name|URISyntaxException
+throws|,
+name|UnsupportedEncodingException
 block|{
 name|URI
 name|u
@@ -1261,6 +1263,15 @@ name|idx
 argument_list|)
 expr_stmt|;
 block|}
+name|path
+operator|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 comment|// in case there are parameters we should reorder them
 name|Map
 name|parameters

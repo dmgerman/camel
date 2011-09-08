@@ -130,13 +130,7 @@ argument_list|(
 literal|'#'
 argument_list|)
 expr_stmt|;
-name|unsafeCharacters
-operator|.
-name|set
-argument_list|(
-literal|'%'
-argument_list|)
-expr_stmt|;
+comment|// unsafeCharacters.set('%');
 name|unsafeCharacters
 operator|.
 name|set

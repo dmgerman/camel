@@ -492,7 +492,7 @@ name|void
 name|testCxfEndpointUris
 parameter_list|()
 throws|throws
-name|URISyntaxException
+name|Exception
 block|{
 name|CxfEndpoint
 name|endpoint

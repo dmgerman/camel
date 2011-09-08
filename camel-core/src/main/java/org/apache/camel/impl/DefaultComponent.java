@@ -279,27 +279,19 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|createEndpoint (String uri)
-specifier|public
-name|Endpoint
-name|createEndpoint
+annotation|@
+name|Deprecated
+DECL|method|preProcessUri (String uri)
+specifier|protected
+name|String
+name|preProcessUri
 parameter_list|(
 name|String
 name|uri
 parameter_list|)
-throws|throws
-name|Exception
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-literal|"camelContext"
-argument_list|)
-expr_stmt|;
+comment|// Give components a chance to preprocess URIs and migrate to URI syntax that discourages invalid URIs
+comment|// (see CAMEL-4425)
 comment|// check URI string to the unsafe URI characters
 name|String
 name|encodedUri
@@ -333,6 +325,40 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|encodedUri
+return|;
+block|}
+DECL|method|createEndpoint (String uri)
+specifier|public
+name|Endpoint
+name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+literal|"camelContext"
+argument_list|)
+expr_stmt|;
+comment|// check URI string to the unsafe URI characters
+name|String
+name|encodedUri
+init|=
+name|preProcessUri
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
 name|URI
 name|u
 init|=
