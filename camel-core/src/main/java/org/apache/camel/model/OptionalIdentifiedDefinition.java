@@ -154,6 +154,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|NodeIdFactory
@@ -192,6 +204,8 @@ parameter_list|<
 name|T
 parameter_list|>
 parameter_list|>
+implements|implements
+name|NamedNode
 block|{
 DECL|field|id
 specifier|private
@@ -211,6 +225,8 @@ name|DescriptionDefinition
 name|description
 decl_stmt|;
 comment|/**      * Gets the value of the id property.      */
+annotation|@
+name|Override
 DECL|method|getId ()
 specifier|public
 name|String
@@ -282,6 +298,8 @@ name|description
 expr_stmt|;
 block|}
 comment|/**      * Returns a short name for this node which can be useful for ID generation or referring to related resources like images      *      * @return defaults to "node" but derived nodes should overload this to provide a unique name      */
+annotation|@
+name|Override
 DECL|method|getShortName ()
 specifier|public
 name|String
@@ -464,6 +482,8 @@ name|customId
 return|;
 block|}
 comment|/**      * Returns the description text or null if there is no description text associated with this node      */
+annotation|@
+name|Override
 DECL|method|getDescriptionText ()
 specifier|public
 name|String

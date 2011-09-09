@@ -58,9 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|OptionalIdentifiedDefinition
+name|NamedNode
 import|;
 end_import
 
@@ -110,15 +108,12 @@ name|AtomicInteger
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|createId (OptionalIdentifiedDefinition<?> definition)
+DECL|method|createId (NamedNode definition)
 specifier|public
 name|String
 name|createId
 parameter_list|(
-name|OptionalIdentifiedDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 block|{

@@ -146,6 +146,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ThreadPoolRejectedPolicy
 import|;
 end_import
@@ -1641,7 +1653,7 @@ if|if
 condition|(
 name|source
 operator|instanceof
-name|OptionalIdentifiedDefinition
+name|NamedNode
 condition|)
 block|{
 name|id
@@ -1668,7 +1680,7 @@ name|sourceId
 operator|=
 operator|(
 operator|(
-name|OptionalIdentifiedDefinition
+name|NamedNode
 operator|)
 name|source
 operator|)

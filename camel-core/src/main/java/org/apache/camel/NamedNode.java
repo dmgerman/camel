@@ -4,48 +4,39 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|spi
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|NamedNode
-import|;
-end_import
-
-begin_comment
-comment|/**  * Factory to generate unique ids for model nodes.  *  * @version   */
-end_comment
-
 begin_interface
-DECL|interface|NodeIdFactory
+DECL|interface|NamedNode
 specifier|public
 interface|interface
-name|NodeIdFactory
-block|{
-comment|/**      * Creates an id for the given model definition.      *      * @param definition model definition      *        (its most likely a {@link org.apache.camel.model.OutputDefinition OutputDefinition} instance)      * @return the id created      */
-DECL|method|createId (NamedNode definition)
-name|String
-name|createId
-parameter_list|(
 name|NamedNode
-name|definition
-parameter_list|)
+block|{
+comment|/**      * Gets the value of the id property.      */
+DECL|method|getId ()
+name|String
+name|getId
+parameter_list|()
+function_decl|;
+comment|/**      * Returns a short name for this node which can be useful for ID generation or referring to related resources like images      *      * @return defaults to "node" but derived nodes should overload this to provide a unique name      */
+DECL|method|getShortName ()
+name|String
+name|getShortName
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the description text or null if there is no description text associated with this node      */
+DECL|method|getDescriptionText ()
+name|String
+name|getDescriptionText
+parameter_list|()
 function_decl|;
 block|}
 end_interface

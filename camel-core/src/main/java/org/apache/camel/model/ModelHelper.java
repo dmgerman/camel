@@ -96,6 +96,18 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NamedNode
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for the Camel {@link org.apache.camel.model model} classes.  */
 end_comment
@@ -115,13 +127,13 @@ block|{
 comment|// utility class
 block|}
 comment|/**      * Dumps the definition as XML      *      * @param definition  the definition, such as a {@link org.apache.camel.model.RouteDefinition}      * @return            the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
-DECL|method|dumpModelAsXml (OptionalIdentifiedDefinition definition)
+DECL|method|dumpModelAsXml (NamedNode definition)
 specifier|public
 specifier|static
 name|String
 name|dumpModelAsXml
 parameter_list|(
-name|OptionalIdentifiedDefinition
+name|NamedNode
 name|definition
 parameter_list|)
 throws|throws
@@ -199,7 +211,7 @@ specifier|static
 parameter_list|<
 name|T
 extends|extends
-name|OptionalIdentifiedDefinition
+name|NamedNode
 parameter_list|>
 name|T
 name|createModelFromXml
