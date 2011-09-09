@@ -365,7 +365,7 @@ else|else
 block|{
 for|for
 control|(
-name|String
+name|IrcChannel
 name|channel
 range|:
 name|endpoint
@@ -393,6 +393,9 @@ operator|.
 name|doPrivmsg
 argument_list|(
 name|channel
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|msg
 argument_list|)
@@ -452,7 +455,7 @@ condition|)
 block|{
 for|for
 control|(
-name|String
+name|IrcChannel
 name|channel
 range|:
 name|endpoint
@@ -478,6 +481,9 @@ operator|.
 name|doPart
 argument_list|(
 name|channel
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
