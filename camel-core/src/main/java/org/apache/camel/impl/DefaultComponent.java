@@ -443,7 +443,7 @@ argument_list|)
 decl_stmt|;
 name|validateURI
 argument_list|(
-name|uri
+name|encodedUri
 argument_list|,
 name|path
 argument_list|,
@@ -468,7 +468,7 @@ operator|new
 name|Object
 index|[]
 block|{
-name|uri
+name|encodedUri
 block|,
 name|path
 block|,
@@ -482,7 +482,7 @@ name|endpoint
 init|=
 name|createEndpoint
 argument_list|(
-name|uri
+name|encodedUri
 argument_list|,
 name|path
 argument_list|,
