@@ -578,7 +578,7 @@ literal|null
 condition|)
 block|{
 comment|// create client factory bean
-name|ClientProxyFactoryBean
+name|ClientFactoryBean
 name|factoryBean
 init|=
 name|createClientFactoryBean
@@ -677,24 +677,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-operator|(
-operator|(
-name|ClientProxy
-operator|)
-name|Proxy
-operator|.
-name|getInvocationHandler
-argument_list|(
+name|Client
+name|client
+init|=
 name|factoryBean
 operator|.
 name|create
 argument_list|()
+decl_stmt|;
+comment|// setup the handlers
+name|setupHandlers
+argument_list|(
+name|factoryBean
+argument_list|,
+name|client
 argument_list|)
-operator|)
-operator|.
-name|getClient
-argument_list|()
+expr_stmt|;
+return|return
+name|client
 return|;
 block|}
 else|else
@@ -709,6 +709,8 @@ comment|// setup client factory bean
 name|setupClientFactoryBean
 argument_list|(
 name|factoryBean
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// fill in values that have not been filled.
