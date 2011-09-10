@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language
+DECL|package|org.apache.camel.language.simple
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|language
+operator|.
+name|simple
 package|;
 end_package
 
@@ -213,22 +215,6 @@ operator|.
 name|bean
 operator|.
 name|RuntimeBeanExpressionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|language
-operator|.
-name|simple
-operator|.
-name|SimpleLanguage
 import|;
 end_import
 
@@ -1580,14 +1566,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: Valid syntax: ${property.OGNL} was: property.foobar[bar"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Valid syntax: ${property.OGNL} was: property.foobar[bar at location 0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1660,11 +1649,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ExpressionIllegalSyntaxException
+name|SimpleParserException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertEquals
+argument_list|(
+literal|"Valid syntax: ${date:command:pattern} was: date:yyyyMMdd"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testDateAndTimeExpressions ()
@@ -1928,19 +1926,18 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|SimpleIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
+name|assertEquals
 argument_list|(
-literal|"Caught expected exception: "
-operator|+
-name|e
+literal|8
 argument_list|,
 name|e
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2461,7 +2458,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${body} is null"
 argument_list|,
@@ -2476,17 +2473,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|SimpleIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Syntax error in is operator: ${body} is null cannot be null. It must be a class type."
+literal|11
 argument_list|,
 name|e
 operator|.
-name|getMessage
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2642,14 +2639,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: Valid syntax: ${headerAs(key, type)} was: headerAs(unknown String)"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Valid syntax: ${headerAs(key, type)} was: headerAs(unknown String)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2717,14 +2717,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: xxx"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Unknown function: xxx at location 4"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2749,14 +2752,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: xxx"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Unknown function: xxx at location 0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2781,14 +2787,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: Valid syntax: ${bodyAs(type)} was: bodyAs(xxx"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Valid syntax: ${bodyAs(type)} was: bodyAs(xxx"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3284,14 +3293,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: Valid syntax: ${header.name[key]} was: header.foo[bar"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Valid syntax: ${header.name[key]} was: header.foo[bar"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3666,56 +3678,56 @@ argument_list|(
 name|camel
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.getName} contains 'Camel'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.getName} contains 'Tiger'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.getAge}< 10"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.getAge}> 10"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.getAge}<= '6'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.getAge}> '6'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
-literal|"${in.body.getAge}< ${body.getFriend.getAge}'"
+literal|"${in.body.getAge}< ${body.getFriend.getAge}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.getFriend.isDangerous} == true"
 argument_list|,
@@ -3770,56 +3782,56 @@ argument_list|(
 name|camel
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.name} contains 'Camel'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.name} contains 'Tiger'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.age}< 10"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.age}> 10"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.age}<= '6'"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.age}> '6'"
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
-literal|"${in.body.age}< ${body.friend.age}'"
+literal|"${in.body.age}< ${body.friend.age}"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|assertExpression
+name|assertPredicate
 argument_list|(
 literal|"${in.body.friend.dangerous} == true"
 argument_list|,

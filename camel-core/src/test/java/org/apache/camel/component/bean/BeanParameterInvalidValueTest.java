@@ -394,10 +394,8 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: xxx"
-argument_list|,
 name|cause
 operator|.
 name|getCause
@@ -405,6 +403,11 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Unknown function: xxx at location 0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

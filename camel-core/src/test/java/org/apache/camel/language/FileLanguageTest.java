@@ -349,14 +349,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: File language syntax: onlyName"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Unknown file language syntax: onlyName at location 0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1161,14 +1164,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: file.name"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Unknown function: file.name at location 0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1193,14 +1199,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: xxx"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Unknown function: xxx at location 4"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1225,14 +1234,17 @@ name|ExpressionIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Illegal syntax: xxx"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Unknown function: xxx at location 0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
