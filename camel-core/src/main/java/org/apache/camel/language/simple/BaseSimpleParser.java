@@ -407,7 +407,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Prepares blocks, such as functions, single or double quoted texts.      *<p/>      * This process prepares the {@link Block}s in the AST. This is done      * by linking child {@link SimpleNode nodes} which are within the start and end of the blocks,      * as child to the given block. This is done to have the AST graph updated and prepared properly.      *<p/>      * So when the AST node is later used to create the {@link org.apache.camel.Predicate}s      * to be used by Camel then the AST graph has a linked and prepared      * graph of nodes which represent the input expression.      */
+comment|/**      * Prepares blocks, such as functions, single or double quoted texts.      *<p/>      * This process prepares the {@link Block}s in the AST. This is done      * by linking child {@link SimpleNode nodes} which are within the start and end of the blocks,      * as child to the given block. This is done to have the AST graph updated and prepared properly.      *<p/>      * So when the AST node is later used to create the {@link org.apache.camel.Predicate}s      * or {@link org.apache.camel.Expression}s to be used by Camel then the AST graph      * has a linked and prepared graph of nodes which represent the input expression.      */
 DECL|method|prepareBlocks ()
 specifier|protected
 name|void
@@ -529,7 +529,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// if there is a model on the stack then it should accept the child model
+comment|// if there is a block on the stack then it should accept the child token
 name|Block
 name|block
 init|=
@@ -623,7 +623,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Prepares unary expressions.      *<p/>      * This process prepares the unary expressions in the AST. This is done      * by linking the unary operator with the left hand side node,      * to have the AST graph updated and prepared properly.      *<p/>      * So when the AST node is later used to create the {@link org.apache.camel.Predicate}s      * to be used by Camel then the AST graph has a linked and prepared      * graph of nodes which represent the input expression.      */
+comment|/**      * Prepares unary expressions.      *<p/>      * This process prepares the unary expressions in the AST. This is done      * by linking the unary operator with the left hand side node,      * to have the AST graph updated and prepared properly.      *<p/>      * So when the AST node is later used to create the {@link org.apache.camel.Predicate}s      * or {@link org.apache.camel.Expression}s to be used by Camel then the AST graph      * has a linked and prepared graph of nodes which represent the input expression.      */
 DECL|method|prepareUnaryExpressions ()
 specifier|protected
 name|void
