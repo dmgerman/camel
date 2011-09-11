@@ -28,20 +28,6 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|DataFormatDefinition
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a resolver of data formats.  *  * @version   */
 end_comment
@@ -56,18 +42,6 @@ comment|/**      * Resolves the given data format given its name.      *      * 
 DECL|method|resolveDataFormat (String name, CamelContext context)
 name|DataFormat
 name|resolveDataFormat
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|CamelContext
-name|context
-parameter_list|)
-function_decl|;
-comment|/**      * Resolves the given data format definition given its name.      *      * @param name the name of the data format to lookup in {@link org.apache.camel.spi.Registry} or create      * @param context the camel context      * @return the data format or<tt>null</tt> if not possible to resolve      */
-DECL|method|resolveDataFormatDefinition (String name, CamelContext context)
-name|DataFormatDefinition
-name|resolveDataFormatDefinition
 parameter_list|(
 name|String
 name|name
