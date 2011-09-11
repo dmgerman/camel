@@ -1303,7 +1303,7 @@ throws|throws
 name|Exception
 block|{
 comment|// put a channel in between this and each output to control the route flow logic
-name|Channel
+name|ModelChannel
 name|channel
 init|=
 name|createChannel
@@ -1966,7 +1966,7 @@ block|}
 comment|/**      * Creates a new instance of the {@link Channel}.      */
 DECL|method|createChannel (RouteContext routeContext)
 specifier|protected
-name|Channel
+name|ModelChannel
 name|createChannel
 parameter_list|(
 name|RouteContext

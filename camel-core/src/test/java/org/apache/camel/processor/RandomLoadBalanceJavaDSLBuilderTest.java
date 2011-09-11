@@ -365,14 +365,14 @@ if|if
 condition|(
 name|child
 operator|instanceof
-name|Channel
+name|DefaultChannel
 condition|)
 block|{
-name|Channel
+name|DefaultChannel
 name|channel
 init|=
 operator|(
-name|Channel
+name|DefaultChannel
 operator|)
 name|child
 decl_stmt|;

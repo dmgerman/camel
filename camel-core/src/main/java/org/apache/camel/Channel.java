@@ -32,20 +32,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|InterceptStrategy
@@ -137,52 +123,6 @@ argument_list|>
 name|getInterceptStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * Initializes the channel.      *      * @param outputDefinition  the route definition the {@link Channel} represents      * @param routeContext      the route context      * @throws Exception is thrown if some error occurred      */
-DECL|method|initChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
-name|void
-name|initChannel
-parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|outputDefinition
-parameter_list|,
-name|RouteContext
-name|routeContext
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Post initializes the channel.      *      * @param outputDefinition  the route definition the {@link Channel} represents      * @param routeContext      the route context      * @throws Exception is thrown if some error occurred      */
-DECL|method|postInitChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
-name|void
-name|postInitChannel
-parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|outputDefinition
-parameter_list|,
-name|RouteContext
-name|routeContext
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * If the initialized output definition contained outputs (children) then we need to      * set the child so we can leverage fine grained tracing      *      * @param child the child      */
-DECL|method|setChildDefinition (ProcessorDefinition<?> child)
-name|void
-name|setChildDefinition
-parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|child
-parameter_list|)
-function_decl|;
 comment|/**      * Gets the wrapped output that at runtime should be delegated to.      *      * @return the output to route the {@link Exchange} to      */
 DECL|method|getOutput ()
 name|Processor
@@ -202,15 +142,6 @@ comment|/**      * Gets the next {@link Processor} to route to (not wrapped)    
 DECL|method|getNextProcessor ()
 name|Processor
 name|getNextProcessor
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the definition of the next processor      *      * @return the processor definition      */
-DECL|method|getProcessorDefinition ()
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|getProcessorDefinition
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the {@link RouteContext}      *      * @return the route context      */

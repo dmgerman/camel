@@ -162,6 +162,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ProcessorDefinition
 import|;
 end_import
@@ -374,7 +388,7 @@ name|DefaultChannel
 extends|extends
 name|ServiceSupport
 implements|implements
-name|Channel
+name|ModelChannel
 block|{
 DECL|field|LOG
 specifier|private
@@ -1126,8 +1140,7 @@ operator|=
 name|target
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|//@Override
 DECL|method|postInitChannel (ProcessorDefinition<?> outputDefinition, RouteContext routeContext)
 specifier|public
 name|void
