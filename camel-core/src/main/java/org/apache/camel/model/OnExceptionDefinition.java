@@ -748,7 +748,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      *      * @param context      the camel context      * @param parentPolicy the current redelivery policy      * @return a newly created redelivery policy, or return the original policy if no customization is required      *         for this exception handler.      */
+comment|/**      * Allows an exception handler to create a new redelivery policy for this exception type      *      * @param context      the camel context      * @param parentPolicy the current redelivery policy, is newer<tt>null</tt>      * @return a newly created redelivery policy, or return the original policy if no customization is required      *         for this exception handler.      */
 DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
@@ -768,8 +768,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parentPolicy
-operator|=
+return|return
 name|CamelContextHelper
 operator|.
 name|mandatoryLookup
@@ -782,8 +781,9 @@ name|RedeliveryPolicy
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+return|;
 block|}
+elseif|else
 if|if
 condition|(
 name|redeliveryPolicy
@@ -805,12 +805,23 @@ block|}
 elseif|else
 if|if
 condition|(
-name|errorHandler
-operator|!=
-literal|null
+operator|!
+name|outputs
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|parentPolicy
+operator|.
+name|getMaximumRedeliveries
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
-comment|// lets create a new error handler that has no retries
+comment|// if we have outputs, then do not inherit parent maximumRedeliveries
+comment|// as you would have to explicit configure maximumRedeliveries on this onException to use it
+comment|// this is the behavior Camel has always had
 name|RedeliveryPolicy
 name|answer
 init|=
@@ -830,9 +841,12 @@ return|return
 name|answer
 return|;
 block|}
+else|else
+block|{
 return|return
 name|parentPolicy
 return|;
+block|}
 block|}
 DECL|method|addRoutes (RouteContext routeContext, Collection<Route> routes)
 specifier|public

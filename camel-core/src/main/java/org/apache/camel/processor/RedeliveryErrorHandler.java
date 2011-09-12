@@ -2254,6 +2254,24 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|redeliveryEnabled
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Redelivery is not enabled on "
+operator|+
+name|this
+operator|+
+literal|". Make sure you have configured the error handler properly."
+argument_list|)
+throw|;
+block|}
 comment|// there must be a defensive copy of the exchange
 name|ObjectHelper
 operator|.
@@ -4247,16 +4265,6 @@ name|values
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|def
-operator|.
-name|getRedeliveryPolicy
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|String
 name|ref
 init|=
@@ -4305,7 +4313,16 @@ literal|true
 return|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|def
+operator|.
+name|getRedeliveryPolicy
+argument_list|()
+operator|!=
+literal|null
+condition|)
 block|{
 name|Integer
 name|max
@@ -4340,7 +4357,6 @@ comment|// must check for != 0 as (-1 means redeliver forever)
 return|return
 literal|true
 return|;
-block|}
 block|}
 block|}
 if|if
