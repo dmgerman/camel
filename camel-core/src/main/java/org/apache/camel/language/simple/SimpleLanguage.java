@@ -336,6 +336,7 @@ name|expression
 argument_list|)
 return|;
 block|}
+comment|/**      * Change the start tokens used for functions.      *<p/>      * This can be used to alter the function tokens to avoid clashes with other      * frameworks etc.      *<p/>      * The default start tokens is<tt>${</tt> and<tt>$simple{}</tt>.      *      * @param startToken new start token(s) to be used for functions      */
 DECL|method|changeFunctionStartToken (String... startToken)
 specifier|public
 specifier|static
@@ -355,6 +356,7 @@ name|startToken
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Change the end tokens used for functions.      *<p/>      * This can be used to alter the function tokens to avoid clashes with other      * frameworks etc.      *<p/>      * The default end token is<tt>}</tt>      *      * @param endToken new end token(s) to be used for functions      */
 DECL|method|changeFunctionEndToken (String... endToken)
 specifier|public
 specifier|static

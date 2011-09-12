@@ -549,6 +549,7 @@ parameter_list|()
 block|{
 comment|// static methods
 block|}
+comment|/**      * @see SimpleLanguage#changeFunctionStartToken(String...)      */
 DECL|method|changeFunctionStartToken (String... startToken)
 specifier|public
 specifier|static
@@ -589,7 +590,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// add in start as its a more common token to be used
+comment|// add in start of list as its a more common token to be used
 for|for
 control|(
 name|String
@@ -617,6 +618,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @see SimpleLanguage#changeFunctionEndToken(String...)      */
 DECL|method|changeFunctionEndToken (String... endToken)
 specifier|public
 specifier|static
@@ -657,7 +659,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// add in start as its a more common token to be used
+comment|// add in start of list as its a more common token to be used
 for|for
 control|(
 name|String
