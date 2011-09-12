@@ -2019,8 +2019,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
 name|boolean
 name|success
 init|=
@@ -2049,7 +2047,6 @@ operator|+
 literal|" failed"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * create the directory      *      * @param file the directory to be created      */
