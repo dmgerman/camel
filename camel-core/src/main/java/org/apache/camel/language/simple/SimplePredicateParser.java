@@ -2059,10 +2059,6 @@ argument_list|,
 name|TokenType
 operator|.
 name|functionEnd
-argument_list|,
-name|TokenType
-operator|.
-name|escapedValue
 argument_list|)
 expr_stmt|;
 while|while
@@ -2104,10 +2100,6 @@ argument_list|,
 name|TokenType
 operator|.
 name|functionEnd
-argument_list|,
-name|TokenType
-operator|.
-name|escapedValue
 argument_list|)
 expr_stmt|;
 block|}
@@ -2235,10 +2227,6 @@ argument_list|,
 name|TokenType
 operator|.
 name|functionEnd
-argument_list|,
-name|TokenType
-operator|.
-name|escapedValue
 argument_list|)
 expr_stmt|;
 while|while
@@ -2280,10 +2268,6 @@ argument_list|,
 name|TokenType
 operator|.
 name|functionEnd
-argument_list|,
-name|TokenType
-operator|.
-name|escapedValue
 argument_list|)
 expr_stmt|;
 block|}
@@ -2913,24 +2897,15 @@ name|boolean
 name|numericValue
 parameter_list|()
 block|{
-if|if
-condition|(
+return|return
 name|accept
 argument_list|(
 name|TokenType
 operator|.
 name|numericValue
 argument_list|)
-condition|)
-block|{
+return|;
 comment|// no other tokens to check so do not use nextToken
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
-return|;
 block|}
 DECL|method|booleanValue ()
 specifier|protected
@@ -2938,24 +2913,15 @@ name|boolean
 name|booleanValue
 parameter_list|()
 block|{
-if|if
-condition|(
+return|return
 name|accept
 argument_list|(
 name|TokenType
 operator|.
 name|booleanValue
 argument_list|)
-condition|)
-block|{
+return|;
 comment|// no other tokens to check so do not use nextToken
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
-return|;
 block|}
 DECL|method|nullValue ()
 specifier|protected
@@ -2963,24 +2929,15 @@ name|boolean
 name|nullValue
 parameter_list|()
 block|{
-if|if
-condition|(
+return|return
 name|accept
 argument_list|(
 name|TokenType
 operator|.
 name|nullValue
 argument_list|)
-condition|)
-block|{
+return|;
 comment|// no other tokens to check so do not use nextToken
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
-return|;
 block|}
 block|}
 end_class

@@ -336,10 +336,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSimpleSingleQuoteWithEscape ()
+DECL|method|testSimpleSingleQuoteDollar ()
 specifier|public
 name|void
-name|testSimpleSingleQuoteWithEscape
+name|testSimpleSingleQuoteDollar
 parameter_list|()
 throws|throws
 name|Exception
@@ -350,7 +350,7 @@ init|=
 operator|new
 name|SimpleExpressionParser
 argument_list|(
-literal|"Pay 200\\$ today"
+literal|"Pay 200$ today"
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -378,10 +378,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSimpleSingleQuoteWithEscapeEnd ()
+DECL|method|testSimpleSingleQuoteDollarEnd ()
 specifier|public
 name|void
-name|testSimpleSingleQuoteWithEscapeEnd
+name|testSimpleSingleQuoteDollarEnd
 parameter_list|()
 throws|throws
 name|Exception
@@ -392,7 +392,7 @@ init|=
 operator|new
 name|SimpleExpressionParser
 argument_list|(
-literal|"Pay 200\\$"
+literal|"Pay 200$"
 argument_list|)
 decl_stmt|;
 name|Expression
@@ -632,59 +632,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|Integer
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testSimpleEscape ()
-specifier|public
-name|void
-name|testSimpleEscape
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"World"
-argument_list|)
-expr_stmt|;
-comment|// we escape the $ which mean it will not be a function
-name|SimpleExpressionParser
-name|parser
-init|=
-operator|new
-name|SimpleExpressionParser
-argument_list|(
-literal|"Hello \\${body\\} how are you?"
-argument_list|)
-decl_stmt|;
-name|Expression
-name|exp
-init|=
-name|parser
-operator|.
-name|parseExpression
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello ${body} how are you?"
-argument_list|,
-name|exp
-operator|.
-name|evaluate
-argument_list|(
-name|exchange
-argument_list|,
-name|String
 operator|.
 name|class
 argument_list|)

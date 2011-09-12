@@ -34,12 +34,9 @@ name|whiteSpace
 block|,
 name|character
 block|,
-DECL|enumConstant|escapedValue
 DECL|enumConstant|booleanValue
 DECL|enumConstant|numericValue
 DECL|enumConstant|nullValue
-name|escapedValue
-block|,
 name|booleanValue
 block|,
 name|numericValue
@@ -69,7 +66,7 @@ name|logicalOperator
 block|,
 DECL|enumConstant|eol
 name|eol
-block|;  }
+block|}
 end_enum
 
 end_unit
