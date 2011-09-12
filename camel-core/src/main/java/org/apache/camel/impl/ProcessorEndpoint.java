@@ -110,6 +110,11 @@ specifier|protected
 name|ProcessorEndpoint
 parameter_list|()
 block|{     }
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|ProcessorEndpoint (String endpointUri, CamelContext context, Processor processor)
 specifier|public
 name|ProcessorEndpoint

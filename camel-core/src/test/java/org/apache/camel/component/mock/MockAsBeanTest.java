@@ -109,6 +109,11 @@ extends|extends
 name|ContextTestSupport
 block|{
 comment|// create foo bean as a mock endpoint
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|field|foo
 specifier|private
 name|MockEndpoint

@@ -114,6 +114,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 specifier|final
 name|DataSetEndpoint
 name|endpoint

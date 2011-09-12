@@ -244,6 +244,9 @@ name|getApplicationContext
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      * @param endpointUri      */
+annotation|@
+name|Deprecated
 DECL|method|EventEndpoint (String endpointUri)
 specifier|public
 name|EventEndpoint

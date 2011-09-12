@@ -171,6 +171,11 @@ name|expression
 parameter_list|)
 block|{
 comment|// support old simple language syntax
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|Predicate
 name|answer
 init|=
@@ -220,6 +225,11 @@ name|expression
 parameter_list|)
 block|{
 comment|// support old simple language syntax
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|Expression
 name|answer
 init|=

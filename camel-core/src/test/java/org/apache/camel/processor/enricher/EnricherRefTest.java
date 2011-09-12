@@ -126,6 +126,11 @@ name|EnricherRefTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|field|cool
 specifier|private
 name|MockEndpoint
