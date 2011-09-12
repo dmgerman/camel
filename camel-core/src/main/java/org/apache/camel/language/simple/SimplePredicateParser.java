@@ -2379,17 +2379,6 @@ argument_list|)
 condition|)
 block|{
 name|nextToken
-argument_list|(
-name|TokenType
-operator|.
-name|functionEnd
-argument_list|,
-name|TokenType
-operator|.
-name|eol
-argument_list|)
-expr_stmt|;
-name|nextToken
 argument_list|()
 expr_stmt|;
 while|while
@@ -2413,19 +2402,40 @@ name|isEol
 argument_list|()
 condition|)
 block|{
-comment|// we need to loop until we find the ending function quote, or the eol
-name|nextToken
-argument_list|(
-name|TokenType
+if|if
+condition|(
+name|token
 operator|.
-name|functionEnd
-argument_list|,
-name|TokenType
+name|getType
+argument_list|()
 operator|.
-name|eol
-argument_list|)
+name|isFunctionStart
+argument_list|()
+condition|)
+block|{
+comment|// embedded function
+name|functionText
+argument_list|()
 expr_stmt|;
 block|}
+comment|// we need to loop until we find the ending function quote, an embedded function, or the eol
+name|nextToken
+argument_list|()
+expr_stmt|;
+block|}
+comment|// if its not an embedded function then we expect the end token
+if|if
+condition|(
+operator|!
+name|token
+operator|.
+name|getType
+argument_list|()
+operator|.
+name|isFunctionStart
+argument_list|()
+condition|)
+block|{
 name|expect
 argument_list|(
 name|TokenType
@@ -2433,6 +2443,7 @@ operator|.
 name|functionEnd
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;

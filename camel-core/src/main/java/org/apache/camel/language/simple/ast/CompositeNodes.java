@@ -182,6 +182,19 @@ name|child
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getChildren ()
+specifier|public
+name|List
+argument_list|<
+name|SimpleNode
+argument_list|>
+name|getChildren
+parameter_list|()
+block|{
+return|return
+name|children
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createExpression (String expression)
