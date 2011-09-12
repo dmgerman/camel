@@ -912,11 +912,18 @@ argument_list|()
 control|)
 block|{
 comment|// output must not be another load balancer
+comment|// check for instanceof as the code below as there is compilation errors on earlier versions of JDK6
+comment|// on Windows boxes or with IBM JDKs etc.
 if|if
 condition|(
-name|processorType
-operator|instanceof
 name|LoadBalanceDefinition
+operator|.
+name|class
+operator|.
+name|isInstance
+argument_list|(
+name|processorType
+argument_list|)
 condition|)
 block|{
 throw|throw
