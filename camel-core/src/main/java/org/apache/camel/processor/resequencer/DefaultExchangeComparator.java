@@ -59,6 +59,8 @@ specifier|private
 name|Expression
 name|expression
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setExpression (Expression expression)
 specifier|public
 name|void
@@ -75,6 +77,8 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|predecessor (Exchange o1, Exchange o2)
 specifier|public
 name|boolean
@@ -113,6 +117,8 @@ literal|1L
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|successor (Exchange o1, Exchange o2)
 specifier|public
 name|boolean
@@ -151,6 +157,8 @@ literal|1L
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare (Exchange o1, Exchange o2)
 specifier|public
 name|int
@@ -190,7 +198,7 @@ return|;
 block|}
 DECL|method|getSequenceNumber (Exchange exchange)
 specifier|private
-name|long
+name|Long
 name|getSequenceNumber
 parameter_list|(
 name|Exchange
@@ -208,6 +216,68 @@ name|Long
 operator|.
 name|class
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isValid (Exchange exchange)
+specifier|public
+name|boolean
+name|isValid
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|Long
+name|num
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|num
+operator|=
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Long
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+return|return
+name|num
+operator|!=
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Comparator["
+operator|+
+name|expression
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

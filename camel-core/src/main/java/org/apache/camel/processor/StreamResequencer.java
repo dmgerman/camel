@@ -110,6 +110,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -256,6 +268,26 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A resequencer that re-orders a (continuous) stream of {@link Exchange}s. The  * algorithm implemented by {@link ResequencerEngine} is based on the detection  * of gaps in a message stream rather than on a fixed batch size. Gap detection  * in combination with timeouts removes the constraint of having to know the  * number of messages of a sequence (i.e. the batch size) in advance.  *<p>  * Messages must contain a unique sequence number for which a predecessor and a  * successor is known. For example a message with the sequence number 3 has a  * predecessor message with the sequence number 2 and a successor message with  * the sequence number 4. The message sequence 2,3,5 has a gap because the  * successor of 3 is missing. The resequencer therefore has to retain message 5  * until message 4 arrives (or a timeout occurs).  *<p>  * Instances of this class poll for {@link Exchange}s from a given  *<code>endpoint</code>. Resequencing work and the delivery of messages to  * the next<code>processor</code> is done within the single polling thread.  *   * @version   *   * @see ResequencerEngine  */
 end_comment
@@ -290,6 +322,22 @@ name|long
 name|DELIVERY_ATTEMPT_INTERVAL
 init|=
 literal|1000L
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|StreamResequencer
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -327,6 +375,11 @@ DECL|field|capacity
 specifier|private
 name|int
 name|capacity
+decl_stmt|;
+DECL|field|ignoreInvalidExchanges
+specifier|private
+name|boolean
+name|ignoreInvalidExchanges
 decl_stmt|;
 comment|/**      * Creates a new {@link StreamResequencer} instance.      *       * @param processor next processor that processes re-ordered exchanges.      * @param comparator a sequence element comparator for exchanges.      */
 DECL|method|StreamResequencer (CamelContext camelContext, Processor processor, SequenceElementComparator<Exchange> comparator)
@@ -481,6 +534,33 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isIgnoreInvalidExchanges ()
+specifier|public
+name|boolean
+name|isIgnoreInvalidExchanges
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidExchanges
+return|;
+block|}
+comment|/**      * Sets whether to ignore invalid exchanges which cannot be used by this stream resequencer.      *<p/>      * Default is<tt>false</tt>, by which an {@link CamelExchangeException} is thrown if the {@link Exchange}      * is invalid.      */
+DECL|method|setIgnoreInvalidExchanges (boolean ignoreInvalidExchanges)
+specifier|public
+name|void
+name|setIgnoreInvalidExchanges
+parameter_list|(
+name|boolean
+name|ignoreInvalidExchanges
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreInvalidExchanges
+operator|=
+name|ignoreInvalidExchanges
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -616,6 +696,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|engine
 operator|.
 name|insert
@@ -628,6 +710,45 @@ operator|.
 name|request
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isIgnoreInvalidExchanges
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Invalid Exchange. This Exchange will be ignored: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Error processing Exchange in StreamResequencer"
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 DECL|method|hasNext ()
 specifier|public

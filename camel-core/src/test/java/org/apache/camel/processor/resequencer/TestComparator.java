@@ -29,6 +29,8 @@ argument_list|<
 name|TestObject
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|predecessor (TestObject o1, TestObject o2)
 specifier|public
 name|boolean
@@ -57,6 +59,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|successor (TestObject o1, TestObject o2)
 specifier|public
 name|boolean
@@ -85,6 +89,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare (TestObject o1, TestObject o2)
 specifier|public
 name|int
@@ -115,6 +121,23 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isValid (TestObject o1)
+specifier|public
+name|boolean
+name|isValid
+parameter_list|(
+name|TestObject
+name|o1
+parameter_list|)
+block|{
+return|return
+name|o1
+operator|!=
+literal|null
 return|;
 block|}
 block|}

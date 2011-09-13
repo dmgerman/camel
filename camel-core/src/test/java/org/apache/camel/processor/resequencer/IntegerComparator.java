@@ -29,6 +29,8 @@ argument_list|<
 name|Integer
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|predecessor (Integer o1, Integer o2)
 specifier|public
 name|boolean
@@ -57,6 +59,8 @@ literal|1
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|successor (Integer o1, Integer o2)
 specifier|public
 name|boolean
@@ -85,6 +89,8 @@ literal|1
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare (Integer o1, Integer o2)
 specifier|public
 name|int
@@ -104,6 +110,23 @@ name|compareTo
 argument_list|(
 name|o2
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isValid (Integer o1)
+specifier|public
+name|boolean
+name|isValid
+parameter_list|(
+name|Integer
+name|o1
+parameter_list|)
+block|{
+return|return
+name|o1
+operator|!=
+literal|null
 return|;
 block|}
 block|}

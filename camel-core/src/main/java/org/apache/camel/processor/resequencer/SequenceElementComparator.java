@@ -70,6 +70,15 @@ name|E
 name|o2
 parameter_list|)
 function_decl|;
+comment|/**      * Returns<tt>true</tt> if the<code>o1</code> can be used in this comparator.      *      * @param o1 a sequence element      * @return true if its usable for this comparator      */
+DECL|method|isValid (E o1)
+name|boolean
+name|isValid
+parameter_list|(
+name|E
+name|o1
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

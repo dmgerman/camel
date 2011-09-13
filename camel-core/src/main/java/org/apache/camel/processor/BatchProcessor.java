@@ -162,7 +162,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Expression
 import|;
 end_import
 
@@ -376,10 +400,20 @@ specifier|private
 name|boolean
 name|batchConsumer
 decl_stmt|;
+DECL|field|ignoreInvalidExchanges
+specifier|private
+name|boolean
+name|ignoreInvalidExchanges
+decl_stmt|;
 DECL|field|completionPredicate
 specifier|private
 name|Predicate
 name|completionPredicate
+decl_stmt|;
+DECL|field|expression
+specifier|private
+name|Expression
+name|expression
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -413,7 +447,7 @@ specifier|final
 name|BatchSender
 name|sender
 decl_stmt|;
-DECL|method|BatchProcessor (CamelContext camelContext, Processor processor, Collection<Exchange> collection)
+DECL|method|BatchProcessor (CamelContext camelContext, Processor processor, Collection<Exchange> collection, Expression expression)
 specifier|public
 name|BatchProcessor
 parameter_list|(
@@ -428,6 +462,9 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|collection
+parameter_list|,
+name|Expression
+name|expression
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -457,6 +494,15 @@ argument_list|,
 literal|"collection"
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|expression
+argument_list|,
+literal|"expression"
+argument_list|)
+expr_stmt|;
 comment|// wrap processor in UnitOfWork so what we send out of the batch runs in a UoW
 name|this
 operator|.
@@ -479,6 +525,12 @@ operator|.
 name|collection
 operator|=
 name|collection
+expr_stmt|;
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
 expr_stmt|;
 name|this
 operator|.
@@ -708,6 +760,32 @@ operator|.
 name|batchConsumer
 operator|=
 name|batchConsumer
+expr_stmt|;
+block|}
+DECL|method|isIgnoreInvalidExchanges ()
+specifier|public
+name|boolean
+name|isIgnoreInvalidExchanges
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidExchanges
+return|;
+block|}
+DECL|method|setIgnoreInvalidExchanges (boolean ignoreInvalidExchanges)
+specifier|public
+name|void
+name|setIgnoreInvalidExchanges
+parameter_list|(
+name|boolean
+name|ignoreInvalidExchanges
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreInvalidExchanges
+operator|=
+name|ignoreInvalidExchanges
 expr_stmt|;
 block|}
 DECL|method|getCompletionPredicate ()
@@ -1013,6 +1091,47 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// validate that the exchange can be used
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|isIgnoreInvalidExchanges
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Invalid Exchange. This Exchange will be ignored: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Exchange is not valid to be used by the BatchProcessor"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// exchange is valid so enqueue the exchange
 name|sender
 operator|.
 name|enqueueExchange
@@ -1020,6 +1139,51 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Is the given exchange valid to be used.      *      * @param exchange the given exchange      * @return<tt>true</tt> if valid,<tt>false</tt> otherwise      */
+DECL|method|isValid (Exchange exchange)
+specifier|private
+name|boolean
+name|isValid
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|Object
+name|result
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|result
+operator|=
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+return|return
+name|result
+operator|!=
+literal|null
+return|;
 block|}
 comment|/**      * Sender thread for queued-up exchanges.      */
 DECL|class|BatchSender

@@ -123,6 +123,13 @@ specifier|private
 name|Boolean
 name|reverse
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|ignoreInvalidExchanges
+specifier|private
+name|Boolean
+name|ignoreInvalidExchanges
+decl_stmt|;
 comment|/**      * Creates a new {@link BatchResequencerConfig} instance using default      * values for<code>batchSize</code> (100) and<code>batchTimeout</code>      * (1000L).      */
 DECL|method|BatchResequencerConfig ()
 specifier|public
@@ -306,6 +313,32 @@ operator|.
 name|reverse
 operator|=
 name|reverse
+expr_stmt|;
+block|}
+DECL|method|getIgnoreInvalidExchanges ()
+specifier|public
+name|Boolean
+name|getIgnoreInvalidExchanges
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidExchanges
+return|;
+block|}
+DECL|method|setIgnoreInvalidExchanges (Boolean ignoreInvalidExchanges)
+specifier|public
+name|void
+name|setIgnoreInvalidExchanges
+parameter_list|(
+name|Boolean
+name|ignoreInvalidExchanges
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreInvalidExchanges
+operator|=
+name|ignoreInvalidExchanges
 expr_stmt|;
 block|}
 block|}

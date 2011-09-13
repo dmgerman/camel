@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -292,7 +304,7 @@ name|o
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inserts the given element into this resequencer. If the element is not      * ready for immediate delivery and has no immediate presecessor then it is      * scheduled for timing out. After being timed out it is ready for delivery.      *      * @param o an element.      */
+comment|/**      * Inserts the given element into this resequencer. If the element is not      * ready for immediate delivery and has no immediate presecessor then it is      * scheduled for timing out. After being timed out it is ready for delivery.      *      * @param o an element.      * @throws IllegalArgumentException if the element cannot be used with this resequencer engine      */
 DECL|method|insert (E o)
 specifier|public
 specifier|synchronized
@@ -319,6 +331,34 @@ argument_list|(
 name|o
 argument_list|)
 decl_stmt|;
+comment|// validate the exchange has no problem
+if|if
+condition|(
+operator|!
+name|sequence
+operator|.
+name|comparator
+argument_list|()
+operator|.
+name|isValid
+argument_list|(
+name|element
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Element cannot be used in comparator: "
+operator|+
+name|sequence
+operator|.
+name|comparator
+argument_list|()
+argument_list|)
+throw|;
+block|}
 comment|// add element to sequence in proper order
 name|sequence
 operator|.

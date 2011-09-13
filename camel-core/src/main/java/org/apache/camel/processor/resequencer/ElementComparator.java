@@ -41,6 +41,7 @@ block|{
 comment|/**      * A sequence element comparator this comparator delegates to.      */
 DECL|field|comparator
 specifier|private
+specifier|final
 name|SequenceElementComparator
 argument_list|<
 name|E
@@ -66,6 +67,8 @@ operator|=
 name|comparator
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|predecessor (Element<E> o1, Element<E> o2)
 specifier|public
 name|boolean
@@ -101,6 +104,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|successor (Element<E> o1, Element<E> o2)
 specifier|public
 name|boolean
@@ -136,6 +141,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare (Element<E> o1, Element<E> o2)
 specifier|public
 name|int
@@ -169,6 +176,47 @@ operator|.
 name|getObject
 argument_list|()
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isValid (Element<E> o1)
+specifier|public
+name|boolean
+name|isValid
+parameter_list|(
+name|Element
+argument_list|<
+name|E
+argument_list|>
+name|o1
+parameter_list|)
+block|{
+return|return
+name|comparator
+operator|.
+name|isValid
+argument_list|(
+name|o1
+operator|.
+name|getObject
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|comparator
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
