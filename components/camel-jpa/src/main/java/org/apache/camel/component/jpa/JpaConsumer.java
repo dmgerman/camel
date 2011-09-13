@@ -1253,6 +1253,23 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|//TODO: Find if possible an alternative way to handle results of netive queries.
+comment|//Result of native queries are Arrays and cannot be locked by all JPA Providers.
+if|if
+condition|(
+name|entity
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isArray
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 return|return
 literal|false
 return|;
