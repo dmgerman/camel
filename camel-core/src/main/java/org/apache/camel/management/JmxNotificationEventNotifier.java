@@ -68,9 +68,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|api
 operator|.
-name|EventNotifier
+name|management
+operator|.
+name|JmxNotificationBroadcasterAware
 import|;
 end_import
 
@@ -84,9 +86,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|management
-operator|.
-name|JmxNotificationBroadcasterAware
+name|EventNotifier
 import|;
 end_import
 

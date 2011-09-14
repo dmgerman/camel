@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|api
 operator|.
 name|management
 operator|.
@@ -66,7 +66,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|api
 operator|.
 name|management
 operator|.

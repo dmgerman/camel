@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi.management
+DECL|package|org.apache.camel.api.management
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|api
 operator|.
 name|management
 package|;
@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A method level annotation to mark the method as being a JMX attribute.  */
+comment|/**  * A class level annotation to mark the class as being managed in the JMX server.  */
 end_comment
 
 begin_annotation_defn
@@ -76,7 +76,7 @@ name|Target
 argument_list|(
 name|ElementType
 operator|.
-name|METHOD
+name|TYPE
 argument_list|)
 annotation|@
 name|Retention
@@ -85,10 +85,10 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
-DECL|annotation|ManagedAttribute
+DECL|annotation|ManagedResource
 specifier|public
 annotation_defn|@interface
-name|ManagedAttribute
+name|ManagedResource
 block|{
 DECL|method|description ()
 name|String

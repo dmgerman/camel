@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi.management
+DECL|package|org.apache.camel.api.management
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|api
 operator|.
 name|management
 package|;
@@ -20,35 +20,85 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|management
+name|lang
 operator|.
-name|NotificationBroadcasterSupport
+name|annotation
+operator|.
+name|ElementType
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Retention
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|RetentionPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Target
 import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to use a custom {@link NotificationBroadcasterSupport} when broadcasting  * JMX notifications using for example the {@link org.apache.camel.management.JmxNotificationEventNotifier}.  */
+comment|/**  * A method level annotation to mark the method as being a JMX operation.  */
 end_comment
 
-begin_interface
-DECL|interface|JmxNotificationBroadcasterAware
+begin_annotation_defn
+annotation|@
+name|Target
+argument_list|(
+name|ElementType
+operator|.
+name|METHOD
+argument_list|)
+annotation|@
+name|Retention
+argument_list|(
+name|RetentionPolicy
+operator|.
+name|RUNTIME
+argument_list|)
+DECL|annotation|ManagedOperation
 specifier|public
-interface|interface
-name|JmxNotificationBroadcasterAware
+annotation_defn|@interface
+name|ManagedOperation
 block|{
-comment|/**      * Sets to use a custom broadcaster      *      * @param broadcaster the custom broadcaster      */
-DECL|method|setNotificationBroadcaster (NotificationBroadcasterSupport broadcaster)
-name|void
-name|setNotificationBroadcaster
-parameter_list|(
-name|NotificationBroadcasterSupport
-name|broadcaster
-parameter_list|)
+DECL|method|description ()
+name|String
+name|description
+parameter_list|()
+default|default
+literal|""
 function_decl|;
 block|}
-end_interface
+end_annotation_defn
 
 end_unit
 
