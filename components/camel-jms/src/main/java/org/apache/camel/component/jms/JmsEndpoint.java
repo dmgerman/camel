@@ -1254,6 +1254,17 @@ argument_list|(
 name|destinationName
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using destinationName: {} on listenerContainer: "
+argument_list|,
+name|destinationName
+argument_list|,
+name|listenerContainer
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1268,6 +1279,17 @@ operator|.
 name|setDestination
 argument_list|(
 name|destination
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using destination: {} on listenerContainer: "
+argument_list|,
+name|destinationName
+argument_list|,
+name|listenerContainer
 argument_list|)
 expr_stmt|;
 block|}
@@ -1304,6 +1326,17 @@ literal|"Neither destination, destinationName or destinationResolver are specifi
 argument_list|)
 throw|;
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using destinationResolver: {} on listenerContainer: "
+argument_list|,
+name|resolver
+argument_list|,
+name|listenerContainer
+argument_list|)
+expr_stmt|;
 block|}
 name|listenerContainer
 operator|.
