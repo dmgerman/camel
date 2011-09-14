@@ -713,7 +713,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
