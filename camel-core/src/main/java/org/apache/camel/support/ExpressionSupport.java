@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
+name|support
 package|;
 end_package
 
@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LanguageTestSupport
+name|Expression
 import|;
 end_import
 
@@ -48,9 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|JndiRegistry
+name|Predicate
 import|;
 end_import
 
@@ -62,144 +60,57 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|ExpressionAdapter
+name|ObjectHelper
 import|;
 end_import
+
+begin_comment
+comment|/**  * A useful base class for {@link Predicate} and {@link Expression} implementations  *  * @version   */
+end_comment
 
 begin_class
-DECL|class|RefTest
+DECL|class|ExpressionSupport
 specifier|public
+specifier|abstract
 class|class
-name|RefTest
-extends|extends
-name|LanguageTestSupport
+name|ExpressionSupport
+implements|implements
+name|Expression
+implements|,
+name|Predicate
 block|{
-annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
-operator|.
-name|bind
-argument_list|(
-literal|"myExp"
-argument_list|,
-operator|new
-name|MyExpression
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|jndi
-return|;
-block|}
-DECL|method|testRefExpressions ()
+DECL|method|matches (Exchange exchange)
 specifier|public
-name|void
-name|testRefExpressions
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertExpression
-argument_list|(
-literal|"myExp"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testRefExpressionsNotFound ()
-specifier|public
-name|void
-name|testRefExpressionsNotFound
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|assertExpression
-argument_list|(
-literal|"foo"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
+name|boolean
+name|matches
 parameter_list|(
-name|IllegalArgumentException
-name|e
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
-name|assertEquals
+name|Object
+name|value
+init|=
+name|evaluate
 argument_list|(
-literal|"Cannot find expression in registry with ref: foo"
+name|exchange
 argument_list|,
-name|e
+name|Object
 operator|.
-name|getMessage
-argument_list|()
+name|class
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-DECL|method|testPredicates ()
-specifier|public
-name|void
-name|testPredicates
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertPredicate
-argument_list|(
-literal|"myExp"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getLanguageName ()
-specifier|protected
-name|String
-name|getLanguageName
-parameter_list|()
-block|{
+decl_stmt|;
 return|return
-literal|"ref"
+name|ObjectHelper
+operator|.
+name|evaluateValuePredicate
+argument_list|(
+name|value
+argument_list|)
 return|;
 block|}
-DECL|class|MyExpression
-specifier|private
-specifier|static
-class|class
-name|MyExpression
-extends|extends
-name|ExpressionAdapter
-block|{
-annotation|@
-name|Override
 DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
@@ -210,10 +121,67 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-literal|"Hello World"
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
+DECL|method|assertMatches (String text, Exchange exchange)
+specifier|public
+name|void
+name|assertMatches
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|text
+operator|+
+literal|" "
+operator|+
+name|assertionFailureMessage
+argument_list|(
+name|exchange
+argument_list|)
+operator|+
+literal|" for exchange: "
+operator|+
+name|exchange
+argument_list|)
+throw|;
 block|}
+block|}
+DECL|method|assertionFailureMessage (Exchange exchange)
+specifier|protected
+specifier|abstract
+name|String
+name|assertionFailureMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
 block|}
 end_class
 

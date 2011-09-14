@@ -102,9 +102,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ExpressionAdapter
+name|Language
 import|;
 end_import
 
@@ -116,9 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Language
+name|ExpressionAdapter
 import|;
 end_import
 

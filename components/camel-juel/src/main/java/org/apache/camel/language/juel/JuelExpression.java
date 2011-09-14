@@ -188,9 +188,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|ExpressionSupport
+name|FactoryFinder
 import|;
 end_import
 
@@ -202,9 +202,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|FactoryFinder
+name|ExpressionSupport
 import|;
 end_import
 

@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ExpressionAdapter
+name|JndiRegistry
 import|;
 end_import
 
@@ -90,9 +90,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|JndiRegistry
+name|ExpressionAdapter
 import|;
 end_import
 
