@@ -133,6 +133,42 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testLocateOtherBeans ()
+specifier|public
+name|void
+name|testLocateOtherBeans
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|GreaterLocal
+name|mySpringBean
+init|=
+name|context
+argument_list|()
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+literal|"mySpringBean"
+argument_list|,
+name|GreaterLocal
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"We should get the instance of spring bean"
+argument_list|,
+name|mySpringBean
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
