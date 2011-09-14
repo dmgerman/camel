@@ -104,9 +104,11 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
 operator|.
-name|DefaultManagementMBeanAssembler
+name|ManagedInstance
 import|;
 end_import
 
@@ -118,11 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
 name|management
 operator|.
-name|ManagedInstance
+name|DefaultManagementMBeanAssembler
 import|;
 end_import
 
@@ -187,6 +187,10 @@ operator|.
 name|MetadataMBeanInfoAssembler
 import|;
 end_import
+
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 
 begin_comment
 comment|/**  * An assembler to assemble a {@link javax.management.modelmbean.ModelMBean} which can be used  * to register the object in JMX. The assembler is capable of using the Spring JMX annotations to  * gather the list of JMX operations and attributes.  *  */
