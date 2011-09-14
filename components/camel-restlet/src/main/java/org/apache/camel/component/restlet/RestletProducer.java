@@ -221,7 +221,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"\\{([\\w\\.]*)\\}"
+literal|"\\(([\\w\\.]*)\\)"
 argument_list|)
 decl_stmt|;
 DECL|field|client
@@ -604,7 +604,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Substituting { } placeholders in uri: {}"
+literal|"Substituting '(value)' placeholders in uri: {}"
 argument_list|,
 name|uri
 argument_list|)
