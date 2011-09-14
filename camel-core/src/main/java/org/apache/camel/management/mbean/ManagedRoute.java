@@ -110,6 +110,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ModelHelper
 import|;
 end_import
@@ -243,14 +257,14 @@ decl_stmt|;
 DECL|field|context
 specifier|protected
 specifier|final
-name|CamelContext
+name|ModelCamelContext
 name|context
 decl_stmt|;
-DECL|method|ManagedRoute (CamelContext context, Route route)
+DECL|method|ManagedRoute (ModelCamelContext context, Route route)
 specifier|public
 name|ManagedRoute
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|context
 parameter_list|,
 name|Route

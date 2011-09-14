@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Route
 import|;
 end_import
 
@@ -50,7 +50,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
+name|model
+operator|.
+name|ModelCamelContext
 import|;
 end_import
 
@@ -101,11 +103,11 @@ name|ManagedSuspendableRoute
 extends|extends
 name|ManagedRoute
 block|{
-DECL|method|ManagedSuspendableRoute (CamelContext context, Route route)
+DECL|method|ManagedSuspendableRoute (ModelCamelContext context, Route route)
 specifier|public
 name|ManagedSuspendableRoute
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|context
 parameter_list|,
 name|Route

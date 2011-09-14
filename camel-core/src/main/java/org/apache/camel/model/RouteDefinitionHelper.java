@@ -333,13 +333,13 @@ block|}
 block|}
 block|}
 comment|/**      * Prepares the route.      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context the camel context      * @param route   the route      */
-DECL|method|prepareRoute (CamelContext context, RouteDefinition route)
+DECL|method|prepareRoute (ModelCamelContext context, RouteDefinition route)
 specifier|public
 specifier|static
 name|void
 name|prepareRoute
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|context
 parameter_list|,
 name|RouteDefinition
@@ -365,13 +365,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Prepares the route which supports context scoped features such as onException, interceptors and onCompletions      *<p/>      * This method does<b>not</b> mark the route as prepared afterwards.      *      * @param context                            the camel context      * @param route                              the route      * @param onExceptions                       optional list of onExceptions      * @param intercepts                         optional list of interceptors      * @param interceptFromDefinitions           optional list of interceptFroms      * @param interceptSendToEndpointDefinitions optional list of interceptSendToEndpoints      * @param onCompletions                      optional list onCompletions      */
-DECL|method|prepareRoute (CamelContext context, RouteDefinition route, List<OnExceptionDefinition> onExceptions, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions, List<OnCompletionDefinition> onCompletions)
+DECL|method|prepareRoute (ModelCamelContext context, RouteDefinition route, List<OnExceptionDefinition> onExceptions, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions, List<OnCompletionDefinition> onCompletions)
 specifier|public
 specifier|static
 name|void
 name|prepareRoute
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|context
 parameter_list|,
 name|RouteDefinition
@@ -683,13 +683,13 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|initParentAndErrorHandlerBuilder (CamelContext context, RouteDefinition route, List<ProcessorDefinition> abstracts, List<OnExceptionDefinition> onExceptions)
+DECL|method|initParentAndErrorHandlerBuilder (ModelCamelContext context, RouteDefinition route, List<ProcessorDefinition> abstracts, List<OnExceptionDefinition> onExceptions)
 specifier|private
 specifier|static
 name|void
 name|initParentAndErrorHandlerBuilder
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|context
 parameter_list|,
 name|RouteDefinition

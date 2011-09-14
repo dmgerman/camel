@@ -130,6 +130,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -169,7 +183,7 @@ name|BuilderSupport
 block|{
 DECL|field|context
 specifier|private
-name|CamelContext
+name|ModelCamelContext
 name|context
 decl_stmt|;
 DECL|field|errorHandlerBuilder
@@ -189,6 +203,9 @@ name|this
 operator|.
 name|context
 operator|=
+operator|(
+name|ModelCamelContext
+operator|)
 name|context
 expr_stmt|;
 block|}
@@ -1015,7 +1032,7 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getContext ()
 specifier|public
-name|CamelContext
+name|ModelCamelContext
 name|getContext
 parameter_list|()
 block|{
@@ -1023,12 +1040,33 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setContext (CamelContext context)
 specifier|public
 name|void
 name|setContext
 parameter_list|(
 name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+operator|(
+name|ModelCamelContext
+operator|)
+name|context
+expr_stmt|;
+block|}
+DECL|method|setContext (ModelCamelContext context)
+specifier|public
+name|void
+name|setContext
+parameter_list|(
+name|ModelCamelContext
 name|context
 parameter_list|)
 block|{

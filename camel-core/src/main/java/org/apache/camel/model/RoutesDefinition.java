@@ -114,18 +114,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -281,7 +269,7 @@ annotation|@
 name|XmlTransient
 DECL|field|camelContext
 specifier|private
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 decl_stmt|;
 annotation|@
@@ -518,7 +506,7 @@ expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
 specifier|public
-name|CamelContext
+name|ModelCamelContext
 name|getCamelContext
 parameter_list|()
 block|{
@@ -526,12 +514,12 @@ return|return
 name|camelContext
 return|;
 block|}
-DECL|method|setCamelContext (CamelContext camelContext)
+DECL|method|setCamelContext (ModelCamelContext camelContext)
 specifier|public
 name|void
 name|setCamelContext
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 parameter_list|)
 block|{

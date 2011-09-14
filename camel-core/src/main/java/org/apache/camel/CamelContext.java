@@ -729,6 +729,8 @@ function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      */
+annotation|@
+name|Deprecated
 DECL|method|getRouteDefinitions ()
 name|List
 argument_list|<
@@ -738,6 +740,8 @@ name|getRouteDefinitions
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the route definition with the given id      *      * @param id id of the route      * @return the route definition or<tt>null</tt> if not found      */
+annotation|@
+name|Deprecated
 DECL|method|getRouteDefinition (String id)
 name|RouteDefinition
 name|getRouteDefinition
@@ -776,6 +780,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be loaded for whatever reason      * @return the route definitions      */
+annotation|@
+name|Deprecated
 DECL|method|loadRoutesDefinition (InputStream is)
 name|RoutesDefinition
 name|loadRoutesDefinition
@@ -787,6 +793,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|addRouteDefinitions
@@ -801,6 +809,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Add a route definition to the context      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
 name|void
 name|addRouteDefinition
@@ -812,6 +822,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route(s) definitions to remove      * @throws Exception if the route definitions could not be removed for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|removeRouteDefinitions
@@ -826,6 +838,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Removes a route definition from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinition route definition to remove      * @throws Exception if the route definition could not be removed for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|removeRouteDefinition (RouteDefinition routeDefinition)
 name|void
 name|removeRouteDefinition
@@ -837,6 +851,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|startRoute (RouteDefinition route)
 name|void
 name|startRoute
@@ -859,6 +875,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Stops the given route.      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
+annotation|@
+name|Deprecated
 DECL|method|stopRoute (RouteDefinition route)
 name|void
 name|stopRoute
@@ -1142,12 +1160,16 @@ name|getInterceptStrategies
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the default error handler builder which is inherited by the routes      *      * @return the builder      */
+annotation|@
+name|Deprecated
 DECL|method|getErrorHandlerBuilder ()
 name|ErrorHandlerBuilder
 name|getErrorHandlerBuilder
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the default error handler builder which is inherited by the routes      *      * @param errorHandlerBuilder the builder      */
+annotation|@
+name|Deprecated
 DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
 name|void
 name|setErrorHandlerBuilder
@@ -1157,6 +1179,8 @@ name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
 comment|/**      * Sets the data formats that can be referenced in the routes.      *      * @param dataFormats the data formats      */
+annotation|@
+name|Deprecated
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
 name|void
 name|setDataFormats
@@ -1171,6 +1195,8 @@ name|dataFormats
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the data formats that can be referenced in the routes.      *      * @return the data formats available      */
+annotation|@
+name|Deprecated
 DECL|method|getDataFormats ()
 name|Map
 argument_list|<
@@ -1191,6 +1217,8 @@ name|name
 parameter_list|)
 function_decl|;
 comment|/**      * Resolve a data format definition given its name      *      * @param name the data format definition name or a reference to it in the {@link Registry}      * @return the resolved data format definition, or<tt>null</tt> if not found      */
+annotation|@
+name|Deprecated
 DECL|method|resolveDataFormatDefinition (String name)
 name|DataFormatDefinition
 name|resolveDataFormatDefinition

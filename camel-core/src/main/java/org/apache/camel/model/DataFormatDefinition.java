@@ -239,10 +239,15 @@ expr_stmt|;
 comment|// try to let resolver see if it can resolve it, its not always possible
 name|type
 operator|=
+operator|(
+operator|(
+name|ModelCamelContext
+operator|)
 name|routeContext
 operator|.
 name|getCamelContext
 argument_list|()
+operator|)
 operator|.
 name|resolveDataFormatDefinition
 argument_list|(

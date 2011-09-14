@@ -132,6 +132,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|OnCompletionDefinition
 import|;
 end_import
@@ -903,11 +917,11 @@ comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getContext ()
 specifier|public
-name|CamelContext
+name|ModelCamelContext
 name|getContext
 parameter_list|()
 block|{
-name|CamelContext
+name|ModelCamelContext
 name|context
 init|=
 name|super
@@ -950,6 +964,9 @@ name|Exception
 block|{
 name|configureRoutes
 argument_list|(
+operator|(
+name|ModelCamelContext
+operator|)
 name|context
 argument_list|)
 expr_stmt|;
@@ -959,12 +976,12 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Configures the routes      *      * @param context the Camel context      * @return the routes configured      * @throws Exception can be thrown during configuration      */
-DECL|method|configureRoutes (CamelContext context)
+DECL|method|configureRoutes (ModelCamelContext context)
 specifier|public
 name|RoutesDefinition
 name|configureRoutes
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|context
 parameter_list|)
 throws|throws
@@ -1120,7 +1137,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Set the CamelContext ErrorHandler here
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 init|=
 name|getContext
@@ -1178,7 +1195,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 init|=
 name|getContext
@@ -1250,7 +1267,7 @@ block|}
 comment|/**      * Factory method      *      * @return the CamelContext      */
 DECL|method|createContainer ()
 specifier|protected
-name|CamelContext
+name|ModelCamelContext
 name|createContainer
 parameter_list|()
 block|{

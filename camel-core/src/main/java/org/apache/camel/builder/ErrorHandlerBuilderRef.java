@@ -60,6 +60,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|OnExceptionDefinition
 import|;
 end_import
@@ -359,6 +373,9 @@ name|answer
 operator|=
 name|lookupErrorHandlerBuilder
 argument_list|(
+operator|(
+name|ModelCamelContext
+operator|)
 name|routeContext
 operator|.
 name|getCamelContext
@@ -436,13 +453,13 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|lookupErrorHandlerBuilder (CamelContext camelContext)
+DECL|method|lookupErrorHandlerBuilder (ModelCamelContext camelContext)
 specifier|protected
 specifier|static
 name|ErrorHandlerBuilder
 name|lookupErrorHandlerBuilder
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 parameter_list|)
 block|{

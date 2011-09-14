@@ -138,6 +138,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ModelHelper
 import|;
 end_import
@@ -252,14 +266,14 @@ block|{
 DECL|field|context
 specifier|private
 specifier|final
-name|CamelContext
+name|ModelCamelContext
 name|context
 decl_stmt|;
-DECL|method|ManagedCamelContext (CamelContext context)
+DECL|method|ManagedCamelContext (ModelCamelContext context)
 specifier|public
 name|ManagedCamelContext
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|context
 parameter_list|)
 block|{
