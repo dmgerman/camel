@@ -200,6 +200,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|FailedToCreateRouteException
 import|;
 end_import
@@ -289,20 +301,6 @@ operator|.
 name|builder
 operator|.
 name|AdviceWithTask
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -606,6 +604,16 @@ specifier|private
 name|ShutdownRunningTask
 name|shutdownRunningTask
 decl_stmt|;
+DECL|field|errorHandlerRef
+specifier|private
+name|String
+name|errorHandlerRef
+decl_stmt|;
+DECL|field|errorHandlerBuilder
+specifier|private
+name|ErrorHandlerFactory
+name|errorHandlerBuilder
+decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
 name|RouteDefinition
@@ -880,7 +888,7 @@ name|RouteContext
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|handler
 init|=
 name|camelContext
@@ -1610,12 +1618,12 @@ name|this
 return|;
 block|}
 comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder.      *      * @param errorHandlerBuilder the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
-DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|errorHandler (ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|RouteDefinition
 name|errorHandler
 parameter_list|(
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{
@@ -2196,12 +2204,12 @@ name|errorHandlerRef
 return|;
 block|}
 comment|/**      * Sets the error handler if one is not already set      */
-DECL|method|setErrorHandlerBuilderIfNull (ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|setErrorHandlerBuilderIfNull (ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
 name|setErrorHandlerBuilderIfNull
 parameter_list|(
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{
@@ -2337,6 +2345,80 @@ operator|.
 name|shutdownRunningTask
 operator|=
 name|shutdownRunningTask
+expr_stmt|;
+block|}
+DECL|method|createErrorHandlerBuilder ()
+specifier|private
+name|ErrorHandlerFactory
+name|createErrorHandlerBuilder
+parameter_list|()
+block|{
+if|if
+condition|(
+name|errorHandlerRef
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|ErrorHandlerBuilderRef
+argument_list|(
+name|errorHandlerRef
+argument_list|)
+return|;
+block|}
+comment|// return a reference to the default error handler
+return|return
+operator|new
+name|ErrorHandlerBuilderRef
+argument_list|(
+name|ErrorHandlerBuilderRef
+operator|.
+name|DEFAULT_ERROR_HANDLER_BUILDER
+argument_list|)
+return|;
+block|}
+annotation|@
+name|XmlTransient
+DECL|method|getErrorHandlerBuilder ()
+specifier|public
+name|ErrorHandlerFactory
+name|getErrorHandlerBuilder
+parameter_list|()
+block|{
+if|if
+condition|(
+name|errorHandlerBuilder
+operator|==
+literal|null
+condition|)
+block|{
+name|errorHandlerBuilder
+operator|=
+name|createErrorHandlerBuilder
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|errorHandlerBuilder
+return|;
+block|}
+comment|/**      * Sets the error handler to use with processors created by this builder      */
+DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
+specifier|public
+name|void
+name|setErrorHandlerBuilder
+parameter_list|(
+name|ErrorHandlerFactory
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandlerBuilder
+operator|=
+name|errorHandlerBuilder
 expr_stmt|;
 block|}
 comment|// Implementation methods

@@ -68,20 +68,6 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * Model level interface for a camel context  *  */
 end_comment
@@ -94,21 +80,6 @@ name|ModelCamelContext
 extends|extends
 name|CamelContext
 block|{
-comment|/**      * Gets the default error handler builder which is inherited by the routes      *      * @return the builder      */
-DECL|method|getErrorHandlerBuilder ()
-name|ErrorHandlerBuilder
-name|getErrorHandlerBuilder
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the default error handler builder which is inherited by the routes      *      * @param errorHandlerBuilder the builder      */
-DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
-name|void
-name|setErrorHandlerBuilder
-parameter_list|(
-name|ErrorHandlerBuilder
-name|errorHandlerBuilder
-parameter_list|)
-function_decl|;
 comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      */
 DECL|method|getRouteDefinitions ()
 name|List

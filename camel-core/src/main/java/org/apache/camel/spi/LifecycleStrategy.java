@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -119,20 +131,6 @@ operator|.
 name|camel
 operator|.
 name|VetoCamelContextStartException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -272,7 +270,7 @@ name|routeContext
 parameter_list|)
 function_decl|;
 comment|/**      * Notification on adding error handler.      *      * @param routeContext        the added route context      * @param errorHandler        the error handler      * @param errorHandlerBuilder the error handler builder      */
-DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor errorHandler, ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 name|void
 name|onErrorHandlerAdd
 parameter_list|(
@@ -282,7 +280,7 @@ parameter_list|,
 name|Processor
 name|errorHandler
 parameter_list|,
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 function_decl|;

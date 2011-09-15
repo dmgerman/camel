@@ -34,7 +34,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|ErrorHandlerFactory
 import|;
 end_import
 
@@ -82,20 +82,6 @@ name|ExceptionPolicyStrategy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RouteContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * A builder of a<a href="http://camel.apache.org/error-handler.html">Error Handler</a>  *  * @version   */
 end_comment
@@ -105,21 +91,9 @@ DECL|interface|ErrorHandlerBuilder
 specifier|public
 interface|interface
 name|ErrorHandlerBuilder
+extends|extends
+name|ErrorHandlerFactory
 block|{
-comment|/**      * Creates the error handler interceptor      *      * @param routeContext the route context      * @param processor the outer processor      * @return the error handler      * @throws Exception is thrown if the error handler could not be created      */
-DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
-name|Processor
-name|createErrorHandler
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Adds error handler for the given exception type      *      * @param exception  the exception to handle      */
 DECL|method|addErrorHandlers (OnExceptionDefinition exception)
 name|void

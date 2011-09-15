@@ -1159,7 +1159,7 @@ argument_list|>
 name|getInterceptStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the default error handler builder which is inherited by the routes      *      * @return the builder      */
+comment|/**      * Gets the default error handler builder which is inherited by the routes      * @deprecated The return type will be switched to ErrorHandlerFactory in Camel 3.0      *      * @return the builder      */
 annotation|@
 name|Deprecated
 DECL|method|getErrorHandlerBuilder ()
@@ -1168,13 +1168,11 @@ name|getErrorHandlerBuilder
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the default error handler builder which is inherited by the routes      *      * @param errorHandlerBuilder the builder      */
-annotation|@
-name|Deprecated
-DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
 name|void
 name|setErrorHandlerBuilder
 parameter_list|(
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 function_decl|;

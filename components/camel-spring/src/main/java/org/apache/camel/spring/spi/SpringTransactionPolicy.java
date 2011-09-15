@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -276,7 +288,7 @@ comment|// and wrap the processor in the transacted error handler as we can have
 comment|// propagation behavior, eg: from A required -> B -> requiresNew C (advanced use-case)
 comment|// if we should not support this we do not need to wrap the processor as we only need one transacted error handler
 comment|// find the existing error handler builder
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|builder
 init|=
 name|routeContext

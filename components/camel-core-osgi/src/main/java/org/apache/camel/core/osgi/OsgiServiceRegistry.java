@@ -128,6 +128,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -153,20 +165,6 @@ operator|.
 name|camel
 operator|.
 name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -637,7 +635,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor processor, ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor processor, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
 name|onErrorHandlerAdd
@@ -648,7 +646,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{

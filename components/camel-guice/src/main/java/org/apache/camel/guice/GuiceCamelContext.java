@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RoutesBuilder
 import|;
 end_import
@@ -133,20 +145,6 @@ operator|.
 name|camel
 operator|.
 name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -541,12 +539,12 @@ name|optional
 operator|=
 literal|true
 argument_list|)
-DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
 name|setErrorHandlerBuilder
 parameter_list|(
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{

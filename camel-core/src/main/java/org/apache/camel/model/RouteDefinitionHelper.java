@@ -56,9 +56,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 import|;
 end_import
 
@@ -194,17 +192,14 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|initParentAndErrorHandlerBuilder (ProcessorDefinition parent, ErrorHandlerBuilder builder)
-specifier|public
+DECL|method|initParentAndErrorHandlerBuilder (ProcessorDefinition parent)
+specifier|private
 specifier|static
 name|void
 name|initParentAndErrorHandlerBuilder
 parameter_list|(
 name|ProcessorDefinition
 name|parent
-parameter_list|,
-name|ErrorHandlerBuilder
-name|builder
 parameter_list|)
 block|{
 name|List
@@ -233,13 +228,6 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
-name|child
-operator|.
-name|setErrorHandlerBuilder
-argument_list|(
-name|builder
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|child
@@ -263,8 +251,6 @@ comment|// recursive the children
 name|initParentAndErrorHandlerBuilder
 argument_list|(
 name|child
-argument_list|,
-name|builder
 argument_list|)
 expr_stmt|;
 block|}
@@ -731,11 +717,6 @@ comment|// init parent and error handler builder on the route
 name|initParentAndErrorHandlerBuilder
 argument_list|(
 name|route
-argument_list|,
-name|route
-operator|.
-name|getErrorHandlerBuilder
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// set the parent and error handler builder on the global on exceptions
@@ -754,24 +735,10 @@ range|:
 name|onExceptions
 control|)
 block|{
-name|global
-operator|.
-name|setErrorHandlerBuilder
-argument_list|(
-name|context
-operator|.
-name|getErrorHandlerBuilder
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//global.setErrorHandlerBuilder(context.getErrorHandlerBuilder());
 name|initParentAndErrorHandlerBuilder
 argument_list|(
 name|global
-argument_list|,
-name|context
-operator|.
-name|getErrorHandlerBuilder
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

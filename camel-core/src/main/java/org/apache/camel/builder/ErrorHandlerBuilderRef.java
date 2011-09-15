@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -246,7 +258,7 @@ comment|/**      * Lookup the error handler by the given ref      *      * @para
 DECL|method|lookupErrorHandlerBuilder (RouteContext routeContext, String ref)
 specifier|public
 specifier|static
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|lookupErrorHandlerBuilder
 parameter_list|(
 name|RouteContext
@@ -256,7 +268,7 @@ name|String
 name|ref
 parameter_list|)
 block|{
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|answer
 decl_stmt|;
 comment|// if the ref is the default then we do not have any explicit error handler configured
@@ -401,7 +413,12 @@ expr_stmt|;
 block|}
 comment|// inherit the error handlers from the other as they are to be shared
 comment|// this is needed by camel-spring when none error handler has been explicit configured
+operator|(
+operator|(
+name|ErrorHandlerBuilder
+operator|)
 name|answer
+operator|)
 operator|.
 name|setErrorHandlers
 argument_list|(
@@ -456,14 +473,14 @@ block|}
 DECL|method|lookupErrorHandlerBuilder (ModelCamelContext camelContext)
 specifier|protected
 specifier|static
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|lookupErrorHandlerBuilder
 parameter_list|(
 name|ModelCamelContext
 name|camelContext
 parameter_list|)
 block|{
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|answer
 init|=
 name|camelContext
@@ -576,7 +593,7 @@ return|;
 block|}
 DECL|method|getHandler ()
 specifier|public
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|getHandler
 parameter_list|()
 block|{
@@ -595,6 +612,9 @@ parameter_list|)
 block|{
 name|handler
 operator|=
+operator|(
+name|ErrorHandlerBuilder
+operator|)
 name|lookupErrorHandlerBuilder
 argument_list|(
 name|routeContext

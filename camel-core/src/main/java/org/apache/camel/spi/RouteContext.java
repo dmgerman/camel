@@ -162,20 +162,6 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a processor      *      * @param node  the node      * @return the created processor      * @throws Exception can be thrown      */
-DECL|method|createProcessor (ProcessorDefinition<?> node)
-name|Processor
-name|createProcessor
-parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|node
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Resolves an endpoint from the URI      *      * @param uri the URI      * @return the resolved endpoint      */
 DECL|method|resolveEndpoint (String uri)
 name|Endpoint

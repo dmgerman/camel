@@ -943,11 +943,9 @@ comment|// lets attach this on exception to the route error handler
 name|Processor
 name|child
 init|=
-name|routeContext
-operator|.
-name|createProcessor
+name|createOutputsProcessor
 argument_list|(
-name|this
+name|routeContext
 argument_list|)
 decl_stmt|;
 if|if
@@ -979,6 +977,9 @@ comment|// lookup the error handler builder
 name|ErrorHandlerBuilder
 name|builder
 init|=
+operator|(
+name|ErrorHandlerBuilder
+operator|)
 name|routeContext
 operator|.
 name|getRoute

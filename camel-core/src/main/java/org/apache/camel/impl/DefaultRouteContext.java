@@ -620,29 +620,6 @@ return|return
 name|camelContext
 return|;
 block|}
-DECL|method|createProcessor (ProcessorDefinition<?> node)
-specifier|public
-name|Processor
-name|createProcessor
-parameter_list|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|node
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-name|node
-operator|.
-name|createOutputsProcessor
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
 DECL|method|resolveEndpoint (String uri)
 specifier|public
 name|Endpoint

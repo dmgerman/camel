@@ -320,6 +320,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|FailedToStartRouteException
 import|;
 end_import
@@ -1801,7 +1813,7 @@ name|delay
 decl_stmt|;
 DECL|field|errorHandlerBuilder
 specifier|private
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 decl_stmt|;
 DECL|field|dataFormats
@@ -6723,15 +6735,18 @@ name|getErrorHandlerBuilder
 parameter_list|()
 block|{
 return|return
+operator|(
+name|ErrorHandlerBuilder
+operator|)
 name|errorHandlerBuilder
 return|;
 block|}
-DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
 name|setErrorHandlerBuilder
 parameter_list|(
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{

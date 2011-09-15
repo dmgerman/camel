@@ -114,6 +114,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -151,20 +163,6 @@ operator|.
 name|camel
 operator|.
 name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -988,7 +986,7 @@ name|buffer
 argument_list|)
 return|;
 block|}
-DECL|method|getObjectNameForErrorHandler (RouteContext routeContext, Processor errorHandler, ErrorHandlerBuilder builder)
+DECL|method|getObjectNameForErrorHandler (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory builder)
 specifier|public
 name|ObjectName
 name|getObjectNameForErrorHandler
@@ -999,7 +997,7 @@ parameter_list|,
 name|Processor
 name|errorHandler
 parameter_list|,
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|builder
 parameter_list|)
 throws|throws

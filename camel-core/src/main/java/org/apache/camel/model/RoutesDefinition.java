@@ -126,9 +126,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 import|;
 end_import
 
@@ -276,7 +274,7 @@ annotation|@
 name|XmlTransient
 DECL|field|errorHandlerBuilder
 specifier|private
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 decl_stmt|;
 DECL|method|RoutesDefinition ()
@@ -532,7 +530,7 @@ expr_stmt|;
 block|}
 DECL|method|getErrorHandlerBuilder ()
 specifier|public
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|getErrorHandlerBuilder
 parameter_list|()
 block|{
@@ -540,12 +538,12 @@ return|return
 name|errorHandlerBuilder
 return|;
 block|}
-DECL|method|setErrorHandlerBuilder (ErrorHandlerBuilder errorHandlerBuilder)
+DECL|method|setErrorHandlerBuilder (ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
 name|setErrorHandlerBuilder
 parameter_list|(
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{
@@ -944,7 +942,7 @@ operator|new
 name|RouteDefinition
 argument_list|()
 decl_stmt|;
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|handler
 init|=
 name|getErrorHandlerBuilder

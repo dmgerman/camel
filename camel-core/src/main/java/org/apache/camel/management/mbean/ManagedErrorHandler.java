@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|LoggingLevel
 import|;
 end_import
@@ -71,20 +83,6 @@ operator|.
 name|management
 operator|.
 name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -176,10 +174,10 @@ decl_stmt|;
 DECL|field|errorHandlerBuilder
 specifier|private
 specifier|final
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|errorHandlerBuilder
 decl_stmt|;
-DECL|method|ManagedErrorHandler (RouteContext routeContext, Processor errorHandler, ErrorHandlerBuilder builder)
+DECL|method|ManagedErrorHandler (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory builder)
 specifier|public
 name|ManagedErrorHandler
 parameter_list|(
@@ -189,7 +187,7 @@ parameter_list|,
 name|Processor
 name|errorHandler
 parameter_list|,
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|builder
 parameter_list|)
 block|{
@@ -245,7 +243,7 @@ return|;
 block|}
 DECL|method|getErrorHandlerBuilder ()
 specifier|public
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|getErrorHandlerBuilder
 parameter_list|()
 block|{

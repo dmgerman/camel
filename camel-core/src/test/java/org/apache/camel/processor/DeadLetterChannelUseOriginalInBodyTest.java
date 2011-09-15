@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -49,20 +61,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|ErrorHandlerBuilder
 import|;
 end_import
 
@@ -205,7 +203,7 @@ throws|throws
 name|Exception
 block|{
 comment|// will use original
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|a
 init|=
 name|deadLetterChannel
@@ -232,7 +230,7 @@ name|useOriginalMessage
 argument_list|()
 decl_stmt|;
 comment|// will NOT use original
-name|ErrorHandlerBuilder
+name|ErrorHandlerFactory
 name|b
 init|=
 name|deadLetterChannel
