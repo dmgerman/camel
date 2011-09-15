@@ -288,9 +288,12 @@ comment|// and wrap the processor in the transacted error handler as we can have
 comment|// propagation behavior, eg: from A required -> B -> requiresNew C (advanced use-case)
 comment|// if we should not support this we do not need to wrap the processor as we only need one transacted error handler
 comment|// find the existing error handler builder
-name|ErrorHandlerFactory
+name|ErrorHandlerBuilder
 name|builder
 init|=
+operator|(
+name|ErrorHandlerBuilder
+operator|)
 name|routeContext
 operator|.
 name|getRoute
@@ -348,6 +351,9 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|=
+operator|(
+name|ErrorHandlerBuilder
+operator|)
 name|ErrorHandlerBuilderRef
 operator|.
 name|lookupErrorHandlerBuilder
