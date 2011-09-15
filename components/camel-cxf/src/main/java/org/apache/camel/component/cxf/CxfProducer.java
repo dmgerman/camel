@@ -963,18 +963,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// Ignore the partical response message handling
-name|requestContext
-operator|.
-name|put
-argument_list|(
-literal|"org.apache.cxf.partial.response.handling"
-argument_list|,
-name|Boolean
-operator|.
-name|FALSE
-argument_list|)
-expr_stmt|;
 block|}
 comment|// bind the request CXF exchange
 name|endpoint

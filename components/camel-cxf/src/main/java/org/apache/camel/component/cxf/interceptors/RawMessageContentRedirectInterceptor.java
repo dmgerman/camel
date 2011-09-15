@@ -215,6 +215,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+literal|null
+operator|!=
+name|params
+condition|)
+block|{
 name|InputStream
 name|is
 init|=
@@ -280,6 +287,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// Should not close the output stream as the interceptor chain will close it
+block|}
 block|}
 block|}
 block|}
