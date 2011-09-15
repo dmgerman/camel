@@ -116,6 +116,35 @@ name|?
 argument_list|>
 name|resultType
 decl_stmt|;
+comment|/**      * Default constructor.      */
+DECL|method|SimpleLanguage ()
+specifier|public
+name|SimpleLanguage
+parameter_list|()
+block|{     }
+comment|/**      * Constructor that customizes the function start and end tokens.      *      * @param functionStartToken The function start token.      * @param functionEndToken   The function end token.      */
+DECL|method|SimpleLanguage (String functionStartToken, String functionEndToken)
+specifier|public
+name|SimpleLanguage
+parameter_list|(
+name|String
+name|functionStartToken
+parameter_list|,
+name|String
+name|functionEndToken
+parameter_list|)
+block|{
+name|changeFunctionStartToken
+argument_list|(
+name|functionStartToken
+argument_list|)
+expr_stmt|;
+name|changeFunctionEndToken
+argument_list|(
+name|functionEndToken
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getResultType ()
 specifier|public
 name|Class
