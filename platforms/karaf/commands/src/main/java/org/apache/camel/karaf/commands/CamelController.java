@@ -106,6 +106,18 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
+comment|/**      * Get all route definitions. If Camel context name is null, all route definitions from all contexts are listed.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @return the list of the Camel route definitions.      */
+DECL|method|getRouteDefinitions (String camelContextName)
+name|List
+argument_list|<
+name|RouteDefinition
+argument_list|>
+name|getRouteDefinitions
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+function_decl|;
 comment|/**      * Return the route with the given route ID.      *      * @param routeId the route ID.      * @param camelContextName the Camel context name.      * @return the route.      */
 DECL|method|getRoute (String routeId, String camelContextName)
 name|Route

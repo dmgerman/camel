@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -49,20 +39,6 @@ operator|.
 name|camel
 operator|.
 name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteDefinition
 import|;
 end_import
 
@@ -115,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Command to start a route.  */
+comment|/**  * Command to resume a route.  */
 end_comment
 
 begin_class
@@ -128,16 +104,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"start-route"
+literal|"resume-route"
 argument_list|,
 name|description
 operator|=
-literal|"Start a Camel route."
+literal|"Resume a Camel route."
 argument_list|)
-DECL|class|StartRouteCommand
+DECL|class|ResumeRouteCommand
 specifier|public
 class|class
-name|StartRouteCommand
+name|ResumeRouteCommand
 extends|extends
 name|OsgiCommandSupport
 block|{
@@ -243,57 +219,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|List
-argument_list|<
-name|CamelContext
-argument_list|>
-name|camelContexts
-init|=
-name|camelController
-operator|.
-name|getCamelContexts
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|CamelContext
-name|camelContext
-range|:
-name|camelContexts
-control|)
-block|{
-name|RouteDefinition
-name|routeDefinition
-init|=
-name|camelContext
-operator|.
-name|getRouteDefinition
-argument_list|(
-name|route
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|routeDefinition
-operator|!=
-literal|null
-condition|)
-block|{
-name|camelContext
-operator|.
-name|startRoute
-argument_list|(
-name|routeDefinition
-operator|.
-name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
-block|}
 name|System
 operator|.
 name|err
@@ -311,8 +236,6 @@ return|return
 literal|null
 return|;
 block|}
-else|else
-block|{
 name|CamelContext
 name|camelContext
 init|=
@@ -326,12 +249,11 @@ argument_list|()
 decl_stmt|;
 name|camelContext
 operator|.
-name|startRoute
+name|resumeRoute
 argument_list|(
 name|route
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
