@@ -88,20 +88,6 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|DescriptionDefinition
-import|;
-end_import
-
 begin_comment
 comment|/**  * Some useful converters for Camel APIs such as to convert a {@link Predicate} or {@link Expression}  * to a {@link Processor}  *  * @version   */
 end_comment
@@ -248,35 +234,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
-block|}
-annotation|@
-name|Converter
-DECL|method|toDefinition (String descriptionText)
-specifier|public
-name|DescriptionDefinition
-name|toDefinition
-parameter_list|(
-name|String
-name|descriptionText
-parameter_list|)
-block|{
-name|DescriptionDefinition
-name|answer
-init|=
-operator|new
-name|DescriptionDefinition
-argument_list|()
-decl_stmt|;
-name|answer
-operator|.
-name|setText
-argument_list|(
-name|descriptionText
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 block|}
