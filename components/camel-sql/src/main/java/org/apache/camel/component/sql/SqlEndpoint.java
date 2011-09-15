@@ -84,6 +84,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|jdbc
@@ -267,10 +281,16 @@ name|String
 name|createEndpointUri
 parameter_list|()
 block|{
+comment|// Make sure it's properly encoded
 return|return
 literal|"sql:"
 operator|+
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
 name|query
+argument_list|)
 return|;
 block|}
 block|}
