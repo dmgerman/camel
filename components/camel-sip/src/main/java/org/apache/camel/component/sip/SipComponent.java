@@ -124,7 +124,7 @@ init|=
 operator|new
 name|SipEndpoint
 argument_list|(
-name|remaining
+name|uri
 argument_list|,
 name|this
 argument_list|,
