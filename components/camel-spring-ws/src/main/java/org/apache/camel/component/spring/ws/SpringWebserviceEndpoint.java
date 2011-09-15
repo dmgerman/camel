@@ -95,12 +95,15 @@ specifier|private
 name|SpringWebserviceConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|SpringWebserviceEndpoint (Component component, SpringWebserviceConfiguration configuration)
+DECL|method|SpringWebserviceEndpoint (Component component, String uri, SpringWebserviceConfiguration configuration)
 specifier|public
 name|SpringWebserviceEndpoint
 parameter_list|(
 name|Component
 name|component
+parameter_list|,
+name|String
+name|uri
 parameter_list|,
 name|SpringWebserviceConfiguration
 name|configuration
@@ -108,10 +111,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|configuration
-operator|.
-name|getEndpointUri
-argument_list|()
+name|uri
 argument_list|,
 name|component
 argument_list|)
