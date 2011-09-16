@@ -375,8 +375,6 @@ name|o
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|putAll (Map<? extends K, ? extends V> map)
 specifier|public
 name|void

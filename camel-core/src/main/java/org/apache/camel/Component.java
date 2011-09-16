@@ -26,10 +26,21 @@ name|Component
 extends|extends
 name|CamelContextAware
 block|{
-comment|/**      * Attempt to resolve an endpoint for the given URI if the component is      * capable of handling the URI      *       * @param uri the URI to create      * @return a newly created endpoint or null if this component cannot create      *         instances of the given uri      * @throws Exception is thrown if error creating the endpoint      */
+comment|/**      * Attempt to resolve an endpoint for the given URI if the component is      * capable of handling the URI      *       * @param uri the URI to create      * @return a newly created {@link Endpoint} or null if this component cannot create      *         {@link Endpoint} instances using the given uri      * @throws Exception is thrown if error creating the endpoint      */
 DECL|method|createEndpoint (String uri)
 name|Endpoint
 name|createEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Attempt to create a configuration object from the give uri      *       * @param uri the configuration URI      * @return a newly created {@link EndpointConfiguration}      * @throws Exception is thrown if the configuration URI is invalid      */
+DECL|method|createConfiguration (String uri)
+name|EndpointConfiguration
+name|createConfiguration
 parameter_list|(
 name|String
 name|uri

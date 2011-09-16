@@ -100,6 +100,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ResolveEndpointFailedException
 import|;
 end_import
@@ -569,6 +581,21 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|createConfiguration (String uri)
+specifier|public
+name|EndpointConfiguration
+name|createConfiguration
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+literal|null
 return|;
 block|}
 comment|/**      * Strategy to do post configuration logic.      *<p/>      * Can be used to construct an URI based on the remaining parameters. For example the parameters that configures      * the endpoint have been removed from the parameters which leaves only the additional parameters left.      *      * @param endpoint the created endpoint      * @param parameters the remaining parameters after the endpoint has been created and parsed the parameters      * @throws Exception can be thrown to indicate error creating the endpoint      */

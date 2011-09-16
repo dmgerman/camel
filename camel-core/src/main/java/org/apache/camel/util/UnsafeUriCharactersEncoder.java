@@ -216,6 +216,12 @@ name|int
 name|n
 init|=
 name|s
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|s
 operator|.
 name|length
 argument_list|()

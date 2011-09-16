@@ -505,7 +505,7 @@ literal|"irc://user@irc.freenode.net?keys=foo,&channels=#camel,#cxf&realname=Cam
 expr_stmt|;
 name|sanitized
 operator|=
-literal|"irc://user@irc.freenode.net?realname=Camel%20Bot&nickname=camelbot&channel=camel!foo&channel=cxf"
+literal|"irc://user@irc.freenode.net?channel=camel!foo&channel=cxf&nickname=camelbot&realname=Camel%20Bot"
 expr_stmt|;
 name|endpoint
 operator|=
@@ -883,7 +883,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"irc://irc.freenode.net?keys=,foo&channels=#camel,#smx&nickname=camelbot"
+literal|"irc://irc.freenode.net?keys=,foo&channels=%23camel,%23smx&nickname=camelbot"
 argument_list|)
 decl_stmt|;
 name|IrcConfiguration
@@ -1006,7 +1006,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"irc://badnick@irc.freenode.net?keys=foo,&channels=#camel,#smx&realname=Camel Bot&nickname=camelbot"
+literal|"irc://badnick@irc.freenode.net?keys=foo,&channels=#camel,#smx&realname=Camel+Bot&nickname=camelbot"
 argument_list|)
 decl_stmt|;
 name|IrcConfiguration
@@ -1129,7 +1129,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"irc://badnick@irc.freenode.net?keys=foo,bar&channels=#camel,#smx&realname=Camel Bot&nickname=camelbot"
+literal|"irc://badnick@irc.freenode.net?keys=foo,bar&channels=#camel,#smx&realname=Camel+Bot&nickname=camelbot"
 argument_list|)
 decl_stmt|;
 name|IrcConfiguration

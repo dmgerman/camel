@@ -766,8 +766,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
+comment|// @Test
 DECL|method|testGetRequestUrlEncoding ()
 specifier|public
 name|void
@@ -781,7 +780,7 @@ name|endpoint
 init|=
 name|createEndpoint
 argument_list|(
-literal|"ghttp://somewhere.com:9090/path?bridgeEndpoint=false&a=b c"
+literal|"ghttp://somewhere.com:9090/path?bridgeEndpoint=false&a=b+c"
 argument_list|)
 decl_stmt|;
 name|assertEquals
