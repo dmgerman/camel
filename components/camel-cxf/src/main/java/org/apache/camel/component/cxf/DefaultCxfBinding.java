@@ -2427,6 +2427,16 @@ name|i
 init|=
 literal|0
 decl_stmt|;
+if|if
+condition|(
+name|boi
+operator|.
+name|getOutput
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|MessagePartInfo
@@ -2466,6 +2476,7 @@ operator|++
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
