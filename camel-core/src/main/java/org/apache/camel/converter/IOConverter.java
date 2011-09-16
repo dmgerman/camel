@@ -1738,6 +1738,27 @@ name|useDefault
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
+DECL|method|getCharsetName (Exchange exchange)
+specifier|public
+specifier|static
+name|String
+name|getCharsetName
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 comment|/**      * Encoding-aware file reader.       */
 DECL|class|EncodingFileReader
 specifier|private
