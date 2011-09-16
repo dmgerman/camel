@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language.simple
+DECL|package|org.apache.camel.language.simple.types
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|language
 operator|.
 name|simple
+operator|.
+name|types
 package|;
 end_package
 
@@ -565,6 +567,7 @@ block|,
 name|NullValue
 block|;
 DECL|method|isLiteralSupported ()
+specifier|public
 name|boolean
 name|isLiteralSupported
 parameter_list|()
@@ -576,6 +579,7 @@ name|Literal
 return|;
 block|}
 DECL|method|isLiteralWithFunctionSupport ()
+specifier|public
 name|boolean
 name|isLiteralWithFunctionSupport
 parameter_list|()
@@ -587,6 +591,7 @@ name|LiteralWithFunction
 return|;
 block|}
 DECL|method|isFunctionSupport ()
+specifier|public
 name|boolean
 name|isFunctionSupport
 parameter_list|()
@@ -598,6 +603,7 @@ name|Function
 return|;
 block|}
 DECL|method|isNumericValueSupported ()
+specifier|public
 name|boolean
 name|isNumericValueSupported
 parameter_list|()
@@ -609,6 +615,7 @@ name|NumericValue
 return|;
 block|}
 DECL|method|isBooleanValueSupported ()
+specifier|public
 name|boolean
 name|isBooleanValueSupported
 parameter_list|()
@@ -620,6 +627,7 @@ name|BooleanValue
 return|;
 block|}
 DECL|method|isNullValueSupported ()
+specifier|public
 name|boolean
 name|isNullValueSupported
 parameter_list|()

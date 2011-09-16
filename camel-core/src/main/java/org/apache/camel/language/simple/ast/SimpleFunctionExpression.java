@@ -58,6 +58,8 @@ name|language
 operator|.
 name|simple
 operator|.
+name|types
+operator|.
 name|SimpleParserException
 import|;
 end_import
@@ -73,6 +75,8 @@ operator|.
 name|language
 operator|.
 name|simple
+operator|.
+name|types
 operator|.
 name|SimpleToken
 import|;
@@ -174,7 +178,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Camel {@link Expression} based on this model.      *      * @param expression the input string      * @param strict whether to throw exception if the expression was not a function,      *          otherwise<tt>null</tt> is returned      * @return the created {@link Expression}      * @throws org.apache.camel.language.simple.SimpleParserException      *          should be thrown if error parsing the model      */
+comment|/**      * Creates a Camel {@link Expression} based on this model.      *      * @param expression the input string      * @param strict whether to throw exception if the expression was not a function,      *          otherwise<tt>null</tt> is returned      * @return the created {@link Expression}      * @throws org.apache.camel.language.simple.types.SimpleParserException      *          should be thrown if error parsing the model      */
 DECL|method|createExpression (String expression, boolean strict)
 specifier|public
 name|Expression

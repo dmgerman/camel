@@ -30,6 +30,24 @@ name|ExchangeTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|types
+operator|.
+name|SimpleIllegalSyntaxException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment

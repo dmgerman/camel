@@ -82,6 +82,8 @@ name|language
 operator|.
 name|simple
 operator|.
+name|types
+operator|.
 name|LogicalOperatorType
 import|;
 end_import
@@ -98,6 +100,8 @@ name|language
 operator|.
 name|simple
 operator|.
+name|types
+operator|.
 name|SimpleParserException
 import|;
 end_import
@@ -113,6 +117,8 @@ operator|.
 name|language
 operator|.
 name|simple
+operator|.
+name|types
 operator|.
 name|SimpleToken
 import|;

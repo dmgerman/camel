@@ -78,6 +78,8 @@ name|language
 operator|.
 name|simple
 operator|.
+name|types
+operator|.
 name|SimpleToken
 import|;
 end_import
