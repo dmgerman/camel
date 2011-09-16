@@ -4430,6 +4430,11 @@ operator|=
 name|blueprintContainer
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|process (ComponentDefinitionRegistry componentDefinitionRegistry)
 specifier|public
 name|void

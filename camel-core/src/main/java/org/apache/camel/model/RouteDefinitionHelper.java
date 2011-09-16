@@ -669,6 +669,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|initParentAndErrorHandlerBuilder (ModelCamelContext context, RouteDefinition route, List<ProcessorDefinition> abstracts, List<OnExceptionDefinition> onExceptions)
 specifier|private
 specifier|static

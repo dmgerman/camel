@@ -480,6 +480,11 @@ name|ModelCamelContext
 name|camelContext
 parameter_list|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|ErrorHandlerFactory
 name|answer
 init|=

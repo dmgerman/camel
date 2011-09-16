@@ -195,6 +195,11 @@ comment|/**  * A command line tool for booting up a CamelContext using an option
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|Main
 specifier|public
 class|class

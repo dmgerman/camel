@@ -664,10 +664,14 @@ name|Attachment
 argument_list|>
 name|attachments
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Set
 argument_list|<
-name|Attachment
+name|?
 argument_list|>
 operator|)
 name|requestContext
@@ -677,6 +681,7 @@ argument_list|(
 name|CxfConstants
 operator|.
 name|CAMEL_CXF_ATTACHMENTS
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertNotNull

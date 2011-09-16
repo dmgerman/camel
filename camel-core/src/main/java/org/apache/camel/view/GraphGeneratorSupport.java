@@ -331,6 +331,11 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|List
 argument_list|<
 name|RouteDefinition
