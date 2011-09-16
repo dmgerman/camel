@@ -198,9 +198,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|IOConverter
+name|IOHelper
 import|;
 end_import
 
@@ -250,7 +250,7 @@ name|createXMLEventWriter
 argument_list|(
 name|out
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -329,7 +329,7 @@ name|createXMLStreamWriter
 argument_list|(
 name|outputStream
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -432,7 +432,7 @@ name|createXMLStreamReader
 argument_list|(
 name|in
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -535,7 +535,7 @@ name|createXMLEventReader
 argument_list|(
 name|in
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(

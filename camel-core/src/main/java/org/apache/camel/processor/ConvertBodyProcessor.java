@@ -60,9 +60,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|util
 operator|.
-name|IOConverter
+name|IOHelper
 import|;
 end_import
 
@@ -197,7 +197,7 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|normalizeCharset
 argument_list|(
