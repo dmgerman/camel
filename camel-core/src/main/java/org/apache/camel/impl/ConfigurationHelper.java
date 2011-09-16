@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|impl
 package|;
 end_package
 
@@ -152,7 +152,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpointConfiguration
+name|converter
+operator|.
+name|PropertyEditorTypeConverter
 import|;
 end_import
 
@@ -164,11 +166,37 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|converter
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|PropertyEditorTypeConverter
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
 import|;
 end_import
 
