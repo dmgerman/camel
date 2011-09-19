@@ -88,6 +88,18 @@ name|lang
 operator|.
 name|reflect
 operator|.
+name|Constructor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
 name|Field
 import|;
 end_import
@@ -113,6 +125,18 @@ operator|.
 name|reflect
 operator|.
 name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Modifier
 import|;
 end_import
 
@@ -4723,6 +4747,50 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Does the given class have a default public no-arg constructor.      */
+DECL|method|hasDefaultPublicNoArgConstructor (Class type)
+specifier|public
+specifier|static
+name|boolean
+name|hasDefaultPublicNoArgConstructor
+parameter_list|(
+name|Class
+name|type
+parameter_list|)
+block|{
+comment|// getConstructors() returns only public constructors
+for|for
+control|(
+name|Constructor
+name|ctr
+range|:
+name|type
+operator|.
+name|getConstructors
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|ctr
+operator|.
+name|getParameterTypes
+argument_list|()
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+return|return
+literal|false
+return|;
 block|}
 comment|/**      * Returns true if the given name is a valid java identifier      */
 DECL|method|isJavaIdentifier (String name)
