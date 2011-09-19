@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|spi
 operator|.
-name|PredicateBuilder
+name|Language
 import|;
 end_import
 
@@ -90,9 +90,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|Language
+name|ExpressionToPredicateAdapter
 import|;
 end_import
 
@@ -288,7 +288,7 @@ name|expression
 parameter_list|)
 block|{
 return|return
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(

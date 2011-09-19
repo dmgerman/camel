@@ -352,23 +352,21 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|ExpressionToPredicateAdapter
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|util
 operator|.
-name|PredicateBuilder
-operator|.
-name|toPredicate
+name|ObjectHelper
 import|;
 end_import
 
@@ -1340,6 +1338,8 @@ parameter_list|)
 block|{
 name|setHandledPolicy
 argument_list|(
+name|ExpressionToPredicateAdapter
+operator|.
 name|toPredicate
 argument_list|(
 name|handled
@@ -1413,6 +1413,8 @@ parameter_list|)
 block|{
 name|setContinuedPolicy
 argument_list|(
+name|ExpressionToPredicateAdapter
+operator|.
 name|toPredicate
 argument_list|(
 name|continued
@@ -1477,6 +1479,8 @@ parameter_list|)
 block|{
 name|setRetryWhilePolicy
 argument_list|(
+name|ExpressionToPredicateAdapter
+operator|.
 name|toPredicate
 argument_list|(
 name|retryWhile

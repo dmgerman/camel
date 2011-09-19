@@ -219,18 +219,16 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|util
 operator|.
-name|PredicateBuilder
-operator|.
-name|toPredicate
+name|ExpressionToPredicateAdapter
 import|;
 end_import
 
@@ -721,6 +719,8 @@ block|{
 return|return
 name|handled
 argument_list|(
+name|ExpressionToPredicateAdapter
+operator|.
 name|toPredicate
 argument_list|(
 name|handled

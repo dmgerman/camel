@@ -452,6 +452,20 @@ name|TokenType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExpressionToPredicateAdapter
+import|;
+end_import
+
 begin_comment
 comment|/**  * A parser to parse simple language as a Camel {@link Predicate}  */
 end_comment
@@ -2099,7 +2113,7 @@ block|{
 name|Predicate
 name|predicate
 init|=
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(

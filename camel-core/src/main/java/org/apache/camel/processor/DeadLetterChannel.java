@@ -86,20 +86,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|PredicateBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|exceptionpolicy
@@ -119,6 +105,20 @@ operator|.
 name|util
 operator|.
 name|CamelLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExpressionToPredicateAdapter
 import|;
 end_import
 
@@ -272,7 +272,7 @@ parameter_list|()
 block|{
 comment|// DeadLetterChannel handles errors before sending to DLQ
 return|return
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(

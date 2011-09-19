@@ -162,25 +162,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|util
 operator|.
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|toPredicate
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -838,6 +836,8 @@ parameter_list|)
 block|{
 name|setRetryWhile
 argument_list|(
+name|ExpressionToPredicateAdapter
+operator|.
 name|toPredicate
 argument_list|(
 name|retryWhile

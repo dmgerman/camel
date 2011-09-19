@@ -82,6 +82,20 @@ name|Predicate
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExpressionToPredicateAdapter
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder of expressions or predicates based on values.  *   * @version   */
 end_comment
@@ -187,7 +201,7 @@ block|{
 return|return
 name|onNewPredicate
 argument_list|(
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(
@@ -214,7 +228,7 @@ argument_list|>
 argument_list|(
 name|onNewPredicate
 argument_list|(
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(

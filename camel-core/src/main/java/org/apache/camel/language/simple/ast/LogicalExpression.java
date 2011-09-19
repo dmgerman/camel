@@ -134,6 +134,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExpressionToPredicateAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -410,7 +424,7 @@ block|{
 name|Predicate
 name|predicate
 init|=
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(
@@ -425,7 +439,7 @@ name|and
 argument_list|(
 name|predicate
 argument_list|,
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(
@@ -526,7 +540,7 @@ block|{
 name|Predicate
 name|predicate
 init|=
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(
@@ -541,7 +555,7 @@ name|or
 argument_list|(
 name|predicate
 argument_list|,
-name|PredicateBuilder
+name|ExpressionToPredicateAdapter
 operator|.
 name|toPredicate
 argument_list|(
