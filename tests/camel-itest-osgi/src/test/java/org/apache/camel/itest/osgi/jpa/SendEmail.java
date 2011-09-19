@@ -36,7 +36,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|GeneratedValue
+name|Id
 import|;
 end_import
 
@@ -46,7 +46,7 @@ name|javax
 operator|.
 name|persistence
 operator|.
-name|Id
+name|Table
 import|;
 end_import
 
@@ -57,6 +57,13 @@ end_comment
 begin_class
 annotation|@
 name|Entity
+annotation|@
+name|Table
+argument_list|(
+name|name
+operator|=
+literal|"SENDEMAIL"
+argument_list|)
 DECL|class|SendEmail
 specifier|public
 class|class
@@ -77,6 +84,28 @@ specifier|public
 name|SendEmail
 parameter_list|()
 block|{     }
+DECL|method|SendEmail (Long id,String address)
+specifier|public
+name|SendEmail
+parameter_list|(
+name|Long
+name|id
+parameter_list|,
+name|String
+name|address
+parameter_list|)
+block|{
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+name|setAddress
+argument_list|(
+name|address
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SendEmail (String address)
 specifier|public
 name|SendEmail
@@ -115,8 +144,6 @@ return|;
 block|}
 annotation|@
 name|Id
-annotation|@
-name|GeneratedValue
 DECL|method|getId ()
 specifier|public
 name|Long
