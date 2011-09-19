@@ -64,6 +64,18 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Traceable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/delayer.html">Delayer</a> which  * delays processing the exchange until the correct amount of time has elapsed  * using an expression to determine the delivery time.  *<p/>  * This implementation will block while waiting.  *  * @version   */
 end_comment

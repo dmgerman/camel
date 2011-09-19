@@ -52,6 +52,18 @@ name|RollbackExchangeException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Traceable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Processor for marking an {@link org.apache.camel.Exchange} to rollback.  *  * @version   */
 end_comment

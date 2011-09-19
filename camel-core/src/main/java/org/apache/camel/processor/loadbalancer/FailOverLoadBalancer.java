@@ -98,8 +98,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
 name|Traceable
 import|;
 end_import

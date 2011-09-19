@@ -40,6 +40,18 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Traceable
+import|;
+end_import
+
 begin_comment
 comment|/**  * The processor which implements the ThrowException DSL  */
 end_comment

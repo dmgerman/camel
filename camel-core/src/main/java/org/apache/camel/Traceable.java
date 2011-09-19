@@ -4,38 +4,33 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|processor
 package|;
 end_package
 
 begin_comment
-comment|/**  * @deprecated  * @see org.apache.camel.Traceable  */
+comment|/**  * Traceable processors allowing easier tracing using constructed labels to help identify the processor  * and where its defined in the route model.  *  * @version   */
 end_comment
 
 begin_interface
-annotation|@
-name|Deprecated
 DECL|interface|Traceable
 specifier|public
 interface|interface
 name|Traceable
-extends|extends
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Traceable
-block|{  }
+block|{
+comment|/**      * Gets the trace label used for logging when tracing is enabled.      *<p/>      * The label should be short and precise.      *      * @return  the label      */
+DECL|method|getTraceLabel ()
+name|String
+name|getTraceLabel
+parameter_list|()
+function_decl|;
+block|}
 end_interface
 
 end_unit

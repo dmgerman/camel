@@ -52,6 +52,18 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Traceable
+import|;
+end_import
+
 begin_comment
 comment|/**  * A processor which sets the body on the OUT message with an expression  */
 end_comment
