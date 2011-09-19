@@ -84,7 +84,7 @@ specifier|public
 name|SendEmail
 parameter_list|()
 block|{     }
-DECL|method|SendEmail (Long id,String address)
+DECL|method|SendEmail (Long id, String address)
 specifier|public
 name|SendEmail
 parameter_list|(
