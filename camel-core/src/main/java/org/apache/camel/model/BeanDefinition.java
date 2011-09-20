@@ -106,34 +106,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|BeanHolder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|bean
@@ -638,7 +610,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the Class of the bean that camel will instantiation it for calling      *      * @param beanType the Class of the bean      * @return the builder      */
+comment|/**      * Sets the Class of the bean      *      * @param beanType the Class of the bean      * @return the builder      */
 DECL|method|beanType (Class<?> beanType)
 specifier|public
 name|BeanDefinition
