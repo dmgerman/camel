@@ -108,6 +108,18 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|ErrorListener
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|Result
 import|;
 end_import
@@ -157,6 +169,18 @@ operator|.
 name|transform
 operator|.
 name|TransformerConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerException
 import|;
 end_import
 
@@ -418,6 +442,15 @@ DECL|field|deleteOutputFile
 specifier|private
 name|boolean
 name|deleteOutputFile
+decl_stmt|;
+DECL|field|errorListener
+specifier|private
+name|ErrorListener
+name|errorListener
+init|=
+operator|new
+name|XsltErrorListener
+argument_list|()
 decl_stmt|;
 DECL|method|XsltBuilder ()
 specifier|public
@@ -1022,6 +1055,13 @@ operator|.
 name|getTransformerFactory
 argument_list|()
 decl_stmt|;
+name|factory
+operator|.
+name|setErrorListener
+argument_list|(
+name|errorListener
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getUriResolver
@@ -1239,6 +1279,32 @@ operator|.
 name|deleteOutputFile
 operator|=
 name|deleteOutputFile
+expr_stmt|;
+block|}
+DECL|method|getErrorListener ()
+specifier|public
+name|ErrorListener
+name|getErrorListener
+parameter_list|()
+block|{
+return|return
+name|errorListener
+return|;
+block|}
+DECL|method|setErrorListener (ErrorListener errorListener)
+specifier|public
+name|void
+name|setErrorListener
+parameter_list|(
+name|ErrorListener
+name|errorListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorListener
+operator|=
+name|errorListener
 expr_stmt|;
 block|}
 comment|// Implementation methods
