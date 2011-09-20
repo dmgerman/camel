@@ -7738,6 +7738,13 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// start lifecycle strategies
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|lifecycleStrategies
+argument_list|)
+expr_stmt|;
 name|Iterator
 argument_list|<
 name|LifecycleStrategy
@@ -8196,6 +8203,16 @@ name|shutdownServices
 argument_list|(
 name|managementStrategy
 argument_list|)
+expr_stmt|;
+name|shutdownServices
+argument_list|(
+name|lifecycleStrategies
+argument_list|)
+expr_stmt|;
+name|lifecycleStrategies
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 comment|// stop the lazy created so they can be re-created on restart
 name|forceStopLazyInitialization
