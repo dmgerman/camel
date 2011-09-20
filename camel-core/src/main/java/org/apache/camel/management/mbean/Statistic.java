@@ -65,7 +65,7 @@ specifier|private
 name|long
 name|updateCount
 decl_stmt|;
-comment|/**      * Instantiates a new statistic.      * @param owner       * @param name       *      * @param updateMode The statistic update mode.      */
+comment|/**      * Instantiates a new statistic.      *      * @param name  name of statistic      * @param owner owner      * @param updateMode The statistic update mode.      */
 DECL|method|Statistic (String name, Object owner, UpdateMode updateMode)
 specifier|public
 name|Statistic

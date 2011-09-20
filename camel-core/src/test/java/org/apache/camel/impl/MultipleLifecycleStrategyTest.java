@@ -242,6 +242,8 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
+literal|"onThreadPoolAdd"
+argument_list|,
 literal|"onContextStart"
 argument_list|,
 literal|"onServiceAdd"
