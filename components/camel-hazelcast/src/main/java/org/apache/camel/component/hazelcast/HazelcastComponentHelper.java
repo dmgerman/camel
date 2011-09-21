@@ -169,7 +169,15 @@ name|OPERATION
 argument_list|)
 expr_stmt|;
 block|}
-comment|// set out headers
+comment|// propagate headers if OUT message created
+if|if
+condition|(
+name|ex
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
 name|ex
 operator|.
 name|getOut
@@ -180,6 +188,7 @@ argument_list|(
 name|headers
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|setListenerHeaders (Exchange ex, String listenerType, String listenerAction, String cacheName)
 specifier|public
