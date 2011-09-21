@@ -554,6 +554,13 @@ specifier|private
 name|Boolean
 name|discardOnCompletionTimeout
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|forceCompletionOnStop
+specifier|private
+name|Boolean
+name|forceCompletionOnStop
+decl_stmt|;
 DECL|method|AggregateDefinition ()
 specifier|public
 name|AggregateDefinition
@@ -1129,6 +1136,23 @@ operator|.
 name|setDiscardOnCompletionTimeout
 argument_list|(
 name|isDiscardOnCompletionTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getForceCompletionOnStop
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setForceCompletionOnStop
+argument_list|(
+name|getForceCompletionOnStop
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2308,6 +2332,62 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+comment|/**      * Sets the force completion on stop flag, which considers the current group as complete      * and sends out the aggregated exchange when the stop event is executed      *      * @return builder      */
+DECL|method|forceCompletionOnStop ()
+specifier|public
+name|AggregateDefinition
+name|forceCompletionOnStop
+parameter_list|()
+block|{
+name|setForceCompletionOnStop
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|getForceCompletionOnStop ()
+specifier|public
+name|Boolean
+name|getForceCompletionOnStop
+parameter_list|()
+block|{
+return|return
+name|forceCompletionOnStop
+return|;
+block|}
+DECL|method|isForceCompletionOnStop ()
+specifier|public
+name|boolean
+name|isForceCompletionOnStop
+parameter_list|()
+block|{
+return|return
+name|forceCompletionOnStop
+operator|!=
+literal|null
+operator|&&
+name|forceCompletionOnStop
+return|;
+block|}
+DECL|method|setForceCompletionOnStop (Boolean forceCompletionOnStop)
+specifier|public
+name|void
+name|setForceCompletionOnStop
+parameter_list|(
+name|Boolean
+name|forceCompletionOnStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceCompletionOnStop
+operator|=
+name|forceCompletionOnStop
+expr_stmt|;
 block|}
 comment|/**      * Sending the aggregated output in parallel      *      * @return the builder      */
 DECL|method|parallelProcessing ()
