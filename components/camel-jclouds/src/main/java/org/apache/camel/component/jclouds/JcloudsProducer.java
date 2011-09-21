@@ -89,11 +89,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-name|JcloudsEndpoint
-name|endpoint
-decl_stmt|;
 DECL|method|JcloudsProducer (JcloudsEndpoint endpoint)
 specifier|public
 name|JcloudsProducer
@@ -107,12 +102,6 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -125,12 +114,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
+literal|"JcloudsProducer received: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getIn

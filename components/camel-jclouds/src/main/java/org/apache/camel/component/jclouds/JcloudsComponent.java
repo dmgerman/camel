@@ -244,6 +244,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|Exception
@@ -251,6 +252,7 @@ argument_list|(
 literal|"Invalid Endpoint URI. It should contains a valid container name"
 argument_list|)
 throw|;
+block|}
 block|}
 name|setProperties
 argument_list|(

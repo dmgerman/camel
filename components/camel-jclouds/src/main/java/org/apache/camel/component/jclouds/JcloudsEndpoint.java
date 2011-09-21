@@ -77,7 +77,6 @@ name|JcloudsEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-comment|/**      * Constructor      * @param uri      * @param component      */
 DECL|method|JcloudsEndpoint (String uri, JcloudsComponent component)
 specifier|public
 name|JcloudsEndpoint
@@ -107,25 +106,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|createProducer ()
-specifier|public
-specifier|abstract
-name|Producer
-name|createProducer
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-DECL|method|createConsumer (Processor processor)
-specifier|public
-specifier|abstract
-name|Consumer
-name|createConsumer
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-function_decl|;
 block|}
 end_class
 
