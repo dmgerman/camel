@@ -267,7 +267,6 @@ comment|//Utility Class
 block|}
 DECL|interface|ParameterSetter
 specifier|public
-specifier|static
 interface|interface
 name|ParameterSetter
 block|{
