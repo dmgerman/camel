@@ -581,12 +581,13 @@ name|createEndpointUri
 parameter_list|()
 block|{
 return|return
-literal|"file://"
-operator|+
 name|getFile
 argument_list|()
 operator|.
-name|getAbsolutePath
+name|toURI
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 return|;
 block|}
