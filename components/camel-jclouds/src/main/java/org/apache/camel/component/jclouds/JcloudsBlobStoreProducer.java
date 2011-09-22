@@ -253,10 +253,13 @@ name|blob
 init|=
 name|blobStore
 operator|.
-name|newBlob
+name|blobBuilder
 argument_list|(
 name|blobName
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|ByteArrayOutputStream
 name|baos

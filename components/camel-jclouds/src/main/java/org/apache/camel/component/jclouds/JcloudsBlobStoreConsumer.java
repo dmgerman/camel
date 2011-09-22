@@ -882,6 +882,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resolveClass
 parameter_list|(
 name|ObjectStreamClass
