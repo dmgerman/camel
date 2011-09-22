@@ -77,10 +77,10 @@ comment|/**  * PersonType has a ObjectFactory so JAXB can convert to it, but we 
 end_comment
 
 begin_class
-DECL|class|TimerBeanToBeanPersonTypeTest
+DECL|class|DirectBeanToBeanPersonTypeTest
 specifier|public
 class|class
-name|TimerBeanToBeanPersonTypeTest
+name|DirectBeanToBeanPersonTypeTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -124,6 +124,15 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -154,12 +163,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?repeatCount=1"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"Timer triggered"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|bean
