@@ -18,76 +18,64 @@ name|bean
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
+import|;
+end_import
+
 begin_comment
-comment|/** * */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|MyStaticClass
+DECL|class|SpringRouteMethodCallStaticTest
 specifier|public
-specifier|final
 class|class
-name|MyStaticClass
+name|SpringRouteMethodCallStaticTest
+extends|extends
+name|RouteMethodCallStaticTest
 block|{
-DECL|method|MyStaticClass ()
-specifier|private
-name|MyStaticClass
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
 parameter_list|()
-block|{     }
-DECL|method|changeSomething (String s)
-specifier|public
-specifier|static
-name|String
-name|changeSomething
-parameter_list|(
-name|String
-name|s
-parameter_list|)
+throws|throws
+name|Exception
 block|{
-if|if
-condition|(
-literal|"Hello World"
-operator|.
-name|equals
+return|return
+name|createSpringCamelContext
 argument_list|(
-name|s
-argument_list|)
-condition|)
-block|{
-return|return
-literal|"Bye World"
-return|;
-block|}
-return|return
-literal|null
-return|;
-block|}
-DECL|method|isCamel (String body)
-specifier|public
-specifier|static
-name|boolean
-name|isCamel
-parameter_list|(
-name|String
-name|body
-parameter_list|)
-block|{
-return|return
-name|body
-operator|.
-name|contains
-argument_list|(
-literal|"Camel"
+name|this
+argument_list|,
+literal|"org/apache/camel/component/bean/SpringRouteMethodCallStaticTest.xml"
 argument_list|)
 return|;
-block|}
-DECL|method|doSomething ()
-specifier|public
-name|void
-name|doSomething
-parameter_list|()
-block|{
-comment|// noop
 block|}
 block|}
 end_class

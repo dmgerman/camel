@@ -19,78 +19,27 @@ package|;
 end_package
 
 begin_comment
-comment|/** * */
+comment|/**  * Object holder for a bean type.  *  * @version   */
 end_comment
 
-begin_class
-DECL|class|MyStaticClass
+begin_interface
+DECL|interface|BeanTypeHolder
 specifier|public
-specifier|final
-class|class
-name|MyStaticClass
+interface|interface
+name|BeanTypeHolder
+extends|extends
+name|BeanHolder
 block|{
-DECL|method|MyStaticClass ()
-specifier|private
-name|MyStaticClass
+DECL|method|getType ()
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getType
 parameter_list|()
-block|{     }
-DECL|method|changeSomething (String s)
-specifier|public
-specifier|static
-name|String
-name|changeSomething
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-if|if
-condition|(
-literal|"Hello World"
-operator|.
-name|equals
-argument_list|(
-name|s
-argument_list|)
-condition|)
-block|{
-return|return
-literal|"Bye World"
-return|;
+function_decl|;
 block|}
-return|return
-literal|null
-return|;
-block|}
-DECL|method|isCamel (String body)
-specifier|public
-specifier|static
-name|boolean
-name|isCamel
-parameter_list|(
-name|String
-name|body
-parameter_list|)
-block|{
-return|return
-name|body
-operator|.
-name|contains
-argument_list|(
-literal|"Camel"
-argument_list|)
-return|;
-block|}
-DECL|method|doSomething ()
-specifier|public
-name|void
-name|doSomething
-parameter_list|()
-block|{
-comment|// noop
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
