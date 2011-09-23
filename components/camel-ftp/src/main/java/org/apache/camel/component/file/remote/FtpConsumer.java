@@ -241,6 +241,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|fileList
+argument_list|,
+name|depth
 argument_list|)
 decl_stmt|;
 if|if
@@ -262,7 +264,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|pollSubDirectory (String absolutePath, String dirName, List<GenericFile<FTPFile>> fileList)
+DECL|method|pollSubDirectory (String absolutePath, String dirName, List<GenericFile<FTPFile>> fileList, int depth)
 specifier|protected
 name|boolean
 name|pollSubDirectory
@@ -281,6 +283,9 @@ name|FTPFile
 argument_list|>
 argument_list|>
 name|fileList
+parameter_list|,
+name|int
+name|depth
 parameter_list|)
 block|{
 name|boolean
@@ -293,6 +298,8 @@ argument_list|,
 name|dirName
 argument_list|,
 name|fileList
+argument_list|,
+name|depth
 argument_list|)
 decl_stmt|;
 comment|// change back to parent directory when finished polling sub directory
@@ -312,7 +319,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|doPollDirectory (String absolutePath, String dirName, List<GenericFile<FTPFile>> fileList)
+DECL|method|doPollDirectory (String absolutePath, String dirName, List<GenericFile<FTPFile>> fileList, int depth)
 specifier|protected
 name|boolean
 name|doPollDirectory
@@ -331,6 +338,9 @@ name|FTPFile
 argument_list|>
 argument_list|>
 name|fileList
+parameter_list|,
+name|int
+name|depth
 parameter_list|)
 block|{
 name|log
@@ -343,6 +353,9 @@ name|absolutePath
 argument_list|,
 name|dirName
 argument_list|)
+expr_stmt|;
+name|depth
+operator|++
 expr_stmt|;
 comment|// remove trailing /
 name|dirName
@@ -533,6 +546,13 @@ name|remote
 argument_list|,
 literal|true
 argument_list|)
+operator|&&
+name|depth
+operator|<
+name|endpoint
+operator|.
+name|getMaxDepth
+argument_list|()
 condition|)
 block|{
 comment|// recursive scan and add the sub files and folders
@@ -563,6 +583,8 @@ argument_list|,
 name|subDirectory
 argument_list|,
 name|fileList
+argument_list|,
+name|depth
 argument_list|)
 decl_stmt|;
 if|if
@@ -607,6 +629,13 @@ name|remote
 argument_list|,
 literal|false
 argument_list|)
+operator|&&
+name|depth
+operator|>=
+name|endpoint
+operator|.
+name|getMinDepth
+argument_list|()
 condition|)
 block|{
 if|if
