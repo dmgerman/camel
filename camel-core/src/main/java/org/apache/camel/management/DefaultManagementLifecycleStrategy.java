@@ -3793,6 +3793,14 @@ argument_list|(
 name|executorService
 argument_list|)
 expr_stmt|;
+comment|// must use 1 sec interval as the load statistics is based on 1 sec calculations
+name|timerListenerManager
+operator|.
+name|setInterval
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|ServiceHelper
 operator|.
 name|startService
