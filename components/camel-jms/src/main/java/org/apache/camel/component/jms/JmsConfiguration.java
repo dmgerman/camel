@@ -4005,8 +4005,6 @@ condition|(
 name|tm
 operator|!=
 literal|null
-operator|&&
-name|transacted
 condition|)
 block|{
 name|container
