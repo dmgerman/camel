@@ -217,41 +217,6 @@ argument_list|,
 literal|"file"
 argument_list|)
 expr_stmt|;
-comment|// we assume its a file if the name has a dot in it (eg foo.txt)
-name|boolean
-name|isDirectory
-init|=
-name|file
-operator|.
-name|isDirectory
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|isDirectory
-operator|&&
-name|file
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"."
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Only directory is supported. Endpoint must be configured with a valid starting directory: "
-operator|+
-name|file
-argument_list|)
-throw|;
-block|}
 comment|// auto create starting directory if needed
 if|if
 condition|(
@@ -262,7 +227,10 @@ name|exists
 argument_list|()
 operator|&&
 operator|!
+name|file
+operator|.
 name|isDirectory
+argument_list|()
 condition|)
 block|{
 if|if
