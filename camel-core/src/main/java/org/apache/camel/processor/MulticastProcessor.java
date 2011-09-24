@@ -4050,6 +4050,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// force any exceptions occurred during creation of exchange paris to be thrown
+comment|// before returning the answer;
+throw|throw
+name|exchange
+operator|.
+name|getException
+argument_list|()
+throw|;
+block|}
 return|return
 name|result
 return|;
