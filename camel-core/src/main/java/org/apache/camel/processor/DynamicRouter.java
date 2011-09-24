@@ -136,6 +136,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 return|return
 operator|new
