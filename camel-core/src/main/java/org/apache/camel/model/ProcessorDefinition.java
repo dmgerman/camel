@@ -1540,13 +1540,9 @@ name|def
 operator|.
 name|isShareUnitOfWork
 argument_list|()
-operator|&&
-name|child
-operator|==
-literal|null
 condition|)
 block|{
-comment|// only wrap the parent (not the children of the multicast)
+comment|// note a recipient list cannot have children so no need for a child == null check
 name|wrapChannelInErrorHandler
 argument_list|(
 name|channel

@@ -555,9 +555,33 @@ name|this
 argument_list|)
 throw|;
 block|}
+comment|// use the evaluate expression result if exists
 name|Object
 name|recipientList
 init|=
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|EVALUATE_EXPRESSION_RESULT
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|recipientList
+operator|==
+literal|null
+operator|&&
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// fallback and evaluate the expression
+name|recipientList
+operator|=
 name|expression
 operator|.
 name|evaluate
@@ -568,7 +592,8 @@ name|Object
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 return|return
 name|sendToRecipientList
 argument_list|(
