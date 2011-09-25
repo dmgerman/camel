@@ -591,6 +591,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// wrap in nested pipeline so this appears as one processor
+comment|// (recipient list definition does this as well)
 return|return
 operator|new
 name|Pipeline
@@ -602,6 +603,24 @@ argument_list|()
 argument_list|,
 name|pipe
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Threads["
+operator|+
+name|getOutputs
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+block|}
 return|;
 block|}
 annotation|@
