@@ -4413,6 +4413,10 @@ name|counter
 operator|=
 literal|0
 expr_stmt|;
+name|defaultProcessor
+operator|=
+literal|null
+expr_stmt|;
 name|processors
 operator|=
 operator|new
