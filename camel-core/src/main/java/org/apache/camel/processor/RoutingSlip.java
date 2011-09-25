@@ -799,14 +799,16 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|doRoutingSlip (Exchange exchange, AsyncCallback callback)
+DECL|method|doRoutingSlip (final Exchange exchange, final AsyncCallback callback)
 specifier|private
 name|boolean
 name|doRoutingSlip
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
@@ -916,16 +918,14 @@ name|e
 parameter_list|)
 block|{
 comment|// error resolving endpoint so we should break out
-name|exchange
+name|current
 operator|.
 name|setException
 argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+break|break;
 block|}
 comment|// prepare and process the routing slip
 name|Exchange
