@@ -1025,6 +1025,14 @@ argument_list|(
 name|getProtocol
 argument_list|()
 argument_list|)
+operator|||
+literal|"https4"
+operator|.
+name|equals
+argument_list|(
+name|getProtocol
+argument_list|()
+argument_list|)
 condition|)
 block|{
 return|return
