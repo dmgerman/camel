@@ -139,10 +139,11 @@ comment|/**  * A useful base class for endpoints which depend on a resource  * s
 end_comment
 
 begin_class
-DECL|class|ResourceBasedEndpoint
+DECL|class|ResourceEndpoint
 specifier|public
+specifier|abstract
 class|class
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 extends|extends
 name|ProcessorEndpoint
 block|{
@@ -177,14 +178,14 @@ name|byte
 index|[]
 name|buffer
 decl_stmt|;
-DECL|method|ResourceBasedEndpoint ()
+DECL|method|ResourceEndpoint ()
 specifier|public
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 parameter_list|()
 block|{     }
-DECL|method|ResourceBasedEndpoint (String endpointUri, Component component, String resourceUri)
+DECL|method|ResourceEndpoint (String endpointUri, Component component, String resourceUri)
 specifier|public
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 parameter_list|(
 name|String
 name|endpointUri

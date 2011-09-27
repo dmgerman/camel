@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 import|;
 end_import
 
@@ -190,7 +190,7 @@ specifier|public
 class|class
 name|FreemarkerEndpoint
 extends|extends
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 block|{
 DECL|field|encoding
 specifier|private

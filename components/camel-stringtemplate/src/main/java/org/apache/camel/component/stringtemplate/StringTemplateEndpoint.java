@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 import|;
 end_import
 
@@ -160,7 +160,7 @@ specifier|public
 class|class
 name|StringTemplateEndpoint
 extends|extends
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 block|{
 DECL|method|StringTemplateEndpoint ()
 specifier|public

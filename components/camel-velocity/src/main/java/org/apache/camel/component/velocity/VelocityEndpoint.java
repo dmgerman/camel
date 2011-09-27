@@ -146,7 +146,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 import|;
 end_import
 
@@ -286,7 +286,7 @@ specifier|public
 class|class
 name|VelocityEndpoint
 extends|extends
-name|ResourceBasedEndpoint
+name|ResourceEndpoint
 block|{
 DECL|field|velocityEngine
 specifier|private
