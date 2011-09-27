@@ -821,7 +821,6 @@ block|}
 block|}
 DECL|interface|ScriptEngineResolver
 specifier|public
-specifier|static
 interface|interface
 name|ScriptEngineResolver
 block|{
