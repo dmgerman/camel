@@ -344,7 +344,6 @@ block|}
 comment|// START SNIPPET: e1
 DECL|interface|Echo
 specifier|public
-specifier|static
 interface|interface
 name|Echo
 block|{

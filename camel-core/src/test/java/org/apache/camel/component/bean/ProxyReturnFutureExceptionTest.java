@@ -259,7 +259,6 @@ return|;
 block|}
 DECL|interface|Echo
 specifier|public
-specifier|static
 interface|interface
 name|Echo
 block|{

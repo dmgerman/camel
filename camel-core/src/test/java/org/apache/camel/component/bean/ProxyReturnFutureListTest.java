@@ -509,7 +509,6 @@ return|;
 block|}
 DECL|interface|Users
 specifier|public
-specifier|static
 interface|interface
 name|Users
 block|{

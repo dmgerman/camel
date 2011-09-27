@@ -658,7 +658,6 @@ return|;
 block|}
 DECL|interface|I1
 specifier|private
-specifier|static
 interface|interface
 name|I1
 block|{
@@ -702,7 +701,6 @@ function_decl|;
 block|}
 DECL|interface|I2
 specifier|private
-specifier|static
 interface|interface
 name|I2
 block|{
