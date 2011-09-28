@@ -110,6 +110,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|ibatis
+operator|.
+name|strategy
+operator|.
+name|TransactionIsolationLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
@@ -131,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/ibatis.html>iBatis Endpoint</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  *  * @version   */
+comment|/**  * An<a href="http://camel.apache.org/ibatis.html>iBatis Endpoint</a>  * for performing SQL operations using an XML mapping file to abstract away the SQL  */
 end_comment
 
 begin_class
@@ -365,7 +383,7 @@ operator|=
 name|strategy
 expr_stmt|;
 block|}
-comment|/**      * Statement to run when polling or processing     */
+comment|/**      * Statement to run when polling or processing      */
 DECL|method|getStatement ()
 specifier|public
 name|String
@@ -471,6 +489,50 @@ operator|.
 name|maxMessagesPerPoll
 operator|=
 name|maxMessagesPerPoll
+expr_stmt|;
+block|}
+DECL|method|getIsolation ()
+specifier|public
+name|String
+name|getIsolation
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|TransactionIsolationLevel
+operator|.
+name|nameOf
+argument_list|(
+name|strategy
+operator|.
+name|getIsolation
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|setIsolation (String isolation)
+specifier|public
+name|void
+name|setIsolation
+parameter_list|(
+name|String
+name|isolation
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|strategy
+operator|.
+name|setIsolation
+argument_list|(
+name|TransactionIsolationLevel
+operator|.
+name|intValueOf
+argument_list|(
+name|isolation
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}

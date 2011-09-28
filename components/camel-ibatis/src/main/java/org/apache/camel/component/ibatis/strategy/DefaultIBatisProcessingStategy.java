@@ -110,6 +110,15 @@ name|DefaultIBatisProcessingStategy
 implements|implements
 name|IBatisProcessingStrategy
 block|{
+DECL|field|isolation
+specifier|private
+name|int
+name|isolation
+init|=
+name|Connection
+operator|.
+name|TRANSACTION_REPEATABLE_READ
+decl_stmt|;
 DECL|method|commit (IBatisEndpoint endpoint, Exchange exchange, Object data, String consumeStatements)
 specifier|public
 name|void
@@ -168,9 +177,7 @@ name|client
 operator|.
 name|startTransaction
 argument_list|(
-name|Connection
-operator|.
-name|TRANSACTION_REPEATABLE_READ
+name|isolation
 argument_list|)
 expr_stmt|;
 block|}
@@ -257,6 +264,32 @@ argument_list|,
 literal|null
 argument_list|)
 return|;
+block|}
+DECL|method|getIsolation ()
+specifier|public
+name|int
+name|getIsolation
+parameter_list|()
+block|{
+return|return
+name|isolation
+return|;
+block|}
+DECL|method|setIsolation (int isolation)
+specifier|public
+name|void
+name|setIsolation
+parameter_list|(
+name|int
+name|isolation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|isolation
+operator|=
+name|isolation
+expr_stmt|;
 block|}
 block|}
 end_class

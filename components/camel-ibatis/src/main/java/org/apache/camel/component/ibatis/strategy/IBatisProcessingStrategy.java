@@ -118,6 +118,21 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the transaction isolation level set on the processing strategy.      *      * @return the transaction isolation level.      */
+DECL|method|getIsolation ()
+name|int
+name|getIsolation
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the transaction isolation level on the processing strategy.      *      * @param isolation the transaction isolation level.      */
+DECL|method|setIsolation (int isolation)
+name|void
+name|setIsolation
+parameter_list|(
+name|int
+name|isolation
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
