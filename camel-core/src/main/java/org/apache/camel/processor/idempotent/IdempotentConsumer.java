@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *   * @version   */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  */
 end_comment
 
 begin_class
@@ -269,7 +269,13 @@ specifier|final
 name|boolean
 name|skipDuplicate
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, boolean skipDuplicate, Processor processor)
+DECL|field|removeOnFailure
+specifier|private
+specifier|final
+name|boolean
+name|removeOnFailure
+decl_stmt|;
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, boolean skipDuplicate, boolean removeOnFailure, Processor processor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
@@ -287,6 +293,9 @@ name|eager
 parameter_list|,
 name|boolean
 name|skipDuplicate
+parameter_list|,
+name|boolean
+name|removeOnFailure
 parameter_list|,
 name|Processor
 name|processor
@@ -315,6 +324,12 @@ operator|.
 name|skipDuplicate
 operator|=
 name|skipDuplicate
+expr_stmt|;
+name|this
+operator|.
+name|removeOnFailure
+operator|=
+name|removeOnFailure
 expr_stmt|;
 name|this
 operator|.
@@ -523,6 +538,8 @@ argument_list|,
 name|messageId
 argument_list|,
 name|eager
+argument_list|,
+name|removeOnFailure
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -665,7 +682,7 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a duplicate message      *       * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a duplicate message      *      * @param exchange  the exchange      * @param messageId the message ID of this exchange      */
 DECL|method|onDuplicateMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void

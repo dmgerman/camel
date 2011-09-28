@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;idempotentConsumer/&gt; element  *  * @version   */
+comment|/**  * Represents an XML&lt;idempotentConsumer/&gt; element  */
 end_comment
 
 begin_class
@@ -214,6 +214,13 @@ DECL|field|skipDuplicate
 specifier|private
 name|Boolean
 name|skipDuplicate
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|removeOnFailure
+specifier|private
+name|Boolean
+name|removeOnFailure
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -309,7 +316,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Sets the reference name of the message id repository      *      * @param messageIdRepositoryRef  the reference name of message id repository      * @return builder      */
+comment|/**      * Sets the reference name of the message id repository      *      * @param messageIdRepositoryRef the reference name of message id repository      * @return builder      */
 DECL|method|messageIdRepositoryRef (String messageIdRepositoryRef)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -328,7 +335,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the the message id repository for the idempotent consumer      *      * @param idempotentRepository  the repository instance of idempotent      * @return builder      */
+comment|/**      * Sets the the message id repository for the idempotent consumer      *      * @param idempotentRepository the repository instance of idempotent      * @return builder      */
 DECL|method|messageIdRepository (IdempotentRepository<?> idempotentRepository)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -350,7 +357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to eagerly add the key to the idempotent repository or wait until the exchange      * is complete. Eager is default enabled.      *      * @param eager<tt>true</tt> to add the key before processing,<tt>false</tt> to wait until      * the exchange is complete.      * @return builder      */
+comment|/**      * Sets whether to eagerly add the key to the idempotent repository or wait until the exchange      * is complete. Eager is default enabled.      *      * @param eager<tt>true</tt> to add the key before processing,<tt>false</tt> to wait until      *              the exchange is complete.      * @return builder      */
 DECL|method|eager (boolean eager)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -363,6 +370,25 @@ block|{
 name|setEager
 argument_list|(
 name|eager
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to remove or keep the key on failure.      *<p/>      * The default behavior is to remove the key on failure.      *      * @param removeOnFailure<tt>true</tt> to remove the key,<tt>false</tt> to keep the key      *                        if the exchange fails.      * @return builder      */
+DECL|method|removeOnFailure (boolean removeOnFailure)
+specifier|public
+name|IdempotentConsumerDefinition
+name|removeOnFailure
+parameter_list|(
+name|boolean
+name|removeOnFailure
+parameter_list|)
+block|{
+name|setRemoveOnFailure
+argument_list|(
+name|removeOnFailure
 argument_list|)
 expr_stmt|;
 return|return
@@ -532,6 +558,49 @@ else|:
 literal|true
 return|;
 block|}
+DECL|method|getRemoveOnFailure ()
+specifier|public
+name|Boolean
+name|getRemoveOnFailure
+parameter_list|()
+block|{
+return|return
+name|removeOnFailure
+return|;
+block|}
+DECL|method|setRemoveOnFailure (Boolean removeOnFailure)
+specifier|public
+name|void
+name|setRemoveOnFailure
+parameter_list|(
+name|Boolean
+name|removeOnFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|removeOnFailure
+operator|=
+name|removeOnFailure
+expr_stmt|;
+block|}
+DECL|method|isRemoveOnFailure ()
+specifier|public
+name|boolean
+name|isRemoveOnFailure
+parameter_list|()
+block|{
+comment|// defaults to true if not configured
+return|return
+name|removeOnFailure
+operator|!=
+literal|null
+condition|?
+name|removeOnFailure
+else|:
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -626,11 +695,14 @@ argument_list|,
 name|isSkipDuplicate
 argument_list|()
 argument_list|,
+name|isRemoveOnFailure
+argument_list|()
+argument_list|,
 name|childProcessor
 argument_list|)
 return|;
 block|}
-comment|/**      * Strategy method to resolve the {@link org.apache.camel.spi.IdempotentRepository} to use      *      * @param routeContext  route context      * @return the repository      */
+comment|/**      * Strategy method to resolve the {@link org.apache.camel.spi.IdempotentRepository} to use      *      * @param routeContext route context      * @return the repository      */
 DECL|method|resolveMessageIdRepository (RouteContext routeContext)
 specifier|protected
 name|IdempotentRepository

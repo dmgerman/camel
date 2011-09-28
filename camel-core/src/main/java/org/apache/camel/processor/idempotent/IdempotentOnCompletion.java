@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * On completion strategy for {@link org.apache.camel.processor.idempotent.IdempotentConsumer}.  *<p/>  * This strategy adds the message id to the idempotent repository in cast the exchange  * was processed successfully. In case of failure the message id is<b>not</b> added.  *  * @version   */
+comment|/**  * On completion strategy for {@link org.apache.camel.processor.idempotent.IdempotentConsumer}.  *<p/>  * This strategy adds the message id to the idempotent repository in cast the exchange  * was processed successfully. In case of failure the message id is<b>not</b> added.  */
 end_comment
 
 begin_class
@@ -142,7 +142,13 @@ specifier|final
 name|boolean
 name|eager
 decl_stmt|;
-DECL|method|IdempotentOnCompletion (IdempotentRepository<String> idempotentRepository, String messageId, boolean eager)
+DECL|field|removeOnFailure
+specifier|private
+specifier|final
+name|boolean
+name|removeOnFailure
+decl_stmt|;
+DECL|method|IdempotentOnCompletion (IdempotentRepository<String> idempotentRepository, String messageId, boolean eager, boolean removeOnFailure)
 specifier|public
 name|IdempotentOnCompletion
 parameter_list|(
@@ -157,6 +163,9 @@ name|messageId
 parameter_list|,
 name|boolean
 name|eager
+parameter_list|,
+name|boolean
+name|removeOnFailure
 parameter_list|)
 block|{
 name|this
@@ -176,6 +185,12 @@ operator|.
 name|eager
 operator|=
 name|eager
+expr_stmt|;
+name|this
+operator|.
+name|removeOnFailure
+operator|=
+name|removeOnFailure
 expr_stmt|;
 block|}
 DECL|method|onComplete (Exchange exchange)
@@ -235,7 +250,7 @@ name|messageId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a completed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a completed message      *      * @param exchange  the exchange      * @param messageId the message ID of this exchange      */
 DECL|method|onCompletedMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void
@@ -271,7 +286,7 @@ name|messageId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a failed message      *      * @param exchange the exchange      * @param messageId the message ID of this exchange      */
+comment|/**      * A strategy method to allow derived classes to overload the behavior of      * processing a failed message      *      * @param exchange  the exchange      * @param messageId the message ID of this exchange      */
 DECL|method|onFailedMessage (Exchange exchange, String messageId)
 specifier|protected
 name|void
@@ -283,6 +298,11 @@ parameter_list|,
 name|String
 name|messageId
 parameter_list|)
+block|{
+if|if
+condition|(
+name|removeOnFailure
+condition|)
 block|{
 name|idempotentRepository
 operator|.
@@ -302,6 +322,7 @@ argument_list|,
 name|messageId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
