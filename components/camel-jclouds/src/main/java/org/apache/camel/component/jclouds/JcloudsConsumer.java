@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -123,26 +113,6 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
-comment|// create a message body
-name|Date
-name|now
-init|=
-operator|new
-name|Date
-argument_list|()
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-literal|"Hello World! The time is "
-operator|+
-name|now
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 comment|// send message to next processor in the route
