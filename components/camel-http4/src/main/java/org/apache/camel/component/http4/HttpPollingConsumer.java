@@ -340,7 +340,9 @@ name|HttpRequestBase
 name|method
 init|=
 name|createMethod
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 comment|// set optional timeout in millis
 if|if
@@ -612,19 +614,26 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
-DECL|method|createMethod ()
+DECL|method|createMethod (Exchange exchange)
 specifier|protected
 name|HttpRequestBase
 name|createMethod
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 block|{
 name|String
 name|uri
 init|=
-name|endpoint
+name|HttpHelper
 operator|.
-name|getEndpointUri
-argument_list|()
+name|createURL
+argument_list|(
+name|exchange
+argument_list|,
+name|endpoint
+argument_list|)
 decl_stmt|;
 return|return
 operator|new
