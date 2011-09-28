@@ -195,6 +195,21 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing {} operation on '{}'"
+argument_list|,
+name|operation
+argument_list|,
+name|container
+operator|+
+literal|"/"
+operator|+
+name|blobName
+argument_list|)
+expr_stmt|;
 name|Object
 name|body
 init|=

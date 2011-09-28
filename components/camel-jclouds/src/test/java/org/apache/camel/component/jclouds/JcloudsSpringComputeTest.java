@@ -808,6 +808,11 @@ block|}
 block|}
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Ignore
 argument_list|(
 literal|"For now not possible to combine stub provider with ssh module, requird for runScript"
@@ -1009,12 +1014,6 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|String
-name|output
-init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -1025,7 +1024,7 @@ literal|"Some message"
 argument_list|,
 name|runScriptHeaders
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeaders
