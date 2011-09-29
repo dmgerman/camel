@@ -174,8 +174,6 @@ class|class
 name|TimerEndpoint
 extends|extends
 name|DefaultEndpoint
-implements|implements
-name|Service
 block|{
 DECL|field|timerName
 specifier|private

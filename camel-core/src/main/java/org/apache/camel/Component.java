@@ -37,7 +37,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Attempt to create a configuration object from the give uri      *       * @param uri the configuration URI      * @return a newly created {@link EndpointConfiguration}      * @throws Exception is thrown if the configuration URI is invalid      */
+comment|/**      * Attempt to create a configuration object from the given uri      *       * @param uri the configuration URI      * @return a newly created {@link EndpointConfiguration}      * @throws Exception is thrown if the configuration URI is invalid      */
 DECL|method|createConfiguration (String uri)
 name|EndpointConfiguration
 name|createConfiguration
