@@ -1101,12 +1101,6 @@ parameter_list|()
 block|{
 return|return
 name|timeout
-operator|!=
-literal|null
-condition|?
-name|timeout
-else|:
-literal|0
 return|;
 block|}
 DECL|method|setTimeout (Long timeout)
