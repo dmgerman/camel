@@ -360,6 +360,8 @@ argument_list|(
 name|to
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 return|return
 name|FileUtil
 operator|.
@@ -368,8 +370,36 @@ argument_list|(
 name|file
 argument_list|,
 name|target
+argument_list|,
+name|endpoint
+operator|.
+name|isCopyAndDeleteOnRenameFail
+argument_list|()
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Error renaming file from "
+operator|+
+name|from
+operator|+
+literal|" to "
+operator|+
+name|to
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|existsFile (String name)
 specifier|public
@@ -1176,6 +1206,8 @@ parameter_list|,
 name|File
 name|file
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|LOG
 operator|.
@@ -1196,6 +1228,11 @@ argument_list|(
 name|source
 argument_list|,
 name|file
+argument_list|,
+name|endpoint
+operator|.
+name|isCopyAndDeleteOnRenameFail
+argument_list|()
 argument_list|)
 return|;
 block|}

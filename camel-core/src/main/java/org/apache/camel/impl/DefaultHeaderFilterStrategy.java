@@ -390,7 +390,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the isLowercase property which is a boolean to determinte      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
+comment|/**      * Gets the isLowercase property which is a boolean to determine      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
 DECL|method|isLowerCase ()
 specifier|public
 name|boolean
@@ -401,7 +401,7 @@ return|return
 name|lowerCase
 return|;
 block|}
-comment|/**      * Sets the isLowercase property which is a boolean to determinte      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
+comment|/**      * Sets the isLowercase property which is a boolean to determine      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
 DECL|method|setLowerCase (boolean value)
 specifier|public
 name|void

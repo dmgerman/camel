@@ -1377,7 +1377,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|renameFile (File from, File to)
+comment|/**      * Renames a file.      *      * @param from the from file      * @param to   the to file      * @param copyAndDeleteOnRenameFail whether to fallback and do copy and delete, if renameTo fails      * @return<tt>true</tt> if the file was renamed, otherwise<tt>false</tt>      * @throws java.io.IOException is thrown if error renaming file      */
+DECL|method|renameFile (File from, File to, boolean copyAndDeleteOnRenameFail)
 specifier|public
 specifier|static
 name|boolean
@@ -1388,7 +1389,12 @@ name|from
 parameter_list|,
 name|File
 name|to
+parameter_list|,
+name|boolean
+name|copyAndDeleteOnRenameFail
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// do not try to rename non existing files
 if|if
@@ -1505,11 +1511,11 @@ if|if
 condition|(
 operator|!
 name|renamed
+operator|&&
+name|copyAndDeleteOnRenameFail
 condition|)
 block|{
 comment|// now do a copy and delete as all rename attempts failed
-try|try
-block|{
 name|LOG
 operator|.
 name|debug
@@ -1537,45 +1543,11 @@ name|from
 argument_list|)
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Renaming file from: {} to: {} failed due cannot delete from file: {} after copy succeeded"
-argument_list|,
+throw|throw
 operator|new
-name|Object
-index|[]
-block|{
-name|from
-block|,
-name|to
-block|,
-name|from
-block|}
-argument_list|)
-expr_stmt|;
-name|renamed
-operator|=
-literal|false
-expr_stmt|;
-block|}
-name|renamed
-operator|=
-literal|true
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|IOException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
 argument_list|(
-literal|"Error renaming file from: "
+literal|"Renaming file from: "
 operator|+
 name|from
 operator|+
@@ -1583,10 +1555,19 @@ literal|" to: "
 operator|+
 name|to
 operator|+
-literal|" using copy/delete"
-argument_list|,
-name|e
+literal|" failed due cannot delete from file: "
+operator|+
+name|from
+operator|+
+literal|" after copy succeeded"
 argument_list|)
+throw|;
+block|}
+else|else
+block|{
+name|renamed
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}

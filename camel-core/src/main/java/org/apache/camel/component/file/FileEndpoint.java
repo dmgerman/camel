@@ -149,6 +149,13 @@ specifier|private
 name|File
 name|file
 decl_stmt|;
+DECL|field|copyAndDeleteOnRenameFail
+specifier|private
+name|boolean
+name|copyAndDeleteOnRenameFail
+init|=
+literal|true
+decl_stmt|;
 DECL|method|FileEndpoint ()
 specifier|public
 name|FileEndpoint
@@ -597,6 +604,32 @@ name|name
 argument_list|)
 argument_list|)
 return|;
+block|}
+DECL|method|isCopyAndDeleteOnRenameFail ()
+specifier|public
+name|boolean
+name|isCopyAndDeleteOnRenameFail
+parameter_list|()
+block|{
+return|return
+name|copyAndDeleteOnRenameFail
+return|;
+block|}
+DECL|method|setCopyAndDeleteOnRenameFail (boolean copyAndDeleteOnRenameFail)
+specifier|public
+name|void
+name|setCopyAndDeleteOnRenameFail
+parameter_list|(
+name|boolean
+name|copyAndDeleteOnRenameFail
+parameter_list|)
+block|{
+name|this
+operator|.
+name|copyAndDeleteOnRenameFail
+operator|=
+name|copyAndDeleteOnRenameFail
+expr_stmt|;
 block|}
 block|}
 end_class
