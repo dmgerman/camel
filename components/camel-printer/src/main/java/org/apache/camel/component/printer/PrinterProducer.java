@@ -493,7 +493,7 @@ argument_list|()
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-literal|"/default"
+literal|"default"
 argument_list|)
 operator|)
 condition|)
