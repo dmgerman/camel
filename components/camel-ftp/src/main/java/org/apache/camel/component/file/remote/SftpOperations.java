@@ -3112,6 +3112,8 @@ argument_list|,
 name|local
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -3122,6 +3124,8 @@ argument_list|(
 name|temp
 argument_list|,
 name|local
+argument_list|,
+literal|false
 argument_list|)
 condition|)
 block|{
@@ -3136,6 +3140,29 @@ operator|+
 literal|" to: "
 operator|+
 name|local
+argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Cannot rename local work file from: "
+operator|+
+name|temp
+operator|+
+literal|" to: "
+operator|+
+name|local
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
