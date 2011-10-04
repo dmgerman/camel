@@ -164,6 +164,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|maven
 operator|.
 name|artifact
@@ -544,6 +558,9 @@ comment|/**      * @parameter expression="${plugin.artifacts}"      * @readonly 
 DECL|field|pluginDependencies
 specifier|private
 name|List
+argument_list|<
+name|Artifact
+argument_list|>
 name|pluginDependencies
 decl_stmt|;
 comment|/**      * Whether to enable the tracer or not      *      * @parameter expression="${camel.trace}"      *            default-value="false"      * @required      */
@@ -1606,10 +1623,16 @@ name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 name|Set
+argument_list|<
+name|Thread
+argument_list|>
 name|uncooperativeThreads
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|Thread
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// these were not responsive
@@ -1617,6 +1640,9 @@ comment|// to interruption
 for|for
 control|(
 name|Collection
+argument_list|<
+name|Thread
+argument_list|>
 name|threads
 init|=
 name|getActiveThreads
@@ -1933,6 +1959,9 @@ block|}
 DECL|method|getActiveThreads (ThreadGroup threadGroup)
 specifier|private
 name|Collection
+argument_list|<
+name|Thread
+argument_list|>
 name|getActiveThreads
 parameter_list|(
 name|ThreadGroup
@@ -1963,10 +1992,16 @@ name|threads
 argument_list|)
 decl_stmt|;
 name|Collection
+argument_list|<
+name|Thread
+argument_list|>
 name|result
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Thread
+argument_list|>
 argument_list|(
 name|numThreads
 argument_list|)
@@ -2096,10 +2131,16 @@ throws|throws
 name|MojoExecutionException
 block|{
 name|List
+argument_list|<
+name|URL
+argument_list|>
 name|classpathURLs
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|URL
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|this
@@ -2151,12 +2192,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Add any relevant project dependencies to the classpath. Indirectly takes      * includePluginDependencies and ExecutableDependency into consideration.      *      * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
-DECL|method|addRelevantPluginDependenciesToClasspath (List path)
+DECL|method|addRelevantPluginDependenciesToClasspath (List<URL> path)
 specifier|private
 name|void
 name|addRelevantPluginDependenciesToClasspath
 parameter_list|(
 name|List
+argument_list|<
+name|URL
+argument_list|>
 name|path
 parameter_list|)
 throws|throws
@@ -2257,12 +2301,15 @@ throw|;
 block|}
 block|}
 comment|/**      * Add any relevant project dependencies to the classpath. Takes      * includeProjectDependencies into consideration.      *      * @param path classpath of {@link java.net.URL} objects      * @throws MojoExecutionException      */
-DECL|method|addRelevantProjectDependenciesToClasspath (List path)
+DECL|method|addRelevantProjectDependenciesToClasspath (List<URL> path)
 specifier|private
 name|void
 name|addRelevantProjectDependenciesToClasspath
 parameter_list|(
 name|List
+argument_list|<
+name|URL
+argument_list|>
 name|path
 parameter_list|)
 throws|throws
@@ -2324,12 +2371,20 @@ name|mainClasses
 argument_list|)
 expr_stmt|;
 name|Set
+argument_list|<
+name|Artifact
+argument_list|>
 name|dependencies
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|project
 operator|.
 name|getArtifacts
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// system scope dependencies are not returned by maven 2.0. See
 comment|// MEXEC-17
@@ -2446,16 +2501,25 @@ block|}
 DECL|method|getAllNonTestScopedDependencies ()
 specifier|private
 name|Collection
+argument_list|<
+name|Artifact
+argument_list|>
 name|getAllNonTestScopedDependencies
 parameter_list|()
 throws|throws
 name|MojoExecutionException
 block|{
 name|List
+argument_list|<
+name|Artifact
+argument_list|>
 name|answer
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Artifact
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2521,16 +2585,25 @@ comment|// generic method to retrieve all the transitive dependencies
 DECL|method|getAllDependencies ()
 specifier|private
 name|Collection
+argument_list|<
+name|Artifact
+argument_list|>
 name|getAllDependencies
 parameter_list|()
 throws|throws
 name|MojoExecutionException
 block|{
 name|List
+argument_list|<
+name|Artifact
+argument_list|>
 name|artifacts
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Artifact
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2726,10 +2799,16 @@ argument_list|)
 expr_stmt|;
 block|}
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|exclusions
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2813,12 +2892,18 @@ comment|/**      * Determine all plugin dependencies relevant to the executable.
 DECL|method|determineRelevantPluginDependencies ()
 specifier|private
 name|Set
+argument_list|<
+name|Artifact
+argument_list|>
 name|determineRelevantPluginDependencies
 parameter_list|()
 throws|throws
 name|MojoExecutionException
 block|{
 name|Set
+argument_list|<
+name|Artifact
+argument_list|>
 name|relevantDependencies
 decl_stmt|;
 if|if
@@ -2849,6 +2934,9 @@ name|relevantDependencies
 operator|=
 operator|new
 name|HashSet
+argument_list|<
+name|Artifact
+argument_list|>
 argument_list|(
 name|this
 operator|.
@@ -2901,7 +2989,8 @@ name|relevantDependencies
 operator|=
 name|Collections
 operator|.
-name|EMPTY_SET
+name|emptySet
+argument_list|()
 expr_stmt|;
 name|getLog
 argument_list|()
@@ -3046,6 +3135,9 @@ block|}
 DECL|method|resolveExecutableDependencies (Artifact executablePomArtifact)
 specifier|private
 name|Set
+argument_list|<
+name|Artifact
+argument_list|>
 name|resolveExecutableDependencies
 parameter_list|(
 name|Artifact
@@ -3055,6 +3147,9 @@ throws|throws
 name|MojoExecutionException
 block|{
 name|Set
+argument_list|<
+name|Artifact
+argument_list|>
 name|executableDependencies
 decl_stmt|;
 try|try
@@ -3081,17 +3176,32 @@ argument_list|)
 decl_stmt|;
 comment|// get all of the dependencies for the executable project
 name|List
+argument_list|<
+name|Artifact
+argument_list|>
 name|dependencies
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|executableProject
 operator|.
 name|getDependencies
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// make Artifacts of all the dependencies
 name|Set
+argument_list|<
+name|Artifact
+argument_list|>
 name|dependencyArtifacts
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|MavenMetadataSource
 operator|.
 name|createArtifacts
@@ -3107,6 +3217,7 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// not forgetting the Artifact of the project itself
@@ -3156,10 +3267,15 @@ argument_list|)
 decl_stmt|;
 name|executableDependencies
 operator|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|result
 operator|.
 name|getArtifacts
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

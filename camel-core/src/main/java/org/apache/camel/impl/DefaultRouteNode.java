@@ -197,6 +197,11 @@ return|return
 name|processorDefinition
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|getLabel (Exchange exchange)
 specifier|public
 name|String

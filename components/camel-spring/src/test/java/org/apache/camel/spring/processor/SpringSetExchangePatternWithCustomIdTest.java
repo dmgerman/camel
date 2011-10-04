@@ -71,11 +71,6 @@ extends|extends
 name|SetExchangePatternTest
 block|{
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|testToWithInOnlyParam ()
 specifier|public

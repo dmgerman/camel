@@ -84,11 +84,6 @@ name|ManagedRegisterRouteTest
 extends|extends
 name|ManagementTestSupport
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|testRoutes ()
 specifier|public
 name|void
