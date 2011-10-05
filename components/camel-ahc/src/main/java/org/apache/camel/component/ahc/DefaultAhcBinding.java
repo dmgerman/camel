@@ -807,7 +807,7 @@ decl_stmt|;
 name|String
 name|charset
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(

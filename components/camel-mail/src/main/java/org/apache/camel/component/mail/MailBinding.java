@@ -356,6 +356,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -545,7 +559,7 @@ name|setSubject
 argument_list|(
 name|subject
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -943,7 +957,7 @@ condition|)
 block|{
 name|charset
 operator|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|normalizeCharset
 argument_list|(
@@ -1034,7 +1048,7 @@ block|}
 block|}
 comment|// Using the charset header of exchange as a fall back
 return|return
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1939,7 +1953,7 @@ argument_list|,
 name|headerValue
 argument_list|)
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(

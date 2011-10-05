@@ -1327,7 +1327,7 @@ name|InputStream
 operator|)
 name|value
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(

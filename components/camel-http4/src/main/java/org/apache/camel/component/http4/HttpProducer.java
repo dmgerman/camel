@@ -2472,7 +2472,7 @@ comment|// (for example application/x-www-form-urlencoded forms being sent)
 name|String
 name|charset
 init|=
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(

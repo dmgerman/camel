@@ -250,6 +250,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -586,7 +600,7 @@ name|InputStreamReader
 argument_list|(
 name|stream
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -838,7 +852,7 @@ name|InputStreamReader
 argument_list|(
 name|is
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -914,7 +928,7 @@ name|InputStreamReader
 argument_list|(
 name|is
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -999,7 +1013,7 @@ name|InputStreamReader
 argument_list|(
 name|is
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1026,7 +1040,7 @@ name|OutputStreamWriter
 argument_list|(
 name|stream
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1087,7 +1101,7 @@ name|OutputStreamWriter
 argument_list|(
 name|stream
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1126,7 +1140,7 @@ name|InputStreamReader
 argument_list|(
 name|is
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(
@@ -1157,7 +1171,7 @@ name|OutputStreamWriter
 argument_list|(
 name|stream
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|getCharsetName
 argument_list|(

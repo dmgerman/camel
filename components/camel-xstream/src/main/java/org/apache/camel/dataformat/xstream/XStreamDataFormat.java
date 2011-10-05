@@ -216,6 +216,20 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) using XStream to marshal to and from XML  *  * @version   */
 end_comment
@@ -431,7 +445,7 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
-name|IOConverter
+name|IOHelper
 operator|.
 name|normalizeCharset
 argument_list|(
