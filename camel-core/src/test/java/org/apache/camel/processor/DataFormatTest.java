@@ -401,6 +401,16 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
 block|}
 block|}
 end_class

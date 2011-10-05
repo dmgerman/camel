@@ -1924,9 +1924,6 @@ operator|.
 name|StringStreamConsumer
 argument_list|()
 decl_stmt|;
-name|int
-name|exitCode
-init|=
 name|CommandLineUtils
 operator|.
 name|executeCommandLine
@@ -1937,7 +1934,7 @@ name|stdout
 argument_list|,
 name|stderr
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|String
 name|output
 init|=

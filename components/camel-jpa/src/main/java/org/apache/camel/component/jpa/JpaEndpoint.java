@@ -152,7 +152,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ExpressionAdapter
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -164,9 +164,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
-name|ScheduledPollEndpoint
+name|ExpressionAdapter
 import|;
 end_import
 

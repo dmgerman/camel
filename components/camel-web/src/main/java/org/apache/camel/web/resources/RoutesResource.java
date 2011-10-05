@@ -302,6 +302,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|RouteDefinition
 import|;
 end_import
@@ -936,8 +950,13 @@ operator|)
 name|value
 decl_stmt|;
 comment|// add the route
+operator|(
+operator|(
+name|ModelCamelContext
+operator|)
 name|getCamelContext
 argument_list|()
+operator|)
 operator|.
 name|addRouteDefinitions
 argument_list|(

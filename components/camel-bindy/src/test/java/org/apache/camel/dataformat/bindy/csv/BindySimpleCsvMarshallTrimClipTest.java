@@ -181,15 +181,6 @@ name|URI_MOCK_RESULT
 init|=
 literal|"mock:result"
 decl_stmt|;
-DECL|field|URI_MOCK_ERROR
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|URI_MOCK_ERROR
-init|=
-literal|"mock:error"
-decl_stmt|;
 DECL|field|URI_DIRECT_START
 specifier|private
 specifier|static

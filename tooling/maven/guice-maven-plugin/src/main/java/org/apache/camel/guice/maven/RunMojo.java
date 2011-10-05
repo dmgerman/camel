@@ -1447,6 +1447,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|terminateThreads (ThreadGroup threadGroup)
 specifier|private
 name|void
