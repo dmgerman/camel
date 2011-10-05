@@ -258,6 +258,8 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|dataFormat
 operator|.
 name|marshal
@@ -285,6 +287,25 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// remove OUT message, as an exception occurred
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
