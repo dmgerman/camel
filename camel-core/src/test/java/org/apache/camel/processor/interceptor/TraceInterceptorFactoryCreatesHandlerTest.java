@@ -143,6 +143,11 @@ operator|=
 name|traceAllNodes
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|createTraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
 specifier|public
 name|Processor

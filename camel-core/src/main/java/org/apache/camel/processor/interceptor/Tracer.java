@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -34,7 +34,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|concurrent
+operator|.
+name|CopyOnWriteArrayList
 import|;
 end_import
 
@@ -312,7 +314,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|traceHandlers
 specifier|private
-name|List
+name|CopyOnWriteArrayList
 argument_list|<
 name|TraceEventHandler
 argument_list|>
@@ -333,7 +335,7 @@ block|{
 name|traceHandlers
 operator|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|TraceEventHandler
 argument_list|>
