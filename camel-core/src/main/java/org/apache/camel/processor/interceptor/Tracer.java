@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -300,10 +310,13 @@ operator|new
 name|DefaultTraceInterceptorFactory
 argument_list|()
 decl_stmt|;
-DECL|field|traceHandler
+DECL|field|traceHandlers
 specifier|private
+name|List
+argument_list|<
 name|TraceEventHandler
-name|traceHandler
+argument_list|>
+name|traceHandlers
 decl_stmt|;
 DECL|field|jpaTraceEventMessageClassName
 specifier|private
@@ -317,12 +330,24 @@ specifier|public
 name|Tracer
 parameter_list|()
 block|{
-name|traceHandler
+name|traceHandlers
 operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|TraceEventHandler
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|traceHandlers
+operator|.
+name|add
+argument_list|(
 operator|new
 name|DefaultTraceEventHandler
 argument_list|(
 name|this
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -932,6 +957,9 @@ operator|=
 name|traceInterceptorFactory
 expr_stmt|;
 block|}
+comment|/**      *       * @return the first trace event handler      */
+annotation|@
+name|Deprecated
 DECL|method|getTraceHandler ()
 specifier|public
 name|TraceEventHandler
@@ -939,10 +967,31 @@ name|getTraceHandler
 parameter_list|()
 block|{
 return|return
-name|traceHandler
+name|traceHandlers
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      *       * @return list of tracehandlers      */
+DECL|method|getTraceHandlers ()
+specifier|public
+name|List
+argument_list|<
+name|TraceEventHandler
+argument_list|>
+name|getTraceHandlers
+parameter_list|()
+block|{
+return|return
+name|traceHandlers
 return|;
 block|}
 comment|/**      * Set the object to be used to perform tracing.      *<p/>      * Use this to take more control of how trace events are persisted.      * Setting the traceHandler provides a simpler mechanism for controlling tracing      * than the TraceInterceptorFactory.      * The TraceHandler should only be set before any routes are created, hence this      * method is not thread safe.      */
+annotation|@
+name|Deprecated
 DECL|method|setTraceHandler (TraceEventHandler traceHandler)
 specifier|public
 name|void
@@ -954,9 +1003,54 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|traceHandlers
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|,
 name|traceHandler
-operator|=
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Add the given tracehandler      * @param traceHandler      */
+DECL|method|addTraceHandler (TraceEventHandler traceHandler)
+specifier|public
+name|void
+name|addTraceHandler
+parameter_list|(
+name|TraceEventHandler
 name|traceHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceHandlers
+operator|.
+name|add
+argument_list|(
+name|traceHandler
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Remove the given tracehandler      * @param traceHandler      */
+DECL|method|removeTraceHandler (TraceEventHandler traceHandler)
+specifier|public
+name|void
+name|removeTraceHandler
+parameter_list|(
+name|TraceEventHandler
+name|traceHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceHandlers
+operator|.
+name|add
+argument_list|(
+name|traceHandler
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getJpaTraceEventMessageClassName ()
