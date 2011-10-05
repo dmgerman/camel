@@ -1005,10 +1005,15 @@ name|this
 operator|.
 name|traceHandlers
 operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|traceHandlers
+operator|.
 name|add
 argument_list|(
-literal|0
-argument_list|,
 name|traceHandler
 argument_list|)
 expr_stmt|;
