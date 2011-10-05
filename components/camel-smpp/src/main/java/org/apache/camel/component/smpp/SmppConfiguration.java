@@ -48,7 +48,31 @@ name|jsmpp
 operator|.
 name|bean
 operator|.
+name|Alphabet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jsmpp
+operator|.
+name|bean
+operator|.
 name|NumberingPlanIndicator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jsmpp
+operator|.
+name|bean
+operator|.
+name|ReplaceIfPresentFlag
 import|;
 end_import
 
@@ -128,15 +152,18 @@ name|systemType
 init|=
 literal|"cp"
 decl_stmt|;
-DECL|field|dataCoding
+comment|// TODO: document deleting of dataCoding
+DECL|field|alphabet
 specifier|private
 name|byte
-name|dataCoding
+name|alphabet
 init|=
-operator|(
-name|byte
-operator|)
-literal|0
+name|Alphabet
+operator|.
+name|ALPHA_DEFAULT
+operator|.
+name|value
+argument_list|()
 decl_stmt|;
 DECL|field|encoding
 specifier|private
@@ -265,10 +292,12 @@ specifier|private
 name|byte
 name|replaceIfPresentFlag
 init|=
-operator|(
-name|byte
-operator|)
-literal|0
+name|ReplaceIfPresentFlag
+operator|.
+name|DEFAULT
+operator|.
+name|value
+argument_list|()
 decl_stmt|;
 DECL|field|typeOfNumber
 specifier|private
@@ -491,30 +520,30 @@ return|return
 name|password
 return|;
 block|}
-DECL|method|getDataCoding ()
+DECL|method|getAlphabet ()
 specifier|public
 name|byte
-name|getDataCoding
+name|getAlphabet
 parameter_list|()
 block|{
 return|return
-name|dataCoding
+name|alphabet
 return|;
 block|}
-DECL|method|setDataCoding (byte dataCoding)
+DECL|method|setAlphabet (byte alphabet)
 specifier|public
 name|void
-name|setDataCoding
+name|setAlphabet
 parameter_list|(
 name|byte
-name|dataCoding
+name|alphabet
 parameter_list|)
 block|{
 name|this
 operator|.
-name|dataCoding
+name|alphabet
 operator|=
-name|dataCoding
+name|alphabet
 expr_stmt|;
 block|}
 DECL|method|getEncoding ()
@@ -1116,9 +1145,9 @@ literal|", systemType="
 operator|+
 name|systemType
 operator|+
-literal|", dataCoding="
+literal|", alphabet="
 operator|+
-name|dataCoding
+name|alphabet
 operator|+
 literal|", encoding="
 operator|+
