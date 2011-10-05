@@ -312,6 +312,20 @@ name|jpaTraceEventMessageClassName
 init|=
 name|JPA_TRACE_EVENT_MESSAGE
 decl_stmt|;
+DECL|method|Tracer ()
+specifier|public
+name|Tracer
+parameter_list|()
+block|{
+name|traceHandler
+operator|=
+operator|new
+name|DefaultTraceEventHandler
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Creates a new tracer.      *      * @param context Camel context      * @return a new tracer      */
 DECL|method|createTracer (CamelContext context)
 specifier|public
