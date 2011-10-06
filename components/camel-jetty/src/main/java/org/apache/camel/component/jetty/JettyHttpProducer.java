@@ -652,12 +652,21 @@ argument_list|,
 name|httpExchange
 argument_list|)
 expr_stmt|;
-comment|// if we post then set data
+comment|// if we post or put then set data
 if|if
 condition|(
 name|HttpMethods
 operator|.
 name|POST
+operator|.
+name|equals
+argument_list|(
+name|methodToUse
+argument_list|)
+operator|||
+name|HttpMethods
+operator|.
+name|PUT
 operator|.
 name|equals
 argument_list|(
