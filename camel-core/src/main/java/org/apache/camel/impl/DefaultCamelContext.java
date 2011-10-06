@@ -5722,6 +5722,72 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|getPropertyPrefixToken ()
+specifier|public
+name|String
+name|getPropertyPrefixToken
+parameter_list|()
+block|{
+name|PropertiesComponent
+name|pc
+init|=
+name|getPropertiesComponent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|pc
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|pc
+operator|.
+name|getPrefixToken
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
+DECL|method|getPropertySuffixToken ()
+specifier|public
+name|String
+name|getPropertySuffixToken
+parameter_list|()
+block|{
+name|PropertiesComponent
+name|pc
+init|=
+name|getPropertiesComponent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|pc
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|pc
+operator|.
+name|getSuffixToken
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 DECL|method|resolvePropertyPlaceholders (String text)
 specifier|public
 name|String
@@ -5733,7 +5799,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// do not parse uris that are designated for the properties component as it will handle that itself
+comment|// While it is more efficient to only do the lookup if we are sure we need the component,
+comment|// with custom tokens, we cannot know if the URI contains a property or not without having
+comment|// the component.  We also lose fail-fast behavior for the missing component with this change.
+name|PropertiesComponent
+name|pc
+init|=
+name|getPropertiesComponent
+argument_list|()
+decl_stmt|;
+comment|// Do not parse uris that are designated for the properties component as it will handle that itself
 if|if
 condition|(
 name|text
@@ -5747,6 +5822,14 @@ name|startsWith
 argument_list|(
 literal|"properties:"
 argument_list|)
+condition|)
+block|{
+comment|// No component, assume default tokens.
+if|if
+condition|(
+name|pc
+operator|==
+literal|null
 operator|&&
 name|text
 operator|.
@@ -5754,47 +5837,8 @@ name|contains
 argument_list|(
 name|PropertiesComponent
 operator|.
-name|PREFIX_TOKEN
+name|DEFAULT_PREFIX_TOKEN
 argument_list|)
-condition|)
-block|{
-comment|// the uri contains property placeholders so lookup mandatory properties component and let it parse it
-name|Component
-name|component
-init|=
-name|hasComponent
-argument_list|(
-literal|"properties"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|component
-operator|==
-literal|null
-condition|)
-block|{
-comment|// then fallback to lookup the component
-name|component
-operator|=
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-literal|"properties"
-argument_list|,
-name|Component
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|component
-operator|==
-literal|null
 condition|)
 block|{
 throw|throw
@@ -5806,20 +5850,26 @@ operator|+
 literal|" in CamelContext to support property placeholders."
 argument_list|)
 throw|;
+comment|// Component available, use actual tokens
 block|}
-comment|// force component to be created and registered as a component
-name|PropertiesComponent
+elseif|else
+if|if
+condition|(
 name|pc
-init|=
-name|getComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|PropertiesComponent
+operator|!=
+literal|null
+operator|&&
+name|text
 operator|.
-name|class
+name|contains
+argument_list|(
+name|pc
+operator|.
+name|getPrefixToken
+argument_list|()
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
 comment|// the parser will throw exception if property key was not found
 name|String
 name|answer
@@ -5845,6 +5895,7 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
 block|}
 comment|// return original text as is
 return|return
@@ -10613,6 +10664,74 @@ operator|&&
 operator|!
 name|isStarting
 argument_list|()
+return|;
+block|}
+comment|/**      * Looks up the properties component if one may be resolved or has already been created.      * Returns {@code null} if one was not created or is not in the registry.      */
+DECL|method|getPropertiesComponent ()
+specifier|protected
+name|PropertiesComponent
+name|getPropertiesComponent
+parameter_list|()
+block|{
+name|Component
+name|component
+init|=
+name|hasComponent
+argument_list|(
+literal|"properties"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|component
+operator|==
+literal|null
+condition|)
+block|{
+comment|// then fallback to lookup the component
+name|component
+operator|=
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+literal|"properties"
+argument_list|,
+name|Component
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+name|PropertiesComponent
+name|pc
+init|=
+literal|null
+decl_stmt|;
+comment|// Ensure that we don't create one if one is not really available.
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// force component to be created and registered as a component
+name|pc
+operator|=
+name|getComponent
+argument_list|(
+literal|"properties"
+argument_list|,
+name|PropertiesComponent
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|pc
 return|;
 block|}
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)

@@ -212,11 +212,6 @@ end_comment
 
 begin_class
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Got NPE error when the CmPropertyPlaceholder init is called"
-argument_list|)
-annotation|@
 name|RunWith
 argument_list|(
 name|JUnit4TestRunner
@@ -413,6 +408,15 @@ name|class
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+operator|.
+name|set
+argument_list|(
+name|Constants
+operator|.
+name|BUNDLE_VERSION
+argument_list|,
+literal|"1.0.0"
 argument_list|)
 operator|.
 name|build

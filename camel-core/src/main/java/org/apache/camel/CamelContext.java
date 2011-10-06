@@ -1102,6 +1102,18 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the configured property placeholder prefix token if and only if the context has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the prefix token or {@code null}      */
+DECL|method|getPropertyPrefixToken ()
+name|String
+name|getPropertyPrefixToken
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the configured property placeholder suffix token if and only if the context has      * property placeholder abilities, otherwise returns {@code null}.      *       * @return the suffix token or {@code null}      */
+DECL|method|getPropertySuffixToken ()
+name|String
+name|getPropertySuffixToken
+parameter_list|()
+function_decl|;
 comment|/**      * Gets a readonly list with the names of the languages currently registered.      *      * @return a readonly list with the names of the the languages      */
 DECL|method|getLanguageNames ()
 name|List

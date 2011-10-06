@@ -125,6 +125,19 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// Must avoid attempting placeholder resolution when looking up
+comment|// the properties component or else we end up in an infinite loop.
+if|if
+condition|(
+operator|!
+name|name
+operator|.
+name|equals
+argument_list|(
+literal|"properties"
+argument_list|)
+condition|)
+block|{
 name|name
 operator|=
 name|context
@@ -134,6 +147,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|delegate
 operator|.
@@ -179,6 +193,19 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// Must avoid attempting placeholder resolution when looking up
+comment|// the properties component or else we end up in an infinite loop.
+if|if
+condition|(
+operator|!
+name|name
+operator|.
+name|equals
+argument_list|(
+literal|"properties"
+argument_list|)
+condition|)
+block|{
 name|name
 operator|=
 name|context
@@ -188,6 +215,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|delegate
 operator|.
