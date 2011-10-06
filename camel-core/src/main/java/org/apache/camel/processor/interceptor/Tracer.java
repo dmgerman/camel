@@ -327,6 +327,18 @@ name|jpaTraceEventMessageClassName
 init|=
 name|JPA_TRACE_EVENT_MESSAGE
 decl_stmt|;
+DECL|field|jmxTraceNotifications
+specifier|private
+name|boolean
+name|jmxTraceNotifications
+decl_stmt|;
+DECL|field|traceBodySize
+specifier|private
+name|int
+name|traceBodySize
+init|=
+literal|10000
+decl_stmt|;
 DECL|method|Tracer ()
 specifier|public
 name|Tracer
@@ -1085,6 +1097,58 @@ operator|.
 name|jpaTraceEventMessageClassName
 operator|=
 name|jpaTraceEventMessageClassName
+expr_stmt|;
+block|}
+DECL|method|isJmxTraceNotifications ()
+specifier|public
+name|boolean
+name|isJmxTraceNotifications
+parameter_list|()
+block|{
+return|return
+name|jmxTraceNotifications
+return|;
+block|}
+DECL|method|setJmxTraceNotifications (boolean jmxTraceNotifications)
+specifier|public
+name|void
+name|setJmxTraceNotifications
+parameter_list|(
+name|boolean
+name|jmxTraceNotifications
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmxTraceNotifications
+operator|=
+name|jmxTraceNotifications
+expr_stmt|;
+block|}
+DECL|method|getTraceBodySize ()
+specifier|public
+name|int
+name|getTraceBodySize
+parameter_list|()
+block|{
+return|return
+name|traceBodySize
+return|;
+block|}
+DECL|method|setTraceBodySize (int traceBodySize)
+specifier|public
+name|void
+name|setTraceBodySize
+parameter_list|(
+name|int
+name|traceBodySize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceBodySize
+operator|=
+name|traceBodySize
 expr_stmt|;
 block|}
 annotation|@
