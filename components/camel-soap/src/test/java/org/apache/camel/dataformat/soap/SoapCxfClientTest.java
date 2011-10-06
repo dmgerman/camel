@@ -188,22 +188,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Tracer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -217,16 +201,6 @@ operator|.
 name|junit
 operator|.
 name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -339,8 +313,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testSuccess ()
 specifier|public
 name|void
@@ -423,8 +395,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testRoundTripGetAllCustomers ()
 specifier|public
 name|void
@@ -486,8 +456,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testRoundTripSaveCustomer ()
 specifier|public
 name|void
@@ -554,8 +522,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testFault ()
 specifier|public
 name|void
@@ -666,16 +632,6 @@ argument_list|,
 name|elNameStrat
 argument_list|)
 decl_stmt|;
-name|getContext
-argument_list|()
-operator|.
-name|addInterceptStrategy
-argument_list|(
-operator|new
-name|Tracer
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|getContext
 argument_list|()
 operator|.
