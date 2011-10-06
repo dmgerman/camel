@@ -1686,6 +1686,8 @@ name|getName
 argument_list|()
 operator|+
 literal|" needs to have an WebFault annotation with name and targetNamespace"
+argument_list|,
+name|exception
 argument_list|)
 throw|;
 block|}
