@@ -184,6 +184,26 @@ name|RuntimeCamelException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Offers a finder for a webservice interface to determine the QName of a  * webservice data element  */
 end_comment
@@ -196,6 +216,23 @@ name|ServiceInterfaceStrategy
 implements|implements
 name|ElementNameStrategy
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ServiceInterfaceStrategy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|soapActionToMethodInfo
 specifier|private
 name|Map
@@ -530,11 +567,6 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|getInInfo (Method method)
 specifier|private
 name|List
@@ -1054,11 +1086,11 @@ operator|)
 operator|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
+name|LOG
+operator|.
+name|warn
 argument_list|(
-literal|"Ambiguous parameter mapping. The type [ "
+literal|"Ambiguous QName mapping. The type [ "
 operator|+
 name|ti
 operator|.
@@ -1067,7 +1099,8 @@ argument_list|()
 operator|+
 literal|" ] is already mapped to a QName in this context."
 argument_list|)
-throw|;
+expr_stmt|;
+continue|continue;
 block|}
 name|inTypeNameToQName
 operator|.
