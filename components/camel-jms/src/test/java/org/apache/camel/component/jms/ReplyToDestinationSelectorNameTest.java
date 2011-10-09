@@ -286,7 +286,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Using header named replayId with value as correlation - ${header.replyId}"
+literal|"Using header named replyId with value as correlation - ${header.replyId}"
 argument_list|)
 operator|.
 name|transform
