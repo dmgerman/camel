@@ -76,6 +76,26 @@ name|MessageSentCallback
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Callback to be used when using the option<tt>useMessageIDAsCorrelationID</tt>.  *<p/>  * This callback will keep the correlation registration in {@link ReplyManager} up-to-date with  * the<tt>JMSMessageID</tt> which was assigned and used when the message was sent.  *  * @version   */
 end_comment
@@ -88,6 +108,22 @@ name|UseMessageIdAsCorrelationIdMessageSentCallback
 implements|implements
 name|MessageSentCallback
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|MessageSelectorCreator
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|replyManager
 specifier|private
 name|ReplyManager
@@ -173,6 +209,17 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot get JMSMessageID from message: "
+operator|+
+name|message
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(

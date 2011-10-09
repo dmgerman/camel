@@ -128,6 +128,8 @@ name|Message
 name|reply
 parameter_list|)
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|dynamicMessageSelector
@@ -144,6 +146,9 @@ name|correlationId
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|super
 operator|.
 name|onReply
@@ -153,6 +158,7 @@ argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -165,6 +171,8 @@ name|String
 name|correlationId
 parameter_list|)
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|dynamicMessageSelector
@@ -181,6 +189,9 @@ name|correlationId
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|super
 operator|.
 name|onTimeout
@@ -188,6 +199,7 @@ argument_list|(
 name|correlationId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

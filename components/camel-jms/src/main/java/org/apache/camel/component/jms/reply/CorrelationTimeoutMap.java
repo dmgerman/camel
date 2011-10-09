@@ -47,14 +47,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * A {@link org.apache.camel.TimeoutMap} which is used to track reply messages which  * has been timed out, and thus should trigger the waiting {@link org.apache.camel.Exchange} to  * timeout as well.  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|CorrelationMap
+DECL|class|CorrelationTimeoutMap
 specifier|public
 class|class
-name|CorrelationMap
+name|CorrelationTimeoutMap
 extends|extends
 name|DefaultTimeoutMap
 argument_list|<
@@ -63,9 +63,9 @@ argument_list|,
 name|ReplyHandler
 argument_list|>
 block|{
-DECL|method|CorrelationMap (ScheduledExecutorService executor, long requestMapPollTimeMillis)
+DECL|method|CorrelationTimeoutMap (ScheduledExecutorService executor, long requestMapPollTimeMillis)
 specifier|public
-name|CorrelationMap
+name|CorrelationTimeoutMap
 parameter_list|(
 name|ScheduledExecutorService
 name|executor
@@ -103,6 +103,15 @@ name|key
 argument_list|)
 expr_stmt|;
 comment|// return true to remove the element
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Evicted correlationID: {}"
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -160,6 +169,55 @@ name|timeoutMillis
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Added correlationID: {} to timeout after: {} millis"
+argument_list|,
+name|key
+argument_list|,
+name|timeoutMillis
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|remove (String id)
+specifier|public
+name|ReplyHandler
+name|remove
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|ReplyHandler
+name|answer
+init|=
+name|super
+operator|.
+name|remove
+argument_list|(
+name|id
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Removed correlationID: {} -> {}"
+argument_list|,
+name|id
+argument_list|,
+name|answer
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
 block|}
 end_class

@@ -401,22 +401,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|dynamicMessageSelector
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// also remember to keep the dynamic selector updated with the new correlation id
-name|dynamicMessageSelector
-operator|.
-name|removeCorrelationID
-argument_list|(
-name|correlationID
-argument_list|)
-expr_stmt|;
-block|}
 name|correlation
 operator|.
 name|remove

@@ -317,7 +317,7 @@ literal|10000
 decl_stmt|;
 DECL|field|correlation
 specifier|protected
-name|CorrelationMap
+name|CorrelationTimeoutMap
 name|correlation
 decl_stmt|;
 DECL|method|setScheduledExecutorService (ScheduledExecutorService executorService)
@@ -552,6 +552,8 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
+try|try
+block|{
 name|Exchange
 name|exchange
 init|=
@@ -717,6 +719,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+finally|finally
+block|{
 comment|// notify callback
 name|AsyncCallback
 name|callback
@@ -733,6 +738,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|handleReplyMessage (String correlationID, Message message)
@@ -942,7 +948,7 @@ comment|// purge for timeout every second
 name|correlation
 operator|=
 operator|new
-name|CorrelationMap
+name|CorrelationTimeoutMap
 argument_list|(
 name|executorService
 argument_list|,
