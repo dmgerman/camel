@@ -327,6 +327,14 @@ literal|null
 condition|)
 block|{
 comment|// also remember to keep the dynamic selector updated with the new correlation id
+comment|// at first removing the old correlationID and then add the new correlationID
+name|dynamicMessageSelector
+operator|.
+name|removeCorrelationID
+argument_list|(
+name|correlationId
+argument_list|)
+expr_stmt|;
 name|dynamicMessageSelector
 operator|.
 name|addCorrelationID
