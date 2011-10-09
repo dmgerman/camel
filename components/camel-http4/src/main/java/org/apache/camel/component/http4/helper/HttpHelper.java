@@ -84,6 +84,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -989,7 +999,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Creates the HttpMethod to use to call the remote server, often either its GET or POST.      *      * @param exchange the exchange      * @return the created method      */
+comment|/**      * Creates the HttpMethod to use to call the remote server, often either its GET or POST.      *      * @param exchange the exchange      * @return the created method      * @throws URISyntaxException       */
 DECL|method|createMethod (Exchange exchange, HttpEndpoint endpoint, boolean hasPayload)
 specifier|public
 specifier|static
@@ -1005,6 +1015,8 @@ parameter_list|,
 name|boolean
 name|hasPayload
 parameter_list|)
+throws|throws
+name|URISyntaxException
 block|{
 comment|// is a query string provided in the endpoint URI or in a header (header
 comment|// overrules endpoint)
@@ -1027,6 +1039,86 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// We need also check the HTTP_URI header query part
+name|String
+name|uriString
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_URI
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// resolve placeholders in uriString
+try|try
+block|{
+name|uriString
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|uriString
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Cannot resolve property placeholders with uri: "
+operator|+
+name|uriString
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|uriString
+operator|!=
+literal|null
+condition|)
+block|{
+name|URI
+name|uri
+init|=
+operator|new
+name|URI
+argument_list|(
+name|uriString
+argument_list|)
+decl_stmt|;
+name|queryString
+operator|=
+name|uri
+operator|.
+name|getQuery
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|queryString

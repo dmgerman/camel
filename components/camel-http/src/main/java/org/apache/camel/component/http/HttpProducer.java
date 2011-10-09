@@ -82,6 +82,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1897,7 +1917,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws CamelExchangeException is thrown if error creating RequestEntity      */
+comment|/**      * Creates the HttpMethod to use to call the remote server, either its GET or POST.      *      * @param exchange the exchange      * @return the created method as either GET or POST      * @throws CamelExchangeException is thrown if error creating RequestEntity      * @throws URISyntaxException       */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1913,6 +1933,8 @@ name|exchange
 parameter_list|)
 throws|throws
 name|CamelExchangeException
+throws|,
+name|URISyntaxException
 block|{
 name|String
 name|url
@@ -1925,6 +1947,15 @@ name|exchange
 argument_list|,
 name|getEndpoint
 argument_list|()
+argument_list|)
+decl_stmt|;
+name|URI
+name|uri
+init|=
+operator|new
+name|URI
+argument_list|(
+name|url
 argument_list|)
 decl_stmt|;
 name|RequestEntity
@@ -1998,6 +2029,22 @@ name|getHttpUri
 argument_list|()
 operator|.
 name|getRawQuery
+argument_list|()
+expr_stmt|;
+block|}
+comment|// We should user the query string from the HTTP_URI header
+if|if
+condition|(
+name|queryString
+operator|==
+literal|null
+condition|)
+block|{
+name|queryString
+operator|=
+name|uri
+operator|.
+name|getQuery
 argument_list|()
 expr_stmt|;
 block|}

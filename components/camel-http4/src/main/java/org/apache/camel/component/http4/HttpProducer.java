@@ -2032,6 +2032,22 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// We should user the query string from the HTTP_URI header
+if|if
+condition|(
+name|queryString
+operator|==
+literal|null
+condition|)
+block|{
+name|queryString
+operator|=
+name|uri
+operator|.
+name|getQuery
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|queryString
