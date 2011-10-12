@@ -527,6 +527,12 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|conn
+operator|!=
+literal|null
+condition|)
 name|conn
 operator|.
 name|rollback
