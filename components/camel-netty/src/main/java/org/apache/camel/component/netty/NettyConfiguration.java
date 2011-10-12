@@ -505,6 +505,11 @@ name|maxPoolSize
 init|=
 literal|100
 decl_stmt|;
+DECL|field|workerCount
+specifier|private
+name|int
+name|workerCount
+decl_stmt|;
 DECL|field|keyStoreFormat
 specifier|private
 name|String
@@ -2319,6 +2324,32 @@ block|{
 return|return
 name|serverPipelineFactory
 return|;
+block|}
+DECL|method|getWorkerCount ()
+specifier|public
+name|int
+name|getWorkerCount
+parameter_list|()
+block|{
+return|return
+name|workerCount
+return|;
+block|}
+DECL|method|setWorkerCount (int workerCount)
+specifier|public
+name|void
+name|setWorkerCount
+parameter_list|(
+name|int
+name|workerCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|workerCount
+operator|=
+name|workerCount
+expr_stmt|;
 block|}
 block|}
 end_class
