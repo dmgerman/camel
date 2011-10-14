@@ -823,7 +823,7 @@ operator|=
 operator|new
 name|BeanExpression
 argument_list|(
-name|ref
+name|instance
 argument_list|,
 name|getMethod
 argument_list|()
