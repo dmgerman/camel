@@ -36,6 +36,18 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|Source
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|TransformerException
 import|;
 end_import
@@ -85,7 +97,7 @@ DECL|field|body
 specifier|private
 name|List
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 name|body
 decl_stmt|;
@@ -97,7 +109,7 @@ name|T
 argument_list|>
 name|headers
 decl_stmt|;
-DECL|method|CxfPayload (List<T> headers, List<Element> body)
+DECL|method|CxfPayload (List<T> headers, List<Source> body)
 specifier|public
 name|CxfPayload
 parameter_list|(
@@ -109,7 +121,7 @@ name|headers
 parameter_list|,
 name|List
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 name|body
 parameter_list|)
@@ -131,7 +143,7 @@ DECL|method|getBody ()
 specifier|public
 name|List
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 name|getBody
 parameter_list|()
@@ -222,8 +234,8 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Element
-name|element
+name|Source
+name|src
 range|:
 name|body
 control|)
@@ -241,7 +253,7 @@ name|converter
 operator|.
 name|toString
 argument_list|(
-name|element
+name|src
 argument_list|,
 literal|null
 argument_list|)
@@ -255,7 +267,7 @@ parameter_list|)
 block|{
 name|elementString
 operator|=
-name|element
+name|src
 operator|.
 name|toString
 argument_list|()

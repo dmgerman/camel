@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|Source
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|w3c
@@ -87,6 +99,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|converter
+operator|.
+name|jaxp
+operator|.
+name|XmlConverter
 import|;
 end_import
 
@@ -573,7 +601,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 name|elements
 init|=
@@ -601,16 +629,28 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|Element
+name|el
+init|=
+operator|new
+name|XmlConverter
+argument_list|()
+operator|.
+name|toDOMElement
 argument_list|(
-literal|"Get the wrong namespace URI"
-argument_list|,
 name|elements
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get the wrong namespace URI"
+argument_list|,
+name|el
 operator|.
 name|getNamespaceURI
 argument_list|()

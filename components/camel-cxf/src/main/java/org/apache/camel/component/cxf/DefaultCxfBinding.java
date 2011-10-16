@@ -2357,7 +2357,7 @@ expr_stmt|;
 block|}
 comment|// Non public methods
 comment|// -------------------------------------------------------------------------
-DECL|method|getResponsePayloadList (org.apache.cxf.message.Exchange exchange, List<Element> elements)
+DECL|method|getResponsePayloadList (org.apache.cxf.message.Exchange exchange, List<Source> elements)
 specifier|protected
 name|MessageContentsList
 name|getResponsePayloadList
@@ -2375,7 +2375,7 @@ name|exchange
 parameter_list|,
 name|List
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 name|elements
 parameter_list|)
@@ -3930,7 +3930,7 @@ specifier|protected
 specifier|static
 name|List
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 name|getPayloadBodyElements
 parameter_list|(
@@ -4196,14 +4196,14 @@ expr_stmt|;
 block|}
 name|List
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 name|answer
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Element
+name|Source
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -4266,6 +4266,8 @@ condition|)
 block|{
 name|Element
 name|element
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -4290,19 +4292,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|element
-operator|=
-name|getFirstElement
-argument_list|(
-operator|(
-name|Source
-operator|)
-name|part
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|element
@@ -4321,7 +4310,24 @@ name|answer
 operator|.
 name|add
 argument_list|(
+operator|new
+name|DOMSource
+argument_list|(
 name|element
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|.
+name|add
+argument_list|(
+operator|(
+name|Source
+operator|)
+name|part
 argument_list|)
 expr_stmt|;
 block|}
@@ -4377,10 +4383,14 @@ name|answer
 operator|.
 name|add
 argument_list|(
+operator|new
+name|DOMSource
+argument_list|(
 operator|(
 name|Element
 operator|)
 name|part
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4538,47 +4548,6 @@ name|getFirstElement
 argument_list|(
 name|node
 argument_list|)
-return|;
-block|}
-DECL|method|getFirstElement (Source source)
-specifier|private
-specifier|static
-name|Element
-name|getFirstElement
-parameter_list|(
-name|Source
-name|source
-parameter_list|)
-block|{
-try|try
-block|{
-return|return
-operator|(
-operator|(
-name|Document
-operator|)
-name|XMLUtils
-operator|.
-name|fromSource
-argument_list|(
-name|source
-argument_list|)
-operator|)
-operator|.
-name|getDocumentElement
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-return|return
-literal|null
 return|;
 block|}
 DECL|method|copyJaxWsContext (org.apache.cxf.message.Exchange cxfExchange, Map<String, Object> context)
