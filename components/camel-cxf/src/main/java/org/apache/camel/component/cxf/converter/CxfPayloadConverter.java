@@ -180,6 +180,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -616,12 +628,15 @@ name|XMLStreamException
 name|e
 parameter_list|)
 block|{
-comment|// TODO Auto-generated catch block
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Could not convert from Source to Element."
+argument_list|,
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+argument_list|)
+throw|;
 block|}
 name|srcs
 operator|.
