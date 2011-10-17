@@ -406,7 +406,7 @@ literal|"?"
 operator|+
 name|SERVICE_CLASS
 operator|+
-literal|"&dataFormat=PAYLOAD"
+literal|"&dataFormat=PAYLOAD&allowStreaming=false"
 decl_stmt|;
 DECL|field|serviceEndpointURI
 specifier|private
