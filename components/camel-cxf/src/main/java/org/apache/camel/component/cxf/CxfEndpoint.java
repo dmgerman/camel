@@ -1036,6 +1036,11 @@ specifier|private
 name|Boolean
 name|wrappedStyle
 decl_stmt|;
+DECL|field|allowStreaming
+specifier|private
+name|Boolean
+name|allowStreaming
+decl_stmt|;
 DECL|field|dataFormat
 specifier|private
 name|DataFormat
@@ -1712,7 +1717,9 @@ name|add
 argument_list|(
 operator|new
 name|PayLoadDataFormatFeature
-argument_list|()
+argument_list|(
+name|allowStreaming
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2493,7 +2500,9 @@ name|add
 argument_list|(
 operator|new
 name|PayLoadDataFormatFeature
-argument_list|()
+argument_list|(
+name|allowStreaming
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|factoryBean
@@ -3399,6 +3408,30 @@ name|wrappedStyle
 operator|=
 name|wrapped
 expr_stmt|;
+block|}
+DECL|method|setAllowStreaming (Boolean b)
+specifier|public
+name|void
+name|setAllowStreaming
+parameter_list|(
+name|Boolean
+name|b
+parameter_list|)
+block|{
+name|allowStreaming
+operator|=
+name|b
+expr_stmt|;
+block|}
+DECL|method|getAllowStreaming ()
+specifier|public
+name|Boolean
+name|getAllowStreaming
+parameter_list|()
+block|{
+return|return
+name|allowStreaming
+return|;
 block|}
 DECL|method|setCxfBinding (CxfBinding cxfBinding)
 specifier|public
