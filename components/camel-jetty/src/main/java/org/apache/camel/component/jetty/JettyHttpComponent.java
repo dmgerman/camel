@@ -32,6 +32,30 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|InvocationTargetException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Method
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -2892,8 +2916,12 @@ name|SslContextFactory
 argument_list|()
 block|{
 comment|/**                  * We are going to provide the context so none of the configuration options                  * matter in the factory.  This method does not account for this scenario so                  * we short-circuit it here to just let things go when the context is already                  * provided.                  */
+comment|// This method is for Jetty 7.0.x ~ 7.4.x
 annotation|@
-name|Override
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 specifier|public
 name|boolean
 name|checkConfig
@@ -2908,10 +2936,10 @@ literal|null
 condition|)
 block|{
 return|return
-name|super
-operator|.
-name|checkConfig
-argument_list|()
+name|checkSSLContextFactoryConfig
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 else|else
@@ -2920,6 +2948,14 @@ return|return
 literal|true
 return|;
 block|}
+block|}
+comment|// This method is for Jetty 7.5.x
+specifier|public
+name|void
+name|checkKeyStore
+parameter_list|()
+block|{
+comment|// here we don't check the SslContext as it is already created
 block|}
 block|}
 decl_stmt|;
@@ -3189,6 +3225,77 @@ block|}
 block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|checkSSLContextFactoryConfig (SslContextFactory instance)
+specifier|protected
+name|boolean
+name|checkSSLContextFactoryConfig
+parameter_list|(
+name|SslContextFactory
+name|instance
+parameter_list|)
+block|{
+try|try
+block|{
+name|Method
+name|method
+init|=
+name|SslContextFactory
+operator|.
+name|class
+operator|.
+name|getMethod
+argument_list|(
+literal|"checkConfig"
+argument_list|)
+decl_stmt|;
+return|return
+operator|(
+name|Boolean
+operator|)
+name|method
+operator|.
+name|invoke
+argument_list|(
+name|instance
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+catch|catch
+parameter_list|(
+name|IllegalAccessException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+catch|catch
+parameter_list|(
+name|InvocationTargetException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+return|return
+literal|false
 return|;
 block|}
 DECL|method|getSslSocketConnectors ()
