@@ -646,7 +646,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Gets the body as a List of source objects      * @return      */
+comment|/**      * Gets the body as a List of source objects.   If possible, the Source objects      * will likely be StaxSource or similar that allows streaming.   If you plan to       * modify or use the Source, be careful that the result is still usable by      * the Camel runtime.      * @return      */
 DECL|method|getBodySources ()
 specifier|public
 name|List
@@ -673,6 +673,7 @@ return|return
 name|headers
 return|;
 block|}
+comment|/**      * Returns the contents as a String      * Important notes:      *   1) This requires the message to be fully loaded breaking the streaming      *   2) For large messages, the result can be a VERY large String and require      *   large amounts of memory.      */
 DECL|method|toString ()
 specifier|public
 name|String
