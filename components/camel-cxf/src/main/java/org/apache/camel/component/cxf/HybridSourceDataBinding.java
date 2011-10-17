@@ -534,6 +534,8 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// workaround issue in CXF that is causing these to go through
+comment|// sax instead of stax.  Fixed in 2.4.4/2.5.
 if|if
 condition|(
 name|obj

@@ -446,6 +446,11 @@ argument_list|(
 name|client
 argument_list|)
 expr_stmt|;
+comment|// Need to remove some interceptors that are incompatible
+comment|// We don't support JAX-WS Holders for PAYLOAD (not needed anyway)
+comment|// and thus we need to remove those interceptors to prevent Holder
+comment|// object from being created and stuck into the contents list
+comment|// instead of Source objects
 name|removeInterceptor
 argument_list|(
 name|client
@@ -461,6 +466,24 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|removeInterceptor
+argument_list|(
+name|client
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getOutInterceptors
+argument_list|()
+argument_list|,
+name|HolderOutInterceptor
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// The SoapHeaderInterceptor maps various headers onto method parameters.
+comment|// At this point, we expect all the headers to remain as headers, not
+comment|// part of the body, so we remove that one.
 name|removeInterceptor
 argument_list|(
 name|client
@@ -545,6 +568,8 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Need to remove some interceptors that are incompatible
+comment|// See above.
 name|removeInterceptor
 argument_list|(
 name|server
@@ -626,6 +651,10 @@ name|Binding
 name|bop2
 parameter_list|)
 block|{
+comment|// The HypbridSourceDatabinding, based on JAXB, will possibly set
+comment|// JAXB types into the parts.  Since we need the Source objects,
+comment|// we'll reset the types to either Source (for streaming), or null
+comment|// (for non-streaming, defaults to DOMSource.
 for|for
 control|(
 name|BindingOperationInfo
