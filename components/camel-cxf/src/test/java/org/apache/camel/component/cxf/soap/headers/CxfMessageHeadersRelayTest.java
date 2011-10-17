@@ -2898,6 +2898,8 @@ argument_list|(
 name|headers
 argument_list|,
 name|elements
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -3010,7 +3012,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
-name|response
+name|responseExp
 init|=
 literal|"<ns2:inoutHeaderResponse xmlns:ns2=\"http://apache.org/camel/"
 operator|+
@@ -3018,10 +3020,9 @@ literal|"component/cxf/soap/headers\"><responseType>pass</responseType>"
 operator|+
 literal|"</ns2:inoutHeaderResponse>"
 decl_stmt|;
-name|assertEquals
-argument_list|(
+name|String
 name|response
-argument_list|,
+init|=
 name|XMLUtils
 operator|.
 name|toString
@@ -3035,6 +3036,17 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|response
+argument_list|,
+name|response
+operator|.
+name|contains
+argument_list|(
+name|responseExp
 argument_list|)
 argument_list|)
 expr_stmt|;

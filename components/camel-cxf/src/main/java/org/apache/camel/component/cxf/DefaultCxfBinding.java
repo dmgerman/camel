@@ -2011,7 +2011,7 @@ name|cxfExchange
 argument_list|,
 name|payload
 operator|.
-name|getBody
+name|getBodySources
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3821,6 +3821,23 @@ name|HEADER_LIST
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|nsMap
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|answer
 operator|=
 operator|new
@@ -3834,7 +3851,11 @@ argument_list|,
 name|getPayloadBodyElements
 argument_list|(
 name|message
+argument_list|,
+name|nsMap
 argument_list|)
+argument_list|,
+name|nsMap
 argument_list|)
 expr_stmt|;
 block|}
@@ -3925,7 +3946,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getPayloadBodyElements (Message message)
+DECL|method|getPayloadBodyElements (Message message, Map<String, String> nsMap)
 specifier|protected
 specifier|static
 name|List
@@ -3936,6 +3957,14 @@ name|getPayloadBodyElements
 parameter_list|(
 name|Message
 name|message
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|nsMap
 parameter_list|)
 block|{
 comment|// take the namespace attribute from soap envelop
@@ -3953,23 +3982,6 @@ name|Node
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|nsMap
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

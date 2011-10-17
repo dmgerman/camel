@@ -480,6 +480,8 @@ argument_list|>
 argument_list|()
 argument_list|,
 name|elements
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|exchange

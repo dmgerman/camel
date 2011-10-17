@@ -379,6 +379,8 @@ argument_list|>
 argument_list|()
 argument_list|,
 name|body
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|emptyPayload
@@ -404,6 +406,8 @@ argument_list|<
 name|Source
 argument_list|>
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|inputStream

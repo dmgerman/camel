@@ -227,7 +227,7 @@ name|elements
 init|=
 name|payload
 operator|.
-name|getBody
+name|getBodySources
 argument_list|()
 decl_stmt|;
 name|assertNotNull
