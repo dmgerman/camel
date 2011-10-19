@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|LoggingLevel
 import|;
 end_import
@@ -279,6 +291,11 @@ init|=
 name|LoggingLevel
 operator|.
 name|TRACE
+decl_stmt|;
+DECL|field|sendEmptyMessageWhenIdle
+specifier|private
+name|boolean
+name|sendEmptyMessageWhenIdle
 decl_stmt|;
 DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor)
 specifier|public
@@ -750,6 +767,21 @@ init|=
 name|poll
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|polledMessages
+operator|==
+literal|0
+operator|&&
+name|isSendEmptyMessageWhenIdle
+argument_list|()
+condition|)
+block|{
+comment|// send an "empty" exchange
+name|processEmptyMessage
+argument_list|()
+expr_stmt|;
+block|}
 name|pollStrategy
 operator|.
 name|commit
@@ -898,6 +930,45 @@ expr_stmt|;
 block|}
 block|}
 comment|// avoid this thread to throw exceptions because the thread pool wont re-schedule a new thread
+block|}
+comment|/**      * No messages to poll so send an empty message instead.      *      * @throws Exception is thrown if error processing the empty message.      */
+DECL|method|processEmptyMessage ()
+specifier|protected
+name|void
+name|processEmptyMessage
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Exchange
+name|exchange
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|createExchange
+argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Sending empty message as there were no messages from polling: {}"
+argument_list|,
+name|this
+operator|.
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
@@ -1099,6 +1170,32 @@ name|startScheduler
 operator|=
 name|startScheduler
 expr_stmt|;
+block|}
+DECL|method|setSendEmptyMessageWhenIdle (boolean sendEmptyMessageWhenIdle)
+specifier|public
+name|void
+name|setSendEmptyMessageWhenIdle
+parameter_list|(
+name|boolean
+name|sendEmptyMessageWhenIdle
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendEmptyMessageWhenIdle
+operator|=
+name|sendEmptyMessageWhenIdle
+expr_stmt|;
+block|}
+DECL|method|isSendEmptyMessageWhenIdle ()
+specifier|public
+name|boolean
+name|isSendEmptyMessageWhenIdle
+parameter_list|()
+block|{
+return|return
+name|sendEmptyMessageWhenIdle
+return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
