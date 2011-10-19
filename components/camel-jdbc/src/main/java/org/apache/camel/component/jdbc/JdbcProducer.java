@@ -533,11 +533,13 @@ name|conn
 operator|!=
 literal|null
 condition|)
+block|{
 name|conn
 operator|.
 name|rollback
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
