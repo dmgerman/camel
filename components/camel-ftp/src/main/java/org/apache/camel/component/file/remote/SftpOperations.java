@@ -452,7 +452,6 @@ decl_stmt|;
 comment|/**      * Extended user info which supports interactive keyboard mode, by entering the password.      */
 DECL|interface|ExtendedUserInfo
 specifier|public
-specifier|static
 interface|interface
 name|ExtendedUserInfo
 extends|extends
