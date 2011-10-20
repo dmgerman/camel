@@ -266,6 +266,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -959,6 +971,8 @@ implements|implements
 name|HeaderFilterStrategyAware
 implements|,
 name|Service
+implements|,
+name|Cloneable
 block|{
 DECL|field|LOG
 specifier|private
@@ -1349,6 +1363,39 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|copy ()
+specifier|public
+name|CxfEndpoint
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|(
+name|CxfEndpoint
+operator|)
+name|this
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// This method is for CxfComponent setting the EndpointUri
 DECL|method|updateEndpointUri (String endpointUri)
