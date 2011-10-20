@@ -276,6 +276,16 @@ literal|"blueprintBundleContext"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// set the Bean scope to be prototype, so we can get a new instance per looking up
+name|answer
+operator|.
+name|setScope
+argument_list|(
+name|MutableBeanMetadata
+operator|.
+name|SCOPE_PROTOTYPE
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
