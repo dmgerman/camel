@@ -149,22 +149,6 @@ extends|extends
 name|CamelSpringTestSupport
 block|{
 annotation|@
-name|Override
-DECL|method|createApplicationContext ()
-specifier|protected
-name|AbstractApplicationContext
-name|createApplicationContext
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/itest/greeter/RecipientListCxfTest-context.xml"
-argument_list|)
-return|;
-block|}
-annotation|@
 name|EndpointInject
 argument_list|(
 name|uri
@@ -200,6 +184,22 @@ specifier|protected
 name|MockEndpoint
 name|outputEndpoint
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/itest/greeter/RecipientListCxfTest-context.xml"
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testRecipientListCXF ()
