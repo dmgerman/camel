@@ -180,18 +180,6 @@ name|xml
 operator|.
 name|transform
 operator|.
-name|TransformerException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
 name|TransformerFactory
 import|;
 end_import
@@ -205,6 +193,20 @@ operator|.
 name|transform
 operator|.
 name|URIResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|stax
+operator|.
+name|StAXSource
 import|;
 end_import
 
@@ -357,6 +359,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -373,7 +389,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body.  *<p/>  * Will by defult output the result as a String. You can chose which kind of output  * you want using the<tt>outputXXX</tt> methods.  *  * @version   */
+comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body.  *<p/>  * Will by default output the result as a String. You can chose which kind of output  * you want using the<tt>outputXXX</tt> methods.  *  * @version   */
 end_comment
 
 begin_class
@@ -569,14 +585,6 @@ name|DefaultTransformErrorHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Source
-name|source
-init|=
-name|getSource
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
 name|ResultHandler
 name|resultHandler
 init|=
@@ -614,6 +622,38 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// the underlying input stream, which we need to close to avoid locking files or other resources
+name|InputStream
+name|is
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|is
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|Source
+name|source
+init|=
+name|getSource
+argument_list|(
+name|exchange
+argument_list|,
+name|is
+argument_list|)
+decl_stmt|;
 name|transformer
 operator|.
 name|transform
@@ -630,6 +670,17 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
@@ -1309,36 +1360,72 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Converts the inbound body to a {@link Source}      */
-DECL|method|getSource (Exchange exchange)
+comment|/**      * Converts the inbound stream to a {@link Source}.      *<p/>      * This implementation will prefer StAX first, and fallback to other kinds of Source types.      */
+DECL|method|getSource (Exchange exchange, InputStream is)
 specifier|protected
 name|Source
 name|getSource
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|InputStream
+name|is
 parameter_list|)
 block|{
-name|Message
-name|in
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-decl_stmt|;
+comment|// try StAX first
 name|Source
 name|source
 init|=
-name|in
+name|exchange
 operator|.
-name|getBody
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
 argument_list|(
-name|Source
+name|StAXSource
 operator|.
 name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|is
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|source
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback and try other kind of source
+name|source
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|StAXSource
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|is
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|source
