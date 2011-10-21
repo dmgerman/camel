@@ -158,6 +158,8 @@ name|endpoint
 operator|.
 name|processDataSet
 argument_list|(
+name|exchange
+argument_list|,
 name|dataSet
 argument_list|,
 name|counter
@@ -172,6 +174,8 @@ name|endpoint
 operator|.
 name|processDataSet
 argument_list|(
+name|exchange
+argument_list|,
 name|dataSet
 argument_list|,
 name|dataSet
