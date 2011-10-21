@@ -122,6 +122,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -569,6 +585,11 @@ DECL|field|serverPipelineFactory
 specifier|private
 name|ServerPipelineFactory
 name|serverPipelineFactory
+decl_stmt|;
+DECL|field|sslContextParameters
+specifier|protected
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
@@ -2349,6 +2370,32 @@ operator|.
 name|workerCount
 operator|=
 name|workerCount
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 block|}
