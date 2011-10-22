@@ -325,19 +325,6 @@ name|Field
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|results
-specifier|private
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
-name|results
-decl_stmt|;
 DECL|field|numberOptionalFields
 specifier|private
 name|int
@@ -1224,8 +1211,17 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|results
-operator|=
+init|=
 operator|new
 name|HashMap
 argument_list|<
@@ -1237,7 +1233,7 @@ name|String
 argument_list|>
 argument_list|>
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|Class
@@ -1312,6 +1308,8 @@ argument_list|(
 name|clazz
 argument_list|,
 name|obj
+argument_list|,
+name|results
 argument_list|)
 expr_stmt|;
 block|}
@@ -1400,7 +1398,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * The result is placed in the Map<Integer, List> results      */
-DECL|method|generateFixedLengthPositionMap (Class clazz, Object obj)
+DECL|method|generateFixedLengthPositionMap (Class clazz, Object obj, Map<Integer, List<String>> results)
 specifier|private
 name|void
 name|generateFixedLengthPositionMap
@@ -1410,6 +1408,17 @@ name|clazz
 parameter_list|,
 name|Object
 name|obj
+parameter_list|,
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|results
 parameter_list|)
 throws|throws
 name|Exception
