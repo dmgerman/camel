@@ -388,19 +388,6 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|results
-specifier|private
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
-name|results
-decl_stmt|;
 DECL|field|numberOptionalFields
 specifier|private
 name|int
@@ -1163,8 +1150,17 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|results
-operator|=
+init|=
 operator|new
 name|HashMap
 argument_list|<
@@ -1176,7 +1172,7 @@ name|String
 argument_list|>
 argument_list|>
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// Check if separator exists
 name|ObjectHelper
 operator|.
@@ -1303,6 +1299,8 @@ argument_list|(
 name|clazz
 argument_list|,
 name|obj
+argument_list|,
+name|results
 argument_list|)
 expr_stmt|;
 block|}
@@ -1892,7 +1890,7 @@ name|product
 return|;
 block|}
 comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * If the model is Ordered than a key is created combining the annotation @Section and Position of the field      * If a relation @OneToMany is defined, than we iterate recursively through this function      * The result is placed in the Map<Integer, List> results      */
-DECL|method|generateCsvPositionMap (Class clazz, Object obj)
+DECL|method|generateCsvPositionMap (Class clazz, Object obj, Map<Integer, List<String>> results)
 specifier|private
 name|void
 name|generateCsvPositionMap
@@ -1902,6 +1900,17 @@ name|clazz
 parameter_list|,
 name|Object
 name|obj
+parameter_list|,
+name|Map
+argument_list|<
+name|Integer
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|results
 parameter_list|)
 throws|throws
 name|Exception
@@ -2337,6 +2346,8 @@ name|getClass
 argument_list|()
 argument_list|,
 name|target
+argument_list|,
+name|results
 argument_list|)
 expr_stmt|;
 block|}
@@ -2353,6 +2364,8 @@ name|getClass
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|results
 argument_list|)
 expr_stmt|;
 block|}
