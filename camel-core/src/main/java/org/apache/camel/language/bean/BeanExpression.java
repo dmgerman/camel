@@ -871,6 +871,14 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
+comment|// remove any existing exception in case we do OGNL on the exception
+name|resultExchange
+operator|.
+name|setException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 comment|// force to use InOut to retrieve the result on the OUT message
 name|resultExchange
 operator|.
@@ -1033,6 +1041,14 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
+comment|// remove any existing exception in case we do OGNL on the exception
+name|resultExchange
+operator|.
+name|setException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 comment|// force to use InOut to retrieve the result on the OUT message
 name|resultExchange
 operator|.
