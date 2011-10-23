@@ -380,7 +380,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// create a default notifier when 1 exchange is done which is the most common caase
+comment|// create a default notifier when 1 exchange is done which is the most common case
 name|oneExchangeDone
 operator|=
 name|event

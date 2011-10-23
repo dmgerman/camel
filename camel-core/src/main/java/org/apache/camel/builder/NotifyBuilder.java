@@ -72,16 +72,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Stack
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
@@ -338,6 +328,26 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder to build an expression based on {@link org.apache.camel.spi.EventNotifier} notifications  * about {@link Exchange} being routed.  *<p/>  * This builder can be used for testing purposes where you want to know when a test is supposed to be done.  * The idea is that you can build an expression that explains when the test is done. For example when Camel  * have finished routing 5 messages. You can then in your test await for this condition to occur.  *  * @version   */
 end_comment
@@ -348,6 +358,22 @@ specifier|public
 class|class
 name|NotifyBuilder
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|NotifyBuilder
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|context
 specifier|private
 specifier|final
@@ -394,14 +420,14 @@ comment|// the current state while building an event predicate where we use a st
 DECL|field|stack
 specifier|private
 specifier|final
-name|Stack
+name|List
 argument_list|<
 name|EventPredicate
 argument_list|>
 name|stack
 init|=
 operator|new
-name|Stack
+name|ArrayList
 argument_list|<
 name|EventPredicate
 argument_list|>
@@ -416,6 +442,12 @@ DECL|field|created
 specifier|private
 name|boolean
 name|created
+decl_stmt|;
+comment|// keep state of how many wereSentTo we have added
+DECL|field|wereSentToIndex
+specifier|private
+name|int
+name|wereSentToIndex
 decl_stmt|;
 comment|// computed value whether all the predicates matched
 DECL|field|matches
@@ -479,13 +511,6 @@ argument_list|(
 name|eventNotifier
 argument_list|)
 expr_stmt|;
-comment|// we only want to match from routes, so skip for example events
-comment|// which is triggered by producer templates etc.
-name|this
-operator|.
-name|fromRoutesOnly
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * Optionally a<tt>from</tt> endpoint which means that this expression should only be based      * on {@link Exchange} which is originated from the particular endpoint(s).      *      * @param endpointUri uri of endpoint or pattern (see the EndpointHelper javadoc)      * @return the builder      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
 DECL|method|from (final String endpointUri)
@@ -500,12 +525,24 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
 argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+comment|// is abstract as its a filter
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -539,6 +576,7 @@ name|boolean
 name|matches
 parameter_list|()
 block|{
+comment|// should be true as we use the onExchange to filter
 return|return
 literal|true
 return|;
@@ -578,12 +616,24 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
 argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+comment|// is abstract as its a filter
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -624,6 +674,7 @@ name|boolean
 name|matches
 parameter_list|()
 block|{
+comment|// should be true as we use the onExchange to filter
 return|return
 literal|true
 return|;
@@ -656,14 +707,29 @@ name|NotifyBuilder
 name|fromRoutesOnly
 parameter_list|()
 block|{
+comment|// internal and should always be in top of stack
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
+literal|0
+argument_list|,
 operator|new
 name|EventPredicateSupport
 argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+comment|// is abstract as its a filter
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -718,6 +784,7 @@ name|boolean
 name|matches
 parameter_list|()
 block|{
+comment|// should be true as we use the onExchange to filter
 return|return
 literal|true
 return|;
@@ -754,12 +821,24 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
 argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+comment|// is abstract as its a filter
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -785,6 +864,7 @@ name|boolean
 name|matches
 parameter_list|()
 block|{
+comment|// should be true as we use the onExchange to filter
 return|return
 literal|true
 return|;
@@ -839,12 +919,24 @@ argument_list|)
 decl_stmt|;
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
 argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+comment|// is abstract as its a filter
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -887,6 +979,7 @@ name|boolean
 name|matches
 parameter_list|()
 block|{
+comment|// should be true as we use the onExchange to filter
 return|return
 literal|true
 return|;
@@ -924,18 +1017,56 @@ name|String
 name|endpointUri
 parameter_list|)
 block|{
+comment|// insert in start of stack but after the previous wereSentTo
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
+name|wereSentToIndex
+operator|++
+argument_list|,
 operator|new
 name|EventPredicateSupport
 argument_list|()
 block|{
 specifier|private
 name|boolean
-name|matches
+name|sentTo
 decl_stmt|;
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+comment|// is abstract as its a filter
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|onExchangeCreated
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// reset when a new exchange is created
+name|sentTo
+operator|=
+literal|false
+expr_stmt|;
+return|return
+name|onExchange
+argument_list|(
+name|exchange
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -967,14 +1098,31 @@ name|endpointUri
 argument_list|)
 condition|)
 block|{
-comment|// we should match if matching once
-name|matches
+name|sentTo
 operator|=
 literal|true
 expr_stmt|;
 block|}
 return|return
-literal|true
+name|onExchange
+argument_list|(
+name|exchange
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|onExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// filter only when sentTo
+return|return
+name|sentTo
 return|;
 block|}
 specifier|public
@@ -982,8 +1130,9 @@ name|boolean
 name|matches
 parameter_list|()
 block|{
+comment|// should be true as we use the onExchange to filter
 return|return
-name|matches
+literal|true
 return|;
 block|}
 annotation|@
@@ -993,7 +1142,7 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|matches
+name|sentTo
 operator|=
 literal|false
 expr_stmt|;
@@ -1033,7 +1182,7 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
@@ -1883,7 +2032,7 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
@@ -2106,7 +2255,7 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
@@ -2328,7 +2477,7 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
@@ -2608,7 +2757,7 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
@@ -3041,7 +3190,7 @@ parameter_list|)
 block|{
 name|stack
 operator|.
-name|push
+name|add
 argument_list|(
 operator|new
 name|EventPredicateSupport
@@ -3710,7 +3859,7 @@ operator|.
 name|and
 expr_stmt|;
 block|}
-comment|// we have some
+comment|// we have some predicates
 if|if
 condition|(
 operator|!
@@ -3720,6 +3869,55 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// we only want to match from routes, so skip for example events
+comment|// which is triggered by producer templates etc.
+name|fromRoutesOnly
+argument_list|()
+expr_stmt|;
+comment|// the stack must have at least one non abstract
+name|boolean
+name|found
+init|=
+literal|false
+decl_stmt|;
+for|for
+control|(
+name|EventPredicate
+name|predicate
+range|:
+name|stack
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|predicate
+operator|.
+name|isAbstract
+argument_list|()
+condition|)
+block|{
+name|found
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|found
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"NotifyBuilder must contain at least one non-abstract predicate (such as whenDone)"
+argument_list|)
+throw|;
+block|}
 name|CompoundEventPredicate
 name|compound
 init|=
@@ -3751,6 +3949,11 @@ block|}
 name|operation
 operator|=
 name|newOperation
+expr_stmt|;
+comment|// reset wereSentTo index position as this its a new group
+name|wereSentToIndex
+operator|=
+literal|0
 expr_stmt|;
 block|}
 comment|/**      * Notifier which hooks into Camel to listen for {@link Exchange} relevant events for this builder      */
@@ -4219,6 +4422,12 @@ name|void
 name|reset
 parameter_list|()
 function_decl|;
+comment|/**          * Whether the predicate is abstract          */
+DECL|method|isAbstract ()
+name|boolean
+name|isAbstract
+parameter_list|()
+function_decl|;
 comment|/**          * Callback for {@link Exchange} lifecycle          *          * @param exchange the exchange          * @return<tt>true</tt> to allow continue evaluating,<tt>false</tt> to stop immediately          */
 DECL|method|onExchangeCreated (Exchange exchange)
 name|boolean
@@ -4270,6 +4479,16 @@ name|EventPredicateSupport
 implements|implements
 name|EventPredicate
 block|{
+DECL|method|isAbstract ()
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|reset ()
 specifier|public
 name|void
@@ -4480,11 +4699,11 @@ name|EventPredicate
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|CompoundEventPredicate (Stack<EventPredicate> predicates)
+DECL|method|CompoundEventPredicate (List<EventPredicate> predicates)
 specifier|private
 name|CompoundEventPredicate
 parameter_list|(
-name|Stack
+name|List
 argument_list|<
 name|EventPredicate
 argument_list|>
@@ -4501,6 +4720,16 @@ name|predicates
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isAbstract ()
+specifier|public
+name|boolean
+name|isAbstract
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|matches ()
 specifier|public
 name|boolean
@@ -4515,15 +4744,32 @@ range|:
 name|predicates
 control|)
 block|{
-if|if
-condition|(
-operator|!
+name|boolean
+name|answer
+init|=
 name|predicate
 operator|.
 name|matches
 argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"matches() {} -> {}"
+argument_list|,
+name|predicate
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
 condition|)
 block|{
+comment|// break at first false
 return|return
 literal|false
 return|;
@@ -4547,6 +4793,15 @@ range|:
 name|predicates
 control|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"reset() {}"
+argument_list|,
+name|predicate
+argument_list|)
+expr_stmt|;
 name|predicate
 operator|.
 name|reset
@@ -4571,17 +4826,34 @@ range|:
 name|predicates
 control|)
 block|{
-if|if
-condition|(
-operator|!
+name|boolean
+name|answer
+init|=
 name|predicate
 operator|.
 name|onExchangeCreated
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onExchangeCreated() {} -> {}"
+argument_list|,
+name|predicate
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
 condition|)
 block|{
+comment|// break at first false
 return|return
 literal|false
 return|;
@@ -4608,17 +4880,34 @@ range|:
 name|predicates
 control|)
 block|{
-if|if
-condition|(
-operator|!
+name|boolean
+name|answer
+init|=
 name|predicate
 operator|.
 name|onExchangeCompleted
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onExchangeCompleted() {} -> {}"
+argument_list|,
+name|predicate
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
 condition|)
 block|{
+comment|// break at first false
 return|return
 literal|false
 return|;
@@ -4645,17 +4934,34 @@ range|:
 name|predicates
 control|)
 block|{
-if|if
-condition|(
-operator|!
+name|boolean
+name|answer
+init|=
 name|predicate
 operator|.
 name|onExchangeFailed
 argument_list|(
 name|exchange
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onExchangeFailed() {} -> {}"
+argument_list|,
+name|predicate
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
 condition|)
 block|{
+comment|// break at first false
 return|return
 literal|false
 return|;
@@ -4690,9 +4996,9 @@ range|:
 name|predicates
 control|)
 block|{
-if|if
-condition|(
-operator|!
+name|boolean
+name|answer
+init|=
 name|predicate
 operator|.
 name|onExchangeSent
@@ -4703,8 +5009,32 @@ name|endpoint
 argument_list|,
 name|timeTaken
 argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onExchangeSent() {} {} -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|endpoint
+block|,
+name|predicate
+block|,
+name|answer
+block|}
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
 condition|)
 block|{
+comment|// break at first false
 return|return
 literal|false
 return|;
