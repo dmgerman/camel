@@ -138,7 +138,7 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-comment|/**      * Creates a AsnycProcossor that delegates to the given processor.      * It is important that this implements DelegateProcessor      *      */
+comment|/**      * Creates a {@link AsyncProcessor} that delegates to the given processor.      * It is important that this implements {@link DelegateProcessor}      */
 DECL|class|ProcessorToAsyncProcessorBridge
 specifier|private
 specifier|static

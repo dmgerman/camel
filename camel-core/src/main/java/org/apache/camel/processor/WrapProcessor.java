@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -99,6 +109,40 @@ operator|+
 literal|"] -> "
 operator|+
 name|processor
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|next ()
+specifier|public
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|next
+parameter_list|()
+block|{
+comment|// must include wrapped in navigate
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|list
+init|=
+name|super
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|list
+operator|.
+name|add
+argument_list|(
+name|wrapped
+argument_list|)
+expr_stmt|;
+return|return
+name|list
 return|;
 block|}
 annotation|@
