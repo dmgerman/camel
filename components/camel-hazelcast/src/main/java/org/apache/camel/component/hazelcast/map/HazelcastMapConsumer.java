@@ -28,7 +28,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
+name|HazelcastInstance
 import|;
 end_import
 
@@ -110,10 +110,13 @@ name|HazelcastMapConsumer
 extends|extends
 name|HazelcastDefaultConsumer
 block|{
-DECL|method|HazelcastMapConsumer (Endpoint endpoint, Processor processor, String cacheName)
+DECL|method|HazelcastMapConsumer (HazelcastInstance hazelcastInstance, Endpoint endpoint, Processor processor, String cacheName)
 specifier|public
 name|HazelcastMapConsumer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -126,6 +129,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|hazelcastInstance
+argument_list|,
 name|endpoint
 argument_list|,
 name|processor
@@ -141,7 +146,7 @@ name|Object
 argument_list|>
 name|cache
 init|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getMap
 argument_list|(

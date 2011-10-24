@@ -28,7 +28,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
+name|HazelcastInstance
 import|;
 end_import
 
@@ -100,13 +100,23 @@ name|Object
 argument_list|>
 name|repo
 decl_stmt|;
-DECL|method|HazelcastIdempotentRepository ()
+DECL|field|hazelcastInstance
+specifier|private
+name|HazelcastInstance
+name|hazelcastInstance
+decl_stmt|;
+DECL|method|HazelcastIdempotentRepository (HazelcastInstance hazelcastInstance)
 specifier|public
 name|HazelcastIdempotentRepository
-parameter_list|()
+parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|)
 block|{
 name|this
 argument_list|(
+name|hazelcastInstance
+argument_list|,
 name|HazelcastIdempotentRepository
 operator|.
 name|class
@@ -116,10 +126,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HazelcastIdempotentRepository (String repositoryName)
+DECL|method|HazelcastIdempotentRepository (HazelcastInstance hazelcastInstance, String repositoryName)
 specifier|public
 name|HazelcastIdempotentRepository
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|String
 name|repositoryName
 parameter_list|)
@@ -129,6 +142,12 @@ operator|.
 name|repositoryName
 operator|=
 name|repositoryName
+expr_stmt|;
+name|this
+operator|.
+name|hazelcastInstance
+operator|=
+name|hazelcastInstance
 expr_stmt|;
 block|}
 annotation|@
@@ -143,7 +162,7 @@ name|Exception
 block|{
 name|repo
 operator|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getMap
 argument_list|(

@@ -40,6 +40,18 @@ name|hazelcast
 operator|.
 name|core
 operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
 name|MembershipEvent
 import|;
 end_import
@@ -148,10 +160,13 @@ name|HazelcastInstanceConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|method|HazelcastInstanceConsumer (DefaultEndpoint endpoint, Processor processor)
+DECL|method|HazelcastInstanceConsumer (HazelcastInstance hazelcastInstance, DefaultEndpoint endpoint, Processor processor)
 specifier|public
 name|HazelcastInstanceConsumer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|DefaultEndpoint
 name|endpoint
 parameter_list|,
@@ -166,7 +181,7 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getCluster
 argument_list|()
@@ -340,7 +355,7 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
-literal|"Error processing exchange for hazelcast consumer on your Hazelcast cluster."
+literal|"Error processing exchange for Hazelcast consumer on your Hazelcast cluster."
 argument_list|,
 name|exchange
 argument_list|,

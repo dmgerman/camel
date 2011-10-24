@@ -152,6 +152,11 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Causes further hazelast tests to fail"
+argument_list|)
 DECL|method|testAddInstance ()
 specifier|public
 name|void

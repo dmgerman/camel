@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -70,10 +82,18 @@ specifier|final
 name|String
 name|cacheName
 decl_stmt|;
-DECL|method|HazelcastDefaultConsumer (Endpoint endpoint, Processor processor, String cacheName)
+DECL|field|hazelcastInstance
+specifier|protected
+name|HazelcastInstance
+name|hazelcastInstance
+decl_stmt|;
+DECL|method|HazelcastDefaultConsumer (HazelcastInstance hazelcastInstance, Endpoint endpoint, Processor processor, String cacheName)
 specifier|public
 name|HazelcastDefaultConsumer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -96,6 +116,12 @@ operator|.
 name|cacheName
 operator|=
 name|cacheName
+expr_stmt|;
+name|this
+operator|.
+name|hazelcastInstance
+operator|=
+name|hazelcastInstance
 expr_stmt|;
 block|}
 block|}

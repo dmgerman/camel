@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -96,10 +108,13 @@ name|HazelcastInstanceEndpoint
 extends|extends
 name|HazelcastDefaultEndpoint
 block|{
-DECL|method|HazelcastInstanceEndpoint (String uri, HazelcastComponent component)
+DECL|method|HazelcastInstanceEndpoint (HazelcastInstance hazelcastInstance, String uri, HazelcastComponent component)
 specifier|public
 name|HazelcastInstanceEndpoint
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|String
 name|uri
 parameter_list|,
@@ -109,6 +124,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|hazelcastInstance
+argument_list|,
 name|uri
 argument_list|,
 name|component
@@ -130,6 +147,8 @@ return|return
 operator|new
 name|HazelcastInstanceConsumer
 argument_list|(
+name|hazelcastInstance
+argument_list|,
 name|this
 argument_list|,
 name|processor

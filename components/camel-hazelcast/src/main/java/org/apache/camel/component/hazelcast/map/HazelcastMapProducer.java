@@ -48,7 +48,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
+name|HazelcastInstance
 import|;
 end_import
 
@@ -163,10 +163,18 @@ operator|new
 name|HazelcastComponentHelper
 argument_list|()
 decl_stmt|;
-DECL|method|HazelcastMapProducer (HazelcastMapEndpoint endpoint, String cacheName)
+DECL|field|hazelcastInstance
+specifier|private
+name|HazelcastInstance
+name|hazelcastInstance
+decl_stmt|;
+DECL|method|HazelcastMapProducer (HazelcastInstance hazelcastInstance, HazelcastMapEndpoint endpoint, String cacheName)
 specifier|public
 name|HazelcastMapProducer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|HazelcastMapEndpoint
 name|endpoint
 parameter_list|,
@@ -181,9 +189,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|hazelcastInstance
+operator|=
+name|hazelcastInstance
+expr_stmt|;
+name|this
+operator|.
 name|cache
 operator|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getMap
 argument_list|(

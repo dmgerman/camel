@@ -50,7 +50,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
+name|HazelcastInstance
 import|;
 end_import
 
@@ -148,10 +148,13 @@ operator|new
 name|HazelcastComponentHelper
 argument_list|()
 decl_stmt|;
-DECL|method|HazelcastAtomicnumberProducer (Endpoint endpoint, String cacheName)
+DECL|method|HazelcastAtomicnumberProducer (HazelcastInstance hazelcastInstance, Endpoint endpoint, String cacheName)
 specifier|public
 name|HazelcastAtomicnumberProducer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -168,7 +171,7 @@ name|this
 operator|.
 name|atomicnumber
 operator|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getAtomicNumber
 argument_list|(

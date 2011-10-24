@@ -50,6 +50,18 @@ name|hazelcast
 operator|.
 name|core
 operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
 name|IList
 import|;
 end_import
@@ -167,10 +179,18 @@ operator|new
 name|HazelcastComponentHelper
 argument_list|()
 decl_stmt|;
-DECL|method|HazelcastListProducer (Endpoint endpoint, String listName)
+DECL|field|hazelcastInstance
+specifier|private
+name|HazelcastInstance
+name|hazelcastInstance
+decl_stmt|;
+DECL|method|HazelcastListProducer (HazelcastInstance hazelcastInstance, Endpoint endpoint, String listName)
 specifier|public
 name|HazelcastListProducer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -185,9 +205,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|hazelcastInstance
+operator|=
+name|hazelcastInstance
+expr_stmt|;
+name|this
+operator|.
 name|list
 operator|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getList
 argument_list|(

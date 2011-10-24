@@ -40,6 +40,18 @@ name|hazelcast
 operator|.
 name|core
 operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
 name|IList
 import|;
 end_import
@@ -126,10 +138,13 @@ name|HazelcastListConsumer
 extends|extends
 name|HazelcastDefaultConsumer
 block|{
-DECL|method|HazelcastListConsumer (Endpoint endpoint, Processor processor, String cacheName)
+DECL|method|HazelcastListConsumer (HazelcastInstance hazelcastInstance, Endpoint endpoint, Processor processor, String cacheName)
 specifier|public
 name|HazelcastListConsumer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -142,6 +157,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|hazelcastInstance
+argument_list|,
 name|endpoint
 argument_list|,
 name|processor
@@ -155,7 +172,7 @@ name|Object
 argument_list|>
 name|queue
 init|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getList
 argument_list|(

@@ -48,6 +48,18 @@ name|hazelcast
 operator|.
 name|core
 operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
 name|MultiMap
 import|;
 end_import
@@ -79,6 +91,16 @@ operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|AfterClass
 import|;
 end_import
 
@@ -141,6 +163,21 @@ expr_stmt|;
 name|super
 operator|.
 name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|AfterClass
+DECL|method|tearDownClass ()
+specifier|public
+specifier|static
+name|void
+name|tearDownClass
+parameter_list|()
+block|{
+name|Hazelcast
+operator|.
+name|shutdownAll
 argument_list|()
 expr_stmt|;
 block|}

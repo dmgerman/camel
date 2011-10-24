@@ -50,6 +50,18 @@ name|hazelcast
 operator|.
 name|core
 operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
 name|MultiMap
 import|;
 end_import
@@ -153,10 +165,18 @@ operator|new
 name|HazelcastComponentHelper
 argument_list|()
 decl_stmt|;
-DECL|method|HazelcastMultimapProducer (Endpoint endpoint, String cacheName)
+DECL|field|hazelcastInstance
+specifier|private
+name|HazelcastInstance
+name|hazelcastInstance
+decl_stmt|;
+DECL|method|HazelcastMultimapProducer (HazelcastInstance hazelcastInstance, Endpoint endpoint, String cacheName)
 specifier|public
 name|HazelcastMultimapProducer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -168,6 +188,12 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|hazelcastInstance
+operator|=
+name|hazelcastInstance
 expr_stmt|;
 name|this
 operator|.

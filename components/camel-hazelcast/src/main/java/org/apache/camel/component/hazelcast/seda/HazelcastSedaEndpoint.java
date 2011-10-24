@@ -40,7 +40,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
+name|HazelcastInstance
 import|;
 end_import
 
@@ -116,9 +116,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|DefaultEndpoint
+name|hazelcast
+operator|.
+name|HazelcastDefaultEndpoint
 import|;
 end_import
 
@@ -146,7 +148,7 @@ specifier|public
 class|class
 name|HazelcastSedaEndpoint
 extends|extends
-name|DefaultEndpoint
+name|HazelcastDefaultEndpoint
 block|{
 DECL|field|queue
 specifier|private
@@ -160,10 +162,19 @@ specifier|final
 name|HazelcastSedaConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|HazelcastSedaEndpoint (final String uri, final HazelcastComponent component, final HazelcastSedaConfiguration configuration)
+DECL|field|hazelcastInstance
+specifier|private
+name|HazelcastInstance
+name|hazelcastInstance
+decl_stmt|;
+DECL|method|HazelcastSedaEndpoint (final HazelcastInstance hazelcastInstance, final String uri, final HazelcastComponent component, final HazelcastSedaConfiguration configuration)
 specifier|public
 name|HazelcastSedaEndpoint
 parameter_list|(
+specifier|final
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 specifier|final
 name|String
 name|uri
@@ -179,6 +190,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|component
+operator|.
+name|getHazelcastInstance
+argument_list|()
+argument_list|,
 name|uri
 argument_list|,
 name|component
@@ -186,9 +202,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|hazelcastInstance
+operator|=
+name|hazelcastInstance
+expr_stmt|;
+name|this
+operator|.
 name|queue
 operator|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getQueue
 argument_list|(

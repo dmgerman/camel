@@ -40,6 +40,18 @@ name|hazelcast
 operator|.
 name|core
 operator|.
+name|HazelcastInstance
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
 name|MultiMap
 import|;
 end_import
@@ -110,10 +122,13 @@ name|HazelcastMultimapConsumer
 extends|extends
 name|HazelcastDefaultConsumer
 block|{
-DECL|method|HazelcastMultimapConsumer (Endpoint endpoint, Processor processor, String cacheName)
+DECL|method|HazelcastMultimapConsumer (HazelcastInstance hazelcastInstance, Endpoint endpoint, Processor processor, String cacheName)
 specifier|public
 name|HazelcastMultimapConsumer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -126,6 +141,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|hazelcastInstance
+argument_list|,
 name|endpoint
 argument_list|,
 name|processor
@@ -141,7 +158,7 @@ name|Object
 argument_list|>
 name|cache
 init|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getMultiMap
 argument_list|(

@@ -38,7 +38,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
+name|HazelcastInstance
 import|;
 end_import
 
@@ -153,10 +153,18 @@ operator|new
 name|HazelcastComponentHelper
 argument_list|()
 decl_stmt|;
-DECL|method|HazelcastQueueProducer (Endpoint endpoint, String queueName)
+DECL|field|hazelcastInstance
+specifier|private
+name|HazelcastInstance
+name|hazelcastInstance
+decl_stmt|;
+DECL|method|HazelcastQueueProducer (HazelcastInstance hazelcastInstance, Endpoint endpoint, String queueName)
 specifier|public
 name|HazelcastQueueProducer
 parameter_list|(
+name|HazelcastInstance
+name|hazelcastInstance
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -171,9 +179,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|hazelcastInstance
+operator|=
+name|hazelcastInstance
+expr_stmt|;
+name|this
+operator|.
 name|queue
 operator|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getQueue
 argument_list|(
