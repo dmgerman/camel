@@ -1893,6 +1893,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|impliedLogFactories
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+operator|&&
 name|settings
 operator|.
 name|isSetting
