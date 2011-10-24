@@ -1448,6 +1448,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// If there is a setting of the LOG_EVENT_TABLE, we should create a jdbcLogFactory for it
 name|settings
 operator|.
 name|setString
@@ -1457,6 +1458,17 @@ operator|.
 name|SETTING_JDBC_DRIVER
 argument_list|,
 literal|"driver"
+argument_list|)
+expr_stmt|;
+name|settings
+operator|.
+name|setString
+argument_list|(
+name|JdbcSetting
+operator|.
+name|SETTING_LOG_EVENT_TABLE
+argument_list|,
+literal|"table"
 argument_list|)
 expr_stmt|;
 name|settings
