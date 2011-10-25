@@ -2472,7 +2472,7 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// there is a couple of special types we need to check
+comment|// special for bean invocation
 if|if
 condition|(
 name|source
@@ -2480,44 +2480,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|body
-operator|instanceof
-name|WrappedFile
-condition|)
-block|{
-comment|// special for files so we can work with them out of the box
-name|is
-operator|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|convertTo
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|,
-name|body
-argument_list|)
-expr_stmt|;
-name|source
-operator|=
-name|converter
-operator|.
-name|toDOMSource
-argument_list|(
-name|is
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
 if|if
 condition|(
 name|body
