@@ -4322,6 +4322,40 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|setAsyncConsumer (boolean asyncConsumer)
+specifier|public
+name|void
+name|setAsyncConsumer
+parameter_list|(
+name|boolean
+name|asyncConsumer
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setAsyncConsumer
+argument_list|(
+name|asyncConsumer
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isAsyncConsumer ()
+specifier|public
+name|boolean
+name|isAsyncConsumer
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isAsyncConsumer
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getReplyToType ()
 specifier|public
 name|String

@@ -138,13 +138,12 @@ name|JmsJettyAsyncTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|// TODO: When async jms consumer is implemented we can bump this value to 1000
 DECL|field|size
 specifier|private
 name|int
 name|size
 init|=
-literal|10
+literal|100
 decl_stmt|;
 DECL|field|port
 specifier|private
@@ -252,9 +251,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// enable async consumer to process messages faster
 name|from
 argument_list|(
-literal|"activemq:queue:inbox?synchronous=false"
+literal|"activemq:queue:inbox?asyncConsumer=false"
 argument_list|)
 operator|.
 name|to

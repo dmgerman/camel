@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms.issues
+DECL|package|org.apache.camel.component.jms.async
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|jms
 operator|.
-name|issues
+name|async
 package|;
 end_package
 
@@ -117,46 +117,37 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test using a fixed replyTo specified on the JMS endpoint  *  * @version   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|JmsJMSReplyToConsumerEndpointUsingInOutTest
+DECL|class|AsyncConsumerInOutTwoTest
 specifier|public
 class|class
-name|JmsJMSReplyToConsumerEndpointUsingInOutTest
+name|AsyncConsumerInOutTwoTest
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testCustomJMSReplyToInOut ()
+DECL|method|testAsyncJmsConsumer ()
 specifier|public
 name|void
-name|testCustomJMSReplyToInOut
+name|testAsyncJmsConsumer
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|out
+init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
-literal|"activemq:queue:hello"
+literal|"activemq:queue:start"
 argument_list|,
-literal|"What is your name?"
-argument_list|)
-expr_stmt|;
-name|String
-name|reply
-init|=
-name|consumer
-operator|.
-name|receiveBody
-argument_list|(
-literal|"activemq:queue:namedReplyQueue"
-argument_list|,
-literal|5000
+literal|"Hello World"
 argument_list|,
 name|String
 operator|.
@@ -165,53 +156,11 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"My name is Camel"
+literal|"Bye World"
 argument_list|,
-name|reply
+name|out
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
-argument_list|(
-literal|"activemq:queue:hello?replyTo=queue:namedReplyQueue"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"log:hello"
-argument_list|)
-operator|.
-name|transform
-argument_list|(
-name|constant
-argument_list|(
-literal|"My name is Camel"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|;
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
@@ -229,6 +178,17 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|camelContext
+operator|.
+name|addComponent
+argument_list|(
+literal|"async"
+argument_list|,
+operator|new
+name|MyAsyncComponent
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ConnectionFactory
 name|connectionFactory
 init|=
@@ -251,6 +211,53 @@ argument_list|)
 expr_stmt|;
 return|return
 name|camelContext
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// enable async in only mode on the consumer
+name|from
+argument_list|(
+literal|"activemq:queue:start?asyncConsumer=true"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"async:camel?delay=2000"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"Bye World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|;
 block|}
 block|}

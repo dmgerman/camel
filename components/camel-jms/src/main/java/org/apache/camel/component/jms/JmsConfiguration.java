@@ -800,6 +800,11 @@ specifier|private
 name|ReplyToType
 name|replyToType
 decl_stmt|;
+DECL|field|asyncConsumer
+specifier|private
+name|boolean
+name|asyncConsumer
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -4060,10 +4065,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|configure (EndpointMessageListener listener)
+DECL|method|configureMessageListener (EndpointMessageListener listener)
 specifier|public
 name|void
-name|configure
+name|configureMessageListener
 parameter_list|(
 name|EndpointMessageListener
 name|listener
@@ -4670,6 +4675,33 @@ operator|.
 name|replyToType
 operator|=
 name|replyToType
+expr_stmt|;
+block|}
+DECL|method|isAsyncConsumer ()
+specifier|public
+name|boolean
+name|isAsyncConsumer
+parameter_list|()
+block|{
+return|return
+name|asyncConsumer
+return|;
+block|}
+comment|/**      * Sets whether asynchronous routing is enabled on {@link JmsConsumer}.      *<p/>      * By default this is<tt>false</tt>. If configured as<tt>true</tt> then      * the {@link JmsConsumer} will process the {@link org.apache.camel.Exchange} asynchronous.      */
+DECL|method|setAsyncConsumer (boolean asyncConsumer)
+specifier|public
+name|void
+name|setAsyncConsumer
+parameter_list|(
+name|boolean
+name|asyncConsumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|asyncConsumer
+operator|=
+name|asyncConsumer
 expr_stmt|;
 block|}
 block|}
