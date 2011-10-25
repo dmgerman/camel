@@ -204,6 +204,34 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|dom
+operator|.
+name|DOMSource
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|sax
+operator|.
+name|SAXSource
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|stax
 operator|.
 name|StAXSource
@@ -373,6 +401,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -400,6 +448,22 @@ name|XsltBuilder
 implements|implements
 name|Processor
 block|{
+DECL|field|LOG
+specifier|private
+specifier|final
+specifier|static
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|XsltBuilder
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|parameters
 specifier|private
 name|Map
@@ -467,6 +531,11 @@ init|=
 operator|new
 name|XsltErrorListener
 argument_list|()
+decl_stmt|;
+DECL|field|allowStAX
+specifier|private
+name|boolean
+name|allowStAX
 decl_stmt|;
 DECL|method|XsltBuilder ()
 specifier|public
@@ -654,11 +723,29 @@ argument_list|,
 name|is
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using {} as source"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
 name|transformer
 operator|.
 name|transform
 argument_list|(
 name|source
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Transform complete with result {}"
 argument_list|,
 name|result
 argument_list|)
@@ -970,6 +1057,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enables to allow using StAX.      *<p/>      * When enabled StAX is preferred as the first choice as {@link Source}.      */
+DECL|method|allowStAX ()
+specifier|public
+name|XsltBuilder
+name|allowStAX
+parameter_list|()
+block|{
+name|setAllowStAX
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getParameters ()
@@ -1084,6 +1187,32 @@ operator|.
 name|resultHandlerFactory
 operator|=
 name|resultHandlerFactory
+expr_stmt|;
+block|}
+DECL|method|isAllowStAX ()
+specifier|public
+name|boolean
+name|isAllowStAX
+parameter_list|()
+block|{
+return|return
+name|allowStAX
+return|;
+block|}
+DECL|method|setAllowStAX (boolean allowStAX)
+specifier|public
+name|void
+name|setAllowStAX
+parameter_list|(
+name|boolean
+name|allowStAX
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowStAX
+operator|=
+name|allowStAX
 expr_stmt|;
 block|}
 comment|/**      * Sets the XSLT transformer from a Source      *      * @param source  the source      * @throws TransformerConfigurationException is thrown if creating a XSLT transformer failed.      */
@@ -1360,7 +1489,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Converts the inbound stream to a {@link Source}.      *<p/>      * This implementation will prefer StAX first, and fallback to other kinds of Source types.      */
+comment|/**      * Converts the inbound stream to a {@link Source}.      *<p/>      * This implementation will prefer to source in the following order:      *<ul>      *<li>StAX - Is StAX is allowed</li>      *<li>SAX - SAX as 2nd choice</li>      *<li>Stream - Stream as 3rd choice</li>      *<li>DOM - DOM as 4th choice</li>      *</ul>      */
 DECL|method|getSource (Exchange exchange, InputStream is)
 specifier|protected
 name|Source
@@ -1373,10 +1502,19 @@ name|InputStream
 name|is
 parameter_list|)
 block|{
-comment|// try StAX first
 name|Source
 name|source
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|isAllowStAX
+argument_list|()
+condition|)
+block|{
+name|source
+operator|=
 name|exchange
 operator|.
 name|getContext
@@ -1395,7 +1533,8 @@ name|exchange
 argument_list|,
 name|is
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|source
@@ -1403,7 +1542,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback and try other kind of source
+comment|// then try SAX
 name|source
 operator|=
 name|exchange
@@ -1416,7 +1555,67 @@ argument_list|()
 operator|.
 name|convertTo
 argument_list|(
-name|StAXSource
+name|SAXSource
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|is
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|source
+operator|==
+literal|null
+condition|)
+block|{
+comment|// then try stream
+name|source
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|StreamSource
+operator|.
+name|class
+argument_list|,
+name|exchange
+argument_list|,
+name|is
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|source
+operator|==
+literal|null
+condition|)
+block|{
+comment|// and fallback to DOM
+name|source
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|DOMSource
 operator|.
 name|class
 argument_list|,
@@ -1684,6 +1883,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Transformer set parameter {} -> {}"
+argument_list|,
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 name|transformer
 operator|.
 name|setParameter
