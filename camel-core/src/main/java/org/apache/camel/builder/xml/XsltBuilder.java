@@ -462,8 +462,8 @@ name|Processor
 block|{
 DECL|field|LOG
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|Logger
 name|LOG
 init|=

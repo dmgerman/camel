@@ -587,7 +587,7 @@ name|ServerPipelineFactory
 name|serverPipelineFactory
 decl_stmt|;
 DECL|field|sslContextParameters
-specifier|protected
+specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
