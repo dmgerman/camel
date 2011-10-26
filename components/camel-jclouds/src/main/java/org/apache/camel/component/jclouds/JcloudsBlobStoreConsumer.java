@@ -278,11 +278,13 @@ name|endpoint
 decl_stmt|;
 DECL|field|container
 specifier|private
+specifier|final
 name|String
 name|container
 decl_stmt|;
 DECL|field|blobStore
 specifier|private
+specifier|final
 name|BlobStore
 name|blobStore
 decl_stmt|;
@@ -338,6 +340,15 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+name|this
+operator|.
+name|container
+operator|=
+name|endpoint
+operator|.
+name|getContainer
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -391,10 +402,7 @@ name|blobStore
 operator|.
 name|list
 argument_list|(
-name|endpoint
-operator|.
-name|getContainer
-argument_list|()
+name|container
 argument_list|,
 name|opt
 operator|.
@@ -425,10 +433,7 @@ name|readBlob
 argument_list|(
 name|blobStore
 argument_list|,
-name|endpoint
-operator|.
-name|getContainer
-argument_list|()
+name|container
 argument_list|,
 name|blobName
 argument_list|,
@@ -669,7 +674,9 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-block|{                  }
+block|{
+comment|//empty method
+block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -794,32 +801,8 @@ specifier|public
 name|void
 name|prepareShutdown
 parameter_list|()
-block|{      }
-DECL|method|getContainer ()
-specifier|public
-name|String
-name|getContainer
-parameter_list|()
 block|{
-return|return
-name|container
-return|;
-block|}
-DECL|method|setContainer (String container)
-specifier|public
-name|void
-name|setContainer
-parameter_list|(
-name|String
-name|container
-parameter_list|)
-block|{
-name|this
-operator|.
-name|container
-operator|=
-name|container
-expr_stmt|;
+comment|//Empty method
 block|}
 block|}
 end_class
