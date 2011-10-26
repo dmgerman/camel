@@ -2049,6 +2049,25 @@ name|scope
 argument_list|)
 expr_stmt|;
 block|}
+comment|// to make using properties component easier
+name|context
+operator|.
+name|setAttribute
+argument_list|(
+literal|"properties"
+argument_list|,
+operator|new
+name|ScriptPropertiesFunction
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|)
+argument_list|,
+name|scope
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
