@@ -1110,7 +1110,7 @@ condition|)
 block|{
 name|jmxExporter
 operator|.
-name|export
+name|register
 argument_list|(
 name|acceptor
 argument_list|)
@@ -1138,7 +1138,7 @@ condition|)
 block|{
 name|jmxExporter
 operator|.
-name|export
+name|register
 argument_list|(
 name|initiator
 argument_list|)
