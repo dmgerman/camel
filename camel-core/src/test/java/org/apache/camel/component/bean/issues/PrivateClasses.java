@@ -59,7 +59,6 @@ block|}
 comment|/**      * Public interface through which we can bean-bind a private impl      */
 DECL|interface|HelloCamel
 specifier|public
-specifier|static
 interface|interface
 name|HelloCamel
 block|{

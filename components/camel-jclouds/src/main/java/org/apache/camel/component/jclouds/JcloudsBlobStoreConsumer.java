@@ -360,11 +360,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|int
-name|messages
-init|=
-literal|0
-decl_stmt|;
 name|shutdownRunningTask
 operator|=
 literal|null
@@ -413,9 +408,6 @@ argument_list|)
 argument_list|)
 control|)
 block|{
-name|messages
-operator|++
-expr_stmt|;
 name|String
 name|blobName
 init|=
