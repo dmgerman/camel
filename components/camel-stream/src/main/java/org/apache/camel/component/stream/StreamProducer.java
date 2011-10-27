@@ -285,20 +285,6 @@ literal|","
 argument_list|)
 argument_list|)
 decl_stmt|;
-DECL|field|outputStream
-specifier|private
-name|OutputStream
-name|outputStream
-init|=
-name|System
-operator|.
-name|out
-decl_stmt|;
-DECL|field|isSystemStream
-specifier|private
-name|boolean
-name|isSystemStream
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|StreamEndpoint
@@ -339,25 +325,6 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|public
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|closeStream
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -377,10 +344,18 @@ name|getDelay
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|OutputStream
+name|outputStream
+init|=
+name|System
+operator|.
+name|out
+decl_stmt|;
+name|boolean
 name|isSystemStream
-operator|=
+init|=
 literal|false
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 literal|"out"
@@ -489,11 +464,17 @@ expr_stmt|;
 block|}
 name|writeToStream
 argument_list|(
+name|outputStream
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
 name|closeStream
-argument_list|()
+argument_list|(
+name|outputStream
+argument_list|,
+name|isSystemStream
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|resolveStreamFromUrl ()
@@ -681,11 +662,14 @@ name|ms
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeToStream (Exchange exchange)
+DECL|method|writeToStream (OutputStream outputStream, Exchange exchange)
 specifier|private
 name|void
 name|writeToStream
 parameter_list|(
+name|OutputStream
+name|outputStream
+parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
@@ -852,11 +836,17 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|closeStream ()
+DECL|method|closeStream (OutputStream outputStream, boolean isSystemStream)
 specifier|private
 name|void
 name|closeStream
-parameter_list|()
+parameter_list|(
+name|OutputStream
+name|outputStream
+parameter_list|,
+name|boolean
+name|isSystemStream
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -877,10 +867,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|outputStream
-operator|=
-literal|null
-expr_stmt|;
 block|}
 DECL|method|validateUri (String uri)
 specifier|private

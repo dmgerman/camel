@@ -194,6 +194,11 @@ specifier|private
 name|int
 name|groupLines
 decl_stmt|;
+DECL|field|charset
+specifier|private
+name|Charset
+name|charset
+decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
 name|StreamEndpoint
@@ -570,11 +575,35 @@ operator|=
 name|groupLines
 expr_stmt|;
 block|}
-comment|// Implementations
-comment|//-------------------------------------------------------------------------
 DECL|method|getCharset ()
+specifier|public
 name|Charset
 name|getCharset
+parameter_list|()
+block|{
+return|return
+name|charset
+return|;
+block|}
+comment|// Implementations
+comment|//-------------------------------------------------------------------------
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|charset
+operator|=
+name|loadCharset
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|loadCharset ()
+name|Charset
+name|loadCharset
 parameter_list|()
 block|{
 if|if
