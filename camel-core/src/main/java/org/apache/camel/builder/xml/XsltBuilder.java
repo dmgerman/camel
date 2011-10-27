@@ -260,7 +260,7 @@ name|w3c
 operator|.
 name|dom
 operator|.
-name|Document
+name|Node
 import|;
 end_import
 
@@ -1597,7 +1597,20 @@ if|if
 condition|(
 name|body
 operator|instanceof
-name|Document
+name|byte
+index|[]
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|body
+operator|instanceof
+name|Node
 condition|)
 block|{
 return|return

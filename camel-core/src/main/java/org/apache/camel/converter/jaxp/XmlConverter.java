@@ -886,33 +886,32 @@ name|document
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Document to a Source      */
+comment|/**      * Converts the given Node to a Source      * @deprecated  use toDOMSource instead      */
 annotation|@
-name|Converter
-DECL|method|toDOMSource (Document document)
+name|Deprecated
+DECL|method|toSource (Node node)
 specifier|public
-name|DOMSource
-name|toDOMSource
+name|Source
+name|toSource
 parameter_list|(
-name|Document
-name|document
+name|Node
+name|node
 parameter_list|)
 block|{
 return|return
-operator|new
-name|DOMSource
+name|toDOMSource
 argument_list|(
-name|document
+name|node
 argument_list|)
 return|;
 block|}
 comment|/**      * Converts the given Node to a Source      */
 annotation|@
 name|Converter
-DECL|method|toSource (Node node)
+DECL|method|toDOMSource (Node node)
 specifier|public
-name|Source
-name|toSource
+name|DOMSource
+name|toDOMSource
 parameter_list|(
 name|Node
 name|node
@@ -1540,6 +1539,50 @@ name|r
 argument_list|)
 return|;
 block|}
+comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException      */
+annotation|@
+name|Converter
+DECL|method|toStAXSource (byte[] in, Exchange exchange)
+specifier|public
+name|StAXSource
+name|toStAXSource
+parameter_list|(
+name|byte
+index|[]
+name|in
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|XMLStreamException
+block|{
+name|XMLStreamReader
+name|r
+init|=
+operator|new
+name|StaxConverter
+argument_list|()
+operator|.
+name|createXMLStreamReader
+argument_list|(
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|in
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|StAXSource
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
 comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      *      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
@@ -1594,6 +1637,42 @@ argument_list|(
 name|toStreamSource
 argument_list|(
 name|source
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the source instance to a {@link SAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Converter
+DECL|method|toSAXSource (byte[] in, Exchange exchange)
+specifier|public
+name|SAXSource
+name|toSAXSource
+parameter_list|(
+name|byte
+index|[]
+name|in
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|TransformerException
+block|{
+return|return
+name|toSAXSource
+argument_list|(
+name|toStreamSource
+argument_list|(
+name|in
+argument_list|,
+name|exchange
 argument_list|)
 argument_list|,
 name|exchange
