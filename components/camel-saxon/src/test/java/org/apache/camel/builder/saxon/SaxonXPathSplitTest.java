@@ -54,16 +54,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -82,11 +72,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"This test fails"
-argument_list|)
 DECL|method|testSaxonXPathSplit ()
 specifier|public
 name|void
