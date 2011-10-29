@@ -22,6 +22,26 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -237,6 +257,8 @@ class|class
 name|TokenPairIterator
 implements|implements
 name|Iterator
+implements|,
+name|Closeable
 block|{
 DECL|field|startToken
 specifier|private
@@ -310,6 +332,8 @@ name|this
 operator|.
 name|image
 operator|=
+name|scanner
+operator|.
 name|hasNext
 argument_list|()
 condition|?
@@ -327,29 +351,10 @@ name|boolean
 name|hasNext
 parameter_list|()
 block|{
-comment|// must look a head
-name|boolean
-name|answer
-init|=
-name|scanner
-operator|.
-name|hasNext
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|answer
-condition|)
-block|{
-name|scanner
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 return|return
-name|answer
+name|image
+operator|!=
+literal|null
 return|;
 block|}
 annotation|@
@@ -366,16 +371,27 @@ init|=
 name|image
 decl_stmt|;
 comment|// calculate next
-name|image
-operator|=
+if|if
+condition|(
+name|scanner
+operator|.
 name|hasNext
 argument_list|()
-condition|?
+condition|)
+block|{
+name|image
+operator|=
 name|getNext
 argument_list|()
-else|:
+expr_stmt|;
+block|}
+else|else
+block|{
+name|image
+operator|=
 literal|null
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|answer
@@ -433,7 +449,6 @@ argument_list|,
 name|startToken
 argument_list|)
 expr_stmt|;
-block|}
 comment|// include tokens in answer
 if|if
 condition|(
@@ -472,6 +487,15 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+comment|// must have start token, otherwise we have reached beyond last tokens
+comment|// and should not return more data
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|next
 return|;
@@ -485,6 +509,22 @@ name|remove
 parameter_list|()
 block|{
 comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|close ()
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|scanner
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
