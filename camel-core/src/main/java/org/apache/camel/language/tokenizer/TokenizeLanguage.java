@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A language for tokenizer expressions.  */
+comment|/**  * A language for tokenizer expressions.  *<p/>  * This tokenizer language can operator in two modes  *<ul>  *<li>default - using a single tokenizer</li>  *<li>pair - using both start and end tokens</li>  *</ul>  * The default mode supports the<tt>headerName</tt> and<tt>regex</tt> options.  * Where as the pair mode only supports<tt>token</tt> and<tt>endToken</tt>.  */
 end_comment
 
 begin_class
@@ -128,6 +128,11 @@ DECL|field|token
 specifier|private
 name|String
 name|token
+decl_stmt|;
+DECL|field|endToken
+specifier|private
+name|String
+name|endToken
 decl_stmt|;
 DECL|field|headerName
 specifier|private
@@ -278,6 +283,49 @@ literal|null
 argument_list|)
 return|;
 block|}
+DECL|method|tokenizePair (String startToken, String endToken)
+specifier|public
+specifier|static
+name|Expression
+name|tokenizePair
+parameter_list|(
+name|String
+name|startToken
+parameter_list|,
+name|String
+name|endToken
+parameter_list|)
+block|{
+name|TokenizeLanguage
+name|language
+init|=
+operator|new
+name|TokenizeLanguage
+argument_list|()
+decl_stmt|;
+name|language
+operator|.
+name|setToken
+argument_list|(
+name|startToken
+argument_list|)
+expr_stmt|;
+name|language
+operator|.
+name|setEndToken
+argument_list|(
+name|endToken
+argument_list|)
+expr_stmt|;
+return|return
+name|language
+operator|.
+name|createExpression
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -315,6 +363,26 @@ argument_list|,
 literal|"token"
 argument_list|)
 expr_stmt|;
+comment|// if end token is provided then use the tokenize pair expression
+if|if
+condition|(
+name|endToken
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|ExpressionBuilder
+operator|.
+name|tokenizePairExpression
+argument_list|(
+name|token
+argument_list|,
+name|endToken
+argument_list|)
+return|;
+block|}
+comment|// use the regular tokenizer
 name|Expression
 name|exp
 init|=
@@ -419,6 +487,32 @@ operator|.
 name|token
 operator|=
 name|token
+expr_stmt|;
+block|}
+DECL|method|getEndToken ()
+specifier|public
+name|String
+name|getEndToken
+parameter_list|()
+block|{
+return|return
+name|endToken
+return|;
+block|}
+DECL|method|setEndToken (String endToken)
+specifier|public
+name|void
+name|setEndToken
+parameter_list|(
+name|String
+name|endToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endToken
+operator|=
+name|endToken
 expr_stmt|;
 block|}
 DECL|method|getHeaderName ()

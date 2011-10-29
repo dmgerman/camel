@@ -1400,6 +1400,49 @@ return|return
 name|result
 return|;
 block|}
+comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken   the end token      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizePair (String startToken, String endToken)
+specifier|public
+name|T
+name|tokenizePair
+parameter_list|(
+name|String
+name|startToken
+parameter_list|,
+name|String
+name|endToken
+parameter_list|)
+block|{
+name|TokenizerExpression
+name|expression
+init|=
+operator|new
+name|TokenizerExpression
+argument_list|()
+decl_stmt|;
+name|expression
+operator|.
+name|setToken
+argument_list|(
+name|startToken
+argument_list|)
+expr_stmt|;
+name|expression
+operator|.
+name|setEndToken
+argument_list|(
+name|endToken
+argument_list|)
+expr_stmt|;
+name|setExpressionType
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public

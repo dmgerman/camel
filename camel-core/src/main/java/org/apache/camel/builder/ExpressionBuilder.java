@@ -286,6 +286,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|TokenPairExpressionIterator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Language
@@ -3503,6 +3517,32 @@ literal|")"
 return|;
 block|}
 block|}
+return|;
+block|}
+comment|/**      * Returns an {@link TokenPairExpressionIterator} expression      */
+DECL|method|tokenizePairExpression (final String startToken, final String endToken)
+specifier|public
+specifier|static
+name|Expression
+name|tokenizePairExpression
+parameter_list|(
+specifier|final
+name|String
+name|startToken
+parameter_list|,
+specifier|final
+name|String
+name|endToken
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TokenPairExpressionIterator
+argument_list|(
+name|startToken
+argument_list|,
+name|endToken
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns a tokenize expression which will tokenize the string with the      * given regex      */

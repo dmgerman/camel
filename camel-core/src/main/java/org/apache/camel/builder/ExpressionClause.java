@@ -906,6 +906,30 @@ name|regex
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken   the end token      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizePair (String startToken, String endToken)
+specifier|public
+name|T
+name|tokenizePair
+parameter_list|(
+name|String
+name|startToken
+parameter_list|,
+name|String
+name|endToken
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|tokenizePair
+argument_list|(
+name|startToken
+argument_list|,
+name|endToken
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public

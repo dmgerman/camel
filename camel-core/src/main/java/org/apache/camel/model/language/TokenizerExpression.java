@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using a body or header tokenizer  *  * @version   */
+comment|/**  * For expressions and predicates using a body or header tokenizer.  *  * @see TokenizeLanguage  */
 end_comment
 
 begin_class
@@ -151,6 +151,13 @@ DECL|field|token
 specifier|private
 name|String
 name|token
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|endToken
+specifier|private
+name|String
+name|endToken
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -207,6 +214,32 @@ operator|.
 name|token
 operator|=
 name|token
+expr_stmt|;
+block|}
+DECL|method|getEndToken ()
+specifier|public
+name|String
+name|getEndToken
+parameter_list|()
+block|{
+return|return
+name|endToken
+return|;
+block|}
+DECL|method|setEndToken (String endToken)
+specifier|public
+name|void
+name|setEndToken
+parameter_list|(
+name|String
+name|endToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endToken
+operator|=
+name|endToken
 expr_stmt|;
 block|}
 DECL|method|getHeaderName ()
@@ -288,6 +321,13 @@ argument_list|)
 expr_stmt|;
 name|language
 operator|.
+name|setEndToken
+argument_list|(
+name|endToken
+argument_list|)
+expr_stmt|;
+name|language
+operator|.
 name|setHeaderName
 argument_list|(
 name|headerName
@@ -323,6 +363,27 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|endToken
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"tokenize{body() using tokens: "
+operator|+
+name|token
+operator|+
+literal|"..."
+operator|+
+name|endToken
+operator|+
+literal|"}"
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|"tokenize{"
 operator|+
@@ -344,6 +405,7 @@ name|token
 operator|+
 literal|"}"
 return|;
+block|}
 block|}
 block|}
 end_class
