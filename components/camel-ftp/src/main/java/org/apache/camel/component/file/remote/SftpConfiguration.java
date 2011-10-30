@@ -97,6 +97,11 @@ specifier|private
 name|String
 name|ciphers
 decl_stmt|;
+DECL|field|compression
+specifier|private
+name|int
+name|compression
+decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
 name|SftpConfiguration
@@ -343,6 +348,32 @@ block|{
 return|return
 name|ciphers
 return|;
+block|}
+DECL|method|getCompression ()
+specifier|public
+name|int
+name|getCompression
+parameter_list|()
+block|{
+return|return
+name|compression
+return|;
+block|}
+DECL|method|setCompression (int compression)
+specifier|public
+name|void
+name|setCompression
+parameter_list|(
+name|int
+name|compression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compression
+operator|=
+name|compression
+expr_stmt|;
 block|}
 block|}
 end_class

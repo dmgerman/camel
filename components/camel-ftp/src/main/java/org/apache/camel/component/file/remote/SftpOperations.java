@@ -926,8 +926,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using ciphers: "
-operator|+
+literal|"Using ciphers: {}"
+argument_list|,
 name|sftpConfig
 operator|.
 name|getCiphers
@@ -998,8 +998,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using private keyfile: "
-operator|+
+literal|"Using private keyfile: {}"
+argument_list|,
 name|sftpConfig
 operator|.
 name|getPrivateKeyFile
@@ -1062,8 +1062,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using knownhosts file: "
-operator|+
+literal|"Using knownhosts file: {}"
+argument_list|,
 name|sftpConfig
 operator|.
 name|getKnownHostsFile
@@ -1120,8 +1120,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using StrickHostKeyChecking: "
-operator|+
+literal|"Using StrickHostKeyChecking: {}"
+argument_list|,
 name|sftpConfig
 operator|.
 name|getStrictHostKeyChecking
@@ -1161,6 +1161,65 @@ name|getServerAliveCountMax
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// compression
+if|if
+condition|(
+name|sftpConfig
+operator|.
+name|getCompression
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using compression: {}"
+argument_list|,
+name|sftpConfig
+operator|.
+name|getCompression
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|setConfig
+argument_list|(
+literal|"compression.s2c"
+argument_list|,
+literal|"zlib@openssh.com,zlib,none"
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|setConfig
+argument_list|(
+literal|"compression.c2s"
+argument_list|,
+literal|"zlib@openssh.com,zlib,none"
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|setConfig
+argument_list|(
+literal|"compression_level"
+argument_list|,
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|sftpConfig
+operator|.
+name|getCompression
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set user information
 name|session
 operator|.
