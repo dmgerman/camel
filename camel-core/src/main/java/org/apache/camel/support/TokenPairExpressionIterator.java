@@ -100,6 +100,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -198,6 +212,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// we may read from a file, and want to support custom charset defined on the exchange
+name|String
+name|charset
+init|=
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|TokenPairIterator
@@ -207,6 +232,8 @@ argument_list|,
 name|endToken
 argument_list|,
 name|in
+argument_list|,
+name|charset
 argument_list|)
 return|;
 block|}
@@ -283,7 +310,7 @@ specifier|private
 name|Object
 name|image
 decl_stmt|;
-DECL|method|TokenPairIterator (String startToken, String endToken, InputStream in)
+DECL|method|TokenPairIterator (String startToken, String endToken, InputStream in, String charset)
 specifier|private
 name|TokenPairIterator
 parameter_list|(
@@ -295,6 +322,9 @@ name|endToken
 parameter_list|,
 name|InputStream
 name|in
+parameter_list|,
+name|String
+name|charset
 parameter_list|)
 block|{
 name|this
@@ -318,6 +348,8 @@ operator|new
 name|Scanner
 argument_list|(
 name|in
+argument_list|,
+name|charset
 argument_list|)
 operator|.
 name|useDelimiter
