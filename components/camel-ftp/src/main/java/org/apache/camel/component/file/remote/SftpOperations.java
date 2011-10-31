@@ -1190,7 +1190,7 @@ name|setConfig
 argument_list|(
 literal|"compression.s2c"
 argument_list|,
-literal|"zlib@openssh.com,zlib,none"
+literal|"zlib@openssh.com, zlib, none"
 argument_list|)
 expr_stmt|;
 name|session
@@ -1199,7 +1199,7 @@ name|setConfig
 argument_list|(
 literal|"compression.c2s"
 argument_list|,
-literal|"zlib@openssh.com,zlib,none"
+literal|"zlib@openssh.com, zlib, none"
 argument_list|)
 expr_stmt|;
 name|session
