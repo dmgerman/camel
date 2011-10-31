@@ -1379,6 +1379,17 @@ argument_list|(
 name|pubSubDomain
 argument_list|)
 expr_stmt|;
+comment|// include destination name as part of thread and transaction name
+name|String
+name|consumerName
+init|=
+literal|"JmsConsumer["
+operator|+
+name|getEndpointConfiguredDestinationName
+argument_list|()
+operator|+
+literal|"]"
+decl_stmt|;
 if|if
 condition|(
 name|configuration
@@ -1425,17 +1436,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// include destination name as part of thread name
-name|String
-name|name
-init|=
-literal|"JmsConsumer["
-operator|+
-name|getEndpointConfiguredDestinationName
-argument_list|()
-operator|+
-literal|"]"
-decl_stmt|;
 comment|// use a cached pool as DefaultMessageListenerContainer will throttle pool sizing
 name|ExecutorService
 name|executor
@@ -1450,7 +1450,7 @@ name|newCachedThreadPool
 argument_list|(
 name|consumer
 argument_list|,
-name|name
+name|consumerName
 argument_list|)
 decl_stmt|;
 name|setContainerTaskExecutor
@@ -1460,6 +1460,38 @@ argument_list|,
 name|executor
 argument_list|)
 expr_stmt|;
+block|}
+comment|// set a default transaction name if none provided
+if|if
+condition|(
+name|configuration
+operator|.
+name|getTransactionName
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|listenerContainer
+operator|instanceof
+name|DefaultMessageListenerContainer
+condition|)
+block|{
+operator|(
+operator|(
+name|DefaultMessageListenerContainer
+operator|)
+name|listenerContainer
+operator|)
+operator|.
+name|setTransactionName
+argument_list|(
+name|consumerName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|setContainerTaskExecutor (AbstractMessageListenerContainer listenerContainer, Executor executor)
