@@ -545,6 +545,15 @@ argument_list|>
 implements|,
 name|Traceable
 block|{
+DECL|field|AGGREGATE_TIMEOUT_CHECKER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|AGGREGATE_TIMEOUT_CHECKER
+init|=
+literal|"AggregateTimeoutChecker"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -600,6 +609,11 @@ specifier|private
 specifier|final
 name|ExecutorService
 name|executorService
+decl_stmt|;
+DECL|field|timeoutCheckerExecutorService
+specifier|private
+name|ScheduledExecutorService
+name|timeoutCheckerExecutorService
 decl_stmt|;
 DECL|field|recoverService
 specifier|private
@@ -2729,6 +2743,32 @@ operator|=
 name|forceCompletionOnStop
 expr_stmt|;
 block|}
+DECL|method|setTimeoutCheckerExecutorService (ScheduledExecutorService timeoutCheckerExecutorService)
+specifier|public
+name|void
+name|setTimeoutCheckerExecutorService
+parameter_list|(
+name|ScheduledExecutorService
+name|timeoutCheckerExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeoutCheckerExecutorService
+operator|=
+name|timeoutCheckerExecutorService
+expr_stmt|;
+block|}
+DECL|method|getTimeoutCheckerExecutorService ()
+specifier|public
+name|ScheduledExecutorService
+name|getTimeoutCheckerExecutorService
+parameter_list|()
+block|{
+return|return
+name|timeoutCheckerExecutorService
+return|;
+block|}
 comment|/**      * On completion task which keeps the booking of the in progress up to date      */
 DECL|class|AggregateOnCompletion
 specifier|private
@@ -4020,9 +4060,16 @@ operator|+
 literal|" millis."
 argument_list|)
 expr_stmt|;
-name|ScheduledExecutorService
-name|scheduler
-init|=
+if|if
+condition|(
+name|getTimeoutCheckerExecutorService
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|setTimeoutCheckerExecutorService
+argument_list|(
 name|camelContext
 operator|.
 name|getExecutorServiceManager
@@ -4032,13 +4079,16 @@ name|newScheduledThreadPool
 argument_list|(
 name|this
 argument_list|,
-literal|"AggregateTimeoutChecker"
+name|AGGREGATE_TIMEOUT_CHECKER
 argument_list|,
 literal|1
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
 comment|// trigger completion based on interval
-name|scheduler
+name|getTimeoutCheckerExecutorService
+argument_list|()
 operator|.
 name|scheduleAtFixedRate
 argument_list|(
@@ -4083,9 +4133,16 @@ operator|+
 literal|" millis of inactivity."
 argument_list|)
 expr_stmt|;
-name|ScheduledExecutorService
-name|scheduler
-init|=
+if|if
+condition|(
+name|getTimeoutCheckerExecutorService
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|setTimeoutCheckerExecutorService
+argument_list|(
 name|camelContext
 operator|.
 name|getExecutorServiceManager
@@ -4095,18 +4152,21 @@ name|newScheduledThreadPool
 argument_list|(
 name|this
 argument_list|,
-literal|"AggregateTimeoutChecker"
+name|AGGREGATE_TIMEOUT_CHECKER
 argument_list|,
 literal|1
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
 comment|// check for timed out aggregated messages once every second
 name|timeoutMap
 operator|=
 operator|new
 name|AggregationTimeoutMap
 argument_list|(
-name|scheduler
+name|getTimeoutCheckerExecutorService
+argument_list|()
 argument_list|,
 literal|1000L
 argument_list|)
