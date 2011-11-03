@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.Expression} to walk a {@link org.apache.camel.Message} body  * using an {@link Iterator}, which grabs the content between a start and end token.  *<p/>  * The message body must be able to convert to {@link InputStream} type which is used as stream  * to access the message body.  *<p/>  * Can be used to split big XML files  */
+comment|/**  * {@link org.apache.camel.Expression} to walk a {@link org.apache.camel.Message} body  * using an {@link Iterator}, which grabs the content between a start and end token.  *<p/>  * The message body must be able to convert to {@link InputStream} type which is used as stream  * to access the message body.  *<p/>  * For splitting XML files use {@link TokenXMLPairExpressionIterator} instead.  */
 end_comment
 
 begin_class
@@ -131,13 +131,13 @@ extends|extends
 name|ExpressionAdapter
 block|{
 DECL|field|startToken
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|startToken
 decl_stmt|;
 DECL|field|endToken
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|endToken
@@ -224,13 +224,8 @@ name|exchange
 argument_list|)
 decl_stmt|;
 return|return
-operator|new
-name|TokenPairIterator
+name|createIterator
 argument_list|(
-name|startToken
-argument_list|,
-name|endToken
-argument_list|,
 name|in
 argument_list|,
 name|charset
@@ -255,6 +250,43 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**      * Strategy to create the iterator      *      * @param in input stream to iterate      * @param charset charset      * @return the iterator      */
+DECL|method|createIterator (InputStream in, String charset)
+specifier|protected
+name|Iterator
+name|createIterator
+parameter_list|(
+name|InputStream
+name|in
+parameter_list|,
+name|String
+name|charset
+parameter_list|)
+block|{
+name|TokenPairIterator
+name|iterator
+init|=
+operator|new
+name|TokenPairIterator
+argument_list|(
+name|startToken
+argument_list|,
+name|endToken
+argument_list|,
+name|in
+argument_list|,
+name|charset
+argument_list|)
+decl_stmt|;
+name|iterator
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
+return|return
+name|iterator
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -277,9 +309,7 @@ return|;
 block|}
 comment|/**      * Iterator to walk the input stream      */
 DECL|class|TokenPairIterator
-specifier|private
 specifier|static
-specifier|final
 class|class
 name|TokenPairIterator
 implements|implements
@@ -288,30 +318,34 @@ implements|,
 name|Closeable
 block|{
 DECL|field|startToken
-specifier|private
 specifier|final
 name|String
 name|startToken
 decl_stmt|;
 DECL|field|endToken
-specifier|private
 specifier|final
 name|String
 name|endToken
 decl_stmt|;
-DECL|field|scanner
-specifier|private
+DECL|field|in
 specifier|final
+name|InputStream
+name|in
+decl_stmt|;
+DECL|field|charset
+specifier|final
+name|String
+name|charset
+decl_stmt|;
+DECL|field|scanner
 name|Scanner
 name|scanner
 decl_stmt|;
 DECL|field|image
-specifier|private
 name|Object
 name|image
 decl_stmt|;
 DECL|method|TokenPairIterator (String startToken, String endToken, InputStream in, String charset)
-specifier|private
 name|TokenPairIterator
 parameter_list|(
 name|String
@@ -339,6 +373,24 @@ name|endToken
 operator|=
 name|endToken
 expr_stmt|;
+name|this
+operator|.
+name|in
+operator|=
+name|in
+expr_stmt|;
+name|this
+operator|.
+name|charset
+operator|=
+name|charset
+expr_stmt|;
+block|}
+DECL|method|init ()
+name|void
+name|init
+parameter_list|()
+block|{
 comment|// use end token as delimiter
 name|this
 operator|.
@@ -370,7 +422,9 @@ name|hasNext
 argument_list|()
 condition|?
 name|next
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 else|:
 literal|null
 expr_stmt|;
@@ -397,6 +451,21 @@ name|Object
 name|next
 parameter_list|()
 block|{
+return|return
+name|next
+argument_list|(
+literal|false
+argument_list|)
+return|;
+block|}
+DECL|method|next (boolean first)
+name|Object
+name|next
+parameter_list|(
+name|boolean
+name|first
+parameter_list|)
+block|{
 name|Object
 name|answer
 init|=
@@ -414,7 +483,9 @@ block|{
 name|image
 operator|=
 name|getNext
-argument_list|()
+argument_list|(
+name|first
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -441,11 +512,13 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getNext ()
-specifier|private
+DECL|method|getNext (boolean first)
 name|Object
 name|getNext
-parameter_list|()
+parameter_list|(
+name|boolean
+name|first
+parameter_list|)
 block|{
 name|String
 name|next

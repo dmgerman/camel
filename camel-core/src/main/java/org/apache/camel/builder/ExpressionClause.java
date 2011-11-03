@@ -930,6 +930,49 @@ name|endToken
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a XML token expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizeXML (String tagName)
+specifier|public
+name|T
+name|tokenizeXML
+parameter_list|(
+name|String
+name|tagName
+parameter_list|)
+block|{
+return|return
+name|tokenizeXML
+argument_list|(
+name|tagName
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  parent or root tag name that contains namespace(s) to inherit      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizeXML (String tagName, String inheritNamespaceTagName)
+specifier|public
+name|T
+name|tokenizeXML
+parameter_list|(
+name|String
+name|tagName
+parameter_list|,
+name|String
+name|inheritNamespaceTagName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|tokenizeXMLPair
+argument_list|(
+name|tagName
+argument_list|,
+name|inheritNamespaceTagName
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public

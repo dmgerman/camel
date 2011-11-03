@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A language for tokenizer expressions.  *<p/>  * This tokenizer language can operator in two modes  *<ul>  *<li>default - using a single tokenizer</li>  *<li>pair - using both start and end tokens</li>  *</ul>  * The default mode supports the<tt>headerName</tt> and<tt>regex</tt> options.  * Where as the pair mode only supports<tt>token</tt> and<tt>endToken</tt>.  */
+comment|/**  * A language for tokenizer expressions.  *<p/>  * This tokenizer language can operator in the following modes:  *<ul>  *<li>default - using a single tokenizer</li>  *<li>pair - using both start and end tokens</li>  *<li>xml - using both start and end tokens in XML mode, support inheriting namespaces</li>  *</ul>  * The default mode supports the<tt>headerName</tt> and<tt>regex</tt> options.  * Where as the pair mode only supports<tt>token</tt> and<tt>endToken</tt>.  * And the<tt>xml</tt> mode supports the<tt>inheritNamespaceTagName</tt> option.  */
 end_comment
 
 begin_class
@@ -134,6 +134,11 @@ specifier|private
 name|String
 name|endToken
 decl_stmt|;
+DECL|field|inheritNamespaceTagName
+specifier|private
+name|String
+name|inheritNamespaceTagName
+decl_stmt|;
 DECL|field|headerName
 specifier|private
 name|String
@@ -143,6 +148,11 @@ DECL|field|regex
 specifier|private
 name|boolean
 name|regex
+decl_stmt|;
+DECL|field|xml
+specifier|private
+name|boolean
+name|xml
 decl_stmt|;
 DECL|method|tokenize (String token)
 specifier|public
@@ -326,6 +336,56 @@ literal|null
 argument_list|)
 return|;
 block|}
+DECL|method|tokenizeXML (String tagName, String inheritNamespaceTagName)
+specifier|public
+specifier|static
+name|Expression
+name|tokenizeXML
+parameter_list|(
+name|String
+name|tagName
+parameter_list|,
+name|String
+name|inheritNamespaceTagName
+parameter_list|)
+block|{
+name|TokenizeLanguage
+name|language
+init|=
+operator|new
+name|TokenizeLanguage
+argument_list|()
+decl_stmt|;
+name|language
+operator|.
+name|setToken
+argument_list|(
+name|tagName
+argument_list|)
+expr_stmt|;
+name|language
+operator|.
+name|setInheritNamespaceTagName
+argument_list|(
+name|inheritNamespaceTagName
+argument_list|)
+expr_stmt|;
+name|language
+operator|.
+name|setXml
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|language
+operator|.
+name|createExpression
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate
@@ -363,7 +423,24 @@ argument_list|,
 literal|"token"
 argument_list|)
 expr_stmt|;
-comment|// if end token is provided then use the tokenize pair expression
+if|if
+condition|(
+name|isXml
+argument_list|()
+condition|)
+block|{
+return|return
+name|ExpressionBuilder
+operator|.
+name|tokenizeXMLExpression
+argument_list|(
+name|token
+argument_list|,
+name|inheritNamespaceTagName
+argument_list|)
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 name|endToken
@@ -565,6 +642,58 @@ operator|.
 name|regex
 operator|=
 name|regex
+expr_stmt|;
+block|}
+DECL|method|getInheritNamespaceTagName ()
+specifier|public
+name|String
+name|getInheritNamespaceTagName
+parameter_list|()
+block|{
+return|return
+name|inheritNamespaceTagName
+return|;
+block|}
+DECL|method|setInheritNamespaceTagName (String inheritNamespaceTagName)
+specifier|public
+name|void
+name|setInheritNamespaceTagName
+parameter_list|(
+name|String
+name|inheritNamespaceTagName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|inheritNamespaceTagName
+operator|=
+name|inheritNamespaceTagName
+expr_stmt|;
+block|}
+DECL|method|isXml ()
+specifier|public
+name|boolean
+name|isXml
+parameter_list|()
+block|{
+return|return
+name|xml
+return|;
+block|}
+DECL|method|setXml (boolean xml)
+specifier|public
+name|void
+name|setXml
+parameter_list|(
+name|boolean
+name|xml
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xml
+operator|=
+name|xml
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()

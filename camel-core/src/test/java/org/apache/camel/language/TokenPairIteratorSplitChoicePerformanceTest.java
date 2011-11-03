@@ -518,7 +518,7 @@ operator|.
 name|split
 argument_list|()
 operator|.
-name|tokenizePair
+name|tokenizeXML
 argument_list|(
 literal|"<order>"
 argument_list|,
