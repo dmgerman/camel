@@ -857,6 +857,35 @@ name|out2
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSanitizeUriWithUserInfo ()
+specifier|public
+name|void
+name|testSanitizeUriWithUserInfo
+parameter_list|()
+block|{
+name|String
+name|uri
+init|=
+literal|"jt400://GEORGE:HARRISON@LIVERPOOL/QSYS.LIB/BEATLES.LIB/PENNYLANE.DTAQ"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"jt400://GEORGE:******@LIVERPOOL/QSYS.LIB/BEATLES.LIB/PENNYLANE.DTAQ"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|uri
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
