@@ -520,9 +520,7 @@ argument_list|()
 operator|.
 name|tokenizeXML
 argument_list|(
-literal|"<order>"
-argument_list|,
-literal|"</order>"
+literal|"order"
 argument_list|)
 operator|.
 name|streaming
