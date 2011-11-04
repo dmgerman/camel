@@ -906,7 +906,7 @@ name|regex
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken   the end token      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates a token pair expression on the message body.      *<p/>      * Tokens is not included.      *      * @param startToken the start token      * @param endToken   the end token      * @return the builder to continue processing the DSL      */
 DECL|method|tokenizePair (String startToken, String endToken)
 specifier|public
 name|T
@@ -920,6 +920,33 @@ name|endToken
 parameter_list|)
 block|{
 return|return
+name|tokenizePair
+argument_list|(
+name|startToken
+argument_list|,
+name|endToken
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken   the end token      * @param includeTokens whether to include tokens      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizePair (String startToken, String endToken, boolean includeTokens)
+specifier|public
+name|T
+name|tokenizePair
+parameter_list|(
+name|String
+name|startToken
+parameter_list|,
+name|String
+name|endToken
+parameter_list|,
+name|boolean
+name|includeTokens
+parameter_list|)
+block|{
+return|return
 name|delegate
 operator|.
 name|tokenizePair
@@ -927,6 +954,8 @@ argument_list|(
 name|startToken
 argument_list|,
 name|endToken
+argument_list|,
+name|includeTokens
 argument_list|)
 return|;
 block|}

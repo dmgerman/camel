@@ -376,6 +376,8 @@ argument_list|(
 literal|"["
 argument_list|,
 literal|"]"
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|to
@@ -391,11 +393,9 @@ operator|.
 name|split
 argument_list|()
 operator|.
-name|tokenizePair
+name|tokenizeXML
 argument_list|(
-literal|"<person>"
-argument_list|,
-literal|"</person>"
+literal|"person"
 argument_list|)
 operator|.
 name|to

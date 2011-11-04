@@ -1400,8 +1400,8 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken   the end token      * @return the builder to continue processing the DSL      */
-DECL|method|tokenizePair (String startToken, String endToken)
+comment|/**      * Evaluates a token pair expression on the message body      *      * @param startToken the start token      * @param endToken   the end token      * @param includeTokens whether to include tokens      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizePair (String startToken, String endToken, boolean includeTokens)
 specifier|public
 name|T
 name|tokenizePair
@@ -1411,6 +1411,9 @@ name|startToken
 parameter_list|,
 name|String
 name|endToken
+parameter_list|,
+name|boolean
+name|includeTokens
 parameter_list|)
 block|{
 name|TokenizerExpression
@@ -1432,6 +1435,13 @@ operator|.
 name|setEndToken
 argument_list|(
 name|endToken
+argument_list|)
+expr_stmt|;
+name|expression
+operator|.
+name|setIncludeTokens
+argument_list|(
+name|includeTokens
 argument_list|)
 expr_stmt|;
 name|setExpressionType
