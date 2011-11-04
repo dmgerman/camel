@@ -258,7 +258,7 @@ name|mbi
 init|=
 literal|null
 decl_stmt|;
-comment|// prefer to use the managed instance if it has been annotated with Spring JMX annotations
+comment|// prefer to use the managed instance if it has been annotated with JMX annotations
 if|if
 condition|(
 name|obj
@@ -266,6 +266,7 @@ operator|instanceof
 name|ManagedInstance
 condition|)
 block|{
+comment|// there may be a custom embedded instance which have additional methods
 name|Object
 name|custom
 init|=
@@ -321,6 +322,8 @@ name|assembler
 operator|.
 name|getMBeanInfo
 argument_list|(
+name|obj
+argument_list|,
 name|custom
 argument_list|,
 name|name
@@ -343,7 +346,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// use the default provided mbean which has been annotated with Spring JMX annotations
+comment|// use the default provided mbean which has been annotated with JMX annotations
 name|log
 operator|.
 name|trace
@@ -362,6 +365,8 @@ operator|.
 name|getMBeanInfo
 argument_list|(
 name|obj
+argument_list|,
+literal|null
 argument_list|,
 name|name
 operator|.
