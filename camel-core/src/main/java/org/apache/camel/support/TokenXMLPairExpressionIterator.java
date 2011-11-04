@@ -164,6 +164,8 @@ argument_list|(
 name|startToken
 argument_list|,
 name|endToken
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// namespace token is optional
@@ -368,6 +370,8 @@ argument_list|(
 name|startToken
 argument_list|,
 name|endToken
+argument_list|,
+literal|true
 argument_list|,
 name|in
 argument_list|,

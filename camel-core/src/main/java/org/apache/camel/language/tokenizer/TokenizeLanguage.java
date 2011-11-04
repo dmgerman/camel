@@ -154,6 +154,11 @@ specifier|private
 name|boolean
 name|xml
 decl_stmt|;
+DECL|field|includeTokens
+specifier|private
+name|boolean
+name|includeTokens
+decl_stmt|;
 DECL|method|tokenize (String token)
 specifier|public
 specifier|static
@@ -293,7 +298,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|tokenizePair (String startToken, String endToken)
+DECL|method|tokenizePair (String startToken, String endToken, boolean includeTokens)
 specifier|public
 specifier|static
 name|Expression
@@ -304,6 +309,9 @@ name|startToken
 parameter_list|,
 name|String
 name|endToken
+parameter_list|,
+name|boolean
+name|includeTokens
 parameter_list|)
 block|{
 name|TokenizeLanguage
@@ -325,6 +333,13 @@ operator|.
 name|setEndToken
 argument_list|(
 name|endToken
+argument_list|)
+expr_stmt|;
+name|language
+operator|.
+name|setIncludeTokens
+argument_list|(
+name|includeTokens
 argument_list|)
 expr_stmt|;
 return|return
@@ -373,6 +388,13 @@ expr_stmt|;
 name|language
 operator|.
 name|setXml
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|language
+operator|.
+name|setIncludeTokens
 argument_list|(
 literal|true
 argument_list|)
@@ -456,6 +478,8 @@ argument_list|(
 name|token
 argument_list|,
 name|endToken
+argument_list|,
+name|includeTokens
 argument_list|)
 return|;
 block|}
@@ -694,6 +718,32 @@ operator|.
 name|xml
 operator|=
 name|xml
+expr_stmt|;
+block|}
+DECL|method|isIncludeTokens ()
+specifier|public
+name|boolean
+name|isIncludeTokens
+parameter_list|()
+block|{
+return|return
+name|includeTokens
+return|;
+block|}
+DECL|method|setIncludeTokens (boolean includeTokens)
+specifier|public
+name|void
+name|setIncludeTokens
+parameter_list|(
+name|boolean
+name|includeTokens
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeTokens
+operator|=
+name|includeTokens
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()

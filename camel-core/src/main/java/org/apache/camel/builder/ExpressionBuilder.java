@@ -3534,7 +3534,7 @@ block|}
 return|;
 block|}
 comment|/**      * Returns an {@link TokenPairExpressionIterator} expression      */
-DECL|method|tokenizePairExpression (String startToken, String endToken)
+DECL|method|tokenizePairExpression (String startToken, String endToken, boolean includeTokens)
 specifier|public
 specifier|static
 name|Expression
@@ -3545,6 +3545,9 @@ name|startToken
 parameter_list|,
 name|String
 name|endToken
+parameter_list|,
+name|boolean
+name|includeTokens
 parameter_list|)
 block|{
 return|return
@@ -3554,6 +3557,8 @@ argument_list|(
 name|startToken
 argument_list|,
 name|endToken
+argument_list|,
+name|includeTokens
 argument_list|)
 return|;
 block|}

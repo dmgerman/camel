@@ -213,6 +213,13 @@ specifier|private
 name|Boolean
 name|xml
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|includeTokens
+specifier|private
+name|Boolean
+name|includeTokens
+decl_stmt|;
 DECL|method|TokenizerExpression ()
 specifier|public
 name|TokenizerExpression
@@ -386,6 +393,32 @@ operator|=
 name|xml
 expr_stmt|;
 block|}
+DECL|method|getIncludeTokens ()
+specifier|public
+name|Boolean
+name|getIncludeTokens
+parameter_list|()
+block|{
+return|return
+name|includeTokens
+return|;
+block|}
+DECL|method|setIncludeTokens (Boolean includeTokens)
+specifier|public
+name|void
+name|setIncludeTokens
+parameter_list|(
+name|Boolean
+name|includeTokens
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeTokens
+operator|=
+name|includeTokens
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createExpression (CamelContext camelContext)
@@ -459,6 +492,21 @@ operator|.
 name|setXml
 argument_list|(
 name|xml
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|includeTokens
+operator|!=
+literal|null
+condition|)
+block|{
+name|language
+operator|.
+name|setIncludeTokens
+argument_list|(
+name|includeTokens
 argument_list|)
 expr_stmt|;
 block|}
