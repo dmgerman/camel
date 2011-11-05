@@ -983,6 +983,9 @@ name|int
 name|getPendingExchangesSize
 parameter_list|()
 block|{
+name|int
+name|answer
+decl_stmt|;
 comment|// only return the real pending size in case we are configured to complete all tasks
 if|if
 condition|(
@@ -993,16 +996,47 @@ operator|==
 name|shutdownRunningTask
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 name|pendingExchanges
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
-return|return
+name|answer
+operator|=
 literal|0
-return|;
+expr_stmt|;
 block|}
+if|if
+condition|(
+name|answer
+operator|==
+literal|0
+operator|&&
+name|isPolling
+argument_list|()
+condition|)
+block|{
+comment|// force at least one pending exchange if we are polling as there is a little gap
+comment|// in the processBatch method and until an exchange gets enlisted as in-flight
+comment|// which happens later, so we need to signal back to the shutdown strategy that
+comment|// there is a pending exchange. When we are no longer polling, then we will return 0
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Currently polling so returning 1 as pending exchanges"
+argument_list|)
+expr_stmt|;
+name|answer
+operator|=
+literal|1
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|prepareShutdown ()
 specifier|public

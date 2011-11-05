@@ -297,6 +297,12 @@ specifier|private
 name|boolean
 name|sendEmptyMessageWhenIdle
 decl_stmt|;
+DECL|field|polling
+specifier|private
+specifier|volatile
+name|boolean
+name|polling
+decl_stmt|;
 DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|ScheduledPollConsumer
@@ -740,6 +746,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// mark we are polling which should also include the begin/poll/commit
+name|polling
+operator|=
+literal|true
+expr_stmt|;
+try|try
+block|{
 name|boolean
 name|begin
 init|=
@@ -805,6 +818,14 @@ literal|"Cannot begin polling as pollStrategy returned false: {}"
 argument_list|,
 name|pollStrategy
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|polling
+operator|=
+literal|false
 expr_stmt|;
 block|}
 block|}
@@ -985,6 +1006,17 @@ operator|&&
 operator|!
 name|isSuspended
 argument_list|()
+return|;
+block|}
+comment|/**      * Whether polling is currently in progress      */
+DECL|method|isPolling ()
+specifier|protected
+name|boolean
+name|isPolling
+parameter_list|()
+block|{
+return|return
+name|polling
 return|;
 block|}
 DECL|method|getInitialDelay ()
