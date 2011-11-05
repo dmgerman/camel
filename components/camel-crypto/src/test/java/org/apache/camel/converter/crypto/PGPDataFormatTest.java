@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|InvalidPayloadException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -380,9 +368,7 @@ name|String
 name|payload
 parameter_list|)
 throws|throws
-name|InterruptedException
-throws|,
-name|InvalidPayloadException
+name|Exception
 block|{
 name|awaitAndAssert
 argument_list|(
@@ -462,8 +448,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -482,8 +466,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: pgp-format
 name|PGPDataFormat
-name|cryptoFormat
+name|pgpDataFormat
 init|=
 operator|new
 name|PGPDataFormat
@@ -515,14 +500,14 @@ argument_list|,
 name|keyPassword
 argument_list|)
 decl_stmt|;
-name|cryptoFormat
+name|pgpDataFormat
 operator|.
 name|setPublicKey
 argument_list|(
 name|pKey
 argument_list|)
 expr_stmt|;
-name|cryptoFormat
+name|pgpDataFormat
 operator|.
 name|setPrivateKey
 argument_list|(
@@ -536,7 +521,7 @@ argument_list|)
 operator|.
 name|marshal
 argument_list|(
-name|cryptoFormat
+name|pgpDataFormat
 argument_list|)
 operator|.
 name|to
@@ -546,7 +531,7 @@ argument_list|)
 operator|.
 name|unmarshal
 argument_list|(
-name|cryptoFormat
+name|pgpDataFormat
 argument_list|)
 operator|.
 name|to
@@ -554,21 +539,23 @@ argument_list|(
 literal|"mock:unencrypted"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: pgp-format
+comment|// START SNIPPET: pgp-format-header
 name|PGPDataFormat
-name|cryptoFormatNoKey
+name|pgpDataFormatNoKey
 init|=
 operator|new
 name|PGPDataFormat
 argument_list|()
 decl_stmt|;
-name|cryptoFormat
+name|pgpDataFormat
 operator|.
 name|setPublicKey
 argument_list|(
 name|pKey
 argument_list|)
 expr_stmt|;
-name|cryptoFormat
+name|pgpDataFormat
 operator|.
 name|setPrivateKey
 argument_list|(
@@ -606,7 +593,7 @@ argument_list|)
 operator|.
 name|marshal
 argument_list|(
-name|cryptoFormatNoKey
+name|pgpDataFormatNoKey
 argument_list|)
 operator|.
 name|to
@@ -616,7 +603,7 @@ argument_list|)
 operator|.
 name|unmarshal
 argument_list|(
-name|cryptoFormatNoKey
+name|pgpDataFormatNoKey
 argument_list|)
 operator|.
 name|to
@@ -624,6 +611,7 @@ argument_list|(
 literal|"mock:unencrypted"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: pgp-format-header
 block|}
 block|}
 return|;
