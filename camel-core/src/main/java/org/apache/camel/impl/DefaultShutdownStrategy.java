@@ -806,6 +806,10 @@ name|context
 argument_list|,
 name|routesOrdered
 argument_list|,
+name|timeout
+argument_list|,
+name|timeUnit
+argument_list|,
 name|suspendOnly
 argument_list|,
 name|abortAfterTimeout
@@ -1230,6 +1234,7 @@ block|}
 comment|/**      * Shutdown the consumer immediately.      *      * @param consumer the consumer to shutdown      */
 DECL|method|shutdownNow (Consumer consumer)
 specifier|protected
+specifier|static
 name|void
 name|shutdownNow
 parameter_list|(
@@ -1308,6 +1313,7 @@ block|}
 comment|/**      * Suspends/stops the consumer immediately.      *      * @param consumer the consumer to suspend      */
 DECL|method|suspendNow (Consumer consumer)
 specifier|protected
+specifier|static
 name|void
 name|suspendNow
 parameter_list|(
@@ -1482,6 +1488,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ShutdownDeferredConsumer
+specifier|static
 class|class
 name|ShutdownDeferredConsumer
 block|{
@@ -1541,6 +1548,7 @@ block|}
 block|}
 comment|/**      * Shutdown task which shutdown all the routes in a graceful manner.      */
 DECL|class|ShutdownTask
+specifier|static
 class|class
 name|ShutdownTask
 implements|implements
@@ -1573,7 +1581,19 @@ specifier|final
 name|boolean
 name|abortAfterTimeout
 decl_stmt|;
-DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, boolean suspendOnly, boolean abortAfterTimeout)
+DECL|field|timeout
+specifier|private
+specifier|final
+name|long
+name|timeout
+decl_stmt|;
+DECL|field|timeUnit
+specifier|private
+specifier|final
+name|TimeUnit
+name|timeUnit
+decl_stmt|;
+DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout)
 specifier|public
 name|ShutdownTask
 parameter_list|(
@@ -1585,6 +1605,12 @@ argument_list|<
 name|RouteStartupOrder
 argument_list|>
 name|routes
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|TimeUnit
+name|timeUnit
 parameter_list|,
 name|boolean
 name|suspendOnly
@@ -1616,6 +1642,18 @@ operator|.
 name|abortAfterTimeout
 operator|=
 name|abortAfterTimeout
+expr_stmt|;
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
+name|this
+operator|.
+name|timeUnit
+operator|=
+name|timeUnit
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -2081,11 +2119,9 @@ name|SECONDS
 operator|.
 name|convert
 argument_list|(
-name|getTimeout
-argument_list|()
+name|timeout
 argument_list|,
-name|getTimeUnit
-argument_list|()
+name|timeUnit
 argument_list|)
 operator|-
 operator|(
