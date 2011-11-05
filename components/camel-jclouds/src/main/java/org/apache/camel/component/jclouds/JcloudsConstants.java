@@ -70,6 +70,15 @@ name|CONTAINER_NAME
 init|=
 literal|"CamelJcloudsContainerName"
 decl_stmt|;
+DECL|field|NODE_STATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NODE_STATE
+init|=
+literal|"CamelJcloudsNodeState"
+decl_stmt|;
 DECL|field|OPERATION
 specifier|public
 specifier|static

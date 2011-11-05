@@ -99,6 +99,11 @@ specifier|private
 name|String
 name|operation
 decl_stmt|;
+DECL|field|nodeState
+specifier|private
+name|String
+name|nodeState
+decl_stmt|;
 DECL|field|nodeId
 specifier|private
 name|String
@@ -283,6 +288,32 @@ operator|.
 name|operation
 operator|=
 name|operation
+expr_stmt|;
+block|}
+DECL|method|getNodeState ()
+specifier|public
+name|String
+name|getNodeState
+parameter_list|()
+block|{
+return|return
+name|nodeState
+return|;
+block|}
+DECL|method|setNodeState (String nodeState)
+specifier|public
+name|void
+name|setNodeState
+parameter_list|(
+name|String
+name|nodeState
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nodeState
+operator|=
+name|nodeState
 expr_stmt|;
 block|}
 DECL|method|getNodeId ()
