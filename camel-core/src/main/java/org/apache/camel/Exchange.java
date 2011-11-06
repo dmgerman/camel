@@ -644,6 +644,12 @@ name|UNIT_OF_WORK_EXHAUSTED
 init|=
 literal|"CamelUnitOfWorkExhausted"
 decl_stmt|;
+DECL|field|UNIT_OF_WORK_PROCESS_SYNC
+name|String
+name|UNIT_OF_WORK_PROCESS_SYNC
+init|=
+literal|"CamelUnitOfWorkProcessSync"
+decl_stmt|;
 DECL|field|XSLT_FILE_NAME
 name|String
 name|XSLT_FILE_NAME
