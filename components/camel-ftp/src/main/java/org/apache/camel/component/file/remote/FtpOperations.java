@@ -1197,6 +1197,13 @@ block|{
 comment|// logout before disconnecting
 try|try
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client logout"
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|logout
@@ -1236,6 +1243,13 @@ finally|finally
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client disconnect"
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|disconnect
@@ -1365,6 +1379,15 @@ throw|;
 block|}
 block|}
 comment|// delete the file
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client deleteFile: {}"
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|client
@@ -1843,6 +1866,15 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client retrieveFile: {}"
+argument_list|,
+name|remoteName
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|client
@@ -2261,6 +2293,15 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client retrieveFile: {}"
+argument_list|,
+name|remoteName
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|client
@@ -2758,6 +2799,15 @@ operator|.
 name|Append
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client appendFile: {}"
+argument_list|,
+name|targetName
+argument_list|)
+expr_stmt|;
 return|return
 name|client
 operator|.
@@ -2771,6 +2821,15 @@ return|;
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Client storeFile: {}"
+argument_list|,
+name|targetName
+argument_list|)
+expr_stmt|;
 return|return
 name|client
 operator|.
@@ -3044,7 +3103,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"fastexistsFile({})"
+literal|"fastExistsFile({})"
 argument_list|,
 name|name
 argument_list|)
