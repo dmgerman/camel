@@ -138,6 +138,51 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
+comment|/**      * Determines whether the uri has a scheme (eg file:, classpath: or http:)      *      * @param uri the uri      * @return<tt>true</tt> if the uri starts with a scheme      */
+DECL|method|hasScheme (String uri)
+specifier|public
+specifier|static
+name|boolean
+name|hasScheme
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+if|if
+condition|(
+name|uri
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+name|uri
+operator|.
+name|startsWith
+argument_list|(
+literal|"file:"
+argument_list|)
+operator|||
+name|uri
+operator|.
+name|startsWith
+argument_list|(
+literal|"classpath:"
+argument_list|)
+operator|||
+name|uri
+operator|.
+name|startsWith
+argument_list|(
+literal|"http:"
+argument_list|)
+return|;
+block|}
 comment|/**      * Resolves the mandatory resource.      *<p/>      * If possible prefer to use {@link #resolveMandatoryResourceAsUrl(org.apache.camel.spi.ClassResolver, String)}      * if possible.      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri uri of the resource      * @return the resource as an {@link InputStream}, remember to close the stream after usage.      * @throws java.io.IOException is thrown if the resource file could not be found or loaded as {@link InputStream}      */
 DECL|method|resolveMandatoryResourceAsInputStream (ClassResolver classResolver, String uri)
 specifier|public

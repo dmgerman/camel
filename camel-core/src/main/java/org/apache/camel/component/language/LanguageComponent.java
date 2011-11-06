@@ -104,6 +104,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/language-component.html">language component</a> to send  * {@link org.apache.camel.Exchange}s to a given language and have the script being executed.  *  * @version   */
 end_comment
@@ -215,16 +229,37 @@ name|expression
 init|=
 literal|null
 decl_stmt|;
+name|String
+name|resourceUri
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
-name|ObjectHelper
+name|script
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|ResourceHelper
 operator|.
-name|isNotEmpty
+name|hasScheme
 argument_list|(
 name|script
 argument_list|)
 condition|)
 block|{
+comment|// the script is a uri for a resource
+name|resourceUri
+operator|=
+name|script
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the script is provided as text in the uri, so decode to utf-8
 name|expression
 operator|=
 name|language
@@ -242,6 +277,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 return|return
 operator|new
 name|LanguageEndpoint
@@ -253,6 +289,8 @@ argument_list|,
 name|language
 argument_list|,
 name|expression
+argument_list|,
+name|resourceUri
 argument_list|)
 return|;
 block|}

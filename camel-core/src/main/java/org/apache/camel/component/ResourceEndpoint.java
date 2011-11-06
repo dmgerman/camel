@@ -308,6 +308,25 @@ throws|throws
 name|IOException
 block|{
 return|return
+name|loadResource
+argument_list|(
+name|resourceUri
+argument_list|)
+return|;
+block|}
+comment|/**      * Loads the given resource.      *      * @param uri uri of the resource.      * @return the loaded resource      * @throws IOException is thrown if resource is not found or cannot be loaded      */
+DECL|method|loadResource (String uri)
+specifier|protected
+name|InputStream
+name|loadResource
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
 name|ResourceHelper
 operator|.
 name|resolveMandatoryResourceAsInputStream
@@ -318,7 +337,7 @@ operator|.
 name|getClassResolver
 argument_list|()
 argument_list|,
-name|resourceUri
+name|uri
 argument_list|)
 return|;
 block|}
