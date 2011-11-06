@@ -187,10 +187,12 @@ argument_list|,
 literal|"myscript.txt"
 argument_list|)
 expr_stmt|;
+comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
+comment|// use content cache to load the script once and cache it
 operator|.
 name|to
 argument_list|(
@@ -202,6 +204,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;

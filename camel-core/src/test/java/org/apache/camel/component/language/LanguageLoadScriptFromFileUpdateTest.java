@@ -191,11 +191,11 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// disable cache so the file is re-read
+comment|// the script will be loaded on each message
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:file:target/script/myscript.txt?contentCache=false"
+literal|"language:simple:file:target/script/myscript.txt"
 argument_list|)
 operator|.
 name|to
