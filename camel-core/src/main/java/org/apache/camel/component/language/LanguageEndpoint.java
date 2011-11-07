@@ -54,16 +54,6 @@ name|java
 operator|.
 name|net
 operator|.
-name|URLDecoder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|URLEncoder
 import|;
 end_import
@@ -253,7 +243,14 @@ DECL|method|LanguageEndpoint ()
 specifier|public
 name|LanguageEndpoint
 parameter_list|()
-block|{     }
+block|{
+comment|// enable cache by default
+name|setContentCache
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|LanguageEndpoint (String endpointUri, Component component, Language language, Expression expression, String resourceUri)
 specifier|public
 name|LanguageEndpoint
@@ -294,6 +291,12 @@ operator|.
 name|expression
 operator|=
 name|expression
+expr_stmt|;
+comment|// enable cache by default
+name|setContentCache
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createProducer ()

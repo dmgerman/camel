@@ -192,7 +192,7 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// use content cache to load the script once and cache it
+comment|// use content cache to load the script once and cache it (content cache is default enabled)
 operator|.
 name|to
 argument_list|(

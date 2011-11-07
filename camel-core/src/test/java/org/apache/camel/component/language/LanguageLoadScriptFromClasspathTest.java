@@ -116,11 +116,11 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// load the script from the classpath and cache it
+comment|// load the script from the classpath
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:classpath:org/apache/camel/component/language/mysimplescript.txt?contentCache=true"
+literal|"language:simple:classpath:org/apache/camel/component/language/mysimplescript.txt"
 argument_list|)
 operator|.
 name|to
