@@ -1810,7 +1810,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|loggingFeatureEnabled
+name|isLoggingFeatureEnabled
+argument_list|()
 condition|)
 block|{
 name|sfb
@@ -2564,7 +2565,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|loggingFeatureEnabled
+name|isLoggingFeatureEnabled
+argument_list|()
 condition|)
 block|{
 name|factoryBean

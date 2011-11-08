@@ -307,6 +307,18 @@ name|getServiceName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"loggingFeatureEnabled should be true"
+argument_list|,
+literal|true
+argument_list|,
+name|myEndpoint
+operator|.
+name|isLoggingFeatureEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"We should get a soap binding"
