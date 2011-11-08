@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -322,6 +332,18 @@ name|assertEquals
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
 begin_comment
 comment|/**  *  * @version   */
 end_comment
@@ -386,6 +408,54 @@ specifier|private
 name|Server
 name|serviceEndpoint
 decl_stmt|;
+DECL|method|getServerAddress ()
+specifier|protected
+name|String
+name|getServerAddress
+parameter_list|()
+block|{
+return|return
+literal|"http://localhost:"
+operator|+
+name|port1
+operator|+
+literal|"/"
+operator|+
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"/SoapContext/SoapPort"
+return|;
+block|}
+DECL|method|getClientAddress ()
+specifier|protected
+name|String
+name|getClientAddress
+parameter_list|()
+block|{
+return|return
+literal|"http://localhost:"
+operator|+
+name|port0
+operator|+
+literal|"/"
+operator|+
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"/SoapContext/SoapPort"
+return|;
+block|}
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -414,11 +484,8 @@ name|svrBean
 operator|.
 name|setAddress
 argument_list|(
-literal|"http://localhost:"
-operator|+
-name|port1
-operator|+
-literal|"/WSAddressingTest/SoapContext/SoapPort"
+name|getServerAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|svrBean
@@ -548,11 +615,8 @@ name|clientBean
 operator|.
 name|setAddress
 argument_list|(
-literal|"http://localhost:"
-operator|+
-name|port0
-operator|+
-literal|"/WSAddressingTest/SoapContext/SoapPort"
+name|getClientAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|clientBean
@@ -600,7 +664,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|clientBean
+name|proxyFactory
 operator|.
 name|setBus
 argument_list|(
@@ -684,6 +748,44 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|List
+name|headerList
+init|=
+operator|(
+name|List
+operator|)
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Header
+operator|.
+name|HEADER_LIST
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"We should get the header list."
+argument_list|,
+name|headerList
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong size of header list."
+argument_list|,
+literal|4
+argument_list|,
+name|headerList
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// we don't need send the soap headers to the client
 name|exchange
 operator|.
 name|getIn
