@@ -132,6 +132,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -217,6 +231,7 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// do not print jmsMessage as there could be sensitive details
 if|if
 condition|(
 name|jmsMessage
@@ -224,21 +239,38 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
-literal|"JmsMessage: "
-operator|+
-name|jmsMessage
-return|;
-block|}
-else|else
+try|try
 block|{
 return|return
-literal|"JmsMessage: "
+literal|"JmsMessage[JmsMessageID: "
 operator|+
-name|getBody
+name|jmsMessage
+operator|.
+name|getJMSMessageID
 argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
+return|return
+literal|"JmsMessage@"
+operator|+
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|this
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
