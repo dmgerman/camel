@@ -299,11 +299,8 @@ block|}
 name|FileConsumer
 name|result
 init|=
-operator|new
-name|FileConsumer
+name|newFileConsumer
 argument_list|(
-name|this
-argument_list|,
 name|processor
 argument_list|,
 name|operations
@@ -495,6 +492,34 @@ expr_stmt|;
 block|}
 return|return
 name|exchange
+return|;
+block|}
+comment|/**      * Strategy to create a new {@link FileConsumer}      *      * @param processor  the given processor      * @param operations file operations      * @return the created consumer      */
+DECL|method|newFileConsumer (Processor processor, GenericFileOperations<File> operations)
+specifier|protected
+name|FileConsumer
+name|newFileConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|,
+name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
+name|operations
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FileConsumer
+argument_list|(
+name|this
+argument_list|,
+name|processor
+argument_list|,
+name|operations
+argument_list|)
 return|;
 block|}
 DECL|method|getFile ()

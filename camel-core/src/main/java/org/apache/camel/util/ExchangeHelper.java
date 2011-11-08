@@ -2673,7 +2673,7 @@ name|result
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated use      *             org.apache.camel.CamelExchangeException.createExceptionMessage      *             instead      * @param message      * @param exchange      * @param cause      * @return      */
+comment|/**      * @deprecated use org.apache.camel.CamelExchangeException.createExceptionMessage instead      */
 annotation|@
 name|Deprecated
 DECL|method|createExceptionMessage (String message, Exchange exchange, Throwable cause)
