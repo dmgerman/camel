@@ -538,13 +538,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|remove (K id)
+DECL|method|remove (K key)
 specifier|public
 name|V
 name|remove
 parameter_list|(
 name|K
-name|id
+name|key
 parameter_list|)
 block|{
 name|TimeoutMapEntry
@@ -574,7 +574,7 @@ name|map
 operator|.
 name|remove
 argument_list|(
-name|id
+name|key
 argument_list|)
 expr_stmt|;
 block|}

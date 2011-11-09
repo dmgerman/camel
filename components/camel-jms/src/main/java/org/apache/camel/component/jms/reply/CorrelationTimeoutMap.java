@@ -63,6 +63,11 @@ argument_list|,
 name|ReplyHandler
 argument_list|>
 block|{
+DECL|field|listener
+specifier|private
+name|CorrelationListener
+name|listener
+decl_stmt|;
 DECL|method|CorrelationTimeoutMap (ScheduledExecutorService executor, long requestMapPollTimeMillis)
 specifier|public
 name|CorrelationTimeoutMap
@@ -82,6 +87,23 @@ name|requestMapPollTimeMillis
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setListener (CorrelationListener listener)
+specifier|public
+name|void
+name|setListener
+parameter_list|(
+name|CorrelationListener
+name|listener
+parameter_list|)
+block|{
+comment|// there is only one listener needed
+name|this
+operator|.
+name|listener
+operator|=
+name|listener
+expr_stmt|;
+block|}
 DECL|method|onEviction (String key, ReplyHandler value)
 specifier|public
 name|boolean
@@ -94,6 +116,32 @@ name|ReplyHandler
 name|value
 parameter_list|)
 block|{
+try|try
+block|{
+if|if
+condition|(
+name|listener
+operator|!=
+literal|null
+condition|)
+block|{
+name|listener
+operator|.
+name|onEviction
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 comment|// trigger timeout
 name|value
 operator|.
@@ -133,6 +181,32 @@ name|long
 name|timeoutMillis
 parameter_list|)
 block|{
+try|try
+block|{
+if|if
+condition|(
+name|listener
+operator|!=
+literal|null
+condition|)
+block|{
+name|listener
+operator|.
+name|onPut
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 if|if
 condition|(
 name|timeoutMillis
@@ -183,15 +257,41 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|remove (String id)
+DECL|method|remove (String key)
 specifier|public
 name|ReplyHandler
 name|remove
 parameter_list|(
 name|String
-name|id
+name|key
 parameter_list|)
 block|{
+try|try
+block|{
+if|if
+condition|(
+name|listener
+operator|!=
+literal|null
+condition|)
+block|{
+name|listener
+operator|.
+name|onRemove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 name|ReplyHandler
 name|answer
 init|=
@@ -199,7 +299,7 @@ name|super
 operator|.
 name|remove
 argument_list|(
-name|id
+name|key
 argument_list|)
 decl_stmt|;
 name|log
@@ -208,7 +308,7 @@ name|trace
 argument_list|(
 literal|"Removed correlationID: {} -> {}"
 argument_list|,
-name|id
+name|key
 argument_list|,
 name|answer
 operator|!=

@@ -241,22 +241,6 @@ argument_list|,
 name|requestTimeout
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|dynamicMessageSelector
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// also remember to keep the dynamic selector updated with the new correlation id
-name|dynamicMessageSelector
-operator|.
-name|addCorrelationID
-argument_list|(
-name|correlationId
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|correlationId
 return|;
@@ -318,31 +302,6 @@ argument_list|,
 name|requestTimeout
 argument_list|)
 expr_stmt|;
-comment|// no not arrived early
-if|if
-condition|(
-name|dynamicMessageSelector
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// also remember to keep the dynamic selector updated with the new correlation id
-comment|// at first removing the old correlationID and then add the new correlationID
-name|dynamicMessageSelector
-operator|.
-name|removeCorrelationID
-argument_list|(
-name|correlationId
-argument_list|)
-expr_stmt|;
-name|dynamicMessageSelector
-operator|.
-name|addCorrelationID
-argument_list|(
-name|newCorrelationId
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|handleReplyMessage (String correlationID, Message message)
 specifier|protected
@@ -734,7 +693,9 @@ name|dynamicMessageSelector
 operator|=
 operator|new
 name|MessageSelectorCreator
-argument_list|()
+argument_list|(
+name|correlation
+argument_list|)
 expr_stmt|;
 name|answer
 operator|=
