@@ -242,6 +242,30 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong loggingFeatureEnabled"
+argument_list|,
+literal|true
+argument_list|,
+name|sfb
+operator|.
+name|isLoggingFeatureEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong loggingSizeLimit"
+argument_list|,
+literal|200
+argument_list|,
+name|sfb
+operator|.
+name|getLoggingSizeLimit
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -308,6 +332,30 @@ name|create
 argument_list|()
 operator|instanceof
 name|CustomerService
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong loggingFeatureEnabled"
+argument_list|,
+literal|false
+argument_list|,
+name|cfb
+operator|.
+name|isLoggingFeatureEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong loggingSizeLimit"
+argument_list|,
+literal|0
+argument_list|,
+name|cfb
+operator|.
+name|getLoggingSizeLimit
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -388,6 +388,13 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String

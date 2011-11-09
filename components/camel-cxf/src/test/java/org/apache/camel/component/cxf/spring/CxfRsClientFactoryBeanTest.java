@@ -226,6 +226,30 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong loggingFeatureEnabled"
+argument_list|,
+literal|true
+argument_list|,
+name|cfb
+operator|.
+name|isLoggingFeatureEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong loggingSizeLimit"
+argument_list|,
+literal|200
+argument_list|,
+name|cfb
+operator|.
+name|getLoggingSizeLimit
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
