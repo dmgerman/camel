@@ -26,17 +26,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|concurrent
 operator|.
-name|util
-operator|.
-name|Set
+name|ConcurrentSkipListSet
 import|;
 end_import
 
@@ -97,7 +89,7 @@ decl_stmt|;
 DECL|field|correlationIds
 specifier|protected
 specifier|final
-name|Set
+name|ConcurrentSkipListSet
 argument_list|<
 name|String
 argument_list|>
@@ -140,12 +132,13 @@ argument_list|)
 expr_stmt|;
 comment|// create local set of correlation ids, as its easier to keep track
 comment|// using the listener so we can flag the dirty flag upon changes
+comment|// must support concurrent access
 name|this
 operator|.
 name|correlationIds
 operator|=
 operator|new
-name|LinkedHashSet
+name|ConcurrentSkipListSet
 argument_list|<
 name|String
 argument_list|>
@@ -252,15 +245,20 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|String
+name|answer
+init|=
+name|expression
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|dirty
 operator|=
 literal|false
 expr_stmt|;
 return|return
-name|expression
-operator|.
-name|toString
-argument_list|()
+name|answer
 return|;
 block|}
 DECL|method|onPut (String key)
