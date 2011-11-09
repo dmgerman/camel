@@ -640,6 +640,46 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|// but keep toString as this method is okay
+name|EXCLUDED_METHODS
+operator|.
+name|remove
+argument_list|(
+name|Object
+operator|.
+name|class
+operator|.
+name|getMethod
+argument_list|(
+literal|"toString"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|EXCLUDED_METHODS
+operator|.
+name|remove
+argument_list|(
+name|Proxy
+operator|.
+name|class
+operator|.
+name|getMethod
+argument_list|(
+literal|"toString"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 DECL|method|BeanInfo (CamelContext camelContext, Class<?> type)
 specifier|public
