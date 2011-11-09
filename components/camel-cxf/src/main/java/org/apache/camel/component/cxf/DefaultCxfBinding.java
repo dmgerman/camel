@@ -2454,6 +2454,10 @@ block|{
 if|if
 condition|(
 name|elements
+operator|!=
+literal|null
+operator|&&
+name|elements
 operator|.
 name|size
 argument_list|()
