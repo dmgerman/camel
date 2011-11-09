@@ -148,37 +148,6 @@ operator|=
 name|bundleContext
 expr_stmt|;
 block|}
-DECL|method|copy ()
-specifier|public
-name|RsServerBlueprintBean
-name|copy
-parameter_list|()
-block|{
-try|try
-block|{
-return|return
-operator|(
-name|RsServerBlueprintBean
-operator|)
-name|clone
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|CloneNotSupportedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 block|}
 end_class
 
