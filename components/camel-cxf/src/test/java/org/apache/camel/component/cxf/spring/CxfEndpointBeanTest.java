@@ -225,6 +225,30 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"loggingFeatureEnabled should be false"
+argument_list|,
+literal|false
+argument_list|,
+name|routerEndpoint
+operator|.
+name|isLoggingFeatureEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"loggingSizeLimit should not be set"
+argument_list|,
+literal|0
+argument_list|,
+name|routerEndpoint
+operator|.
+name|getLoggingSizeLimit
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|"Got the wrong handlers size"
 argument_list|,
 literal|1
@@ -316,6 +340,18 @@ argument_list|,
 name|myEndpoint
 operator|.
 name|isLoggingFeatureEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"loggingSizeLimit should be set"
+argument_list|,
+literal|200
+argument_list|,
+name|myEndpoint
+operator|.
+name|getLoggingSizeLimit
 argument_list|()
 argument_list|)
 expr_stmt|;
