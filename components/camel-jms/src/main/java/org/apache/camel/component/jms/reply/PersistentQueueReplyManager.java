@@ -665,6 +665,16 @@ argument_list|(
 name|fixedMessageSelector
 argument_list|)
 expr_stmt|;
+comment|// must use cache level consumer for fixed message selector
+name|answer
+operator|.
+name|setCacheLevel
+argument_list|(
+name|DefaultMessageListenerContainer
+operator|.
+name|CACHE_CONSUMER
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|debug
@@ -705,6 +715,17 @@ argument_list|(
 name|dynamicMessageSelector
 argument_list|)
 expr_stmt|;
+comment|// must use cache level session for dynamic message selector,
+comment|// as otherwise the dynamic message selector will not be updated on-the-fly
+name|answer
+operator|.
+name|setCacheLevel
+argument_list|(
+name|DefaultMessageListenerContainer
+operator|.
+name|CACHE_SESSION
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|debug
@@ -738,6 +759,16 @@ operator|=
 operator|new
 name|ExclusivePersistentQueueMessageListenerContainer
 argument_list|()
+expr_stmt|;
+comment|// must use cache level consumer for exclusive as there is no message selector
+name|answer
+operator|.
+name|setCacheLevel
+argument_list|(
+name|DefaultMessageListenerContainer
+operator|.
+name|CACHE_CONSUMER
+argument_list|)
 expr_stmt|;
 name|log
 operator|.
@@ -893,16 +924,6 @@ name|clientId
 argument_list|)
 expr_stmt|;
 block|}
-comment|// must use cache level session
-name|answer
-operator|.
-name|setCacheLevel
-argument_list|(
-name|DefaultMessageListenerContainer
-operator|.
-name|CACHE_SESSION
-argument_list|)
-expr_stmt|;
 comment|// we cannot do request-reply over JMS with transaction
 name|answer
 operator|.
