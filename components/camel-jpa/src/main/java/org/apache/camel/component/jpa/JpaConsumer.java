@@ -480,6 +480,15 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Created query {}"
+argument_list|,
+name|query
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|Object
@@ -496,6 +505,15 @@ name|getResultList
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Got result list from query {}"
+argument_list|,
+name|results
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Object
@@ -564,6 +582,22 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|PersistenceException
+condition|)
+block|{
+throw|throw
+operator|(
+name|PersistenceException
+operator|)
+name|e
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|PersistenceException
@@ -572,6 +606,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Flushing EntityManager"
+argument_list|)
+expr_stmt|;
 name|entityManager
 operator|.
 name|flush
@@ -797,8 +839,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|getProcessor
 argument_list|()
 operator|.
@@ -807,19 +847,22 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
 block|{
+comment|// if we failed then throw exception
 throw|throw
-operator|new
-name|PersistenceException
-argument_list|(
-name|e
-argument_list|)
+name|exchange
+operator|.
+name|getException
+argument_list|()
 throw|;
 block|}
 name|getDeleteHandler
@@ -1287,7 +1330,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|//TODO: Find if possible an alternative way to handle results of netive queries.
+comment|//TODO: Find if possible an alternative way to handle results of native queries.
 comment|//Result of native queries are Arrays and cannot be locked by all JPA Providers.
 if|if
 condition|(
