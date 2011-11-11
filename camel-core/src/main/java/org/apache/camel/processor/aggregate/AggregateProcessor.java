@@ -4096,7 +4096,8 @@ operator|new
 name|AggregationIntervalTask
 argument_list|()
 argument_list|,
-literal|1000L
+name|getCompletionInterval
+argument_list|()
 argument_list|,
 name|getCompletionInterval
 argument_list|()
