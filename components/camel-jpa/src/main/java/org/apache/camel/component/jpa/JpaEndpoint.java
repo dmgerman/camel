@@ -348,11 +348,6 @@ specifier|private
 name|boolean
 name|usePersist
 decl_stmt|;
-DECL|field|transacted
-specifier|private
-name|boolean
-name|transacted
-decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -1044,32 +1039,6 @@ operator|.
 name|usePersist
 operator|=
 name|usePersist
-expr_stmt|;
-block|}
-DECL|method|isTransacted ()
-specifier|public
-name|boolean
-name|isTransacted
-parameter_list|()
-block|{
-return|return
-name|transacted
-return|;
-block|}
-DECL|method|setTransacted (boolean transacted)
-specifier|public
-name|void
-name|setTransacted
-parameter_list|(
-name|boolean
-name|transacted
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transacted
-operator|=
-name|transacted
 expr_stmt|;
 block|}
 comment|// Implementation methods
