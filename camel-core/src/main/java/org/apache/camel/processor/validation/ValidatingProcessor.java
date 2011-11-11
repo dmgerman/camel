@@ -188,6 +188,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|ls
+operator|.
+name|LSResourceResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|xml
 operator|.
 name|sax
@@ -233,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  *   * @version   */
+comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  *   * @version  */
 end_comment
 
 begin_class
@@ -299,6 +313,11 @@ name|boolean
 name|useSharedSchema
 init|=
 literal|true
+decl_stmt|;
+DECL|field|resourceResolver
+specifier|private
+name|LSResourceResolver
+name|resourceResolver
 decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -413,7 +432,8 @@ argument_list|)
 throw|;
 block|}
 comment|// create a new errorHandler and set it on the validator
-comment|// must be a local instance to avoid problems with concurrency (to be thread safe)
+comment|// must be a local instance to avoid problems with concurrency (to be
+comment|// thread safe)
 name|ValidatorErrorHandler
 name|handler
 init|=
@@ -753,7 +773,7 @@ return|return
 name|useDom
 return|;
 block|}
-comment|/**      * Sets whether DOMSource and DOMResult should be used, or      * SaxSource and SaxResult.      *      * @param useDom true to use DOM otherwise Sax is used      */
+comment|/**      * Sets whether DOMSource and DOMResult should be used, or SaxSource and      * SaxResult.      *       * @param useDom      *            true to use DOM otherwise Sax is used      */
 DECL|method|setUseDom (boolean useDom)
 specifier|public
 name|void
@@ -796,6 +816,32 @@ operator|=
 name|useSharedSchema
 expr_stmt|;
 block|}
+DECL|method|getResourceResolver ()
+specifier|public
+name|LSResourceResolver
+name|getResourceResolver
+parameter_list|()
+block|{
+return|return
+name|resourceResolver
+return|;
+block|}
+DECL|method|setResourceResolver (LSResourceResolver resourceResolver)
+specifier|public
+name|void
+name|setResourceResolver
+parameter_list|(
+name|LSResourceResolver
+name|resourceResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourceResolver
+operator|=
+name|resourceResolver
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
 DECL|method|createSchemaFactory ()
@@ -804,13 +850,26 @@ name|SchemaFactory
 name|createSchemaFactory
 parameter_list|()
 block|{
-return|return
+name|SchemaFactory
+name|factory
+init|=
 name|SchemaFactory
 operator|.
 name|newInstance
 argument_list|(
 name|schemaLanguage
 argument_list|)
+decl_stmt|;
+name|factory
+operator|.
+name|setResourceResolver
+argument_list|(
+name|getResourceResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|factory
 return|;
 block|}
 DECL|method|createSchemaSource ()

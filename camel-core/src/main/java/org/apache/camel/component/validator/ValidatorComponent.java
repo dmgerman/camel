@@ -56,6 +56,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|ls
+operator|.
+name|LSResourceResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -260,7 +274,8 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// force loading of schema at create time otherwise concurrent processing could
+comment|// force loading of schema at create time otherwise concurrent
+comment|// processing could
 comment|// cause thread safe issues for the javax.xml.validation.SchemaFactory
 name|validator
 operator|.
@@ -304,6 +319,35 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LSResourceResolver
+name|resourceResolver
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"resourceResolver"
+argument_list|,
+name|LSResourceResolver
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|resourceResolver
+operator|!=
+literal|null
+condition|)
+block|{
+name|validator
+operator|.
+name|setResourceResolver
+argument_list|(
+name|resourceResolver
+argument_list|)
+expr_stmt|;
+block|}
 name|setProperties
 argument_list|(
 name|validator
