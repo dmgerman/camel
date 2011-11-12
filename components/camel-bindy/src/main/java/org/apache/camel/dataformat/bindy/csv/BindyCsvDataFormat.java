@@ -868,6 +868,8 @@ operator|=
 name|unquoteTokens
 argument_list|(
 name|result
+argument_list|,
+name|separator
 argument_list|)
 expr_stmt|;
 if|if
@@ -1018,8 +1020,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Unquote the tokens, by removing leading and trailing quote chars      */
-DECL|method|unquoteTokens (List<String> result)
+comment|/**      * Unquote the tokens, by removing leading and trailing quote chars,      * as will handling fixing broken tokens which may have been split      * by a separator inside a quote.      */
+DECL|method|unquoteTokens (List<String> result, String separator)
 specifier|private
 name|List
 argument_list|<
@@ -1032,8 +1034,23 @@ argument_list|<
 name|String
 argument_list|>
 name|result
+parameter_list|,
+name|String
+name|separator
 parameter_list|)
 block|{
+comment|// a current quoted token which we assemble from the broken pieces
+comment|// we need to do this as we use the split method on the String class
+comment|// to split the line using regular expression, and it does not handle
+comment|// if the separator char is also inside a quoted token, therefore we need
+comment|// to fix this afterwards
+name|StringBuilder
+name|current
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
 name|List
 argument_list|<
 name|String
@@ -1045,12 +1062,7 @@ name|ArrayList
 argument_list|<
 name|String
 argument_list|>
-argument_list|(
-name|result
-operator|.
-name|size
 argument_list|()
-argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -1060,6 +1072,16 @@ range|:
 name|result
 control|)
 block|{
+name|boolean
+name|startQuote
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|endQuote
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|s
@@ -1085,6 +1107,10 @@ name|substring
 argument_list|(
 literal|1
 argument_list|)
+expr_stmt|;
+name|startQuote
+operator|=
+literal|true
 expr_stmt|;
 block|}
 if|if
@@ -1120,12 +1146,131 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|endQuote
+operator|=
+literal|true
+expr_stmt|;
 block|}
+comment|// are we in progress of rebuilding a broken token
+name|boolean
+name|currentInProgress
+init|=
+name|current
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+decl_stmt|;
+comment|// if we hit a start token then rebuild a broken token
+if|if
+condition|(
+name|currentInProgress
+operator|||
+name|startQuote
+condition|)
+block|{
+comment|// append to current if we are in the middle of a start quote
+if|if
+condition|(
+name|currentInProgress
+condition|)
+block|{
+comment|// must append separator back as this is a quoted token that was broken
+comment|// but a separator inside the quotes
+name|current
+operator|.
+name|append
+argument_list|(
+name|separator
+argument_list|)
+expr_stmt|;
+block|}
+name|current
+operator|.
+name|append
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+block|}
+comment|// are we in progress of rebuilding a broken token
+name|currentInProgress
+operator|=
+name|current
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+expr_stmt|;
+if|if
+condition|(
+name|endQuote
+condition|)
+block|{
+comment|// we hit end quote so append current and reset it
+name|answer
+operator|.
+name|add
+argument_list|(
+name|current
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|current
+operator|.
+name|setLength
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|currentInProgress
+condition|)
+block|{
+comment|// not rebuilding so add directly as is
 name|answer
 operator|.
 name|add
 argument_list|(
 name|s
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// any left over from current?
+if|if
+condition|(
+name|current
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|answer
+operator|.
+name|add
+argument_list|(
+name|current
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|current
+operator|.
+name|setLength
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

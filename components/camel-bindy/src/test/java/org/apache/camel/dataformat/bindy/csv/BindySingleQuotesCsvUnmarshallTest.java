@@ -211,7 +211,7 @@ name|Exception
 block|{
 name|expected
 operator|=
-literal|"'10','A9','Pauline','M','ISIN','XD12345678','BUY,Share','2500.45','USD','08-01-2009"
+literal|"'10','A9','Pauline','M','ISIN','XD12345678','BUY','Share','2500.45','USD','08-01-2009"
 expr_stmt|;
 name|template
 operator|.

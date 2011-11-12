@@ -68,7 +68,7 @@ name|CsvRecord
 argument_list|(
 name|separator
 operator|=
-literal|"\";\""
+literal|";"
 argument_list|,
 name|skipFirstLine
 operator|=
