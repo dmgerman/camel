@@ -75,7 +75,7 @@ specifier|public
 annotation_defn|@interface
 name|CsvRecord
 block|{
-comment|/**      * Name describing the record (optional)      *       * @return String      */
+comment|/**      * Name describing the record (optional)      */
 DECL|method|name ()
 name|String
 name|name
@@ -83,13 +83,13 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Separator used to split a record in tokens (mandatory)      *       * @return String      */
+comment|/**      * Separator used to split a record in tokens (mandatory)      */
 DECL|method|separator ()
 name|String
 name|separator
 parameter_list|()
 function_decl|;
-comment|/**      * The skipFirstLine parameter will allow to skip or not the first line of a      * CSV file. This line often contains columns definition      *       * @return boolean      */
+comment|/**      * The skipFirstLine parameter will allow to skip or not the first line of a      * CSV file. This line often contains columns definition      */
 DECL|method|skipFirstLine ()
 DECL|field|false
 name|boolean
@@ -98,7 +98,7 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
-comment|/**      * Character to be used to add a carriage return after each record      * (optional) Three values can be used : WINDOWS, UNIX or MAC      *       * @return String      */
+comment|/**      * Character to be used to add a carriage return after each record      * (optional) Three values can be used : WINDOWS, UNIX or MAC.      */
 DECL|method|crlf ()
 name|String
 name|crlf
@@ -106,7 +106,7 @@ parameter_list|()
 default|default
 literal|"WINDOWS"
 function_decl|;
-comment|/**      * The generateHeaderColumns parameter allow to add in the CSV generated the      * header containing names of the columns      *       * @return boolean      */
+comment|/**      * The generateHeaderColumns parameter allow to add in the CSV generated the      * header containing names of the columns      */
 DECL|method|generateHeaderColumns ()
 DECL|field|false
 name|boolean
@@ -115,7 +115,7 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
-comment|/**      * Indicates if the message must be ordered in output      *       * @return boolean      */
+comment|/**      * Indicates if the message must be ordered in output      */
 DECL|method|isOrdered ()
 DECL|field|false
 name|boolean
@@ -123,6 +123,14 @@ name|isOrdered
 parameter_list|()
 default|default
 literal|false
+function_decl|;
+comment|/**      * Whether to marshal columns with the given quote character (optional)      */
+DECL|method|quote ()
+name|String
+name|quote
+parameter_list|()
+default|default
+literal|""
 function_decl|;
 block|}
 end_annotation_defn

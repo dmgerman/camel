@@ -67,6 +67,10 @@ argument_list|(
 name|separator
 operator|=
 literal|","
+argument_list|,
+name|quote
+operator|=
+literal|"\""
 argument_list|)
 DECL|class|WeatherModel
 specifier|public
