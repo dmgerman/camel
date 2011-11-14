@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception to veto starting {@link CamelContext}.  *  * @version   */
+comment|/**  * An exception to veto starting {@link CamelContext}.  *<p/>  * The option rethrowException can be used to control whether to rethrow this exception  * when starting CamelContext or not.  *  * @see org.apache.camel.spi.LifecycleStrategy  */
 end_comment
 
 begin_class
@@ -33,13 +33,19 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|8046489554418284256L
+literal|8046489554418284257L
 decl_stmt|;
 DECL|field|context
 specifier|private
 specifier|final
 name|CamelContext
 name|context
+decl_stmt|;
+DECL|field|rethrowException
+specifier|private
+specifier|final
+name|boolean
+name|rethrowException
 decl_stmt|;
 DECL|method|VetoCamelContextStartException (String message, CamelContext context)
 specifier|public
@@ -52,6 +58,30 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|message
+argument_list|,
+name|context
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|VetoCamelContextStartException (String message, CamelContext context, boolean rethrowException)
+specifier|public
+name|VetoCamelContextStartException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|,
+name|boolean
+name|rethrowException
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|message
@@ -62,6 +92,12 @@ operator|.
 name|context
 operator|=
 name|context
+expr_stmt|;
+name|this
+operator|.
+name|rethrowException
+operator|=
+name|rethrowException
 expr_stmt|;
 block|}
 DECL|method|VetoCamelContextStartException (String message, Throwable cause, CamelContext context)
@@ -78,6 +114,35 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|message
+argument_list|,
+name|cause
+argument_list|,
+name|context
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|VetoCamelContextStartException (String message, Throwable cause, CamelContext context, boolean rethrowException)
+specifier|public
+name|VetoCamelContextStartException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|,
+name|boolean
+name|rethrowException
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|message
@@ -91,6 +156,12 @@ name|context
 operator|=
 name|context
 expr_stmt|;
+name|this
+operator|.
+name|rethrowException
+operator|=
+name|rethrowException
+expr_stmt|;
 block|}
 DECL|method|getContext ()
 specifier|public
@@ -100,6 +171,17 @@ parameter_list|()
 block|{
 return|return
 name|context
+return|;
+block|}
+comment|/**      * Whether to rethrow this exception when starting CamelContext, to cause an exception      * to be thrown from the start method.      *<p/>      * This option is default<tt>true</tt>.      */
+DECL|method|isRethrowException ()
+specifier|public
+name|boolean
+name|isRethrowException
+parameter_list|()
+block|{
+return|return
+name|rethrowException
 return|;
 block|}
 block|}

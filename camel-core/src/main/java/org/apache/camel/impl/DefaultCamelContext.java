@@ -7408,11 +7408,56 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// super will invoke doStart which will prepare internal services and start routes etc.
+try|try
+block|{
 name|super
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|VetoCamelContextStartException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|e
+operator|.
+name|isRethrowException
+argument_list|()
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"CamelContext ({}) vetoed to not start due {}"
+argument_list|,
+name|getName
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// swallow exception and change state of this camel context to stopped
+name|stop
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
+block|}
 name|stopWatch
 operator|.
 name|stop
@@ -7844,14 +7889,15 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Lifecycle strategy vetoed starting CamelContext ("
-operator|+
+literal|"Lifecycle strategy vetoed starting CamelContext ({}) due {}"
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|")"
 argument_list|,
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -7872,14 +7918,15 @@ literal|"Lifecycle strategy "
 operator|+
 name|strategy
 operator|+
-literal|" failed starting CamelContext ("
-operator|+
+literal|" failed starting CamelContext ({}) due {}"
+argument_list|,
 name|getName
 argument_list|()
-operator|+
-literal|")"
 argument_list|,
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 throw|throw
