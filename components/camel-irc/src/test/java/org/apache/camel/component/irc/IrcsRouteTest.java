@@ -18,7 +18,19 @@ name|irc
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Ignore
 DECL|class|IrcsRouteTest
 specifier|public
 class|class

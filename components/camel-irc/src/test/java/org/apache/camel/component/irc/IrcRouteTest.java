@@ -104,16 +104,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -154,11 +144,6 @@ specifier|private
 name|boolean
 name|sentMessages
 decl_stmt|;
-annotation|@
-name|Ignore
-argument_list|(
-literal|"test manual"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testIrcMessages ()
@@ -343,7 +328,7 @@ name|sendUri
 parameter_list|()
 block|{
 return|return
-literal|"irc://camel-prd@irc.codehaus.org:6667/#camel-test?nickname=camel-prd"
+literal|"irc://camel-prd-user@irc.codehaus.org:6667/#camel-test?nickname=camel-prd"
 return|;
 block|}
 DECL|method|fromUri ()
@@ -353,7 +338,7 @@ name|fromUri
 parameter_list|()
 block|{
 return|return
-literal|"irc://camel-con@irc.codehaus.org:6667/#camel-test?nickname=camel-con"
+literal|"irc://camel-con-user@irc.codehaus.org:6667/#camel-test?nickname=camel-con"
 return|;
 block|}
 comment|/**      * Lets send messages once the consumer has joined      */
