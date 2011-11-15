@@ -100,22 +100,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|examples
 operator|.
 name|SendEmail
@@ -273,10 +257,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|JpaTXRollbackTest
+DECL|class|JpaNonTXRollbackTest
 specifier|public
 class|class
-name|JpaTXRollbackTest
+name|JpaNonTXRollbackTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -318,6 +302,16 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
+DECL|field|kaboom
+specifier|private
+specifier|static
+name|AtomicInteger
+name|kaboom
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 DECL|field|applicationContext
 specifier|protected
 name|ApplicationContext
@@ -330,10 +324,10 @@ name|jpaTemplate
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testTXRollback ()
+DECL|method|testNonTXRollback ()
 specifier|public
 name|void
-name|testTXRollback
+name|testNonTXRollback
 parameter_list|()
 throws|throws
 name|Exception
@@ -399,21 +393,26 @@ literal|"kaboom@beer.org"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// should rollback the entire
-name|MockEndpoint
-name|mock
-init|=
+comment|// should only rollback the failed
 name|getMockEndpoint
 argument_list|(
-literal|"mock:result"
+literal|"mock:start"
 argument_list|)
-decl_stmt|;
-comment|// we should retry and try again
-name|mock
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
 literal|4
+argument_list|)
+expr_stmt|;
+comment|// and only the 2 good messages goes here
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|2
 argument_list|)
 expr_stmt|;
 comment|// start route
@@ -427,33 +426,37 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"Should be>= 2, was: "
-operator|+
-name|foo
-operator|.
-name|intValue
-argument_list|()
+literal|1
 argument_list|,
 name|foo
 operator|.
 name|intValue
 argument_list|()
-operator|>=
-literal|2
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"Should be>= 2, was: "
-operator|+
+literal|1
+argument_list|,
 name|bar
 operator|.
 name|intValue
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// kaboom fails and we retry it again
+name|assertTrue
+argument_list|(
+literal|"Should be>= 2, was: "
+operator|+
+name|kaboom
+operator|.
+name|intValue
+argument_list|()
 argument_list|,
-name|bar
+name|kaboom
 operator|.
 name|intValue
 argument_list|()
@@ -497,7 +500,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.transacted=true&delay=1000"
+literal|"?consumer.transacted=false&delay=1000"
 argument_list|)
 operator|.
 name|routeId
@@ -507,6 +510,11 @@ argument_list|)
 operator|.
 name|noAutoStartup
 argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"mock:start"
+argument_list|)
 operator|.
 name|process
 argument_list|(
@@ -554,6 +562,11 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|kaboom
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
