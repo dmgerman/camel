@@ -278,6 +278,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -904,6 +918,26 @@ operator|>
 literal|1
 condition|)
 block|{
+comment|// validate multiple consumers has been enabled
+if|if
+condition|(
+operator|!
+name|endpoint
+operator|.
+name|isMultipleConsumersSupported
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Multiple consumers for the same endpoint is not allowed: "
+operator|+
+name|endpoint
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -939,6 +973,17 @@ operator|.
 name|getConsumerMulticastProcessor
 argument_list|()
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|mp
+argument_list|,
+literal|"ConsumerMulticastProcessor"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 comment|// and use the asynchronous routing engine to support it
 name|AsyncProcessorHelper
 operator|.
