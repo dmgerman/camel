@@ -248,40 +248,6 @@ operator|.
 name|createConnectionFactory
 argument_list|()
 decl_stmt|;
-comment|// When using asyncSend, the producers (calls to template.sendBodyAndHeader) will not
-comment|// be guaranteed to be in the order we have in the test so we need this set to false.
-comment|// Another way of guaranteeing order is to use persistent messages or transactions.
-if|if
-condition|(
-name|connectionFactory
-operator|instanceof
-name|PooledConnectionFactory
-condition|)
-block|{
-name|ActiveMQConnectionFactory
-name|amqConnectionFactory
-init|=
-call|(
-name|ActiveMQConnectionFactory
-call|)
-argument_list|(
-operator|(
-name|PooledConnectionFactory
-operator|)
-name|connectionFactory
-argument_list|)
-operator|.
-name|getConnectionFactory
-argument_list|()
-decl_stmt|;
-name|amqConnectionFactory
-operator|.
-name|setUseAsyncSend
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 name|JmsComponent
 name|component
 init|=
