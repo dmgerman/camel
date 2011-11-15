@@ -8307,11 +8307,7 @@ argument_list|(
 name|lifecycleStrategies
 argument_list|)
 expr_stmt|;
-name|lifecycleStrategies
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+comment|// do not clear lifecycleStrategies as we can start Camel again and get the route back as before
 comment|// stop the lazy created so they can be re-created on restart
 name|forceStopLazyInitialization
 argument_list|()
