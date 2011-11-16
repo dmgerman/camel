@@ -649,11 +649,6 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
-name|entityManager
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 block|{
