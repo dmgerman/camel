@@ -20,13 +20,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|transform
 operator|.
-name|CamelContext
+name|TransformerConfigurationException
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateRouteException
+name|CamelExecutionException
 import|;
 end_import
 
@@ -50,19 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ResolveEndpointFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TestSupport
+name|ContextTestSupport
 import|;
 end_import
 
@@ -77,20 +65,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
 import|;
 end_import
 
@@ -104,7 +78,7 @@ specifier|public
 class|class
 name|InvalidXsltFileTest
 extends|extends
-name|TestSupport
+name|ContextTestSupport
 block|{
 DECL|method|testInvalidStylesheet ()
 specifier|public
@@ -116,30 +90,14 @@ name|Exception
 block|{
 try|try
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|createRouteBuilder
-argument_list|()
-decl_stmt|;
-name|CamelContext
-name|context
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-decl_stmt|;
-name|context
+name|template
 operator|.
-name|addRoutes
+name|sendBody
 argument_list|(
-name|builder
+literal|"direct:a"
+argument_list|,
+literal|"foo"
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
@@ -149,14 +107,14 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FailedToCreateRouteException
+name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
 comment|// expected
 name|assertIsInstanceOf
 argument_list|(
-name|ResolveEndpointFailedException
+name|TransformerConfigurationException
 operator|.
 name|class
 argument_list|,
@@ -190,7 +148,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|to
