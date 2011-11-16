@@ -1002,6 +1002,8 @@ argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
 argument_list|,
+literal|"xml-specs-api"
+argument_list|,
 literal|"camel-core"
 argument_list|,
 literal|"camel-spring"
