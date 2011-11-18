@@ -509,7 +509,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CxfRsBlueprintRouterTest)"
 argument_list|,
-literal|10000
+literal|30000
 argument_list|)
 expr_stmt|;
 block|}

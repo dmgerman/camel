@@ -434,7 +434,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintKratiTestBundle)"
 argument_list|,
-literal|10000
+literal|20000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -448,7 +448,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CamelBlueprintKratiTestBundle)"
 argument_list|,
-literal|10000
+literal|20000
 argument_list|)
 decl_stmt|;
 name|MockEndpoint
@@ -574,7 +574,7 @@ name|Helper
 operator|.
 name|setLogLevel
 argument_list|(
-literal|"INFO"
+literal|"WARN"
 argument_list|)
 argument_list|)
 argument_list|,

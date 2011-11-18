@@ -198,37 +198,13 @@ name|BlueprintContainer
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|equinox
-import|;
-end_import
+begin_comment
+comment|//import static org.ops4j.pax.exam.CoreOptions.equinox;
+end_comment
 
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|felix
-import|;
-end_import
+begin_comment
+comment|//import static org.ops4j.pax.exam.CoreOptions.felix;
+end_comment
 
 begin_import
 import|import static
@@ -330,7 +306,7 @@ name|class
 argument_list|,
 literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintJpaTestBundle)"
 argument_list|,
-literal|20000
+literal|30000
 argument_list|)
 decl_stmt|;
 name|CamelContext
@@ -518,14 +494,6 @@ block|}
 argument_list|,
 name|scanFeatures
 argument_list|(
-name|getKarafFeatureUrl
-argument_list|()
-argument_list|,
-literal|"spring"
-argument_list|)
-argument_list|,
-name|scanFeatures
-argument_list|(
 name|getKarafEnterpriseFeatureUrl
 argument_list|()
 argument_list|,
@@ -555,14 +523,9 @@ literal|"camel-blueprint"
 argument_list|,
 literal|"camel-jpa"
 argument_list|)
-argument_list|,
-name|felix
-argument_list|()
-argument_list|,
-name|equinox
-argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//felix(), equinox());
 return|return
 name|options
 return|;

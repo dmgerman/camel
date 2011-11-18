@@ -214,6 +214,22 @@ name|pax
 operator|.
 name|exam
 operator|.
+name|CoreOptions
+operator|.
+name|equinox
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
 name|OptionUtils
 operator|.
 name|combine
@@ -237,6 +253,26 @@ operator|.
 name|PaxRunnerOptions
 operator|.
 name|scanFeatures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|container
+operator|.
+name|def
+operator|.
+name|PaxRunnerOptions
+operator|.
+name|vmOption
 import|;
 end_import
 
@@ -299,7 +335,7 @@ name|class
 argument_list|,
 literal|"(camel.context.symbolicname=CxfBeanBlueprintRouterTest)"
 argument_list|,
-literal|10000
+literal|20000
 argument_list|)
 expr_stmt|;
 block|}
@@ -673,7 +709,7 @@ argument_list|)
 operator|.
 name|noStart
 argument_list|()
-comment|//,
+comment|//equinox()//,
 comment|//vmOption("-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5006")
 argument_list|)
 decl_stmt|;
