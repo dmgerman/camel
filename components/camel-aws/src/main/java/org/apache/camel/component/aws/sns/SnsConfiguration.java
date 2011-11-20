@@ -83,6 +83,11 @@ specifier|private
 name|String
 name|topicArn
 decl_stmt|;
+DECL|field|policy
+specifier|private
+name|String
+name|policy
+decl_stmt|;
 DECL|method|setAmazonSNSEndpoint (String awsSNSEndpoint)
 specifier|public
 name|void
@@ -265,6 +270,32 @@ operator|=
 name|topicName
 expr_stmt|;
 block|}
+DECL|method|getPolicy ()
+specifier|public
+name|String
+name|getPolicy
+parameter_list|()
+block|{
+return|return
+name|policy
+return|;
+block|}
+DECL|method|setPolicy (String policy)
+specifier|public
+name|void
+name|setPolicy
+parameter_list|(
+name|String
+name|policy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|policy
+operator|=
+name|policy
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -295,6 +326,10 @@ operator|+
 literal|", topicArn="
 operator|+
 name|topicArn
+operator|+
+literal|", policy="
+operator|+
+name|policy
 operator|+
 literal|"]"
 return|;

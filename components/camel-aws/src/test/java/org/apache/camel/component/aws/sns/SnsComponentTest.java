@@ -348,7 +348,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient"
+literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient&policy=XXX"
 argument_list|)
 expr_stmt|;
 block|}

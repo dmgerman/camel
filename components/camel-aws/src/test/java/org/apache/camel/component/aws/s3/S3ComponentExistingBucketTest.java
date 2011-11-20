@@ -173,10 +173,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|S3ComponentTest
+DECL|class|S3ComponentExistingBucketTest
 specifier|public
 class|class
-name|S3ComponentTest
+name|S3ComponentExistingBucketTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -206,10 +206,10 @@ name|result
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|sendInOnly ()
+DECL|method|sendIn ()
 specifier|public
 name|void
-name|sendInOnly
+name|sendIn
 parameter_list|()
 throws|throws
 name|Exception
@@ -705,6 +705,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|awsEndpoint
+init|=
+literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&region=us-west-1"
+decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -712,12 +717,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&region=us-west-1"
+name|awsEndpoint
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"aws-s3://mycamelbucket?amazonS3Client=#amazonS3Client&region=us-west-1&maxMessagesPerPoll=5"
+name|awsEndpoint
+operator|+
+literal|"&maxMessagesPerPoll=5"
 argument_list|)
 operator|.
 name|to

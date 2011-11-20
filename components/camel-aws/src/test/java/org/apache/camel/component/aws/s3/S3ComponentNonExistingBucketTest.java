@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.aws.s3.integration
+DECL|package|org.apache.camel.component.aws.s3
 package|package
 name|org
 operator|.
@@ -17,8 +17,6 @@ operator|.
 name|aws
 operator|.
 name|s3
-operator|.
-name|integration
 package|;
 end_package
 
@@ -128,11 +126,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|aws
+name|mock
 operator|.
-name|s3
-operator|.
-name|S3Constants
+name|MockEndpoint
 import|;
 end_import
 
@@ -144,11 +140,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|JndiRegistry
 import|;
 end_import
 
@@ -174,30 +168,15 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Must be manually tested. Provide your own accessKey and secretKey!"
-argument_list|)
-DECL|class|S3ComponentIntegrationTest
+DECL|class|S3ComponentNonExistingBucketTest
 specifier|public
 class|class
-name|S3ComponentIntegrationTest
+name|S3ComponentNonExistingBucketTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -462,7 +441,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mynewcamelbucket"
+literal|"nonExistingBucket"
 argument_list|,
 name|resultExchange
 operator|.
@@ -510,7 +489,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// not enabled on this bucket
-name|assertNotNull
+name|assertNull
 argument_list|(
 name|resultExchange
 operator|.
@@ -525,10 +504,8 @@ name|LAST_MODIFIED
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|"3a5c8b1ad448bca04584ecb55b836264"
-argument_list|,
 name|resultExchange
 operator|.
 name|getIn
@@ -542,10 +519,8 @@ name|E_TAG
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|"application/octet-stream"
-argument_list|,
 name|resultExchange
 operator|.
 name|getIn
@@ -576,7 +551,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|26L
+literal|0L
 argument_list|,
 name|resultExchange
 operator|.
@@ -673,6 +648,41 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|registry
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|registry
+operator|.
+name|bind
+argument_list|(
+literal|"amazonS3Client"
+argument_list|,
+operator|new
+name|AmazonS3ClientMock
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|registry
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -696,13 +706,9 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|s3EndpointUri
+name|awsEndpoint
 init|=
-literal|"aws-s3://mynewcamelbucket?accessKey=xxx&secretKey=yyy&region=us-west-1&policy=%7B%22Version%22%3A%222008-10-17%22,%22Id%22%3A%22Policy4324355464%22,"
-operator|+
-literal|"%22Statement%22%3A%5B%7B%22Sid%22%3A%22Stmt456464646477%22,%22Action%22%3A%5B%22s3%3AGetObject%22%5D,%22Effect%22%3A%22Allow%22,%22Resource%22%3A%5B%22arn%3A"
-operator|+
-literal|"aws%3As3%3A%3A%3Amynewcamelbucket/*%22%5D,%22Principal%22%3A%7B%22AWS%22%3A%5B%22*%22%5D%7D%7D%5D%7D"
+literal|"aws-s3://nonExistingBucket?amazonS3Client=#amazonS3Client&region=us-west-1&policy=xxx"
 decl_stmt|;
 name|from
 argument_list|(
@@ -711,12 +717,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|s3EndpointUri
+name|awsEndpoint
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-name|s3EndpointUri
+name|awsEndpoint
+operator|+
+literal|"&maxMessagesPerPoll=5"
 argument_list|)
 operator|.
 name|to

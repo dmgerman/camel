@@ -127,6 +127,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Must be manually tested. Provide your own accessKey and secretKey!"
+argument_list|)
 DECL|class|SnsComponentIntegrationTest
 specifier|public
 class|class
@@ -136,11 +141,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Must be manually tested. Provide your own accessKey and secretKey!"
-argument_list|)
 DECL|method|sendInOnly ()
 specifier|public
 name|void
@@ -222,11 +222,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Must be manually tested. Provide your own accessKey and secretKey!"
-argument_list|)
 DECL|method|sendInOut ()
 specifier|public
 name|void
@@ -335,7 +330,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"aws-sns://MyTopic?accessKey=xxx&secretKey=yyy"
+literal|"aws-sns://MyNewTopic?accessKey=xxx&secretKey=yyy&policy=%7B%22Version%22%3A%222008-10-17%22,%22Statement%22%3A%5B%7B%22Sid%22%3A%221%22,%22Effect%22%3A%22Allow%22,"
+operator|+
+literal|"%22Principal%22%3A%7B%22AWS%22%3A%5B%22*%22%5D%7D,%22Action%22%3A%5B%22sns%3ASubscribe%22%5D%7D%5D%7D&subject=The+subject+message"
 argument_list|)
 expr_stmt|;
 block|}

@@ -567,6 +567,51 @@ argument_list|(
 literal|"Bucket created"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|getPolicy
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Updating bucket [{}] with policy [{}]"
+argument_list|,
+name|bucketName
+argument_list|,
+name|configuration
+operator|.
+name|getPolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getS3Client
+argument_list|()
+operator|.
+name|setBucketPolicy
+argument_list|(
+name|bucketName
+argument_list|,
+name|configuration
+operator|.
+name|getPolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Bucket policy updated"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|createExchange (S3Object s3Object)
 specifier|public
