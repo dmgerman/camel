@@ -96,11 +96,6 @@ specifier|private
 name|Trigger
 name|resumeTrigger
 decl_stmt|;
-DECL|field|route
-specifier|private
-name|Route
-name|route
-decl_stmt|;
 DECL|method|getStartJobDetail ()
 specifier|public
 name|JobDetail
@@ -255,32 +250,6 @@ operator|.
 name|suspendTrigger
 operator|=
 name|suspendTrigger
-expr_stmt|;
-block|}
-DECL|method|getRoute ()
-specifier|public
-name|Route
-name|getRoute
-parameter_list|()
-block|{
-return|return
-name|route
-return|;
-block|}
-DECL|method|setRoute (Route route)
-specifier|public
-name|void
-name|setRoute
-parameter_list|(
-name|Route
-name|route
-parameter_list|)
-block|{
-name|this
-operator|.
-name|route
-operator|=
-name|route
 expr_stmt|;
 block|}
 DECL|method|setResumeJobDetail (JobDetail resumeJobDetail)
