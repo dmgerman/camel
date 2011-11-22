@@ -212,7 +212,8 @@ name|from
 argument_list|(
 literal|"file:target/in"
 argument_list|)
-comment|// split the file using StAX (the stax method is from StAXBuilder) -->
+comment|// split the file using StAX (the stax method is from StAXBuilder)
+comment|// and use streaming mode in the splitter
 operator|.
 name|split
 argument_list|(
@@ -223,6 +224,9 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+operator|.
+name|streaming
+argument_list|()
 operator|.
 name|to
 argument_list|(
