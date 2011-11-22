@@ -60,6 +60,16 @@ name|Logger
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Marker
+import|;
+end_import
+
 begin_class
 DECL|class|ThroughPutLoggerTest
 specifier|public
@@ -112,6 +122,14 @@ name|info
 argument_list|(
 name|EasyMock
 operator|.
+expr|<
+name|Marker
+operator|>
+name|isNull
+argument_list|()
+argument_list|,
+name|EasyMock
+operator|.
 name|startsWith
 argument_list|(
 literal|"Received: 10"
@@ -130,6 +148,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
+name|EasyMock
+operator|.
+expr|<
+name|Marker
+operator|>
+name|isNull
+argument_list|()
+argument_list|,
 name|EasyMock
 operator|.
 name|startsWith
