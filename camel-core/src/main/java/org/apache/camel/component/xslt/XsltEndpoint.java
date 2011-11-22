@@ -288,9 +288,12 @@ name|cacheStylesheet
 operator|=
 name|cacheStylesheet
 expr_stmt|;
-comment|// load stylesheet on first exchange
-name|clearCachedStylesheet
-argument_list|()
+name|loadResource
+argument_list|(
+name|xslt
+argument_list|,
+name|resourceUri
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
