@@ -616,6 +616,17 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using URL: {} with method: {}"
+argument_list|,
+name|url
+argument_list|,
+name|method
+argument_list|)
+expr_stmt|;
 name|JettyContentExchange
 name|httpExchange
 init|=
