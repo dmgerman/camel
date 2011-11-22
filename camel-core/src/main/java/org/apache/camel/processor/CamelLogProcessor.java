@@ -331,6 +331,23 @@ name|level
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setMarker (String marker)
+specifier|public
+name|void
+name|setMarker
+parameter_list|(
+name|String
+name|marker
+parameter_list|)
+block|{
+name|log
+operator|.
+name|setMarker
+argument_list|(
+name|marker
+argument_list|)
+expr_stmt|;
+block|}
 DECL|class|DefaultExchangeFormatter
 specifier|static
 class|class

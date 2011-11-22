@@ -216,6 +216,13 @@ specifier|private
 name|String
 name|logName
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|marker
+specifier|private
+name|String
+name|marker
+decl_stmt|;
 DECL|method|LogDefinition ()
 specifier|public
 name|LogDefinition
@@ -368,6 +375,9 @@ argument_list|(
 name|name
 argument_list|,
 name|level
+argument_list|,
+name|getMarker
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -477,6 +487,32 @@ operator|.
 name|logName
 operator|=
 name|logName
+expr_stmt|;
+block|}
+DECL|method|getMarker ()
+specifier|public
+name|String
+name|getMarker
+parameter_list|()
+block|{
+return|return
+name|marker
+return|;
+block|}
+DECL|method|setMarker (String marker)
+specifier|public
+name|void
+name|setMarker
+parameter_list|(
+name|String
+name|marker
+parameter_list|)
+block|{
+name|this
+operator|.
+name|marker
+operator|=
+name|marker
 expr_stmt|;
 block|}
 block|}
