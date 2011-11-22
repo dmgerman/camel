@@ -423,7 +423,8 @@ if|if
 condition|(
 name|idx
 operator|>
-literal|0
+operator|-
+literal|1
 condition|)
 block|{
 name|path
