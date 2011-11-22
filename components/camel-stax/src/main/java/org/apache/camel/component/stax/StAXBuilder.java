@@ -30,6 +30,10 @@ name|Expression
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builder for StAX support.  */
+end_comment
+
 begin_class
 DECL|class|StAXBuilder
 specifier|public
@@ -44,6 +48,7 @@ parameter_list|()
 block|{
 comment|// no-op
 block|}
+comment|/**      * Creates a {@link StAXJAXBIteratorExpression}.      *      * @param clazz the class which has JAXB annotations to bind POJO.      */
 DECL|method|stax (Class<T> clazz)
 specifier|public
 specifier|static
@@ -68,6 +73,31 @@ name|T
 argument_list|>
 argument_list|(
 name|clazz
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a {@link StAXJAXBIteratorExpression}.      *      * @param clazzName the FQN name of the class which has JAXB annotations to bind POJO.      */
+DECL|method|stax (String clazzName)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|Expression
+name|stax
+parameter_list|(
+name|String
+name|clazzName
+parameter_list|)
+block|{
+return|return
+operator|new
+name|StAXJAXBIteratorExpression
+argument_list|<
+name|T
+argument_list|>
+argument_list|(
+name|clazzName
 argument_list|)
 return|;
 block|}
