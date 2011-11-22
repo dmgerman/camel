@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|BufferedInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
 import|;
 end_import
@@ -821,7 +831,7 @@ argument_list|()
 decl_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|FileInputStream
+name|BufferedInputStream
 operator|.
 name|class
 argument_list|,
@@ -846,6 +856,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// a file input stream is wrapped in a buffered so its faster
 name|MockEndpoint
 name|mock
 init|=
@@ -873,7 +884,7 @@ argument_list|()
 operator|.
 name|isInstanceOf
 argument_list|(
-name|FileInputStream
+name|BufferedInputStream
 operator|.
 name|class
 argument_list|)

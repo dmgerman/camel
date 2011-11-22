@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|BufferedInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
 import|;
 end_import
@@ -326,6 +336,9 @@ condition|)
 block|{
 return|return
 operator|new
+name|BufferedInputStream
+argument_list|(
+operator|new
 name|FileInputStream
 argument_list|(
 operator|(
@@ -335,6 +348,7 @@ name|file
 operator|.
 name|getFile
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
