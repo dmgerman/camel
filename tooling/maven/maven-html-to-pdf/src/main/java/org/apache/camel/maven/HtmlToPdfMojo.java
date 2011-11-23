@@ -866,11 +866,14 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"<body>Download of "
-operator|+
-name|page
-operator|+
-literal|" failed</body>"
+literal|"<body>Generation of the offline PDF version of the manual failed, however you could try<a href=\"http://camel.apache.org/book-in-one-page.html\">the online HTML version</a>.</body>"
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"</html>"
 argument_list|)
 expr_stmt|;
 name|out
