@@ -265,6 +265,9 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+name|boolean
+name|created
+init|=
 name|operations
 operator|.
 name|buildDirectory
@@ -276,7 +279,23 @@ argument_list|()
 argument_list|,
 name|absolute
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|created
+condition|)
+block|{
+throw|throw
+operator|new
+name|FileNotFoundException
+argument_list|(
+literal|"Cannot auto create starting directory: "
+operator|+
+name|file
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
