@@ -286,15 +286,15 @@ operator|!
 name|created
 condition|)
 block|{
-throw|throw
-operator|new
-name|FileNotFoundException
+name|log
+operator|.
+name|warn
 argument_list|(
-literal|"Cannot auto create starting directory: "
-operator|+
+literal|"Cannot auto create starting directory: {}"
+argument_list|,
 name|file
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 elseif|else
