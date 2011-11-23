@@ -423,7 +423,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"stream:file?fileName=target/stream/scanstreamfile.txt&scanStream=true&scanStreamDelay=100&retry=true"
+literal|"stream:file?fileName=target/stream/scanstreamfile.txt&scanStream=true&scanStreamDelay=200&retry=true"
 argument_list|)
 operator|.
 name|to
