@@ -24,7 +24,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
+name|InputStream
 import|;
 end_import
 
@@ -52,11 +52,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
+name|io
 operator|.
-name|reflect
-operator|.
-name|Method
+name|Reader
 import|;
 end_import
 
@@ -64,9 +62,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
+name|lang
 operator|.
-name|URL
+name|reflect
+operator|.
+name|Method
 import|;
 end_import
 
@@ -212,7 +212,35 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
 import|;
 end_import
 
@@ -233,48 +261,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|FileSystemResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|Resource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|UrlResource
 import|;
 end_import
 
@@ -328,7 +314,7 @@ name|scriptEngineName
 decl_stmt|;
 DECL|field|scriptResource
 specifier|private
-name|Resource
+name|String
 name|scriptResource
 decl_stmt|;
 DECL|field|scriptText
@@ -346,6 +332,7 @@ specifier|private
 name|CompiledScript
 name|compiledScript
 decl_stmt|;
+comment|/**      * Constructor.      *      * @param scriptEngineName the name of the scripting language      */
 DECL|method|ScriptBuilder (String scriptEngineName)
 specifier|public
 name|ScriptBuilder
@@ -361,6 +348,7 @@ operator|=
 name|scriptEngineName
 expr_stmt|;
 block|}
+comment|/**      * Constructor.      *      * @param scriptEngineName the name of the scripting language      * @param scriptText the script text to be evaluated, or a reference to a script resource      */
 DECL|method|ScriptBuilder (String scriptEngineName, String scriptText)
 specifier|public
 name|ScriptBuilder
@@ -377,34 +365,10 @@ argument_list|(
 name|scriptEngineName
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|scriptText
-operator|=
-name|scriptText
-expr_stmt|;
-block|}
-DECL|method|ScriptBuilder (String scriptEngineName, Resource scriptResource)
-specifier|public
-name|ScriptBuilder
-parameter_list|(
-name|String
-name|scriptEngineName
-parameter_list|,
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-name|this
+name|setScriptText
 argument_list|(
-name|scriptEngineName
+name|scriptText
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|scriptResource
-operator|=
-name|scriptResource
 expr_stmt|;
 block|}
 annotation|@
@@ -605,9 +569,7 @@ return|return
 name|this
 return|;
 block|}
-comment|// Create any scripting language builder recognised by JSR 223
-comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the named language and script contents      *      * @param language the language to use for the script      * @param scriptText the script text to be evaluated      * @return the builder      */
+comment|/**      * Creates a script builder for the named language and script contents      *      * @param language the language to use for the script      * @param scriptText the script text to be evaluated, or a reference to a script resource      * @return the builder      */
 DECL|method|script (String language, String scriptText)
 specifier|public
 specifier|static
@@ -631,89 +593,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the named language and script {@link Resource}      *      * @param language the language to use for the script      * @param scriptResource the resource used to load the script      * @return the builder      */
-DECL|method|script (String language, Resource scriptResource)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|script
-parameter_list|(
-name|String
-name|language
-parameter_list|,
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-name|language
-argument_list|,
-name|scriptResource
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the named language and script {@link File}      *      * @param language the language to use for the script      * @param scriptFile the file used to load the script      * @return the builder      */
-DECL|method|script (String language, File scriptFile)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|script
-parameter_list|(
-name|String
-name|language
-parameter_list|,
-name|File
-name|scriptFile
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-name|language
-argument_list|,
-operator|new
-name|FileSystemResource
-argument_list|(
-name|scriptFile
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the named language and script {@link URL}      *      * @param language the language to use for the script      * @param scriptURL the URL used to load the script      * @return the builder      */
-DECL|method|script (String language, URL scriptURL)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|script
-parameter_list|(
-name|String
-name|language
-parameter_list|,
-name|URL
-name|scriptURL
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-name|language
-argument_list|,
-operator|new
-name|UrlResource
-argument_list|(
-name|scriptURL
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|// Groovy
-comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the groovy script contents      *      * @param scriptText the script text to be evaluated      * @return the builder      */
+comment|/**      * Creates a script builder for the groovy script contents      *      * @param scriptText the script text to be evaluated, or a reference to a script resource      * @return the builder      */
 DECL|method|groovy (String scriptText)
 specifier|public
 specifier|static
@@ -734,80 +614,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the groovy script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
-DECL|method|groovy (Resource scriptResource)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|groovy
-parameter_list|(
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"groovy"
-argument_list|,
-name|scriptResource
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the groovy script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
-DECL|method|groovy (File scriptFile)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|groovy
-parameter_list|(
-name|File
-name|scriptFile
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"groovy"
-argument_list|,
-operator|new
-name|FileSystemResource
-argument_list|(
-name|scriptFile
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the groovy script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
-DECL|method|groovy (URL scriptURL)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|groovy
-parameter_list|(
-name|URL
-name|scriptURL
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"groovy"
-argument_list|,
-operator|new
-name|UrlResource
-argument_list|(
-name|scriptURL
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|// JavaScript
-comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script contents      *      * @param scriptText the script text to be evaluated      * @return the builder      */
+comment|/**      * Creates a script builder for the JavaScript/ECMAScript script contents      *      * @param scriptText the script text to be evaluated, or a reference to a script resource      * @return the builder      */
 DECL|method|javaScript (String scriptText)
 specifier|public
 specifier|static
@@ -828,80 +635,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script      *      * @{link Resource}      * @param scriptResource the resource used to load the script      * @return the builder      */
-DECL|method|javaScript (Resource scriptResource)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|javaScript
-parameter_list|(
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"js"
-argument_list|,
-name|scriptResource
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
-DECL|method|javaScript (File scriptFile)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|javaScript
-parameter_list|(
-name|File
-name|scriptFile
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"js"
-argument_list|,
-operator|new
-name|FileSystemResource
-argument_list|(
-name|scriptFile
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the JavaScript/ECMAScript script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
-DECL|method|javaScript (URL scriptURL)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|javaScript
-parameter_list|(
-name|URL
-name|scriptURL
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"js"
-argument_list|,
-operator|new
-name|UrlResource
-argument_list|(
-name|scriptURL
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|// PHP
-comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the PHP script contents      *      * @param scriptText the script text to be evaluated      * @return the builder      */
+comment|/**      * Creates a script builder for the PHP script contents      *      * @param scriptText the script text to be evaluated, or a reference to a script resource      * @return the builder      */
 DECL|method|php (String scriptText)
 specifier|public
 specifier|static
@@ -922,80 +656,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the PHP script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
-DECL|method|php (Resource scriptResource)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|php
-parameter_list|(
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"php"
-argument_list|,
-name|scriptResource
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the PHP script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
-DECL|method|php (File scriptFile)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|php
-parameter_list|(
-name|File
-name|scriptFile
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"php"
-argument_list|,
-operator|new
-name|FileSystemResource
-argument_list|(
-name|scriptFile
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the PHP script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
-DECL|method|php (URL scriptURL)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|php
-parameter_list|(
-name|URL
-name|scriptURL
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"php"
-argument_list|,
-operator|new
-name|UrlResource
-argument_list|(
-name|scriptURL
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|// Python
-comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the Python script contents      *      * @param scriptText the script text to be evaluated      * @return the builder      */
+comment|/**      * Creates a script builder for the Python script contents      *      * @param scriptText the script text to be evaluated, or a reference to a script resource      * @return the builder      */
 DECL|method|python (String scriptText)
 specifier|public
 specifier|static
@@ -1016,80 +677,7 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Python script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
-DECL|method|python (Resource scriptResource)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|python
-parameter_list|(
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"python"
-argument_list|,
-name|scriptResource
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the Python script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
-DECL|method|python (File scriptFile)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|python
-parameter_list|(
-name|File
-name|scriptFile
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"python"
-argument_list|,
-operator|new
-name|FileSystemResource
-argument_list|(
-name|scriptFile
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the Python script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
-DECL|method|python (URL scriptURL)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|python
-parameter_list|(
-name|URL
-name|scriptURL
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"python"
-argument_list|,
-operator|new
-name|UrlResource
-argument_list|(
-name|scriptURL
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|// Ruby/JRuby
-comment|// -------------------------------------------------------------------------
-comment|/**      * Creates a script builder for the Ruby/JRuby script contents      *      * @param scriptText the script text to be evaluated      * @return the builder      */
+comment|/**      * Creates a script builder for the Ruby/JRuby script contents      *      * @param scriptText the script text to be evaluated, or a reference to a script resource      * @return the builder      */
 DECL|method|ruby (String scriptText)
 specifier|public
 specifier|static
@@ -1110,77 +698,6 @@ name|scriptText
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a script builder for the Ruby/JRuby script {@link Resource}      *      * @param scriptResource the resource used to load the script      * @return the builder      */
-DECL|method|ruby (Resource scriptResource)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|ruby
-parameter_list|(
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"jruby"
-argument_list|,
-name|scriptResource
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the Ruby/JRuby script {@link File}      *      * @param scriptFile the file used to load the script      * @return the builder      */
-DECL|method|ruby (File scriptFile)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|ruby
-parameter_list|(
-name|File
-name|scriptFile
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"jruby"
-argument_list|,
-operator|new
-name|FileSystemResource
-argument_list|(
-name|scriptFile
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a script builder for the Ruby/JRuby script {@link URL}      *      * @param scriptURL the URL used to load the script      * @return the builder      */
-DECL|method|ruby (URL scriptURL)
-specifier|public
-specifier|static
-name|ScriptBuilder
-name|ruby
-parameter_list|(
-name|URL
-name|scriptURL
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptBuilder
-argument_list|(
-literal|"jruby"
-argument_list|,
-operator|new
-name|UrlResource
-argument_list|(
-name|scriptURL
-argument_list|)
-argument_list|)
-return|;
-block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getEngine ()
@@ -1189,9 +706,19 @@ name|ScriptEngine
 name|getEngine
 parameter_list|()
 block|{
-name|checkInitialised
+if|if
+condition|(
+name|engine
+operator|==
+literal|null
+condition|)
+block|{
+name|engine
+operator|=
+name|createScriptEngine
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|engine
@@ -1243,12 +770,32 @@ name|String
 name|scriptText
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ResourceHelper
+operator|.
+name|hasScheme
+argument_list|(
+name|scriptText
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|scriptResource
+operator|=
+name|scriptText
+expr_stmt|;
+block|}
+else|else
+block|{
 name|this
 operator|.
 name|scriptText
 operator|=
 name|scriptText
 expr_stmt|;
+block|}
 block|}
 DECL|method|getScriptEngineName ()
 specifier|public
@@ -1296,9 +843,6 @@ operator|+
 literal|": "
 operator|+
 name|scriptResource
-operator|.
-name|getDescription
-argument_list|()
 return|;
 block|}
 else|else
@@ -1310,7 +854,7 @@ literal|": null script"
 return|;
 block|}
 block|}
-comment|/**      * Access the script context so that it can be configured such as adding      * attributes      */
+comment|/**      * Access the script context so that it can be configured such as adding attributes      */
 DECL|method|getScriptContext ()
 specifier|public
 name|ScriptContext
@@ -1344,39 +888,16 @@ name|scriptContext
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getScriptResource ()
-specifier|public
-name|Resource
-name|getScriptResource
-parameter_list|()
-block|{
-return|return
-name|scriptResource
-return|;
-block|}
-DECL|method|setScriptResource (Resource scriptResource)
-specifier|public
-name|void
-name|setScriptResource
-parameter_list|(
-name|Resource
-name|scriptResource
-parameter_list|)
-block|{
-name|this
-operator|.
-name|scriptResource
-operator|=
-name|scriptResource
-expr_stmt|;
-block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-DECL|method|checkInitialised ()
+DECL|method|checkInitialised (Exchange exchange)
 specifier|protected
 name|void
 name|checkInitialised
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -1435,6 +956,8 @@ operator|(
 name|Compilable
 operator|)
 name|engine
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -1689,15 +1212,23 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|compileScript (Compilable compilable)
+DECL|method|compileScript (Compilable compilable, Exchange exchange)
 specifier|protected
 name|void
 name|compileScript
 parameter_list|(
 name|Compilable
 name|compilable
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
+name|Reader
+name|reader
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 if|if
@@ -1725,14 +1256,20 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|reader
+operator|=
+name|createScriptReader
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|compiledScript
 operator|=
 name|compilable
 operator|.
 name|compile
 argument_list|(
-name|createScriptReader
-argument_list|()
+name|reader
 argument_list|)
 expr_stmt|;
 block|}
@@ -1786,6 +1323,16 @@ name|e
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|evaluateScript (Exchange exchange)
 specifier|protected
@@ -1822,7 +1369,9 @@ name|Object
 name|result
 init|=
 name|runScript
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
@@ -1890,18 +1439,23 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|runScript ()
+DECL|method|runScript (Exchange exchange)
 specifier|protected
 name|Object
 name|runScript
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|ScriptException
 throws|,
 name|IOException
 block|{
 name|checkInitialised
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|Object
 name|result
@@ -1951,7 +1505,9 @@ operator|.
 name|eval
 argument_list|(
 name|createScriptReader
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2217,23 +1773,51 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|createScriptReader ()
+DECL|method|createScriptReader (Exchange exchange)
 specifier|protected
 name|InputStreamReader
 name|createScriptReader
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO consider character sets?
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|scriptResource
+argument_list|,
+literal|"scriptResource"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|InputStream
+name|is
+init|=
+name|ResourceHelper
+operator|.
+name|resolveMandatoryResourceAsInputStream
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|,
+name|scriptResource
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|InputStreamReader
 argument_list|(
-name|scriptResource
-operator|.
-name|getInputStream
-argument_list|()
+name|is
 argument_list|)
 return|;
 block|}
