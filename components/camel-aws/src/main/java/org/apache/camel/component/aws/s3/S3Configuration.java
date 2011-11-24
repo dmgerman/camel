@@ -88,6 +88,11 @@ specifier|private
 name|String
 name|policy
 decl_stmt|;
+DECL|field|storageClass
+specifier|private
+name|String
+name|storageClass
+decl_stmt|;
 DECL|method|setAmazonS3Endpoint (String amazonS3Endpoint)
 specifier|public
 name|void
@@ -294,6 +299,32 @@ operator|.
 name|policy
 operator|=
 name|policy
+expr_stmt|;
+block|}
+DECL|method|getStorageClass ()
+specifier|public
+name|String
+name|getStorageClass
+parameter_list|()
+block|{
+return|return
+name|storageClass
+return|;
+block|}
+DECL|method|setStorageClass (String storageClass)
+specifier|public
+name|void
+name|setStorageClass
+parameter_list|(
+name|String
+name|storageClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|storageClass
+operator|=
+name|storageClass
 expr_stmt|;
 block|}
 block|}

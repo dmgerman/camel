@@ -90,6 +90,12 @@ name|LAST_MODIFIED
 init|=
 literal|"CamelAwsS3LastModified"
 decl_stmt|;
+DECL|field|STORAGE_CLASS
+name|String
+name|STORAGE_CLASS
+init|=
+literal|"CamelAwsS3StorageClass"
+decl_stmt|;
 DECL|field|VERSION_ID
 name|String
 name|VERSION_ID
