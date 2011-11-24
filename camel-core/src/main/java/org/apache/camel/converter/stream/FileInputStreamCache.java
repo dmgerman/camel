@@ -145,8 +145,6 @@ extends|extends
 name|InputStream
 implements|implements
 name|StreamCache
-implements|,
-name|Closeable
 block|{
 DECL|field|stream
 specifier|private
