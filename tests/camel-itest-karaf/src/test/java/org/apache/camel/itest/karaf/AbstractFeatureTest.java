@@ -996,13 +996,20 @@ argument_list|,
 literal|"http"
 argument_list|)
 argument_list|,
-comment|// using the features to install the camel components
+comment|// install the cxf jaxb spec as the karaf doesn't provide it by default
 name|scanFeatures
 argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
 argument_list|,
-literal|"xml-specs-api"
+literal|"cxf-jaxb"
+argument_list|)
+argument_list|,
+comment|// using the features to install the camel components
+name|scanFeatures
+argument_list|(
+name|getCamelKarafFeatureUrl
+argument_list|()
 argument_list|,
 literal|"camel-core"
 argument_list|,
