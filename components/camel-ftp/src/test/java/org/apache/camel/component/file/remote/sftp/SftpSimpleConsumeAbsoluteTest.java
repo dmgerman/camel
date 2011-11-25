@@ -211,18 +211,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// notice we use an absolute starting path: /res/home/tmp/mytemp
-comment|// - we must remember to use // slash because of the url separator
 name|from
 argument_list|(
 literal|"sftp://localhost:"
 operator|+
 name|getPort
 argument_list|()
-operator|+
-literal|"//"
-operator|+
-name|FTP_ROOT_DIR
 operator|+
 literal|"/tmp/mytemp?username=admin&password=admin&delay=10s&disconnect=true"
 argument_list|)

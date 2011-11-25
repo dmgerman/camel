@@ -214,7 +214,7 @@ specifier|final
 name|String
 name|FTP_ROOT_DIR
 init|=
-literal|"./res/home/"
+literal|"./target/res/home"
 decl_stmt|;
 DECL|field|USERS_FILE
 specifier|protected

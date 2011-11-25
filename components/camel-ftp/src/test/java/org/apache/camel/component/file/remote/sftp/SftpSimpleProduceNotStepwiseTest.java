@@ -121,11 +121,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/"
-operator|+
-name|FTP_ROOT_DIR
-operator|+
-literal|"?username=admin&password=admin&stepwise=false"
+literal|"/?username=admin&password=admin&stepwise=false"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -209,10 +205,6 @@ literal|"sftp://localhost:"
 operator|+
 name|getPort
 argument_list|()
-operator|+
-literal|"/"
-operator|+
-name|FTP_ROOT_DIR
 operator|+
 literal|"/mysub?username=admin&password=admin&stepwise=false"
 argument_list|,
@@ -298,10 +290,6 @@ literal|"sftp://localhost:"
 operator|+
 name|getPort
 argument_list|()
-operator|+
-literal|"/"
-operator|+
-name|FTP_ROOT_DIR
 operator|+
 literal|"/mysub/myother?username=admin&password=admin&stepwise=false"
 argument_list|,

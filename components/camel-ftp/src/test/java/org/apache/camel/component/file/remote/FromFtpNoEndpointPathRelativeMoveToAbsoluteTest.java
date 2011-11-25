@@ -167,7 +167,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|".done/hello.txt"
+literal|"/.done/hello.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -176,7 +176,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|".done/sub/bye.txt"
+literal|"/.done/sub/bye.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -185,7 +185,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|".done/sub/sub2/goodday.txt"
+literal|"/.done/sub/sub2/goodday.txt"
 argument_list|)
 expr_stmt|;
 name|mock

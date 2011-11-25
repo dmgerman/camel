@@ -303,7 +303,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"movefile/hello.txt"
+literal|"/movefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -375,7 +375,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"inprogress/hello.bak"
+literal|"/inprogress/hello.bak"
 argument_list|)
 decl_stmt|;
 name|file

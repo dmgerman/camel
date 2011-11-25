@@ -85,10 +85,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|FtpProdcerTempFileExistIssueTest
+DECL|class|FtpProducerTempFileExistIssueTest
 specifier|public
 class|class
-name|FtpProdcerTempFileExistIssueTest
+name|FtpProducerTempFileExistIssueTest
 extends|extends
 name|FtpServerTestSupport
 block|{
@@ -229,7 +229,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"tempprefix/hello.txt"
+literal|"/tempprefix/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -347,7 +347,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"tempprefix/hello.txt"
+literal|"/tempprefix/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -449,7 +449,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"tempprefix/hello.txt"
+literal|"/tempprefix/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -551,7 +551,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"tempprefix/hello.txt"
+literal|"/tempprefix/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -687,7 +687,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"tempprefix/hello.txt"
+literal|"/tempprefix/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile

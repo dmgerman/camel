@@ -204,7 +204,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"noop/hello.txt"
+literal|"/noop/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file

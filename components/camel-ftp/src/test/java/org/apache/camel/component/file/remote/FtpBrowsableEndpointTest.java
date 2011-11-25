@@ -146,7 +146,7 @@ name|createDirectory
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"browse"
+literal|"/browse"
 argument_list|)
 expr_stmt|;
 name|BrowsableEndpoint
@@ -336,7 +336,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"browse/a.txt"
+literal|"/browse/a.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -532,7 +532,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"browse/a.txt"
+literal|"/browse/a.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -555,7 +555,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"browse/b.txt"
+literal|"/browse/b.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -789,7 +789,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"browse/a.txt"
+literal|"/browse/a.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -812,7 +812,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"browse/foo/b.txt"
+literal|"/browse/foo/b.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -835,7 +835,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"browse/bar/c.txt"
+literal|"/browse/bar/c.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue

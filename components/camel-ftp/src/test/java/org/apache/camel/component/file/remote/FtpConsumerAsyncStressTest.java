@@ -178,7 +178,7 @@ literal|"file://"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"filestress"
+literal|"/filestress"
 argument_list|,
 literal|"Hello World"
 argument_list|,

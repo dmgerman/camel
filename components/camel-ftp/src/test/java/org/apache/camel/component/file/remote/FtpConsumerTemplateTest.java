@@ -295,7 +295,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"template/hello.txt"
+literal|"/template/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -490,7 +490,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"template/hello.txt"
+literal|"/template/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -598,7 +598,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"template/hello.txt"
+literal|"/template/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file

@@ -272,7 +272,7 @@ name|createDirectory
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"slowfile"
+literal|"/slowfile"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -386,7 +386,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"slowfile/hello.txt"
+literal|"/slowfile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|FileOutputStream

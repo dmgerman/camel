@@ -120,7 +120,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://./res/home/reconnect"
+literal|"file:"
+operator|+
+name|FTP_ROOT_DIR
+operator|+
+literal|"/reconnect"
 argument_list|,
 literal|"Hello World"
 argument_list|,

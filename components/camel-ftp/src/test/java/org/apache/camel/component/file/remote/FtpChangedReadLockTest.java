@@ -287,7 +287,7 @@ name|FileOutputStream
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"changed/slowfile.dat"
+literal|"/changed/slowfile.dat"
 argument_list|,
 literal|true
 argument_list|)

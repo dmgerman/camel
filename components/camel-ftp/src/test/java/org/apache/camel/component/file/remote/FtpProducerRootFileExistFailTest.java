@@ -213,7 +213,7 @@ name|assertFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"hello.txt"
+literal|"/hello.txt"
 argument_list|)
 expr_stmt|;
 block|}

@@ -143,7 +143,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"list/hello.txt"
+literal|"/list/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -169,7 +169,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"list/bye.txt"
+literal|"/list/bye.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -195,7 +195,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"list/hi.txt"
+literal|"/list/hi.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile

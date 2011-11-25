@@ -213,7 +213,7 @@ name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"exist/hello.txt"
+literal|"/exist/hello.txt"
 argument_list|,
 name|expectBody
 argument_list|)

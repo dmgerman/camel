@@ -228,7 +228,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/deletefile/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/deletefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -334,7 +336,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/deletefile/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/deletefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file

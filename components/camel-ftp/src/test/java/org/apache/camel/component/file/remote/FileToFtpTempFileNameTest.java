@@ -150,7 +150,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"out/sub/hello.txt"
+literal|"/out/sub/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -202,7 +202,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"//out/?fileName=${file:name}&tempFileName=${file:onlyname}.part&stepwise=false"
+literal|"/out/?fileName=${file:name}&tempFileName=${file:onlyname}.part&stepwise=false"
 argument_list|)
 expr_stmt|;
 block|}

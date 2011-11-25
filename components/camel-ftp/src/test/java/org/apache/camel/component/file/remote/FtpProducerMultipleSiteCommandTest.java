@@ -162,7 +162,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"site/hello.txt"
+literal|"/site/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file

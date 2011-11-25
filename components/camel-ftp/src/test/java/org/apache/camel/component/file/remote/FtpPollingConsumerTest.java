@@ -221,7 +221,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"polling/bye.txt"
+literal|"/polling/bye.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile

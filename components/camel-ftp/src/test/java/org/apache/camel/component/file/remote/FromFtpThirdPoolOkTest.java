@@ -223,7 +223,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/thirdpool/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/thirdpool/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -335,7 +337,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./res/home/thirdpool/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/thirdpool/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file

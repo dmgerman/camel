@@ -105,7 +105,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"upload/hello/claus.txt"
+literal|"/upload/hello/claus.txt"
 argument_list|)
 decl_stmt|;
 name|file

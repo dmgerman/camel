@@ -139,7 +139,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.txt"
+literal|"/done/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -165,7 +165,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/done"
+literal|"/done/done"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -220,7 +220,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.txt"
+literal|"/done/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -246,7 +246,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/done-hello.txt"
+literal|"/done/done-hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -301,7 +301,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.txt"
+literal|"/done/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -327,7 +327,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.txt.done"
+literal|"/done/hello.txt.done"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -382,7 +382,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.txt"
+literal|"/done/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
@@ -408,7 +408,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"done/hello.done"
+literal|"/done/hello.done"
 argument_list|)
 operator|.
 name|getAbsoluteFile

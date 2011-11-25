@@ -252,11 +252,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/"
-operator|+
-name|FTP_ROOT_DIR
-operator|+
-literal|"?username=admin&password=admin&delay=10s&disconnect=true&recursive=true"
+literal|"/?username=admin&password=admin&delay=10s&disconnect=true&recursive=true"
 argument_list|)
 operator|.
 name|routeId

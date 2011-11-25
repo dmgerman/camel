@@ -155,7 +155,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:res/home/async"
+literal|"file:"
+operator|+
+name|FTP_ROOT_DIR
+operator|+
+literal|"/async"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -170,7 +174,11 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file:res/home/async"
+literal|"file:"
+operator|+
+name|FTP_ROOT_DIR
+operator|+
+literal|"/async"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -229,7 +237,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"res/home/async/hello.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/async/hello.txt"
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -250,7 +260,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"res/home/async/bye.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/async/bye.txt"
 argument_list|)
 decl_stmt|;
 name|assertFalse

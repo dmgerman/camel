@@ -199,7 +199,9 @@ argument_list|)
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"res/home/concurrent/"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/concurrent/"
 operator|+
 name|i
 operator|+

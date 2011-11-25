@@ -217,7 +217,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"deletefile/hello.txt"
+literal|"/deletefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file
@@ -325,7 +325,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"deletefile/hello.txt"
+literal|"/deletefile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|file

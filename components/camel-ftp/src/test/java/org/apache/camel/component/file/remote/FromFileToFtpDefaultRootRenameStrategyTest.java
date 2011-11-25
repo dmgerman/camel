@@ -211,7 +211,7 @@ name|File
 argument_list|(
 name|FTP_ROOT_DIR
 operator|+
-literal|"logo.jpeg"
+literal|"/logo.jpeg"
 argument_list|)
 decl_stmt|;
 comment|// the poller won't start for 1.5 seconds, so we check to make sure the file
