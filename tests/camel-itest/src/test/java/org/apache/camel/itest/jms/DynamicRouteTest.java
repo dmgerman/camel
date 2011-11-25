@@ -437,21 +437,6 @@ name|String
 name|previous
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"method name is  "
-operator|+
-name|methodName
-operator|+
-literal|" previous "
-operator|+
-name|previous
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|previous
