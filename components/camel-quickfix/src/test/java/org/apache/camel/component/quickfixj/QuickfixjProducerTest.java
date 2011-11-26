@@ -998,12 +998,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: probably not the best thing... use a LOG
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
