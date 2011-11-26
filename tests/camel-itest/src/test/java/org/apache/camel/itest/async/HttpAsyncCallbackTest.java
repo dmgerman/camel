@@ -213,7 +213,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// assert that we got all the correct data in our callback
@@ -385,7 +385,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|1000
+literal|300
 argument_list|)
 operator|.
 name|transform
