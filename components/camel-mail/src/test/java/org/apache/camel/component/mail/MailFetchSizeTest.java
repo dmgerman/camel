@@ -128,20 +128,6 @@ name|Mailbox
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|mail
-operator|.
-name|javamail
-operator|.
-name|JavaMailSenderImpl
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for fetch size.  */
 end_comment
@@ -349,11 +335,11 @@ operator|.
 name|clearAll
 argument_list|()
 expr_stmt|;
-name|JavaMailSenderImpl
+name|JavaMailSender
 name|sender
 init|=
 operator|new
-name|JavaMailSenderImpl
+name|DefaultJavaMailSender
 argument_list|()
 decl_stmt|;
 name|Store

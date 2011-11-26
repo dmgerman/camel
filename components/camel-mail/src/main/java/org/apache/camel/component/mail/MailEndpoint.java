@@ -144,34 +144,6 @@ name|HeaderFilterStrategy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|mail
-operator|.
-name|javamail
-operator|.
-name|JavaMailSender
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|mail
-operator|.
-name|javamail
-operator|.
-name|JavaMailSenderImpl
-import|;
-end_import
-
 begin_comment
 comment|/**  * Endpoint for Camel Mail.  *  * @version   */
 end_comment
@@ -388,7 +360,7 @@ argument_list|)
 throw|;
 block|}
 comment|// must use java mail sender impl as we need to get hold of a mail session
-name|JavaMailSenderImpl
+name|JavaMailSender
 name|sender
 init|=
 name|configuration
@@ -406,7 +378,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a consumer using the given processor and sender      */
-DECL|method|createConsumer (Processor processor, JavaMailSenderImpl sender)
+DECL|method|createConsumer (Processor processor, JavaMailSender sender)
 specifier|public
 name|Consumer
 name|createConsumer
@@ -414,7 +386,7 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|,
-name|JavaMailSenderImpl
+name|JavaMailSender
 name|sender
 parameter_list|)
 throws|throws

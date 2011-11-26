@@ -70,18 +70,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|mail
-operator|.
-name|MailPreparationException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for no recipients  */
 end_comment
@@ -127,21 +115,6 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|MailPreparationException
-name|mpe
-init|=
-name|assertIsInstanceOf
-argument_list|(
-name|MailPreparationException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|IllegalArgumentException
 name|iae
 init|=
@@ -151,7 +124,7 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
-name|mpe
+name|e
 operator|.
 name|getCause
 argument_list|()

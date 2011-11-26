@@ -278,20 +278,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|mail
-operator|.
-name|javamail
-operator|.
-name|JavaMailSenderImpl
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link org.apache.camel.Consumer Consumer} which consumes messages from JavaMail using a  * {@link javax.mail.Transport Transport} and dispatches them to the {@link Processor}  */
 end_comment
@@ -348,7 +334,7 @@ decl_stmt|;
 DECL|field|sender
 specifier|private
 specifier|final
-name|JavaMailSenderImpl
+name|JavaMailSender
 name|sender
 decl_stmt|;
 DECL|field|folder
@@ -378,7 +364,7 @@ specifier|volatile
 name|int
 name|pendingExchanges
 decl_stmt|;
-DECL|method|MailConsumer (MailEndpoint endpoint, Processor processor, JavaMailSenderImpl sender)
+DECL|method|MailConsumer (MailEndpoint endpoint, Processor processor, JavaMailSender sender)
 specifier|public
 name|MailConsumer
 parameter_list|(
@@ -388,7 +374,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|JavaMailSenderImpl
+name|JavaMailSender
 name|sender
 parameter_list|)
 block|{

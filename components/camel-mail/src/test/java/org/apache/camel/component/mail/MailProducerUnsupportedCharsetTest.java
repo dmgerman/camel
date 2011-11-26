@@ -128,18 +128,6 @@ name|Mailbox
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|mail
-operator|.
-name|MailPreparationException
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -500,26 +488,11 @@ parameter_list|)
 block|{
 name|assertIsInstanceOf
 argument_list|(
-name|MailPreparationException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertIsInstanceOf
-argument_list|(
 name|UnsupportedEncodingException
 operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()

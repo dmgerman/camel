@@ -60,134 +60,18 @@ name|MimeMessage
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|JndiRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version   */
+comment|/**  * The JavaMailSender interface contains all the methods of a JavaMailSender  * implementation currently used by the mail component.  */
 end_comment
 
-begin_class
-DECL|class|MailCustomMailSenderTest
+begin_interface
+DECL|interface|JavaMailSender
 specifier|public
-class|class
-name|MailCustomMailSenderTest
-extends|extends
-name|CamelTestSupport
-block|{
-DECL|field|sent
-specifier|private
-specifier|static
-name|boolean
-name|sent
-decl_stmt|;
-annotation|@
-name|Override
-DECL|method|createRegistry ()
-specifier|protected
-name|JndiRegistry
-name|createRegistry
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|JndiRegistry
-name|jndi
-init|=
-name|super
-operator|.
-name|createRegistry
-argument_list|()
-decl_stmt|;
-name|jndi
-operator|.
-name|bind
-argument_list|(
-literal|"mySender"
-argument_list|,
-operator|new
-name|MySender
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|jndi
-return|;
-block|}
-annotation|@
-name|Test
-DECL|method|testSendWithCustomMailSender ()
-specifier|public
-name|void
-name|testSendWithCustomMailSender
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|sendBody
-argument_list|(
-literal|"smtp://claus@localhost?javaMailSender=#mySender"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should have used custom mail sender"
-argument_list|,
-name|sent
-argument_list|)
-expr_stmt|;
-block|}
-DECL|class|MySender
-specifier|private
-specifier|static
-class|class
-name|MySender
-implements|implements
+interface|interface
 name|JavaMailSender
 block|{
-annotation|@
-name|Override
+comment|/**      * Send the mail      *      * @param mimeMessage the message to send      * @throws javax.mail.MessagingException is thrown if error sending the mail.      */
 DECL|method|send (MimeMessage mimeMessage)
-specifier|public
 name|void
 name|send
 parameter_list|(
@@ -196,176 +80,100 @@ name|mimeMessage
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{
-name|sent
-operator|=
-literal|true
-expr_stmt|;
-block|}
-annotation|@
-name|Override
+function_decl|;
 DECL|method|getJavaMailProperties ()
-specifier|public
 name|Properties
 name|getJavaMailProperties
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
+function_decl|;
 DECL|method|setJavaMailProperties (Properties javaMailProperties)
-specifier|public
 name|void
 name|setJavaMailProperties
 parameter_list|(
 name|Properties
 name|javaMailProperties
 parameter_list|)
-block|{         }
-annotation|@
-name|Override
+function_decl|;
 DECL|method|setHost (String host)
-specifier|public
 name|void
 name|setHost
 parameter_list|(
 name|String
 name|host
 parameter_list|)
-block|{         }
-annotation|@
-name|Override
+function_decl|;
 DECL|method|getHost ()
-specifier|public
 name|String
 name|getHost
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
+function_decl|;
 DECL|method|setPort (int port)
-specifier|public
 name|void
 name|setPort
 parameter_list|(
 name|int
 name|port
 parameter_list|)
-block|{         }
-annotation|@
-name|Override
+function_decl|;
 DECL|method|getPort ()
-specifier|public
 name|int
 name|getPort
 parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
-annotation|@
-name|Override
+function_decl|;
 DECL|method|setUsername (String username)
-specifier|public
 name|void
 name|setUsername
 parameter_list|(
 name|String
 name|username
 parameter_list|)
-block|{         }
-annotation|@
-name|Override
+function_decl|;
 DECL|method|getUsername ()
-specifier|public
 name|String
 name|getUsername
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
+function_decl|;
 DECL|method|setPassword (String password)
-specifier|public
 name|void
 name|setPassword
 parameter_list|(
 name|String
 name|password
 parameter_list|)
-block|{         }
-annotation|@
-name|Override
+function_decl|;
 DECL|method|getPassword ()
-specifier|public
 name|String
 name|getPassword
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
+function_decl|;
 DECL|method|setProtocol (String protocol)
-specifier|public
 name|void
 name|setProtocol
 parameter_list|(
 name|String
 name|protocol
 parameter_list|)
-block|{         }
-annotation|@
-name|Override
+function_decl|;
 DECL|method|getProtocol ()
-specifier|public
 name|String
 name|getProtocol
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
+function_decl|;
 DECL|method|setSession (Session session)
-specifier|public
 name|void
 name|setSession
 parameter_list|(
 name|Session
 name|session
 parameter_list|)
-block|{         }
-annotation|@
-name|Override
+function_decl|;
 DECL|method|getSession ()
-specifier|public
 name|Session
 name|getSession
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
+function_decl|;
 block|}
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
