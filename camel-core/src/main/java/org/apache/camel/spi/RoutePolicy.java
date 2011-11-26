@@ -59,6 +59,15 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
+comment|/**      * Callback invoked when the {@link Route} is being removed from {@link org.apache.camel.CamelContext}      *      * @param route     the route being removed      */
+DECL|method|onRemove (Route route)
+name|void
+name|onRemove
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
 comment|/**      * Callback invoked when an {@link Exchange} is started being routed on the given {@link Route}      *      * @param route     the route where the exchange started from      * @param exchange  the created exchange      */
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
 name|void

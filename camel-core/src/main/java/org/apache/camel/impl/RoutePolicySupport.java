@@ -186,6 +186,17 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+DECL|method|onRemove (Route route)
+specifier|public
+name|void
+name|onRemove
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
 specifier|public
 name|void
