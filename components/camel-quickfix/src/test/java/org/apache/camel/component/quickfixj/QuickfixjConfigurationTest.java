@@ -95,26 +95,26 @@ import|;
 end_import
 
 begin_class
-DECL|class|QuickfixjSettingsFactoryTest
+DECL|class|QuickfixjConfigurationTest
 specifier|public
 class|class
-name|QuickfixjSettingsFactoryTest
+name|QuickfixjConfigurationTest
 block|{
 annotation|@
 name|Test
-DECL|method|createSessionSettings ()
+DECL|method|testConfiguration ()
 specifier|public
 name|void
-name|createSessionSettings
+name|testConfiguration
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|QuickfixjSettingsFactory
+name|QuickfixjConfiguration
 name|factory
 init|=
 operator|new
-name|QuickfixjSettingsFactory
+name|QuickfixjConfiguration
 argument_list|()
 decl_stmt|;
 name|Map
@@ -251,7 +251,7 @@ name|settings
 init|=
 name|factory
 operator|.
-name|getObject
+name|createSessionSettings
 argument_list|()
 decl_stmt|;
 name|Properties
