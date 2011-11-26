@@ -227,6 +227,8 @@ DECL|field|maxChars
 specifier|private
 name|int
 name|maxChars
+init|=
+literal|10000
 decl_stmt|;
 DECL|method|format (Exchange exchange)
 specifier|public

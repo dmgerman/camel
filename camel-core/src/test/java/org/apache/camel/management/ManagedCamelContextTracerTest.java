@@ -805,7 +805,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
+literal|10000
 argument_list|,
 name|formatterMaxChars
 operator|.

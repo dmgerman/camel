@@ -236,6 +236,8 @@ DECL|field|maxChars
 specifier|private
 name|int
 name|maxChars
+init|=
+literal|10000
 decl_stmt|;
 DECL|method|format (final TraceInterceptor interceptor, final ProcessorDefinition<?> node, final Exchange exchange)
 specifier|public
