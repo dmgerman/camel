@@ -5050,13 +5050,6 @@ argument_list|(
 name|routeId
 argument_list|)
 expr_stmt|;
-name|ServiceHelper
-operator|.
-name|stopAndShutdownServices
-argument_list|(
-name|routeService
-argument_list|)
-expr_stmt|;
 name|routeServices
 operator|.
 name|remove
