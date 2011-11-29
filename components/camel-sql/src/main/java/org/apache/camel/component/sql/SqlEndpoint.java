@@ -130,6 +130,11 @@ specifier|private
 name|String
 name|query
 decl_stmt|;
+DECL|field|batch
+specifier|private
+name|boolean
+name|batch
+decl_stmt|;
 DECL|method|SqlEndpoint ()
 specifier|public
 name|SqlEndpoint
@@ -208,6 +213,8 @@ argument_list|,
 name|query
 argument_list|,
 name|jdbcTemplate
+argument_list|,
+name|batch
 argument_list|)
 return|;
 block|}
@@ -271,6 +278,32 @@ operator|.
 name|query
 operator|=
 name|query
+expr_stmt|;
+block|}
+DECL|method|isBatch ()
+specifier|public
+name|boolean
+name|isBatch
+parameter_list|()
+block|{
+return|return
+name|batch
+return|;
+block|}
+DECL|method|setBatch (boolean batch)
+specifier|public
+name|void
+name|setBatch
+parameter_list|(
+name|boolean
+name|batch
+parameter_list|)
+block|{
+name|this
+operator|.
+name|batch
+operator|=
+name|batch
 expr_stmt|;
 block|}
 annotation|@
