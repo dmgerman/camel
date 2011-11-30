@@ -8114,7 +8114,7 @@ operator|+
 name|getVersion
 argument_list|()
 operator|+
-literal|" (CamelContext:"
+literal|" (CamelContext: "
 operator|+
 name|getName
 argument_list|()
