@@ -121,6 +121,30 @@ name|int
 name|getCurrentCacheSize
 parameter_list|()
 function_decl|;
+comment|/**      * Get the default endpoint to use if none is specified      *       * @return the default endpoint instance      */
+DECL|method|getDefaultEndpoint ()
+name|Endpoint
+name|getDefaultEndpoint
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the default endpoint to use if none is specified      *       * @param defaultEndpoint the default endpoint instance      */
+DECL|method|setDefaultEndpoint (Endpoint defaultEndpoint)
+name|void
+name|setDefaultEndpoint
+parameter_list|(
+name|Endpoint
+name|defaultEndpoint
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the default endpoint uri to use if none is specified      *       *  @param endpointUri the default endpoint uri      */
+DECL|method|setDefaultEndpointUri (String endpointUri)
+name|void
+name|setDefaultEndpointUri
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+function_decl|;
 comment|// Synchronous methods
 comment|// -----------------------------------------------------------------------
 comment|/**      * Sends the exchange to the default endpoint      *<br/><br/>      *<b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param exchange the exchange to send      * @return the returned exchange      */
