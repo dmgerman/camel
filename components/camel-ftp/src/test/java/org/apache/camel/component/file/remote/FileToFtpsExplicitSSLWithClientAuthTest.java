@@ -73,7 +73,7 @@ extends|extends
 name|FtpsServerExplicitSSLWithClientAuthTestSupport
 block|{
 DECL|method|getFtpUrl ()
-specifier|private
+specifier|protected
 name|String
 name|getFtpUrl
 parameter_list|()
