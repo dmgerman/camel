@@ -103,7 +103,7 @@ name|HawtDBAggregationRepository
 argument_list|(
 literal|"events"
 argument_list|,
-literal|"data/hawtdb.dat"
+literal|"target/data/hawtdb.dat"
 argument_list|)
 argument_list|)
 operator|.

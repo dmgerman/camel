@@ -145,7 +145,7 @@ block|{
 comment|// you can disable this to keep the data file on next test
 name|deleteDirectory
 argument_list|(
-literal|"data"
+literal|"target/data"
 argument_list|)
 expr_stmt|;
 name|super

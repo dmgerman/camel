@@ -88,7 +88,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|SynchronizationAdapter
 import|;
@@ -152,6 +152,13 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
+name|expectedMessageCount
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello Claus"
@@ -204,17 +211,18 @@ argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e3
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
 comment|// give on completion time to complete properly before we do assertions on its size
+comment|// TODO: improve MockEndpoint.assertIsSatisfied(long) to make this sleep unnecessary
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|1200
 argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: e3
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 comment|// assert that we got all the correct data in our callback
 name|assertEquals

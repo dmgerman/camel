@@ -137,7 +137,7 @@ name|jdbc
 operator|.
 name|execute
 argument_list|(
-literal|"create table ProcessedPayments (paymentIdentifier varchar)"
+literal|"create table ProcessedPayments (paymentIdentifier varchar(24))"
 argument_list|)
 expr_stmt|;
 block|}
