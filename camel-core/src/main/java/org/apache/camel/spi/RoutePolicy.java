@@ -68,6 +68,42 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
+comment|/**      * Callback invoked when the {@link Route} is being started      *      * @param route     the route being removed      */
+DECL|method|onStart (Route route)
+name|void
+name|onStart
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
+comment|/**      * Callback invoked when the {@link Route} is being stopped      *      * @param route     the route being removed      */
+DECL|method|onStop (Route route)
+name|void
+name|onStop
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
+comment|/**      * Callback invoked when the {@link Route} is being suspended      *      * @param route     the route being removed      */
+DECL|method|onSuspend (Route route)
+name|void
+name|onSuspend
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
+comment|/**      * Callback invoked when the {@link Route} is being resumed      *      * @param route     the route being removed      */
+DECL|method|onResume (Route route)
+name|void
+name|onResume
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
 comment|/**      * Callback invoked when an {@link Exchange} is started being routed on the given {@link Route}      *      * @param route     the route where the exchange started from      * @param exchange  the created exchange      */
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
 name|void

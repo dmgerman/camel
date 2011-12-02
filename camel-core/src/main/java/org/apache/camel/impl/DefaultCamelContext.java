@@ -10317,6 +10317,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|resumeOnly
+condition|)
+block|{
+name|routeService
+operator|.
+name|resume
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// and start the route service (no need to start children as they are already warmed up)
 name|routeService
 operator|.
@@ -10325,6 +10338,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|doCheckMultipleConsumerSupportClash (Endpoint endpoint, List<Endpoint> routeInputs)

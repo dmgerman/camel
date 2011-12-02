@@ -197,6 +197,58 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
+DECL|method|onStart (Route route)
+specifier|public
+name|void
+name|onStart
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|onStop (Route route)
+specifier|public
+name|void
+name|onStop
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|onSuspend (Route route)
+specifier|public
+name|void
+name|onSuspend
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|onResume (Route route)
+specifier|public
+name|void
+name|onResume
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|onExchangeBegin (Route route, Exchange exchange)
 specifier|public
 name|void
