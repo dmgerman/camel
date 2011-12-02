@@ -1366,55 +1366,6 @@ comment|// Properties
 comment|// -------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|getLanguage ()
-specifier|public
-name|String
-name|getLanguage
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|getLanguage
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getExpression ()
-specifier|public
-name|String
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|delegate
-operator|.
-name|getExpression
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setExpression (String expression)
-specifier|public
-name|void
-name|setExpression
-parameter_list|(
-name|String
-name|expression
-parameter_list|)
-block|{
-name|delegate
-operator|.
-name|setExpression
-argument_list|(
-name|expression
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|getExpressionValue ()
 specifier|public
 name|Expression

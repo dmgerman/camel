@@ -396,22 +396,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|language
@@ -2168,6 +2152,10 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// allow any custom logic before we create the processor
+name|preCreateProcessor
+argument_list|()
+expr_stmt|;
 comment|// at first use custom factory
 if|if
 condition|(
@@ -2870,6 +2858,15 @@ block|}
 block|}
 block|}
 block|}
+block|}
+comment|/**      * Strategy to execute any custom logic before the {@link Processor} is created.      */
+DECL|method|preCreateProcessor ()
+specifier|protected
+name|void
+name|preCreateProcessor
+parameter_list|()
+block|{
+comment|// noop
 block|}
 comment|/**      * Strategy for children to do any custom configuration      *      * @param output the child to be added as output to this      */
 DECL|method|configureChild (ProcessorDefinition output)
