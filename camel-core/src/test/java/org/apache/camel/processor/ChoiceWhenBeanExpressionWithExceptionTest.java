@@ -160,11 +160,7 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+comment|// expected
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
