@@ -416,7 +416,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|5000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|template
@@ -523,7 +523,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"freemarker://org/apache/camel/component/freemarker/hello.ftl?contentCache=true&templateUpdateDelay=4"
+literal|"freemarker://org/apache/camel/component/freemarker/hello.ftl?contentCache=true&templateUpdateDelay=1"
 argument_list|)
 operator|.
 name|to
