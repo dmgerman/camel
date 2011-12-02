@@ -61,6 +61,15 @@ name|OPERATION_COMMIT
 init|=
 literal|"COMMIT"
 decl_stmt|;
+DECL|field|OPERATION_ROLLBACK
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_ROLLBACK
+init|=
+literal|"ROLLBACK"
+decl_stmt|;
 DECL|field|OPERATION_OPTIMIZE
 specifier|public
 specifier|static
