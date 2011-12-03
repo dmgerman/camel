@@ -269,8 +269,9 @@ condition|)
 block|{
 name|setExpression
 argument_list|(
-operator|new
-name|ExpressionDefinition
+name|ExpressionNodeHelper
+operator|.
+name|toExpressionDefinition
 argument_list|(
 name|expression
 argument_list|)
@@ -295,8 +296,9 @@ condition|)
 block|{
 name|setExpression
 argument_list|(
-operator|new
-name|ExpressionDefinition
+name|ExpressionNodeHelper
+operator|.
+name|toExpressionDefinition
 argument_list|(
 name|predicate
 argument_list|)

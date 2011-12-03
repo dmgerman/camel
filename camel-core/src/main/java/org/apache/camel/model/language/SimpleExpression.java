@@ -219,6 +219,20 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|SimpleExpression (Expression expression)
+specifier|public
+name|SimpleExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguage ()
 specifier|public
 name|String

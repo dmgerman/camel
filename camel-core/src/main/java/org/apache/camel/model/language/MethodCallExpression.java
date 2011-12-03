@@ -409,13 +409,12 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|ObjectHelper
+operator|.
+name|className
+argument_list|(
 name|instance
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -468,7 +467,7 @@ name|super
 argument_list|(
 name|type
 operator|.
-name|toString
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

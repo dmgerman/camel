@@ -205,6 +205,20 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|XPathExpression (Expression expression)
+specifier|public
+name|XPathExpression
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|setExpressionValue
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguage ()
 specifier|public
 name|String

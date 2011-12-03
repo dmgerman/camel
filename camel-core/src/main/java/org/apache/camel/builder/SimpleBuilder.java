@@ -177,6 +177,16 @@ return|return
 name|answer
 return|;
 block|}
+DECL|method|getText ()
+specifier|public
+name|String
+name|getText
+parameter_list|()
+block|{
+return|return
+name|text
+return|;
+block|}
 DECL|method|getResultType ()
 specifier|public
 name|Class
