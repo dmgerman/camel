@@ -507,6 +507,11 @@ name|receiveBufferSize
 init|=
 literal|65536
 decl_stmt|;
+DECL|field|receiveBufferSizePredictor
+specifier|private
+name|int
+name|receiveBufferSizePredictor
+decl_stmt|;
 DECL|field|corePoolSize
 specifier|private
 name|int
@@ -1861,6 +1866,32 @@ operator|.
 name|receiveBufferSize
 operator|=
 name|receiveBufferSize
+expr_stmt|;
+block|}
+DECL|method|getReceiveBufferSizePredictor ()
+specifier|public
+name|int
+name|getReceiveBufferSizePredictor
+parameter_list|()
+block|{
+return|return
+name|receiveBufferSizePredictor
+return|;
+block|}
+DECL|method|setReceiveBufferSizePredictor (int receiveBufferSizePredictor)
+specifier|public
+name|void
+name|setReceiveBufferSizePredictor
+parameter_list|(
+name|int
+name|receiveBufferSizePredictor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|receiveBufferSizePredictor
+operator|=
+name|receiveBufferSizePredictor
 expr_stmt|;
 block|}
 DECL|method|getPassphrase ()
