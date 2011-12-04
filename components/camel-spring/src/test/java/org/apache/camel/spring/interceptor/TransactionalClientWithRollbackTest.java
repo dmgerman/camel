@@ -236,50 +236,6 @@ argument_list|(
 name|ds
 argument_list|)
 expr_stmt|;
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"create table books (title varchar(50))"
-argument_list|)
-expr_stmt|;
-name|jdbc
-operator|.
-name|update
-argument_list|(
-literal|"insert into books (title) values (?)"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-literal|"Camel in Action"
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"drop table books"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testTransactionSuccess ()
 specifier|public

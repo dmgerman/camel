@@ -137,7 +137,7 @@ name|setUp
 argument_list|()
 expr_stmt|;
 comment|// START SNIPPET: e5
-comment|// create database and insert dummy data
+comment|// create database (dummy data already inserted by Spring)
 specifier|final
 name|DataSource
 name|ds
@@ -159,54 +159,7 @@ argument_list|(
 name|ds
 argument_list|)
 expr_stmt|;
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"create table books (title varchar(50))"
-argument_list|)
-expr_stmt|;
-name|jdbc
-operator|.
-name|update
-argument_list|(
-literal|"insert into books (title) values (?)"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-literal|"Camel in Action"
-block|}
-argument_list|)
-expr_stmt|;
 comment|// END SNIPPET: e5
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"drop table books"
-argument_list|)
-expr_stmt|;
-name|enableJMX
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|isUseTransactionErrorHandler ()
 specifier|public

@@ -216,55 +216,6 @@ argument_list|(
 name|ds
 argument_list|)
 expr_stmt|;
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"create table books (title varchar(50))"
-argument_list|)
-expr_stmt|;
-name|jdbc
-operator|.
-name|update
-argument_list|(
-literal|"insert into books (title) values (?)"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-literal|"Camel in Action"
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"drop table books"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|enableJMX
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|testOkay ()
 specifier|public
@@ -392,7 +343,202 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* FIXME: CAMEL-3371     public void testMixedRollbackOnlyLast() throws Exception {         template.sendBody("direct:mixed", "Hello World");          int count = jdbc.queryForInt("select count(*) from books");         assertEquals("Number of books", 3, count);          // assert correct books in database         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Camel in Action'"));         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Tiger in Action'"));         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Elephant in Action'"));         assertEquals(0, jdbc.queryForInt("select count(*) from books where title = 'Lion in Action'"));         assertEquals(0, jdbc.queryForInt("select count(*) from books where title = 'Donkey in Action'"));     }      public void testMixedCommit() throws Exception {         template.sendBody("direct:mixed3", "Hello World");          int count = jdbc.queryForInt("select count(*) from books");         assertEquals("Number of books", 5, count);          // assert correct books in database         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Camel in Action'"));         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Tiger in Action'"));         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Elephant in Action'"));         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Lion in Action'"));         assertEquals(1, jdbc.queryForInt("select count(*) from books where title = 'Crocodile in Action'"));     }     */
+DECL|method|testMixedRollbackOnlyLast ()
+specifier|public
+name|void
+name|testMixedRollbackOnlyLast
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:mixed"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|int
+name|count
+init|=
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of books"
+argument_list|,
+literal|3
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+comment|// assert correct books in database
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Camel in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Tiger in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Elephant in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Lion in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Donkey in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testMixedCommit ()
+specifier|public
+name|void
+name|testMixedCommit
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:mixed3"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|int
+name|count
+init|=
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of books"
+argument_list|,
+literal|5
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+comment|// assert correct books in database
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Camel in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Tiger in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Elephant in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Lion in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = 'Crocodile in Action'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

@@ -160,36 +160,6 @@ argument_list|(
 name|ds
 argument_list|)
 expr_stmt|;
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"create table books (title varchar(50))"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|jdbc
-operator|.
-name|execute
-argument_list|(
-literal|"drop table books"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -229,7 +199,7 @@ name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|count
 argument_list|)
@@ -261,13 +231,13 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Camel in Action"
+literal|"Lion in Action"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// we did commit so there should be 1 books
+comment|// we did commit so there should be 2 books
 name|count
 operator|=
 name|jdbc
@@ -281,7 +251,7 @@ name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|count
 argument_list|)
@@ -309,7 +279,7 @@ name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|count
 argument_list|)
@@ -405,7 +375,7 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// we did rollback so there should be 0 books
+comment|// we did rollback so there should be 1 books
 name|count
 operator|=
 name|jdbc
@@ -419,7 +389,7 @@ name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|count
 argument_list|)
