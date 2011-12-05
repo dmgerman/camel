@@ -299,6 +299,11 @@ name|operation
 condition|)
 block|{
 case|case
+operator|-
+literal|1
+case|:
+comment|//If no operation is specified use ADD.
+case|case
 name|HazelcastConstants
 operator|.
 name|ADD_OPERATION
