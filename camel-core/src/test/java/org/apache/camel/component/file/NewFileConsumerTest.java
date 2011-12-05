@@ -157,6 +157,13 @@ operator|.
 name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|250
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should have invoked postPollCheck"

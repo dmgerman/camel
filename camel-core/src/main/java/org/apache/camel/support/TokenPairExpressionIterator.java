@@ -98,6 +98,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -201,6 +213,38 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|matches (Exchange exchange)
+specifier|public
+name|boolean
+name|matches
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// as a predicate we must close the stream, as we do not return an iterator that can be used
+comment|// afterwards to iterate the input stream
+name|Object
+name|value
+init|=
+name|doEvaluate
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+return|return
+name|ObjectHelper
+operator|.
+name|evaluateValuePredicate
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
@@ -210,11 +254,38 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-try|try
+comment|// as we return an iterator to access the input stream, we should not close it
+return|return
+name|doEvaluate
+argument_list|(
+name|exchange
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Strategy to evaluate the exchange      *      * @param exchange   the exchange      * @param closeStream whether to close the stream before returning from this method.      * @return the evaluated value      */
+DECL|method|doEvaluate (Exchange exchange, boolean closeStream)
+specifier|protected
+name|Object
+name|doEvaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|closeStream
+parameter_list|)
 block|{
 name|InputStream
 name|in
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|in
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -226,7 +297,7 @@ name|InputStream
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// we may read from a file, and want to support custom charset defined on the exchange
 name|String
 name|charset
@@ -260,9 +331,33 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+comment|// must close input stream
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|closeStream
+condition|)
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Strategy to create the iterator      *      * @param in input stream to iterate      * @param charset charset      * @return the iterator      */
