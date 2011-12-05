@@ -189,10 +189,12 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-DECL|method|testMultithreadedLocking ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testMultithreadedLocking
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -207,6 +209,20 @@ argument_list|(
 literal|"target/marker/in"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testMultithreadedLocking ()
+specifier|public
+name|void
+name|testMultithreadedLocking
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=

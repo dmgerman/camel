@@ -84,10 +84,12 @@ name|FileConsumerInterceptEmptyFileTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testExcludeZeroLengthFiles ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testExcludeZeroLengthFiles
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -97,6 +99,20 @@ argument_list|(
 literal|"./target/exclude"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testExcludeZeroLengthFiles ()
+specifier|public
+name|void
+name|testExcludeZeroLengthFiles
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock1
 init|=
@@ -129,17 +145,17 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-name|prepareFiles
+name|sendFiles
 argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|prepareFiles ()
+DECL|method|sendFiles ()
 specifier|private
 name|void
-name|prepareFiles
+name|sendFiles
 parameter_list|()
 throws|throws
 name|Exception

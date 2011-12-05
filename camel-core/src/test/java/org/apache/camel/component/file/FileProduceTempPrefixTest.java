@@ -97,6 +97,27 @@ name|fileUrl
 init|=
 literal|"file://target/tempandrename/?tempPrefix=inprogress."
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/tempandrename"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testCreateTempFileName ()
 specifier|public
 name|void
@@ -318,11 +339,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/tempandrename"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -378,11 +394,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/tempandrename"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBody

@@ -89,6 +89,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"./target/exclusiveread"
+argument_list|)
+expr_stmt|;
 name|disableJMX
 argument_list|()
 expr_stmt|;
@@ -106,11 +111,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"./target/exclusiveread"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=

@@ -84,10 +84,12 @@ name|FileConsumerIncludeNameTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testIncludePreAndPostfixes ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testIncludePreAndPostfixes
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -97,9 +99,20 @@ argument_list|(
 literal|"./target/include"
 argument_list|)
 expr_stmt|;
-name|prepareFiles
+name|super
+operator|.
+name|setUp
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|testIncludePreAndPostfixes ()
+specifier|public
+name|void
+name|testIncludePreAndPostfixes
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=
@@ -124,16 +137,19 @@ argument_list|,
 literal|"Reports"
 argument_list|)
 expr_stmt|;
+name|sendFiles
+argument_list|()
+expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|prepareFiles ()
+DECL|method|sendFiles ()
 specifier|private
 name|void
-name|prepareFiles
+name|sendFiles
 parameter_list|()
 throws|throws
 name|Exception

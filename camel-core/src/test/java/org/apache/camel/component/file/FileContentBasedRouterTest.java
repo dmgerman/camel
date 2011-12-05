@@ -72,17 +72,33 @@ name|FileContentBasedRouterTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|prepareFiles ()
-specifier|private
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|prepareFiles
+name|setUp
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
 literal|"target/cbr"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|sendFiles ()
+specifier|private
+name|void
+name|sendFiles
+parameter_list|()
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -131,7 +147,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareFiles
+name|sendFiles
 argument_list|()
 expr_stmt|;
 name|MockEndpoint
@@ -180,7 +196,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareFiles
+name|sendFiles
 argument_list|()
 expr_stmt|;
 name|MockEndpoint
@@ -229,7 +245,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|prepareFiles
+name|sendFiles
 argument_list|()
 expr_stmt|;
 name|MockEndpoint

@@ -226,6 +226,32 @@ name|XsltBuilderTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/xslt"
+argument_list|)
+expr_stmt|;
+name|createDirectory
+argument_list|(
+literal|"target/xslt"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testXsltUrl ()
 specifier|public
 name|void
@@ -1136,17 +1162,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// directory must exists
-name|deleteDirectory
-argument_list|(
-literal|"target/xslt"
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-literal|"target/xslt"
-argument_list|)
-expr_stmt|;
 name|URL
 name|styleSheet
 init|=
@@ -1282,17 +1297,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// directory must exists
-name|deleteDirectory
-argument_list|(
-literal|"target/xslt"
-argument_list|)
-expr_stmt|;
-name|createDirectory
-argument_list|(
-literal|"target/xslt"
-argument_list|)
-expr_stmt|;
 name|URL
 name|styleSheet
 init|=

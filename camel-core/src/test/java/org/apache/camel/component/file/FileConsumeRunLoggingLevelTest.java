@@ -68,10 +68,12 @@ name|FileConsumeRunLoggingLevelTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testRunLoggingLevel ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testRunLoggingLevel
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -81,6 +83,20 @@ argument_list|(
 literal|"target/files"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testRunLoggingLevel ()
+specifier|public
+name|void
+name|testRunLoggingLevel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"

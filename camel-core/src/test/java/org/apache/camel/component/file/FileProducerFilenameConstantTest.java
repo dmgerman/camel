@@ -52,10 +52,12 @@ name|FileProducerFilenameConstantTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testFileProducerFilenameConstant ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testFileProducerFilenameConstant
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -65,6 +67,20 @@ argument_list|(
 literal|"target/constant"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testFileProducerFilenameConstant ()
+specifier|public
+name|void
+name|testFileProducerFilenameConstant
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|template
 operator|.
 name|sendBody

@@ -83,10 +83,12 @@ name|outputDirectory
 init|=
 literal|"target/site/model"
 decl_stmt|;
-DECL|method|testGenerateModel ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testGenerateModel
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -96,6 +98,20 @@ argument_list|(
 name|outputDirectory
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testGenerateModel ()
+specifier|public
+name|void
+name|testGenerateModel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 try|try
 block|{
 name|ModelFileGenerator

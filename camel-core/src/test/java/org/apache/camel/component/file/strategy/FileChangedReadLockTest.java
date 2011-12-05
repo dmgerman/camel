@@ -131,10 +131,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|testChangedReadLock ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testChangedReadLock
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -149,6 +151,20 @@ argument_list|(
 literal|"target/changed/in"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testChangedReadLock ()
+specifier|public
+name|void
+name|testChangedReadLock
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=

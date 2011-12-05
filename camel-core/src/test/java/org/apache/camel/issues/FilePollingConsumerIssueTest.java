@@ -76,10 +76,12 @@ name|FilePollingConsumerIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testFilePollingConsumer ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testFilePollingConsumer
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -89,6 +91,20 @@ argument_list|(
 literal|"target/fpc"
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testFilePollingConsumer ()
+specifier|public
+name|void
+name|testFilePollingConsumer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader

@@ -286,6 +286,27 @@ name|XmlConverterTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/xml"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testToResultNoSource ()
 specifier|public
 name|void
@@ -1126,11 +1147,6 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
-name|deleteDirectory
-argument_list|(
-literal|"target/xml"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -1207,11 +1223,6 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
-name|deleteDirectory
-argument_list|(
-literal|"target/xml"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -2319,11 +2330,6 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
-name|deleteDirectory
-argument_list|(
-literal|"target/xml"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
