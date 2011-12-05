@@ -412,6 +412,8 @@ specifier|private
 name|boolean
 name|isSetDefaultBus
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|CxfRsEndpoint (String endpointUri, CamelContext camelContext)
 specifier|public
 name|CxfRsEndpoint

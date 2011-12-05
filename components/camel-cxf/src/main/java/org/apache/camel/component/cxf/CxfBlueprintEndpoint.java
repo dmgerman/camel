@@ -207,6 +207,11 @@ block|{
 name|super
 argument_list|(
 name|address
+argument_list|,
+operator|(
+name|CxfComponent
+operator|)
+literal|null
 argument_list|)
 expr_stmt|;
 name|bundleContext

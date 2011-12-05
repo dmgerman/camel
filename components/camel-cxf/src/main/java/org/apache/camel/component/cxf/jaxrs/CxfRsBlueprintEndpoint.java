@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|blueprint
 operator|.
 name|BlueprintCamelContext
@@ -200,12 +212,12 @@ specifier|private
 name|BlueprintCamelContext
 name|blueprintCamelContext
 decl_stmt|;
-DECL|method|CxfRsBlueprintEndpoint (CamelContext camelContext, AbstractJAXRSFactoryBean bean)
+DECL|method|CxfRsBlueprintEndpoint (Component comp, AbstractJAXRSFactoryBean bean)
 specifier|public
 name|CxfRsBlueprintEndpoint
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|Component
+name|comp
 parameter_list|,
 name|AbstractJAXRSFactoryBean
 name|bean
@@ -218,7 +230,7 @@ operator|.
 name|getAddress
 argument_list|()
 argument_list|,
-name|camelContext
+name|comp
 argument_list|)
 expr_stmt|;
 name|this

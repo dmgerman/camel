@@ -133,8 +133,13 @@ name|TraceHandlerTestHandler
 operator|)
 name|tracer
 operator|.
-name|getTraceHandler
+name|getTraceHandlers
 argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 return|return
 name|handler

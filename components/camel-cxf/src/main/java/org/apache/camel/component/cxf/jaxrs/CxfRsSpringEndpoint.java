@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|cxf
@@ -188,12 +200,12 @@ specifier|private
 name|String
 name|beanId
 decl_stmt|;
-DECL|method|CxfRsSpringEndpoint (CamelContext context, AbstractJAXRSFactoryBean bean)
+DECL|method|CxfRsSpringEndpoint (Component component, AbstractJAXRSFactoryBean bean)
 specifier|public
 name|CxfRsSpringEndpoint
 parameter_list|(
-name|CamelContext
-name|context
+name|Component
+name|component
 parameter_list|,
 name|AbstractJAXRSFactoryBean
 name|bean
@@ -208,7 +220,7 @@ operator|.
 name|getAddress
 argument_list|()
 argument_list|,
-name|context
+name|component
 argument_list|)
 expr_stmt|;
 name|init

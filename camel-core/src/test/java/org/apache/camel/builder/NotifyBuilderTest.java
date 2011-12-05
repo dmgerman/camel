@@ -4695,9 +4695,6 @@ name|Exception
 block|{
 try|try
 block|{
-name|NotifyBuilder
-name|notify
-init|=
 operator|new
 name|NotifyBuilder
 argument_list|(
@@ -4711,7 +4708,7 @@ argument_list|)
 operator|.
 name|create
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should throw exception"

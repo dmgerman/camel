@@ -1317,6 +1317,8 @@ name|remaining
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|CxfEndpoint (String remaining, CamelContext context)
 specifier|public
 name|CxfEndpoint
@@ -1341,6 +1343,8 @@ name|remaining
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|CxfEndpoint (String remaining)
 specifier|public
 name|CxfEndpoint

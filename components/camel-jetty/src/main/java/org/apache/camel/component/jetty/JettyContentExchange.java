@@ -827,7 +827,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-name|getURI
+name|getRequestURI
 argument_list|()
 operator|+
 operator|(

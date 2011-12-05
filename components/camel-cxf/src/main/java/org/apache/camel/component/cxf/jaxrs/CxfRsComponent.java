@@ -300,9 +300,6 @@ operator|new
 name|CxfRsBlueprintEndpoint
 argument_list|(
 name|this
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|,
 name|bean
 argument_list|)
@@ -316,9 +313,6 @@ operator|new
 name|CxfRsSpringEndpoint
 argument_list|(
 name|this
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|,
 name|bean
 argument_list|)

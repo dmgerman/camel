@@ -1305,7 +1305,7 @@ name|uri
 init|=
 name|httpExchange
 operator|.
-name|getURI
+name|getRequestURI
 argument_list|()
 decl_stmt|;
 name|Map
@@ -1380,7 +1380,7 @@ argument_list|)
 expr_stmt|;
 name|httpExchange
 operator|.
-name|setURI
+name|setRequestURI
 argument_list|(
 name|uri
 argument_list|)

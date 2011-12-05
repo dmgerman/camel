@@ -250,27 +250,6 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|method|CxfSpringEndpoint (CamelContext context, String address)
-specifier|public
-name|CxfSpringEndpoint
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|String
-name|address
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|super
-argument_list|(
-name|address
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|CxfSpringEndpoint (CxfComponent component, String address)
 specifier|public
 name|CxfSpringEndpoint

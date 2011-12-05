@@ -951,6 +951,11 @@ name|class
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|getExecutorService (CamelContext context)
 specifier|protected
 specifier|static
