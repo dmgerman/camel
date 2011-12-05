@@ -128,7 +128,6 @@ specifier|public
 class|class
 name|CamelRouteClient
 block|{
-comment|// You may need to change the URL according to the Camel version
 DECL|field|URL
 specifier|private
 specifier|static
@@ -136,7 +135,7 @@ specifier|final
 name|String
 name|URL
 init|=
-literal|"http://localhost:8080/camel-example-cxf-tomcat-2.9-SNAPSHOT/webservices/incident"
+literal|"http://localhost:8080/camel-example-cxf-tomcat/webservices/incident"
 decl_stmt|;
 DECL|method|createCXFClient ()
 specifier|protected
