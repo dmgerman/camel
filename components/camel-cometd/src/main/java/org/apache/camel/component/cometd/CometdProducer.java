@@ -234,6 +234,14 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// should probably look into synchronization for this.
+if|if
+condition|(
+name|service
+operator|==
+literal|null
+condition|)
+block|{
 name|service
 operator|=
 operator|new
@@ -256,6 +264,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -316,6 +325,16 @@ parameter_list|()
 block|{
 return|return
 name|bayeux
+return|;
+block|}
+DECL|method|getProducerService ()
+specifier|protected
+name|ProducerService
+name|getProducerService
+parameter_list|()
+block|{
+return|return
+name|service
 return|;
 block|}
 DECL|method|setBayeux (BayeuxServerImpl bayeux)

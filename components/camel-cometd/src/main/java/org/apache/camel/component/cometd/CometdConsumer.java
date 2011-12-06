@@ -226,6 +226,14 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// should probably look into synchronization for this.
+if|if
+condition|(
+name|service
+operator|==
+literal|null
+condition|)
+block|{
 name|service
 operator|=
 operator|new
@@ -241,6 +249,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
