@@ -375,6 +375,20 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|clearContentCache ()
+specifier|public
+name|void
+name|clearContentCache
+parameter_list|()
+block|{
+name|configuration
+operator|.
+name|clearTemplateCache
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

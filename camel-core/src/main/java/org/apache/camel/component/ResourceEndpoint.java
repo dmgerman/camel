@@ -66,6 +66,40 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedResourceEndpointMBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|converter
 operator|.
 name|IOConverter
@@ -139,6 +173,13 @@ comment|/**  * A useful base class for endpoints which depend on a resource  * s
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed ResourceEndpoint"
+argument_list|)
 DECL|class|ResourceEndpoint
 specifier|public
 specifier|abstract
@@ -146,6 +187,8 @@ class|class
 name|ResourceEndpoint
 extends|extends
 name|ProcessorEndpoint
+implements|implements
+name|ManagedResourceEndpointMBean
 block|{
 DECL|field|log
 specifier|protected
@@ -174,6 +217,7 @@ name|contentCache
 decl_stmt|;
 DECL|field|buffer
 specifier|private
+specifier|volatile
 name|byte
 index|[]
 name|buffer
@@ -226,7 +270,8 @@ name|is
 decl_stmt|;
 if|if
 condition|(
-name|contentCache
+name|isContentCache
+argument_list|()
 condition|)
 block|{
 synchronized|synchronized
@@ -350,6 +395,27 @@ block|{
 return|return
 name|contentCache
 return|;
+block|}
+DECL|method|clearContentCache ()
+specifier|public
+specifier|synchronized
+name|void
+name|clearContentCache
+parameter_list|()
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Clearing resource: {} from the content cache"
+argument_list|,
+name|resourceUri
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|/**      * Sets whether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
 DECL|method|setContentCache (boolean contentCache)
