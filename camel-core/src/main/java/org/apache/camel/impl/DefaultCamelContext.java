@@ -8068,9 +8068,9 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Cannot start routes as CamelContext has been configured with autoStartup=false"
+literal|"Skip starting of routes as CamelContext has been configured with autoStartup=false"
 argument_list|)
 expr_stmt|;
 block|}
@@ -10060,7 +10060,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Cannot start route "
+literal|"Skipping starting of route "
 operator|+
 name|routeService
 operator|.
