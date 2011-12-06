@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management.mbean
+DECL|package|org.apache.camel.api.management.mbean
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|api
 operator|.
 name|management
 operator|.
@@ -30,7 +32,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|ManagedAttribute
 import|;
 end_import
 
@@ -46,118 +48,102 @@ name|api
 operator|.
 name|management
 operator|.
-name|mbean
-operator|.
-name|ManagedCounterMBean
+name|ManagedOperation
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ManagementStrategy
-import|;
-end_import
-
-begin_class
+begin_interface
+DECL|interface|ManagedProducerCacheMBean
+specifier|public
+interface|interface
+name|ManagedProducerCacheMBean
+block|{
 annotation|@
-name|ManagedResource
+name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Managed Counter"
+literal|"Source"
 argument_list|)
-DECL|class|ManagedCounter
-specifier|public
-specifier|abstract
-class|class
-name|ManagedCounter
-implements|implements
-name|ManagedCounterMBean
-block|{
-DECL|field|exchangesTotal
-specifier|protected
-name|Statistic
-name|exchangesTotal
-decl_stmt|;
-DECL|method|init (ManagementStrategy strategy)
-specifier|public
-name|void
-name|init
-parameter_list|(
-name|ManagementStrategy
-name|strategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchangesTotal
-operator|=
-operator|new
-name|Statistic
+DECL|method|getSource ()
+name|String
+name|getSource
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
 argument_list|(
-literal|"org.apache.camel.exchangesTotal"
-argument_list|,
-name|this
-argument_list|,
-name|Statistic
-operator|.
-name|UpdateMode
-operator|.
-name|COUNTER
+name|description
+operator|=
+literal|"Number of elements cached"
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|reset ()
-specifier|public
-specifier|synchronized
+DECL|method|getSize ()
+name|Integer
+name|getSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Maximum cache size (capacity)"
+argument_list|)
+DECL|method|getMaximumCacheSize ()
+name|Integer
+name|getMaximumCacheSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Cache hits"
+argument_list|)
+DECL|method|getHits ()
+name|Long
+name|getHits
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Cache misses"
+argument_list|)
+DECL|method|getMisses ()
+name|Long
+name|getMisses
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset cache statistics"
+argument_list|)
+DECL|method|resetStatistics ()
 name|void
-name|reset
+name|resetStatistics
 parameter_list|()
-block|{
-name|exchangesTotal
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getExchangesTotal ()
-specifier|public
-name|long
-name|getExchangesTotal
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-name|exchangesTotal
-operator|.
-name|getValue
-argument_list|()
-return|;
-block|}
-DECL|method|increment ()
-specifier|public
-specifier|synchronized
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Purges the cache"
+argument_list|)
+DECL|method|purge ()
 name|void
-name|increment
+name|purge
 parameter_list|()
-block|{
-name|exchangesTotal
-operator|.
-name|increment
-argument_list|()
-expr_stmt|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

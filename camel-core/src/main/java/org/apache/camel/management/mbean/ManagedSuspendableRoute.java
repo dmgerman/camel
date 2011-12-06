@@ -54,7 +54,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedOperation
+name|ManagedResource
 import|;
 end_import
 
@@ -70,7 +70,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedSuspendableRouteMBean
 import|;
 end_import
 
@@ -102,6 +104,8 @@ class|class
 name|ManagedSuspendableRoute
 extends|extends
 name|ManagedRoute
+implements|implements
+name|ManagedSuspendableRouteMBean
 block|{
 DECL|method|ManagedSuspendableRoute (ModelCamelContext context, Route route)
 specifier|public
@@ -122,13 +126,6 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Suspend route"
-argument_list|)
 DECL|method|suspend ()
 specifier|public
 name|void
@@ -166,13 +163,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Suspend route (using timeout in seconds)"
-argument_list|)
 DECL|method|suspend (long timeout)
 specifier|public
 name|void
@@ -219,13 +209,6 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Resume Route"
-argument_list|)
 DECL|method|resume ()
 specifier|public
 name|void

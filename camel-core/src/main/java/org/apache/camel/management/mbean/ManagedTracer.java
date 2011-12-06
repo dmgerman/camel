@@ -54,22 +54,6 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedNotification
 import|;
 end_import
@@ -135,6 +119,24 @@ operator|.
 name|management
 operator|.
 name|NotificationSenderAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedTracerMBean
 import|;
 end_import
 
@@ -221,6 +223,8 @@ class|class
 name|ManagedTracer
 implements|implements
 name|NotificationSenderAware
+implements|,
+name|ManagedTracerMBean
 block|{
 DECL|field|camelContext
 specifier|private
@@ -309,13 +313,6 @@ return|return
 name|tracer
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Tracer enabled"
-argument_list|)
 DECL|method|getEnabled ()
 specifier|public
 name|boolean
@@ -329,13 +326,6 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Tracer enabled"
-argument_list|)
 DECL|method|setEnabled (boolean enabled)
 specifier|public
 name|void
@@ -353,13 +343,6 @@ name|enabled
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Additional destination Uri"
-argument_list|)
 DECL|method|getDestinationUri ()
 specifier|public
 name|String
@@ -373,13 +356,6 @@ name|getDestinationUri
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Additional destination Uri"
-argument_list|)
 DECL|method|setDestinationUri (String uri)
 specifier|public
 name|void
@@ -418,13 +394,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Logging Name"
-argument_list|)
 DECL|method|getLogName ()
 specifier|public
 name|String
@@ -438,13 +407,6 @@ name|getLogName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Using Jpa"
-argument_list|)
 DECL|method|getUseJpa ()
 specifier|public
 name|boolean
@@ -458,13 +420,6 @@ name|isUseJpa
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Logging Name"
-argument_list|)
 DECL|method|setLogName (String logName)
 specifier|public
 name|void
@@ -482,13 +437,6 @@ name|logName
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Logging Level"
-argument_list|)
 DECL|method|getLogLevel ()
 specifier|public
 name|String
@@ -505,13 +453,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Logging Level"
-argument_list|)
 DECL|method|setLogLevel (String logLevel)
 specifier|public
 name|void
@@ -534,13 +475,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Log Stacktrace"
-argument_list|)
 DECL|method|getLogStackTrace ()
 specifier|public
 name|boolean
@@ -554,13 +488,6 @@ name|isLogStackTrace
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Log Stacktrace"
-argument_list|)
 DECL|method|setLogStackTrace (boolean logStackTrace)
 specifier|public
 name|void
@@ -578,13 +505,6 @@ name|logStackTrace
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Trace Interceptors"
-argument_list|)
 DECL|method|getTraceInterceptors ()
 specifier|public
 name|boolean
@@ -598,13 +518,6 @@ name|isTraceInterceptors
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Trace Interceptors"
-argument_list|)
 DECL|method|setTraceInterceptors (boolean traceInterceptors)
 specifier|public
 name|void
@@ -622,13 +535,6 @@ name|traceInterceptors
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Trace Exceptions"
-argument_list|)
 DECL|method|getTraceExceptions ()
 specifier|public
 name|boolean
@@ -642,13 +548,6 @@ name|isTraceExceptions
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Trace Exceptions"
-argument_list|)
 DECL|method|setTraceExceptions (boolean traceExceptions)
 specifier|public
 name|void
@@ -666,13 +565,6 @@ name|traceExceptions
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Trace Out Exchanges"
-argument_list|)
 DECL|method|getTraceOutExchanges ()
 specifier|public
 name|boolean
@@ -686,13 +578,6 @@ name|isTraceOutExchanges
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Trace Out Exchanges"
-argument_list|)
 DECL|method|setTraceOutExchanges (boolean traceOutExchanges)
 specifier|public
 name|void
@@ -710,13 +595,6 @@ name|traceOutExchanges
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show body"
-argument_list|)
 DECL|method|getFormatterShowBody ()
 specifier|public
 name|boolean
@@ -747,13 +625,6 @@ name|isShowBody
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show body"
-argument_list|)
 DECL|method|setFormatterShowBody (boolean showBody)
 specifier|public
 name|void
@@ -786,13 +657,6 @@ name|showBody
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show body type"
-argument_list|)
 DECL|method|getFormatterShowBodyType ()
 specifier|public
 name|boolean
@@ -823,13 +687,6 @@ name|isShowBodyType
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show body type"
-argument_list|)
 DECL|method|setFormatterShowBodyType (boolean showBodyType)
 specifier|public
 name|void
@@ -862,13 +719,6 @@ name|showBodyType
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show out body"
-argument_list|)
 DECL|method|getFormatterShowOutBody ()
 specifier|public
 name|boolean
@@ -899,13 +749,6 @@ name|isShowOutBody
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show out body"
-argument_list|)
 DECL|method|setFormatterShowOutBody (boolean showOutBody)
 specifier|public
 name|void
@@ -938,13 +781,6 @@ name|showOutBody
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show out body type"
-argument_list|)
 DECL|method|getFormatterShowOutBodyType ()
 specifier|public
 name|boolean
@@ -975,13 +811,6 @@ name|isShowOutBodyType
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show out body type"
-argument_list|)
 DECL|method|setFormatterShowOutBodyType (boolean showOutBodyType)
 specifier|public
 name|void
@@ -1014,13 +843,6 @@ name|showOutBodyType
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show breadcrumb"
-argument_list|)
 DECL|method|getFormatterShowBreadCrumb ()
 specifier|public
 name|boolean
@@ -1051,13 +873,6 @@ name|isShowBreadCrumb
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show breadcrumb"
-argument_list|)
 DECL|method|setFormatterShowBreadCrumb (boolean showBreadCrumb)
 specifier|public
 name|void
@@ -1090,13 +905,6 @@ name|showBreadCrumb
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show exchange id"
-argument_list|)
 DECL|method|getFormatterShowExchangeId ()
 specifier|public
 name|boolean
@@ -1127,13 +935,6 @@ name|isShowExchangeId
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show exchange id"
-argument_list|)
 DECL|method|setFormatterShowExchangeId (boolean showExchangeId)
 specifier|public
 name|void
@@ -1166,13 +967,6 @@ name|showExchangeId
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show headers"
-argument_list|)
 DECL|method|getFormatterShowHeaders ()
 specifier|public
 name|boolean
@@ -1203,13 +997,6 @@ name|isShowHeaders
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show headers"
-argument_list|)
 DECL|method|setFormatterShowHeaders (boolean showHeaders)
 specifier|public
 name|void
@@ -1242,13 +1029,6 @@ name|showHeaders
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show out headers"
-argument_list|)
 DECL|method|getFormatterShowOutHeaders ()
 specifier|public
 name|boolean
@@ -1279,13 +1059,6 @@ name|isShowOutHeaders
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show out headers"
-argument_list|)
 DECL|method|setFormatterShowOutHeaders (boolean showOutHeaders)
 specifier|public
 name|void
@@ -1318,13 +1091,6 @@ name|showOutHeaders
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show properties"
-argument_list|)
 DECL|method|getFormatterShowProperties ()
 specifier|public
 name|boolean
@@ -1355,13 +1121,6 @@ name|isShowProperties
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show properties"
-argument_list|)
 DECL|method|setFormatterShowProperties (boolean showProperties)
 specifier|public
 name|void
@@ -1394,13 +1153,6 @@ name|showProperties
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show node"
-argument_list|)
 DECL|method|getFormatterShowNode ()
 specifier|public
 name|boolean
@@ -1431,13 +1183,6 @@ name|isShowNode
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show node"
-argument_list|)
 DECL|method|setFormatterShowNode (boolean showNode)
 specifier|public
 name|void
@@ -1470,13 +1215,6 @@ name|showNode
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show exchange pattern"
-argument_list|)
 DECL|method|getFormatterShowExchangePattern ()
 specifier|public
 name|boolean
@@ -1507,13 +1245,6 @@ name|isShowExchangePattern
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show exchange pattern"
-argument_list|)
 DECL|method|setFormatterShowExchangePattern (boolean showExchangePattern)
 specifier|public
 name|void
@@ -1546,13 +1277,6 @@ name|showExchangePattern
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show exception"
-argument_list|)
 DECL|method|getFormatterShowException ()
 specifier|public
 name|boolean
@@ -1583,13 +1307,6 @@ name|isShowException
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show exception"
-argument_list|)
 DECL|method|setFormatterShowException (boolean showException)
 specifier|public
 name|void
@@ -1622,13 +1339,6 @@ name|showException
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show route id"
-argument_list|)
 DECL|method|getFormatterShowRouteId ()
 specifier|public
 name|boolean
@@ -1659,13 +1369,6 @@ name|isShowRouteId
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show route id"
-argument_list|)
 DECL|method|setFormatterShowRouteId (boolean showRouteId)
 specifier|public
 name|void
@@ -1698,13 +1401,6 @@ name|showRouteId
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter breadcrumb length"
-argument_list|)
 DECL|method|getFormatterBreadCrumbLength ()
 specifier|public
 name|int
@@ -1735,13 +1431,6 @@ name|getBreadCrumbLength
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter breadcrumb length"
-argument_list|)
 DECL|method|setFormatterBreadCrumbLength (int breadCrumbLength)
 specifier|public
 name|void
@@ -1774,13 +1463,6 @@ name|breadCrumbLength
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show short exchange id"
-argument_list|)
 DECL|method|getFormatterShowShortExchangeId ()
 specifier|public
 name|boolean
@@ -1811,13 +1493,6 @@ name|isShowShortExchangeId
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter show short exchange id"
-argument_list|)
 DECL|method|setFormatterShowShortExchangeId (boolean showShortExchangeId)
 specifier|public
 name|void
@@ -1850,13 +1525,6 @@ name|showShortExchangeId
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter node length"
-argument_list|)
 DECL|method|getFormatterNodeLength ()
 specifier|public
 name|int
@@ -1887,13 +1555,6 @@ name|getNodeLength
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter node length"
-argument_list|)
 DECL|method|setFormatterNodeLength (int nodeLength)
 specifier|public
 name|void
@@ -1926,13 +1587,6 @@ name|nodeLength
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter max chars"
-argument_list|)
 DECL|method|getFormatterMaxChars ()
 specifier|public
 name|int
@@ -1963,13 +1617,6 @@ name|getMaxChars
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Formatter max chars"
-argument_list|)
 DECL|method|setFormatterMaxChars (int maxChars)
 specifier|public
 name|void
@@ -2002,13 +1649,6 @@ name|maxChars
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Should trace events be sent as jmx notifications"
-argument_list|)
 DECL|method|isJmxTraceNotifications ()
 specifier|public
 name|boolean
@@ -2024,8 +1664,6 @@ name|isJmxTraceNotifications
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setJmxTraceNotifications (boolean jmxTraceNotifications)
 specifier|public
 name|void
@@ -2045,13 +1683,6 @@ name|jmxTraceNotifications
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum size of a message body for trace notification"
-argument_list|)
 DECL|method|getTraceBodySize ()
 specifier|public
 name|int
@@ -2067,8 +1698,6 @@ name|getTraceBodySize
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setTraceBodySize (int traceBodySize)
 specifier|public
 name|void

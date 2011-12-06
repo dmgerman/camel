@@ -52,38 +52,6 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedResource
 import|;
 end_import
@@ -101,6 +69,24 @@ operator|.
 name|management
 operator|.
 name|PerformanceCounter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedPerformanceCounterMBean
 import|;
 end_import
 
@@ -149,6 +135,8 @@ extends|extends
 name|ManagedCounter
 implements|implements
 name|PerformanceCounter
+implements|,
+name|ManagedPerformanceCounterMBean
 block|{
 DECL|field|exchangesCompleted
 specifier|private
@@ -475,13 +463,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Reset counters"
-argument_list|)
 DECL|method|reset ()
 specifier|public
 specifier|synchronized
@@ -560,13 +541,6 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Number of completed exchanges"
-argument_list|)
 DECL|method|getExchangesCompleted ()
 specifier|public
 name|long
@@ -582,13 +556,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Number of failed exchanges"
-argument_list|)
 DECL|method|getExchangesFailed ()
 specifier|public
 name|long
@@ -604,13 +571,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Number of failures handled"
-argument_list|)
 DECL|method|getFailuresHandled ()
 specifier|public
 name|long
@@ -626,13 +586,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Number of redeliveries"
-argument_list|)
 DECL|method|getRedeliveries ()
 specifier|public
 name|long
@@ -648,13 +601,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Min Processing Time [milliseconds]"
-argument_list|)
 DECL|method|getMinProcessingTime ()
 specifier|public
 name|long
@@ -670,13 +616,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Mean Processing Time [milliseconds]"
-argument_list|)
 DECL|method|getMeanProcessingTime ()
 specifier|public
 name|long
@@ -692,13 +631,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Max Processing Time [milliseconds]"
-argument_list|)
 DECL|method|getMaxProcessingTime ()
 specifier|public
 name|long
@@ -714,13 +646,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Total Processing Time [milliseconds]"
-argument_list|)
 DECL|method|getTotalProcessingTime ()
 specifier|public
 name|long
@@ -736,13 +661,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Last Processing Time [milliseconds]"
-argument_list|)
 DECL|method|getLastProcessingTime ()
 specifier|public
 name|long
@@ -758,13 +676,6 @@ name|getValue
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Last Exchange Completed Timestamp"
-argument_list|)
 DECL|method|getLastExchangeCompletedTimestamp ()
 specifier|public
 name|Date
@@ -793,13 +704,6 @@ else|:
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"First Exchange Completed Timestamp"
-argument_list|)
 DECL|method|getFirstExchangeCompletedTimestamp ()
 specifier|public
 name|Date
@@ -828,13 +732,6 @@ else|:
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Last Exchange Failed Timestamp"
-argument_list|)
 DECL|method|getLastExchangeFailureTimestamp ()
 specifier|public
 name|Date
@@ -863,13 +760,6 @@ else|:
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"First Exchange Failed Timestamp"
-argument_list|)
 DECL|method|getFirstExchangeFailureTimestamp ()
 specifier|public
 name|Date
@@ -898,13 +788,6 @@ else|:
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Statistics enabled"
-argument_list|)
 DECL|method|isStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -915,13 +798,6 @@ return|return
 name|statisticsEnabled
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Statistics enabled"
-argument_list|)
 DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
 specifier|public
 name|void

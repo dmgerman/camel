@@ -152,39 +152,25 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedCamelContextMBean
 import|;
 end_import
 
@@ -276,6 +262,8 @@ class|class
 name|ManagedCamelContext
 implements|implements
 name|TimerListener
+implements|,
+name|ManagedCamelContextMBean
 block|{
 DECL|field|context
 specifier|private
@@ -329,13 +317,6 @@ return|return
 name|context
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -349,13 +330,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel Version"
-argument_list|)
 DECL|method|getCamelVersion ()
 specifier|public
 name|String
@@ -369,13 +343,6 @@ name|getVersion
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel State"
-argument_list|)
 DECL|method|getState ()
 specifier|public
 name|String
@@ -413,13 +380,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Uptime"
-argument_list|)
 DECL|method|getUptime ()
 specifier|public
 name|String
@@ -433,13 +393,6 @@ name|getUptime
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel Properties"
-argument_list|)
 DECL|method|getProperties ()
 specifier|public
 name|Map
@@ -473,13 +426,6 @@ name|getProperties
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Tracing"
-argument_list|)
 DECL|method|getTracing ()
 specifier|public
 name|Boolean
@@ -493,13 +439,6 @@ name|isTracing
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Tracing"
-argument_list|)
 DECL|method|setTracing (Boolean tracing)
 specifier|public
 name|void
@@ -517,13 +456,6 @@ name|tracing
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Current number of inflight Exchanges"
-argument_list|)
 DECL|method|getInflightExchanges ()
 specifier|public
 name|Integer
@@ -540,13 +472,6 @@ name|size
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown timeout"
-argument_list|)
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -567,13 +492,6 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown timeout"
-argument_list|)
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -590,13 +508,6 @@ name|getTimeout
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown timeout time unit"
-argument_list|)
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
@@ -617,13 +528,6 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown timeout time unit"
-argument_list|)
 DECL|method|getTimeUnit ()
 specifier|public
 name|TimeUnit
@@ -640,13 +544,6 @@ name|getTimeUnit
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Whether to force shutdown now when a timeout occurred"
-argument_list|)
 DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
 specifier|public
 name|void
@@ -667,13 +564,6 @@ name|shutdownNowOnTimeout
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Whether to force shutdown now when a timeout occurred"
-argument_list|)
 DECL|method|isShutdownNowOnTimeout ()
 specifier|public
 name|boolean
@@ -690,13 +580,6 @@ name|isShutdownNowOnTimeout
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Average load over the last minute"
-argument_list|)
 DECL|method|getLoad01 ()
 specifier|public
 name|String
@@ -717,13 +600,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Average load over the last five minutes"
-argument_list|)
 DECL|method|getLoad05 ()
 specifier|public
 name|String
@@ -744,13 +620,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Average load over the last fifteen minutes"
-argument_list|)
 DECL|method|getLoad15 ()
 specifier|public
 name|String
@@ -788,13 +657,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Start Camel"
-argument_list|)
 DECL|method|start ()
 specifier|public
 name|void
@@ -826,13 +688,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Stop Camel (shutdown)"
-argument_list|)
 DECL|method|stop ()
 specifier|public
 name|void
@@ -847,13 +702,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Suspend Camel"
-argument_list|)
 DECL|method|suspend ()
 specifier|public
 name|void
@@ -868,13 +716,6 @@ name|suspend
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Resume Camel"
-argument_list|)
 DECL|method|resume ()
 specifier|public
 name|void
@@ -908,13 +749,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Send body (in only)"
-argument_list|)
 DECL|method|sendBody (String endpointUri, Object body)
 specifier|public
 name|void
@@ -958,13 +792,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Send body (String type) (in only)"
-argument_list|)
 DECL|method|sendStringBody (String endpointUri, String body)
 specifier|public
 name|void
@@ -987,13 +814,6 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Send body and headers (in only)"
-argument_list|)
 DECL|method|sendBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
 specifier|public
 name|void
@@ -1047,13 +867,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Request body (in out)"
-argument_list|)
 DECL|method|requestBody (String endpointUri, Object body)
 specifier|public
 name|Object
@@ -1107,13 +920,6 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Request body (String type) (in out)"
-argument_list|)
 DECL|method|requestStringBody (String endpointUri, String body)
 specifier|public
 name|Object
@@ -1137,13 +943,6 @@ name|body
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Request body and headers (in out)"
-argument_list|)
 DECL|method|requestBodyAndHeaders (String endpointUri, Object body, Map<String, Object> headers)
 specifier|public
 name|Object
@@ -1207,13 +1006,6 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Dumps the routes as XML"
-argument_list|)
 DECL|method|dumpRoutesAsXml ()
 specifier|public
 name|String
@@ -1269,13 +1061,6 @@ name|def
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Adds or updates existing routes from XML"
-argument_list|)
 DECL|method|addOrUpdateRoutesFromXml (String xml)
 specifier|public
 name|void
@@ -1336,14 +1121,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates the endpoint by the given uri      *      * @param uri uri of endpoint to create      * @return<tt>true</tt> if a new endpoint was created,<tt>false</tt> if the endpoint already existed      * @throws Exception is thrown if error occurred      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Creates the endpoint by the given uri"
-argument_list|)
 DECL|method|createEndpoint (String uri)
 specifier|public
 name|boolean
@@ -1474,14 +1251,6 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Removes the endpoint by the given pattern      *      * @param pattern the pattern      * @return number of endpoints removed      * @throws Exception is thrown if error occurred      * @see CamelContext#removeEndpoints(String)      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Removes endpoints by the given pattern"
-argument_list|)
 DECL|method|removeEndpoints (String pattern)
 specifier|public
 name|int

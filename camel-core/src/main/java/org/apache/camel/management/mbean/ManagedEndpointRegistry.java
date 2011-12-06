@@ -42,39 +42,25 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedEndpointRegistryMBean
 import|;
 end_import
 
@@ -110,6 +96,8 @@ class|class
 name|ManagedEndpointRegistry
 extends|extends
 name|ManagedService
+implements|implements
+name|ManagedEndpointRegistryMBean
 block|{
 DECL|field|endpointRegistry
 specifier|private
@@ -152,13 +140,6 @@ return|return
 name|endpointRegistry
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Source"
-argument_list|)
 DECL|method|getSource ()
 specifier|public
 name|String
@@ -172,13 +153,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Number of endpoints cached"
-argument_list|)
 DECL|method|getSize ()
 specifier|public
 name|Integer
@@ -192,13 +166,6 @@ name|size
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum cache size (capacity)"
-argument_list|)
 DECL|method|getMaximumCacheSize ()
 specifier|public
 name|Integer
@@ -212,13 +179,6 @@ name|getMaxCacheSize
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Purges the cache"
-argument_list|)
 DECL|method|purge ()
 specifier|public
 name|void

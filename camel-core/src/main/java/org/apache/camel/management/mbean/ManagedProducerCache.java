@@ -42,39 +42,25 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedProducerCacheMBean
 import|;
 end_import
 
@@ -110,6 +96,8 @@ class|class
 name|ManagedProducerCache
 extends|extends
 name|ManagedService
+implements|implements
+name|ManagedProducerCacheMBean
 block|{
 DECL|field|producerCache
 specifier|private
@@ -152,13 +140,6 @@ return|return
 name|producerCache
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Source"
-argument_list|)
 DECL|method|getSource ()
 specifier|public
 name|String
@@ -189,13 +170,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Number of elements cached"
-argument_list|)
 DECL|method|getSize ()
 specifier|public
 name|Integer
@@ -209,13 +183,6 @@ name|size
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum cache size (capacity)"
-argument_list|)
 DECL|method|getMaximumCacheSize ()
 specifier|public
 name|Integer
@@ -229,13 +196,6 @@ name|getCapacity
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Cache hits"
-argument_list|)
 DECL|method|getHits ()
 specifier|public
 name|Long
@@ -249,13 +209,6 @@ name|getHits
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Cache misses"
-argument_list|)
 DECL|method|getMisses ()
 specifier|public
 name|Long
@@ -269,13 +222,6 @@ name|getMisses
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Reset cache statistics"
-argument_list|)
 DECL|method|resetStatistics ()
 specifier|public
 name|void
@@ -288,13 +234,6 @@ name|resetCacheStatistics
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Purges the cache"
-argument_list|)
 DECL|method|purge ()
 specifier|public
 name|void

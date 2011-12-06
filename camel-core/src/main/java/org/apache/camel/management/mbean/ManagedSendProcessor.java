@@ -54,7 +54,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
+name|ManagedResource
 import|;
 end_import
 
@@ -70,7 +70,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedSendProcessorMBean
 import|;
 end_import
 
@@ -120,6 +122,8 @@ class|class
 name|ManagedSendProcessor
 extends|extends
 name|ManagedProcessor
+implements|implements
+name|ManagedSendProcessorMBean
 block|{
 DECL|field|processor
 specifier|private
@@ -170,13 +174,6 @@ return|return
 name|processor
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Destination as Endpoint Uri"
-argument_list|)
 DECL|method|getDestination ()
 specifier|public
 name|String
@@ -193,13 +190,6 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Destination as Endpoint Uri"
-argument_list|)
 DECL|method|setDestination (String uri)
 specifier|public
 name|void
@@ -228,13 +218,6 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Message Exchange Pattern"
-argument_list|)
 DECL|method|getMessageExchangePattern ()
 specifier|public
 name|String

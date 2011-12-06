@@ -54,7 +54,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
+name|ManagedResource
 import|;
 end_import
 
@@ -70,7 +70,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedConsumerMBean
 import|;
 end_import
 
@@ -92,6 +94,8 @@ class|class
 name|ManagedConsumer
 extends|extends
 name|ManagedService
+implements|implements
+name|ManagedConsumerMBean
 block|{
 DECL|field|consumer
 specifier|private
@@ -134,13 +138,6 @@ return|return
 name|consumer
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint Uri"
-argument_list|)
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -157,13 +154,6 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Current number of inflight Exchanges"
-argument_list|)
 DECL|method|getInflightExchanges ()
 specifier|public
 name|Integer

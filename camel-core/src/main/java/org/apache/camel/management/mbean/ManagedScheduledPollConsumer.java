@@ -54,7 +54,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
+name|ManagedResource
 import|;
 end_import
 
@@ -70,7 +70,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedSchedulePollConsumerMBean
 import|;
 end_import
 
@@ -106,6 +108,8 @@ class|class
 name|ManagedScheduledPollConsumer
 extends|extends
 name|ManagedConsumer
+implements|implements
+name|ManagedSchedulePollConsumerMBean
 block|{
 DECL|field|consumer
 specifier|private
@@ -148,13 +152,6 @@ return|return
 name|consumer
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled Delay"
-argument_list|)
 DECL|method|getDelay ()
 specifier|public
 name|long
@@ -169,13 +166,6 @@ name|getDelay
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled Delay"
-argument_list|)
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -194,13 +184,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled Initial Delay"
-argument_list|)
 DECL|method|getInitialDelay ()
 specifier|public
 name|long
@@ -215,13 +198,6 @@ name|getInitialDelay
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled Initial Delay"
-argument_list|)
 DECL|method|setInitialDelay (long initialDelay)
 specifier|public
 name|void
@@ -240,13 +216,6 @@ name|initialDelay
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled Fixed Delay"
-argument_list|)
 DECL|method|isUseFixedDelay ()
 specifier|public
 name|boolean
@@ -261,13 +230,6 @@ name|isUseFixedDelay
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled Fixed Delay"
-argument_list|)
 DECL|method|setUseFixedDelay (boolean useFixedDelay)
 specifier|public
 name|void
@@ -286,13 +248,6 @@ name|useFixedDelay
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled TimeUnit"
-argument_list|)
 DECL|method|getTimeUnit ()
 specifier|public
 name|String
@@ -310,13 +265,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scheduled TimeUnit"
-argument_list|)
 DECL|method|setTimeUnit (String timeUnit)
 specifier|public
 name|void

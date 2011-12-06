@@ -66,39 +66,25 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedThreadPoolMBean
 import|;
 end_import
 
@@ -132,6 +118,8 @@ DECL|class|ManagedThreadPool
 specifier|public
 class|class
 name|ManagedThreadPool
+implements|implements
+name|ManagedThreadPoolMBean
 block|{
 DECL|field|camelContext
 specifier|private
@@ -260,13 +248,6 @@ return|return
 name|threadPool
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Thread Pool id"
-argument_list|)
 DECL|method|getId ()
 specifier|public
 name|String
@@ -277,13 +258,6 @@ return|return
 name|id
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Id of source for creating Thread Pool"
-argument_list|)
 DECL|method|getSourceId ()
 specifier|public
 name|String
@@ -294,13 +268,6 @@ return|return
 name|sourceId
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route id for the source, which created the Thread Pool"
-argument_list|)
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -311,13 +278,6 @@ return|return
 name|routeId
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Id of the thread pool profile which this pool is based upon"
-argument_list|)
 DECL|method|getThreadPoolProfileId ()
 specifier|public
 name|String
@@ -328,13 +288,6 @@ return|return
 name|threadPoolProfileId
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Core pool size"
-argument_list|)
 DECL|method|getCorePoolSize ()
 specifier|public
 name|int
@@ -348,13 +301,6 @@ name|getCorePoolSize
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Core pool size"
-argument_list|)
 DECL|method|setCorePoolSize (int corePoolSize)
 specifier|public
 name|void
@@ -372,13 +318,6 @@ name|corePoolSize
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Pool size"
-argument_list|)
 DECL|method|getPoolSize ()
 specifier|public
 name|int
@@ -392,13 +331,6 @@ name|getPoolSize
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum pool size"
-argument_list|)
 DECL|method|getMaximumPoolSize ()
 specifier|public
 name|int
@@ -412,13 +344,6 @@ name|getMaximumPoolSize
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum pool size"
-argument_list|)
 DECL|method|setMaximumPoolSize (int maximumPoolSize)
 specifier|public
 name|void
@@ -436,13 +361,6 @@ name|maximumPoolSize
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Largest pool size"
-argument_list|)
 DECL|method|getLargestPoolSize ()
 specifier|public
 name|int
@@ -456,13 +374,6 @@ name|getLargestPoolSize
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Active count"
-argument_list|)
 DECL|method|getActiveCount ()
 specifier|public
 name|int
@@ -476,13 +387,6 @@ name|getActiveCount
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Task count"
-argument_list|)
 DECL|method|getTaskCount ()
 specifier|public
 name|long
@@ -496,13 +400,6 @@ name|getTaskCount
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Completed task count"
-argument_list|)
 DECL|method|getCompletedTaskCount ()
 specifier|public
 name|long
@@ -516,13 +413,6 @@ name|getCompletedTaskCount
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Task queue size"
-argument_list|)
 DECL|method|getTaskQueueSize ()
 specifier|public
 name|long
@@ -556,13 +446,6 @@ literal|0
 return|;
 block|}
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Is task queue empty"
-argument_list|)
 DECL|method|isTaskQueueEmpty ()
 specifier|public
 name|boolean
@@ -596,13 +479,6 @@ literal|true
 return|;
 block|}
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Keep alive time in seconds"
-argument_list|)
 DECL|method|getKeepAliveTime ()
 specifier|public
 name|long
@@ -620,13 +496,6 @@ name|SECONDS
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Keep alive time in seconds"
-argument_list|)
 DECL|method|setKeepAliveTime (long keepAliveTimeInSeconds)
 specifier|public
 name|void
@@ -648,13 +517,6 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Is shutdown"
-argument_list|)
 DECL|method|isShutdown ()
 specifier|public
 name|boolean
@@ -668,13 +530,6 @@ name|isShutdown
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Purges the pool"
-argument_list|)
 DECL|method|purge ()
 specifier|public
 name|void

@@ -102,22 +102,6 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedInstance
 import|;
 end_import
@@ -134,7 +118,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedOperation
+name|ManagedResource
 import|;
 end_import
 
@@ -150,7 +134,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedProcessorMBean
 import|;
 end_import
 
@@ -202,6 +188,8 @@ extends|extends
 name|ManagedPerformanceCounter
 implements|implements
 name|ManagedInstance
+implements|,
+name|ManagedProcessorMBean
 block|{
 DECL|field|context
 specifier|private
@@ -364,13 +352,6 @@ operator|=
 name|route
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Processor State"
-argument_list|)
 DECL|method|getState ()
 specifier|public
 name|String
@@ -430,13 +411,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -450,13 +424,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route id"
-argument_list|)
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -481,13 +448,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Processor id"
-argument_list|)
 DECL|method|getProcessorId ()
 specifier|public
 name|String
@@ -498,13 +458,6 @@ return|return
 name|id
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Start Processor"
-argument_list|)
 DECL|method|start ()
 specifier|public
 name|void
@@ -542,13 +495,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Stop Processor"
-argument_list|)
 DECL|method|stop ()
 specifier|public
 name|void

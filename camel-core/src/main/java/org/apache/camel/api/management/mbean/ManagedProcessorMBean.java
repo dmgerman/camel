@@ -4,13 +4,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management.mbean
+DECL|package|org.apache.camel.api.management.mbean
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|api
 operator|.
 name|management
 operator|.
@@ -30,7 +32,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|ManagedAttribute
 import|;
 end_import
 
@@ -46,118 +48,94 @@ name|api
 operator|.
 name|management
 operator|.
-name|mbean
-operator|.
-name|ManagedCounterMBean
+name|ManagedOperation
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ManagementStrategy
-import|;
-end_import
-
-begin_class
+begin_interface
+DECL|interface|ManagedProcessorMBean
+specifier|public
+interface|interface
+name|ManagedProcessorMBean
+block|{
 annotation|@
-name|ManagedResource
+name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Managed Counter"
+literal|"Processor State"
 argument_list|)
-DECL|class|ManagedCounter
-specifier|public
-specifier|abstract
-class|class
-name|ManagedCounter
-implements|implements
-name|ManagedCounterMBean
-block|{
-DECL|field|exchangesTotal
-specifier|protected
-name|Statistic
-name|exchangesTotal
-decl_stmt|;
-DECL|method|init (ManagementStrategy strategy)
-specifier|public
-name|void
-name|init
-parameter_list|(
-name|ManagementStrategy
-name|strategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchangesTotal
-operator|=
-operator|new
-name|Statistic
-argument_list|(
-literal|"org.apache.camel.exchangesTotal"
-argument_list|,
-name|this
-argument_list|,
-name|Statistic
-operator|.
-name|UpdateMode
-operator|.
-name|COUNTER
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|reset ()
-specifier|public
-specifier|synchronized
-name|void
-name|reset
+DECL|method|getState ()
+name|String
+name|getState
 parameter_list|()
-block|{
-name|exchangesTotal
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getExchangesTotal ()
-specifier|public
-name|long
-name|getExchangesTotal
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel id"
+argument_list|)
+DECL|method|getCamelId ()
+name|String
+name|getCamelId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Route id"
+argument_list|)
+DECL|method|getRouteId ()
+name|String
+name|getRouteId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Processor id"
+argument_list|)
+DECL|method|getProcessorId ()
+name|String
+name|getProcessorId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Start Processor"
+argument_list|)
+DECL|method|start ()
+name|void
+name|start
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-return|return
-name|exchangesTotal
-operator|.
-name|getValue
-argument_list|()
-return|;
-block|}
-DECL|method|increment ()
-specifier|public
-specifier|synchronized
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Stop Processor"
+argument_list|)
+DECL|method|stop ()
 name|void
-name|increment
+name|stop
 parameter_list|()
-block|{
-name|exchangesTotal
-operator|.
-name|increment
-argument_list|()
-expr_stmt|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

@@ -102,22 +102,6 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedInstance
 import|;
 end_import
@@ -134,7 +118,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedOperation
+name|ManagedResource
 import|;
 end_import
 
@@ -150,7 +134,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedServiceMBean
 import|;
 end_import
 
@@ -182,6 +168,8 @@ class|class
 name|ManagedService
 implements|implements
 name|ManagedInstance
+implements|,
+name|ManagedServiceMBean
 block|{
 DECL|field|context
 specifier|private
@@ -281,13 +269,6 @@ operator|=
 name|route
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Service State"
-argument_list|)
 DECL|method|getState ()
 specifier|public
 name|String
@@ -347,13 +328,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -367,13 +341,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route id"
-argument_list|)
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -398,13 +365,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Start Service"
-argument_list|)
 DECL|method|start ()
 specifier|public
 name|void
@@ -439,13 +399,6 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Stop Service"
-argument_list|)
 DECL|method|stop ()
 specifier|public
 name|void
@@ -480,13 +433,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Whether this service supports suspension"
-argument_list|)
 DECL|method|isSupportSuspension ()
 specifier|public
 name|boolean
@@ -499,13 +445,6 @@ operator|instanceof
 name|SuspendableService
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Whether this service is suspended"
-argument_list|)
 DECL|method|isSuspended ()
 specifier|public
 name|boolean
@@ -541,13 +480,6 @@ literal|false
 return|;
 block|}
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Suspend Service"
-argument_list|)
 DECL|method|suspend ()
 specifier|public
 name|void
@@ -608,13 +540,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Resume Service"
-argument_list|)
 DECL|method|resume ()
 specifier|public
 name|void

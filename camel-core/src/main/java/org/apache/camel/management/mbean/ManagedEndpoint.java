@@ -66,22 +66,6 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedInstance
 import|;
 end_import
@@ -99,6 +83,24 @@ operator|.
 name|management
 operator|.
 name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedEndpointMBean
 import|;
 end_import
 
@@ -130,6 +132,8 @@ class|class
 name|ManagedEndpoint
 implements|implements
 name|ManagedInstance
+implements|,
+name|ManagedEndpointMBean
 block|{
 DECL|field|endpoint
 specifier|private
@@ -173,13 +177,6 @@ return|return
 name|endpoint
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -196,13 +193,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint Uri"
-argument_list|)
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -216,13 +206,6 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Singleton"
-argument_list|)
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -236,13 +219,6 @@ name|isSingleton
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Service State"
-argument_list|)
 DECL|method|getState ()
 specifier|public
 name|String

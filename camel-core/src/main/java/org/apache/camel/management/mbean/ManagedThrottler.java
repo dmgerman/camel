@@ -42,7 +42,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
+name|ManagedResource
 import|;
 end_import
 
@@ -58,7 +58,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedThrottlerMBean
 import|;
 end_import
 
@@ -124,6 +126,8 @@ class|class
 name|ManagedThrottler
 extends|extends
 name|ManagedProcessor
+implements|implements
+name|ManagedThrottlerMBean
 block|{
 DECL|field|throttler
 specifier|private
@@ -174,13 +178,6 @@ return|return
 name|throttler
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum requires per period"
-argument_list|)
 DECL|method|getMaximumRequestsPerPeriod ()
 specifier|public
 name|long
@@ -195,13 +192,6 @@ name|getCurrentMaximumRequestsPerPeriod
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum requires per period"
-argument_list|)
 DECL|method|setMaximumRequestsPerPeriod (long maximumRequestsPerPeriod)
 specifier|public
 name|void
@@ -223,13 +213,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Time period in millis"
-argument_list|)
 DECL|method|getTimePeriodMillis ()
 specifier|public
 name|long
@@ -244,13 +227,6 @@ name|getTimePeriodMillis
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Time period in millis"
-argument_list|)
 DECL|method|setTimePeriodMillis (long timePeriodMillis)
 specifier|public
 name|void

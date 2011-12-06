@@ -54,7 +54,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
+name|ManagedResource
 import|;
 end_import
 
@@ -70,7 +70,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedThrottlingInflightRoutePolicyMBean
 import|;
 end_import
 
@@ -106,6 +108,8 @@ class|class
 name|ManagedThrottlingInflightRoutePolicy
 extends|extends
 name|ManagedService
+implements|implements
+name|ManagedThrottlingInflightRoutePolicyMBean
 block|{
 DECL|field|policy
 specifier|private
@@ -148,13 +152,6 @@ return|return
 name|policy
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum inflight exchanges"
-argument_list|)
 DECL|method|getMaxInflightExchanges ()
 specifier|public
 name|int
@@ -169,13 +166,6 @@ name|getMaxInflightExchanges
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Maximum inflight exchanges"
-argument_list|)
 DECL|method|setMaxInflightExchanges (int maxInflightExchanges)
 specifier|public
 name|void
@@ -194,13 +184,6 @@ name|maxInflightExchanges
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Resume percentage of maximum inflight exchanges"
-argument_list|)
 DECL|method|getResumePercentOfMax ()
 specifier|public
 name|int
@@ -215,13 +198,6 @@ name|getResumePercentOfMax
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Resume percentage of maximum inflight exchanges"
-argument_list|)
 DECL|method|setResumePercentOfMax (int resumePercentOfMax)
 specifier|public
 name|void
@@ -240,13 +216,6 @@ name|resumePercentOfMax
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scope"
-argument_list|)
 DECL|method|getScope ()
 specifier|public
 name|String
@@ -264,13 +233,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Scope"
-argument_list|)
 DECL|method|setScope (String scope)
 specifier|public
 name|void
@@ -296,13 +258,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Logging Level"
-argument_list|)
 DECL|method|getLoggingLevel ()
 specifier|public
 name|String
@@ -320,13 +275,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Logging Level"
-argument_list|)
 DECL|method|setLoggingLevel (String loggingLevel)
 specifier|public
 name|void

@@ -64,7 +64,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedOperation
+name|ManagedResource
 import|;
 end_import
 
@@ -80,7 +80,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedBrowsableEndpointMBean
 import|;
 end_import
 
@@ -130,6 +132,8 @@ class|class
 name|ManagedBrowsableEndpoint
 extends|extends
 name|ManagedEndpoint
+implements|implements
+name|ManagedBrowsableEndpointMBean
 block|{
 DECL|field|endpoint
 specifier|private
@@ -166,13 +170,6 @@ return|return
 name|endpoint
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Current number of Exchanges in Queue"
-argument_list|)
 DECL|method|queueSize ()
 specifier|public
 name|long
@@ -189,13 +186,6 @@ name|size
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Get Exchange from queue by index"
-argument_list|)
 DECL|method|browseExchange (Integer index)
 specifier|public
 name|String
@@ -259,13 +249,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Get message body from queue by index"
-argument_list|)
 DECL|method|browseMessageBody (Integer index)
 specifier|public
 name|String
@@ -369,16 +352,6 @@ return|return
 name|body
 return|;
 block|}
-comment|/**      * @deprecated use {@link #browseAllMessagesAsXml(Boolean)} instead      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Get message as XML from queue by index"
-argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|browseMessageAsXml (Integer index)
 specifier|public
 name|String
@@ -397,13 +370,6 @@ literal|true
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Get message as XML from queue by index"
-argument_list|)
 DECL|method|browseMessageAsXml (Integer index, Boolean includeBody)
 specifier|public
 name|String
@@ -496,13 +462,6 @@ return|return
 name|xml
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Gets all the messages as XML from the queue"
-argument_list|)
 DECL|method|browseAllMessagesAsXml (Boolean includeBody)
 specifier|public
 name|String
@@ -525,13 +484,6 @@ name|includeBody
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Gets the range of messages as XML from the queue"
-argument_list|)
 DECL|method|browseRangeMessagesAsXml (Integer fromIndex, Integer toIndex, Boolean includeBody)
 specifier|public
 name|String

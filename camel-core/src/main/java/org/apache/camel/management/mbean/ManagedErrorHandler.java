@@ -66,7 +66,7 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
+name|ManagedResource
 import|;
 end_import
 
@@ -82,7 +82,9 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedResource
+name|mbean
+operator|.
+name|ManagedErrorHandlerMBean
 import|;
 end_import
 
@@ -158,6 +160,8 @@ DECL|class|ManagedErrorHandler
 specifier|public
 class|class
 name|ManagedErrorHandler
+implements|implements
+name|ManagedErrorHandlerMBean
 block|{
 DECL|field|routeContext
 specifier|private
@@ -251,13 +255,6 @@ return|return
 name|errorHandlerBuilder
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -274,13 +271,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Does the error handler support redelivery"
-argument_list|)
 DECL|method|isSupportRedelivery ()
 specifier|public
 name|boolean
@@ -293,13 +283,6 @@ operator|instanceof
 name|RedeliveryErrorHandler
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Is this error handler a dead letter channel"
-argument_list|)
 DECL|method|isDeadLetterChannel ()
 specifier|public
 name|boolean
@@ -334,13 +317,6 @@ operator|!=
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"When a message is moved to dead letter channel is it the original message or recent message"
-argument_list|)
 DECL|method|isDeadLetterUseOriginalMessage ()
 specifier|public
 name|boolean
@@ -373,13 +349,6 @@ name|isUseOriginalMessagePolicy
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Does this error handler support transactions"
-argument_list|)
 DECL|method|isSupportTransactions ()
 specifier|public
 name|boolean
@@ -415,13 +384,6 @@ literal|false
 return|;
 block|}
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint Uri for the dead letter channel where dead message is move to"
-argument_list|)
 DECL|method|getDeadLetterChannelEndpointUri ()
 specifier|public
 name|String
@@ -454,13 +416,6 @@ name|getDeadLetterUri
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for maximum redeliveries"
-argument_list|)
 DECL|method|getMaximumRedeliveries ()
 specifier|public
 name|Integer
@@ -496,13 +451,6 @@ name|getMaximumRedeliveries
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for maximum redeliveries"
-argument_list|)
 DECL|method|setMaximumRedeliveries (Integer maximum)
 specifier|public
 name|void
@@ -546,13 +494,6 @@ name|maximum
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for maximum redelivery delay"
-argument_list|)
 DECL|method|getMaximumRedeliveryDelay ()
 specifier|public
 name|Long
@@ -588,13 +529,6 @@ name|getMaximumRedeliveryDelay
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for maximum redelivery delay"
-argument_list|)
 DECL|method|setMaximumRedeliveryDelay (Long delay)
 specifier|public
 name|void
@@ -638,13 +572,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for redelivery delay"
-argument_list|)
 DECL|method|getRedeliveryDelay ()
 specifier|public
 name|Long
@@ -680,13 +607,6 @@ name|getRedeliveryDelay
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for redelivery delay"
-argument_list|)
 DECL|method|setRedeliveryDelay (Long delay)
 specifier|public
 name|void
@@ -730,13 +650,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for backoff multiplier"
-argument_list|)
 DECL|method|getBackOffMultiplier ()
 specifier|public
 name|Double
@@ -772,13 +685,6 @@ name|getBackOffMultiplier
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for backoff multiplier"
-argument_list|)
 DECL|method|setBackOffMultiplier (Double multiplier)
 specifier|public
 name|void
@@ -822,13 +728,6 @@ name|multiplier
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for collision avoidance factor"
-argument_list|)
 DECL|method|getCollisionAvoidanceFactor ()
 specifier|public
 name|Double
@@ -864,13 +763,6 @@ name|getCollisionAvoidanceFactor
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for collision avoidance factor"
-argument_list|)
 DECL|method|setCollisionAvoidanceFactor (Double factor)
 specifier|public
 name|void
@@ -914,13 +806,6 @@ name|factor
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for collision avoidance percent"
-argument_list|)
 DECL|method|getCollisionAvoidancePercent ()
 specifier|public
 name|Double
@@ -959,13 +844,6 @@ name|getCollisionAvoidancePercent
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for collision avoidance percent"
-argument_list|)
 DECL|method|setCollisionAvoidancePercent (Double percent)
 specifier|public
 name|void
@@ -1009,13 +887,6 @@ name|percent
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for delay pattern"
-argument_list|)
 DECL|method|getDelayPattern ()
 specifier|public
 name|String
@@ -1051,13 +922,6 @@ name|getDelayPattern
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for delay pattern"
-argument_list|)
 DECL|method|setDelayPattern (String pattern)
 specifier|public
 name|void
@@ -1101,13 +965,6 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging level when retries exhausted"
-argument_list|)
 DECL|method|getRetriesExhaustedLogLevel ()
 specifier|public
 name|String
@@ -1146,13 +1003,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging level when retries exhausted"
-argument_list|)
 DECL|method|setRetriesExhaustedLogLevel (String level)
 specifier|public
 name|void
@@ -1201,13 +1051,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging level when attempting retry"
-argument_list|)
 DECL|method|getRetryAttemptedLogLevel ()
 specifier|public
 name|String
@@ -1246,13 +1089,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging level when attempting retry"
-argument_list|)
 DECL|method|setRetryAttemptedLogLevel (String level)
 specifier|public
 name|void
@@ -1301,13 +1137,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging stack traces"
-argument_list|)
 DECL|method|getLogStackTrace ()
 specifier|public
 name|Boolean
@@ -1343,13 +1172,6 @@ name|isLogStackTrace
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging stack traces"
-argument_list|)
 DECL|method|setLogStackTrace (Boolean log)
 specifier|public
 name|void
@@ -1393,13 +1215,6 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging redelivery stack traces"
-argument_list|)
 DECL|method|getLogRetryStackTrace ()
 specifier|public
 name|Boolean
@@ -1435,13 +1250,6 @@ name|isLogRetryStackTrace
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging redelivery stack traces"
-argument_list|)
 DECL|method|setLogRetryStackTrace (Boolean log)
 specifier|public
 name|void
@@ -1485,13 +1293,6 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging handled exceptions"
-argument_list|)
 DECL|method|getLogHandled ()
 specifier|public
 name|Boolean
@@ -1527,13 +1328,6 @@ name|isLogHandled
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging handled exceptions"
-argument_list|)
 DECL|method|setLogHandled (Boolean log)
 specifier|public
 name|void
@@ -1577,13 +1371,6 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging handled and continued exceptions"
-argument_list|)
 DECL|method|getLogContinued ()
 specifier|public
 name|Boolean
@@ -1619,13 +1406,6 @@ name|isLogHandled
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging handled and continued exceptions"
-argument_list|)
 DECL|method|setLogContinued (Boolean log)
 specifier|public
 name|void
@@ -1669,13 +1449,6 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging exhausted exceptions"
-argument_list|)
 DECL|method|getLogExhausted ()
 specifier|public
 name|Boolean
@@ -1711,13 +1484,6 @@ name|isLogExhausted
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for logging exhausted exceptions"
-argument_list|)
 DECL|method|setLogExhausted (Boolean log)
 specifier|public
 name|void
@@ -1761,13 +1527,6 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for using collision avoidance"
-argument_list|)
 DECL|method|getUseCollisionAvoidance ()
 specifier|public
 name|Boolean
@@ -1803,13 +1562,6 @@ name|isUseCollisionAvoidance
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for using collision avoidance"
-argument_list|)
 DECL|method|setUseCollisionAvoidance (Boolean avoidance)
 specifier|public
 name|void
@@ -1853,13 +1605,6 @@ name|avoidance
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for using exponential backoff"
-argument_list|)
 DECL|method|getUseExponentialBackOff ()
 specifier|public
 name|Boolean
@@ -1895,13 +1640,6 @@ name|isUseExponentialBackOff
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"RedeliveryPolicy for using exponential backoff"
-argument_list|)
 DECL|method|setUseExponentialBackOff (Boolean backoff)
 specifier|public
 name|void

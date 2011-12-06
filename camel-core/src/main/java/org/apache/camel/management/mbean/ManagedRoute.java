@@ -124,39 +124,25 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedRouteMBean
 import|;
 end_import
 
@@ -246,6 +232,8 @@ extends|extends
 name|ManagedPerformanceCounter
 implements|implements
 name|TimerListener
+implements|,
+name|ManagedRouteMBean
 block|{
 DECL|field|VALUE_UNKNOWN
 specifier|public
@@ -357,13 +345,6 @@ return|return
 name|context
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route id"
-argument_list|)
 DECL|method|getRouteId ()
 specifier|public
 name|String
@@ -394,13 +375,6 @@ return|return
 name|id
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route Description"
-argument_list|)
 DECL|method|getDescription ()
 specifier|public
 name|String
@@ -411,13 +385,6 @@ return|return
 name|description
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route Endpoint Uri"
-argument_list|)
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -445,13 +412,6 @@ else|:
 name|VALUE_UNKNOWN
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route State"
-argument_list|)
 DECL|method|getState ()
 specifier|public
 name|String
@@ -494,13 +454,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Current number of inflight Exchanges"
-argument_list|)
 DECL|method|getInflightExchanges ()
 specifier|public
 name|Integer
@@ -539,13 +492,6 @@ literal|null
 return|;
 block|}
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -559,13 +505,6 @@ name|getName
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Tracing"
-argument_list|)
 DECL|method|getTracing ()
 specifier|public
 name|Boolean
@@ -582,13 +521,6 @@ name|isTracing
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Tracing"
-argument_list|)
 DECL|method|setTracing (Boolean tracing)
 specifier|public
 name|void
@@ -609,13 +541,6 @@ name|tracing
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Route Policy List"
-argument_list|)
 DECL|method|getRoutePolicyList ()
 specifier|public
 name|String
@@ -751,13 +676,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Average load over the last minute"
-argument_list|)
 DECL|method|getLoad01 ()
 specifier|public
 name|String
@@ -778,13 +696,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Average load over the last five minutes"
-argument_list|)
 DECL|method|getLoad05 ()
 specifier|public
 name|String
@@ -805,13 +716,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Average load over the last fifteen minutes"
-argument_list|)
 DECL|method|getLoad15 ()
 specifier|public
 name|String
@@ -849,13 +753,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Start route"
-argument_list|)
 DECL|method|start ()
 specifier|public
 name|void
@@ -893,13 +790,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Stop route"
-argument_list|)
 DECL|method|stop ()
 specifier|public
 name|void
@@ -937,13 +827,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Stop route (using timeout in seconds)"
-argument_list|)
 DECL|method|stop (long timeout)
 specifier|public
 name|void
@@ -990,13 +873,6 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Stop route, abort stop after timeout (in seconds)"
-argument_list|)
 DECL|method|stop (Long timeout, Boolean abortAfterTimeout)
 specifier|public
 name|boolean
@@ -1049,16 +925,6 @@ name|abortAfterTimeout
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated will be removed in the near future. Use stop and remove instead      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown and remove route"
-argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|shutdown ()
 specifier|public
 name|void
@@ -1096,16 +962,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated will be removed in the near future. Use stop and remove instead      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Shutdown and remove route (using timeout in seconds)"
-argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|shutdown (long timeout)
 specifier|public
 name|void
@@ -1152,13 +1008,6 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Remove route (must be stopped)"
-argument_list|)
 DECL|method|remove ()
 specifier|public
 name|boolean
@@ -1197,13 +1046,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Dumps the route as XML"
-argument_list|)
 DECL|method|dumpRouteAsXml ()
 specifier|public
 name|String
@@ -1250,13 +1092,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Updates the route from XML"
-argument_list|)
 DECL|method|updateRouteFromXml (String xml)
 specifier|public
 name|void

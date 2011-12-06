@@ -66,22 +66,6 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedInstance
 import|;
 end_import
@@ -99,6 +83,24 @@ operator|.
 name|management
 operator|.
 name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedComponentMBean
 import|;
 end_import
 
@@ -134,6 +136,8 @@ class|class
 name|ManagedComponent
 implements|implements
 name|ManagedInstance
+implements|,
+name|ManagedComponentMBean
 block|{
 DECL|field|component
 specifier|private
@@ -192,13 +196,6 @@ return|return
 name|component
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Component Name"
-argument_list|)
 DECL|method|getComponentName ()
 specifier|public
 name|String
@@ -209,13 +206,6 @@ return|return
 name|name
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Component State"
-argument_list|)
 DECL|method|getState ()
 specifier|public
 name|String
@@ -275,13 +265,6 @@ name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
 DECL|method|getCamelId ()
 specifier|public
 name|String
