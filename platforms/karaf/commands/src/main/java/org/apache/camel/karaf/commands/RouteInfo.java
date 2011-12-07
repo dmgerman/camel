@@ -220,16 +220,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"info-route"
+literal|"route-info"
 argument_list|,
 name|description
 operator|=
 literal|"Display information about a Camel route."
 argument_list|)
-DECL|class|InfoRouteCommand
+DECL|class|RouteInfo
 specifier|public
 class|class
-name|InfoRouteCommand
+name|RouteInfo
 extends|extends
 name|OsgiCommandSupport
 block|{

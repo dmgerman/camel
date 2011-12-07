@@ -26,7 +26,35 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|ModelHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|RouteDefinition
 import|;
 end_import
 
@@ -79,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Command to stop a Camel context.  */
+comment|/**  * Command to show the route marshaled in XML.  */
 end_comment
 
 begin_class
@@ -92,16 +120,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"stop-context"
+literal|"route-show"
 argument_list|,
 name|description
 operator|=
-literal|"Stop a Camel context."
+literal|"Display the Camel route definition in XML."
 argument_list|)
-DECL|class|StopContextCommand
+DECL|class|RouteShow
 specifier|public
 class|class
-name|StopContextCommand
+name|RouteShow
 extends|extends
 name|OsgiCommandSupport
 block|{
@@ -114,15 +142,42 @@ literal|0
 argument_list|,
 name|name
 operator|=
-literal|"context"
+literal|"route"
 argument_list|,
 name|description
 operator|=
-literal|"The name of the Camel context."
+literal|"The Camel route ID."
 argument_list|,
 name|required
 operator|=
 literal|true
+argument_list|,
+name|multiValued
+operator|=
+literal|false
+argument_list|)
+DECL|field|route
+name|String
+name|route
+decl_stmt|;
+annotation|@
+name|Argument
+argument_list|(
+name|index
+operator|=
+literal|1
+argument_list|,
+name|name
+operator|=
+literal|"context"
+argument_list|,
+name|description
+operator|=
+literal|"The Camel context name."
+argument_list|,
+name|required
+operator|=
+literal|false
 argument_list|,
 name|multiValued
 operator|=
@@ -161,19 +216,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|camelContext
+name|Route
+name|camelRoute
 init|=
 name|camelController
 operator|.
-name|getCamelContext
+name|getRoute
 argument_list|(
+name|route
+argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|camelContext
+name|camelRoute
 operator|==
 literal|null
 condition|)
@@ -184,21 +241,75 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"The Camel context "
+literal|"Camel route "
 operator|+
-name|camelContext
+name|route
 operator|+
-literal|" is not found."
+literal|" not found."
 argument_list|)
 expr_stmt|;
 return|return
 literal|null
 return|;
 block|}
-name|camelContext
+name|RouteDefinition
+name|routeDefinition
+init|=
+name|camelController
 operator|.
-name|stop
+name|getRouteDefinition
+argument_list|(
+name|route
+argument_list|,
+name|camelRoute
+operator|.
+name|getRouteContext
 argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|routeDefinition
+operator|==
+literal|null
+condition|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Definition of route "
+operator|+
+name|route
+operator|+
+literal|" not found."
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|ModelHelper
+operator|.
+name|dumpModelAsXml
+argument_list|(
+name|routeDefinition
+argument_list|)
+argument_list|)
 expr_stmt|;
 return|return
 literal|null

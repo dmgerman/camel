@@ -130,16 +130,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"info-context"
+literal|"context-info"
 argument_list|,
 name|description
 operator|=
 literal|"Display detailed information about a Camel context."
 argument_list|)
-DECL|class|InfoContextCommand
+DECL|class|ContextInfo
 specifier|public
 class|class
-name|InfoContextCommand
+name|ContextInfo
 extends|extends
 name|OsgiCommandSupport
 block|{

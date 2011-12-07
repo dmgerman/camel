@@ -36,18 +36,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|felix
 operator|.
 name|gogo
@@ -91,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Command to resume a route.  */
+comment|/**  * Command to stop a Camel context.  */
 end_comment
 
 begin_class
@@ -104,16 +92,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"resume-route"
+literal|"context-stop"
 argument_list|,
 name|description
 operator|=
-literal|"Resume a Camel route."
+literal|"Stop a Camel context."
 argument_list|)
-DECL|class|ResumeRouteCommand
+DECL|class|ContextStop
 specifier|public
 class|class
-name|ResumeRouteCommand
+name|ContextStop
 extends|extends
 name|OsgiCommandSupport
 block|{
@@ -126,42 +114,15 @@ literal|0
 argument_list|,
 name|name
 operator|=
-literal|"route"
-argument_list|,
-name|description
-operator|=
-literal|"The Camel route ID."
-argument_list|,
-name|required
-operator|=
-literal|true
-argument_list|,
-name|multiValued
-operator|=
-literal|false
-argument_list|)
-DECL|field|route
-name|String
-name|route
-decl_stmt|;
-annotation|@
-name|Argument
-argument_list|(
-name|index
-operator|=
-literal|1
-argument_list|,
-name|name
-operator|=
 literal|"context"
 argument_list|,
 name|description
 operator|=
-literal|"The Camel context name."
+literal|"The name of the Camel context."
 argument_list|,
 name|required
 operator|=
-literal|false
+literal|true
 argument_list|,
 name|multiValued
 operator|=
@@ -200,21 +161,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Route
-name|camelRoute
+name|CamelContext
+name|camelContext
 init|=
 name|camelController
 operator|.
-name|getRoute
+name|getCamelContext
 argument_list|(
-name|route
-argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|camelRoute
+name|camelContext
 operator|==
 literal|null
 condition|)
@@ -225,34 +184,21 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Camel route "
+literal|"The Camel context "
 operator|+
-name|route
+name|camelContext
 operator|+
-literal|" not found."
+literal|" is not found."
 argument_list|)
 expr_stmt|;
 return|return
 literal|null
 return|;
 block|}
-name|CamelContext
-name|camelContext
-init|=
-name|camelRoute
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-decl_stmt|;
 name|camelContext
 operator|.
-name|resumeRoute
-argument_list|(
-name|route
-argument_list|)
+name|stop
+argument_list|()
 expr_stmt|;
 return|return
 literal|null

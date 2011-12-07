@@ -26,35 +26,19 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ModelHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RouteDefinition
 import|;
 end_import
 
@@ -107,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Command to show the route marshaled in XML.  */
+comment|/**  * Command to resume a route.  */
 end_comment
 
 begin_class
@@ -120,16 +104,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"show-route"
+literal|"route-resume"
 argument_list|,
 name|description
 operator|=
-literal|"Display the Camel route definition in XML."
+literal|"Resume a Camel route."
 argument_list|)
-DECL|class|ShowRouteCommand
+DECL|class|RouteResume
 specifier|public
 class|class
-name|ShowRouteCommand
+name|RouteResume
 extends|extends
 name|OsgiCommandSupport
 block|{
@@ -252,15 +236,9 @@ return|return
 literal|null
 return|;
 block|}
-name|RouteDefinition
-name|routeDefinition
+name|CamelContext
+name|camelContext
 init|=
-name|camelController
-operator|.
-name|getRouteDefinition
-argument_list|(
-name|route
-argument_list|,
 name|camelRoute
 operator|.
 name|getRouteContext
@@ -268,47 +246,12 @@ argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|routeDefinition
-operator|==
-literal|null
-condition|)
-block|{
-name|System
+name|camelContext
 operator|.
-name|err
-operator|.
-name|println
+name|resumeRoute
 argument_list|(
-literal|"Definition of route "
-operator|+
 name|route
-operator|+
-literal|" not found."
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|ModelHelper
-operator|.
-name|dumpModelAsXml
-argument_list|(
-name|routeDefinition
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

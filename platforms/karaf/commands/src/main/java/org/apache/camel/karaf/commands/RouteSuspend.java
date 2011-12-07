@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Command to stop a route.  */
+comment|/**  * Command to suspend a route.  */
 end_comment
 
 begin_class
@@ -104,16 +104,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|" stop-route"
+literal|" route-suspend"
 argument_list|,
 name|description
 operator|=
-literal|"Stop a Camel route."
+literal|"Suspend a Camel route."
 argument_list|)
-DECL|class|StopRouteCommand
+DECL|class|RouteSuspend
 specifier|public
 class|class
-name|StopRouteCommand
+name|RouteSuspend
 extends|extends
 name|OsgiCommandSupport
 block|{
@@ -249,7 +249,7 @@ argument_list|()
 decl_stmt|;
 name|camelContext
 operator|.
-name|stopRoute
+name|suspendRoute
 argument_list|(
 name|route
 argument_list|)
