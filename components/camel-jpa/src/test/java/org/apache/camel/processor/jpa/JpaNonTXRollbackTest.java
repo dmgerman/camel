@@ -401,7 +401,7 @@ argument_list|)
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|4
+literal|5
 argument_list|)
 expr_stmt|;
 comment|// and only the 2 good messages goes here
@@ -500,7 +500,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"?consumer.transacted=false&delay=1000"
+literal|"?consumer.transacted=false&delay=100"
 argument_list|)
 operator|.
 name|routeId
