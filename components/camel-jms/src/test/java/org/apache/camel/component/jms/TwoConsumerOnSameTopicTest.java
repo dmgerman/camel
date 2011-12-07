@@ -505,11 +505,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"activemq-data"
-argument_list|)
-expr_stmt|;
 name|CamelContext
 name|camelContext
 init|=
@@ -518,7 +513,7 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|// must be persistent to rember the messages
+comment|// must be persistent to remember the messages
 name|ConnectionFactory
 name|connectionFactory
 init|=

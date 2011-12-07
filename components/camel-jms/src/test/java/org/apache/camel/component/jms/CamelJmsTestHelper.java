@@ -256,6 +256,14 @@ operator|.
 name|incrementAndGet
 argument_list|()
 decl_stmt|;
+comment|// use an unique data directory in target
+name|String
+name|dir
+init|=
+literal|"target/activemq-data-"
+operator|+
+name|id
+decl_stmt|;
 name|String
 name|url
 init|=
@@ -263,7 +271,9 @@ literal|"vm://test-broker-"
 operator|+
 name|id
 operator|+
-literal|"?broker.persistent=true&broker.useJmx=false"
+literal|"?broker.persistent=true&broker.useJmx=false&broker.dataDirectory="
+operator|+
+name|dir
 decl_stmt|;
 if|if
 condition|(
