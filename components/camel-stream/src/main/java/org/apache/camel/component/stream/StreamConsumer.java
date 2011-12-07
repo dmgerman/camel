@@ -238,6 +238,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -344,12 +358,19 @@ name|executor
 decl_stmt|;
 DECL|field|inputStream
 specifier|private
+specifier|volatile
 name|InputStream
 name|inputStream
 init|=
 name|System
 operator|.
 name|in
+decl_stmt|;
+DECL|field|inputStreamToClose
+specifier|private
+specifier|volatile
+name|InputStream
+name|inputStreamToClose
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -534,6 +555,14 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// do not close regular inputStream as it may be System.in etc.
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|inputStreamToClose
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|doStop
@@ -576,6 +605,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// close old stream, before obtaining a new stream
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|inputStreamToClose
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 literal|"in"
@@ -591,6 +628,10 @@ operator|=
 name|System
 operator|.
 name|in
+expr_stmt|;
+name|inputStreamToClose
+operator|=
+literal|null
 expr_stmt|;
 block|}
 elseif|else
@@ -609,6 +650,10 @@ operator|=
 name|resolveStreamFromFile
 argument_list|()
 expr_stmt|;
+name|inputStreamToClose
+operator|=
+name|inputStream
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -626,6 +671,10 @@ operator|=
 name|resolveStreamFromUrl
 argument_list|()
 expr_stmt|;
+name|inputStreamToClose
+operator|=
+name|inputStream
+expr_stmt|;
 block|}
 name|Charset
 name|charset
@@ -635,9 +684,7 @@ operator|.
 name|getCharset
 argument_list|()
 decl_stmt|;
-name|BufferedReader
-name|br
-init|=
+return|return
 operator|new
 name|BufferedReader
 argument_list|(
@@ -649,9 +696,6 @@ argument_list|,
 name|charset
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|br
 return|;
 block|}
 DECL|method|readFromStream ()
