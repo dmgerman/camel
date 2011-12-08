@@ -41,6 +41,8 @@ DECL|interface|ManagedSchedulePollConsumerMBean
 specifier|public
 interface|interface
 name|ManagedSchedulePollConsumerMBean
+extends|extends
+name|ManagedConsumerMBean
 block|{
 annotation|@
 name|ManagedAttribute

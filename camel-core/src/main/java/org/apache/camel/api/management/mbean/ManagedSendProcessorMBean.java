@@ -41,6 +41,8 @@ DECL|interface|ManagedSendProcessorMBean
 specifier|public
 interface|interface
 name|ManagedSendProcessorMBean
+extends|extends
+name|ManagedProcessorMBean
 block|{
 annotation|@
 name|ManagedAttribute

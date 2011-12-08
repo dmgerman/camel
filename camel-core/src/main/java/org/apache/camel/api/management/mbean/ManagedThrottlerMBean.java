@@ -41,6 +41,8 @@ DECL|interface|ManagedThrottlerMBean
 specifier|public
 interface|interface
 name|ManagedThrottlerMBean
+extends|extends
+name|ManagedProcessorMBean
 block|{
 annotation|@
 name|ManagedAttribute

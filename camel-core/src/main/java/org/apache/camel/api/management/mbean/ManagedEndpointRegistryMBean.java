@@ -57,6 +57,8 @@ DECL|interface|ManagedEndpointRegistryMBean
 specifier|public
 interface|interface
 name|ManagedEndpointRegistryMBean
+extends|extends
+name|ManagedServiceMBean
 block|{
 annotation|@
 name|ManagedAttribute

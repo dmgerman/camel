@@ -41,6 +41,8 @@ DECL|interface|ManagedSuspendableRouteMBean
 specifier|public
 interface|interface
 name|ManagedSuspendableRouteMBean
+extends|extends
+name|ManagedRouteMBean
 block|{
 annotation|@
 name|ManagedOperation

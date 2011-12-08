@@ -41,6 +41,8 @@ DECL|interface|ManagedProducerMBean
 specifier|public
 interface|interface
 name|ManagedProducerMBean
+extends|extends
+name|ManagedServiceMBean
 block|{
 annotation|@
 name|ManagedAttribute

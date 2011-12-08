@@ -41,6 +41,8 @@ DECL|interface|ManagedThrottlingInflightRoutePolicyMBean
 specifier|public
 interface|interface
 name|ManagedThrottlingInflightRoutePolicyMBean
+extends|extends
+name|ManagedServiceMBean
 block|{
 annotation|@
 name|ManagedAttribute

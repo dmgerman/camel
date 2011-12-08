@@ -57,6 +57,8 @@ DECL|interface|ManagedProcessorMBean
 specifier|public
 interface|interface
 name|ManagedProcessorMBean
+extends|extends
+name|ManagedPerformanceCounterMBean
 block|{
 annotation|@
 name|ManagedAttribute

@@ -41,6 +41,8 @@ DECL|interface|ManagedBrowsableEndpointMBean
 specifier|public
 interface|interface
 name|ManagedBrowsableEndpointMBean
+extends|extends
+name|ManagedEndpointMBean
 block|{
 annotation|@
 name|ManagedOperation

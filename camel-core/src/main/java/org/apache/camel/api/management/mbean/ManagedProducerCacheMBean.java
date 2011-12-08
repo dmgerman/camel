@@ -57,6 +57,8 @@ DECL|interface|ManagedProducerCacheMBean
 specifier|public
 interface|interface
 name|ManagedProducerCacheMBean
+extends|extends
+name|ManagedServiceMBean
 block|{
 annotation|@
 name|ManagedAttribute

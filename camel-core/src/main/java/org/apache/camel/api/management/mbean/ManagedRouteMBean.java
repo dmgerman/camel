@@ -57,6 +57,8 @@ DECL|interface|ManagedRouteMBean
 specifier|public
 interface|interface
 name|ManagedRouteMBean
+extends|extends
+name|ManagedPerformanceCounterMBean
 block|{
 annotation|@
 name|ManagedAttribute

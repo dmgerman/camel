@@ -57,6 +57,8 @@ DECL|interface|ManagedDelayerMBean
 specifier|public
 interface|interface
 name|ManagedDelayerMBean
+extends|extends
+name|ManagedProcessorMBean
 block|{
 annotation|@
 name|ManagedAttribute
