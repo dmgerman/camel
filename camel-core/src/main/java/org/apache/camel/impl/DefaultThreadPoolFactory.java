@@ -435,7 +435,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.impl.ThreadPoolFactory#newScheduledThreadPool(java.lang.Integer, java.util.concurrent.ThreadFactory)      */
 annotation|@
 name|Override
 DECL|method|newScheduledThreadPool (ThreadPoolProfile profile, ThreadFactory threadFactory)
