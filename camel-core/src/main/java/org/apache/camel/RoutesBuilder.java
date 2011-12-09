@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A routes builder is capable of building routes using the builder and model classes.  *<p/>  * Eventually the routes is added to a {@link org.apache.camel.CamelContext} where they  * run inside.  */
+comment|/**  * A routes builder is capable of building routes using the builder and model classes.  *<p/>  * Eventually the routes are added to a {@link org.apache.camel.CamelContext} where they  * run inside.  */
 end_comment
 
 begin_interface

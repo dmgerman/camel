@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Service} which is also capable of shutting down.  *<p/>  * This is useable for services which needs more fine grained control when {@link CamelContext} is shutting down.  * Then its possible to have different behavior when stopping or shutting down.  *<p/>  * For example to shutdown thread pools on shutdown and<b>not</b> on stop.  *  * @version   */
+comment|/**  * A {@link org.apache.camel.Service} which is capable of being shut down.  *<p/>  * This is useful for services which need more fine grained control when the {@link CamelContext} is shutting down.  * This allows customization of behavior when stopping or shutting down.  *<p/>  * For example to shutdown thread pools during shutdown and<b>not</b> at CamelContext termination.  *  * @version   */
 end_comment
 
 begin_interface
@@ -26,7 +26,7 @@ name|ShutdownableService
 extends|extends
 name|Service
 block|{
-comment|/**      * Shutdown the service, which means it cannot be started again.      *      * @throws Exception is thrown if shutting down failed      */
+comment|/**      * Shutdown the service, which means it cannot be started again.      *      * @throws Exception thrown if shutting down failed      */
 DECL|method|shutdown ()
 name|void
 name|shutdown

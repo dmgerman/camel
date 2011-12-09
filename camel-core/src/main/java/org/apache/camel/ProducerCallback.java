@@ -27,7 +27,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Performs operation on the given producer to send the given exchange.      *      * @param producer        the producer, is newer<tt>null</tt>      * @param exchange        the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param exchangePattern the exchange pattern, can be<tt>null</tt>      * @return the response      * @throws Exception if an internal processing error has occurred.      */
+comment|/**      * Performs operation on the given producer to send the given exchange.      *      * @param producer        the producer, is never<tt>null</tt>      * @param exchange        the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param exchangePattern the exchange pattern, can be<tt>null</tt>      * @return the response      * @throws Exception if an internal processing error has occurred.      */
 DECL|method|doInProducer (Producer producer, Exchange exchange, ExchangePattern exchangePattern)
 name|T
 name|doInProducer

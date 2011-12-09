@@ -14,6 +14,10 @@ name|camel
 package|;
 end_package
 
+begin_comment
+comment|/**  * An exception thrown for authorization errors occurring in a Camel exchange.  *  * @version   */
+end_comment
+
 begin_class
 DECL|class|CamelAuthorizationException
 specifier|public

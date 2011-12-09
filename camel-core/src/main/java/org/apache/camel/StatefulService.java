@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A {@link Service} which has all the lifecycles events and offers details about its current state.  */
+comment|/**  * A {@link Service} which has all the lifecycle events and offers details about its current state.  */
 end_comment
 
 begin_interface

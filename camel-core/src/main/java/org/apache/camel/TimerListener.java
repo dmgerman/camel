@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Listener for receiving timer events.  *<p/>  * For example to periodically to update internal state.  *  * @see org.apache.camel.support.TimerListenerManager  */
+comment|/**  * Listener for receiving timer events.  *<p/>  * For example to periodically update internal state.  *  * @see org.apache.camel.support.TimerListenerManager  */
 end_comment
 
 begin_interface

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represent the kinds of options for shutting down.  *<p/>  * Is used for example to defer shutting down a route until all inflight exchanges has  * been completed, by which the route safely can be shutdown.  *<p/>  * This allows fine grained configuration to accomplish graceful shutdown and you  * for example have some internal route which other routes is dependent upon.  *<ul>  *<li>Default - The<b>default</b> behavior where a route will either be attempted to shutdown now</li>  *<li>Defer - Will defer shutting down the route and let it be active during graceful shutdown.  *               The route will at a later stage be shutdown during the graceful shutdown process.</li>  *</ul>  */
+comment|/**  * Represents the options available when shutting down routes.  *<p/>  * Is used for example to defer shutting down a route until all inflight exchanges have  * been completed, after which the route can be shutdown safely.  *<p/>  * This allows fine grained configuration in accomplishing graceful shutdown where you  * have for example some internal route which other routes are dependent upon.  *<ul>  *<li>Default - The<b>default</b> behavior where a route will attempt to shutdown now</li>  *<li>Defer - Will defer shutting down the route and let it be active during graceful shutdown.  *               The route will be shutdown at a later stage during the graceful shutdown process.</li>  *</ul>  */
 end_comment
 
 begin_enum

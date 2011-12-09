@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Interface to be implement by objects that should be orderable, such as in a {@link java.util.Collection}.  *  * @version   */
+comment|/**  * Interface to be implemented by objects that should be orderable, such as with a {@link java.util.Collection}.  *  * @version   */
 end_comment
 
 begin_interface

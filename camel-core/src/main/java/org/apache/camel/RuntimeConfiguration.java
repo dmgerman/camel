@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Various runtime configuration used by {@link org.apache.camel.CamelContext} and {@link org.apache.camel.spi.RouteContext}  * for cross cutting functions such as tracing, delayer, stream cache and the likes.  *  * @version   */
+comment|/**  * Various runtime configuration options used by {@link org.apache.camel.CamelContext} and {@link org.apache.camel.spi.RouteContext}  * for cross cutting functions such as tracing, delayer, stream cache and the like.  *  * @version   */
 end_comment
 
 begin_interface
@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|RuntimeConfiguration
 block|{
-comment|/**      * Sets whether stream caching is enabled or not (default is disabled).      *<p/>      * Is disabled by default      *      * @param cache whether stream caching is enabled or not      */
+comment|/**      * Sets whether stream caching is enabled or not (default is disabled).      *<p/>      *      * @param cache whether stream caching is enabled or not      */
 DECL|method|setStreamCaching (Boolean cache)
 name|void
 name|setStreamCaching
@@ -39,7 +39,7 @@ name|Boolean
 name|isStreamCaching
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *<p/>      * Is disabled by default      *      * @param tracing whether tracing is enabled or not.      */
+comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *<p/>      *      * @param tracing whether to enable tracing.      */
 DECL|method|setTracing (Boolean tracing)
 name|void
 name|setTracing
@@ -54,7 +54,7 @@ name|Boolean
 name|isTracing
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether handle fault is enabled or not (default is disabled).      *<p/>      * Is disabled by default      *      * @param handleFault whether handle fault is enabled or not.      */
+comment|/**      * Sets whether fault handling is enabled or not (default is disabled).      *<p/>      *      * @param handleFault whether to enable fault handling.      */
 DECL|method|setHandleFault (Boolean handleFault)
 name|void
 name|setHandleFault
@@ -63,13 +63,13 @@ name|Boolean
 name|handleFault
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether tracing enabled      *      * @return true if tracing is enabled      */
+comment|/**      * Returns whether fault handling enabled      *      * @return true if fault handling is enabled      */
 DECL|method|isHandleFault ()
 name|Boolean
 name|isHandleFault
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a delay value in millis that a message is delayed at every step it takes in the route path,      * to slow things down to better helps you to see what goes      *<p/>      * Is disabled by default      *      * @param delay delay in millis      */
+comment|/**      * Sets a delay value in millis that a message is delayed at every step it takes in the route path,      * slowing the process down to better observe what is occurring      *<p/>      * Is disabled by default      *      * @param delay delay in millis      */
 DECL|method|setDelayer (Long delay)
 name|void
 name|setDelayer
@@ -84,7 +84,7 @@ name|Long
 name|getDelayer
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether it should automatic start when Camel starts.      *<p/>      * Currently only routes can be disabled, as {@link CamelContext} itself are always started}      *<br/>      * Default is true to always startup.      *      * @param autoStartup  whether to auto startup.      */
+comment|/**      * Sets whether the object should automatically start when Camel starts.      *<p/>      * Currently only routes can be disabled, as {@link CamelContext}s are always started.      *<br/>      * Default is true to always start up.      *      * @param autoStartup whether to start up automatically.      */
 DECL|method|setAutoStartup (Boolean autoStartup)
 name|void
 name|setAutoStartup
@@ -93,13 +93,13 @@ name|Boolean
 name|autoStartup
 parameter_list|)
 function_decl|;
-comment|/**      * Gets whether it should automatic start when Camel starts.      *      * @return true if should auto start      */
+comment|/**      * Gets whether the object should automatically start when Camel starts.      *      * @return true if object should automatically start      */
 DECL|method|isAutoStartup ()
 name|Boolean
 name|isAutoStartup
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the option to use when shutting down routes.      *      * @param shutdownRoute the option to use.      */
+comment|/**      * Sets the ShutdownRoute option for routes.      *      * @param shutdownRoute the option to use.      */
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 name|void
 name|setShutdownRoute
@@ -108,13 +108,13 @@ name|ShutdownRoute
 name|shutdownRoute
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the option to use when shutting down route.      *      * @return the option      */
+comment|/**      * Gets the option to use when shutting down the route.      *      * @return the option      */
 DECL|method|getShutdownRoute ()
 name|ShutdownRoute
 name|getShutdownRoute
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the option to use when shutting down a route and how to act when it has running tasks.      *<p/>      * A running task is for example a {@link org.apache.camel.BatchConsumer} which has a group      * of messages to process. With this option you can control whether it should complete the entire      * group or stop after the current message has been processed.      *      * @param shutdownRunningTask the option to use.      */
+comment|/**      * Sets the ShutdownRunningTask option to use when shutting down a route.      *<p/>      *      * @param shutdownRunningTask the option to use.      */
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 name|void
 name|setShutdownRunningTask
@@ -123,7 +123,7 @@ name|ShutdownRunningTask
 name|shutdownRunningTask
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the option to use when shutting down a route and how to act when it has running tasks.      *      * @return the option      */
+comment|/**      * Gets the ShutdownRunningTask option in use when shutting down a route.      *      * @return the option      */
 DECL|method|getShutdownRunningTask ()
 name|ShutdownRunningTask
 name|getShutdownRunningTask

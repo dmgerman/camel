@@ -117,7 +117,7 @@ name|RouteContext
 name|getRouteContext
 parameter_list|()
 function_decl|;
-comment|/**      * A strategy callback allowing special initialization when services is starting.      *      * @param services the service      * @throws Exception is thrown in case of error      */
+comment|/**      * A strategy callback allowing special initialization when services are starting.      *      * @param services the service      * @throws Exception is thrown in case of error      */
 DECL|method|onStartingServices (List<Service> services)
 name|void
 name|onStartingServices

@@ -44,7 +44,7 @@ name|Processor
 name|getProcessor
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the model definition that represents this node      *      * @return the definition, is newer<tt>null</tt>      */
+comment|/**      * Gets the model definition that represents this node      *      * @return the definition, is never<tt>null</tt>      */
 DECL|method|getProcessorDefinition ()
 name|ProcessorDefinition
 argument_list|<
@@ -62,7 +62,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Whether this node is abstract (no real processor under the cover).      *<p/>      * Some nodes is abstract that represents intermediate steps for instance with      * onException, onCompletion or intercept      *      * @return whether this node is abstract or not      */
+comment|/**      * Whether this node is abstract (no real processor under the cover).      *<p/>      * Some nodes that represent intermediate steps are abstract, for instance with      * onException, onCompletion or intercept      *      * @return whether this node is abstract or not      */
 DECL|method|isAbstract ()
 name|boolean
 name|isAbstract
