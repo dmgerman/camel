@@ -171,6 +171,9 @@ literal|"b"
 block|}
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper
@@ -410,6 +413,9 @@ name|testIteratorWithComma
 parameter_list|()
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper
@@ -457,6 +463,9 @@ name|testIteratorWithOtherDelimiter
 parameter_list|()
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper
@@ -506,6 +515,9 @@ name|testIteratorEmpty
 parameter_list|()
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper
@@ -572,7 +584,7 @@ parameter_list|()
 block|{
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=
@@ -651,7 +663,7 @@ block|}
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|it
 init|=

@@ -132,18 +132,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URL
@@ -622,7 +610,11 @@ comment|/**      * A helper method for comparing objects ordering in which it us
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|typeCoerceCompare (TypeConverter converter, Object leftValue, Object rightValue)
 specifier|public
@@ -1062,7 +1054,11 @@ comment|/**      * A helper method for performing an ordered comparison on the o
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|compare (Object a, Object b, boolean ignoreCase)
 specifier|public
@@ -1980,10 +1976,16 @@ name|Collection
 condition|)
 block|{
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|collection
 init|=
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|collectionOrArray
 decl_stmt|;
@@ -2036,6 +2038,9 @@ block|}
 else|else
 block|{
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|iter
 init|=
 name|createIterator
@@ -2168,6 +2173,9 @@ block|{
 return|return
 operator|(
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 operator|)
 name|value
 return|;
@@ -2184,6 +2192,9 @@ return|return
 operator|(
 operator|(
 name|Iterable
+argument_list|<
+name|Object
+argument_list|>
 operator|)
 name|value
 operator|)
@@ -2462,13 +2473,16 @@ return|;
 block|}
 block|}
 comment|/**      * Returns the predicate matching boolean on a {@link List} result set where      * if the first element is a boolean its value is used otherwise this method      * returns true if the collection is not empty      *      * @return<tt>true</tt> if the first element is a boolean and its value      *         is true or if the list is non empty      */
-DECL|method|matches (List list)
+DECL|method|matches (List<?> list)
 specifier|public
 specifier|static
 name|boolean
 name|matches
 parameter_list|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 parameter_list|)
 block|{
@@ -4554,6 +4568,9 @@ argument_list|()
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|newType
 init|=
 name|convertPrimitiveTypeToWrapperType
@@ -4749,13 +4766,16 @@ throw|;
 block|}
 block|}
 comment|/**      * Does the given class have a default public no-arg constructor.      */
-DECL|method|hasDefaultPublicNoArgConstructor (Class type)
+DECL|method|hasDefaultPublicNoArgConstructor (Class<?> type)
 specifier|public
 specifier|static
 name|boolean
 name|hasDefaultPublicNoArgConstructor
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -4763,6 +4783,9 @@ comment|// getConstructors() returns only public constructors
 for|for
 control|(
 name|Constructor
+argument_list|<
+name|?
+argument_list|>
 name|ctr
 range|:
 name|type
@@ -5021,10 +5044,16 @@ condition|)
 block|{
 comment|// is it an empty collection
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|col
 init|=
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;
@@ -5630,13 +5659,16 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Lookup the constant field on the given class with the given name      *      * @param clazz  the class      * @param name   the name of the field to lookup      * @return the value of the constant field, or<tt>null</tt> if not found      */
-DECL|method|lookupConstantFieldValue (Class clazz, String name)
+DECL|method|lookupConstantFieldValue (Class<?> clazz, String name)
 specifier|public
 specifier|static
 name|String
 name|lookupConstantFieldValue
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|String

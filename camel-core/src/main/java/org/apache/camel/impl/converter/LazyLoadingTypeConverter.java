@@ -180,13 +180,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doConvertTo (final Class type, final Exchange exchange, final Object value)
+DECL|method|doConvertTo (final Class<?> type, final Exchange exchange, final Object value)
 specifier|protected
 name|Object
 name|doConvertTo
 parameter_list|(
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 specifier|final

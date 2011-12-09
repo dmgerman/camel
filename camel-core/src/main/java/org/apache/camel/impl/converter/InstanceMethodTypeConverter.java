@@ -210,6 +210,8 @@ operator|+
 name|method
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -364,6 +366,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -393,6 +397,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<

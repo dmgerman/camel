@@ -176,16 +176,14 @@ return|;
 block|}
 comment|/**      * Creates an iterator over the value      */
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-annotation|@
 name|Converter
 DECL|method|iterator (Object value)
 specifier|public
 specifier|static
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iterator
 parameter_list|(
 name|Object
@@ -368,16 +366,14 @@ return|;
 block|}
 comment|/**      * Returns the converted value, or null if the value is null      */
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-annotation|@
 name|Converter
 DECL|method|toClass (Object value, Exchange exchange)
 specifier|public
 specifier|static
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toClass
 parameter_list|(
 name|Object
@@ -397,6 +393,9 @@ block|{
 return|return
 operator|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 return|;

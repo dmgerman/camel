@@ -294,20 +294,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|StopWatch
 import|;
 end_import
@@ -598,6 +584,8 @@ return|return
 name|typeConverterLoaders
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -632,6 +620,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -798,6 +788,8 @@ name|answer
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -834,6 +826,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -943,18 +937,16 @@ name|answer
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|doConvertTo (final Class type, final Exchange exchange, final Object value)
+DECL|method|doConvertTo (final Class<?> type, final Exchange exchange, final Object value)
 specifier|protected
 name|Object
 name|doConvertTo
 parameter_list|(
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 specifier|final
@@ -1317,6 +1309,9 @@ argument_list|()
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|primitiveType
 init|=
 name|ObjectHelper
@@ -1362,6 +1357,8 @@ operator|.
 name|TYPE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 specifier|public
 name|void
@@ -1468,6 +1465,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 specifier|public
 name|void
@@ -1569,6 +1568,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInjector ()
 specifier|public
 name|Injector
@@ -1579,6 +1580,8 @@ return|return
 name|injector
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setInjector (Injector injector)
 specifier|public
 name|void
@@ -1887,6 +1890,8 @@ return|return
 name|converter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookup (Class<?> toType, Class<?> fromType)
 specifier|public
 name|TypeConverter

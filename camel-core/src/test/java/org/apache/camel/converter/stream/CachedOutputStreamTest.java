@@ -174,6 +174,20 @@ name|CollectionStringBuffer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
 begin_class
 DECL|class|CachedOutputStreamTest
 specifier|public
@@ -289,8 +303,9 @@ block|{
 name|BufferedReader
 name|reader
 init|=
-operator|new
-name|BufferedReader
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 operator|new
 name|InputStreamReader

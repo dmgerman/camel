@@ -121,6 +121,9 @@ name|testConvertFuture
 parameter_list|()
 block|{
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|template
@@ -166,6 +169,9 @@ throws|throws
 name|Exception
 block|{
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|template
@@ -220,6 +226,9 @@ name|context
 argument_list|)
 decl_stmt|;
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|template
@@ -276,6 +285,9 @@ name|context
 argument_list|)
 decl_stmt|;
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|template
@@ -338,6 +350,9 @@ name|context
 argument_list|)
 decl_stmt|;
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|template
@@ -381,6 +396,9 @@ name|testConvertFutureCancelled
 parameter_list|()
 block|{
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|template
@@ -430,6 +448,9 @@ name|testConvertFutureCancelledThenOkay
 parameter_list|()
 block|{
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|template

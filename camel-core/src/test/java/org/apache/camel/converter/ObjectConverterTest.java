@@ -142,6 +142,9 @@ name|testIterator
 parameter_list|()
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectConverter

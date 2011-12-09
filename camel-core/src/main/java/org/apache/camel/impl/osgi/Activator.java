@@ -1000,6 +1000,9 @@ decl_stmt|;
 for|for
 control|(
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|e
 init|=
 name|bundle
@@ -1144,6 +1147,9 @@ decl_stmt|;
 for|for
 control|(
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|e
 init|=
 name|bundle
@@ -1242,6 +1248,9 @@ block|}
 for|for
 control|(
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|e
 init|=
 name|bundle
@@ -1369,6 +1378,9 @@ decl_stmt|;
 for|for
 control|(
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|e
 init|=
 name|bundle
@@ -2299,6 +2311,9 @@ expr_stmt|;
 try|try
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|bundle
@@ -2455,6 +2470,9 @@ expr_stmt|;
 try|try
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|bundle
@@ -2529,6 +2547,9 @@ expr_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|classes
@@ -2899,12 +2920,15 @@ name|void
 name|register
 parameter_list|()
 function_decl|;
-DECL|method|doRegister (Class type, String key, Collection<String> value)
+DECL|method|doRegister (Class<?> type, String key, Collection<String> value)
 specifier|protected
 name|void
 name|doRegister
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|String
@@ -2939,12 +2963,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doRegister (Class type, String key, Object value)
+DECL|method|doRegister (Class<?> type, String key, Object value)
 specifier|protected
 name|void
 name|doRegister
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|String
@@ -2988,12 +3015,15 @@ name|props
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doRegister (Class type)
+DECL|method|doRegister (Class<?> type)
 specifier|protected
 name|void
 name|doRegister
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -3005,15 +3035,23 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doRegister (Class type, Dictionary props)
+DECL|method|doRegister (Class<?> type, Dictionary<?, ?> props)
 specifier|protected
 name|void
 name|doRegister
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|Dictionary
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|props
 parameter_list|)
 block|{
@@ -3076,8 +3114,9 @@ try|try
 block|{
 name|reader
 operator|=
-operator|new
-name|BufferedInputStream
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 name|url
 operator|.
@@ -3125,7 +3164,7 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|checkCompat (Bundle bundle, Class clazz)
+DECL|method|checkCompat (Bundle bundle, Class<?> clazz)
 specifier|protected
 specifier|static
 name|boolean
@@ -3135,6 +3174,9 @@ name|Bundle
 name|bundle
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{
@@ -3217,8 +3259,9 @@ try|try
 block|{
 name|reader
 operator|=
-operator|new
-name|BufferedReader
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 operator|new
 name|InputStreamReader

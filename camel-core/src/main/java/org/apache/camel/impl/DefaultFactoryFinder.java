@@ -914,8 +914,9 @@ try|try
 block|{
 name|reader
 operator|=
-operator|new
-name|BufferedInputStream
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 name|in
 argument_list|)

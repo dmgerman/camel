@@ -561,11 +561,6 @@ block|}
 comment|/**      * Converts an {@link Iterable} into a {@link List}       */
 annotation|@
 name|Converter
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|toList (Iterable<T> iterable)
 specifier|public
 specifier|static
@@ -595,6 +590,9 @@ block|{
 return|return
 operator|(
 name|List
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|iterable
 return|;

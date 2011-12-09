@@ -145,10 +145,16 @@ name|Collection
 condition|)
 block|{
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|collection
 init|=
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;
@@ -376,10 +382,16 @@ name|value
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|answer
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|size
 argument_list|)
@@ -427,6 +439,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -457,6 +471,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -484,6 +500,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<

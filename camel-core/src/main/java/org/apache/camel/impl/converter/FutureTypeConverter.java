@@ -254,10 +254,16 @@ argument_list|)
 condition|)
 block|{
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 operator|(
 name|Future
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;
@@ -391,6 +397,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -420,6 +428,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<
@@ -470,6 +480,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<
@@ -501,6 +513,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
 specifier|public
 parameter_list|<

@@ -454,6 +454,8 @@ operator|=
 name|resolver
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 name|void
@@ -720,6 +722,9 @@ comment|// load all the found classes into the type converter registry
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|classes
@@ -1128,8 +1133,9 @@ expr_stmt|;
 name|BufferedReader
 name|reader
 init|=
-operator|new
-name|BufferedReader
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 operator|new
 name|InputStreamReader

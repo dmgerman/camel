@@ -68,7 +68,7 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when the {@link Route} is being started      *      * @param route     the route being removed      */
+comment|/**      * Callback invoked when the {@link Route} is being started      *      * @param route     the route being started      */
 DECL|method|onStart (Route route)
 name|void
 name|onStart
@@ -77,7 +77,7 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when the {@link Route} is being stopped      *      * @param route     the route being removed      */
+comment|/**      * Callback invoked when the {@link Route} is being stopped      *      * @param route     the route being stopped      */
 DECL|method|onStop (Route route)
 name|void
 name|onStop
@@ -86,7 +86,7 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when the {@link Route} is being suspended      *      * @param route     the route being removed      */
+comment|/**      * Callback invoked when the {@link Route} is being suspended      *      * @param route     the route being suspended      */
 DECL|method|onSuspend (Route route)
 name|void
 name|onSuspend
@@ -95,7 +95,7 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
-comment|/**      * Callback invoked when the {@link Route} is being resumed      *      * @param route     the route being removed      */
+comment|/**      * Callback invoked when the {@link Route} is being resumed      *      * @param route     the route being resumed      */
 DECL|method|onResume (Route route)
 name|void
 name|onResume

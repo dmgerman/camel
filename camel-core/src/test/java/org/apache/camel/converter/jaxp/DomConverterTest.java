@@ -341,6 +341,9 @@ literal|"<foo><hello>Hello World</hello><bye>Bye Camel</bye></foo>"
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|DomConverter
@@ -383,6 +386,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|sub
 init|=
 name|DomConverter
