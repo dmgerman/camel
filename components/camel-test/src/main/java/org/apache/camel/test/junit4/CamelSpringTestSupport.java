@@ -854,6 +854,22 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+literal|"true"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"skipStartingCamelContext"
+argument_list|)
+argument_list|)
+condition|)
+block|{
 name|List
 argument_list|<
 name|Route
@@ -907,6 +923,7 @@ operator|+
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getExpectedRouteCount ()
 specifier|protected

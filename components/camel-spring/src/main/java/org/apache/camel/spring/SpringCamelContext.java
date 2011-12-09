@@ -516,6 +516,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|applicationContext
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// lets try and look up a configured camel context in the context
 name|String
 index|[]
@@ -557,6 +564,7 @@ operator|.
 name|class
 argument_list|)
 return|;
+block|}
 block|}
 name|SpringCamelContext
 name|answer
