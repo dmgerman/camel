@@ -240,6 +240,8 @@ argument_list|)
 decl_stmt|;
 name|configure
 argument_list|(
+name|routeContext
+argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;

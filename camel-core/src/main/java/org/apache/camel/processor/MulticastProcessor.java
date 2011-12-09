@@ -4300,6 +4300,8 @@ name|answer
 operator|=
 name|createUnitOfWorkProcessor
 argument_list|(
+name|routeContext
+argument_list|,
 name|processor
 argument_list|,
 name|exchange
@@ -4323,6 +4325,8 @@ name|answer
 operator|=
 name|createUnitOfWorkProcessor
 argument_list|(
+name|routeContext
+argument_list|,
 name|processor
 argument_list|,
 name|exchange
@@ -4333,12 +4337,15 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Strategy to create the {@link UnitOfWorkProcessor} to be used for the sub route      *      * @param processor the processor wrapped in this unit of work processor      * @param exchange  the exchange      * @return the unit of work processor      */
-DECL|method|createUnitOfWorkProcessor (Processor processor, Exchange exchange)
+comment|/**      * Strategy to create the {@link UnitOfWorkProcessor} to be used for the sub route      *      * @param routeContext the route context      * @param processor    the processor wrapped in this unit of work processor      * @param exchange     the exchange      * @return the unit of work processor      */
+DECL|method|createUnitOfWorkProcessor (RouteContext routeContext, Processor processor, Exchange exchange)
 specifier|protected
 name|UnitOfWorkProcessor
 name|createUnitOfWorkProcessor
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -4375,6 +4382,8 @@ name|ChildUnitOfWorkProcessor
 argument_list|(
 name|parent
 argument_list|,
+name|routeContext
+argument_list|,
 name|processor
 argument_list|)
 return|;
@@ -4385,6 +4394,8 @@ return|return
 operator|new
 name|UnitOfWorkProcessor
 argument_list|(
+name|routeContext
+argument_list|,
 name|processor
 argument_list|)
 return|;

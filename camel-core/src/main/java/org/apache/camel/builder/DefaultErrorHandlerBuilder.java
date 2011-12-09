@@ -308,6 +308,8 @@ decl_stmt|;
 comment|// configure error handler before we can use it
 name|configure
 argument_list|(
+name|routeContext
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;

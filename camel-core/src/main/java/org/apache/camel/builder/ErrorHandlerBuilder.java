@@ -82,6 +82,20 @@ name|ExceptionPolicyStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * A builder of a<a href="http://camel.apache.org/error-handler.html">Error Handler</a>  *  * @version   */
 end_comment
@@ -145,11 +159,14 @@ name|boolean
 name|supportTransacted
 parameter_list|()
 function_decl|;
-comment|/**      * Configures the other error handler based on this error handler.      *      * @param handler the other error handler      */
-DECL|method|configure (ErrorHandler handler)
+comment|/**      * Configures the other error handler based on this error handler.      *      * @param routeContext the route context      * @param handler the other error handler      */
+DECL|method|configure (RouteContext routeContext, ErrorHandler handler)
 name|void
 name|configure
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|ErrorHandler
 name|handler
 parameter_list|)

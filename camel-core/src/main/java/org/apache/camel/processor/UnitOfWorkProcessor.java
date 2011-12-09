@@ -473,6 +473,27 @@ return|return
 literal|true
 return|;
 block|}
+comment|// if a route context has been configured, then wrap the processor with a
+comment|// RouteContextProcessor to ensure we track the route context properly during
+comment|// processing of the exchange
+if|if
+condition|(
+name|routeContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|processor
+operator|=
+operator|new
+name|RouteContextProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
 name|Object
 name|synchronous
 init|=

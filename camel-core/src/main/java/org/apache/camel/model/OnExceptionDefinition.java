@@ -42,7 +42,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -550,13 +570,6 @@ name|exceptionClasses
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|errorHandler
-specifier|private
-name|Processor
-name|errorHandler
-decl_stmt|;
-annotation|@
-name|XmlTransient
 DECL|field|handledPolicy
 specifier|private
 name|Predicate
@@ -589,6 +602,29 @@ DECL|field|routeScoped
 specifier|private
 name|Boolean
 name|routeScoped
+decl_stmt|;
+comment|// TODO: in Camel 3.0 the OnExceptionDefinition should not contain state and ErrorHandler processors
+annotation|@
+name|XmlTransient
+DECL|field|errorHandlers
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+argument_list|>
+name|errorHandlers
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|OnExceptionDefinition ()
 specifier|public
@@ -954,21 +990,34 @@ literal|null
 condition|)
 block|{
 comment|// wrap in our special safe fallback error handler if OnException have child output
+name|Processor
 name|errorHandler
-operator|=
+init|=
 operator|new
 name|FatalFallbackErrorHandler
 argument_list|(
 name|child
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// do not wrap as there is no child output
+decl_stmt|;
+name|String
+name|id
+init|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
+name|errorHandlers
+operator|.
+name|put
+argument_list|(
+name|id
+argument_list|,
 name|errorHandler
-operator|=
-literal|null
+argument_list|)
 expr_stmt|;
 block|}
 comment|// lookup the error handler builder
@@ -2322,14 +2371,38 @@ operator|=
 name|exceptions
 expr_stmt|;
 block|}
-DECL|method|getErrorHandler ()
+DECL|method|getErrorHandler (String routeId)
 specifier|public
 name|Processor
 name|getErrorHandler
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+return|return
+name|errorHandlers
+operator|.
+name|get
+argument_list|(
+name|routeId
+argument_list|)
+return|;
+block|}
+DECL|method|getErrorHandlers ()
+specifier|public
+name|Collection
+argument_list|<
+name|Processor
+argument_list|>
+name|getErrorHandlers
 parameter_list|()
 block|{
 return|return
-name|errorHandler
+name|errorHandlers
+operator|.
+name|values
+argument_list|()
 return|;
 block|}
 DECL|method|getRedeliveryPolicy ()

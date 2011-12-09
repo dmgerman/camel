@@ -140,6 +140,8 @@ name|support
 operator|.
 name|addExceptionPolicy
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|OnExceptionDefinition
 argument_list|(
@@ -232,6 +234,8 @@ name|support
 operator|.
 name|addExceptionPolicy
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|OnExceptionDefinition
 argument_list|(
@@ -293,6 +297,8 @@ name|support
 operator|.
 name|addExceptionPolicy
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|OnExceptionDefinition
 argument_list|(
@@ -306,6 +312,8 @@ name|support
 operator|.
 name|addExceptionPolicy
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|OnExceptionDefinition
 argument_list|(
@@ -369,6 +377,8 @@ name|support
 operator|.
 name|addExceptionPolicy
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|OnExceptionDefinition
 argument_list|(
@@ -382,6 +392,8 @@ name|support
 operator|.
 name|addExceptionPolicy
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|OnExceptionDefinition
 argument_list|(

@@ -102,6 +102,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -171,11 +185,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|configure (ErrorHandler handler)
+DECL|method|configure (RouteContext routeContext, ErrorHandler handler)
 specifier|public
 name|void
 name|configure
 parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
 name|ErrorHandler
 name|handler
 parameter_list|)
@@ -207,6 +224,8 @@ name|handlerSupport
 operator|.
 name|addExceptionPolicy
 argument_list|(
+name|routeContext
+argument_list|,
 name|exception
 argument_list|)
 expr_stmt|;
