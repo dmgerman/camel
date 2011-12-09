@@ -188,7 +188,7 @@ name|Book
 argument_list|(
 literal|"Camel User Guide"
 argument_list|,
-literal|234L
+literal|123L
 argument_list|)
 argument_list|)
 expr_stmt|;

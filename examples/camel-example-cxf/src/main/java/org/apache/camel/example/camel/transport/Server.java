@@ -94,7 +94,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// setup the camel context for the camel transport
+comment|// setup the Camel context for the Camel transport
 comment|// START SNIPPET: e1
 name|SpringBusFactory
 name|bf

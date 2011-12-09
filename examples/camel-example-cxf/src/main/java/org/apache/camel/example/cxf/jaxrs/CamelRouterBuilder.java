@@ -285,7 +285,7 @@ name|Book
 argument_list|(
 literal|"Camel User Guide"
 argument_list|,
-literal|234L
+literal|123L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -345,7 +345,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Get the exception "
+literal|"Expected exception received: "
 operator|+
 name|exception
 argument_list|)
@@ -373,7 +373,7 @@ argument_list|(
 operator|new
 name|Book
 argument_list|(
-literal|"Camel User Guide"
+literal|"Karaf User Guide"
 argument_list|,
 literal|124L
 argument_list|)
@@ -434,7 +434,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Get the exception "
+literal|"Expected exception received: "
 operator|+
 name|exception
 argument_list|)

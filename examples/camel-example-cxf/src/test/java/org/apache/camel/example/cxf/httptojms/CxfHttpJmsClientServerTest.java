@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.cxf
+DECL|package|org.apache.camel.example.cxf.httptojms
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|example
 operator|.
 name|cxf
+operator|.
+name|httptojms
 package|;
 end_package
 
@@ -226,7 +228,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"expect exception here"
+literal|"exception expected but none thrown"
 argument_list|)
 expr_stmt|;
 block|}
@@ -286,7 +288,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"/META-INF/spring/CxfRouteCamelContext.xml"
+literal|"/META-INF/spring/HttpToJmsCamelContext.xml"
 block|}
 argument_list|)
 return|;

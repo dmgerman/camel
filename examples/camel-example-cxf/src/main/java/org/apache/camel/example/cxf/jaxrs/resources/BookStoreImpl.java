@@ -279,14 +279,14 @@ name|book
 operator|.
 name|setId
 argument_list|(
-literal|123
+literal|101
 argument_list|)
 expr_stmt|;
 name|book
 operator|.
 name|setName
 argument_list|(
-literal|"CXF in Action"
+literal|"CXF User Guide"
 argument_list|)
 expr_stmt|;
 name|books

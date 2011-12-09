@@ -352,7 +352,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"expects the exception here"
+literal|"exception expected but none thrown"
 argument_list|)
 expr_stmt|;
 block|}
@@ -364,7 +364,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Get a wrong exception message"
+literal|"Wrong exception message received"
 argument_list|,
 literal|"PingMeFault raised by server EndpointB"
 argument_list|,

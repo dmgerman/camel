@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.cxf
+DECL|package|org.apache.camel.example.cxf.httptojms
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|example
 operator|.
 name|cxf
+operator|.
+name|httptojms
 package|;
 end_package
 
@@ -41,22 +43,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|example
-operator|.
-name|jms
-operator|.
-name|JmsBroker
 import|;
 end_import
 
@@ -229,7 +215,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Here we just pass the exception back , don't need to use errorHandler
+comment|// Here we just pass the exception back, don't need to use errorHandler
 name|errorHandler
 argument_list|(
 name|noErrorHandler
@@ -314,7 +300,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// Here we just pass the exception back , don't need to use errorHandler
+comment|// Here we just pass the exception back, don't need to use errorHandler
 name|errorHandler
 argument_list|(
 name|noErrorHandler

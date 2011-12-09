@@ -20,6 +20,10 @@ name|transport
 package|;
 end_package
 
+begin_comment
+comment|/**  * Main class to run the Camel transport example.  */
+end_comment
+
 begin_class
 DECL|class|CamelTransportExample
 specifier|public
@@ -54,7 +58,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-comment|// setup the camel context for the camel transport
+comment|// setup the Camel context for the Camel transport
 name|server
 operator|.
 name|prepare

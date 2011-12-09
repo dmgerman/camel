@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.cxf
+DECL|package|org.apache.camel.example.cxf.httptojms
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|example
 operator|.
 name|cxf
+operator|.
+name|httptojms
 package|;
 end_package
 
