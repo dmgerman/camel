@@ -71,6 +71,18 @@ extends|extends
 name|IBatisTestSupport
 block|{
 annotation|@
+name|Override
+DECL|method|createTestData ()
+specifier|protected
+name|boolean
+name|createTestData
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testConsumeIdleMessages ()
 specifier|public
@@ -186,19 +198,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createTestData ()
-specifier|protected
-name|boolean
-name|createTestData
-parameter_list|()
-block|{
-comment|// no test data so an empty resultset
-return|return
-literal|false
 return|;
 block|}
 block|}
