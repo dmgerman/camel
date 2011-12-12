@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -1240,7 +1250,35 @@ name|httpClientParameters
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
+comment|// create the endpoint and set the http uri to be null
+name|HttpEndpoint
+name|endpoint
+init|=
+operator|new
+name|HttpEndpoint
+argument_list|(
+name|endpointUri
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|this
+argument_list|,
+name|clientParams
+argument_list|,
+name|clientConnectionManager
+argument_list|,
+name|configurer
+argument_list|)
+decl_stmt|;
+comment|// configure the endpoint
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 comment|// The httpUri should be start with http or https
 name|String
 name|httpUriAddress
@@ -1291,6 +1329,8 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
+comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
+comment|// build up the http uri
 name|URI
 name|httpUri
 init|=
@@ -1377,54 +1417,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// register port on schema registry
-name|int
-name|port
-init|=
-name|getPort
-argument_list|(
-name|httpUri
-argument_list|)
-decl_stmt|;
-name|registerPort
-argument_list|(
-name|secure
-argument_list|,
-name|x509HostnameVerifier
-argument_list|,
-name|port
-argument_list|,
-name|sslContextParameters
-argument_list|)
-expr_stmt|;
-comment|// create the endpoint
-name|HttpEndpoint
 name|endpoint
-init|=
-operator|new
-name|HttpEndpoint
-argument_list|(
-name|endpointUri
 operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|this
-argument_list|,
-name|httpUri
-argument_list|,
-name|clientParams
-argument_list|,
-name|clientConnectionManager
-argument_list|,
-name|configurer
-argument_list|)
-decl_stmt|;
-name|setProperties
+name|setHttpUri
 argument_list|(
-name|endpoint
-argument_list|,
-name|parameters
+name|httpUri
 argument_list|)
 expr_stmt|;
 name|setEndpointHeaderFilterStrategy
@@ -1470,6 +1467,26 @@ name|httpClientConfigurer
 argument_list|)
 expr_stmt|;
 block|}
+comment|// register port on schema registry
+name|int
+name|port
+init|=
+name|getPort
+argument_list|(
+name|httpUri
+argument_list|)
+decl_stmt|;
+name|registerPort
+argument_list|(
+name|secure
+argument_list|,
+name|x509HostnameVerifier
+argument_list|,
+name|port
+argument_list|,
+name|sslContextParameters
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;

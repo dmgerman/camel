@@ -155,6 +155,8 @@ operator|+
 name|port
 operator|+
 literal|"/test?aa=bb&httpClient.soTimeout=10000&httpClient.connectionTimeout=10000"
+operator|+
+literal|"&bridgeEndpoint=true&throwExceptionOnFailure=false"
 argument_list|,
 literal|null
 argument_list|,
