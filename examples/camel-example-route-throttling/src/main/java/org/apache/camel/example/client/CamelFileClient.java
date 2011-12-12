@@ -123,14 +123,15 @@ specifier|final
 name|ProducerTemplate
 name|producer
 init|=
-operator|(
-name|ProducerTemplate
-operator|)
 name|context
 operator|.
 name|getBean
 argument_list|(
 literal|"camelTemplate"
+argument_list|,
+name|ProducerTemplate
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// now send a lot of messages

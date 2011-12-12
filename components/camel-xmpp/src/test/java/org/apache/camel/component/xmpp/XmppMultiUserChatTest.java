@@ -135,14 +135,15 @@ block|{
 comment|// TODO: requires online against jabber. Test this manually
 name|consumerEndpoint
 operator|=
-operator|(
-name|MockEndpoint
-operator|)
 name|context
 operator|.
 name|getEndpoint
 argument_list|(
 literal|"mock:out"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|consumerEndpoint

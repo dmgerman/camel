@@ -866,7 +866,9 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"<body>Generation of the offline PDF version of the manual failed, however you could try<a href=\"http://camel.apache.org/book-in-one-page.html\">the online HTML version</a>.</body>"
+literal|"<body>Generation of the offline PDF version of the manual failed, however you could try "
+operator|+
+literal|"<a href=\"http://camel.apache.org/book-in-one-page.html\">the online HTML version</a>.</body>"
 argument_list|)
 expr_stmt|;
 name|out

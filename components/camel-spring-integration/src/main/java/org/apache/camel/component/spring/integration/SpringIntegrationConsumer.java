@@ -568,9 +568,6 @@ condition|)
 block|{
 name|reply
 operator|=
-operator|(
-name|MessageChannel
-operator|)
 name|context
 operator|.
 name|getApplicationContext
@@ -582,6 +579,10 @@ operator|(
 name|String
 operator|)
 name|returnAddress
+argument_list|,
+name|MessageChannel
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

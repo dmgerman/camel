@@ -375,14 +375,15 @@ decl_stmt|;
 name|Bus
 name|bus
 init|=
-operator|(
-name|Bus
-operator|)
 name|applicationContext
 operator|.
 name|getBean
 argument_list|(
 literal|"cxf"
+argument_list|,
+name|Bus
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// Bus shutdown will be called when the application context is closed.

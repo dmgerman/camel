@@ -34,9 +34,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
+name|CamelContext
 import|;
 end_import
 
@@ -96,17 +94,18 @@ literal|"org/apache/camel/spring/streamCaching.xml"
 block|}
 argument_list|)
 decl_stmt|;
-name|DefaultCamelContext
+name|CamelContext
 name|camelContext
 init|=
-operator|(
-name|DefaultCamelContext
-operator|)
 name|appContext
 operator|.
 name|getBean
 argument_list|(
 literal|"camelContext"
+argument_list|,
+name|CamelContext
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertFalse

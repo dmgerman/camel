@@ -84,9 +84,6 @@ block|{
 name|SolrEndpoint
 name|solrEndpoint
 init|=
-operator|(
-name|SolrEndpoint
-operator|)
 name|context
 operator|.
 name|getEndpoint
@@ -95,6 +92,10 @@ name|solrUrl
 operator|+
 name|getFullOptions
 argument_list|()
+argument_list|,
+name|SolrEndpoint
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull

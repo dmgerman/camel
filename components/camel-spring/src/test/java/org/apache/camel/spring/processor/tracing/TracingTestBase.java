@@ -113,9 +113,6 @@ block|{
 name|Tracer
 name|tracer
 init|=
-operator|(
-name|Tracer
-operator|)
 name|this
 operator|.
 name|applicationContext
@@ -123,6 +120,10 @@ operator|.
 name|getBean
 argument_list|(
 literal|"tracer"
+argument_list|,
+name|Tracer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|TraceHandlerTestHandler

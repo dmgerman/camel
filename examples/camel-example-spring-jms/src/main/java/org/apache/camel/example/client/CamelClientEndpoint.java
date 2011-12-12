@@ -158,14 +158,15 @@ decl_stmt|;
 name|CamelContext
 name|camel
 init|=
-operator|(
-name|CamelContext
-operator|)
 name|context
 operator|.
 name|getBean
 argument_list|(
 literal|"camel-client"
+argument_list|,
+name|CamelContext
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// get the endpoint from the camel context

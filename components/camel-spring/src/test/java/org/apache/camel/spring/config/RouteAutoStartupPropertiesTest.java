@@ -131,13 +131,9 @@ argument_list|(
 literal|"org/apache/camel/spring/config/RouteAutoStartupFalseTest.xml"
 argument_list|)
 expr_stmt|;
-comment|// must type cast to work with Spring 2.5.x
 name|SpringCamelContext
 name|camel
 init|=
-operator|(
-name|SpringCamelContext
-operator|)
 name|ac
 operator|.
 name|getBeansOfType
@@ -265,13 +261,9 @@ argument_list|(
 literal|"org/apache/camel/spring/config/RouteAutoStartupTrueTest.xml"
 argument_list|)
 expr_stmt|;
-comment|// must type cast to work with Spring 2.5.x
 name|SpringCamelContext
 name|camel
 init|=
-operator|(
-name|SpringCamelContext
-operator|)
 name|ac
 operator|.
 name|getBeansOfType

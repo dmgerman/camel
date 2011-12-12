@@ -275,14 +275,15 @@ comment|// get the camel template for Spring template style sending of messages 
 name|ProducerTemplate
 name|camelTemplate
 init|=
-operator|(
-name|ProducerTemplate
-operator|)
 name|context
 operator|.
 name|getBean
 argument_list|(
 literal|"camelTemplate"
+argument_list|,
+name|ProducerTemplate
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// as opposed to the CamelClientRemoting example we need to define the service URI in this java code
@@ -342,14 +343,15 @@ decl_stmt|;
 name|CamelContext
 name|camel
 init|=
-operator|(
-name|CamelContext
-operator|)
 name|context
 operator|.
 name|getBean
 argument_list|(
 literal|"camel-client"
+argument_list|,
+name|CamelContext
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// get the endpoint from the camel context
@@ -472,14 +474,15 @@ comment|// to the remote ActiveMQ server and fetch the response.
 name|Multiplier
 name|multiplier
 init|=
-operator|(
-name|Multiplier
-operator|)
 name|context
 operator|.
 name|getBean
 argument_list|(
 literal|"multiplierProxy"
+argument_list|,
+name|Multiplier
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|int

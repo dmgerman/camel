@@ -660,9 +660,6 @@ literal|0
 condition|)
 block|{
 return|return
-operator|(
-name|ProducerTemplate
-operator|)
 name|getApplicationContext
 argument_list|()
 operator|.

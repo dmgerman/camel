@@ -508,9 +508,6 @@ decl_stmt|;
 name|HttpEndpoint
 name|epOut
 init|=
-operator|(
-name|HttpEndpoint
-operator|)
 name|getContext
 argument_list|()
 operator|.
@@ -521,6 +518,10 @@ operator|+
 name|port1
 operator|+
 literal|"?bridgeEndpoint=true&throwExceptionOnFailure=false"
+argument_list|,
+name|HttpEndpoint
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|epOut

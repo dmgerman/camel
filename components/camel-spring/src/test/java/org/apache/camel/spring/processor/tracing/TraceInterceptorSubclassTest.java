@@ -99,12 +99,6 @@ name|getTracedMessages
 parameter_list|()
 block|{
 return|return
-operator|(
-name|List
-argument_list|<
-name|StringBuilder
-argument_list|>
-operator|)
 name|this
 operator|.
 name|applicationContext
@@ -112,6 +106,10 @@ operator|.
 name|getBean
 argument_list|(
 literal|"eventMessages"
+argument_list|,
+name|List
+operator|.
+name|class
 argument_list|)
 return|;
 block|}

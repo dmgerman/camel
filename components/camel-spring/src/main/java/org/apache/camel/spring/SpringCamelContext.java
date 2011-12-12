@@ -547,9 +547,6 @@ literal|1
 condition|)
 block|{
 return|return
-operator|(
-name|SpringCamelContext
-operator|)
 name|applicationContext
 operator|.
 name|getBean

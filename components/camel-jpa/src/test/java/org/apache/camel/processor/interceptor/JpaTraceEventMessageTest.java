@@ -444,9 +444,6 @@ name|Exception
 block|{
 name|jpaTemplate
 operator|=
-operator|(
-name|JpaTemplate
-operator|)
 name|applicationContext
 operator|.
 name|getBean
@@ -541,9 +538,6 @@ parameter_list|()
 block|{
 name|jpaTemplate
 operator|=
-operator|(
-name|JpaTemplate
-operator|)
 name|applicationContext
 operator|.
 name|getBean

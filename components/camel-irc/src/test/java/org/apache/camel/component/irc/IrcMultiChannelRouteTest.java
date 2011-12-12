@@ -178,14 +178,15 @@ name|Exception
 block|{
 name|resultEndpoint
 operator|=
-operator|(
-name|MockEndpoint
-operator|)
 name|context
 operator|.
 name|getEndpoint
 argument_list|(
 literal|"mock:result"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|//consumer is going to receive two copies of body3

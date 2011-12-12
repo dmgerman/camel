@@ -361,10 +361,6 @@ name|CamelContext
 argument_list|>
 name|beansOfType
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|applicationContext
 operator|.
 name|getBeansOfType
@@ -372,7 +368,6 @@ argument_list|(
 name|CamelContext
 operator|.
 name|class
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|camelContext

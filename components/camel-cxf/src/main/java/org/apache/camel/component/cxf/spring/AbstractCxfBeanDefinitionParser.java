@@ -451,9 +451,6 @@ block|{
 name|PropertyValue
 name|propertyValue
 init|=
-operator|(
-name|PropertyValue
-operator|)
 name|bean
 operator|.
 name|getBeanDefinition

@@ -1417,6 +1417,9 @@ name|Override
 DECL|method|getObjectType ()
 specifier|public
 name|Class
+argument_list|<
+name|SpringCamelContext
+argument_list|>
 name|getObjectType
 parameter_list|()
 block|{
@@ -1473,9 +1476,6 @@ condition|)
 block|{
 name|bean
 operator|=
-operator|(
-name|S
-operator|)
 name|getApplicationContext
 argument_list|()
 operator|.
@@ -1537,9 +1537,6 @@ condition|)
 block|{
 name|bean
 operator|=
-operator|(
-name|S
-operator|)
 name|parentContext
 operator|.
 name|getBean

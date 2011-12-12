@@ -178,9 +178,6 @@ expr_stmt|;
 name|CamelContext
 name|camelContext
 init|=
-operator|(
-name|CamelContext
-operator|)
 name|context
 operator|.
 name|getBean
@@ -189,6 +186,10 @@ name|names
 index|[
 literal|0
 index|]
+argument_list|,
+name|CamelContext
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull

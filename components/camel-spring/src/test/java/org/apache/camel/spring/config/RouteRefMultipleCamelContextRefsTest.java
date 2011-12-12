@@ -144,9 +144,6 @@ expr_stmt|;
 name|CamelContext
 name|camel1
 init|=
-operator|(
-name|CamelContext
-operator|)
 name|ac
 operator|.
 name|getBean
@@ -161,9 +158,6 @@ decl_stmt|;
 name|CamelContext
 name|camel2
 init|=
-operator|(
-name|CamelContext
-operator|)
 name|ac
 operator|.
 name|getBean

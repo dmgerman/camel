@@ -262,14 +262,15 @@ expr_stmt|;
 name|CustomerServiceV1
 name|customerService
 init|=
-operator|(
-name|CustomerServiceV1
-operator|)
 name|clientContext
 operator|.
 name|getBean
 argument_list|(
 literal|"org.apache.camel.itest.customerrelations.CustomerServiceV1"
+argument_list|,
+name|CustomerServiceV1
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// CXF 2.1.2 only apply the SOAPAction for the request message (in SoapPreProtocolOutInterceptor)

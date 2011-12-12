@@ -315,14 +315,15 @@ block|{
 name|CacheEndpoint
 name|endpoint
 init|=
-operator|(
-name|CacheEndpoint
-operator|)
 name|context
 operator|.
 name|getEndpoint
 argument_list|(
 name|CACHE_URI
+argument_list|,
+name|CacheEndpoint
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// do some routes to let everything be initialized
