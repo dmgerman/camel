@@ -569,6 +569,26 @@ operator|.
 name|FALSE
 argument_list|)
 decl_stmt|;
+comment|// host can be null if the uri did contain invalid host characters such as an underscore
+if|if
+condition|(
+name|host
+operator|==
+literal|null
+condition|)
+block|{
+name|host
+operator|=
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+name|remaining
+argument_list|,
+literal|"/"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// group can be optional, if so set it to Camel
 name|String
 name|name
