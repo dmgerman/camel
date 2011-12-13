@@ -346,7 +346,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello,World"
+literal|"B"
 argument_list|,
 name|order2
 argument_list|)
