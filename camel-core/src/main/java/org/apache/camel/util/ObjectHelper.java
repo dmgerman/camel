@@ -420,6 +420,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|DEFAULT_DELIMITER
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_DELIMITER
+init|=
+literal|","
+decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|ObjectHelper ()
 specifier|private
@@ -2079,7 +2088,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[] or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      *      * @param value  the value      * @return the iterator      */
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by comma,      * or a primitive type array; otherwise to simplify the caller's code,      * we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      *      * @param value  the value      * @return the iterator      */
 DECL|method|createIterator (Object value)
 specifier|public
 specifier|static
@@ -2098,11 +2107,11 @@ name|createIterator
 argument_list|(
 name|value
 argument_list|,
-literal|","
+name|DEFAULT_DELIMITER
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[] or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      * @param value  the value      * @param  delimiter  delimiter for separating String values      * @return the iterator      */
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      * @param value  the value      * @param  delimiter  delimiter for separating String values      * @return the iterator      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2371,6 +2380,31 @@ operator|)
 name|value
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|DEFAULT_DELIMITER
+operator|.
+name|equals
+argument_list|(
+name|delimiter
+argument_list|)
+condition|)
+block|{
+comment|// we use the default delimiter which is a comma, then cater for bean expressions with OGNL
+comment|// which may have balanced parentheses pairs as well.
+comment|// if the value contains parentheses we need to balance those, to avoid iterating
+comment|// in the middle of parentheses pair, so use this regular expression (a bit hard to read)
+comment|// the regexp will split by comma, but honor parentheses pair that may include commas
+comment|// as well, eg if value = "bean=foo?method=killer(a,b),bean=bar?method=great(a,b)"
+comment|// then the regexp will split that into two:
+comment|// -> bean=foo?method=killer(a,b)
+comment|// -> bean=bar?method=great(a,b)
+comment|// http://stackoverflow.com/questions/1516090/splitting-a-title-into-separate-parts
+name|delimiter
+operator|=
+literal|",(?!(?:[^\\(,]|[^\\)],[^\\)])+\\))"
+expr_stmt|;
+block|}
 name|scanner
 operator|.
 name|useDelimiter
