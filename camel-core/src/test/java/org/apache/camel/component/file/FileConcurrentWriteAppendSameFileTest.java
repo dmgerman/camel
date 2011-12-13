@@ -130,7 +130,7 @@ specifier|final
 name|int
 name|size
 init|=
-literal|5000
+literal|1000
 decl_stmt|;
 annotation|@
 name|Override
@@ -308,7 +308,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|// should be 10000 unique
+comment|// should be unique
 name|Set
 argument_list|<
 name|String
