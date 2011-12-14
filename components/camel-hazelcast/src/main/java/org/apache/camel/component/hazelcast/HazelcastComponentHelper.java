@@ -211,7 +211,7 @@ parameter_list|)
 block|{
 name|ex
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader
@@ -253,7 +253,7 @@ parameter_list|)
 block|{
 name|ex
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader
@@ -267,7 +267,7 @@ argument_list|)
 expr_stmt|;
 name|ex
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader
@@ -281,7 +281,7 @@ argument_list|)
 expr_stmt|;
 name|ex
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader

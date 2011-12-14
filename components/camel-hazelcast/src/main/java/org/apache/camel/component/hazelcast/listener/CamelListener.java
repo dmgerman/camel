@@ -154,7 +154,7 @@ decl_stmt|;
 comment|// set object to body
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setBody
@@ -172,7 +172,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader
