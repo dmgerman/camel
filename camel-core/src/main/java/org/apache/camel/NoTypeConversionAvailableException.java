@@ -107,17 +107,31 @@ name|Throwable
 name|cause
 parameter_list|)
 block|{
-name|this
+name|super
+argument_list|(
+name|createMessage
 argument_list|(
 name|value
 argument_list|,
 name|type
-argument_list|)
-expr_stmt|;
-name|initCause
-argument_list|(
+argument_list|,
 name|cause
 argument_list|)
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
 expr_stmt|;
 block|}
 comment|/**      * Returns the value which could not be converted      */
@@ -222,6 +236,61 @@ operator|+
 literal|" with value "
 operator|+
 name|value
+return|;
+block|}
+comment|/**      * Returns an error message for no type converter available with the cause.      */
+DECL|method|createMessage (Object value, Class<?> type, Throwable cause)
+specifier|public
+specifier|static
+name|String
+name|createMessage
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+return|return
+literal|"Converting Exception when converting from type: "
+operator|+
+operator|(
+name|value
+operator|!=
+literal|null
+condition|?
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+else|:
+literal|null
+operator|)
+operator|+
+literal|" to the required type: "
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" with value "
+operator|+
+name|value
+operator|+
+literal|", which is caused by "
+operator|+
+name|cause
 return|;
 block|}
 block|}
