@@ -161,9 +161,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"There should be 7 processors to navigate"
+literal|"There should be 8 processors to navigate"
 argument_list|,
-literal|7
+literal|8
 argument_list|,
 name|count
 argument_list|)
