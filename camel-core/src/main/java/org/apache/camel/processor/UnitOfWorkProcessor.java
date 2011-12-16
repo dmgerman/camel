@@ -375,6 +375,43 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// if a route context has been configured, then wrap the processor with a
+comment|// RouteContextProcessor to ensure we track the route context properly during
+comment|// processing of the exchange
+if|if
+condition|(
+name|routeContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|processor
+operator|=
+operator|new
+name|RouteContextProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
@@ -472,27 +509,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
-comment|// if a route context has been configured, then wrap the processor with a
-comment|// RouteContextProcessor to ensure we track the route context properly during
-comment|// processing of the exchange
-if|if
-condition|(
-name|routeContext
-operator|!=
-literal|null
-condition|)
-block|{
-name|processor
-operator|=
-operator|new
-name|RouteContextProcessor
-argument_list|(
-name|routeContext
-argument_list|,
-name|processor
-argument_list|)
-expr_stmt|;
 block|}
 name|Object
 name|synchronous
