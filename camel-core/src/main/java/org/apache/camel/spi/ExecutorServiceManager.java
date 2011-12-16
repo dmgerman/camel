@@ -172,7 +172,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new thread pool using the given profile      *      * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name   name which is appended to the thread name      * @param profile the profile with the thread pool settings to use      * @return the created thread pool      */
+comment|/**      * Creates a new thread pool using the given profile      *      * @param source   the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name     name which is appended to the thread name      * @param profile the profile with the thread pool settings to use      * @return the created thread pool      */
 DECL|method|newThreadPool (Object source, String name, ThreadPoolProfile profile)
 name|ExecutorService
 name|newThreadPool
@@ -187,7 +187,7 @@ name|ThreadPoolProfile
 name|profile
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new thread pool using using the given profile id      *      * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name   name which is appended to the thread name      * @param profileId the id of the profile with the thread pool settings to use      * @return the created thread pool, or<tt>null</tt> if the thread pool profile could not be found      */
+comment|/**      * Creates a new thread pool using using the given profile id      *      * @param source    the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name      name which is appended to the thread name      * @param profileId the id of the profile with the thread pool settings to use      * @return the created thread pool, or<tt>null</tt> if the thread pool profile could not be found      */
 DECL|method|newThreadPool (Object source, String name, String profileId)
 name|ExecutorService
 name|newThreadPool
@@ -286,7 +286,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new scheduled thread pool using a profile      *       * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name name which is appended to the thread name      * @param profile      * @return created thread pool      */
+comment|/**      * Creates a new scheduled thread pool using a profile      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param profile     the profile with the thread pool settings to use      * @return created thread pool      */
 DECL|method|newScheduledThreadPool (Object source, String name, ThreadPoolProfile profile)
 name|ScheduledExecutorService
 name|newScheduledThreadPool
@@ -299,6 +299,21 @@ name|name
 parameter_list|,
 name|ThreadPoolProfile
 name|profile
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a new scheduled thread pool using a profile id      *      * @param source      the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name        name which is appended to the thread name      * @param profileId   the id of the profile with the thread pool settings to use      * @return created thread pool      */
+DECL|method|newScheduledThreadPool (Object source, String name, String profileId)
+name|ScheduledExecutorService
+name|newScheduledThreadPool
+parameter_list|(
+name|Object
+name|source
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|String
+name|profileId
 parameter_list|)
 function_decl|;
 comment|/**      * Shutdown the given executor service.      *      * @param executorService the executor service to shutdown      * @see java.util.concurrent.ExecutorService#shutdown()      */
