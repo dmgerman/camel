@@ -1168,34 +1168,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// okay we need to grab the pool size from the ref
-name|Integer
-name|poolSize
-init|=
-name|profile
-operator|.
-name|getPoolSize
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|poolSize
-operator|==
-literal|null
-condition|)
-block|{
-comment|// fallback and use the default pool size, if none was set on the profile
-name|poolSize
-operator|=
-name|manager
-operator|.
-name|getDefaultThreadPoolProfile
-argument_list|()
-operator|.
-name|getPoolSize
-argument_list|()
-expr_stmt|;
-block|}
 name|answer
 operator|=
 name|manager
@@ -1206,7 +1178,7 @@ name|definition
 argument_list|,
 name|name
 argument_list|,
-name|poolSize
+name|profile
 argument_list|)
 expr_stmt|;
 block|}

@@ -3814,7 +3814,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"StatiticsLevel at {} so enabling load performance statistics"
+literal|"StatisticsLevel at {} so enabling load performance statistics"
 argument_list|,
 name|camelContext
 operator|.
@@ -3833,7 +3833,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newDefaultScheduledThreadPool
+name|newSingleThreadScheduledExecutor
 argument_list|(
 name|this
 argument_list|,

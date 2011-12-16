@@ -176,6 +176,22 @@ name|ThreadPoolProfile
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|SizedScheduledExecutorService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory for thread pools that uses the JDK {@link Executors} for creating the thread pools.  */
 end_comment
@@ -461,24 +477,6 @@ name|ThreadFactory
 name|threadFactory
 parameter_list|)
 block|{
-name|ScheduledThreadPoolExecutor
-name|answer
-init|=
-operator|new
-name|ScheduledThreadPoolExecutor
-argument_list|(
-name|profile
-operator|.
-name|getPoolSize
-argument_list|()
-argument_list|,
-name|threadFactory
-argument_list|)
-decl_stmt|;
-comment|// need to use setters to set the other values as we cannot use a constructor
-comment|// keep alive and maximum pool size have no effects on a scheduled thread pool as its
-comment|// a fixed size pool with an unbounded queue (see class javadoc)
-comment|// TODO: when JDK7 we should setRemoveOnCancelPolicy(true)
 name|RejectedExecutionHandler
 name|rejectedExecutionHandler
 init|=
@@ -503,16 +501,55 @@ name|CallerRunsPolicy
 argument_list|()
 expr_stmt|;
 block|}
+name|ScheduledThreadPoolExecutor
 name|answer
-operator|.
-name|setRejectedExecutionHandler
+init|=
+operator|new
+name|ScheduledThreadPoolExecutor
 argument_list|(
+name|profile
+operator|.
+name|getPoolSize
+argument_list|()
+argument_list|,
+name|threadFactory
+argument_list|,
 name|rejectedExecutionHandler
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// TODO: when JDK7 we should setRemoveOnCancelPolicy(true)
+comment|// need to wrap the thread pool in a sized to guard against the problem that the
+comment|// JDK created thread pool has an unbounded queue (see class javadoc), which mean
+comment|// we could potentially keep adding tasks, and run out of memory.
+if|if
+condition|(
+name|profile
+operator|.
+name|getMaxPoolSize
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+return|return
+operator|new
+name|SizedScheduledExecutorService
+argument_list|(
+name|answer
+argument_list|,
+name|profile
+operator|.
+name|getMaxQueueSize
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|answer
 return|;
+block|}
 block|}
 block|}
 end_class

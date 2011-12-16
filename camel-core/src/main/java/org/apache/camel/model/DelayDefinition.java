@@ -415,7 +415,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newSingleThreadScheduledExecutor
+name|newDefaultScheduledThreadPool
 argument_list|(
 name|this
 argument_list|,

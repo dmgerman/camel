@@ -370,6 +370,18 @@ literal|0
 condition|)
 block|{
 comment|// no delay then continue routing
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"No delay for exchangeId: {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|super
 operator|.
@@ -520,6 +532,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Scheduling rejected task, so letting caller run, delaying at first for {} millis for exchangeId: {}"
+argument_list|,
+name|delay
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// let caller run by processing
 try|try
 block|{
