@@ -177,6 +177,23 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+name|node
+operator|=
+operator|(
+operator|(
+name|Navigate
+operator|)
+name|node
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|)
+operator|.
+name|next
+argument_list|()
+expr_stmt|;
 comment|// there should be 4 outputs as the end in the otherwise should
 comment|// ensure that the transform and last send is not within the choice
 name|assertEquals
