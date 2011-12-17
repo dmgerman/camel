@@ -1022,6 +1022,12 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|isRemovingRoutes
+argument_list|()
+condition|)
+block|{
 name|camelContext
 operator|.
 name|removeRouteCollection
@@ -1029,6 +1035,7 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
 comment|// need to warm up again
 name|warmUpDone
 operator|.
@@ -1120,6 +1127,13 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
+name|camelContext
+operator|.
+name|removeRouteCollection
+argument_list|(
+name|routes
+argument_list|)
+expr_stmt|;
 comment|// clear inputs on shutdown
 name|inputs
 operator|.
