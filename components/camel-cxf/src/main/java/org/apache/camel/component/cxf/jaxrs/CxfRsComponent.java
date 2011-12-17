@@ -301,6 +301,8 @@ name|CxfRsBlueprintEndpoint
 argument_list|(
 name|this
 argument_list|,
+name|remaining
+argument_list|,
 name|bean
 argument_list|)
 expr_stmt|;
@@ -313,6 +315,8 @@ operator|new
 name|CxfRsSpringEndpoint
 argument_list|(
 name|this
+argument_list|,
+name|remaining
 argument_list|,
 name|bean
 argument_list|)
