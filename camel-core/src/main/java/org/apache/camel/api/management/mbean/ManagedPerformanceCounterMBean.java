@@ -223,11 +223,35 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Last Exchange Completed ExchangeId"
+argument_list|)
+DECL|method|getLastExchangeCompletedExchangeId ()
+name|String
+name|getLastExchangeCompletedExchangeId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"First Exchange Completed Timestamp"
 argument_list|)
 DECL|method|getFirstExchangeCompletedTimestamp ()
 name|Date
 name|getFirstExchangeCompletedTimestamp
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"First Exchange Completed ExchangeId"
+argument_list|)
+DECL|method|getFirstExchangeCompletedExchangeId ()
+name|String
+name|getFirstExchangeCompletedExchangeId
 parameter_list|()
 function_decl|;
 annotation|@
@@ -247,11 +271,35 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Last Exchange Failed ExchangeId"
+argument_list|)
+DECL|method|getLastExchangeFailureExchangeId ()
+name|String
+name|getLastExchangeFailureExchangeId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"First Exchange Failed Timestamp"
 argument_list|)
 DECL|method|getFirstExchangeFailureTimestamp ()
 name|Date
 name|getFirstExchangeFailureTimestamp
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"First Exchange Failed ExchangeId"
+argument_list|)
+DECL|method|getFirstExchangeFailureExchangeId ()
+name|String
+name|getFirstExchangeFailureExchangeId
 parameter_list|()
 function_decl|;
 annotation|@
