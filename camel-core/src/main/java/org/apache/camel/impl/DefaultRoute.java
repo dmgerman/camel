@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link Route}.  *  * @version   */
+comment|/**  * Default implementation of {@link Route}.  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.CamelContext#startRoute(String)}  * and {@link org.apache.camel.CamelContext#stopRoute(String)} methods.  *  * @version   */
 end_comment
 
 begin_class
@@ -363,6 +363,40 @@ name|add
 argument_list|(
 name|service
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Do not invoke this method directly, use {@link org.apache.camel.CamelContext#startRoute(String)} to start a route.      */
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Do not invoke this method directly, use {@link org.apache.camel.CamelContext#stopRoute(String)} to stop a route.      */
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Strategy method to allow derived classes to lazily load services for the route      */

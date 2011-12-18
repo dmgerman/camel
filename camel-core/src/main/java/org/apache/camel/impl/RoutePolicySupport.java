@@ -155,6 +155,7 @@ name|ServiceSupport
 implements|implements
 name|RoutePolicy
 block|{
+comment|// TODO: Move to support package
 DECL|field|log
 specifier|protected
 specifier|final
