@@ -83,7 +83,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Service State"
+literal|"Endpoint State"
 argument_list|)
 DECL|method|getState ()
 name|String

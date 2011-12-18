@@ -152,10 +152,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|start ()
-specifier|public
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -170,10 +170,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|stop ()
-specifier|public
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception

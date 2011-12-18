@@ -26,7 +26,7 @@ name|lang
 operator|.
 name|annotation
 operator|.
-name|ElementType
+name|Documented
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|lang
 operator|.
 name|annotation
 operator|.
-name|Inherited
+name|ElementType
 import|;
 end_import
 
@@ -98,7 +98,7 @@ operator|.
 name|RUNTIME
 argument_list|)
 annotation|@
-name|Inherited
+name|Documented
 DECL|annotation|ManagedOperation
 specifier|public
 annotation_defn|@interface

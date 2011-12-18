@@ -38,6 +38,7 @@ specifier|public
 interface|interface
 name|NotificationSender
 block|{
+comment|/**      * Send notification      *      * @param notification notification to send      */
 DECL|method|sendNotification (Notification notification)
 name|void
 name|sendNotification

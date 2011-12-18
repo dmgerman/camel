@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * To be implemented by the user class to get a NotificationSender injected  *  */
+comment|/**  * To be implemented by the user class to get a {@link NotificationSender} injected  */
 end_comment
 
 begin_interface
@@ -28,6 +28,7 @@ specifier|public
 interface|interface
 name|NotificationSenderAware
 block|{
+comment|/**      * {@link NotificationSender} to use for sending notifications.      *      * @param sender sender to use for sending notifications      */
 DECL|method|setNotificationSender (NotificationSender sender)
 name|void
 name|setNotificationSender

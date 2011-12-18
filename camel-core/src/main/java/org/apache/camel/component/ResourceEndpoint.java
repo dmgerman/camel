@@ -398,7 +398,6 @@ return|;
 block|}
 DECL|method|clearContentCache ()
 specifier|public
-specifier|synchronized
 name|void
 name|clearContentCache
 parameter_list|()

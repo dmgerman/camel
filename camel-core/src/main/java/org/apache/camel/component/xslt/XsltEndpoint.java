@@ -192,7 +192,7 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"XSLT Endpoint"
+literal|"Managed XsltEndpoint"
 argument_list|)
 DECL|class|XsltEndpoint
 specifier|public

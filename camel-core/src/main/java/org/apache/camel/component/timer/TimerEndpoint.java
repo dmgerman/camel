@@ -106,18 +106,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|api
 operator|.
 name|management
@@ -166,7 +154,7 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed Timer Endpoint"
+literal|"Managed TimerEndpoint"
 argument_list|)
 DECL|class|TimerEndpoint
 specifier|public
