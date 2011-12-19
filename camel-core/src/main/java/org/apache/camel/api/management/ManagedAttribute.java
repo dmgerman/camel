@@ -50,6 +50,18 @@ name|lang
 operator|.
 name|annotation
 operator|.
+name|Inherited
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
 name|Retention
 import|;
 end_import
@@ -97,6 +109,8 @@ name|RetentionPolicy
 operator|.
 name|RUNTIME
 argument_list|)
+annotation|@
+name|Inherited
 annotation|@
 name|Documented
 DECL|annotation|ManagedAttribute
