@@ -79,6 +79,11 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
+DECL|field|amazonSESEndpoint
+specifier|private
+name|String
+name|amazonSESEndpoint
+decl_stmt|;
 DECL|field|subject
 specifier|private
 name|String
@@ -382,6 +387,32 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getAmazonSESEndpoint ()
+specifier|public
+name|String
+name|getAmazonSESEndpoint
+parameter_list|()
+block|{
+return|return
+name|amazonSESEndpoint
+return|;
+block|}
+DECL|method|setAmazonSESEndpoint (String amazonSesEndpoint)
+specifier|public
+name|void
+name|setAmazonSESEndpoint
+parameter_list|(
+name|String
+name|amazonSesEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonSESEndpoint
+operator|=
+name|amazonSesEndpoint
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -404,6 +435,12 @@ operator|+
 name|amazonSESClient
 operator|+
 literal|", secretKey=xxxxxxxxxxxxxxx"
+operator|+
+literal|", amazonSesEndpoint='"
+operator|+
+name|amazonSESEndpoint
+operator|+
+literal|'\''
 operator|+
 literal|", subject='"
 operator|+
