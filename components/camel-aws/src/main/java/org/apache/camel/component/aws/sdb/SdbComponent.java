@@ -68,6 +68,10 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_comment
+comment|/**  * Defines the<a href="http://aws.amazon.com/simpledb/">AWS SDB component</a>   */
+end_comment
+
 begin_class
 DECL|class|SdbComponent
 specifier|public
@@ -171,7 +175,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|getAmazonSdbClient
+name|getAmazonSDBClient
 argument_list|()
 operator|==
 literal|null
@@ -197,7 +201,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"amazonSdbClient or accessKey and secretKey must be specified"
+literal|"amazonSDBClient or accessKey and secretKey must be specified"
 argument_list|)
 throw|;
 block|}

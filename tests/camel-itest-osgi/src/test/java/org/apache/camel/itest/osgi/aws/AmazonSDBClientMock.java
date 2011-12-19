@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.aws.sdb
+DECL|package|org.apache.camel.itest.osgi.aws
 package|package
 name|org
 operator|.
@@ -12,11 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|itest
+operator|.
+name|osgi
 operator|.
 name|aws
-operator|.
-name|sdb
 package|;
 end_package
 

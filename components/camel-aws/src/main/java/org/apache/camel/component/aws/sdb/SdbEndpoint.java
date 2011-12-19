@@ -220,6 +220,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SDB Endpoint</a>.    *  */
+end_comment
+
 begin_class
 DECL|class|SdbEndpoint
 specifier|public
@@ -400,6 +404,15 @@ argument_list|,
 name|domainName
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating domain [{}]..."
+argument_list|,
+name|domainName
+argument_list|)
+expr_stmt|;
 name|sdbClient
 operator|.
 name|createDomain
@@ -415,8 +428,8 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Domain created:"
-operator|+
+literal|"Domain [{}] created"
+argument_list|,
 name|domainName
 argument_list|)
 expr_stmt|;
@@ -441,14 +454,14 @@ block|{
 return|return
 name|configuration
 operator|.
-name|getAmazonSdbClient
+name|getAmazonSDBClient
 argument_list|()
 operator|!=
 literal|null
 condition|?
 name|configuration
 operator|.
-name|getAmazonSdbClient
+name|getAmazonSDBClient
 argument_list|()
 else|:
 name|createSdbClient
@@ -509,7 +522,7 @@ expr_stmt|;
 block|}
 name|configuration
 operator|.
-name|setAmazonSdbClient
+name|setAmazonSDBClient
 argument_list|(
 name|client
 argument_list|)

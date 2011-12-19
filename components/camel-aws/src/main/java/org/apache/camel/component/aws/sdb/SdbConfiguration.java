@@ -34,6 +34,10 @@ name|AmazonSimpleDB
 import|;
 end_import
 
+begin_comment
+comment|/**  * The AWS SDB component configuration properties  *   */
+end_comment
+
 begin_class
 DECL|class|SdbConfiguration
 specifier|public
@@ -50,10 +54,10 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-DECL|field|amazonSdbClient
+DECL|field|amazonSDBClient
 specifier|private
 name|AmazonSimpleDB
-name|amazonSdbClient
+name|amazonSDBClient
 decl_stmt|;
 DECL|field|amazonSdbEndpoint
 specifier|private
@@ -65,10 +69,24 @@ specifier|private
 name|String
 name|domainName
 decl_stmt|;
+DECL|field|maxNumberOfDomains
+specifier|private
+name|Integer
+name|maxNumberOfDomains
+decl_stmt|;
+DECL|field|consistentRead
+specifier|private
+name|Boolean
+name|consistentRead
+decl_stmt|;
 DECL|field|operation
 specifier|private
-name|String
+name|SdbOperations
 name|operation
+init|=
+name|SdbOperations
+operator|.
+name|PutAttributes
 decl_stmt|;
 DECL|method|setAmazonSdbEndpoint (String amazonSdbEndpoint)
 specifier|public
@@ -148,30 +166,30 @@ operator|=
 name|secretKey
 expr_stmt|;
 block|}
-DECL|method|getAmazonSdbClient ()
+DECL|method|getAmazonSDBClient ()
 specifier|public
 name|AmazonSimpleDB
-name|getAmazonSdbClient
+name|getAmazonSDBClient
 parameter_list|()
 block|{
 return|return
-name|amazonSdbClient
+name|amazonSDBClient
 return|;
 block|}
-DECL|method|setAmazonSdbClient (AmazonSimpleDB amazonSdbClient)
+DECL|method|setAmazonSDBClient (AmazonSimpleDB amazonSDBClient)
 specifier|public
 name|void
-name|setAmazonSdbClient
+name|setAmazonSDBClient
 parameter_list|(
 name|AmazonSimpleDB
-name|amazonSdbClient
+name|amazonSDBClient
 parameter_list|)
 block|{
 name|this
 operator|.
-name|amazonSdbClient
+name|amazonSDBClient
 operator|=
-name|amazonSdbClient
+name|amazonSDBClient
 expr_stmt|;
 block|}
 DECL|method|getDomainName ()
@@ -202,7 +220,7 @@ expr_stmt|;
 block|}
 DECL|method|getOperation ()
 specifier|public
-name|String
+name|SdbOperations
 name|getOperation
 parameter_list|()
 block|{
@@ -210,12 +228,12 @@ return|return
 name|operation
 return|;
 block|}
-DECL|method|setOperation (String operation)
+DECL|method|setOperation (SdbOperations operation)
 specifier|public
 name|void
 name|setOperation
 parameter_list|(
-name|String
+name|SdbOperations
 name|operation
 parameter_list|)
 block|{
@@ -224,6 +242,58 @@ operator|.
 name|operation
 operator|=
 name|operation
+expr_stmt|;
+block|}
+DECL|method|getMaxNumberOfDomains ()
+specifier|public
+name|Integer
+name|getMaxNumberOfDomains
+parameter_list|()
+block|{
+return|return
+name|maxNumberOfDomains
+return|;
+block|}
+DECL|method|setMaxNumberOfDomains (Integer maxNumberOfDomains)
+specifier|public
+name|void
+name|setMaxNumberOfDomains
+parameter_list|(
+name|Integer
+name|maxNumberOfDomains
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxNumberOfDomains
+operator|=
+name|maxNumberOfDomains
+expr_stmt|;
+block|}
+DECL|method|getConsistentRead ()
+specifier|public
+name|Boolean
+name|getConsistentRead
+parameter_list|()
+block|{
+return|return
+name|consistentRead
+return|;
+block|}
+DECL|method|setConsistentRead (Boolean consistentRead)
+specifier|public
+name|void
+name|setConsistentRead
+parameter_list|(
+name|Boolean
+name|consistentRead
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consistentRead
+operator|=
+name|consistentRead
 expr_stmt|;
 block|}
 block|}
