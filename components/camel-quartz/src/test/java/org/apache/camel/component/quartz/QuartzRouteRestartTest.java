@@ -114,6 +114,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -132,6 +142,11 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"CAMEL-4794"
+argument_list|)
 DECL|method|testQuartzCronRoute ()
 specifier|public
 name|void
@@ -162,9 +177,29 @@ argument_list|(
 literal|3
 argument_list|)
 expr_stmt|;
-comment|// the second message should have been skipped due to route being down for 7 sec
-comment|// mock.message(1).arrives().between(9, 11).seconds().afterPrevious();
-comment|// check if two messages came in short sequence
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|arrives
+argument_list|()
+operator|.
+name|between
+argument_list|(
+literal|9
+argument_list|,
+literal|11
+argument_list|)
+operator|.
+name|seconds
+argument_list|()
+operator|.
+name|afterPrevious
+argument_list|()
+expr_stmt|;
 name|mock
 operator|.
 name|message
