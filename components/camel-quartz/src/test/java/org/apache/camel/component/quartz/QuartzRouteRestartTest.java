@@ -291,9 +291,7 @@ argument_list|()
 block|{
 specifier|private
 name|boolean
-name|DONE
-init|=
-literal|false
+name|done
 decl_stmt|;
 annotation|@
 name|Override
@@ -310,10 +308,10 @@ block|{
 if|if
 condition|(
 operator|!
-name|DONE
+name|done
 condition|)
 block|{
-name|DONE
+name|done
 operator|=
 literal|true
 expr_stmt|;
