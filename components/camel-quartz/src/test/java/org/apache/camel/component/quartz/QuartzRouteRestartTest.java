@@ -142,11 +142,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"CAMEL-4794"
-argument_list|)
 DECL|method|testQuartzCronRoute ()
 specifier|public
 name|void
@@ -167,7 +162,7 @@ name|mock
 operator|.
 name|setResultWaitTime
 argument_list|(
-literal|20000
+literal|15000
 argument_list|)
 expr_stmt|;
 name|mock
@@ -181,7 +176,7 @@ name|mock
 operator|.
 name|message
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 operator|.
 name|arrives
@@ -189,15 +184,15 @@ argument_list|()
 operator|.
 name|between
 argument_list|(
-literal|9
+literal|7
 argument_list|,
-literal|11
+literal|9
 argument_list|)
 operator|.
 name|seconds
 argument_list|()
 operator|.
-name|afterPrevious
+name|beforeNext
 argument_list|()
 expr_stmt|;
 name|mock
@@ -212,9 +207,9 @@ argument_list|()
 operator|.
 name|between
 argument_list|(
-literal|4
+literal|3
 argument_list|,
-literal|6
+literal|5
 argument_list|)
 operator|.
 name|seconds
@@ -248,7 +243,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"quartz://groupName/timerName?cron=0/5+*+*+*+*+?"
+literal|"quartz://groupName/timerName?cron=0/4+*+*+*+*+?"
 argument_list|)
 operator|.
 name|routeId
@@ -336,7 +331,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|7000
+literal|5000
 argument_list|)
 expr_stmt|;
 name|exchange
