@@ -250,6 +250,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// process the exchange now that we woke up
 name|DelayProcessorSupport
 operator|.
 name|super
@@ -258,15 +259,44 @@ name|process
 argument_list|(
 name|exchange
 argument_list|,
-name|callback
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Delayed task done for exchangeId: {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// signal callback we are done async
+comment|// we must done the callback from this async callback as well, to ensure callback is done correctly
+comment|// must invoke done on callback with false, as that is what the original caller would
+comment|// expect as we returned false in the process method
 name|callback
 operator|.
 name|done
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
