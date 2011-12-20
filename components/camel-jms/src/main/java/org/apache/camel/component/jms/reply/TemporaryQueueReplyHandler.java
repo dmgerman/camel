@@ -92,13 +92,19 @@ specifier|final
 name|String
 name|originalCorrelationId
 decl_stmt|;
+DECL|field|correlationId
+specifier|protected
+specifier|final
+name|String
+name|correlationId
+decl_stmt|;
 DECL|field|timeout
 specifier|protected
 specifier|final
 name|long
 name|timeout
 decl_stmt|;
-DECL|method|TemporaryQueueReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, long timeout)
+DECL|method|TemporaryQueueReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long timeout)
 specifier|public
 name|TemporaryQueueReplyHandler
 parameter_list|(
@@ -113,6 +119,9 @@ name|callback
 parameter_list|,
 name|String
 name|originalCorrelationId
+parameter_list|,
+name|String
+name|correlationId
 parameter_list|,
 name|long
 name|timeout
@@ -135,6 +144,12 @@ operator|.
 name|originalCorrelationId
 operator|=
 name|originalCorrelationId
+expr_stmt|;
+name|this
+operator|.
+name|correlationId
+operator|=
+name|correlationId
 expr_stmt|;
 name|this
 operator|.
@@ -174,6 +189,8 @@ name|callback
 argument_list|,
 name|originalCorrelationId
 argument_list|,
+name|correlationId
+argument_list|,
 name|reply
 argument_list|)
 decl_stmt|;
@@ -207,6 +224,8 @@ argument_list|,
 name|callback
 argument_list|,
 name|originalCorrelationId
+argument_list|,
+name|correlationId
 argument_list|,
 name|timeout
 argument_list|)

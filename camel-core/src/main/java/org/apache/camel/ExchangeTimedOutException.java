@@ -71,6 +71,40 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+DECL|method|ExchangeTimedOutException (Exchange exchange, long timeout, String message)
+specifier|public
+name|ExchangeTimedOutException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"The OUT message was not received within: "
+operator|+
+name|timeout
+operator|+
+literal|" millis due "
+operator|+
+name|message
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
 comment|/**      * Return the timeout which expired in milliseconds      */
 DECL|method|getTimeout ()
 specifier|public

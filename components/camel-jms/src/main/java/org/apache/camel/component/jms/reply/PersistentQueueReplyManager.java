@@ -225,9 +225,9 @@ name|callback
 argument_list|,
 name|originalCorrelationId
 argument_list|,
-name|requestTimeout
+name|correlationId
 argument_list|,
-name|dynamicMessageSelector
+name|requestTimeout
 argument_list|)
 decl_stmt|;
 name|correlation
@@ -388,10 +388,11 @@ literal|"Reply received for unknown correlationID ["
 operator|+
 name|correlationID
 operator|+
-literal|"] -> "
+literal|"]. The message will be ignored: "
 operator|+
 name|message
 decl_stmt|;
+comment|// log a warn and then ignore the message
 name|log
 operator|.
 name|warn
@@ -399,17 +400,6 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|UnknownReplyMessageException
-argument_list|(
-name|text
-argument_list|,
-name|message
-argument_list|,
-name|correlationID
-argument_list|)
-throw|;
 block|}
 block|}
 DECL|method|setReplyToSelectorHeader (org.apache.camel.Message camelMessage, Message jmsMessage)

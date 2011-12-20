@@ -517,7 +517,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Received reply message with correlationID: {} -> {}"
+literal|"Received reply message with correlationID [{}] -> {}"
 argument_list|,
 name|correlationID
 argument_list|,
@@ -583,7 +583,49 @@ condition|(
 name|timeout
 condition|)
 block|{
+comment|// timeout occurred do a WARN log so its easier to spot in the logs
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Timeout occurred after {} millis waiting for reply message with correlationID [{}]."
+operator|+
+literal|" Setting ExchangeTimedOutException on ExchangeId: {} and continue routing."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|holder
+operator|.
+name|getRequestTimeout
+argument_list|()
+block|,
+name|holder
+operator|.
+name|getCorrelationId
+argument_list|()
+block|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+block|}
+argument_list|)
+expr_stmt|;
 comment|// no response, so lets set a timed out exception
+name|String
+name|msg
+init|=
+literal|"reply message with correlationID: "
+operator|+
+name|holder
+operator|.
+name|getCorrelationId
+argument_list|()
+operator|+
+literal|" not received"
+decl_stmt|;
 name|exchange
 operator|.
 name|setException
@@ -597,6 +639,8 @@ name|holder
 operator|.
 name|getRequestTimeout
 argument_list|()
+argument_list|,
+name|msg
 argument_list|)
 argument_list|)
 expr_stmt|;

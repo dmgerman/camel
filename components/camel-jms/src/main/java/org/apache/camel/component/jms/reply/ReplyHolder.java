@@ -88,13 +88,19 @@ specifier|final
 name|String
 name|originalCorrelationId
 decl_stmt|;
+DECL|field|correlationId
+specifier|private
+specifier|final
+name|String
+name|correlationId
+decl_stmt|;
 DECL|field|timeout
 specifier|private
 name|long
 name|timeout
 decl_stmt|;
 comment|/**      * Constructor to use when a reply message was received      */
-DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, Message message)
+DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, Message message)
 specifier|public
 name|ReplyHolder
 parameter_list|(
@@ -106,6 +112,9 @@ name|callback
 parameter_list|,
 name|String
 name|originalCorrelationId
+parameter_list|,
+name|String
+name|correlationId
 parameter_list|,
 name|Message
 name|message
@@ -131,13 +140,19 @@ name|originalCorrelationId
 expr_stmt|;
 name|this
 operator|.
+name|correlationId
+operator|=
+name|correlationId
+expr_stmt|;
+name|this
+operator|.
 name|message
 operator|=
 name|message
 expr_stmt|;
 block|}
 comment|/**      * Constructor to use when a timeout occurred      */
-DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, long timeout)
+DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long timeout)
 specifier|public
 name|ReplyHolder
 parameter_list|(
@@ -150,6 +165,9 @@ parameter_list|,
 name|String
 name|originalCorrelationId
 parameter_list|,
+name|String
+name|correlationId
+parameter_list|,
 name|long
 name|timeout
 parameter_list|)
@@ -161,6 +179,8 @@ argument_list|,
 name|callback
 argument_list|,
 name|originalCorrelationId
+argument_list|,
+name|correlationId
 argument_list|,
 literal|null
 argument_list|)
@@ -201,6 +221,17 @@ parameter_list|()
 block|{
 return|return
 name|originalCorrelationId
+return|;
+block|}
+comment|/**      * Gets the correlation id      *      * @see #getOriginalCorrelationId()      */
+DECL|method|getCorrelationId ()
+specifier|public
+name|String
+name|getCorrelationId
+parameter_list|()
+block|{
+return|return
+name|correlationId
 return|;
 block|}
 comment|/**      * Gets the received message      *      * @return  the received message, or<tt>null</tt> if timeout occurred and no message has been received      * @see #isTimeout()      */

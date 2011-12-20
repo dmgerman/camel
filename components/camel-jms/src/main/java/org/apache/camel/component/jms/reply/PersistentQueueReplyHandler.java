@@ -56,12 +56,7 @@ name|PersistentQueueReplyHandler
 extends|extends
 name|TemporaryQueueReplyHandler
 block|{
-DECL|field|dynamicMessageSelector
-specifier|private
-name|MessageSelectorCreator
-name|dynamicMessageSelector
-decl_stmt|;
-DECL|method|PersistentQueueReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, long timeout, MessageSelectorCreator dynamicMessageSelector)
+DECL|method|PersistentQueueReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long timeout)
 specifier|public
 name|PersistentQueueReplyHandler
 parameter_list|(
@@ -77,11 +72,11 @@ parameter_list|,
 name|String
 name|originalCorrelationId
 parameter_list|,
+name|String
+name|correlationId
+parameter_list|,
 name|long
 name|timeout
-parameter_list|,
-name|MessageSelectorCreator
-name|dynamicMessageSelector
 parameter_list|)
 block|{
 name|super
@@ -94,14 +89,10 @@ name|callback
 argument_list|,
 name|originalCorrelationId
 argument_list|,
+name|correlationId
+argument_list|,
 name|timeout
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|dynamicMessageSelector
-operator|=
-name|dynamicMessageSelector
 expr_stmt|;
 block|}
 block|}
