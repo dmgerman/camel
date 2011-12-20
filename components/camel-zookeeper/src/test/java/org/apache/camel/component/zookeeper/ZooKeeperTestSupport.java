@@ -338,21 +338,7 @@ name|zookeeper
 operator|.
 name|server
 operator|.
-name|NIOServerCnxnFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|zookeeper
-operator|.
-name|server
-operator|.
-name|ServerCnxnFactory
+name|NIOServerCnxn
 import|;
 end_import
 
@@ -629,7 +615,9 @@ name|count
 decl_stmt|;
 DECL|field|connectionFactory
 specifier|private
-name|ServerCnxnFactory
+name|NIOServerCnxn
+operator|.
+name|Factory
 name|connectionFactory
 decl_stmt|;
 DECL|field|zkServer
@@ -731,9 +719,10 @@ argument_list|)
 expr_stmt|;
 name|connectionFactory
 operator|=
-name|NIOServerCnxnFactory
+operator|new
+name|NIOServerCnxn
 operator|.
-name|createFactory
+name|Factory
 argument_list|(
 operator|new
 name|InetSocketAddress
