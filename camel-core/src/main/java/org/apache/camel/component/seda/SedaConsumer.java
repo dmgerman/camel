@@ -752,26 +752,12 @@ comment|// send a new copied exchange with new camel context
 name|Exchange
 name|newExchange
 init|=
-name|ExchangeHelper
-operator|.
-name|copyExchangeAndSetCamelContext
+name|prepareExchange
 argument_list|(
 name|exchange
-argument_list|,
-name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// set the fromEndpoint
-name|newExchange
-operator|.
-name|setFromEndpoint
-argument_list|(
-name|endpoint
-argument_list|)
-expr_stmt|;
+comment|// process the exchange
 name|sendToConsumers
 argument_list|(
 name|newExchange
@@ -970,6 +956,44 @@ name|getCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Strategy to prepare exchange for being processed by this consumer      *      * @param exchange the exchange      * @return the exchange to process by this consumer.      */
+DECL|method|prepareExchange (Exchange exchange)
+specifier|protected
+name|Exchange
+name|prepareExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// send a new copied exchange with new camel context
+name|Exchange
+name|newExchange
+init|=
+name|ExchangeHelper
+operator|.
+name|copyExchangeAndSetCamelContext
+argument_list|(
+name|exchange
+argument_list|,
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+comment|// set the from endpoint
+name|newExchange
+operator|.
+name|setFromEndpoint
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|newExchange
+return|;
 block|}
 comment|/**      * Send the given {@link Exchange} to the consumer(s).      *<p/>      * If multiple consumers then they will each receive a copy of the Exchange.      * A multicast processor will send the exchange in parallel to the multiple consumers.      *<p/>      * If there is only a single consumer then its dispatched directly to it using same thread.      *       * @param exchange the exchange      * @throws Exception can be thrown if processing of the exchange failed      */
 DECL|method|sendToConsumers (Exchange exchange)
