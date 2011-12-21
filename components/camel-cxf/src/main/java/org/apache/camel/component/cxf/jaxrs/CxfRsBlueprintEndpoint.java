@@ -302,6 +302,15 @@ name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// update the sfb address by resolving the properties
+name|bean
+operator|.
+name|setAddress
+argument_list|(
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|BlueprintSupport
 name|support
 init|=

@@ -198,13 +198,9 @@ name|ProducerTemplate
 name|producerTemplate
 decl_stmt|;
 DECL|field|testingCacheManagerFactory
-specifier|private
+specifier|protected
 name|CacheManagerFactory
 name|testingCacheManagerFactory
-init|=
-operator|new
-name|TestingCacheManagerFactory
-argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
@@ -224,6 +220,12 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
+name|testingCacheManagerFactory
+operator|=
+operator|new
+name|TestingCacheManagerFactory
+argument_list|()
+expr_stmt|;
 name|jndi
 operator|.
 name|bind

@@ -159,6 +159,15 @@ name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Update the sfb address by resolving the properties
+name|bean
+operator|.
+name|setAddress
+argument_list|(
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|init
 argument_list|(
 name|bean
