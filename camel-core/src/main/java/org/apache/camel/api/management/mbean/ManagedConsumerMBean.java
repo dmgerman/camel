@@ -49,7 +49,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Endpoint Uri"
+literal|"Endpoint URI"
 argument_list|)
 DECL|method|getEndpointUri ()
 name|String

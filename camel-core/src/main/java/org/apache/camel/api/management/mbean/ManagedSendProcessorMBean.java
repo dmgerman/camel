@@ -49,7 +49,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Destination as Endpoint Uri"
+literal|"Destination as Endpoint URI"
 argument_list|)
 DECL|method|getDestination ()
 name|String
@@ -61,7 +61,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Destination as Endpoint Uri"
+literal|"Destination as Endpoint URI"
 argument_list|)
 DECL|method|setDestination (String uri)
 name|void

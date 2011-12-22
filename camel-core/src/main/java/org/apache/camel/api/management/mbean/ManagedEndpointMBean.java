@@ -47,7 +47,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel id"
+literal|"Camel ID"
 argument_list|)
 DECL|method|getCamelId ()
 name|String
@@ -59,7 +59,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Endpoint Uri"
+literal|"Endpoint URI"
 argument_list|)
 DECL|method|getEndpointUri ()
 name|String

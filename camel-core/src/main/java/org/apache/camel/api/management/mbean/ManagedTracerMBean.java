@@ -74,7 +74,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Additional destination Uri"
+literal|"Additional destination URI"
 argument_list|)
 DECL|method|getDestinationUri ()
 name|String
@@ -86,7 +86,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Additional destination Uri"
+literal|"Additional destination URI"
 argument_list|)
 DECL|method|setDestinationUri (String uri)
 name|void
@@ -113,7 +113,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Using Jpa"
+literal|"Using JPA"
 argument_list|)
 DECL|method|getUseJpa ()
 name|boolean
@@ -410,7 +410,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Formatter show exchange id"
+literal|"Formatter show exchange ID"
 argument_list|)
 DECL|method|getFormatterShowExchangeId ()
 name|boolean
@@ -422,7 +422,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Formatter show exchange id"
+literal|"Formatter show exchange ID"
 argument_list|)
 DECL|method|setFormatterShowExchangeId (boolean showExchangeId)
 name|void
@@ -599,7 +599,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Formatter show route id"
+literal|"Formatter show route ID"
 argument_list|)
 DECL|method|getFormatterShowRouteId ()
 name|boolean
@@ -611,7 +611,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Formatter show route id"
+literal|"Formatter show route ID"
 argument_list|)
 DECL|method|setFormatterShowRouteId (boolean showRouteId)
 name|void
@@ -653,7 +653,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Formatter show short exchange id"
+literal|"Formatter show short exchange ID"
 argument_list|)
 DECL|method|getFormatterShowShortExchangeId ()
 name|boolean
@@ -665,7 +665,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Formatter show short exchange id"
+literal|"Formatter show short exchange ID"
 argument_list|)
 DECL|method|setFormatterShowShortExchangeId (boolean showShortExchangeId)
 name|void
@@ -734,7 +734,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Should trace events be sent as jmx notifications"
+literal|"Should trace events be sent as JMX notifications"
 argument_list|)
 DECL|method|isJmxTraceNotifications ()
 name|boolean
@@ -746,7 +746,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Should trace events be sent as jmx notifications"
+literal|"Should trace events be sent as JMX notifications"
 argument_list|)
 DECL|method|setJmxTraceNotifications (boolean jmxTraceNotifications)
 name|void

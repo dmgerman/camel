@@ -63,7 +63,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Thread Pool id"
+literal|"Thread Pool ID"
 argument_list|)
 DECL|method|getId ()
 name|String
@@ -75,7 +75,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Id of source for creating Thread Pool"
+literal|"ID of source for creating Thread Pool"
 argument_list|)
 DECL|method|getSourceId ()
 name|String
@@ -87,7 +87,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Route id for the source, which created the Thread Pool"
+literal|"Route ID for the source, which created the Thread Pool"
 argument_list|)
 DECL|method|getRouteId ()
 name|String
@@ -99,7 +99,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Id of the thread pool profile which this pool is based upon"
+literal|"ID of the thread pool profile which this pool is based upon"
 argument_list|)
 DECL|method|getThreadPoolProfileId ()
 name|String

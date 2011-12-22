@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A counter that gathers performance metrics when {@link org.apache.camel.Exchange} are routed in Camel.  *  * @version   */
+comment|/**  * A counter that gathers performance metrics when an {@link org.apache.camel.Exchange} is routed in Camel.  *  * @version   */
 end_comment
 
 begin_interface
@@ -40,7 +40,7 @@ specifier|public
 interface|interface
 name|PerformanceCounter
 block|{
-comment|/**      * Executed when an {@link org.apache.camel.Exchange} is complete.      *      * @param exchange the exchange      * @param time  the time it took in millis to complete it      */
+comment|/**      * Executed when an {@link org.apache.camel.Exchange} is complete.      *      * @param exchange the exchange      * @param time the time it took in millis to complete      */
 DECL|method|completedExchange (Exchange exchange, long time)
 name|void
 name|completedExchange
@@ -61,13 +61,13 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Is statistics enabled.      *<p/>      * They can be enabled and disabled at runtime      *      * @return whether statistics is enabled or not      */
+comment|/**      * Are statistics enabled?      *<p/>      * They can be enabled and disabled at runtime      *      * @return whether statistics are enabled or not      */
 DECL|method|isStatisticsEnabled ()
 name|boolean
 name|isStatisticsEnabled
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether statistics is enabled.      *<p/>      * They can be enabled and disabled at runtime      *      * @param statisticsEnabled whether statistics is enabled or not      */
+comment|/**      * Sets whether statistics are enabled.      *<p/>      * They can be enabled and disabled at runtime      *      * @param statisticsEnabled whether statistics are enabled or not      */
 DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
 name|void
 name|setStatisticsEnabled

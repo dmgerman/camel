@@ -65,7 +65,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Route id"
+literal|"Route ID"
 argument_list|)
 DECL|method|getRouteId ()
 name|String
@@ -89,7 +89,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Route Endpoint Uri"
+literal|"Route Endpoint URI"
 argument_list|)
 DECL|method|getEndpointUri ()
 name|String
@@ -125,7 +125,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel id"
+literal|"Camel ID"
 argument_list|)
 DECL|method|getCamelId ()
 name|String

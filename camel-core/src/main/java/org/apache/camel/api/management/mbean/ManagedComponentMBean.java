@@ -71,7 +71,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel id"
+literal|"Camel ID"
 argument_list|)
 DECL|method|getCamelId ()
 name|String

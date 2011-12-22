@@ -85,7 +85,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel id"
+literal|"Camel ID"
 argument_list|)
 DECL|method|getCamelId ()
 name|String
@@ -530,7 +530,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Creates the endpoint by the given uri"
+literal|"Creates the endpoint by the given URI"
 argument_list|)
 DECL|method|createEndpoint (String uri)
 name|boolean
