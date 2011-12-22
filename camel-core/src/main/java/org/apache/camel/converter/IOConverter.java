@@ -797,6 +797,35 @@ name|exchange
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Converter
+DECL|method|toInputStream (StringBuilder builder, Exchange exchange)
+specifier|public
+specifier|static
+name|InputStream
+name|toInputStream
+parameter_list|(
+name|StringBuilder
+name|builder
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|toInputStream
+argument_list|(
+name|builder
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
 comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
 name|Deprecated
