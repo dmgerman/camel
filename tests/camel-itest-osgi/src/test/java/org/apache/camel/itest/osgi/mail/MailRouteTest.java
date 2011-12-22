@@ -749,32 +749,8 @@ name|options
 init|=
 name|combine
 argument_list|(
-comment|// Default karaf environment
-name|Helper
-operator|.
-name|getDefaultOptions
-argument_list|(
-comment|// this is how you set the default log level when using pax logging (logProfile)
-name|Helper
-operator|.
-name|setLogLevel
-argument_list|(
-literal|"WARN"
-argument_list|)
-argument_list|)
-argument_list|,
-comment|// install the spring, http features first
-name|scanFeatures
-argument_list|(
-name|getKarafFeatureUrl
+name|getDefaultCamelKarafOptions
 argument_list|()
-argument_list|,
-literal|"spring"
-argument_list|,
-literal|"spring-dm"
-argument_list|,
-literal|"jetty"
-argument_list|)
 argument_list|,
 comment|// using the features to install the camel components
 name|scanFeatures
@@ -782,11 +758,7 @@ argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
 argument_list|,
-literal|"camel-core"
-argument_list|,
-literal|"camel-spring"
-argument_list|,
-literal|"camel-test"
+literal|"jetty"
 argument_list|)
 argument_list|,
 comment|// using the java mail API bundle
@@ -841,7 +813,7 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|"2.4.0"
+literal|"2.8.3"
 argument_list|)
 argument_list|,
 name|workingDirectory

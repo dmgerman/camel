@@ -579,28 +579,8 @@ name|options
 init|=
 name|combine
 argument_list|(
-comment|// Default karaf environment
-name|Helper
-operator|.
-name|getDefaultOptions
-argument_list|(
-comment|// this is how you set the default log level when using pax logging (logProfile)
-name|Helper
-operator|.
-name|setLogLevel
-argument_list|(
-literal|"WARN"
-argument_list|)
-argument_list|)
-argument_list|,
-comment|// install the spring.
-name|scanFeatures
-argument_list|(
-name|getKarafFeatureUrl
+name|getDefaultCamelKarafOptions
 argument_list|()
-argument_list|,
-literal|"spring"
-argument_list|)
 argument_list|,
 comment|// using the features to install the camel components
 name|scanFeatures
@@ -608,26 +588,8 @@ argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
 argument_list|,
-literal|"camel-core"
-argument_list|,
-literal|"camel-spring"
-argument_list|,
-literal|"camel-test"
-argument_list|,
 literal|"camel-jclouds"
 argument_list|)
-argument_list|,
-name|workingDirectory
-argument_list|(
-literal|"target/paxrunner/"
-argument_list|)
-argument_list|,
-comment|//vmOption("-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"),
-name|felix
-argument_list|()
-argument_list|,
-name|equinox
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

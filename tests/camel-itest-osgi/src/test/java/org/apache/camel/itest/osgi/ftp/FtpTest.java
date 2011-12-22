@@ -52,20 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|testing
-operator|.
-name|Helper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Ignore
@@ -224,26 +210,6 @@ name|scanFeatures
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|workingDirectory
-import|;
-end_import
-
 begin_class
 annotation|@
 name|RunWith
@@ -342,20 +308,21 @@ name|options
 init|=
 name|combine
 argument_list|(
-comment|// Default karaf environment
-name|Helper
-operator|.
-name|getDefaultOptions
+name|getDefaultCamelKarafOptions
+argument_list|()
+argument_list|,
+comment|// using the features to install the camel components
+name|scanFeatures
 argument_list|(
-comment|// this is how you set the default log level when using pax logging (logProfile)
-name|Helper
-operator|.
-name|setLogLevel
-argument_list|(
-literal|"WARN"
-argument_list|)
+name|getCamelKarafFeatureUrl
+argument_list|()
+argument_list|,
+literal|"jetty"
+argument_list|,
+literal|"camel-ftp"
 argument_list|)
 argument_list|,
+comment|// ftp server bundles
 name|mavenBundle
 argument_list|()
 operator|.
@@ -408,40 +375,6 @@ operator|.
 name|version
 argument_list|(
 literal|"1.0.5"
-argument_list|)
-argument_list|,
-comment|// install the spring, http features first
-name|scanFeatures
-argument_list|(
-name|getKarafFeatureUrl
-argument_list|()
-argument_list|,
-literal|"spring"
-argument_list|,
-literal|"spring-dm"
-argument_list|,
-literal|"jetty"
-argument_list|)
-argument_list|,
-comment|// using the features to install the camel components
-name|scanFeatures
-argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
-literal|"camel-core"
-argument_list|,
-literal|"camel-spring"
-argument_list|,
-literal|"camel-test"
-argument_list|,
-literal|"camel-ftp"
-argument_list|)
-argument_list|,
-comment|// TODO: our app need to import the FTP server stuff
-name|workingDirectory
-argument_list|(
-literal|"target/paxrunner/"
 argument_list|)
 argument_list|,
 comment|/*felix(),*/
