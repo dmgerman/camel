@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * An exception thrown for authorization errors occurring in a Camel exchange.  *  * @version   */
+comment|/**  * An exception thrown for either authentication or authorization errors occurring  * in a Camel exchange.  Intended to be used when a user is denied an action and  * Camel should not process the message as a result.  *  * @version   */
 end_comment
 
 begin_class

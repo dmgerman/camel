@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|MultipleConsumersSupport
 block|{
-comment|/**      * Is multiple consumers supported?      *      * @return<tt>true</tt> if multiple consumers is supported      */
+comment|/**      * Are multiple consumers supported?      *      * @return<tt>true</tt> if multiple consumers are supported      */
 DECL|method|isMultipleConsumersSupported ()
 name|boolean
 name|isMultipleConsumersSupported
