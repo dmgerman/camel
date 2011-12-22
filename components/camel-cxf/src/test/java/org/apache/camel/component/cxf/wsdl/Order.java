@@ -20,20 +20,6 @@ name|wsdl
 package|;
 end_package
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlRootElement
-import|;
-end_import
-
 begin_class
 DECL|class|Order
 specifier|public

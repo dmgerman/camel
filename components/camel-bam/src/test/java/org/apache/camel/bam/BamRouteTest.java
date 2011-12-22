@@ -148,24 +148,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
-operator|.
-name|xpath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|Time

@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|namespace
-operator|.
-name|QName
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -91,22 +79,6 @@ operator|.
 name|sql
 operator|.
 name|SqlBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
 import|;
 end_import
 

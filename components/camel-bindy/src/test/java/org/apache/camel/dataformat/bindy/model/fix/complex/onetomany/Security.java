@@ -44,24 +44,6 @@ name|KeyValuePairField
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|bindy
-operator|.
-name|annotation
-operator|.
-name|Message
-import|;
-end_import
-
 begin_comment
 comment|// @Message(keyValuePairSeparator = "=", pairSeparator = "\\u0001", type = "FIX", version = "4.1")
 end_comment

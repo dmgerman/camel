@@ -70,22 +70,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|jersey
-operator|.
-name|api
-operator|.
-name|core
-operator|.
-name|PackagesResourceConfig
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

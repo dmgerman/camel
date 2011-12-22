@@ -30,18 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|security
-operator|.
-name|cert
-operator|.
-name|X509Certificate
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|security

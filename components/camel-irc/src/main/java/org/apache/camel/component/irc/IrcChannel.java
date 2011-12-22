@@ -18,18 +18,6 @@ name|irc
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
 begin_class
 DECL|class|IrcChannel
 specifier|public

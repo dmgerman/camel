@@ -291,38 +291,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|osgi
-operator|.
-name|context
-operator|.
-name|support
-operator|.
-name|OsgiBundleXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|equinox
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
