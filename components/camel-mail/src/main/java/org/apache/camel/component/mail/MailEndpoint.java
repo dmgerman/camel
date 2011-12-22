@@ -218,6 +218,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|MailEndpoint (String endpointUri, MailConfiguration configuration)
 specifier|public
 name|MailEndpoint

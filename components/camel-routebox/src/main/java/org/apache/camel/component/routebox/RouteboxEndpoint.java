@@ -78,6 +78,8 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|RouteboxEndpoint (String endpointUri)
 specifier|public
 name|RouteboxEndpoint
@@ -92,6 +94,8 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|RouteboxEndpoint (String endpointUri, CamelContext camelContext)
 specifier|public
 name|RouteboxEndpoint

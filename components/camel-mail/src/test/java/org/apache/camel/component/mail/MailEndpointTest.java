@@ -328,6 +328,15 @@ argument_list|(
 literal|"secret"
 argument_list|)
 expr_stmt|;
+name|MailComponent
+name|comp
+init|=
+operator|new
+name|MailComponent
+argument_list|(
+name|cfg
+argument_list|)
+decl_stmt|;
 name|MailEndpoint
 name|endpoint
 init|=
@@ -335,6 +344,8 @@ operator|new
 name|MailEndpoint
 argument_list|(
 literal|"smtp://myhost"
+argument_list|,
+name|comp
 argument_list|,
 name|cfg
 argument_list|)

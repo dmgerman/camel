@@ -627,9 +627,6 @@ argument_list|,
 name|TradeExecutorComponent
 operator|.
 name|this
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

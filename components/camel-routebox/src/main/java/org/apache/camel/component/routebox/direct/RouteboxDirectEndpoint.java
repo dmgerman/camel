@@ -148,6 +148,8 @@ name|RouteboxDirectConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|RouteboxDirectEndpoint (String endpointUri)
 specifier|public
 name|RouteboxDirectEndpoint

@@ -142,6 +142,11 @@ comment|// Helper class
 block|}
 annotation|@
 name|Converter
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|toEndpoint (final MessageChannel channel)
 specifier|public
 specifier|static

@@ -429,6 +429,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XmppEndpoint (String endpointUri)
 specifier|public
 name|XmppEndpoint

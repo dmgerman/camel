@@ -211,8 +211,7 @@ name|SesEndpoint
 argument_list|(
 name|uri
 argument_list|,
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|,
 name|configuration
 argument_list|)

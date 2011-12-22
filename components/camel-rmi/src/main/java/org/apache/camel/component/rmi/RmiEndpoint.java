@@ -235,6 +235,8 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|RmiEndpoint (String endpointUri)
 specifier|public
 name|RmiEndpoint

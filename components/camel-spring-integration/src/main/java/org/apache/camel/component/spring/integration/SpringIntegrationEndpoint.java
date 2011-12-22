@@ -173,6 +173,8 @@ operator|=
 name|channel
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|SpringIntegrationEndpoint (String uri, MessageChannel channel, CamelContext context)
 specifier|public
 name|SpringIntegrationEndpoint
@@ -201,6 +203,8 @@ operator|=
 name|channel
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|SpringIntegrationEndpoint (String endpointUri, MessageChannel messageChannel)
 specifier|public
 name|SpringIntegrationEndpoint

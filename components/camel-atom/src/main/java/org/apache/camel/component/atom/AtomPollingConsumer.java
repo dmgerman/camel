@@ -116,23 +116,6 @@ name|AtomPollingConsumer
 extends|extends
 name|FeedPollingConsumer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|AtomPollingConsumer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|AtomPollingConsumer (AtomEndpoint endpoint, Processor processor)
 specifier|public
 name|AtomPollingConsumer

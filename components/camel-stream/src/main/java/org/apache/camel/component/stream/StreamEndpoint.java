@@ -220,6 +220,8 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|StreamEndpoint (String endpointUri)
 specifier|public
 name|StreamEndpoint
