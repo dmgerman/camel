@@ -312,6 +312,7 @@ name|oldLogLevel
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Logs the message<b>with</b> checking the {@link #shouldLog()} method first.      *      * @param message the message to log, if {@link #shouldLog()} returned<tt>true</tt>      */
 DECL|method|log (String message)
 specifier|public
 name|void
@@ -343,6 +344,28 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Logs the message<b>without</b> checking the {@link #shouldLog()} method first.      *       * @param message the message to log      */
+DECL|method|doLog (String message)
+specifier|public
+name|void
+name|doLog
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|log
+argument_list|(
+name|log
+argument_list|,
+name|level
+argument_list|,
+name|marker
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|log (String message, Throwable exception, LoggingLevel loggingLevel)
 specifier|public
