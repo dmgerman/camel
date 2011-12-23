@@ -435,7 +435,7 @@ specifier|private
 name|ObjectHelper
 parameter_list|()
 block|{     }
-comment|/**      * A helper method for comparing objects for equality in which it uses type coerce to coerce      * types between the left and right values. This allows you to equal test eg String and Integer as      * Camel will be able to coerce the types.      */
+comment|/**      * A helper method for comparing objects for equality in which it uses type coercion to coerce      * types between the left and right values. This allows you test for equality for example with      * a String and Integer type as Camel will be able to coerce the types.      */
 DECL|method|typeCoerceEquals (TypeConverter converter, Object leftValue, Object rightValue)
 specifier|public
 specifier|static
@@ -586,7 +586,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * A helper method for comparing objects for equality in which it uses type coerce to coerce      * types between the left and right values. This allows you to equal test eg String and Integer as      * Camel will be able to coerce the types      */
+comment|/**      * A helper method for comparing objects for inequality in which it uses type coercion to coerce      * types between the left and right values.  This allows you test for inequality for example with      * a String and Integer type as Camel will be able to coerce the types.      */
 DECL|method|typeCoerceNotEquals (TypeConverter converter, Object leftValue, Object rightValue)
 specifier|public
 specifier|static
@@ -615,7 +615,7 @@ name|rightValue
 argument_list|)
 return|;
 block|}
-comment|/**      * A helper method for comparing objects ordering in which it uses type coerce to coerce      * types between the left and right values. This allows you to equal test eg String and Integer as      * Camel will be able to coerce the types      */
+comment|/**      * A helper method for comparing objects ordering in which it uses type coercion to coerce      * types between the left and right values.  This allows you test for ordering for example with      * a String and Integer type as Camel will be able to coerce the types.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -5187,7 +5187,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Cleans the string to pure java identifier so we can use it for loading class names.      *<p/>      * Especially from Spring DSL people can have \n \t or other characters that otherwise      * would result in ClassNotFoundException      *      * @param name the class name      * @return normalized classname that can be load by a class loader.      */
+comment|/**      * Cleans the string to a pure Java identifier so we can use it for loading class names.      *<p/>      * Especially from Spring DSL people can have \n \t or other characters that otherwise      * would result in ClassNotFoundException      *      * @param name the class name      * @return normalized classname that can be load by a class loader.      */
 DECL|method|normalizeClassName (String name)
 specifier|public
 specifier|static

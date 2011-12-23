@@ -111,7 +111,7 @@ operator|instanceof
 name|BinaryPredicate
 condition|)
 block|{
-comment|// special for binary evaluable as we can get more detailed information
+comment|// with binary evaluations as we can get more detailed information
 name|BinaryPredicate
 name|eval
 init|=

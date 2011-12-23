@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for loading resources on the classpath or file system.  */
+comment|/**  * Helper class for loading resources on the classpath or file system.  */
 end_comment
 
 begin_class
@@ -138,7 +138,7 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-comment|/**      * Determines whether the uri has a scheme (eg file:, classpath: or http:)      *      * @param uri the uri      * @return<tt>true</tt> if the uri starts with a scheme      */
+comment|/**      * Determines whether the URI has a scheme (e.g. file:, classpath: or http:)      *      * @param uri the URI      * @return<tt>true</tt> if the URI starts with a scheme      */
 DECL|method|hasScheme (String uri)
 specifier|public
 specifier|static
@@ -183,7 +183,7 @@ literal|"http:"
 argument_list|)
 return|;
 block|}
-comment|/**      * Resolves the mandatory resource.      *<p/>      * If possible prefer to use {@link #resolveMandatoryResourceAsUrl(org.apache.camel.spi.ClassResolver, String)}      * if possible.      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri uri of the resource      * @return the resource as an {@link InputStream}, remember to close the stream after usage.      * @throws java.io.IOException is thrown if the resource file could not be found or loaded as {@link InputStream}      */
+comment|/**      * Resolves the mandatory resource.      *<p/>      * If possible recommended to use {@link #resolveMandatoryResourceAsUrl(org.apache.camel.spi.ClassResolver, String)}      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri URI of the resource      * @return the resource as an {@link InputStream}.  Remember to close this stream after usage.      * @throws java.io.IOException is thrown if the resource file could not be found or loaded as {@link InputStream}      */
 DECL|method|resolveMandatoryResourceAsInputStream (ClassResolver classResolver, String uri)
 specifier|public
 specifier|static
@@ -361,7 +361,7 @@ name|is
 return|;
 block|}
 block|}
-comment|/**      * Resolves the mandatory resource.      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri uri of the resource      * @return the resource as an {@link InputStream}, remember to close the stream after usage.      * @throws java.io.FileNotFoundException is thrown if the resource file could not be found      * @throws java.net.MalformedURLException if the uri is malformed      */
+comment|/**      * Resolves the mandatory resource.      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri uri of the resource      * @return the resource as an {@link InputStream}.  Remember to close this stream after usage.      * @throws java.io.FileNotFoundException is thrown if the resource file could not be found      * @throws java.net.MalformedURLException if the URI is malformed      */
 DECL|method|resolveMandatoryResourceAsUrl (ClassResolver classResolver, String uri)
 specifier|public
 specifier|static

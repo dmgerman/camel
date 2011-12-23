@@ -71,7 +71,7 @@ parameter_list|()
 block|{
 comment|// Utility Class
 block|}
-comment|/**      * Returns true if the version number of the given package name can be found and is greater than or equal to the minimum version.      *      * For package names which include multiple dots, the dots are removed. So for example a spring version of 2.5.1 is converted to      * 2.51 so you can assert that its>= 2.51 (so above 2.50 and less than 2.52 etc).      *      * @param packageName the Java package name to compare      * @param minimumVersion the minimum version number      * @return true if the package name can be determined and if its greater than or equal to the minimum value      */
+comment|/**      * Returns true if the version number of the given package name can be found and is greater than or equal to the minimum version.      *      * For package names which include multiple dots, dots after the leftmost are removed. So for example a spring version of 2.5.1       * is converted to 2.51 so you can assert that it's>= 2.51 (so above 2.50 and less than 2.52 etc).      *      * @param packageName the Java package name to compare      * @param minimumVersion the minimum version number      * @return true if the package name can be determined and if it's greater than or equal to the minimum value      */
 DECL|method|isValidVersion (String packageName, double minimumVersion)
 specifier|public
 specifier|static
@@ -246,7 +246,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to find out version from package: "
+literal|"Could not determine version of package: "
 operator|+
 name|packageName
 argument_list|)
@@ -273,7 +273,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Failed to find out version from package: "
+literal|"Could not determine version of package: "
 operator|+
 name|packageName
 argument_list|,

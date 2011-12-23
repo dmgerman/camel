@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for Camel OGNL expressions.  *  * @version   */
+comment|/**  * Helper for Camel OGNL (Object-Graph Navigation Language) expressions.  *  * @version   */
 end_comment
 
 begin_class
@@ -90,7 +90,7 @@ specifier|private
 name|OgnlHelper
 parameter_list|()
 block|{     }
-comment|/**      * Tests whether or not the given String is a Camel OGNL expression.      *<p/>      * Its consider Camel OGNL expression when it contains either one of the following chars: . or [      *      * @param expression  the String      * @return<tt>true</tt> if Camel OGNL expression, otherwise<tt>false</tt>.       */
+comment|/**      * Tests whether or not the given String is a Camel OGNL expression.      *<p/>      * An expression is considered an OGNL expression when it contains either one of the following chars: . or [      *      * @param expression  the String      * @return<tt>true</tt> if a Camel OGNL expression, otherwise<tt>false</tt>.       */
 DECL|method|isValidOgnlExpression (String expression)
 specifier|public
 specifier|static
@@ -115,7 +115,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|// the brackets should come in pair
+comment|// the brackets should come in a pair
 name|int
 name|bracketBegin
 init|=
@@ -282,7 +282,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Tests whether or not the given Camel OGNL expression is using the elvis operator or not.      *      * @param ognlExpression the Camel OGNL expression      * @return<tt>true</tt> if the elvis operator is used, otherwise<tt>false</tt>.      */
+comment|/**      * Tests whether or not the given Camel OGNL expression is using the Elvis operator or not.      *      * @param ognlExpression the Camel OGNL expression      * @return<tt>true</tt> if the Elvis operator is used, otherwise<tt>false</tt>.      */
 DECL|method|isNullSafeOperator (String ognlExpression)
 specifier|public
 specifier|static
@@ -559,7 +559,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Regular expression with repeating groups is a pain to get right      * and then nobody understands the reg exp afterwards.      * So use a bit ugly/low-level java code to split the ognl into methods.      */
+comment|/**      * Regular expression with repeating groups is a pain to get right      * and then nobody understands the reg exp afterwards.      * So we use a bit ugly/low-level Java code to split the OGNL into methods.      */
 DECL|method|splitOgnl (String ognl)
 specifier|public
 specifier|static
