@@ -144,7 +144,7 @@ argument_list|)
 expr_stmt|;
 comment|// endpoint to our CXF webservice
 comment|// We should use the related path to publish the service, when using the ServletTransport
-comment|// so we need to configure set the bus which is configured to use the ServletTranspot
+comment|// so we need to configure set the bus which is configured to use the ServletTransport
 name|String
 name|cxfEndpointAddress
 init|=
@@ -159,7 +159,7 @@ condition|)
 block|{
 name|cxfEndpointAddress
 operator|=
-literal|"cxf://http://localhost:9080/camel-example-reportincident/webservices/incident?"
+literal|"cxf://http://localhost:{{port}}/camel-example-reportincident/webservices/incident?"
 expr_stmt|;
 block|}
 name|String
