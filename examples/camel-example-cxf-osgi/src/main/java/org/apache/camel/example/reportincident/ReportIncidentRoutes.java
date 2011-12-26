@@ -64,7 +64,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// webservice response for OK
+comment|// webservice responses
 name|OutputReportIncident
 name|ok
 init|=

@@ -47,8 +47,6 @@ DECL|field|url
 specifier|private
 name|String
 name|url
-init|=
-literal|"http://localhost:9081/real-webservice"
 decl_stmt|;
 DECL|field|service
 specifier|private
