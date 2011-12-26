@@ -234,6 +234,18 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|Bus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|binding
 operator|.
 name|soap
@@ -457,6 +469,21 @@ operator|new
 name|ExchangeImpl
 argument_list|()
 decl_stmt|;
+comment|// set the Bus on the exchange in case the CXF interceptor need to access it from exchange
+name|cxfExchange
+operator|.
+name|put
+argument_list|(
+name|Bus
+operator|.
+name|class
+argument_list|,
+name|endpoint
+operator|.
+name|getBus
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// prepare binding operation info
 name|BindingOperationInfo
 name|boi
@@ -649,6 +676,21 @@ operator|new
 name|ExchangeImpl
 argument_list|()
 decl_stmt|;
+comment|// set the Bus on the exchange in case the CXF interceptor need to access it from exchange
+name|cxfExchange
+operator|.
+name|put
+argument_list|(
+name|Bus
+operator|.
+name|class
+argument_list|,
+name|endpoint
+operator|.
+name|getBus
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// prepare binding operation info
 name|BindingOperationInfo
 name|boi
