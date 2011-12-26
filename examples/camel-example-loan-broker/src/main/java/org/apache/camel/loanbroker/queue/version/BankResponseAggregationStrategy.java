@@ -126,12 +126,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Get the exchange to aggregate, older: "
-operator|+
+literal|"oldExchange: {}, newExchange: {}"
+argument_list|,
 name|oldExchange
-operator|+
-literal|" newer:"
-operator|+
+argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
@@ -225,8 +223,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Get the lower rate exchange "
-operator|+
+literal|"Lowest rate exchange: {}"
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;

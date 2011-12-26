@@ -153,11 +153,6 @@ operator|new
 name|Client
 argument_list|()
 decl_stmt|;
-name|String
-name|result
-init|=
-literal|null
-decl_stmt|;
 name|LoanBrokerWS
 name|loanBroker
 init|=
@@ -178,8 +173,9 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+name|String
 name|result
-operator|=
+init|=
 name|loanBroker
 operator|.
 name|getLoanQuote
@@ -190,7 +186,7 @@ literal|1000.54
 argument_list|,
 literal|10
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|long
 name|endTime
 init|=
@@ -226,7 +222,7 @@ name|result
 argument_list|)
 expr_stmt|;
 name|LoanBrokerWS
-name|paralleLoanBroker
+name|parallelLoanBroker
 init|=
 name|client
 operator|.
@@ -246,7 +242,7 @@ argument_list|()
 expr_stmt|;
 name|result
 operator|=
-name|paralleLoanBroker
+name|parallelLoanBroker
 operator|.
 name|getLoanQuote
 argument_list|(

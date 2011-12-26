@@ -128,7 +128,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Loan quotion for Client "
+literal|"Loan quote for Client "
 operator|+
 name|ssn
 operator|+
@@ -138,7 +138,7 @@ literal|" The lowest rate bank is "
 operator|+
 name|bank
 operator|+
-literal|", the rate is "
+literal|", with rate "
 operator|+
 name|rate
 argument_list|)

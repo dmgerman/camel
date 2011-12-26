@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The LoanBroker is a RouteBuilder which builds the whole loan message routing rules  *  *  */
+comment|/**  * The LoanBroker is a RouteBuilder which builds the whole loan message routing rules  */
 end_comment
 
 begin_class
@@ -608,7 +608,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 name|Integer
-name|loanDuriation
+name|loanDuration
 init|=
 operator|(
 name|Integer
@@ -672,7 +672,7 @@ name|bankRequest
 operator|.
 name|add
 argument_list|(
-name|loanDuriation
+name|loanDuration
 argument_list|)
 expr_stmt|;
 name|bankRequest

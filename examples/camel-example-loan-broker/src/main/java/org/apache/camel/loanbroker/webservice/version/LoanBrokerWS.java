@@ -34,7 +34,7 @@ specifier|public
 interface|interface
 name|LoanBrokerWS
 block|{
-DECL|method|getLoanQuote (String ssn, Double loanAmount, Integer loanDuriation)
+DECL|method|getLoanQuote (String ssn, Double loanAmount, Integer loanDuration)
 name|String
 name|getLoanQuote
 parameter_list|(
@@ -45,7 +45,7 @@ name|Double
 name|loanAmount
 parameter_list|,
 name|Integer
-name|loanDuriation
+name|loanDuration
 parameter_list|)
 function_decl|;
 block|}

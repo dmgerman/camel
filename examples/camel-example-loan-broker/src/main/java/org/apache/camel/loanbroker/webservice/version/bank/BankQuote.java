@@ -47,7 +47,7 @@ DECL|method|BankQuote ()
 specifier|public
 name|BankQuote
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|BankQuote (String name, String s, Double r)
 specifier|public
 name|BankQuote

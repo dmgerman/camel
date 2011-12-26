@@ -108,17 +108,12 @@ argument_list|)
 operator|/
 literal|10
 operator|+
-call|(
-name|double
-call|)
-argument_list|(
 name|Math
 operator|.
 name|random
 argument_list|()
 operator|*
 literal|10
-argument_list|)
 operator|/
 literal|10
 decl_stmt|;

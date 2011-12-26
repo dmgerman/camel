@@ -59,14 +59,17 @@ class|class
 name|BankServer
 block|{
 DECL|field|endpoint1
+specifier|private
 name|Endpoint
 name|endpoint1
 decl_stmt|;
 DECL|field|endpoint2
+specifier|private
 name|Endpoint
 name|endpoint2
 decl_stmt|;
 DECL|field|endpoint3
+specifier|private
 name|Endpoint
 name|endpoint3
 decl_stmt|;

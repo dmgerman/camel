@@ -247,7 +247,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"jms:queue:loanRequestQueue"
 argument_list|,
-literal|"Quote for the lowerst rate of loaning bank"
+literal|"Quote for the lowest rate of loaning bank"
 argument_list|,
 name|Constants
 operator|.
@@ -314,7 +314,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Quote for the lowerst rate of loaning bank"
+literal|"Quote for the lowst rate of loaning bank"
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -395,7 +395,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Loan quotion for Client "
+literal|"Loan quote for Client "
 operator|+
 name|ssn
 operator|+
@@ -405,7 +405,7 @@ literal|" The lowest rate bank is "
 operator|+
 name|bank
 operator|+
-literal|", the rate is "
+literal|", with rate "
 operator|+
 name|rate
 argument_list|)

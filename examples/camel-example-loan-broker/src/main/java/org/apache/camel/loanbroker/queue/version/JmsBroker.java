@@ -77,10 +77,6 @@ name|jmsBrokerUrl
 init|=
 literal|"tcp://localhost:51616"
 decl_stmt|;
-DECL|field|activeMQStorageDir
-name|String
-name|activeMQStorageDir
-decl_stmt|;
 DECL|method|JmsBroker ()
 specifier|public
 name|JmsBroker
@@ -141,19 +137,11 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|jmsBrokerThread
-operator|!=
-literal|null
-condition|)
-block|{
 name|jmsBrokerThread
 operator|.
 name|join
 argument_list|()
 expr_stmt|;
-block|}
 name|jmsBrokerThread
 operator|=
 literal|null
@@ -248,7 +236,6 @@ parameter_list|()
 block|{
 try|try
 block|{
-comment|//ContainerWapper container;
 name|BrokerService
 name|broker
 init|=
@@ -326,10 +313,6 @@ name|broker
 operator|.
 name|stop
 argument_list|()
-expr_stmt|;
-name|broker
-operator|=
-literal|null
 expr_stmt|;
 block|}
 catch|catch

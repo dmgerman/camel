@@ -535,7 +535,7 @@ name|result
 operator|.
 name|startsWith
 argument_list|(
-literal|"Loan quotion for Client "
+literal|"Loan quote for Client "
 operator|+
 name|ssn
 argument_list|)
@@ -585,7 +585,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Quote for the lowerst rate of loaning bank"
+literal|"Quote for the lowest rate of loaning bank"
 argument_list|)
 expr_stmt|;
 name|exchange
