@@ -166,11 +166,11 @@ name|RmiTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
-DECL|field|PORT
+DECL|field|port
 specifier|private
 specifier|static
 name|int
-name|PORT
+name|port
 decl_stmt|;
 annotation|@
 name|BeforeClass
@@ -185,7 +185,7 @@ name|Exception
 block|{
 comment|// find a free port number from 9100 onwards, and write that in the custom.properties file
 comment|// which we will use for the unit tests, to avoid port number in use problems
-name|PORT
+name|port
 operator|=
 name|AvailablePortFinder
 operator|.
@@ -199,7 +199,7 @@ name|s
 init|=
 literal|"port="
 operator|+
-name|PORT
+name|port
 decl_stmt|;
 name|File
 name|custom
@@ -292,7 +292,7 @@ name|println
 argument_list|(
 literal|"Calling on port "
 operator|+
-name|PORT
+name|port
 argument_list|)
 expr_stmt|;
 name|String
@@ -304,7 +304,7 @@ name|requestBody
 argument_list|(
 literal|"rmi://localhost:"
 operator|+
-name|PORT
+name|port
 operator|+
 literal|"/helloServiceBean"
 argument_list|,

@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -100,18 +110,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test of our routes  */
 end_comment
@@ -123,11 +121,11 @@ class|class
 name|ReportIncidentRoutesTest
 block|{
 comment|// should be the same address as we have in our route
-DECL|field|URL
+DECL|field|url
 specifier|private
 specifier|static
 name|String
-name|URL
+name|url
 decl_stmt|;
 DECL|field|main
 specifier|protected
@@ -236,7 +234,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|URL
+name|url
 operator|=
 literal|"http://localhost:"
 operator|+
@@ -351,7 +349,7 @@ name|factory
 operator|.
 name|setAddress
 argument_list|(
-name|URL
+name|url
 argument_list|)
 expr_stmt|;
 return|return
@@ -476,6 +474,8 @@ name|input
 argument_list|)
 decl_stmt|;
 comment|// assert we got a OK back
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"OK;456"
