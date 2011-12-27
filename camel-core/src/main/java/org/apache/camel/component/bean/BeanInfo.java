@@ -1190,7 +1190,7 @@ literal|null
 condition|)
 block|{
 comment|// there are more methods with that name so we cannot decide which to use
-comment|// but first lets try to choose a method and see if that comply with the name
+comment|// but first let's try to choose a method and see if that complies with the name
 comment|// must use the method name which may have qualifiers
 name|methodInfo
 operator|=
@@ -2103,7 +2103,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// lets assume its the body and it must be mandatory convertable to the parameter type
+comment|// assume it's the body and it must be mandatory convertible to the parameter type
 comment|// but we allow null bodies in case the message really contains a null body
 name|expression
 operator|=
@@ -2160,7 +2160,7 @@ name|parameterInfo
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now lets add the method to the repository
+comment|// now let's add the method to the repository
 return|return
 operator|new
 name|MethodInfo
@@ -2414,7 +2414,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Lets try choose one of the available methods to invoke if we can match      * the message body to the body parameter      *      * @param pojo the bean to invoke a method on      * @param exchange the message exchange      * @param name an optional name of the method that must match, use<tt>null</tt> to indicate all methods      * @return the method to invoke or null if no definitive method could be matched      * @throws AmbiguousMethodCallException is thrown if cannot chose method due to ambiguous      */
+comment|/**      * Choose one of the available methods to invoke if we can match      * the message body to the body parameter      *      * @param pojo the bean to invoke a method on      * @param exchange the message exchange      * @param name an optional name of the method that must match, use<tt>null</tt> to indicate all methods      * @return the method to invoke or null if no definitive method could be matched      * @throws AmbiguousMethodCallException is thrown if cannot choose method due to ambiguity      */
 DECL|method|chooseMethod (Object pojo, Exchange exchange, String name)
 specifier|protected
 name|MethodInfo
@@ -2719,7 +2719,7 @@ parameter_list|)
 throws|throws
 name|AmbiguousMethodCallException
 block|{
-comment|// lets see if we can find a method who's body param type matches the message body
+comment|// see if we can find a method whose body param type matches the message body
 name|Message
 name|in
 init|=
@@ -3029,7 +3029,7 @@ argument_list|(
 literal|"No possible methods so now trying to convert body to parameter types"
 argument_list|)
 expr_stmt|;
-comment|// lets try converting
+comment|// let's try converting
 name|Object
 name|newBody
 init|=
@@ -3199,7 +3199,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// if we only have a single method with custom annotations, lets use that one
+comment|// if we only have a single method with custom annotations, let's use that one
 if|if
 condition|(
 name|possibleWithCustomAnnotation
@@ -3429,7 +3429,7 @@ parameter_list|)
 throws|throws
 name|AmbiguousMethodCallException
 block|{
-comment|// if we have only one method with custom annotations lets choose that
+comment|// if we have only one method with custom annotations let's choose that
 name|MethodInfo
 name|chosen
 init|=

@@ -713,7 +713,7 @@ operator|=
 name|messageId
 expr_stmt|;
 block|}
-comment|/**      * Lets allow implementations to auto-create a messageId      */
+comment|/**      * Allow implementations to auto-create a messageId      */
 DECL|method|createMessageId ()
 specifier|protected
 name|String

@@ -1034,7 +1034,7 @@ specifier|public
 name|AbstractCamelContextFactoryBean
 parameter_list|()
 block|{
-comment|// Lets keep track of the class loader for when we actually do start things up
+comment|// Keep track of the class loader for when we actually do start things up
 name|contextClassLoaderOnStart
 operator|=
 name|Thread

@@ -95,7 +95,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Lets configure the Camel routing rules using Java code...      */
+comment|/**      * Let's configure the Camel routing rules using Java code...      */
 DECL|method|configure ()
 specifier|public
 name|void

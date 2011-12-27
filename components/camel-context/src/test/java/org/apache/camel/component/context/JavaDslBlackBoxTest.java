@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lets use the Java DSL to create a black box CamelContext and then test its use from another context  */
+comment|/**  * Allows for use of the Java DSL to create a black box CamelContext and then test its use from another context  */
 end_comment
 
 begin_class
@@ -236,7 +236,7 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
-comment|// lets create our black box as a camel context and a set of routes
+comment|// let's create our black box as a Camel context and a set of routes
 name|DefaultCamelContext
 name|blackBox
 init|=
@@ -270,7 +270,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// receive purchase orders, lets process it in some way then
+comment|// we received purchase orders, so let's process it in some way then
 comment|// send an invoice to our invoice endpoint
 name|from
 argument_list|(

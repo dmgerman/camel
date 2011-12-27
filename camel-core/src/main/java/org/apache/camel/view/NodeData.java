@@ -1149,7 +1149,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Lets insert a space before each upper case letter after a lowercase      */
+comment|/**      * Inserts a space before each upper case letter after a lowercase      */
 DECL|method|insertSpacesBetweenCamelCase (String name)
 specifier|public
 specifier|static

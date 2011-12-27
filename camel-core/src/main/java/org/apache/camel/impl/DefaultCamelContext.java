@@ -10411,7 +10411,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Lets force some lazy initialization to occur upfront before we start any      * components and create routes      */
+comment|/**      * Force some lazy initialization to occur upfront before we start any      * components and create routes      */
 DECL|method|forceLazyInitialization ()
 specifier|protected
 name|void
@@ -10431,7 +10431,7 @@ name|getTypeConverter
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Lets force clear lazy initialization so they can be re-created on restart      */
+comment|/**      * Force clear lazy initialization so they can be re-created on restart      */
 DECL|method|forceStopLazyInitialization ()
 specifier|protected
 name|void

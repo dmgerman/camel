@@ -221,7 +221,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Lets complete the route creation, creating a single event driven route      * for the current from endpoint with any processors required      */
+comment|/**      * For completing the route creation, creating a single event driven route      * for the current from endpoint with any processors required      */
 DECL|method|commit ()
 name|void
 name|commit

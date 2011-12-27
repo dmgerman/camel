@@ -207,7 +207,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets create an in JVM broker
+comment|// create an in-JVM broker
 try|try
 block|{
 name|TransportConnection

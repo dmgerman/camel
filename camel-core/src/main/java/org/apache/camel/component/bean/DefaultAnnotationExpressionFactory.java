@@ -221,7 +221,7 @@ name|Annotation
 name|annotation
 parameter_list|)
 block|{
-comment|// lets try the 'value()' method
+comment|// let's try the 'value()' method
 try|try
 block|{
 name|Method

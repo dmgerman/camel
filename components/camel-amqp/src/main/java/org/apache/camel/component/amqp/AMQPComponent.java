@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * This component supports the AMQP protocol using the Client API of the Apache Qpid project.  *   * @version   */
 end_comment
 
 begin_class
@@ -197,7 +197,7 @@ name|connectionFactory
 argument_list|)
 return|;
 block|}
-comment|/**      * Lets install the default connection factory      */
+comment|/**      * Let's install the default connection factory      */
 DECL|method|init ()
 specifier|private
 name|void

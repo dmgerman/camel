@@ -786,7 +786,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// lets add the monitoring service - should there be an easier way??
+comment|// add the monitoring service - should there be an easier way??
 if|if
 condition|(
 name|engine
@@ -839,7 +839,7 @@ name|engine
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lets create the routes for the activites
+comment|// create the routes for the activities
 for|for
 control|(
 name|ActivityBuilder

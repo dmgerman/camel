@@ -213,7 +213,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// lets use Camel's type conversion mechanism to convert things like CamelContext
+comment|// let's use Camel's type conversion mechanism to convert things like CamelContext
 comment|// and other types into a valid Component
 name|Component
 name|component

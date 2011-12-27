@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lets use the verbose context:camelContextId:actualEndpointName when referring to endpoints  */
+comment|/**  * Tests use of the verbose context:camelContextId:actualEndpointName when referring to endpoints  */
 end_comment
 
 begin_class

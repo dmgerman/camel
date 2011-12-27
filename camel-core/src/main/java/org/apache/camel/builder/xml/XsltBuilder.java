@@ -684,7 +684,7 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-comment|// lets copy the headers before we invoke the transform in case they modify them
+comment|// let's copy the headers before we invoke the transform in case they modify them
 name|Message
 name|out
 init|=

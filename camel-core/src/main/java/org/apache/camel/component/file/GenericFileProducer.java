@@ -960,7 +960,7 @@ name|doneFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lets store the name we really used in the header, so end-users
+comment|// let's store the name we really used in the header, so end-users
 comment|// can retrieve it
 name|exchange
 operator|.

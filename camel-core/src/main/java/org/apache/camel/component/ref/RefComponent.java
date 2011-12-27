@@ -102,7 +102,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// lets remove the scheme from the URI
+comment|// first remove the scheme from the URI
 name|int
 name|index
 init|=

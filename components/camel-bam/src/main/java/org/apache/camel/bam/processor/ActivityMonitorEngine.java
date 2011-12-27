@@ -629,7 +629,7 @@ parameter_list|)
 throws|throws
 name|PersistenceException
 block|{
-comment|// lets try lock the object first
+comment|// let's try locking the object first
 if|if
 condition|(
 name|isUseLocking

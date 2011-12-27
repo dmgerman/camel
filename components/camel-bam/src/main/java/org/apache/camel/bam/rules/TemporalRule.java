@@ -552,7 +552,7 @@ return|return;
 block|}
 comment|// TODO now we might need to set the second activity state
 comment|// to 'grey' to indicate it now could happen?
-comment|// lets force the lazy creation of the second state
+comment|// let's force the lazy creation of the second state
 name|ActivityState
 name|secondState
 init|=

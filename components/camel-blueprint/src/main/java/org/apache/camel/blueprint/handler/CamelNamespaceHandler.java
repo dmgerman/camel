@@ -1414,7 +1414,7 @@ name|implicitId
 init|=
 literal|false
 decl_stmt|;
-comment|// lets avoid folks having to explicitly give an ID to a camel context
+comment|// let's avoid folks having to explicitly give an ID to a camel context
 if|if
 condition|(
 name|ObjectHelper
@@ -1454,7 +1454,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// now lets parse the routes with JAXB
+comment|// now let's parse the routes with JAXB
 name|Binder
 argument_list|<
 name|Node
@@ -2010,7 +2010,7 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
-comment|// now lets parse the routes with JAXB
+comment|// now parse the routes with JAXB
 name|Binder
 argument_list|<
 name|Node
@@ -2224,7 +2224,7 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
-comment|// now lets parse the key store parameters with JAXB
+comment|// now parse the key store parameters with JAXB
 name|Binder
 argument_list|<
 name|Node
@@ -2438,7 +2438,7 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
-comment|// now lets parse the key store parameters with JAXB
+comment|// now parse the key store parameters with JAXB
 name|Binder
 argument_list|<
 name|Node
@@ -2652,7 +2652,7 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
-comment|// now lets parse the key store parameters with JAXB
+comment|// now parse the key store parameters with JAXB
 name|Binder
 argument_list|<
 name|Node

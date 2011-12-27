@@ -391,7 +391,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// lets fire any consumers
+comment|// now fire any consumers
 name|loadBalancer
 operator|.
 name|process

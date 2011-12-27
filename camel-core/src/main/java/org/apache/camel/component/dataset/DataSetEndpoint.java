@@ -777,7 +777,7 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-comment|// now lets assert that they are the same
+comment|// now let's assert that they are the same
 if|if
 condition|(
 name|log

@@ -357,7 +357,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets define some activities, correlating on an XPath on the message bodies
+comment|// let's define some activities, correlating on an XPath on the message bodies
 name|ActivityBuilder
 name|a
 init|=
@@ -400,7 +400,7 @@ literal|"/hello/@id"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// now lets add some rules
+comment|// now let's add some rules
 name|b
 operator|.
 name|starts

@@ -137,7 +137,7 @@ operator|.
 name|configure
 argument_list|()
 expr_stmt|;
-comment|// lets add in any RouteBuilder instances we want to use
+comment|// let's add in any RouteBuilder instances we want to use
 name|bind
 argument_list|(
 name|MyRouteBuilder
@@ -153,7 +153,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Lets configure the JMS component, parameterizing some properties from the      * jndi.properties file      */
+comment|/**      * Let's configure the JMS component, parameterizing some properties from the      * jndi.properties file      */
 annotation|@
 name|Provides
 annotation|@

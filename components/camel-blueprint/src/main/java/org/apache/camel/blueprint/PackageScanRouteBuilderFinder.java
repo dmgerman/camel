@@ -360,7 +360,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Lets ignore beans that are explicitly configured in the Spring XML files      */
+comment|/**      * Allows for ignoring beans that are explicitly configured in the Spring XML files      */
 DECL|method|shouldIgnoreBean (Class<?> type)
 specifier|protected
 name|boolean

@@ -259,7 +259,7 @@ argument_list|,
 name|process
 argument_list|)
 expr_stmt|;
-comment|// lets force the lazy creation of this activity
+comment|// force the lazy creation of this activity
 name|ActivityRules
 name|rules
 init|=

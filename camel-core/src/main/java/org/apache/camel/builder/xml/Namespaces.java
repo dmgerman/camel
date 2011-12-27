@@ -337,7 +337,7 @@ name|Element
 name|element
 parameter_list|)
 block|{
-comment|// lets set the parent first in case we overload a prefix here
+comment|// let's set the parent first in case we overload a prefix here
 name|Node
 name|parentNode
 init|=

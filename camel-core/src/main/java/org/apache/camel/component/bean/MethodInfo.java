@@ -2955,7 +2955,7 @@ operator|.
 name|getDeclaringClass
 argument_list|()
 decl_stmt|;
-comment|// lets create the search order of types to scan
+comment|// create the search order of types to scan
 name|List
 argument_list|<
 name|Class
@@ -3013,7 +3013,7 @@ name|typesToSearch
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now lets scan for a type which the current declared class overloads
+comment|// now let's scan for a type which the current declared class overloads
 name|answer
 operator|=
 name|findOneWayAnnotationOnMethod
@@ -3101,7 +3101,7 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// lets look at all the annotations to see if any of those are annotated
+comment|// look at all the annotations to see if any of those are annotated
 name|Annotation
 index|[]
 name|annotations

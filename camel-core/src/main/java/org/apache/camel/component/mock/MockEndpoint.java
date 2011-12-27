@@ -5020,7 +5020,7 @@ literal|10000L
 else|:
 name|timeout
 decl_stmt|;
-comment|// now lets wait for the results
+comment|// now let's wait for the results
 name|LOG
 operator|.
 name|debug

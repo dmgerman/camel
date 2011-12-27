@@ -719,7 +719,7 @@ decl_stmt|;
 comment|// For some reason the default expression of "a/b" on a document such as
 comment|//<a><b>1</b><b>2</b></a>
 comment|// will evaluate as just "1" by default which is bizarre. So by default
-comment|// lets assume XPath expressions result in nodesets.
+comment|// let's assume XPath expressions result in nodesets.
 DECL|field|resultType
 specifier|private
 name|Class
@@ -3105,7 +3105,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Lets populate a number of standard prefixes if they are not already there      */
+comment|/**      * Populate a number of standard prefixes if they are not already there      */
 DECL|method|populateDefaultNamespaces (DefaultNamespaceContext context)
 specifier|protected
 name|void
@@ -3612,7 +3612,7 @@ operator|=
 name|body
 expr_stmt|;
 block|}
-comment|// lets try coerce some common types into something JAXP can deal with
+comment|// let's try coercing some common types into something JAXP can work with
 if|if
 condition|(
 name|answer

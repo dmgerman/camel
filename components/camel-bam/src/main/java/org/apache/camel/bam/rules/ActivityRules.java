@@ -317,7 +317,7 @@ name|ActivityDefinition
 name|getActivityDefinition
 parameter_list|()
 block|{
-comment|// lets always query for it, to avoid issues with refreshing before a commit etc
+comment|// let's always query for it, to avoid issues with refreshing before a commit etc
 return|return
 name|builder
 operator|.

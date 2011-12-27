@@ -297,7 +297,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// lets first check if we are using a fully qualified name: [context:]contextId:endpointUri
+comment|// first check if we are using a fully qualified name: [context:]contextId:endpointUri
 name|Map
 argument_list|<
 name|String
@@ -363,7 +363,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|// lets look to see if there is an endpoint of name 'remaining' using one of the local endpoints within
+comment|// look to see if there is an endpoint of name 'remaining' using one of the local endpoints within
 comment|// the black box CamelContext
 name|String
 index|[]
