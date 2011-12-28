@@ -529,15 +529,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
+name|Properties
+name|prop
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
 name|paths
-argument_list|,
-literal|"paths"
-argument_list|)
-expr_stmt|;
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// location may contain JVM system property or OS environment variables
 comment|// so we need to parse those
 name|String
@@ -559,9 +562,8 @@ argument_list|(
 name|locations
 argument_list|)
 decl_stmt|;
-name|Properties
 name|prop
-init|=
+operator|=
 name|cache
 condition|?
 name|cacheMap
@@ -572,7 +574,7 @@ name|key
 argument_list|)
 else|:
 literal|null
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|prop
@@ -606,6 +608,7 @@ argument_list|,
 name|prop
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// enclose tokens if missing
