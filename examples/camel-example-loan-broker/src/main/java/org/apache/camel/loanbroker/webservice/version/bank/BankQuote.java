@@ -154,7 +154,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"[ ssn:"
+literal|"[ssn:"
 operator|+
 name|ssn
 operator|+
@@ -166,7 +166,7 @@ literal|" rate:"
 operator|+
 name|rate
 operator|+
-literal|" ]"
+literal|"]"
 return|;
 block|}
 block|}

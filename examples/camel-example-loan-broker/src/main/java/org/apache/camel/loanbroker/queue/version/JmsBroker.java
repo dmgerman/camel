@@ -60,6 +60,10 @@ name|MemoryPersistenceAdapter
 import|;
 end_import
 
+begin_comment
+comment|/**  * Embedded JMS broker  */
+end_comment
+
 begin_class
 DECL|class|JmsBroker
 specifier|public
@@ -68,10 +72,12 @@ class|class
 name|JmsBroker
 block|{
 DECL|field|jmsBrokerThread
+specifier|private
 name|JMSEmbeddedBroker
 name|jmsBrokerThread
 decl_stmt|;
 DECL|field|jmsBrokerUrl
+specifier|private
 name|String
 name|jmsBrokerUrl
 init|=

@@ -62,32 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|jms
@@ -111,18 +85,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The LoanBroker is a RouteBuilder which builds the whole loan message routing rules  *  * @version   */
+comment|/**  * Main class to start the loan broker server  */
 end_comment
 
 begin_class
 DECL|class|LoanBroker
 specifier|public
+specifier|final
 class|class
 name|LoanBroker
-extends|extends
-name|RouteBuilder
 block|{
-comment|/**      * A main() so we can easily run these routing rules in our IDE      */
+DECL|method|LoanBroker ()
+specifier|private
+name|LoanBroker
+parameter_list|()
+block|{     }
 comment|// START SNIPPET: starting
 DECL|method|main (String... args)
 specifier|public
@@ -137,13 +114,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|context
-init|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-decl_stmt|;
+comment|// setup an embedded JMS broker
 name|JmsBroker
 name|broker
 init|=
@@ -156,6 +127,14 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// create a camel context
+name|CamelContext
+name|context
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
 comment|// Set up the ActiveMQ JMS Components
 name|ConnectionFactory
 name|connectionFactory
@@ -181,16 +160,17 @@ name|connectionFactory
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// add the route
 name|context
 operator|.
 name|addRoutes
 argument_list|(
 operator|new
-name|LoanBroker
+name|LoanBrokerRoute
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Start the loan broker
+comment|// start Camel
 name|context
 operator|.
 name|start
@@ -205,6 +185,7 @@ argument_list|(
 literal|"Server is ready"
 argument_list|)
 expr_stmt|;
+comment|// let it run for 5 minutes before shutting down
 name|Thread
 operator|.
 name|sleep
@@ -235,249 +216,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// END SNIPPET: starting
-comment|/**      * Lets configure the Camel routing rules using Java code...      */
-DECL|method|configure ()
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-comment|// START SNIPPET: dsl
-comment|// Put the message from loanRequestQueue to the creditRequestQueue
-name|from
-argument_list|(
-literal|"jms:queue:loanRequestQueue"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue:creditRequestQueue"
-argument_list|)
-expr_stmt|;
-comment|// Now we can let the CreditAgency process the request, then the message will be put into creditResponseQueue
-name|from
-argument_list|(
-literal|"jms:queue:creditRequestQueue"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|CreditAgency
-argument_list|()
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue:creditResponseQueue"
-argument_list|)
-expr_stmt|;
-comment|// Here we use the multicast pattern to send the message to three different bank queues
-name|from
-argument_list|(
-literal|"jms:queue:creditResponseQueue"
-argument_list|)
-operator|.
-name|multicast
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue:bank1"
-argument_list|,
-literal|"jms:queue:bank2"
-argument_list|,
-literal|"jms:queue:bank3"
-argument_list|)
-expr_stmt|;
-comment|// Each bank processor will process the message and put the response message into the bankReplyQueue
-name|from
-argument_list|(
-literal|"jms:queue:bank1"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Bank
-argument_list|(
-literal|"bank1"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue:bankReplyQueue"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"jms:queue:bank2"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Bank
-argument_list|(
-literal|"bank2"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue:bankReplyQueue"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"jms:queue:bank3"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Bank
-argument_list|(
-literal|"bank3"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue:bankReplyQueue"
-argument_list|)
-expr_stmt|;
-comment|// Now we aggregate the response message by using the Constants.PROPERTY_SSN header.
-comment|// The aggregation will be complete when all the three bank responses are received
-name|from
-argument_list|(
-literal|"jms:queue:bankReplyQueue"
-argument_list|)
-operator|.
-name|aggregate
-argument_list|(
-name|header
-argument_list|(
-name|Constants
-operator|.
-name|PROPERTY_SSN
-argument_list|)
-argument_list|,
-operator|new
-name|BankResponseAggregationStrategy
-argument_list|()
-argument_list|)
-operator|.
-name|completionPredicate
-argument_list|(
-name|header
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_SIZE
-argument_list|)
-operator|.
-name|isEqualTo
-argument_list|(
-literal|3
-argument_list|)
-argument_list|)
-comment|// Here we do some translation and put the message back to loanReplyQueue
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Translator
-argument_list|()
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue:loanReplyQueue"
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: dsl
-comment|// START SNIPPET: dsl-2
-comment|// CreditAgency will get the request from parallelLoanRequestQueue
-name|from
-argument_list|(
-literal|"jms:queue2:parallelLoanRequestQueue"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|CreditAgency
-argument_list|()
-argument_list|)
-comment|// Set the aggregation strategy for aggregating the out message
-operator|.
-name|multicast
-argument_list|(
-operator|new
-name|BankResponseAggregationStrategy
-argument_list|()
-argument_list|)
-comment|// Send out the request to three different banks in parallel
-operator|.
-name|parallelProcessing
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"jms:queue2:bank1"
-argument_list|,
-literal|"jms:queue2:bank2"
-argument_list|,
-literal|"jms:queue2:bank3"
-argument_list|)
-expr_stmt|;
-comment|// Each bank processor will process the message and put the response message back
-name|from
-argument_list|(
-literal|"jms:queue2:bank1"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Bank
-argument_list|(
-literal|"bank1"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"jms:queue2:bank2"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Bank
-argument_list|(
-literal|"bank2"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"jms:queue2:bank3"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Bank
-argument_list|(
-literal|"bank3"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: dsl-2
-block|}
 block|}
 end_class
 
