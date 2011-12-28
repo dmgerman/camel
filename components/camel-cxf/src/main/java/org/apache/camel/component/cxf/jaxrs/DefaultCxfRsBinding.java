@@ -1001,6 +1001,17 @@ argument_list|)
 expr_stmt|;
 name|camelMessage
 operator|.
+name|setHeader
+argument_list|(
+name|CxfConstants
+operator|.
+name|CAMEL_CXF_MESSAGE
+argument_list|,
+name|cxfMessage
+argument_list|)
+expr_stmt|;
+name|camelMessage
+operator|.
 name|setBody
 argument_list|(
 operator|new
