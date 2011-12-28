@@ -60,30 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -133,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example class for demonstrating some of the basics behind Camel. This  * example sends some text messages on to a JMS Queue, consumes them and  * persists them to disk  *   * @version   */
+comment|/**  * An example class for demonstrating some of the basics behind Camel. This  * example sends some text messages on to a JMS Queue, consumes them and  * persists them to disk  */
 end_comment
 
 begin_class
@@ -222,44 +198,6 @@ argument_list|(
 literal|"file://test"
 argument_list|)
 expr_stmt|;
-comment|// set up a listener on the file component
-name|from
-argument_list|(
-literal|"file://test"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|e
-parameter_list|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Received exchange: "
-operator|+
-name|e
-operator|.
-name|getIn
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -320,6 +258,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// END SNIPPET: e5
+comment|// wait a bit and then stop
 name|Thread
 operator|.
 name|sleep
