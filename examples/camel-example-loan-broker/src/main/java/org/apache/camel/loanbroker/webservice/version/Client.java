@@ -104,6 +104,7 @@ parameter_list|()
 block|{     }
 DECL|method|getProxy (String address)
 specifier|public
+specifier|static
 name|LoanBrokerWS
 name|getProxy
 parameter_list|(
@@ -174,18 +175,9 @@ index|[]
 name|args
 parameter_list|)
 block|{
-name|Client
-name|client
-init|=
-operator|new
-name|Client
-argument_list|()
-decl_stmt|;
 name|LoanBrokerWS
 name|loanBroker
 init|=
-name|client
-operator|.
 name|getProxy
 argument_list|(
 name|url
