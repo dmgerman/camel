@@ -79,7 +79,7 @@ name|report
 operator|.
 name|setTitle
 argument_list|(
-literal|"Report Title : "
+literal|"Report Title: "
 operator|+
 name|counter
 argument_list|)

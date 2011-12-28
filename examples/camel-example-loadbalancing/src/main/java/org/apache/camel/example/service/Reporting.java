@@ -38,31 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Header
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -87,20 +63,7 @@ DECL|class|Reporting
 specifier|public
 class|class
 name|Reporting
-implements|implements
-name|Processor
 block|{
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{     }
 DECL|method|updateReport (@ody Report report, @Header(R) String name)
 specifier|public
 name|Report
@@ -119,14 +82,12 @@ argument_list|)
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|report
 operator|.
 name|setReply
 argument_list|(
-literal|"Report updated from MINA server running on : "
+literal|"Report updated from MINA server running on: "
 operator|+
 name|name
 argument_list|)

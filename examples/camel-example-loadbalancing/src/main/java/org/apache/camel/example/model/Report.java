@@ -65,7 +65,6 @@ specifier|private
 name|String
 name|reply
 decl_stmt|;
-comment|/**     * @return the id     */
 DECL|method|getId ()
 specifier|public
 name|Integer
@@ -76,7 +75,6 @@ return|return
 name|id
 return|;
 block|}
-comment|/**     * @param id the id to set     */
 DECL|method|setId (Integer id)
 specifier|public
 name|void
@@ -93,7 +91,6 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-comment|/**     * @return the title     */
 DECL|method|getTitle ()
 specifier|public
 name|String
@@ -104,7 +101,6 @@ return|return
 name|title
 return|;
 block|}
-comment|/**     * @param title the title to set     */
 DECL|method|setTitle (String title)
 specifier|public
 name|void
@@ -121,7 +117,6 @@ operator|=
 name|title
 expr_stmt|;
 block|}
-comment|/**     * @return the content     */
 DECL|method|getContent ()
 specifier|public
 name|String
@@ -132,7 +127,6 @@ return|return
 name|content
 return|;
 block|}
-comment|/**     * @param content the content to set     */
 DECL|method|setContent (String content)
 specifier|public
 name|void
@@ -149,7 +143,6 @@ operator|=
 name|content
 expr_stmt|;
 block|}
-comment|/**     * @return the reply     */
 DECL|method|getReply ()
 specifier|public
 name|String
@@ -160,7 +153,6 @@ return|return
 name|reply
 return|;
 block|}
-comment|/**     * @param reply the reply to set     */
 DECL|method|setReply (String reply)
 specifier|public
 name|void
@@ -194,16 +186,14 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|">> ***********************************************"
-operator|+
-literal|"\n"
+literal|"\n>> ***********************************************\n"
 argument_list|)
 expr_stmt|;
 name|result
 operator|.
 name|append
 argument_list|(
-literal|">> Report id : "
+literal|">> Report id: "
 operator|+
 name|this
 operator|.
@@ -216,7 +206,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|">> Report title : "
+literal|">> Report title: "
 operator|+
 name|this
 operator|.
@@ -229,7 +219,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|">> Report content : "
+literal|">> Report content: "
 operator|+
 name|this
 operator|.
@@ -242,7 +232,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|">> Report reply : "
+literal|">> Report reply: "
 operator|+
 name|this
 operator|.
@@ -255,9 +245,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-literal|">> ***********************************************"
-operator|+
-literal|"\n"
+literal|">> ***********************************************\n"
 argument_list|)
 expr_stmt|;
 return|return
