@@ -75,10 +75,10 @@ expr_stmt|;
 comment|// Camel has several ways to configure the same routing, we have defined some of them here below
 comment|// as above but with the bean: prefix
 comment|//from("jms:queue:numbers").to("bean:multiplier");
-comment|// beanRef is using explicity bean bindings to lookup the multiplier bean and invoke the multiply method
+comment|// beanRef is using explicit bean bindings to lookup the multiplier bean and invoke the multiply method
 comment|//from("jms:queue:numbers").beanRef("multiplier", "multiply");
 comment|// the same as above but expressed as a URI configuration
-comment|//from("activemq:queue:numbers").to("bean:multiplier?methodName=multiply");
+comment|//from("jms:queue:numbers").to("bean:multiplier?methodName=multiply");
 block|}
 block|}
 end_class
