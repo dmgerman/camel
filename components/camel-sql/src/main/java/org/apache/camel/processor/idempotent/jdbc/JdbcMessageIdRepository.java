@@ -121,6 +121,13 @@ argument_list|<
 name|String
 argument_list|>
 block|{
+DECL|field|createTableIfNotExists
+specifier|private
+name|boolean
+name|createTableIfNotExists
+init|=
+literal|true
+decl_stmt|;
 DECL|field|tableExistsString
 specifier|private
 name|String
@@ -285,20 +292,16 @@ name|DataAccessException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|createTableIfNotExists
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
 literal|"creating table for JdbcMessageIdRepository because it doesn't exists..."
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"executing query '{}'..."
-argument_list|,
-name|createString
 argument_list|)
 expr_stmt|;
 comment|// we will fail if we cannot create it
@@ -313,9 +316,18 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"table created"
+literal|"table created with query '{}'"
+argument_list|,
+name|createString
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 return|return
 name|Boolean
@@ -407,6 +419,32 @@ argument_list|,
 name|key
 argument_list|)
 return|;
+block|}
+DECL|method|isCreateTableIfNotExists ()
+specifier|public
+name|boolean
+name|isCreateTableIfNotExists
+parameter_list|()
+block|{
+return|return
+name|createTableIfNotExists
+return|;
+block|}
+DECL|method|setCreateTableIfNotExists (boolean createTableIfNotExists)
+specifier|public
+name|void
+name|setCreateTableIfNotExists
+parameter_list|(
+name|boolean
+name|createTableIfNotExists
+parameter_list|)
+block|{
+name|this
+operator|.
+name|createTableIfNotExists
+operator|=
+name|createTableIfNotExists
+expr_stmt|;
 block|}
 DECL|method|getTableExistsString ()
 specifier|public
