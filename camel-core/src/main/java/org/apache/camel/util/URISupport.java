@@ -1297,11 +1297,13 @@ argument_list|(
 literal|'?'
 argument_list|)
 decl_stmt|;
+comment|// when the path has ?
 if|if
 condition|(
 name|idx
-operator|>
-literal|0
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
 name|path
