@@ -98,22 +98,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -130,7 +114,7 @@ specifier|public
 class|class
 name|HttpAsyncCallbackTest
 extends|extends
-name|CamelTestSupport
+name|HttpAsyncTestSupport
 block|{
 annotation|@
 name|Test
@@ -178,11 +162,21 @@ argument_list|()
 decl_stmt|;
 comment|// Send 3 async request/reply message to the http endpoint
 comment|// where we let the callback handle gathering the responses
+name|String
+name|url
+init|=
+literal|"http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/myservice"
+decl_stmt|;
 name|template
 operator|.
 name|asyncCallbackRequestBody
 argument_list|(
-literal|"http://localhost:9080/myservice"
+name|url
 argument_list|,
 literal|"Claus"
 argument_list|,
@@ -193,7 +187,7 @@ name|template
 operator|.
 name|asyncCallbackRequestBody
 argument_list|(
-literal|"http://localhost:9080/myservice"
+name|url
 argument_list|,
 literal|"Hadrian"
 argument_list|,
@@ -204,7 +198,7 @@ name|template
 operator|.
 name|asyncCallbackRequestBody
 argument_list|(
-literal|"http://localhost:9080/myservice"
+name|url
 argument_list|,
 literal|"Willem"
 argument_list|,
@@ -388,7 +382,12 @@ comment|// The mocks are here for unit test
 comment|// Simulate a slow http service (delaying 1 sec) we want to invoke async
 name|from
 argument_list|(
-literal|"jetty:http://0.0.0.0:9080/myservice"
+literal|"jetty:http://0.0.0.0:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/myservice"
 argument_list|)
 operator|.
 name|delay

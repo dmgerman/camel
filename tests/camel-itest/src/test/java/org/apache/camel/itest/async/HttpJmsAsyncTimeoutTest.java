@@ -94,22 +94,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|jndi
@@ -138,7 +122,7 @@ specifier|public
 class|class
 name|HttpJmsAsyncTimeoutTest
 extends|extends
-name|CamelTestSupport
+name|HttpAsyncTestSupport
 block|{
 annotation|@
 name|Test
@@ -156,7 +140,12 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://0.0.0.0:9080/myservice"
+literal|"http://0.0.0.0:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/myservice"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -280,7 +269,12 @@ comment|// a lot of timeouts in the play :)
 comment|// jetty will timeout after 2 seconds
 name|from
 argument_list|(
-literal|"jetty:http://0.0.0.0:9080/myservice?continuationTimeout=2000"
+literal|"jetty:http://0.0.0.0:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/myservice?continuationTimeout=2000"
 argument_list|)
 comment|// jms request/reply will timeout after 5 seconds
 operator|.
