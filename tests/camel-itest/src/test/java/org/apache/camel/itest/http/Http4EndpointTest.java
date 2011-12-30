@@ -190,7 +190,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|AfterClass
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|BeforeClass
 import|;
 end_import
 
@@ -270,6 +270,12 @@ name|Http4EndpointTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{
+DECL|field|localServer
+specifier|protected
+specifier|static
+name|HttpTestServer
+name|localServer
+decl_stmt|;
 annotation|@
 name|Autowired
 DECL|field|camelContext
@@ -301,15 +307,11 @@ specifier|protected
 name|MockEndpoint
 name|mock
 decl_stmt|;
-DECL|field|localServer
-specifier|protected
-name|HttpTestServer
-name|localServer
-decl_stmt|;
 annotation|@
-name|Before
+name|BeforeClass
 DECL|method|setUp ()
 specifier|public
+specifier|static
 name|void
 name|setUp
 parameter_list|()
@@ -389,9 +391,10 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|After
+name|AfterClass
 DECL|method|tearDown ()
 specifier|public
+specifier|static
 name|void
 name|tearDown
 parameter_list|()

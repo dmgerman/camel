@@ -142,6 +142,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|http
 operator|.
 name|ConnectionReuseStrategy
@@ -502,6 +516,20 @@ specifier|public
 class|class
 name|HttpTestServer
 block|{
+DECL|field|PORT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|PORT
+init|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|18080
+argument_list|)
+decl_stmt|;
 comment|/**      * The local address to bind to.      * The host is an IP number rather than "localhost" to avoid surprises      * on hosts that map "localhost" to an IPv6 address or something else.      * The port is 0 to let the system pick one.      */
 DECL|field|TEST_SERVER_ADDR
 specifier|public
@@ -515,7 +543,7 @@ name|InetSocketAddress
 argument_list|(
 literal|"localhost"
 argument_list|,
-literal|18080
+name|PORT
 argument_list|)
 decl_stmt|;
 comment|/** The request handler registry. */
@@ -575,6 +603,25 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+static|static
+block|{
+comment|//set them as system properties so Spring can use the property placeholder
+comment|//things to set them into the URL's in the spring contexts
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"HttpTestServer.Port"
+argument_list|,
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|PORT
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Creates a new test server.      *      * @param proc      the HTTP processors to be used by the server, or      *<code>null</code> to use a      *                  {@link #newProcessor default} processor      * @param reuseStrat the connection reuse strategy to be used by the      *                  server, or<code>null</code> to use      *                  {@link #newConnectionReuseStrategy() default}      *                  strategy.      * @param params    the parameters to be used by the server, or      *<code>null</code> to use      *                  {@link #newDefaultParams default} parameters      * @param sslcontext optional SSL context if the server is to leverage      *                   SSL/TLS transport security      */
 DECL|method|HttpTestServer ( final BasicHttpProcessor proc, final ConnectionReuseStrategy reuseStrat, final HttpResponseFactory responseFactory, final HttpExpectationVerifier expectationVerifier, final HttpParams params, final SSLContext sslcontext)
 specifier|public
