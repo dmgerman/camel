@@ -227,7 +227,7 @@ specifier|final
 name|String
 name|SELECT_ALL_STRING
 init|=
-literal|"SELECT messageId FROM CUSTOMIZED_CAMEL_MESSAGEPROCESSED WHERE processorName = ?"
+literal|"SELECT messageId FROM CUSTOMIZED_MESSAGE_REPOSITORY WHERE processorName = ?"
 decl_stmt|;
 DECL|field|DELETE_ALL_STRING
 specifier|protected
@@ -236,7 +236,7 @@ specifier|final
 name|String
 name|DELETE_ALL_STRING
 init|=
-literal|"DELETE FROM CUSTOMIZED_CAMEL_MESSAGEPROCESSED WHERE processorName = ?"
+literal|"DELETE FROM CUSTOMIZED_MESSAGE_REPOSITORY WHERE processorName = ?"
 decl_stmt|;
 DECL|field|PROCESSOR_NAME
 specifier|protected
