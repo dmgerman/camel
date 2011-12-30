@@ -32,18 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -81,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which just logs to a {@link CamelLogger} object which can be used  * as an exception handler instead of using a dead letter queue.  *<p/>  * The name<tt>CamelLogger</tt> has been chosen to avoid any name clash with log kits  * which has a<tt>Logger</tt> class.  *  * @version   */
+comment|/**  * A logger which logs to a slf4j {@link Logger}.  *<p/>  * The name<tt>CamelLogger</tt> has been chosen to avoid any name clash with log kits  * which has a<tt>Logger</tt> class.  *  * @version   */
 end_comment
 
 begin_class
