@@ -117,10 +117,10 @@ block|{
 comment|/**      * A property from the property component in a expression       * should be kept as is to be processed later      * See https://issues.apache.org/jira/browse/CAMEL-4843      *       * The property could also be parsed correctly by the simple language but it should not throw an exception      *       * @throws Exception      */
 annotation|@
 name|Test
-DECL|method|testNullValue ()
+DECL|method|testProperty ()
 specifier|public
 name|void
-name|testNullValue
+name|testProperty
 parameter_list|()
 throws|throws
 name|Exception
