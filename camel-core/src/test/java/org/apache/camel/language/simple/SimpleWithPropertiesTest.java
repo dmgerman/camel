@@ -64,6 +64,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -114,7 +130,7 @@ specifier|public
 class|class
 name|SimpleWithPropertiesTest
 block|{
-comment|/**      * A property from the property component in a expression       * should be kept as is to be processed later      * See https://issues.apache.org/jira/browse/CAMEL-4843      *       * The property could also be parsed correctly by the simple language but it should not throw an exception      *       * @throws Exception      */
+comment|/**      * A property from the property component in a expression       * is processed when the expression is evaluated with exchange      * See https://issues.apache.org/jira/browse/CAMEL-4843      * Now camel doesn't support the properties expression of {{test}}      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testProperty ()
@@ -125,6 +141,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"testValue"
+argument_list|)
+expr_stmt|;
+name|PropertiesComponent
+name|pc
+init|=
+operator|new
+name|PropertiesComponent
+argument_list|()
+decl_stmt|;
 name|CamelContext
 name|context
 init|=
@@ -132,6 +164,23 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|pc
+operator|.
+name|setCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|addComponent
+argument_list|(
+literal|"proerties"
+argument_list|,
+name|pc
+argument_list|)
+expr_stmt|;
+comment|// try to setup the property
 name|Exchange
 name|exchange
 init|=
@@ -148,7 +197,7 @@ name|SimpleBuilder
 operator|.
 name|simple
 argument_list|(
-literal|"{{test}}"
+literal|"${properties:test}"
 argument_list|)
 operator|.
 name|evaluate
@@ -164,9 +213,16 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"{{test}}"
+literal|"testValue"
 argument_list|,
 name|result
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
