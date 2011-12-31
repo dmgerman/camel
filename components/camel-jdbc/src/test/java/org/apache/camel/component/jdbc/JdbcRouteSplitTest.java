@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointInject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -48,9 +60,15 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
 
 begin_class
 DECL|class|JdbcRouteSplitTest
@@ -58,8 +76,22 @@ specifier|public
 class|class
 name|JdbcRouteSplitTest
 extends|extends
-name|JdbcRouteTest
+name|AbstractJdbcTestSupport
 block|{
+annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:result"
+argument_list|)
+DECL|field|mock
+specifier|private
+name|MockEndpoint
+name|mock
+decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testJdbcRoutes ()
 specifier|public
 name|void
@@ -68,19 +100,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
 name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 name|template

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that key ordering for the Maps (rows) is preserved.  * @version  */
+comment|/**  * Tests that key ordering for the Maps (rows) is preserved.  */
 end_comment
 
 begin_class
@@ -111,6 +111,8 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Test
+annotation|@
+name|Override
 DECL|method|testJdbcRoutes ()
 specifier|public
 name|void
@@ -232,7 +234,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|3
 argument_list|,
 name|rowList
 operator|.

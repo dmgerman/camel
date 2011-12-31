@@ -32,10 +32,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|JdbcRouteUsingSqlSelectAliasJdbc3Test
 specifier|public
@@ -44,6 +40,8 @@ name|JdbcRouteUsingSqlSelectAliasJdbc3Test
 extends|extends
 name|JdbcRouteUsingSqlSelectAliasTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

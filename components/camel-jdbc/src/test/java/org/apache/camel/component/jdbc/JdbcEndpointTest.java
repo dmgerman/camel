@@ -32,10 +32,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|JdbcEndpointTest
 specifier|public
@@ -44,6 +40,8 @@ name|JdbcEndpointTest
 extends|extends
 name|JdbcRouteTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -82,7 +80,7 @@ name|jdbc
 operator|.
 name|setDataSource
 argument_list|(
-name|ds
+name|db
 argument_list|)
 expr_stmt|;
 name|context
