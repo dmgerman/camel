@@ -104,14 +104,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertEquals
 argument_list|(
-literal|"result : "
-operator|+
+literal|"Let's keep looking."
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
@@ -130,14 +126,10 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertEquals
 argument_list|(
-literal|"result : "
-operator|+
+literal|"Found the result."
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
