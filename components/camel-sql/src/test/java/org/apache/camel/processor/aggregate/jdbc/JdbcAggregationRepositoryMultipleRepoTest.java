@@ -58,7 +58,7 @@ name|test
 operator|.
 name|junit4
 operator|.
-name|CamelTestSupport
+name|CamelSpringTestSupport
 import|;
 end_import
 
@@ -80,7 +80,9 @@ name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationContext
+name|support
+operator|.
+name|AbstractApplicationContext
 import|;
 end_import
 
@@ -104,36 +106,8 @@ specifier|public
 class|class
 name|JdbcAggregationRepositoryMultipleRepoTest
 extends|extends
-name|CamelTestSupport
+name|CamelSpringTestSupport
 block|{
-DECL|field|applicationContext
-name|ApplicationContext
-name|applicationContext
-decl_stmt|;
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|applicationContext
-operator|=
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/processor/aggregate/jdbc/JdbcSpringDataSource.xml"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|testMultipeRepo ()
@@ -625,6 +599,34 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/processor/aggregate/jdbc/JdbcSpringDataSource.xml"
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExpectedRouteCount ()
+specifier|protected
+name|int
+name|getExpectedRouteCount
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
 block|}
 block|}
 end_class
