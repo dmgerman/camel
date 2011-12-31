@@ -356,13 +356,37 @@ name|Service
 name|service
 parameter_list|)
 block|{
-name|getServices
-argument_list|()
+if|if
+condition|(
+operator|!
+name|services
+operator|.
+name|contains
+argument_list|(
+name|service
+argument_list|)
+condition|)
+block|{
+name|services
 operator|.
 name|add
 argument_list|(
 name|service
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|warmUp ()
+specifier|public
+name|void
+name|warmUp
+parameter_list|()
+block|{
+name|getServices
+argument_list|()
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Do not invoke this method directly, use {@link org.apache.camel.CamelContext#startRoute(String)} to start a route.      */
@@ -432,7 +456,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// clear services when stopping
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// clear services when shutting down
 name|services
 operator|.
 name|clear

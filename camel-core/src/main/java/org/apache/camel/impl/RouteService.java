@@ -615,6 +615,12 @@ range|:
 name|routes
 control|)
 block|{
+comment|// warm up the route first
+name|route
+operator|.
+name|warmUp
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -1063,6 +1069,77 @@ range|:
 name|routes
 control|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Shutting down services on route: {}"
+argument_list|,
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|services
+init|=
+name|route
+operator|.
+name|getServices
+argument_list|()
+decl_stmt|;
+comment|// gather list of services to stop as we need to start child services as well
+name|Set
+argument_list|<
+name|Service
+argument_list|>
+name|list
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|Service
+argument_list|>
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Service
+name|service
+range|:
+name|services
+control|)
+block|{
+name|doGetChildServices
+argument_list|(
+name|list
+argument_list|,
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+comment|// shutdown services
+name|stopChildService
+argument_list|(
+name|route
+argument_list|,
+name|list
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// shutdown the route itself
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+name|route
+argument_list|)
+expr_stmt|;
 comment|// endpoints should only be stopped when Camel is shutting down
 comment|// see more details in the warmUp method
 name|ServiceHelper
@@ -1127,6 +1204,7 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remove the routes from the collections
 name|camelContext
 operator|.
 name|removeRouteCollection
@@ -1367,14 +1445,25 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Stopping child service on route: {} -> {}"
+literal|"{} child service on route: {} -> {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|shutdown
+condition|?
+literal|"Shutting down"
+else|:
+literal|"Stopping"
+block|,
 name|route
 operator|.
 name|getId
 argument_list|()
-argument_list|,
+block|,
 name|service
+block|}
 argument_list|)
 expr_stmt|;
 for|for

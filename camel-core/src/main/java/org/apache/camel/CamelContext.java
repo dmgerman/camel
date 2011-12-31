@@ -539,6 +539,17 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Removes a service from this context.      *<p/>      * The service is assumed to have been previously added using {@link #addService(Object)} method.      * This method will<b>not</b> change the service lifecycle.      *      * @param object the service      * @throws Exception can be thrown if error removing the service      * @return<tt>true</tt> if the service was removed,<tt>false</tt> if no service existed      */
+DECL|method|removeService (Object object)
+name|boolean
+name|removeService
+parameter_list|(
+name|Object
+name|object
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Has the given service already been added to this context?      *      * @param object the service      * @return<tt>true</tt> if already added,<tt>false</tt> if not.      */
 DECL|method|hasService (Object object)
 name|boolean

@@ -1069,6 +1069,36 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// remove producer cache from service
+name|getCamelContext
+argument_list|()
+operator|.
+name|removeService
+argument_list|(
+name|producerCache
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|producerCache
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

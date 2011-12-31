@@ -158,6 +158,12 @@ argument_list|>
 name|navigate
 parameter_list|()
 function_decl|;
+comment|/**      * Callback preparing the route to be started, by warming up the route.      */
+DECL|method|warmUp ()
+name|void
+name|warmUp
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

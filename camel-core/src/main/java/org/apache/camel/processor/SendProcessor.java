@@ -881,6 +881,30 @@ name|producerCache
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// remove producer cache from service
+name|camelContext
+operator|.
+name|removeService
+argument_list|(
+name|producerCache
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|producerCache
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
