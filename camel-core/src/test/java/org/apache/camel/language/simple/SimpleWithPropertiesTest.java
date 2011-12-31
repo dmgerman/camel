@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|SimpleWithPropertiesTest
 block|{
-comment|/**      * A property from the property component in a expression       * is processed when the expression is evaluated with exchange      * See https://issues.apache.org/jira/browse/CAMEL-4843      * Now camel doesn't support the properties expression of {{test}}      *       * @throws Exception      */
+comment|/**      * A property from the property component in a expression       * is processed when the expression is evaluated with exchange      * See https://issues.apache.org/jira/browse/CAMEL-4843      * Now camel doesn't support the properties expression of {{test}}      */
 annotation|@
 name|Test
 DECL|method|testProperty ()
@@ -175,7 +175,7 @@ name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"proerties"
+literal|"properties"
 argument_list|,
 name|pc
 argument_list|)
