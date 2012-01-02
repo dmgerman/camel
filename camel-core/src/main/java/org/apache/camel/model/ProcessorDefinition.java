@@ -2138,6 +2138,10 @@ name|processor
 init|=
 literal|null
 decl_stmt|;
+comment|// allow any custom logic before we create the processor
+name|preCreateProcessor
+argument_list|()
+expr_stmt|;
 comment|// resolve properties before we create the processor
 name|resolvePropertyPlaceholders
 argument_list|(
@@ -2152,10 +2156,61 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// allow any custom logic before we create the processor
-name|preCreateProcessor
+comment|// also resolve properties and constant fields on embedded expressions
+name|ProcessorDefinition
+name|me
+init|=
+operator|(
+name|ProcessorDefinition
+operator|)
+name|this
+decl_stmt|;
+if|if
+condition|(
+name|me
+operator|instanceof
+name|ExpressionNode
+condition|)
+block|{
+name|ExpressionNode
+name|exp
+init|=
+operator|(
+name|ExpressionNode
+operator|)
+name|me
+decl_stmt|;
+name|ExpressionDefinition
+name|expressionDefinition
+init|=
+name|exp
+operator|.
+name|getExpression
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|expressionDefinition
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// resolve properties before we create the processor
+name|resolvePropertyPlaceholders
+argument_list|(
+name|routeContext
+argument_list|,
+name|expressionDefinition
+argument_list|)
 expr_stmt|;
+comment|// resolve constant fields (eg Exchange.FILE_NAME)
+name|resolveKnownConstantFields
+argument_list|(
+name|expressionDefinition
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// at first use custom factory
 if|if
 condition|(
@@ -2225,8 +2280,8 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Inspects the given processor definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @param definition   the processor definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
-DECL|method|resolvePropertyPlaceholders (RouteContext routeContext, ProcessorDefinition definition)
+comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @param definition   the definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
+DECL|method|resolvePropertyPlaceholders (RouteContext routeContext, Object definition)
 specifier|protected
 name|void
 name|resolvePropertyPlaceholders
@@ -2234,7 +2289,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|,
-name|ProcessorDefinition
+name|Object
 name|definition
 parameter_list|)
 throws|throws
@@ -2278,11 +2333,35 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|ProcessorDefinition
+name|processorDefinition
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|definition
+operator|instanceof
+name|ProcessorDefinition
+condition|)
+block|{
+name|processorDefinition
+operator|=
+operator|(
+name|ProcessorDefinition
+operator|)
+name|definition
+expr_stmt|;
+block|}
 comment|// include additional properties which have the Camel placeholder QName
 comment|// and when the definition parameter is this (otherAttributes belong to this)
 if|if
 condition|(
-name|definition
+name|processorDefinition
+operator|!=
+literal|null
+operator|&&
+name|processorDefinition
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -2295,7 +2374,7 @@ control|(
 name|Object
 name|key
 range|:
-name|definition
+name|processorDefinition
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -2338,7 +2417,7 @@ decl_stmt|;
 name|Object
 name|value
 init|=
-name|definition
+name|processorDefinition
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -2633,13 +2712,13 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Inspects the given processor definition and resolves known fields      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will check if it refers to a known field (such as on Exchange).      *      * @param definition   the processor definition      */
-DECL|method|resolveKnownConstantFields (ProcessorDefinition definition)
+comment|/**      * Inspects the given definition and resolves known fields      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will check if it refers to a known field (such as on Exchange).      *      * @param definition   the definition      */
+DECL|method|resolveKnownConstantFields (Object definition)
 specifier|protected
 name|void
 name|resolveKnownConstantFields
 parameter_list|(
-name|ProcessorDefinition
+name|Object
 name|definition
 parameter_list|)
 throws|throws

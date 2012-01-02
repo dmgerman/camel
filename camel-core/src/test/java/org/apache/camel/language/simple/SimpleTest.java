@@ -6174,6 +6174,29 @@ literal|"Animal"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSlashBeforeHeader ()
+specifier|public
+name|void
+name|testSlashBeforeHeader
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"foo/${header.foo}"
+argument_list|,
+literal|"foo/abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"foo\\${header.foo}"
+argument_list|,
+literal|"foo\\abc"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
