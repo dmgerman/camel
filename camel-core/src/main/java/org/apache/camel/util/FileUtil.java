@@ -569,25 +569,34 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
 name|name
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 return|return
-literal|null
+name|name
 return|;
 block|}
+name|String
+name|s
+init|=
+name|name
+decl_stmt|;
+comment|// there must be some leading text, as we should only remove trailing separators
 while|while
 condition|(
-name|name
+name|s
 operator|.
 name|endsWith
 argument_list|(
 literal|"/"
 argument_list|)
 operator|||
-name|name
+name|s
 operator|.
 name|endsWith
 argument_list|(
@@ -597,15 +606,15 @@ name|separator
 argument_list|)
 condition|)
 block|{
-name|name
+name|s
 operator|=
-name|name
+name|s
 operator|.
 name|substring
 argument_list|(
 literal|0
 argument_list|,
-name|name
+name|s
 operator|.
 name|length
 argument_list|()
@@ -614,9 +623,29 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if the string is empty, that means there was only trailing slashes, and no leading text
+comment|// and so we should then return the original name as is
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|s
+argument_list|)
+condition|)
+block|{
 return|return
 name|name
 return|;
+block|}
+else|else
+block|{
+comment|// return without trailing slashes
+return|return
+name|s
+return|;
+block|}
 block|}
 comment|/**      * Strips any leading paths      */
 DECL|method|stripPath (String name)
