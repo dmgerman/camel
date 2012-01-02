@@ -973,14 +973,21 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 name|long
 name|size
 init|=
@@ -1015,8 +1022,6 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Start: "
-operator|+
 name|this
 operator|+
 literal|" expecting "
@@ -1024,24 +1029,6 @@ operator|+
 name|size
 operator|+
 literal|" messages"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|stop ()
-specifier|public
-name|void
-name|stop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Stop: "
-operator|+
-name|this
 argument_list|)
 expr_stmt|;
 block|}

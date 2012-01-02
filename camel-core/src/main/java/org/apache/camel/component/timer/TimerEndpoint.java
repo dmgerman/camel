@@ -280,20 +280,29 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 comment|// do nothing, the timer will be set when the first consumer will request it
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -302,6 +311,11 @@ name|setTimer
 argument_list|(
 literal|null
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

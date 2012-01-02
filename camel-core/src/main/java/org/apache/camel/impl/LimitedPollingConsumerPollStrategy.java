@@ -364,7 +364,9 @@ name|start
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// noop
+block|}
 DECL|method|stop ()
 specifier|public
 name|void

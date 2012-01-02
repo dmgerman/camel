@@ -400,10 +400,12 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -413,11 +415,18 @@ operator|=
 name|createExchangeList
 argument_list|()
 expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
@@ -439,6 +448,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
