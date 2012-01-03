@@ -58,6 +58,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|properties
@@ -74,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|test
 operator|.
-name|DefaultCamelContext
+name|AvailablePortFinder
 import|;
 end_import
 
@@ -90,7 +104,9 @@ name|camel
 operator|.
 name|test
 operator|.
-name|AvailablePortFinder
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -140,18 +156,6 @@ name|Mailbox
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test of our routes  */
 end_comment
@@ -161,6 +165,8 @@ DECL|class|ReportIncidentRoutesTest
 specifier|public
 class|class
 name|ReportIncidentRoutesTest
+extends|extends
+name|CamelTestSupport
 block|{
 comment|// should be the same address as we have in our route
 DECL|field|URL
@@ -171,11 +177,6 @@ name|String
 name|URL
 init|=
 literal|"http://localhost:{{port}}/camel-example-reportincident/webservices/incident"
-decl_stmt|;
-DECL|field|camel
-specifier|protected
-name|CamelContext
-name|camel
 decl_stmt|;
 annotation|@
 name|BeforeClass
@@ -188,7 +189,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// find a free port number from 9100 onwards, and write that in the custom.properties file
+comment|// find a free port number from 9200 onwards, and write that in the custom.properties file
 comment|// which we will use for the unit tests, to avoid port number in use problems
 name|int
 name|port
@@ -241,21 +242,24 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|startCamel ()
+annotation|@
+name|Override
+DECL|method|createCamelContext ()
 specifier|protected
-name|void
-name|startCamel
+name|CamelContext
+name|createCamelContext
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|CamelContext
 name|camel
-operator|=
-operator|new
-name|DefaultCamelContext
+init|=
+name|super
+operator|.
+name|createCamelContext
 argument_list|()
-expr_stmt|;
-comment|// add properties component
+decl_stmt|;
 name|camel
 operator|.
 name|addComponent
@@ -269,6 +273,20 @@ literal|"classpath:incident.properties,file:target/custom.properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|camel
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|ReportIncidentRoutes
 name|routes
 init|=
@@ -283,32 +301,9 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|camel
-operator|.
-name|addRoutes
-argument_list|(
+return|return
 name|routes
-argument_list|)
-expr_stmt|;
-name|camel
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|stopCamel ()
-specifier|protected
-name|void
-name|stopCamel
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|camel
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
+return|;
 block|}
 DECL|method|createCXFClient (String url)
 specifier|protected
@@ -360,26 +355,6 @@ DECL|method|testReportIncident ()
 specifier|public
 name|void
 name|testReportIncident
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// start camel
-name|startCamel
-argument_list|()
-expr_stmt|;
-name|runTest
-argument_list|()
-expr_stmt|;
-comment|// stop camel
-name|stopCamel
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|runTest ()
-specifier|protected
-name|void
-name|runTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -480,7 +455,7 @@ comment|// create the webservice client and send the request
 name|String
 name|url
 init|=
-name|camel
+name|context
 operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
