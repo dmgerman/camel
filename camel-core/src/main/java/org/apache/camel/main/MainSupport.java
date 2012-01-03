@@ -1562,7 +1562,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns a {@link org.apache.camel.ProducerTemplate} from the Spring {@link org.springframework.context.ApplicationContext} instances      * or lazily creates a new one dynamically      */
 DECL|method|getCamelTemplate ()
 specifier|public
 name|ProducerTemplate

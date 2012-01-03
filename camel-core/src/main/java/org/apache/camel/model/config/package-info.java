@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_comment
-comment|/**  * Configuration for various EIP patterns  */
+comment|/**  * The JAXB POJOs for various configurations for the  *<a href="http://camel.apache.org/xml-configuration.html">XML Configuration</a>  * of the routing rules.  */
 end_comment
 
 begin_annotation

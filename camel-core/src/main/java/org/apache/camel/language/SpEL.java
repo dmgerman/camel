@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation for injection of Spring Expression Language (SpEL) expressions  * into method parameters, fields or properties.  *   * In the context of Camel this annotation serves a similar purpose as Spring's {@Value} annotation.  */
+comment|/**  * An annotation for injection of Spring Expression Language (SpEL) expressions  * into method parameters, fields or properties.  *   * In the context of Camel this annotation serves a similar purpose as Spring's<tt>@Value</tt> annotation.  */
 end_comment
 
 begin_annotation_defn

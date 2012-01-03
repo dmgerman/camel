@@ -112,7 +112,7 @@ name|URI
 name|getURI
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the value of a particular parameter.      *      * @return the configuration URI.      */
+comment|/**      * Gets the value of a particular parameter.      *      * @param name the parameter name      * @return the configuration URI.      */
 DECL|method|getParameter (String name)
 parameter_list|<
 name|T
@@ -124,7 +124,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the value of a particular parameter.      *      * @return the configuration URI.      */
+comment|/**      * Sets the value of a particular parameter.      *      * @param name  the parameter name      * @param value the parameter value      */
 DECL|method|setParameter (String name, T value)
 parameter_list|<
 name|T
@@ -139,7 +139,7 @@ name|T
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the formated configuration string of an {@link Endpoint}.      *      * @return the configuration URI in String format.      */
+comment|/**      * Returns the formatted configuration string of an {@link Endpoint}.      *      * @param format the format      * @return the configuration URI in String format.      */
 DECL|method|toUriString (UriFormat format)
 name|String
 name|toUriString

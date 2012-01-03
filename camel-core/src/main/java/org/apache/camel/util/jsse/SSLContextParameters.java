@@ -303,7 +303,7 @@ return|return
 name|secureRandom
 return|;
 block|}
-comment|/**      * Sets the optional secure random configuration options to use for       * constructing the {@link SecureRandom} used in the creation of an {@link SSLContext].      *      * @param secureRandom the options or {@code null} to use the default      */
+comment|/**      * Sets the optional secure random configuration options to use for       * constructing the {@link SecureRandom} used in the creation of an {@link SSLContext}.      *      * @param secureRandom the options or {@code null} to use the default      */
 DECL|method|setSecureRandom (SecureRandomParameters secureRandom)
 specifier|public
 name|void

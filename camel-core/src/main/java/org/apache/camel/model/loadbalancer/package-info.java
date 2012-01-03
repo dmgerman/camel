@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/load-balancer.html">Load Balancer</a> EIP pattern  */
+comment|/**  * The JAXB POJOs for the  *<a href="http://camel.apache.org/load-balancer.html">Load Balancer</a> EIP pattern for the  *<a href="http://camel.apache.org/xml-configuration.html">XML Configuration</a>.  */
 end_comment
 
 begin_annotation
