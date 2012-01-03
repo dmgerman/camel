@@ -273,12 +273,18 @@ name|this
 operator|.
 name|otherwise
 operator|=
+name|otherwise
+operator|!=
+literal|null
+condition|?
 name|AsyncProcessorConverterHelper
 operator|.
 name|convert
 argument_list|(
 name|otherwise
 argument_list|)
+else|:
+literal|null
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
