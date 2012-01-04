@@ -4540,6 +4540,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -4557,6 +4559,27 @@ argument_list|,
 name|errorHandlers
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+name|processors
+argument_list|,
+name|errorHandlers
+argument_list|)
+expr_stmt|;
+comment|// only clear error handlers when shutting down
 name|errorHandlers
 operator|.
 name|clear

@@ -562,13 +562,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Stops and shutdowns all of the given services, throwing the first exception caught      */
-DECL|method|stopAndShutdownService (Service value)
+DECL|method|stopAndShutdownService (Object value)
 specifier|public
 specifier|static
 name|void
 name|stopAndShutdownService
 parameter_list|(
-name|Service
+name|Object
 name|value
 parameter_list|)
 throws|throws

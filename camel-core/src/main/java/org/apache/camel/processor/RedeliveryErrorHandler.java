@@ -4794,7 +4794,7 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopAndShutdownServices
 argument_list|(
 name|deadLetter
 argument_list|,
