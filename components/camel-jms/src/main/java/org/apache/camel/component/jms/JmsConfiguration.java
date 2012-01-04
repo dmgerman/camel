@@ -805,6 +805,12 @@ specifier|private
 name|boolean
 name|asyncConsumer
 decl_stmt|;
+comment|// the cacheLevelName of reply manager
+DECL|field|replyToCacheLevelName
+specifier|private
+name|String
+name|replyToCacheLevelName
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -4703,6 +4709,32 @@ name|asyncConsumer
 operator|=
 name|asyncConsumer
 expr_stmt|;
+block|}
+DECL|method|setReplyToCacheLevelName (String name)
+specifier|public
+name|void
+name|setReplyToCacheLevelName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToCacheLevelName
+operator|=
+name|name
+expr_stmt|;
+block|}
+DECL|method|getReplyToCacheLevelName ()
+specifier|public
+name|String
+name|getReplyToCacheLevelName
+parameter_list|()
+block|{
+return|return
+name|replyToCacheLevelName
+return|;
 block|}
 block|}
 end_class

@@ -2492,6 +2492,22 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|getReplyToCacheLevelName ()
+specifier|public
+name|String
+name|getReplyToCacheLevelName
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReplyToCacheLevelName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getClientId ()
 specifier|public
 name|String
@@ -3316,6 +3332,26 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|setCacheLevelName
+argument_list|(
+name|cacheName
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setReplyToCacheLevelName (String cacheName)
+specifier|public
+name|void
+name|setReplyToCacheLevelName
+parameter_list|(
+name|String
+name|cacheName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setReplyToCacheLevelName
 argument_list|(
 name|cacheName
 argument_list|)

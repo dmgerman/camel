@@ -859,6 +859,24 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setReplyToCacheLevelName (String cacheName)
+specifier|public
+name|void
+name|setReplyToCacheLevelName
+parameter_list|(
+name|String
+name|cacheName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setReplyToCacheLevelName
+argument_list|(
+name|cacheName
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setClientId (String consumerClientId)
 specifier|public
 name|void
