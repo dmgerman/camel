@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|xpath
+operator|.
+name|XPathFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -97,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XPath language.  *  * @version   */
+comment|/**  * XPath language.  */
 end_comment
 
 begin_class
@@ -114,6 +126,21 @@ DECL|field|resultType
 specifier|private
 name|QName
 name|resultType
+decl_stmt|;
+DECL|field|xpathFactory
+specifier|private
+name|XPathFactory
+name|xpathFactory
+decl_stmt|;
+DECL|field|useSaxon
+specifier|private
+name|Boolean
+name|useSaxon
+decl_stmt|;
+DECL|field|objectModelUri
+specifier|private
+name|String
+name|objectModelUri
 decl_stmt|;
 DECL|method|createPredicate (String expression)
 specifier|public
@@ -197,6 +224,98 @@ operator|=
 name|resultType
 expr_stmt|;
 block|}
+DECL|method|getXpathFactory ()
+specifier|public
+name|XPathFactory
+name|getXpathFactory
+parameter_list|()
+block|{
+return|return
+name|xpathFactory
+return|;
+block|}
+DECL|method|setXpathFactory (XPathFactory xpathFactory)
+specifier|public
+name|void
+name|setXpathFactory
+parameter_list|(
+name|XPathFactory
+name|xpathFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xpathFactory
+operator|=
+name|xpathFactory
+expr_stmt|;
+block|}
+DECL|method|setUseSaxon (Boolean useSaxon)
+specifier|public
+name|void
+name|setUseSaxon
+parameter_list|(
+name|Boolean
+name|useSaxon
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useSaxon
+operator|=
+name|useSaxon
+expr_stmt|;
+block|}
+DECL|method|getUseSaxon ()
+specifier|public
+name|Boolean
+name|getUseSaxon
+parameter_list|()
+block|{
+return|return
+name|useSaxon
+return|;
+block|}
+DECL|method|isUseSaxon ()
+specifier|public
+name|Boolean
+name|isUseSaxon
+parameter_list|()
+block|{
+return|return
+name|useSaxon
+operator|!=
+literal|null
+operator|&&
+name|useSaxon
+return|;
+block|}
+DECL|method|getObjectModelUri ()
+specifier|public
+name|String
+name|getObjectModelUri
+parameter_list|()
+block|{
+return|return
+name|objectModelUri
+return|;
+block|}
+DECL|method|setObjectModelUri (String objectModelUri)
+specifier|public
+name|void
+name|setObjectModelUri
+parameter_list|(
+name|String
+name|objectModelUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|objectModelUri
+operator|=
+name|objectModelUri
+expr_stmt|;
+block|}
 DECL|method|configureBuilder (XPathBuilder builder)
 specifier|protected
 name|void
@@ -220,6 +339,51 @@ argument_list|(
 name|resultType
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|isUseSaxon
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|enableSaxon
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|xpathFactory
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|setXPathFactory
+argument_list|(
+name|xpathFactory
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|objectModelUri
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|setObjectModelUri
+argument_list|(
+name|objectModelUri
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|isSingleton ()
