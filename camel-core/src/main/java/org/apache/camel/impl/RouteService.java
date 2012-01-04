@@ -1140,7 +1140,7 @@ operator|.
 name|getServices
 argument_list|()
 decl_stmt|;
-comment|// also get route scoped child services
+comment|// also get route scoped services
 name|doGetRouteScopedServices
 argument_list|(
 name|services
