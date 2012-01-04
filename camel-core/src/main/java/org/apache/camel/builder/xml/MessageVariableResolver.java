@@ -589,8 +589,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// If we can't find an answer we must return void.
-comment|// We can't return null then the xpath engine will throw a NullPointerException
+comment|// if we can't find an answer we must return an empty String.
+comment|// if we return null, then the JDK default XPathEngine will throw an exception
 if|if
 condition|(
 name|answer
@@ -599,9 +599,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|Void
-operator|.
-name|class
+literal|""
 return|;
 block|}
 else|else
