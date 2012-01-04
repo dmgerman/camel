@@ -375,6 +375,9 @@ comment|/**      * String or Node to return      */
 DECL|field|dataObjectType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|dataObjectType
 decl_stmt|;
 comment|/**      * What is the default output format ?      */
@@ -440,11 +443,6 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Unmarshal the data      *       * @throws Exception      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object
@@ -1135,6 +1133,9 @@ comment|/**      * @return the dataObjectType      */
 DECL|method|getDataObjectType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getDataObjectType
 parameter_list|()
 block|{
@@ -1143,12 +1144,15 @@ name|dataObjectType
 return|;
 block|}
 comment|/**      * @param dataObjectType      *            the dataObjectType to set      */
-DECL|method|setDataObjectType (Class dataObjectType)
+DECL|method|setDataObjectType (Class<?> dataObjectType)
 specifier|public
 name|void
 name|setDataObjectType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|dataObjectType
 parameter_list|)
 block|{
