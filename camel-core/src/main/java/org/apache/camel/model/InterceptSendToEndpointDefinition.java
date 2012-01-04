@@ -493,21 +493,29 @@ block|}
 comment|/**      * Applies this interceptor only if the given predicate is true      *      * @param predicate  the predicate      * @return the builder      */
 DECL|method|when (Predicate predicate)
 specifier|public
-name|ChoiceDefinition
+name|InterceptSendToEndpointDefinition
 name|when
 parameter_list|(
 name|Predicate
 name|predicate
 parameter_list|)
 block|{
-return|return
-name|choice
-argument_list|()
-operator|.
+name|WhenDefinition
 name|when
+init|=
+operator|new
+name|WhenDefinition
 argument_list|(
 name|predicate
 argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|when
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|/**      * Skip sending the {@link org.apache.camel.Exchange} to the original intended endpoint      *      * @return the builder      */
@@ -528,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * This method is<b>only</b> for handling some post configuration      * that is needed from the Spring DSL side as JAXB does not invoke the fluent      * builders, so we need to manually handle this afterwards, and since this is      * an interceptor it has to do a bit of magic logic to fixup to handle predicates      * with or without proceed/stop set as well.      */
+comment|/**      * This method is<b>only</b> for handling some post configuration      * that is needed since this is an interceptor, and we have to do      * a bit of magic logic to fixup to handle predicates      * with or without proceed/stop set as well.      */
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
