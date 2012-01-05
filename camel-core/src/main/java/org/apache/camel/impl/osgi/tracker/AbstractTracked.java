@@ -239,7 +239,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 name|initial
 operator|.
@@ -329,7 +328,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 continue|continue;
 comment|/* skip this item */
@@ -361,7 +359,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 continue|continue;
 comment|/* skip this item */
@@ -390,7 +387,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 name|trackAdding
 argument_list|(
@@ -492,7 +488,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 return|return;
 block|}
@@ -524,7 +519,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 name|modified
 argument_list|()
@@ -599,7 +593,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 name|Object
 name|object
@@ -709,7 +702,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 comment|/* Call customizer outside of synchronized region */
 name|customizerRemoved
@@ -774,7 +766,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 return|return;
 comment|/*                          * we have removed it from the list and it will not be                          * processed                          */
@@ -806,7 +797,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 return|return;
 comment|/*                          * in case the item is untracked while in the process of                          * adding                          */
@@ -852,7 +842,6 @@ operator|+
 name|item
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 comment|/* Call customizer outside of synchronized region */
 name|customizerRemoved

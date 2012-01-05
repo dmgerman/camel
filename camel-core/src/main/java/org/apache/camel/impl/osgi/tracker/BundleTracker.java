@@ -211,7 +211,6 @@ argument_list|(
 literal|"BundleTracker.open"
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 name|t
 operator|=
@@ -372,7 +371,6 @@ argument_list|(
 literal|"BundleTracker.close"
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$
 block|}
 name|outgoing
 operator|.
@@ -782,7 +780,6 @@ operator|+
 name|bundle
 argument_list|)
 expr_stmt|;
-comment|//$NON-NLS-1$ //$NON-NLS-2$
 block|}
 if|if
 condition|(
