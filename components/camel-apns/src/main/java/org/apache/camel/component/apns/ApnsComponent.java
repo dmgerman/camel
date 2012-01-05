@@ -113,11 +113,7 @@ DECL|method|ApnsComponent ()
 specifier|public
 name|ApnsComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ApnsComponent (ApnsService apnsService)
 specifier|public
 name|ApnsComponent
@@ -126,9 +122,6 @@ name|ApnsService
 name|apnsService
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull

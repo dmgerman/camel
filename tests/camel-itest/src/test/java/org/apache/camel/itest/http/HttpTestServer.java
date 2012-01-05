@@ -642,9 +642,6 @@ name|SSLContext
 name|sslcontext
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|handlerRegistry
@@ -1291,14 +1288,6 @@ specifier|volatile
 name|Exception
 name|exception
 decl_stmt|;
-DECL|method|ListenerThread ()
-name|ListenerThread
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|run ()

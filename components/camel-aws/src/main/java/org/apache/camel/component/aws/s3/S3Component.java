@@ -84,11 +84,7 @@ DECL|method|S3Component ()
 specifier|public
 name|S3Component
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|S3Component (CamelContext context)
 specifier|public
 name|S3Component

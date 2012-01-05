@@ -27,11 +27,7 @@ DECL|method|ApnsFeedbackParsingUtilsAcessor ()
 specifier|private
 name|ApnsFeedbackParsingUtilsAcessor
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|pack (byte[]... args)
 specifier|public
 specifier|static

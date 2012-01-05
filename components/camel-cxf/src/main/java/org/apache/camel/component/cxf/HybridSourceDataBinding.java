@@ -348,11 +348,7 @@ DECL|method|HybridSourceDataBinding ()
 specifier|public
 name|HybridSourceDataBinding
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|SuppressWarnings
 argument_list|(

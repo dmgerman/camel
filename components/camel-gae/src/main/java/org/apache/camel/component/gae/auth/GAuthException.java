@@ -37,11 +37,7 @@ DECL|method|GAuthException ()
 specifier|public
 name|GAuthException
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|GAuthException (String message)
 specifier|public
 name|GAuthException

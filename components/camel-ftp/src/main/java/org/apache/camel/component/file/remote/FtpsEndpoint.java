@@ -260,11 +260,7 @@ DECL|method|FtpsEndpoint ()
 specifier|public
 name|FtpsEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|FtpsEndpoint (String uri, RemoteFileComponent<FTPFile> remoteFileComponent, RemoteFileConfiguration configuration)
 specifier|public
 name|FtpsEndpoint

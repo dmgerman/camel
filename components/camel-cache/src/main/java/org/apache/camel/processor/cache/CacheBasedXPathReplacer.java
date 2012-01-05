@@ -349,9 +349,6 @@ name|String
 name|xpath
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|cacheName

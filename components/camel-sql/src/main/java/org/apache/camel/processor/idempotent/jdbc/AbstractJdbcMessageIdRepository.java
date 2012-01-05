@@ -254,11 +254,7 @@ DECL|method|AbstractJdbcMessageIdRepository ()
 specifier|public
 name|AbstractJdbcMessageIdRepository
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AbstractJdbcMessageIdRepository (JdbcTemplate jdbcTemplate, TransactionTemplate transactionTemplate)
 specifier|public
 name|AbstractJdbcMessageIdRepository

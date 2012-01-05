@@ -71,11 +71,7 @@ DECL|method|RemoteFileComponent ()
 specifier|public
 name|RemoteFileComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|RemoteFileComponent (CamelContext context)
 specifier|public
 name|RemoteFileComponent

@@ -129,9 +129,6 @@ specifier|public
 name|CxfRsClientFactoryBeanDefinitionParser
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setBeanClass
 argument_list|(
 name|SpringJAXRSClientFactoryBean

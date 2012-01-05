@@ -98,13 +98,8 @@ specifier|public
 name|BookCatalog
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
-operator|.
-name|map
-operator|=
+argument_list|(
 operator|new
 name|HashMap
 argument_list|<
@@ -113,6 +108,7 @@ argument_list|,
 name|Book
 argument_list|>
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|BookCatalog (HashMap<String, Book> map)
@@ -128,9 +124,6 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|map

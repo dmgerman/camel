@@ -522,11 +522,7 @@ DECL|method|SoapJaxbDataFormat ()
 specifier|public
 name|SoapJaxbDataFormat
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Initialize with JAXB context path      *       * @param contexPath      */
 DECL|method|SoapJaxbDataFormat (String contextPath)
 specifier|public

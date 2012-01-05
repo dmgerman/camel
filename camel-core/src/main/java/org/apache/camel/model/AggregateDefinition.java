@@ -614,9 +614,6 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|predicate
@@ -643,9 +640,6 @@ name|Expression
 name|correlationExpression
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|correlationExpression
@@ -672,9 +666,6 @@ name|ExpressionDefinition
 name|correlationExpression
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|expression

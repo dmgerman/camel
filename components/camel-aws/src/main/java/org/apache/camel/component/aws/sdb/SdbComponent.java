@@ -84,11 +84,7 @@ DECL|method|SdbComponent ()
 specifier|public
 name|SdbComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SdbComponent (CamelContext context)
 specifier|public
 name|SdbComponent

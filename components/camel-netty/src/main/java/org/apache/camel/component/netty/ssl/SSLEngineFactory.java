@@ -146,9 +146,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|KeyStore
 name|ks
 init|=

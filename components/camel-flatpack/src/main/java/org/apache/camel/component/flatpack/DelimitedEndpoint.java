@@ -199,11 +199,7 @@ DECL|method|DelimitedEndpoint ()
 specifier|public
 name|DelimitedEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|DelimitedEndpoint (String endpointUri, Component component, String resourceUri)
 specifier|public
 name|DelimitedEndpoint

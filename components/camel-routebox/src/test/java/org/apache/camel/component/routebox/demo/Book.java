@@ -40,11 +40,7 @@ DECL|method|Book ()
 specifier|public
 name|Book
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|Book (String author, String title)
 specifier|public
 name|Book
@@ -56,9 +52,6 @@ name|String
 name|title
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|author

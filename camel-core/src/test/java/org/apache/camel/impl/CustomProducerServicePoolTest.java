@@ -195,18 +195,11 @@ name|camelContext
 parameter_list|)
 block|{
 comment|// FIXME: another endpoint that works without a Component
-name|super
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|setCamelContext
 argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|setEndpointUri
 argument_list|(
 name|endpointUri

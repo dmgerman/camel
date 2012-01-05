@@ -403,9 +403,6 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
 name|setUri
 argument_list|(
 name|uri
@@ -420,9 +417,6 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
 name|setEndpoint
 argument_list|(
 name|endpoint

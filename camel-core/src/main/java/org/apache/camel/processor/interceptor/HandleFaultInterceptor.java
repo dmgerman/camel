@@ -92,11 +92,7 @@ DECL|method|HandleFaultInterceptor ()
 specifier|public
 name|HandleFaultInterceptor
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|HandleFaultInterceptor (Processor processor)
 specifier|public
 name|HandleFaultInterceptor

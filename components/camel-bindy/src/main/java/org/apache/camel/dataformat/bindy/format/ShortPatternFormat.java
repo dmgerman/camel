@@ -45,11 +45,7 @@ DECL|method|ShortPatternFormat ()
 specifier|public
 name|ShortPatternFormat
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ShortPatternFormat (String pattern, Locale locale)
 specifier|public
 name|ShortPatternFormat

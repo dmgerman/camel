@@ -127,11 +127,7 @@ DECL|method|CacheEventListener ()
 specifier|public
 name|CacheEventListener
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|CacheEventListener (CacheConsumer cacheConsumer)
 specifier|public
 name|CacheEventListener
@@ -140,9 +136,6 @@ name|CacheConsumer
 name|cacheConsumer
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|cacheConsumer

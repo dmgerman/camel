@@ -1368,11 +1368,7 @@ DECL|method|CxfEndpoint ()
 specifier|public
 name|CxfEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|copy ()
 specifier|public
 name|CxfEndpoint

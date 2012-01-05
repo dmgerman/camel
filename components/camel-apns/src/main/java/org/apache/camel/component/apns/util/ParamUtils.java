@@ -31,11 +31,7 @@ DECL|method|ParamUtils ()
 specifier|private
 name|ParamUtils
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|checkNotNull (Object param, String paramValue)
 specifier|public
 specifier|static

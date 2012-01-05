@@ -1367,9 +1367,6 @@ name|Message
 name|m
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|outMessage
 operator|=
 name|m

@@ -45,11 +45,7 @@ DECL|method|BytePatternFormat ()
 specifier|public
 name|BytePatternFormat
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|BytePatternFormat (String pattern, Locale locale)
 specifier|public
 name|BytePatternFormat

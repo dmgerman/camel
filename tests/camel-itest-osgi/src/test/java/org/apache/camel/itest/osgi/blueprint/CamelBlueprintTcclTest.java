@@ -672,9 +672,6 @@ specifier|public
 name|ThreadContextClassLoaderBean
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|tccl
 operator|=
 name|Thread

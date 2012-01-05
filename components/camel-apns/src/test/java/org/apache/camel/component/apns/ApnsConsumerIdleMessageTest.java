@@ -198,15 +198,6 @@ DECL|field|server
 name|ApnsServerStub
 name|server
 decl_stmt|;
-DECL|method|ApnsConsumerIdleMessageTest ()
-specifier|public
-name|ApnsConsumerIdleMessageTest
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Before
 DECL|method|startup ()

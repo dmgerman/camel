@@ -116,11 +116,7 @@ DECL|method|LuceneEndpoint ()
 specifier|public
 name|LuceneEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|LuceneEndpoint (String endpointUri, CamelContext camelContext)
 specifier|public
 name|LuceneEndpoint

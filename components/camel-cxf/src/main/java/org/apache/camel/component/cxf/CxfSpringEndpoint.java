@@ -263,11 +263,7 @@ DECL|method|CxfSpringEndpoint ()
 specifier|public
 name|CxfSpringEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      *       * A help to get the service class.  The serviceClass classname in URI       * query takes precedence over the serviceClass in CxfEndpointBean.      */
 DECL|method|getSEIClass ()
 specifier|private

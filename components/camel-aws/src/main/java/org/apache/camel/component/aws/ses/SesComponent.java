@@ -84,11 +84,7 @@ DECL|method|SesComponent ()
 specifier|public
 name|SesComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SesComponent (CamelContext context)
 specifier|public
 name|SesComponent

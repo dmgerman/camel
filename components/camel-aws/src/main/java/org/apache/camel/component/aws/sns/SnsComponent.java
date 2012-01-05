@@ -84,11 +84,7 @@ DECL|method|SnsComponent ()
 specifier|public
 name|SnsComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SnsComponent (CamelContext context)
 specifier|public
 name|SnsComponent

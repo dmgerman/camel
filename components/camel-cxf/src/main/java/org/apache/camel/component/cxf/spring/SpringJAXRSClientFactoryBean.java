@@ -217,11 +217,7 @@ DECL|method|SpringJAXRSClientFactoryBean ()
 specifier|public
 name|SpringJAXRSClientFactoryBean
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|isLoggingFeatureEnabled ()
 specifier|public
 name|boolean

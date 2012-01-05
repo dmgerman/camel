@@ -725,15 +725,6 @@ name|AbstractTracked
 implements|implements
 name|SynchronousBundleListener
 block|{
-comment|/**          * Tracked constructor.          */
-DECL|method|Tracked ()
-name|Tracked
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**          *<code>BundleListener</code> method for the<code>BundleTracker</code>          * class. This method must NOT be synchronized to avoid deadlock          * potential.          *           * @param event<code>BundleEvent</code> object from the framework.          */
 DECL|method|bundleChanged (final BundleEvent event)
 specifier|public

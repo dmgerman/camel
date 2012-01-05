@@ -94,11 +94,7 @@ DECL|method|JavaSpaceComponent ()
 specifier|public
 name|JavaSpaceComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|JavaSpaceComponent (CamelContext context)
 specifier|public
 name|JavaSpaceComponent

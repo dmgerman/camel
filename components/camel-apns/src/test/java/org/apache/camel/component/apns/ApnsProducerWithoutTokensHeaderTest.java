@@ -216,15 +216,6 @@ specifier|private
 name|ApnsServerStub
 name|server
 decl_stmt|;
-DECL|method|ApnsProducerWithoutTokensHeaderTest ()
-specifier|public
-name|ApnsProducerWithoutTokensHeaderTest
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Before
 DECL|method|startup ()

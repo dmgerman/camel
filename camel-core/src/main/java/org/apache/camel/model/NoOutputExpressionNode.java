@@ -127,11 +127,7 @@ DECL|method|NoOutputExpressionNode ()
 specifier|public
 name|NoOutputExpressionNode
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|NoOutputExpressionNode (ExpressionDefinition expression)
 specifier|public
 name|NoOutputExpressionNode

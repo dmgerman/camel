@@ -178,9 +178,6 @@ throws|throws
 name|Exception
 block|{
 name|this
-argument_list|()
-expr_stmt|;
-name|this
 operator|.
 name|uri
 operator|=

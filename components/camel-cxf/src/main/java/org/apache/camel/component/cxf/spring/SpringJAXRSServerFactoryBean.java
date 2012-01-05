@@ -229,11 +229,7 @@ DECL|method|SpringJAXRSServerFactoryBean ()
 specifier|public
 name|SpringJAXRSServerFactoryBean
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SpringJAXRSServerFactoryBean (JAXRSServiceFactoryBean sf)
 specifier|public
 name|SpringJAXRSServerFactoryBean

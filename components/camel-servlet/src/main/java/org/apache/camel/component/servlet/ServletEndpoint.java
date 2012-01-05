@@ -169,11 +169,7 @@ DECL|method|ServletEndpoint ()
 specifier|public
 name|ServletEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ServletEndpoint (String endPointURI, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|ServletEndpoint

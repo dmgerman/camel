@@ -224,11 +224,7 @@ DECL|method|FtpEndpoint ()
 specifier|public
 name|FtpEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|FtpEndpoint (String uri, RemoteFileComponent<FTPFile> component, RemoteFileConfiguration configuration)
 specifier|public
 name|FtpEndpoint

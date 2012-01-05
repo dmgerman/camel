@@ -31,11 +31,7 @@ DECL|method|AssertUtils ()
 specifier|private
 name|AssertUtils
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|notNull (Object object, String message)
 specifier|public
 specifier|static

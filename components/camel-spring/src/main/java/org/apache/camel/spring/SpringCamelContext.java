@@ -426,11 +426,7 @@ DECL|method|SpringCamelContext ()
 specifier|public
 name|SpringCamelContext
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SpringCamelContext (ApplicationContext applicationContext)
 specifier|public
 name|SpringCamelContext
@@ -439,9 +435,6 @@ name|ApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
 name|setApplicationContext
 argument_list|(
 name|applicationContext

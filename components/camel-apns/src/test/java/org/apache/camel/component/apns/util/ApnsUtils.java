@@ -269,11 +269,7 @@ DECL|method|ApnsUtils ()
 specifier|private
 name|ApnsUtils
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|createRandomDeviceTokenBytes ()
 specifier|public
 specifier|static

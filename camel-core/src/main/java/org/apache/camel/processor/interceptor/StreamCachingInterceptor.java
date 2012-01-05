@@ -110,11 +110,7 @@ DECL|method|StreamCachingInterceptor ()
 specifier|public
 name|StreamCachingInterceptor
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|StreamCachingInterceptor (Processor processor)
 specifier|public
 name|StreamCachingInterceptor

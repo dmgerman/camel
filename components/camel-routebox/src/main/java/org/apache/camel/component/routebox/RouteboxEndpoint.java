@@ -73,11 +73,7 @@ DECL|method|RouteboxEndpoint ()
 specifier|public
 name|RouteboxEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Deprecated
 DECL|method|RouteboxEndpoint (String endpointUri)

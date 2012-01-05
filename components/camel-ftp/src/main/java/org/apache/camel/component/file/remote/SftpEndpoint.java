@@ -81,11 +81,7 @@ DECL|method|SftpEndpoint ()
 specifier|public
 name|SftpEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SftpEndpoint (String uri, SftpComponent component, RemoteFileConfiguration configuration)
 specifier|public
 name|SftpEndpoint

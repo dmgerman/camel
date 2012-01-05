@@ -31,11 +31,7 @@ DECL|method|StringUtils ()
 specifier|private
 name|StringUtils
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|isNotEmpty (String stringValue)
 specifier|public
 specifier|static

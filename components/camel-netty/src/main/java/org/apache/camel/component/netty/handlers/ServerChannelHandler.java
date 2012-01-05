@@ -305,9 +305,6 @@ name|NettyConsumer
 name|consumer
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|consumer

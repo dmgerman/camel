@@ -93,6 +93,15 @@ argument_list|,
 name|String
 argument_list|>
 name|originalKeys
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
 decl_stmt|;
 comment|// holds a snapshot view of current entry set
 DECL|field|entrySetView
@@ -115,22 +124,7 @@ DECL|method|CaseInsensitiveMap ()
 specifier|public
 name|CaseInsensitiveMap
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|originalKeys
-operator|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|CaseInsensitiveMap (Map<? extends String, ?> map)
 specifier|public
 name|CaseInsensitiveMap
@@ -146,9 +140,6 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-name|this
-argument_list|()
-expr_stmt|;
 name|putAll
 argument_list|(
 name|map
