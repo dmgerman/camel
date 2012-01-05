@@ -709,14 +709,14 @@ name|XPathExpression
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|poolTraceNamespaces
+DECL|field|poolLogNamespaces
 specifier|private
 specifier|final
 name|Queue
 argument_list|<
 name|XPathExpression
 argument_list|>
-name|poolTraceNamespaces
+name|poolLogNamespaces
 init|=
 operator|new
 name|ConcurrentLinkedQueue
@@ -811,10 +811,10 @@ specifier|private
 name|DefaultNamespaceContext
 name|namespaceContext
 decl_stmt|;
-DECL|field|traceNamespaces
+DECL|field|logNamespaces
 specifier|private
 name|boolean
-name|traceNamespaces
+name|logNamespaces
 decl_stmt|;
 DECL|field|functionResolver
 specifier|private
@@ -1540,13 +1540,13 @@ name|this
 return|;
 block|}
 comment|/**      * Activates trace logging of all discovered namespaces in the message - to simplify debugging namespace-related issues      *<p/>      * Namespaces are printed in Hashmap style<code>{xmlns:prefix=[namespaceURI], xmlns:prefix=[namespaceURI]}</code>.      *<p/>      * The implicit XML namespace is omitted (http://www.w3.org/XML/1998/namespace).      * XML allows for namespace prefixes to be redefined/overridden due to hierarchical scoping, i.e. prefix abc can be mapped to http://abc.com,      * and deeper in the document it can be mapped to http://def.com. When two prefixes are detected which are equal but are mapped to different      * namespace URIs, Camel will show all namespaces URIs it is mapped to in an array-style.      *<p/>      * This feature is disabled by default.      *      * @return the current builder.      */
-DECL|method|traceNamespaces ()
+DECL|method|logNamespaces ()
 specifier|public
 name|XPathBuilder
-name|traceNamespaces
+name|logNamespaces
 parameter_list|()
 block|{
-name|setTraceNamespaces
+name|setLogNamespaces
 argument_list|(
 literal|true
 argument_list|)
@@ -2668,30 +2668,30 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|setTraceNamespaces (boolean traceNamespaces)
+DECL|method|setLogNamespaces (boolean logNamespaces)
 specifier|public
 name|void
-name|setTraceNamespaces
+name|setLogNamespaces
 parameter_list|(
 name|boolean
-name|traceNamespaces
+name|logNamespaces
 parameter_list|)
 block|{
 name|this
 operator|.
-name|traceNamespaces
+name|logNamespaces
 operator|=
-name|traceNamespaces
+name|logNamespaces
 expr_stmt|;
 block|}
-DECL|method|isTraceNamespaces ()
+DECL|method|isLogNamespaces ()
 specifier|public
 name|boolean
-name|isTraceNamespaces
+name|isLogNamespaces
 parameter_list|()
 block|{
 return|return
-name|traceNamespaces
+name|logNamespaces
 return|;
 block|}
 DECL|method|getObjectModelUri ()
@@ -2873,15 +2873,15 @@ try|try
 block|{
 if|if
 condition|(
-name|traceNamespaces
+name|logNamespaces
 operator|&&
 name|LOG
 operator|.
-name|isTraceEnabled
+name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|traceNamespaces
+name|logNamespaces
 argument_list|(
 name|exchange
 argument_list|)
@@ -2917,10 +2917,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|traceNamespaces (Exchange exchange)
+DECL|method|logNamespaces (Exchange exchange)
 specifier|private
 name|void
-name|traceNamespaces
+name|logNamespaces
 parameter_list|(
 name|Exchange
 name|exchange
@@ -2945,7 +2945,7 @@ try|try
 block|{
 name|xpathExpression
 operator|=
-name|poolTraceNamespaces
+name|poolLogNamespaces
 operator|.
 name|poll
 argument_list|()
@@ -3119,7 +3119,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|warn
 argument_list|(
 literal|"Unable to trace discovered namespaces in XPath expression"
 argument_list|,
@@ -3137,7 +3137,7 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
-name|poolTraceNamespaces
+name|poolLogNamespaces
 operator|.
 name|add
 argument_list|(
@@ -3313,7 +3313,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|trace
+name|info
 argument_list|(
 literal|"Namespaces discovered in message: {}."
 argument_list|,
@@ -3659,6 +3659,9 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|logNamespaces
+operator|&&
 name|LOG
 operator|.
 name|isTraceEnabled
@@ -3668,6 +3671,31 @@ block|{
 name|LOG
 operator|.
 name|trace
+argument_list|(
+literal|"Creating new XPath expression in pool. Namespaces on XPath expression: {}"
+argument_list|,
+name|getNamespaceContext
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|logNamespaces
+operator|&&
+name|LOG
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
 argument_list|(
 literal|"Creating new XPath expression in pool. Namespaces on XPath expression: {}"
 argument_list|,
@@ -4488,7 +4516,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|poolTraceNamespaces
+name|poolLogNamespaces
 operator|.
 name|clear
 argument_list|()

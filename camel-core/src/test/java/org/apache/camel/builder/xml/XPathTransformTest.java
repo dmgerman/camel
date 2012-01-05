@@ -320,10 +320,10 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testXPathNamespaceTracingEnabledJavaDSL ()
+DECL|method|testXPathNamespaceLoggingEnabledJavaDSL ()
 specifier|public
 name|void
-name|testXPathNamespaceTracingEnabledJavaDSL
+name|testXPathNamespaceLoggingEnabledJavaDSL
 parameter_list|()
 throws|throws
 name|Exception
@@ -342,7 +342,7 @@ name|expect
 argument_list|(
 name|l
 operator|.
-name|isTraceEnabled
+name|isInfoEnabled
 argument_list|()
 argument_list|)
 operator|.
@@ -356,7 +356,7 @@ argument_list|()
 expr_stmt|;
 name|l
 operator|.
-name|trace
+name|info
 argument_list|(
 name|contains
 argument_list|(
@@ -484,7 +484,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|traceNamespaces
+name|logNamespaces
 argument_list|()
 operator|.
 name|evaluate
@@ -509,10 +509,10 @@ name|l
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testXPathNamespaceTracingDisabledJavaDSL ()
+DECL|method|testXPathNamespaceLoggingDisabledJavaDSL ()
 specifier|public
 name|void
-name|testXPathNamespaceTracingDisabledJavaDSL
+name|testXPathNamespaceLoggingDisabledJavaDSL
 parameter_list|()
 throws|throws
 name|Exception
@@ -531,7 +531,7 @@ name|expect
 argument_list|(
 name|l
 operator|.
-name|isTraceEnabled
+name|isInfoEnabled
 argument_list|()
 argument_list|)
 operator|.
@@ -562,7 +562,7 @@ argument_list|)
 decl_stmt|;
 name|l
 operator|.
-name|trace
+name|info
 argument_list|(
 name|capture
 argument_list|(
@@ -734,7 +734,7 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
-literal|"Did not expect LOG.trace with 'Namespaces discovered in message'"
+literal|"Did not expect LOG.info with 'Namespaces discovered in message'"
 argument_list|)
 throw|;
 block|}

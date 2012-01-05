@@ -245,12 +245,12 @@ name|XmlAttribute
 argument_list|(
 name|name
 operator|=
-literal|"traceNamespaces"
+literal|"logNamespaces"
 argument_list|)
-DECL|field|traceNamespaces
+DECL|field|logNamespaces
 specifier|private
 name|Boolean
-name|traceNamespaces
+name|logNamespaces
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -462,44 +462,44 @@ return|return
 name|objectModel
 return|;
 block|}
-DECL|method|setTraceNamespaces (Boolean traceNamespaces)
+DECL|method|setLogNamespaces (Boolean logNamespaces)
 specifier|public
 name|void
-name|setTraceNamespaces
+name|setLogNamespaces
 parameter_list|(
 name|Boolean
-name|traceNamespaces
+name|logNamespaces
 parameter_list|)
 block|{
 name|this
 operator|.
-name|traceNamespaces
+name|logNamespaces
 operator|=
-name|traceNamespaces
+name|logNamespaces
 expr_stmt|;
 block|}
-DECL|method|getTraceNamespaces ()
+DECL|method|getLogNamespaces ()
 specifier|public
 name|Boolean
-name|getTraceNamespaces
+name|getLogNamespaces
 parameter_list|()
 block|{
 return|return
-name|traceNamespaces
+name|logNamespaces
 return|;
 block|}
-DECL|method|isTraceNamespaces ()
+DECL|method|isLogNamespaces ()
 specifier|public
 name|boolean
-name|isTraceNamespaces
+name|isLogNamespaces
 parameter_list|()
 block|{
 return|return
-name|traceNamespaces
+name|logNamespaces
 operator|!=
 literal|null
 operator|&&
-name|traceNamespaces
+name|logNamespaces
 return|;
 block|}
 annotation|@
@@ -682,7 +682,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isTraceNamespaces
+name|isLogNamespaces
 argument_list|()
 condition|)
 block|{
@@ -697,7 +697,7 @@ argument_list|,
 name|expression
 argument_list|)
 operator|.
-name|setTraceNamespaces
+name|setLogNamespaces
 argument_list|(
 literal|true
 argument_list|)
@@ -802,7 +802,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isTraceNamespaces
+name|isLogNamespaces
 argument_list|()
 condition|)
 block|{
@@ -817,7 +817,7 @@ argument_list|,
 name|predicate
 argument_list|)
 operator|.
-name|setTraceNamespaces
+name|setLogNamespaces
 argument_list|(
 literal|true
 argument_list|)
