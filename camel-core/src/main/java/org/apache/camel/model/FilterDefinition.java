@@ -286,9 +286,6 @@ return|return
 operator|new
 name|FilterProcessor
 argument_list|(
-name|getExpression
-argument_list|()
-operator|.
 name|createPredicate
 argument_list|(
 name|routeContext

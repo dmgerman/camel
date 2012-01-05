@@ -410,6 +410,12 @@ name|INTERCEPTED_ENDPOINT
 init|=
 literal|"CamelInterceptedEndpoint"
 decl_stmt|;
+DECL|field|INTERCEPT_SEND_TO_ENDPOINT_WHEN_MATCHED
+name|String
+name|INTERCEPT_SEND_TO_ENDPOINT_WHEN_MATCHED
+init|=
+literal|"CamelInterceptSendToEndpointWhenMatched"
+decl_stmt|;
 DECL|field|LANGUAGE_SCRIPT
 name|String
 name|LANGUAGE_SCRIPT

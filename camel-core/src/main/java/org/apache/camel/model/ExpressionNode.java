@@ -418,6 +418,7 @@ name|getLabel
 argument_list|()
 return|;
 block|}
+comment|/**      * Creates the {@link FilterProcessor} from the expression node.      *      * @param routeContext  the route context      * @return the created {@link FilterProcessor}      * @throws Exception is thrown if error creating the processor      */
 DECL|method|createFilterProcessor (RouteContext routeContext)
 specifier|protected
 name|FilterProcessor
@@ -445,15 +446,32 @@ return|return
 operator|new
 name|FilterProcessor
 argument_list|(
-name|getExpression
-argument_list|()
-operator|.
 name|createPredicate
 argument_list|(
 name|routeContext
 argument_list|)
 argument_list|,
 name|childProcessor
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates the {@link Predicate} from the expression node.      *      * @param routeContext  the route context      * @return the created predicate      */
+DECL|method|createPredicate (RouteContext routeContext)
+specifier|protected
+name|Predicate
+name|createPredicate
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+return|return
+name|getExpression
+argument_list|()
+operator|.
+name|createPredicate
+argument_list|(
+name|routeContext
 argument_list|)
 return|;
 block|}
