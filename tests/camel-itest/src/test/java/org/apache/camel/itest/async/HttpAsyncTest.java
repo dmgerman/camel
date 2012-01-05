@@ -171,9 +171,6 @@ comment|// Adding the (String) To make the CS happy
 name|String
 name|response
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|extractFutureBody

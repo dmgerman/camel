@@ -2424,9 +2424,6 @@ return|return
 operator|new
 name|NameClassPair
 argument_list|(
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getKey
@@ -2493,9 +2490,6 @@ return|return
 operator|new
 name|Binding
 argument_list|(
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getKey

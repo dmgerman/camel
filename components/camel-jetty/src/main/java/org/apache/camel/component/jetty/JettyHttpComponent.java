@@ -2125,9 +2125,6 @@ block|{
 name|ServletContextHandler
 name|context
 init|=
-operator|(
-name|ServletContextHandler
-operator|)
 name|server
 operator|.
 name|getChildHandlerByClass
@@ -2202,9 +2199,6 @@ block|{
 name|ServletContextHandler
 name|context
 init|=
-operator|(
-name|ServletContextHandler
-operator|)
 name|server
 operator|.
 name|getChildHandlerByClass
@@ -2337,9 +2331,6 @@ block|{
 name|ServletContextHandler
 name|context
 init|=
-operator|(
-name|ServletContextHandler
-operator|)
 name|server
 operator|.
 name|getChildHandlerByClass

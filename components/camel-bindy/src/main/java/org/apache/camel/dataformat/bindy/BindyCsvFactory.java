@@ -1396,12 +1396,6 @@ name|String
 argument_list|>
 name|val
 init|=
-operator|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|entry
 operator|.
 name|getValue

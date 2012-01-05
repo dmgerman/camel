@@ -81,9 +81,6 @@ name|name
 parameter_list|)
 block|{
 return|return
-operator|(
-name|String
-operator|)
 name|service
 operator|.
 name|echo

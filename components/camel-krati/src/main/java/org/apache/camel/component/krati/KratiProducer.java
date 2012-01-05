@@ -567,9 +567,6 @@ condition|)
 block|{
 name|value
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn

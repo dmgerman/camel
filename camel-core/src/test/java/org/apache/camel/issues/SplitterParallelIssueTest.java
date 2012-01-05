@@ -318,14 +318,9 @@ specifier|final
 name|long
 name|sleep
 init|=
-call|(
-name|long
-call|)
-argument_list|(
 name|num
 operator|*
 name|delay
-argument_list|)
 decl_stmt|;
 name|log
 operator|.

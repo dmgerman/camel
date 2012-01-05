@@ -621,12 +621,6 @@ name|getObjectType
 parameter_list|()
 block|{
 return|return
-operator|(
-name|Class
-argument_list|<
-name|ErrorHandlerBuilder
-argument_list|>
-operator|)
 name|type
 operator|.
 name|getTypeAsClass

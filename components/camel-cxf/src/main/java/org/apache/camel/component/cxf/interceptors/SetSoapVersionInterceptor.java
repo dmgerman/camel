@@ -165,12 +165,7 @@ operator|instanceof
 name|SoapMessage
 condition|)
 block|{
-operator|(
-operator|(
-name|SoapMessage
-operator|)
 name|message
-operator|)
 operator|.
 name|setVersion
 argument_list|(

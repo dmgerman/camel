@@ -1251,9 +1251,6 @@ block|{
 name|Service
 name|service
 init|=
-operator|(
-name|Service
-operator|)
 name|cxfExchange
 operator|.
 name|get

@@ -258,9 +258,6 @@ comment|// Use Dispatch as BindingProvider
 name|BindingProvider
 name|bp
 init|=
-operator|(
-name|BindingProvider
-operator|)
 name|dispatch
 decl_stmt|;
 name|MessageFactory

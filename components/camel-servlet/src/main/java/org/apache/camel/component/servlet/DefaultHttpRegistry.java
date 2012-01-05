@@ -348,9 +348,6 @@ expr_stmt|;
 name|CamelServlet
 name|camelServlet
 init|=
-operator|(
-name|CamelServlet
-operator|)
 name|provider
 decl_stmt|;
 name|camelServlet
@@ -393,9 +390,6 @@ parameter_list|)
 block|{
 name|unregister
 argument_list|(
-operator|(
-name|CamelServlet
-operator|)
 name|provider
 argument_list|)
 expr_stmt|;

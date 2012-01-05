@@ -682,12 +682,6 @@ condition|)
 block|{
 name|routeBuilders
 operator|=
-operator|(
-name|List
-argument_list|<
-name|RouteBuilder
-argument_list|>
-operator|)
 name|component
 operator|.
 name|resolveAndRemoveReferenceParameter
@@ -888,14 +882,6 @@ argument_list|)
 expr_stmt|;
 name|dispatchMap
 operator|=
-operator|(
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-operator|)
 name|component
 operator|.
 name|resolveAndRemoveReferenceParameter

@@ -760,10 +760,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|String
-index|[]
-operator|)
 name|args
 operator|.
 name|toArray

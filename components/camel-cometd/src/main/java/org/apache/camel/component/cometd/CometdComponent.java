@@ -611,9 +611,6 @@ comment|// Make sure that there is a connector for the requested endpoint.
 name|CometdEndpoint
 name|endpoint
 init|=
-operator|(
-name|CometdEndpoint
-operator|)
 name|prodcon
 operator|.
 name|getEndpoint

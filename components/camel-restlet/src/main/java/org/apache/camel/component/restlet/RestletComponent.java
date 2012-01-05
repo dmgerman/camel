@@ -581,9 +581,6 @@ block|{
 name|RestletEndpoint
 name|endpoint
 init|=
-operator|(
-name|RestletEndpoint
-operator|)
 name|consumer
 operator|.
 name|getEndpoint
@@ -680,9 +677,6 @@ block|{
 name|RestletEndpoint
 name|endpoint
 init|=
-operator|(
-name|RestletEndpoint
-operator|)
 name|consumer
 operator|.
 name|getEndpoint

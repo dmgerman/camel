@@ -147,9 +147,6 @@ parameter_list|()
 block|{
 name|bookStore
 operator|=
-operator|(
-name|BookStore
-operator|)
 name|JAXRSClientFactory
 operator|.
 name|create

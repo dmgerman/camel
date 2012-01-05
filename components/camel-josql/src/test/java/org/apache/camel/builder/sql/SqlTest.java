@@ -185,9 +185,6 @@ decl_stmt|;
 name|List
 name|list
 init|=
-operator|(
-name|List
-operator|)
 name|value
 decl_stmt|;
 name|assertEquals
@@ -264,12 +261,6 @@ name|Person
 argument_list|>
 name|list
 init|=
-operator|(
-name|List
-argument_list|<
-name|Person
-argument_list|>
-operator|)
 name|value
 decl_stmt|;
 name|assertEquals

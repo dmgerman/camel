@@ -634,9 +634,6 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-operator|(
-name|Boolean
-operator|)
 name|parameter
 operator|.
 name|get

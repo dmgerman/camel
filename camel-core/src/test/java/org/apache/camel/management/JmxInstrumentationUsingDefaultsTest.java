@@ -1023,12 +1023,6 @@ control|(
 name|MBeanServer
 name|server
 range|:
-operator|(
-name|List
-argument_list|<
-name|MBeanServer
-argument_list|>
-operator|)
 name|MBeanServerFactory
 operator|.
 name|findMBeanServer

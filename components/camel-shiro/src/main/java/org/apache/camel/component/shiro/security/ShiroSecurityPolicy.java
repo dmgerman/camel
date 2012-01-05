@@ -618,9 +618,6 @@ argument_list|)
 decl_stmt|;
 name|securityManager
 operator|=
-operator|(
-name|SecurityManager
-operator|)
 name|factory
 operator|.
 name|getInstance
@@ -659,9 +656,6 @@ argument_list|)
 decl_stmt|;
 name|securityManager
 operator|=
-operator|(
-name|SecurityManager
-operator|)
 name|factory
 operator|.
 name|getInstance

@@ -465,9 +465,6 @@ comment|// to allow the earlier request to take effect
 comment|//Thread.sleep(2000);
 name|book
 operator|=
-operator|(
-name|Book
-operator|)
 name|sendFindBookRequest
 argument_list|(
 name|template

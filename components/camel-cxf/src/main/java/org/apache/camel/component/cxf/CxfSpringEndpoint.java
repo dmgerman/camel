@@ -670,9 +670,6 @@ literal|"service name"
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Client
-operator|)
 name|factoryBean
 operator|.
 name|create

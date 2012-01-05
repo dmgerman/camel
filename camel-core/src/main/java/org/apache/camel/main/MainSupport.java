@@ -1891,9 +1891,6 @@ name|generator
 operator|.
 name|drawRoutes
 argument_list|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|camelContext
 argument_list|)
 expr_stmt|;

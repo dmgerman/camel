@@ -402,9 +402,6 @@ block|{
 name|String
 name|out
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn

@@ -443,9 +443,6 @@ name|aObjectName
 parameter_list|)
 block|{
 return|return
-operator|(
-name|ISimpleMXBean
-operator|)
 name|MBeanServerInvocationHandler
 operator|.
 name|newProxyInstance

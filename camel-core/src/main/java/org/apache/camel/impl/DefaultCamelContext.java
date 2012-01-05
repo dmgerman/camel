@@ -8733,9 +8733,6 @@ name|ServiceHelper
 operator|.
 name|stopAndShutdownService
 argument_list|(
-operator|(
-name|Service
-operator|)
 name|service
 argument_list|)
 expr_stmt|;

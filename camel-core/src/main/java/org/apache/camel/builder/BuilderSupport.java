@@ -620,9 +620,6 @@ operator|=
 operator|new
 name|MethodCallExpression
 argument_list|(
-operator|(
-name|Object
-operator|)
 name|beanOrBeanRef
 argument_list|,
 name|method

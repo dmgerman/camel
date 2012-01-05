@@ -517,9 +517,6 @@ comment|// The parameter of the invocation is stored in the body of in message
 name|String
 name|id
 init|=
-operator|(
-name|String
-operator|)
 name|inMessage
 operator|.
 name|getBody

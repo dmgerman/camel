@@ -1490,9 +1490,6 @@ condition|)
 block|{
 name|messageStoreFactory
 operator|=
-operator|(
-name|MessageStoreFactory
-operator|)
 name|impliedMessageStoreFactories
 operator|.
 name|iterator
@@ -1735,9 +1732,6 @@ condition|)
 block|{
 name|sessionLogFactory
 operator|=
-operator|(
-name|LogFactory
-operator|)
 name|impliedLogFactories
 operator|.
 name|iterator
@@ -2032,9 +2026,6 @@ name|settings
 operator|.
 name|getString
 argument_list|(
-operator|(
-name|SessionID
-operator|)
 name|sessionIdItr
 operator|.
 name|next

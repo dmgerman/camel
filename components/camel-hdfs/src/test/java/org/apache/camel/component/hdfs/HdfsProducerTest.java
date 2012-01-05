@@ -1649,12 +1649,7 @@ expr_stmt|;
 name|String
 name|rTxt
 init|=
-operator|(
-operator|(
-name|Text
-operator|)
 name|value
-operator|)
 operator|.
 name|toString
 argument_list|()

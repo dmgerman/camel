@@ -1961,10 +1961,6 @@ return|return
 operator|new
 name|URLClassLoader
 argument_list|(
-operator|(
-name|URL
-index|[]
-operator|)
 name|classpathURLs
 operator|.
 name|toArray

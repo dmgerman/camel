@@ -880,9 +880,6 @@ block|{
 name|String
 name|projectName
 init|=
-operator|(
-name|String
-operator|)
 name|jdbcTemplate
 operator|.
 name|queryForObject

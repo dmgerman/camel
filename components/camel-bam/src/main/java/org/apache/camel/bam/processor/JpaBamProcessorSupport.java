@@ -896,9 +896,6 @@ name|key
 parameter_list|)
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|exchange
 operator|.
 name|getContext

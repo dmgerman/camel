@@ -375,9 +375,6 @@ comment|// we get it back as byte array so type convert it to string
 name|Object
 name|result
 init|=
-operator|(
-name|Object
-operator|)
 name|template
 operator|.
 name|requestBody

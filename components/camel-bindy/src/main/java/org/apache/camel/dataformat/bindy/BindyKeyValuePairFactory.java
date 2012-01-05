@@ -1318,9 +1318,6 @@ block|{
 comment|// Relation OneToOne
 name|value
 operator|=
-operator|(
-name|String
-operator|)
 name|values
 operator|.
 name|get
@@ -1539,9 +1536,6 @@ expr_stmt|;
 block|}
 name|value
 operator|=
-operator|(
-name|String
-operator|)
 name|values
 operator|.
 name|get

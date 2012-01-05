@@ -518,10 +518,6 @@ name|byte
 index|[]
 name|body
 init|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|exchange
 operator|.
 name|getIn

@@ -249,15 +249,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
-operator|(
-name|HttpEndpoint
-operator|)
 name|consumer
 operator|.
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|isBridgeEndpoint
 argument_list|()
