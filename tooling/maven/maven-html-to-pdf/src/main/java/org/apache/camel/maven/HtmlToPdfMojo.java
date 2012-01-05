@@ -326,6 +326,15 @@ name|HtmlToPdfMojo
 extends|extends
 name|AbstractMojo
 block|{
+DECL|field|XSLT_SYSTEM_PROPERTY_KEY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|XSLT_SYSTEM_PROPERTY_KEY
+init|=
+literal|"javax.xml.transform.TransformerFactory"
+decl_stmt|;
 comment|/**      * The URL to the confluence page to convert.      *      * @parameter expression="${page}"      * @required      */
 DECL|field|page
 specifier|private
@@ -413,6 +422,12 @@ DECL|field|classifier
 specifier|private
 name|String
 name|classifier
+decl_stmt|;
+comment|/**      * The XSL transformer factory class name to be used which will be set through the<code>javax.xml.transform.TransformerFactory</code> system property.      *      * @parameter      */
+DECL|field|transformerFactoryClassName
+specifier|private
+name|String
+name|transformerFactoryClassName
 decl_stmt|;
 DECL|method|execute ()
 specifier|public
@@ -1099,6 +1114,43 @@ name|MalformedURLException
 throws|,
 name|MojoExecutionException
 block|{
+comment|// avoid the usage of default xslt by jdk as that could cause problems
+name|String
+name|previousTransformerFactoryClassName
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|transformerFactoryClassName
+operator|!=
+literal|null
+condition|)
+block|{
+name|previousTransformerFactoryClassName
+operator|=
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|XSLT_SYSTEM_PROPERTY_KEY
+argument_list|,
+name|transformerFactoryClassName
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Set the XSL transformer factory class name to be '"
+operator|+
+name|transformerFactoryClassName
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|contentTag
 init|=
@@ -1259,6 +1311,74 @@ expr_stmt|;
 return|return
 literal|null
 return|;
+block|}
+block|}
+finally|finally
+block|{
+comment|// avoid any side effects by other camel modules (for example while running the tests) and reset the system property
+if|if
+condition|(
+name|transformerFactoryClassName
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|previousTransformerFactoryClassName
+operator|==
+literal|null
+condition|)
+block|{
+comment|// remove the set system property
+name|System
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|XSLT_SYSTEM_PROPERTY_KEY
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Removed the set XSL transformer factory class name '"
+operator|+
+name|transformerFactoryClassName
+operator|+
+literal|"' from the system properties"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// reset the previous system property value to whatever it was before
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|XSLT_SYSTEM_PROPERTY_KEY
+argument_list|,
+name|previousTransformerFactoryClassName
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Resetted the XSL transformer factory class name to be '"
+operator|+
+name|previousTransformerFactoryClassName
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 throw|throw
