@@ -32,6 +32,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -43,6 +63,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -177,6 +207,20 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|FatalFallbackErrorHandler
 import|;
 end_import
 
@@ -339,11 +383,92 @@ specifier|private
 name|ExecutorService
 name|executorService
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|routeScoped
+specifier|private
+name|Boolean
+name|routeScoped
+decl_stmt|;
+comment|// TODO: in Camel 3.0 the OnCompletionDefinition should not contain state and OnCompletion processors
+annotation|@
+name|XmlTransient
+DECL|field|onCompletions
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+argument_list|>
+name|onCompletions
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|OnCompletionDefinition ()
 specifier|public
 name|OnCompletionDefinition
 parameter_list|()
 block|{     }
+DECL|method|isRouteScoped ()
+specifier|public
+name|boolean
+name|isRouteScoped
+parameter_list|()
+block|{
+comment|// is context scoped by default
+return|return
+name|routeScoped
+operator|!=
+literal|null
+condition|?
+name|routeScoped
+else|:
+literal|false
+return|;
+block|}
+DECL|method|getOnCompletion (String routeId)
+specifier|public
+name|Processor
+name|getOnCompletion
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+return|return
+name|onCompletions
+operator|.
+name|get
+argument_list|(
+name|routeId
+argument_list|)
+return|;
+block|}
+DECL|method|getOnCompletions ()
+specifier|public
+name|Collection
+argument_list|<
+name|Processor
+argument_list|>
+name|getOnCompletions
+parameter_list|()
+block|{
+return|return
+name|onCompletions
+operator|.
+name|values
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -410,6 +535,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// assign whether this was a route scoped onCompletion or not
+comment|// we need to know this later when setting the parent, as only route scoped should have parent
+comment|// Note: this logic can possible be removed when the Camel routing engine decides at runtime
+comment|// to apply onCompletion in a more dynamic fashion than current code base
+comment|// and therefore is in a better position to decide among context/route scoped OnCompletion at runtime
+if|if
+condition|(
+name|routeScoped
+operator|==
+literal|null
+condition|)
+block|{
+name|routeScoped
+operator|=
+name|super
+operator|.
+name|getParent
+argument_list|()
+operator|!=
+literal|null
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|isOnCompleteOnly
@@ -448,6 +595,26 @@ operator|new
 name|UnitOfWorkProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+name|childProcessor
+argument_list|)
+expr_stmt|;
+name|String
+name|id
+init|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
+name|onCompletions
+operator|.
+name|put
+argument_list|(
+name|id
 argument_list|,
 name|childProcessor
 argument_list|)
