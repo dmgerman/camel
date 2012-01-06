@@ -60,8 +60,6 @@ name|core
 operator|.
 name|xml
 operator|.
-name|scan
-operator|.
 name|PatternBasedPackageScanFilter
 import|;
 end_import

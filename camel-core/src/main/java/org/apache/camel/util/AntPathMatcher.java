@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.core.xml.scan
+DECL|package|org.apache.camel.util
 package|package
 name|org
 operator|.
@@ -12,11 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|core
-operator|.
-name|xml
-operator|.
-name|scan
+name|util
 package|;
 end_package
 

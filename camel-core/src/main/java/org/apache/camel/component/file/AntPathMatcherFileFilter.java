@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.util
+DECL|package|org.apache.camel.component.file
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|component
 operator|.
-name|util
+name|file
 package|;
 end_package
 
@@ -42,6 +42,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AntPathMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -58,39 +72,15 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|AntPathMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|util
-operator|.
-name|StringUtils
-import|;
-end_import
-
 begin_comment
-comment|/**  * File filter using Spring's {@link AntPathMatcher}.  *<p/>  * Exclude take precedence over includes. If a file match both exclude and include it will be regarded as excluded.  */
+comment|/**  * File filter using {@link AntPathMatcher}.  *<p/>  * Exclude take precedence over includes. If a file match both exclude and include it will be regarded as excluded.  */
 end_comment
 
 begin_class
-DECL|class|SpringAntPathMatcherFileFilter
+DECL|class|AntPathMatcherFileFilter
 specifier|public
 class|class
-name|SpringAntPathMatcherFileFilter
+name|AntPathMatcherFileFilter
 implements|implements
 name|FileFilter
 block|{
@@ -106,7 +96,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|SpringAntPathMatcherFileFilter
+name|AntPathMatcherFileFilter
 operator|.
 name|class
 argument_list|)
@@ -164,17 +154,15 @@ block|{
 comment|// must use single / as path separators
 name|path
 operator|=
-name|StringUtils
+name|path
 operator|.
 name|replace
 argument_list|(
-name|path
-argument_list|,
 name|File
 operator|.
-name|separator
+name|separatorChar
 argument_list|,
-literal|"/"
+literal|'/'
 argument_list|)
 expr_stmt|;
 name|LOG
