@@ -84,18 +84,6 @@ name|assertNull
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
 begin_class
 DECL|class|WebsocketConfigurationTest
 specifier|public
@@ -248,10 +236,6 @@ name|getGlobalStore
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// System.out.println(URI);
-comment|// System.out.println(component);
-comment|// System.out.println(REMAINING);
-comment|// System.out.println(wsConfig.getGlobalStore());
 block|}
 block|}
 end_class

@@ -21,9 +21,19 @@ end_package
 begin_class
 DECL|class|WebsocketConstants
 specifier|public
+specifier|final
 class|class
 name|WebsocketConstants
 block|{
+DECL|field|DEFAULT_PORT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_PORT
+init|=
+literal|9292
+decl_stmt|;
 DECL|field|CONNECTION_KEY
 specifier|public
 specifier|static
@@ -51,15 +61,12 @@ name|DEFAULT_HOST
 init|=
 literal|"0.0.0.0"
 decl_stmt|;
-DECL|field|DEFAULT_PORT
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_PORT
-init|=
-literal|9292
-decl_stmt|;
+DECL|method|WebsocketConstants ()
+specifier|private
+name|WebsocketConstants
+parameter_list|()
+block|{     }
+empty_stmt|;
 block|}
 end_class
 
