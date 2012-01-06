@@ -280,41 +280,6 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
-name|setupRepository
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|setupRepository ()
-specifier|protected
-name|void
-name|setupRepository
-parameter_list|()
-block|{
-try|try
-block|{
-name|jdbcTemplate
-operator|.
-name|execute
-argument_list|(
-literal|"DROP TABLE CAMEL_MESSAGEPROCESSED"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-name|jdbcTemplate
-operator|.
-name|execute
-argument_list|(
-literal|"CREATE TABLE CAMEL_MESSAGEPROCESSED (processorName VARCHAR(20), messageId VARCHAR(10))"
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
