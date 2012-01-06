@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.twitter.util
+DECL|package|org.apache.camel.component.twitter
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|twitter
-operator|.
-name|util
 package|;
 end_package
 
@@ -40,15 +38,11 @@ name|ConfigurationBuilder
 import|;
 end_import
 
-begin_comment
-comment|/**  * Encapsolates all options provided on the endpoint URI.  *   */
-end_comment
-
 begin_class
-DECL|class|TwitterProperties
+DECL|class|TwitterConfiguration
 specifier|public
 class|class
-name|TwitterProperties
+name|TwitterConfiguration
 block|{
 DECL|field|consumerKey
 specifier|private

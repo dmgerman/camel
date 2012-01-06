@@ -20,10 +20,6 @@ name|data
 package|;
 end_package
 
-begin_comment
-comment|/**  * @author Brett E. Meyer (3RiverDev.com)  */
-end_comment
-
 begin_enum
 DECL|enum|TrendsType
 specifier|public

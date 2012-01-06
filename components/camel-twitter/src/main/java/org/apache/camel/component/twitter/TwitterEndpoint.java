@@ -32,24 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|util
-operator|.
-name|TwitterProperties
-import|;
-end_import
-
-begin_import
-import|import
 name|twitter4j
 operator|.
 name|Twitter
@@ -75,7 +57,7 @@ name|getTwitter
 parameter_list|()
 function_decl|;
 DECL|method|getProperties ()
-name|TwitterProperties
+name|TwitterConfiguration
 name|getProperties
 parameter_list|()
 function_decl|;

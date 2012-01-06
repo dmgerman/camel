@@ -66,24 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|util
-operator|.
-name|TwitterProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -91,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Main component class  *   */
+comment|/**  * Twitter component  */
 end_comment
 
 begin_class
@@ -124,11 +106,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|TwitterProperties
+name|TwitterConfiguration
 name|properties
 init|=
 operator|new
-name|TwitterProperties
+name|TwitterConfiguration
 argument_list|()
 decl_stmt|;
 name|setProperties
@@ -140,8 +122,6 @@ argument_list|)
 expr_stmt|;
 name|TwitterEndpoint
 name|endpoint
-init|=
-literal|null
 decl_stmt|;
 switch|switch
 condition|(

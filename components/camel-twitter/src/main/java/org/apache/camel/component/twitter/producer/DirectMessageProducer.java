@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -196,16 +208,29 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|LOG
-operator|.
-name|error
+throw|throw
+operator|new
+name|CamelExchangeException
 argument_list|(
-literal|"Can't send direct message -- no 'user' provided!"
+literal|"Username not configured on TwitterEndpoint"
+argument_list|,
+name|exchange
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 else|else
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Sending to: {} message: {}"
+argument_list|,
+name|toUsername
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
 name|te
 operator|.
 name|getTwitter

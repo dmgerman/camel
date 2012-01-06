@@ -878,7 +878,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"A producer type was not provided (or an incorrect pairing was used).  Defaulting to a MOCK!"
+literal|"A producer type was not provided (or an incorrect pairing was used). Defaulting to a MOCK!"
 argument_list|)
 expr_stmt|;
 throw|throw

@@ -116,47 +116,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|util
-operator|.
-name|TwitterProperties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
 import|;
 end_import
 
@@ -177,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Scheduled polling endpoint  *   */
+comment|/**  * Twitter polling endpoint  */
 end_comment
 
 begin_class
@@ -190,22 +152,6 @@ name|DefaultPollingEndpoint
 implements|implements
 name|TwitterEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|TwitterEndpointPolling
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|twitter
 specifier|private
 name|Twitter
@@ -213,10 +159,10 @@ name|twitter
 decl_stmt|;
 DECL|field|properties
 specifier|private
-name|TwitterProperties
+name|TwitterConfiguration
 name|properties
 decl_stmt|;
-DECL|method|TwitterEndpointPolling (String uri, TwitterComponent component, TwitterProperties properties)
+DECL|method|TwitterEndpointPolling (String uri, TwitterComponent component, TwitterConfiguration properties)
 specifier|public
 name|TwitterEndpointPolling
 parameter_list|(
@@ -226,7 +172,7 @@ parameter_list|,
 name|TwitterComponent
 name|component
 parameter_list|,
-name|TwitterProperties
+name|TwitterConfiguration
 name|properties
 parameter_list|)
 block|{
@@ -321,8 +267,6 @@ operator|.
 name|checkComplete
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 name|twitter
 operator|=
 operator|new
@@ -337,26 +281,6 @@ operator|.
 name|getInstance
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Could not instantiate Twitter!  Exception: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|getTwitter ()
 specifier|public
@@ -380,7 +304,7 @@ return|;
 block|}
 DECL|method|getProperties ()
 specifier|public
-name|TwitterProperties
+name|TwitterConfiguration
 name|getProperties
 parameter_list|()
 block|{

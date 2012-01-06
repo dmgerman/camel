@@ -191,9 +191,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Message is longer than 160 characteres and it will be truncated!"
+literal|"Message is longer than 160 characters. Message will be truncated!"
 argument_list|)
 expr_stmt|;
+name|status
+operator|=
 name|status
 operator|.
 name|substring
@@ -218,7 +220,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Successfully updated status with '{0}'"
+literal|"Updated status: {}"
 argument_list|,
 name|status
 argument_list|)

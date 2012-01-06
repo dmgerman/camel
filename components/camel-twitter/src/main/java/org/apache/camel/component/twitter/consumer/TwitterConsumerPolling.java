@@ -140,11 +140,6 @@ name|lastStatusUpdateID
 init|=
 literal|1
 decl_stmt|;
-DECL|field|delay
-specifier|private
-name|int
-name|delay
-decl_stmt|;
 DECL|method|TwitterConsumerPolling (TwitterEndpoint endpoint, Processor processor, Twitter4JConsumer twitter4jConsumer)
 specifier|public
 name|TwitterConsumerPolling
@@ -172,8 +167,9 @@ name|twitter4jConsumer
 operator|=
 name|twitter4jConsumer
 expr_stmt|;
+name|int
 name|delay
-operator|=
+init|=
 name|endpoint
 operator|.
 name|getProperties
@@ -181,7 +177,7 @@ argument_list|()
 operator|.
 name|getDelay
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|setInitialDelay
 argument_list|(
 literal|0
