@@ -278,7 +278,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"table for JdbcMessageIdRepository already exists"
+literal|"Expected table for JdbcMessageIdRepository exist"
 argument_list|)
 expr_stmt|;
 block|}
@@ -293,14 +293,15 @@ condition|(
 name|createTableIfNotExists
 condition|)
 block|{
+try|try
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"creating table for JdbcMessageIdRepository because it doesn't exists..."
+literal|"creating table for JdbcMessageIdRepository because it doesn't exist..."
 argument_list|)
 expr_stmt|;
-comment|// we will fail if we cannot create it
 name|jdbcTemplate
 operator|.
 name|execute
@@ -317,6 +318,32 @@ argument_list|,
 name|createString
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|DataAccessException
+name|dae
+parameter_list|)
+block|{
+comment|// we will fail if we cannot create it
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Can't create table for JdbcMessageIdRepository with query '{}' because of: {}. This may be a permissions problem. Please create this table and try again."
+argument_list|,
+name|createString
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+throw|throw
+name|dae
+throw|;
+block|}
 block|}
 else|else
 block|{
