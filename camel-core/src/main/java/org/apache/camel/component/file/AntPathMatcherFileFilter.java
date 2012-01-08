@@ -261,7 +261,23 @@ return|;
 block|}
 block|}
 block|}
-comment|// nothing to include so we cant accept it
+if|if
+condition|(
+name|excludes
+operator|!=
+literal|null
+operator|&&
+name|includes
+operator|==
+literal|null
+condition|)
+block|{
+comment|// if the user specified excludes but no includes, presumably we should include by default
+return|return
+literal|true
+return|;
+block|}
+comment|// nothing to include so we can't accept it
 return|return
 literal|false
 return|;
