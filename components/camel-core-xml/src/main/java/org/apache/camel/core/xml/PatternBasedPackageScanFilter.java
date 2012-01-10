@@ -56,9 +56,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|AntPathMatcher
+name|PackageScanFilter
 import|;
 end_import
 
@@ -70,9 +70,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|PackageScanFilter
+name|AntPathMatcher
 import|;
 end_import
 
