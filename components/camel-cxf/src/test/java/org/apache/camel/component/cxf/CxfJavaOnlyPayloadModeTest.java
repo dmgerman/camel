@@ -201,10 +201,16 @@ argument_list|)
 expr_stmt|;
 comment|// using CxfPayload in payload mode
 name|CxfPayload
+argument_list|<
+name|?
+argument_list|>
 name|payload
 init|=
 operator|(
 name|CxfPayload
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|output
 decl_stmt|;

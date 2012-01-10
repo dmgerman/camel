@@ -635,6 +635,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|responseClass
 init|=
 name|inMessage
@@ -1025,6 +1028,9 @@ name|body
 argument_list|,
 operator|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|actualTypeArguments
 index|[
@@ -1679,7 +1685,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|findRightMethod (List<Class<?>> resourceClasses, String methodName, Class[] parameterTypes)
+DECL|method|findRightMethod (List<Class<?>> resourceClasses, String methodName, Class<?>[] parameterTypes)
 specifier|private
 name|Method
 name|findRightMethod
@@ -1697,6 +1703,9 @@ name|String
 name|methodName
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|parameterTypes
 parameter_list|)

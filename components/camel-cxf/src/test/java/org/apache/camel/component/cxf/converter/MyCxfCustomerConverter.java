@@ -110,7 +110,7 @@ comment|//Helper class
 block|}
 annotation|@
 name|Converter
-DECL|method|cxfPayloadToString (final CxfPayload payload)
+DECL|method|cxfPayloadToString (final CxfPayload<?> payload)
 specifier|public
 specifier|static
 name|String
@@ -118,6 +118,9 @@ name|cxfPayloadToString
 parameter_list|(
 specifier|final
 name|CxfPayload
+argument_list|<
+name|?
+argument_list|>
 name|payload
 parameter_list|)
 block|{

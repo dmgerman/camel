@@ -575,6 +575,9 @@ name|inputStream
 argument_list|)
 expr_stmt|;
 name|CxfPayload
+argument_list|<
+name|?
+argument_list|>
 name|payload
 init|=
 name|exchange

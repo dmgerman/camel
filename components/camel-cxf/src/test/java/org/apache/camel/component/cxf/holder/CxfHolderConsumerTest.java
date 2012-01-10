@@ -250,6 +250,9 @@ name|getIn
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|parameters
 init|=
 name|in

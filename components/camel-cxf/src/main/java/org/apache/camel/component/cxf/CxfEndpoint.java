@@ -1252,6 +1252,11 @@ name|AbstractFeature
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|field|handlers
 specifier|private
 name|List
@@ -2178,6 +2183,11 @@ operator|.
 name|getServiceFactory
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|List
 argument_list|<
 name|Handler
@@ -2288,6 +2298,9 @@ decl_stmt|;
 for|for
 control|(
 name|Handler
+argument_list|<
+name|?
+argument_list|>
 name|h
 range|:
 name|chain
@@ -4902,11 +4915,16 @@ return|return
 name|features
 return|;
 block|}
-DECL|method|setHandlers (List<Handler> h)
+DECL|method|setHandlers (@uppressWarningsR) List<Handler> h)
 specifier|public
 name|void
 name|setHandlers
 parameter_list|(
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|List
 argument_list|<
 name|Handler
@@ -4919,6 +4937,11 @@ operator|=
 name|h
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|getHandlers ()
 specifier|public
 name|List

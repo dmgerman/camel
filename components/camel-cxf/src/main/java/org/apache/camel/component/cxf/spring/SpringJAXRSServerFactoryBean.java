@@ -351,22 +351,6 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-comment|// to walk round the issue of setting the serviceClass in CXF
-DECL|method|setServiceClass (Class clazz)
-specifier|public
-name|void
-name|setServiceClass
-parameter_list|(
-name|Class
-name|clazz
-parameter_list|)
-block|{
-name|setResourceClasses
-argument_list|(
-name|clazz
-argument_list|)
-expr_stmt|;
-block|}
 comment|// add this mothod for testing
 DECL|method|getSchemaLocations ()
 name|List

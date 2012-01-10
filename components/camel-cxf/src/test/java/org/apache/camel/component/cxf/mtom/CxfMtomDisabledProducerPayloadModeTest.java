@@ -326,6 +326,20 @@ name|cxf
 operator|.
 name|helpers
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|helpers
+operator|.
 name|DOMUtils
 import|;
 end_import
@@ -768,11 +782,6 @@ name|WebServiceContext
 name|ctx
 decl_stmt|;
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|detail (Holder<byte[]> photo, Holder<Image> image)
 specifier|public
@@ -802,8 +811,17 @@ name|DataHandler
 argument_list|>
 name|map
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|ctx
 operator|.
@@ -815,6 +833,7 @@ argument_list|(
 name|MessageContext
 operator|.
 name|INBOUND_MESSAGE_ATTACHMENTS
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Assert
@@ -986,8 +1005,17 @@ expr_stmt|;
 comment|// add output attachments
 name|map
 operator|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|ctx
 operator|.
@@ -999,6 +1027,7 @@ argument_list|(
 name|MessageContext
 operator|.
 name|OUTBOUND_MESSAGE_ATTACHMENTS
+argument_list|)
 argument_list|)
 expr_stmt|;
 try|try

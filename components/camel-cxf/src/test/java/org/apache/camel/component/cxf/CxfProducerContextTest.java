@@ -136,6 +136,20 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|helpers
+operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|message
 operator|.
 name|Message
@@ -185,11 +199,6 @@ init|=
 literal|"exchange property value should get passed through request context"
 decl_stmt|;
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testExchangePropertyPropagation ()
 specifier|public
@@ -220,8 +229,17 @@ name|Object
 argument_list|>
 name|requestContext
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|exchange
 operator|.
@@ -230,6 +248,7 @@ argument_list|(
 name|Client
 operator|.
 name|REQUEST_CONTEXT
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertNotNull

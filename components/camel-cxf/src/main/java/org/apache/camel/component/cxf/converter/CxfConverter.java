@@ -318,6 +318,9 @@ specifier|static
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|toClassesList
 parameter_list|(
@@ -332,6 +335,9 @@ block|{
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -339,6 +345,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -382,6 +391,9 @@ specifier|static
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|toClassList
 parameter_list|(
@@ -454,6 +466,9 @@ return|return
 operator|(
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|object
 operator|)

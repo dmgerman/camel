@@ -241,6 +241,11 @@ block|{
 for|for
 control|(
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|i
 range|:
 name|interceptors
@@ -254,10 +259,20 @@ name|PhaseInterceptor
 condition|)
 block|{
 name|PhaseInterceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|p
 init|=
 operator|(
 name|PhaseInterceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 operator|)
 name|i
 decl_stmt|;
@@ -415,6 +430,11 @@ block|{
 for|for
 control|(
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|i
 range|:
 name|interceptors
@@ -433,10 +453,20 @@ name|PhaseInterceptor
 condition|)
 block|{
 name|PhaseInterceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|p
 init|=
 operator|(
 name|PhaseInterceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 operator|)
 name|i
 decl_stmt|;
@@ -540,7 +570,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|removeInterceptors (List<Interceptor<? extends Message>> interceptors, Collection<Class> toBeRemovedInterceptors)
+DECL|method|removeInterceptors (List<Interceptor<? extends Message>> interceptors, Collection<Class<?>> toBeRemovedInterceptors)
 specifier|protected
 name|void
 name|removeInterceptors
@@ -559,6 +589,9 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|toBeRemovedInterceptors
 parameter_list|)
@@ -566,6 +599,11 @@ block|{
 for|for
 control|(
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|interceptor
 range|:
 name|interceptors
@@ -604,7 +642,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|removeInterceptor (List<Interceptor<? extends Message>> interceptors, Class<? extends Interceptor> cls)
+DECL|method|removeInterceptor (List<Interceptor<? extends Message>> interceptors, Class<? extends Interceptor<? extends Message>> cls)
 specifier|protected
 name|void
 name|removeInterceptor
@@ -625,6 +663,11 @@ argument_list|<
 name|?
 extends|extends
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 argument_list|>
 name|cls
 parameter_list|)
@@ -632,6 +675,11 @@ block|{
 for|for
 control|(
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|interceptor
 range|:
 name|interceptors
@@ -680,6 +728,11 @@ block|{
 for|for
 control|(
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|interceptor
 range|:
 name|interceptors
@@ -720,6 +773,11 @@ block|{
 for|for
 control|(
 name|Interceptor
+argument_list|<
+name|?
+extends|extends
+name|Message
+argument_list|>
 name|interceptor
 range|:
 name|interceptors

@@ -198,7 +198,7 @@ return|return
 name|id
 return|;
 block|}
-DECL|method|createBeanMetadata (Element element, ParserContext context, Class runtimeClass)
+DECL|method|createBeanMetadata (Element element, ParserContext context, Class<?> runtimeClass)
 specifier|public
 name|MutableBeanMetadata
 name|createBeanMetadata
@@ -210,6 +210,9 @@ name|ParserContext
 name|context
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|runtimeClass
 parameter_list|)
 block|{

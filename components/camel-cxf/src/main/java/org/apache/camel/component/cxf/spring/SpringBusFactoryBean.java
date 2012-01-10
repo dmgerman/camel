@@ -73,6 +73,9 @@ class|class
 name|SpringBusFactoryBean
 implements|implements
 name|SmartFactoryBean
+argument_list|<
+name|Bus
+argument_list|>
 block|{
 DECL|field|cfgFiles
 specifier|private
@@ -92,7 +95,7 @@ name|bf
 decl_stmt|;
 DECL|method|getObject ()
 specifier|public
-name|Object
+name|Bus
 name|getObject
 parameter_list|()
 throws|throws
@@ -135,6 +138,9 @@ block|}
 DECL|method|getObjectType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getObjectType
 parameter_list|()
 block|{

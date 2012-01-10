@@ -2520,10 +2520,20 @@ parameter_list|)
 block|{
 comment|// extract from header
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 name|context
 init|=
 operator|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|camelHeaders
 operator|.
@@ -2588,6 +2598,11 @@ name|context
 operator|=
 operator|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|camelExchange
 operator|.
@@ -2680,11 +2695,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @param cxfMessage      * @param camelMessage      * @param exchange provides context for filtering      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|propagateHeadersFromCxfToCamel (Message cxfMessage, org.apache.camel.Message camelMessage, Exchange exchange)
 specifier|protected
 name|void
@@ -2717,8 +2727,17 @@ argument_list|>
 argument_list|>
 name|cxfHeaders
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|cxfMessage
 operator|.
@@ -2727,6 +2746,7 @@ argument_list|(
 name|Message
 operator|.
 name|PROTOCOL_HEADERS
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Map
@@ -3314,8 +3334,17 @@ argument_list|>
 argument_list|>
 name|h
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|camelExchange
 operator|.
@@ -3324,6 +3353,7 @@ argument_list|(
 name|Message
 operator|.
 name|PROTOCOL_HEADERS
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -3353,8 +3383,17 @@ argument_list|>
 argument_list|>
 name|headers
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|camelHeaders
 operator|.
@@ -3363,6 +3402,7 @@ argument_list|(
 name|Message
 operator|.
 name|PROTOCOL_HEADERS
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -4290,6 +4330,9 @@ operator|=
 operator|(
 operator|(
 name|Holder
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|part
 operator|)

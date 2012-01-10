@@ -443,6 +443,9 @@ name|serviceBeans
 operator|=
 operator|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 operator|)
 name|obj
 expr_stmt|;

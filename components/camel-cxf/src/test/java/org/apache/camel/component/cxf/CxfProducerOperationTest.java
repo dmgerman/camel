@@ -414,6 +414,9 @@ expr_stmt|;
 name|List
 argument_list|<
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|parameters
 init|=
@@ -421,6 +424,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
