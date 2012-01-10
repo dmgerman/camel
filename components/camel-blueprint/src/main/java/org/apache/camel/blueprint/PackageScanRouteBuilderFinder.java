@@ -178,7 +178,6 @@ specifier|final
 name|BlueprintContainer
 name|blueprintContainer
 decl_stmt|;
-comment|//    private final BeanPostProcessor beanPostProcessor;
 DECL|method|PackageScanRouteBuilderFinder (BlueprintCamelContext camelContext, String[] packages, ClassLoader classLoader, PackageScanClassResolver resolver)
 specifier|public
 name|PackageScanRouteBuilderFinder
@@ -193,7 +192,6 @@ parameter_list|,
 name|ClassLoader
 name|classLoader
 parameter_list|,
-comment|/*BeanPostProcessor postProcessor,*/
 name|PackageScanClassResolver
 name|resolver
 parameter_list|)
@@ -219,7 +217,6 @@ name|packages
 operator|=
 name|packages
 expr_stmt|;
-comment|//        this.beanPostProcessor = postProcessor;
 name|this
 operator|.
 name|resolver
@@ -338,10 +335,6 @@ argument_list|(
 name|aClass
 argument_list|)
 decl_stmt|;
-comment|//            if (beanPostProcessor != null) {
-comment|// Inject the annotated resource
-comment|//                beanPostProcessor.postProcessBeforeInitialization(builder, builder.toString());
-comment|//            }
 name|LOG
 operator|.
 name|debug
@@ -444,7 +437,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns true if the object is non-abstract and supports a zero argument constructor      */
+comment|/**      * Returns<tt>true</tt>if the class is a public, non-abstract class      */
 DECL|method|isValidClass (Class type)
 specifier|protected
 name|boolean
@@ -454,6 +447,25 @@ name|Class
 name|type
 parameter_list|)
 block|{
+comment|// should skip non public classes
+if|if
+condition|(
+operator|!
+name|Modifier
+operator|.
+name|isPublic
+argument_list|(
+name|type
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 operator|!

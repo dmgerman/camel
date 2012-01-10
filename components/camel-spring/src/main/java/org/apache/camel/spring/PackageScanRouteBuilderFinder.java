@@ -442,7 +442,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Returns true if the object is non-abstract and supports a zero argument constructor      */
+comment|/**      * Returns<tt>true</tt>if the class is a public, non-abstract class      */
 DECL|method|isValidClass (Class type)
 specifier|protected
 name|boolean
@@ -452,6 +452,25 @@ name|Class
 name|type
 parameter_list|)
 block|{
+comment|// should skip non public classes
+if|if
+condition|(
+operator|!
+name|Modifier
+operator|.
+name|isPublic
+argument_list|(
+name|type
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 operator|!
