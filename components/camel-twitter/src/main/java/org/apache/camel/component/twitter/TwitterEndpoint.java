@@ -46,11 +46,6 @@ name|TwitterEndpoint
 extends|extends
 name|Endpoint
 block|{
-DECL|method|initiate ()
-name|void
-name|initiate
-parameter_list|()
-function_decl|;
 DECL|method|getTwitter ()
 name|Twitter
 name|getTwitter

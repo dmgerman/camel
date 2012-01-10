@@ -190,6 +190,8 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -236,6 +238,8 @@ return|return
 name|tc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -256,10 +260,12 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|initiate ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|initiate
+name|doStart
 parameter_list|()
 block|{
 name|properties

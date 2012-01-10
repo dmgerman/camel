@@ -48,16 +48,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -98,37 +88,9 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|data
+name|twitter4j
 operator|.
 name|Status
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|util
-operator|.
-name|TwitterConverter
 import|;
 end_import
 
@@ -165,9 +127,9 @@ DECL|class|StreamingConsumer
 specifier|public
 class|class
 name|StreamingConsumer
-implements|implements
+extends|extends
 name|Twitter4JConsumer
-implements|,
+implements|implements
 name|StatusListener
 block|{
 DECL|field|te
@@ -209,17 +171,14 @@ operator|=
 name|te
 expr_stmt|;
 block|}
-DECL|method|requestPollingStatus (long lastStatusUpdateId)
+DECL|method|pollConsume ()
 specifier|public
-name|Iterator
+name|List
 argument_list|<
 name|Status
 argument_list|>
-name|requestPollingStatus
-parameter_list|(
-name|long
-name|lastStatusUpdateId
-parameter_list|)
+name|pollConsume
+parameter_list|()
 throws|throws
 name|TwitterException
 block|{
@@ -234,18 +193,15 @@ name|unmodifiableList
 argument_list|(
 name|receivedStatuses
 argument_list|)
-operator|.
-name|iterator
-argument_list|()
 return|;
 block|}
-DECL|method|requestDirectStatus ()
+DECL|method|directConsume ()
 specifier|public
-name|Iterator
+name|List
 argument_list|<
 name|Status
 argument_list|>
-name|requestDirectStatus
+name|directConsume
 parameter_list|()
 throws|throws
 name|TwitterException
@@ -270,13 +226,11 @@ comment|// TODO Auto-generated method stub
 block|}
 annotation|@
 name|Override
-DECL|method|onStatus (twitter4j.Status status)
+DECL|method|onStatus (Status status)
 specifier|public
 name|void
 name|onStatus
 parameter_list|(
-name|twitter4j
-operator|.
 name|Status
 name|status
 parameter_list|)
@@ -300,12 +254,7 @@ name|receivedStatuses
 operator|.
 name|add
 argument_list|(
-name|TwitterConverter
-operator|.
-name|convertStatus
-argument_list|(
 name|status
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

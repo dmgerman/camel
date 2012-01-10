@@ -28,16 +28,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -78,37 +68,9 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|data
+name|twitter4j
 operator|.
 name|Status
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|util
-operator|.
-name|TwitterConverter
 import|;
 end_import
 
@@ -129,7 +91,7 @@ DECL|class|PublicConsumer
 specifier|public
 class|class
 name|PublicConsumer
-implements|implements
+extends|extends
 name|Twitter4JConsumer
 block|{
 DECL|field|te
@@ -151,17 +113,14 @@ operator|=
 name|te
 expr_stmt|;
 block|}
-DECL|method|requestPollingStatus (long lastStatusUpdateId)
+DECL|method|pollConsume ()
 specifier|public
-name|Iterator
+name|List
 argument_list|<
 name|Status
 argument_list|>
-name|requestPollingStatus
-parameter_list|(
-name|long
-name|lastStatusUpdateId
-parameter_list|)
+name|pollConsume
+parameter_list|()
 throws|throws
 name|TwitterException
 block|{
@@ -170,13 +129,13 @@ name|getPublicTimeline
 argument_list|()
 return|;
 block|}
-DECL|method|requestDirectStatus ()
+DECL|method|directConsume ()
 specifier|public
-name|Iterator
+name|List
 argument_list|<
 name|Status
 argument_list|>
-name|requestDirectStatus
+name|directConsume
 parameter_list|()
 throws|throws
 name|TwitterException
@@ -188,7 +147,7 @@ return|;
 block|}
 DECL|method|getPublicTimeline ()
 specifier|private
-name|Iterator
+name|List
 argument_list|<
 name|Status
 argument_list|>
@@ -197,31 +156,13 @@ parameter_list|()
 throws|throws
 name|TwitterException
 block|{
-name|List
-argument_list|<
-name|twitter4j
-operator|.
-name|Status
-argument_list|>
-name|statusList
-init|=
+return|return
 name|te
 operator|.
 name|getTwitter
 argument_list|()
 operator|.
 name|getPublicTimeline
-argument_list|()
-decl_stmt|;
-return|return
-name|TwitterConverter
-operator|.
-name|convertStatuses
-argument_list|(
-name|statusList
-argument_list|)
-operator|.
-name|iterator
 argument_list|()
 return|;
 block|}

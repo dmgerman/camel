@@ -167,11 +167,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-name|endpoint
-operator|.
-name|initiate
-argument_list|()
-expr_stmt|;
 return|return
 name|endpoint
 return|;

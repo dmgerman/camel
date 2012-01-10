@@ -24,27 +24,19 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Iterator
+name|Serializable
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|data
-operator|.
-name|Status
+name|List
 import|;
 end_import
 
@@ -56,37 +48,74 @@ name|TwitterException
 import|;
 end_import
 
-begin_interface
-DECL|interface|Twitter4JConsumer
+begin_class
+DECL|class|Twitter4JConsumer
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|Twitter4JConsumer
 block|{
-DECL|method|requestPollingStatus (long lastStatusUpdateId)
-name|Iterator
-argument_list|<
-name|Status
-argument_list|>
-name|requestPollingStatus
+DECL|field|lastId
+specifier|protected
+name|long
+name|lastId
+init|=
+literal|1
+decl_stmt|;
+comment|// Can't assume that the end of the list will be the most recent ID.
+comment|// The Twitter API sometimes returns them slightly out of order.
+DECL|method|checkLastId (long newId)
+specifier|protected
+name|void
+name|checkLastId
 parameter_list|(
 name|long
-name|lastStatusUpdateId
+name|newId
 parameter_list|)
+block|{
+if|if
+condition|(
+name|newId
+operator|>
+name|lastId
+condition|)
+block|{
+name|lastId
+operator|=
+name|newId
+expr_stmt|;
+block|}
+block|}
+DECL|method|pollConsume ()
+specifier|public
+specifier|abstract
+name|List
+argument_list|<
+name|?
+extends|extends
+name|Serializable
+argument_list|>
+name|pollConsume
+parameter_list|()
 throws|throws
 name|TwitterException
 function_decl|;
-DECL|method|requestDirectStatus ()
-name|Iterator
+DECL|method|directConsume ()
+specifier|public
+specifier|abstract
+name|List
 argument_list|<
-name|Status
+name|?
+extends|extends
+name|Serializable
 argument_list|>
-name|requestDirectStatus
+name|directConsume
 parameter_list|()
 throws|throws
 name|TwitterException
 function_decl|;
 block|}
-end_interface
+end_class
 
 end_unit
 
