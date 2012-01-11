@@ -80,10 +80,10 @@ name|SedaTimeoutDisabledTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testSedaNoTineout ()
+DECL|method|testSedaNoTimeout ()
 specifier|public
 name|void
-name|testSedaNoTineout
+name|testSedaNoTimeout
 parameter_list|()
 throws|throws
 name|Exception
@@ -107,7 +107,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// use 60 sec failsafe in case something hangs
+comment|// use 5 sec failsafe in case something hangs
 name|assertEquals
 argument_list|(
 literal|"Bye World"
@@ -116,7 +116,7 @@ name|out
 operator|.
 name|get
 argument_list|(
-literal|60
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -161,7 +161,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|500
 argument_list|)
 operator|.
 name|transform

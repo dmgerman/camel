@@ -649,6 +649,14 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+comment|// remove   timed out Exchange from queue
+name|queue
+operator|.
+name|remove
+argument_list|(
+name|copy
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 else|else

@@ -104,10 +104,17 @@ name|SedaTimeoutTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testSedaNoTineout ()
+DECL|field|timeout
+specifier|private
+name|int
+name|timeout
+init|=
+literal|100
+decl_stmt|;
+DECL|method|testSedaNoTimeout ()
 specifier|public
 name|void
-name|testSedaNoTineout
+name|testSedaNoTimeout
 parameter_list|()
 throws|throws
 name|Exception
@@ -142,10 +149,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSedaTineout ()
+DECL|method|testSedaTimeout ()
 specifier|public
 name|void
-name|testSedaTineout
+name|testSedaTimeout
 parameter_list|()
 throws|throws
 name|Exception
@@ -160,7 +167,9 @@ name|template
 operator|.
 name|asyncRequestBody
 argument_list|(
-literal|"seda:foo?timeout=100"
+literal|"seda:foo?timeout="
+operator|+
+name|timeout
 argument_list|,
 literal|"World"
 argument_list|,
@@ -215,7 +224,65 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|SedaEndpoint
+name|se
+init|=
+operator|(
+name|SedaEndpoint
+operator|)
+name|context
+operator|.
+name|getRoute
+argument_list|(
+literal|"seda"
+argument_list|)
+operator|.
+name|getEndpoint
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Consumer endpoint cannot be null"
+argument_list|,
+name|se
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Timeout Exchanges should be removed from queue"
+argument_list|,
+literal|0
+argument_list|,
+name|se
+operator|.
+name|getCurrentQueueSize
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
+block|}
+DECL|method|testSedaTimeoutWithStoppedRoute ()
+specifier|public
+name|void
+name|testSedaTimeoutWithStoppedRoute
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|stopRoute
+argument_list|(
+literal|"seda"
+argument_list|)
+expr_stmt|;
+name|timeout
+operator|=
+literal|500
+expr_stmt|;
+name|testSedaTimeout
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -244,6 +311,11 @@ block|{
 name|from
 argument_list|(
 literal|"seda:foo"
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"seda"
 argument_list|)
 operator|.
 name|to
