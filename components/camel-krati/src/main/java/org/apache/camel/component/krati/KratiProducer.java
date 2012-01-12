@@ -161,7 +161,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|String
+name|Object
 name|key
 init|=
 name|getKey
@@ -464,14 +464,14 @@ block|}
 comment|/**      * Retrieves the key from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
 DECL|method|getKey (Exchange exchange)
 specifier|public
-name|String
+name|Object
 name|getKey
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|String
+name|Object
 name|key
 init|=
 operator|(
@@ -504,9 +504,6 @@ condition|)
 block|{
 name|key
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
