@@ -200,7 +200,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello World"
 argument_list|)
@@ -262,7 +262,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello World 2"
 argument_list|)
@@ -384,7 +384,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello World 2"
 argument_list|,
@@ -463,7 +463,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello World 3"
 argument_list|)
