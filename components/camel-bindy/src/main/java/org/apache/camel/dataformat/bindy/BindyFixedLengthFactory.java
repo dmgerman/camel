@@ -765,6 +765,9 @@ comment|// Iterate through the list of positions
 comment|// defined in the @DataField
 comment|// and grab the data from the line
 name|Collection
+argument_list|<
+name|DataField
+argument_list|>
 name|c
 init|=
 name|dataFields
@@ -773,6 +776,9 @@ name|values
 argument_list|()
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|DataField
+argument_list|>
 name|itr
 init|=
 name|c
@@ -790,9 +796,6 @@ condition|)
 block|{
 name|dataField
 operator|=
-operator|(
-name|DataField
-operator|)
 name|itr
 operator|.
 name|next
@@ -1237,6 +1240,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 range|:
 name|models
@@ -1398,12 +1404,15 @@ argument_list|()
 return|;
 block|}
 comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * The result is placed in the Map<Integer, List> results      */
-DECL|method|generateFixedLengthPositionMap (Class clazz, Object obj, Map<Integer, List<String>> results)
+DECL|method|generateFixedLengthPositionMap (Class<?> clazz, Object obj, Map<Integer, List<String>> results)
 specifier|private
 name|void
 name|generateFixedLengthPositionMap
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Object

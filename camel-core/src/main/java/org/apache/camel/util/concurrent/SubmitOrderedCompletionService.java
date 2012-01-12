@@ -376,12 +376,7 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|submit (Callable task)
+DECL|method|submit (Callable<V> task)
 specifier|public
 name|Future
 argument_list|<
@@ -390,6 +385,9 @@ argument_list|>
 name|submit
 parameter_list|(
 name|Callable
+argument_list|<
+name|V
+argument_list|>
 name|task
 parameter_list|)
 block|{
@@ -513,11 +511,6 @@ name|take
 argument_list|()
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|poll ()
 specifier|public
 name|Future
@@ -533,6 +526,9 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 name|Future
+argument_list|<
+name|V
+argument_list|>
 name|answer
 init|=
 name|completionQueue
@@ -558,11 +554,6 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|poll (long timeout, TimeUnit unit)
 specifier|public
 name|Future
@@ -586,6 +577,9 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 name|Future
+argument_list|<
+name|V
+argument_list|>
 name|answer
 init|=
 name|completionQueue

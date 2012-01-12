@@ -350,6 +350,9 @@ comment|/**      * Replaces the matched node(s) with the following nodes.      *
 DECL|method|replace ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|replace
 parameter_list|()
 block|{
@@ -600,6 +603,9 @@ comment|/**      * Insert the following node(s)<b>before</b> the matched node(s)
 DECL|method|before ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|before
 parameter_list|()
 block|{
@@ -733,6 +739,9 @@ comment|/**      * Insert the following node(s)<b>after</b> the matched node(s) 
 DECL|method|after ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|after
 parameter_list|()
 block|{

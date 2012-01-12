@@ -1759,6 +1759,9 @@ class|class
 name|Task
 implements|implements
 name|Callable
+argument_list|<
+name|Task
+argument_list|>
 block|{
 DECL|field|counter
 specifier|private
@@ -1812,7 +1815,7 @@ expr_stmt|;
 block|}
 DECL|method|call ()
 specifier|public
-name|Object
+name|Task
 name|call
 parameter_list|()
 throws|throws
@@ -2406,11 +2409,6 @@ name|endpointUriA
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|runRequestReplyThreaded (String fromUri)
 specifier|protected
 name|void

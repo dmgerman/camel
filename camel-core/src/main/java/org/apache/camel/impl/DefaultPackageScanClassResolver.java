@@ -1036,12 +1036,7 @@ return|return
 name|classes
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|findImplementations (Class parent, String... packageNames)
+DECL|method|findImplementations (Class<?> parent, String... packageNames)
 specifier|public
 name|Set
 argument_list|<
@@ -1053,6 +1048,9 @@ argument_list|>
 name|findImplementations
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|parent
 parameter_list|,
 name|String
@@ -1070,7 +1068,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_SET
+name|emptySet
+argument_list|()
 return|;
 block|}
 if|if
@@ -1163,11 +1162,6 @@ return|return
 name|classes
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findByFilter (PackageScanFilter filter, String... packageNames)
 specifier|public
 name|Set
@@ -1197,7 +1191,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_SET
+name|emptySet
+argument_list|()
 return|;
 block|}
 name|Set

@@ -142,12 +142,12 @@ name|URL
 init|=
 literal|"http://localhost:%s/cxf/camel-example-cxf-osgi/webservices/incident"
 decl_stmt|;
-DECL|field|port
+DECL|field|PORT
 specifier|private
 specifier|static
 specifier|final
 name|int
-name|port
+name|PORT
 init|=
 name|AvailablePortFinder
 operator|.
@@ -175,7 +175,7 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-name|port
+name|PORT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -327,7 +327,7 @@ name|format
 argument_list|(
 name|URL
 argument_list|,
-name|port
+name|PORT
 argument_list|)
 argument_list|)
 decl_stmt|;

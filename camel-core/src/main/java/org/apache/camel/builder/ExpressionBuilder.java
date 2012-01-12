@@ -661,11 +661,6 @@ operator|new
 name|ExpressionAdapter
 argument_list|()
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -675,6 +670,9 @@ name|exchange
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 try|try
@@ -2407,11 +2405,6 @@ operator|new
 name|ExpressionAdapter
 argument_list|()
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -2421,6 +2414,9 @@ name|exchange
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 try|try
@@ -2505,11 +2501,6 @@ operator|new
 name|ExpressionAdapter
 argument_list|()
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -2519,6 +2510,9 @@ name|exchange
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 try|try
@@ -3284,12 +3278,7 @@ block|}
 return|;
 block|}
 comment|/**      * Returns an expression which converts the given expression to the given type      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|convertToExpression (final Expression expression, final Class type)
+DECL|method|convertToExpression (final Expression expression, final Class<?> type)
 specifier|public
 specifier|static
 name|Expression
@@ -3301,6 +3290,9 @@ name|expression
 parameter_list|,
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -3796,7 +3788,11 @@ comment|/**      * Returns a sort expression which will sort the expression with
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|sortExpression (final Expression expression, final Comparator comparator)
 specifier|public
@@ -3827,6 +3823,9 @@ name|exchange
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|expression

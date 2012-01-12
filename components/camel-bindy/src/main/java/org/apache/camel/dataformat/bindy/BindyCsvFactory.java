@@ -1127,11 +1127,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|unbind (Map<String, Object> model)
 specifier|public
 name|String
@@ -1234,6 +1229,9 @@ block|}
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 range|:
 name|models
@@ -1315,6 +1313,9 @@ comment|// Transpose result
 name|List
 argument_list|<
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|l
 init|=
@@ -1322,6 +1323,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1346,6 +1350,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|sortValues
 init|=
@@ -1355,6 +1362,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|(
 name|results
@@ -1380,6 +1390,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|entry
 range|:
@@ -1456,6 +1469,12 @@ literal|null
 condition|)
 block|{
 name|Iterator
+argument_list|<
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|it
 init|=
 name|l
@@ -1477,18 +1496,15 @@ name|String
 argument_list|>
 name|tokens
 init|=
-operator|(
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|it
 operator|.
 name|next
 argument_list|()
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|itx
 init|=
 name|tokens
@@ -1507,9 +1523,6 @@ block|{
 name|String
 name|res
 init|=
-operator|(
-name|String
-operator|)
 name|itx
 operator|.
 name|next
@@ -1614,6 +1627,9 @@ specifier|private
 name|List
 argument_list|<
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|product
 parameter_list|(
@@ -1634,6 +1650,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|sortValues
 init|=
@@ -1643,6 +1662,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|(
 name|values
@@ -1651,6 +1673,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|product
 init|=
@@ -1658,6 +1683,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1920,12 +1948,15 @@ name|product
 return|;
 block|}
 comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * If the model is Ordered than a key is created combining the annotation @Section and Position of the field      * If a relation @OneToMany is defined, than we iterate recursively through this function      * The result is placed in the Map<Integer, List> results      */
-DECL|method|generateCsvPositionMap (Class clazz, Object obj, Map<Integer, List<String>> results)
+DECL|method|generateCsvPositionMap (Class<?> clazz, Object obj, Map<Integer, List<String>> results)
 specifier|private
 name|void
 name|generateCsvPositionMap
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Object
@@ -1997,6 +2028,9 @@ block|{
 comment|// Retrieve the format, pattern and precision associated to
 comment|// the type
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|field
@@ -2022,6 +2056,9 @@ argument_list|()
 decl_stmt|;
 comment|// Create format
 name|Format
+argument_list|<
+name|?
+argument_list|>
 name|format
 init|=
 name|FormatFactory
@@ -2325,10 +2362,16 @@ operator|=
 literal|true
 expr_stmt|;
 name|ArrayList
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 operator|(
 name|ArrayList
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|field
 operator|.
@@ -2345,6 +2388,9 @@ literal|null
 condition|)
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|list

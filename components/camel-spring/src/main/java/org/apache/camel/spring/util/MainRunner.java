@@ -449,6 +449,9 @@ block|}
 DECL|method|getMain ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getMain
 parameter_list|()
 block|{
@@ -456,12 +459,15 @@ return|return
 name|main
 return|;
 block|}
-DECL|method|setMain (Class main)
+DECL|method|setMain (Class<?> main)
 specifier|public
 name|void
 name|setMain
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|main
 parameter_list|)
 block|{

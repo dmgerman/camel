@@ -184,10 +184,17 @@ block|{
 comment|//Utillity Class
 block|}
 comment|/**      * Creates a {@link krati.sos.SerializableObjectStore} with the given parameters.      *      * @param path            The directory which the store will use.      * @param initialCapacity      * @param segmentFileSize      * @param segmentFactory  The segment factory, defaults to {@link krati.core.segment.ChannelSegmentFactory}.      * @param hashFunction    The hash function, defaults to {@link krati.util.FnvHashFunction}.      * @param keySerializer   The serializer used for keys, defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @param valueSerializer The serializer used for values,defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @return      */
-DECL|method|createDataStore (String path, int initialCapacity, int segmentFileSize, SegmentFactory segmentFactory, HashFunction hashFunction, Serializer keySerializer, Serializer valueSerializer)
+DECL|method|createDataStore (String path, int initialCapacity, int segmentFileSize, SegmentFactory segmentFactory, HashFunction<byte[]> hashFunction, Serializer keySerializer, Serializer valueSerializer)
 specifier|public
 specifier|static
 name|DataStore
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|createDataStore
 parameter_list|(
 name|String
@@ -203,6 +210,10 @@ name|SegmentFactory
 name|segmentFactory
 parameter_list|,
 name|HashFunction
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|hashFunction
 parameter_list|,
 name|Serializer
@@ -213,6 +224,13 @@ name|valueSerializer
 parameter_list|)
 block|{
 name|DataStore
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|result
 init|=
 literal|null
@@ -266,6 +284,13 @@ name|segmentFileSize
 argument_list|)
 expr_stmt|;
 name|DataStore
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|dynamicDataStore
 init|=
 operator|new
@@ -312,6 +337,10 @@ DECL|method|createDataSet (String path, int initialCapacity, SegmentFactory segm
 specifier|public
 specifier|static
 name|DataSet
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|createDataSet
 parameter_list|(
 name|String
@@ -325,6 +354,10 @@ name|segmentFactory
 parameter_list|)
 block|{
 name|DataSet
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|result
 init|=
 literal|null

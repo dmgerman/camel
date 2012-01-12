@@ -417,6 +417,9 @@ decl_stmt|;
 DECL|field|partialClass
 specifier|private
 name|Class
+argument_list|<
+name|Object
+argument_list|>
 name|partialClass
 decl_stmt|;
 DECL|method|JaxbDataFormat ()
@@ -612,11 +615,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream, Marshaller marshaller)
 name|void
 name|marshal
@@ -659,6 +657,9 @@ name|e
 operator|=
 operator|new
 name|JAXBElement
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|getPartNamespace
 argument_list|()
@@ -742,11 +743,6 @@ return|return
 name|filteringWriter
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
 name|Object
@@ -1296,6 +1292,10 @@ operator|.
 name|resolveMandatoryClass
 argument_list|(
 name|partClass
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

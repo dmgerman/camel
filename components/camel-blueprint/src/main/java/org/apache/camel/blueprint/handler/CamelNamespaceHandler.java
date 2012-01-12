@@ -1226,7 +1226,11 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|getManagedClasses ()
 specifier|public
@@ -2902,6 +2906,9 @@ name|contextId
 argument_list|,
 operator|(
 name|AbstractCamelFactoryBean
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|bean
 argument_list|)
@@ -3249,6 +3256,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|cl
 range|:
 name|getJaxbPackages
@@ -3322,6 +3332,9 @@ specifier|protected
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getJaxbPackages
 parameter_list|()
@@ -3329,6 +3342,9 @@ block|{
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -3336,6 +3352,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -3705,6 +3724,9 @@ name|beanName
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|bean
@@ -4035,6 +4057,9 @@ name|beanName
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|bean
@@ -5660,6 +5685,9 @@ argument_list|(
 operator|(
 operator|(
 name|WireTapDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|def
 operator|)

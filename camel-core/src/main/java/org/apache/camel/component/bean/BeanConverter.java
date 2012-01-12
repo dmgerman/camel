@@ -175,6 +175,9 @@ name|TYPE
 return|;
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|from
 init|=
 name|bi

@@ -358,20 +358,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CastUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ExpressionToPredicateAdapter
 import|;
 end_import
@@ -565,6 +551,11 @@ specifier|private
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|exceptionClasses
 decl_stmt|;
@@ -631,13 +622,18 @@ specifier|public
 name|OnExceptionDefinition
 parameter_list|()
 block|{     }
-DECL|method|OnExceptionDefinition (List<Class> exceptionClasses)
+DECL|method|OnExceptionDefinition (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|OnExceptionDefinition
 parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -646,19 +642,19 @@ name|this
 operator|.
 name|exceptionClasses
 operator|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|exceptionClasses
-argument_list|)
 expr_stmt|;
 block|}
-DECL|method|OnExceptionDefinition (Class exceptionType)
+DECL|method|OnExceptionDefinition (Class<? extends Throwable> exceptionType)
 specifier|public
 name|OnExceptionDefinition
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -668,6 +664,11 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -1193,6 +1194,11 @@ block|}
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|exceptions
 init|=
@@ -1303,12 +1309,17 @@ comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|onException (Class exceptionType)
+DECL|method|onException (Class<? extends Throwable> exceptionType)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -2312,6 +2323,11 @@ specifier|public
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|getExceptionClasses
 parameter_list|()
@@ -2320,7 +2336,7 @@ return|return
 name|exceptionClasses
 return|;
 block|}
-DECL|method|setExceptionClasses (List<Class> exceptionClasses)
+DECL|method|setExceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|void
 name|setExceptionClasses
@@ -2328,6 +2344,11 @@ parameter_list|(
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|exceptionClasses
 parameter_list|)
@@ -2793,6 +2814,11 @@ specifier|protected
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|createExceptionClasses
 parameter_list|(
@@ -2814,6 +2840,11 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|answer
 init|=
@@ -2821,6 +2852,11 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 argument_list|(
 name|list
@@ -2840,6 +2876,8 @@ block|{
 name|Class
 argument_list|<
 name|?
+extends|extends
+name|Throwable
 argument_list|>
 name|type
 init|=
@@ -2848,22 +2886,17 @@ operator|.
 name|resolveMandatoryClass
 argument_list|(
 name|name
+argument_list|,
+name|Throwable
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|answer
 operator|.
 name|add
 argument_list|(
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|type
-argument_list|,
-name|Throwable
-operator|.
-name|class
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

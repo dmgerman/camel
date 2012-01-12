@@ -75,6 +75,9 @@ name|getClassResolver
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|routeBuilder
 init|=
 name|classResolver

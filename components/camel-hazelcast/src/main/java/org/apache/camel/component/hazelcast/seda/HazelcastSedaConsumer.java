@@ -399,6 +399,9 @@ parameter_list|()
 block|{
 specifier|final
 name|BlockingQueue
+argument_list|<
+name|?
+argument_list|>
 name|queue
 init|=
 name|endpoint

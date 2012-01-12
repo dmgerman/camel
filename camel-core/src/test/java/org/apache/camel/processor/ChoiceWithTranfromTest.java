@@ -54,22 +54,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|ChoiceWhenBeanExpressionTest
-operator|.
-name|Student
-import|;
-end_import
-
 begin_class
 DECL|class|ChoiceWithTranfromTest
 specifier|public

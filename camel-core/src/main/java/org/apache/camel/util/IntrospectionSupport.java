@@ -787,12 +787,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Will inspect the target for properties.      *<p/>      * Notice a property must have both a getter/setter method to be included.      *      * @param target         the target bean      * @param properties     the map to fill in found properties      * @param optionPrefix   an optional prefix to append the property key      * @return<tt>true</tt> if any properties was found,<tt>false</tt> otherwise.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|getProperties (Object target, Map properties, String optionPrefix)
+DECL|method|getProperties (Object target, Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
 name|boolean
@@ -802,6 +797,11 @@ name|Object
 name|target
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|properties
 parameter_list|,
 name|String
@@ -844,6 +844,9 @@ literal|""
 expr_stmt|;
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|target
@@ -968,6 +971,9 @@ name|getter
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|target
@@ -2366,12 +2372,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|convert (TypeConverter typeConverter, Class type, Object value)
+DECL|method|convert (TypeConverter typeConverter, Class<?> type, Object value)
 specifier|private
 specifier|static
 name|Object
@@ -2381,6 +2382,9 @@ name|TypeConverter
 name|typeConverter
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|Object

@@ -90,11 +90,6 @@ specifier|final
 name|String
 name|methodName
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|MethodNotFoundException (Exchange exchange, Object pojo, String methodName)
 specifier|public
 name|MethodNotFoundException

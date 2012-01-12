@@ -137,6 +137,9 @@ block|{
 DECL|field|unmarshallClass
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|unmarshallClass
 decl_stmt|;
 DECL|method|JibxDataFormat ()
@@ -144,11 +147,14 @@ specifier|public
 name|JibxDataFormat
 parameter_list|()
 block|{     }
-DECL|method|JibxDataFormat (Class unmarshallClass)
+DECL|method|JibxDataFormat (Class<?> unmarshallClass)
 specifier|public
 name|JibxDataFormat
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|unmarshallClass
 parameter_list|)
 block|{
@@ -269,6 +275,9 @@ block|}
 DECL|method|getUnmarshallClass ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getUnmarshallClass
 parameter_list|()
 block|{
@@ -276,12 +285,15 @@ return|return
 name|unmarshallClass
 return|;
 block|}
-DECL|method|setUnmarshallClass (Class unmarshallClass)
+DECL|method|setUnmarshallClass (Class<?> unmarshallClass)
 specifier|public
 name|void
 name|setUnmarshallClass
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|unmarshallClass
 parameter_list|)
 block|{

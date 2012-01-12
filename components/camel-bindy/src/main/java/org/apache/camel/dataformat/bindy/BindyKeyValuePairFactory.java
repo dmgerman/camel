@@ -887,6 +887,9 @@ comment|// Iterate over the model
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 range|:
 name|models
@@ -929,12 +932,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|generateModelFromKeyValueMap (Class clazz, Object obj, Map<Integer, List<String>> results, int line, Map<String, List<Object>> lists)
+DECL|method|generateModelFromKeyValueMap (Class<?> clazz, Object obj, Map<Integer, List<String>> results, int line, Map<String, List<Object>> lists)
 specifier|private
 name|void
 name|generateModelFromKeyValueMap
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Object
@@ -1843,6 +1849,9 @@ block|{
 comment|// Class cl = Class.forName(targetClass); Does not work in
 comment|// OSGI when class is defined in another bundle
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|cl
 init|=
 literal|null
@@ -2685,12 +2694,15 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|formatField (Format format, String value, int tag, int line)
+DECL|method|formatField (Format<?> format, String value, int tag, int line)
 specifier|private
 name|Object
 name|formatField
 parameter_list|(
 name|Format
+argument_list|<
+name|?
+argument_list|>
 name|format
 parameter_list|,
 name|String

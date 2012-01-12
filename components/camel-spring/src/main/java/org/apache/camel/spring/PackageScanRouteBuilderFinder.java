@@ -293,6 +293,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aClass
 range|:
 name|classes
@@ -348,11 +351,24 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|// type is valid so create and instantiate the builder
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|RoutesBuilder
 name|builder
 init|=
 name|instantiateBuilder
 argument_list|(
+operator|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|RoutesBuilder
+argument_list|>
+operator|)
 name|aClass
 argument_list|)
 decl_stmt|;
@@ -409,6 +425,11 @@ name|type
 parameter_list|)
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 name|beans
 init|=
 name|applicationContext
@@ -443,12 +464,15 @@ literal|true
 return|;
 block|}
 comment|/**      * Returns<tt>true</tt>if the class is a public, non-abstract class      */
-DECL|method|isValidClass (Class type)
+DECL|method|isValidClass (Class<?> type)
 specifier|protected
 name|boolean
 name|isValidClass
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -499,17 +523,17 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|instantiateBuilder (Class type)
+DECL|method|instantiateBuilder (Class<? extends RoutesBuilder> type)
 specifier|protected
 name|RoutesBuilder
 name|instantiateBuilder
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|RoutesBuilder
+argument_list|>
 name|type
 parameter_list|)
 throws|throws
@@ -518,9 +542,6 @@ throws|,
 name|InstantiationException
 block|{
 return|return
-operator|(
-name|RoutesBuilder
-operator|)
 name|camelContext
 operator|.
 name|getInjector

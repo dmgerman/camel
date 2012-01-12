@@ -251,7 +251,11 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|findResources (String name)
 specifier|protected
@@ -311,6 +315,9 @@ name|resolve
 argument_list|)
 expr_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 decl_stmt|;
 try|try

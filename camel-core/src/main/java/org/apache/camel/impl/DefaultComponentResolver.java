@@ -167,11 +167,6 @@ specifier|private
 name|FactoryFinder
 name|factoryFinder
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|resolveComponent (String name, CamelContext context)
 specifier|public
 name|Component
@@ -293,6 +288,9 @@ comment|// we do not throw the exception here and try to auto create a component
 block|}
 comment|// not in registry then use component factory
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 try|try

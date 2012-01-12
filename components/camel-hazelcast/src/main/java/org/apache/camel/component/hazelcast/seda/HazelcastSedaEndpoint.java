@@ -154,6 +154,9 @@ DECL|field|queue
 specifier|private
 specifier|final
 name|BlockingQueue
+argument_list|<
+name|Object
+argument_list|>
 name|queue
 decl_stmt|;
 DECL|field|configuration
@@ -292,6 +295,9 @@ block|}
 DECL|method|getQueue ()
 specifier|public
 name|BlockingQueue
+argument_list|<
+name|Object
+argument_list|>
 name|getQueue
 parameter_list|()
 block|{

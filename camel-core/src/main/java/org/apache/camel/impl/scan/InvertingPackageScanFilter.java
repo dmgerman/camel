@@ -64,12 +64,15 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
-DECL|method|matches (Class type)
+DECL|method|matches (Class<?> type)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

@@ -154,6 +154,9 @@ comment|/**      * Get the type as class.      *      * @return the class which 
 DECL|method|getTypeAsClass ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getTypeAsClass
 parameter_list|()
 block|{

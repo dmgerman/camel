@@ -1367,6 +1367,9 @@ decl_stmt|;
 DECL|method|getObjectType ()
 specifier|public
 name|Class
+argument_list|<
+name|BlueprintCamelContext
+argument_list|>
 name|getObjectType
 parameter_list|()
 block|{
@@ -2605,6 +2608,9 @@ block|}
 DECL|method|getBeans ()
 specifier|public
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|getBeans
 parameter_list|()
 block|{
@@ -2612,12 +2618,15 @@ return|return
 name|beans
 return|;
 block|}
-DECL|method|setBeans (List beans)
+DECL|method|setBeans (List<?> beans)
 specifier|public
 name|void
 name|setBeans
 parameter_list|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|beans
 parameter_list|)
 block|{

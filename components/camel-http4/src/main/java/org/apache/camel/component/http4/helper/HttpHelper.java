@@ -1403,15 +1403,24 @@ comment|/**      * Appends the key/value to the headers.      *<p/>      * This 
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
-DECL|method|appendHeader (Map headers, String key, Object value)
+DECL|method|appendHeader (Map<String, Object> headers, String key, Object value)
 specifier|public
 specifier|static
 name|void
 name|appendHeader
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 parameter_list|,
 name|String
@@ -1442,6 +1451,9 @@ name|key
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|list
 decl_stmt|;
 if|if
@@ -1465,6 +1477,9 @@ name|list
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|list

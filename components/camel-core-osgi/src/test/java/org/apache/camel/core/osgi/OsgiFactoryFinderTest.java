@@ -99,6 +99,9 @@ literal|"META-INF/services/org/apache/camel/component/"
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|finder

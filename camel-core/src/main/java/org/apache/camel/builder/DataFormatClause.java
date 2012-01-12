@@ -1011,12 +1011,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the JiBX data format with unmarshall class.      */
-DECL|method|jibx (Class unmarshallClass)
+DECL|method|jibx (Class<?> unmarshallClass)
 specifier|public
 name|T
 name|jibx
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|unmarshallClass
 parameter_list|)
 block|{

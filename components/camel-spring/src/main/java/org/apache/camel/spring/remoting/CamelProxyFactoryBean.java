@@ -215,6 +215,9 @@ extends|extends
 name|UrlBasedRemoteAccessor
 implements|implements
 name|FactoryBean
+argument_list|<
+name|Object
+argument_list|>
 implements|,
 name|CamelContextAware
 implements|,
@@ -457,6 +460,9 @@ block|}
 DECL|method|getServiceInterface ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getServiceInterface
 parameter_list|()
 block|{
@@ -495,6 +501,9 @@ block|}
 DECL|method|getObjectType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getObjectType
 parameter_list|()
 block|{

@@ -303,12 +303,17 @@ specifier|public
 name|HdfsConfiguration
 parameter_list|()
 block|{     }
-DECL|method|getBoolean (Map hdfsSettings, String param, Boolean dflt)
+DECL|method|getBoolean (Map<String, Object> hdfsSettings, String param, Boolean dflt)
 specifier|private
 name|Boolean
 name|getBoolean
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -352,12 +357,17 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getInteger (Map hdfsSettings, String param, Integer dflt)
+DECL|method|getInteger (Map<String, Object> hdfsSettings, String param, Integer dflt)
 specifier|private
 name|Integer
 name|getInteger
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -401,12 +411,17 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getShort (Map hdfsSettings, String param, Short dflt)
+DECL|method|getShort (Map<String, Object> hdfsSettings, String param, Short dflt)
 specifier|private
 name|Short
 name|getShort
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -450,12 +465,17 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getLong (Map hdfsSettings, String param, Long dflt)
+DECL|method|getLong (Map<String, Object> hdfsSettings, String param, Long dflt)
 specifier|private
 name|Long
 name|getLong
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -499,12 +519,17 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getFileType (Map hdfsSettings, String param, HdfsFileType dflt)
+DECL|method|getFileType (Map<String, Object> hdfsSettings, String param, HdfsFileType dflt)
 specifier|private
 name|HdfsFileType
 name|getFileType
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -550,12 +575,17 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getFileSystemType (Map hdfsSettings, String param, HdfsFileSystemType dflt)
+DECL|method|getFileSystemType (Map<String, Object> hdfsSettings, String param, HdfsFileSystemType dflt)
 specifier|private
 name|HdfsFileSystemType
 name|getFileSystemType
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -601,7 +631,7 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getWritableType (Map hdfsSettings, String param, HdfsWritableFactories.WritableType dflt)
+DECL|method|getWritableType (Map<String, Object> hdfsSettings, String param, HdfsWritableFactories.WritableType dflt)
 specifier|private
 name|HdfsWritableFactories
 operator|.
@@ -609,6 +639,11 @@ name|WritableType
 name|getWritableType
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -658,7 +693,7 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getCompressionType (Map hdfsSettings, String param, SequenceFile.CompressionType ct)
+DECL|method|getCompressionType (Map<String, Object> hdfsSettings, String param, SequenceFile.CompressionType ct)
 specifier|private
 name|SequenceFile
 operator|.
@@ -666,6 +701,11 @@ name|CompressionType
 name|getCompressionType
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -715,12 +755,17 @@ name|ct
 return|;
 block|}
 block|}
-DECL|method|getCompressionCodec (Map hdfsSettings, String param, HdfsCompressionCodec cd)
+DECL|method|getCompressionCodec (Map<String, Object> hdfsSettings, String param, HdfsCompressionCodec cd)
 specifier|private
 name|HdfsCompressionCodec
 name|getCompressionCodec
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -766,12 +811,17 @@ name|cd
 return|;
 block|}
 block|}
-DECL|method|getString (Map hdfsSettings, String param, String dflt)
+DECL|method|getString (Map<String, Object> hdfsSettings, String param, String dflt)
 specifier|private
 name|String
 name|getString
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|,
 name|String
@@ -810,7 +860,7 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getSplitStrategies (Map hdfsSettings)
+DECL|method|getSplitStrategies (Map<String, Object> hdfsSettings)
 specifier|private
 name|List
 argument_list|<
@@ -821,6 +871,11 @@ argument_list|>
 name|getSplitStrategies
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 parameter_list|)
 block|{
@@ -1131,6 +1186,11 @@ name|getPath
 argument_list|()
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|hdfsSettings
 init|=
 name|URISupport

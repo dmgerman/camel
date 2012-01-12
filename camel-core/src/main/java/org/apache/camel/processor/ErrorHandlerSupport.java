@@ -319,6 +319,11 @@ block|}
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 argument_list|>
 name|list
 init|=
@@ -330,6 +335,11 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|clazz
 range|:
 name|list

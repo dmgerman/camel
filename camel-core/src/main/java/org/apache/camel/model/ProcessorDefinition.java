@@ -2307,7 +2307,7 @@ expr_stmt|;
 comment|// find all getter/setter which we can use for property placeholders
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -2316,7 +2316,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -2736,7 +2736,7 @@ expr_stmt|;
 comment|// find all String getter/setter
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -2745,7 +2745,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -2791,6 +2791,11 @@ control|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|entry
 range|:
 name|properties
@@ -6793,12 +6798,17 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptionType  the exception to catch      * @return the exception builder to configure      */
-DECL|method|onException (Class exceptionType)
+DECL|method|onException (Class<? extends Throwable> exceptionType)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
@@ -6821,12 +6831,17 @@ name|answer
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the exception builder to configure      */
-DECL|method|onException (Class... exceptions)
+DECL|method|onException (Class<? extends Throwable>.... exceptions)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 modifier|...
 name|exceptions
 parameter_list|)

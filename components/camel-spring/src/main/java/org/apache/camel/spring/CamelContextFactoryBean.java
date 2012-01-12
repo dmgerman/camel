@@ -681,6 +681,9 @@ name|SpringCamelContext
 argument_list|>
 implements|implements
 name|FactoryBean
+argument_list|<
+name|SpringCamelContext
+argument_list|>
 implements|,
 name|InitializingBean
 implements|,
@@ -689,6 +692,9 @@ implements|,
 name|ApplicationContextAware
 implements|,
 name|ApplicationListener
+argument_list|<
+name|ApplicationEvent
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private

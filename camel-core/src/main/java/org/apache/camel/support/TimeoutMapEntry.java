@@ -255,6 +255,11 @@ name|compareTo
 argument_list|(
 operator|(
 name|TimeoutMapEntry
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 operator|)
 name|that
 argument_list|)

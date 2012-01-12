@@ -234,6 +234,9 @@ block|}
 DECL|method|getBeanClass (Element element)
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getBeanClass
 parameter_list|(
 name|Element
@@ -1327,11 +1330,14 @@ name|RedeliveryPolicyDefinitionParser
 extends|extends
 name|BeanDefinitionParser
 block|{
-DECL|method|RedeliveryPolicyDefinitionParser (Class type)
+DECL|method|RedeliveryPolicyDefinitionParser (Class<?> type)
 specifier|public
 name|RedeliveryPolicyDefinitionParser
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

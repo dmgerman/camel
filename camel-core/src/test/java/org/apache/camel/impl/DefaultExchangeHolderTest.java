@@ -467,11 +467,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testSkipNonSerializableDataFromList ()
 specifier|public
 name|void
@@ -482,10 +477,16 @@ name|Exception
 block|{
 comment|// use a mixed list, the MyFoo is not serializable so the entire list should be skipped
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|list
@@ -619,11 +620,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testSkipNonSerializableDataFromMap ()
 specifier|public
 name|void
@@ -634,10 +630,20 @@ name|Exception
 block|{
 comment|// use a mixed Map, the MyFoo is not serializable so the entire map should be skipped
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|map

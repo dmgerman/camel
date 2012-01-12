@@ -73,13 +73,16 @@ name|BundleContextUtils
 parameter_list|()
 block|{     }
 comment|/**      * Retrieve the BundleContext that the given class has been loaded from.      *      * @param clazz the class to find the bundle context from      * @return the bundle context or<code>null</code> if it can't be found      */
-DECL|method|getBundleContext (Class clazz)
+DECL|method|getBundleContext (Class<?> clazz)
 specifier|public
 specifier|static
 name|BundleContext
 name|getBundleContext
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{

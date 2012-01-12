@@ -62,6 +62,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|osgi
@@ -125,13 +139,22 @@ specifier|private
 specifier|static
 class|class
 name|ListEnumeration
+parameter_list|<
+name|E
+parameter_list|>
 implements|implements
 name|Enumeration
+argument_list|<
+name|E
+argument_list|>
 block|{
 DECL|field|list
 specifier|private
 specifier|final
 name|List
+argument_list|<
+name|E
+argument_list|>
 name|list
 decl_stmt|;
 DECL|field|index
@@ -139,11 +162,14 @@ specifier|private
 name|int
 name|index
 decl_stmt|;
-DECL|method|ListEnumeration (List list)
+DECL|method|ListEnumeration (List<E> list)
 specifier|public
 name|ListEnumeration
 parameter_list|(
 name|List
+argument_list|<
+name|E
+argument_list|>
 name|list
 parameter_list|)
 block|{
@@ -175,11 +201,11 @@ return|;
 block|}
 DECL|method|nextElement ()
 specifier|public
-name|Object
+name|E
 name|nextElement
 parameter_list|()
 block|{
-name|Object
+name|E
 name|result
 init|=
 literal|null
@@ -227,6 +253,9 @@ block|}
 DECL|method|getListEnumeration (String prefix, String entrys[])
 specifier|private
 name|Enumeration
+argument_list|<
+name|String
+argument_list|>
 name|getListEnumeration
 parameter_list|(
 name|String
@@ -271,6 +300,9 @@ block|}
 return|return
 operator|new
 name|ListEnumeration
+argument_list|<
+name|String
+argument_list|>
 argument_list|(
 name|list
 argument_list|)
@@ -279,6 +311,9 @@ block|}
 DECL|method|getEntryPaths (String path)
 specifier|public
 name|Enumeration
+argument_list|<
+name|String
+argument_list|>
 name|getEntryPaths
 parameter_list|(
 name|String
@@ -286,6 +321,9 @@ name|path
 parameter_list|)
 block|{
 name|Enumeration
+argument_list|<
+name|String
+argument_list|>
 name|result
 init|=
 literal|null
@@ -394,6 +432,9 @@ block|}
 DECL|method|findEntries (String path, String filePattern, boolean recurse)
 specifier|public
 name|Enumeration
+argument_list|<
+name|URL
+argument_list|>
 name|findEntries
 parameter_list|(
 name|String
@@ -480,6 +521,9 @@ expr_stmt|;
 return|return
 operator|new
 name|ListEnumeration
+argument_list|<
+name|URL
+argument_list|>
 argument_list|(
 name|urls
 argument_list|)
@@ -488,6 +532,10 @@ block|}
 else|else
 block|{
 return|return
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|super
 operator|.
 name|findEntries
@@ -498,12 +546,16 @@ name|filePattern
 argument_list|,
 name|recurse
 argument_list|)
+argument_list|)
 return|;
 block|}
 block|}
 DECL|method|loadClass (String name)
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|loadClass
 parameter_list|(
 name|String

@@ -161,6 +161,12 @@ extends|extends
 name|IdentifiedType
 implements|implements
 name|FactoryBean
+argument_list|<
+name|List
+argument_list|<
+name|RouteDefinition
+argument_list|>
+argument_list|>
 block|{
 annotation|@
 name|XmlElement
@@ -190,7 +196,10 @@ argument_list|()
 decl_stmt|;
 DECL|method|getObject ()
 specifier|public
-name|Object
+name|List
+argument_list|<
+name|RouteDefinition
+argument_list|>
 name|getObject
 parameter_list|()
 throws|throws
@@ -203,13 +212,17 @@ block|}
 DECL|method|getObjectType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getObjectType
 parameter_list|()
 block|{
 return|return
-name|List
+name|routes
 operator|.
-name|class
+name|getClass
+argument_list|()
 return|;
 block|}
 DECL|method|isSingleton ()

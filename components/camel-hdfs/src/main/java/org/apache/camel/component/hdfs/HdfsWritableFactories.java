@@ -248,6 +248,20 @@ name|Writable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|hadoop
+operator|.
+name|io
+operator|.
+name|WritableComparable
+import|;
+end_import
+
 begin_class
 DECL|class|HdfsWritableFactories
 specifier|public
@@ -266,6 +280,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|NullWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -284,6 +301,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|BooleanWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -302,6 +322,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|ByteWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -320,6 +343,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|IntWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -338,6 +364,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|FloatWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -356,6 +385,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|LongWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -374,6 +406,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|DoubleWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -392,6 +427,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|Text
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -410,6 +448,9 @@ annotation|@
 name|Override
 specifier|public
 name|Class
+argument_list|<
+name|BytesWritable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 block|{
@@ -421,10 +462,20 @@ return|;
 block|}
 block|}
 block|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|getWritableClass ()
 specifier|public
 specifier|abstract
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|WritableComparable
+argument_list|>
 name|getWritableClass
 parameter_list|()
 function_decl|;

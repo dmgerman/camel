@@ -409,7 +409,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-DECL|method|findProcessorByClass (Processor processor, Class findClass)
+DECL|method|findProcessorByClass (Processor processor, Class<?> findClass)
 specifier|protected
 name|Processor
 name|findProcessorByClass
@@ -418,6 +418,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|findClass
 parameter_list|)
 block|{

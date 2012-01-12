@@ -281,6 +281,10 @@ decl_stmt|;
 DECL|field|hashFunction
 specifier|protected
 name|HashFunction
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|hashFunction
 init|=
 operator|new
@@ -395,6 +399,13 @@ throws|throws
 name|Exception
 block|{
 name|DataStore
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|dataStore
 init|=
 literal|null
@@ -494,6 +505,13 @@ throws|throws
 name|Exception
 block|{
 name|DataStore
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|dataStore
 init|=
 literal|null
@@ -829,6 +847,10 @@ block|}
 DECL|method|getHashFunction ()
 specifier|public
 name|HashFunction
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|getHashFunction
 parameter_list|()
 block|{
@@ -836,12 +858,16 @@ return|return
 name|hashFunction
 return|;
 block|}
-DECL|method|setHashFunction (HashFunction hashFunction)
+DECL|method|setHashFunction (HashFunction<byte[]> hashFunction)
 specifier|public
 name|void
 name|setHashFunction
 parameter_list|(
 name|HashFunction
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|hashFunction
 parameter_list|)
 block|{

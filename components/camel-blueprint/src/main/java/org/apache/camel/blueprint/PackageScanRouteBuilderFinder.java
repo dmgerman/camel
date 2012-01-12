@@ -272,6 +272,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aClass
 range|:
 name|classes
@@ -438,12 +441,15 @@ literal|false
 return|;
 block|}
 comment|/**      * Returns<tt>true</tt>if the class is a public, non-abstract class      */
-DECL|method|isValidClass (Class type)
+DECL|method|isValidClass (Class<?> type)
 specifier|protected
 name|boolean
 name|isValidClass
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -494,17 +500,15 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|instantiateBuilder (Class type)
+DECL|method|instantiateBuilder (Class<?> type)
 specifier|protected
 name|RoutesBuilder
 name|instantiateBuilder
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 throws|throws

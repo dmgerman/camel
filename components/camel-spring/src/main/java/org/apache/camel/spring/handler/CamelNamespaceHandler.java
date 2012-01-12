@@ -1077,6 +1077,9 @@ init|=
 literal|false
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|cl
 init|=
 name|CamelContextFactoryBean
@@ -1388,6 +1391,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|cl
 range|:
 name|getJaxbPackages
@@ -1461,6 +1467,9 @@ specifier|protected
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getJaxbPackages
 parameter_list|()
@@ -1468,6 +1477,9 @@ block|{
 name|Set
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|classes
 init|=
@@ -1475,6 +1487,9 @@ operator|new
 name|HashSet
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2029,11 +2044,14 @@ name|CamelContextBeanDefinitionParser
 extends|extends
 name|BeanDefinitionParser
 block|{
-DECL|method|CamelContextBeanDefinitionParser (Class type)
+DECL|method|CamelContextBeanDefinitionParser (Class<?> type)
 specifier|public
 name|CamelContextBeanDefinitionParser
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{

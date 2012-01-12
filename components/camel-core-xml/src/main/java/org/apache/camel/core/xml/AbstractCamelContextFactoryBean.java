@@ -1030,7 +1030,7 @@ expr_stmt|;
 block|}
 DECL|method|getObject ()
 specifier|public
-name|Object
+name|T
 name|getObject
 parameter_list|()
 throws|throws
@@ -1043,16 +1043,14 @@ return|;
 block|}
 DECL|method|getObjectType ()
 specifier|public
+specifier|abstract
 name|Class
+argument_list|<
+name|T
+argument_list|>
 name|getObjectType
 parameter_list|()
-block|{
-return|return
-name|CamelContext
-operator|.
-name|class
-return|;
-block|}
+function_decl|;
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

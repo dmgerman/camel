@@ -2418,6 +2418,11 @@ name|LsEntry
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|Vector
 name|files
 init|=
@@ -3776,6 +3781,11 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|Vector
 name|files
 init|=
@@ -3928,6 +3938,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|Vector
 name|files
 init|=

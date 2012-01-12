@@ -107,6 +107,9 @@ name|XmlAttribute
 DECL|field|serviceInterface
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|serviceInterface
 decl_stmt|;
 annotation|@

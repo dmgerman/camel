@@ -384,17 +384,15 @@ literal|"plain text"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|assertJcrConverterAvailable (Class expected, Object object)
+DECL|method|assertJcrConverterAvailable (Class<?> expected, Object object)
 specifier|private
 name|void
 name|assertJcrConverterAvailable
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expected
 parameter_list|,
 name|Object

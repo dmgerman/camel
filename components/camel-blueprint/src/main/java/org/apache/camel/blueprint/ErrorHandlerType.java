@@ -82,6 +82,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|ErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|LoggingErrorHandlerBuilder
 import|;
 end_import
@@ -135,6 +149,11 @@ comment|/**      * Get the type as class.      *      * @return the class which 
 DECL|method|getTypeAsClass ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|ErrorHandlerBuilder
+argument_list|>
 name|getTypeAsClass
 parameter_list|()
 block|{

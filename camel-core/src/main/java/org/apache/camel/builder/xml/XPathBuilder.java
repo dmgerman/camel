@@ -1846,6 +1846,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -1922,6 +1927,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -2047,6 +2057,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -2134,6 +2149,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -2262,6 +2282,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -2414,6 +2439,11 @@ operator|new
 name|XPathFunction
 argument_list|()
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 specifier|public
 name|Object
 name|evaluate
@@ -4205,6 +4235,9 @@ operator|=
 operator|(
 operator|(
 name|WrappedFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|body
 operator|)
@@ -4231,11 +4264,6 @@ literal|false
 return|;
 block|}
 comment|/**      * Strategy method to extract the document from the exchange.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getDocument (Exchange exchange, Object body)
 specifier|protected
 name|Object
@@ -4254,6 +4282,9 @@ init|=
 literal|null
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|getDocumentType
@@ -4589,6 +4620,11 @@ control|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|prop
 range|:
 name|properties

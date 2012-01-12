@@ -297,6 +297,9 @@ comment|// check each class is okay
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 range|:
 name|classes

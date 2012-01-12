@@ -951,6 +951,9 @@ name|close
 argument_list|()
 expr_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|cls
 init|=
 name|bundle

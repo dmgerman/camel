@@ -454,11 +454,6 @@ name|loadBalancer
 return|;
 block|}
 comment|/**      * Factory method to create the load balancer instance      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createLoadBalancer (RouteContext routeContext)
 specifier|protected
 name|LoadBalancer
@@ -476,6 +471,9 @@ literal|null
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|routeContext

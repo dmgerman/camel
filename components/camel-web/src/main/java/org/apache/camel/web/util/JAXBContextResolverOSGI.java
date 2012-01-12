@@ -165,12 +165,15 @@ name|packages
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getContext (Class objectType)
+DECL|method|getContext (Class<?> objectType)
 specifier|public
 name|JAXBContext
 name|getContext
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|objectType
 parameter_list|)
 block|{

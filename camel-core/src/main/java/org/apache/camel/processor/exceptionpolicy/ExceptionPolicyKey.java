@@ -53,6 +53,11 @@ DECL|field|exceptionClass
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionClass
 decl_stmt|;
 DECL|field|when
@@ -64,11 +69,16 @@ decl_stmt|;
 comment|/**      * @deprecated will be removed in the near future, use the other constructor      */
 annotation|@
 name|Deprecated
-DECL|method|ExceptionPolicyKey (Class exceptionClass, WhenDefinition when)
+DECL|method|ExceptionPolicyKey (Class<? extends Throwable> exceptionClass, WhenDefinition when)
 specifier|public
 name|ExceptionPolicyKey
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionClass
 parameter_list|,
 name|WhenDefinition
@@ -86,7 +96,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Key for exception clause      *      * @param routeId          the route, or use<tt>null</tt> for a global scoped      * @param exceptionClass   the exception class      * @param when             optional predicate when the exception clause should trigger      */
-DECL|method|ExceptionPolicyKey (String routeId, Class exceptionClass, WhenDefinition when)
+DECL|method|ExceptionPolicyKey (String routeId, Class<? extends Throwable> exceptionClass, WhenDefinition when)
 specifier|public
 name|ExceptionPolicyKey
 parameter_list|(
@@ -94,6 +104,11 @@ name|String
 name|routeId
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionClass
 parameter_list|,
 name|WhenDefinition
@@ -155,13 +170,18 @@ block|}
 comment|/**      * @deprecated will be removed in the near future. Use the constructor instead.      */
 annotation|@
 name|Deprecated
-DECL|method|newInstance (Class exceptionClass)
+DECL|method|newInstance (Class<? extends Throwable> exceptionClass)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
 name|newInstance
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionClass
 parameter_list|)
 block|{
@@ -178,13 +198,18 @@ block|}
 comment|/**      * @deprecated will be removed in the near future. Use the constructor instead.      */
 annotation|@
 name|Deprecated
-DECL|method|newInstance (Class exceptionClass, WhenDefinition when)
+DECL|method|newInstance (Class<? extends Throwable> exceptionClass, WhenDefinition when)
 specifier|public
 specifier|static
 name|ExceptionPolicyKey
 name|newInstance
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exceptionClass
 parameter_list|,
 name|WhenDefinition

@@ -139,9 +139,12 @@ specifier|private
 specifier|final
 specifier|transient
 name|BlockingQueue
+argument_list|<
+name|Object
+argument_list|>
 name|queue
 decl_stmt|;
-DECL|method|HazelcastSedaProducer (final HazelcastSedaEndpoint endpoint, final BlockingQueue hzlq)
+DECL|method|HazelcastSedaProducer (final HazelcastSedaEndpoint endpoint, final BlockingQueue<Object> hzlq)
 specifier|public
 name|HazelcastSedaProducer
 parameter_list|(
@@ -151,6 +154,9 @@ name|endpoint
 parameter_list|,
 specifier|final
 name|BlockingQueue
+argument_list|<
+name|Object
+argument_list|>
 name|hzlq
 parameter_list|)
 block|{
@@ -196,11 +202,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|checkAndStore (final Exchange exchange)
 specifier|private
 name|void

@@ -138,6 +138,9 @@ DECL|field|type
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 decl_stmt|;
 DECL|field|assignId
@@ -147,11 +150,14 @@ name|boolean
 name|assignId
 decl_stmt|;
 comment|/**      * Bean definition parser      *      * @param type     the type, can be null      * @param assignId whether to allow assigning id from the id attribute on the type      *                 (there must be getter/setter id on type class).      */
-DECL|method|BeanDefinitionParser (Class type, boolean assignId)
+DECL|method|BeanDefinitionParser (Class<?> type, boolean assignId)
 specifier|public
 name|BeanDefinitionParser
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|boolean
@@ -174,6 +180,9 @@ block|}
 DECL|method|getBeanClass (Element element)
 specifier|protected
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getBeanClass
 parameter_list|(
 name|Element

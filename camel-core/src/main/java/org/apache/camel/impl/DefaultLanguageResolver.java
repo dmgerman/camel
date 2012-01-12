@@ -173,11 +173,6 @@ specifier|protected
 name|FactoryFinder
 name|languageResolver
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|resolveLanguage (String name, CamelContext context)
 specifier|public
 name|Language
@@ -286,6 +281,9 @@ block|}
 comment|// we do not throw the exception here and try to auto create a Language from META-INF
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 literal|null
@@ -395,11 +393,6 @@ argument_list|)
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|noSpecificLanguageFound (String name, CamelContext context)
 specifier|protected
 name|Language
@@ -413,6 +406,9 @@ name|context
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 literal|null

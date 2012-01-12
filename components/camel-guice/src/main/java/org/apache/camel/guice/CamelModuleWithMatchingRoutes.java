@@ -105,6 +105,11 @@ comment|/**  * A Guice Module which injects the CamelContext with all available 
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|class|CamelModuleWithMatchingRoutes
 specifier|public
 class|class

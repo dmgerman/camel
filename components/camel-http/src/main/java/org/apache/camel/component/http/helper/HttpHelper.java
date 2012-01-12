@@ -1196,13 +1196,18 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|appendHeader (Map headers, String key, Object value)
+DECL|method|appendHeader (Map<String, Object> headers, String key, Object value)
 specifier|public
 specifier|static
 name|void
 name|appendHeader
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 parameter_list|,
 name|String
@@ -1233,6 +1238,9 @@ name|key
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|list
 decl_stmt|;
 if|if
@@ -1246,6 +1254,9 @@ name|list
 operator|=
 operator|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 operator|)
 name|existing
 expr_stmt|;
@@ -1256,6 +1267,9 @@ name|list
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|list
@@ -1289,11 +1303,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Extracts the parameter value.      *<p/>      * This implementation supports HTTP multi value parameters which      * is based on the syntax of<tt>[value1, value2, value3]</tt> by returning      * a {@link List} containing the values.      *<p/>      * If the value is not a HTTP mulit value the value is returned as is.      *      * @param value the parameter value      * @return the extracted parameter value, see more details in javadoc.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|extractHttpParameterValue (String value)
 specifier|public
 specifier|static
@@ -1366,6 +1375,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new

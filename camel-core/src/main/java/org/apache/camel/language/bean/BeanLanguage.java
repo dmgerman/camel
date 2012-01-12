@@ -138,18 +138,16 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates the expression for invoking the bean type.      *      * @param beanType  the bean type to invoke      * @param method optional name of method to invoke for instance to avoid ambiguity      * @return the expression      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|bean (Class beanType, String method)
+DECL|method|bean (Class<?> beanType, String method)
 specifier|public
 specifier|static
 name|Expression
 name|bean
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|,
 name|String

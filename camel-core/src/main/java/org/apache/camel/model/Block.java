@@ -27,11 +27,14 @@ interface|interface
 name|Block
 block|{
 comment|/**      * Adds the given definition as output to this block      *      * @param processorDefinition the processor definition      */
-DECL|method|addOutput (ProcessorDefinition processorDefinition)
+DECL|method|addOutput (ProcessorDefinition<?> processorDefinition)
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processorDefinition
 parameter_list|)
 function_decl|;

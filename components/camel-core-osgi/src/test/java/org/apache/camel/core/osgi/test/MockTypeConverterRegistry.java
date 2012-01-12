@@ -144,15 +144,21 @@ return|return
 name|fallbackTypeConverters
 return|;
 block|}
-DECL|method|addTypeConverter (Class toType, Class fromType, TypeConverter typeConverter)
+DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 specifier|public
 name|void
 name|addTypeConverter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|,
 name|TypeConverter
@@ -187,15 +193,21 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|lookup (Class toType, Class fromType)
+DECL|method|lookup (Class<?> toType, Class<?> fromType)
 specifier|public
 name|TypeConverter
 name|lookup
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|toType
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|fromType
 parameter_list|)
 block|{

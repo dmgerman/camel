@@ -1154,12 +1154,17 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|updateExpireTime (TimeoutMapEntry entry)
+DECL|method|updateExpireTime (TimeoutMapEntry<K, V> entry)
 specifier|protected
 name|void
 name|updateExpireTime
 parameter_list|(
 name|TimeoutMapEntry
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|entry
 parameter_list|)
 block|{

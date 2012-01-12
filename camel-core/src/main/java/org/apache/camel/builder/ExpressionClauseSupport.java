@@ -615,17 +615,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * An expression of an inbound message body converted to the expected type      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|body (Class expectedType)
+DECL|method|body (Class<?> expectedType)
 specifier|public
 name|T
 name|body
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expectedType
 parameter_list|)
 block|{
@@ -659,17 +657,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * An expression of an outbound message body converted to the expected type      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|outBody (Class expectedType)
+DECL|method|outBody (Class<?> expectedType)
 specifier|public
 name|T
 name|outBody
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expectedType
 parameter_list|)
 block|{

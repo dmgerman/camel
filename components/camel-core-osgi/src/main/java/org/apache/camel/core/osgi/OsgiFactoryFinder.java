@@ -242,6 +242,9 @@ literal|""
 expr_stmt|;
 block|}
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|classMap
@@ -568,7 +571,7 @@ return|return
 name|entry
 return|;
 block|}
-DECL|method|checkCompat (Bundle bundle, Class clazz)
+DECL|method|checkCompat (Bundle bundle, Class<?> clazz)
 specifier|private
 name|boolean
 name|checkCompat
@@ -577,6 +580,9 @@ name|Bundle
 name|bundle
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{

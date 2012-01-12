@@ -296,16 +296,21 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|appendValue (Map map, Object key, Object value)
+DECL|method|appendValue (Map<String, Object> map, String key, Object value)
 specifier|public
 specifier|static
 name|void
 name|appendValue
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 parameter_list|,
-name|Object
+name|String
 name|key
 parameter_list|,
 name|Object
@@ -330,6 +335,9 @@ literal|null
 condition|)
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|list
 decl_stmt|;
 if|if
@@ -343,6 +351,9 @@ name|list
 operator|=
 operator|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 operator|)
 name|oldValue
 expr_stmt|;
@@ -353,6 +364,9 @@ name|list
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|list

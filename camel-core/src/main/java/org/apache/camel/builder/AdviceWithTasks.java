@@ -560,7 +560,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|replaceByType (final RouteDefinition route, final Class type, final ProcessorDefinition replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|replaceByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -572,6 +572,9 @@ name|route
 parameter_list|,
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 specifier|final
@@ -970,7 +973,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|removeByType (final RouteDefinition route, final Class type, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|removeByType (final RouteDefinition route, final Class<?> type, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -982,6 +985,9 @@ name|route
 parameter_list|,
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|boolean
@@ -1359,7 +1365,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|beforeByType (final RouteDefinition route, final Class type, final ProcessorDefinition before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|beforeByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1371,6 +1377,9 @@ name|route
 parameter_list|,
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 specifier|final
@@ -1779,7 +1788,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|afterByType (final RouteDefinition route, final Class type, final ProcessorDefinition after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|afterByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1791,6 +1800,9 @@ name|route
 parameter_list|,
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 specifier|final

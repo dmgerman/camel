@@ -124,10 +124,16 @@ literal|false
 return|;
 block|}
 name|ValueHolder
+argument_list|<
+name|?
+argument_list|>
 name|that
 init|=
 operator|(
 name|ValueHolder
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|o
 decl_stmt|;
