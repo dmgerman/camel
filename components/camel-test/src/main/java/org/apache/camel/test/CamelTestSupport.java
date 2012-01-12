@@ -1001,7 +1001,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Lets post process this test instance to process any Camel annotations.      * Note that using Spring Test or Guice is a more powerful approach.      */
 DECL|method|postProcessTest ()
 specifier|protected
 name|void
@@ -1009,31 +1008,7 @@ name|postProcessTest
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-name|CamelBeanPostProcessor
-name|processor
-init|=
-operator|new
-name|CamelBeanPostProcessor
-argument_list|()
-decl_stmt|;
-name|processor
-operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|processor
-operator|.
-name|postProcessBeforeInitialization
-argument_list|(
-name|this
-argument_list|,
-literal|"this"
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|stopCamelContext ()
 specifier|protected
 name|void
