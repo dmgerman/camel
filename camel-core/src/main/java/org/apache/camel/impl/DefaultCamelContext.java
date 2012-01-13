@@ -7474,13 +7474,42 @@ operator|!
 name|isAutoStartup
 argument_list|()
 expr_stmt|;
+comment|// if the context was configured with auto startup = false, and we are already started,
+comment|// then we may need to start the routes on the 2nd start call
+if|if
+condition|(
+name|firstStartDone
+operator|&&
+operator|!
+name|isAutoStartup
+argument_list|()
+operator|&&
+name|isStarted
+argument_list|()
+condition|)
+block|{
+comment|// invoke this logic to warmup the routes and if possible also start the routes
+name|doStartOrResumeRoutes
+argument_list|(
+name|routeServices
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|// super will invoke doStart which will prepare internal services and start routes etc.
+try|try
+block|{
 name|firstStartDone
 operator|=
 literal|true
 expr_stmt|;
-comment|// super will invoke doStart which will prepare internal services and start routes etc.
-try|try
-block|{
 name|super
 operator|.
 name|start
@@ -8507,6 +8536,8 @@ control|)
 block|{
 name|boolean
 name|startable
+init|=
+literal|false
 decl_stmt|;
 name|Consumer
 name|consumer
@@ -8549,9 +8580,11 @@ name|isSuspended
 argument_list|()
 expr_stmt|;
 block|}
-elseif|else
 if|if
 condition|(
+operator|!
+name|startable
+operator|&&
 name|consumer
 operator|instanceof
 name|StatefulService
@@ -8574,7 +8607,12 @@ name|isStartable
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|startable
+condition|)
 block|{
 comment|// no consumer so use state from route service
 name|startable
