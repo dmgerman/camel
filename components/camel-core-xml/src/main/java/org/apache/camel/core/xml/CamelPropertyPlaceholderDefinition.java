@@ -128,6 +128,13 @@ name|location
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|ignoreMissingLocation
+specifier|private
+name|Boolean
+name|ignoreMissingLocation
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|propertiesResolverRef
 specifier|private
 name|String
@@ -329,6 +336,32 @@ operator|.
 name|fallbackToUnaugmentedProperty
 operator|=
 name|fallbackToUnaugmentedProperty
+expr_stmt|;
+block|}
+DECL|method|isIgnoreMissingLocation ()
+specifier|public
+name|Boolean
+name|isIgnoreMissingLocation
+parameter_list|()
+block|{
+return|return
+name|ignoreMissingLocation
+return|;
+block|}
+DECL|method|setIgnoreMissingLocation (Boolean ignoreMissingLocation)
+specifier|public
+name|void
+name|setIgnoreMissingLocation
+parameter_list|(
+name|Boolean
+name|ignoreMissingLocation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreMissingLocation
+operator|=
+name|ignoreMissingLocation
 expr_stmt|;
 block|}
 DECL|method|getPrefixToken ()

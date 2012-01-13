@@ -130,13 +130,16 @@ name|DefaultPropertiesResolver
 implements|implements
 name|PropertiesResolver
 block|{
-DECL|method|resolveProperties (CamelContext context, String... uri)
+DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
 specifier|public
 name|Properties
 name|resolveProperties
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|ignoreMissingLocation
 parameter_list|,
 name|String
 modifier|...
@@ -177,6 +180,8 @@ name|loadPropertiesFromRegistry
 argument_list|(
 name|context
 argument_list|,
+name|ignoreMissingLocation
+argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
@@ -213,6 +218,8 @@ name|loadPropertiesFromFilePath
 argument_list|(
 name|context
 argument_list|,
+name|ignoreMissingLocation
+argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
@@ -241,6 +248,8 @@ name|loadPropertiesFromClasspath
 argument_list|(
 name|context
 argument_list|,
+name|ignoreMissingLocation
+argument_list|,
 name|path
 argument_list|)
 decl_stmt|;
@@ -264,13 +273,16 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|loadPropertiesFromFilePath (CamelContext context, String path)
+DECL|method|loadPropertiesFromFilePath (CamelContext context, boolean ignoreMissingLocation, String path)
 specifier|protected
 name|Properties
 name|loadPropertiesFromFilePath
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|ignoreMissingLocation
 parameter_list|,
 name|String
 name|path
@@ -281,7 +293,9 @@ block|{
 name|Properties
 name|answer
 init|=
-literal|null
+operator|new
+name|Properties
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -308,19 +322,17 @@ block|}
 name|InputStream
 name|is
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|is
+operator|=
 operator|new
 name|FileInputStream
 argument_list|(
 name|path
 argument_list|)
-decl_stmt|;
-try|try
-block|{
-name|answer
-operator|=
-operator|new
-name|Properties
-argument_list|()
 expr_stmt|;
 name|answer
 operator|.
@@ -329,6 +341,23 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|ignoreMissingLocation
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 finally|finally
 block|{
@@ -344,13 +373,16 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|loadPropertiesFromClasspath (CamelContext context, String path)
+DECL|method|loadPropertiesFromClasspath (CamelContext context, boolean ignoreMissingLocation, String path)
 specifier|protected
 name|Properties
 name|loadPropertiesFromClasspath
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|ignoreMissingLocation
 parameter_list|,
 name|String
 name|path
@@ -361,7 +393,9 @@ block|{
 name|Properties
 name|answer
 init|=
-literal|null
+operator|new
+name|Properties
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -405,6 +439,12 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|ignoreMissingLocation
+condition|)
+block|{
 throw|throw
 operator|new
 name|FileNotFoundException
@@ -417,14 +457,11 @@ literal|" not found in classpath"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
 try|try
 block|{
-name|answer
-operator|=
-operator|new
-name|Properties
-argument_list|()
-expr_stmt|;
 name|answer
 operator|.
 name|load
@@ -443,17 +480,21 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 return|return
 name|answer
 return|;
 block|}
-DECL|method|loadPropertiesFromRegistry (CamelContext context, String path)
+DECL|method|loadPropertiesFromRegistry (CamelContext context, boolean ignoreMissingLocation, String path)
 specifier|protected
 name|Properties
 name|loadPropertiesFromRegistry
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|ignoreMissingLocation
 parameter_list|,
 name|String
 name|path
@@ -505,6 +546,11 @@ condition|(
 name|answer
 operator|==
 literal|null
+operator|&&
+operator|(
+operator|!
+name|ignoreMissingLocation
+operator|)
 condition|)
 block|{
 throw|throw
@@ -521,6 +567,14 @@ throw|;
 block|}
 return|return
 name|answer
+operator|!=
+literal|null
+condition|?
+name|answer
+else|:
+operator|new
+name|Properties
+argument_list|()
 return|;
 block|}
 comment|/**      * Strategy to prepare loaded properties before being used by Camel.      *<p/>      * This implementation will ensure values are trimmed, as loading properties from      * a file with values having trailing spaces is not automatic trimmed by the Properties API      * from the JDK.      *      * @param properties  the properties      * @return the prepared properties      */

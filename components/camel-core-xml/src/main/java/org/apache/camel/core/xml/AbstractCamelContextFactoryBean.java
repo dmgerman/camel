@@ -2770,6 +2770,27 @@ name|getLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|def
+operator|.
+name|isIgnoreMissingLocation
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|pc
+operator|.
+name|setIgnoreMissingLocation
+argument_list|(
+name|def
+operator|.
+name|isIgnoreMissingLocation
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if using a custom resolver
 if|if
 condition|(

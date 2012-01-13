@@ -235,13 +235,16 @@ name|MyCustomResolver
 implements|implements
 name|PropertiesResolver
 block|{
-DECL|method|resolveProperties (CamelContext context, String... uri)
+DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
 specifier|public
 name|Properties
 name|resolveProperties
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|ignoreMissingLocation
 parameter_list|,
 name|String
 modifier|...

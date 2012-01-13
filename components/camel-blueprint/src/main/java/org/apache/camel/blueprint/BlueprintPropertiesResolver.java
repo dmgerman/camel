@@ -118,13 +118,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|resolveProperties (CamelContext context, String... urls)
+DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... urls)
 specifier|public
 name|Properties
 name|resolveProperties
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|ignoreMissingLocation
 parameter_list|,
 name|String
 modifier|...
@@ -200,6 +203,8 @@ operator|.
 name|resolveProperties
 argument_list|(
 name|context
+argument_list|,
+name|ignoreMissingLocation
 argument_list|,
 name|url
 argument_list|)

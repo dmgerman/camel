@@ -50,13 +50,16 @@ specifier|public
 interface|interface
 name|PropertiesResolver
 block|{
-comment|/**      * Resolve properties from the given uri      *      * @param context the camel context      * @param uri uri(s) defining the source(s)      * @return the properties      * @throws Exception is thrown if resolving the properties failed      */
-DECL|method|resolveProperties (CamelContext context, String... uri)
+comment|/**      * Resolve properties from the given uri      *      *      * @param context the camel context      * @param ignoreMissingLocation ignore silently if the property file is missing      * @param uri uri(s) defining the source(s)  @return the properties      * @throws Exception is thrown if resolving the properties failed      */
+DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
 name|Properties
 name|resolveProperties
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|boolean
+name|ignoreMissingLocation
 parameter_list|,
 name|String
 modifier|...
