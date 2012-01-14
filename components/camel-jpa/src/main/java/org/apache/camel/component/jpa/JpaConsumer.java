@@ -118,18 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|BatchConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -168,21 +156,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ScheduledPollConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ShutdownAware
+name|ScheduledBatchPollingConsumer
 import|;
 end_import
 
@@ -258,11 +232,7 @@ specifier|public
 class|class
 name|JpaConsumer
 extends|extends
-name|ScheduledPollConsumer
-implements|implements
-name|BatchConsumer
-implements|,
-name|ShutdownAware
+name|ScheduledBatchPollingConsumer
 block|{
 DECL|field|LOG
 specifier|private
@@ -329,27 +299,10 @@ name|?
 argument_list|>
 name|resultClass
 decl_stmt|;
-DECL|field|maxMessagesPerPoll
-specifier|private
-name|int
-name|maxMessagesPerPoll
-decl_stmt|;
 DECL|field|transacted
 specifier|private
 name|boolean
 name|transacted
-decl_stmt|;
-DECL|field|shutdownRunningTask
-specifier|private
-specifier|volatile
-name|ShutdownRunningTask
-name|shutdownRunningTask
-decl_stmt|;
-DECL|field|pendingExchanges
-specifier|private
-specifier|volatile
-name|int
-name|pendingExchanges
 decl_stmt|;
 DECL|class|DataHolder
 specifier|private
@@ -697,22 +650,6 @@ name|messagePolled
 argument_list|)
 return|;
 block|}
-DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
-specifier|public
-name|void
-name|setMaxMessagesPerPoll
-parameter_list|(
-name|int
-name|maxMessagesPerPoll
-parameter_list|)
-block|{
-name|this
-operator|.
-name|maxMessagesPerPoll
-operator|=
-name|maxMessagesPerPoll
-expr_stmt|;
-block|}
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
 name|int
@@ -931,140 +868,6 @@ block|}
 block|}
 return|return
 name|total
-return|;
-block|}
-DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
-specifier|public
-name|boolean
-name|deferShutdown
-parameter_list|(
-name|ShutdownRunningTask
-name|shutdownRunningTask
-parameter_list|)
-block|{
-comment|// store a reference what to do in case when shutting down and we have pending messages
-name|this
-operator|.
-name|shutdownRunningTask
-operator|=
-name|shutdownRunningTask
-expr_stmt|;
-comment|// do not defer shutdown
-return|return
-literal|false
-return|;
-block|}
-DECL|method|getPendingExchangesSize ()
-specifier|public
-name|int
-name|getPendingExchangesSize
-parameter_list|()
-block|{
-name|int
-name|answer
-decl_stmt|;
-comment|// only return the real pending size in case we are configured to complete all tasks
-if|if
-condition|(
-name|ShutdownRunningTask
-operator|.
-name|CompleteAllTasks
-operator|==
-name|shutdownRunningTask
-condition|)
-block|{
-name|answer
-operator|=
-name|pendingExchanges
-expr_stmt|;
-block|}
-else|else
-block|{
-name|answer
-operator|=
-literal|0
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|answer
-operator|==
-literal|0
-operator|&&
-name|isPolling
-argument_list|()
-condition|)
-block|{
-comment|// force at least one pending exchange if we are polling as there is a little gap
-comment|// in the processBatch method and until an exchange gets enlisted as in-flight
-comment|// which happens later, so we need to signal back to the shutdown strategy that
-comment|// there is a pending exchange. When we are no longer polling, then we will return 0
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Currently polling so returning 1 as pending exchanges"
-argument_list|)
-expr_stmt|;
-name|answer
-operator|=
-literal|1
-expr_stmt|;
-block|}
-return|return
-name|answer
-return|;
-block|}
-DECL|method|prepareShutdown ()
-specifier|public
-name|void
-name|prepareShutdown
-parameter_list|()
-block|{
-comment|// noop
-block|}
-DECL|method|isBatchAllowed ()
-specifier|public
-name|boolean
-name|isBatchAllowed
-parameter_list|()
-block|{
-comment|// stop if we are not running
-name|boolean
-name|answer
-init|=
-name|isRunAllowed
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|answer
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|shutdownRunningTask
-operator|==
-literal|null
-condition|)
-block|{
-comment|// we are not shutting down so continue to run
-return|return
-literal|true
-return|;
-block|}
-comment|// we are shutting down so only continue if we are configured to complete all tasks
-return|return
-name|ShutdownRunningTask
-operator|.
-name|CompleteAllTasks
-operator|==
-name|shutdownRunningTask
 return|;
 block|}
 comment|// Properties

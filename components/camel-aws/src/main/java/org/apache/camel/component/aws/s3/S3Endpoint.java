@@ -406,6 +406,13 @@ argument_list|(
 name|s3Consumer
 argument_list|)
 expr_stmt|;
+name|s3Consumer
+operator|.
+name|setMaxMessagesPerPoll
+argument_list|(
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
 return|return
 name|s3Consumer
 return|;

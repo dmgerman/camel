@@ -356,6 +356,13 @@ argument_list|(
 name|sqsConsumer
 argument_list|)
 expr_stmt|;
+name|sqsConsumer
+operator|.
+name|setMaxMessagesPerPoll
+argument_list|(
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
 return|return
 name|sqsConsumer
 return|;
