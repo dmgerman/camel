@@ -493,11 +493,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|addChildService (Object childService)
 specifier|protected
 name|void
@@ -523,6 +518,9 @@ name|childServices
 operator|=
 operator|new
 name|LinkedHashSet
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}

@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -181,6 +193,9 @@ extends|extends
 name|AbstractCamelThreadPoolFactoryBean
 implements|implements
 name|FactoryBean
+argument_list|<
+name|ExecutorService
+argument_list|>
 implements|,
 name|ApplicationContextAware
 block|{

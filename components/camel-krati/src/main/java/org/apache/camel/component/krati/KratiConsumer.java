@@ -238,6 +238,11 @@ decl_stmt|;
 DECL|field|dataStore
 specifier|protected
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|dataStore
 decl_stmt|;
 DECL|field|maxMessagesPerPoll
@@ -259,7 +264,7 @@ specifier|volatile
 name|int
 name|pendingExchanges
 decl_stmt|;
-DECL|method|KratiConsumer (KratiEndpoint endpoint, Processor processor, DataStore dataStore)
+DECL|method|KratiConsumer (KratiEndpoint endpoint, Processor processor, DataStore<Object, Object> dataStore)
 specifier|public
 name|KratiConsumer
 parameter_list|(
@@ -270,6 +275,11 @@ name|Processor
 name|processor
 parameter_list|,
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|dataStore
 parameter_list|)
 block|{
@@ -325,6 +335,9 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|keyIterator
 init|=
 name|dataStore

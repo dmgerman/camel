@@ -206,7 +206,7 @@ condition|)
 block|{
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -215,7 +215,7 @@ init|=
 operator|new
 name|LinkedHashMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>

@@ -85,6 +85,11 @@ specifier|protected
 name|EntryFilter
 name|entryFilter
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|field|list
 specifier|protected
 name|List

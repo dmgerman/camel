@@ -271,6 +271,11 @@ block|{
 DECL|field|property
 specifier|private
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|property
 decl_stmt|;
 DECL|method|MyObjectMessage ()
@@ -284,12 +289,22 @@ name|property
 operator|=
 operator|new
 name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getProperty ()
 specifier|public
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|getProperty
 parameter_list|()
 block|{

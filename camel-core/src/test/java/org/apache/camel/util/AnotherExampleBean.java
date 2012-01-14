@@ -69,6 +69,9 @@ decl_stmt|;
 DECL|field|children
 specifier|private
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|children
 decl_stmt|;
 DECL|field|goldCustomer
@@ -210,6 +213,9 @@ block|}
 DECL|method|getChildren ()
 specifier|public
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|getChildren
 parameter_list|()
 block|{
@@ -217,12 +223,15 @@ return|return
 name|children
 return|;
 block|}
-DECL|method|setChildren (Collection children)
+DECL|method|setChildren (Collection<?> children)
 specifier|public
 name|void
 name|setChildren
 parameter_list|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|children
 parameter_list|)
 block|{

@@ -481,10 +481,26 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|BundleDescriptor
+argument_list|>
+argument_list|>
 name|config
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|BundleDescriptor
+argument_list|>
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|config
@@ -908,6 +924,11 @@ literal|null
 condition|)
 block|{
 name|Dictionary
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|dic
 init|=
 name|bundleContext
@@ -1043,17 +1064,25 @@ throw|;
 block|}
 block|}
 comment|/*      * Explode the dictionary into a ,-delimited list of key=value pairs      */
-DECL|method|explode (Dictionary dictionary)
+DECL|method|explode (Dictionary<?, ?> dictionary)
 specifier|private
 specifier|static
 name|String
 name|explode
 parameter_list|(
 name|Dictionary
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|dictionary
 parameter_list|)
 block|{
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|keys
 init|=
 name|dictionary
@@ -1133,7 +1162,6 @@ comment|/*      * Provides an iterable collection of references, even if the ori
 DECL|method|asCollection (ServiceReference[] references)
 specifier|private
 specifier|static
-specifier|final
 name|Collection
 argument_list|<
 name|ServiceReference
@@ -1268,6 +1296,11 @@ control|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|entry
 range|:
 name|jis
@@ -1403,9 +1436,6 @@ literal|0
 decl_stmt|;
 while|while
 condition|(
-operator|-
-literal|1
-operator|!=
 operator|(
 name|n
 operator|=
@@ -1416,6 +1446,9 @@ argument_list|(
 name|buffer
 argument_list|)
 operator|)
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
 name|output

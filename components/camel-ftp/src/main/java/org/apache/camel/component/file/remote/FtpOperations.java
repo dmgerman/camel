@@ -831,10 +831,16 @@ name|FtpEndpoint
 condition|)
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|ftpEndpoint
 init|=
 operator|(
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|endpoint
 decl_stmt|;
@@ -1069,6 +1075,9 @@ condition|)
 block|{
 comment|// commands can be separated using new line
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper

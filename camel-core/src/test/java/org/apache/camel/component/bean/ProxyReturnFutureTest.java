@@ -89,6 +89,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Echo
 name|service
 init|=
@@ -109,6 +114,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Future
+argument_list|<
+name|String
+argument_list|>
 name|future
 init|=
 name|service
@@ -145,9 +153,6 @@ expr_stmt|;
 name|String
 name|reply
 init|=
-operator|(
-name|String
-operator|)
 name|future
 operator|.
 name|get
@@ -176,6 +181,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Echo
 name|service
 init|=
@@ -196,6 +206,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Future
+argument_list|<
+name|String
+argument_list|>
 name|future
 init|=
 name|service

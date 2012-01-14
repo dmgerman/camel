@@ -1718,11 +1718,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createJndiContext ()
 specifier|protected
 name|Context
@@ -1793,6 +1788,11 @@ name|InitialContext
 argument_list|(
 operator|new
 name|Hashtable
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|properties
 argument_list|)
@@ -2457,7 +2457,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Single step debugs and Camel invokes this method before entering the given processor      */
-DECL|method|debugBefore (Exchange exchange, Processor processor, ProcessorDefinition definition, String id, String label)
+DECL|method|debugBefore (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, String id, String label)
 specifier|protected
 name|void
 name|debugBefore
@@ -2469,6 +2469,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|String
@@ -2479,7 +2482,7 @@ name|label
 parameter_list|)
 block|{     }
 comment|/**      * Single step debugs and Camel invokes this method after processing the given processor      */
-DECL|method|debugAfter (Exchange exchange, Processor processor, ProcessorDefinition definition, String id, String label, long timeTaken)
+DECL|method|debugAfter (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, String id, String label, long timeTaken)
 specifier|protected
 name|void
 name|debugAfter
@@ -2491,6 +2494,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|String
@@ -2513,7 +2519,7 @@ name|BreakpointSupport
 block|{
 annotation|@
 name|Override
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|void
 name|beforeProcess
@@ -2525,6 +2531,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
@@ -2554,7 +2563,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
 specifier|public
 name|void
 name|afterProcess
@@ -2566,6 +2575,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|long

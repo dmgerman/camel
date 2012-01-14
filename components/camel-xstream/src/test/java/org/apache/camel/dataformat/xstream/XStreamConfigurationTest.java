@@ -1074,6 +1074,11 @@ name|PurchaseOrderConverter
 implements|implements
 name|Converter
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|canConvert (Class type)
 specifier|public
 name|boolean
@@ -1311,6 +1316,11 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|canConvert (Class type)
 specifier|public
 name|boolean
@@ -1401,6 +1411,11 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|canConvert (Class type)
 specifier|public
 name|boolean

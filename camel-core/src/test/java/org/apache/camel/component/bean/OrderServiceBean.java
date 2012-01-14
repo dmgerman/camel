@@ -103,12 +103,15 @@ operator|=
 name|converter
 expr_stmt|;
 block|}
-DECL|method|handleCustom (GenericFile file)
+DECL|method|handleCustom (GenericFile<?> file)
 specifier|public
 name|String
 name|handleCustom
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|file
 parameter_list|)
 block|{

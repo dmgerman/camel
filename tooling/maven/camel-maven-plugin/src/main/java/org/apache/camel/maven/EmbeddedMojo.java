@@ -190,6 +190,9 @@ comment|/**      * Project classpath.      *      * @parameter expression="${pro
 DECL|field|classpathElements
 specifier|private
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|classpathElements
 decl_stmt|;
 comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
@@ -332,6 +335,9 @@ block|}
 DECL|method|getClasspathElements ()
 specifier|public
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|getClasspathElements
 parameter_list|()
 block|{
@@ -339,12 +345,15 @@ return|return
 name|classpathElements
 return|;
 block|}
-DECL|method|setClasspathElements (List classpathElements)
+DECL|method|setClasspathElements (List<?> classpathElements)
 specifier|public
 name|void
 name|setClasspathElements
 parameter_list|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|classpathElements
 parameter_list|)
 block|{

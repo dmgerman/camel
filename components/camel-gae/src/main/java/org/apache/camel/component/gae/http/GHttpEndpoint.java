@@ -517,11 +517,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructs a {@link URL} from an<code>uri</code> and an optional      *<code>query</code> string. The encoding strategy follow those of the      * Camel HTTP component.      *       * @param uri      *            must be encoded with      *            {@link UnsafeUriCharactersEncoder#encode(String)}.      * @param query      *            decoded query string. Replaces the query part of      *<code>uri</code> if not<code>null</code>.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getEndpointUrl (String uri, String query)
 specifier|static
 name|URL
@@ -639,9 +634,6 @@ name|createRemainingURI
 argument_list|(
 name|uriObj
 argument_list|,
-operator|(
-name|Map
-operator|)
 name|parameters
 argument_list|)
 operator|.

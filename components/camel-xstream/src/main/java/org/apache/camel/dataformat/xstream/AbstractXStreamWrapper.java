@@ -619,6 +619,9 @@ name|Converter
 name|converter
 decl_stmt|;
 name|Constructor
+argument_list|<
+name|Converter
+argument_list|>
 name|con
 init|=
 literal|null
@@ -659,9 +662,6 @@ condition|)
 block|{
 name|converter
 operator|=
-operator|(
-name|Converter
-operator|)
 name|con
 operator|.
 name|newInstance

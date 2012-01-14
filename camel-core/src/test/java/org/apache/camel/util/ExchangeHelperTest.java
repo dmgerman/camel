@@ -270,6 +270,9 @@ block|{
 try|try
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|value
 init|=
 name|ExchangeHelper
@@ -386,6 +389,9 @@ expr_stmt|;
 try|try
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|value
 init|=
 name|ExchangeHelper
@@ -884,6 +890,11 @@ literal|"Camel rocks"
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|ExchangeHelper
@@ -1075,6 +1086,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|ExchangeHelper

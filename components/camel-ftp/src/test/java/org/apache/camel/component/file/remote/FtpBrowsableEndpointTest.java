@@ -223,6 +223,9 @@ literal|"a.txt"
 argument_list|)
 expr_stmt|;
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -263,11 +266,6 @@ name|getCacheSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|List
 argument_list|<
 name|Exchange
@@ -395,6 +393,9 @@ literal|"b.txt"
 argument_list|)
 expr_stmt|;
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -437,11 +438,6 @@ name|getCacheSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|List
 argument_list|<
 name|Exchange
@@ -630,6 +626,9 @@ literal|"bar/c.txt"
 argument_list|)
 expr_stmt|;
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -672,11 +671,6 @@ name|getCacheSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|List
 argument_list|<
 name|Exchange

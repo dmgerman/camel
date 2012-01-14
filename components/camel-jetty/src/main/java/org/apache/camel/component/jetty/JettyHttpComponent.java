@@ -266,20 +266,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CastUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -1406,12 +1392,7 @@ name|createRemainingURI
 argument_list|(
 name|addressUri
 argument_list|,
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|httpClientParameters
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
@@ -1424,12 +1405,7 @@ name|createRemainingURI
 argument_list|(
 name|addressUri
 argument_list|,
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|parameters
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// create endpoint after all known parameters have been extracted from parameters

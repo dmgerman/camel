@@ -136,7 +136,7 @@ operator|.
 name|Active
 expr_stmt|;
 block|}
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|void
 name|beforeProcess
@@ -148,12 +148,15 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
 specifier|public
 name|void
 name|afterProcess
@@ -165,6 +168,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|long
@@ -173,7 +179,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition definition)
+DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition<?> definition)
 specifier|public
 name|void
 name|onEvent
@@ -185,6 +191,9 @@ name|EventObject
 name|event
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{

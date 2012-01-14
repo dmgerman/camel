@@ -230,6 +230,9 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|browser

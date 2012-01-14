@@ -476,6 +476,11 @@ operator|==
 literal|null
 condition|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|Dictionary
 name|dic
 init|=
@@ -724,17 +729,25 @@ argument_list|)
 throw|;
 block|}
 comment|/*      * Explode the dictionary into a ,-delimited list of key=value pairs      */
-DECL|method|explode (Dictionary dictionary)
+DECL|method|explode (Dictionary<?, ?> dictionary)
 specifier|private
 specifier|static
 name|String
 name|explode
 parameter_list|(
 name|Dictionary
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|dictionary
 parameter_list|)
 block|{
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|keys
 init|=
 name|dictionary

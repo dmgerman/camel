@@ -2186,6 +2186,9 @@ argument_list|)
 decl_stmt|;
 comment|// use an iterator to walk the parameter values
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 literal|null

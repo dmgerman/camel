@@ -165,6 +165,9 @@ decl_stmt|;
 DECL|field|current
 specifier|private
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|current
 decl_stmt|;
 DECL|method|DynamicRoutingSlipIterator (Expression slip)

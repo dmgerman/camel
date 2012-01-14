@@ -225,6 +225,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|responses
 init|=
@@ -234,6 +237,9 @@ argument_list|<
 name|Integer
 argument_list|,
 name|Future
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -259,6 +265,9 @@ init|=
 name|i
 decl_stmt|;
 name|Future
+argument_list|<
+name|String
+argument_list|>
 name|out
 init|=
 name|executor
@@ -268,12 +277,12 @@ argument_list|(
 operator|new
 name|Callable
 argument_list|<
-name|Object
+name|String
 argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|String
 name|call
 parameter_list|()
 throws|throws
@@ -337,6 +346,9 @@ decl_stmt|;
 for|for
 control|(
 name|Future
+argument_list|<
+name|String
+argument_list|>
 name|future
 range|:
 name|responses

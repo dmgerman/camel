@@ -91,6 +91,9 @@ name|testFtpConfigurationDefaults
 parameter_list|()
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -521,6 +524,9 @@ name|testFtpExplicitConfiguration
 parameter_list|()
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -1044,6 +1050,9 @@ name|expectedFile
 parameter_list|)
 block|{
 name|RemoteFileEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|resolveMandatoryEndpoint
@@ -1201,6 +1210,9 @@ name|testPasswordInContextPathConfiguration
 parameter_list|()
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -1284,6 +1296,9 @@ throws|throws
 name|Exception
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -1352,6 +1367,9 @@ name|testPathSeparatorAuto
 parameter_list|()
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -1451,6 +1469,9 @@ name|testPathSeparatorUnix
 parameter_list|()
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context
@@ -1550,6 +1571,9 @@ name|testPathSeparatorWindows
 parameter_list|()
 block|{
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 name|endpoint
 init|=
 name|context

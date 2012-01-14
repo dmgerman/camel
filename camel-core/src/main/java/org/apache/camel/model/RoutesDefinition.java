@@ -871,12 +871,17 @@ name|answer
 return|;
 block|}
 comment|/**      * Adds an on exception      *       * @param exception  the exception      * @return the builder      */
-DECL|method|onException (Class exception)
+DECL|method|onException (Class<? extends Throwable> exception)
 specifier|public
 name|OnExceptionDefinition
 name|onException
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exception
 parameter_list|)
 block|{

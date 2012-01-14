@@ -221,15 +221,24 @@ specifier|public
 specifier|static
 class|class
 name|MyFileFilter
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|GenericFileFilter
+argument_list|<
+name|T
+argument_list|>
 block|{
-DECL|method|accept (GenericFile file)
+DECL|method|accept (GenericFile<T> file)
 specifier|public
 name|boolean
 name|accept
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|file
 parameter_list|)
 block|{
@@ -283,12 +292,18 @@ argument_list|)
 DECL|method|getfileFilter ()
 specifier|public
 name|GenericFileFilter
+argument_list|<
+name|?
+argument_list|>
 name|getfileFilter
 parameter_list|()
 block|{
 return|return
 operator|new
 name|MyFileFilter
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 return|;
 block|}

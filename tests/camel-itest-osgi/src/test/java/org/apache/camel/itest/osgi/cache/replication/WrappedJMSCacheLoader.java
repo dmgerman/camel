@@ -372,6 +372,11 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|loadAll (Collection arg0)
 specifier|public
@@ -391,6 +396,11 @@ name|arg0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|loadAll (Collection arg0, Object arg1)

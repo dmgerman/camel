@@ -1140,6 +1140,9 @@ argument_list|)
 throw|;
 block|}
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|names
 decl_stmt|;
 try|try
@@ -3083,6 +3086,11 @@ name|createMapMessage
 argument_list|()
 decl_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|payload
 init|=
 name|context
@@ -3301,6 +3309,9 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|names
 init|=
 name|message

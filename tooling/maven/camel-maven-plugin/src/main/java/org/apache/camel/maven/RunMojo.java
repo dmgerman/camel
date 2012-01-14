@@ -1450,6 +1450,9 @@ operator|=
 literal|false
 expr_stmt|;
 name|Collection
+argument_list|<
+name|Thread
+argument_list|>
 name|threads
 init|=
 name|getActiveThreads
@@ -1460,6 +1463,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|Thread
+argument_list|>
 name|iter
 init|=
 name|threads
@@ -1477,9 +1483,6 @@ block|{
 name|Thread
 name|thread
 init|=
-operator|(
-name|Thread
-operator|)
 name|iter
 operator|.
 name|next
@@ -2165,6 +2168,9 @@ block|}
 try|try
 block|{
 name|Iterator
+argument_list|<
+name|Artifact
+argument_list|>
 name|iter
 init|=
 name|this
@@ -2186,9 +2192,6 @@ block|{
 name|Artifact
 name|classPathElement
 init|=
-operator|(
-name|Artifact
-operator|)
 name|iter
 operator|.
 name|next
@@ -2341,6 +2344,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|Artifact
+argument_list|>
 name|iter
 init|=
 name|dependencies
@@ -2359,9 +2365,6 @@ block|{
 name|Artifact
 name|classPathElement
 init|=
-operator|(
-name|Artifact
-operator|)
 name|iter
 operator|.
 name|next
@@ -2533,6 +2536,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|dependencies
 init|=
 name|project
@@ -2738,6 +2744,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|j
 init|=
 name|dependency

@@ -640,11 +640,6 @@ name|type
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doResolvePolicy (RouteContext routeContext, String ref, Class<? extends Policy> type)
 specifier|protected
 specifier|static
@@ -711,6 +706,11 @@ condition|)
 block|{
 comment|// try find by type, note that this method is not supported by all registry
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 name|types
 init|=
 name|routeContext
@@ -807,6 +807,9 @@ name|class
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|tmClazz
 init|=
 name|routeContext
@@ -834,7 +837,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|maps
 init|=
@@ -885,6 +888,9 @@ name|transactionManager
 argument_list|)
 expr_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|txClazz
 init|=
 name|routeContext

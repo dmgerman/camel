@@ -352,6 +352,9 @@ comment|/**      * Strategy to create the iterator      *      * @param in input
 DECL|method|createIterator (InputStream in, String charset)
 specifier|protected
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|createIterator
 parameter_list|(
 name|InputStream
@@ -414,6 +417,9 @@ class|class
 name|TokenPairIterator
 implements|implements
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 implements|,
 name|Closeable
 block|{

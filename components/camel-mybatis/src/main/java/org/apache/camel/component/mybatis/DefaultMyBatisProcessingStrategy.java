@@ -149,6 +149,9 @@ block|}
 DECL|method|poll (MyBatisConsumer consumer, MyBatisEndpoint endpoint)
 specifier|public
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|poll
 parameter_list|(
 name|MyBatisConsumer

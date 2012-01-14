@@ -1286,6 +1286,9 @@ literal|"Running Camel embedded to load jndi.properties file from the classpath"
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|project

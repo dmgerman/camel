@@ -94,20 +94,6 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CastUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * A processor that sorts the expression using a comparator  */
 end_comment
@@ -117,6 +103,9 @@ DECL|class|SortProcessor
 specifier|public
 class|class
 name|SortProcessor
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|Processor
 block|{
@@ -131,11 +120,13 @@ specifier|private
 specifier|final
 name|Comparator
 argument_list|<
-name|Object
+name|?
+super|super
+name|T
 argument_list|>
 name|comparator
 decl_stmt|;
-DECL|method|SortProcessor (Expression expression, Comparator<Object> comparator)
+DECL|method|SortProcessor (Expression expression, Comparator<? super T> comparator)
 specifier|public
 name|SortProcessor
 parameter_list|(
@@ -144,7 +135,9 @@ name|expression
 parameter_list|,
 name|Comparator
 argument_list|<
-name|Object
+name|?
+super|super
+name|T
 argument_list|>
 name|comparator
 parameter_list|)
@@ -181,16 +174,17 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|List
 argument_list|<
-name|Object
+name|T
 argument_list|>
 name|list
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|expression
 operator|.
 name|evaluate
@@ -200,7 +194,6 @@ argument_list|,
 name|List
 operator|.
 name|class
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|Collections

@@ -155,6 +155,11 @@ name|ProcessorDefinitionHelper
 parameter_list|()
 block|{     }
 comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the found definitions, or<tt>null</tt> if not found      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|filterTypeInOutputs (List<ProcessorDefinition> outputs, Class<T> type)
 specifier|public
 specifier|static
@@ -210,6 +215,11 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      * Will stop at first found and return it.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the first found type, or<tt>null</tt> if not found      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|findFirstTypeInOutputs (List<ProcessorDefinition> outputs, Class<T> type)
 specifier|public
 specifier|static
@@ -491,6 +501,9 @@ literal|null
 return|;
 block|}
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 init|=
 name|node
@@ -543,7 +556,11 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|doFindType (List<ProcessorDefinition> outputs, Class<T> type, List<T> found)
 specifier|private
@@ -764,7 +781,11 @@ comment|/**      * Is there any outputs in the given list.      *<p/>      * Is 
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|hasOutputs (List<ProcessorDefinition> outputs, boolean excludeAbstract)
 specifier|public
@@ -863,7 +884,7 @@ literal|false
 return|;
 block|}
 comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the route context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws NoSuchBeanException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
-DECL|method|getConfiguredExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition definition)
+DECL|method|getConfiguredExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition)
 specifier|public
 specifier|static
 name|ExecutorService
@@ -876,6 +897,9 @@ name|String
 name|name
 parameter_list|,
 name|ExecutorServiceAwareDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 throws|throws
@@ -1013,7 +1037,7 @@ literal|null
 return|;
 block|}
 comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ScheduledExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the rout context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if the found instance is not a ScheduledExecutorService type.      * @throws NoSuchBeanException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
-DECL|method|getConfiguredScheduledExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition definition)
+DECL|method|getConfiguredScheduledExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition)
 specifier|public
 specifier|static
 name|ScheduledExecutorService
@@ -1026,6 +1050,9 @@ name|String
 name|name
 parameter_list|,
 name|ExecutorServiceAwareDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 throws|throws

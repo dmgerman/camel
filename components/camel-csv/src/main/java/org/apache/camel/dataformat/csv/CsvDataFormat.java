@@ -362,6 +362,9 @@ expr_stmt|;
 try|try
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|ExchangeHelper
@@ -393,6 +396,11 @@ name|list
 control|)
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|row
 init|=
 name|ExchangeHelper
@@ -424,6 +432,11 @@ block|}
 else|else
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|row
 init|=
 name|ExchangeHelper
@@ -461,7 +474,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|doMarshalRecord (Exchange exchange, Map row, Writer out, CSVWriter csv)
+DECL|method|doMarshalRecord (Exchange exchange, Map<?, ?> row, Writer out, CSVWriter csv)
 specifier|private
 name|void
 name|doMarshalRecord
@@ -470,6 +483,11 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|row
 parameter_list|,
 name|Writer
@@ -488,6 +506,9 @@ condition|)
 block|{
 comment|// no specific config has been set so lets add fields
 name|Set
+argument_list|<
+name|?
+argument_list|>
 name|set
 init|=
 name|row

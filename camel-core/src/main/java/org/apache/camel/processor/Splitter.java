@@ -702,11 +702,6 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createProcessorExchangePairsIterable (final Exchange exchange, final Object value)
 specifier|private
 name|Iterable
@@ -726,6 +721,9 @@ parameter_list|)
 block|{
 specifier|final
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iterator
 init|=
 name|ObjectHelper
@@ -738,6 +736,9 @@ decl_stmt|;
 return|return
 operator|new
 name|Iterable
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
 argument_list|()
 block|{
 comment|// create a copy which we use as master to copy during splitting
@@ -780,12 +781,18 @@ literal|null
 decl_stmt|;
 specifier|public
 name|Iterator
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
 name|iterator
 parameter_list|()
 block|{
 return|return
 operator|new
 name|Iterator
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
 argument_list|()
 block|{
 specifier|private
@@ -884,7 +891,7 @@ name|answer
 return|;
 block|}
 specifier|public
-name|Object
+name|ProcessorExchangePair
 name|next
 parameter_list|()
 block|{

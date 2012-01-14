@@ -225,10 +225,16 @@ argument_list|)
 condition|)
 block|{
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 name|file
 init|=
 operator|(
 name|GenericFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;

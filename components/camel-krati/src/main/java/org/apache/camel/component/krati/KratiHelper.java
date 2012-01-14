@@ -132,26 +132,6 @@ name|RuntimeCamelException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|KratiHelper
 specifier|public
@@ -159,23 +139,6 @@ specifier|final
 class|class
 name|KratiHelper
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|KratiHelper
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|KratiHelper ()
 specifier|private
 name|KratiHelper
@@ -184,16 +147,19 @@ block|{
 comment|//Utillity Class
 block|}
 comment|/**      * Creates a {@link krati.sos.SerializableObjectStore} with the given parameters.      *      * @param path            The directory which the store will use.      * @param initialCapacity      * @param segmentFileSize      * @param segmentFactory  The segment factory, defaults to {@link krati.core.segment.ChannelSegmentFactory}.      * @param hashFunction    The hash function, defaults to {@link krati.util.FnvHashFunction}.      * @param keySerializer   The serializer used for keys, defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @param valueSerializer The serializer used for values,defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @return      */
-DECL|method|createDataStore (String path, int initialCapacity, int segmentFileSize, SegmentFactory segmentFactory, HashFunction<byte[]> hashFunction, Serializer keySerializer, Serializer valueSerializer)
+DECL|method|createDataStore (String path, int initialCapacity, int segmentFileSize, SegmentFactory segmentFactory, HashFunction<byte[]> hashFunction, Serializer<K> keySerializer, Serializer<V> valueSerializer)
 specifier|public
 specifier|static
+parameter_list|<
+name|K
+parameter_list|,
+name|V
+parameter_list|>
 name|DataStore
 argument_list|<
-name|byte
-index|[]
+name|K
 argument_list|,
-name|byte
-index|[]
+name|V
 argument_list|>
 name|createDataStore
 parameter_list|(
@@ -217,19 +183,23 @@ argument_list|>
 name|hashFunction
 parameter_list|,
 name|Serializer
+argument_list|<
+name|K
+argument_list|>
 name|keySerializer
 parameter_list|,
 name|Serializer
+argument_list|<
+name|V
+argument_list|>
 name|valueSerializer
 parameter_list|)
 block|{
 name|DataStore
 argument_list|<
-name|byte
-index|[]
+name|K
 argument_list|,
-name|byte
-index|[]
+name|V
 argument_list|>
 name|result
 init|=
@@ -303,6 +273,11 @@ name|result
 operator|=
 operator|new
 name|SerializableObjectStore
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 argument_list|(
 name|dynamicDataStore
 argument_list|,

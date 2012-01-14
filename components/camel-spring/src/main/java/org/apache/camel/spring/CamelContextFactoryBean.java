@@ -1081,6 +1081,9 @@ argument_list|)
 DECL|field|beans
 specifier|private
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|beans
 decl_stmt|;
 annotation|@

@@ -402,6 +402,9 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper

@@ -562,6 +562,9 @@ condition|)
 block|{
 comment|// lets handle arrays or collections of objects
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper
@@ -713,6 +716,9 @@ condition|)
 block|{
 comment|// lets handle arrays or collections of objects
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper
@@ -864,6 +870,9 @@ condition|)
 block|{
 comment|// lets handle arrays or collections of objects
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper

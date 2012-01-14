@@ -1377,6 +1377,11 @@ argument_list|)
 expr_stmt|;
 comment|// try map first
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|exchange
@@ -1453,6 +1458,9 @@ name|checkList
 condition|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|exchange

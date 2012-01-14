@@ -107,11 +107,6 @@ specifier|protected
 name|Context
 name|context
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createInitialContext ()
 specifier|public
 specifier|static
@@ -163,6 +158,11 @@ name|InitialContext
 argument_list|(
 operator|new
 name|Hashtable
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|properties
 argument_list|)

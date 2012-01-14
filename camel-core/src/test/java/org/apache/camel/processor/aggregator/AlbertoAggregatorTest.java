@@ -286,6 +286,9 @@ argument_list|<
 name|String
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 name|allBrothers
 init|=
@@ -295,6 +298,9 @@ argument_list|<
 name|String
 argument_list|,
 name|List
+argument_list|<
+name|String
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -555,6 +561,9 @@ argument_list|<
 name|String
 argument_list|,
 name|List
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|brothers
 init|=
@@ -613,6 +622,9 @@ argument_list|<
 name|String
 argument_list|,
 name|List
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|brothers
 init|=
@@ -622,6 +634,9 @@ argument_list|<
 name|String
 argument_list|,
 name|List
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;

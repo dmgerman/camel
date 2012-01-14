@@ -1826,6 +1826,9 @@ decl_stmt|;
 try|try
 block|{
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|message

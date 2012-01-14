@@ -192,6 +192,22 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|net
+operator|.
+name|ftp
+operator|.
+name|FTPFile
+import|;
+end_import
+
 begin_class
 DECL|class|FtpProcessStrategyFactory
 specifier|public
@@ -617,9 +633,6 @@ argument_list|)
 DECL|method|getExclusiveReadLockStrategy (Map<String, Object> params)
 specifier|private
 specifier|static
-parameter_list|<
-name|FTPFile
-parameter_list|>
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
 name|FTPFile
@@ -778,6 +791,9 @@ argument_list|)
 condition|)
 block|{
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|FTPFile
+argument_list|>
 name|readLockStrategy
 init|=
 operator|new

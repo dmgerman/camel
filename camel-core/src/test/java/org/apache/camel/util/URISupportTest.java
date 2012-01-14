@@ -548,7 +548,7 @@ argument_list|)
 decl_stmt|;
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -557,7 +557,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -805,7 +805,7 @@ decl_stmt|;
 comment|// these are the parameters which is tricky to encode
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -814,7 +814,7 @@ init|=
 operator|new
 name|LinkedHashMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>

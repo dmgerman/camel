@@ -217,6 +217,9 @@ DECL|class|SortDefinition
 specifier|public
 class|class
 name|SortDefinition
+parameter_list|<
+name|T
+parameter_list|>
 extends|extends
 name|NoOutputExpressionNode
 block|{
@@ -226,7 +229,9 @@ DECL|field|comparator
 specifier|private
 name|Comparator
 argument_list|<
-name|Object
+name|?
+super|super
+name|T
 argument_list|>
 name|comparator
 decl_stmt|;
@@ -260,7 +265,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SortDefinition (Expression expression, Comparator<Object> comparator)
+DECL|method|SortDefinition (Expression expression, Comparator<? super T> comparator)
 specifier|public
 name|SortDefinition
 parameter_list|(
@@ -269,7 +274,9 @@ name|expression
 parameter_list|,
 name|Comparator
 argument_list|<
-name|Object
+name|?
+super|super
+name|T
 argument_list|>
 name|comparator
 parameter_list|)
@@ -408,7 +415,7 @@ operator|=
 operator|new
 name|Comparator
 argument_list|<
-name|Object
+name|T
 argument_list|>
 argument_list|()
 block|{
@@ -416,10 +423,10 @@ specifier|public
 name|int
 name|compare
 parameter_list|(
-name|Object
+name|T
 name|o1
 parameter_list|,
-name|Object
+name|T
 name|o2
 parameter_list|)
 block|{
@@ -471,6 +478,9 @@ block|}
 return|return
 operator|new
 name|SortProcessor
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|exp
 argument_list|,
@@ -483,7 +493,9 @@ DECL|method|getComparator ()
 specifier|public
 name|Comparator
 argument_list|<
-name|Object
+name|?
+super|super
+name|T
 argument_list|>
 name|getComparator
 parameter_list|()
@@ -492,14 +504,14 @@ return|return
 name|comparator
 return|;
 block|}
-DECL|method|setComparator (Comparator<Object> comparator)
+DECL|method|setComparator (Comparator<T> comparator)
 specifier|public
 name|void
 name|setComparator
 parameter_list|(
 name|Comparator
 argument_list|<
-name|Object
+name|T
 argument_list|>
 name|comparator
 parameter_list|)
@@ -538,14 +550,17 @@ name|comparatorRef
 expr_stmt|;
 block|}
 comment|/**      * Sets the comparator to use for sorting      *      * @param comparator  the comparator to use for sorting      * @return the builder      */
-DECL|method|comparator (Comparator<Object> comparator)
+DECL|method|comparator (Comparator<T> comparator)
 specifier|public
 name|SortDefinition
+argument_list|<
+name|T
+argument_list|>
 name|comparator
 parameter_list|(
 name|Comparator
 argument_list|<
-name|Object
+name|T
 argument_list|>
 name|comparator
 parameter_list|)
@@ -563,6 +578,9 @@ comment|/**      * Sets a reference to lookup for the comparator to use for sort
 DECL|method|comparatorRef (String ref)
 specifier|public
 name|SortDefinition
+argument_list|<
+name|T
+argument_list|>
 name|comparatorRef
 parameter_list|(
 name|String

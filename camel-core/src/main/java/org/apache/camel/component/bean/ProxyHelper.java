@@ -86,10 +86,18 @@ name|ProxyHelper
 parameter_list|()
 block|{     }
 comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
-DECL|method|createProxyObject (Endpoint endpoint, Producer producer, ClassLoader classLoader, Class[] interfaces, MethodInfoCache methodCache)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|createProxyObject (Endpoint endpoint, Producer producer, ClassLoader classLoader, Class<T>[] interfaces, MethodInfoCache methodCache)
 specifier|public
 specifier|static
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|createProxyObject
 parameter_list|(
 name|Endpoint
@@ -102,6 +110,9 @@ name|ClassLoader
 name|classLoader
 parameter_list|,
 name|Class
+argument_list|<
+name|T
+argument_list|>
 index|[]
 name|interfaces
 parameter_list|,
@@ -110,6 +121,9 @@ name|methodCache
 parameter_list|)
 block|{
 return|return
+operator|(
+name|T
+operator|)
 name|Proxy
 operator|.
 name|newProxyInstance
@@ -134,12 +148,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createProxy (Endpoint endpoint, ClassLoader cl, Class[] interfaces, MethodInfoCache methodCache)
+DECL|method|createProxy (Endpoint endpoint, ClassLoader cl, Class<T>[] interfaces, MethodInfoCache methodCache)
 specifier|public
 specifier|static
 parameter_list|<
@@ -155,6 +164,9 @@ name|ClassLoader
 name|cl
 parameter_list|,
 name|Class
+argument_list|<
+name|T
+argument_list|>
 index|[]
 name|interfaces
 parameter_list|,
@@ -181,9 +193,6 @@ name|producer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|T
-operator|)
 name|createProxyObject
 argument_list|(
 name|endpoint
@@ -199,12 +208,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createProxy (Endpoint endpoint, ClassLoader cl, Class<?>... interfaceClasses)
+DECL|method|createProxy (Endpoint endpoint, ClassLoader cl, Class<T>... interfaceClasses)
 specifier|public
 specifier|static
 parameter_list|<
@@ -221,7 +225,7 @@ name|cl
 parameter_list|,
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 modifier|...
 name|interfaceClasses
@@ -230,9 +234,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|createProxy
 argument_list|(
 name|endpoint
@@ -249,12 +250,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createProxy (Endpoint endpoint, Class<?>... interfaceClasses)
+DECL|method|createProxy (Endpoint endpoint, Class<T>... interfaceClasses)
 specifier|public
 specifier|static
 parameter_list|<
@@ -268,7 +264,7 @@ name|endpoint
 parameter_list|,
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 modifier|...
 name|interfaceClasses
@@ -277,9 +273,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|createProxy
 argument_list|(
 name|endpoint
@@ -294,12 +287,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createProxy (Endpoint endpoint, Producer producer, Class<?>... interfaceClasses)
+DECL|method|createProxy (Endpoint endpoint, Producer producer, Class<T>... interfaceClasses)
 specifier|public
 specifier|static
 parameter_list|<
@@ -316,7 +304,7 @@ name|producer
 parameter_list|,
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 modifier|...
 name|interfaceClasses
@@ -325,9 +313,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|createProxyObject
 argument_list|(
 name|endpoint

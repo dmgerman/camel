@@ -300,9 +300,6 @@ throw|;
 block|}
 name|serviceQName
 operator|=
-operator|(
-name|QName
-operator|)
 name|services
 operator|.
 name|keySet
@@ -464,9 +461,6 @@ operator|.
 name|getNamespaceURI
 argument_list|()
 argument_list|,
-operator|(
-name|String
-operator|)
 name|ports
 operator|.
 name|keySet

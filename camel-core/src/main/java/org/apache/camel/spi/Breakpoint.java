@@ -103,7 +103,7 @@ name|activate
 parameter_list|()
 function_decl|;
 comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} is about to be processed (before).      *      * @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} about to be processed      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the processor      */
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
 name|void
 name|beforeProcess
 parameter_list|(
@@ -114,11 +114,14 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 function_decl|;
 comment|/**      * Callback invoked when the breakpoint was hit and the {@link Exchange} has been processed (after).      *      * @param exchange   the {@link Exchange}      * @param processor  the {@link Processor} which was processed      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the processor      * @param timeTaken  time in millis it took to process the {@link Exchange} - time spend in breakpoint callbacks may affect this time      */
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
 name|void
 name|afterProcess
 parameter_list|(
@@ -129,6 +132,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|long
@@ -136,7 +142,7 @@ name|timeTaken
 parameter_list|)
 function_decl|;
 comment|/**      * Callback invoked when the breakpoint was hit and any of the {@link Exchange} {@link EventObject event}s occurred.      *      * @param exchange   the {@link Exchange}      * @param event      the event (instance of {@link org.apache.camel.management.event.AbstractExchangeEvent}      * @param definition the {@link org.apache.camel.model.ProcessorDefinition} definition of the last processor executed,      *                   may be<tt>null</tt> if not possible to resolve from tracing      * @see org.apache.camel.management.event.AbstractExchangeEvent      */
-DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition definition)
+DECL|method|onEvent (Exchange exchange, EventObject event, ProcessorDefinition<?> definition)
 name|void
 name|onEvent
 parameter_list|(
@@ -147,6 +153,9 @@ name|EventObject
 name|event
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 function_decl|;

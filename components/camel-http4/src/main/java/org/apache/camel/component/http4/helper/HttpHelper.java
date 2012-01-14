@@ -1513,11 +1513,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Extracts the parameter value.      *<p/>      * This implementation supports HTTP multi value parameters which      * is based on the syntax of<tt>[value1, value2, value3]</tt> by returning      * a {@link List} containing the values.      *<p/>      * If the value is not a HTTP mulit value the value is returned as is.      *      * @param value the parameter value      * @return the extracted parameter value, see more details in javadoc.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|extractHttpParameterValue (String value)
 specifier|public
 specifier|static
@@ -1590,6 +1585,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|list
 init|=
 operator|new

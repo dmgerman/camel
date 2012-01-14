@@ -200,13 +200,13 @@ DECL|method|getObjectType ()
 specifier|public
 name|Class
 argument_list|<
-name|DefaultConsumerTemplate
+name|ConsumerTemplate
 argument_list|>
 name|getObjectType
 parameter_list|()
 block|{
 return|return
-name|DefaultConsumerTemplate
+name|ConsumerTemplate
 operator|.
 name|class
 return|;

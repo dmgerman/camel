@@ -114,20 +114,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CastUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -1232,12 +1218,7 @@ argument_list|(
 name|addressUri
 argument_list|)
 argument_list|,
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|httpClientParameters
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// create the endpoint and set the http uri to be null
@@ -1334,12 +1315,7 @@ argument_list|(
 name|httpUriAddress
 argument_list|)
 argument_list|,
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|parameters
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// validate http uri that end-user did not duplicate the http part that can be a common error

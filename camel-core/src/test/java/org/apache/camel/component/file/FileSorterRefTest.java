@@ -153,6 +153,9 @@ literal|"mySorter"
 argument_list|,
 operator|new
 name|MyFileSorter
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -305,21 +308,33 @@ DECL|class|MyFileSorter
 specifier|public
 class|class
 name|MyFileSorter
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|Comparator
 argument_list|<
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 block|{
-DECL|method|compare (GenericFile o1, GenericFile o2)
+DECL|method|compare (GenericFile<T> o1, GenericFile<T> o2)
 specifier|public
 name|int
 name|compare
 parameter_list|(
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|o1
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|T
+argument_list|>
 name|o2
 parameter_list|)
 block|{

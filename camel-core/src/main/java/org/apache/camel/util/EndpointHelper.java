@@ -1084,7 +1084,11 @@ comment|/**      * Resolves a reference list parameter by making lookups in the 
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|resolveReferenceListParameter (CamelContext context, String value, Class<T> elementType)
 specifier|public

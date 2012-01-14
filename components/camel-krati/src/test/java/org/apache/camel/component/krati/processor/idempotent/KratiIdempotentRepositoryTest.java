@@ -162,6 +162,10 @@ decl_stmt|;
 DECL|field|dataSet
 specifier|private
 name|DataSet
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|dataSet
 init|=
 name|KratiHelper
@@ -180,10 +184,16 @@ decl_stmt|;
 DECL|field|serializer
 specifier|private
 name|Serializer
+argument_list|<
+name|String
+argument_list|>
 name|serializer
 init|=
 operator|new
 name|KratiDefaultSerializer
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|repository

@@ -153,12 +153,7 @@ name|this
 return|;
 block|}
 comment|/**      * Builds the proxy.      *      * @param interfaceClasses  the service interface(s)      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|build (Class<?>.... interfaceClasses)
+DECL|method|build (Class<T>.... interfaceClasses)
 specifier|public
 parameter_list|<
 name|T
@@ -168,7 +163,7 @@ name|build
 parameter_list|(
 name|Class
 argument_list|<
-name|?
+name|T
 argument_list|>
 modifier|...
 name|interfaceClasses
@@ -186,9 +181,6 @@ literal|"endpoint"
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|T
-operator|)
 name|ProxyHelper
 operator|.
 name|createProxy

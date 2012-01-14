@@ -53,6 +53,9 @@ block|{
 comment|/**      * Called when record is being queried.      *      * @param consumer the consumer      * @param endpoint the endpoint      * @return Results of the query as a {@link List}      * @throws Exception can be thrown in case of error      */
 DECL|method|poll (MyBatisConsumer consumer, MyBatisEndpoint endpoint)
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|poll
 parameter_list|(
 name|MyBatisConsumer

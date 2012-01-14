@@ -396,10 +396,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|headers
 operator|.

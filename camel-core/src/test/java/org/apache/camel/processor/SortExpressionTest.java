@@ -136,6 +136,9 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|mock
@@ -231,6 +234,9 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|mock
@@ -368,6 +374,9 @@ class|class
 name|MyReverseComparator
 implements|implements
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 block|{
 comment|// must have default constructor when used by spring bean testing
 DECL|method|MyReverseComparator ()

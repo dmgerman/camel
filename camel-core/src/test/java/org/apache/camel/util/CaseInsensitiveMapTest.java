@@ -1573,6 +1573,9 @@ literal|"beer"
 argument_list|)
 expr_stmt|;
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|keys
 init|=
 name|map
@@ -1895,6 +1898,9 @@ literal|"Beer"
 argument_list|)
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|it
 init|=
 name|map
@@ -1955,6 +1961,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Collection
+argument_list|<
+name|Object
+argument_list|>
 name|values
 init|=
 name|map

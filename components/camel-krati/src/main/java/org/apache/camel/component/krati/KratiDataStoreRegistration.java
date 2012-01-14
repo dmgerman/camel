@@ -86,11 +86,9 @@ specifier|private
 specifier|final
 name|DataStore
 argument_list|<
-name|byte
-index|[]
+name|Object
 argument_list|,
-name|byte
-index|[]
+name|Object
 argument_list|>
 name|dataStore
 decl_stmt|;
@@ -99,17 +97,15 @@ specifier|private
 name|int
 name|registrationCount
 decl_stmt|;
-DECL|method|KratiDataStoreRegistration (DataStore<byte[], byte[]> dataStore)
+DECL|method|KratiDataStoreRegistration (DataStore<Object, Object> dataStore)
 specifier|public
 name|KratiDataStoreRegistration
 parameter_list|(
 name|DataStore
 argument_list|<
-name|byte
-index|[]
+name|Object
 argument_list|,
-name|byte
-index|[]
+name|Object
 argument_list|>
 name|dataStore
 parameter_list|)
@@ -185,11 +181,9 @@ DECL|method|getDataStore ()
 specifier|public
 name|DataStore
 argument_list|<
-name|byte
-index|[]
+name|Object
 argument_list|,
-name|byte
-index|[]
+name|Object
 argument_list|>
 name|getDataStore
 parameter_list|()

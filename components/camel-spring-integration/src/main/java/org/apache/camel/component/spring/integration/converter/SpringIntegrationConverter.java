@@ -183,11 +183,6 @@ name|answer
 return|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Converter
 DECL|method|toSpringMessage (final org.apache.camel.Message camelMessage)
 specifier|public
@@ -199,6 +194,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|toSpringMessage
 parameter_list|(
 specifier|final
@@ -236,6 +234,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|message
 init|=
 name|siMessage
@@ -271,6 +272,9 @@ decl_stmt|;
 return|return
 operator|new
 name|GenericMessage
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|camelMessage
 operator|.
@@ -283,7 +287,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toCamelMessage (final org.springframework.integration.Message springMessage)
+DECL|method|toCamelMessage (final org.springframework.integration.Message<?> springMessage)
 specifier|public
 specifier|static
 name|org
@@ -303,6 +307,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|springMessage
 parameter_list|)
 throws|throws

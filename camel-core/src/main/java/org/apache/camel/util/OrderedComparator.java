@@ -50,6 +50,9 @@ class|class
 name|OrderedComparator
 implements|implements
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 block|{
 DECL|field|reverse
 specifier|private

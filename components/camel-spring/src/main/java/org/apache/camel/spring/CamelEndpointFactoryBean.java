@@ -205,6 +205,9 @@ extends|extends
 name|AbstractCamelEndpointFactoryBean
 implements|implements
 name|FactoryBean
+argument_list|<
+name|Endpoint
+argument_list|>
 implements|,
 name|ApplicationContextAware
 block|{

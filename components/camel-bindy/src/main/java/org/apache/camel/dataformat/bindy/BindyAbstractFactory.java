@@ -864,7 +864,7 @@ comment|/**      * Format the object into a string according to the format rue d
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"unchecked"
+literal|"rawtypes"
 argument_list|)
 DECL|method|formatString (Format format, Object value)
 specifier|public

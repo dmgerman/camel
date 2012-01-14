@@ -744,6 +744,9 @@ decl_stmt|;
 DECL|field|resultType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 decl_stmt|;
 DECL|field|initialized
@@ -1788,12 +1791,15 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|resultType (Class resultType)
+DECL|method|resultType (Class<?> resultType)
 specifier|public
 name|XQueryBuilder
 name|resultType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{
@@ -2177,6 +2183,9 @@ block|}
 DECL|method|getResultType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultType
 parameter_list|()
 block|{
@@ -2184,12 +2193,15 @@ return|return
 name|resultType
 return|;
 block|}
-DECL|method|setResultType (Class resultType)
+DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void
 name|setResultType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|)
 block|{

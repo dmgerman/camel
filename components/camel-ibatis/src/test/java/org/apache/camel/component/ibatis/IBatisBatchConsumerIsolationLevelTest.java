@@ -313,14 +313,14 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|Account
+name|Object
 argument_list|>
 name|accounts
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Account
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;

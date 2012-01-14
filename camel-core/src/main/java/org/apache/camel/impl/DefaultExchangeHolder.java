@@ -1125,10 +1125,16 @@ name|Collection
 condition|)
 block|{
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|valueCol
 init|=
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|converted
 decl_stmt|;
@@ -1170,10 +1176,20 @@ name|Map
 condition|)
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|valueMap
 init|=
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|converted
 decl_stmt|;
@@ -1342,13 +1358,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|collectionContainsAllSerializableObjects (Collection col, Exchange exchange)
+DECL|method|collectionContainsAllSerializableObjects (Collection<?> col, Exchange exchange)
 specifier|private
 specifier|static
 name|boolean
 name|collectionContainsAllSerializableObjects
 parameter_list|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|col
 parameter_list|,
 name|Exchange
@@ -1409,13 +1428,18 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|mapContainsAllSerializableObjects (Map map, Exchange exchange)
+DECL|method|mapContainsAllSerializableObjects (Map<?, ?> map, Exchange exchange)
 specifier|private
 specifier|static
 name|boolean
 name|mapContainsAllSerializableObjects
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 parameter_list|,
 name|Exchange

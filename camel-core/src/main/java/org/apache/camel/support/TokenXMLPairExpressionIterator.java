@@ -275,6 +275,9 @@ name|Override
 DECL|method|createIterator (InputStream in, String charset)
 specifier|protected
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|createIterator
 parameter_list|(
 name|InputStream

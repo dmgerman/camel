@@ -1037,6 +1037,9 @@ block|{
 comment|// use an iterator as there can be multiple values. (must not use a delimiter)
 specifier|final
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper

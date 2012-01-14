@@ -111,9 +111,14 @@ decl_stmt|;
 DECL|field|dataStore
 specifier|protected
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|dataStore
 decl_stmt|;
-DECL|method|KratiProducer (KratiEndpoint endpoint, DataStore dataStore)
+DECL|method|KratiProducer (KratiEndpoint endpoint, DataStore<Object, Object> dataStore)
 specifier|public
 name|KratiProducer
 parameter_list|(
@@ -121,6 +126,11 @@ name|KratiEndpoint
 name|endpoint
 parameter_list|,
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|dataStore
 parameter_list|)
 block|{

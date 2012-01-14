@@ -137,6 +137,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|expected
 range|:
 name|matchingClasses
@@ -342,6 +345,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|candidate
 range|:
 name|scannedClasses

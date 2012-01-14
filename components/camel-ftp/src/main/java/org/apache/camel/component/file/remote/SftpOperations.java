@@ -459,12 +459,17 @@ name|UserInfo
 extends|,
 name|UIKeyboardInteractive
 block|{     }
-DECL|method|setEndpoint (GenericFileEndpoint endpoint)
+DECL|method|setEndpoint (GenericFileEndpoint<ChannelSftp.LsEntry> endpoint)
 specifier|public
 name|void
 name|setEndpoint
 parameter_list|(
 name|GenericFileEndpoint
+argument_list|<
+name|ChannelSftp
+operator|.
+name|LsEntry
+argument_list|>
 name|endpoint
 parameter_list|)
 block|{

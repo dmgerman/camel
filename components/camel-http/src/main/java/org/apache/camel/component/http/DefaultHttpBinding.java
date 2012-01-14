@@ -489,6 +489,9 @@ argument_list|()
 decl_stmt|;
 comment|//apply the headerFilterStrategy
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|names
 init|=
 name|request
@@ -983,6 +986,9 @@ name|getHeaders
 argument_list|()
 decl_stmt|;
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|names
 init|=
 name|request
@@ -1295,6 +1301,9 @@ parameter_list|)
 block|{
 comment|// check if there is multipart files, if so will put it into DataHandler
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|names
 init|=
 name|request
@@ -1800,6 +1809,9 @@ decl_stmt|;
 comment|// use an iterator as there can be multiple values. (must not use a delimiter)
 specifier|final
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|ObjectHelper

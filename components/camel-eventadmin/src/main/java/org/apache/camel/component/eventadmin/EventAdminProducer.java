@@ -503,6 +503,11 @@ name|exchange
 argument_list|)
 decl_stmt|;
 name|Dictionary
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|props
 init|=
 name|getProperties
@@ -528,6 +533,11 @@ block|}
 DECL|method|getProperties (Exchange exchange)
 specifier|protected
 name|Dictionary
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|getProperties
 parameter_list|(
 name|Exchange
@@ -551,6 +561,11 @@ name|getCamelContext
 argument_list|()
 decl_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|context
@@ -591,8 +606,13 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Object
-name|object
+name|Entry
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+name|entry
 range|:
 name|map
 operator|.
@@ -600,14 +620,6 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|Entry
-name|entry
-init|=
-operator|(
-name|Entry
-operator|)
-name|object
-decl_stmt|;
 name|String
 name|keyString
 init|=

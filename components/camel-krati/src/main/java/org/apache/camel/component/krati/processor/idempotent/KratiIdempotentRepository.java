@@ -202,6 +202,10 @@ decl_stmt|;
 DECL|field|dataSet
 specifier|private
 name|DataSet
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|dataSet
 decl_stmt|;
 DECL|field|initialCapacity
@@ -214,10 +218,16 @@ decl_stmt|;
 DECL|field|serializer
 specifier|private
 name|Serializer
+argument_list|<
+name|String
+argument_list|>
 name|serializer
 init|=
 operator|new
 name|KratiDefaultSerializer
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|segmentFactory
@@ -399,7 +409,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Does the store contain the given key"
+literal|"Removes the given key from the store"
 argument_list|)
 DECL|method|remove (String s)
 specifier|public
@@ -561,6 +571,10 @@ block|}
 DECL|method|getDataSet ()
 specifier|public
 name|DataSet
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|getDataSet
 parameter_list|()
 block|{
@@ -568,12 +582,16 @@ return|return
 name|dataSet
 return|;
 block|}
-DECL|method|setDataSet (DataSet dataSet)
+DECL|method|setDataSet (DataSet<byte[]> dataSet)
 specifier|public
 name|void
 name|setDataSet
 parameter_list|(
 name|DataSet
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|dataSet
 parameter_list|)
 block|{
@@ -613,6 +631,9 @@ block|}
 DECL|method|getSerializer ()
 specifier|public
 name|Serializer
+argument_list|<
+name|String
+argument_list|>
 name|getSerializer
 parameter_list|()
 block|{
@@ -620,12 +641,15 @@ return|return
 name|serializer
 return|;
 block|}
-DECL|method|setSerializer (Serializer serializer)
+DECL|method|setSerializer (Serializer<String> serializer)
 specifier|public
 name|void
 name|setSerializer
 parameter_list|(
 name|Serializer
+argument_list|<
+name|String
+argument_list|>
 name|serializer
 parameter_list|)
 block|{

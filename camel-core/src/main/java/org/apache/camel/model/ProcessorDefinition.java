@@ -7181,12 +7181,15 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|bean (Class beanType)
+DECL|method|bean (Class<?> beanType)
 specifier|public
 name|Type
 name|bean
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|)
 block|{
@@ -7225,12 +7228,15 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|bean (Class beanType, String method)
+DECL|method|bean (Class<?> beanType, String method)
 specifier|public
 name|Type
 name|bean
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanType
 parameter_list|,
 name|String
@@ -8061,12 +8067,15 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|convertBodyTo (Class type)
+DECL|method|convertBodyTo (Class<?> type)
 specifier|public
 name|Type
 name|convertBodyTo
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -8092,12 +8101,15 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|convertBodyTo (Class type, String charset)
+DECL|method|convertBodyTo (Class<?> type, String charset)
 specifier|public
 name|Type
 name|convertBodyTo
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|,
 name|String
@@ -8147,8 +8159,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|sort (Expression expression, Comparator comparator)
+DECL|method|sort (Expression expression, Comparator<T> comparator)
 specifier|public
+parameter_list|<
+name|T
+parameter_list|>
 name|Type
 name|sort
 parameter_list|(
@@ -8156,6 +8171,9 @@ name|Expression
 name|expression
 parameter_list|,
 name|Comparator
+argument_list|<
+name|T
+argument_list|>
 name|comparator
 parameter_list|)
 block|{
@@ -8163,6 +8181,9 @@ name|addOutput
 argument_list|(
 operator|new
 name|SortDefinition
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|expression
 argument_list|,
@@ -8180,18 +8201,30 @@ block|}
 comment|/**      * Sorts the expression      *      * @return the builder      */
 DECL|method|sort ()
 specifier|public
+parameter_list|<
+name|T
+parameter_list|>
 name|ExpressionClause
 argument_list|<
 name|SortDefinition
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|sort
 parameter_list|()
 block|{
 name|SortDefinition
+argument_list|<
+name|T
+argument_list|>
 name|answer
 init|=
 operator|new
 name|SortDefinition
+argument_list|<
+name|T
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|addOutput

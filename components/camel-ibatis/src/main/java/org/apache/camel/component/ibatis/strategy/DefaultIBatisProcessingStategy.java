@@ -229,9 +229,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|poll (IBatisConsumer consumer, IBatisEndpoint endpoint)
 specifier|public
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|poll
 parameter_list|(
 name|IBatisConsumer

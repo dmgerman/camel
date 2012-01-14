@@ -296,11 +296,6 @@ literal|null
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|lookupByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -325,7 +320,8 @@ comment|// not implemented so we return an empty map
 return|return
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 return|;
 block|}
 DECL|method|bind (String s, Object o)
@@ -424,11 +420,6 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createContext ()
 specifier|protected
 name|Context
@@ -438,10 +429,20 @@ throws|throws
 name|NamingException
 block|{
 name|Hashtable
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|properties
 init|=
 operator|new
 name|Hashtable
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|System
 operator|.

@@ -842,7 +842,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createQueryString (Map<Object, Object> options)
+DECL|method|createQueryString (Map<String, Object> options)
 specifier|public
 specifier|static
 name|String
@@ -850,7 +850,7 @@ name|createQueryString
 parameter_list|(
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -1148,7 +1148,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates a URI from the original URI and the remaining parameters      *<p/>      * Used by various Camel components      */
-DECL|method|createRemainingURI (URI originalURI, Map<Object, Object> params)
+DECL|method|createRemainingURI (URI originalURI, Map<String, Object> params)
 specifier|public
 specifier|static
 name|URI
@@ -1159,7 +1159,7 @@ name|originalURI
 parameter_list|,
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -1201,11 +1201,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Normalizes the uri by reordering the parameters so they are sorted and thus      * we can use the uris for endpoint matching.      *      * @param uri the uri      * @return the normalized uri      * @throws URISyntaxException in thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException       */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|normalizeUri (String uri)
 specifier|public
 specifier|static
@@ -1329,6 +1324,11 @@ argument_list|)
 expr_stmt|;
 comment|// in case there are parameters we should reorder them
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 init|=
 name|URISupport
@@ -1388,7 +1388,7 @@ argument_list|)
 expr_stmt|;
 name|Map
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>
@@ -1397,7 +1397,7 @@ init|=
 operator|new
 name|LinkedHashMap
 argument_list|<
-name|Object
+name|String
 argument_list|,
 name|Object
 argument_list|>

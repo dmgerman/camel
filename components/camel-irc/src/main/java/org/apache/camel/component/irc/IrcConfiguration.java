@@ -2507,10 +2507,16 @@ name|List
 condition|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;

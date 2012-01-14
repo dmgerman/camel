@@ -5534,6 +5534,9 @@ name|startServices
 argument_list|(
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|object
 argument_list|)
@@ -8967,12 +8970,15 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|startServices (Collection services)
+DECL|method|startServices (Collection<?> services)
 specifier|private
 name|void
 name|startServices
 parameter_list|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|services
 parameter_list|)
 throws|throws

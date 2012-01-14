@@ -162,11 +162,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getRouteStatistic (CamelContext camelContext, String routeID, String attribute)
 specifier|public
 name|Object
@@ -249,6 +244,9 @@ name|cacheList
 init|=
 operator|new
 name|LinkedList
+argument_list|<
+name|ObjectName
+argument_list|>
 argument_list|(
 name|server
 operator|.

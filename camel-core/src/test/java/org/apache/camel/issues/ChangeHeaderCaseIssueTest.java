@@ -114,11 +114,6 @@ name|ChangeHeaderCaseIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testChangeHeaderCaseIssue ()
 specifier|public
 name|void
@@ -169,10 +164,20 @@ argument_list|()
 expr_stmt|;
 comment|// only the changed case header should exist
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 init|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|mock
 operator|.

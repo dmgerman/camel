@@ -87,11 +87,6 @@ comment|/**  * Test case for {@link Jt400Component}  */
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|Jt400ComponentTest
 specifier|public
 class|class
@@ -145,6 +140,11 @@ literal|"/user:password@host/qsys.lib/library.lib/queue.dtaq"
 argument_list|,
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -185,6 +185,11 @@ literal|"/user:password@host/qsys.lib/library.lib/queue.pgm"
 argument_list|,
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -224,6 +229,11 @@ literal|"/user:password@host/qsys.lib/library.lib/program.xxx"
 argument_list|,
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;

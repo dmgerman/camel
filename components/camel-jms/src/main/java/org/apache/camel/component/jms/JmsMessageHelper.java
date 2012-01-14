@@ -267,6 +267,9 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|en
 init|=
 name|jmsMessage
@@ -385,6 +388,9 @@ throws|throws
 name|JMSException
 block|{
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|en
 init|=
 name|jmsMessage

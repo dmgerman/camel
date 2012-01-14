@@ -119,6 +119,9 @@ argument_list|)
 expr_stmt|;
 comment|// Send a async request/reply message to the http endpoint
 name|Future
+argument_list|<
+name|Object
+argument_list|>
 name|future
 init|=
 name|template

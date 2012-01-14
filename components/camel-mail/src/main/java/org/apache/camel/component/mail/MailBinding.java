@@ -1991,6 +1991,9 @@ argument_list|)
 condition|)
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper
@@ -2131,6 +2134,9 @@ argument_list|)
 condition|)
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 name|ObjectHelper

@@ -640,7 +640,7 @@ specifier|private
 specifier|volatile
 name|List
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|expectedBodyValues
 decl_stmt|;
@@ -2435,18 +2435,16 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in the specified order      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|expectedBodiesReceived (final List bodies)
+DECL|method|expectedBodiesReceived (final List<?> bodies)
 specifier|public
 name|void
 name|expectedBodiesReceived
 parameter_list|(
 specifier|final
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|bodies
 parameter_list|)
 block|{
@@ -2977,18 +2975,16 @@ name|clause
 return|;
 block|}
 comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|expectedBodiesReceivedInAnyOrder (final List bodies)
+DECL|method|expectedBodiesReceivedInAnyOrder (final List<?> bodies)
 specifier|public
 name|void
 name|expectedBodiesReceivedInAnyOrder
 parameter_list|(
 specifier|final
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|bodies
 parameter_list|)
 block|{

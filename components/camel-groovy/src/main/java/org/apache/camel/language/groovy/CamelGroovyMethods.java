@@ -114,16 +114,22 @@ parameter_list|()
 block|{
 comment|// Utility Class
 block|}
-DECL|method|filter (ProcessorDefinition self, Closure filter)
+DECL|method|filter (ProcessorDefinition<?> self, Closure<?> filter)
 specifier|public
 specifier|static
 name|FilterDefinition
 name|filter
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|self
 parameter_list|,
 name|Closure
+argument_list|<
+name|?
+argument_list|>
 name|filter
 parameter_list|)
 block|{
@@ -139,7 +145,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|when (ChoiceDefinition self, Closure filter)
+DECL|method|when (ChoiceDefinition self, Closure<?> filter)
 specifier|public
 specifier|static
 name|ChoiceDefinition
@@ -149,6 +155,9 @@ name|ChoiceDefinition
 name|self
 parameter_list|,
 name|Closure
+argument_list|<
+name|?
+argument_list|>
 name|filter
 parameter_list|)
 block|{
@@ -164,7 +173,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|toExpression (final Closure filter)
+DECL|method|toExpression (final Closure<?> filter)
 specifier|public
 specifier|static
 name|ExpressionSupport
@@ -172,6 +181,9 @@ name|toExpression
 parameter_list|(
 specifier|final
 name|Closure
+argument_list|<
+name|?
+argument_list|>
 name|filter
 parameter_list|)
 block|{

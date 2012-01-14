@@ -738,6 +738,9 @@ decl_stmt|;
 for|for
 control|(
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|e
 init|=
 name|bundle

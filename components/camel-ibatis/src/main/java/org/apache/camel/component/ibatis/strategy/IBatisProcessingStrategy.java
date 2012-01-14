@@ -87,6 +87,9 @@ block|{
 comment|/**      * Called when record is being queried.      *      * @param consumer the consumer      * @param endpoint the endpoint      * @return Results of the query as a {@link List}      * @throws Exception can be thrown in case of error      */
 DECL|method|poll (IBatisConsumer consumer, IBatisEndpoint endpoint)
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|poll
 parameter_list|(
 name|IBatisConsumer

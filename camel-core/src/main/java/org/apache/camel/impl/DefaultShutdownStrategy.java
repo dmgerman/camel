@@ -792,6 +792,9 @@ expr_stmt|;
 block|}
 comment|// use another thread to perform the shutdowns so we can support timeout
 name|Future
+argument_list|<
+name|?
+argument_list|>
 name|future
 init|=
 name|getExecutorService

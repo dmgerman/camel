@@ -84,6 +84,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|createSpringIntegrationMessage
 parameter_list|(
 name|Exchange
@@ -105,11 +108,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createSpringIntegrationMessage (Exchange exchange, Map<String, Object> headers)
 specifier|public
 specifier|static
@@ -120,6 +118,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|createSpringIntegrationMessage
 parameter_list|(
 name|Exchange
@@ -151,6 +152,9 @@ decl_stmt|;
 return|return
 operator|new
 name|GenericMessage
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|message
 operator|.
@@ -161,11 +165,6 @@ name|headers
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|storeToSpringIntegrationMessage (org.apache.camel.Message message)
 specifier|public
 specifier|static
@@ -176,6 +175,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|storeToSpringIntegrationMessage
 parameter_list|(
 name|org
@@ -191,6 +193,9 @@ block|{
 return|return
 operator|new
 name|GenericMessage
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|message
 operator|.
@@ -199,7 +204,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|storeToCamelMessage (org.springframework.integration.Message siMessage, org.apache.camel.Message cMessage)
+DECL|method|storeToCamelMessage (org.springframework.integration.Message<?> siMessage, org.apache.camel.Message cMessage)
 specifier|public
 specifier|static
 name|void
@@ -212,6 +217,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|siMessage
 parameter_list|,
 name|org
