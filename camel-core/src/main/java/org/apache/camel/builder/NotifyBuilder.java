@@ -3160,13 +3160,16 @@ literal|true
 argument_list|)
 return|;
 block|}
-DECL|method|doWhenBodies (final List bodies, final boolean received, final boolean exact)
+DECL|method|doWhenBodies (final List<?> bodies, final boolean received, final boolean exact)
 specifier|private
 name|NotifyBuilder
 name|doWhenBodies
 parameter_list|(
 specifier|final
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|bodies
 parameter_list|,
 specifier|final

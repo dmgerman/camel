@@ -228,6 +228,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|beanHeaders
 init|=
 name|bean

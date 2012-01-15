@@ -282,6 +282,9 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|mock
@@ -351,6 +354,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list2
 init|=
 name|mock

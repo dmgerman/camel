@@ -382,6 +382,9 @@ literal|true
 expr_stmt|;
 block|}
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|response
 decl_stmt|;
 if|if

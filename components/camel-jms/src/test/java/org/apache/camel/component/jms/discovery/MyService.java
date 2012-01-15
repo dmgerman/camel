@@ -83,6 +83,11 @@ block|}
 DECL|method|status ()
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|status
 parameter_list|()
 block|{

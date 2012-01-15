@@ -546,6 +546,9 @@ comment|/**      * @parameter expression="${project.remoteArtifactRepositories}"
 DECL|field|remoteRepositories
 specifier|private
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|remoteRepositories
 decl_stmt|;
 comment|/**      * @component      */

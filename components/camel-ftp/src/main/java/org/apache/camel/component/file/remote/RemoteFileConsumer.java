@@ -211,12 +211,18 @@ block|}
 DECL|method|getOperations ()
 specifier|protected
 name|RemoteFileOperations
+argument_list|<
+name|T
+argument_list|>
 name|getOperations
 parameter_list|()
 block|{
 return|return
 operator|(
 name|RemoteFileOperations
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|operations
 return|;
@@ -683,6 +689,9 @@ return|return
 operator|(
 operator|(
 name|RemoteFileEndpoint
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|endpoint
 operator|)

@@ -281,6 +281,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|message
 init|=
 operator|new

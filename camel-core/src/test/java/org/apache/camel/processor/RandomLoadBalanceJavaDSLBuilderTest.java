@@ -401,6 +401,9 @@ operator|)
 name|child
 decl_stmt|;
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 init|=
 name|channel
@@ -418,11 +421,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|navigateDefinition (ProcessorDefinition<?> def, StringBuilder sb)
 specifier|private
 name|void
@@ -440,10 +438,16 @@ parameter_list|)
 block|{
 comment|// must do this ugly cast to avoid compiler error on HP-UX
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|defn
 init|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|def
 decl_stmt|;
@@ -506,10 +510,16 @@ name|SendDefinition
 condition|)
 block|{
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 name|send
 init|=
 operator|(
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|defn
 decl_stmt|;
@@ -528,6 +538,11 @@ literal|"\")"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|List
 argument_list|<
 name|ProcessorDefinition
@@ -556,6 +571,9 @@ block|}
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|child
 range|:
 name|children

@@ -722,6 +722,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
@@ -748,6 +751,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|long
@@ -779,6 +785,9 @@ name|EventObject
 name|event
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
@@ -1069,7 +1078,7 @@ name|exchangeId
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|boolean
 name|beforeProcess
@@ -1081,6 +1090,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
@@ -1194,7 +1206,7 @@ return|return
 name|match
 return|;
 block|}
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
 specifier|public
 name|boolean
 name|afterProcess
@@ -1206,6 +1218,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|long
@@ -1442,7 +1457,7 @@ return|return
 name|match
 return|;
 block|}
-DECL|method|onBeforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, Breakpoint breakpoint)
+DECL|method|onBeforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, Breakpoint breakpoint)
 specifier|protected
 name|void
 name|onBeforeProcess
@@ -1454,6 +1469,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Breakpoint
@@ -1495,7 +1513,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|onAfterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken, Breakpoint breakpoint)
+DECL|method|onAfterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken, Breakpoint breakpoint)
 specifier|protected
 name|void
 name|onAfterProcess
@@ -1507,6 +1525,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|long
@@ -1569,6 +1590,9 @@ name|breakpoint
 parameter_list|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 init|=
 literal|null
@@ -1659,7 +1683,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|matchConditions (Exchange exchange, Processor processor, ProcessorDefinition definition, BreakpointConditions breakpoint)
+DECL|method|matchConditions (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, BreakpointConditions breakpoint)
 specifier|private
 name|boolean
 name|matchConditions
@@ -1671,6 +1695,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|BreakpointConditions

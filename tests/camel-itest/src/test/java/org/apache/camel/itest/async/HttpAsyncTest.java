@@ -83,11 +83,6 @@ extends|extends
 name|HttpAsyncTestSupport
 block|{
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testAsyncAndSyncAtSameTimeWithHttp ()
 specifier|public

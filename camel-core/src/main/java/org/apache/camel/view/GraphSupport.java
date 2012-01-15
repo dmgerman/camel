@@ -608,12 +608,15 @@ name|route
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isMulticastNode (ProcessorDefinition node)
+DECL|method|isMulticastNode (ProcessorDefinition<?> node)
 specifier|protected
 name|boolean
 name|isMulticastNode
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{
@@ -628,12 +631,15 @@ name|ChoiceDefinition
 return|;
 block|}
 comment|/**      * Is the given node a pipeline      */
-DECL|method|isPipeline (ProcessorDefinition node)
+DECL|method|isPipeline (ProcessorDefinition<?> node)
 specifier|protected
 name|boolean
 name|isPipeline
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{

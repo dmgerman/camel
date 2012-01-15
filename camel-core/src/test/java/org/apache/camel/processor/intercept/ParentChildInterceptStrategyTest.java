@@ -525,6 +525,9 @@ name|getLabel
 argument_list|()
 decl_stmt|;
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 init|=
 name|definition

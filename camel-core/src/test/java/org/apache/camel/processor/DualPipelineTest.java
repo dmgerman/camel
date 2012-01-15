@@ -272,6 +272,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 name|send1
 init|=
 name|assertIsInstanceOf
@@ -302,6 +305,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 name|send2
 init|=
 name|assertIsInstanceOf
@@ -332,6 +338,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|SendDefinition
+argument_list|<
+name|?
+argument_list|>
 name|send
 init|=
 name|assertIsInstanceOf

@@ -138,6 +138,9 @@ literal|"SELECT * FROM org.apache.camel.builder.sql.Person where city = 'London'
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|value
 init|=
 name|expression
@@ -151,18 +154,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|List
-name|list
-init|=
-name|value
-decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"List size"
 argument_list|,
 literal|2
 argument_list|,
-name|list
+name|value
 operator|.
 name|size
 argument_list|()
@@ -173,7 +171,7 @@ control|(
 name|Object
 name|person
 range|:
-name|list
+name|value
 control|)
 block|{
 name|log
@@ -187,11 +185,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testExpressionWithHeaderVariable ()
@@ -222,6 +215,9 @@ literal|"SELECT * FROM org.apache.camel.builder.sql.Person where name = :fooHead
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|value
 init|=
 name|expression
@@ -235,21 +231,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|List
-argument_list|<
-name|Person
-argument_list|>
-name|list
-init|=
-name|value
-decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"List size"
 argument_list|,
 literal|1
 argument_list|,
-name|list
+name|value
 operator|.
 name|size
 argument_list|()
@@ -257,10 +245,10 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Person
+name|Object
 name|person
 range|:
-name|list
+name|value
 control|)
 block|{
 name|log
@@ -278,7 +266,12 @@ literal|"name"
 argument_list|,
 literal|"James"
 argument_list|,
+operator|(
+operator|(
+name|Person
+operator|)
 name|person
+operator|)
 operator|.
 name|getName
 argument_list|()

@@ -193,11 +193,14 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-DECL|method|match (ProcessorDefinition processor)
+DECL|method|match (ProcessorDefinition<?> processor)
 name|boolean
 name|match
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 function_decl|;
@@ -243,12 +246,15 @@ return|return
 name|id
 return|;
 block|}
-DECL|method|match (ProcessorDefinition processor)
+DECL|method|match (ProcessorDefinition<?> processor)
 specifier|public
 name|boolean
 name|match
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -308,12 +314,15 @@ return|return
 name|toString
 return|;
 block|}
-DECL|method|match (ProcessorDefinition processor)
+DECL|method|match (ProcessorDefinition<?> processor)
 specifier|public
 name|boolean
 name|match
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{
@@ -382,12 +391,15 @@ name|getSimpleName
 argument_list|()
 return|;
 block|}
-DECL|method|match (ProcessorDefinition processor)
+DECL|method|match (ProcessorDefinition<?> processor)
 specifier|public
 name|boolean
 name|match
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{

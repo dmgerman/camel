@@ -186,6 +186,15 @@ name|MyUnmarshalException
 extends|extends
 name|Exception
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|MyUnmarshalException (String message, Throwable cause)
 specifier|private
 name|MyUnmarshalException

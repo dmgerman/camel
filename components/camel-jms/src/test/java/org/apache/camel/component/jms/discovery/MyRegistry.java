@@ -94,6 +94,11 @@ argument_list|<
 name|String
 argument_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 name|services
 init|=
@@ -103,15 +108,25 @@ argument_list|<
 name|String
 argument_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|onEvent (Map heartbeat)
+DECL|method|onEvent (Map<String, Object> heartbeat)
 specifier|public
 name|void
 name|onEvent
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|heartbeat
 parameter_list|)
 block|{
@@ -158,6 +173,11 @@ argument_list|<
 name|String
 argument_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 name|getServices
 parameter_list|()

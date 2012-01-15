@@ -507,7 +507,17 @@ class|class
 name|ParentException
 extends|extends
 name|Exception
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|class|ChildException
 specifier|private
 specifier|static
@@ -515,7 +525,17 @@ class|class
 name|ChildException
 extends|extends
 name|ParentException
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|class|ShuntErrorHandlerSupport
 specifier|private
 specifier|static

@@ -331,6 +331,9 @@ block|{
 return|return
 operator|(
 name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
 operator|)
 name|answer
 return|;

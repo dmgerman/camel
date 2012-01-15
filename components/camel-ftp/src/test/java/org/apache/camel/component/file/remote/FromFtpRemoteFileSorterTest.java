@@ -302,17 +302,26 @@ implements|implements
 name|Comparator
 argument_list|<
 name|RemoteFile
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
-DECL|method|compare (RemoteFile o1, RemoteFile o2)
+DECL|method|compare (RemoteFile<?> o1, RemoteFile<?> o2)
 specifier|public
 name|int
 name|compare
 parameter_list|(
 name|RemoteFile
+argument_list|<
+name|?
+argument_list|>
 name|o1
 parameter_list|,
 name|RemoteFile
+argument_list|<
+name|?
+argument_list|>
 name|o2
 parameter_list|)
 block|{

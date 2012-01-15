@@ -143,11 +143,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -171,6 +166,13 @@ throws|throws
 name|Exception
 block|{
 name|OutboundBinding
+argument_list|<
+name|GLoginEndpoint
+argument_list|,
+name|GLoginData
+argument_list|,
+name|GLoginData
+argument_list|>
 name|outboundBinding
 init|=
 name|resolveAndRemoveReferenceParameter

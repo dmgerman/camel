@@ -387,7 +387,7 @@ name|MyFactory
 implements|implements
 name|ProcessorFactory
 block|{
-DECL|method|createChildProcessor (RouteContext routeContext, ProcessorDefinition definition, boolean mandatory)
+DECL|method|createChildProcessor (RouteContext routeContext, ProcessorDefinition<?> definition, boolean mandatory)
 specifier|public
 name|Processor
 name|createChildProcessor
@@ -396,6 +396,9 @@ name|RouteContext
 name|routeContext
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|boolean
@@ -408,7 +411,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|createProcessor (RouteContext routeContext, ProcessorDefinition definition)
+DECL|method|createProcessor (RouteContext routeContext, ProcessorDefinition<?> definition)
 specifier|public
 name|Processor
 name|createProcessor
@@ -417,6 +420,9 @@ name|RouteContext
 name|routeContext
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 throws|throws

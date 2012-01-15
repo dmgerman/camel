@@ -82,6 +82,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -371,11 +383,6 @@ operator|=
 name|correlationKeyExpression
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
@@ -454,10 +461,13 @@ name|execute
 argument_list|(
 operator|new
 name|TransactionCallback
+argument_list|<
+name|T
+argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|T
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
@@ -512,13 +522,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-return|return
 name|onError
 argument_list|(
 name|status
 argument_list|,
 name|e
 argument_list|)
+expr_stmt|;
+return|return
+literal|null
 return|;
 block|}
 block|}
@@ -712,7 +724,7 @@ return|;
 block|}
 DECL|method|onError (TransactionStatus status, Exception e)
 specifier|protected
-name|Object
+name|void
 name|onError
 parameter_list|(
 name|TransactionStatus
@@ -721,6 +733,8 @@ parameter_list|,
 name|Exception
 name|e
 parameter_list|)
+throws|throws
+name|RuntimeCamelException
 block|{
 name|status
 operator|.

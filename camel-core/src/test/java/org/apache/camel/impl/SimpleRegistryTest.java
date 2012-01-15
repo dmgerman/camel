@@ -215,6 +215,11 @@ name|testLookupByType
 parameter_list|()
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|registry
@@ -301,6 +306,11 @@ name|testLookupByWrongType
 parameter_list|()
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|registry

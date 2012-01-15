@@ -80,11 +80,6 @@ name|OrderedComparatorTest
 extends|extends
 name|TestCase
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testOrderedComparator ()
 specifier|public
 name|void
@@ -248,11 +243,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testOrderedComparatorReverse ()
 specifier|public
 name|void
@@ -418,11 +408,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testOrderedComparatorHigh ()
 specifier|public
 name|void
@@ -616,11 +601,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testOrderedComparatorHighReverse ()
 specifier|public
 name|void
@@ -816,11 +796,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testOrderedComparatorLow ()
 specifier|public
 name|void
@@ -1018,11 +993,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testOrderedComparatorLowReverse ()
 specifier|public
 name|void

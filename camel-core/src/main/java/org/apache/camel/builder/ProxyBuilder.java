@@ -152,6 +152,51 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Builds the proxy.      *      * @param interfaceClass  the service interface      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|build (Class<T> interfaceClass)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|build
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|interfaceClass
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// this method is introduced to avoid compiler warnings about the
+comment|// generic Class arrays in the case we've got only one single Class
+comment|// to build a Proxy for
+return|return
+name|build
+argument_list|(
+operator|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+index|[]
+operator|)
+operator|new
+name|Class
+index|[]
+block|{
+name|interfaceClass
+block|}
+argument_list|)
+return|;
+block|}
 comment|/**      * Builds the proxy.      *      * @param interfaceClasses  the service interface(s)      * @return the proxied bean      * @throws Exception is thrown if error creating the proxy      */
 DECL|method|build (Class<T>.... interfaceClasses)
 specifier|public

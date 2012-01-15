@@ -169,7 +169,17 @@ class|class
 name|MyPolicyException
 extends|extends
 name|Exception
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 comment|// START SNIPPET e2
 DECL|class|MyPolicy
 specifier|public

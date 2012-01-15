@@ -407,6 +407,11 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|class|MyInterceptor
 specifier|private
 specifier|static

@@ -887,11 +887,6 @@ name|result
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|evaluate (Exchange exchange)
 specifier|public
 name|Object
@@ -1078,6 +1073,9 @@ block|}
 DECL|method|evaluateAsList (Exchange exchange)
 specifier|public
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|evaluateAsList
 parameter_list|(
 name|Exchange
@@ -1389,6 +1387,9 @@ block|{
 try|try
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|evaluateAsList
@@ -1435,6 +1436,9 @@ throws|throws
 name|AssertionError
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 decl_stmt|;
 try|try
@@ -3040,7 +3044,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|matches (Exchange exchange, List results)
+DECL|method|matches (Exchange exchange, List<?> results)
 specifier|protected
 name|boolean
 name|matches
@@ -3049,6 +3053,9 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|results
 parameter_list|)
 block|{

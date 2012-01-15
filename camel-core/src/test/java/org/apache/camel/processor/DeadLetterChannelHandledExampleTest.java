@@ -368,12 +368,7 @@ class|class
 name|OrderService
 block|{
 comment|/**          * This method handle our order input and return the order          *          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          * @throws OrderFailedException is thrown if the order cannot be processed          */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|handleOrder (@eaders Map in, @Body String payload, @OutHeaders Map out)
+DECL|method|handleOrder (@eaders Map<?, ?> in, @Body String payload, @OutHeaders Map<String, Object> out)
 specifier|public
 name|Object
 name|handleOrder
@@ -381,6 +376,11 @@ parameter_list|(
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|in
 parameter_list|,
 annotation|@
@@ -391,6 +391,11 @@ parameter_list|,
 annotation|@
 name|OutHeaders
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|out
 parameter_list|)
 throws|throws
@@ -445,12 +450,7 @@ return|;
 block|}
 block|}
 comment|/**          * This method creates the response to the caller if the order could not be processed          * @param in      the in headers          * @param payload the in payload          * @param out     the out headers          * @return the out payload          */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|orderFailed (@eaders Map in, @Body String payload, @OutHeaders Map out)
+DECL|method|orderFailed (@eaders Map<?, ?> in, @Body String payload, @OutHeaders Map<String, Object> out)
 specifier|public
 name|Object
 name|orderFailed
@@ -458,6 +458,11 @@ parameter_list|(
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|in
 parameter_list|,
 annotation|@
@@ -468,6 +473,11 @@ parameter_list|,
 annotation|@
 name|OutHeaders
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|out
 parameter_list|)
 block|{
@@ -510,6 +520,15 @@ name|OrderFailedException
 extends|extends
 name|Exception
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|OrderFailedException (String message)
 specifier|public
 name|OrderFailedException

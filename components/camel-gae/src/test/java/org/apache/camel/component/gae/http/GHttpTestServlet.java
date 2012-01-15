@@ -108,6 +108,15 @@ name|GHttpTestServlet
 extends|extends
 name|HttpServlet
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|doGet (HttpServletRequest req, HttpServletResponse resp)

@@ -313,6 +313,11 @@ name|path
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|printSettings
 init|=
 name|URISupport

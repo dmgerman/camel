@@ -67,11 +67,14 @@ interface|interface
 name|TraceEventHandler
 block|{
 comment|/**      * Event called when an {@link Exchange} is about to be processed      *<p/>      * This event is only called if trace out has been disabled (which it is by default).      *<p/>      * This method is for coarse grained tracing, where as the the other two methods is for fine grained      * with in and event events.      *      * @param node             the current node      * @param target           the current processor being invoked      * @param traceInterceptor the trace interceptor      * @param exchange         the current exchange      * @throws Exception is thrown if an error occurred during tracing      */
-DECL|method|traceExchange (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchange (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 name|void
 name|traceExchange
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -87,11 +90,14 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Event called when an {@link Exchange} is about to be processed (in)      *<p/>      * This event is only called if trace out has been enabled.      *      * @param node             the current node      * @param target           the current processor being invoked      * @param traceInterceptor the trace interceptor      * @param exchange         the current exchange      * @return an optional return object to pass in the<tt>traceEventOut</tt> method.      * @throws Exception is thrown if an error occurred during tracing      */
-DECL|method|traceExchangeIn (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchangeIn (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 name|Object
 name|traceExchangeIn
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -107,11 +113,14 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Event called when an {@link Exchange} has been processed (out)      *<p/>      * This event is only called if trace out has been enabled.      *      * @param node             the current node      * @param target           the current processor being invoked      * @param traceInterceptor the trace interceptor      * @param exchange         the current exchange (contains exception if the processing failed with an exception)      * @param traceState       the optional object which was returned from the<tt>traceEventIn</tt> method.      * @throws Exception is thrown if an error occurred during tracing      */
-DECL|method|traceExchangeOut (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
+DECL|method|traceExchangeOut (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
 name|void
 name|traceExchangeOut
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor

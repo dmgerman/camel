@@ -254,6 +254,11 @@ argument_list|<
 name|String
 argument_list|,
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 name|map
 init|=
@@ -263,6 +268,11 @@ argument_list|<
 name|String
 argument_list|,
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 argument_list|(
 name|registry

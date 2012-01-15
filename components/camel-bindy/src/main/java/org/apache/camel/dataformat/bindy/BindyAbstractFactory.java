@@ -860,11 +860,15 @@ return|return
 name|crlf
 return|;
 block|}
-comment|/**      * Format the object into a string according to the format rue defined      */
+comment|/**      * Format the object into a string according to the format rule defined      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
+literal|"unchecked"
+block|,
 literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|formatString (Format format, Object value)
 specifier|public

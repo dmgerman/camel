@@ -159,6 +159,9 @@ throws|throws
 name|Exception
 block|{
 name|Set
+argument_list|<
+name|ObjectName
+argument_list|>
 name|s
 init|=
 name|server

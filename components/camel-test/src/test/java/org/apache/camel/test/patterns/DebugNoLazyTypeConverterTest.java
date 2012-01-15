@@ -136,7 +136,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|debugBefore (Exchange exchange, Processor processor, ProcessorDefinition definition, String id, String shortName)
+DECL|method|debugBefore (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, String id, String shortName)
 specifier|protected
 name|void
 name|debugBefore
@@ -148,6 +148,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|String

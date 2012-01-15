@@ -173,6 +173,9 @@ DECL|field|task
 specifier|private
 specifier|volatile
 name|ScheduledFuture
+argument_list|<
+name|?
+argument_list|>
 name|task
 decl_stmt|;
 DECL|field|interval

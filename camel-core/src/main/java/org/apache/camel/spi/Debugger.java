@@ -208,7 +208,7 @@ name|exchangeId
 parameter_list|)
 function_decl|;
 comment|/**      * Callback invoked when an {@link Exchange} is about to be processed which allows implementators      * to notify breakpoints.      *      * @param exchange   the exchange      * @param processor  the {@link Processor} about to be processed      * @param definition the definition of the processor      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
-DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
 name|boolean
 name|beforeProcess
 parameter_list|(
@@ -219,11 +219,14 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 function_decl|;
 comment|/**      * Callback invoked when an {@link Exchange} has been processed which allows implementators      * to notify breakpoints.      *      * @param exchange   the exchange      * @param processor  the {@link Processor} which was processed      * @param definition the definition of the processor      * @param timeTaken  time in millis it took to process the {@link Exchange} - time spend in breakpoint callbacks may affect this time      * @return<tt>true</tt> if any breakpoint was hit,<tt>false</tt> if not breakpoint was hit      */
-DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition definition, long timeTaken)
+DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
 name|boolean
 name|afterProcess
 parameter_list|(
@@ -234,6 +237,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|long

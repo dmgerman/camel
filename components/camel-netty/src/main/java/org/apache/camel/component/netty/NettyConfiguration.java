@@ -321,11 +321,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|NettyConfiguration
 specifier|public
 class|class
@@ -2246,7 +2241,7 @@ operator|+
 name|port
 return|;
 block|}
-DECL|method|addToHandlersList (List configured, List handlers, Class<? extends T> handlerType)
+DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)
 specifier|private
 parameter_list|<
 name|T
@@ -2255,15 +2250,19 @@ name|void
 name|addToHandlersList
 parameter_list|(
 name|List
+argument_list|<
+name|T
+argument_list|>
 name|configured
 parameter_list|,
 name|List
+argument_list|<
+name|T
+argument_list|>
 name|handlers
 parameter_list|,
 name|Class
 argument_list|<
-name|?
-extends|extends
 name|T
 argument_list|>
 name|handlerType
@@ -2294,7 +2293,7 @@ name|x
 operator|++
 control|)
 block|{
-name|Object
+name|T
 name|handler
 init|=
 name|handlers

@@ -460,6 +460,11 @@ throws|throws
 name|Exception
 block|{
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|headers
 init|=
 name|exchange

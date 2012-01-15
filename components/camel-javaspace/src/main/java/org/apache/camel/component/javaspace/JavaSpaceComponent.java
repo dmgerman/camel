@@ -111,7 +111,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map parameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -123,6 +123,11 @@ name|String
 name|remaining
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 parameter_list|)
 throws|throws

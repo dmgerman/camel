@@ -554,6 +554,9 @@ return|return;
 block|}
 comment|// if there is a when definition at first, then its a predicate for this interceptor
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|first
 init|=
 name|getOutputs
@@ -685,6 +688,9 @@ operator|++
 control|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 init|=
 name|outputs

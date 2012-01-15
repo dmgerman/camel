@@ -911,6 +911,9 @@ argument_list|,
 name|KeyValueHolder
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
@@ -925,6 +928,9 @@ argument_list|,
 name|KeyValueHolder
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
@@ -2262,6 +2268,9 @@ return|return
 operator|(
 operator|(
 name|ManagementAware
+argument_list|<
+name|Service
+argument_list|>
 operator|)
 name|service
 operator|)
@@ -2613,6 +2622,9 @@ comment|// so the idea is now to only manage the processors from the map
 name|KeyValueHolder
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|InstrumentationProcessor
 argument_list|>
@@ -3235,6 +3247,9 @@ comment|// to be passed to InstrumentationInterceptStrategy.
 name|Map
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -3244,6 +3259,9 @@ operator|new
 name|HashMap
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -3264,6 +3282,9 @@ comment|// register performance counters for all processors and its children
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 range|:
 name|route
@@ -3301,9 +3322,9 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"unchecked"
+literal|"rawtypes"
 argument_list|)
-DECL|method|registerPerformanceCounters (RouteContext routeContext, ProcessorDefinition processor, Map<ProcessorDefinition, PerformanceCounter> registeredCounters)
+DECL|method|registerPerformanceCounters (RouteContext routeContext, ProcessorDefinition<?> processor, Map<ProcessorDefinition<?>, PerformanceCounter> registeredCounters)
 specifier|private
 name|void
 name|registerPerformanceCounters
@@ -3312,11 +3333,17 @@ name|RouteContext
 name|routeContext
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|,
 name|Map
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|,
 name|PerformanceCounter
 argument_list|>
@@ -3412,12 +3439,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Should the given processor be registered.      */
-DECL|method|registerProcessor (ProcessorDefinition processor)
+DECL|method|registerProcessor (ProcessorDefinition<?> processor)
 specifier|protected
 name|boolean
 name|registerProcessor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processor
 parameter_list|)
 block|{

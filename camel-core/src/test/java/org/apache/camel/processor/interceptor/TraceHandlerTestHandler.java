@@ -220,7 +220,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|recordComplete (StringBuilder message, ProcessorDefinition node, Exchange exchange)
+DECL|method|recordComplete (StringBuilder message, ProcessorDefinition<?> node, Exchange exchange)
 specifier|public
 specifier|static
 name|void
@@ -230,6 +230,9 @@ name|StringBuilder
 name|message
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Exchange
@@ -269,7 +272,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|recordIn (StringBuilder message, ProcessorDefinition node, Exchange exchange)
+DECL|method|recordIn (StringBuilder message, ProcessorDefinition<?> node, Exchange exchange)
 specifier|public
 specifier|static
 name|void
@@ -279,6 +282,9 @@ name|StringBuilder
 name|message
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Exchange
@@ -318,7 +324,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|recordOut (StringBuilder message, ProcessorDefinition node, Exchange exchange)
+DECL|method|recordOut (StringBuilder message, ProcessorDefinition<?> node, Exchange exchange)
 specifier|public
 specifier|static
 name|void
@@ -328,6 +334,9 @@ name|StringBuilder
 name|message
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Exchange
@@ -421,12 +430,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|traceExchange (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchange (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 specifier|public
 name|void
 name|traceExchange
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -480,12 +492,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|traceExchangeIn (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchangeIn (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 specifier|public
 name|Object
 name|traceExchangeIn
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -543,12 +558,15 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|traceExchangeOut (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
+DECL|method|traceExchangeOut (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
 specifier|public
 name|void
 name|traceExchangeOut
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor

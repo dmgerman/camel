@@ -278,6 +278,9 @@ name|exchange
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|evaluateQuery
@@ -309,6 +312,9 @@ throws|throws
 name|AssertionError
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|evaluateQuery
@@ -448,7 +454,7 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-DECL|method|matches (Exchange exchange, List list)
+DECL|method|matches (Exchange exchange, List<?> list)
 specifier|protected
 name|boolean
 name|matches
@@ -457,6 +463,9 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 parameter_list|)
 block|{
@@ -472,6 +481,9 @@ block|}
 DECL|method|evaluateQuery (Exchange exchange)
 specifier|protected
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|evaluateQuery
 parameter_list|(
 name|Exchange
@@ -492,6 +504,9 @@ name|getIn
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|in

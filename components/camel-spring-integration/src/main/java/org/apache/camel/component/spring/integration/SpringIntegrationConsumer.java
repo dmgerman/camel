@@ -654,6 +654,9 @@ operator|.
 name|integration
 operator|.
 name|Message
+argument_list|<
+name|?
+argument_list|>
 name|siOutMessage
 init|=
 name|SpringIntegrationBinding

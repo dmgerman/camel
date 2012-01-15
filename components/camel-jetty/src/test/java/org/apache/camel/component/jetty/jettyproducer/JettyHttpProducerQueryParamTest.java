@@ -182,6 +182,11 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|headers
 init|=
 name|exchange
@@ -303,6 +308,11 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|headers
 init|=
 name|exchange

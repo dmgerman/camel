@@ -3509,6 +3509,11 @@ comment|// camel keys as they are intern
 name|List
 argument_list|<
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 name|maps
 init|=
@@ -3516,6 +3521,11 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;

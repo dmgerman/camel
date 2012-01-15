@@ -88,6 +88,9 @@ throws|throws
 name|Exception
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|foo
 init|=
 name|Arrays
@@ -111,6 +114,9 @@ name|foo
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|registry

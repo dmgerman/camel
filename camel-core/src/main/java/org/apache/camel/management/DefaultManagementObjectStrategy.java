@@ -1232,7 +1232,7 @@ block|,
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, ProcessorDefinition definition, Route route)
+DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition, Route route)
 specifier|public
 name|Object
 name|getManagedObjectForProcessor
@@ -1244,6 +1244,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Route

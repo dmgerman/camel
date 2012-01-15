@@ -52,12 +52,15 @@ name|DefaultTraceInterceptorFactory
 implements|implements
 name|TraceInterceptorFactory
 block|{
-DECL|method|createTraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
+DECL|method|createTraceInterceptor (ProcessorDefinition<?> node, Processor target, TraceFormatter formatter, Tracer tracer)
 specifier|public
 name|Processor
 name|createTraceInterceptor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor

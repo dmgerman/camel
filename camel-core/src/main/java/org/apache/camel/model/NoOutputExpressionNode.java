@@ -175,7 +175,7 @@ name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"unchecked"
+literal|"rawtypes"
 argument_list|)
 DECL|method|getOutputs ()
 specifier|public
@@ -189,7 +189,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 return|;
 block|}
 annotation|@

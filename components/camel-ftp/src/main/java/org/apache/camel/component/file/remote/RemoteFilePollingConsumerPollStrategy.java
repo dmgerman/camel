@@ -93,10 +93,16 @@ throws|throws
 name|Exception
 block|{
 name|RemoteFileConsumer
+argument_list|<
+name|?
+argument_list|>
 name|rfc
 init|=
 operator|(
 name|RemoteFileConsumer
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|consumer
 decl_stmt|;
@@ -106,6 +112,9 @@ condition|(
 operator|(
 operator|(
 name|RemoteFileConsumer
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|consumer
 operator|)

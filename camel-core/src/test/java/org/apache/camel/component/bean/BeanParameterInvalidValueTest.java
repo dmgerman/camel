@@ -614,7 +614,7 @@ return|return
 name|body
 return|;
 block|}
-DECL|method|heads (String body, Map headers)
+DECL|method|heads (String body, Map<?, ?> headers)
 specifier|public
 name|String
 name|heads
@@ -623,6 +623,11 @@ name|String
 name|body
 parameter_list|,
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|headers
 parameter_list|)
 block|{

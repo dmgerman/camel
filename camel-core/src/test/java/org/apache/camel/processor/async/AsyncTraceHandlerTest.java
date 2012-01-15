@@ -372,12 +372,15 @@ name|TraceEventHandler
 block|{
 annotation|@
 name|Override
-DECL|method|traceExchange (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchange (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 specifier|public
 name|void
 name|traceExchange
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -396,12 +399,15 @@ comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|traceExchangeIn (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchangeIn (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 specifier|public
 name|Object
 name|traceExchangeIn
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -446,12 +452,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|traceExchangeOut (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
+DECL|method|traceExchangeOut (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
 specifier|public
 name|void
 name|traceExchangeOut
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor

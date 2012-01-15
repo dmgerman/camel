@@ -135,6 +135,9 @@ decl_stmt|;
 DECL|field|node
 specifier|protected
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 decl_stmt|;
 DECL|method|ScriptRouteBuilder ()
@@ -184,6 +187,9 @@ block|}
 DECL|method|to (String uri)
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|to
 parameter_list|(
 name|String
@@ -203,6 +209,9 @@ block|}
 DECL|method|to (Endpoint endpoint)
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|to
 parameter_list|(
 name|Endpoint
@@ -222,6 +231,9 @@ block|}
 DECL|method|getNode ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getNode
 parameter_list|()
 block|{
@@ -244,12 +256,15 @@ return|return
 name|node
 return|;
 block|}
-DECL|method|setNode (ProcessorDefinition node)
+DECL|method|setNode (ProcessorDefinition<?> node)
 specifier|public
 name|void
 name|setNode
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{
@@ -263,8 +278,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Node is now: "
-operator|+
+literal|"Node is now: {}"
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;

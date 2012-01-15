@@ -220,17 +220,9 @@ specifier|private
 name|FtpProcessStrategyFactory
 parameter_list|()
 block|{     }
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createGenericFileProcessStrategy (CamelContext context, Map<String, Object> params)
 specifier|public
 specifier|static
-parameter_list|<
-name|FTPFile
-parameter_list|>
 name|GenericFileProcessStrategy
 argument_list|<
 name|FTPFile

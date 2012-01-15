@@ -443,6 +443,9 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 name|RecipientListDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 init|=
 name|assertOneProcessorInstanceOf
@@ -976,6 +979,9 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 name|RoutingSlipDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 init|=
 name|assertOneProcessorInstanceOf
@@ -1037,6 +1043,9 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 name|RoutingSlipDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 init|=
 name|assertOneProcessorInstanceOf
@@ -1098,6 +1107,9 @@ literal|"seda:a"
 argument_list|)
 expr_stmt|;
 name|RoutingSlipDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 init|=
 name|assertOneProcessorInstanceOf

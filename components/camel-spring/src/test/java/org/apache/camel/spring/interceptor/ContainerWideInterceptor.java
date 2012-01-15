@@ -141,7 +141,7 @@ specifier|static
 name|int
 name|count
 decl_stmt|;
-DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition definition, final Processor target, final Processor nextTarget)
+DECL|method|wrapProcessorInInterceptors (final CamelContext context, final ProcessorDefinition<?> definition, final Processor target, final Processor nextTarget)
 specifier|public
 name|Processor
 name|wrapProcessorInInterceptors
@@ -152,6 +152,9 @@ name|context
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 specifier|final

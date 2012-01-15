@@ -332,6 +332,9 @@ name|CamelContext
 name|context
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Processor

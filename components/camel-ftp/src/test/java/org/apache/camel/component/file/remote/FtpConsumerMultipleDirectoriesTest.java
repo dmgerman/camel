@@ -192,10 +192,16 @@ literal|0
 argument_list|)
 decl_stmt|;
 name|RemoteFile
+argument_list|<
+name|?
+argument_list|>
 name|file
 init|=
 operator|(
 name|RemoteFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|exchange
 operator|.
@@ -257,6 +263,9 @@ name|file
 operator|=
 operator|(
 name|RemoteFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|exchange
 operator|.
@@ -328,6 +337,9 @@ name|file
 operator|=
 operator|(
 name|RemoteFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|exchange
 operator|.

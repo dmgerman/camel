@@ -289,6 +289,11 @@ block|}
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|foo
 init|=
 name|myBean
@@ -296,6 +301,11 @@ operator|.
 name|foo
 decl_stmt|;
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|bar
 init|=
 name|myBean
@@ -442,11 +452,21 @@ block|{
 DECL|field|foo
 specifier|public
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|foo
 decl_stmt|;
 DECL|field|bar
 specifier|public
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|bar
 decl_stmt|;
 annotation|@
@@ -469,7 +489,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|myMethod (@roperties Map foo, @Headers Map bar)
+DECL|method|myMethod (@roperties Map<?, ?> foo, @Headers Map<?, ?> bar)
 specifier|public
 name|void
 name|myMethod
@@ -477,11 +497,21 @@ parameter_list|(
 annotation|@
 name|Properties
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|foo
 parameter_list|,
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|bar
 parameter_list|)
 block|{

@@ -182,6 +182,11 @@ expr_stmt|;
 name|List
 argument_list|<
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|PurchaseOrder
+argument_list|>
 argument_list|>
 name|rows
 init|=
@@ -213,9 +218,6 @@ decl_stmt|;
 name|PurchaseOrder
 name|order
 init|=
-operator|(
-name|PurchaseOrder
-operator|)
 name|rows
 operator|.
 name|get

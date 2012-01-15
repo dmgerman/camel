@@ -298,6 +298,9 @@ name|Override
 DECL|method|endParent ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|endParent
 parameter_list|()
 block|{

@@ -243,7 +243,7 @@ name|Producer
 name|producer
 parameter_list|)
 function_decl|;
-DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, ProcessorDefinition definition, Route route)
+DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition, Route route)
 name|Object
 name|getManagedObjectForProcessor
 parameter_list|(
@@ -254,6 +254,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|,
 name|Route

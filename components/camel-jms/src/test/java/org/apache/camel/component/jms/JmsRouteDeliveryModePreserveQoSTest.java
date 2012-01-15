@@ -185,6 +185,11 @@ argument_list|()
 expr_stmt|;
 comment|// should be persistent by default
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 name|mock
@@ -268,6 +273,11 @@ argument_list|()
 expr_stmt|;
 comment|// should preserve non persistent
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 name|mock
@@ -349,6 +359,11 @@ argument_list|()
 expr_stmt|;
 comment|// should preserve non persistent
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 name|mock
@@ -432,6 +447,11 @@ argument_list|()
 expr_stmt|;
 comment|// should preserve persistent
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 name|mock
@@ -513,6 +533,11 @@ argument_list|()
 expr_stmt|;
 comment|// should preserve persistent
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|map
 init|=
 name|mock

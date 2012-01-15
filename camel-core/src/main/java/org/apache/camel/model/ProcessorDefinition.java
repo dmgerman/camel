@@ -1235,7 +1235,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition child)
+DECL|method|wrapChannel (RouteContext routeContext, Processor processor, ProcessorDefinition<?> child)
 specifier|protected
 name|Processor
 name|wrapChannel
@@ -1247,6 +1247,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|child
 parameter_list|)
 throws|throws
@@ -1310,10 +1313,16 @@ argument_list|)
 expr_stmt|;
 comment|// must do this ugly cast to avoid compiler error on AIX/HP-UX
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|defn
 init|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|this
 decl_stmt|;
@@ -1511,10 +1520,16 @@ block|{
 comment|// do not use error handler for recipient list as it offers fine grained error handlers for its outputs
 comment|// however if share unit of work is enabled, we need to wrap an error handler on the recipient list parent
 name|RecipientListDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 init|=
 operator|(
 name|RecipientListDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|defn
 decl_stmt|;
@@ -2158,10 +2173,16 @@ argument_list|)
 expr_stmt|;
 comment|// also resolve properties and constant fields on embedded expressions
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|me
 init|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|this
 decl_stmt|;
@@ -2334,6 +2355,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processorDefinition
 init|=
 literal|null
@@ -2349,6 +2373,9 @@ name|processorDefinition
 operator|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|definition
 expr_stmt|;
@@ -2570,6 +2597,11 @@ control|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|entry
 range|:
 name|properties
@@ -2582,9 +2614,6 @@ comment|// the name is always a String
 name|String
 name|name
 init|=
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getKey
@@ -2953,12 +2982,15 @@ block|{
 comment|// noop
 block|}
 comment|/**      * Strategy for children to do any custom configuration      *      * @param output the child to be added as output to this      */
-DECL|method|configureChild (ProcessorDefinition output)
+DECL|method|configureChild (ProcessorDefinition<?> output)
 specifier|protected
 name|void
 name|configureChild
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 parameter_list|)
 block|{
@@ -3847,10 +3879,16 @@ name|ProcessorDefinition
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|block
 init|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|blocks
 operator|.
@@ -3920,6 +3958,9 @@ name|id
 parameter_list|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 init|=
 name|this
@@ -4250,15 +4291,24 @@ comment|/**      * Ends the current block      *      * @return the builder     
 DECL|method|end ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|end
 parameter_list|()
 block|{
 comment|// must do this ugly cast to avoid compiler error on AIX/HP-UX
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|defn
 init|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|this
 decl_stmt|;
@@ -4325,6 +4375,9 @@ comment|/**      * Strategy to allow {@link ProcessorDefinition}s to have specia
 DECL|method|endParent ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|endParent
 parameter_list|()
 block|{
@@ -4340,6 +4393,9 @@ name|endChoice
 parameter_list|()
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 init|=
 name|end
@@ -8889,6 +8945,9 @@ else|else
 block|{
 comment|// configure on last output as its the intended
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 init|=
 name|getOutputs
@@ -8931,6 +8990,9 @@ name|XmlTransient
 DECL|method|getParent ()
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getParent
 parameter_list|()
 block|{
@@ -8938,12 +9000,15 @@ return|return
 name|parent
 return|;
 block|}
-DECL|method|setParent (ProcessorDefinition parent)
+DECL|method|setParent (ProcessorDefinition<?> parent)
 specifier|public
 name|void
 name|setParent
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 parameter_list|)
 block|{

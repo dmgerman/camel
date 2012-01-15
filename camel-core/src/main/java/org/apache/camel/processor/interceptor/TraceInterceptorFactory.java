@@ -55,11 +55,14 @@ interface|interface
 name|TraceInterceptorFactory
 block|{
 comment|/**      * Create a trace interceptor.      *<p/>      * It is expected that the factory will create a subclass of {@link TraceInterceptor},      * however any Processor will suffice.      *<p/>      * Use this factory to take more control of how trace events are persisted.      *      * @param node      the current node      * @param target    the current target      * @param formatter the trace formatter      * @param tracer    the tracer      * @return the created trace interceptor      */
-DECL|method|createTraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
+DECL|method|createTraceInterceptor (ProcessorDefinition<?> node, Processor target, TraceFormatter formatter, Tracer tracer)
 name|Processor
 name|createTraceInterceptor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor

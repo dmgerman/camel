@@ -200,7 +200,7 @@ name|core
 operator|.
 name|authority
 operator|.
-name|GrantedAuthorityImpl
+name|SimpleGrantedAuthority
 import|;
 end_import
 
@@ -558,7 +558,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|GrantedAuthorityImpl
+name|SimpleGrantedAuthority
 argument_list|(
 name|role
 argument_list|)

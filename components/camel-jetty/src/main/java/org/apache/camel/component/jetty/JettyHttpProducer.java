@@ -1231,11 +1231,6 @@ return|return
 name|httpExchange
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doSetQueryParameters (Exchange exchange, JettyContentExchange httpExchange)
 specifier|private
 name|void
@@ -1312,6 +1307,11 @@ name|getRequestURI
 argument_list|()
 decl_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|parameters
 init|=
 name|URISupport

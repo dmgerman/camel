@@ -344,10 +344,20 @@ argument_list|()
 expr_stmt|;
 comment|// check the model
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|result
 operator|.

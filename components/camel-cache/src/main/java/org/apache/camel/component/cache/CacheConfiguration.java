@@ -277,6 +277,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|cacheSettings
 init|=
 name|URISupport

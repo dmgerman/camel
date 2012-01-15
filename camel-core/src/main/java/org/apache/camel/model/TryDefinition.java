@@ -446,6 +446,50 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Handles the given exception      *      * @param exceptionType  the exception      * @return the try builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|doCatch (Class<? extends Throwable> exceptionType)
+specifier|public
+name|TryDefinition
+name|doCatch
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
+name|exceptionType
+parameter_list|)
+block|{
+comment|// this method is introduced to avoid compiler warnings about the
+comment|// generic Class arrays in the case we've got only one single Class
+comment|// to build a TryDefinition for
+return|return
+name|doCatch
+argument_list|(
+operator|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
+index|[]
+operator|)
+operator|new
+name|Class
+index|[]
+block|{
+name|exceptionType
+block|}
+argument_list|)
+return|;
+block|}
 comment|/**      * Handles the given exception(s)      *      * @param exceptionType  the exception(s)      * @return the try builder      */
 DECL|method|doCatch (Class<? extends Throwable>.... exceptionType)
 specifier|public

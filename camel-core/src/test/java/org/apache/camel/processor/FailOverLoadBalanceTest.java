@@ -179,7 +179,17 @@ class|class
 name|MyException
 extends|extends
 name|Exception
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|class|MyAnotherException
 specifier|public
 specifier|static
@@ -187,7 +197,17 @@ class|class
 name|MyAnotherException
 extends|extends
 name|Exception
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|class|MyExceptionProcessor
 specifier|public
 specifier|static

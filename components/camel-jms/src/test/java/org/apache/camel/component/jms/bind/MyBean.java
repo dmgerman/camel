@@ -91,6 +91,11 @@ block|{
 DECL|field|headers
 specifier|private
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|headers
 decl_stmt|;
 DECL|field|body
@@ -117,7 +122,7 @@ name|uri
 operator|=
 literal|"activemq:Test.BindingQueue"
 argument_list|)
-DECL|method|myMethod (@eaders Map headers, String body)
+DECL|method|myMethod (@eaders Map<?, ?> headers, String body)
 specifier|public
 name|void
 name|myMethod
@@ -125,6 +130,11 @@ parameter_list|(
 annotation|@
 name|Headers
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|headers
 parameter_list|,
 name|String
@@ -165,6 +175,11 @@ block|}
 DECL|method|getHeaders ()
 specifier|public
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|getHeaders
 parameter_list|()
 block|{

@@ -98,11 +98,6 @@ specifier|private
 name|UnitOfWorkHelper
 parameter_list|()
 block|{     }
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doneSynchronizations (Exchange exchange, List<Synchronization> synchronizations, Logger log)
 specifier|public
 specifier|static

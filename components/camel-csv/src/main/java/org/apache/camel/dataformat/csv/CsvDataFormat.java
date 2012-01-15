@@ -798,13 +798,16 @@ operator|=
 name|autogenColumns
 expr_stmt|;
 block|}
-DECL|method|updateFieldsInConfig (Set set, Exchange exchange)
+DECL|method|updateFieldsInConfig (Set<?> set, Exchange exchange)
 specifier|private
 specifier|synchronized
 name|void
 name|updateFieldsInConfig
 parameter_list|(
 name|Set
+argument_list|<
+name|?
+argument_list|>
 name|set
 parameter_list|,
 name|Exchange

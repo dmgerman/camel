@@ -144,6 +144,9 @@ operator|=
 operator|(
 operator|(
 name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
 operator|)
 name|node
 operator|.
@@ -161,6 +164,9 @@ operator|=
 operator|(
 operator|(
 name|Navigate
+argument_list|<
+name|Processor
+argument_list|>
 operator|)
 name|node
 operator|.

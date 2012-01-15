@@ -2873,6 +2873,11 @@ control|(
 name|Map
 operator|.
 name|Entry
+argument_list|<
+name|EndpointKey
+argument_list|,
+name|Endpoint
+argument_list|>
 name|entry
 range|:
 name|endpoints
@@ -2883,9 +2888,6 @@ control|)
 block|{
 name|oldEndpoint
 operator|=
-operator|(
-name|Endpoint
-operator|)
 name|entry
 operator|.
 name|getValue

@@ -117,12 +117,15 @@ operator|=
 name|eventMessages
 expr_stmt|;
 block|}
-DECL|method|createTraceInterceptor (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer)
+DECL|method|createTraceInterceptor (ProcessorDefinition<?> node, Processor target, TraceFormatter formatter, Tracer tracer)
 specifier|public
 name|TraceInterceptor
 name|createTraceInterceptor
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -207,11 +210,14 @@ specifier|private
 name|TraceInterceptorSubclassFactory
 name|factory
 decl_stmt|;
-DECL|method|TracerInterceptorSubclass (ProcessorDefinition node, Processor target, TraceFormatter formatter, Tracer tracer, List<StringBuilder> eventMessages, TraceInterceptorSubclassFactory factory)
+DECL|method|TracerInterceptorSubclass (ProcessorDefinition<?> node, Processor target, TraceFormatter formatter, Tracer tracer, List<StringBuilder> eventMessages, TraceInterceptorSubclassFactory factory)
 specifier|public
 name|TracerInterceptorSubclass
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor

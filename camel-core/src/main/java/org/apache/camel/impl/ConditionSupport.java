@@ -90,7 +90,7 @@ name|ConditionSupport
 implements|implements
 name|Condition
 block|{
-DECL|method|matchProcess (Exchange exchange, Processor processor, ProcessorDefinition definition)
+DECL|method|matchProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|boolean
 name|matchProcess
@@ -102,6 +102,9 @@ name|Processor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{

@@ -2443,6 +2443,9 @@ block|{
 operator|(
 operator|(
 name|SubmitOrderedCompletionService
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|completion
 operator|)
@@ -4656,6 +4659,11 @@ literal|null
 condition|)
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|property
 init|=
 name|exchange
@@ -4736,6 +4744,11 @@ name|aggregationStrategy
 parameter_list|)
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|property
 init|=
 name|exchange
@@ -4819,6 +4832,11 @@ name|exchange
 parameter_list|)
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|property
 init|=
 name|exchange

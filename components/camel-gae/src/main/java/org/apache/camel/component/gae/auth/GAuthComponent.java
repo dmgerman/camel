@@ -32,6 +32,24 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|gdata
+operator|.
+name|client
+operator|.
+name|authn
+operator|.
+name|oauth
+operator|.
+name|GoogleOAuthParameters
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -243,11 +261,6 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -284,6 +297,13 @@ name|remaining
 argument_list|)
 decl_stmt|;
 name|OutboundBinding
+argument_list|<
+name|GAuthEndpoint
+argument_list|,
+name|GoogleOAuthParameters
+argument_list|,
+name|GoogleOAuthParameters
+argument_list|>
 name|authorizeBinding
 init|=
 name|resolveAndRemoveReferenceParameter
@@ -302,6 +322,13 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|OutboundBinding
+argument_list|<
+name|GAuthEndpoint
+argument_list|,
+name|GoogleOAuthParameters
+argument_list|,
+name|GoogleOAuthParameters
+argument_list|>
 name|upgradeBinding
 init|=
 name|resolveAndRemoveReferenceParameter
