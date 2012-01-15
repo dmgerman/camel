@@ -559,7 +559,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Regular expression with repeating groups is a pain to get right      * and then nobody understands the reg exp afterwards.      * So we use a bit ugly/low-level Java code to split the OGNL into methods.      */
+comment|/**      * Regular expression with repeating groups is a pain to get right      * and then nobody understands the reg exp afterwards.      * So we use a bit ugly/low-level Java code to split the OGNL into methods.      *      * @param ognl the ognl expression      * @return a list of methods, will return an empty list, if ognl expression has no methods      */
 DECL|method|splitOgnl (String ognl)
 specifier|public
 specifier|static
@@ -586,6 +586,21 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// return an empty list if ognl is empty
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|ognl
+argument_list|)
+condition|)
+block|{
+return|return
+name|methods
+return|;
+block|}
 name|StringBuilder
 name|sb
 init|=
@@ -604,7 +619,13 @@ name|squareBracket
 init|=
 literal|false
 decl_stmt|;
-comment|// special to keep track if we are inside a square bracket block - (eg [foo])
+comment|// special to keep track if we are inside a square bracket block, eg: [foo]
+name|boolean
+name|parenthesisBracket
+init|=
+literal|false
+decl_stmt|;
+comment|// special to keep track if we are inside a parenthesis block, eg: bar(${body}, ${header.foo})
 for|for
 control|(
 name|int
@@ -685,11 +706,40 @@ condition|(
 name|ch
 operator|==
 literal|'['
+operator|&&
+operator|!
+name|parenthesisBracket
 condition|)
 block|{
 name|squareBracket
 operator|=
 literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|ch
+operator|==
+literal|'('
+condition|)
+block|{
+name|parenthesisBracket
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|ch
+operator|==
+literal|')'
+condition|)
+block|{
+name|parenthesisBracket
+operator|=
+literal|false
 expr_stmt|;
 block|}
 name|j
@@ -707,6 +757,9 @@ literal|'.'
 operator|&&
 operator|!
 name|squareBracket
+operator|&&
+operator|!
+name|parenthesisBracket
 condition|)
 block|{
 comment|// only treat dot as a method separator if not inside a square bracket block
@@ -783,6 +836,9 @@ condition|(
 name|ch
 operator|==
 literal|']'
+operator|&&
+operator|!
+name|parenthesisBracket
 condition|)
 block|{
 comment|// append ending ] to method name
@@ -828,12 +884,14 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|// and dont lose the char if its not an ] end marker (as we already added that)
+comment|// and don't lose the char if its not an ] end marker (as we already added that)
 if|if
 condition|(
 name|ch
 operator|!=
 literal|']'
+operator|||
+name|parenthesisBracket
 condition|)
 block|{
 name|sb
@@ -842,6 +900,19 @@ name|append
 argument_list|(
 name|ch
 argument_list|)
+expr_stmt|;
+block|}
+comment|// check for end of parenthesis
+if|if
+condition|(
+name|ch
+operator|==
+literal|')'
+condition|)
+block|{
+name|parenthesisBracket
+operator|=
+literal|false
 expr_stmt|;
 block|}
 comment|// only advance if already begun on the new method
