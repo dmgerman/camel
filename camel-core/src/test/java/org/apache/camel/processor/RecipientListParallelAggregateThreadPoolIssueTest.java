@@ -250,7 +250,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"${counter}"
+literal|"#counter#"
 argument_list|)
 expr_stmt|;
 name|from

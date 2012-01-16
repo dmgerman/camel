@@ -762,7 +762,7 @@ name|threadNamePattern
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"\\$\\{camelId\\}"
+literal|"#camelId#"
 argument_list|,
 name|this
 operator|.
@@ -1607,7 +1607,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|") thread #${counter} - ${name}"
+literal|") thread ##counter# - #name#"
 expr_stmt|;
 block|}
 block|}

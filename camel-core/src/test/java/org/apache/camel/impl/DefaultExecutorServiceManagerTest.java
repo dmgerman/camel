@@ -229,12 +229,12 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"#${counter} - ${name}"
+literal|"##counter# - #name#"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"#${counter} - ${name}"
+literal|"##counter# - #name#"
 argument_list|,
 name|context
 operator|.
@@ -334,7 +334,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"#${camelId} - #${counter} - ${name}"
+literal|"##camelId# - ##counter# - #name#"
 argument_list|)
 expr_stmt|;
 name|String
@@ -440,7 +440,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"Hello - ${name}"
+literal|"Hello - #name#"
 argument_list|)
 expr_stmt|;
 name|String
@@ -479,7 +479,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"#${counter} - ${longName}"
+literal|"##counter# - #longName#"
 argument_list|)
 expr_stmt|;
 name|String
@@ -571,7 +571,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"#${counter} - ${name}"
+literal|"##counter# - #name#"
 argument_list|)
 expr_stmt|;
 name|String
@@ -663,7 +663,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"Cool ${name}"
+literal|"Cool #name#"
 argument_list|)
 expr_stmt|;
 name|String
@@ -729,7 +729,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"Cool ${xxx}"
+literal|"Cool #xxx#"
 argument_list|)
 expr_stmt|;
 try|try
@@ -758,7 +758,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Pattern is invalid: Cool ${xxx}"
+literal|"Pattern is invalid: Cool #xxx#"
 argument_list|,
 name|e
 operator|.
@@ -775,7 +775,7 @@ argument_list|()
 operator|.
 name|setThreadNamePattern
 argument_list|(
-literal|"Camel Thread ${counter} - ${name}"
+literal|"Camel Thread #counter# - #name#"
 argument_list|)
 expr_stmt|;
 block|}
