@@ -393,7 +393,7 @@ name|outHeaders
 argument_list|()
 return|;
 block|}
-comment|/**      * An expression of the inbound headers      */
+comment|/**      * An expression of the inbound message attachments      */
 DECL|method|attachments ()
 specifier|public
 name|T
