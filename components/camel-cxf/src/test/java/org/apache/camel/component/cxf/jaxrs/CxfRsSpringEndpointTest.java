@@ -210,7 +210,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Get a wrong size of resource classess"
+literal|"Get a wrong size of resource classes"
 argument_list|,
 name|sfb
 operator|.

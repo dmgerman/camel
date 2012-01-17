@@ -390,10 +390,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGetConstumerWithHttpCentralClientAPI ()
+DECL|method|testGetCostumerWithHttpCentralClientAPI ()
 specifier|public
 name|void
-name|testGetConstumerWithHttpCentralClientAPI
+name|testGetCostumerWithHttpCentralClientAPI
 parameter_list|()
 throws|throws
 name|Exception

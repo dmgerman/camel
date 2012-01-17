@@ -390,10 +390,10 @@ comment|// do nothing here
 block|}
 annotation|@
 name|Test
-DECL|method|testGetConstumerWithClientProxyAPI ()
+DECL|method|testGetCostumerWithClientProxyAPI ()
 specifier|public
 name|void
-name|testGetConstumerWithClientProxyAPI
+name|testGetCostumerWithClientProxyAPI
 parameter_list|()
 block|{
 comment|// START SNIPPET: ProxyExample
@@ -555,10 +555,10 @@ comment|// END SNIPPET: ProxyExample
 block|}
 annotation|@
 name|Test
-DECL|method|testGetConstumersWithClientProxyAPI ()
+DECL|method|testGetCostumersWithClientProxyAPI ()
 specifier|public
 name|void
-name|testGetConstumersWithClientProxyAPI
+name|testGetCostumersWithClientProxyAPI
 parameter_list|()
 block|{
 name|Exchange
@@ -739,10 +739,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGetConstumerWithHttpCentralClientAPI ()
+DECL|method|testGetCostumerWithHttpCentralClientAPI ()
 specifier|public
 name|void
-name|testGetConstumerWithHttpCentralClientAPI
+name|testGetCostumerWithHttpCentralClientAPI
 parameter_list|()
 block|{
 comment|// START SNIPPET: HttpExample
@@ -929,10 +929,10 @@ comment|// END SNIPPET: HttpExample
 block|}
 annotation|@
 name|Test
-DECL|method|testGetConstumerWithCxfRsEndpoint ()
+DECL|method|testGetCostumerWithCxfRsEndpoint ()
 specifier|public
 name|void
-name|testGetConstumerWithCxfRsEndpoint
+name|testGetCostumerWithCxfRsEndpoint
 parameter_list|()
 block|{
 name|Exchange
