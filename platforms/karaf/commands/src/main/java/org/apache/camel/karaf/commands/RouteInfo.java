@@ -831,12 +831,10 @@ literal|"ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Date
-name|firstExchangeTimestamp
+comment|// Test for null to see if a any exchanges have been processed first to avoid NPE
+name|Object
+name|firstExchangeTimestampObj
 init|=
-operator|(
-name|Date
-operator|)
 name|mBeanServer
 operator|.
 name|getAttribute
@@ -854,6 +852,39 @@ name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|firstExchangeTimestampObj
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Print an empty value for scripting
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\tFirst Exchange Date:"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|Date
+name|firstExchangeTimestamp
+init|=
+operator|(
+name|Date
+operator|)
+name|firstExchangeTimestampObj
 decl_stmt|;
 name|System
 operator|.
@@ -876,12 +907,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Date
-name|lastExchangeCompletedTimestamp
+block|}
+comment|// Again, check for null to avoid NPE
+name|Object
+name|lastExchangeCompletedTimestampObj
 init|=
-operator|(
-name|Date
-operator|)
 name|mBeanServer
 operator|.
 name|getAttribute
@@ -890,6 +920,39 @@ name|routeMBean
 argument_list|,
 literal|"LastExchangeCompletedTimestamp"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|lastExchangeCompletedTimestampObj
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Print an empty value for scripting
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\tLast Exchange Completed Date:"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|Date
+name|lastExchangeCompletedTimestamp
+init|=
+operator|(
+name|Date
+operator|)
+name|lastExchangeCompletedTimestampObj
 decl_stmt|;
 name|System
 operator|.
@@ -912,6 +975,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|System
