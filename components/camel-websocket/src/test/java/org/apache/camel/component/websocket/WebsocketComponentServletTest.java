@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|http
-operator|.
-name|HttpServletRequest
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|eclipse
@@ -109,14 +97,14 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|javax
 operator|.
-name|junit
+name|servlet
 operator|.
-name|Assert
+name|http
 operator|.
-name|assertEquals
+name|HttpServletRequest
 import|;
 end_import
 
@@ -128,19 +116,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNull
+name|*
 import|;
 end_import
 
@@ -167,10 +143,6 @@ operator|.
 name|times
 import|;
 end_import
-
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 
 begin_comment
 comment|/**  *  */
