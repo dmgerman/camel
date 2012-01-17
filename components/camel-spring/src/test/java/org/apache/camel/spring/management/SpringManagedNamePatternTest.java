@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.spring.management
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spring
+operator|.
+name|management
 package|;
 end_package
 
@@ -24,9 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|CamelContextNameStrategy
+name|CamelContext
 import|;
 end_import
 
@@ -38,88 +38,57 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|management
 operator|.
-name|ObjectHelper
+name|ManagedNamePatternTest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|processor
+operator|.
+name|SpringTestHelper
+operator|.
+name|createSpringCamelContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to used an explicit (fixed) name for {@link org.apache.camel.CamelContext}.  *  * @version   */
+comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ExplicitCamelContextNameStrategy
+DECL|class|SpringManagedNamePatternTest
 specifier|public
 class|class
-name|ExplicitCamelContextNameStrategy
-implements|implements
-name|CamelContextNameStrategy
+name|SpringManagedNamePatternTest
+extends|extends
+name|ManagedNamePatternTest
 block|{
-DECL|field|name
-specifier|private
-specifier|final
-name|String
-name|name
-decl_stmt|;
-DECL|method|ExplicitCamelContextNameStrategy (String name)
-specifier|public
-name|ExplicitCamelContextNameStrategy
-parameter_list|(
-name|String
-name|name
-parameter_list|)
+DECL|method|createCamelContext ()
+specifier|protected
+name|CamelContext
+name|createCamelContext
+parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|ObjectHelper
-operator|.
-name|notEmpty
+return|return
+name|createSpringCamelContext
 argument_list|(
-name|name
-argument_list|,
-literal|"CamelContext name "
-argument_list|)
-expr_stmt|;
 name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getName ()
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|name
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getNextName ()
-specifier|public
-name|String
-name|getNextName
-parameter_list|()
-block|{
-return|return
-name|name
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isFixedName ()
-specifier|public
-name|boolean
-name|isFixedName
-parameter_list|()
-block|{
-return|return
-literal|true
+argument_list|,
+literal|"org/apache/camel/spring/management/SpringManagedNamePatternTest.xml"
+argument_list|)
 return|;
 block|}
 block|}

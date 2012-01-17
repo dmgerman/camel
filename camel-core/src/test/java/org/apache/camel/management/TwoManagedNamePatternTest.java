@@ -74,29 +74,15 @@ name|DefaultCamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultCamelContextNameStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|TwoManagedCamelContextAutoAssignedNameClashTest
+DECL|class|TwoManagedNamePatternTest
 specifier|public
 class|class
-name|TwoManagedCamelContextAutoAssignedNameClashTest
+name|TwoManagedNamePatternTest
 extends|extends
 name|TestSupport
 block|{
@@ -110,11 +96,17 @@ specifier|private
 name|CamelContext
 name|camel2
 decl_stmt|;
-DECL|method|createCamelContext ()
+DECL|method|createCamelContext (String name, String pattern)
 specifier|protected
 name|CamelContext
 name|createCamelContext
-parameter_list|()
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|pattern
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -125,6 +117,23 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|context
+operator|.
+name|setName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|getManagementNameStrategy
+argument_list|()
+operator|.
+name|setNamePattern
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
 name|DefaultManagementNamingStrategy
 name|naming
 init|=
@@ -157,10 +166,10 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|testTwoManagedCamelContextClash ()
+DECL|method|testManagedNamePattern ()
 specifier|public
 name|void
-name|testTwoManagedCamelContextClash
+name|testManagedNamePattern
 parameter_list|()
 throws|throws
 name|Exception
@@ -168,25 +177,30 @@ block|{
 name|camel1
 operator|=
 name|createCamelContext
-argument_list|()
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"aaa-#name#"
+argument_list|)
+expr_stmt|;
+name|camel2
+operator|=
+name|createCamelContext
+argument_list|(
+literal|"bar"
+argument_list|,
+literal|"bbb-#name#"
+argument_list|)
 expr_stmt|;
 name|camel1
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should be started"
-argument_list|,
-name|camel1
+name|camel2
 operator|.
-name|getStatus
+name|start
 argument_list|()
-operator|.
-name|isStarted
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|MBeanServer
 name|mbeanServer
@@ -209,14 +223,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/"
-operator|+
-name|camel1
-operator|.
-name|getManagementName
-argument_list|()
-operator|+
-literal|",type=context,name=\"camel-1\""
+literal|"org.apache.camel:context=localhost/aaa-foo,type=context,name=\"foo\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -230,24 +237,6 @@ argument_list|(
 name|on
 argument_list|)
 argument_list|)
-expr_stmt|;
-comment|// now cheat and reset the counter so we can test for a clash
-name|DefaultCamelContextNameStrategy
-operator|.
-name|setCounter
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|camel2
-operator|=
-name|createCamelContext
-argument_list|()
-expr_stmt|;
-name|camel2
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 name|ObjectName
 name|on2
@@ -256,14 +245,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/"
-operator|+
-name|camel2
-operator|.
-name|getManagementName
-argument_list|()
-operator|+
-literal|",type=context,name=\"camel-1\""
+literal|"org.apache.camel:context=localhost/bbb-bar,type=context,name=\"bar\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -278,9 +260,19 @@ name|on2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|camel1
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|camel2
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|assertFalse
 argument_list|(
-literal|"Should still be registered after name clash"
+literal|"Should be unregistered"
 argument_list|,
 name|mbeanServer
 operator|.
@@ -290,9 +282,9 @@ name|on
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Should still be registered after name clash"
+literal|"Should be unregistered"
 argument_list|,
 name|mbeanServer
 operator|.

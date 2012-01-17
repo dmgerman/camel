@@ -348,7 +348,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContextNameStrategy
+name|DefaultCamelContext
 import|;
 end_import
 
@@ -377,20 +377,6 @@ operator|.
 name|impl
 operator|.
 name|EventDrivenConsumerRoute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ExplicitCamelContextNameStrategy
 import|;
 end_import
 
@@ -658,20 +644,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|CamelContextNameStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|EventNotifier
 import|;
 end_import
@@ -715,6 +687,20 @@ operator|.
 name|spi
 operator|.
 name|ManagementAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ManagementNameStrategy
 import|;
 end_import
 
@@ -1078,21 +1064,20 @@ name|context
 argument_list|)
 decl_stmt|;
 name|String
+name|name
+init|=
+name|context
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|String
 name|managementName
 init|=
 name|context
 operator|.
-name|getManagementName
+name|getManagementNameStrategy
 argument_list|()
-operator|!=
-literal|null
-condition|?
-name|context
-operator|.
-name|getManagementName
-argument_list|()
-else|:
-name|context
 operator|.
 name|getName
 argument_list|()
@@ -1121,7 +1106,9 @@ argument_list|()
 operator|.
 name|getObjectNameForCamelContext
 argument_list|(
-name|context
+name|managementName
+argument_list|,
+name|name
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1158,7 +1145,7 @@ literal|false
 decl_stmt|;
 comment|// if we use the default name strategy we can find a free name to use
 name|String
-name|name
+name|newName
 init|=
 name|findFreeName
 argument_list|(
@@ -1166,15 +1153,15 @@ name|mc
 argument_list|,
 name|context
 operator|.
-name|getNameStrategy
+name|getManagementNameStrategy
 argument_list|()
 argument_list|,
-name|managementName
+name|name
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|name
+name|newName
 operator|!=
 literal|null
 condition|)
@@ -1190,7 +1177,7 @@ literal|true
 expr_stmt|;
 name|managementName
 operator|=
-name|name
+name|newName
 expr_stmt|;
 block|}
 comment|// we could not fix it so veto starting camel
@@ -1225,50 +1212,6 @@ throw|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|context
-operator|.
-name|getNameStrategy
-argument_list|()
-operator|instanceof
-name|DefaultCamelContextNameStrategy
-condition|)
-block|{
-comment|// use this as the fixed name
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Reassigned auto assigned name on CamelContext from: "
-operator|+
-name|context
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" to: "
-operator|+
-name|name
-operator|+
-literal|" due to clash with existing name already registered in MBeanServer."
-argument_list|)
-expr_stmt|;
-comment|// now set the fixed name we are using onwards
-name|context
-operator|.
-name|setNameStrategy
-argument_list|(
-operator|new
-name|ExplicitCamelContextNameStrategy
-argument_list|(
-name|name
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|LOG
 operator|.
 name|warn
@@ -1287,7 +1230,6 @@ operator|+
 literal|" due to clash with an existing name already registered in MBeanServer."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1321,13 +1263,26 @@ argument_list|)
 throw|;
 block|}
 comment|// set the name we are going to use
+if|if
+condition|(
 name|context
+operator|instanceof
+name|DefaultCamelContext
+condition|)
+block|{
+operator|(
+operator|(
+name|DefaultCamelContext
+operator|)
+name|context
+operator|)
 operator|.
 name|setManagementName
 argument_list|(
 name|managementName
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|manageObject
@@ -1363,7 +1318,7 @@ name|enlistPreRegisteredServices
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|findFreeName (Object mc, CamelContextNameStrategy strategy, String managementName)
+DECL|method|findFreeName (Object mc, ManagementNameStrategy strategy, String name)
 specifier|private
 name|String
 name|findFreeName
@@ -1371,30 +1326,38 @@ parameter_list|(
 name|Object
 name|mc
 parameter_list|,
-name|CamelContextNameStrategy
+name|ManagementNameStrategy
 name|strategy
 parameter_list|,
 name|String
-name|managementName
+name|name
 parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 block|{
+comment|// we cannot find a free name for fixed named strategies
+if|if
+condition|(
+name|strategy
+operator|.
+name|isFixedName
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|// okay try to find a free name
 name|boolean
 name|done
 init|=
 literal|false
 decl_stmt|;
 name|String
-name|name
+name|newName
 init|=
 literal|null
-decl_stmt|;
-comment|// start from 2 as the existing name is considered the 1st
-name|int
-name|counter
-init|=
-literal|2
 decl_stmt|;
 while|while
 condition|(
@@ -1403,40 +1366,13 @@ name|done
 condition|)
 block|{
 comment|// compute the next name
-if|if
-condition|(
-name|strategy
-operator|instanceof
-name|DefaultCamelContextNameStrategy
-condition|)
-block|{
-comment|// prefer to use the default naming strategy to compute the next free name
-name|name
+name|newName
 operator|=
-operator|(
-operator|(
-name|DefaultCamelContextNameStrategy
-operator|)
 name|strategy
-operator|)
 operator|.
 name|getNextName
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// if explicit name then use a counter prefix
-name|name
-operator|=
-name|managementName
-operator|+
-literal|"-"
-operator|+
-name|counter
-operator|++
-expr_stmt|;
-block|}
 name|ObjectName
 name|on
 init|=
@@ -1448,6 +1384,8 @@ argument_list|()
 operator|.
 name|getObjectNameForCamelContext
 argument_list|(
+name|newName
+argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
@@ -1493,7 +1431,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|name
+name|newName
 return|;
 block|}
 comment|/**      * After {@link CamelContext} has been enlisted in JMX using {@link #onContextStart(org.apache.camel.CamelContext)}      * then we can enlist any pre registered services as well, as we had to wait for {@link CamelContext} to be      * enlisted first.      *<p/>      * A component/endpoint/service etc. can be pre registered when using dependency injection and annotations such as      * {@link org.apache.camel.Produce}, {@link org.apache.camel.EndpointInject}. Therefore we need to capture those      * registrations up front, and then afterwards enlist in JMX when {@link CamelContext} is being started.      */

@@ -193,6 +193,26 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
+literal|"Using OsgiManagementNameStrategy"
+argument_list|)
+expr_stmt|;
+name|camelContext
+operator|.
+name|setManagementNameStrategy
+argument_list|(
+operator|new
+name|OsgiManagementNameStrategy
+argument_list|(
+name|camelContext
+argument_list|,
+name|bundleContext
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
 literal|"Using OsgiClassResolver"
 argument_list|)
 expr_stmt|;

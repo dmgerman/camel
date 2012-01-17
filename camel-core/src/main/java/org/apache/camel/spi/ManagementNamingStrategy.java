@@ -180,10 +180,13 @@ specifier|public
 interface|interface
 name|ManagementNamingStrategy
 block|{
-DECL|method|getObjectNameForCamelContext (String name)
+DECL|method|getObjectNameForCamelContext (String managementName, String name)
 name|ObjectName
 name|getObjectNameForCamelContext
 parameter_list|(
+name|String
+name|managementName
+parameter_list|,
 name|String
 name|name
 parameter_list|)

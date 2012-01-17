@@ -17,15 +17,30 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Strategy for assigning name to a {@link org.apache.camel.CamelContext}.  *  * @see ManagementNameStrategy  */
+comment|/**  * Strategy for assigning the name part of the {@link javax.management.ObjectName}  * for a managed {@link org.apache.camel.CamelContext}.  *<p/>  * A strategy is needed as you can run multiple CamelContext in the same JVM, and want them  * to be enlisted in the JVM wide JMXMBeanServer. And this requires a strategy to be able  * to calculate unique names, in case of clashes. Or to enforce an explicit fixed name,  * to ensure the JMX name is not using dynamic counters etc.  *<p/>  * This strategy supports a naming pattern which supports at least the following tokens  *<ul>  *<li>#camelId# - the camel id (eg the camel name)</li>  *<li>#name# - same as #camelId#</li>  *<li>#counter# - an incrementing counter</li>  *</ul>  *  * @see CamelContextNameStrategy  * @see org.apache.camel.impl.DefaultManagementNameStrategy  */
 end_comment
 
 begin_interface
-DECL|interface|CamelContextNameStrategy
+DECL|interface|ManagementNameStrategy
 specifier|public
 interface|interface
-name|CamelContextNameStrategy
+name|ManagementNameStrategy
 block|{
+comment|/**      * Gets the custom name pattern.      *      * @return the custom name pattern, or<tt>null</tt> if using the default pattern strategy.      */
+DECL|method|getNamePattern ()
+name|String
+name|getNamePattern
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom name pattern, which will be used instead of any default patterns.      *      * @param pattern a custom name pattern.      */
+DECL|method|setNamePattern (String pattern)
+name|void
+name|setNamePattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the name      *<p/>      * The {@link #isFixedName()} determines if the name can be re-calculated such as when using a counter,      * or the name is always fixed.      *      * @return the name.      */
 DECL|method|getName ()
 name|String
@@ -38,7 +53,7 @@ name|String
 name|getNextName
 parameter_list|()
 function_decl|;
-comment|/**      * Whether the name will be fixed, or allow re-calculation such as by using an unique counter.      *       * @return<tt>true</tt> for fixed names,<tt>false</tt> for names which can re-calculated      */
+comment|/**      * Whether the name will be fixed, or allow re-calculation such as by using an unique counter.      *      * @return<tt>true</tt> for fixed names,<tt>false</tt> for names which can re-calculated      */
 DECL|method|isFixedName ()
 name|boolean
 name|isFixedName

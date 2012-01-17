@@ -768,6 +768,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|managementNamePattern
+specifier|private
+name|String
+name|managementNamePattern
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|useBlueprintPropertyResolver
 specifier|private
 name|Boolean
@@ -2112,6 +2124,32 @@ operator|.
 name|useBreadcrumb
 operator|=
 name|useBreadcrumb
+expr_stmt|;
+block|}
+DECL|method|getManagementNamePattern ()
+specifier|public
+name|String
+name|getManagementNamePattern
+parameter_list|()
+block|{
+return|return
+name|managementNamePattern
+return|;
+block|}
+DECL|method|setManagementNamePattern (String managementNamePattern)
+specifier|public
+name|void
+name|setManagementNamePattern
+parameter_list|(
+name|String
+name|managementNamePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|managementNamePattern
+operator|=
+name|managementNamePattern
 expr_stmt|;
 block|}
 DECL|method|getLazyLoadTypeConverters ()

@@ -113,6 +113,8 @@ name|getNextName
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName ()
 specifier|public
 name|String
@@ -136,6 +138,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNextName ()
 specifier|public
 name|String
@@ -149,6 +153,18 @@ literal|"-"
 operator|+
 name|getNextCounter
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isFixedName ()
+specifier|public
+name|boolean
+name|isFixedName
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 DECL|method|getNextCounter ()

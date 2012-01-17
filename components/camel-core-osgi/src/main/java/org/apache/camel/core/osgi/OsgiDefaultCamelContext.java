@@ -278,43 +278,6 @@ name|finder
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|setName (String name)
-specifier|public
-name|void
-name|setName
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setName
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-comment|// in OSGi append the bundle id to the management name so it will be unique in the JVM
-name|super
-operator|.
-name|setManagementName
-argument_list|(
-name|name
-operator|+
-literal|"-"
-operator|+
-name|bundleContext
-operator|.
-name|getBundle
-argument_list|()
-operator|.
-name|getBundleId
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 

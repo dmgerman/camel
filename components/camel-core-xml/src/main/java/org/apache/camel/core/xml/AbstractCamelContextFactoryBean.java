@@ -3249,6 +3249,13 @@ name|String
 name|getUseBreadcrumb
 parameter_list|()
 function_decl|;
+DECL|method|getManagementNamePattern ()
+specifier|public
+specifier|abstract
+name|String
+name|getManagementNamePattern
+parameter_list|()
+function_decl|;
 DECL|method|getLazyLoadTypeConverters ()
 specifier|public
 specifier|abstract
@@ -3555,6 +3562,26 @@ argument_list|,
 name|getUseBreadcrumb
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getManagementNamePattern
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|getManagementNameStrategy
+argument_list|()
+operator|.
+name|setNamePattern
+argument_list|(
+name|getManagementNamePattern
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
