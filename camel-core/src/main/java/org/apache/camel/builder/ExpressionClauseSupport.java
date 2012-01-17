@@ -758,6 +758,23 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * An expression of the inbound message attachments      */
+DECL|method|attachments ()
+specifier|public
+name|T
+name|attachments
+parameter_list|()
+block|{
+return|return
+name|expression
+argument_list|(
+name|ExpressionBuilder
+operator|.
+name|attachmentValuesExpression
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * An expression of the exchange pattern      */
 DECL|method|exchangePattern ()
 specifier|public

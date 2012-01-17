@@ -393,6 +393,20 @@ name|outHeaders
 argument_list|()
 return|;
 block|}
+comment|/**      * An expression of the inbound headers      */
+DECL|method|attachments ()
+specifier|public
+name|T
+name|attachments
+parameter_list|()
+block|{
+return|return
+name|delegate
+operator|.
+name|attachments
+argument_list|()
+return|;
+block|}
 comment|/**      * An expression of an exchange property of the given name      */
 DECL|method|property (String name)
 specifier|public

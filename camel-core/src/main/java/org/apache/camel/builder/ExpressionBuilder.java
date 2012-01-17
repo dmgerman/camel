@@ -466,6 +466,54 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns an expression for the inbound message attachments      *      * @return an expression object which will return the inbound message attachments      */
+DECL|method|attachmentValuesExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|attachmentValuesExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachments
+argument_list|()
+operator|.
+name|values
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"attachments"
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Returns an expression for the header value with the given name      *<p/>      * Will fallback and look in properties if not found in headers.      *      * @param headerName the name of the header the expression will return      * @return an expression object which will return the header value      */
 DECL|method|headerExpression (final String headerName)
 specifier|public
