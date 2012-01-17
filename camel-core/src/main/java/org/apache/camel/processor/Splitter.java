@@ -1234,8 +1234,8 @@ name|expression
 return|;
 block|}
 DECL|method|copyExchangeNoAttachments (Exchange exchange, boolean preserveExchangeId)
-specifier|static
 specifier|private
+specifier|static
 name|Exchange
 name|copyExchangeNoAttachments
 parameter_list|(
@@ -1258,6 +1258,7 @@ argument_list|,
 name|preserveExchangeId
 argument_list|)
 decl_stmt|;
+comment|// we do not want attachments for the splitted sub-messages
 name|answer
 operator|.
 name|getIn
