@@ -424,6 +424,13 @@ throws|throws
 name|Exception
 block|{
 comment|// executor service will be shutdown by CamelContext
+if|if
+condition|(
+name|task
+operator|!=
+literal|null
+condition|)
+block|{
 name|task
 operator|.
 name|cancel
@@ -431,6 +438,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|task
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
