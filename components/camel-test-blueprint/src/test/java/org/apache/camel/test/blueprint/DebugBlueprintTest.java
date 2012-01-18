@@ -58,6 +58,10 @@ name|Test
 import|;
 end_import
 
+begin_comment
+comment|// START SNIPPET: example
+end_comment
+
 begin_class
 DECL|class|DebugBlueprintTest
 specifier|public
@@ -130,6 +134,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: example
+end_comment
 
 end_unit
 
