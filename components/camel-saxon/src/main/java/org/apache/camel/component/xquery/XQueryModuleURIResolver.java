@@ -40,7 +40,7 @@ name|sf
 operator|.
 name|saxon
 operator|.
-name|query
+name|lib
 operator|.
 name|ModuleURIResolver
 import|;
