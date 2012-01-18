@@ -562,6 +562,21 @@ name|getBlueprintDescriptors
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|url
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"getBlueprintDescriptors() returns null"
+argument_list|)
+throw|;
+block|}
 name|bundle
 operator|.
 name|add
