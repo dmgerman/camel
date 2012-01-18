@@ -165,11 +165,6 @@ operator|new
 name|HazelcastComponentHelper
 argument_list|()
 decl_stmt|;
-DECL|field|hazelcastInstance
-specifier|private
-name|HazelcastInstance
-name|hazelcastInstance
-decl_stmt|;
 DECL|method|HazelcastMultimapProducer (HazelcastInstance hazelcastInstance, Endpoint endpoint, String cacheName)
 specifier|public
 name|HazelcastMultimapProducer
@@ -188,12 +183,6 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|hazelcastInstance
-operator|=
-name|hazelcastInstance
 expr_stmt|;
 name|this
 operator|.

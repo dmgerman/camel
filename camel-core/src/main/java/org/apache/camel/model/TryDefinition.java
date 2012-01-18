@@ -472,15 +472,6 @@ comment|// to build a TryDefinition for
 return|return
 name|doCatch
 argument_list|(
-operator|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Throwable
-argument_list|>
-index|[]
-operator|)
 operator|new
 name|Class
 index|[]

@@ -165,11 +165,6 @@ specifier|final
 name|HazelcastSedaConfiguration
 name|configuration
 decl_stmt|;
-DECL|field|hazelcastInstance
-specifier|private
-name|HazelcastInstance
-name|hazelcastInstance
-decl_stmt|;
 DECL|method|HazelcastSedaEndpoint (final HazelcastInstance hazelcastInstance, final String uri, final HazelcastComponent component, final HazelcastSedaConfiguration configuration)
 specifier|public
 name|HazelcastSedaEndpoint
@@ -202,12 +197,6 @@ name|uri
 argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|hazelcastInstance
-operator|=
-name|hazelcastInstance
 expr_stmt|;
 name|this
 operator|.

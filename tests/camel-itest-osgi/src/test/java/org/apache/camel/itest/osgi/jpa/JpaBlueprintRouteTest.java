@@ -182,22 +182,6 @@ name|Constants
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|service
-operator|.
-name|blueprint
-operator|.
-name|container
-operator|.
-name|BlueprintContainer
-import|;
-end_import
-
 begin_comment
 comment|//import static org.ops4j.pax.exam.CoreOptions.equinox;
 end_comment
@@ -295,20 +279,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|BlueprintContainer
-name|ctn
-init|=
-name|getOsgiService
-argument_list|(
-name|BlueprintContainer
-operator|.
-name|class
-argument_list|,
-literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintJpaTestBundle)"
-argument_list|,
-literal|30000
-argument_list|)
-decl_stmt|;
 name|CamelContext
 name|ctx
 init|=

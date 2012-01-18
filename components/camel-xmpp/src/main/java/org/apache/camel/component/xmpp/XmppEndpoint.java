@@ -795,7 +795,7 @@ argument_list|)
 expr_stmt|;
 name|connection
 operator|.
-name|addPacketWriterListener
+name|addPacketSendingListener
 argument_list|(
 operator|new
 name|XmppLogger

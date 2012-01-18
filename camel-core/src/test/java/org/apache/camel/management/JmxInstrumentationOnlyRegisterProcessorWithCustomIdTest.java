@@ -259,9 +259,6 @@ comment|// should be mock foo
 name|ObjectName
 name|on
 init|=
-operator|(
-name|ObjectName
-operator|)
 name|s
 operator|.
 name|iterator

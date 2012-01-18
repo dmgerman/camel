@@ -314,9 +314,6 @@ argument_list|,
 literal|"camelContext"
 argument_list|)
 expr_stmt|;
-name|Endpoint
-name|endpoint
-decl_stmt|;
 name|String
 name|protocol
 init|=

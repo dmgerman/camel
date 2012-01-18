@@ -545,8 +545,7 @@ block|{
 name|MockEndpoint
 name|mockEndpoint
 init|=
-operator|new
-name|MockEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
@@ -655,8 +654,7 @@ block|{
 name|MockEndpoint
 name|mockSearchEndpoint
 init|=
-operator|new
-name|MockEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:searchResult"
 argument_list|)
@@ -916,8 +914,7 @@ block|{
 name|MockEndpoint
 name|mockSearchEndpoint
 init|=
-operator|new
-name|MockEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:searchResult"
 argument_list|)

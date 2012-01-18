@@ -141,22 +141,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|service
-operator|.
-name|blueprint
-operator|.
-name|container
-operator|.
-name|BlueprintContainer
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -249,20 +233,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|BlueprintContainer
-name|ctn
-init|=
-name|getOsgiService
-argument_list|(
-name|BlueprintContainer
-operator|.
-name|class
-argument_list|,
-literal|"(osgi.blueprint.container.symbolicname=CamelBlueprintTestBundle23)"
-argument_list|,
-literal|10000
-argument_list|)
-decl_stmt|;
 name|CamelContext
 name|ctx
 init|=

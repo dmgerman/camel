@@ -316,8 +316,7 @@ decl_stmt|;
 name|MockEndpoint
 name|mockSearchEndpoint
 init|=
-operator|new
-name|MockEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:searchResult"
 argument_list|)
@@ -610,8 +609,7 @@ decl_stmt|;
 name|MockEndpoint
 name|mockSearchEndpoint
 init|=
-operator|new
-name|MockEndpoint
+name|getMockEndpoint
 argument_list|(
 literal|"mock:searchResult"
 argument_list|)
