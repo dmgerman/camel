@@ -62,11 +62,65 @@ name|java
 operator|.
 name|util
 operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|atomic
 operator|.
 name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -100,6 +154,22 @@ name|int
 name|MAX_PORT_NUMBER
 init|=
 literal|49151
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|AvailablePortFinder
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 comment|/**      * We'll hold open the lowest port in this process      * so parallel processes won't use the same block      * of ports.   They'll go up to the next block.      */
 DECL|field|LOCK
@@ -226,7 +296,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the next available currentMinPort starting at the lowest currentMinPort number. This is the preferred      * method to use. The port return is immediately marked in use and doesn't rely on the caller actually opening      * the port.      *      * @throws NoSuchElementException if there are no ports available      */
+comment|/**      * Gets the next available port starting at the lowest number. This is the preferred      * method to use. The port return is immediately marked in use and doesn't rely on the caller actually opening      * the port.      *      * @throws IllegalArgumentException is thrown if the port number is out of range      * @throws NoSuchElementException if there are no ports available      * @return the available port      */
 DECL|method|getNextAvailable ()
 specifier|public
 specifier|static
@@ -259,7 +329,7 @@ return|return
 name|next
 return|;
 block|}
-comment|/**      * Gets the next available currentMinPort starting at a currentMinPort.      *      * @param fromPort the currentMinPort to scan for availability      * @throws NoSuchElementException if there are no ports available      */
+comment|/**      * Gets the next available port starting at a given from port.      *      * @param fromPort the from port to scan for availability      * @throws IllegalArgumentException is thrown if the port number is out of range      * @throws NoSuchElementException if there are no ports available      * @return the available port      */
 DECL|method|getNextAvailable (int fromPort)
 specifier|public
 specifier|static
@@ -290,7 +360,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid start currentMinPort: "
+literal|"From port number not in valid range: "
 operator|+
 name|fromPort
 argument_list|)
@@ -319,6 +389,17 @@ name|i
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"getNextAvailable({}) -> {}"
+argument_list|,
+name|fromPort
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
 return|return
 name|i
 return|;
@@ -328,13 +409,13 @@ throw|throw
 operator|new
 name|NoSuchElementException
 argument_list|(
-literal|"Could not find an available currentMinPort above "
+literal|"Could not find an available port above "
 operator|+
 name|fromPort
 argument_list|)
 throw|;
 block|}
-comment|/**      * Checks to see if a specific currentMinPort is available.      *      * @param port the currentMinPort to check for availability      */
+comment|/**      * Checks to see if a specific port is available.      *      * @param port the port number to check for availability      * @return<tt>true</tt> if the port is available, or<tt>false</tt> if not      * @throws IllegalArgumentException is thrown if the port number is out of range      */
 DECL|method|available (int port)
 specifier|public
 specifier|static
@@ -344,6 +425,8 @@ parameter_list|(
 name|int
 name|port
 parameter_list|)
+throws|throws
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
