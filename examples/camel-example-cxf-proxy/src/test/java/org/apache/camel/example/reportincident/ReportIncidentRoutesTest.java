@@ -143,7 +143,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// find a free port number from 9100 onwards, and write that in the custom.properties file
+comment|// find a free port number, and write that in the custom.properties file
 comment|// which we will use for the unit tests, to avoid port number in use problems
 name|int
 name|port
@@ -151,9 +151,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-literal|9100
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|String
 name|s
@@ -168,11 +166,7 @@ init|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|(
-name|port
-operator|+
-literal|1
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|String
 name|s2
