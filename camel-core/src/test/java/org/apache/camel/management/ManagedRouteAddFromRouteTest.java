@@ -168,6 +168,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// put a message pre-early on the seda queue, to trigger the route, which
+comment|// then would add a 2nd route during CamelContext startup. This is a test
+comment|// to ensure the foo route is not started too soon, and thus adding the 2nd
+comment|// route works as expected
 name|SedaEndpoint
 name|seda
 init|=
@@ -347,15 +351,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:start"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
+comment|// should route the message we put on the seda queue before
 name|result
 operator|.
 name|assertIsSatisfied
