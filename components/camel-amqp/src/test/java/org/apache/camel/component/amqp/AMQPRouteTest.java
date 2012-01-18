@@ -178,11 +178,12 @@ begin_comment
 comment|/**  * @version   */
 end_comment
 
-begin_comment
-comment|//@Ignore("AMQP testing is a bit unstable")
-end_comment
-
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"AMQP testing is a bit unstable"
+argument_list|)
 DECL|class|AMQPRouteTest
 specifier|public
 class|class
