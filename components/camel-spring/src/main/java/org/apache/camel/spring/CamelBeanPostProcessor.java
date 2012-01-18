@@ -720,6 +720,46 @@ name|String
 name|beanName
 parameter_list|)
 block|{
+comment|//Let us check if we can load this class...
+name|ClassLoader
+name|classLoader
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|Class
+name|aClass
+init|=
+name|classLoader
+operator|.
+name|loadClass
+argument_list|(
+literal|"org.apache.camel.core.xml.CamelJMXAgentDefinition"
+argument_list|)
+decl_stmt|;
+comment|//Keep going.
+block|}
+catch|catch
+parameter_list|(
+name|ClassNotFoundException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|// the JMXAgent is a bit strange and causes Spring issues if we let it being
 comment|// post processed by this one. It does not need it anyway so we are good to go.
 comment|// We should also avoid to process the null object bean (in Spring 2.5.x)
