@@ -799,7 +799,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Adds a collection of routes to this context using the given builder      * to build them      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
+comment|/**      * Adds a collection of routes to this context using the given builder      * to build them.      *<p/>      *<b>Important:</b> The added routes will<b>only</b> be started, if {@link CamelContext}      * is already started. You may want to check the state of {@link CamelContext} before      * adding the routes, using the {@link org.apache.camel.CamelContext#getStatus()} method.      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
 DECL|method|addRoutes (RoutesBuilder builder)
 name|void
 name|addRoutes
