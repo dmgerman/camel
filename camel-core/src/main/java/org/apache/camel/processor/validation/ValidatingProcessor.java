@@ -860,6 +860,14 @@ argument_list|(
 name|schemaLanguage
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getResourceResolver
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|factory
 operator|.
 name|setResourceResolver
@@ -868,6 +876,7 @@ name|getResourceResolver
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|factory
 return|;

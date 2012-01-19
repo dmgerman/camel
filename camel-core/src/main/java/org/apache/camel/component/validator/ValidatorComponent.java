@@ -275,8 +275,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 comment|// force loading of schema at create time otherwise concurrent
-comment|// processing could
-comment|// cause thread safe issues for the javax.xml.validation.SchemaFactory
+comment|// processing could cause thread safe issues for the javax.xml.validation.SchemaFactory
 name|validator
 operator|.
 name|loadSchema
@@ -345,6 +344,23 @@ operator|.
 name|setResourceResolver
 argument_list|(
 name|resourceResolver
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|validator
+operator|.
+name|setResourceResolver
+argument_list|(
+operator|new
+name|DefaultLSResourceResolver
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|remaining
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
