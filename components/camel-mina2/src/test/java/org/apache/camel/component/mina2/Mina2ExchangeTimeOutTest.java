@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test timeout.  *  * @version   */
+comment|/**  * To test timeout.  */
 end_comment
 
 begin_class
@@ -132,7 +132,15 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true&sync=true&timeout=500"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true&sync=true&timeout=500"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Producer
@@ -221,7 +229,15 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true&sync=true&timeout=30000"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true&sync=true&timeout=30000"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|process

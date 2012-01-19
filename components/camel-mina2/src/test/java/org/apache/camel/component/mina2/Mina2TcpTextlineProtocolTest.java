@@ -58,10 +58,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|Mina2TcpTextlineProtocolTest
 specifier|public
@@ -104,7 +100,15 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true&sync=false"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true&sync=false"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|,
 name|body
 argument_list|,
@@ -135,7 +139,15 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true&sync=false"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true&sync=false"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|to

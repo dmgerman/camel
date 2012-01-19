@@ -133,7 +133,15 @@ block|{
 comment|// lets setup a server
 name|from
 argument_list|(
-literal|"mina2:vm://localhost:{{port}}?sync=false&textline=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:vm://localhost:%1$s?sync=false&textline=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|to
@@ -148,7 +156,15 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mina2:vm://localhost:{{port}}?sync=false&textline=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:vm://localhost:%1$s?sync=false&textline=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

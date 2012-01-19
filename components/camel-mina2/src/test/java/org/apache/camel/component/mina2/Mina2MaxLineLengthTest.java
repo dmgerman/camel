@@ -122,7 +122,15 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?sync=true&textline=true&encoderMaxLineLength=5000&decoderMaxLineLength=5000"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?sync=true&textline=true&encoderMaxLineLength=5000&decoderMaxLineLength=5000"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|,
 name|request
 argument_list|)
@@ -161,12 +169,20 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// lets setup a server on port {{port}}
+comment|// lets setup a server on port %1$s
 comment|// we set the sync option so we will send a reply
 comment|// and we let the request-reply be processed in the MyServerProcessor
 name|from
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?sync=true&textline=true&encoderMaxLineLength=5000&decoderMaxLineLength=5000"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?sync=true&textline=true&encoderMaxLineLength=5000&decoderMaxLineLength=5000"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|process

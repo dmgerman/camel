@@ -185,7 +185,15 @@ argument_list|)
 expr_stmt|;
 name|uri
 operator|=
-literal|"mina2:tcp://localhost:{{port}}?textline=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|Mina2ReverserServer
 name|server
@@ -411,7 +419,15 @@ argument_list|)
 expr_stmt|;
 name|uri
 operator|=
-literal|"mina2:tcp://localhost:{{port}}?textline=true&lazySessionCreation=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true&lazySessionCreation=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// The server is activated after Camel to check if the lazyness is working
 name|Mina2ReverserServer

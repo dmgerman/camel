@@ -551,7 +551,15 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true&minaLogger=true&textlineDelimiter=MAC&sync=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true&minaLogger=true&textlineDelimiter=MAC&sync=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|process

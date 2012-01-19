@@ -251,7 +251,15 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?sync=true&codec=#myCodec"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?sync=true&codec=#myCodec"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -356,7 +364,15 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?sync=true&codec=#myCodec"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?sync=true&codec=#myCodec"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|transform

@@ -133,7 +133,15 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -204,7 +212,15 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -289,7 +305,15 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|to

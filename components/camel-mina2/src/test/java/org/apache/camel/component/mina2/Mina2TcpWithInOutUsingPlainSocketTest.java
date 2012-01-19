@@ -539,7 +539,15 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"mina2:tcp://localhost:{{port}}?textline=true&sync=true"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"mina2:tcp://localhost:%1$s?textline=true&sync=true"
+argument_list|,
+name|getPort
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|process
