@@ -195,6 +195,15 @@ name|String
 name|name
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Resolve class {}"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
 name|name
 operator|=
 name|ObjectHelper
@@ -234,6 +243,27 @@ name|bundleContext
 operator|.
 name|getBundle
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading class {} using BundleContext {} -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|name
+block|,
+name|bundleContext
+operator|.
+name|getBundle
+argument_list|()
+block|,
+name|clazz
+block|}
 argument_list|)
 expr_stmt|;
 block|}

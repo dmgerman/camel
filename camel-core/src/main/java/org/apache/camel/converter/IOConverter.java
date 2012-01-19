@@ -1609,7 +1609,7 @@ throws|,
 name|ClassNotFoundException
 block|{
 comment|// need to let Camel be able to resolve class using ClassResolver SPI, to let class loading
-comment|// work in OSGi and other runtimes
+comment|// work in OSGi and other containers
 name|Class
 argument_list|<
 name|?
