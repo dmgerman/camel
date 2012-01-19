@@ -142,22 +142,6 @@ literal|"mock:mock"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-block|}
 comment|// -------------------------------------------------------------
 comment|//  InOnly routes
 comment|// -------------------------------------------------------------
@@ -176,13 +160,6 @@ argument_list|(
 literal|"seda:foo1"
 argument_list|,
 literal|"blah"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
 argument_list|)
 expr_stmt|;
 name|mock
@@ -433,13 +410,6 @@ argument_list|,
 literal|"blah"
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
-argument_list|)
-expr_stmt|;
 name|String
 name|result
 init|=
@@ -482,13 +452,6 @@ argument_list|(
 literal|"seda:foo4"
 argument_list|,
 literal|"blah"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
 argument_list|)
 expr_stmt|;
 name|Exchange

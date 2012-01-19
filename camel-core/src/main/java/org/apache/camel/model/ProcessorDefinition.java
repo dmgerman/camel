@@ -8415,7 +8415,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will block until data is avialable, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will<tt>block</tt> until data is available, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -8439,7 +8439,8 @@ literal|null
 argument_list|,
 name|resourceUri
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8450,7 +8451,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will block until data is avialable, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
+comment|/**      * The<a href="http://camel.apache.org/content-enricher.html">Content Enricher EIP</a>      * enriches an exchange with additional data obtained from a<code>resourceUri</code>      * using a {@link org.apache.camel.PollingConsumer} to poll the endpoint.      *<p/>      * The difference between this and {@link #enrich(String)} is that this uses a consumer      * to obtain the additional data, where as enrich uses a producer.      *<p/>      * This method will<b>block</b> until data is available, use the method with timeout if you do not      * want to risk waiting a long time before data is available from the resourceUri.      *      * @param resourceUri           URI of resource endpoint for obtaining additional data.      * @param aggregationStrategy   aggregation strategy to aggregate input data and additional data.      * @return the builder      * @see org.apache.camel.processor.PollEnricher      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -8477,7 +8478,8 @@ name|aggregationStrategy
 argument_list|,
 name|resourceUri
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;

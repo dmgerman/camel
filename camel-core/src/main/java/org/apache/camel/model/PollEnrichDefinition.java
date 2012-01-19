@@ -252,17 +252,7 @@ DECL|method|PollEnrichDefinition ()
 specifier|public
 name|PollEnrichDefinition
 parameter_list|()
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|PollEnrichDefinition (AggregationStrategy aggregationStrategy, String resourceUri, long timeout)
 specifier|public
 name|PollEnrichDefinition
@@ -471,6 +461,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// if no timeout then we should block, and there use a negative timeout
 name|enricher
 operator|=
 operator|new
@@ -483,7 +474,8 @@ operator|.
 name|createPollingConsumer
 argument_list|()
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

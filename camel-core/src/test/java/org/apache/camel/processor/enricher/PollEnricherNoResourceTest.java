@@ -126,68 +126,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testNoResourceB ()
-specifier|public
-name|void
-name|testNoResourceB
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// there should be no message body
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|message
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|body
-argument_list|()
-operator|.
-name|isNull
-argument_list|()
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|Exchange
-operator|.
-name|TO_ENDPOINT
-argument_list|,
-literal|"seda://bar"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:b"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|testResourceA ()
 specifier|public
 name|void
@@ -265,13 +203,6 @@ argument_list|(
 literal|"seda:bar"
 argument_list|,
 literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
 argument_list|)
 expr_stmt|;
 comment|// there should be a message body
