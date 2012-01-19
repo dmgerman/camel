@@ -91,6 +91,11 @@ specifier|private
 name|String
 name|locations
 decl_stmt|;
+DECL|field|userIds
+specifier|private
+name|String
+name|userIds
+decl_stmt|;
 DECL|method|checkComplete ()
 specifier|public
 name|void
@@ -409,6 +414,32 @@ operator|.
 name|locations
 operator|=
 name|locations
+expr_stmt|;
+block|}
+DECL|method|getUserIds ()
+specifier|public
+name|String
+name|getUserIds
+parameter_list|()
+block|{
+return|return
+name|userIds
+return|;
+block|}
+DECL|method|setUserIds (String userIds)
+specifier|public
+name|void
+name|setUserIds
+parameter_list|(
+name|String
+name|userIds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|userIds
+operator|=
+name|userIds
 expr_stmt|;
 block|}
 block|}

@@ -138,6 +138,7 @@ name|te
 decl_stmt|;
 DECL|field|receivedStatuses
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Status
@@ -153,6 +154,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|clear
 specifier|private
+specifier|volatile
 name|boolean
 name|clear
 decl_stmt|;
@@ -191,7 +193,14 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
+operator|new
+name|ArrayList
+argument_list|<
+name|Status
+argument_list|>
+argument_list|(
 name|receivedStatuses
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -221,9 +230,7 @@ parameter_list|(
 name|Exception
 name|ex
 parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onStatus (Status status)
@@ -268,9 +275,7 @@ parameter_list|(
 name|StatusDeletionNotice
 name|statusDeletionNotice
 parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onTrackLimitationNotice (int numberOfLimitedStatuses)
@@ -281,9 +286,7 @@ parameter_list|(
 name|int
 name|numberOfLimitedStatuses
 parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onScrubGeo (long userId, long upToStatusId)
@@ -297,9 +300,7 @@ parameter_list|,
 name|long
 name|upToStatusId
 parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 block|}
 end_class
 
