@@ -260,7 +260,7 @@ name|setBody
 argument_list|(
 name|node
 operator|.
-name|getUUID
+name|getIdentifier
 argument_list|()
 argument_list|)
 expr_stmt|;

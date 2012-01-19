@@ -1745,11 +1745,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createJndiContext ()
 specifier|protected
 name|Context

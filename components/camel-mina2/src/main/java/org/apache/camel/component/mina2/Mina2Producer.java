@@ -1470,10 +1470,7 @@ name|setHandler
 argument_list|(
 operator|new
 name|ResponseHandler
-argument_list|(
-name|getEndpoint
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|ConnectFuture
@@ -2659,11 +2656,6 @@ name|ResponseHandler
 extends|extends
 name|IoHandlerAdapter
 block|{
-DECL|field|endpoint
-specifier|private
-name|Mina2Endpoint
-name|endpoint
-decl_stmt|;
 DECL|field|message
 specifier|private
 name|Object
@@ -2679,21 +2671,6 @@ specifier|private
 name|boolean
 name|messageReceived
 decl_stmt|;
-DECL|method|ResponseHandler (Mina2Endpoint endpoint)
-specifier|private
-name|ResponseHandler
-parameter_list|(
-name|Mina2Endpoint
-name|endpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-block|}
 DECL|method|reset ()
 specifier|public
 name|void

@@ -698,11 +698,6 @@ specifier|final
 name|NioDatagramConnector
 name|connector
 decl_stmt|;
-DECL|field|session
-specifier|private
-name|IoSession
-name|session
-decl_stmt|;
 DECL|field|socket
 specifier|private
 name|DatagramSocket
@@ -754,7 +749,6 @@ name|codecFactory
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//connector.getFilterChain().addLast("logger", new LoggingFilter());
 name|connector
 operator|.
 name|setHandler
@@ -782,27 +776,6 @@ expr_stmt|;
 name|localHost
 operator|=
 name|host
-expr_stmt|;
-name|session
-operator|=
-name|connector
-operator|.
-name|connect
-argument_list|(
-operator|new
-name|InetSocketAddress
-argument_list|(
-name|localHost
-argument_list|,
-name|localPort
-argument_list|)
-argument_list|)
-operator|.
-name|awaitUninterruptibly
-argument_list|()
-operator|.
-name|getSession
-argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -894,23 +867,6 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|send (String msg)
-specifier|public
-name|void
-name|send
-parameter_list|(
-name|String
-name|msg
-parameter_list|)
-block|{
-name|session
-operator|.
-name|write
-argument_list|(
-name|msg
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|sendNoMina (String msg)
 specifier|public

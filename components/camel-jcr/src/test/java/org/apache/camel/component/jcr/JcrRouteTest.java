@@ -256,7 +256,7 @@ name|node
 init|=
 name|session
 operator|.
-name|getNodeByUUID
+name|getNodeByIdentifier
 argument_list|(
 name|uuid
 argument_list|)

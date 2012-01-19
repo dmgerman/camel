@@ -141,22 +141,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|service
-operator|.
-name|blueprint
-operator|.
-name|container
-operator|.
-name|BlueprintContainer
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.

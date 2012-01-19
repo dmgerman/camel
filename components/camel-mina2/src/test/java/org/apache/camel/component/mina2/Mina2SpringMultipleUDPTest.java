@@ -141,11 +141,6 @@ argument_list|(
 literal|7
 argument_list|)
 expr_stmt|;
-name|int
-name|fooValue
-init|=
-literal|15
-decl_stmt|;
 for|for
 control|(
 name|int

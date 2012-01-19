@@ -373,13 +373,6 @@ name|message
 argument_list|)
 expr_stmt|;
 name|DatagramSocket
-name|ds
-init|=
-operator|new
-name|DatagramSocket
-argument_list|()
-decl_stmt|;
-name|DatagramSocket
 name|socket
 init|=
 operator|new

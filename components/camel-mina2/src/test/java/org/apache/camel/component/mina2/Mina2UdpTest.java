@@ -270,16 +270,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|int
-name|port2
-init|=
-name|getNextPort
-argument_list|()
-decl_stmt|;
-comment|//from("mina2:udp://127.0.0.1:" + getPort() + "?sync=false").to("mina2:udp://127.0.0.1:" + port2 + "?sync=false");
-comment|//from("mina2:udp://127.0.0.1:" + port2 + "?sync=false").to("mock:result");
-comment|//from("mina2:udp://127.0.0.1:10111?sync=false").to("mina2:udp://127.0.0.1:10112?sync=false");
-comment|//from("mina2:udp://127.0.0.1:10112?sync=false").to("mock:result");
 name|from
 argument_list|(
 literal|"mina2:udp://127.0.0.1:10111?sync=false&minaLogger=true"
@@ -290,7 +280,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|//from("mina2:udp://127.0.0.1:10111").to("mock:result");
 block|}
 block|}
 return|;
