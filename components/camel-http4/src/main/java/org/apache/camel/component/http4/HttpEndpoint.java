@@ -365,6 +365,11 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|traceEnabled
+specifier|private
+name|boolean
+name|traceEnabled
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1340,6 +1345,34 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|isTraceEnabled ()
+specifier|public
+name|boolean
+name|isTraceEnabled
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|traceEnabled
+return|;
+block|}
+DECL|method|setTraceEnabled (boolean traceEnabled)
+specifier|public
+name|void
+name|setTraceEnabled
+parameter_list|(
+name|boolean
+name|traceEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceEnabled
+operator|=
+name|traceEnabled
 expr_stmt|;
 block|}
 block|}

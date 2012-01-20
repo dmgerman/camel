@@ -82,6 +82,11 @@ specifier|volatile
 name|boolean
 name|suspended
 decl_stmt|;
+DECL|field|traceEnabled
+specifier|private
+name|boolean
+name|traceEnabled
+decl_stmt|;
 DECL|method|HttpConsumer (HttpEndpoint endpoint, Processor processor)
 specifier|public
 name|HttpConsumer
@@ -100,6 +105,20 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|setTraceEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|endpoint
@@ -236,6 +255,34 @@ block|{
 return|return
 name|suspended
 return|;
+block|}
+DECL|method|isTraceEnabled ()
+specifier|public
+name|boolean
+name|isTraceEnabled
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|traceEnabled
+return|;
+block|}
+DECL|method|setTraceEnabled (boolean traceEnabled)
+specifier|public
+name|void
+name|setTraceEnabled
+parameter_list|(
+name|boolean
+name|traceEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceEnabled
+operator|=
+name|traceEnabled
+expr_stmt|;
 block|}
 block|}
 end_class
