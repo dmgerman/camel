@@ -226,7 +226,7 @@ name|jclouds
 operator|.
 name|domain
 operator|.
-name|Credentials
+name|LoginCredentials
 import|;
 end_import
 
@@ -240,6 +240,7 @@ name|JcloudsProducer
 block|{
 DECL|field|computeService
 specifier|private
+specifier|final
 name|ComputeService
 name|computeService
 decl_stmt|;
@@ -265,6 +266,24 @@ name|computeService
 operator|=
 name|computeService
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|JcloudsComputeEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|JcloudsComputeEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
@@ -415,8 +434,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{          }
 block|}
 comment|/**      * Create a node with the specified group.      *      * @param exchange      * @throws CamelException      */
 DECL|method|createNode (Exchange exchange)
@@ -646,7 +663,7 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-name|Credentials
+name|LoginCredentials
 name|credentials
 init|=
 literal|null
@@ -660,13 +677,18 @@ condition|)
 block|{
 name|credentials
 operator|=
-operator|new
-name|Credentials
+name|LoginCredentials
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|user
 argument_list|(
 name|user
-argument_list|,
-literal|null
 argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 name|ExecResponse
@@ -709,7 +731,7 @@ name|RunScriptOptions
 operator|.
 name|Builder
 operator|.
-name|overrideCredentialsWith
+name|overrideLoginCredentials
 argument_list|(
 name|credentials
 argument_list|)
@@ -764,13 +786,6 @@ name|getExitCode
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|execResponse
-operator|!=
-literal|null
-condition|)
-block|{
 name|exchange
 operator|.
 name|getOut
@@ -784,7 +799,6 @@ name|getOutput
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Destroys the node with the specified nodeId.      *      * @param exchange      * @throws CamelException      */
 DECL|method|destroyNode (Exchange exchange)
@@ -1233,13 +1247,8 @@ block|{
 name|String
 name|operation
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getOperation
 argument_list|()
@@ -1301,13 +1310,8 @@ decl_stmt|;
 name|String
 name|state
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getNodeState
 argument_list|()
@@ -1424,13 +1428,8 @@ block|{
 name|String
 name|imageId
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getImageId
 argument_list|()
@@ -1487,13 +1486,8 @@ block|{
 name|String
 name|hardwareId
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getHardwareId
 argument_list|()
@@ -1550,13 +1544,8 @@ block|{
 name|String
 name|locationId
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getLocationId
 argument_list|()
@@ -1613,13 +1602,8 @@ block|{
 name|String
 name|nodeId
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getNodeId
 argument_list|()
@@ -1676,13 +1660,8 @@ block|{
 name|String
 name|group
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getGroup
 argument_list|()
@@ -1739,13 +1718,8 @@ block|{
 name|String
 name|user
 init|=
-operator|(
-operator|(
-name|JcloudsComputeEndpoint
-operator|)
 name|getEndpoint
 argument_list|()
-operator|)
 operator|.
 name|getUser
 argument_list|()
