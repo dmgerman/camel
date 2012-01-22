@@ -220,6 +220,11 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|replyTo
+specifier|private
+name|String
+name|replyTo
+decl_stmt|;
 DECL|field|fetchSize
 specifier|private
 name|int
@@ -1555,6 +1560,32 @@ block|{
 return|return
 name|recipients
 return|;
+block|}
+DECL|method|getReplyTo ()
+specifier|public
+name|String
+name|getReplyTo
+parameter_list|()
+block|{
+return|return
+name|replyTo
+return|;
+block|}
+DECL|method|setReplyTo (String replyTo)
+specifier|public
+name|void
+name|setReplyTo
+parameter_list|(
+name|String
+name|replyTo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyTo
+operator|=
+name|replyTo
+expr_stmt|;
 block|}
 DECL|method|getFetchSize ()
 specifier|public
