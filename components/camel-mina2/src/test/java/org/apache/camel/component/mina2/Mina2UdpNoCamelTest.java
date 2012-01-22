@@ -458,7 +458,12 @@ literal|"Hello Mina "
 operator|+
 name|i
 operator|+
-literal|"\n"
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

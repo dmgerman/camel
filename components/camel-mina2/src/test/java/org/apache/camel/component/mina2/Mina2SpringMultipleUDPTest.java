@@ -166,7 +166,7 @@ literal|"Hello World"
 operator|+
 name|i
 operator|+
-literal|"\n"
+name|LS
 argument_list|)
 expr_stmt|;
 block|}

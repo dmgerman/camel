@@ -393,7 +393,7 @@ argument_list|(
 operator|(
 name|input
 operator|+
-literal|"\n"
+name|LS
 operator|)
 operator|.
 name|getBytes
@@ -491,13 +491,15 @@ name|b
 decl_stmt|;
 if|if
 condition|(
+name|LS
+operator|.
+name|indexOf
+argument_list|(
 name|ch
-operator|==
-literal|'\n'
-operator|||
-name|ch
-operator|==
-literal|0
+argument_list|)
+operator|>
+operator|-
+literal|1
 condition|)
 block|{
 comment|// newline denotes end of text (added in the end in the processor below)

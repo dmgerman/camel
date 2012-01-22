@@ -117,7 +117,9 @@ name|sendBody
 argument_list|(
 literal|"myMinaEndpoint"
 argument_list|,
-literal|"Hello World\n"
+literal|"Hello World"
+operator|+
+name|LS
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
