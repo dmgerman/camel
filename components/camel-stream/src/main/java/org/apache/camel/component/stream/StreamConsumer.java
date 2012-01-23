@@ -685,8 +685,9 @@ name|getCharset
 argument_list|()
 decl_stmt|;
 return|return
-operator|new
-name|BufferedReader
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 operator|new
 name|InputStreamReader
