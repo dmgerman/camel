@@ -483,7 +483,16 @@ argument_list|,
 name|content
 argument_list|)
 expr_stmt|;
-comment|//assertEquals("log4j.properties", dh.getName());
+name|assertEquals
+argument_list|(
+literal|"log4j.properties"
+argument_list|,
+name|dh
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Lets encode a multipart mime message      */
