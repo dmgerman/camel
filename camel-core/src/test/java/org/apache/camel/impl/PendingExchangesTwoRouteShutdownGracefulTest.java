@@ -233,7 +233,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// it should wait as there was 1 inflight exchange and 4 pending messages left
+comment|// it should wait as there are 2 inflight exchanges and 8 pending messages left
 name|assertEquals
 argument_list|(
 literal|"Should graceful shutdown"
