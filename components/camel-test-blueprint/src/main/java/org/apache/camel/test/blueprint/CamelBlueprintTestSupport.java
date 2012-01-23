@@ -284,6 +284,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IOHelper
 import|;
 end_import
@@ -761,6 +775,16 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// remove leading / to be able to load resource from the classpath
+name|s
+operator|=
+name|FileUtil
+operator|.
+name|stripLeadingSeparator
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
 name|URL
 name|url
 init|=

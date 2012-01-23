@@ -17,36 +17,6 @@ end_empty_stmt
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -81,62 +51,39 @@ name|CamelBlueprintTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|getBlueprintDescriptors ()
+DECL|method|getBlueprintDescriptor ()
 specifier|protected
-name|Collection
-argument_list|<
-name|URL
-argument_list|>
-name|getBlueprintDescriptors
+name|String
+name|getBlueprintDescriptor
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|singleton
-argument_list|(
-name|getClass
-argument_list|()
-operator|.
-name|getResource
-argument_list|(
 literal|"/OSGI-INF/blueprint/blueprint.xml"
-argument_list|)
-argument_list|)
 return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDebugger ()
+DECL|method|testRoute ()
 specifier|public
 name|void
-name|testDebugger
+name|testRoute
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// set mock expectations
+comment|// the route is timer based, so every 5th second a message is send
+comment|// we should then expect at least one message
 name|getMockEndpoint
 argument_list|(
-literal|"mock:a"
+literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// send a message
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"World"
-argument_list|)
-expr_stmt|;
-comment|// assert mocks
+comment|// assert expectations
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
