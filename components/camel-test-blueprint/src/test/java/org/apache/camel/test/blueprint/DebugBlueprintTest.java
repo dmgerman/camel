@@ -20,36 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|junit
@@ -62,6 +32,14 @@ begin_comment
 comment|// START SNIPPET: example
 end_comment
 
+begin_comment
+comment|// to use camel-test-blueprint, then extend the CamelBlueprintTestSupport class,
+end_comment
+
+begin_comment
+comment|// and add your unit tests methods as shown below.
+end_comment
+
 begin_class
 DECL|class|DebugBlueprintTest
 specifier|public
@@ -70,32 +48,20 @@ name|DebugBlueprintTest
 extends|extends
 name|CamelBlueprintTestSupport
 block|{
+comment|// override this method, and return the location of our Blueprint XML file to be used for testing
 annotation|@
 name|Override
-DECL|method|getBlueprintDescriptors ()
+DECL|method|getBlueprintDescriptor ()
 specifier|protected
-name|Collection
-argument_list|<
-name|URL
-argument_list|>
-name|getBlueprintDescriptors
+name|String
+name|getBlueprintDescriptor
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|singleton
-argument_list|(
-name|getClass
-argument_list|()
-operator|.
-name|getResource
-argument_list|(
-literal|"camelContext.xml"
-argument_list|)
-argument_list|)
+literal|"org/apache/camel/test/blueprint/camelContext.xml"
 return|;
 block|}
+comment|// here we have regular Junit @Test method
 annotation|@
 name|Test
 DECL|method|testRoute ()
