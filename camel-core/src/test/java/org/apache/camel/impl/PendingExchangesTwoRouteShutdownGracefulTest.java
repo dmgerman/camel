@@ -107,7 +107,7 @@ argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
@@ -117,7 +117,7 @@ argument_list|(
 literal|"mock:bar"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
