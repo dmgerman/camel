@@ -2088,12 +2088,7 @@ operator|.
 name|close
 argument_list|(
 name|os
-argument_list|)
-expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
+argument_list|,
 name|is
 argument_list|)
 expr_stmt|;

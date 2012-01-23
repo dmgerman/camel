@@ -1540,12 +1540,7 @@ operator|.
 name|close
 argument_list|(
 name|fis
-argument_list|)
-expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
+argument_list|,
 name|jis
 argument_list|)
 expr_stmt|;

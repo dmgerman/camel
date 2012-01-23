@@ -539,12 +539,7 @@ operator|.
 name|close
 argument_list|(
 name|encOut
-argument_list|)
-expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
+argument_list|,
 name|outputStream
 argument_list|)
 expr_stmt|;

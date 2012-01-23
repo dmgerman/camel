@@ -284,12 +284,7 @@ operator|.
 name|close
 argument_list|(
 name|oos
-argument_list|)
-expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
+argument_list|,
 name|baos
 argument_list|)
 expr_stmt|;
@@ -451,12 +446,7 @@ operator|.
 name|close
 argument_list|(
 name|ois
-argument_list|)
-expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
+argument_list|,
 name|is
 argument_list|)
 expr_stmt|;

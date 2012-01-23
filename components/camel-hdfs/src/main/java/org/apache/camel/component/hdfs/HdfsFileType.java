@@ -3725,12 +3725,7 @@ operator|.
 name|close
 argument_list|(
 name|out
-argument_list|)
-expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
+argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
