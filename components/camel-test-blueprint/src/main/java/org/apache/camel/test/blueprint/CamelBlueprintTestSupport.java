@@ -471,11 +471,12 @@ argument_list|(
 literal|"target/test-bundle"
 argument_list|)
 expr_stmt|;
+comment|// ensure pojosr stores bundles in an unique target directory
 name|System
 operator|.
 name|setProperty
 argument_list|(
-literal|"org.bundles.framework.storage"
+literal|"org.osgi.framework.storage"
 argument_list|,
 literal|"target/bundles/"
 operator|+
@@ -577,6 +578,37 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|bundleContext
+operator|.
+name|getBundle
+argument_list|()
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"org.osgi.framework.storage"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createTestBundle ()
 specifier|protected
 name|TinyBundle
@@ -658,7 +690,7 @@ return|return
 name|bundle
 return|;
 block|}
-comment|/**      * Gets the bundle descriptors as {@link URL} resources.      *<p/>      * It is preferred to override the {@link #getBlueprintDescriptor()} method, and return the      * location as a String, which is easier to deal with than a {@link Collection} type.      *       * @return the bundle descriptors.      * @throws FileNotFoundException is thrown if a bundle descriptor cannot be found      */
+comment|/**      * Gets the bundle descriptors as {@link URL} resources.      *<p/>      * It is preferred to override the {@link #getBlueprintDescriptor()} method, and return the      * location as a String, which is easier to deal with than a {@link Collection} type.      *      * @return the bundle descriptors.      * @throws FileNotFoundException is thrown if a bundle descriptor cannot be found      */
 DECL|method|getBlueprintDescriptors ()
 specifier|protected
 name|Collection
@@ -781,7 +813,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Gets the bundle descriptor from the classpath.      *<p/>      * Return the location(s) of the bundle descriptors from the classpath.      * Separate multiple locations by comma, or return a single location.      *<p/>      * For example override this method and return<tt>OSGI-INF/blueprint/myApp.xml</tt>      *       * @return the location of the bundle descriptor file.      */
+comment|/**      * Gets the bundle descriptor from the classpath.      *<p/>      * Return the location(s) of the bundle descriptors from the classpath.      * Separate multiple locations by comma, or return a single location.      *<p/>      * For example override this method and return<tt>OSGI-INF/blueprint/camel-context.xml</tt>      *      * @return the location of the bundle descriptor file.      */
 DECL|method|getBlueprintDescriptor ()
 specifier|protected
 name|String
@@ -810,30 +842,6 @@ operator|.
 name|class
 argument_list|)
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-name|bundleContext
-operator|.
-name|getBundle
-argument_list|()
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|getOsgiService (Class<T> type, long timeout)
 specifier|protected
