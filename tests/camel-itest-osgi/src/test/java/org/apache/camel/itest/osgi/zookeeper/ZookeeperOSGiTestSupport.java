@@ -248,18 +248,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|zookeeper
 operator|.
 name|CreateMode
@@ -455,6 +443,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -505,7 +513,7 @@ specifier|final
 name|Logger
 name|LOG
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -582,8 +590,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Started Zookeeper Test Infrastructure on port "
-operator|+
+literal|"Started Zookeeper Test Infrastructure on port {}"
+argument_list|,
 name|getServerPort
 argument_list|()
 argument_list|)
@@ -913,7 +921,7 @@ specifier|final
 name|Logger
 name|log
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -1450,12 +1458,10 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"server "
-operator|+
+literal|"server {} not up {}"
+argument_list|,
 name|hp
-operator|+
-literal|" not up "
-operator|+
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

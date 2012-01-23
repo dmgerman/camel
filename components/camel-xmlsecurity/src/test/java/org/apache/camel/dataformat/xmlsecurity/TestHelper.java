@@ -160,18 +160,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|xml
 operator|.
 name|security
@@ -229,6 +217,26 @@ operator|.
 name|junit
 operator|.
 name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -375,7 +383,7 @@ DECL|field|log
 name|Logger
 name|log
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -463,8 +471,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"xmlFragment: "
-operator|+
+literal|"xmlFragment: {}"
+argument_list|,
 name|fragment
 argument_list|)
 expr_stmt|;
