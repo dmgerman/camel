@@ -374,20 +374,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|CamelBeanPostProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|StopWatch
@@ -1363,7 +1349,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Lets post process this test instance to process any Camel annotations.      * Note that using Spring Test or Guice is a more powerful approach.      */
 DECL|method|postProcessTest ()
 specifier|protected
 name|void
@@ -1399,29 +1384,6 @@ name|threadService
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|CamelBeanPostProcessor
-name|processor
-init|=
-operator|new
-name|CamelBeanPostProcessor
-argument_list|()
-decl_stmt|;
-name|processor
-operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|processor
-operator|.
-name|postProcessBeforeInitialization
-argument_list|(
-name|this
-argument_list|,
-literal|"this"
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|stopCamelContext ()
