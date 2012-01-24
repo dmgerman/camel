@@ -82,6 +82,24 @@ name|twitter
 operator|.
 name|consumer
 operator|.
+name|TweeterStatusListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|twitter
+operator|.
+name|consumer
+operator|.
 name|Twitter4JConsumer
 import|;
 end_import
@@ -118,6 +136,14 @@ name|TwitterException
 import|;
 end_import
 
+begin_import
+import|import
+name|twitter4j
+operator|.
+name|TwitterStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * Super class providing consuming capabilities for the streaming API.  *   */
 end_comment
@@ -132,6 +158,12 @@ name|Twitter4JConsumer
 implements|implements
 name|StatusListener
 block|{
+DECL|field|twitterStream
+specifier|protected
+specifier|final
+name|TwitterStream
+name|twitterStream
+decl_stmt|;
 DECL|field|te
 name|TwitterEndpoint
 name|te
@@ -158,6 +190,11 @@ specifier|volatile
 name|boolean
 name|clear
 decl_stmt|;
+DECL|field|tweeterStatusListener
+specifier|private
+name|TweeterStatusListener
+name|tweeterStatusListener
+decl_stmt|;
 DECL|method|StreamingConsumer (TwitterEndpoint te)
 specifier|public
 name|StreamingConsumer
@@ -171,6 +208,23 @@ operator|.
 name|te
 operator|=
 name|te
+expr_stmt|;
+name|twitterStream
+operator|=
+name|te
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|getTwitterStreamInstance
+argument_list|()
+expr_stmt|;
+name|twitterStream
+operator|.
+name|addListener
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|pollConsume ()
@@ -244,6 +298,23 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|tweeterStatusListener
+operator|!=
+literal|null
+condition|)
+block|{
+name|tweeterStatusListener
+operator|.
+name|onStatus
+argument_list|(
+name|status
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|clear
 condition|)
 block|{
@@ -264,6 +335,7 @@ argument_list|(
 name|status
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -301,6 +373,22 @@ name|long
 name|upToStatusId
 parameter_list|)
 block|{     }
+DECL|method|registerTweetListener (TweeterStatusListener tweeterStatusListener)
+specifier|public
+name|void
+name|registerTweetListener
+parameter_list|(
+name|TweeterStatusListener
+name|tweeterStatusListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tweeterStatusListener
+operator|=
+name|tweeterStatusListener
+expr_stmt|;
+block|}
 block|}
 end_class
 

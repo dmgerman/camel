@@ -816,7 +816,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Producer type set to DIRECT MESSAGE but no recipientuser was set."
+literal|"Producer type set to DIRECT MESSAGE but no recipient user was set."
 argument_list|)
 throw|;
 block|}

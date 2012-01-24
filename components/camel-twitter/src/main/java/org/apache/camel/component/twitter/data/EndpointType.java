@@ -28,9 +28,12 @@ name|EndpointType
 block|{
 DECL|enumConstant|POLLING
 DECL|enumConstant|DIRECT
+DECL|enumConstant|EVENT
 name|POLLING
 block|,
 name|DIRECT
+block|,
+name|EVENT
 block|;
 DECL|method|fromUri (String uri)
 specifier|public

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.twitter.consumer.streaming
+DECL|package|org.apache.camel.component.twitter.consumer
 package|package
 name|org
 operator|.
@@ -17,76 +17,33 @@ operator|.
 name|twitter
 operator|.
 name|consumer
-operator|.
-name|streaming
 package|;
 end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|TwitterEndpoint
-import|;
-end_import
-
-begin_import
-import|import
 name|twitter4j
 operator|.
-name|TwitterStream
+name|Status
 import|;
 end_import
 
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|TwitterStreamFactory
-import|;
-end_import
-
-begin_comment
-comment|/**  * Consumes the sample stream  *   */
-end_comment
-
-begin_class
-DECL|class|SampleConsumer
+begin_interface
+DECL|interface|TweeterStatusListener
 specifier|public
-class|class
-name|SampleConsumer
-extends|extends
-name|StreamingConsumer
+interface|interface
+name|TweeterStatusListener
 block|{
-DECL|method|SampleConsumer (TwitterEndpoint te)
-specifier|public
-name|SampleConsumer
+DECL|method|onStatus (Status status)
+name|void
+name|onStatus
 parameter_list|(
-name|TwitterEndpoint
-name|te
+name|Status
+name|status
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|te
-argument_list|)
-expr_stmt|;
-name|twitterStream
-operator|.
-name|sample
-argument_list|()
-expr_stmt|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
