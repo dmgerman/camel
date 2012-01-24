@@ -270,6 +270,8 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
 import|;
 end_import
@@ -313,6 +315,26 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
 import|;
 end_import
 
@@ -466,9 +488,11 @@ name|BundleContext
 name|bundleContext
 decl_stmt|;
 annotation|@
+name|Before
+annotation|@
 name|Override
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -593,9 +617,11 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|After
+annotation|@
 name|Override
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
