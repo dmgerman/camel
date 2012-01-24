@@ -18,6 +18,30 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -93,6 +117,18 @@ name|String
 name|bar
 init|=
 literal|""
+decl_stmt|;
+DECL|field|latch
+specifier|private
+specifier|static
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|2
+argument_list|)
 decl_stmt|;
 DECL|method|testShutdownGraceful ()
 specifier|public
@@ -215,18 +251,16 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// now stop the route before its complete
-name|foo
-operator|=
-name|foo
-operator|+
-literal|"stop"
-expr_stmt|;
-name|bar
-operator|=
-name|bar
-operator|+
-literal|"stop"
+name|latch
+operator|.
+name|await
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 name|context
 operator|.
@@ -238,7 +272,7 @@ name|assertEquals
 argument_list|(
 literal|"Should graceful shutdown"
 argument_list|,
-literal|"stopABCDE"
+literal|"ABCDE"
 argument_list|,
 name|foo
 argument_list|)
@@ -247,7 +281,7 @@ name|assertEquals
 argument_list|(
 literal|"Should graceful shutdown"
 argument_list|,
-literal|"stopABCDE"
+literal|"ABCDE"
 argument_list|,
 name|bar
 argument_list|)
@@ -324,6 +358,11 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -374,6 +413,11 @@ name|String
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}
