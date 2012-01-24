@@ -264,6 +264,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|DefaultCamelBeanPostProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|DefaultCamelContext
 import|;
 end_import
@@ -1384,6 +1398,25 @@ name|threadService
 operator|.
 name|get
 argument_list|()
+expr_stmt|;
+comment|// use the default bean post processor from camel-core
+name|DefaultCamelBeanPostProcessor
+name|processor
+init|=
+operator|new
+name|DefaultCamelBeanPostProcessor
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
+name|processor
+operator|.
+name|postProcessBeforeInitialization
+argument_list|(
+name|this
+argument_list|,
+literal|"this"
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|stopCamelContext ()

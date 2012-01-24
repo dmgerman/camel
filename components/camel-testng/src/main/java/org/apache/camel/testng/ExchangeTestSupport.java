@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for a test which requires a {@link org.apache.camel.CamelContext} and  * a populated {@link Exchange}  *  * @version $Revision$  */
+comment|/**  * A base class for a test which requires a {@link org.apache.camel.CamelContext} and  * a populated {@link Exchange}  */
 end_comment
 
 begin_class

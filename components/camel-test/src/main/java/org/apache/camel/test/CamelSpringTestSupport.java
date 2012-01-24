@@ -359,7 +359,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Lets post process this test instance to process any Camel annotations.      * Note that using Spring Test or Guice is a more powerful approach.      */
 annotation|@
 name|Override
 DECL|method|postProcessTest ()
@@ -370,6 +369,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// use the bean post processor from camel-spring
 name|CamelBeanPostProcessor
 name|processor
 init|=
@@ -377,6 +377,13 @@ operator|new
 name|CamelBeanPostProcessor
 argument_list|()
 decl_stmt|;
+name|processor
+operator|.
+name|setApplicationContext
+argument_list|(
+name|applicationContext
+argument_list|)
+expr_stmt|;
 name|processor
 operator|.
 name|setCamelContext

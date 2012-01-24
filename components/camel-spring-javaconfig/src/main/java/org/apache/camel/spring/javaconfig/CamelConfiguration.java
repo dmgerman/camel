@@ -571,24 +571,15 @@ operator|new
 name|CamelBeanPostProcessor
 argument_list|()
 decl_stmt|;
-name|CamelContext
-name|camelContext
-init|=
-name|getBean
-argument_list|(
-name|CamelContext
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-comment|// lets lookup a bean
 name|answer
 operator|.
-name|setCamelContext
+name|setApplicationContext
 argument_list|(
-name|camelContext
+name|getApplicationContext
+argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// do not set CamelContext as we will lazy evaluate that later
 return|return
 name|answer
 return|;

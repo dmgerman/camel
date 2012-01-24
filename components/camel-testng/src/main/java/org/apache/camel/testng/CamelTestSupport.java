@@ -262,6 +262,20 @@ name|camel
 operator|.
 name|impl
 operator|.
+name|DefaultCamelBeanPostProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
 name|DefaultCamelContext
 import|;
 end_import
@@ -372,20 +386,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
-operator|.
-name|CamelBeanPostProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|StopWatch
@@ -463,7 +463,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  *  * @version $Revision$  */
+comment|/**  * A useful base class which creates a {@link org.apache.camel.CamelContext} with some routes  * along with a {@link org.apache.camel.ProducerTemplate} for use in the test case  */
 end_comment
 
 begin_class
@@ -1427,20 +1427,16 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|CamelBeanPostProcessor
+comment|// use the default bean post processor from camel-core
+name|DefaultCamelBeanPostProcessor
 name|processor
 init|=
 operator|new
-name|CamelBeanPostProcessor
-argument_list|()
-decl_stmt|;
-name|processor
-operator|.
-name|setCamelContext
+name|DefaultCamelBeanPostProcessor
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|processor
 operator|.
 name|postProcessBeforeInitialization

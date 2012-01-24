@@ -319,7 +319,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bunch of useful testing methods  *  * @version $Revision$  */
+comment|/**  * A bunch of useful testing methods  */
 end_comment
 
 begin_class

@@ -351,6 +351,7 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
+comment|// use the bean post processor from camel-spring
 name|CamelBeanPostProcessor
 name|processor
 init|=
@@ -358,6 +359,13 @@ operator|new
 name|CamelBeanPostProcessor
 argument_list|()
 decl_stmt|;
+name|processor
+operator|.
+name|setApplicationContext
+argument_list|(
+name|applicationContext
+argument_list|)
+expr_stmt|;
 name|processor
 operator|.
 name|setCamelContext
