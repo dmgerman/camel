@@ -138,7 +138,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?repeatCount=1"
+literal|"timer:foo?delay=500&repeatCount=1"
 argument_list|)
 operator|.
 name|log
