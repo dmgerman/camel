@@ -174,7 +174,7 @@ argument_list|()
 operator|.
 name|between
 argument_list|(
-literal|7
+literal|6
 argument_list|,
 literal|9
 argument_list|)
