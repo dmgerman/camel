@@ -979,11 +979,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createInvocation (Object pojo, Exchange exchange)
 specifier|public
 name|MethodInvocation
@@ -1112,11 +1107,19 @@ name|method
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+expr|<
+name|ParameterInfo
+operator|>
+name|emptyList
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+expr|<
+name|ParameterInfo
+operator|>
+name|emptyList
+argument_list|()
 argument_list|,
 literal|false
 argument_list|,

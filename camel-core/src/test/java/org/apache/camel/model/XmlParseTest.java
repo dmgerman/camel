@@ -2392,6 +2392,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|assertChildTo (ProcessorDefinition<?> route, String... uris)
 specifier|protected
 name|void
@@ -2460,6 +2465,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|assertChildTo (ProcessorDefinition<?> route, String uri, int toIdx)
 specifier|protected
 name|void

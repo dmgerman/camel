@@ -304,11 +304,6 @@ return|return
 name|answer
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|lookupByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -339,7 +334,13 @@ name|answer
 init|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+decl_stmt|,
+name|T
+decl|>
+name|emptyMap
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -360,11 +361,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|answer
-operator|!=
-name|Collections
 operator|.
-name|EMPTY_MAP
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 break|break;

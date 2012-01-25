@@ -768,11 +768,6 @@ name|classLoaders
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findAnnotated (Class<? extends Annotation> annotation, String... packageNames)
 specifier|public
 name|Set
@@ -807,7 +802,14 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_SET
+expr|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+operator|>
+name|emptySet
+argument_list|()
 return|;
 block|}
 if|if
@@ -902,11 +904,6 @@ return|return
 name|classes
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findAnnotated (Set<Class<? extends Annotation>> annotations, String... packageNames)
 specifier|public
 name|Set
@@ -944,7 +941,14 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_SET
+expr|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+operator|>
+name|emptySet
+argument_list|()
 return|;
 block|}
 if|if

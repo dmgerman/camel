@@ -422,11 +422,6 @@ return|return
 name|service
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|lookupByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -451,7 +446,13 @@ comment|// not implemented so we return an empty map
 return|return
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+operator|,
+name|T
+operator|>
+name|emptyMap
+argument_list|()
 return|;
 block|}
 DECL|method|onComponentAdd (String name, Component component)

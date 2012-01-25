@@ -174,11 +174,6 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|initServer ()
 specifier|protected
@@ -228,7 +223,13 @@ name|url
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+argument_list|,
+name|Object
+operator|>
+name|emptyMap
+argument_list|()
 argument_list|,
 name|server
 argument_list|)

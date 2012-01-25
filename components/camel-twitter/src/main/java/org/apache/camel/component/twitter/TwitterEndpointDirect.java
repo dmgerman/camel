@@ -114,14 +114,6 @@ name|Twitter
 import|;
 end_import
 
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|TwitterFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Twitter direct endpoint  */
 end_comment

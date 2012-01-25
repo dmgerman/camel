@@ -144,11 +144,6 @@ name|ZOOKEEPER_STATISTICS
 init|=
 literal|"CamelZookeeperStatistics"
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|ZooKeeperMessage (String node, Stat statistics)
 specifier|public
 name|ZooKeeperMessage
@@ -168,7 +163,13 @@ name|statistics
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+argument_list|,
+name|Object
+operator|>
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

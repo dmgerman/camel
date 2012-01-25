@@ -134,18 +134,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoSuchBeanException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Service
 import|;
 end_import
@@ -366,13 +354,6 @@ DECL|field|applicationContext
 specifier|private
 name|ApplicationContext
 name|applicationContext
-decl_stmt|;
-annotation|@
-name|XmlTransient
-DECL|field|camelPostProcessorHelper
-specifier|private
-name|CamelPostProcessorHelper
-name|camelPostProcessorHelper
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -728,6 +709,8 @@ argument_list|)
 condition|)
 block|{
 comment|// do not spam the log with WARN so do this only once per bean name
+name|CamelBeanPostProcessor
+operator|.
 name|LOG
 operator|.
 name|warn

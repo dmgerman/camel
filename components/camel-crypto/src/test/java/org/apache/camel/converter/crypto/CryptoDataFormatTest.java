@@ -499,11 +499,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doRoundTripEncryptionTests (String endpointUri)
 specifier|private
 name|void
@@ -525,7 +520,13 @@ name|endpointUri
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+argument_list|,
+name|Object
+operator|>
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

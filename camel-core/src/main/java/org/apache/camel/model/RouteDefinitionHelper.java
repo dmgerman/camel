@@ -95,6 +95,17 @@ comment|/**  * Helper for {@link RouteDefinition}  *<p/>  * Utility methods to h
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|,
+literal|"deprecation"
+block|}
+argument_list|)
 DECL|class|RouteDefinitionHelper
 specifier|public
 specifier|final
@@ -106,11 +117,6 @@ specifier|private
 name|RouteDefinitionHelper
 parameter_list|()
 block|{     }
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|initParent (ProcessorDefinition parent)
 specifier|public
 specifier|static
@@ -175,11 +181,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|initParentAndErrorHandlerBuilder (ProcessorDefinition parent)
 specifier|private
 specifier|static
@@ -657,11 +658,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|initParentAndErrorHandlerBuilder (ModelCamelContext context, RouteDefinition route, List<ProcessorDefinition> abstracts, List<OnExceptionDefinition> onExceptions)
 specifier|private
 specifier|static
@@ -1574,11 +1570,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Force assigning ids to the give node and all its children (recursively).      *<p/>      * This is needed when doing tracing or the likes, where each node should have its id assigned      * so the tracing can pin point exactly.      *      * @param context the camel context      * @param processor the node      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|forceAssignIds (CamelContext context, ProcessorDefinition processor)
 specifier|public
 specifier|static

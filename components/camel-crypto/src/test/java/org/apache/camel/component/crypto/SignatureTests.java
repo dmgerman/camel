@@ -1524,11 +1524,6 @@ block|}
 end_function
 
 begin_function
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doTestSignatureRoute (RouteBuilder builder)
 specifier|public
 name|Exchange
@@ -1549,7 +1544,13 @@ literal|null
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+argument_list|,
+name|Object
+operator|>
+name|emptyMap
+argument_list|()
 argument_list|)
 return|;
 block|}
