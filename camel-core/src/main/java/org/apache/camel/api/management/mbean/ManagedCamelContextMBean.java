@@ -524,6 +524,26 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the routes stats as XML"
+argument_list|)
+DECL|method|dumpRoutesStatsAsXml (boolean fullStats, boolean includeProcessors)
+name|String
+name|dumpRoutesStatsAsXml
+parameter_list|(
+name|boolean
+name|fullStats
+parameter_list|,
+name|boolean
+name|includeProcessors
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Creates the endpoint by the given uri      *      * @param uri uri of endpoint to create      * @return<tt>true</tt> if a new endpoint was created,<tt>false</tt> if the endpoint already existed      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation

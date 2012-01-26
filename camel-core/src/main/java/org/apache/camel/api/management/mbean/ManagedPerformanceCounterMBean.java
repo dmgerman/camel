@@ -329,6 +329,21 @@ name|boolean
 name|statisticsEnabled
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the statistics as XML"
+argument_list|)
+DECL|method|dumpStatsAsXml (boolean fullStats)
+name|String
+name|dumpStatsAsXml
+parameter_list|(
+name|boolean
+name|fullStats
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

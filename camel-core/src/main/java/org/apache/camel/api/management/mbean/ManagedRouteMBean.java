@@ -354,6 +354,26 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the routes stats as XML"
+argument_list|)
+DECL|method|dumpRouteStatsAsXml (boolean fullStats, boolean includeProcessors)
+name|String
+name|dumpRouteStatsAsXml
+parameter_list|(
+name|boolean
+name|fullStats
+parameter_list|,
+name|boolean
+name|includeProcessors
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 
