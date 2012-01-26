@@ -348,20 +348,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -648,9 +634,6 @@ argument_list|)
 return|;
 block|}
 block|}
-return|return
-literal|null
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -658,17 +641,32 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
-name|ObjectHelper
+comment|// do only warn about the failed conversion but don't rethrow it as unchecked
+name|LOG
 operator|.
-name|wrapCamelExecutionException
+name|warn
 argument_list|(
-name|exchange
+literal|"Type conversion for '"
+operator|+
+name|value
+operator|+
+literal|"' to the type '"
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|"' failed"
 argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
+comment|// should return null if didn't even try to convert at all or for whatever reason the conversion is failed
+return|return
+literal|null
+return|;
 block|}
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
 specifier|public

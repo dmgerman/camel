@@ -301,10 +301,71 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testConvertor ()
+DECL|method|testFallbackConverterUnmarshalWithNonJAXBComplaintValue ()
 specifier|public
 name|void
-name|testConvertor
+name|testFallbackConverterUnmarshalWithNonJAXBComplaintValue
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|TypeConverter
+name|converter
+init|=
+name|context
+operator|.
+name|getTypeConverter
+argument_list|()
+decl_stmt|;
+name|Foo
+name|foo
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Foo
+operator|.
+name|class
+argument_list|,
+literal|"Not every String is XML"
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"Should not be able to convert non XML String"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
+name|Bar
+name|bar
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Bar
+operator|.
+name|class
+argument_list|,
+literal|"<bar></bar"
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"Should not be able to convert misspelled XML String"
+argument_list|,
+name|bar
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testConverter ()
+specifier|public
+name|void
+name|testConverter
 parameter_list|()
 throws|throws
 name|Exception
@@ -412,8 +473,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|byte
 index|[]
 name|buffers
@@ -449,41 +508,20 @@ argument_list|,
 name|is
 argument_list|)
 expr_stmt|;
-name|fail
+name|assertNull
 argument_list|(
-literal|"expect the exception here"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-literal|"The exception should be CamelExecutionException"
+literal|"Should not be able to convert as FILTER_NON_XML_CHARS property is not enabled"
 argument_list|,
-name|ex
-operator|instanceof
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExecutionException
+name|person
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testFilteringConvertor ()
+DECL|method|testFilteringConverter ()
 specifier|public
 name|void
-name|testFilteringConvertor
+name|testFilteringConverter
 parameter_list|()
 throws|throws
 name|Exception
