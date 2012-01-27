@@ -70,6 +70,15 @@ name|DelayerTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|bean
+specifier|private
+name|MyDelayCalcBean
+name|bean
+init|=
+operator|new
+name|MyDelayCalcBean
+argument_list|()
+decl_stmt|;
 DECL|method|testSendingMessageGetsDelayed ()
 specifier|public
 name|void
@@ -193,6 +202,56 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testDelayBean ()
+specifier|public
+name|void
+name|testDelayBean
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|resultEndpoint
+init|=
+name|resolveMandatoryEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|resultEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// should at least take 1 sec to complete
+name|resultEndpoint
+operator|.
+name|setMinimumResultWaitTime
+argument_list|(
+literal|900
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"seda:c"
+argument_list|,
+literal|"<hello>world!</hello>"
+argument_list|)
+expr_stmt|;
+name|resultEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -246,6 +305,28 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: ex2
+comment|// START SNIPPET: ex3
+name|from
+argument_list|(
+literal|"seda:c"
+argument_list|)
+operator|.
+name|delay
+argument_list|()
+operator|.
+name|method
+argument_list|(
+name|bean
+argument_list|,
+literal|"delayMe"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: ex3
 block|}
 block|}
 return|;
