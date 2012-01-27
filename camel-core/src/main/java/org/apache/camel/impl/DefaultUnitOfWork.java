@@ -441,7 +441,7 @@ name|LOG
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|DefaultUnitOfWork (Exchange exchange, Logger l)
+DECL|method|DefaultUnitOfWork (Exchange exchange, Logger logger)
 specifier|protected
 name|DefaultUnitOfWork
 parameter_list|(
@@ -449,13 +449,21 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Logger
-name|l
+name|logger
 parameter_list|)
 block|{
 name|log
 operator|=
-name|l
+name|logger
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -470,6 +478,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 name|tracedRouteNodes
 operator|=
 operator|new
@@ -643,6 +652,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// fire event
+try|try
+block|{
 name|EventHelper
 operator|.
 name|notifyExchangeCreated
@@ -655,6 +666,24 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// must catch exceptions to ensure the exchange is not failing due to notification event failed
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Exception occurred during event notification. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 comment|// register to inflight registry
 if|if
 condition|(
@@ -1129,6 +1158,31 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// unregister from inflight registry, before signalling we are done
+if|if
+condition|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// then fire event to signal the exchange is done
 try|try
 block|{
@@ -1182,34 +1236,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// unregister from inflight registry
-if|if
-condition|(
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getInflightRepository
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getId ()
@@ -1467,6 +1493,14 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -1479,6 +1513,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|subUnitOfWorks
@@ -1517,6 +1552,14 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -1529,6 +1572,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|subUnitOfWorks
@@ -1673,6 +1717,14 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -1685,11 +1737,18 @@ name|getExchangeId
 argument_list|()
 argument_list|,
 name|list
+operator|!=
+literal|null
+condition|?
+name|list
 operator|.
 name|size
 argument_list|()
+else|:
+literal|0
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
