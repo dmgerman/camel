@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|FallbackTypeConverterDoesNotThrowExceptionTest
+DECL|class|FallbackTypeConverterShouldNotThrowExceptionTest
 specifier|public
 class|class
-name|FallbackTypeConverterDoesNotThrowExceptionTest
+name|FallbackTypeConverterShouldNotThrowExceptionTest
 extends|extends
 name|CamelTestSupport
 block|{
