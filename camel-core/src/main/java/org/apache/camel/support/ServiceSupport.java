@@ -470,7 +470,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#suspend()      */
 annotation|@
 name|Override
 DECL|method|suspend ()
@@ -584,7 +583,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#resume()      */
 annotation|@
 name|Override
 DECL|method|resume ()
@@ -683,7 +681,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#shutdown()      */
 annotation|@
 name|Override
 DECL|method|shutdown ()
@@ -736,7 +733,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#getStatus()      */
 annotation|@
 name|Override
 DECL|method|getStatus ()
@@ -825,7 +821,6 @@ operator|.
 name|Stopped
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#isStarted()      */
 annotation|@
 name|Override
 DECL|method|isStarted ()
@@ -841,7 +836,6 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#isStarting()      */
 annotation|@
 name|Override
 DECL|method|isStarting ()
@@ -857,7 +851,6 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#isStopping()      */
 annotation|@
 name|Override
 DECL|method|isStopping ()
@@ -873,7 +866,6 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#isStopped()      */
 annotation|@
 name|Override
 DECL|method|isStopped ()
@@ -889,7 +881,6 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#isSuspending()      */
 annotation|@
 name|Override
 DECL|method|isSuspending ()
@@ -905,7 +896,6 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#isSuspended()      */
 annotation|@
 name|Override
 DECL|method|isSuspended ()
@@ -921,7 +911,6 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#isRunAllowed()      */
 annotation|@
 name|Override
 DECL|method|isRunAllowed ()
@@ -945,6 +934,7 @@ argument_list|()
 operator|)
 return|;
 block|}
+comment|/**      * Implementations override this method to support customized start/stop.      *<p/>      *<b>Important:</b> See {@link #doStop()} for more details.      *       * @see #doStop()      */
 DECL|method|doStart ()
 specifier|protected
 specifier|abstract
@@ -954,6 +944,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Implementations override this method to support customized start/stop.      *<p/>      *<b>Important:</b> Camel will invoke this {@link #doStop()} method when      * the service is being stopped. This method will<b>also</b> be invoked      * if the service is still in<i>uninitialized</i> state (eg has not      * been started). The method is<b>always</b> called to allow the service      * to do custom logic when the service is being stopped, such as when      * {@link org.apache.camel.CamelContext} is shutting down.      *       * @see #doStart()       */
 DECL|method|doStop ()
 specifier|protected
 specifier|abstract
@@ -981,7 +972,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * Implementations override this method to perform customized shutdown      */
+comment|/**      * Implementations override this method to perform customized shutdown.      */
 DECL|method|doShutdown ()
 specifier|protected
 name|void
@@ -992,7 +983,6 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.support.StatefulService#getVersion()      */
 annotation|@
 name|Override
 DECL|method|getVersion ()
