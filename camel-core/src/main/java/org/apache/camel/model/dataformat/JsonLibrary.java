@@ -67,9 +67,12 @@ name|JsonLibrary
 block|{
 DECL|enumConstant|XStream
 DECL|enumConstant|Jackson
+DECL|enumConstant|Gson
 name|XStream
 block|,
 name|Jackson
+block|,
+name|Gson
 block|}
 end_enum
 
