@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -135,11 +135,6 @@ name|ManagedEndpoint
 implements|implements
 name|ManagedBrowsableEndpointMBean
 block|{
-DECL|field|endpoint
-specifier|private
-name|BrowsableEndpoint
-name|endpoint
-decl_stmt|;
 DECL|method|ManagedBrowsableEndpoint (BrowsableEndpoint endpoint)
 specifier|public
 name|ManagedBrowsableEndpoint
@@ -153,13 +148,9 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpoint ()
 specifier|public
 name|BrowsableEndpoint
@@ -167,9 +158,30 @@ name|getEndpoint
 parameter_list|()
 block|{
 return|return
-name|endpoint
+operator|(
+name|BrowsableEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getInstance ()
+specifier|public
+name|BrowsableEndpoint
+name|getInstance
+parameter_list|()
+block|{
+return|return
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|queueSize ()
 specifier|public
 name|long
@@ -177,7 +189,8 @@ name|queueSize
 parameter_list|()
 block|{
 return|return
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getExchanges
 argument_list|()
@@ -186,6 +199,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|browseExchange (Integer index)
 specifier|public
 name|String
@@ -201,7 +216,8 @@ name|Exchange
 argument_list|>
 name|exchanges
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getExchanges
 argument_list|()
@@ -249,6 +265,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|browseMessageBody (Integer index)
 specifier|public
 name|String
@@ -264,7 +282,8 @@ name|Exchange
 argument_list|>
 name|exchanges
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getExchanges
 argument_list|()
@@ -352,6 +371,8 @@ return|return
 name|body
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|browseMessageAsXml (Integer index)
 specifier|public
 name|String
@@ -370,6 +391,8 @@ literal|true
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|browseMessageAsXml (Integer index, Boolean includeBody)
 specifier|public
 name|String
@@ -388,7 +411,8 @@ name|Exchange
 argument_list|>
 name|exchanges
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getExchanges
 argument_list|()
@@ -462,6 +486,8 @@ return|return
 name|xml
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|browseAllMessagesAsXml (Boolean includeBody)
 specifier|public
 name|String
@@ -484,6 +510,8 @@ name|includeBody
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|browseRangeMessagesAsXml (Integer fromIndex, Integer toIndex, Boolean includeBody)
 specifier|public
 name|String
@@ -552,7 +580,8 @@ name|Exchange
 argument_list|>
 name|exchanges
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getExchanges
 argument_list|()

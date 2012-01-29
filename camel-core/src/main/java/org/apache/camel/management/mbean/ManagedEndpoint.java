@@ -177,6 +177,8 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelId ()
 specifier|public
 name|String
@@ -193,6 +195,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndpointUri ()
 specifier|public
 name|String
@@ -206,6 +210,8 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -219,6 +225,8 @@ name|isSingleton
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getState ()
 specifier|public
 name|String
@@ -278,9 +286,11 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInstance ()
 specifier|public
-name|Object
+name|Endpoint
 name|getInstance
 parameter_list|()
 block|{
