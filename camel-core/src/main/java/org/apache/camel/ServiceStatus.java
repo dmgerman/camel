@@ -122,6 +122,18 @@ operator|==
 name|Started
 return|;
 block|}
+DECL|method|isStopping ()
+specifier|public
+name|boolean
+name|isStopping
+parameter_list|()
+block|{
+return|return
+name|this
+operator|==
+name|Stopping
+return|;
+block|}
 DECL|method|isStopped ()
 specifier|public
 name|boolean
@@ -132,6 +144,18 @@ return|return
 name|this
 operator|==
 name|Stopped
+return|;
+block|}
+DECL|method|isSuspending ()
+specifier|public
+name|boolean
+name|isSuspending
+parameter_list|()
+block|{
+return|return
+name|this
+operator|==
+name|Suspending
 return|;
 block|}
 DECL|method|isSuspended ()

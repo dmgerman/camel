@@ -8295,9 +8295,10 @@ expr_stmt|;
 comment|// stop route inputs in the same order as they was started so we stop the very first inputs first
 try|try
 block|{
+comment|// force shutting down routes as they mau otherwise cause shutdown to hang
 name|shutdownStrategy
 operator|.
-name|shutdown
+name|shutdownForced
 argument_list|(
 name|this
 argument_list|,

@@ -172,6 +172,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ShutdownRoute
 import|;
 end_import
@@ -407,6 +419,12 @@ name|shutdownRoutesInReverseOrder
 init|=
 literal|true
 decl_stmt|;
+DECL|field|forceShutdown
+specifier|private
+specifier|volatile
+name|boolean
+name|forceShutdown
+decl_stmt|;
 DECL|method|DefaultShutdownStrategy ()
 specifier|public
 name|DefaultShutdownStrategy
@@ -458,6 +476,45 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|shutdownForced (CamelContext context, List<RouteStartupOrder> routes)
+specifier|public
+name|void
+name|shutdownForced
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|doShutdown
+argument_list|(
+name|context
+argument_list|,
+name|routes
+argument_list|,
+name|getTimeout
+argument_list|()
+argument_list|,
+name|getTimeUnit
+argument_list|()
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|suspend (CamelContext context, List<RouteStartupOrder> routes)
 specifier|public
 name|void
@@ -488,6 +545,8 @@ name|getTimeUnit
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -525,6 +584,8 @@ argument_list|,
 name|timeout
 argument_list|,
 name|timeUnit
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -591,6 +652,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|abortAfterTimeout
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -630,10 +693,12 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doShutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout)
+DECL|method|doShutdown (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout, boolean forceShutdown)
 specifier|protected
 name|boolean
 name|doShutdown
@@ -658,6 +723,9 @@ name|suspendOnly
 parameter_list|,
 name|boolean
 name|abortAfterTimeout
+parameter_list|,
+name|boolean
+name|forceShutdown
 parameter_list|)
 throws|throws
 name|Exception
@@ -861,9 +929,19 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// signal we are forcing shutdown now, since timeout occurred
+name|this
+operator|.
+name|forceShutdown
+operator|=
+name|forceShutdown
+expr_stmt|;
 comment|// if set, stop processing and return false to indicate that the shutdown is aborting
 if|if
 condition|(
+operator|!
+name|forceShutdown
+operator|&&
 name|abortAfterTimeout
 condition|)
 block|{
@@ -882,6 +960,8 @@ else|else
 block|{
 if|if
 condition|(
+name|forceShutdown
+operator|||
 name|shutdownNowOnTimeout
 condition|)
 block|{
@@ -970,6 +1050,21 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|forceShutdown (Service service)
+specifier|public
+name|boolean
+name|forceShutdown
+parameter_list|(
+name|Service
+name|service
+parameter_list|)
+block|{
+return|return
+name|forceShutdown
 return|;
 block|}
 DECL|method|setTimeout (long timeout)
@@ -1442,6 +1537,11 @@ name|camelContext
 argument_list|,
 literal|"CamelContext"
 argument_list|)
+expr_stmt|;
+comment|// reset option
+name|forceShutdown
+operator|=
+literal|false
 expr_stmt|;
 block|}
 annotation|@

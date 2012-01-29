@@ -74,6 +74,23 @@ name|ShutdownStrategy
 extends|extends
 name|Service
 block|{
+comment|/**      * Shutdown the routes, forcing shutdown being more aggressive, if timeout occurred.      *<p/>      * This operation is used when {@link CamelContext} is shutting down, to ensure Camel will shutdown      * if messages seems to be<i>stuck</i>.      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
+DECL|method|shutdownForced (CamelContext context, List<RouteStartupOrder> routes)
+name|void
+name|shutdownForced
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|routes
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Shutdown the routes      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
 DECL|method|shutdown (CamelContext context, List<RouteStartupOrder> routes)
 name|void
@@ -236,6 +253,15 @@ DECL|method|isShutdownRoutesInReverseOrder ()
 name|boolean
 name|isShutdownRoutesInReverseOrder
 parameter_list|()
+function_decl|;
+comment|/**      * Whether a service is forced to shutdown.      *<p/>      * Can be used to signal to services that they are no longer allowed to run, such as if a forced      * shutdown is currently in progress.      *<p/>      * For example the Camel {@link org.apache.camel.processor.RedeliveryErrorHandler} uses this information      * to know if a forced shutdown is in progress, and then break out of redelivery attempts.      *       * @param service the service      * @return<tt>true</tt> indicates the service is to be forced to shutdown,<tt>false</tt> the service can keep running.      */
+DECL|method|forceShutdown (Service service)
+name|boolean
+name|forceShutdown
+parameter_list|(
+name|Service
+name|service
+parameter_list|)
 function_decl|;
 block|}
 end_interface

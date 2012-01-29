@@ -989,6 +989,51 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isRunAllowed ()
+specifier|public
+name|boolean
+name|isRunAllowed
+parameter_list|()
+block|{
+comment|// determine if we can still run, or the camel context is forcing a shutdown
+name|boolean
+name|forceShutdown
+init|=
+name|camelContext
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|forceShutdown
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|forceShutdown
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Run not allowed as ShutdownStrategy is forcing shutting down"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+operator|!
+name|forceShutdown
+operator|&&
+name|super
+operator|.
+name|isRunAllowed
+argument_list|()
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -1090,6 +1135,15 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Run not allowed, will reject executing exchange: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|exchange
@@ -1710,6 +1764,15 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Run not allowed, will reject executing exchange: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|exchange
