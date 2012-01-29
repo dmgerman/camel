@@ -134,7 +134,7 @@ name|void
 name|testJaxbModel
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
 name|Object
 name|foo
@@ -184,7 +184,7 @@ name|void
 name|testNoneJaxbModel
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
 name|Object
 name|camel
@@ -232,7 +232,7 @@ name|void
 name|testAnotherJaxbModel
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
 name|Object
 name|bar
