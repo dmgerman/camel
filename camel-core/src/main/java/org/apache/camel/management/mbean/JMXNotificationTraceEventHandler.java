@@ -264,17 +264,15 @@ operator|=
 name|tracer
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-DECL|method|traceExchangeOut (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
+DECL|method|traceExchangeOut (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange, Object traceState)
 specifier|public
 name|void
 name|traceExchangeOut
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -292,17 +290,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{     }
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-DECL|method|traceExchangeIn (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchangeIn (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 specifier|public
 name|Object
 name|traceExchangeIn
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -321,17 +317,15 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
-DECL|method|traceExchange (ProcessorDefinition node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
+DECL|method|traceExchange (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 specifier|public
 name|void
 name|traceExchange
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|,
 name|Processor
@@ -417,6 +411,11 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|tm
 init|=
 name|createTraceMessage
