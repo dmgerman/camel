@@ -97,10 +97,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ManagedBrowseableEndpointAsXmlTest
+DECL|class|ManagedBrowsableEndpointAsXmlTest
 specifier|public
 class|class
-name|ManagedBrowseableEndpointAsXmlTest
+name|ManagedBrowsableEndpointAsXmlTest
 extends|extends
 name|ManagementTestSupport
 block|{
