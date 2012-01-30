@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -52,9 +66,13 @@ name|Processor
 block|{
 DECL|field|aggregationCount
 specifier|private
-specifier|static
-name|int
+specifier|final
+name|AtomicInteger
 name|aggregationCount
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 DECL|method|getAggregationCount ()
 specifier|public
@@ -64,6 +82,9 @@ parameter_list|()
 block|{
 return|return
 name|aggregationCount
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -80,7 +101,9 @@ throws|throws
 name|Exception
 block|{
 name|aggregationCount
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|reset ()
@@ -90,8 +113,11 @@ name|reset
 parameter_list|()
 block|{
 name|aggregationCount
-operator|=
+operator|.
+name|set
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 block|}
 block|}

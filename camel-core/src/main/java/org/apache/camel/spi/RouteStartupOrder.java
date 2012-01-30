@@ -50,6 +50,18 @@ name|Route
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information about a route to be started where we want to control the order  * in which they are started by {@link org.apache.camel.CamelContext}.  *  * @version   */
 end_comment
@@ -79,6 +91,15 @@ argument_list|<
 name|Consumer
 argument_list|>
 name|getInputs
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the services to this route.      *      * @return the services.      */
+DECL|method|getServices ()
+name|List
+argument_list|<
+name|Service
+argument_list|>
+name|getServices
 parameter_list|()
 function_decl|;
 block|}

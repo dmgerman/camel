@@ -733,11 +733,16 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|prepareShutdown ()
+annotation|@
+name|Override
+DECL|method|prepareShutdown (boolean forced)
 specifier|public
 name|void
 name|prepareShutdown
-parameter_list|()
+parameter_list|(
+name|boolean
+name|forced
+parameter_list|)
 block|{     }
 DECL|method|setProcessor (AsyncProcessor processor)
 specifier|public

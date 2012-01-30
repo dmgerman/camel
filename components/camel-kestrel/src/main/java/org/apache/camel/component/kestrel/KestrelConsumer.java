@@ -543,11 +543,16 @@ name|get
 argument_list|()
 return|;
 block|}
-DECL|method|prepareShutdown ()
+annotation|@
+name|Override
+DECL|method|prepareShutdown (boolean forced)
 specifier|public
 name|void
 name|prepareShutdown
-parameter_list|()
+parameter_list|(
+name|boolean
+name|forced
+parameter_list|)
 block|{
 comment|// Signal to our threads that shutdown is happening
 name|shutdownPending

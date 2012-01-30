@@ -282,11 +282,14 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|prepareShutdown ()
+DECL|method|prepareShutdown (boolean forced)
 specifier|public
 name|void
 name|prepareShutdown
-parameter_list|()
+parameter_list|(
+name|boolean
+name|forced
+parameter_list|)
 block|{
 comment|// noop
 block|}

@@ -1599,7 +1599,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Run not allowed as ShutdownStrategy is forcing shutting down, will reject executing exchange: {}"
 argument_list|,

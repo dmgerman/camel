@@ -37,6 +37,8 @@ DECL|interface|ShutdownAware
 specifier|public
 interface|interface
 name|ShutdownAware
+extends|extends
+name|ShutdownPrepared
 block|{
 comment|/**      * To defer shutdown during first phase of shutdown. This allows any pending exchanges to be completed      * and therefore ensure a graceful shutdown without loosing messages. At the very end when there are no      * more inflight and pending messages the consumer could then safely be shutdown.      *<p/>      * This is needed by {@link org.apache.camel.component.seda.SedaConsumer}.      *      * @param shutdownRunningTask the configured option for how to act when shutting down running tasks.      * @return<tt>true</tt> to defer shutdown to very last.      */
 DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
@@ -51,12 +53,6 @@ comment|/**      * Gets the number of pending exchanges.      *<p/>      * Some 
 DECL|method|getPendingExchangesSize ()
 name|int
 name|getPendingExchangesSize
-parameter_list|()
-function_decl|;
-comment|/**      * Prepares the consumer for shutdown.      *<p/>      * For example by graceful stopping any threads or the likes.      */
-DECL|method|prepareShutdown ()
-name|void
-name|prepareShutdown
 parameter_list|()
 function_decl|;
 block|}

@@ -292,11 +292,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|prepareShutdown ()
+DECL|method|prepareShutdown (boolean forced)
 specifier|public
 name|void
 name|prepareShutdown
-parameter_list|()
+parameter_list|(
+name|boolean
+name|forced
+parameter_list|)
 block|{
 comment|// reset task as the state of the task is not to be preserved
 comment|// which otherwise may cause isBatchAllowed() to return a wrong answer
