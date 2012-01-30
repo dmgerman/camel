@@ -4471,7 +4471,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"cannot start force completion because CamelContext({}) has not been started yet"
+literal|"Cannot start force completion of all groups because CamelContext({}) has not been started"
 argument_list|,
 name|camelContext
 operator|.
@@ -4566,7 +4566,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"force completion triggered for correlation key: {}"
+literal|"Force completion triggered for correlation key: {}"
 argument_list|,
 name|key
 argument_list|)
