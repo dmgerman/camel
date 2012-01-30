@@ -198,54 +198,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -299,13 +251,6 @@ comment|/**  * An implementation of the<a  * href="http://camel.apache.org/queue
 end_comment
 
 begin_class
-annotation|@
-name|ManagedResource
-argument_list|(
-name|description
-operator|=
-literal|"Managed SedaEndpoint"
-argument_list|)
 DECL|class|SedaEndpoint
 specifier|public
 class|class
@@ -836,13 +781,6 @@ name|remainingCapacity
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Queue max capacity"
-argument_list|)
 DECL|method|getSize ()
 specifier|public
 name|int
@@ -869,13 +807,6 @@ operator|=
 name|size
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Current queue size"
-argument_list|)
 DECL|method|getCurrentQueueSize ()
 specifier|public
 name|int
@@ -905,13 +836,6 @@ operator|=
 name|blockWhenFull
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Whether the caller will block sending to a full queue"
-argument_list|)
 DECL|method|isBlockWhenFull ()
 specifier|public
 name|boolean
@@ -938,13 +862,6 @@ operator|=
 name|concurrentConsumers
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Number of concurrent consumers"
-argument_list|)
 DECL|method|getConcurrentConsumers ()
 specifier|public
 name|int
@@ -955,8 +872,6 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|getWaitForTaskToComplete ()
 specifier|public
 name|WaitForTaskToComplete
@@ -983,8 +898,6 @@ operator|=
 name|waitForTaskToComplete
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -1011,8 +924,6 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|isMultipleConsumers ()
 specifier|public
 name|boolean
@@ -1071,8 +982,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|isMultipleConsumersSupported ()
 specifier|public
 name|boolean
@@ -1085,13 +994,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Purges the queue      */
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Purges the seda queue"
-argument_list|)
 DECL|method|purgeQueue ()
 specifier|public
 name|void
