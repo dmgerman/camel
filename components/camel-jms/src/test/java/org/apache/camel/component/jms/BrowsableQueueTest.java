@@ -364,6 +364,13 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|99999999
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -704,6 +711,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|enableJMX
+argument_list|()
+expr_stmt|;
 name|CamelContext
 name|camelContext
 init|=
