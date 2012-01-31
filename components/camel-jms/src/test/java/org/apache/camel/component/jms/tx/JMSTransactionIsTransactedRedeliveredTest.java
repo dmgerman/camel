@@ -105,10 +105,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|JMSTransactionIsTransactedRedeliveredTestTest
+DECL|class|JMSTransactionIsTransactedRedeliveredTest
 specifier|public
 class|class
-name|JMSTransactionIsTransactedRedeliveredTestTest
+name|JMSTransactionIsTransactedRedeliveredTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -122,7 +122,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"/org/apache/camel/component/jms/tx/JMSTransactionIsTransactedRedeliveredTestTest.xml"
+literal|"/org/apache/camel/component/jms/tx/JMSTransactionIsTransactedRedeliveredTest.xml"
 argument_list|)
 return|;
 block|}
