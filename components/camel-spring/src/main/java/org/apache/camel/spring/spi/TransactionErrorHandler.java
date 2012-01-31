@@ -477,9 +477,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// is the exchange redeliveried, for example JMS brokers support such details
+comment|// is the exchange redelivered, for example JMS brokers support such details
 name|Boolean
-name|redelivery
+name|txRedelivered
 init|=
 name|exchange
 operator|.
@@ -490,11 +490,11 @@ specifier|final
 name|String
 name|redelivered
 init|=
-name|redelivery
+name|txRedelivered
 operator|!=
 literal|null
 condition|?
-name|redelivery
+name|txRedelivered
 operator|.
 name|toString
 argument_list|()
@@ -748,15 +748,20 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction rollback ({}) redelivered("
+literal|"Transaction rollback ({}) redelivered({}) for {} "
 operator|+
-name|redelivered
-operator|+
-literal|") for {} due exchange was marked for rollbackOnlyLast"
+literal|"due exchange was marked for rollbackOnlyLast"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|transactionKey
-argument_list|,
+block|,
+name|redelivered
+block|,
 name|ids
+block|}
 argument_list|)
 expr_stmt|;
 block|}
