@@ -160,20 +160,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ExceptionHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|AsyncProcessorConverterHelper
@@ -300,11 +286,6 @@ name|EndpointMessageListener
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|exceptionHandler
-specifier|private
-name|ExceptionHandler
-name|exceptionHandler
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -1228,32 +1209,6 @@ operator|.
 name|binding
 operator|=
 name|binding
-expr_stmt|;
-block|}
-DECL|method|getExceptionHandler ()
-specifier|public
-name|ExceptionHandler
-name|getExceptionHandler
-parameter_list|()
-block|{
-return|return
-name|exceptionHandler
-return|;
-block|}
-DECL|method|setExceptionHandler (ExceptionHandler exceptionHandler)
-specifier|public
-name|void
-name|setExceptionHandler
-parameter_list|(
-name|ExceptionHandler
-name|exceptionHandler
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exceptionHandler
-operator|=
-name|exceptionHandler
 expr_stmt|;
 block|}
 DECL|method|isEagerLoadingOfProperties ()
