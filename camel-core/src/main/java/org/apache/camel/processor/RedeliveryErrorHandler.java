@@ -2394,12 +2394,14 @@ comment|// create log message
 name|String
 name|msg
 init|=
-literal|"Failed delivery for exchangeId: "
+literal|"Failed delivery for "
 operator|+
-name|exchange
+name|ExchangeHelper
 operator|.
-name|getExchangeId
-argument_list|()
+name|logIds
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|msg
 operator|=
@@ -2937,12 +2939,14 @@ block|{
 name|String
 name|msg
 init|=
-literal|"Failed delivery for exchangeId: "
+literal|"Failed delivery for "
 operator|+
-name|exchange
+name|ExchangeHelper
 operator|.
-name|getExchangeId
-argument_list|()
+name|logIds
+argument_list|(
+name|exchange
+argument_list|)
 operator|+
 literal|". On delivery attempt: "
 operator|+
@@ -3436,12 +3440,14 @@ comment|// create log message
 name|String
 name|msg
 init|=
-literal|"Failed delivery for exchangeId: "
+literal|"Failed delivery for "
 operator|+
-name|exchange
+name|ExchangeHelper
 operator|.
-name|getExchangeId
-argument_list|()
+name|logIds
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|msg
 operator|=
@@ -3969,12 +3975,14 @@ block|{
 name|String
 name|msg
 init|=
-literal|"Rollback exchangeId: "
+literal|"Rollback "
 operator|+
-name|exchange
+name|ExchangeHelper
 operator|.
-name|getExchangeId
-argument_list|()
+name|logIds
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|Throwable
 name|cause

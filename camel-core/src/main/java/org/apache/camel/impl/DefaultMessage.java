@@ -963,6 +963,18 @@ parameter_list|)
 block|{
 comment|// do nothing by default
 block|}
+comment|/**      * A strategy for component specific messages to determine whether the      * message is redelivered or not.      *<p/>      *<b>Important:</b> It is not always possible to determine if the transacted is a redelivery      * or not, and therefore<tt>null</tt> is returned. Such an example would be a JDBC message.      * However JMS brokers provides details if a transacted message is redelivered.      *      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,<tt>null</tt> if not able to determine      */
+DECL|method|isTransactedRedelivered ()
+specifier|protected
+name|Boolean
+name|isTransactedRedelivered
+parameter_list|()
+block|{
+comment|// return null by default
+return|return
+literal|null
+return|;
+block|}
 DECL|method|addAttachment (String id, DataHandler content)
 specifier|public
 name|void

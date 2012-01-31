@@ -146,6 +146,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -463,6 +477,41 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// is the exchange redeliveried, for example JMS brokers support such details
+name|Boolean
+name|redelivery
+init|=
+name|exchange
+operator|.
+name|isTransactedRedelivered
+argument_list|()
+decl_stmt|;
+specifier|final
+name|String
+name|redelivered
+init|=
+name|redelivery
+operator|!=
+literal|null
+condition|?
+name|redelivery
+operator|.
+name|toString
+argument_list|()
+else|:
+literal|"unknown"
+decl_stmt|;
+specifier|final
+name|String
+name|ids
+init|=
+name|ExchangeHelper
+operator|.
+name|logIds
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 comment|// mark the beginning of this transaction boundary
@@ -476,39 +525,65 @@ argument_list|(
 name|transactionKey
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction begin ({}) for ExchangeId: {}"
+literal|"Transaction begin ({}) redelivered({}) for {})"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|transactionKey
-argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+block|,
+name|redelivered
+block|,
+name|ids
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|doInTransactionTemplate
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction commit ({}) for ExchangeId: {}"
+literal|"Transaction commit ({}) redelivered({}) for {})"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|transactionKey
-argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+block|,
+name|redelivered
+block|,
+name|ids
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -517,20 +592,33 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore as its just a dummy exception to force spring TX to rollback
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction rollback ({}) for ExchangeId: {} due exchange was marked for rollbackOnly"
+literal|"Transaction rollback ({}) redelivered({}) for {} due exchange was marked for rollbackOnly"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|transactionKey
-argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+block|,
+name|redelivered
+block|,
+name|ids
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -542,23 +630,23 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Transaction rollback ("
-operator|+
+literal|"Transaction rollback ({}) redelivered({}) for {} caught: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|transactionKey
-operator|+
-literal|") for ExchangeId: "
-operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-operator|+
-literal|" due exception: "
-operator|+
+block|,
+name|redelivered
+block|,
+name|ids
+block|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -616,7 +704,7 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-comment|// log exception if there was a cause exception so we have the stacktrace
+comment|// log exception if there was a cause exception so we have the stack trace
 name|Exception
 name|cause
 init|=
@@ -640,14 +728,15 @@ literal|"Transaction rollback ("
 operator|+
 name|transactionKey
 operator|+
-literal|") for ExchangeId: "
+literal|") redelivered("
 operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|redelivered
 operator|+
-literal|" due exchange was marked for rollbackOnlyLast and due exception: "
+literal|") for "
+operator|+
+name|ids
+operator|+
+literal|" due exchange was marked for rollbackOnlyLast and caught: "
 argument_list|,
 name|cause
 argument_list|)
@@ -659,14 +748,15 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Transaction rollback ({}) for ExchangeId: {} due exchange was marked for rollbackOnlyLast"
+literal|"Transaction rollback ({}) redelivered("
+operator|+
+name|redelivered
+operator|+
+literal|") for {} due exchange was marked for rollbackOnlyLast"
 argument_list|,
 name|transactionKey
 argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|ids
 argument_list|)
 expr_stmt|;
 block|}

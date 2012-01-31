@@ -988,6 +988,37 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|isTransactedRedelivered ()
+specifier|protected
+name|Boolean
+name|isTransactedRedelivered
+parameter_list|()
+block|{
+if|if
+condition|(
+name|jmsMessage
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|JmsMessageHelper
+operator|.
+name|getJMSRedelivered
+argument_list|(
+name|jmsMessage
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 DECL|method|getDestinationAsString (Destination destination)
 specifier|private
 name|String

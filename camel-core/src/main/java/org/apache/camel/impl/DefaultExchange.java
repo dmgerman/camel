@@ -1525,6 +1525,43 @@ literal|false
 return|;
 block|}
 block|}
+DECL|method|isTransactedRedelivered ()
+specifier|public
+name|Boolean
+name|isTransactedRedelivered
+parameter_list|()
+block|{
+comment|// lets avoid adding methods to the Message API, so we use the
+comment|// DefaultMessage to allow component specific messages to extend
+comment|// and implement the isTransactedRedelivered method.
+name|DefaultMessage
+name|msg
+init|=
+name|getIn
+argument_list|(
+name|DefaultMessage
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|msg
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|msg
+operator|.
+name|isTransactedRedelivered
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 DECL|method|isRollbackOnly ()
 specifier|public
 name|boolean

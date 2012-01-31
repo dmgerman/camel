@@ -2773,6 +2773,56 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Gets both the messageId and exchangeId to be used for logging purposes.      *<p/>      * Logging both ids, can help to correlate exchanges which may be redelivered messages      * from for example a JMS broker.      *      * @param exchange the exchange      * @return a log message with both the messageId and exchangeId      */
+DECL|method|logIds (Exchange exchange)
+specifier|public
+specifier|static
+name|String
+name|logIds
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|String
+name|msgId
+init|=
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|?
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getMessageId
+argument_list|()
+else|:
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getMessageId
+argument_list|()
+decl_stmt|;
+return|return
+literal|"(MessageId: "
+operator|+
+name|msgId
+operator|+
+literal|" on ExchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+operator|+
+literal|")"
+return|;
+block|}
 DECL|method|copyExchangeAndSetCamelContext (Exchange exchange, CamelContext context)
 specifier|public
 specifier|static

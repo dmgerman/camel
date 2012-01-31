@@ -883,6 +883,12 @@ name|boolean
 name|isTransacted
 parameter_list|()
 function_decl|;
+comment|/**      * Returns true if this exchange is redelivered from a transacted source (such as a JMS broker)      *<p/>      *<b>Important:</b> It is not always possible to determine if the transacted is a redelivery      * or not, and therefore<tt>null</tt> is returned. Such an example would be a JDBC message.      * However JMS brokers provides details if a transacted message is redelivered.      *      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,<tt>null</tt> if not able to determine      */
+DECL|method|isTransactedRedelivered ()
+name|Boolean
+name|isTransactedRedelivered
+parameter_list|()
+function_decl|;
 comment|/**      * Returns true if this exchange is marked for rollback      */
 DECL|method|isRollbackOnly ()
 name|boolean
