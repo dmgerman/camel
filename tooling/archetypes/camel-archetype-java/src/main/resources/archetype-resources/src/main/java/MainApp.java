@@ -23,61 +23,62 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|main
 operator|.
-name|RouteBuilder
+name|Main
 import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel Java DSL Router  */
+comment|/**  * A Camel Application  */
 end_comment
 
 begin_class
-DECL|class|MyRouteBuilder
+DECL|class|MainApp
 specifier|public
 class|class
-name|MyRouteBuilder
-extends|extends
-name|RouteBuilder
+name|MainApp
 block|{
-comment|/**      * Let's configure the Camel routing rules using Java code...      */
-DECL|method|configure ()
+comment|/**      * A main() so we can easily run these routing rules in our IDE      */
+DECL|method|main (String... args)
 specifier|public
+specifier|static
 name|void
-name|configure
-parameter_list|()
+name|main
+parameter_list|(
+name|String
+modifier|...
+name|args
+parameter_list|)
+throws|throws
+name|Exception
 block|{
-comment|// here is a sample which processes the input files
-comment|// (leaving them in place - see the 'noop' flag)
-comment|// then performs content based routing on the message using XPath
-name|from
-argument_list|(
-literal|"file:src/data?noop=true"
-argument_list|)
-operator|.
-name|choice
+name|Main
+name|main
+init|=
+operator|new
+name|Main
 argument_list|()
+decl_stmt|;
+name|main
 operator|.
-name|when
-argument_list|(
-name|xpath
-argument_list|(
-literal|"/person/city = 'London'"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"file:target/messages/uk"
-argument_list|)
-operator|.
-name|otherwise
+name|enableHangupSupport
 argument_list|()
+expr_stmt|;
+name|main
 operator|.
-name|to
+name|addRouteBuilder
 argument_list|(
-literal|"file:target/messages/others"
+operator|new
+name|MyRouteBuilder
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|main
+operator|.
+name|run
+argument_list|(
+name|args
 argument_list|)
 expr_stmt|;
 block|}
