@@ -160,20 +160,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|LoggingExceptionHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|ExceptionHandler
@@ -665,6 +651,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// an exception occurred so rethrow to trigger rollback on JMS listener
+comment|// the JMS listener will use the error handler to handle the uncaught exception
 if|if
 condition|(
 name|rce
@@ -672,11 +659,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|handleException
-argument_list|(
-name|rce
-argument_list|)
-expr_stmt|;
 name|LOG
 operator|.
 name|trace
@@ -689,6 +671,9 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Spring message listener container will handle uncaught exceptions
+comment|// being thrown from this onMessage, and will us the ErrorHandler configured
+comment|// on the JmsEndpoint to handle the exception
 throw|throw
 name|rce
 throw|;
@@ -1085,12 +1070,28 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// we were done async, so use the Camel built in exception handler to deal with it
-name|handleException
+comment|// we were done async, so use the endpoint error handler
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getErrorHandler
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|getErrorHandler
+argument_list|()
+operator|.
+name|handleError
 argument_list|(
 name|rce
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1235,23 +1236,6 @@ name|ExceptionHandler
 name|getExceptionHandler
 parameter_list|()
 block|{
-if|if
-condition|(
-name|exceptionHandler
-operator|==
-literal|null
-condition|)
-block|{
-name|exceptionHandler
-operator|=
-operator|new
-name|LoggingExceptionHandler
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|exceptionHandler
 return|;
@@ -1810,25 +1794,6 @@ block|}
 return|return
 name|destination
 return|;
-block|}
-comment|/**      * Handles the given exception using the {@link #getExceptionHandler()}      *      * @param t the exception to handle      */
-DECL|method|handleException (Throwable t)
-specifier|protected
-name|void
-name|handleException
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|getExceptionHandler
-argument_list|()
-operator|.
-name|handleException
-argument_list|(
-name|t
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
