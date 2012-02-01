@@ -255,7 +255,10 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// bind the CXF response to Camel exchange
+comment|// bind the CXF response to Camel exchange and
+comment|// call camel callback
+comment|// for one way messages callback is already called in
+comment|// process method of org.apache.camel.component.cxf.CxfProducer
 if|if
 condition|(
 operator|!
@@ -299,6 +302,13 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+name|camelAsyncCallback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -324,13 +334,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|camelAsyncCallback
-operator|.
-name|done
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|handleException (Map<String, Object> ctx, Throwable ex)
@@ -371,7 +374,10 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// copy the context information
+comment|// copy the context information and
+comment|// call camel callback
+comment|// for one way messages callback is already called in
+comment|// process method of org.apache.camel.component.cxf.CxfProducer
 if|if
 condition|(
 operator|!
@@ -415,6 +421,13 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+name|camelAsyncCallback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -440,13 +453,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|camelAsyncCallback
-operator|.
-name|done
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
