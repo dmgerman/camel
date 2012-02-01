@@ -211,6 +211,15 @@ specifier|private
 name|TransactionTemplate
 name|transactionTemplate
 decl_stmt|;
+DECL|field|rollbackLoggingLevel
+specifier|private
+name|LoggingLevel
+name|rollbackLoggingLevel
+init|=
+name|LoggingLevel
+operator|.
+name|WARN
+decl_stmt|;
 DECL|method|TransactionErrorHandlerBuilder ()
 specifier|public
 name|TransactionErrorHandlerBuilder
@@ -633,6 +642,9 @@ argument_list|)
 argument_list|,
 name|getExecutorServiceRef
 argument_list|()
+argument_list|,
+name|getRollbackLoggingLevel
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// configure error handler before we can use it
@@ -702,7 +714,55 @@ name|transactionManager
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getRollbackLoggingLevel ()
+specifier|public
+name|LoggingLevel
+name|getRollbackLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|rollbackLoggingLevel
+return|;
+block|}
+comment|/**      * Sets the logging level to use for logging transactional rollback.      *<p/>      * This option is default WARN.      *      * @param rollbackLoggingLevel the logging level      */
+DECL|method|setRollbackLoggingLevel (LoggingLevel rollbackLoggingLevel)
+specifier|public
+name|void
+name|setRollbackLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|rollbackLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rollbackLoggingLevel
+operator|=
+name|rollbackLoggingLevel
+expr_stmt|;
+block|}
 comment|// Builder methods
+comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the logging level to use for logging transactional rollback.      *<p/>      * This option is default WARN.      *      * @param rollbackLoggingLevel the logging level      */
+DECL|method|rollbackLoggingLevel (LoggingLevel rollbackLoggingLevel)
+specifier|public
+name|TransactionErrorHandlerBuilder
+name|rollbackLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|rollbackLoggingLevel
+parameter_list|)
+block|{
+name|setRollbackLoggingLevel
+argument_list|(
+name|rollbackLoggingLevel
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|// Implementation
 comment|// -------------------------------------------------------------------------
 DECL|method|createLogger ()
 specifier|protected

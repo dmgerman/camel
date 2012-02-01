@@ -188,6 +188,17 @@ name|ERROR
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|rollbackLoggingLevel
+specifier|private
+name|LoggingLevel
+name|rollbackLoggingLevel
+init|=
+name|LoggingLevel
+operator|.
+name|WARN
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|logName
 specifier|private
 name|String

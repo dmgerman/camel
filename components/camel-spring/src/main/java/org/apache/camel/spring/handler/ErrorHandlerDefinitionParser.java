@@ -662,7 +662,6 @@ name|TransactionErrorHandler
 argument_list|)
 condition|)
 block|{
-comment|// deal with transactionTemplateRef
 name|parserRefAttribute
 argument_list|(
 name|element
@@ -821,6 +820,57 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"Attribute transactionManagerRef can only be used if type is "
+operator|+
+name|ErrorHandlerType
+operator|.
+name|TransactionErrorHandler
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|", in error handler with id: "
+operator|+
+name|id
+argument_list|)
+throw|;
+block|}
+name|String
+name|rollbackLoggingLevel
+init|=
+name|element
+operator|.
+name|getAttribute
+argument_list|(
+literal|"rollbackLoggingLevel"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|rollbackLoggingLevel
+argument_list|)
+operator|&&
+operator|(
+operator|!
+name|type
+operator|.
+name|equals
+argument_list|(
+name|ErrorHandlerType
+operator|.
+name|TransactionErrorHandler
+argument_list|)
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Attribute rollbackLoggingLevel can only be used if type is "
 operator|+
 name|ErrorHandlerType
 operator|.
