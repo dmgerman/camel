@@ -216,6 +216,8 @@ argument_list|(
 literal|"Cannot get JMSMessageID from message: "
 operator|+
 name|message
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)

@@ -386,10 +386,10 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Successfully tested JMS Connection on startup for destination: "
-operator|+
+literal|"Successfully tested JMS Connection on startup for destination: {}"
+argument_list|,
 name|getDestinationName
 argument_list|()
 argument_list|)

@@ -353,23 +353,16 @@ else|else
 block|{
 comment|// we could not correlate the received reply message to a matching request and therefore
 comment|// we cannot continue routing the unknown message
-name|String
-name|text
-init|=
-literal|"Reply received for unknown correlationID ["
-operator|+
-name|correlationID
-operator|+
-literal|"]. The message will be ignored: "
-operator|+
-name|message
-decl_stmt|;
 comment|// log a warn and then ignore the message
 name|log
 operator|.
 name|warn
 argument_list|(
-name|text
+literal|"Reply received for unknown correlationID [{}]. The message will be ignored: {}"
+argument_list|,
+name|correlationID
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 block|}

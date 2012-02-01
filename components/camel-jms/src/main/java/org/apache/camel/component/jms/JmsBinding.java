@@ -1349,8 +1349,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Length of BytesMessage is too long: "
-operator|+
+literal|"Length of BytesMessage is too long: {}"
+argument_list|,
 name|message
 operator|.
 name|getBodyLength

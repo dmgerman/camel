@@ -1528,15 +1528,13 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Sent JMS message to: "
-operator|+
+literal|"Sent JMS message to: {} with message: {}"
+argument_list|,
 name|producer
 operator|.
 name|getDestination
 argument_list|()
-operator|+
-literal|" with message: "
-operator|+
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;

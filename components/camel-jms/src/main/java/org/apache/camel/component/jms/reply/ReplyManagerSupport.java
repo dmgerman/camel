@@ -506,8 +506,8 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring message with no correlationID: "
-operator|+
+literal|"Ignoring message with no correlationID: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -584,6 +584,14 @@ name|timeout
 condition|)
 block|{
 comment|// timeout occurred do a WARN log so its easier to spot in the logs
+if|if
+condition|(
+name|log
+operator|.
+name|isWarnEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|warn
@@ -613,6 +621,7 @@ argument_list|()
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 comment|// no response, so lets set a timed out exception
 name|String
 name|msg
@@ -836,12 +845,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Early reply received with correlationID ["
-operator|+
+literal|"Early reply received with correlationID [{}] -> {}"
+argument_list|,
 name|correlationID
-operator|+
-literal|"] -> "
-operator|+
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -1019,10 +1026,10 @@ argument_list|()
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Starting reply listener container on endpoint: "
-operator|+
+literal|"Starting reply listener container on endpoint: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
@@ -1058,10 +1065,10 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Stopping reply listener container on endpoint: "
-operator|+
+literal|"Stopping reply listener container on endpoint: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;

@@ -532,22 +532,29 @@ name|getReplyTo
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|LOG
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"Using JmsReplyManager: "
-operator|+
+literal|"Using JmsReplyManager: {} to process replies from: {}"
+argument_list|,
 name|replyManager
-operator|+
-literal|" to process replies from: "
-operator|+
+argument_list|,
 name|endpoint
 operator|.
 name|getReplyTo
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -560,13 +567,11 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Using JmsReplyManager: "
-operator|+
+literal|"Using JmsReplyManager: {} to process replies from temporary queue"
+argument_list|,
 name|replyManager
-operator|+
-literal|" to process replies from temporary queue"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1366,7 +1371,7 @@ block|{
 comment|// honor disable reply to configuration
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"ReplyTo is disabled on endpoint: {}"
 argument_list|,
@@ -1739,6 +1744,14 @@ name|getInOnlyTemplate
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1752,6 +1765,7 @@ else|:
 literal|"inOnly"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// destination should be preferred
 if|if
 condition|(
@@ -1943,9 +1957,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to retrieve JMSMessageID from outgoing "
-operator|+
-literal|"JMS Message and set it into Camel's MessageId"
+literal|"Unable to retrieve JMSMessageID from outgoing JMS Message and set it into Camel's MessageId"
 argument_list|,
 name|e
 argument_list|)
@@ -2122,7 +2134,7 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Successfully tested JMS Connection on startup for destination: "
 operator|+

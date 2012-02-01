@@ -457,11 +457,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received Message has JMSCorrelationID ["
-operator|+
+literal|"Received Message has JMSCorrelationID [{}]"
+argument_list|,
 name|correlationId
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -518,6 +516,14 @@ argument_list|()
 condition|)
 block|{
 comment|// must process synchronous if transacted or configured to do so
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -530,6 +536,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|processor
@@ -568,6 +575,14 @@ block|}
 else|else
 block|{
 comment|// process asynchronous using the async routing engine
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -580,6 +595,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|boolean
 name|sync
 init|=
