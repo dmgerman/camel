@@ -127,7 +127,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of redeliveries (Camel error handler)"
+literal|"Number of redeliveries (internal only)"
 argument_list|)
 DECL|method|getRedeliveries ()
 name|long
@@ -141,11 +141,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of transacted redeliveries (from external transacted source)"
+literal|"Number of external initiated redeliveries (such as from JMS broker)"
 argument_list|)
-DECL|method|getTransactedRedeliveries ()
+DECL|method|getExternalRedeliveries ()
 name|long
-name|getTransactedRedeliveries
+name|getExternalRedeliveries
 parameter_list|()
 throws|throws
 name|Exception

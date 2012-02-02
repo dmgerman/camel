@@ -651,8 +651,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// setup whether the exchange is transacted redelivered or not (if not initialized before)
-comment|// store as property so we know that the origin exchange was transacted redelivered
+comment|// setup whether the exchange is externally redelivered or not (if not initialized before)
+comment|// store as property so we know that the origin exchange was redelivered
 if|if
 condition|(
 name|exchange
@@ -661,7 +661,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|TRANSACTED_REDELIVERED
+name|EXTERNAL_REDELIVERED
 argument_list|)
 operator|==
 literal|null
@@ -673,11 +673,11 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|TRANSACTED_REDELIVERED
+name|EXTERNAL_REDELIVERED
 argument_list|,
 name|exchange
 operator|.
-name|isTransactedRedelivered
+name|isExternalRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;

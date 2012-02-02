@@ -456,9 +456,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Camel error handler redeliveries (we do not use that in this example)
-comment|// there should be 2 transacted redeliveries
+comment|// there should be 2 external redeliveries
 name|Long
-name|transactedRedeliveries
+name|externalRedeliveries
 init|=
 operator|(
 name|Long
@@ -470,14 +470,14 @@ name|getAttribute
 argument_list|(
 name|name
 argument_list|,
-literal|"TransactedRedeliveries"
+literal|"ExternalRedeliveries"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
-name|transactedRedeliveries
+name|externalRedeliveries
 operator|.
 name|intValue
 argument_list|()
@@ -521,11 +521,11 @@ condition|)
 block|{
 name|assertFalse
 argument_list|(
-literal|"Should not be transacted redelivered"
+literal|"Should not be external redelivered"
 argument_list|,
 name|exchange
 operator|.
-name|isTransactedRedelivered
+name|isExternalRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -534,11 +534,11 @@ else|else
 block|{
 name|assertTrue
 argument_list|(
-literal|"Should be transacted redelivered"
+literal|"Should be external redelivered"
 argument_list|,
 name|exchange
 operator|.
-name|isTransactedRedelivered
+name|isExternalRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;

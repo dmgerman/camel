@@ -1525,10 +1525,10 @@ literal|false
 return|;
 block|}
 block|}
-DECL|method|isTransactedRedelivered ()
+DECL|method|isExternalRedelivered ()
 specifier|public
 name|Boolean
-name|isTransactedRedelivered
+name|isExternalRedelivered
 parameter_list|()
 block|{
 name|Boolean
@@ -1537,9 +1537,9 @@ init|=
 literal|null
 decl_stmt|;
 comment|// check property first, as the implementation details to know if the message
-comment|// was transacted redelivered is message specific, and thus the message implementation
+comment|// was externally redelivered is message specific, and thus the message implementation
 comment|// could potentially change during routing, and therefore later we may not know if the
-comment|// original message was transacted redelivered or not, therefore we store this detail
+comment|// original message was externally redelivered or not, therefore we store this detail
 comment|// as a exchange property to keep it around for the lifecycle of the exchange
 if|if
 condition|(
@@ -1553,7 +1553,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|TRANSACTED_REDELIVERED
+name|EXTERNAL_REDELIVERED
 argument_list|,
 literal|null
 argument_list|,
@@ -1572,7 +1572,7 @@ condition|)
 block|{
 comment|// lets avoid adding methods to the Message API, so we use the
 comment|// DefaultMessage to allow component specific messages to extend
-comment|// and implement the isTransactedRedelivered method.
+comment|// and implement the isExternalRedelivered method.
 name|DefaultMessage
 name|msg
 init|=
@@ -1602,7 +1602,7 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|TRANSACTED_REDELIVERED
+name|EXTERNAL_REDELIVERED
 argument_list|,
 name|answer
 argument_list|)

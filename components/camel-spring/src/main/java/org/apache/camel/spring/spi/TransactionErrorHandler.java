@@ -506,22 +506,22 @@ name|Exception
 block|{
 comment|// is the exchange redelivered, for example JMS brokers support such details
 name|Boolean
-name|txRedelivered
+name|externalRedelivered
 init|=
 name|exchange
 operator|.
-name|isTransactedRedelivered
+name|isExternalRedelivered
 argument_list|()
 decl_stmt|;
 specifier|final
 name|String
 name|redelivered
 init|=
-name|txRedelivered
+name|externalRedelivered
 operator|!=
 literal|null
 condition|?
-name|txRedelivered
+name|externalRedelivered
 operator|.
 name|toString
 argument_list|()

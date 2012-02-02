@@ -260,6 +260,12 @@ name|ERRORHANDLER_HANDLED
 init|=
 literal|"CamelErrorHandlerHandled"
 decl_stmt|;
+DECL|field|EXTERNAL_REDELIVERED
+name|String
+name|EXTERNAL_REDELIVERED
+init|=
+literal|"CamelExternalRedelivered"
+decl_stmt|;
 DECL|field|FAILURE_HANDLED
 name|String
 name|FAILURE_HANDLED
@@ -638,12 +644,6 @@ name|TRACE_EVENT_EXCHANGE
 init|=
 literal|"CamelTraceEventExchange"
 decl_stmt|;
-DECL|field|TRANSACTED_REDELIVERED
-name|String
-name|TRANSACTED_REDELIVERED
-init|=
-literal|"CamelTransactedRedelivered"
-decl_stmt|;
 DECL|field|TRANSFER_ENCODING
 name|String
 name|TRANSFER_ENCODING
@@ -889,10 +889,10 @@ name|boolean
 name|isTransacted
 parameter_list|()
 function_decl|;
-comment|/**      * Returns true if this exchange is redelivered from a transacted source (such as a JMS broker)      *<p/>      *<b>Important:</b> It is not always possible to determine if the transacted is a redelivery      * or not, and therefore<tt>null</tt> is returned. Such an example would be a JDBC message.      * However JMS brokers provides details if a transacted message is redelivered.      *      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,<tt>null</tt> if not able to determine      */
-DECL|method|isTransactedRedelivered ()
+comment|/**      * Returns true if this exchange is an external initiated redelivered message (such as a JMS broker).      *<p/>      *<b>Important:</b> It is not always possible to determine if the message is a redelivery      * or not, and therefore<tt>null</tt> is returned. Such an example would be a JDBC message.      * However JMS brokers provides details if a message is redelivered.      *      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,<tt>null</tt> if not able to determine      */
+DECL|method|isExternalRedelivered ()
 name|Boolean
-name|isTransactedRedelivered
+name|isExternalRedelivered
 parameter_list|()
 function_decl|;
 comment|/**      * Returns true if this exchange is marked for rollback      */

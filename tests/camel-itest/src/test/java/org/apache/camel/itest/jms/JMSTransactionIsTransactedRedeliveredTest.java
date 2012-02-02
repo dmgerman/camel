@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test that exchange.isTransactedRedelivered() is kept around even when  * Message implementation changes from JmsMessage to DefaultMessage, when routing  * from JMS over Jetty.  */
+comment|/**  * Test that exchange.isExternalRedelivered() is kept around even when  * Message implementation changes from JmsMessage to DefaultMessage, when routing  * from JMS over Jetty.  */
 end_comment
 
 begin_class
@@ -402,11 +402,11 @@ condition|)
 block|{
 name|assertFalse
 argument_list|(
-literal|"Should not be transacted redelivered"
+literal|"Should not be external redelivered"
 argument_list|,
 name|exchange
 operator|.
-name|isTransactedRedelivered
+name|isExternalRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -415,11 +415,11 @@ else|else
 block|{
 name|assertTrue
 argument_list|(
-literal|"Should be transacted redelivered"
+literal|"Should be external redelivered"
 argument_list|,
 name|exchange
 operator|.
-name|isTransactedRedelivered
+name|isExternalRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -472,14 +472,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// origin message should be a transacted redeliveries
+comment|// origin message should be a external redelivered
 name|assertTrue
 argument_list|(
-literal|"Should be transacted redelivered"
+literal|"Should be external redelivered"
 argument_list|,
 name|exchange
 operator|.
-name|isTransactedRedelivered
+name|isExternalRedelivered
 argument_list|()
 argument_list|)
 expr_stmt|;
