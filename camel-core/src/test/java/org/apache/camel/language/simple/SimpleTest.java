@@ -880,6 +880,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testSimpleCamelId ()
+specifier|public
+name|void
+name|testSimpleCamelId
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"camelId"
+argument_list|,
+name|context
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testOGNLBodyListAndMap ()
 specifier|public
 name|void

@@ -1575,6 +1575,51 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * Returns an expression for the {@link org.apache.camel.CamelContext} name      *      * @return an expression object which will return the camel context name      */
+DECL|method|camelContextNameExpression ()
+specifier|public
+specifier|static
+name|Expression
+name|camelContextNameExpression
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"camelContextName"
+return|;
+block|}
+block|}
+return|;
+block|}
 comment|/**      * Returns an expression for an exception message set on the exchange      *      * @see<tt>Exchange.getException().getMessage()</tt>      * @return an expression object which will return the exception message set on the exchange      */
 DECL|method|exchangeExceptionMessageExpression ()
 specifier|public
