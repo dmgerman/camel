@@ -638,6 +638,12 @@ name|TRACE_EVENT_EXCHANGE
 init|=
 literal|"CamelTraceEventExchange"
 decl_stmt|;
+DECL|field|TRANSACTED_REDELIVERED
+name|String
+name|TRANSACTED_REDELIVERED
+init|=
+literal|"CamelTransactedRedelivered"
+decl_stmt|;
 DECL|field|TRANSFER_ENCODING
 name|String
 name|TRANSFER_ENCODING

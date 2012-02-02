@@ -651,6 +651,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// setup whether the exchange is transacted redelivered or not (if not initialized before)
+comment|// store as property so we know that the origin exchange was transacted redelivered
+if|if
+condition|(
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TRANSACTED_REDELIVERED
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TRANSACTED_REDELIVERED
+argument_list|,
+name|exchange
+operator|.
+name|isTransactedRedelivered
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// fire event
 try|try
 block|{
