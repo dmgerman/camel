@@ -80,11 +80,14 @@ specifier|final
 name|boolean
 name|logStackTrace
 decl_stmt|;
-DECL|method|DefaultSpringErrorHandler (Class owner, LoggingLevel level, boolean logStackTrace)
+DECL|method|DefaultSpringErrorHandler (Class<?> owner, LoggingLevel level, boolean logStackTrace)
 specifier|public
 name|DefaultSpringErrorHandler
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|owner
 parameter_list|,
 name|LoggingLevel
