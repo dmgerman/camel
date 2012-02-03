@@ -20,36 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|InetSocketAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -196,6 +166,36 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_class
 DECL|class|WebsocketComponent
 specifier|public
@@ -303,7 +303,6 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-comment|/**      * uri --> websocket://foo?storeImplementationClass=org.apache.camel.hazelcast.HazelcastWebsocketStore&storeName=foo      */
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -776,7 +775,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Staring server {}:{}; static resources: {}"
+literal|"Starting server {}:{}; static resources: {}"
 argument_list|,
 operator|new
 name|Object
