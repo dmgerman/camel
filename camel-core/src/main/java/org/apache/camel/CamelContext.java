@@ -734,7 +734,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes all endpoints with the given URI.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed or null if there are no endpoints for this URI      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String) for pattern      */
+comment|/**      * Removes all endpoints with the given URI.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed which could be empty if there are no endpoints found for the given<tt>pattern</tt>      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String) for pattern      */
 DECL|method|removeEndpoints (String pattern)
 name|Collection
 argument_list|<
