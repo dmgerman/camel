@@ -682,6 +682,38 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNormalizeEndpointWithPercentSignInParameter ()
+specifier|public
+name|void
+name|testNormalizeEndpointWithPercentSignInParameter
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out
+init|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+literal|"http://someendpoint?username=james&password=%25test"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+comment|// Camel will safe encode the URI
+name|assertEquals
+argument_list|(
+literal|"http://someendpoint?password=%25test&username=james"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testParseParameters ()
 specifier|public
 name|void

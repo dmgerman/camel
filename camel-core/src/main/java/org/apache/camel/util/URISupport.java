@@ -365,6 +365,8 @@ operator|>=
 literal|0
 condition|)
 block|{
+comment|// The replaceAll is an ugly workaround for CAMEL-4954, awaiting a cleaner fix once CAMEL-4425
+comment|// is fully resolved in all components
 name|String
 name|name
 init|=
@@ -398,6 +400,13 @@ argument_list|(
 name|p
 operator|+
 literal|1
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"%"
+argument_list|,
+literal|"%25"
 argument_list|)
 argument_list|,
 name|CHARSET
