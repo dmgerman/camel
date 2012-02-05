@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|inject
+operator|.
+name|spi
+operator|.
+name|BeanManager
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -46,22 +60,8 @@ name|ContainerLifecycle
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|enterprise
-operator|.
-name|inject
-operator|.
-name|spi
-operator|.
-name|BeanManager
-import|;
-end_import
-
 begin_comment
-comment|/**  * OpenWebBeans CDI container. It can be used in a Camel standalone project to start  * and stop container. The container exposes a Bean?Manager that we can use to instantiate the  * CdiRegistry used by Camel  */
+comment|/**  * OpenWebBeans CDI container. It can be used in a Camel standalone project to start  * and stop container. The container exposes a Bean?Manager that we can use to instantiate the  * {@link CdiBeanRegistry} used by Camel  */
 end_comment
 
 begin_class
@@ -87,8 +87,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|lifecycle
 operator|=
 name|WebBeansContext
@@ -111,17 +109,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|e
-throw|;
-block|}
-block|}
 DECL|method|shutdown ()
 specifier|public
 specifier|static
@@ -131,8 +118,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
 name|lifecycle
 operator|.
 name|stopApplication
@@ -140,17 +125,6 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|e
-throw|;
-block|}
 block|}
 DECL|method|getBeanManager ()
 specifier|public

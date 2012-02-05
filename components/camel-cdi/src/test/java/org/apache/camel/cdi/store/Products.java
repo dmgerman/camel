@@ -116,7 +116,7 @@ DECL|method|Products ()
 specifier|public
 name|Products
 parameter_list|()
-block|{      }
+block|{     }
 annotation|@
 name|PostConstruct
 DECL|method|afterInit ()

@@ -20,49 +20,41 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Registry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
+name|java
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|Collections
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|slf4j
+name|util
 operator|.
-name|Logger
+name|HashMap
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|slf4j
+name|util
 operator|.
-name|LoggerFactory
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -110,41 +102,49 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Collections
+name|camel
+operator|.
+name|spi
+operator|.
+name|Registry
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
-name|HashMap
+name|ObjectHelper
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|Map
+name|Logger
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|Set
+name|LoggerFactory
 import|;
 end_import
 
@@ -160,25 +160,28 @@ name|CdiBeanRegistry
 implements|implements
 name|Registry
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
+specifier|static
 specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|getClass
-argument_list|()
+name|CdiBeanRegistry
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|delegate
+specifier|private
+specifier|final
 name|BeanManager
 name|delegate
 decl_stmt|;
-comment|/**      * @param delegate      * @throws IllegalArgumentException      */
 DECL|method|CdiBeanRegistry (final BeanManager delegate)
 specifier|public
 name|CdiBeanRegistry
@@ -206,7 +209,6 @@ operator|=
 name|delegate
 expr_stmt|;
 block|}
-comment|/**      * @see org.apache.camel.spi.Registry#lookup(java.lang.String)      */
 annotation|@
 name|Override
 DECL|method|lookup (final String name)
@@ -228,11 +230,11 @@ argument_list|,
 literal|"name"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Looking up bean using name = [{}] in CDI registry ..."
+literal|"Looking up bean using name = [{}] in CDI registry."
 argument_list|,
 name|name
 argument_list|)
@@ -263,7 +265,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -320,7 +322,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -336,7 +338,7 @@ name|CreationalContext
 argument_list|<
 name|?
 argument_list|>
-name|creationalContext
+name|context
 init|=
 name|getDelegate
 argument_list|()
@@ -359,11 +361,10 @@ operator|.
 name|getBeanClass
 argument_list|()
 argument_list|,
-name|creationalContext
+name|context
 argument_list|)
 return|;
 block|}
-comment|/**      * @see org.apache.camel.spi.Registry#lookup(java.lang.String,      *      java.lang.Class)      */
 annotation|@
 name|Override
 DECL|method|lookup (final String name, final Class<T> type)
@@ -404,11 +405,11 @@ argument_list|,
 literal|"type"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Looking up bean using name = [{}] having expected type = [{}] in CDI registry ..."
+literal|"Looking up bean using name = [{}] having expected type = [{}] in CDI registry."
 argument_list|,
 name|name
 argument_list|,
@@ -430,7 +431,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * @see org.apache.camel.spi.Registry#lookupByType(java.lang.Class)      */
 annotation|@
 name|Override
 DECL|method|lookupByType (final Class<T> type)
@@ -463,11 +463,11 @@ argument_list|,
 literal|"type"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Looking up all beans having expected type = [{}] in CDI registry ..."
+literal|"Looking up all beans having expected type = [{}] in CDI registry."
 argument_list|,
 name|type
 operator|.
@@ -501,7 +501,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -520,7 +520,7 @@ name|emptyMap
 argument_list|()
 return|;
 block|}
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -570,7 +570,7 @@ name|CreationalContext
 argument_list|<
 name|?
 argument_list|>
-name|creationalContext
+name|context
 init|=
 name|getDelegate
 argument_list|()
@@ -614,7 +614,7 @@ name|bean
 argument_list|,
 name|type
 argument_list|,
-name|creationalContext
+name|context
 argument_list|)
 argument_list|)
 argument_list|)
@@ -633,32 +633,13 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"CdiRegistry@"
-operator|+
-name|this
-operator|.
-name|hashCode
-argument_list|()
-operator|+
-literal|"[delegate = "
+literal|"CdiRegistry["
 operator|+
 name|this
 operator|.
 name|delegate
 operator|+
 literal|"]"
-return|;
-block|}
-DECL|method|getLog ()
-specifier|private
-name|Logger
-name|getLog
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|log
 return|;
 block|}
 DECL|method|getDelegate ()
