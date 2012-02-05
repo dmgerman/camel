@@ -61,12 +61,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OpenWebBeans CDI container. It can be used in a Camel standalone project to start  * and stop container. The container exposes a Bean?Manager that we can use to instantiate the  * {@link CdiBeanRegistry} used by Camel  */
+comment|/**  * OpenWebBeans CDI container. It can be used in a Camel standalone project to start  * and stop container. The container exposes a {@link BeanManager} that we can use to instantiate the  * {@link CdiBeanRegistry} used by Camel  */
 end_comment
 
 begin_class
 DECL|class|CdiContainer
 specifier|public
+specifier|final
 class|class
 name|CdiContainer
 block|{
@@ -75,9 +76,12 @@ specifier|private
 specifier|static
 name|ContainerLifecycle
 name|lifecycle
-init|=
-literal|null
 decl_stmt|;
+DECL|method|CdiContainer ()
+specifier|private
+name|CdiContainer
+parameter_list|()
+block|{     }
 DECL|method|start ()
 specifier|public
 specifier|static
