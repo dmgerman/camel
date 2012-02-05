@@ -64,49 +64,9 @@ begin_import
 import|import
 name|krati
 operator|.
-name|sos
-operator|.
-name|SerializableObjectStore
-import|;
-end_import
-
-begin_import
-import|import
-name|krati
-operator|.
 name|store
 operator|.
-name|DataSet
-import|;
-end_import
-
-begin_import
-import|import
-name|krati
-operator|.
-name|store
-operator|.
-name|DataStore
-import|;
-end_import
-
-begin_import
-import|import
-name|krati
-operator|.
-name|store
-operator|.
-name|DynamicDataSet
-import|;
-end_import
-
-begin_import
-import|import
-name|krati
-operator|.
-name|store
-operator|.
-name|DynamicDataStore
+name|*
 import|;
 end_import
 
@@ -146,7 +106,7 @@ parameter_list|()
 block|{
 comment|//Utillity Class
 block|}
-comment|/**      * Creates a {@link krati.sos.SerializableObjectStore} with the given parameters.      *      * @param path            The directory which the store will use.      * @param initialCapacity      * @param segmentFileSize      * @param segmentFactory  The segment factory, defaults to {@link krati.core.segment.ChannelSegmentFactory}.      * @param hashFunction    The hash function, defaults to {@link krati.util.FnvHashFunction}.      * @param keySerializer   The serializer used for keys, defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @param valueSerializer The serializer used for values,defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @return      */
+comment|/**      * Creates a {@link krati.store.SerializableObjectStore} with the given parameters.      *      * @param path            The directory which the store will use.      * @param initialCapacity      * @param segmentFileSize      * @param segmentFactory  The segment factory, defaults to {@link krati.core.segment.ChannelSegmentFactory}.      * @param hashFunction    The hash function, defaults to {@link krati.util.FnvHashFunction}.      * @param keySerializer   The serializer used for keys, defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @param valueSerializer The serializer used for values,defaults to {@link org.apache.camel.component.krati.serializer.KratiDefaultSerializer}.      * @return      */
 DECL|method|createDataStore (String path, int initialCapacity, int segmentFileSize, SegmentFactory segmentFactory, HashFunction<byte[]> hashFunction, Serializer<K> keySerializer, Serializer<V> valueSerializer)
 specifier|public
 specifier|static
