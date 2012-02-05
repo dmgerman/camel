@@ -1409,7 +1409,7 @@ operator|.
 name|getSslContextFactory
 argument_list|()
 operator|.
-name|setKeyStore
+name|setKeyStorePath
 argument_list|(
 name|sslKeystore
 argument_list|)
