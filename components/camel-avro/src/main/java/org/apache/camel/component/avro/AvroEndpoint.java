@@ -106,11 +106,6 @@ specifier|private
 name|AvroConfiguration
 name|configuration
 decl_stmt|;
-DECL|field|sync
-specifier|private
-name|boolean
-name|sync
-decl_stmt|;
 comment|/**      * Constructs a fully-initialized DefaultEndpoint instance. This is the      * preferred method of constructing an object from Java code (as opposed to      * Spring beans, etc.).      *      * @param endpointUri the full URI used to create this endpoint      * @param component   the component that created this endpoint      */
 DECL|method|AvroEndpoint (String endpointUri, Component component, AvroConfiguration configuration)
 specifier|public

@@ -578,7 +578,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/*      * (non-Javadoc)      * @see org.apache.camel.spi.DataFormat#marshal(org.apache.camel.Exchange,      * java.lang.Object, java.io.OutputStream)      */
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream outputStream)
 specifier|public
 name|void
@@ -597,10 +596,16 @@ throws|throws
 name|Exception
 block|{
 name|DatumWriter
+argument_list|<
+name|Object
+argument_list|>
 name|datum
 init|=
 operator|new
 name|SpecificDatumWriter
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|getSchema
 argument_list|(
@@ -640,7 +645,6 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      * @see org.apache.camel.spi.DataFormat#unmarshal(org.apache.camel.Exchange,      * java.io.InputStream)      */
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object
@@ -663,6 +667,9 @@ name|reader
 init|=
 operator|new
 name|SpecificDatumReader
+argument_list|<
+name|GenericRecord
+argument_list|>
 argument_list|(
 name|getSchema
 argument_list|(
