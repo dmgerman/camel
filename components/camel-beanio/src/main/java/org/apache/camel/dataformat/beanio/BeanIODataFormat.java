@@ -1087,6 +1087,27 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|Charset
+operator|.
+name|forName
+argument_list|(
+name|encoding
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|isIgnoreInvalidRecords ()
 specifier|public
 name|boolean

@@ -271,6 +271,13 @@ name|ignoreInvalidRecords
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|encoding
+operator|!=
+literal|null
+condition|)
+block|{
 name|setProperty
 argument_list|(
 name|dataFormat
@@ -280,6 +287,7 @@ argument_list|,
 name|encoding
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
