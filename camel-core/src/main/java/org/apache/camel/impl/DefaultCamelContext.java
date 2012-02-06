@@ -2595,10 +2595,27 @@ return|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
+name|String
+name|message
+decl_stmt|;
+if|if
+condition|(
+name|component
+operator|==
+literal|null
+condition|)
+block|{
+name|message
+operator|=
+literal|"Did not find component given by the name: "
+operator|+
+name|name
+expr_stmt|;
+block|}
+else|else
+block|{
+name|message
+operator|=
 literal|"Found component of type: "
 operator|+
 name|component
@@ -2609,6 +2626,13 @@ operator|+
 literal|" instead of expected: "
 operator|+
 name|componentType
+expr_stmt|;
+block|}
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
 argument_list|)
 throw|;
 block|}
