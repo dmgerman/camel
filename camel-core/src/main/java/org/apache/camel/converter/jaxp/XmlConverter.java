@@ -880,13 +880,14 @@ name|document
 parameter_list|)
 block|{
 return|return
-name|toDOMSource
+operator|new
+name|DOMSource
 argument_list|(
 name|document
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Node to a Source      * @deprecated  use toDOMSource instead      */
+comment|/**      * Converts the given Node to a Source      * @throws TransformerException       * @throws ParserConfigurationException       * @deprecated  use toDOMSource instead      */
 annotation|@
 name|Deprecated
 DECL|method|toSource (Node node)
@@ -897,6 +898,10 @@ parameter_list|(
 name|Node
 name|node
 parameter_list|)
+throws|throws
+name|ParserConfigurationException
+throws|,
+name|TransformerException
 block|{
 return|return
 name|toDOMSource
@@ -905,7 +910,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Node to a Source      */
+comment|/**      * Converts the given Node to a Source      * @throws TransformerException       * @throws ParserConfigurationException       */
 annotation|@
 name|Converter
 DECL|method|toDOMSource (Node node)
@@ -916,12 +921,44 @@ parameter_list|(
 name|Node
 name|node
 parameter_list|)
+throws|throws
+name|ParserConfigurationException
+throws|,
+name|TransformerException
+block|{
+name|Document
+name|document
+init|=
+name|toDOMDocument
+argument_list|(
+name|node
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|DOMSource
+argument_list|(
+name|document
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given Document to a DOMSource      */
+annotation|@
+name|Converter
+DECL|method|toDOMSource (Document document)
+specifier|public
+name|DOMSource
+name|toDOMSource
+parameter_list|(
+name|Document
+name|document
+parameter_list|)
 block|{
 return|return
 operator|new
 name|DOMSource
 argument_list|(
-name|node
+name|document
 argument_list|)
 return|;
 block|}
