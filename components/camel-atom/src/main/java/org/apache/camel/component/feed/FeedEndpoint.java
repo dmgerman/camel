@@ -193,43 +193,6 @@ operator|=
 name|feedUri
 expr_stmt|;
 block|}
-DECL|method|FeedEndpoint (String endpointUri, String feedUri)
-specifier|public
-name|FeedEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|String
-name|feedUri
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|feedUri
-operator|=
-name|feedUri
-expr_stmt|;
-block|}
-DECL|method|FeedEndpoint (String endpointUri)
-specifier|public
-name|FeedEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

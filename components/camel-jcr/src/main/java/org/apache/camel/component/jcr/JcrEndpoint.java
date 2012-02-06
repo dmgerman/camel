@@ -340,47 +340,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|JcrEndpoint (String endpointUri, String base, Credentials credentials, Repository repository)
-specifier|public
-name|JcrEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|String
-name|base
-parameter_list|,
-name|Credentials
-name|credentials
-parameter_list|,
-name|Repository
-name|repository
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|base
-operator|=
-name|base
-expr_stmt|;
-name|this
-operator|.
-name|credentials
-operator|=
-name|credentials
-expr_stmt|;
-name|this
-operator|.
-name|repository
-operator|=
-name|repository
-expr_stmt|;
-block|}
 comment|/**      * Currently unsupported      * @throws RuntimeCamelException      */
 DECL|method|createConsumer (Processor processor)
 specifier|public

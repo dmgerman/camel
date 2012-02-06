@@ -204,39 +204,6 @@ name|feedUri
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|RssEndpoint (String endpointUri, String feedUri)
-specifier|public
-name|RssEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|String
-name|feedUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|feedUri
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RssEndpoint (String endpointUri)
-specifier|public
-name|RssEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createExchange (Object feed)
