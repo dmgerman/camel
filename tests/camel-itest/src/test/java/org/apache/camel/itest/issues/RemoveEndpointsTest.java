@@ -224,9 +224,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// all have been removed
-comment|// TODO: [CAMEL-4976] the following fails, but it should pass
-comment|// assertEquals(0, context.getEndpoints().size());
-comment|// assertNull(context.hasEndpoint("jms://topic:bar"));
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|context
+operator|.
+name|getEndpoints
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
