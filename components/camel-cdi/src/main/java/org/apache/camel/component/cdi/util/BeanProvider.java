@@ -58,16 +58,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -291,11 +281,11 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Could not find beans for Type="
+literal|"Could not find beans for Type='"
 operator|+
 name|type
 operator|+
-literal|" and qualifiers:"
+literal|"' and qualifiers: "
 operator|+
 name|Arrays
 operator|.
@@ -470,7 +460,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      *<p>Get a list of Contextual References by it's type independent of the qualifier.      *<p/>      * Further details are available at {@link #getContextualReferences(Class, boolean)}      *      * @param type                      the type of the bean in question      * @param optional                  if<code>true</code> it will return an empty list if no bean could be found or created.      *                                  Otherwise it will throw an {@code IllegalStateException}      * @param includeDefaultScopedBeans specifies if dependent scoped beans should be included in the in the result      * @param<T>                       target type      * @return the resolved list of Contextual Reference or an empty-list if optional is true      */
-DECL|method|getContextualReferences (Class<T> type, boolean optional, boolean includeDefaultScopedBeans)
+DECL|method|getContextualReferences ( Class<T> type, boolean optional, boolean includeDefaultScopedBeans)
 specifier|public
 specifier|static
 parameter_list|<
@@ -617,15 +607,15 @@ name|?
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|Collection
-operator|)
 name|Arrays
 operator|.
 name|asList
 argument_list|(
 operator|new
-name|Object
+name|Bean
+argument_list|<
+name|?
+argument_list|>
 index|[]
 block|{
 name|bean
@@ -805,15 +795,15 @@ name|?
 argument_list|>
 argument_list|>
 argument_list|(
-operator|(
-name|Collection
-operator|)
 name|Arrays
 operator|.
 name|asList
 argument_list|(
 operator|new
-name|Object
+name|Bean
+argument_list|<
+name|?
+argument_list|>
 index|[]
 block|{
 name|bean
@@ -951,6 +941,11 @@ comment|/**      * Internal helper method to resolve the right bean and resolve 
 end_comment
 
 begin_function
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getContextualReference (Class<T> type, BeanManager beanManager, Set<Bean<?>> beans)
 specifier|private
 specifier|static
@@ -1005,18 +1000,7 @@ argument_list|(
 name|bean
 argument_list|)
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"unchecked"
-block|,
-literal|"UnnecessaryLocalVariable"
-block|}
-argument_list|)
-name|T
-name|result
-init|=
+return|return
 operator|(
 name|T
 operator|)
@@ -1030,9 +1014,6 @@ name|type
 argument_list|,
 name|creationalContext
 argument_list|)
-decl_stmt|;
-return|return
-name|result
 return|;
 block|}
 end_function

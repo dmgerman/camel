@@ -54,9 +54,17 @@ name|AnnotationLiteral
 argument_list|<
 name|Any
 argument_list|>
-implements|implements
-name|Any
-block|{ }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 end_class
 
 end_unit
