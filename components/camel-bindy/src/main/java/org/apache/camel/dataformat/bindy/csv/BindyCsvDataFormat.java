@@ -140,6 +140,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|converter
+operator|.
+name|IOConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|dataformat
 operator|.
 name|bindy
@@ -728,6 +742,13 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|inputStream
+argument_list|,
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Scanner is used to read big file

@@ -549,6 +549,13 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|inputStream
+argument_list|,
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Scanner is used to read big file
