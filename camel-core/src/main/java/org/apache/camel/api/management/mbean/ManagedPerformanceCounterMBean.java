@@ -67,19 +67,9 @@ DECL|interface|ManagedPerformanceCounterMBean
 specifier|public
 interface|interface
 name|ManagedPerformanceCounterMBean
+extends|extends
+name|ManagedCounterMBean
 block|{
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Reset counters"
-argument_list|)
-DECL|method|reset ()
-name|void
-name|reset
-parameter_list|()
-function_decl|;
 annotation|@
 name|ManagedAttribute
 argument_list|(
