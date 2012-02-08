@@ -708,6 +708,52 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testTrimSimpleExpressions ()
+specifier|public
+name|void
+name|testTrimSimpleExpressions
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|" \texchangeId\n"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"\nid\r"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getMessageId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"\t\r body"
+argument_list|,
+literal|"<hello id='m123'>world!</hello>"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"\nin.body\r"
+argument_list|,
+literal|"<hello id='m123'>world!</hello>"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSimpleThreadName ()
 specifier|public
 name|void
