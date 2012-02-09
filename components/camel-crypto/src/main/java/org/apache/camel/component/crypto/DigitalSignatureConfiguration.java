@@ -116,24 +116,6 @@ name|RuntimeCamelException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|crypto
-operator|.
-name|DigitalSignatureConstants
-operator|.
-name|SIGNATURE
-import|;
-end_import
-
 begin_class
 DECL|class|DigitalSignatureConfiguration
 specifier|public
@@ -244,6 +226,8 @@ DECL|field|clearHeaders
 specifier|private
 name|boolean
 name|clearHeaders
+init|=
+literal|true
 decl_stmt|;
 DECL|field|operation
 specifier|private
@@ -1111,6 +1095,8 @@ literal|null
 condition|?
 name|signatureHeaderName
 else|:
+name|DigitalSignatureConstants
+operator|.
 name|SIGNATURE
 return|;
 block|}

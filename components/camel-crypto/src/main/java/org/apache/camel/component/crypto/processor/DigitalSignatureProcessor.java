@@ -175,20 +175,16 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|util
 operator|.
-name|crypto
-operator|.
-name|DigitalSignatureConstants
-operator|.
-name|KEYSTORE_ALIAS
+name|ObjectHelper
 import|;
 end_import
 
@@ -351,6 +347,8 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
+name|DigitalSignatureConstants
+operator|.
 name|KEYSTORE_ALIAS
 argument_list|,
 name|String
@@ -523,10 +521,19 @@ name|headers
 operator|.
 name|remove
 argument_list|(
+name|ObjectHelper
+operator|.
+name|lookupConstantFieldValue
+argument_list|(
+name|DigitalSignatureConstants
+operator|.
+name|class
+argument_list|,
 name|f
 operator|.
 name|getName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

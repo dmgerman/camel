@@ -98,6 +98,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|crypto
+operator|.
+name|DigitalSignatureConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -117,24 +133,6 @@ operator|.
 name|binary
 operator|.
 name|Base64
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|crypto
-operator|.
-name|DigitalSignatureConstants
-operator|.
-name|SIGNATURE_PUBLIC_KEY_OR_CERT
 import|;
 end_import
 
@@ -232,6 +230,8 @@ literal|"Cannot verify signature as no Public Key or Certificate has been suppli
 operator|+
 literal|" Either supply one in the route definition or via the message header '%s'"
 argument_list|,
+name|DigitalSignatureConstants
+operator|.
 name|SIGNATURE_PUBLIC_KEY_OR_CERT
 argument_list|)
 argument_list|)
@@ -433,6 +433,8 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
+name|DigitalSignatureConstants
+operator|.
 name|SIGNATURE_PUBLIC_KEY_OR_CERT
 argument_list|,
 name|verificationType

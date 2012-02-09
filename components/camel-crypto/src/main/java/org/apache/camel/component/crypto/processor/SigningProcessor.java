@@ -144,24 +144,6 @@ name|Base64
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|crypto
-operator|.
-name|DigitalSignatureConstants
-operator|.
-name|SIGNATURE_PRIVATE_KEY
-import|;
-end_import
-
 begin_class
 DECL|class|SigningProcessor
 specifier|public
@@ -376,6 +358,8 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
+name|DigitalSignatureConstants
+operator|.
 name|SIGNATURE_PRIVATE_KEY
 argument_list|,
 name|PrivateKey
@@ -396,10 +380,14 @@ name|IllegalStateException
 argument_list|(
 name|format
 argument_list|(
-literal|"Cannot sign message as no Private Key has been supplied. Either supply one in"
+literal|"Cannot sign message as no Private Key has been supplied. "
 operator|+
-literal|" the route definition sign(keystore, alias) or sign(privateKey) or via the message header '%s'"
+literal|"Either supply one in the route definition sign(keystore, alias) or sign(privateKey) "
+operator|+
+literal|"or via the message header '%s'"
 argument_list|,
+name|DigitalSignatureConstants
+operator|.
 name|SIGNATURE_PRIVATE_KEY
 argument_list|)
 argument_list|)
