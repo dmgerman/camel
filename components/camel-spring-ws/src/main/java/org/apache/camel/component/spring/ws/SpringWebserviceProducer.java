@@ -786,6 +786,7 @@ name|configuration
 argument_list|)
 condition|)
 block|{
+comment|// For example this will be the case during unit-testing with the net.javacrumbs.spring-ws-test API
 name|LOG
 operator|.
 name|warn
