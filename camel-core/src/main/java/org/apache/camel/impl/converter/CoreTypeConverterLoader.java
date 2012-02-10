@@ -64,6 +64,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// this method doesn't change the behavior of the CorePackageScanClassResolver
 return|return
 operator|new
 name|String
