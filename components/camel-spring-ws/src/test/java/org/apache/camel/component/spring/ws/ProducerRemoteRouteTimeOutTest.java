@@ -645,13 +645,13 @@ throws|throws
 name|Exception
 block|{
 name|HttpUrlConnectionMessageSender
-name|fromConnectionMessageSender
+name|fromMessageSender
 init|=
 operator|new
 name|HttpUrlConnectionMessageSender
 argument_list|()
 decl_stmt|;
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setAcceptGzipEncoding
 argument_list|(
@@ -659,7 +659,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 name|CamelHttpUrlConnectionMessageSender
-name|toConnectionMessageSender
+name|toMessageSender
 init|=
 operator|new
 name|CamelHttpUrlConnectionMessageSender
@@ -668,27 +668,27 @@ operator|new
 name|SpringWebserviceConfiguration
 argument_list|()
 argument_list|,
-name|fromConnectionMessageSender
+name|fromMessageSender
 argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"acceptGzipEncoding property didn't get populated"
+literal|"acceptGzipEncoding property didn't get populated!"
 argument_list|,
-name|toConnectionMessageSender
+name|toMessageSender
 operator|.
 name|isAcceptGzipEncoding
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setAcceptGzipEncoding
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|toConnectionMessageSender
+name|toMessageSender
 operator|=
 operator|new
 name|CamelHttpUrlConnectionMessageSender
@@ -697,14 +697,14 @@ operator|new
 name|SpringWebserviceConfiguration
 argument_list|()
 argument_list|,
-name|fromConnectionMessageSender
+name|fromMessageSender
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"acceptGzipEncoding property didn't get populated properly!"
 argument_list|,
-name|toConnectionMessageSender
+name|toMessageSender
 operator|.
 name|isAcceptGzipEncoding
 argument_list|()
@@ -722,20 +722,20 @@ throws|throws
 name|Exception
 block|{
 name|HttpsUrlConnectionMessageSender
-name|fromConnectionMessageSender
+name|fromMessageSender
 init|=
 operator|new
 name|HttpsUrlConnectionMessageSender
 argument_list|()
 decl_stmt|;
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setAcceptGzipEncoding
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setHostnameVerifier
 argument_list|(
@@ -763,7 +763,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setKeyManagers
 argument_list|(
@@ -782,7 +782,7 @@ class|;
 end_class
 
 begin_expr_stmt
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setSecureRandom
 argument_list|(
@@ -794,7 +794,7 @@ expr_stmt|;
 end_expr_stmt
 
 begin_expr_stmt
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setSslProtocol
 argument_list|(
@@ -804,7 +804,7 @@ expr_stmt|;
 end_expr_stmt
 
 begin_expr_stmt
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setSslProvider
 argument_list|(
@@ -814,7 +814,7 @@ expr_stmt|;
 end_expr_stmt
 
 begin_expr_stmt
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|setTrustManagers
 argument_list|(
@@ -836,7 +836,7 @@ end_empty_stmt
 
 begin_decl_stmt
 name|CamelHttpsUrlConnectionMessageSender
-name|toConnectionMessageSender
+name|toMessageSender
 init|=
 operator|new
 name|CamelHttpsUrlConnectionMessageSender
@@ -845,7 +845,7 @@ operator|new
 name|SpringWebserviceConfiguration
 argument_list|()
 argument_list|,
-name|fromConnectionMessageSender
+name|fromMessageSender
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -853,9 +853,9 @@ end_decl_stmt
 begin_expr_stmt
 name|assertFalse
 argument_list|(
-literal|"acceptGzipEncoding field didn't get populated"
+literal|"acceptGzipEncoding field didn't get populated!"
 argument_list|,
-name|toConnectionMessageSender
+name|toMessageSender
 operator|.
 name|isAcceptGzipEncoding
 argument_list|()
@@ -869,7 +869,7 @@ control|(
 name|Field
 name|expectedField
 range|:
-name|fromConnectionMessageSender
+name|fromMessageSender
 operator|.
 name|getClass
 argument_list|()
@@ -911,7 +911,7 @@ decl_stmt|;
 name|Field
 name|actualField
 init|=
-name|toConnectionMessageSender
+name|toMessageSender
 operator|.
 name|getClass
 argument_list|()
@@ -943,14 +943,14 @@ name|expectedField
 operator|.
 name|get
 argument_list|(
-name|fromConnectionMessageSender
+name|fromMessageSender
 argument_list|)
 argument_list|,
 name|actualField
 operator|.
 name|get
 argument_list|(
-name|toConnectionMessageSender
+name|toMessageSender
 argument_list|)
 argument_list|)
 expr_stmt|;
