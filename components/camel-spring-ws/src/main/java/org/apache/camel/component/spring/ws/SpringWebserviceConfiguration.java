@@ -154,6 +154,14 @@ specifier|private
 name|URI
 name|wsAddressingAction
 decl_stmt|;
+DECL|field|timeout
+specifier|private
+name|int
+name|timeout
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/* Consumer configuration */
 DECL|field|endpointMapping
 specifier|private
@@ -307,15 +315,40 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
-name|this
-operator|.
-name|wsAddressingAction
-operator|=
+name|setWsAddressingAction
+argument_list|(
 operator|new
 name|URI
 argument_list|(
 name|wsAddressingAction
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|int
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+DECL|method|setTimeout (int timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|int
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
 expr_stmt|;
 block|}
 DECL|method|getEndpointMapping ()

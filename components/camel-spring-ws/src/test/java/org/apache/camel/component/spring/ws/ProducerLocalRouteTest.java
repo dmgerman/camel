@@ -207,7 +207,6 @@ name|resultEndpoint
 decl_stmt|;
 annotation|@
 name|Test
-argument_list|()
 DECL|method|consumeStockQuoteWebserviceWithDefaultTemplate ()
 specifier|public
 name|void
@@ -243,7 +242,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|()
 DECL|method|consumeStockQuoteWebserviceAndPreserveHeaders ()
 specifier|public
 name|void
@@ -290,7 +288,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|()
 DECL|method|consumeStockQuoteWebservice ()
 specifier|public
 name|void
@@ -326,7 +323,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|()
 DECL|method|consumeStockQuoteWebserviceWithCamelStringSourceInput ()
 specifier|public
 name|void
@@ -366,7 +362,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|()
 DECL|method|consumeStockQuoteWebserviceWithNonDefaultMessageFactory ()
 specifier|public
 name|void
@@ -402,7 +397,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|()
 DECL|method|consumeStockQuoteWebserviceAndConvertResult ()
 specifier|public
 name|void
@@ -456,7 +450,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|()
 DECL|method|consumeStockQuoteWebserviceAndProvideEndpointUriByHeader ()
 specifier|public
 name|void
