@@ -673,7 +673,7 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"acceptGzipEncoding property didn't get populated!"
+literal|"acceptGzipEncoding property didn't get populated properly!"
 argument_list|,
 name|toMessageSender
 operator|.
@@ -853,7 +853,7 @@ end_decl_stmt
 begin_expr_stmt
 name|assertFalse
 argument_list|(
-literal|"acceptGzipEncoding field didn't get populated!"
+literal|"acceptGzipEncoding field didn't get populated properly!"
 argument_list|,
 name|toMessageSender
 operator|.
