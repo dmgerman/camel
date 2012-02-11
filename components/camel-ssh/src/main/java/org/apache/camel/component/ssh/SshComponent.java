@@ -475,6 +475,38 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCertFilename ()
+specifier|public
+name|String
+name|getCertFilename
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCertFilename
+argument_list|()
+return|;
+block|}
+DECL|method|setCertFilename (String certFilename)
+specifier|public
+name|void
+name|setCertFilename
+parameter_list|(
+name|String
+name|certFilename
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCertFilename
+argument_list|(
+name|certFilename
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

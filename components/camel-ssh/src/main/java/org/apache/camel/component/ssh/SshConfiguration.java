@@ -121,6 +121,15 @@ DECL|field|keyType
 specifier|private
 name|String
 name|keyType
+init|=
+name|KeyPairProvider
+operator|.
+name|SSH_RSA
+decl_stmt|;
+DECL|field|certFilename
+specifier|private
+name|String
+name|certFilename
 decl_stmt|;
 DECL|field|timeout
 specifier|private
@@ -470,7 +479,7 @@ return|return
 name|keyType
 return|;
 block|}
-comment|/**      * Sets the key type to pass to the KeyPairProvider as part of authentication.      * KeyPairProvider.loadKey(...) will be passed this value.      *      * @param keyType String defining the type of KeyPair to use for authentication.      *      * @see KeyPairProvider      */
+comment|/**      * Sets the key type to pass to the KeyPairProvider as part of authentication.      * KeyPairProvider.loadKey(...) will be passed this value. Defaults to "ssh-rsa".      *      * @param keyType String defining the type of KeyPair to use for authentication.      *      * @see KeyPairProvider      */
 DECL|method|setKeyType (String keyType)
 specifier|public
 name|void
@@ -497,7 +506,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets the timeout in milliseconds to wait in establishing the remote SSH server connection.      * Defaults to 30000 milliseconds.      *      * @param timeout long millisconeds to wait.      */
+comment|/**      * Sets the timeout in milliseconds to wait in establishing the remote SSH server connection.      * Defaults to 30000 milliseconds.      *      * @param timeout long milliseconds to wait.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -512,6 +521,35 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|getCertFilename ()
+specifier|public
+name|String
+name|getCertFilename
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|certFilename
+return|;
+block|}
+comment|/**      * Sets the filename of the certificate to use for Authentication.      * Will use FileKeyPairProvider to resolve file based certificate, and depends on keyType setting.      *      * @param certFilename      */
+DECL|method|setCertFilename (String certFilename)
+specifier|public
+name|void
+name|setCertFilename
+parameter_list|(
+name|String
+name|certFilename
+parameter_list|)
+block|{
+name|this
+operator|.
+name|certFilename
+operator|=
+name|certFilename
 expr_stmt|;
 block|}
 block|}
