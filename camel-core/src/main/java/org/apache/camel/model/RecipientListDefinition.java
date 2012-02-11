@@ -396,8 +396,6 @@ name|onPrepare
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Deprecated
 DECL|field|shareUnitOfWork
 specifier|private
 name|Boolean
@@ -1155,8 +1153,6 @@ name|this
 return|;
 block|}
 comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
-annotation|@
-name|Deprecated
 DECL|method|shareUnitOfWork ()
 specifier|public
 name|RecipientListDefinition
@@ -1545,8 +1541,6 @@ operator|=
 name|onPrepare
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|getShareUnitOfWork ()
 specifier|public
 name|Boolean
@@ -1557,8 +1551,6 @@ return|return
 name|shareUnitOfWork
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|setShareUnitOfWork (Boolean shareUnitOfWork)
 specifier|public
 name|void
@@ -1575,8 +1567,6 @@ operator|=
 name|shareUnitOfWork
 expr_stmt|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|isShareUnitOfWork ()
 specifier|public
 name|boolean
