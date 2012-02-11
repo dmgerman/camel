@@ -687,6 +687,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|configuration
+operator|.
+name|getTimeout
+argument_list|()
+operator|>
+operator|-
+literal|1
+operator|)
+condition|)
+block|{
+return|return;
+block|}
 name|WebServiceTemplate
 name|webServiceTemplate
 init|=
@@ -767,14 +783,6 @@ name|HttpsUrlConnectionMessageSender
 condition|)
 block|{
 comment|// Should check HttpsUrlConnectionMessageSender beforehand as it extends HttpUrlConnectionMessageSender
-if|if
-condition|(
-name|shouldConsiderTimeoutConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-condition|)
-block|{
 name|webServiceMessageSenders
 operator|.
 name|remove
@@ -799,21 +807,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 elseif|else
 if|if
 condition|(
 name|webServiceMessageSender
 operator|instanceof
 name|HttpUrlConnectionMessageSender
-condition|)
-block|{
-if|if
-condition|(
-name|shouldConsiderTimeoutConfiguration
-argument_list|(
-name|configuration
-argument_list|)
 condition|)
 block|{
 name|webServiceMessageSenders
@@ -840,17 +839,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 else|else
-block|{
-comment|// Warn only if the timeout option has been explicitly specified
-if|if
-condition|(
-name|shouldConsiderTimeoutConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-condition|)
 block|{
 comment|// For example this will be the case during unit-testing with the net.javacrumbs.spring-ws-test API
 name|LOG
@@ -862,7 +851,6 @@ argument_list|,
 name|webServiceMessageSender
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|webServiceTemplate
@@ -885,26 +873,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shouldConsiderTimeoutConfiguration (SpringWebserviceConfiguration configuration)
-specifier|private
-specifier|static
-name|boolean
-name|shouldConsiderTimeoutConfiguration
-parameter_list|(
-name|SpringWebserviceConfiguration
-name|configuration
-parameter_list|)
-block|{
-return|return
-name|configuration
-operator|.
-name|getTimeout
-argument_list|()
-operator|>
-operator|-
-literal|1
-return|;
-block|}
 DECL|method|setTimeOut (HttpURLConnection connection, SpringWebserviceConfiguration configuration)
 specifier|private
 specifier|static
@@ -918,14 +886,6 @@ name|SpringWebserviceConfiguration
 name|configuration
 parameter_list|)
 block|{
-if|if
-condition|(
-name|shouldConsiderTimeoutConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-condition|)
-block|{
 name|connection
 operator|.
 name|setReadTimeout
@@ -936,7 +896,6 @@ name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|setTimeOut (CommonsHttpMessageSender commonsHttpMessageSender, SpringWebserviceConfiguration configuration)
 specifier|private
@@ -951,14 +910,6 @@ name|SpringWebserviceConfiguration
 name|configuration
 parameter_list|)
 block|{
-if|if
-condition|(
-name|shouldConsiderTimeoutConfiguration
-argument_list|(
-name|configuration
-argument_list|)
-condition|)
-block|{
 name|commonsHttpMessageSender
 operator|.
 name|setReadTimeout
@@ -969,7 +920,6 @@ name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|class|CamelHttpUrlConnectionMessageSender
 specifier|protected
@@ -1082,7 +1032,7 @@ name|isAcceptGzipEncoding
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Populate the fields having no getXXX available on HttpsUrlConnectionMessageSender
+comment|// Populate the fields not having getXXX available on HttpsUrlConnectionMessageSender
 name|ReflectionHelper
 operator|.
 name|doWithFields
