@@ -3742,6 +3742,17 @@ name|getException
 argument_list|()
 operator|!=
 literal|null
+operator|||
+name|subExchange
+operator|!=
+literal|null
+operator|&&
+name|subExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// multicast uses error handling on its output processors and they have tried to redeliver
@@ -3766,7 +3777,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// and copy the current result to original so it will contain this exception
+comment|// and copy the current result to original so it will contain this result of this eip
 name|ExchangeHelper
 operator|.
 name|copyResults

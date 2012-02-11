@@ -184,6 +184,8 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+annotation|@
+name|Deprecated
 DECL|method|shareUnitOfWork ()
 DECL|field|false
 name|boolean

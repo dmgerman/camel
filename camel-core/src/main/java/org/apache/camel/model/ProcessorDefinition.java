@@ -1502,61 +1502,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"{} is part of multicast/recipientList which have special error handling so no error handler is applied"
-argument_list|,
-name|defn
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|defn
-operator|instanceof
-name|RecipientListDefinition
-condition|)
-block|{
-comment|// do not use error handler for recipient list as it offers fine grained error handlers for its outputs
-comment|// however if share unit of work is enabled, we need to wrap an error handler on the recipient list parent
-name|RecipientListDefinition
-argument_list|<
-name|?
-argument_list|>
-name|def
-init|=
-operator|(
-name|RecipientListDefinition
-argument_list|<
-name|?
-argument_list|>
-operator|)
-name|defn
-decl_stmt|;
-if|if
-condition|(
-name|def
-operator|.
-name|isShareUnitOfWork
-argument_list|()
-condition|)
-block|{
-comment|// note a recipient list cannot have children so no need for a child == null check
-name|wrapChannelInErrorHandler
-argument_list|(
-name|channel
-argument_list|,
-name|routeContext
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"{} is part of multicast/recipientList which have special error handling so no error handler is applied"
+literal|"{} is part of multicast which have special error handling so no error handler is applied"
 argument_list|,
 name|defn
 argument_list|)
