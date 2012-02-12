@@ -158,24 +158,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|getEndpoint ()
-specifier|public
-name|AvroEndpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-operator|(
-name|AvroEndpoint
-operator|)
-name|super
-operator|.
-name|getEndpoint
-argument_list|()
-return|;
-block|}
 block|}
 end_class
 

@@ -116,12 +116,6 @@ specifier|static
 name|URI
 name|uriWS
 decl_stmt|;
-DECL|field|webSocketConnection
-specifier|private
-specifier|static
-name|WebSocketConnection
-name|webSocketConnection
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testWSHttpCall ()

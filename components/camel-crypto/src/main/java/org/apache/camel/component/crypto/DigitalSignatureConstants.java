@@ -74,6 +74,13 @@ name|KEYSTORE_PASSWORD
 init|=
 literal|"CamelSignatureKeyStorePassword"
 decl_stmt|;
+DECL|method|DigitalSignatureConstants ()
+specifier|private
+name|DigitalSignatureConstants
+parameter_list|()
+block|{
+comment|// Utility class
+block|}
 block|}
 end_class
 

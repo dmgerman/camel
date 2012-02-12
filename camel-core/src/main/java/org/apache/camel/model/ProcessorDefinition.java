@@ -2779,13 +2779,9 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// the name is always a String
 name|String
 name|name
 init|=
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getKey

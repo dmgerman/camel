@@ -126,26 +126,6 @@ name|Message
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|AbstractDdbCommand
 specifier|public
@@ -295,6 +275,11 @@ name|getTableName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|determineUpdateCondition ()
 specifier|protected
 name|Map
@@ -324,6 +309,11 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|determineItem ()
 specifier|protected
 name|Map
@@ -465,6 +455,11 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|determineAttributeNames ()
 specifier|protected
 name|Collection
