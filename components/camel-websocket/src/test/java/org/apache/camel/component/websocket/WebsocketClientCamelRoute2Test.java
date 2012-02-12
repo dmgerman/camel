@@ -146,12 +146,6 @@ name|WebsocketClientCamelRoute2Test
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|uriWS
-specifier|private
-specifier|static
-name|URI
-name|uriWS
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testWSHttpCall ()
@@ -162,12 +156,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|uriWS
-operator|=
-operator|new
-name|URI
+name|getMockEndpoint
 argument_list|(
-literal|"ws://127.0.0.1:9292/test"
+literal|"mock:websocket"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|">> Welcome on board!"
 argument_list|)
 expr_stmt|;
 name|WebSocketConnection
@@ -176,7 +172,11 @@ init|=
 operator|new
 name|WebSocketConnection
 argument_list|(
-name|uriWS
+operator|new
+name|URI
+argument_list|(
+literal|"ws://127.0.0.1:9292/test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Register Event Handlers
@@ -259,6 +259,20 @@ argument_list|(
 literal|"Hello from WS Client"
 argument_list|)
 expr_stmt|;
+comment|// Close WebSocket Connection
+name|webSocketConnection
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:websocket"
+argument_list|)
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -315,21 +329,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|response
-init|=
-literal|">> welcome on board"
-decl_stmt|;
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|response
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|getIn
@@ -337,11 +336,16 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-name|response
+literal|">> Welcome on board!"
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:websocket"
 argument_list|)
 expr_stmt|;
 block|}

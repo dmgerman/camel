@@ -110,12 +110,6 @@ name|WebsocketClientCamelRouteTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|uriWS
-specifier|private
-specifier|static
-name|URI
-name|uriWS
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testWSHttpCall ()
@@ -126,21 +120,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|uriWS
-operator|=
-operator|new
-name|URI
-argument_list|(
-literal|"ws://127.0.0.1:9292/test"
-argument_list|)
-expr_stmt|;
 name|WebSocketConnection
 name|webSocketConnection
 init|=
 operator|new
 name|WebSocketConnection
 argument_list|(
-name|uriWS
+operator|new
+name|URI
+argument_list|(
+literal|"ws://127.0.0.1:9292/test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Register Event Handlers
@@ -223,6 +213,12 @@ argument_list|(
 literal|"Hello from WS Client"
 argument_list|)
 expr_stmt|;
+comment|// Close WebSocket Connection
+name|webSocketConnection
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -264,7 +260,7 @@ argument_list|()
 operator|.
 name|constant
 argument_list|(
-literal|">> Welcome on board !"
+literal|">> Welcome on board!"
 argument_list|)
 operator|.
 name|to
