@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
 name|de
 operator|.
 name|roderick
@@ -59,18 +49,6 @@ operator|.
 name|weberknecht
 operator|.
 name|WebSocketEventHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|de
-operator|.
-name|roderick
-operator|.
-name|weberknecht
-operator|.
-name|WebSocketException
 import|;
 end_import
 
@@ -152,9 +130,7 @@ name|void
 name|testWSHttpCall
 parameter_list|()
 throws|throws
-name|WebSocketException
-block|{
-try|try
+name|Exception
 block|{
 name|uriWS
 operator|=
@@ -187,11 +163,9 @@ name|void
 name|onOpen
 parameter_list|()
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"--open"
 argument_list|)
@@ -205,11 +179,9 @@ name|WebSocketMessage
 name|message
 parameter_list|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"--received message: "
 operator|+
@@ -225,11 +197,9 @@ name|void
 name|onClose
 parameter_list|()
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"--close"
 argument_list|)
@@ -244,11 +214,9 @@ operator|.
 name|connect
 argument_list|()
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|">>> Connection established."
 argument_list|)
@@ -261,31 +229,6 @@ argument_list|(
 literal|"Hello from WS Client"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|WebSocketException
-name|ex
-parameter_list|)
-block|{
-name|ex
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|URISyntaxException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
