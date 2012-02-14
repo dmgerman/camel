@@ -196,6 +196,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// ask for a mandatoy type converter to avoid a possible NPE beforehand as we do copy from the InputStream
 name|InputStream
 name|is
 init|=
@@ -207,7 +208,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|InputStream
 operator|.
