@@ -909,9 +909,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
 name|originalCorrelationId
-operator|==
-literal|null
+argument_list|)
 operator|&&
 operator|!
 name|msgIdAsCorrId
