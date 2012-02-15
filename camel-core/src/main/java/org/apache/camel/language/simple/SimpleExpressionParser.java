@@ -408,8 +408,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// return an empty string as response as there was nothing to parse
 return|return
-literal|null
+name|ExpressionBuilder
+operator|.
+name|constantExpression
+argument_list|(
+literal|""
+argument_list|)
 return|;
 block|}
 elseif|else

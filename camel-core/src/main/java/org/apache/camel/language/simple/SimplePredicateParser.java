@@ -695,8 +695,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// return a false predicate as response as there was nothing to parse
 return|return
-literal|null
+name|PredicateBuilder
+operator|.
+name|constant
+argument_list|(
+literal|false
+argument_list|)
 return|;
 block|}
 elseif|else
