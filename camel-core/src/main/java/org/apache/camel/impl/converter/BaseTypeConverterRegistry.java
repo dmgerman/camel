@@ -367,7 +367,7 @@ decl_stmt|;
 DECL|field|typeMappings
 specifier|protected
 specifier|final
-name|Map
+name|ConcurrentHashMap
 argument_list|<
 name|TypeMapping
 argument_list|,
@@ -1400,11 +1400,6 @@ argument_list|,
 name|fromType
 argument_list|)
 decl_stmt|;
-synchronized|synchronized
-init|(
-name|typeMappings
-init|)
-block|{
 name|TypeConverter
 name|converter
 init|=
@@ -1462,7 +1457,6 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
@@ -1629,11 +1623,6 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-synchronized|synchronized
-init|(
-name|typeMappings
-init|)
-block|{
 for|for
 control|(
 name|TypeMapping
@@ -1655,7 +1644,6 @@ name|getFromType
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|answer
@@ -1704,11 +1692,6 @@ name|TypeConverter
 argument_list|>
 argument_list|()
 decl_stmt|;
-synchronized|synchronized
-init|(
-name|typeMappings
-init|)
-block|{
 for|for
 control|(
 name|Map
@@ -1760,7 +1743,6 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
@@ -1836,21 +1818,14 @@ argument_list|)
 decl_stmt|;
 name|TypeConverter
 name|converter
-decl_stmt|;
-synchronized|synchronized
-init|(
-name|typeMappings
-init|)
-block|{
-name|converter
-operator|=
+init|=
 name|typeMappings
 operator|.
 name|get
 argument_list|(
 name|key
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|converter
@@ -1858,6 +1833,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// converter not found, try to lookup then
 name|converter
 operator|=
 name|lookup
@@ -1876,14 +1852,13 @@ condition|)
 block|{
 name|typeMappings
 operator|.
-name|put
+name|putIfAbsent
 argument_list|(
 name|key
 argument_list|,
 name|converter
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
