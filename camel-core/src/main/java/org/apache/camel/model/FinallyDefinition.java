@@ -112,8 +112,6 @@ name|OutputDefinition
 argument_list|<
 name|FinallyDefinition
 argument_list|>
-implements|implements
-name|Block
 block|{
 annotation|@
 name|Override
