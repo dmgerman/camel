@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Compares elements of an {@link Exchange} sequence by comparing  *<code>long</code> values returned by this comaprator's  *<code>expression</code>.  *   * @version   */
+comment|/**  * Compares elements of an {@link Exchange} sequence by comparing  *<code>long</code> values returned by this comparator's  *<code>expression</code>.  *   * @version   */
 end_comment
 
 begin_class
