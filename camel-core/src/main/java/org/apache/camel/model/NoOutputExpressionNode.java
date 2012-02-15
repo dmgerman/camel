@@ -172,16 +172,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|getOutputs ()
 specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -207,12 +205,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addOutput (ProcessorDefinition output)
+DECL|method|addOutput (ProcessorDefinition<?> output)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 parameter_list|)
 block|{

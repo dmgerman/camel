@@ -536,6 +536,9 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -543,6 +546,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1870,6 +1876,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -1880,7 +1889,7 @@ return|;
 block|}
 annotation|@
 name|XmlElementRef
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -1888,6 +1897,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -1908,6 +1920,9 @@ block|{
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 range|:
 name|outputs
@@ -2433,11 +2448,6 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|addRoutes (CamelContext camelContext, Collection<Route> routes, FromDefinition fromType)
 specifier|protected
 name|RouteContext
@@ -3092,6 +3102,9 @@ block|}
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|list
 init|=
@@ -3099,6 +3112,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|(
 name|outputs
@@ -3107,6 +3123,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 range|:
 name|list

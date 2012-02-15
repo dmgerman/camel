@@ -352,6 +352,9 @@ specifier|private
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -359,6 +362,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -712,17 +718,15 @@ name|answer
 return|;
 block|}
 comment|/**      * Removes all existing {@link org.apache.camel.model.OnCompletionDefinition} from the definition.      *<p/>      * This is used to let route scoped<tt>onCompletion</tt> overrule any global<tt>onCompletion</tt>.      * Hence we remove all existing as they are global.      *      * @param definition the parent definition that is the route      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|removeAllOnCompletionDefinition (ProcessorDefinition definition)
+DECL|method|removeAllOnCompletionDefinition (ProcessorDefinition<?> definition)
 specifier|public
 name|void
 name|removeAllOnCompletionDefinition
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|definition
 parameter_list|)
 block|{
@@ -731,6 +735,9 @@ control|(
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -750,6 +757,9 @@ condition|;
 control|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|out
 init|=
 name|it
@@ -965,6 +975,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -973,7 +986,7 @@ return|return
 name|outputs
 return|;
 block|}
-DECL|method|setOutputs (List<ProcessorDefinition> outputs)
+DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
 name|void
 name|setOutputs
@@ -981,6 +994,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)

@@ -245,7 +245,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|prepareRouteForInit (RouteDefinition route, List<ProcessorDefinition> abstracts, List<ProcessorDefinition> lower)
+DECL|method|prepareRouteForInit (RouteDefinition route, List<ProcessorDefinition<?>> abstracts, List<ProcessorDefinition<?>> lower)
 specifier|public
 specifier|static
 name|void
@@ -257,12 +257,18 @@ parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|abstracts
 parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|lower
 parameter_list|)
@@ -387,6 +393,9 @@ comment|// abstracts is the cross cutting concerns
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|abstracts
 init|=
@@ -394,6 +403,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -401,6 +413,9 @@ comment|// upper is the cross cutting concerns such as interceptors, error handl
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|upper
 init|=
@@ -408,6 +423,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -415,6 +433,9 @@ comment|// lower is the regular route
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|lower
 init|=
@@ -422,6 +443,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -658,7 +682,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|initParentAndErrorHandlerBuilder (ModelCamelContext context, RouteDefinition route, List<ProcessorDefinition> abstracts, List<OnExceptionDefinition> onExceptions)
+DECL|method|initParentAndErrorHandlerBuilder (ModelCamelContext context, RouteDefinition route, List<ProcessorDefinition<?>> abstracts, List<OnExceptionDefinition> onExceptions)
 specifier|private
 specifier|static
 name|void
@@ -673,6 +697,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|abstracts
 parameter_list|,
@@ -733,7 +760,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|initOnExceptions (List<ProcessorDefinition> abstracts, List<ProcessorDefinition> upper, List<OnExceptionDefinition> onExceptions)
+DECL|method|initOnExceptions (List<ProcessorDefinition<?>> abstracts, List<ProcessorDefinition<?>> upper, List<OnExceptionDefinition> onExceptions)
 specifier|private
 specifier|static
 name|void
@@ -742,12 +769,18 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|abstracts
 parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|upper
 parameter_list|,
@@ -868,7 +901,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|initInterceptors (CamelContext context, RouteDefinition route, List<ProcessorDefinition> abstracts, List<ProcessorDefinition> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
+DECL|method|initInterceptors (CamelContext context, RouteDefinition route, List<ProcessorDefinition<?>> abstracts, List<ProcessorDefinition<?>> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
 specifier|private
 specifier|static
 name|void
@@ -883,12 +916,18 @@ parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|abstracts
 parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|upper
 parameter_list|,
@@ -1044,7 +1083,7 @@ name|interceptSendToEndpointDefinitions
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doInitInterceptors (CamelContext context, RouteDefinition route, List<ProcessorDefinition> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
+DECL|method|doInitInterceptors (CamelContext context, RouteDefinition route, List<ProcessorDefinition<?>> upper, List<InterceptDefinition> intercepts, List<InterceptFromDefinition> interceptFromDefinitions, List<InterceptSendToEndpointDefinition> interceptSendToEndpointDefinitions)
 specifier|private
 specifier|static
 name|void
@@ -1059,6 +1098,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|upper
 parameter_list|,
@@ -1351,7 +1393,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|initOnCompletions (List<ProcessorDefinition> abstracts, List<ProcessorDefinition> upper, List<OnCompletionDefinition> onCompletions)
+DECL|method|initOnCompletions (List<ProcessorDefinition<?>> abstracts, List<ProcessorDefinition<?>> upper, List<OnCompletionDefinition> onCompletions)
 specifier|private
 specifier|static
 name|void
@@ -1360,12 +1402,18 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|abstracts
 parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|upper
 parameter_list|,
@@ -1469,7 +1517,7 @@ name|completions
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|initTransacted (List<ProcessorDefinition> abstracts, List<ProcessorDefinition> lower)
+DECL|method|initTransacted (List<ProcessorDefinition<?>> abstracts, List<ProcessorDefinition<?>> lower)
 specifier|private
 specifier|static
 name|void
@@ -1478,12 +1526,18 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|abstracts
 parameter_list|,
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|lower
 parameter_list|)
@@ -1497,6 +1551,9 @@ comment|// add to correct type
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|type
 range|:
 name|abstracts

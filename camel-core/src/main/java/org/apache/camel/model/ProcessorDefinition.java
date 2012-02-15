@@ -819,6 +819,9 @@ specifier|abstract
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -882,6 +885,9 @@ block|{
 name|Collection
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -990,12 +996,15 @@ return|return
 name|children
 return|;
 block|}
-DECL|method|addOutput (ProcessorDefinition output)
+DECL|method|addOutput (ProcessorDefinition<?> output)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 parameter_list|)
 block|{
@@ -1893,7 +1902,7 @@ name|DefaultChannel
 argument_list|()
 return|;
 block|}
-DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorDefinition> outputs)
+DECL|method|createOutputsProcessor (RouteContext routeContext, Collection<ProcessorDefinition<?>> outputs)
 specifier|protected
 name|Processor
 name|createOutputsProcessor
@@ -1904,6 +1913,9 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 parameter_list|)
@@ -3795,6 +3807,9 @@ comment|//  to the last definition in the current Block
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=

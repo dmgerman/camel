@@ -5503,12 +5503,10 @@ annotation|@
 name|SuppressWarnings
 argument_list|(
 block|{
-literal|"unchecked"
-block|,
 literal|"rawtypes"
 block|}
 argument_list|)
-DECL|method|findOutputComponents (List<ProcessorDefinition> defs, Set<String> components, Set<String> languages, Set<String> dataformats)
+DECL|method|findOutputComponents (List<ProcessorDefinition<?>> defs, Set<String> components, Set<String> languages, Set<String> dataformats)
 specifier|private
 name|void
 name|findOutputComponents
@@ -5516,6 +5514,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|defs
 parameter_list|,
@@ -5548,6 +5549,9 @@ block|{
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 range|:
 name|defs

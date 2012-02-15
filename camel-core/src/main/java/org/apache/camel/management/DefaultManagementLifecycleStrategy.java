@@ -3257,11 +3257,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|registerPerformanceCounters (RouteContext routeContext, ProcessorDefinition<?> processor, Map<ProcessorDefinition<?>, PerformanceCounter> registeredCounters)
 specifier|private
 name|void
@@ -3292,6 +3287,9 @@ comment|// traverse children if any exists
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|children
 init|=
@@ -3303,6 +3301,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|child
 range|:
 name|children

@@ -289,6 +289,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getOutputs
 parameter_list|()
@@ -300,11 +303,17 @@ operator|new
 name|AbstractList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|get
 parameter_list|(
 name|int
@@ -364,6 +373,9 @@ name|boolean
 name|add
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|def
 parameter_list|)
 block|{
@@ -459,12 +471,18 @@ expr_stmt|;
 block|}
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|set
 parameter_list|(
 name|int
 name|index
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|element
 parameter_list|)
 block|{
@@ -526,6 +544,9 @@ argument_list|()
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|old
 init|=
 name|otherwise
@@ -558,6 +579,9 @@ throw|;
 block|}
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|remove
 parameter_list|(
 name|int
@@ -595,6 +619,9 @@ argument_list|()
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|old
 init|=
 name|otherwise
@@ -623,7 +650,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-return|;
+empty_stmt|;
 block|}
 annotation|@
 name|Override
@@ -822,12 +849,15 @@ return|return
 name|clause
 return|;
 block|}
-DECL|method|addClause (ProcessorDefinition when)
+DECL|method|addClause (ProcessorDefinition<?> when)
 specifier|private
 name|void
 name|addClause
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|when
 parameter_list|)
 block|{
@@ -1063,12 +1093,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureChild (ProcessorDefinition output)
+DECL|method|configureChild (ProcessorDefinition<?> output)
 specifier|protected
 name|void
 name|configureChild
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 parameter_list|)
 block|{
