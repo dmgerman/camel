@@ -108,6 +108,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ConcurrentMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ExecutionException
 import|;
 end_import
@@ -367,7 +379,7 @@ decl_stmt|;
 DECL|field|typeMappings
 specifier|protected
 specifier|final
-name|ConcurrentHashMap
+name|ConcurrentMap
 argument_list|<
 name|TypeMapping
 argument_list|,
@@ -387,7 +399,7 @@ decl_stmt|;
 DECL|field|misses
 specifier|protected
 specifier|final
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|TypeMapping
 argument_list|,
