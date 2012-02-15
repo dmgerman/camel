@@ -310,6 +310,9 @@ specifier|public
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 decl_stmt|;
@@ -320,11 +323,6 @@ name|association
 init|=
 literal|"property"
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|NodeData (String id, Object node, String imagePrefix)
 specifier|public
 name|NodeData
@@ -609,6 +607,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -616,6 +617,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|(
 name|choice
@@ -1087,10 +1091,16 @@ literal|null
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|processorType
 init|=
 operator|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|node
 decl_stmt|;

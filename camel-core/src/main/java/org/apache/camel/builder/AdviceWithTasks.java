@@ -416,7 +416,7 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|replaceByToString (final RouteDefinition route, final String toString, final ProcessorDefinition replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|replaceByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -432,6 +432,9 @@ name|toString
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|replace
 parameter_list|,
 name|boolean
@@ -459,6 +462,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -496,7 +502,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|replaceById (final RouteDefinition route, final String id, final ProcessorDefinition replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|replaceById (final RouteDefinition route, final String id, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -512,6 +518,9 @@ name|id
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|replace
 parameter_list|,
 name|boolean
@@ -539,6 +548,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -572,7 +584,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|replaceByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|replaceByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -591,6 +603,9 @@ name|type
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|replace
 parameter_list|,
 name|boolean
@@ -618,6 +633,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -651,12 +669,7 @@ name|it
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|doReplace (final RouteDefinition route, final MatchBy matchBy, final ProcessorDefinition replace, final Iterator<ProcessorDefinition> it)
+DECL|method|doReplace (final RouteDefinition route, final MatchBy matchBy, final ProcessorDefinition<?> replace, final Iterator<ProcessorDefinition<?>> it)
 specifier|private
 specifier|static
 name|AdviceWithTask
@@ -672,12 +685,18 @@ name|matchBy
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|replace
 parameter_list|,
 specifier|final
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 parameter_list|)
@@ -708,6 +727,9 @@ argument_list|()
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 init|=
 name|it
@@ -726,6 +748,9 @@ argument_list|)
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 init|=
 name|output
@@ -884,6 +909,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -954,6 +982,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1027,6 +1058,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1058,7 +1092,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|doRemove (final RouteDefinition route, final MatchBy matchBy, final Iterator<ProcessorDefinition> it)
+DECL|method|doRemove (final RouteDefinition route, final MatchBy matchBy, final Iterator<ProcessorDefinition<?>> it)
 specifier|private
 specifier|static
 name|AdviceWithTask
@@ -1076,6 +1110,9 @@ specifier|final
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 parameter_list|)
@@ -1106,6 +1143,9 @@ argument_list|()
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 init|=
 name|it
@@ -1124,6 +1164,9 @@ argument_list|)
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 init|=
 name|output
@@ -1225,7 +1268,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|beforeByToString (final RouteDefinition route, final String toString, final ProcessorDefinition before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|beforeByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1241,6 +1284,9 @@ name|toString
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|before
 parameter_list|,
 name|boolean
@@ -1268,6 +1314,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1301,7 +1350,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|beforeById (final RouteDefinition route, final String id, final ProcessorDefinition before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|beforeById (final RouteDefinition route, final String id, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1317,6 +1366,9 @@ name|id
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|before
 parameter_list|,
 name|boolean
@@ -1344,6 +1396,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1377,7 +1432,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|beforeByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|beforeByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1396,6 +1451,9 @@ name|type
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|before
 parameter_list|,
 name|boolean
@@ -1423,6 +1481,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1456,12 +1517,7 @@ name|it
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|doBefore (final RouteDefinition route, final MatchBy matchBy, final ProcessorDefinition before, final Iterator<ProcessorDefinition> it)
+DECL|method|doBefore (final RouteDefinition route, final MatchBy matchBy, final ProcessorDefinition<?> before, final Iterator<ProcessorDefinition<?>> it)
 specifier|private
 specifier|static
 name|AdviceWithTask
@@ -1477,12 +1533,18 @@ name|matchBy
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|before
 parameter_list|,
 specifier|final
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 parameter_list|)
@@ -1513,6 +1575,9 @@ argument_list|()
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 init|=
 name|it
@@ -1531,6 +1596,9 @@ argument_list|)
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 init|=
 name|output
@@ -1648,7 +1716,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|afterByToString (final RouteDefinition route, final String toString, final ProcessorDefinition after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|afterByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1664,6 +1732,9 @@ name|toString
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|after
 parameter_list|,
 name|boolean
@@ -1691,6 +1762,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1724,7 +1798,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|afterById (final RouteDefinition route, final String id, final ProcessorDefinition after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|afterById (final RouteDefinition route, final String id, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1740,6 +1814,9 @@ name|id
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|after
 parameter_list|,
 name|boolean
@@ -1767,6 +1844,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1800,7 +1880,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|afterByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|afterByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1819,6 +1899,9 @@ name|type
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|after
 parameter_list|,
 name|boolean
@@ -1846,6 +1929,9 @@ decl_stmt|;
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1879,12 +1965,7 @@ name|it
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|doAfter (final RouteDefinition route, final MatchBy matchBy, final ProcessorDefinition after, final Iterator<ProcessorDefinition> it)
+DECL|method|doAfter (final RouteDefinition route, final MatchBy matchBy, final ProcessorDefinition<?> after, final Iterator<ProcessorDefinition<?>> it)
 specifier|private
 specifier|static
 name|AdviceWithTask
@@ -1900,12 +1981,18 @@ name|matchBy
 parameter_list|,
 specifier|final
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|after
 parameter_list|,
 specifier|final
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|it
 parameter_list|)
@@ -1936,6 +2023,9 @@ argument_list|()
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 init|=
 name|it
@@ -1954,6 +2044,9 @@ argument_list|)
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 init|=
 name|output
@@ -2241,6 +2334,9 @@ specifier|static
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|createMatchByIterator
 parameter_list|(
@@ -2273,6 +2369,9 @@ comment|// first iterator and apply match by
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|matched
 init|=
@@ -2280,9 +2379,17 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
@@ -2312,6 +2419,9 @@ argument_list|()
 condition|)
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|next
 init|=
 name|itAll
@@ -2354,12 +2464,15 @@ name|selectTo
 argument_list|)
 return|;
 block|}
-DECL|method|createSelectorIterator (final List<ProcessorDefinition> list, final boolean selectFirst, final boolean selectLast, final int selectFrom, final int selectTo)
+DECL|method|createSelectorIterator (final List<ProcessorDefinition<?>> list, final boolean selectFirst, final boolean selectLast, final int selectFrom, final int selectTo)
 specifier|private
 specifier|static
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|createSelectorIterator
 parameter_list|(
@@ -2367,6 +2480,9 @@ specifier|final
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|list
 parameter_list|,
@@ -2392,6 +2508,9 @@ operator|new
 name|Iterator
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -2534,10 +2653,16 @@ annotation|@
 name|Override
 specifier|public
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|next
 parameter_list|()
 block|{
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|answer
 init|=
 name|list
@@ -2564,7 +2689,7 @@ block|{
 comment|// noop
 block|}
 block|}
-return|;
+empty_stmt|;
 block|}
 block|}
 end_class

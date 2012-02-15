@@ -301,6 +301,9 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
+parameter_list|<
+name|Type
+parameter_list|>
 parameter_list|>
 extends|extends
 name|NoOutputExpressionNode
@@ -308,6 +311,9 @@ implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
 name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
 argument_list|>
 block|{
 annotation|@

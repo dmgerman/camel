@@ -277,13 +277,22 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
+parameter_list|<
+name|Type
+parameter_list|>
 parameter_list|>
 extends|extends
 name|NoOutputDefinition
+argument_list|<
+name|Type
+argument_list|>
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
-name|ProcessorDefinition
+name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -750,12 +759,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addOutput (ProcessorDefinition output)
+DECL|method|addOutput (ProcessorDefinition<?> output)
 specifier|public
 name|void
 name|addOutput
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 parameter_list|)
 block|{

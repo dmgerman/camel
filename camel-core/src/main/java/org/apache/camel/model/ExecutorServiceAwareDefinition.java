@@ -53,6 +53,9 @@ parameter_list|<
 name|Type
 extends|extends
 name|ProcessorDefinition
+parameter_list|<
+name|?
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ExecutorServiceAware

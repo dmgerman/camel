@@ -452,12 +452,7 @@ name|newData
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|printNode (PrintWriter writer, NodeData fromData, ProcessorDefinition node)
+DECL|method|printNode (PrintWriter writer, NodeData fromData, ProcessorDefinition<?> node)
 specifier|protected
 name|NodeData
 name|printNode
@@ -469,6 +464,9 @@ name|NodeData
 name|fromData
 parameter_list|,
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|node
 parameter_list|)
 block|{
@@ -483,6 +481,9 @@ comment|// no need for a multicast or interceptor node
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -502,6 +503,9 @@ decl_stmt|;
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 range|:
 name|outputs
@@ -628,6 +632,9 @@ comment|// now lets write any children
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -645,6 +652,9 @@ block|{
 for|for
 control|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|output
 range|:
 name|outputs

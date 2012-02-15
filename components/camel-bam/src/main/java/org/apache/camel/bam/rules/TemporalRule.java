@@ -324,6 +324,11 @@ specifier|private
 name|Processor
 name|overdueAction
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|field|overdueProcessors
 specifier|private
 name|OutputDefinition

@@ -165,6 +165,9 @@ class|class
 name|ThreadPoolProfileDefinition
 extends|extends
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|ThreadPoolProfileDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
