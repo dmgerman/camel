@@ -380,15 +380,10 @@ condition|)
 block|{
 name|excludedClasses
 operator|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|Collections
 operator|.
 name|emptySet
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 name|addFilter

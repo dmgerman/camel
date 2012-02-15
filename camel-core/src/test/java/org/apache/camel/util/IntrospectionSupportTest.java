@@ -570,15 +570,10 @@ name|Object
 argument_list|>
 name|empty
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(

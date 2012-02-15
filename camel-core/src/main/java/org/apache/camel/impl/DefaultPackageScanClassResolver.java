@@ -802,12 +802,6 @@ block|{
 return|return
 name|Collections
 operator|.
-expr|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-operator|>
 name|emptySet
 argument_list|()
 return|;
@@ -941,12 +935,6 @@ block|{
 return|return
 name|Collections
 operator|.
-expr|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-operator|>
 name|emptySet
 argument_list|()
 return|;
