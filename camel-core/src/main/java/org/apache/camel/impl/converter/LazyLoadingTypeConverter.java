@@ -133,10 +133,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lazy implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *<p/>  * This implementation will lazy load type converters on-demand.  *  * @version   */
+comment|/**  * Lazy implementation of a type converter registry used for  *<a href="http://camel.apache.org/type-converter.html">type converters</a> in Camel.  *<p/>  * This implementation will lazy load type converters on-demand.  *  * @version  * @deprecated will be removed in a future Camel release.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|LazyLoadingTypeConverter
 specifier|public
 class|class

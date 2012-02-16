@@ -3256,6 +3256,9 @@ name|String
 name|getManagementNamePattern
 parameter_list|()
 function_decl|;
+comment|/**      * @deprecated this option is no longer supported, will be removed in a future Camel release.      */
+annotation|@
+name|Deprecated
 DECL|method|getLazyLoadTypeConverters ()
 specifier|public
 specifier|abstract

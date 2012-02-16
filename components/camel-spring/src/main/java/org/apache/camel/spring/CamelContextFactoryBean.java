@@ -867,6 +867,8 @@ name|required
 operator|=
 literal|false
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|lazyLoadTypeConverters
 specifier|private
 name|Boolean
@@ -2583,6 +2585,8 @@ operator|=
 name|managementNamePattern
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getLazyLoadTypeConverters ()
 specifier|public
 name|Boolean
@@ -2593,6 +2597,8 @@ return|return
 name|lazyLoadTypeConverters
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
 specifier|public
 name|void

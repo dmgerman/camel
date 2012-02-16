@@ -11531,6 +11531,8 @@ operator|&&
 name|autoStartup
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isLazyLoadTypeConverters ()
 specifier|public
 name|Boolean
@@ -11545,6 +11547,8 @@ operator|&&
 name|lazyLoadTypeConverters
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
 specifier|public
 name|void
