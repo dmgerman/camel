@@ -664,7 +664,14 @@ name|answer
 operator|.
 name|setDelayPattern
 argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|context
+argument_list|,
 name|delayPattern
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
