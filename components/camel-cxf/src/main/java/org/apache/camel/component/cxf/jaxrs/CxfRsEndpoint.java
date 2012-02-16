@@ -1168,6 +1168,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setResourceClass (Class<?> clazz)
+specifier|public
+name|void
+name|setResourceClass
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|clazz
+parameter_list|)
+block|{
+name|setResourceClasses
+argument_list|(
+name|clazz
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setAddress (String address)
 specifier|public
 name|void
