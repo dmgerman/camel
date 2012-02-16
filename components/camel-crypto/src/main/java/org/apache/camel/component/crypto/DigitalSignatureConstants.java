@@ -79,7 +79,7 @@ specifier|private
 name|DigitalSignatureConstants
 parameter_list|()
 block|{
-comment|// Utility class
+comment|// Helper Class
 block|}
 block|}
 end_class
