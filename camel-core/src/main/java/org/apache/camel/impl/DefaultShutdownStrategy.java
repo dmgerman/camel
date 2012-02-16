@@ -764,6 +764,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// just return if no routes to shutdown
+if|if
+condition|(
+name|routes
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 name|StopWatch
 name|watch
 init|=

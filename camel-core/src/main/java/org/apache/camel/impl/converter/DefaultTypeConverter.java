@@ -118,6 +118,19 @@ expr_stmt|;
 name|loadTypeConverters
 argument_list|()
 expr_stmt|;
+comment|// report how many type converters we have loaded
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Loaded {} type converters"
+argument_list|,
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

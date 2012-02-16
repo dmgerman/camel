@@ -440,7 +440,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Shutting down with no inflight exchanges."
 argument_list|)

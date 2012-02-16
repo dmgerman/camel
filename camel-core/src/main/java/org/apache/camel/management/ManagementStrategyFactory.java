@@ -136,7 +136,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"JMX is disabled. Using DefaultManagementStrategy."
+literal|"JMX is disabled."
 argument_list|)
 expr_stmt|;
 block|}
@@ -144,15 +144,9 @@ else|else
 block|{
 try|try
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"JMX enabled. Using ManagedManagementStrategy."
-argument_list|)
-expr_stmt|;
-name|answer
-operator|=
+name|ManagedManagementStrategy
+name|jmx
+init|=
 operator|new
 name|ManagedManagementStrategy
 argument_list|(
@@ -162,13 +156,13 @@ argument_list|(
 name|context
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// must start it to ensure JMX works and can load needed Spring JARs
 name|ServiceHelper
 operator|.
 name|startService
 argument_list|(
-name|answer
+name|jmx
 argument_list|)
 expr_stmt|;
 comment|// prefer to have it at first strategy
@@ -188,6 +182,13 @@ name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"JMX enabled."
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -203,7 +204,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot create JMX lifecycle strategy. Fallback to using DefaultManagementStrategy (non JMX)."
+literal|"Cannot create JMX lifecycle strategy. Will fallback and disable JMX."
 argument_list|,
 name|e
 argument_list|)

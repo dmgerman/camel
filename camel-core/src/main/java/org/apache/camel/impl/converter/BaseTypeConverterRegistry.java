@@ -2238,30 +2238,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|int
-name|delta
-init|=
-name|typeMappings
-operator|.
-name|size
-argument_list|()
-operator|-
-name|before
-decl_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Loaded {} core type converters (total {} type converters)"
-argument_list|,
-name|delta
-argument_list|,
-name|typeMappings
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Checks if the registry is loaded and if not lazily load it      */
 DECL|method|loadTypeConverters ()
@@ -2272,28 +2248,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|StopWatch
-name|watch
-init|=
-operator|new
-name|StopWatch
-argument_list|()
-decl_stmt|;
-name|int
-name|before
-init|=
-name|typeMappings
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Loading additional type converters ..."
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|TypeConverterLoader
@@ -2325,61 +2279,6 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore its fine to have none
-block|}
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Loading additional type converters done"
-argument_list|)
-expr_stmt|;
-comment|// report how long time it took to load
-name|int
-name|delta
-init|=
-name|typeMappings
-operator|.
-name|size
-argument_list|()
-operator|-
-name|before
-decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Loaded additional "
-operator|+
-name|delta
-operator|+
-literal|" type converters (total "
-operator|+
-name|typeMappings
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|" type converters) in "
-operator|+
-name|TimeUtils
-operator|.
-name|printDuration
-argument_list|(
-name|watch
-operator|.
-name|stop
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|loadFallbackTypeConverters ()
