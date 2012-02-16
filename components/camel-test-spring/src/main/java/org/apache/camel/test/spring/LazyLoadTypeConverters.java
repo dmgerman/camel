@@ -115,6 +115,8 @@ operator|.
 name|TYPE
 block|}
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|LazyLoadTypeConverters
 specifier|public
 annotation_defn|@interface
@@ -122,12 +124,12 @@ name|LazyLoadTypeConverters
 block|{
 comment|/**      * Whether the test annotated with this annotation should be run with lazy type converter loading in Camel.      * Defaults to {@code true}.       */
 DECL|method|value ()
-DECL|field|true
+DECL|field|false
 name|boolean
 name|value
 parameter_list|()
 default|default
-literal|true
+literal|false
 function_decl|;
 block|}
 end_annotation_defn

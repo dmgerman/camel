@@ -1352,7 +1352,9 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Whether or not type converters should be lazy loaded (notice core converters is always loaded)      *<p/>      * We enabled lazy by default as it would speedup unit testing.      *      * @return<tt>true</tt> by default.      */
+comment|/**      * Whether or not type converters should be lazy loaded (notice core converters is always loaded)      *      * @return<tt>false</tt> by default.      */
+annotation|@
+name|Deprecated
 DECL|method|isLazyLoadingTypeConverter ()
 specifier|protected
 name|boolean
@@ -1360,7 +1362,7 @@ name|isLazyLoadingTypeConverter
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|method|postProcessTest ()
