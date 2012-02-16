@@ -107,6 +107,19 @@ extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
+name|Override
+DECL|method|isLazyLoadingTypeConverter ()
+specifier|protected
+name|boolean
+name|isLazyLoadingTypeConverter
+parameter_list|()
+block|{
+comment|// load type converters before testing
+return|return
+literal|false
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testNoConcurrentProducers ()
 specifier|public
