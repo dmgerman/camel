@@ -690,6 +690,55 @@ name|rightNum
 argument_list|)
 return|;
 block|}
+comment|// also try with floating point numbers
+name|Double
+name|leftDouble
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Double
+operator|.
+name|class
+argument_list|,
+name|leftValue
+argument_list|)
+decl_stmt|;
+name|Double
+name|rightDouble
+init|=
+name|converter
+operator|.
+name|convertTo
+argument_list|(
+name|Double
+operator|.
+name|class
+argument_list|,
+name|rightValue
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|leftDouble
+operator|!=
+literal|null
+operator|&&
+name|rightDouble
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|leftDouble
+operator|.
+name|compareTo
+argument_list|(
+name|rightDouble
+argument_list|)
+return|;
+block|}
 comment|// prefer to NOT coerce to String so use the type which is not String
 comment|// for example if we are comparing String vs Integer then prefer to coerce to Integer
 comment|// as all types can be converted to String which does not work well for comparison

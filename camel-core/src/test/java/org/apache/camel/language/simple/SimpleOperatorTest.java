@@ -728,6 +728,89 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFloatingNumber ()
+specifier|public
+name|void
+name|testFloatingNumber
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// set a String value
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"0.02"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}> 0"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}< 0"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}> 0.00"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}< 0.00"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}> 0.01"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}< 0.01"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}> 0.02"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body}< 0.02"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body} == 0.02"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testGreaterThanOperator ()
 specifier|public
 name|void
@@ -1861,7 +1944,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|26
+literal|30
 argument_list|,
 name|e
 operator|.
@@ -2043,7 +2126,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|30
+literal|34
 argument_list|,
 name|e
 operator|.
