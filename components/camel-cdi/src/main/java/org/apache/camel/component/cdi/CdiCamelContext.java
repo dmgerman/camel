@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -58,30 +46,8 @@ name|Registry
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|enterprise
-operator|.
-name|inject
-operator|.
-name|Produces
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Named
-import|;
-end_import
-
 begin_comment
-comment|/**  * CDI Camel Context class  * Register the CDIBeasnManager to lookup CDI Beans  * Can be used to produce a SimpleDefaultContext  */
+comment|/**  * CDI Camel Context class  * Register the CDI BeanManager to lookup CDI Beans  */
 end_comment
 
 begin_class
@@ -98,12 +64,6 @@ specifier|final
 name|Registry
 name|registry
 decl_stmt|;
-DECL|field|context
-specifier|private
-specifier|final
-name|CamelContext
-name|context
-decl_stmt|;
 DECL|method|CdiCamelContext ()
 specifier|public
 name|CdiCamelContext
@@ -117,38 +77,13 @@ operator|new
 name|CdiBeanRegistry
 argument_list|()
 expr_stmt|;
-name|this
+name|super
 operator|.
-name|context
-operator|=
-operator|new
-name|DefaultCamelContext
+name|setRegistry
 argument_list|(
 name|registry
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Named
-argument_list|(
-literal|"simpleContext"
-argument_list|)
-annotation|@
-name|Produces
-DECL|method|createContext ()
-specifier|public
-name|DefaultCamelContext
-name|createContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|(
-name|DefaultCamelContext
-operator|)
-name|context
-return|;
 block|}
 block|}
 end_class
