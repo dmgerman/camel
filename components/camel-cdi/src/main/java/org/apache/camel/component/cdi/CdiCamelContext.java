@@ -32,20 +32,6 @@ name|DefaultCamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Registry
-import|;
-end_import
-
 begin_comment
 comment|/**  * CDI Camel Context class  * Register the CDI BeanManager to lookup CDI Beans  */
 end_comment
@@ -58,30 +44,18 @@ name|CdiCamelContext
 extends|extends
 name|DefaultCamelContext
 block|{
-DECL|field|registry
-specifier|private
-specifier|final
-name|Registry
-name|registry
-decl_stmt|;
 DECL|method|CdiCamelContext ()
 specifier|public
 name|CdiCamelContext
 parameter_list|()
 block|{
-name|this
-operator|.
-name|registry
-operator|=
-operator|new
-name|CdiBeanRegistry
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
 name|setRegistry
 argument_list|(
-name|registry
+operator|new
+name|CdiBeanRegistry
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
