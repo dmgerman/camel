@@ -144,9 +144,8 @@ else|else
 block|{
 try|try
 block|{
-name|ManagedManagementStrategy
-name|jmx
-init|=
+name|answer
+operator|=
 operator|new
 name|ManagedManagementStrategy
 argument_list|(
@@ -156,13 +155,13 @@ argument_list|(
 name|context
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// must start it to ensure JMX works and can load needed Spring JARs
 name|ServiceHelper
 operator|.
 name|startService
 argument_list|(
-name|jmx
+name|answer
 argument_list|)
 expr_stmt|;
 comment|// prefer to have it at first strategy
