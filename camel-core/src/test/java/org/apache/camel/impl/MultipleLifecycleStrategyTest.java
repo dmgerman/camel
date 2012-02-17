@@ -266,8 +266,6 @@ literal|"onEndpointAdd"
 argument_list|,
 literal|"onComponentRemove"
 argument_list|,
-literal|"onThreadPoolAdd"
-argument_list|,
 literal|"onContextStop"
 argument_list|)
 decl_stmt|;
