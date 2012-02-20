@@ -2259,6 +2259,11 @@ name|T
 name|context
 parameter_list|)
 function_decl|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|initLazyLoadTypeConverteres ()
 specifier|protected
 name|void

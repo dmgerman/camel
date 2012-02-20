@@ -10655,6 +10655,11 @@ literal|null
 expr_stmt|;
 block|}
 comment|/**      * Lazily create a default implementation      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|createTypeConverter ()
 specifier|protected
 name|TypeConverter

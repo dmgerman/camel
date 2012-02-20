@@ -216,6 +216,11 @@ operator|=
 name|camelController
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|doExecute ()
 specifier|public
 name|Object

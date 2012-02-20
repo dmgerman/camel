@@ -160,6 +160,11 @@ name|context
 decl_stmt|;
 annotation|@
 name|Before
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|setUp ()
 specifier|public
 name|void

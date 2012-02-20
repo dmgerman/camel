@@ -245,9 +245,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|MyCamelBean
-name|bean
-init|=
 name|context
 operator|.
 name|getTypeConverter
@@ -261,7 +258,7 @@ name|class
 argument_list|,
 literal|"1;MyCamel"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|latch
 operator|.
 name|countDown

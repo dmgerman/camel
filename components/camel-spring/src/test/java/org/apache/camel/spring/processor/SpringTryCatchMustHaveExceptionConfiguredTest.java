@@ -90,16 +90,13 @@ name|Exception
 block|{
 try|try
 block|{
-name|CamelContext
-name|answer
-init|=
 name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
 literal|"org/apache/camel/spring/processor/SpringTryCatchMustHaveExceptionConfiguredTest.xml"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have thrown exception"

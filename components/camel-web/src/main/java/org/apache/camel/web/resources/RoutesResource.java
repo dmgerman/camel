@@ -468,6 +468,11 @@ operator|.
 name|APPLICATION_JSON
 block|}
 argument_list|)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|getRouteDefinitions ()
 specifier|public
 name|RoutesDefinition

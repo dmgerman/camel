@@ -73,6 +73,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|testLazyLoadDefault ()
 specifier|public
 name|void
@@ -92,6 +97,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|testConvertLoadUpFront ()
 specifier|public
 name|void
@@ -111,6 +121,11 @@ name|doConvertTest
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|testConvertLazyLoad ()
 specifier|public
 name|void

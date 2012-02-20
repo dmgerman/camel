@@ -353,6 +353,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|Jt400PgmEndpoint (String endpointUri, String programToExecute, Map<String, Object> parameters, CamelContext camelContext)
 specifier|public
 name|Jt400PgmEndpoint

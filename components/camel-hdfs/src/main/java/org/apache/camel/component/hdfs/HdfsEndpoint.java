@@ -114,6 +114,11 @@ specifier|final
 name|HdfsConfiguration
 name|config
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|HdfsEndpoint (String endpointUri, CamelContext context)
 specifier|public
 name|HdfsEndpoint

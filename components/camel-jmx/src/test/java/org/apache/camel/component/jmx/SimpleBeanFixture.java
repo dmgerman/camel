@@ -580,6 +580,11 @@ name|simpleBean
 return|;
 block|}
 comment|/**      * Initializes the camel context by creating a simple route from our mbean      * to the mock endpoint.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|initContext ()
 specifier|protected
 name|void

@@ -117,6 +117,11 @@ specifier|public
 name|LuceneEndpoint
 parameter_list|()
 block|{     }
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|LuceneEndpoint (String endpointUri, CamelContext camelContext)
 specifier|public
 name|LuceneEndpoint
@@ -155,6 +160,11 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|LuceneEndpoint (String endpointUri)
 specifier|public
 name|LuceneEndpoint

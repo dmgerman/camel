@@ -374,6 +374,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|getAnnotations ()
 specifier|public
 name|Annotations

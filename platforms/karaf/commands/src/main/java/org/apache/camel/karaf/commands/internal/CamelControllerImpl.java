@@ -452,6 +452,11 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|getRouteDefinitions (String camelContextName)
 specifier|public
 name|List
@@ -613,6 +618,11 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|getRouteDefinition (String routeId, String camelContextName)
 specifier|public
 name|RouteDefinition

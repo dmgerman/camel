@@ -260,6 +260,11 @@ name|createApplicationContext
 parameter_list|()
 function_decl|;
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|setUp ()
 specifier|protected
@@ -673,6 +678,11 @@ return|return
 literal|1
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|createCamelContext ()

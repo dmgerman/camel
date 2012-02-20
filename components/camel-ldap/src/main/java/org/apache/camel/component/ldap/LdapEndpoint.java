@@ -209,6 +209,11 @@ operator|=
 name|remaining
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|LdapEndpoint (String endpointUri, String remaining)
 specifier|public
 name|LdapEndpoint

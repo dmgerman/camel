@@ -1668,6 +1668,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|handleLazyLoadTypeConverters (GenericApplicationContext context, Class<?> testClass)
 specifier|protected
 name|void

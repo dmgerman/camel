@@ -270,6 +270,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|MyBinding
 specifier|private
 specifier|static
@@ -278,6 +283,11 @@ name|MyBinding
 extends|extends
 name|DefaultHttpBinding
 block|{     }
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|MyOtherBinding
 specifier|private
 specifier|static
