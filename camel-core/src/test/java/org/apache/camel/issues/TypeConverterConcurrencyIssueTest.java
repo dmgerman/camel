@@ -84,6 +84,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|converter
@@ -245,12 +257,14 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 name|context
 operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|MyCamelBean
 operator|.
@@ -265,12 +279,24 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, as the latch will not be decremented anymore so that the assert below
+comment|// will fail after the one minute timeout anyway
+block|}
+block|}
 block|}
 argument_list|)
 expr_stmt|;
 block|}
 name|assertTrue
 argument_list|(
+literal|"The expected mandatory conversions failed!"
+argument_list|,
 name|latch
 operator|.
 name|await
