@@ -392,14 +392,14 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|lines
 init|=
 operator|new
 name|CopyOnWriteArrayList
 argument_list|<
-name|Object
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -894,13 +894,13 @@ block|}
 comment|// important: do not close the reader as it will close the standard system.in etc.
 block|}
 comment|/**      * Strategy method for processing the line      */
-DECL|method|processLine (Object line)
+DECL|method|processLine (String line)
 specifier|protected
 specifier|synchronized
 name|void
 name|processLine
 parameter_list|(
-name|Object
+name|String
 name|line
 parameter_list|)
 throws|throws
@@ -957,14 +957,14 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|copy
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Object
+name|String
 argument_list|>
 argument_list|(
 name|lines
@@ -974,7 +974,15 @@ name|msg
 operator|.
 name|setBody
 argument_list|(
+name|endpoint
+operator|.
+name|getGroupStrategy
+argument_list|()
+operator|.
+name|groupLines
+argument_list|(
 name|copy
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|exchange

@@ -199,6 +199,15 @@ specifier|private
 name|Charset
 name|charset
 decl_stmt|;
+DECL|field|groupStrategy
+specifier|private
+name|GroupStrategy
+name|groupStrategy
+init|=
+operator|new
+name|DefaultGroupStrategy
+argument_list|()
+decl_stmt|;
 DECL|method|StreamEndpoint (String endpointUri, Component component)
 specifier|public
 name|StreamEndpoint
@@ -497,6 +506,32 @@ operator|.
 name|scanStream
 operator|=
 name|scanStream
+expr_stmt|;
+block|}
+DECL|method|getGroupStrategy ()
+specifier|public
+name|GroupStrategy
+name|getGroupStrategy
+parameter_list|()
+block|{
+return|return
+name|groupStrategy
+return|;
+block|}
+DECL|method|setGroupStrategy (GroupStrategy strategy)
+specifier|public
+name|void
+name|setGroupStrategy
+parameter_list|(
+name|GroupStrategy
+name|strategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupStrategy
+operator|=
+name|strategy
 expr_stmt|;
 block|}
 DECL|method|isRetry ()
