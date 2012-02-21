@@ -1243,9 +1243,12 @@ argument_list|)
 expr_stmt|;
 comment|// after we have created the processors we consider the exchange as exhausted if an unhandled
 comment|// exception was thrown, (used in the catch block)
+comment|// if the processors is working in Streaming model, the exchange could not be processed at this point.
 name|exhaust
 operator|=
-literal|true
+operator|!
+name|isStreaming
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
