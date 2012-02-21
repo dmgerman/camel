@@ -1186,16 +1186,6 @@ literal|"OSGi environment detected."
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"OSGi environment not detected."
-argument_list|)
-expr_stmt|;
-block|}
 name|LOG
 operator|.
 name|debug
