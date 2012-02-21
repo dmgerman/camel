@@ -1086,6 +1086,8 @@ name|CamelContextFactoryBean
 operator|.
 name|class
 decl_stmt|;
+comment|// These code will try to detected if we are in the OSGi environment.
+comment|// If so, camel will use the OSGi version of CamelContenxtFactoryBean to create the camel context.
 try|try
 block|{
 comment|// Try to load the BundleActivator first
