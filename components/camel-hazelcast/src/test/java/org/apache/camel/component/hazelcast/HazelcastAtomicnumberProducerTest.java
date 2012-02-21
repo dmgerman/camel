@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
+name|Hazelcast
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -230,7 +242,6 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * will be fixed in next hazelcast version (1.9.3). Mail from Talip (21.02.2011):      *       * I see. Hazelcast.shutdownAll() should cleanup instances (maps/queues). I just fixed it.      *       * AtomicNumber.destroy() should also destroy the number and if you call atomicNumber.get() after the destroy it should throw IllegalStateException. It is also fixed.      *       * set test to true by default. TODO: if we'll get the new hazelcast version I'll fix the test.      */
 annotation|@
 name|Test
 DECL|method|testDestroy ()
@@ -257,7 +268,17 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// assertTrue(Hazelcast.getInstances().isEmpty());
+name|assertTrue
+argument_list|(
+name|Hazelcast
+operator|.
+name|getInstances
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

@@ -36,18 +36,6 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|hazelcast
-operator|.
-name|core
-operator|.
 name|HazelcastInstance
 import|;
 end_import
@@ -121,15 +109,16 @@ block|{
 name|HazelcastComponent
 name|component
 init|=
-operator|(
-name|HazelcastComponent
-operator|)
 name|context
 argument_list|()
 operator|.
 name|getComponent
 argument_list|(
 literal|"hazelcast"
+argument_list|,
+name|HazelcastComponent
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|HazelcastInstance
@@ -272,7 +261,6 @@ name|void
 name|getValueWithIdx
 parameter_list|()
 block|{
-comment|// unsupported operation --> supported since 1.9.3
 name|list
 operator|.
 name|add
@@ -339,7 +327,6 @@ name|void
 name|setValueWithIdx
 parameter_list|()
 block|{
-comment|// unsupported operation --> supported since 1.9.3
 name|list
 operator|.
 name|add
@@ -410,7 +397,6 @@ name|void
 name|removeValueWithIdx
 parameter_list|()
 block|{
-comment|// unsupported operation --> supported since 1.9.3
 name|list
 operator|.
 name|add
@@ -435,6 +421,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// do not specify the value to delete, but the index
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -460,34 +447,27 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"foo1"
+argument_list|,
+name|list
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
-comment|// @Test(expected = CamelExecutionException.class)
-DECL|method|removeNullValue ()
+annotation|@
+name|Test
+DECL|method|removeValueWithoutIdx ()
 specifier|public
 name|void
-name|removeNullValue
+name|removeValueWithoutIdx
 parameter_list|()
 block|{
-comment|// unsupported operation
-comment|/*          * TODO: is this case a norm ? should this case handled in a different way ?          */
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|list
-init|=
-name|Hazelcast
-operator|.
-name|getList
-argument_list|(
-literal|"bar"
-argument_list|)
-decl_stmt|;
-name|list
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|list
 operator|.
 name|add
@@ -495,24 +475,53 @@ argument_list|(
 literal|"foo1"
 argument_list|)
 expr_stmt|;
-comment|// do not specify the value to delete (null)
+name|list
+operator|.
+name|add
+argument_list|(
+literal|"foo2"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|list
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// do not specify the index to delete, but the value
 name|template
 operator|.
 name|sendBody
 argument_list|(
 literal|"direct:removevalue"
 argument_list|,
-literal|null
+literal|"foo1"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
+literal|1
 argument_list|,
 name|list
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"foo2"
+argument_list|,
+name|list
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

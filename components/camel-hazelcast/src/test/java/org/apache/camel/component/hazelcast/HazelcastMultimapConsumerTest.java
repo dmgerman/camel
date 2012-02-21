@@ -151,15 +151,16 @@ block|{
 name|HazelcastComponent
 name|component
 init|=
-operator|(
-name|HazelcastComponent
-operator|)
 name|context
 argument_list|()
 operator|.
 name|getComponent
 argument_list|(
 literal|"hazelcast"
+argument_list|,
+name|HazelcastComponent
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|HazelcastInstance
@@ -258,7 +259,7 @@ name|ADDED
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * mail from talip (hazelcast) on 21.02.2011: MultiMap doesn't support eviction yet. We can and should add this feature.      *       * we leave the test in our code an set the result to asserted by default.      */
+comment|/*      * mail from talip (hazelcast) on 21.02.2011: MultiMap doesn't support eviction yet. We can and should add this feature.      *       * see also http://code.google.com/p/hazelcast/issues/detail?id=577&q=eviction      */
 annotation|@
 name|Test
 DECL|method|testEnvict ()
@@ -272,8 +273,6 @@ block|{
 name|MockEndpoint
 name|out
 init|=
-name|super
-operator|.
 name|getMockEndpoint
 argument_list|(
 literal|"mock:envicted"
@@ -341,11 +340,6 @@ literal|"my-foo-6"
 argument_list|)
 expr_stmt|;
 comment|// assertMockEndpointsSatisfied(30000, TimeUnit.MILLISECONDS);
-name|assertTrue
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test

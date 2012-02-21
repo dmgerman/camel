@@ -253,11 +253,6 @@ block|}
 annotation|@
 name|Test
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-annotation|@
 name|Ignore
 argument_list|(
 literal|"Shutdown causes further hazelast tests to fail"
@@ -295,8 +290,10 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// TODO --> check how an instance can be killed...
 name|h1
+operator|.
+name|getLifecycleService
+argument_list|()
 operator|.
 name|shutdown
 argument_list|()
