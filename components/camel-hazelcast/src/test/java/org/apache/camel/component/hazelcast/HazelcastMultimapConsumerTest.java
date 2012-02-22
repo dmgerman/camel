@@ -116,6 +116,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -259,7 +269,12 @@ name|ADDED
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * mail from talip (hazelcast) on 21.02.2011: MultiMap doesn't support eviction yet. We can and should add this feature.      *       * see also http://code.google.com/p/hazelcast/issues/detail?id=577&q=eviction      */
+comment|/*      * mail from talip (hazelcast) on 21.02.2011: MultiMap doesn't support eviction yet. We can and should add this feature.      */
+annotation|@
+name|Ignore
+argument_list|(
+literal|"See also http://code.google.com/p/hazelcast/issues/detail?id=577&q=eviction"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testEnvict ()
@@ -339,7 +354,15 @@ argument_list|,
 literal|"my-foo-6"
 argument_list|)
 expr_stmt|;
-comment|// assertMockEndpointsSatisfied(30000, TimeUnit.MILLISECONDS);
+name|assertMockEndpointsSatisfied
+argument_list|(
+literal|30000
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
