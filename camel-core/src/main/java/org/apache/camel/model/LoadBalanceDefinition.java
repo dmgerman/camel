@@ -969,11 +969,13 @@ argument_list|)
 decl_stmt|;
 name|processor
 operator|=
-name|wrapProcessor
+name|wrapChannel
 argument_list|(
 name|routeContext
 argument_list|,
 name|processor
+argument_list|,
+name|processorType
 argument_list|)
 expr_stmt|;
 name|loadBalancer
