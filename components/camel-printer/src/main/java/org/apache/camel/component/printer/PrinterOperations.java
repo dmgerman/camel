@@ -248,11 +248,6 @@ specifier|private
 name|PrintService
 name|printService
 decl_stmt|;
-DECL|field|job
-specifier|private
-name|DocPrintJob
-name|job
-decl_stmt|;
 DECL|field|flavor
 specifier|private
 name|DocFlavor
@@ -297,13 +292,6 @@ literal|"Printer lookup failure. No default printer set up for this host"
 argument_list|)
 throw|;
 block|}
-name|job
-operator|=
-name|printService
-operator|.
-name|createPrintJob
-argument_list|()
-expr_stmt|;
 name|flavor
 operator|=
 name|DocFlavor
@@ -348,15 +336,12 @@ name|ONE_SIDED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|PrinterOperations (PrintService printService, DocPrintJob job, DocFlavor flavor, PrintRequestAttributeSet printRequestAttributeSet)
+DECL|method|PrinterOperations (PrintService printService, DocFlavor flavor, PrintRequestAttributeSet printRequestAttributeSet)
 specifier|public
 name|PrinterOperations
 parameter_list|(
 name|PrintService
 name|printService
-parameter_list|,
-name|DocPrintJob
-name|job
 parameter_list|,
 name|DocFlavor
 name|flavor
@@ -375,13 +360,6 @@ operator|.
 name|setPrintService
 argument_list|(
 name|printService
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|setJob
-argument_list|(
-name|job
 argument_list|)
 expr_stmt|;
 name|this
@@ -712,6 +690,16 @@ parameter_list|)
 throws|throws
 name|PrintException
 block|{
+comment|// we need create a new job for each print
+name|DocPrintJob
+name|job
+init|=
+name|getPrintService
+argument_list|()
+operator|.
+name|createPrintJob
+argument_list|()
+decl_stmt|;
 name|job
 operator|.
 name|print
@@ -746,32 +734,6 @@ operator|.
 name|printService
 operator|=
 name|printService
-expr_stmt|;
-block|}
-DECL|method|getJob ()
-specifier|public
-name|DocPrintJob
-name|getJob
-parameter_list|()
-block|{
-return|return
-name|job
-return|;
-block|}
-DECL|method|setJob (DocPrintJob job)
-specifier|public
-name|void
-name|setJob
-parameter_list|(
-name|DocPrintJob
-name|job
-parameter_list|)
-block|{
-name|this
-operator|.
-name|job
-operator|=
-name|job
 expr_stmt|;
 block|}
 DECL|method|getFlavor ()

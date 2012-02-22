@@ -799,11 +799,6 @@ name|PrinterOperations
 argument_list|(
 name|printService
 argument_list|,
-name|assignPrintJob
-argument_list|(
-name|printService
-argument_list|)
-argument_list|,
 name|assignDocFlavor
 argument_list|()
 argument_list|,
