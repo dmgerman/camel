@@ -530,14 +530,8 @@ name|BundleDescriptor
 argument_list|>
 name|bundles
 init|=
-operator|new
-name|ClasspathScanner
+name|getBundleDescriptors
 argument_list|()
-operator|.
-name|scanForBundles
-argument_list|(
-literal|"(Bundle-SymbolicName=*)"
-argument_list|)
 decl_stmt|;
 name|TinyBundle
 name|bundle
@@ -728,6 +722,29 @@ argument_list|)
 expr_stmt|;
 return|return
 name|bundle
+return|;
+block|}
+comment|/**      * Gets list of bundle descriptors. Modify this method if you wish to change      * default behavior.      *       * @return List pointers to OSGi bundles.      * @throws Exception If looking up the bundles fails.      */
+DECL|method|getBundleDescriptors ()
+specifier|protected
+name|List
+argument_list|<
+name|BundleDescriptor
+argument_list|>
+name|getBundleDescriptors
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|ClasspathScanner
+argument_list|()
+operator|.
+name|scanForBundles
+argument_list|(
+literal|"(Bundle-SymbolicName=*)"
+argument_list|)
 return|;
 block|}
 comment|/**      * Gets the bundle descriptors as {@link URL} resources.      *<p/>      * It is preferred to override the {@link #getBlueprintDescriptor()} method, and return the      * location as a String, which is easier to deal with than a {@link Collection} type.      *      * @return the bundle descriptors.      * @throws FileNotFoundException is thrown if a bundle descriptor cannot be found      */
