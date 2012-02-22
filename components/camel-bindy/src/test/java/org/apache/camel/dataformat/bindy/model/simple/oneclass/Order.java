@@ -123,6 +123,10 @@ argument_list|(
 name|pos
 operator|=
 literal|3
+argument_list|,
+name|defaultValue
+operator|=
+literal|"Joe"
 argument_list|)
 DECL|field|firstName
 specifier|private

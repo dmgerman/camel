@@ -172,6 +172,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Field's default value in case no value is set       */
+DECL|method|defaultValue ()
+name|String
+name|defaultValue
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 
