@@ -113,8 +113,6 @@ annotation|@
 name|SuppressWarnings
 argument_list|(
 block|{
-literal|"unchecked"
-block|,
 literal|"rawtypes"
 block|}
 argument_list|)
@@ -149,56 +147,11 @@ specifier|private
 specifier|static
 name|ObjectMapper
 name|objectMapper
-decl_stmt|;
-comment|// will attempt to load the Jackson ObjectMapper class using the class loader of MongoDbBasicConverters
-comment|// in an OSGi environment, if Jackson is present it would have already been wired since Jackson is an optional dependency (Import-Package)
-static|static
-block|{
-try|try
-block|{
-name|Class
-argument_list|<
-name|ObjectMapper
-argument_list|>
-name|objectMapperC
 init|=
-operator|(
-name|Class
-argument_list|<
+operator|new
 name|ObjectMapper
-argument_list|>
-operator|)
-name|MongoDbBasicConverters
-operator|.
-name|class
-operator|.
-name|getClassLoader
 argument_list|()
-operator|.
-name|loadClass
-argument_list|(
-literal|"org.codehaus.jackson.map.ObjectMapper"
-argument_list|)
 decl_stmt|;
-name|MongoDbBasicConverters
-operator|.
-name|objectMapper
-operator|=
-name|objectMapperC
-operator|.
-name|newInstance
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// do nothing, Jackson not found
-block|}
-block|}
 DECL|method|MongoDbBasicConverters ()
 specifier|private
 name|MongoDbBasicConverters
@@ -314,28 +267,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-if|if
-condition|(
-name|MongoDbBasicConverters
-operator|.
-name|objectMapper
-operator|==
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Conversion has fallen back to generic Object -> DBObject, but Jackson "
-operator|+
-literal|"was not available on the classpath during initialization. Returning null."
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
 name|BasicDBObject
 name|answer
 decl_stmt|;

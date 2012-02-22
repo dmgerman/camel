@@ -363,19 +363,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Operation not supported: {}"
-argument_list|,
-name|header
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
+throw|throw
 operator|new
 name|CamelMongoDbException
 argument_list|(
@@ -385,9 +373,7 @@ name|header
 argument_list|,
 name|e
 argument_list|)
-argument_list|)
-expr_stmt|;
-return|return;
+throw|;
 block|}
 block|}
 try|try
@@ -406,32 +392,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|CamelMongoDbException
-name|partEx
-init|=
+throw|throw
 name|MongoDbComponent
 operator|.
 name|wrapInCamelMongoDbException
 argument_list|(
 name|e
 argument_list|)
-decl_stmt|;
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Breaking MongoDB operation due to exception"
-argument_list|,
-name|partEx
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|partEx
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 comment|/**      * Entry method that selects the appropriate MongoDB operation and executes it      * @param operation      * @param exchange      * @throws Exception      */
@@ -549,19 +517,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Unexpected operation found: {}"
-argument_list|,
-name|operation
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
+throw|throw
 operator|new
 name|CamelMongoDbException
 argument_list|(
@@ -569,9 +525,7 @@ literal|"Operation not supported. Value: "
 operator|+
 name|operation
 argument_list|)
-argument_list|)
-expr_stmt|;
-break|break;
+throw|;
 block|}
 block|}
 comment|// ----------- MongoDB operations ----------------
