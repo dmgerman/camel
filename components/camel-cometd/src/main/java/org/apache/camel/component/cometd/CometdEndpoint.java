@@ -162,6 +162,11 @@ name|jsonCommented
 init|=
 literal|true
 decl_stmt|;
+DECL|field|sessionHeadersEnabled
+specifier|private
+name|boolean
+name|sessionHeadersEnabled
+decl_stmt|;
 DECL|field|logLevel
 specifier|private
 name|int
@@ -600,6 +605,32 @@ name|jsonCommented
 operator|=
 name|commented
 expr_stmt|;
+block|}
+DECL|method|setSessionHeadersEnabled (boolean enable)
+specifier|public
+name|void
+name|setSessionHeadersEnabled
+parameter_list|(
+name|boolean
+name|enable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sessionHeadersEnabled
+operator|=
+name|enable
+expr_stmt|;
+block|}
+DECL|method|areSessionHeadersEnabled ()
+specifier|public
+name|boolean
+name|areSessionHeadersEnabled
+parameter_list|()
+block|{
+return|return
+name|sessionHeadersEnabled
+return|;
 block|}
 DECL|method|getLogLevel ()
 specifier|public
