@@ -72,7 +72,35 @@ name|as400
 operator|.
 name|access
 operator|.
+name|BaseDataQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|ibm
+operator|.
+name|as400
+operator|.
+name|access
+operator|.
 name|DataQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|ibm
+operator|.
+name|as400
+operator|.
+name|access
+operator|.
+name|KeyedDataQueue
 import|;
 end_import
 
@@ -158,6 +186,48 @@ name|Jt400DataQueueEndpoint
 extends|extends
 name|DefaultPollingEndpoint
 block|{
+DECL|field|KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KEY
+init|=
+literal|"KEY"
+decl_stmt|;
+DECL|field|SENDER_INFORMATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SENDER_INFORMATION
+init|=
+literal|"SENDER_INFORMATION"
+decl_stmt|;
+comment|/**      * SearchTypes for reading from Keyed Data Queues      */
+DECL|enum|SearchType
+specifier|public
+enum|enum
+name|SearchType
+block|{
+DECL|enumConstant|EQ
+DECL|enumConstant|NE
+DECL|enumConstant|LT
+DECL|enumConstant|LE
+DECL|enumConstant|GT
+DECL|enumConstant|GE
+name|EQ
+block|,
+name|NE
+block|,
+name|LT
+block|,
+name|LE
+block|,
+name|GT
+block|,
+name|GE
+block|;     }
 comment|/**      * Enumeration of supported data formats      */
 DECL|enum|Format
 specifier|public
@@ -201,10 +271,10 @@ specifier|final
 name|String
 name|objectPath
 decl_stmt|;
-DECL|field|dataqueue
+DECL|field|dataQueue
 specifier|private
-name|DataQueue
-name|dataqueue
+name|BaseDataQueue
+name|dataQueue
 decl_stmt|;
 DECL|field|format
 specifier|private
@@ -214,6 +284,25 @@ init|=
 name|Format
 operator|.
 name|text
+decl_stmt|;
+DECL|field|keyed
+specifier|private
+name|boolean
+name|keyed
+decl_stmt|;
+DECL|field|searchKey
+specifier|private
+name|String
+name|searchKey
+decl_stmt|;
+DECL|field|searchType
+specifier|private
+name|SearchType
+name|searchType
+init|=
+name|SearchType
+operator|.
+name|EQ
 decl_stmt|;
 comment|/**      * Creates a new AS/400 data queue endpoint      */
 DECL|method|Jt400DataQueueEndpoint (String endpointUri, Jt400Component component)
@@ -328,7 +417,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed do disable AS/400 prompting in the environment running Camel."
+literal|"Failed to disable AS/400 prompting in the environment running Camel. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -382,6 +471,84 @@ return|return
 name|format
 return|;
 block|}
+DECL|method|setKeyed (boolean keyed)
+specifier|public
+name|void
+name|setKeyed
+parameter_list|(
+name|boolean
+name|keyed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyed
+operator|=
+name|keyed
+expr_stmt|;
+block|}
+DECL|method|isKeyed ()
+specifier|public
+name|boolean
+name|isKeyed
+parameter_list|()
+block|{
+return|return
+name|keyed
+return|;
+block|}
+DECL|method|setSearchKey (String searchKey)
+specifier|public
+name|void
+name|setSearchKey
+parameter_list|(
+name|String
+name|searchKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|searchKey
+operator|=
+name|searchKey
+expr_stmt|;
+block|}
+DECL|method|getSearchKey ()
+specifier|public
+name|String
+name|getSearchKey
+parameter_list|()
+block|{
+return|return
+name|searchKey
+return|;
+block|}
+DECL|method|setSearchType (SearchType searchType)
+specifier|public
+name|void
+name|setSearchType
+parameter_list|(
+name|SearchType
+name|searchType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|searchType
+operator|=
+name|searchType
+expr_stmt|;
+block|}
+DECL|method|getSearchType ()
+specifier|public
+name|SearchType
+name|getSearchType
+parameter_list|()
+block|{
+return|return
+name|searchType
+return|;
+block|}
 DECL|method|setGuiAvailable (boolean guiAvailable)
 specifier|public
 name|void
@@ -421,6 +588,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -449,19 +618,29 @@ return|;
 block|}
 DECL|method|getDataQueue ()
 specifier|protected
-name|DataQueue
+name|BaseDataQueue
 name|getDataQueue
 parameter_list|()
 block|{
 if|if
 condition|(
-name|dataqueue
+name|dataQueue
 operator|==
 literal|null
 condition|)
 block|{
-name|dataqueue
+name|dataQueue
 operator|=
+name|keyed
+condition|?
+operator|new
+name|KeyedDataQueue
+argument_list|(
+name|system
+argument_list|,
+name|objectPath
+argument_list|)
+else|:
 operator|new
 name|DataQueue
 argument_list|(
@@ -472,7 +651,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|dataqueue
+name|dataQueue
 return|;
 block|}
 DECL|method|isSingleton ()
