@@ -86,16 +86,6 @@ name|QueueToProcessorTransactionTest
 extends|extends
 name|AbstractTransactionTest
 block|{
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|testRollbackUsingXmlQueueToProcessor ()

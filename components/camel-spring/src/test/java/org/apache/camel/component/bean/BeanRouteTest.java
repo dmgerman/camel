@@ -218,16 +218,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

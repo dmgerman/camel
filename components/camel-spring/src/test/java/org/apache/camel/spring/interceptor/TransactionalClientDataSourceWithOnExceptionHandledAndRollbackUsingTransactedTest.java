@@ -74,16 +74,6 @@ name|TransactionalClientDataSourceWithOnExceptionHandledAndRollbackUsingTransact
 extends|extends
 name|TransactionalClientDataSourceTest
 block|{
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 DECL|method|testTransactionRollback ()
 specifier|public
 name|void

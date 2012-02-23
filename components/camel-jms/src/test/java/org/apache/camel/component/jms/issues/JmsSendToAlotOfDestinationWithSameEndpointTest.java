@@ -162,16 +162,6 @@ name|URI
 init|=
 literal|"activemq:queue:foo?autoStartup=false"
 decl_stmt|;
-DECL|method|getExpectedRouteCount ()
-specifier|public
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|testSendToAlotOfMessageToQueues ()

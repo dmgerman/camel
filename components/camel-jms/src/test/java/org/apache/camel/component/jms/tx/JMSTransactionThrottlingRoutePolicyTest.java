@@ -105,16 +105,6 @@ literal|"/org/apache/camel/component/jms/tx/JMSTransactionThrottlingRoutePolicyT
 argument_list|)
 return|;
 block|}
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|1
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|setUp ()

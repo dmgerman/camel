@@ -162,19 +162,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-comment|// have to return 0 because we enable advice with
-return|return
-literal|0
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|isUseAdviceWith ()
 specifier|public
 name|boolean

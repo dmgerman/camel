@@ -440,18 +440,6 @@ block|}
 return|;
 comment|// END SNIPPET: example
 block|}
-annotation|@
-name|Override
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 block|}
 end_class
 

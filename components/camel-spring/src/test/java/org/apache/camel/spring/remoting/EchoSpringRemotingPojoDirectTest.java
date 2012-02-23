@@ -84,18 +84,6 @@ name|EchoSpringRemotingPojoDirectTest
 extends|extends
 name|SpringTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

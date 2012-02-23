@@ -152,16 +152,6 @@ literal|"/org/apache/camel/component/jms/tx/TransactedAsyncUsingThreadsTest.xml"
 argument_list|)
 return|;
 block|}
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 annotation|@
 name|Before
 DECL|method|init ()

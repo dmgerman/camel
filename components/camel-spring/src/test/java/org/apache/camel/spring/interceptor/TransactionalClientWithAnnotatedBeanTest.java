@@ -177,18 +177,6 @@ literal|"/org/apache/camel/spring/interceptor/transactionalClientWithAnnotatedBe
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|1
-return|;
-block|}
 block|}
 end_class
 

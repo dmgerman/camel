@@ -156,19 +156,6 @@ name|afterThreadName
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-comment|// no routes in Spring XML so return 0
-return|return
-literal|0
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

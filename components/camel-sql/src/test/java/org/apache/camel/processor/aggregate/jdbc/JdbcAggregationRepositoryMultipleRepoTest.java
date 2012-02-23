@@ -616,18 +616,6 @@ literal|"org/apache/camel/processor/aggregate/jdbc/JdbcSpringDataSource.xml"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
 block|}
 end_class
 

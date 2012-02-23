@@ -126,16 +126,6 @@ literal|"/org/apache/camel/component/jms/tx/JMSTransactionErrorHandlerTest.xml"
 argument_list|)
 return|;
 block|}
-DECL|method|getExpectedRouteCount ()
-specifier|protected
-name|int
-name|getExpectedRouteCount
-parameter_list|()
-block|{
-return|return
-literal|1
-return|;
-block|}
 annotation|@
 name|Test
 DECL|method|testTransactionSuccess ()
