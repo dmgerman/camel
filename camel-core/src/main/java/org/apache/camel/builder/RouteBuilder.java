@@ -519,10 +519,10 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder      *      * @param errorHandlerBuilder  the error handler to be used by default for all child routes      * @return the current builder with the error handler configured      */
+comment|/**      * Installs the given<a href="http://camel.apache.org/error-handler.html">error handler</a> builder      *      * @param errorHandlerBuilder  the error handler to be used by default for all child routes      */
 DECL|method|errorHandler (ErrorHandlerBuilder errorHandlerBuilder)
 specifier|public
-name|RouteBuilder
+name|void
 name|errorHandler
 parameter_list|(
 name|ErrorHandlerBuilder
@@ -564,9 +564,6 @@ argument_list|(
 name|errorHandlerBuilder
 argument_list|)
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * Adds a route for an interceptor that intercepts every processing step.      *      * @return the builder      */
 DECL|method|intercept ()
