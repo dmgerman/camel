@@ -136,29 +136,6 @@ specifier|public
 name|SimpleLanguage
 parameter_list|()
 block|{     }
-comment|/**      * Constructor that customizes the function start and end tokens.      *      * @param functionStartToken The function start token.      * @param functionEndToken   The function end token.      */
-DECL|method|SimpleLanguage (String functionStartToken, String functionEndToken)
-specifier|public
-name|SimpleLanguage
-parameter_list|(
-name|String
-name|functionStartToken
-parameter_list|,
-name|String
-name|functionEndToken
-parameter_list|)
-block|{
-name|changeFunctionStartToken
-argument_list|(
-name|functionStartToken
-argument_list|)
-expr_stmt|;
-name|changeFunctionEndToken
-argument_list|(
-name|functionEndToken
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getResultType ()
 specifier|public
 name|Class
@@ -423,7 +400,7 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Change the start tokens used for functions.      *<p/>      * This can be used to alter the function tokens to avoid clashes with other      * frameworks etc.      *<p/>      * The default start tokens is<tt>${</tt> and<tt>$simple{}</tt>.      *      * @param startToken new start token(s) to be used for functions      */
+comment|/**      * Change the start tokens used for functions.      *<p/>      * This can be used to alter the function tokens to avoid clashes with other      * frameworks etc.      *<p/>      * The default start tokens is<tt>${</tt> and<tt>$simple{</tt>.      *      * @param startToken new start token(s) to be used for functions      */
 DECL|method|changeFunctionStartToken (String... startToken)
 specifier|public
 specifier|static
@@ -457,6 +434,38 @@ parameter_list|)
 block|{
 name|SimpleTokenizer
 operator|.
+name|changeFunctionEndToken
+argument_list|(
+name|endToken
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Change the start token used for functions.      *<p/>      * This can be used to alter the function tokens to avoid clashes with other      * frameworks etc.      *<p/>      * The default start tokens is<tt>${</tt> and<tt>$simple{</tt>.      *      * @param startToken new start token to be used for functions      */
+DECL|method|setFunctionStartToken (String startToken)
+specifier|public
+name|void
+name|setFunctionStartToken
+parameter_list|(
+name|String
+name|startToken
+parameter_list|)
+block|{
+name|changeFunctionStartToken
+argument_list|(
+name|startToken
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Change the end token used for functions.      *<p/>      * This can be used to alter the function tokens to avoid clashes with other      * frameworks etc.      *<p/>      * The default end token is<tt>}</tt>      *      * @param endToken new end token to be used for functions      */
+DECL|method|setFunctionEndToken (String endToken)
+specifier|public
+name|void
+name|setFunctionEndToken
+parameter_list|(
+name|String
+name|endToken
+parameter_list|)
+block|{
 name|changeFunctionEndToken
 argument_list|(
 name|endToken
