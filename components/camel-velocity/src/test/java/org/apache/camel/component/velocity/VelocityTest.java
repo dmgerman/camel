@@ -86,6 +86,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|velocity
+operator|.
+name|tools
+operator|.
+name|generic
+operator|.
+name|EscapeTool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -166,7 +182,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Monday"
+literal|"Monday& Tuesday"
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -196,7 +212,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Dear Christian. You ordered item 7 on Monday."
+literal|"Dear Christian. You ordered item 7 on Monday&amp; Tuesday."
 argument_list|,
 name|exchange
 operator|.
@@ -254,18 +270,28 @@ name|void
 name|configure
 parameter_list|()
 block|{
-comment|// START SNIPPET: example
 name|from
 argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
+name|setHeader
+argument_list|(
+literal|"esc"
+argument_list|,
+name|constant
+argument_list|(
+operator|new
+name|EscapeTool
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
 name|to
 argument_list|(
-literal|"velocity:org/apache/camel/component/velocity/example.vm"
+literal|"velocity:org/apache/camel/component/velocity/escape.vm"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: example
 block|}
 block|}
 return|;
