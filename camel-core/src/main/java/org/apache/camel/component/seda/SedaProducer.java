@@ -301,28 +301,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// use a new copy of the exchange to route async and handover the on completion to the new copy
-comment|// so its the new copy that performs the on completion callback when its done
-name|Exchange
-name|copy
-init|=
-name|ExchangeHelper
-operator|.
-name|createCorrelatedCopy
-argument_list|(
-name|exchange
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-comment|// set a new from endpoint to be the seda queue
-name|copy
-operator|.
-name|setFromEndpoint
-argument_list|(
-name|endpoint
-argument_list|)
-expr_stmt|;
 name|WaitForTaskToComplete
 name|wait
 init|=
@@ -382,6 +360,17 @@ argument_list|)
 operator|)
 condition|)
 block|{
+comment|// do not handover the completion as we wait for the copy to complete, and copy its result back when it done
+name|Exchange
+name|copy
+init|=
+name|prepareCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// latch that waits until we are complete
 specifier|final
 name|CountDownLatch
@@ -704,6 +693,17 @@ block|}
 else|else
 block|{
 comment|// no wait, eg its a InOnly then just add to queue and return
+comment|// handover the completion so its the copy which performs that, as we do not wait
+name|Exchange
+name|copy
+init|=
+name|prepareCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|trace
@@ -730,6 +730,43 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+DECL|method|prepareCopy (Exchange exchange, boolean handover)
+specifier|protected
+name|Exchange
+name|prepareCopy
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|handover
+parameter_list|)
+block|{
+comment|// use a new copy of the exchange to route async
+name|Exchange
+name|copy
+init|=
+name|ExchangeHelper
+operator|.
+name|createCorrelatedCopy
+argument_list|(
+name|exchange
+argument_list|,
+name|handover
+argument_list|)
+decl_stmt|;
+comment|// set a new from endpoint to be the seda queue
+name|copy
+operator|.
+name|setFromEndpoint
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|copy
 return|;
 block|}
 annotation|@
