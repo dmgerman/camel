@@ -231,11 +231,25 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// avoid invoke toString on bean as it may be a remote proxy
 return|return
-name|bean
+name|ObjectHelper
 operator|.
-name|toString
-argument_list|()
+name|className
+argument_list|(
+name|bean
+argument_list|)
+operator|+
+literal|"("
+operator|+
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|bean
+argument_list|)
+operator|+
+literal|")"
 return|;
 block|}
 DECL|method|getBean ()
