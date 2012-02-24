@@ -482,6 +482,12 @@ operator|.
 name|createProducer
 argument_list|()
 decl_stmt|;
+comment|// need to start the producer to get the client
+name|producer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|Client
 name|client
 init|=

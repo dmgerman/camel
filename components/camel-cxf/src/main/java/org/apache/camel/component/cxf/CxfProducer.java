@@ -428,6 +428,24 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|client
+operator|==
+literal|null
+condition|)
+block|{
 name|client
 operator|=
 name|endpoint
@@ -435,6 +453,41 @@ operator|.
 name|createClient
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|client
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// It will help to release the request context map
+name|client
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
+name|client
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 comment|// As the cxf client async and sync api is implement different,
 comment|// so we don't delegate the sync process call to the async process

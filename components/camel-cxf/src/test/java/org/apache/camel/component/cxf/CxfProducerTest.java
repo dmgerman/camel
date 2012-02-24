@@ -204,6 +204,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|bus
@@ -472,12 +486,13 @@ name|String
 name|getWrongServerAddress
 parameter_list|()
 block|{
+comment|// Avoiding the test error on camel-cxf module
 return|return
 literal|"http://localhost:"
 operator|+
-name|CXFTestSupport
+name|AvailablePortFinder
 operator|.
-name|getPort3
+name|getNextAvailable
 argument_list|()
 operator|+
 literal|"/"
@@ -819,6 +834,18 @@ name|assertNotNull
 argument_list|(
 literal|"We should get the exception here"
 argument_list|,
+name|reply
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
 name|reply
 operator|.
 name|getException
