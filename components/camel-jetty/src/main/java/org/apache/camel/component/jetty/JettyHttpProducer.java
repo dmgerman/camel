@@ -1034,7 +1034,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// use an iterator as there can be multiple values. (must not use a delimiter)
+comment|// use an iterator as there can be multiple values. (must not use a delimiter, and allow empty values)
 specifier|final
 name|Iterator
 argument_list|<
@@ -1049,6 +1049,8 @@ argument_list|(
 name|headerValue
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// the values to add as a request header

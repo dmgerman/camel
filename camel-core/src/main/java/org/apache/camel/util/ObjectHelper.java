@@ -2137,7 +2137,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by comma,      * or a primitive type array; otherwise to simplify the caller's code,      * we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      *      * @param value  the value      * @return the iterator      */
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by comma,      * or a primitive type array; otherwise to simplify the caller's code,      * we just create a singleton collection iterator over a single value      *<p/>      * Will default use comma for String separating String values.      * This method does<b>not</b> allow empty values      *      * @param value  the value      * @return the iterator      */
 DECL|method|createIterator (Object value)
 specifier|public
 specifier|static
@@ -2160,12 +2160,7 @@ name|DEFAULT_DELIMITER
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      * @param value  the value      * @param  delimiter  delimiter for separating String values      * @return the iterator      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *<p/>      * This method does<b>not</b> allow empty values      *      * @param value      the value      * @param delimiter  delimiter for separating String values      * @return the iterator      */
 DECL|method|createIterator (Object value, String delimiter)
 specifier|public
 specifier|static
@@ -2180,6 +2175,43 @@ name|value
 parameter_list|,
 name|String
 name|delimiter
+parameter_list|)
+block|{
+return|return
+name|createIterator
+argument_list|(
+name|value
+argument_list|,
+name|delimiter
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @return the iterator      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|createIterator (Object value, String delimiter, final boolean allowEmptyValues)
+specifier|public
+specifier|static
+name|Iterator
+argument_list|<
+name|Object
+argument_list|>
+name|createIterator
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|String
+name|delimiter
+parameter_list|,
+specifier|final
+name|boolean
+name|allowEmptyValues
 parameter_list|)
 block|{
 comment|// if its a message than we want to iterate its body
@@ -2496,7 +2528,6 @@ name|boolean
 name|hasNext
 parameter_list|()
 block|{
-comment|// empty string should not be regarded as having next
 return|return
 name|idx
 operator|+
@@ -2504,12 +2535,16 @@ literal|1
 operator|==
 literal|0
 operator|&&
+operator|(
+name|allowEmptyValues
+operator|||
 name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
 name|s
 argument_list|)
+operator|)
 return|;
 block|}
 specifier|public
