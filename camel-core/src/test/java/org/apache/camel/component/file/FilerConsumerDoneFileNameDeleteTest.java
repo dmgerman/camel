@@ -71,10 +71,10 @@ comment|/**  * Unit test for writing done files  */
 end_comment
 
 begin_class
-DECL|class|FilerConsumerDoneFileNameTest
+DECL|class|FilerConsumerDoneFileNameDeleteTest
 specifier|public
 class|class
-name|FilerConsumerDoneFileNameTest
+name|FilerConsumerDoneFileNameDeleteTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -210,21 +210,21 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// as well the original file should be moved to backup
+comment|// as well the original file should be deleted
 name|file
 operator|=
 operator|new
 name|File
 argument_list|(
-literal|"target/done/.camel/hello.txt"
+literal|"target/done/hello.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
 argument_list|()
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Original file should be moved: "
+literal|"Original file should be deleted: "
 operator|+
 name|file
 argument_list|,
@@ -261,7 +261,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/done?doneFileName=done&initialDelay=0&delay=10"
+literal|"file:target/done?doneFileName=done&delete=true&initialDelay=0&delay=10"
 argument_list|)
 operator|.
 name|to
