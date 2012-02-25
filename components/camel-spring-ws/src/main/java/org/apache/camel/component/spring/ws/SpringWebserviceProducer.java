@@ -711,6 +711,7 @@ operator|.
 name|getWebServiceTemplate
 argument_list|()
 decl_stmt|;
+comment|// can't use java.util.Arrays.asList() as it doesn't support the optional remove() operation which we need here
 name|List
 argument_list|<
 name|WebServiceMessageSender
