@@ -3079,13 +3079,18 @@ name|String
 name|threadPoolProfileId
 parameter_list|)
 block|{
-comment|// always register thread pools as there are only a few of those
 if|if
 condition|(
 operator|!
-name|initialized
+name|shouldRegister
+argument_list|(
+name|threadPool
+argument_list|,
+literal|null
+argument_list|)
 condition|)
 block|{
+comment|// avoid registering if not needed
 return|return;
 block|}
 name|Object
