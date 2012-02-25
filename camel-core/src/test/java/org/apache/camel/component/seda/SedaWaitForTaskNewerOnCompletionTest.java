@@ -118,6 +118,14 @@ name|SedaWaitForTaskNewerOnCompletionTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|done
+specifier|private
+specifier|static
+name|String
+name|done
+init|=
+literal|""
+decl_stmt|;
 DECL|field|latch
 specifier|private
 specifier|final
@@ -129,14 +137,6 @@ name|CountDownLatch
 argument_list|(
 literal|1
 argument_list|)
-decl_stmt|;
-DECL|field|done
-specifier|private
-specifier|static
-name|String
-name|done
-init|=
-literal|""
 decl_stmt|;
 DECL|method|testNever ()
 specifier|public

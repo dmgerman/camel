@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|jcraft
-operator|.
-name|jsch
-operator|.
-name|JSch
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -47,6 +35,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|jcraft
+operator|.
+name|jsch
+operator|.
+name|JSch
 import|;
 end_import
 

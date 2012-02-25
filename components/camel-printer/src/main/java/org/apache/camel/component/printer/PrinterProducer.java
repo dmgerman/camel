@@ -44,16 +44,6 @@ name|javax
 operator|.
 name|print
 operator|.
-name|DocPrintJob
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|print
-operator|.
 name|PrintException
 import|;
 end_import
@@ -422,22 +412,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|printRequestAttributeSet
-return|;
-block|}
-DECL|method|assignPrintJob (PrintService printService)
-specifier|private
-name|DocPrintJob
-name|assignPrintJob
-parameter_list|(
-name|PrintService
-name|printService
-parameter_list|)
-block|{
-return|return
-name|printService
-operator|.
-name|createPrintJob
-argument_list|()
 return|;
 block|}
 DECL|method|assignPrintService ()
