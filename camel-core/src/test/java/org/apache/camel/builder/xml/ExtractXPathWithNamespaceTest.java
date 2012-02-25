@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -199,6 +189,15 @@ argument_list|(
 literal|"<number xmlns=\"http://acme.com/cake\">55</number>"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -212,29 +211,6 @@ name|mock
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-name|Assert
-operator|.
-name|assertNull
-argument_list|(
-name|mock
-operator|.
-name|getExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"foo"
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
