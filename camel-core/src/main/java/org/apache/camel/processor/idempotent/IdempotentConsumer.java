@@ -40,6 +40,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -275,6 +289,16 @@ specifier|final
 name|boolean
 name|removeOnFailure
 decl_stmt|;
+DECL|field|duplicateMessageCount
+specifier|private
+specifier|final
+name|AtomicLong
+name|duplicateMessageCount
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
 DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, boolean skipDuplicate, boolean removeOnFailure, Processor processor)
 specifier|public
 name|IdempotentConsumer
@@ -481,15 +505,8 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|newKey
-condition|)
-block|{
 comment|// we already have this key so its a duplicate message
-name|onDuplicateMessage
+name|onDuplicate
 argument_list|(
 name|exchange
 argument_list|,
@@ -648,6 +665,19 @@ return|return
 name|processor
 return|;
 block|}
+DECL|method|getDuplicateMessageCount ()
+specifier|public
+name|long
+name|getDuplicateMessageCount
+parameter_list|()
+block|{
+return|return
+name|duplicateMessageCount
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|doStart ()
@@ -679,6 +709,46 @@ operator|.
 name|stopServices
 argument_list|(
 name|processor
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Resets the duplicate message counter to<code>0L</code>.      */
+DECL|method|resetDuplicateMessageCount ()
+specifier|public
+name|void
+name|resetDuplicateMessageCount
+parameter_list|()
+block|{
+name|duplicateMessageCount
+operator|.
+name|set
+argument_list|(
+literal|0L
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|onDuplicate (Exchange exchange, String messageId)
+specifier|private
+name|void
+name|onDuplicate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|messageId
+parameter_list|)
+block|{
+name|duplicateMessageCount
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+name|onDuplicateMessage
+argument_list|(
+name|exchange
+argument_list|,
+name|messageId
 argument_list|)
 expr_stmt|;
 block|}

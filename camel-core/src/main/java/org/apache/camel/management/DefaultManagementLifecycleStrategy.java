@@ -2528,16 +2528,10 @@ name|getManagementStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
-block|}
-else|else
-block|{
-return|return
-name|answer
-return|;
-block|}
 block|}
 DECL|method|getManagedObjectForProcessor (CamelContext context, Processor processor, Route route)
 specifier|private
