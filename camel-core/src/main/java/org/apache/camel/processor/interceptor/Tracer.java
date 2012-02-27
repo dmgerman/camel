@@ -314,11 +314,19 @@ argument_list|()
 decl_stmt|;
 DECL|field|traceHandlers
 specifier|private
-name|CopyOnWriteArrayList
+specifier|final
+name|List
 argument_list|<
 name|TraceEventHandler
 argument_list|>
 name|traceHandlers
+init|=
+operator|new
+name|CopyOnWriteArrayList
+argument_list|<
+name|TraceEventHandler
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|field|jpaTraceEventMessageClassName
 specifier|private
@@ -344,15 +352,6 @@ specifier|public
 name|Tracer
 parameter_list|()
 block|{
-name|traceHandlers
-operator|=
-operator|new
-name|CopyOnWriteArrayList
-argument_list|<
-name|TraceEventHandler
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|traceHandlers
 operator|.
 name|add
@@ -1032,7 +1031,7 @@ name|traceHandler
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add the given tracehandler      * @param traceHandler      */
+comment|/**      * Add the given tracehandler      */
 DECL|method|addTraceHandler (TraceEventHandler traceHandler)
 specifier|public
 name|void
@@ -1052,7 +1051,7 @@ name|traceHandler
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Remove the given tracehandler      * @param traceHandler      */
+comment|/**      * Remove the given tracehandler      */
 DECL|method|removeTraceHandler (TraceEventHandler traceHandler)
 specifier|public
 name|void
@@ -1169,7 +1168,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|traceHandlers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
