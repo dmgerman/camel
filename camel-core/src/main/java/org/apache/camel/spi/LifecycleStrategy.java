@@ -308,6 +308,18 @@ name|String
 name|threadPoolProfileId
 parameter_list|)
 function_decl|;
+comment|/**      * Notification on removing a thread pool.      *      * @param camelContext the camel context      * @param threadPool   the thread pool      */
+DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPool)
+name|void
+name|onThreadPoolRemove
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPool
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

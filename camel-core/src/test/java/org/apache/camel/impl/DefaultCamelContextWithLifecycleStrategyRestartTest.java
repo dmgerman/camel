@@ -787,6 +787,20 @@ name|String
 name|threadPoolProfileId
 parameter_list|)
 block|{         }
+annotation|@
+name|Override
+DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPool)
+specifier|public
+name|void
+name|onThreadPoolRemove
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPool
+parameter_list|)
+block|{         }
 DECL|method|getContextStartCounter ()
 specifier|public
 name|int

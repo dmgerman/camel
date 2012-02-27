@@ -463,6 +463,26 @@ literal|"onThreadPoolAdd"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPool)
+specifier|public
+name|void
+name|onThreadPoolRemove
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPool
+parameter_list|)
+block|{
+name|events
+operator|.
+name|add
+argument_list|(
+literal|"onThreadPoolRemove"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getEvents ()
 specifier|public
 name|List

@@ -679,6 +679,20 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPoolExecutor)
+specifier|public
+name|void
+name|onThreadPoolRemove
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ThreadPoolExecutor
+name|threadPoolExecutor
+parameter_list|)
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 
