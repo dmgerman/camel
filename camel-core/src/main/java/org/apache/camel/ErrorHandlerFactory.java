@@ -28,13 +28,17 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Factory for creating {@link org.apache.camel.processor.ErrorHandler}s.  */
+end_comment
+
 begin_interface
 DECL|interface|ErrorHandlerFactory
 specifier|public
 interface|interface
 name|ErrorHandlerFactory
 block|{
-comment|/**      * Creates the error handler interceptor      *      * @param routeContext the route context      * @param processor the outer processor      * @return the error handler      * @throws Exception is thrown if the error handler could not be created      */
+comment|/**      * Creates the error handler       *      * @param routeContext the route context      * @param processor the outer processor      * @return the error handler      * @throws Exception is thrown if the error handler could not be created      */
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 name|Processor
 name|createErrorHandler
