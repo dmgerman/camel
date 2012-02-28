@@ -537,6 +537,24 @@ operator|=
 name|concurrentConsumers
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|SedaComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SedaComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -1631,6 +1649,40 @@ name|updateMulticastProcessor
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// notify component we are shutting down this endpoint
+if|if
+condition|(
+name|getComponent
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getComponent
+argument_list|()
+operator|.
+name|onShutdownEndpoint
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
