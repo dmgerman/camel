@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TimerListener} manager which triggers the  * {@link org.apache.camel.TimerListener} listeners once every second.  *<p/>  * The {@link #setExecutorService(java.util.concurrent.ScheduledExecutorService)} method  * must be invoked prior to starting this manager using the {@link #start()} method.  *  * @see TimerListener  */
+comment|/**  * A {@link TimerListener} manager which triggers the  * {@link org.apache.camel.TimerListener} listeners once every second.  *<p/>  * The {@link #setExecutorService(java.util.concurrent.ScheduledExecutorService)} method  * must be invoked prior to starting this manager using the {@link #start()} method.  *<p/>  * Also ensure when adding and remove listeners, that they are correctly removed to avoid  * leaking memory.  *  * @see TimerListener  */
 end_comment
 
 begin_class
@@ -313,6 +313,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Adds the listener.      *<p/>      * It may be important to implement {@link #equals(Object)} and {@link #hashCode()} for the listener      * to ensure that we can remove the same listener again, when invoking remove.      *       * @param listener listener      */
 DECL|method|addTimerListener (TimerListener listener)
 specifier|public
 name|void
@@ -339,6 +340,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Removes the listener.      *<p/>      * It may be important to implement {@link #equals(Object)} and {@link #hashCode()} for the listener      * to ensure that we can remove the same listener again, when invoking remove.      *      * @param listener listener.      */
 DECL|method|removeTimerListener (TimerListener listener)
 specifier|public
 name|void
@@ -443,6 +445,27 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
+name|listeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
