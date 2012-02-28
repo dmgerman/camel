@@ -117,12 +117,10 @@ expr_stmt|;
 name|String
 name|uri
 init|=
-literal|"scp://localhost:"
-operator|+
-name|getPort
+name|getScpUri
 argument_list|()
 operator|+
-literal|"/target/scp?username=admin&password=admin&knownHostsFile="
+literal|"?username=admin&password=admin&knownHostsFile="
 operator|+
 name|getKnownHostsFile
 argument_list|()
@@ -148,7 +146,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|SCP_ROOT_DIR
+name|getScpPath
+argument_list|()
 operator|+
 literal|"/hello.txt"
 argument_list|)
@@ -190,11 +189,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Scenario not supported by scp but could be emulated with recursive copy"
-argument_list|)
 DECL|method|testScpSimpleSubPathProduce ()
 specifier|public
 name|void
@@ -216,12 +210,10 @@ expr_stmt|;
 name|String
 name|uri
 init|=
-literal|"scp://localhost:"
-operator|+
-name|getPort
+name|getScpUri
 argument_list|()
 operator|+
-literal|"/target/scp?username=admin&password=admin&knownHostsFile="
+literal|"?username=admin&password=admin&knownHostsFile="
 operator|+
 name|getKnownHostsFile
 argument_list|()
@@ -238,7 +230,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"bye.txt"
+literal|"mysub/bye.txt"
 argument_list|)
 expr_stmt|;
 name|File
@@ -247,7 +239,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|SCP_ROOT_DIR
+name|getScpPath
+argument_list|()
 operator|+
 literal|"/mysub/bye.txt"
 argument_list|)
@@ -289,11 +282,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Scenario not supported by scp but could be emulated with recursive copy"
-argument_list|)
 DECL|method|testScpSimpleTwoSubPathProduce ()
 specifier|public
 name|void
@@ -315,12 +303,10 @@ expr_stmt|;
 name|String
 name|uri
 init|=
-literal|"scp://localhost:"
-operator|+
-name|getPort
+name|getScpUri
 argument_list|()
 operator|+
-literal|"/target/scp?username=admin&password=admin&knownHostsFile="
+literal|"?username=admin&password=admin&knownHostsFile="
 operator|+
 name|getKnownHostsFile
 argument_list|()
@@ -337,7 +323,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"farewell.txt"
+literal|"mysub/mysubsub/farewell.txt"
 argument_list|)
 expr_stmt|;
 name|File
@@ -346,9 +332,10 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|SCP_ROOT_DIR
+name|getScpPath
+argument_list|()
 operator|+
-literal|"/mysub/myother/farewell.txt"
+literal|"/mysub/mysubsub/farewell.txt"
 argument_list|)
 operator|.
 name|getAbsoluteFile
