@@ -538,7 +538,21 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// cannot copy headers with a JmsMessage as the underlying javax.jms.Message object goes nuts
+name|this
+operator|.
+name|originalInMessage
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
