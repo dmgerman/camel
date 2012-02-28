@@ -1536,6 +1536,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// remove reference as its shutdown
+name|executorServices
+operator|.
+name|remove
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1640,6 +1648,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// remove reference as its shutdown
+name|executorServices
+operator|.
+name|remove
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
