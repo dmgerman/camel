@@ -1559,6 +1559,30 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 block|{
+return|return
+name|doShutdownNow
+argument_list|(
+name|executorService
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+DECL|method|doShutdownNow (ExecutorService executorService, boolean remove)
+specifier|private
+name|List
+argument_list|<
+name|Runnable
+argument_list|>
+name|doShutdownNow
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|,
+name|boolean
+name|remove
+parameter_list|)
+block|{
 name|ObjectHelper
 operator|.
 name|notNull
@@ -1649,6 +1673,11 @@ expr_stmt|;
 block|}
 block|}
 comment|// remove reference as its shutdown
+if|if
+condition|(
+name|remove
+condition|)
+block|{
 name|executorServices
 operator|.
 name|remove
@@ -1656,6 +1685,7 @@ argument_list|(
 name|executorService
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -1725,7 +1755,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// shutdown all executor services
+comment|// shutdown all executor services by looping
 for|for
 control|(
 name|ExecutorService
@@ -1737,9 +1767,12 @@ block|{
 comment|// only log if something goes wrong as we want to shutdown them all
 try|try
 block|{
-name|shutdownNow
+comment|// must not remove during looping, as we clear the list afterwards
+name|doShutdownNow
 argument_list|(
 name|executorService
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
