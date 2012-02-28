@@ -1054,6 +1054,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|body
+argument_list|)
+condition|)
+block|{
 for|for
 control|(
 name|String
@@ -1163,6 +1173,7 @@ operator|+
 name|param
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
