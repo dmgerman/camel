@@ -1406,9 +1406,7 @@ name|os
 operator|.
 name|write
 argument_list|(
-operator|(
 literal|"E\n"
-operator|)
 operator|.
 name|getBytes
 argument_list|()
