@@ -347,6 +347,33 @@ specifier|private
 name|boolean
 name|lazySessionCreation
 decl_stmt|;
+DECL|field|httpProxyHost
+specifier|private
+name|String
+name|httpProxyHost
+decl_stmt|;
+DECL|field|httpProxyPort
+specifier|private
+name|Integer
+name|httpProxyPort
+init|=
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
+literal|3128
+argument_list|)
+decl_stmt|;
+DECL|field|httpProxyUsername
+specifier|private
+name|String
+name|httpProxyUsername
+decl_stmt|;
+DECL|field|httpProxyPassword
+specifier|private
+name|String
+name|httpProxyPassword
+decl_stmt|;
 comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
 specifier|public
@@ -1108,6 +1135,110 @@ operator|=
 name|lazySessionCreation
 expr_stmt|;
 block|}
+DECL|method|getHttpProxyHost ()
+specifier|public
+name|String
+name|getHttpProxyHost
+parameter_list|()
+block|{
+return|return
+name|httpProxyHost
+return|;
+block|}
+DECL|method|setHttpProxyHost (String httpProxyHost)
+specifier|public
+name|void
+name|setHttpProxyHost
+parameter_list|(
+name|String
+name|httpProxyHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyHost
+operator|=
+name|httpProxyHost
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyPort ()
+specifier|public
+name|Integer
+name|getHttpProxyPort
+parameter_list|()
+block|{
+return|return
+name|httpProxyPort
+return|;
+block|}
+DECL|method|setHttpProxyPort (Integer httpProxyPort)
+specifier|public
+name|void
+name|setHttpProxyPort
+parameter_list|(
+name|Integer
+name|httpProxyPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyPort
+operator|=
+name|httpProxyPort
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyUsername ()
+specifier|public
+name|String
+name|getHttpProxyUsername
+parameter_list|()
+block|{
+return|return
+name|httpProxyUsername
+return|;
+block|}
+DECL|method|setHttpProxyUsername (String httpProxyUsername)
+specifier|public
+name|void
+name|setHttpProxyUsername
+parameter_list|(
+name|String
+name|httpProxyUsername
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyUsername
+operator|=
+name|httpProxyUsername
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyPassword ()
+specifier|public
+name|String
+name|getHttpProxyPassword
+parameter_list|()
+block|{
+return|return
+name|httpProxyPassword
+return|;
+block|}
+DECL|method|setHttpProxyPassword (String httpProxyPassword)
+specifier|public
+name|void
+name|setHttpProxyPassword
+parameter_list|(
+name|String
+name|httpProxyPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyPassword
+operator|=
+name|httpProxyPassword
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1220,6 +1351,22 @@ operator|+
 literal|", lazySessionCreation="
 operator|+
 name|lazySessionCreation
+operator|+
+literal|", httpProxyHost="
+operator|+
+name|httpProxyHost
+operator|+
+literal|", httpProxyPort="
+operator|+
+name|httpProxyPort
+operator|+
+literal|", httpProxyUsername="
+operator|+
+name|httpProxyUsername
+operator|+
+literal|", httpProxyPassword="
+operator|+
+name|httpProxyPassword
 operator|+
 literal|"]"
 return|;
