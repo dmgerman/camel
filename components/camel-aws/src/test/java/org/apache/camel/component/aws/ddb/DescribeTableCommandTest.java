@@ -288,7 +288,7 @@ name|getHeader
 argument_list|(
 name|DdbConstants
 operator|.
-name|TABLE_CREATION_DATE
+name|CREATION_DATE
 argument_list|)
 argument_list|)
 expr_stmt|;

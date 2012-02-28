@@ -196,7 +196,7 @@ name|setHeader
 argument_list|(
 name|DdbConstants
 operator|.
-name|TABLE_CREATION_DATE
+name|CREATION_DATE
 argument_list|,
 name|result
 operator|.
