@@ -897,8 +897,8 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the route context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws NoSuchBeanException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
-DECL|method|getConfiguredExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition)
+comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the route context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @param useDefault     whether to fallback and use a default thread pool, if no explicit configured      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
+DECL|method|getConfiguredExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition, boolean useDefault)
 specifier|public
 specifier|static
 name|ExecutorService
@@ -915,9 +915,12 @@ argument_list|<
 name|?
 argument_list|>
 name|definition
+parameter_list|,
+name|boolean
+name|useDefault
 parameter_list|)
 throws|throws
-name|NoSuchBeanException
+name|IllegalArgumentException
 block|{
 name|ExecutorServiceManager
 name|manager
@@ -1031,14 +1034,16 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|NoSuchBeanException
+name|IllegalArgumentException
 argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
 name|definition
 operator|.
 name|getExecutorServiceRef
 argument_list|()
-argument_list|,
-literal|"ExecutorService"
+operator|+
+literal|" not found in registry or as a thread pool profile."
 argument_list|)
 throw|;
 block|}
@@ -1046,12 +1051,29 @@ return|return
 name|answer
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|useDefault
+condition|)
+block|{
+return|return
+name|manager
+operator|.
+name|newDefaultThreadPool
+argument_list|(
+name|definition
+argument_list|,
+name|name
+argument_list|)
+return|;
+block|}
 return|return
 literal|null
 return|;
 block|}
-comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ScheduledExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the rout context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if the found instance is not a ScheduledExecutorService type.      * @throws NoSuchBeanException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
-DECL|method|getConfiguredScheduledExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition)
+comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ScheduledExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the rout context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @param useDefault     whether to fallback and use a default thread pool, if no explicit configured      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if the found instance is not a ScheduledExecutorService type,      * or lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
+DECL|method|getConfiguredScheduledExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition, boolean useDefault)
 specifier|public
 specifier|static
 name|ScheduledExecutorService
@@ -1068,11 +1090,12 @@ argument_list|<
 name|?
 argument_list|>
 name|definition
+parameter_list|,
+name|boolean
+name|useDefault
 parameter_list|)
 throws|throws
 name|IllegalArgumentException
-throws|,
-name|NoSuchBeanException
 block|{
 name|ExecutorServiceManager
 name|manager
@@ -1233,19 +1256,38 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|NoSuchBeanException
+name|IllegalArgumentException
 argument_list|(
+literal|"ExecutorServiceRef "
+operator|+
 name|definition
 operator|.
 name|getExecutorServiceRef
 argument_list|()
-argument_list|,
-literal|"ScheduledExecutorService"
+operator|+
+literal|" not found in registry or as a thread pool profile."
 argument_list|)
 throw|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|useDefault
+condition|)
+block|{
+return|return
+name|manager
+operator|.
+name|newDefaultScheduledThreadPool
+argument_list|(
+name|definition
+argument_list|,
+name|name
+argument_list|)
 return|;
 block|}
 return|return

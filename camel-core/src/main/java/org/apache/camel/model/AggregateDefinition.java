@@ -858,6 +858,9 @@ argument_list|,
 literal|"Aggregator"
 argument_list|,
 name|this
+argument_list|,
+name|isParallelProcessing
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -865,40 +868,13 @@ condition|(
 name|executorService
 operator|==
 literal|null
-condition|)
-block|{
-comment|// executor service is mandatory for the Aggregator
-name|ExecutorServiceManager
-name|executorServiceManager
-init|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
+operator|&&
+operator|!
 name|isParallelProcessing
 argument_list|()
 condition|)
 block|{
-name|executorService
-operator|=
-name|executorServiceManager
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"Aggregator"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
+comment|// executor service is mandatory for the Aggregator
 comment|// we do not run in parallel mode, but use a synchronous executor, so we run in current thread
 name|executorService
 operator|=
@@ -906,7 +882,6 @@ operator|new
 name|SynchronousExecutorService
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
