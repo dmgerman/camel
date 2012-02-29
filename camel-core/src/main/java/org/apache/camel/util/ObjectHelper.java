@@ -5875,12 +5875,20 @@ condition|(
 name|value
 operator|==
 literal|null
+operator|||
+operator|!
+operator|(
+name|value
+operator|instanceof
+name|Number
+operator|)
 condition|)
 block|{
 return|return
 literal|false
 return|;
 block|}
+comment|// value must be a number
 return|return
 name|value
 operator|.
