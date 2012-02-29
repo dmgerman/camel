@@ -2398,9 +2398,7 @@ operator|.
 name|getSuperclass
 argument_list|()
 operator|!=
-name|Object
-operator|.
-name|class
+literal|null
 condition|)
 block|{
 name|collectParameterAnnotations
