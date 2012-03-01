@@ -7247,9 +7247,6 @@ operator|.
 name|setBeanType
 argument_list|(
 name|beanType
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|addOutput
@@ -7297,9 +7294,6 @@ operator|.
 name|setBeanType
 argument_list|(
 name|beanType
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|answer

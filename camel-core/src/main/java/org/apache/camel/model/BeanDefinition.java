@@ -220,20 +220,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RouteContext
 import|;
 end_import
@@ -315,6 +301,16 @@ DECL|field|beanType
 specifier|private
 name|String
 name|beanType
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|beanClass
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanClass
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -442,6 +438,21 @@ block|}
 elseif|else
 if|if
 condition|(
+name|beanClass
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|beanClass
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 name|beanType
 operator|!=
 literal|null
@@ -497,8 +508,6 @@ return|return
 name|ref
 return|;
 block|}
-annotation|@
-name|Required
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -583,9 +592,30 @@ operator|=
 name|beanType
 expr_stmt|;
 block|}
+DECL|method|setBeanType (Class<?> beanType)
+specifier|public
+name|void
+name|setBeanType
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanClass
+operator|=
+name|beanType
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Sets the ref String on camel bean      *      * @param ref  the bean's id in the registry      * @return the builder      */
+comment|/**      * Sets the ref String on camel bean      *      * @param ref  the bean's id in the registry      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
+annotation|@
+name|Deprecated
 DECL|method|ref (String ref)
 specifier|public
 name|BeanDefinition
@@ -604,7 +634,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the calling method name of camel bean      *      * @param method  the bean's method name which wants camel to call      * @return the builder      */
+comment|/**      * Sets the calling method name of camel bean      *      * @param method  the bean's method name which wants camel to call      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
+annotation|@
+name|Deprecated
 DECL|method|method (String method)
 specifier|public
 name|BeanDefinition
@@ -623,7 +655,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the bean's instance that camel to call      *      * @param bean the instance of the bean      * @return the builder      */
+comment|/**      * Sets the bean's instance that camel to call      *      * @param bean the instance of the bean      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
+annotation|@
+name|Deprecated
 DECL|method|bean (Object bean)
 specifier|public
 name|BeanDefinition
@@ -642,7 +676,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the Class of the bean      *      * @param beanType the Class of the bean      * @return the builder      */
+comment|/**      * Sets the Class of the bean      *      * @param beanType the Class of the bean      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
+annotation|@
+name|Deprecated
 DECL|method|beanType (Class<?> beanType)
 specifier|public
 name|BeanDefinition
@@ -655,7 +691,7 @@ argument_list|>
 name|beanType
 parameter_list|)
 block|{
-name|setBean
+name|setBeanType
 argument_list|(
 name|beanType
 argument_list|)
@@ -747,17 +783,33 @@ operator|==
 literal|null
 condition|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
+if|if
+condition|(
 name|beanType
-argument_list|,
-literal|"bean, ref or beanType"
-argument_list|,
-name|this
+operator|==
+literal|null
+operator|&&
+name|beanClass
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"bean, ref or beanType must be provided"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
+comment|// the clazz is either from beanType or beanClass
+if|if
+condition|(
+name|beanType
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|clazz
@@ -790,6 +842,14 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
+block|}
+block|}
+else|else
+block|{
+name|clazz
+operator|=
+name|beanClass
+expr_stmt|;
 block|}
 comment|// create a bean if there is a default public no-arg constructor
 if|if
