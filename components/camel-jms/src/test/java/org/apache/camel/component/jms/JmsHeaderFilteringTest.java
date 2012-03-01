@@ -54,16 +54,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|AssertionFailedError
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -373,6 +363,9 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// make sure that the latch reached zero and that timeout did not elapse
+name|assertTrue
+argument_list|(
 name|latch
 operator|.
 name|await
@@ -382,6 +375,7 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|errors
@@ -432,14 +426,15 @@ comment|// add "testheader" to in filter set
 name|JmsComponent
 name|component
 init|=
-operator|(
-name|JmsComponent
-operator|)
 name|camelContext
 operator|.
 name|getComponent
 argument_list|(
 name|componentName
+argument_list|,
+name|JmsComponent
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 operator|(
@@ -479,8 +474,7 @@ argument_list|(
 literal|"anotherheader"
 argument_list|)
 expr_stmt|;
-comment|// add a regular expression pattern filter
-comment|// notice that dots are encoded to underscores in jms headers
+comment|// add a regular expression pattern filter, notice that dots are encoded to '_DOT_' in jms headers
 operator|(
 operator|(
 name|DefaultHeaderFilterStrategy
@@ -524,14 +518,9 @@ name|Exception
 block|{
 name|onException
 argument_list|(
-name|AssertionFailedError
+name|AssertionError
 operator|.
 name|class
-argument_list|)
-operator|.
-name|maximumRedeliveries
-argument_list|(
-literal|1
 argument_list|)
 operator|.
 name|to
@@ -592,13 +581,14 @@ block|{
 name|JmsMessage
 name|message
 init|=
-operator|(
-name|JmsMessage
-operator|)
 name|exchange
 operator|.
 name|getIn
-argument_list|()
+argument_list|(
+name|JmsMessage
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 comment|// testheader not filtered out until it is copied back to camel
 name|assertEquals
@@ -630,7 +620,7 @@ literal|"anotherheader"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// notice dots are replaced by underscores when it is copied to jms message properties
+comment|// notice dots are replaced by '_DOT_' when it is copied to the jms message properties
 name|assertEquals
 argument_list|(
 literal|10000
@@ -642,11 +632,11 @@ argument_list|()
 operator|.
 name|getObjectProperty
 argument_list|(
-literal|"org_apache_camel_jms"
+literal|"org_DOT_apache_DOT_camel_DOT_jms"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// like testheader, org.apache.camel.test.jms will be filtered "in" filter
+comment|// like testheader, org.apache.camel.test.jms will be filtered by the "in" filter
 name|assertEquals
 argument_list|(
 literal|20000
@@ -658,7 +648,7 @@ argument_list|()
 operator|.
 name|getObjectProperty
 argument_list|(
-literal|"org_apache_camel_test_jms"
+literal|"org_DOT_apache_DOT_camel_DOT_test_DOT_jms"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -740,7 +730,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"org.apache.camel.test.jms"
+literal|"org_DOT_apache_DOT_camel_DOT_test_DOT_jms"
 argument_list|)
 argument_list|)
 expr_stmt|;
