@@ -156,16 +156,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -209,6 +199,22 @@ operator|.
 name|annotation
 operator|.
 name|DirtiesContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|annotation
+operator|.
+name|DirtiesContext
+operator|.
+name|ClassMode
 import|;
 end_import
 
@@ -274,6 +280,10 @@ name|assertTrue
 import|;
 end_import
 
+begin_comment
+comment|// START SNIPPET: e1
+end_comment
+
 begin_class
 annotation|@
 name|RunWith
@@ -284,10 +294,18 @@ name|class
 argument_list|)
 annotation|@
 name|ContextConfiguration
-comment|// Put here to prevent Spring context caching across tests since some tests inherit from this test and
-comment|// therefore use the same Spring context.
+comment|// Put here to prevent Spring context caching across tests and test methods since some tests inherit
+comment|// from this test and therefore use the same Spring context.  Also because we want to reset the
+comment|// Camel context and mock endpoints between test methods automatically.
 annotation|@
 name|DirtiesContext
+argument_list|(
+name|classMode
+operator|=
+name|ClassMode
+operator|.
+name|AFTER_EACH_TEST_METHOD
+argument_list|)
 DECL|class|CamelSpringJUnit4ClassRunnerPlainTest
 specifier|public
 class|class
@@ -387,30 +405,6 @@ specifier|protected
 name|ProducerTemplate
 name|start2
 decl_stmt|;
-comment|/**      * Multiple test methods operate on the same mock endpoint instances since the      * test methods do not use {@link DirtiesContext}.  Reset them      * between tests.      */
-annotation|@
-name|Before
-DECL|method|resetMocks ()
-specifier|public
-name|void
-name|resetMocks
-parameter_list|()
-block|{
-name|MockEndpoint
-operator|.
-name|resetMocks
-argument_list|(
-name|camelContext
-argument_list|)
-expr_stmt|;
-name|MockEndpoint
-operator|.
-name|resetMocks
-argument_list|(
-name|camelContext2
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|testPositive ()
@@ -661,6 +655,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: e1
+end_comment
 
 end_unit
 
