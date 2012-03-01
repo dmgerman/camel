@@ -810,6 +810,26 @@ argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
+comment|// check if the header object is turned into String
+name|Object
+name|requestObject
+init|=
+name|out
+operator|.
+name|getHeader
+argument_list|(
+literal|"requestObject"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"We should get the right requestObject."
+argument_list|,
+name|requestObject
+operator|instanceof
+name|DefaultCxfBinding
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1210,6 +1230,20 @@ operator|.
 name|FILE_NAME
 argument_list|,
 literal|"testFile"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"requestObject"
+argument_list|,
+operator|new
+name|DefaultCxfBinding
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
