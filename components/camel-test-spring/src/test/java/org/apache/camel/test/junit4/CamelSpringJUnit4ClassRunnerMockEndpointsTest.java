@@ -117,12 +117,17 @@ name|mockLog
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hell David"
+literal|"Hello David"
 argument_list|)
 expr_stmt|;
 name|super
 operator|.
 name|testPositive
+argument_list|()
+expr_stmt|;
+name|mockLog
+operator|.
+name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}

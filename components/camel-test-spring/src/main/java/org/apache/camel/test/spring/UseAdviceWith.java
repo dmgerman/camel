@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indicates the use of {@code adviceWith()} within the test class.  If a class is annotated with  * this annotation and {@link UseAdviceWith#value()} returns true, any   * {@code CamelContexts} bootstrapped during the test through the use of Spring Test loaded   * application contexts will not be started automatically.  The test author is responsible for   * injecting the Camel contexts into the test and executing {@link CamelContext#start()} on them   * at the appropriate time after any advice has been applied to the routes in the Camel context(s).   */
+comment|/**  * Indicates the use of {@code adviceWith()} within the test class.  If a class is annotated with  * this annotation and {@link UseAdviceWith#value()} returns true, any   * {@code CamelContext}s bootstrapped during the test through the use of Spring Test loaded   * application contexts will not be started automatically.  The test author is responsible for   * injecting the Camel contexts into the test and executing {@link CamelContext#start()} on them   * at the appropriate time after any advice has been applied to the routes in the Camel context(s).   */
 end_comment
 
 begin_annotation_defn

@@ -78,8 +78,22 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Breakpoint
+import|;
+end_import
+
 begin_comment
-comment|/**  * TODO  */
+comment|/**  * Indicates that the annotated method returns a {@link Breakpoint} for use in the test.  Useful for intercepting  * traffic to all endpoints or simply for setting a break point in an IDE for debugging.  The method must  * be {@code public}, {@code static}, take no arguments, and return {@link Breakpoint}.  */
 end_comment
 
 begin_annotation_defn
