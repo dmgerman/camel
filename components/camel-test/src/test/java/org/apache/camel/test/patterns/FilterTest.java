@@ -112,11 +112,13 @@ begin_comment
 comment|/**  * Tests filtering using Camel Test  *   * @version   */
 end_comment
 
-begin_comment
-comment|// START SNIPPET: example
-end_comment
-
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// START SNIPPET: example
 DECL|class|FilterTest
 specifier|public
 class|class

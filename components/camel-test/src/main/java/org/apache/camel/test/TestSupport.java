@@ -319,10 +319,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A bunch of useful testing methods  *  * @version   */
+comment|/**  * A bunch of useful testing methods  *  * @version   * @deprecated Support for JUnit 3.x is slated for removal in Camel 3.x. You are encouraged to move to  *             JUnit 4.x based tests.  See {@link org.apache.camel.test.junit4.TestSupport}.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TestSupport
 specifier|public
 specifier|abstract

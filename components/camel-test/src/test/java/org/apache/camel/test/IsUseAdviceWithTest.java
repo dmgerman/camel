@@ -49,6 +49,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|class|IsUseAdviceWithTest
 specifier|public
 class|class

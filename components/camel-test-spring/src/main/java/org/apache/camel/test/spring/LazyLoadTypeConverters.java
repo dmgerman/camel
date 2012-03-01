@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indicates if the {@code CamelContext}s that are bootstrapped during the test through the use of Spring Test  * loaded application contexts should use lazy loading of type converters.  */
+comment|/**  * Indicates if the {@code CamelContext}s that are bootstrapped during the test through the use of Spring Test  * loaded application contexts should use lazy loading of type converters.  *   * @deprecated See<a href="https://issues.apache.org/jira/browse/CAMEL-5011">CAMEL-5011</a> for more details.  */
 end_comment
 
 begin_annotation_defn
@@ -122,7 +122,7 @@ specifier|public
 annotation_defn|@interface
 name|LazyLoadTypeConverters
 block|{
-comment|/**      * Whether the test annotated with this annotation should be run with lazy type converter loading in Camel.      * Defaults to {@code true}.       */
+comment|/**      * Whether the test annotated with this annotation should be run with lazy type converter loading in Camel.      * Defaults to {@code false}.       */
 DECL|method|value ()
 DECL|field|false
 name|boolean

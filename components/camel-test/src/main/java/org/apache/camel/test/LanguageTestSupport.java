@@ -55,10 +55,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for testing the language plugins in Camel  */
+comment|/**  * A useful base class for testing the language plugins in Camel  *   * @deprecated Support for JUnit 3.x is slated for removal in Camel 3.x. You are encouraged to move to  *             JUnit 4.x based tests.  See {@link org.apache.camel.test.junit4.LanguageTestSupport}.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|LanguageTestSupport
 specifier|public
 specifier|abstract
