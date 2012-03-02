@@ -560,6 +560,14 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setFault
+argument_list|(
+name|that
+operator|.
+name|isFault
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|hasHeaders
