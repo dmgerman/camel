@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Allows you to easily stub out a middleware transport by prefixing the URI with "stub:" which is   * handy for testing out routes, or isolating bits of middleware.  *  */
+comment|/**  * Allows you to easily stub out a middleware transport by prefixing the URI with "stub:" which is  * handy for testing out routes, or isolating bits of middleware.  */
 end_comment
 
 begin_class
@@ -60,7 +60,7 @@ DECL|method|StubComponent ()
 specifier|public
 name|StubComponent
 parameter_list|()
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|validateURI (String uri, String path, Map<String, Object> parameters)
