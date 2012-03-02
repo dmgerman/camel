@@ -763,6 +763,23 @@ parameter_list|)
 block|{         }
 annotation|@
 name|Override
+DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
+specifier|public
+name|void
+name|onErrorHandlerRemove
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|errorHandler
+parameter_list|,
+name|ErrorHandlerFactory
+name|errorHandlerBuilder
+parameter_list|)
+block|{         }
+annotation|@
+name|Override
 DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|void

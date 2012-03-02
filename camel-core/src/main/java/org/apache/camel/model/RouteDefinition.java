@@ -620,6 +620,15 @@ specifier|private
 name|ErrorHandlerFactory
 name|errorHandlerBuilder
 decl_stmt|;
+comment|// keep state whether the error handler is context scoped or not
+comment|// (will by default be context scoped of no explicit error handler configured)
+DECL|field|contextScopedErrorHandler
+specifier|private
+name|boolean
+name|contextScopedErrorHandler
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
 name|RouteDefinition
@@ -1648,6 +1657,11 @@ argument_list|(
 name|errorHandlerBuilder
 argument_list|)
 expr_stmt|;
+comment|// we are now using a route scoped error handler
+name|contextScopedErrorHandler
+operator|=
+literal|false
+expr_stmt|;
 return|return
 name|this
 return|;
@@ -2445,6 +2459,71 @@ name|errorHandlerBuilder
 operator|=
 name|errorHandlerBuilder
 expr_stmt|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+DECL|method|isContextScopedErrorHandler (CamelContext context)
+specifier|public
+name|boolean
+name|isContextScopedErrorHandler
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|contextScopedErrorHandler
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// if error handler ref is configured it may refer to a context scoped, so we need to check this first
+comment|// the XML DSL will configure error handlers using refs, so we need this additional test
+if|if
+condition|(
+name|errorHandlerRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|ErrorHandlerFactory
+name|routeScoped
+init|=
+name|getErrorHandlerBuilder
+argument_list|()
+decl_stmt|;
+name|ErrorHandlerFactory
+name|contextScoped
+init|=
+name|context
+operator|.
+name|getErrorHandlerBuilder
+argument_list|()
+decl_stmt|;
+return|return
+name|routeScoped
+operator|!=
+literal|null
+operator|&&
+name|contextScoped
+operator|!=
+literal|null
+operator|&&
+name|routeScoped
+operator|==
+name|contextScoped
+return|;
+block|}
+return|return
+name|contextScopedErrorHandler
+return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------

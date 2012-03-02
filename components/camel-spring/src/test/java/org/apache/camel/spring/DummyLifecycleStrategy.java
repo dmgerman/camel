@@ -276,6 +276,21 @@ name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{     }
+DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
+specifier|public
+name|void
+name|onErrorHandlerRemove
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|errorHandler
+parameter_list|,
+name|ErrorHandlerFactory
+name|errorHandlerBuilder
+parameter_list|)
+block|{     }
 DECL|method|onRoutesRemove (Collection<Route> routes)
 specifier|public
 name|void

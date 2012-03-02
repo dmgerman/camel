@@ -653,6 +653,23 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor processor, ErrorHandlerFactory errorHandlerBuilder)
+specifier|public
+name|void
+name|onErrorHandlerRemove
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|ErrorHandlerFactory
+name|errorHandlerBuilder
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPoolExecutor, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|void

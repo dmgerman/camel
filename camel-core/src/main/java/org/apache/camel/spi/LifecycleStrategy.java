@@ -284,6 +284,21 @@ name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
+comment|/**      * Notification on removing error handler.      *      * @param routeContext        the removed route context      * @param errorHandler        the error handler      * @param errorHandlerBuilder the error handler builder      */
+DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
+name|void
+name|onErrorHandlerRemove
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|,
+name|Processor
+name|errorHandler
+parameter_list|,
+name|ErrorHandlerFactory
+name|errorHandlerBuilder
+parameter_list|)
+function_decl|;
 comment|/**      * Notification on adding a thread pool.      *      * @param camelContext        the camel context      * @param threadPool          the thread pool      * @param id                  id of the thread pool (can be null in special cases)      * @param sourceId            id of the source creating the thread pool (can be null in special cases)      * @param routeId             id of the route for the source (is null if no source)      * @param threadPoolProfileId id of the thread pool profile, if used for creating this thread pool (can be null)      */
 DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 name|void

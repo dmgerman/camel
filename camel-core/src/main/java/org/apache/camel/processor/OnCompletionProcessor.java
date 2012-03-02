@@ -391,6 +391,8 @@ operator|=
 name|useOriginalBody
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -420,6 +422,24 @@ block|{
 name|ServiceHelper
 operator|.
 name|stopService
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
 argument_list|(
 name|processor
 argument_list|)
