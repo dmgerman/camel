@@ -453,8 +453,6 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-name|assertTrue
-argument_list|(
 name|receivedCountDown
 operator|.
 name|await
@@ -464,7 +462,6 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals

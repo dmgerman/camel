@@ -150,8 +150,6 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// use a timeout to avoid test hang if something happens
-name|assertTrue
-argument_list|(
 name|startLatch
 operator|.
 name|await
@@ -162,14 +160,11 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-argument_list|)
 expr_stmt|;
 name|sendAMessages
 argument_list|()
 expr_stmt|;
 comment|// use a timeout to avoid test hang if something happens
-name|assertTrue
-argument_list|(
 name|endLatch
 operator|.
 name|await
@@ -179,7 +174,6 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|overdueEndpoint
