@@ -168,6 +168,11 @@ specifier|final
 name|String
 name|pattern
 decl_stmt|;
+DECL|field|skip
+specifier|private
+name|boolean
+name|skip
+decl_stmt|;
 comment|/**      * Mock all endpoints.      */
 DECL|method|InterceptSendToMockEndpointStrategy ()
 specifier|public
@@ -190,10 +195,36 @@ name|pattern
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|pattern
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Mock endpoints based on the given pattern.      *      * @param pattern the pattern.      * @param skip<tt>true</tt> to skip sending after the detour to the original endpoint      * @see EndpointHelper#matchEndpoint(String, String)      */
+DECL|method|InterceptSendToMockEndpointStrategy (String pattern, boolean skip)
+specifier|public
+name|InterceptSendToMockEndpointStrategy
+parameter_list|(
+name|String
+name|pattern
+parameter_list|,
+name|boolean
+name|skip
+parameter_list|)
+block|{
+name|this
 operator|.
 name|pattern
 operator|=
 name|pattern
+expr_stmt|;
+name|this
+operator|.
+name|skip
+operator|=
+name|skip
 expr_stmt|;
 block|}
 DECL|method|registerEndpoint (String uri, Endpoint endpoint)
@@ -265,7 +296,7 @@ name|InterceptSendToEndpoint
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+name|skip
 argument_list|)
 decl_stmt|;
 comment|// create mock endpoint which we will use as interceptor

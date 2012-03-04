@@ -202,17 +202,26 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern.      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
-DECL|method|mockEndpoints (String pattern)
+comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+DECL|method|mockEndpoints (String... pattern)
 specifier|public
 name|void
 name|mockEndpoints
 parameter_list|(
 name|String
+modifier|...
 name|pattern
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+for|for
+control|(
+name|String
+name|s
+range|:
+name|pattern
+control|)
 block|{
 name|getContext
 argument_list|()
@@ -222,10 +231,48 @@ argument_list|(
 operator|new
 name|InterceptSendToMockEndpointStrategy
 argument_list|(
-name|pattern
+name|s
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+comment|/**      * Mock all endpoints matching the given pattern, and<b>skips</b> sending to the original endpoint (detour messages).      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+DECL|method|mockEndpointsAndSkip (String... pattern)
+specifier|public
+name|void
+name|mockEndpointsAndSkip
+parameter_list|(
+name|String
+modifier|...
+name|pattern
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+for|for
+control|(
+name|String
+name|s
+range|:
+name|pattern
+control|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|addRegisterEndpointCallback
+argument_list|(
+operator|new
+name|InterceptSendToMockEndpointStrategy
+argument_list|(
+name|s
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Replaces the route from endpoint with a new uri      *      * @param uri uri of the new endpoint      */
 DECL|method|replaceFromWith (String uri)

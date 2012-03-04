@@ -679,6 +679,17 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Override to enable auto mocking endpoints based on the pattern, and<b>skip</b> sending      * to original endpoint.      *<p/>      * Return<tt>*</tt> to mock all endpoints.      *      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+DECL|method|isMockEndpointsAndSkip ()
+specifier|public
+name|String
+name|isMockEndpointsAndSkip
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Override to enable debugger      *<p/>      * Is default<tt>false</tt>      */
 DECL|method|isUseDebugger ()
 specifier|public
@@ -1045,6 +1056,32 @@ operator|new
 name|InterceptSendToMockEndpointStrategy
 argument_list|(
 name|pattern
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|pattern
+operator|=
+name|isMockEndpointsAndSkip
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|pattern
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
+operator|.
+name|addRegisterEndpointCallback
+argument_list|(
+operator|new
+name|InterceptSendToMockEndpointStrategy
+argument_list|(
+name|pattern
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
