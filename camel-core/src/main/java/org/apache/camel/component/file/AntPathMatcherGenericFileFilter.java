@@ -89,6 +89,19 @@ argument_list|>
 name|file
 parameter_list|)
 block|{
+comment|// directories should always be accepted by ANT path matcher
+if|if
+condition|(
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 name|String
 name|path
 init|=

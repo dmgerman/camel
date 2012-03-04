@@ -208,6 +208,11 @@ specifier|private
 name|boolean
 name|absolute
 decl_stmt|;
+DECL|field|directory
+specifier|private
+name|boolean
+name|directory
+decl_stmt|;
 DECL|method|getFileSeparator ()
 specifier|public
 name|char
@@ -292,6 +297,16 @@ argument_list|(
 name|source
 operator|.
 name|isAbsolute
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setDirectory
+argument_list|(
+name|source
+operator|.
+name|isDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1516,6 +1531,32 @@ operator|.
 name|fileNameOnly
 operator|=
 name|fileNameOnly
+expr_stmt|;
+block|}
+DECL|method|isDirectory ()
+specifier|public
+name|boolean
+name|isDirectory
+parameter_list|()
+block|{
+return|return
+name|directory
+return|;
+block|}
+DECL|method|setDirectory (boolean directory)
+specifier|public
+name|void
+name|setDirectory
+parameter_list|(
+name|boolean
+name|directory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|directory
+operator|=
+name|directory
 expr_stmt|;
 block|}
 comment|/**      * Fixes the path separator to be according to the protocol      */

@@ -792,6 +792,19 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setDirectory
+argument_list|(
+name|file
+operator|.
+name|getAttrs
+argument_list|()
+operator|.
+name|isDir
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// absolute or relative path
 name|boolean
 name|absolute

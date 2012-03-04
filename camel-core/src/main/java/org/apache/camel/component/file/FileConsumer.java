@@ -619,6 +619,16 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setDirectory
+argument_list|(
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// must use FileUtil.isAbsolute to have consistent check for whether the file is
 comment|// absolute or not. As windows do not consider \ paths as absolute where as all
 comment|// other OS platforms will consider \ as absolute. The logic in Camel mandates

@@ -751,6 +751,16 @@ name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setDirectory
+argument_list|(
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|file
