@@ -129,7 +129,7 @@ specifier|final
 name|String
 name|MDC_BREADCRUMB_ID
 init|=
-literal|"breadcrumbId"
+literal|"camel.breadcrumbId"
 decl_stmt|;
 DECL|field|MDC_EXCHANGE_ID
 specifier|public
@@ -138,7 +138,7 @@ specifier|final
 name|String
 name|MDC_EXCHANGE_ID
 init|=
-literal|"exchangeId"
+literal|"camel.exchangeId"
 decl_stmt|;
 DECL|field|MDC_MESSAGE_ID
 specifier|public
@@ -147,7 +147,7 @@ specifier|final
 name|String
 name|MDC_MESSAGE_ID
 init|=
-literal|"messageId"
+literal|"camel.messageId"
 decl_stmt|;
 DECL|field|MDC_CORRELATION_ID
 specifier|public
@@ -156,7 +156,7 @@ specifier|final
 name|String
 name|MDC_CORRELATION_ID
 init|=
-literal|"correlationId"
+literal|"camel.correlationId"
 decl_stmt|;
 DECL|field|MDC_ROUTE_ID
 specifier|public
@@ -165,7 +165,7 @@ specifier|final
 name|String
 name|MDC_ROUTE_ID
 init|=
-literal|"routeId"
+literal|"camel.routeId"
 decl_stmt|;
 DECL|field|MDC_CAMEL_CONTEXT_ID
 specifier|public
@@ -174,7 +174,7 @@ specifier|final
 name|String
 name|MDC_CAMEL_CONTEXT_ID
 init|=
-literal|"camelContextId"
+literal|"camel.contextId"
 decl_stmt|;
 DECL|field|MDC_TRANSACTION_KEY
 specifier|public
@@ -183,7 +183,7 @@ specifier|final
 name|String
 name|MDC_TRANSACTION_KEY
 init|=
-literal|"transactionKey"
+literal|"camel.transactionKey"
 decl_stmt|;
 DECL|field|LOG
 specifier|private
