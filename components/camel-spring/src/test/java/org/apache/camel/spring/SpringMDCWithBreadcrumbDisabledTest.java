@@ -133,7 +133,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"routeId"
+literal|"camel.routeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -148,7 +148,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"breadcrumbId"
+literal|"camel.breadcrumbId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -181,7 +181,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"routeId"
+literal|"camel.routeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -196,7 +196,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"breadcrumbId"
+literal|"camel.breadcrumbId"
 argument_list|)
 argument_list|)
 expr_stmt|;
