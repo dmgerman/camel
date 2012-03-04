@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -166,7 +178,7 @@ argument_list|,
 literal|"body"
 argument_list|)
 decl_stmt|;
-name|UnmarshalProcessor
+name|Processor
 name|processor
 init|=
 operator|new
@@ -223,7 +235,7 @@ argument_list|,
 literal|"body2"
 argument_list|)
 decl_stmt|;
-name|UnmarshalProcessor
+name|Processor
 name|processor
 init|=
 operator|new
@@ -313,7 +325,7 @@ name|Object
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|UnmarshalProcessor
+name|Processor
 name|processor
 init|=
 operator|new
@@ -333,13 +345,33 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
+literal|"UnmarshalProcessor did not make use of the returned OUT message"
+argument_list|,
 name|out
 argument_list|,
 name|exchange
 operator|.
 name|getOut
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertSame
+argument_list|(
+literal|"UnmarshalProcessor did change the body bound to the OUT message"
+argument_list|,
+name|out
+operator|.
+name|getBody
+argument_list|()
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -371,7 +403,7 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
-name|UnmarshalProcessor
+name|Processor
 name|processor
 init|=
 operator|new
@@ -391,8 +423,10 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
+literal|"UnmarshalProcessor did not make use of the returned object being returned while unmarshalling"
+argument_list|,
 name|unmarshalled
 argument_list|,
 name|exchange
