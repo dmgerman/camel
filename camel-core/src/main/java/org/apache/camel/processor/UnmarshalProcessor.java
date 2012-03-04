@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Traceable
 import|;
 end_import
@@ -262,8 +274,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// lets setup the out message before we invoke the dataFormat
-comment|// so that it can mutate it if necessary
+comment|// lets setup the out message before we invoke the dataFormat so that it can mutate it if necessary
 name|Message
 name|out
 init|=
@@ -294,6 +305,92 @@ argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|result
+operator|instanceof
+name|Exchange
+condition|)
+block|{
+if|if
+condition|(
+name|result
+operator|!=
+name|exchange
+condition|)
+block|{
+comment|// it's not allowed to return another exchange other than the one provided to dataFormat
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"The returned exchange "
+operator|+
+name|result
+operator|+
+literal|" is not the same as "
+operator|+
+name|exchange
+operator|+
+literal|" provided to the DataFormat"
+argument_list|)
+throw|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|result
+operator|instanceof
+name|Message
+condition|)
+block|{
+name|Message
+name|message
+init|=
+operator|(
+name|Message
+operator|)
+name|result
+decl_stmt|;
+comment|// message body should be already set properly by the dataFormat
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|message
+operator|.
+name|getBody
+argument_list|()
+argument_list|,
+literal|"body"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
+comment|// the dataformat has probably set headers, attachments, etc. so let's use it as the outbound payload
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+operator|(
+name|Message
+operator|)
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|result
+argument_list|,
+literal|"result"
+argument_list|)
+expr_stmt|;
 name|out
 operator|.
 name|setBody
@@ -301,6 +398,7 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

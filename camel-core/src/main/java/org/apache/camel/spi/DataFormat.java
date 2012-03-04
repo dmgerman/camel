@@ -48,6 +48,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a  *<a href="http://camel.apache.org/data-format.html">data format</a>  * used to marshal objects to and from streams  * such as Java Serialization or using JAXB2 to encode/decode objects using XML  * or using SOAP encoding.  *  * @version   */
 end_comment
@@ -75,7 +87,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Unmarshals the given stream into an object.      *<p/>      *<b>Notice:</b> The result is set as body on the exchange OUT message.      * It is possible to mutate the OUT message provided in the given exchange parameter.      * For instance adding headers to the OUT message will be preserved.      *      * @param exchange    the current exchange      * @param stream      the input stream with the object to be unmarshalled      * @return            the unmarshalled object      * @throws Exception can be thrown      */
+comment|/**      * Unmarshals the given stream into an object.      *<p/>      *<b>Notice:</b> The result is set as body on the exchange OUT message.      * It is possible to mutate the OUT message provided in the given exchange parameter.      * For instance adding headers to the OUT message will be preserved.      *<p/>      * It's also legal to return the<b>same</b> passed<tt>exchange</tt> as is but also a      * {@link Message} object as well which will be used as the OUT message of<tt>exchange</tt>.      *      * @param exchange    the current exchange      * @param stream      the input stream with the object to be unmarshalled      * @return            the unmarshalled object      * @throws Exception can be thrown, for example when the body of the OUT message becomes<tt>null</tt>      */
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 name|Object
 name|unmarshal
