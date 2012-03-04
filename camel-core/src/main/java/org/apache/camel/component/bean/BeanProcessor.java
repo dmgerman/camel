@@ -736,29 +736,6 @@ block|}
 name|MethodInvocation
 name|invocation
 decl_stmt|;
-if|if
-condition|(
-name|methodObject
-operator|!=
-literal|null
-condition|)
-block|{
-name|invocation
-operator|=
-name|beanInfo
-operator|.
-name|createInvocation
-argument_list|(
-name|methodObject
-argument_list|,
-name|bean
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// set explicit method name to invoke as a header, which is how BeanInfo can detect it
 if|if
 condition|(
@@ -817,25 +794,9 @@ return|return
 literal|true
 return|;
 block|}
-block|}
-if|if
-condition|(
-name|invocation
-operator|==
-literal|null
-condition|)
+finally|finally
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"No method invocation could be created, no matching method could be found on: "
-operator|+
-name|bean
-argument_list|)
-throw|;
-block|}
-comment|// remove headers as they should not be propagated
+comment|// must remove headers as they were provisional
 name|in
 operator|.
 name|removeHeader
@@ -854,10 +815,26 @@ operator|.
 name|BEAN_METHOD_NAME
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|invocation
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No method invocation could be created, no matching method could be found on: "
+operator|+
+name|bean
+argument_list|)
+throw|;
+block|}
 name|Object
 name|value
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1114,32 +1091,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
-DECL|method|getMethodObject ()
-specifier|public
-name|Method
-name|getMethodObject
-parameter_list|()
-block|{
-return|return
-name|methodObject
-return|;
-block|}
-DECL|method|setMethodObject (Method methodObject)
-specifier|public
-name|void
-name|setMethodObject
-parameter_list|(
-name|Method
-name|methodObject
-parameter_list|)
-block|{
-name|this
-operator|.
-name|methodObject
-operator|=
-name|methodObject
-expr_stmt|;
-block|}
 DECL|method|getMethod ()
 specifier|public
 name|String
