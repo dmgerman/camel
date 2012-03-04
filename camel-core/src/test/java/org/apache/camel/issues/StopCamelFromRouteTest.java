@@ -259,6 +259,8 @@ literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
 comment|// wait for the latch (use 1 minute as fail safe, due unit test)
+name|assertTrue
+argument_list|(
 name|latch
 operator|.
 name|await
@@ -268,6 +270,7 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|MINUTES
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// stop camel

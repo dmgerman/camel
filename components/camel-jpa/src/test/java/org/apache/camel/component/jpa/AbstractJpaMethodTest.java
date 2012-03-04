@@ -1037,9 +1037,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|boolean
-name|received
-init|=
+name|assertTrue
+argument_list|(
 name|latch
 operator|.
 name|await
@@ -1050,10 +1049,6 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|received
 argument_list|)
 expr_stmt|;
 name|assertNotNull
