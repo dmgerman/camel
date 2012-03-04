@@ -308,6 +308,8 @@ name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 comment|// wait for test completion, timeout after 30 sec to let other unit test run to not wait forever
+name|assertTrue
+argument_list|(
 name|latch
 operator|.
 name|await
@@ -317,6 +319,7 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|MILLISECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals

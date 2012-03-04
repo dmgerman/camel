@@ -243,6 +243,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
 name|latch
 operator|.
 name|await
@@ -252,6 +254,7 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

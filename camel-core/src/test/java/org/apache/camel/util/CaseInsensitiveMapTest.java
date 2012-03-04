@@ -3358,6 +3358,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+name|assertTrue
+argument_list|(
 name|latch
 operator|.
 name|await
@@ -3367,6 +3369,7 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
