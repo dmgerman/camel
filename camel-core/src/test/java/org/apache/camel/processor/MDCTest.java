@@ -253,7 +253,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"routeId"
+literal|"camel.routeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -268,7 +268,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"exchangeId"
+literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -286,7 +286,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"messageId"
+literal|"camel.messageId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -338,7 +338,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"routeId"
+literal|"camel.routeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -353,7 +353,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"exchangeId"
+literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -371,7 +371,7 @@ name|MDC
 operator|.
 name|get
 argument_list|(
-literal|"messageId"
+literal|"camel.messageId"
 argument_list|)
 argument_list|)
 expr_stmt|;
