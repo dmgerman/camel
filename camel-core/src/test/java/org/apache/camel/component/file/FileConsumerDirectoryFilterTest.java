@@ -130,6 +130,7 @@ name|ContextTestSupport
 block|{
 DECL|field|fileUrl
 specifier|private
+specifier|final
 name|String
 name|fileUrl
 init|=
@@ -137,7 +138,6 @@ literal|"file://target/directoryfilter/?recursive=true&filter=#myFilter"
 decl_stmt|;
 DECL|field|names
 specifier|private
-specifier|static
 specifier|final
 name|List
 argument_list|<
