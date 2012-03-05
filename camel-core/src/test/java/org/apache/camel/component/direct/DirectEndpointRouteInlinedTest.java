@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToStartRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -188,13 +200,13 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|FailedToStartRouteException
 name|e
 parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Cannot add a 2nd consumer to the same endpoint. Endpoint Endpoint[direct://start] only allows one consumer."
+literal|"Failed to start route route2 because of Multiple consumers for the same endpoint is not allowed: Endpoint[direct://start]"
 argument_list|,
 name|e
 operator|.

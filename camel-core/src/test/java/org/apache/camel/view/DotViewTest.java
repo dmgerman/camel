@@ -378,7 +378,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:pipeline.in"
+literal|"seda:pipeline.in2"
 argument_list|)
 operator|.
 name|pipeline
@@ -436,7 +436,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"seda:foo2"
 argument_list|)
 operator|.
 name|beanRef
@@ -465,7 +465,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"seda:foo3"
 argument_list|)
 operator|.
 name|routingSlip
@@ -495,7 +495,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"seda:foo4"
 argument_list|)
 operator|.
 name|aggregate
@@ -539,7 +539,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"seda:foo5"
 argument_list|)
 operator|.
 name|resequence
