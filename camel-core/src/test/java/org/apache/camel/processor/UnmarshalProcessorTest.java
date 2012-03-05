@@ -198,7 +198,21 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// as the process method call above acts as noop there's nothing to assert on
+name|assertEquals
+argument_list|(
+literal|"UnmarshalProcessor did not copy OUT from IN message"
+argument_list|,
+literal|"body"
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testDataFormatReturnsAnotherExchange ()
 specifier|public
