@@ -392,7 +392,6 @@ name|DefaultWebsocket
 argument_list|>
 name|sockets
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -425,7 +424,6 @@ name|defaultWebsocket2
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#process(org.apache.camel.Exchange)} .      */
 annotation|@
 name|Test
 DECL|method|testProcessSingleMessage ()
@@ -453,7 +451,7 @@ name|when
 argument_list|(
 name|inMessage
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -599,7 +597,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -733,7 +731,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#process(org.apache.camel.Exchange)} .      */
 annotation|@
 name|Test
 DECL|method|testProcessSingleMessageWithException ()
@@ -761,7 +758,7 @@ name|when
 argument_list|(
 name|inMessage
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -944,7 +941,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -1078,7 +1075,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#process(org.apache.camel.Exchange)} .      */
 annotation|@
 name|Test
 DECL|method|testProcessMultipleMessages ()
@@ -1106,7 +1102,7 @@ name|when
 argument_list|(
 name|inMessage
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -1242,7 +1238,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -1413,7 +1409,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#process(org.apache.camel.Exchange)} .      */
 annotation|@
 name|Test
 DECL|method|testProcessMultipleMessagesWithExcpetion ()
@@ -1441,7 +1436,7 @@ name|when
 argument_list|(
 name|inMessage
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -1617,7 +1612,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -1788,7 +1783,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#process(org.apache.camel.Exchange)} .      */
 annotation|@
 name|Test
 DECL|method|testProcessSingleMessageNoConnectionKey ()
@@ -1964,7 +1958,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -2019,7 +2013,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#sendMessage(org.apache.camel.component.websocket.DefaultWebsocket, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendMessage ()
@@ -2153,7 +2146,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#sendMessage(org.apache.camel.component.websocket.DefaultWebsocket, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendMessageWebsocketIsNull ()
@@ -2199,7 +2191,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#sendMessage(org.apache.camel.component.websocket.DefaultWebsocket, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendMessageConnetionIsClosed ()
@@ -2301,7 +2292,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#sendMessage(org.apache.camel.component.websocket.DefaultWebsocket, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendMessageWithException ()
@@ -2472,7 +2462,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#isSendToAllSet(Message)} .      */
 annotation|@
 name|Test
 DECL|method|testIsSendToAllSet ()
@@ -2553,7 +2542,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#isSendToAllSet(Message)} .      */
 annotation|@
 name|Test
 DECL|method|testIsSendToAllSetHeaderNull ()
@@ -2622,7 +2610,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#sendToAll(WebsocketStore, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendToAll ()
@@ -2692,6 +2679,8 @@ argument_list|(
 name|store
 argument_list|,
 name|MESSAGE
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 name|InOrder
@@ -2853,7 +2842,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketProducer#sendToAll(WebsocketStore, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendToAllWithExcpetion ()
@@ -2940,6 +2928,8 @@ argument_list|(
 name|store
 argument_list|,
 name|MESSAGE
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 name|fail

@@ -274,7 +274,6 @@ specifier|private
 name|MemoryWebsocketStore
 name|store
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -318,7 +317,6 @@ name|KEY_2
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#add(String, org.apache.camel.component.websocket.DefaultWebsocket)} .      */
 annotation|@
 name|Test
 DECL|method|testAdd ()
@@ -374,7 +372,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#add(org.apache.camel.component.websocket.DefaultWebsocket)} .      */
 annotation|@
 name|Test
 argument_list|(
@@ -398,7 +395,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#remove(org.apache.camel.component.websocket.DefaultWebsocket)} .      */
 annotation|@
 name|Test
 DECL|method|testRemoveDefaultWebsocket ()
@@ -476,7 +472,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#remove(org.apache.camel.component.websocket.DefaultWebsocket)} .      */
 annotation|@
 name|Test
 DECL|method|testRemoveDefaultWebsocketKeyNotSet ()
@@ -584,7 +579,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#remove(org.apache.camel.component.websocket.DefaultWebsocket)} .      */
 annotation|@
 name|Test
 DECL|method|testRemoveNotExisting ()
@@ -689,7 +683,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#remove(String)} .      */
 annotation|@
 name|Test
 DECL|method|testRemoveString ()
@@ -742,7 +735,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#remove(String)} .      */
 annotation|@
 name|Test
 DECL|method|testRemoveStringNotExisting ()
@@ -817,7 +809,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#get(String)} .      */
 annotation|@
 name|Test
 DECL|method|testGetString ()
@@ -901,7 +892,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.MemoryWebsocketStore#getAll()} .      */
 annotation|@
 name|Test
 DECL|method|testGetAll ()

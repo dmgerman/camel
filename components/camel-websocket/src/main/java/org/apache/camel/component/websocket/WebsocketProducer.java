@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -164,7 +176,7 @@ name|message
 init|=
 name|in
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|String
 operator|.
@@ -181,11 +193,11 @@ condition|)
 block|{
 name|sendToAll
 argument_list|(
-name|this
-operator|.
 name|store
 argument_list|,
 name|message
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -279,7 +291,7 @@ operator|)
 name|value
 return|;
 block|}
-DECL|method|sendToAll (WebsocketStore store, String message)
+DECL|method|sendToAll (WebsocketStore store, String message, Exchange exchange)
 name|void
 name|sendToAll
 parameter_list|(
@@ -288,6 +300,9 @@ name|store
 parameter_list|,
 name|String
 name|message
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|Exception
@@ -342,9 +357,11 @@ block|{
 name|exception
 operator|=
 operator|new
-name|Exception
+name|CamelExchangeException
 argument_list|(
 literal|"Failed to deliver message to one or more recipients."
+argument_list|,
+name|exchange
 argument_list|,
 name|e
 argument_list|)
@@ -377,8 +394,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// in case there is web socket and socket connection is open - send
-comment|// message
+comment|// in case there is web socket and socket connection is open - send message
 if|if
 condition|(
 name|websocket

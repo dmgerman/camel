@@ -411,7 +411,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 operator|.
 name|class
 argument_list|,
@@ -534,7 +534,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 operator|.
 name|class
 argument_list|,

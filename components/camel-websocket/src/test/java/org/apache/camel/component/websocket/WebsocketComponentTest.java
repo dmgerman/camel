@@ -411,7 +411,6 @@ specifier|private
 name|WebsocketComponent
 name|component
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -429,7 +428,6 @@ name|WebsocketComponent
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#createContext()} .      */
 annotation|@
 name|Test
 DECL|method|testCreateContext ()
@@ -452,7 +450,6 @@ name|handler
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#createServer(org.eclipse.jetty.servlet.ServletContextHandler, String, int, String)} .      */
 annotation|@
 name|Test
 DECL|method|testCreateServerWithoutStaticContent ()
@@ -618,7 +615,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#createServer(org.eclipse.jetty.servlet.ServletContextHandler, String, int, String)} .      */
 annotation|@
 name|Test
 DECL|method|testCreateServerWithStaticContent ()
@@ -797,7 +793,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#createEndpoint(String, String, java.util.Map)} .      */
 annotation|@
 name|Test
 DECL|method|testCreateEndpoint ()
@@ -911,7 +906,6 @@ name|e3
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#setServletConsumer(WebsocketComponentServlet, WebsocketConsumer)} .      */
 annotation|@
 name|Test
 DECL|method|testSetServletConsumer ()
@@ -1060,7 +1054,6 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#createServlet(WebsocketStore, String, java.util.Map, ServletContextHandler)} .      */
 annotation|@
 name|Test
 DECL|method|testCreateServlet ()
@@ -1202,7 +1195,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#createPathSpec(String)} .      */
 annotation|@
 name|Test
 DECL|method|testCreatePathSpec ()
@@ -1236,7 +1228,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#addServlet(WebsocketStore, WebsocketConsumer, String)} .      */
 annotation|@
 name|Test
 DECL|method|testAddServletProducersOnly ()
@@ -1333,7 +1324,6 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#addServlet(WebsocketStore, WebsocketConsumer, String)} .      */
 annotation|@
 name|Test
 DECL|method|testAddServletConsumersOnly ()
@@ -1434,7 +1424,6 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#addServlet(WebsocketStore, WebsocketConsumer, String)} .      */
 annotation|@
 name|Test
 DECL|method|testAddServletProducerAndConsumer ()
@@ -1525,7 +1514,6 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponent#addServlet(WebsocketStore, WebsocketConsumer, String)} .      */
 annotation|@
 name|Test
 DECL|method|testAddServletConsumerAndProducer ()

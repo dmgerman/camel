@@ -68,6 +68,26 @@ name|OnTextMessage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|DefaultWebsocket
 specifier|public
@@ -90,26 +110,44 @@ init|=
 operator|-
 literal|575701599776801400L
 decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DefaultWebsocket
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|connection
 specifier|private
+specifier|transient
 name|Connection
 name|connection
-decl_stmt|;
-DECL|field|connectionKey
-specifier|private
-name|String
-name|connectionKey
-decl_stmt|;
-DECL|field|sync
-specifier|private
-name|NodeSynchronization
-name|sync
 decl_stmt|;
 DECL|field|consumer
 specifier|private
 specifier|transient
 name|WebsocketConsumer
 name|consumer
+decl_stmt|;
+DECL|field|sync
+specifier|private
+specifier|transient
+name|NodeSynchronization
+name|sync
+decl_stmt|;
+DECL|field|connectionKey
+specifier|private
+name|String
+name|connectionKey
 decl_stmt|;
 DECL|method|DefaultWebsocket (NodeSynchronization sync, WebsocketConsumer consumer)
 specifier|public
@@ -205,6 +243,15 @@ name|String
 name|message
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"onMessage: {}"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|this
@@ -228,10 +275,19 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|// consumer is not set, this is produce only websocket
-comment|// TODO - 06.06.2011, LK - deliver exchange to dead letter channel
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No consumer to handle message received: {}"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 block|}
-comment|// getters and setters
+block|}
 DECL|method|getConnection ()
 specifier|public
 name|Connection

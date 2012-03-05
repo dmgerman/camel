@@ -230,7 +230,6 @@ specifier|private
 name|Server
 name|server
 decl_stmt|;
-comment|/** Host name for server. */
 DECL|field|host
 specifier|private
 name|String
@@ -240,7 +239,6 @@ name|WebsocketConstants
 operator|.
 name|DEFAULT_HOST
 decl_stmt|;
-comment|/** Port for server. */
 DECL|field|port
 specifier|private
 name|int
@@ -250,13 +248,12 @@ name|WebsocketConstants
 operator|.
 name|DEFAULT_PORT
 decl_stmt|;
-comment|/** Server static content location. */
 DECL|field|staticResources
 specifier|private
 name|String
 name|staticResources
 decl_stmt|;
-comment|/**      * Map for storing endpoints. Endpoint is identified by remaining part from endpoint URI. Eg.<tt>ws://foo?bar=123</tt> and<tt>ws://foo</tt> are referring to the same endpoint.      */
+comment|/**      * Map for storing endpoints. Endpoint is identified by remaining part from endpoint URI.      * Eg.<tt>ws://foo?bar=123</tt> and<tt>ws://foo</tt> are referring to the same endpoint.      */
 DECL|field|endpoints
 specifier|private
 name|Map
@@ -384,7 +381,6 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * @param host      *            the host to set      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -401,7 +397,6 @@ operator|=
 name|host
 expr_stmt|;
 block|}
-comment|/**      * @param port      *            the port to set      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -418,7 +413,6 @@ operator|=
 name|port
 expr_stmt|;
 block|}
-comment|/**      * @param staticResources      *            the staticResources to set      */
 DECL|method|setStaticResources (String staticResources)
 specifier|public
 name|void
@@ -755,7 +749,6 @@ return|return
 name|servlet
 return|;
 block|}
-comment|/**      * @see org.apache.camel.impl.DefaultComponent#doStart()      */
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -813,7 +806,6 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * @see org.apache.camel.impl.DefaultComponent#doStop()      */
 annotation|@
 name|Override
 DECL|method|doStop ()

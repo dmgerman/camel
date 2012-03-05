@@ -19,10 +19,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|NodeSynchronizationImpl
+DECL|class|DefaultNodeSynchronization
 specifier|public
 class|class
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 implements|implements
 name|NodeSynchronization
 block|{
@@ -36,9 +36,9 @@ specifier|private
 name|WebsocketStore
 name|globalStore
 decl_stmt|;
-DECL|method|NodeSynchronizationImpl (WebsocketStore memoryStore, WebsocketStore globalStore)
+DECL|method|DefaultNodeSynchronization (WebsocketStore memoryStore, WebsocketStore globalStore)
 specifier|public
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 parameter_list|(
 name|WebsocketStore
 name|memoryStore
@@ -60,9 +60,9 @@ operator|=
 name|globalStore
 expr_stmt|;
 block|}
-DECL|method|NodeSynchronizationImpl (WebsocketStore memoryStore)
+DECL|method|DefaultNodeSynchronization (WebsocketStore memoryStore)
 specifier|public
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 parameter_list|(
 name|WebsocketStore
 name|memoryStore
@@ -95,8 +95,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|globalStore
 operator|!=
 literal|null
@@ -131,8 +129,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|globalStore
 operator|!=
 literal|null
@@ -167,8 +163,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|globalStore
 operator|!=
 literal|null

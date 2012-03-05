@@ -268,7 +268,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|,
@@ -360,7 +360,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|)
@@ -397,7 +397,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|,
@@ -460,7 +460,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|,
@@ -628,7 +628,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|)
@@ -709,7 +709,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|)
@@ -786,7 +786,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|,
@@ -954,7 +954,7 @@ block|{
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|store1
 argument_list|)

@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|NodeSynchronization
 block|{
-comment|/** adds the Websocket to both (always if present) stores */
+comment|/**      * Adds the web socket to both (always if present) stores.      *      * @param socket the web socket      */
 DECL|method|addSocket (DefaultWebsocket socket)
 name|void
 name|addSocket
@@ -33,7 +33,7 @@ name|DefaultWebsocket
 name|socket
 parameter_list|)
 function_decl|;
-comment|/** deletes the Websocket from both stores */
+comment|/**      * Removes the Websocket from both stores      *      * @param id id of the web socket      */
 DECL|method|removeSocket (String id)
 name|void
 name|removeSocket
@@ -42,7 +42,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/** deletes the Websocket from both stores */
+comment|/**      * Removes the Websocket from both stores      *      * @param socket web socket to remove      */
 DECL|method|removeSocket (DefaultWebsocket socket)
 name|void
 name|removeSocket

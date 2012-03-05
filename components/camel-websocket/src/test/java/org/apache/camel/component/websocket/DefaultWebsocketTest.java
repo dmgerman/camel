@@ -229,7 +229,6 @@ specifier|private
 name|DefaultWebsocket
 name|defaultWebsocket
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -240,7 +239,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// sync = new NodeSynchronizationImpl(new MemoryWebsocketStore());
 name|defaultWebsocket
 operator|=
 operator|new
@@ -259,7 +257,6 @@ name|CONNECTION_KEY
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#onClose(int, String)} .      */
 annotation|@
 name|Test
 DECL|method|testOnClose ()
@@ -312,7 +309,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#onOpen(org.eclipse.jetty.websocket.WebSocket.Connection)} .      */
 annotation|@
 name|Test
 DECL|method|testOnOpen ()
@@ -340,7 +336,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#onMessage(String)} .      */
 annotation|@
 name|Test
 DECL|method|testOnMessage ()
@@ -400,7 +395,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#onMessage(String)} .      */
 annotation|@
 name|Test
 DECL|method|testOnMessageWithNullConsumer ()
@@ -470,7 +464,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#getConnection()} .      */
 annotation|@
 name|Test
 DECL|method|testGetConnection ()
@@ -537,7 +530,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#setConnection(org.eclipse.jetty.websocket.WebSocket.Connection)} .      */
 annotation|@
 name|Test
 DECL|method|testSetConnection ()
@@ -550,7 +542,6 @@ name|testGetConnection
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#getConnectionKey()} .      */
 annotation|@
 name|Test
 DECL|method|testGetConnectionKey ()
@@ -622,7 +613,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.DefaultWebsocket#setConnectionKey(String)} .      */
 annotation|@
 name|Test
 DECL|method|testSetConnectionKey ()

@@ -132,7 +132,6 @@ operator|=
 name|sync
 expr_stmt|;
 block|}
-comment|/**      * @return the consumer      */
 DECL|method|getConsumer ()
 specifier|public
 name|WebsocketConsumer
@@ -143,7 +142,6 @@ return|return
 name|consumer
 return|;
 block|}
-comment|/**      * @param consumer      *            the consumer to set      */
 DECL|method|setConsumer (WebsocketConsumer consumer)
 specifier|public
 name|void
@@ -158,40 +156,6 @@ operator|.
 name|consumer
 operator|=
 name|consumer
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doGet (HttpServletRequest request, HttpServletResponse response)
-specifier|protected
-name|void
-name|doGet
-parameter_list|(
-name|HttpServletRequest
-name|request
-parameter_list|,
-name|HttpServletResponse
-name|response
-parameter_list|)
-throws|throws
-name|ServletException
-throws|,
-name|IOException
-block|{
-name|getServletContext
-argument_list|()
-operator|.
-name|getNamedDispatcher
-argument_list|(
-literal|"default"
-argument_list|)
-operator|.
-name|forward
-argument_list|(
-name|request
-argument_list|,
-name|response
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -217,6 +181,41 @@ argument_list|,
 name|consumer
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doGet (HttpServletRequest request, HttpServletResponse response)
+specifier|protected
+name|void
+name|doGet
+parameter_list|(
+name|HttpServletRequest
+name|request
+parameter_list|,
+name|HttpServletResponse
+name|response
+parameter_list|)
+throws|throws
+name|ServletException
+throws|,
+name|IOException
+block|{
+comment|// TODO: why do we grab the default servlet?
+name|getServletContext
+argument_list|()
+operator|.
+name|getNamedDispatcher
+argument_list|(
+literal|"default"
+argument_list|)
+operator|.
+name|forward
+argument_list|(
+name|request
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

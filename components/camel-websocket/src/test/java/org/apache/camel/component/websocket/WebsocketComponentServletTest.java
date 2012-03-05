@@ -238,7 +238,6 @@ specifier|private
 name|WebsocketComponentServlet
 name|websocketComponentServlet
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -258,7 +257,6 @@ name|sync
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponentServlet#getConsumer()} .      */
 annotation|@
 name|Test
 DECL|method|testGetConsumer ()
@@ -293,7 +291,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponentServlet#setConsumer(org.apache.camel.component.websocket.WebsocketConsumer)} .      */
 annotation|@
 name|Test
 DECL|method|testSetConsumer ()
@@ -306,7 +303,6 @@ name|testGetConsumer
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponentServlet#doWebSocketConnect(javax.servlet.http.HttpServletRequest, String)} .      */
 annotation|@
 name|Test
 DECL|method|testDoWebSocketConnect ()
@@ -410,7 +406,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketComponentServlet#doWebSocketConnect(javax.servlet.http.HttpServletRequest, String)} .      */
 annotation|@
 name|Test
 DECL|method|testDoWebSocketConnectConsumerIsNull ()

@@ -302,7 +302,6 @@ specifier|private
 name|WebsocketConsumer
 name|websocketConsumer
 decl_stmt|;
-comment|/**      * @throws Exception      */
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -331,7 +330,6 @@ name|exceptionHandler
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketConsumer#sendExchange(String, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendExchange ()
@@ -495,11 +493,25 @@ argument_list|)
 expr_stmt|;
 name|inOrder
 operator|.
+name|verify
+argument_list|(
+name|exchange
+argument_list|,
+name|times
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+operator|.
+name|getException
+argument_list|()
+expr_stmt|;
+name|inOrder
+operator|.
 name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketConsumer#sendExchange(String, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendExchangeWithException ()
@@ -742,7 +754,6 @@ name|verifyNoMoreInteractions
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for {@link org.apache.camel.component.websocket.WebsocketConsumer#sendExchange(String, String)} .      */
 annotation|@
 name|Test
 DECL|method|testSendExchangeWithExchangeExceptionIsNull ()

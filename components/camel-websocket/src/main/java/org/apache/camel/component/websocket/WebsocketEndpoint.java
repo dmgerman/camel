@@ -209,7 +209,7 @@ operator|.
 name|sync
 operator|=
 operator|new
-name|NodeSynchronizationImpl
+name|DefaultNodeSynchronization
 argument_list|(
 name|this
 operator|.
