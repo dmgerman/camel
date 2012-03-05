@@ -345,29 +345,6 @@ operator|instanceof
 name|Message
 condition|)
 block|{
-name|Message
-name|message
-init|=
-operator|(
-name|Message
-operator|)
-name|result
-decl_stmt|;
-comment|// message body should be already set properly by the dataFormat
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|message
-operator|.
-name|getBody
-argument_list|()
-argument_list|,
-literal|"body"
-argument_list|,
-name|message
-argument_list|)
-expr_stmt|;
 comment|// the dataformat has probably set headers, attachments, etc. so let's use it as the outbound payload
 name|exchange
 operator|.
@@ -382,15 +359,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|result
-argument_list|,
-literal|"result"
-argument_list|)
-expr_stmt|;
 name|out
 operator|.
 name|setBody
