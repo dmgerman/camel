@@ -812,7 +812,7 @@ operator|.
 name|getTypeConverterRegistry
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|ClassMap
 argument_list|>

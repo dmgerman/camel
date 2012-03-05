@@ -2385,14 +2385,14 @@ name|isOneToMany
 operator|=
 literal|true
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|?
 argument_list|>
 name|list
 init|=
 operator|(
-name|ArrayList
+name|List
 argument_list|<
 name|?
 argument_list|>

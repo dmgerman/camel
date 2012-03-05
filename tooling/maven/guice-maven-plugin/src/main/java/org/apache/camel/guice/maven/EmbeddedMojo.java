@@ -588,7 +588,7 @@ index|[]
 name|createArguments
 parameter_list|()
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>

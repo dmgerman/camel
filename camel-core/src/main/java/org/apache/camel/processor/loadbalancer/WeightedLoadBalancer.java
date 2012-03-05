@@ -64,7 +64,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|runtimeRatios
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|DistributionRatio
 argument_list|>
@@ -326,7 +326,7 @@ expr_stmt|;
 block|}
 DECL|method|getRuntimeRatios ()
 specifier|public
-name|ArrayList
+name|List
 argument_list|<
 name|DistributionRatio
 argument_list|>

@@ -1241,7 +1241,7 @@ block|}
 else|else
 block|{
 comment|// more than one list element
-name|ArrayList
+name|List
 argument_list|<
 name|T
 argument_list|>

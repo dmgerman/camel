@@ -440,7 +440,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|Item
 argument_list|>
@@ -603,14 +603,14 @@ expr_stmt|;
 block|}
 DECL|method|itemsExpected ()
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|Item
 argument_list|>
 name|itemsExpected
 parameter_list|()
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|Item
 argument_list|>

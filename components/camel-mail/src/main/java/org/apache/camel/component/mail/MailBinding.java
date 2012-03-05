@@ -108,6 +108,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -573,7 +583,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|InternetAddress
 argument_list|>
@@ -3475,7 +3485,7 @@ name|MessagingException
 throws|,
 name|IOException
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|InternetAddress
 argument_list|>

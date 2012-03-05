@@ -8968,7 +8968,7 @@ condition|(
 name|reverse
 condition|)
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|Object
 argument_list|>

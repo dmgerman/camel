@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|slf4j
@@ -233,7 +243,7 @@ operator|new
 name|AnnotationConfigApplicationContext
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|Class
 argument_list|<
@@ -252,7 +262,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>

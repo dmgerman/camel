@@ -197,7 +197,7 @@ argument_list|>
 name|getCamelContexts
 parameter_list|()
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|CamelContext
 argument_list|>
@@ -392,7 +392,7 @@ block|}
 block|}
 else|else
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|Route
 argument_list|>
@@ -503,7 +503,7 @@ block|}
 block|}
 else|else
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|RouteDefinition
 argument_list|>

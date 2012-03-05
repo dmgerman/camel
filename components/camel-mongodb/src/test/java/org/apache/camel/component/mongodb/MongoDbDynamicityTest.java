@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|mongodb
@@ -221,7 +231,7 @@ name|body
 init|=
 literal|"{\"_id\": \"testInsertDynamicityDisabled\", \"a\" : \"1\"}"
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -416,7 +426,7 @@ name|body
 init|=
 literal|"{\"_id\": \"testInsertDynamicityEnabledDBOnly\", \"a\" : \"1\"}"
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -587,7 +597,7 @@ name|body
 init|=
 literal|"{\"_id\": \"testInsertDynamicityEnabledCollectionOnly\", \"a\" : \"1\"}"
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -750,7 +760,7 @@ name|body
 init|=
 literal|"{\"_id\": \"testInsertDynamicityEnabledDBAndCollection\", \"a\" : \"1\"}"
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

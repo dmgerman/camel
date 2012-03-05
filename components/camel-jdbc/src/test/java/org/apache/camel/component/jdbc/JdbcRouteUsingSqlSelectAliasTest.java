@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|HashMap
 import|;
 end_import
 
@@ -34,7 +34,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -167,7 +177,7 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|HashMap
 argument_list|<
@@ -185,14 +195,14 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|ArrayList
+name|List
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"out body could not be converted to an ArrayList - was: "
+literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
@@ -215,7 +225,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

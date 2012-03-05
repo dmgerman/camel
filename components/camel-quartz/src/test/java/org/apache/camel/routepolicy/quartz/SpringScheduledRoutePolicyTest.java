@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -569,14 +569,14 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|RouteDefinition
 argument_list|>
 name|routes
 init|=
 operator|(
-name|ArrayList
+name|List
 argument_list|<
 name|RouteDefinition
 argument_list|>

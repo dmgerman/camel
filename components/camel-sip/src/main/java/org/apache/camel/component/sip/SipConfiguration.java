@@ -54,6 +54,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -381,11 +391,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|SipConfiguration
 specifier|public
 class|class
@@ -609,7 +614,7 @@ name|toHeader
 decl_stmt|;
 DECL|field|viaHeaders
 specifier|private
-name|ArrayList
+name|List
 argument_list|<
 name|ViaHeader
 argument_list|>
@@ -1589,6 +1594,11 @@ literal|"Event Id"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createFactoriesAndHeaders (Map<String, Object> parameters, SipComponent component)
 specifier|private
 name|void
@@ -1703,7 +1713,7 @@ name|parameters
 argument_list|,
 literal|"viaHeaders"
 argument_list|,
-name|ArrayList
+name|List
 operator|.
 name|class
 argument_list|,
@@ -3289,7 +3299,7 @@ expr_stmt|;
 block|}
 DECL|method|getViaHeaders ()
 specifier|public
-name|ArrayList
+name|List
 argument_list|<
 name|ViaHeader
 argument_list|>
@@ -3300,12 +3310,12 @@ return|return
 name|viaHeaders
 return|;
 block|}
-DECL|method|setViaHeaders (ArrayList<ViaHeader> viaHeaders)
+DECL|method|setViaHeaders (List<ViaHeader> viaHeaders)
 specifier|public
 name|void
 name|setViaHeaders
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|ViaHeader
 argument_list|>

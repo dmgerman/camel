@@ -36,6 +36,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ConcurrentMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicInteger
@@ -159,7 +171,7 @@ comment|// use endpoint key as key so endpoints with lenient properties is regis
 DECL|field|endpointCount
 specifier|private
 specifier|final
-name|ConcurrentHashMap
+name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,

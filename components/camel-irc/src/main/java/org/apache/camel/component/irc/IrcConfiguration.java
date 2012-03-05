@@ -1980,7 +1980,7 @@ expr_stmt|;
 block|}
 comment|// Remove unneeded '#' channel prefixes per convention
 comment|// and replace ',' separators and merge channel and key using convention "channel!key"
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>

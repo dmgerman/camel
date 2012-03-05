@@ -219,7 +219,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"out body could not be converted to an ArrayList - was: "
+literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.

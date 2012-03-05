@@ -28,6 +28,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -152,7 +162,7 @@ name|TestSupport
 block|{
 DECL|field|order
 specifier|final
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -444,7 +454,7 @@ block|}
 block|}
 block|}
 decl_stmt|;
-DECL|method|runTest (RouteBuilder builder, ArrayList<String> expected)
+DECL|method|runTest (RouteBuilder builder, List<String> expected)
 specifier|protected
 name|void
 name|runTest
@@ -452,7 +462,7 @@ parameter_list|(
 name|RouteBuilder
 name|builder
 parameter_list|,
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -471,7 +481,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|runTest (RouteBuilder builder, ArrayList<String> expected, String header)
+DECL|method|runTest (RouteBuilder builder, List<String> expected, String header)
 specifier|protected
 name|void
 name|runTest
@@ -479,7 +489,7 @@ parameter_list|(
 name|RouteBuilder
 name|builder
 parameter_list|,
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -603,7 +613,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -700,7 +710,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -877,7 +887,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -923,7 +933,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -969,7 +979,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1008,7 +1018,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1222,7 +1232,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1268,7 +1278,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1314,7 +1324,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1360,7 +1370,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1542,7 +1552,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1588,7 +1598,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1641,7 +1651,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1736,7 +1746,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1789,7 +1799,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1842,7 +1852,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1943,7 +1953,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -2003,7 +2013,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -2063,7 +2073,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -2180,7 +2190,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -2240,7 +2250,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -2300,7 +2310,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>

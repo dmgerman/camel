@@ -52,6 +52,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -255,7 +265,7 @@ argument_list|,
 literal|","
 argument_list|)
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -433,7 +443,7 @@ argument_list|,
 literal|","
 argument_list|)
 decl_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -560,7 +570,7 @@ argument_list|(
 literal|"Hello World\nBye World\rSee you again"
 argument_list|)
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -638,7 +648,7 @@ argument_list|(
 literal|"Jonathan,Claus,James,Hadrian"
 argument_list|)
 expr_stmt|;
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>

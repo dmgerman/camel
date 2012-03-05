@@ -100,6 +100,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -195,7 +207,7 @@ block|{
 DECL|field|classMap
 specifier|protected
 specifier|final
-name|ConcurrentHashMap
+name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
