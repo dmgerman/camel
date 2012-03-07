@@ -1343,29 +1343,6 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remove the routes from the inflight registry
-for|for
-control|(
-name|Route
-name|route
-range|:
-name|routes
-control|)
-block|{
-name|camelContext
-operator|.
-name|getInflightRepository
-argument_list|()
-operator|.
-name|removeEndpoint
-argument_list|(
-name|route
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 comment|// remove the routes from the collections
 name|camelContext
 operator|.

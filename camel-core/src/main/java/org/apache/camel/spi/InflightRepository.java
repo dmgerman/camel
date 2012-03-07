@@ -97,15 +97,6 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
-comment|/**      * Remove a endpoint from this registry.      *<p/>      * This is used to cleanup resources that are no longer needed.      *      * @param endpoint the endpoint to remove      */
-DECL|method|removeEndpoint (Endpoint endpoint)
-name|void
-name|removeEndpoint
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
