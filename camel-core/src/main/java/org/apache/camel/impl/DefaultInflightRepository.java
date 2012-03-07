@@ -22,9 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
+name|HashMap
 import|;
 end_import
 
@@ -34,9 +32,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ConcurrentMap
+name|Map
 import|;
 end_import
 
@@ -171,7 +167,7 @@ comment|// use endpoint key as key so endpoints with lenient properties is regis
 DECL|field|endpointCount
 specifier|private
 specifier|final
-name|ConcurrentMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -180,7 +176,7 @@ argument_list|>
 name|endpointCount
 init|=
 operator|new
-name|ConcurrentHashMap
+name|HashMap
 argument_list|<
 name|String
 argument_list|,
@@ -242,20 +238,20 @@ operator|.
 name|getEndpointKey
 argument_list|()
 decl_stmt|;
+comment|// need to be synchronized as we can concurrently add/remove
+synchronized|synchronized
+init|(
+name|endpointCount
+init|)
+block|{
 name|AtomicInteger
 name|existing
 init|=
 name|endpointCount
 operator|.
-name|putIfAbsent
+name|get
 argument_list|(
 name|key
-argument_list|,
-operator|new
-name|AtomicInteger
-argument_list|(
-literal|1
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -267,11 +263,26 @@ condition|)
 block|{
 name|existing
 operator|.
-name|addAndGet
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|endpointCount
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+operator|new
+name|AtomicInteger
 argument_list|(
 literal|1
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|remove (Exchange exchange)
@@ -328,6 +339,12 @@ operator|.
 name|getEndpointKey
 argument_list|()
 decl_stmt|;
+comment|// need to be synchronized as we can concurrently add/remove
+synchronized|synchronized
+init|(
+name|endpointCount
+init|)
+block|{
 name|AtomicInteger
 name|existing
 init|=
@@ -345,15 +362,39 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
 name|existing
 operator|.
-name|addAndGet
+name|decrementAndGet
+argument_list|()
+operator|<=
+literal|0
+condition|)
+block|{
+name|endpointCount
+operator|.
+name|remove
 argument_list|(
-operator|-
-literal|1
+name|key
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+block|}
+comment|/**      * Internal only - Used for testing purpose.      */
+DECL|method|endpointSize ()
+name|int
+name|endpointSize
+parameter_list|()
+block|{
+return|return
+name|endpointCount
+operator|.
+name|size
+argument_list|()
+return|;
 block|}
 DECL|method|size ()
 specifier|public
@@ -458,11 +499,17 @@ literal|"Shutting down with no inflight exchanges."
 argument_list|)
 expr_stmt|;
 block|}
+synchronized|synchronized
+init|(
+name|endpointCount
+init|)
+block|{
 name|endpointCount
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
