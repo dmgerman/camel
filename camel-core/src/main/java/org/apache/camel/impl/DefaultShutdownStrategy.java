@@ -2328,6 +2328,25 @@ range|:
 name|routes
 control|)
 block|{
+name|int
+name|inflight
+init|=
+name|context
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|size
+argument_list|(
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|Consumer
@@ -2339,22 +2358,6 @@ name|getInputs
 argument_list|()
 control|)
 block|{
-name|int
-name|inflight
-init|=
-name|context
-operator|.
-name|getInflightRepository
-argument_list|()
-operator|.
-name|size
-argument_list|(
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// include any additional pending exchanges on some consumers which may have internal
 comment|// memory queues such as seda
 if|if
@@ -2377,6 +2380,7 @@ name|getPendingExchangesSize
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 if|if
 condition|(
 name|inflight
@@ -2392,14 +2396,19 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"{} inflight and pending exchanges for consumer: {}"
+literal|"{} inflight and pending exchanges for route: {}"
 argument_list|,
 name|inflight
 argument_list|,
-name|consumer
+name|order
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if

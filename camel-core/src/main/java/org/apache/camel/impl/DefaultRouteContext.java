@@ -244,6 +244,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|RouteInflightRepositoryProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|RoutePolicyProcessor
 import|;
 end_import
@@ -987,27 +1001,42 @@ operator|=
 name|unitOfWorkProcessor
 expr_stmt|;
 block|}
+comment|// wrap in route inflight processor to track number of inflight exchanges for the route
+name|RouteInflightRepositoryProcessor
+name|inflight
+init|=
+operator|new
+name|RouteInflightRepositoryProcessor
+argument_list|(
+name|camelContext
+operator|.
+name|getInflightRepository
+argument_list|()
+argument_list|,
+name|target
+argument_list|)
+decl_stmt|;
 comment|// and wrap it by a instrumentation processor that is to be used for performance stats
 comment|// for this particular route
 name|InstrumentationProcessor
-name|wrapper
+name|instrument
 init|=
 operator|new
 name|InstrumentationProcessor
 argument_list|()
 decl_stmt|;
-name|wrapper
+name|instrument
 operator|.
 name|setType
 argument_list|(
 literal|"route"
 argument_list|)
 expr_stmt|;
-name|wrapper
+name|instrument
 operator|.
 name|setProcessor
 argument_list|(
-name|target
+name|inflight
 argument_list|)
 expr_stmt|;
 comment|// and create the route that wraps the UoW
@@ -1022,7 +1051,7 @@ argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|,
-name|wrapper
+name|instrument
 argument_list|)
 decl_stmt|;
 comment|// create the route id
@@ -1120,6 +1149,14 @@ name|edcr
 argument_list|)
 expr_stmt|;
 block|}
+comment|// after the route is created then set the route on the inflight processor so we get hold of it
+name|inflight
+operator|.
+name|setRoute
+argument_list|(
+name|edcr
+argument_list|)
+expr_stmt|;
 comment|// invoke init on route policy
 if|if
 condition|(

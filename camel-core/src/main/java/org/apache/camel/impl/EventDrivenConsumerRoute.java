@@ -300,6 +300,8 @@ init|=
 name|getProcessor
 argument_list|()
 decl_stmt|;
+comment|// we do not want to navigate the instrument and inflight processors
+comment|// which is the first 2 delegate async processors, so skip them
 comment|// skip the instrumentation processor if this route was wrapped by one
 if|if
 condition|(
@@ -320,6 +322,26 @@ operator|.
 name|getProcessor
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|instanceof
+name|DelegateAsyncProcessor
+condition|)
+block|{
+name|answer
+operator|=
+operator|(
+operator|(
+name|DelegateAsyncProcessor
+operator|)
+name|answer
+operator|)
+operator|.
+name|getProcessor
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

@@ -64,7 +64,7 @@ name|InflightRepository
 extends|extends
 name|Service
 block|{
-comment|/**      * Adds the exchange to the inflight registry      *      * @param exchange  the exchange      */
+comment|/**      * Adds the exchange to the inflight registry to the total counter      *      * @param exchange  the exchange      */
 DECL|method|add (Exchange exchange)
 name|void
 name|add
@@ -73,7 +73,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Removes the exchange from the inflight registry      *      * @param exchange  the exchange      */
+comment|/**      * Removes the exchange from the inflight registry to the total counter      *      * @param exchange  the exchange      */
 DECL|method|remove (Exchange exchange)
 name|void
 name|remove
@@ -82,19 +82,63 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Adds the exchange to the inflight registry associated to the given route      *      * @param exchange  the exchange      * @param routeId the id of the route      */
+DECL|method|add (Exchange exchange, String routeId)
+name|void
+name|add
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
+comment|/**      * Removes the exchange from the inflight registry removing association to the given route      *      * @param exchange  the exchange      * @param routeId the id of the route      */
+DECL|method|remove (Exchange exchange, String routeId)
+name|void
+name|remove
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
 comment|/**      * Current size of inflight exchanges.      *<p/>      * Will return 0 if there are no inflight exchanges.      *      * @return number of exchanges currently in flight.      */
 DECL|method|size ()
 name|int
 name|size
 parameter_list|()
 function_decl|;
-comment|/**      * Current size of inflight exchanges which are from the given endpoint.      *<p/>      * Will return 0 if there are no inflight exchanges.      *      * @param endpoint the endpoint where the {@link Exchange} are from.      * @return number of exchanges currently in flight.      */
+comment|/**      * Will always return 0 due method is deprecated.      * @deprecated will be removed in a future Camel release.      */
+annotation|@
+name|Deprecated
 DECL|method|size (Endpoint endpoint)
 name|int
 name|size
 parameter_list|(
 name|Endpoint
 name|endpoint
+parameter_list|)
+function_decl|;
+comment|/**      * Removes the route from the in flight registry.      *<p/>      * Is used for cleaning up resources to avoid leaking.      *      * @param routeId the id of the route      */
+DECL|method|removeRoute (String routeId)
+name|void
+name|removeRoute
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
+comment|/**     * Current size of inflight exchanges which are from the given route.      *<p/>      * Will return 0 if there are no inflight exchanges.      *      * @param routeId the id of the route      * @return number of exchanges currently in flight.      */
+DECL|method|size (String routeId)
+name|int
+name|size
+parameter_list|(
+name|String
+name|routeId
 parameter_list|)
 function_decl|;
 block|}

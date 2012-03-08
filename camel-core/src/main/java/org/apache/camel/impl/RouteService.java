@@ -1343,6 +1343,29 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remove the routes from the inflight registry
+for|for
+control|(
+name|Route
+name|route
+range|:
+name|routes
+control|)
+block|{
+name|camelContext
+operator|.
+name|getInflightRepository
+argument_list|()
+operator|.
+name|removeRoute
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// remove the routes from the collections
 name|camelContext
 operator|.

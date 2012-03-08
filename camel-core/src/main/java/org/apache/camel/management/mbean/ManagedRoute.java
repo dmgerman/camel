@@ -518,16 +518,6 @@ name|Integer
 name|getInflightExchanges
 parameter_list|()
 block|{
-if|if
-condition|(
-name|route
-operator|.
-name|getEndpoint
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 name|context
 operator|.
@@ -538,17 +528,10 @@ name|size
 argument_list|(
 name|route
 operator|.
-name|getEndpoint
+name|getId
 argument_list|()
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 DECL|method|getCamelId ()
 specifier|public

@@ -481,7 +481,7 @@ name|size
 init|=
 name|getSize
 argument_list|(
-name|consumer
+name|route
 argument_list|,
 name|exchange
 argument_list|)
@@ -573,7 +573,7 @@ name|size
 operator|=
 name|getSize
 argument_list|(
-name|consumer
+name|route
 argument_list|,
 name|exchange
 argument_list|)
@@ -883,13 +883,13 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|getSize (Consumer consumer, Exchange exchange)
+DECL|method|getSize (Route route, Exchange exchange)
 specifier|private
 name|int
 name|getSize
 parameter_list|(
-name|Consumer
-name|consumer
+name|Route
+name|route
 parameter_list|,
 name|Exchange
 name|exchange
@@ -919,14 +919,6 @@ return|;
 block|}
 else|else
 block|{
-name|Endpoint
-name|endpoint
-init|=
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-decl_stmt|;
 return|return
 name|exchange
 operator|.
@@ -938,7 +930,10 @@ argument_list|()
 operator|.
 name|size
 argument_list|(
-name|endpoint
+name|route
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 return|;
 block|}
