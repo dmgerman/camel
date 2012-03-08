@@ -389,6 +389,9 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
 name|Field
 name|field
 init|=
@@ -452,9 +455,6 @@ name|TestFilter
 operator|.
 name|called
 argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
 expr_stmt|;
 name|producer
 operator|.
