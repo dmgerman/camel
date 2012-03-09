@@ -86,6 +86,7 @@ annotation|@
 name|Override
 DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
 specifier|protected
+specifier|synchronized
 name|Processor
 name|chooseProcessor
 parameter_list|(
