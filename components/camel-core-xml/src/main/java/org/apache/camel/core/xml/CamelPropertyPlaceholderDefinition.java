@@ -128,6 +128,13 @@ name|location
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|cache
+specifier|private
+name|Boolean
+name|cache
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|ignoreMissingLocation
 specifier|private
 name|Boolean
@@ -206,6 +213,32 @@ operator|.
 name|location
 operator|=
 name|location
+expr_stmt|;
+block|}
+DECL|method|isCache ()
+specifier|public
+name|Boolean
+name|isCache
+parameter_list|()
+block|{
+return|return
+name|cache
+return|;
+block|}
+DECL|method|setCache (Boolean cache)
+specifier|public
+name|void
+name|setCache
+parameter_list|(
+name|Boolean
+name|cache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|=
+name|cache
 expr_stmt|;
 block|}
 DECL|method|getPropertiesResolverRef ()
