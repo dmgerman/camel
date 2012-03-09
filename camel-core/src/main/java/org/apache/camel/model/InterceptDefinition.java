@@ -346,15 +346,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// prefer next target over target as next target is the real target
+comment|// store the target we are intercepting
+name|this
+operator|.
 name|interceptedTarget
 operator|=
-name|nextTarget
-operator|!=
-literal|null
-condition|?
-name|nextTarget
-else|:
 name|target
 expr_stmt|;
 comment|// remember the target that was intercepted

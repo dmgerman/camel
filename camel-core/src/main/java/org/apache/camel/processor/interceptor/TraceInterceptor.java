@@ -1489,11 +1489,19 @@ name|intercept
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// skip doing any double tracing of interceptors, so the last must not be a TraceInterceptor instance
 if|if
 condition|(
 name|last
 operator|!=
 literal|null
+operator|&&
+operator|!
+operator|(
+name|last
+operator|instanceof
+name|TraceInterceptor
+operator|)
 condition|)
 block|{
 name|traced
