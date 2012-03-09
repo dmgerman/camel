@@ -1258,9 +1258,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we should shutdown the services as this is our intention, to not re-use the services anymore
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopAndShutdownService
 argument_list|(
 name|consumerCache
 argument_list|)

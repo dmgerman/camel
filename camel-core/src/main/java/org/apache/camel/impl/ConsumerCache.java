@@ -897,9 +897,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// when stopping we intend to shutdown
 name|ServiceHelper
 operator|.
-name|stopServices
+name|stopAndShutdownServices
 argument_list|(
 name|consumers
 operator|.

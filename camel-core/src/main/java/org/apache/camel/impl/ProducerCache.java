@@ -1626,37 +1626,6 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|ServiceHelper
-operator|.
-name|stopServices
-argument_list|(
-name|pool
-argument_list|)
-expr_stmt|;
-name|ServiceHelper
-operator|.
-name|stopServices
-argument_list|(
-name|producers
-operator|.
-name|values
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|producers
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -1681,6 +1650,38 @@ name|startServices
 argument_list|(
 name|pool
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// when stopping we intend to shutdown
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|pool
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+name|producers
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|producers
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Returns the current size of the cache      *      * @return the current size      */
