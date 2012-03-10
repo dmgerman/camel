@@ -810,6 +810,11 @@ specifier|private
 name|boolean
 name|testConnectionOnStartup
 decl_stmt|;
+DECL|field|asyncStartListener
+specifier|private
+name|boolean
+name|asyncStartListener
+decl_stmt|;
 comment|// if the message is a JmsMessage and mapJmsMessage=false, force the
 comment|// producer to send the javax.jms.Message body to the next JMS destination
 DECL|field|forceSendOriginalMessage
@@ -4681,6 +4686,32 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|isAsyncStartListener ()
+specifier|public
+name|boolean
+name|isAsyncStartListener
+parameter_list|()
+block|{
+return|return
+name|asyncStartListener
+return|;
+block|}
+DECL|method|setAsyncStartListener (boolean asyncStartListener)
+specifier|public
+name|void
+name|setAsyncStartListener
+parameter_list|(
+name|boolean
+name|asyncStartListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|asyncStartListener
+operator|=
+name|asyncStartListener
 expr_stmt|;
 block|}
 DECL|method|isTestConnectionOnStartup ()

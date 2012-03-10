@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -348,6 +360,11 @@ init|=
 operator|new
 name|JmsHeaderFilterStrategy
 argument_list|()
+decl_stmt|;
+DECL|field|asyncStartExecutorService
+specifier|private
+name|ExecutorService
+name|asyncStartExecutorService
 decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
@@ -1485,6 +1502,24 @@ name|testConnectionOnStartup
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setAsyncStartListener (boolean asyncStartListener)
+specifier|public
+name|void
+name|setAsyncStartListener
+parameter_list|(
+name|boolean
+name|asyncStartListener
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAsyncStartListener
+argument_list|(
+name|asyncStartListener
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setForceSendOriginalMessage (boolean forceSendOriginalMessage)
 specifier|public
 name|void
@@ -1775,19 +1810,78 @@ comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@
 name|Override
-DECL|method|doStop ()
+DECL|method|doShutdown ()
 specifier|protected
 name|void
-name|doStop
+name|doShutdown
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|asyncStartExecutorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|asyncStartExecutorService
+argument_list|)
+expr_stmt|;
+name|asyncStartExecutorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
 name|super
 operator|.
-name|doStop
+name|doShutdown
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getAsyncStartExecutorService ()
+specifier|protected
+specifier|synchronized
+name|ExecutorService
+name|getAsyncStartExecutorService
+parameter_list|()
+block|{
+if|if
+condition|(
+name|asyncStartExecutorService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use a cached thread pool for async start tasks as they can run for a while, and we need a dedicated thread
+comment|// for each task, and the thread pool will shrink when no more tasks running
+name|asyncStartExecutorService
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newCachedThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"AsyncStartListener"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|asyncStartExecutorService
+return|;
 block|}
 annotation|@
 name|Override

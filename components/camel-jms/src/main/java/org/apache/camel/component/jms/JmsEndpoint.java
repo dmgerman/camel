@@ -1819,6 +1819,24 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|JmsComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|JmsComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -2338,6 +2356,39 @@ return|return
 name|replyManagerExecutorService
 return|;
 block|}
+DECL|method|getAsyncStartExecutorService ()
+specifier|protected
+name|ExecutorService
+name|getAsyncStartExecutorService
+parameter_list|()
+block|{
+if|if
+condition|(
+name|getComponent
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"AsyncStartListener requires JmsComponent to be configured on this endpoint: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
+comment|// use shared thread pool from component
+return|return
+name|getComponent
+argument_list|()
+operator|.
+name|getAsyncStartExecutorService
+argument_list|()
+return|;
+block|}
 comment|/**      * State whether this endpoint is running (eg started)      */
 DECL|method|isRunning ()
 specifier|protected
@@ -2438,6 +2489,29 @@ name|replyToReplyManager
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|replyManagerExecutorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|replyManagerExecutorService
+argument_list|)
+expr_stmt|;
+name|replyManagerExecutorService
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
@@ -4515,6 +4589,40 @@ return|return
 name|configuration
 operator|.
 name|isAsyncConsumer
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setAsyncStartListener (boolean asyncStartListener)
+specifier|public
+name|void
+name|setAsyncStartListener
+parameter_list|(
+name|boolean
+name|asyncStartListener
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setAsyncStartListener
+argument_list|(
+name|asyncStartListener
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isAsyncStartListener ()
+specifier|public
+name|boolean
+name|isAsyncStartListener
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isAsyncStartListener
 argument_list|()
 return|;
 block|}
