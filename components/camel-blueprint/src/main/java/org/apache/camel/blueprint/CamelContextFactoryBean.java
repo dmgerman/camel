@@ -822,10 +822,6 @@ DECL|field|lazyLoadTypeConverters
 specifier|private
 name|Boolean
 name|lazyLoadTypeConverters
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -2162,8 +2158,17 @@ name|Boolean
 name|getLazyLoadTypeConverters
 parameter_list|()
 block|{
+comment|// use false by default
 return|return
 name|lazyLoadTypeConverters
+operator|!=
+literal|null
+condition|?
+name|lazyLoadTypeConverters
+else|:
+name|Boolean
+operator|.
+name|FALSE
 return|;
 block|}
 annotation|@

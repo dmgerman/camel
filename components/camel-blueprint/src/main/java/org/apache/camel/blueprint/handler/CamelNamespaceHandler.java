@@ -1751,7 +1751,19 @@ argument_list|(
 literal|"destroy"
 argument_list|)
 expr_stmt|;
-comment|// Register objects
+comment|// Register factory beans
+name|registerBeans
+argument_list|(
+name|context
+argument_list|,
+name|contextId
+argument_list|,
+name|ccfb
+operator|.
+name|getThreadPools
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|registerBeans
 argument_list|(
 name|context
@@ -1772,7 +1784,7 @@ name|contextId
 argument_list|,
 name|ccfb
 operator|.
-name|getThreadPools
+name|getRedeliveryPolicies
 argument_list|()
 argument_list|)
 expr_stmt|;
