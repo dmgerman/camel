@@ -86,9 +86,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|spring
 operator|.
-name|RedeliveryPolicy
+name|CamelRedeliveryPolicyFactoryBean
 import|;
 end_import
 
@@ -212,7 +212,7 @@ init|=
 operator|new
 name|RedeliveryPolicyDefinitionParser
 argument_list|(
-name|RedeliveryPolicy
+name|CamelRedeliveryPolicyFactoryBean
 operator|.
 name|class
 argument_list|)

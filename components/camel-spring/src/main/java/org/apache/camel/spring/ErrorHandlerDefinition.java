@@ -257,7 +257,7 @@ annotation|@
 name|XmlElement
 DECL|field|redeliveryPolicy
 specifier|private
-name|RedeliveryPolicyDefinition
+name|CamelRedeliveryPolicyFactoryBean
 name|redeliveryPolicy
 decl_stmt|;
 block|}
