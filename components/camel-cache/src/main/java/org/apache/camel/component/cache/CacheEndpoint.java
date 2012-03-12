@@ -251,6 +251,16 @@ specifier|private
 name|CacheManagerFactory
 name|cacheManagerFactory
 decl_stmt|;
+DECL|field|operation
+specifier|private
+name|String
+name|operation
+decl_stmt|;
+DECL|field|key
+specifier|private
+name|String
+name|key
+decl_stmt|;
 DECL|method|CacheEndpoint ()
 specifier|public
 name|CacheEndpoint
@@ -773,6 +783,58 @@ operator|.
 name|getCacheName
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|String
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+DECL|method|setOperation (String operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
+expr_stmt|;
+block|}
+DECL|method|getKey ()
+specifier|public
+name|String
+name|getKey
+parameter_list|()
+block|{
+return|return
+name|key
+return|;
+block|}
+DECL|method|setKey (String key)
+specifier|public
+name|void
+name|setKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|this
+operator|.
+name|key
+operator|=
+name|key
 expr_stmt|;
 block|}
 block|}
