@@ -636,9 +636,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing exchange: {}"
+literal|"Processing exchange: {} with properties: {}"
 argument_list|,
 name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getProperties
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getProcessor
