@@ -28,6 +28,18 @@ name|hazelcast
 operator|.
 name|core
 operator|.
+name|ItemEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
 name|ItemListener
 import|;
 end_import
@@ -100,6 +112,9 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated is using the Hazelcast 1.x API      */
+annotation|@
+name|Deprecated
 DECL|method|itemAdded (Object item)
 specifier|public
 name|void
@@ -123,6 +138,9 @@ name|item
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated is using the Hazelcast 1.x API      */
+annotation|@
+name|Deprecated
 DECL|method|itemRemoved (Object item)
 specifier|public
 name|void
@@ -143,6 +161,48 @@ argument_list|,
 literal|null
 argument_list|,
 name|item
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|itemAdded (ItemEvent<Object> itemEvent)
+specifier|public
+name|void
+name|itemAdded
+parameter_list|(
+name|ItemEvent
+argument_list|<
+name|Object
+argument_list|>
+name|itemEvent
+parameter_list|)
+block|{
+name|itemAdded
+argument_list|(
+name|itemEvent
+operator|.
+name|getItem
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|itemRemoved (ItemEvent<Object> itemEvent)
+specifier|public
+name|void
+name|itemRemoved
+parameter_list|(
+name|ItemEvent
+argument_list|<
+name|Object
+argument_list|>
+name|itemEvent
+parameter_list|)
+block|{
+name|itemRemoved
+argument_list|(
+name|itemEvent
+operator|.
+name|getItem
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
