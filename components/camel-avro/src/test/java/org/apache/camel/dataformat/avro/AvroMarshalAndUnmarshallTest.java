@@ -288,16 +288,14 @@ operator|.
 name|newBuilder
 argument_list|()
 operator|.
-name|build
-argument_list|()
-decl_stmt|;
-name|input
-operator|.
 name|setValue
 argument_list|(
 literal|"test body"
 argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 name|MockEndpoint
 name|mock
 init|=
