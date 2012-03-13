@@ -922,6 +922,12 @@ specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|shutdownExecutorService
+specifier|private
+specifier|final
+name|boolean
+name|shutdownExecutorService
+decl_stmt|;
 DECL|field|aggregateExecutorService
 specifier|private
 name|ExecutorService
@@ -1016,6 +1022,8 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|0
 argument_list|,
 literal|null
@@ -1024,7 +1032,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MulticastProcessor (CamelContext camelContext, Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork)
+DECL|method|MulticastProcessor (CamelContext camelContext, Collection<Processor> processors, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean shutdownExecutorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork)
 specifier|public
 name|MulticastProcessor
 parameter_list|(
@@ -1045,6 +1053,9 @@ name|parallelProcessing
 parameter_list|,
 name|ExecutorService
 name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|,
 name|boolean
 name|streaming
@@ -1092,6 +1103,12 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+name|this
+operator|.
+name|shutdownExecutorService
+operator|=
+name|shutdownExecutorService
 expr_stmt|;
 name|this
 operator|.
@@ -4602,6 +4619,27 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|shutdownExecutorService
+operator|&&
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|setToEndpoint (Exchange exchange, Processor processor)
 specifier|protected

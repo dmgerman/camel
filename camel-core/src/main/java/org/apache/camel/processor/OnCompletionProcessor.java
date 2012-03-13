@@ -279,6 +279,12 @@ specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|shutdownExecutorService
+specifier|private
+specifier|final
+name|boolean
+name|shutdownExecutorService
+decl_stmt|;
 DECL|field|onCompleteOnly
 specifier|private
 specifier|final
@@ -303,7 +309,7 @@ specifier|final
 name|boolean
 name|useOriginalBody
 decl_stmt|;
-DECL|method|OnCompletionProcessor (CamelContext camelContext, Processor processor, ExecutorService executorService, boolean onCompleteOnly, boolean onFailureOnly, Predicate onWhen, boolean useOriginalBody)
+DECL|method|OnCompletionProcessor (CamelContext camelContext, Processor processor, ExecutorService executorService, boolean shutdownExecutorService, boolean onCompleteOnly, boolean onFailureOnly, Predicate onWhen, boolean useOriginalBody)
 specifier|public
 name|OnCompletionProcessor
 parameter_list|(
@@ -315,6 +321,9 @@ name|processor
 parameter_list|,
 name|ExecutorService
 name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|,
 name|boolean
 name|onCompleteOnly
@@ -365,6 +374,12 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+name|this
+operator|.
+name|shutdownExecutorService
+operator|=
+name|shutdownExecutorService
 expr_stmt|;
 name|this
 operator|.
@@ -444,6 +459,23 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shutdownExecutorService
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getCamelContext ()
 specifier|public

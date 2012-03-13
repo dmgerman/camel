@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -127,10 +139,13 @@ specifier|volatile
 name|TimeSlot
 name|slot
 decl_stmt|;
-DECL|method|Throttler (Processor processor, Expression maxRequestsPerPeriodExpression, long timePeriodMillis, ScheduledExecutorService executorService)
+DECL|method|Throttler (CamelContext camelContext, Processor processor, Expression maxRequestsPerPeriodExpression, long timePeriodMillis, ScheduledExecutorService executorService, boolean shutdownExecutorService)
 specifier|public
 name|Throttler
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
@@ -142,13 +157,20 @@ name|timePeriodMillis
 parameter_list|,
 name|ScheduledExecutorService
 name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|camelContext
+argument_list|,
 name|processor
 argument_list|,
 name|executorService
+argument_list|,
+name|shutdownExecutorService
 argument_list|)
 expr_stmt|;
 name|ObjectHelper

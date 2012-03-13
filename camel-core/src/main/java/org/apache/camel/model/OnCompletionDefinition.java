@@ -623,8 +623,23 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// executor service is mandatory for on completion
-name|executorService
-operator|=
+name|boolean
+name|shutdownThreadPool
+init|=
+name|ProcessorDefinitionHelper
+operator|.
+name|willCreateNewThreadPool
+argument_list|(
+name|routeContext
+argument_list|,
+name|this
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|ExecutorService
+name|threadPool
+init|=
 name|ProcessorDefinitionHelper
 operator|.
 name|getConfiguredExecutorService
@@ -637,7 +652,7 @@ name|this
 argument_list|,
 literal|true
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// should be false by default
 name|boolean
 name|original
@@ -665,7 +680,9 @@ argument_list|()
 argument_list|,
 name|childProcessor
 argument_list|,
-name|executorService
+name|threadPool
+argument_list|,
+name|shutdownThreadPool
 argument_list|,
 name|isOnCompleteOnly
 argument_list|()

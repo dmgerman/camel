@@ -561,7 +561,7 @@ operator|=
 name|iter
 expr_stmt|;
 block|}
-DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork)
+DECL|method|RecipientListProcessor (CamelContext camelContext, ProducerCache producerCache, Iterator<Object> iter, AggregationStrategy aggregationStrategy, boolean parallelProcessing, ExecutorService executorService, boolean shutdownExecutorService, boolean streaming, boolean stopOnException, long timeout, Processor onPrepare, boolean shareUnitOfWork)
 specifier|public
 name|RecipientListProcessor
 parameter_list|(
@@ -585,6 +585,9 @@ name|parallelProcessing
 parameter_list|,
 name|ExecutorService
 name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|,
 name|boolean
 name|streaming
@@ -613,6 +616,8 @@ argument_list|,
 name|parallelProcessing
 argument_list|,
 name|executorService
+argument_list|,
+name|shutdownExecutorService
 argument_list|,
 name|streaming
 argument_list|,

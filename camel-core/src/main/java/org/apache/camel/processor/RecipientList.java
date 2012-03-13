@@ -330,6 +330,11 @@ specifier|private
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|shutdownExecutorService
+specifier|private
+name|boolean
+name|shutdownExecutorService
+decl_stmt|;
 DECL|field|aggregateExecutorService
 specifier|private
 name|ExecutorService
@@ -658,6 +663,9 @@ name|isParallelProcessing
 argument_list|()
 argument_list|,
 name|getExecutorService
+argument_list|()
+argument_list|,
+name|isShutdownExecutorService
 argument_list|()
 argument_list|,
 name|isStreaming
@@ -1043,6 +1051,32 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+block|}
+DECL|method|isShutdownExecutorService ()
+specifier|public
+name|boolean
+name|isShutdownExecutorService
+parameter_list|()
+block|{
+return|return
+name|shutdownExecutorService
+return|;
+block|}
+DECL|method|setShutdownExecutorService (boolean shutdownExecutorService)
+specifier|public
+name|void
+name|setShutdownExecutorService
+parameter_list|(
+name|boolean
+name|shutdownExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownExecutorService
+operator|=
+name|shutdownExecutorService
 expr_stmt|;
 block|}
 DECL|method|getAggregationStrategy ()

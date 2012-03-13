@@ -626,10 +626,21 @@ specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|shutdownExecutorService
+specifier|private
+specifier|final
+name|boolean
+name|shutdownExecutorService
+decl_stmt|;
 DECL|field|timeoutCheckerExecutorService
 specifier|private
 name|ScheduledExecutorService
 name|timeoutCheckerExecutorService
+decl_stmt|;
+DECL|field|shutdownTimeoutCheckerExecutorService
+specifier|private
+name|boolean
+name|shutdownTimeoutCheckerExecutorService
 decl_stmt|;
 DECL|field|recoverService
 specifier|private
@@ -821,7 +832,7 @@ specifier|private
 name|ProducerTemplate
 name|deadLetterProducerTemplate
 decl_stmt|;
-DECL|method|AggregateProcessor (CamelContext camelContext, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, ExecutorService executorService)
+DECL|method|AggregateProcessor (CamelContext camelContext, Processor processor, Expression correlationExpression, AggregationStrategy aggregationStrategy, ExecutorService executorService, boolean shutdownExecutorService)
 specifier|public
 name|AggregateProcessor
 parameter_list|(
@@ -839,6 +850,9 @@ name|aggregationStrategy
 parameter_list|,
 name|ExecutorService
 name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -915,6 +929,12 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+name|this
+operator|.
+name|shutdownExecutorService
+operator|=
+name|shutdownExecutorService
 expr_stmt|;
 block|}
 annotation|@
@@ -2785,6 +2805,32 @@ return|return
 name|timeoutCheckerExecutorService
 return|;
 block|}
+DECL|method|isShutdownTimeoutCheckerExecutorService ()
+specifier|public
+name|boolean
+name|isShutdownTimeoutCheckerExecutorService
+parameter_list|()
+block|{
+return|return
+name|shutdownTimeoutCheckerExecutorService
+return|;
+block|}
+DECL|method|setShutdownTimeoutCheckerExecutorService (boolean shutdownTimeoutCheckerExecutorService)
+specifier|public
+name|void
+name|setShutdownTimeoutCheckerExecutorService
+parameter_list|(
+name|boolean
+name|shutdownTimeoutCheckerExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownTimeoutCheckerExecutorService
+operator|=
+name|shutdownTimeoutCheckerExecutorService
+expr_stmt|;
+block|}
 comment|/**      * On completion task which keeps the booking of the in progress up to date      */
 DECL|class|AggregateOnCompletion
 specifier|private
@@ -4101,6 +4147,10 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|shutdownTimeoutCheckerExecutorService
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|// trigger completion based on interval
 name|getTimeoutCheckerExecutorService
@@ -4174,6 +4224,10 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|shutdownTimeoutCheckerExecutorService
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|// check for timed out aggregated messages once every second
@@ -4429,6 +4483,42 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|shutdownExecutorService
+condition|)
+block|{
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|shutdownTimeoutCheckerExecutorService
+condition|)
+block|{
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|timeoutCheckerExecutorService
+argument_list|)
+expr_stmt|;
+name|timeoutCheckerExecutorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doShutdown

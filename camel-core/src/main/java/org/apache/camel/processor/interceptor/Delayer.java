@@ -94,6 +94,7 @@ name|InterceptStrategy
 block|{
 DECL|field|enabled
 specifier|private
+specifier|volatile
 name|boolean
 name|enabled
 init|=
@@ -196,6 +197,8 @@ return|return
 operator|new
 name|DelayInterceptor
 argument_list|(
+name|context
+argument_list|,
 name|definition
 argument_list|,
 name|target

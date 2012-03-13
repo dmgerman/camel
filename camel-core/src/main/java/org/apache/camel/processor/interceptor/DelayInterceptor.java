@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -96,10 +108,13 @@ specifier|private
 name|Delayer
 name|delayer
 decl_stmt|;
-DECL|method|DelayInterceptor (ProcessorDefinition<?> node, Processor target, Delayer delayer)
+DECL|method|DelayInterceptor (CamelContext camelContext, ProcessorDefinition<?> node, Processor target, Delayer delayer)
 specifier|public
 name|DelayInterceptor
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -115,6 +130,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|camelContext
+argument_list|,
 name|target
 argument_list|)
 expr_stmt|;

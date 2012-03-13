@@ -422,8 +422,23 @@ else|:
 literal|"Threads"
 decl_stmt|;
 comment|// prefer any explicit configured executor service
-name|executorService
-operator|=
+name|boolean
+name|shutdownThreadPool
+init|=
+name|ProcessorDefinitionHelper
+operator|.
+name|willCreateNewThreadPool
+argument_list|(
+name|routeContext
+argument_list|,
+name|this
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|ExecutorService
+name|threadPool
+init|=
 name|ProcessorDefinitionHelper
 operator|.
 name|getConfiguredExecutorService
@@ -436,11 +451,11 @@ name|this
 argument_list|,
 literal|false
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// if no explicit then create from the options
 if|if
 condition|(
-name|executorService
+name|threadPool
 operator|==
 literal|null
 condition|)
@@ -502,7 +517,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|executorService
+name|threadPool
 operator|=
 name|manager
 operator|.
@@ -514,6 +529,10 @@ name|name
 argument_list|,
 name|profile
 argument_list|)
+expr_stmt|;
+name|shutdownThreadPool
+operator|=
+literal|true
 expr_stmt|;
 block|}
 name|ThreadsProcessor
@@ -527,7 +546,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|executorService
+name|threadPool
+argument_list|,
+name|shutdownThreadPool
 argument_list|)
 decl_stmt|;
 if|if

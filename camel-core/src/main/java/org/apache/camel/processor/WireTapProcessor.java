@@ -216,6 +216,12 @@ specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|shutdownExecutorService
+specifier|private
+specifier|volatile
+name|boolean
+name|shutdownExecutorService
+decl_stmt|;
 comment|// expression or processor used for populating a new exchange to send
 comment|// as opposed to traditional wiretap that sends a copy of the original exchange
 DECL|field|newExchangeExpression
@@ -241,7 +247,7 @@ specifier|private
 name|Processor
 name|onPrepare
 decl_stmt|;
-DECL|method|WireTapProcessor (Endpoint destination, ExecutorService executorService)
+DECL|method|WireTapProcessor (Endpoint destination, ExecutorService executorService, boolean shutdownExecutorService)
 specifier|public
 name|WireTapProcessor
 parameter_list|(
@@ -250,6 +256,9 @@ name|destination
 parameter_list|,
 name|ExecutorService
 name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|)
 block|{
 name|super
@@ -272,8 +281,14 @@ name|executorService
 operator|=
 name|executorService
 expr_stmt|;
+name|this
+operator|.
+name|shutdownExecutorService
+operator|=
+name|shutdownExecutorService
+expr_stmt|;
 block|}
-DECL|method|WireTapProcessor (Endpoint destination, ExchangePattern pattern, ExecutorService executorService)
+DECL|method|WireTapProcessor (Endpoint destination, ExchangePattern pattern, ExecutorService executorService, boolean shutdownExecutorService)
 specifier|public
 name|WireTapProcessor
 parameter_list|(
@@ -285,6 +300,9 @@ name|pattern
 parameter_list|,
 name|ExecutorService
 name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
 parameter_list|)
 block|{
 name|super
@@ -308,6 +326,12 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+name|this
+operator|.
+name|shutdownExecutorService
+operator|=
+name|shutdownExecutorService
 expr_stmt|;
 block|}
 annotation|@
@@ -846,6 +870,40 @@ operator|.
 name|InOnly
 argument_list|)
 return|;
+block|}
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|shutdownExecutorService
+condition|)
+block|{
+name|getDestination
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getNewExchangeProcessors ()
 specifier|public

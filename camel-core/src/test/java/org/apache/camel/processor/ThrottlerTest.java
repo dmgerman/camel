@@ -380,6 +380,8 @@ init|=
 operator|new
 name|Throttler
 argument_list|(
+name|context
+argument_list|,
 literal|null
 argument_list|,
 name|constant
@@ -390,6 +392,8 @@ argument_list|,
 literal|1000
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// calculate will assign a new slot
