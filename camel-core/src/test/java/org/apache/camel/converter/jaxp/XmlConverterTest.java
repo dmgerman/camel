@@ -903,6 +903,7 @@ operator|new
 name|XmlConverter
 argument_list|()
 decl_stmt|;
+comment|// because of https://bugs.openjdk.java.net/show_bug.cgi?id=100228, we have to set the XML version explicitly
 name|StAXSource
 name|source
 init|=
@@ -910,7 +911,7 @@ name|conv
 operator|.
 name|toStAXSource
 argument_list|(
-literal|"<foo>bar</foo>"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><foo>bar</foo>"
 argument_list|,
 literal|null
 argument_list|)
