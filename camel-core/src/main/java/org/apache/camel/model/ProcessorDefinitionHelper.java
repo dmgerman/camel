@@ -1220,6 +1220,9 @@ literal|" not found in registry or as a thread pool profile."
 argument_list|)
 throw|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 elseif|else
 if|if
