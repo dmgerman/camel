@@ -334,7 +334,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_30
+name|LUCENE_35
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -359,7 +359,11 @@ literal|"simpleAnalyzer"
 argument_list|,
 operator|new
 name|SimpleAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_35
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|registry
@@ -383,7 +387,11 @@ literal|"whitespaceAnalyzer"
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_35
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

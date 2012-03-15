@@ -110,6 +110,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|queryParser
 operator|.
 name|ParseException
@@ -299,6 +313,10 @@ operator|=
 operator|new
 name|IndexSearcher
 argument_list|(
+name|IndexReader
+operator|.
+name|open
+argument_list|(
 operator|new
 name|NIOFSDirectory
 argument_list|(
@@ -306,6 +324,7 @@ name|indexDirectory
 argument_list|)
 argument_list|,
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -315,6 +334,10 @@ name|indexSearcher
 operator|=
 operator|new
 name|IndexSearcher
+argument_list|(
+name|IndexReader
+operator|.
+name|open
 argument_list|(
 operator|new
 name|NIOFSDirectory
@@ -327,6 +350,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -374,7 +398,7 @@ name|maxNumberOfHits
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_30
+name|LUCENE_35
 argument_list|)
 return|;
 block|}
