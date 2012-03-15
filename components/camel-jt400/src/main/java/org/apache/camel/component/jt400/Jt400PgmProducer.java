@@ -512,10 +512,13 @@ operator|=
 operator|new
 name|AS400Text
 argument_list|(
-name|value
-operator|.
-name|length
+name|getISeriesEndpoint
 argument_list|()
+operator|.
+name|getOutputFieldLength
+argument_list|(
+name|i
+argument_list|)
 argument_list|)
 operator|.
 name|toBytes
