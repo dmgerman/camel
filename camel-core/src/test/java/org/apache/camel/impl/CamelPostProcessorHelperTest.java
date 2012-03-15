@@ -2462,6 +2462,11 @@ name|uri
 operator|=
 literal|"seda:foo"
 argument_list|)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|method|consumeSomethingPrivate (String body)
 specifier|private
 name|void
