@@ -140,6 +140,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -346,6 +360,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 name|boolean
 name|answer
 init|=
@@ -432,14 +457,16 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|process (Exchange exchange, AsyncCallback callback)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
@@ -474,6 +501,13 @@ name|boolean
 name|first
 init|=
 literal|true
+decl_stmt|;
+comment|// use a copy of the original exchange before failover to avoid populating side effects
+comment|// directly into the original exchange
+name|Exchange
+name|copy
+init|=
+literal|null
 decl_stmt|;
 comment|// get the next processor
 if|if
@@ -529,7 +563,7 @@ name|first
 operator|||
 name|shouldFailOver
 argument_list|(
-name|exchange
+name|copy
 argument_list|)
 condition|)
 block|{
@@ -645,7 +679,9 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|// try again but prepare exchange before we failover
+comment|// try again but copy original exchange before we failover
+name|copy
+operator|=
 name|prepareExchangeForFailover
 argument_list|(
 name|exchange
@@ -673,6 +709,8 @@ argument_list|(
 name|processor
 argument_list|,
 name|exchange
+argument_list|,
+name|copy
 argument_list|,
 name|attempts
 argument_list|,
@@ -721,6 +759,24 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// and copy the current result to original so it will contain this result of this eip
+if|if
+condition|(
+name|copy
+operator|!=
+literal|null
+condition|)
+block|{
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|exchange
+argument_list|,
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
 name|log
 operator|.
 name|debug
@@ -746,135 +802,29 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Prepares the exchange for failover      *      * @param exchange the exchange      */
+comment|/**      * Prepares the exchange for failover      *      * @param exchange the exchange      * @return a copy of the exchange to use for failover      */
 DECL|method|prepareExchangeForFailover (Exchange exchange)
 specifier|protected
-name|void
+name|Exchange
 name|prepareExchangeForFailover
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|exchange
+comment|// use a copy of the exchange to avoid side effects on the original exchange
+return|return
+name|ExchangeHelper
 operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
+name|createCopy
 argument_list|(
-literal|"Failover due {} for exchangeId: {}"
-argument_list|,
 name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
 argument_list|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+literal|true
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-comment|// clear exception so we can try failover
-name|exchange
-operator|.
-name|setException
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|ERRORHANDLER_HANDLED
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FAILURE_HANDLED
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERED
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_COUNTER
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_MAX_COUNTER
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|processExchange (Processor processor, Exchange exchange, AtomicInteger attempts, AtomicInteger index, AsyncCallback callback, List<Processor> processors)
+DECL|method|processExchange (Processor processor, Exchange exchange, Exchange copy, AtomicInteger attempts, AtomicInteger index, AsyncCallback callback, List<Processor> processors)
 specifier|private
 name|boolean
 name|processExchange
@@ -884,6 +834,9 @@ name|processor
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exchange
+name|copy
 parameter_list|,
 name|AtomicInteger
 name|attempts
@@ -914,7 +867,7 @@ name|IllegalStateException
 argument_list|(
 literal|"No processors could be chosen to process "
 operator|+
-name|exchange
+name|copy
 argument_list|)
 throw|;
 block|}
@@ -926,7 +879,7 @@ literal|"Processing failover at attempt {} for {}"
 argument_list|,
 name|attempts
 argument_list|,
-name|exchange
+name|copy
 argument_list|)
 expr_stmt|;
 name|AsyncProcessor
@@ -946,12 +899,14 @@ name|process
 argument_list|(
 name|albp
 argument_list|,
-name|exchange
+name|copy
 argument_list|,
 operator|new
 name|FailOverAsyncCallback
 argument_list|(
 name|exchange
+argument_list|,
+name|copy
 argument_list|,
 name|attempts
 argument_list|,
@@ -978,6 +933,11 @@ specifier|private
 specifier|final
 name|Exchange
 name|exchange
+decl_stmt|;
+DECL|field|copy
+specifier|private
+name|Exchange
+name|copy
 decl_stmt|;
 DECL|field|attempts
 specifier|private
@@ -1006,12 +966,15 @@ name|Processor
 argument_list|>
 name|processors
 decl_stmt|;
-DECL|method|FailOverAsyncCallback (Exchange exchange, AtomicInteger attempts, AtomicInteger index, AsyncCallback callback, List<Processor> processors)
+DECL|method|FailOverAsyncCallback (Exchange exchange, Exchange copy, AtomicInteger attempts, AtomicInteger index, AsyncCallback callback, List<Processor> processors)
 specifier|private
 name|FailOverAsyncCallback
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exchange
+name|copy
 parameter_list|,
 name|AtomicInteger
 name|attempts
@@ -1034,6 +997,12 @@ operator|.
 name|exchange
 operator|=
 name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|copy
+operator|=
+name|copy
 expr_stmt|;
 name|this
 operator|.
@@ -1081,7 +1050,7 @@ while|while
 condition|(
 name|shouldFailOver
 argument_list|(
-name|exchange
+name|copy
 argument_list|)
 condition|)
 block|{
@@ -1183,6 +1152,8 @@ break|break;
 block|}
 block|}
 comment|// try again but prepare exchange before we failover
+name|copy
+operator|=
 name|prepareExchangeForFailover
 argument_list|(
 name|exchange
@@ -1209,6 +1180,8 @@ argument_list|(
 name|processor
 argument_list|,
 name|exchange
+argument_list|,
+name|copy
 argument_list|,
 name|attempts
 argument_list|,
@@ -1241,6 +1214,24 @@ comment|// the remainder of the failover will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;
 block|}
+block|}
+comment|// and copy the current result to original so it will contain this result of this eip
+if|if
+condition|(
+name|copy
+operator|!=
+literal|null
+condition|)
+block|{
+name|ExchangeHelper
+operator|.
+name|copyResults
+argument_list|(
+name|exchange
+argument_list|,
+name|copy
+argument_list|)
+expr_stmt|;
 block|}
 name|log
 operator|.
