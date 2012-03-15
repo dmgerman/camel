@@ -686,6 +686,14 @@ argument_list|(
 name|detour
 argument_list|)
 expr_stmt|;
+comment|// here we also need to start the producer
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|producer
+argument_list|)
+expr_stmt|;
 block|}
 specifier|public
 name|void
@@ -695,6 +703,14 @@ throws|throws
 name|Exception
 block|{
 comment|// do not stop detour as it should only be stopped when the interceptor stops
+comment|// we should stop the producer here
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|producer
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
