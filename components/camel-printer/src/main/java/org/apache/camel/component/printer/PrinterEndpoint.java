@@ -88,6 +88,15 @@ name|PrinterEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|JOB_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JOB_NAME
+init|=
+literal|"PrinterJobName"
+decl_stmt|;
 DECL|field|config
 specifier|private
 name|PrinterConfiguration

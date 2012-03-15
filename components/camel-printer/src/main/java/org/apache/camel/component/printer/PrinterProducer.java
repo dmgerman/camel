@@ -254,19 +254,45 @@ argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
+name|String
+name|jobName
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|PrinterEndpoint
+operator|.
+name|JOB_NAME
+argument_list|,
+literal|"Camel: lpr"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|print
 argument_list|(
 name|is
+argument_list|,
+name|jobName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|print (InputStream body)
+DECL|method|print (InputStream body, String jobName)
 specifier|private
 name|void
 name|print
 parameter_list|(
 name|InputStream
 name|body
+parameter_list|,
+name|String
+name|jobName
 parameter_list|)
 throws|throws
 name|PrintException
@@ -321,6 +347,8 @@ name|config
 operator|.
 name|getMimeType
 argument_list|()
+argument_list|,
+name|jobName
 argument_list|)
 expr_stmt|;
 block|}

@@ -45,12 +45,15 @@ interface|interface
 name|PrinterOperationsInterface
 block|{
 comment|/**      * Prints the document.      *      * @param doc document to print      * @throws PrintException is thrown if printing failed      */
-DECL|method|print (Doc doc)
+DECL|method|print (Doc doc, String jobName)
 name|void
 name|print
 parameter_list|(
 name|Doc
 name|doc
+parameter_list|,
+name|String
+name|jobName
 parameter_list|)
 throws|throws
 name|PrintException
