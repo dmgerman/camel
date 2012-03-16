@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint that describes a connection to an mbean.  *<p/>  * The component can connect to the local platform mbean server with the following URI:  *<p/>  *<code>jmx://platform?options</code>  *<p/>  * A remote mbean server url can be provided following the initial JMX scheme like so:  *<p/>  *<code>jmx:service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi?options</code>  *<p/>  * You can append query options to the URI in the following format, ?options=value&option2=value&...  *  * @author markford  */
+comment|/**  * Endpoint that describes a connection to an mbean.  *<p/>  * The component can connect to the local platform mbean server with the following URI:  *<p/>  *<code>jmx://platform?options</code>  *<p/>  * A remote mbean server url can be provided following the initial JMX scheme like so:  *<p/>  *<code>jmx:service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi?options</code>  *<p/>  * You can append query options to the URI in the following format, ?options=value&option2=value&...  */
 end_comment
 
 begin_class

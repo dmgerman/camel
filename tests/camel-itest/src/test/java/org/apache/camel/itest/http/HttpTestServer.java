@@ -497,7 +497,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Copy of org.apache.http.localserver.LocalTestServer to use a specific port.  *   * @author muellerc  */
+comment|/**  * Copy of org.apache.http.localserver.LocalTestServer to use a specific port.  */
 end_comment
 
 begin_class

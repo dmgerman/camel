@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  * @version   * @author cmueller  */
+comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  * @version   */
 end_comment
 
 begin_class

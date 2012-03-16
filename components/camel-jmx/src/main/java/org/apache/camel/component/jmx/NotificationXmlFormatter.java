@@ -299,7 +299,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Converts the Notification into an XML stream.  *  * @author markford  */
+comment|/**  * Converts the Notification into an XML stream.  */
 end_comment
 
 begin_class
