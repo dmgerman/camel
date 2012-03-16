@@ -737,6 +737,27 @@ name|getEndpointUri
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint State"
+argument_list|)
+DECL|method|getState ()
+specifier|public
+name|String
+name|getState
+parameter_list|()
+block|{
+return|return
+name|getStatus
+argument_list|()
+operator|.
+name|name
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
