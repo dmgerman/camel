@@ -172,7 +172,7 @@ expr_stmt|;
 block|}
 DECL|method|isAutogenColumns ()
 specifier|public
-name|boolean
+name|Boolean
 name|isAutogenColumns
 parameter_list|()
 block|{
@@ -180,12 +180,12 @@ return|return
 name|autogenColumns
 return|;
 block|}
-DECL|method|setAutogenColumns (boolean autogenColumns)
+DECL|method|setAutogenColumns (Boolean autogenColumns)
 specifier|public
 name|void
 name|setAutogenColumns
 parameter_list|(
-name|boolean
+name|Boolean
 name|autogenColumns
 parameter_list|)
 block|{
