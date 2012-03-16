@@ -425,32 +425,11 @@ name|String
 name|getState
 parameter_list|()
 block|{
-comment|// must use String type to be sure remote JMX can read the attribute without requiring Camel classes.
-name|ServiceStatus
-name|status
-init|=
+return|return
 name|context
 operator|.
 name|getStatus
 argument_list|()
-decl_stmt|;
-comment|// if no status exists then its stopped
-if|if
-condition|(
-name|status
-operator|==
-literal|null
-condition|)
-block|{
-name|status
-operator|=
-name|ServiceStatus
-operator|.
-name|Stopped
-expr_stmt|;
-block|}
-return|return
-name|status
 operator|.
 name|name
 argument_list|()

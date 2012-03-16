@@ -296,21 +296,6 @@ operator|.
 name|getStatus
 argument_list|()
 decl_stmt|;
-comment|// if no status exists then its stopped
-if|if
-condition|(
-name|status
-operator|==
-literal|null
-condition|)
-block|{
-name|status
-operator|=
-name|ServiceStatus
-operator|.
-name|Stopped
-expr_stmt|;
-block|}
 return|return
 name|status
 operator|.
