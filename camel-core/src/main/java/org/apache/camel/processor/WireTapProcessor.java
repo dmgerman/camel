@@ -278,8 +278,8 @@ name|Traceable
 block|{
 DECL|field|LOG
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 specifier|transient
 name|Logger
 name|LOG

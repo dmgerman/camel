@@ -262,6 +262,7 @@ block|}
 DECL|class|MyProducerFailEndpoint
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|MyProducerFailEndpoint
 extends|extends
