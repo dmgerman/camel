@@ -231,6 +231,11 @@ argument_list|(
 literal|"timer://foo?fixedRate=true&delay=0&period=500"
 argument_list|)
 operator|.
+name|log
+argument_list|(
+literal|"Fired timer"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"bean:myBean"
