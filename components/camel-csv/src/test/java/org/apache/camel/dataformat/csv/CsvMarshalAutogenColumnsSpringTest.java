@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  * @version  */
+comment|/**  * Spring based integration test for the<code>CsvDataFormat</code> demonstrating the usage of  * the<tt>autogenColumns</tt>,<tt>configRef</tt> and<tt>strategyRef</tt> options.  */
 end_comment
 
 begin_class
@@ -164,22 +164,15 @@ name|result2
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testWithAutogenColumnsAttributeSet ()
+DECL|method|retrieveColumnsWithAutogenColumnsFalseAndItemColumnsSet ()
 specifier|public
 name|void
-name|testWithAutogenColumnsAttributeSet
+name|retrieveColumnsWithAutogenColumnsFalseAndItemColumnsSet
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|result
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|result2
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -196,17 +189,9 @@ name|createBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|template
+name|result
 operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start2"
-argument_list|,
-name|createBody
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|String
@@ -232,17 +217,81 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|String
+index|[]
+name|lines
+init|=
+name|body
+operator|.
+name|split
+argument_list|(
+literal|"\n"
+argument_list|)
+decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The flag autogenColumns set to false didn't take effect"
+literal|2
 argument_list|,
-literal|"\n\n"
-argument_list|,
-name|body
+name|lines
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Camel in Action"
+argument_list|,
+name|lines
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"ActiveMQ in Action"
+argument_list|,
+name|lines
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|retrieveColumnsWithAutogenColumnsFalseAndOrderIdAmountColumnsSet ()
+specifier|public
+name|void
+name|retrieveColumnsWithAutogenColumnsFalseAndOrderIdAmountColumnsSet
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|result2
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start2"
+argument_list|,
+name|createBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result2
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 name|String
-name|body2
+name|body
 init|=
 name|result2
 operator|.
@@ -266,9 +315,9 @@ argument_list|)
 decl_stmt|;
 name|String
 index|[]
-name|lines2
+name|lines
 init|=
-name|body2
+name|body
 operator|.
 name|split
 argument_list|(
@@ -279,16 +328,16 @@ name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
-name|lines2
+name|lines
 operator|.
 name|length
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"123|Camel in Action|1"
+literal|"123|1"
 argument_list|,
-name|lines2
+name|lines
 index|[
 literal|0
 index|]
@@ -296,9 +345,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"124|ActiveMQ in Action|2"
+literal|"124|2"
 argument_list|,
-name|lines2
+name|lines
 index|[
 literal|1
 index|]
