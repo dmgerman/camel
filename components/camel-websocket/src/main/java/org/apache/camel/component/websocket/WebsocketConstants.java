@@ -34,6 +34,15 @@ name|DEFAULT_PORT
 init|=
 literal|9292
 decl_stmt|;
+DECL|field|DEFAULT_HOST
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_HOST
+init|=
+literal|"0.0.0.0"
+decl_stmt|;
 DECL|field|CONNECTION_KEY
 specifier|public
 specifier|static
@@ -51,15 +60,6 @@ name|String
 name|SEND_TO_ALL
 init|=
 literal|"websocket.sendToAll"
-decl_stmt|;
-DECL|field|DEFAULT_HOST
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_HOST
-init|=
-literal|"0.0.0.0"
 decl_stmt|;
 DECL|method|WebsocketConstants ()
 specifier|private

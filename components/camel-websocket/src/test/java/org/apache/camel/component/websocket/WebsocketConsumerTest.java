@@ -368,7 +368,7 @@ argument_list|)
 expr_stmt|;
 name|websocketConsumer
 operator|.
-name|sendExchange
+name|sendMessage
 argument_list|(
 name|CONNECTION_KEY
 argument_list|,
@@ -578,7 +578,7 @@ argument_list|)
 expr_stmt|;
 name|websocketConsumer
 operator|.
-name|sendExchange
+name|sendMessage
 argument_list|(
 name|CONNECTION_KEY
 argument_list|,
@@ -820,7 +820,7 @@ argument_list|)
 expr_stmt|;
 name|websocketConsumer
 operator|.
-name|sendExchange
+name|sendMessage
 argument_list|(
 name|CONNECTION_KEY
 argument_list|,

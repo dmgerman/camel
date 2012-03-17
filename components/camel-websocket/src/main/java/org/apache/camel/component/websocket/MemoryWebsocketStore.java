@@ -168,6 +168,32 @@ name|values
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

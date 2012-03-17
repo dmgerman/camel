@@ -110,23 +110,10 @@ name|DefaultProducer
 block|{
 DECL|field|store
 specifier|private
+specifier|final
 name|WebsocketStore
 name|store
 decl_stmt|;
-DECL|method|WebsocketProducer (Endpoint endpoint)
-specifier|public
-name|WebsocketProducer
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpoint
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|WebsocketProducer (Endpoint endpoint, WebsocketStore store)
 specifier|public
 name|WebsocketProducer

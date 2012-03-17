@@ -107,10 +107,10 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sendExchange (final String connectionKey, final String message)
+DECL|method|sendMessage (final String connectionKey, final String message)
 specifier|public
 name|void
-name|sendExchange
+name|sendMessage
 parameter_list|(
 specifier|final
 name|String
@@ -191,14 +191,7 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Error processing exchange for websocket consumer on message '%s'."
-argument_list|,
-name|message
-argument_list|)
+literal|"Error processing exchange"
 argument_list|,
 name|exchange
 argument_list|,

@@ -28,11 +28,25 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
 begin_interface
 DECL|interface|WebsocketStore
 specifier|public
 interface|interface
 name|WebsocketStore
+extends|extends
+name|Service
 block|{
 DECL|method|add (DefaultWebsocket ws)
 name|void

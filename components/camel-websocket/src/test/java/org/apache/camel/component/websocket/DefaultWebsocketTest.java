@@ -382,7 +382,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|sendExchange
+name|sendMessage
 argument_list|(
 name|CONNECTION_KEY
 argument_list|,
@@ -451,7 +451,7 @@ literal|0
 argument_list|)
 argument_list|)
 operator|.
-name|sendExchange
+name|sendMessage
 argument_list|(
 name|CONNECTION_KEY
 argument_list|,

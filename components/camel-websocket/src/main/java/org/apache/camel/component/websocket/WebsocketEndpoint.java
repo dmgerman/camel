@@ -78,7 +78,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|ServiceHelper
 import|;
 end_import
 
@@ -90,7 +90,6 @@ name|WebsocketEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-comment|// Todo: Change to Options
 DECL|field|sync
 specifier|private
 name|NodeSynchronization
@@ -106,22 +105,7 @@ specifier|private
 name|WebsocketStore
 name|memoryStore
 decl_stmt|;
-DECL|field|globalStore
-specifier|private
-name|WebsocketStore
-name|globalStore
-decl_stmt|;
-DECL|field|websocketConfiguration
-specifier|private
-name|WebsocketConfiguration
-name|websocketConfiguration
-decl_stmt|;
-DECL|method|WebsocketEndpoint ()
-specifier|public
-name|WebsocketEndpoint
-parameter_list|()
-block|{      }
-DECL|method|WebsocketEndpoint (String uri, WebsocketComponent component, String remaining, WebsocketConfiguration websocketConfiguration)
+DECL|method|WebsocketEndpoint (String uri, WebsocketComponent component, String remaining)
 specifier|public
 name|WebsocketEndpoint
 parameter_list|(
@@ -133,14 +117,7 @@ name|component
 parameter_list|,
 name|String
 name|remaining
-parameter_list|,
-name|WebsocketConfiguration
-name|websocketConfiguration
 parameter_list|)
-throws|throws
-name|InstantiationException
-throws|,
-name|IllegalAccessException
 block|{
 name|super
 argument_list|(
@@ -163,47 +140,6 @@ operator|new
 name|MemoryWebsocketStore
 argument_list|()
 expr_stmt|;
-comment|// TODO: init globalStore
-name|this
-operator|.
-name|websocketConfiguration
-operator|=
-name|websocketConfiguration
-expr_stmt|;
-if|if
-condition|(
-name|websocketConfiguration
-operator|.
-name|getGlobalStore
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|globalStore
-operator|=
-operator|(
-name|WebsocketStore
-operator|)
-name|ObjectHelper
-operator|.
-name|loadClass
-argument_list|(
-name|this
-operator|.
-name|websocketConfiguration
-operator|.
-name|getGlobalStore
-argument_list|()
-argument_list|)
-operator|.
-name|newInstance
-argument_list|()
-expr_stmt|;
-block|}
-comment|// this.sync = new NodeSynchronizationImpl(this.memoryStore, null);
 name|this
 operator|.
 name|sync
@@ -211,34 +147,26 @@ operator|=
 operator|new
 name|DefaultNodeSynchronization
 argument_list|(
-name|this
-operator|.
 name|memoryStore
-argument_list|,
-name|this
-operator|.
-name|globalStore
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getMemoryStore ()
+annotation|@
+name|Override
+DECL|method|getComponent ()
 specifier|public
-name|WebsocketStore
-name|getMemoryStore
+name|WebsocketComponent
+name|getComponent
 parameter_list|()
 block|{
 return|return
-name|memoryStore
-return|;
-block|}
-DECL|method|getGlobalStore ()
-specifier|public
-name|WebsocketStore
-name|getGlobalStore
-parameter_list|()
-block|{
-return|return
-name|globalStore
+operator|(
+name|WebsocketComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -254,7 +182,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// init consumer
 name|WebsocketConsumer
 name|consumer
 init|=
@@ -266,27 +193,15 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-comment|// register servlet
-operator|(
-operator|(
-name|WebsocketComponent
-operator|)
-name|super
-operator|.
 name|getComponent
 argument_list|()
-operator|)
 operator|.
 name|addServlet
 argument_list|(
-name|this
-operator|.
 name|sync
 argument_list|,
 name|consumer
 argument_list|,
-name|this
-operator|.
 name|remaining
 argument_list|)
 expr_stmt|;
@@ -304,27 +219,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// register servlet without consumer
-operator|(
-operator|(
-name|WebsocketComponent
-operator|)
-name|super
-operator|.
 name|getComponent
 argument_list|()
-operator|)
 operator|.
 name|addServlet
 argument_list|(
-name|this
-operator|.
 name|sync
 argument_list|,
 literal|null
 argument_list|,
-name|this
-operator|.
 name|remaining
 argument_list|)
 expr_stmt|;
@@ -334,8 +237,6 @@ name|WebsocketProducer
 argument_list|(
 name|this
 argument_list|,
-name|this
-operator|.
 name|memoryStore
 argument_list|)
 return|;
@@ -352,7 +253,52 @@ return|return
 literal|true
 return|;
 block|}
-comment|// TODO --> implement store factory
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|memoryStore
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|memoryStore
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

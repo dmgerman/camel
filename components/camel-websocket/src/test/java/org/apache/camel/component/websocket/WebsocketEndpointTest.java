@@ -289,10 +289,6 @@ argument_list|,
 name|component
 argument_list|,
 name|REMAINING
-argument_list|,
-operator|new
-name|WebsocketConfiguration
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
