@@ -207,6 +207,8 @@ argument_list|()
 operator|.
 name|resolveThreadName
 argument_list|(
+literal|"timer://"
+operator|+
 name|endpoint
 operator|.
 name|getTimerName
