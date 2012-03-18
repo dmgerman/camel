@@ -136,6 +136,7 @@ name|BeanIODataFormatSimpleTest
 extends|extends
 name|CamelTestSupport
 block|{
+comment|// START SNIPPET: e2
 DECL|field|FIXED_DATA
 specifier|private
 specifier|static
@@ -155,6 +156,7 @@ literal|"Jon,Anderson,Manager,85000,03182007"
 operator|+
 name|LS
 decl_stmt|;
+comment|// END SNIPPET: e2
 annotation|@
 name|Test
 DECL|method|testMarshal ()
@@ -277,6 +279,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e1
+comment|// setup beanio data format using the mapping file, loaded from the classpath
 name|DataFormat
 name|format
 init|=
@@ -288,6 +292,8 @@ argument_list|,
 literal|"employeeFile"
 argument_list|)
 decl_stmt|;
+comment|// a route which uses the bean io data format to format a CSV data
+comment|// to java objects
 name|from
 argument_list|(
 literal|"direct:unmarshal"
@@ -297,13 +303,12 @@ name|unmarshal
 argument_list|(
 name|format
 argument_list|)
+comment|// and then split the message body so we get a message for each row
 operator|.
 name|split
 argument_list|(
-name|simple
-argument_list|(
-literal|"body"
-argument_list|)
+name|body
+argument_list|()
 argument_list|)
 operator|.
 name|to
@@ -311,6 +316,7 @@ argument_list|(
 literal|"mock:beanio-unmarshal"
 argument_list|)
 expr_stmt|;
+comment|// convert list of java objects back to flat format
 name|from
 argument_list|(
 literal|"direct:marshal"
@@ -326,6 +332,7 @@ argument_list|(
 literal|"mock:beanio-marshal"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 block|}
 block|}
 return|;
