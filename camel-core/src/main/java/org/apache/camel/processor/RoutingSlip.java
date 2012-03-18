@@ -1633,14 +1633,6 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
-comment|// add it as a service so we can manage it
-name|camelContext
-operator|.
-name|addService
-argument_list|(
-name|producerCache
-argument_list|)
-expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
@@ -1674,14 +1666,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// remove producer cache from service
-name|camelContext
-operator|.
-name|removeService
-argument_list|(
-name|producerCache
-argument_list|)
-expr_stmt|;
 name|ServiceHelper
 operator|.
 name|stopAndShutdownService

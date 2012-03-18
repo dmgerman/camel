@@ -402,6 +402,20 @@ name|destination
 operator|=
 name|destination
 expr_stmt|;
+comment|// destination changed so purge the cache
+if|if
+condition|(
+name|producerCache
+operator|!=
+literal|null
+condition|)
+block|{
+name|producerCache
+operator|.
+name|purge
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|getTraceLabel ()
 specifier|public
@@ -769,6 +783,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// use a single producer cache as we need to only hold reference for one destination
 name|producerCache
 operator|=
 operator|new
@@ -777,16 +792,11 @@ argument_list|(
 name|this
 argument_list|,
 name|camelContext
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// add it as a service so we can manage it
-name|camelContext
-operator|.
-name|addService
-argument_list|(
-name|producerCache
-argument_list|)
-expr_stmt|;
+comment|// do not add as service as we do not want to manage the producer cache
 block|}
 name|ServiceHelper
 operator|.
@@ -889,14 +899,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// remove producer cache from service
-name|camelContext
-operator|.
-name|removeService
-argument_list|(
-name|producerCache
-argument_list|)
-expr_stmt|;
 name|ServiceHelper
 operator|.
 name|stopAndShutdownService

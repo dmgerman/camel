@@ -201,10 +201,10 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
+literal|"org.apache.camel:context=localhost/camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of producer caches
+comment|// number of services
 name|Set
 argument_list|<
 name|ObjectName
@@ -222,7 +222,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -304,7 +304,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be one more producer cache
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -318,7 +318,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -356,16 +356,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// the producer cache should have been removed
-name|on
-operator|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
-argument_list|)
-expr_stmt|;
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -379,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -445,10 +436,10 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
+literal|"org.apache.camel:context=localhost/camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of producer caches
+comment|// number of services
 name|Set
 argument_list|<
 name|ObjectName
@@ -466,7 +457,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -555,7 +546,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be one more producer cache
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -569,7 +560,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -607,16 +598,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// the producer cache should have been removed
-name|on
-operator|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
-argument_list|)
-expr_stmt|;
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -630,7 +612,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -696,10 +678,10 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
+literal|"org.apache.camel:context=localhost/camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of producer caches
+comment|// number of services
 name|Set
 argument_list|<
 name|ObjectName
@@ -717,7 +699,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -806,7 +788,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be one more producer cache
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -820,7 +802,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -858,16 +840,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// the producer cache should have been removed
-name|on
-operator|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
-argument_list|)
-expr_stmt|;
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -881,7 +854,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -947,10 +920,10 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
+literal|"org.apache.camel:context=localhost/camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of producer caches
+comment|// number of services
 name|Set
 argument_list|<
 name|ObjectName
@@ -968,7 +941,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1128,7 +1101,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be two more producer cache
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -1142,7 +1115,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1187,16 +1160,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// the producer cache should have been removed
-name|on
-operator|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
-argument_list|)
-expr_stmt|;
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -1210,7 +1174,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1276,10 +1240,10 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
+literal|"org.apache.camel:context=localhost/camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of producer caches
+comment|// number of services
 name|Set
 argument_list|<
 name|ObjectName
@@ -1297,7 +1261,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1454,7 +1418,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be two more producer cache
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -1468,7 +1432,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1513,16 +1477,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// only the producer cache from the 2nd route should have been removed (the on exception becomes context scoped)
-name|on
-operator|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
-argument_list|)
-expr_stmt|;
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -1536,7 +1491,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1602,10 +1557,10 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
+literal|"org.apache.camel:context=localhost/camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of producer caches
+comment|// number of services
 name|Set
 argument_list|<
 name|ObjectName
@@ -1623,7 +1578,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1765,7 +1720,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be two more producer cache
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -1779,7 +1734,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1824,16 +1779,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// the producer cache should have been removed
-name|on
-operator|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
-argument_list|)
-expr_stmt|;
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -1847,7 +1793,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -1913,10 +1859,10 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
+literal|"org.apache.camel:context=localhost/camel-1,type=services,*"
 argument_list|)
 decl_stmt|;
-comment|// number of producer caches
+comment|// number of services
 name|Set
 argument_list|<
 name|ObjectName
@@ -1934,7 +1880,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -2073,7 +2019,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be two more producer cache
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -2087,7 +2033,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|7
 argument_list|,
 name|names
 operator|.
@@ -2132,16 +2078,7 @@ argument_list|(
 name|removed
 argument_list|)
 expr_stmt|;
-comment|// only the producer cache from the 2nd route should have been removed (the on completion is context scoped)
-name|on
-operator|=
-name|ObjectName
-operator|.
-name|getInstance
-argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=services,name=ProducerCache*"
-argument_list|)
-expr_stmt|;
+comment|// there should still be the same number of services
 name|names
 operator|=
 name|mbeanServer
@@ -2155,7 +2092,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|7
 argument_list|,
 name|names
 operator|.
