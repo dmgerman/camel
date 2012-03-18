@@ -148,6 +148,12 @@ specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|resourceUri
+specifier|private
+specifier|final
+name|String
+name|resourceUri
+decl_stmt|;
 DECL|field|resourcePath
 specifier|private
 specifier|final
@@ -170,6 +176,12 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+name|this
+operator|.
+name|resourceUri
+operator|=
+name|resourceUri
 expr_stmt|;
 name|this
 operator|.
@@ -206,6 +218,41 @@ name|String
 name|baseURI
 parameter_list|)
 block|{
+comment|// systemId should be mandatory
+if|if
+condition|(
+name|systemId
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Resource: %s refers an invalid resource without SystemId."
+operator|+
+literal|" Invalid resource has type: %s, namespaceURI: %s, publicId: %s, systemId: %s, baseURI: %s"
+argument_list|,
+name|resourceUri
+argument_list|,
+name|type
+argument_list|,
+name|namespaceURI
+argument_list|,
+name|publicId
+argument_list|,
+name|systemId
+argument_list|,
+name|baseURI
+argument_list|)
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|DefaultLSInput
