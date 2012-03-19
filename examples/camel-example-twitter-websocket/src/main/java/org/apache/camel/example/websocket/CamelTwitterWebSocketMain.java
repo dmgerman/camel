@@ -39,6 +39,7 @@ end_comment
 begin_class
 DECL|class|CamelTwitterWebSocketMain
 specifier|public
+specifier|final
 class|class
 name|CamelTwitterWebSocketMain
 block|{
@@ -78,6 +79,13 @@ name|accessTokenSecret
 init|=
 literal|"INSERT HERE"
 decl_stmt|;
+DECL|method|CamelTwitterWebSocketMain ()
+specifier|private
+name|CamelTwitterWebSocketMain
+parameter_list|()
+block|{
+comment|// utility class
+block|}
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
