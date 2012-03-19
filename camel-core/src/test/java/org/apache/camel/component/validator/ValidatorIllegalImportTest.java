@@ -168,7 +168,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"validator:org/apache/camel/component/validator/BroadCastMonitorFixed.xsd"
+literal|"validator:org/apache/camel/component/validator/BroadcastMonitorFixed.xsd"
 argument_list|)
 operator|.
 name|to
@@ -240,7 +240,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"validator:org/apache/camel/component/validator/BroadCastMonitor.xsd"
+literal|"validator:org/apache/camel/component/validator/BroadcastMonitor.xsd"
 argument_list|)
 operator|.
 name|to
@@ -310,7 +310,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Resource: org/apache/camel/component/validator/BroadCastMonitor.xsd refers an invalid resource without SystemId."
+literal|"Resource: org/apache/camel/component/validator/BroadcastMonitor.xsd refers an invalid resource without SystemId."
 argument_list|)
 argument_list|)
 expr_stmt|;
