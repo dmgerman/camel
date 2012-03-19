@@ -468,6 +468,16 @@ operator|.
 name|FALSE
 argument_list|)
 expr_stmt|;
+comment|// set a customer header
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+literal|"key"
+argument_list|,
+literal|"value"
+argument_list|)
+expr_stmt|;
 comment|// set the parameters , if you just have one parameter
 comment|// camel will put this object into an Object[] itself
 name|inMessage
@@ -548,6 +558,38 @@ argument_list|(
 name|Exchange
 operator|.
 name|HTTP_RESPONSE_CODE
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong header value"
+argument_list|,
+literal|"value"
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"key"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -843,6 +885,16 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// set a customer header
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+literal|"key"
+argument_list|,
+literal|"value"
+argument_list|)
+expr_stmt|;
 comment|// since we use the Get method, so we don't need to set the message body
 name|inMessage
 operator|.
@@ -922,6 +974,23 @@ argument_list|(
 name|Exchange
 operator|.
 name|HTTP_RESPONSE_CODE
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong header value"
+argument_list|,
+literal|"value"
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"key"
 argument_list|)
 argument_list|)
 expr_stmt|;
