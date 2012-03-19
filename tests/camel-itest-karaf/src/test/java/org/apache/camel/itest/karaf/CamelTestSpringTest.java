@@ -24,16 +24,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -104,15 +94,10 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"People need to edit etc/jre.properties in Karaf/SMX to export: sun.net.spi.nameservice"
-argument_list|)
-DECL|class|CamelDnsTest
+DECL|class|CamelTestSpringTest
 specifier|public
 class|class
-name|CamelDnsTest
+name|CamelTestSpringTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -123,12 +108,7 @@ specifier|final
 name|String
 name|COMPONENT
 init|=
-name|extractName
-argument_list|(
-name|CamelDnsTest
-operator|.
-name|class
-argument_list|)
+literal|"test-spring"
 decl_stmt|;
 annotation|@
 name|Test
@@ -140,11 +120,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|testComponent
-argument_list|(
-name|COMPONENT
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 annotation|@
 name|Configuration
