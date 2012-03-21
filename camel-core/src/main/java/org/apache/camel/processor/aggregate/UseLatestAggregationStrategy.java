@@ -184,6 +184,24 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|newExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_ENDPOINT
+argument_list|,
+name|oldExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FAILURE_ENDPOINT
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|propagateFailure (Exchange oldExchange, Exchange newExchange)
