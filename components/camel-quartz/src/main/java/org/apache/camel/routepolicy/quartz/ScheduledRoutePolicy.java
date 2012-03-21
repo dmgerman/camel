@@ -357,6 +357,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Route is not in a started/suspended state and cannot be stopped. The current route state is {}"
+argument_list|,
+name|routeStatus
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
