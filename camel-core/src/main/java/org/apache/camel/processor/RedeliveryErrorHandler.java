@@ -3178,6 +3178,25 @@ operator|.
 name|REDELIVERY_MAX_COUNTER
 argument_list|)
 expr_stmt|;
+comment|// and remove traces of rollback only and uow exhausted markers
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ROLLBACK_ONLY
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|UNIT_OF_WORK_EXHAUSTED
+argument_list|)
+expr_stmt|;
 name|handled
 operator|=
 literal|true
