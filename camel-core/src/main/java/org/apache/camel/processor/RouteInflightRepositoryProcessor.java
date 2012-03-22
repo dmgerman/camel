@@ -110,11 +110,6 @@ specifier|final
 name|InflightRepository
 name|inflightRepository
 decl_stmt|;
-DECL|field|route
-specifier|private
-name|Route
-name|route
-decl_stmt|;
 DECL|field|id
 specifier|private
 name|String
@@ -152,12 +147,6 @@ name|Route
 name|route
 parameter_list|)
 block|{
-name|this
-operator|.
-name|route
-operator|=
-name|route
-expr_stmt|;
 name|this
 operator|.
 name|id
