@@ -88,16 +88,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
 begin_class
 DECL|class|AvroNettyProducerTest
 specifier|public
@@ -116,10 +106,8 @@ argument_list|(
 literal|"avroport"
 argument_list|)
 decl_stmt|;
-annotation|@
-name|After
 DECL|method|createRouteBuilder ()
-specifier|protected
+specifier|public
 name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()

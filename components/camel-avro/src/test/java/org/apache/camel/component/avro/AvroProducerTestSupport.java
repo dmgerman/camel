@@ -162,26 +162,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -217,9 +197,9 @@ throws|throws
 name|IOException
 function_decl|;
 annotation|@
-name|Before
+name|Override
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -236,9 +216,9 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|After
+name|Override
 DECL|method|tearDown ()
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
