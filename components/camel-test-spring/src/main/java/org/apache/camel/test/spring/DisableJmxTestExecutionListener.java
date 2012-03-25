@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.management
+DECL|package|org.apache.camel.test.spring
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|management
+name|spring
 package|;
 end_package
 
@@ -26,7 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|management
+operator|.
+name|JmxSystemPropertyKeys
 import|;
 end_import
 
@@ -34,62 +36,94 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|test
 operator|.
-name|management
+name|context
 operator|.
-name|ManagedRouteRemoveRouteScopedErrorHandlerTest
+name|TestContext
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|test
 operator|.
-name|spring
+name|context
 operator|.
-name|processor
+name|support
 operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
+name|AbstractTestExecutionListener
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Provides reset to pre-test state behavior for global enable/disable of JMX  * support in Camel through the use of {@link DisableJmx}.  Tries to ensure that   * the pre-test value is restored.  */
 end_comment
 
 begin_class
-DECL|class|SpringManagedRouteRemoveRouteScopedErrorHandlerTest
+DECL|class|DisableJmxTestExecutionListener
 specifier|public
 class|class
-name|SpringManagedRouteRemoveRouteScopedErrorHandlerTest
+name|DisableJmxTestExecutionListener
 extends|extends
-name|ManagedRouteRemoveRouteScopedErrorHandlerTest
+name|AbstractTestExecutionListener
 block|{
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
+annotation|@
+name|Override
+DECL|method|afterTestClass (TestContext testContext)
+specifier|public
+name|void
+name|afterTestClass
+parameter_list|(
+name|TestContext
+name|testContext
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
-name|createSpringCamelContext
+if|if
+condition|(
+name|CamelSpringTestHelper
+operator|.
+name|getOriginalJmxDisabled
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|System
+operator|.
+name|clearProperty
 argument_list|(
-name|this
-argument_list|,
-literal|"org/apache/camel/spring/management/SpringManagedRouteRemoveRouteScopedErrorHandlerTest.xml"
+name|JmxSystemPropertyKeys
+operator|.
+name|DISABLED
 argument_list|)
-return|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|DISABLED
+argument_list|,
+name|CamelSpringTestHelper
+operator|.
+name|getOriginalJmxDisabled
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

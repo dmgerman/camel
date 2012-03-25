@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.management
+DECL|package|org.apache.camel.test.junit4
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|management
+name|junit4
 package|;
 end_package
 
@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|EndpointInject
 import|;
 end_import
 
@@ -38,58 +38,98 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
+name|component
 operator|.
-name|ManagedRouteRemoveRouteScopedErrorHandlerTest
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
 name|spring
 operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
+name|MockEndpoints
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
 
 begin_class
-DECL|class|SpringManagedRouteRemoveRouteScopedErrorHandlerTest
+annotation|@
+name|MockEndpoints
+argument_list|(
+literal|"log:*"
+argument_list|)
+DECL|class|CamelSpringJUnit4ClassRunnerMockEndpointsTest
 specifier|public
 class|class
-name|SpringManagedRouteRemoveRouteScopedErrorHandlerTest
+name|CamelSpringJUnit4ClassRunnerMockEndpointsTest
 extends|extends
-name|ManagedRouteRemoveRouteScopedErrorHandlerTest
+name|CamelSpringJUnit4ClassRunnerPlainTest
 block|{
-DECL|method|createCamelContext ()
+annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:log:org.apache.camel.test.junit4.spring"
+argument_list|,
+name|context
+operator|=
+literal|"camelContext2"
+argument_list|)
+DECL|field|mockLog
 specifier|protected
-name|CamelContext
-name|createCamelContext
+name|MockEndpoint
+name|mockLog
+decl_stmt|;
+annotation|@
+name|Test
+annotation|@
+name|Override
+DECL|method|testPositive ()
+specifier|public
+name|void
+name|testPositive
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
-name|createSpringCamelContext
+name|mockLog
+operator|.
+name|expectedBodiesReceived
 argument_list|(
-name|this
-argument_list|,
-literal|"org/apache/camel/spring/management/SpringManagedRouteRemoveRouteScopedErrorHandlerTest.xml"
+literal|"Hello David"
 argument_list|)
-return|;
+expr_stmt|;
+name|super
+operator|.
+name|testPositive
+argument_list|()
+expr_stmt|;
+name|mockLog
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

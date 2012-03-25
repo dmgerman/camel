@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.management
+DECL|package|org.apache.camel.test.junit4
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|test
 operator|.
-name|management
+name|junit4
 package|;
 end_package
 
@@ -26,21 +26,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|test
 operator|.
-name|apache
+name|spring
 operator|.
-name|camel
-operator|.
-name|management
-operator|.
-name|ManagedRouteRemoveRouteScopedErrorHandlerTest
+name|ExcludeRoutes
 import|;
 end_import
 
@@ -48,48 +38,47 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
+name|Assert
 operator|.
-name|spring
-operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
+name|assertNull
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|SpringManagedRouteRemoveRouteScopedErrorHandlerTest
+annotation|@
+name|ExcludeRoutes
+argument_list|(
+name|TestRouteBuilder
+operator|.
+name|class
+argument_list|)
+DECL|class|CamelSpringJUnit4ClassRunnerExcludeRoutesTest
 specifier|public
 class|class
-name|SpringManagedRouteRemoveRouteScopedErrorHandlerTest
+name|CamelSpringJUnit4ClassRunnerExcludeRoutesTest
 extends|extends
-name|ManagedRouteRemoveRouteScopedErrorHandlerTest
+name|CamelSpringJUnit4ClassRunnerPlainTest
 block|{
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
+annotation|@
+name|Override
+DECL|method|testExcludedRoute ()
+specifier|public
+name|void
+name|testExcludedRoute
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-return|return
-name|createSpringCamelContext
+name|assertNull
 argument_list|(
-name|this
-argument_list|,
-literal|"org/apache/camel/spring/management/SpringManagedRouteRemoveRouteScopedErrorHandlerTest.xml"
+name|camelContext
+operator|.
+name|getRoute
+argument_list|(
+literal|"excludedRoute"
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
