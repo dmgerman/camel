@@ -498,6 +498,20 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
+comment|// copy the in message header to out message
+name|camelHeaders
+operator|.
+name|putAll
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
