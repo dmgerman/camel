@@ -1326,6 +1326,26 @@ name|Exchange
 name|camelExchange
 parameter_list|)
 block|{
+comment|// copy the camel in message header to the out message
+name|camelExchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|CxfHeaderHelper
 operator|.
 name|propagateCxfToCamel
