@@ -47,13 +47,15 @@ comment|// Twitter now requires the use of OAuth for all client application auth
 comment|// In order to use camel-twitter with your account, you'll need to create a new application
 comment|// within Twitter at https://dev.twitter.com/apps/new and grant the application access to your account.
 comment|// Finally, generate your access token and secret.
+comment|// This uses the Twitter 'cameltweet' account for testing purposes.
+comment|// do NOT use this twitter account in your applications!
 DECL|field|consumerKey
 specifier|private
 specifier|static
 name|String
 name|consumerKey
 init|=
-literal|"INSERT HERE"
+literal|"NMqaca1bzXsOcZhP2XlwA"
 decl_stmt|;
 DECL|field|consumerSecret
 specifier|private
@@ -61,7 +63,7 @@ specifier|static
 name|String
 name|consumerSecret
 init|=
-literal|"INSERT HERE"
+literal|"VxNQiRLwwKVD0K9mmfxlTTbVdgRpriORypnUbHhxeQw"
 decl_stmt|;
 DECL|field|accessToken
 specifier|private
@@ -69,7 +71,7 @@ specifier|static
 name|String
 name|accessToken
 init|=
-literal|"INSERT HERE"
+literal|"26693234-W0YjxL9cMJrC0VZZ4xdgFMymxIQ10LeL1K8YlbBY"
 decl_stmt|;
 DECL|field|accessTokenSecret
 specifier|private
@@ -77,14 +79,14 @@ specifier|static
 name|String
 name|accessTokenSecret
 init|=
-literal|"INSERT HERE"
+literal|"BZD51BgzbOdFstWZYsqB5p5dbuuDV12vrOdatzhY4E"
 decl_stmt|;
 DECL|method|CamelTwitterWebSocketMain ()
 specifier|private
 name|CamelTwitterWebSocketMain
 parameter_list|()
 block|{
-comment|// utility class
+comment|// to pass checkstyle we have a private constructor
 block|}
 DECL|method|main (String[] args)
 specifier|public
@@ -98,80 +100,6 @@ name|args
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-if|if
-condition|(
-name|consumerKey
-operator|.
-name|equals
-argument_list|(
-literal|"INSERT HERE"
-argument_list|)
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n\n\n\n"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"============================================================================"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Error you need to configure twitter application authentication before using."
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"See more details in this source code."
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"============================================================================"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"\n\n\n\n"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|exit
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|System
 operator|.
@@ -227,7 +155,6 @@ argument_list|(
 literal|"\n\n\n\n"
 argument_list|)
 expr_stmt|;
-block|}
 comment|// create a new Camel Main so we can easily start Camel
 name|Main
 name|main
@@ -291,6 +218,14 @@ operator|.
 name|setDelay
 argument_list|(
 literal|2
+argument_list|)
+expr_stmt|;
+comment|// web socket on port 9090
+name|route
+operator|.
+name|setPort
+argument_list|(
+literal|9090
 argument_list|)
 expr_stmt|;
 comment|// add our routes to Camel
