@@ -347,7 +347,9 @@ parameter_list|(
 name|StatusDeletionNotice
 name|statusDeletionNotice
 parameter_list|)
-block|{     }
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|onTrackLimitationNotice (int numberOfLimitedStatuses)
@@ -358,7 +360,9 @@ parameter_list|(
 name|int
 name|numberOfLimitedStatuses
 parameter_list|)
-block|{     }
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|onScrubGeo (long userId, long upToStatusId)
@@ -372,7 +376,9 @@ parameter_list|,
 name|long
 name|upToStatusId
 parameter_list|)
-block|{     }
+block|{
+comment|// noop
+block|}
 DECL|method|registerTweetListener (TweeterStatusListener tweeterStatusListener)
 specifier|public
 name|void
@@ -387,6 +393,22 @@ operator|.
 name|tweeterStatusListener
 operator|=
 name|tweeterStatusListener
+expr_stmt|;
+block|}
+DECL|method|unregisterTweetListener (TweeterStatusListener tweeterStatusListener)
+specifier|public
+name|void
+name|unregisterTweetListener
+parameter_list|(
+name|TweeterStatusListener
+name|tweeterStatusListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tweeterStatusListener
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}

@@ -874,13 +874,6 @@ default|default:
 break|break;
 block|}
 block|}
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"A producer type was not provided (or an incorrect pairing was used). Defaulting to a MOCK!"
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -889,7 +882,7 @@ literal|"Cannot create any producer with uri "
 operator|+
 name|uri
 operator|+
-literal|"A producer type was not provided (or an incorrect pairing was used)."
+literal|". A producer type was not provided (or an incorrect pairing was used)."
 argument_list|)
 throw|;
 block|}

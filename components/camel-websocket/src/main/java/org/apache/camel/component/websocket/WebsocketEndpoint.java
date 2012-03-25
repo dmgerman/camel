@@ -105,6 +105,11 @@ specifier|private
 name|WebsocketStore
 name|memoryStore
 decl_stmt|;
+DECL|field|sendToAll
+specifier|private
+name|Boolean
+name|sendToAll
+decl_stmt|;
 DECL|method|WebsocketEndpoint (String uri, WebsocketComponent component, String remaining)
 specifier|public
 name|WebsocketEndpoint
@@ -252,6 +257,32 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+DECL|method|getSendToAll ()
+specifier|public
+name|Boolean
+name|getSendToAll
+parameter_list|()
+block|{
+return|return
+name|sendToAll
+return|;
+block|}
+DECL|method|setSendToAll (Boolean sendToAll)
+specifier|public
+name|void
+name|setSendToAll
+parameter_list|(
+name|Boolean
+name|sendToAll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendToAll
+operator|=
+name|sendToAll
+expr_stmt|;
 block|}
 annotation|@
 name|Override

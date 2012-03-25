@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -114,11 +102,17 @@ specifier|final
 name|WebsocketStore
 name|store
 decl_stmt|;
-DECL|method|WebsocketProducer (Endpoint endpoint, WebsocketStore store)
+DECL|field|sendToAll
+specifier|private
+specifier|final
+name|Boolean
+name|sendToAll
+decl_stmt|;
+DECL|method|WebsocketProducer (WebsocketEndpoint endpoint, WebsocketStore store)
 specifier|public
 name|WebsocketProducer
 parameter_list|(
-name|Endpoint
+name|WebsocketEndpoint
 name|endpoint
 parameter_list|,
 name|WebsocketStore
@@ -135,6 +129,26 @@ operator|.
 name|store
 operator|=
 name|store
+expr_stmt|;
+name|this
+operator|.
+name|sendToAll
+operator|=
+name|endpoint
+operator|.
+name|getSendToAll
+argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Configured with "
+operator|+
+name|sendToAll
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -224,6 +238,17 @@ argument_list|(
 name|connectionKey
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Sending to connection key {} -> {}"
+argument_list|,
+name|connectionKey
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 name|sendMessage
 argument_list|(
 name|websocket
@@ -252,8 +277,8 @@ name|Message
 name|in
 parameter_list|)
 block|{
-comment|// header may be null; have to be careful here
-name|Object
+comment|// header may be null; have to be careful here (and fallback to use sendToAll option configured from endpoint)
+name|Boolean
 name|value
 init|=
 name|in
@@ -263,6 +288,12 @@ argument_list|(
 name|WebsocketConstants
 operator|.
 name|SEND_TO_ALL
+argument_list|,
+name|sendToAll
+argument_list|,
+name|Boolean
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 return|return
@@ -272,9 +303,6 @@ literal|null
 condition|?
 literal|false
 else|:
-operator|(
-name|Boolean
-operator|)
 name|value
 return|;
 block|}
@@ -294,6 +322,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Sending to all {}"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 name|Collection
 argument_list|<
 name|DefaultWebsocket
@@ -397,6 +434,20 @@ name|isOpen
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Sending to websocket {} -> {}"
+argument_list|,
+name|websocket
+operator|.
+name|getConnectionKey
+argument_list|()
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 name|websocket
 operator|.
 name|getConnection

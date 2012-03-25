@@ -64,22 +64,6 @@ name|WebsocketComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|websocket
-operator|.
-name|WebsocketConstants
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Camel route that updates from twitter all tweets using having the search term.  * And post the changes to web-socket, that can be viewed from a web page  */
 end_comment
@@ -397,7 +381,7 @@ argument_list|(
 name|consumerSecret
 argument_list|)
 expr_stmt|;
-comment|// poll twitter search for new tweets, and push tweets to all web socket subscribers on camel-tweet
+comment|// poll twitter search for new tweets
 name|fromF
 argument_list|(
 literal|"twitter://search?type=polling&delay=%s&keywords=%s"
@@ -406,22 +390,11 @@ name|delay
 argument_list|,
 name|searchTerm
 argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|WebsocketConstants
-operator|.
-name|SEND_TO_ALL
-argument_list|)
-operator|.
-name|constant
-argument_list|(
-literal|true
-argument_list|)
+comment|// and push tweets to all web socket subscribers on camel-tweet
 operator|.
 name|to
 argument_list|(
-literal|"websocket:camel-tweet"
+literal|"websocket:camel-tweet?sendToAll=true"
 argument_list|)
 expr_stmt|;
 block|}
