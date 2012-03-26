@@ -703,6 +703,18 @@ specifier|volatile
 name|Processor
 name|reporter
 decl_stmt|;
+DECL|field|retainFirst
+specifier|private
+specifier|volatile
+name|int
+name|retainFirst
+decl_stmt|;
+DECL|field|retainLast
+specifier|private
+specifier|volatile
+name|int
+name|retainLast
+decl_stmt|;
 DECL|method|MockEndpoint (String endpointUri, Component component)
 specifier|public
 name|MockEndpoint
@@ -1964,7 +1976,7 @@ name|expectedCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets a grace period after which the mock endpoint will re-assert      * to ensure the preliminary assertion is still valid.      *<p/>      * By default this period is disabled      *      * @param period grace period in millis      */
+comment|/**      * Sets a grace period after which the mock endpoint will re-assert      * to ensure the preliminary assertion is still valid.      *<p/>      * This is used for example to assert that<b>exactly</b> a number of messages       * arrives. For example if {@link #expectedMessageCount(int)} was set to 5, then      * the assertion is satisfied when 5 or more message arrives. To ensure that      * exactly 5 messages arrives, then you would need to wait a little period      * to ensure no further message arrives. This is what you can use this      * {@link #setAssertPeriod(long)} method for.      *<p/>      * By default this period is disabled.      *      * @param period grace period in millis      */
 DECL|method|setAssertPeriod (long period)
 specifier|public
 name|void
@@ -4185,10 +4197,7 @@ name|getReceivedCounter
 parameter_list|()
 block|{
 return|return
-name|receivedExchanges
-operator|.
-name|size
-argument_list|()
+name|counter
 return|;
 block|}
 DECL|method|getReceivedExchanges ()
@@ -4285,7 +4294,7 @@ operator|=
 name|resultMinimumWaitTime
 expr_stmt|;
 block|}
-comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
+comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint.      *<p/>      * If you want to assert that<b>exactly</b> n'th message arrives to this mock      * endpoint, then see also the {@link #setAssertPeriod(long)} method for further details.      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      * @see #setAssertPeriod(long)                            */
 DECL|method|setExpectedMessageCount (int expectedCount)
 specifier|public
 name|void
@@ -4390,6 +4399,40 @@ operator|.
 name|reporter
 operator|=
 name|reporter
+expr_stmt|;
+block|}
+comment|/**      * Specifies to only retain the first n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the first      * 10 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the first 10 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expecation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *       * @param retainFirst  to limit and only keep the first n'th received {@link Exchange}s      * @see #setRetainLast(int)      */
+DECL|method|setRetainFirst (int retainFirst)
+specifier|public
+name|void
+name|setRetainFirst
+parameter_list|(
+name|int
+name|retainFirst
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retainFirst
+operator|=
+name|retainFirst
+expr_stmt|;
+block|}
+comment|/**      * Specifies to only retain the last n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the last      * 20 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the last 20 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expecation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *      * @param retainLast  to limit and only keep the last n'th received {@link Exchange}s      * @see #setRetainFirst(int)      */
+DECL|method|setRetainLast (int retainLast)
+specifier|public
+name|void
+name|setRetainLast
+parameter_list|(
+name|int
+name|retainLast
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retainLast
+operator|=
+name|retainLast
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -4504,6 +4547,14 @@ expr_stmt|;
 name|actualPropertyValues
 operator|=
 literal|null
+expr_stmt|;
+name|retainFirst
+operator|=
+literal|0
+expr_stmt|;
+name|retainLast
+operator|=
+literal|0
 expr_stmt|;
 block|}
 DECL|method|onExchange (Exchange exchange)
@@ -4851,9 +4902,7 @@ name|Date
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|receivedExchanges
-operator|.
-name|add
+name|addReceivedExchange
 argument_list|(
 name|copy
 argument_list|)
@@ -4912,6 +4961,117 @@ operator|.
 name|setException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Adds the received exchange.      *       * @param copy  a copy of the received exchange      */
+DECL|method|addReceivedExchange (Exchange copy)
+specifier|protected
+name|void
+name|addReceivedExchange
+parameter_list|(
+name|Exchange
+name|copy
+parameter_list|)
+block|{
+if|if
+condition|(
+name|retainFirst
+operator|<=
+literal|0
+operator|&&
+name|retainLast
+operator|<=
+literal|0
+condition|)
+block|{
+comment|// no limitation so keep them all
+name|receivedExchanges
+operator|.
+name|add
+argument_list|(
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|retainFirst
+operator|>
+literal|0
+operator|&&
+name|counter
+operator|<=
+name|retainFirst
+condition|)
+block|{
+comment|// store a copy as its within the retain first limitation
+name|receivedExchanges
+operator|.
+name|add
+argument_list|(
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|retainLast
+operator|>
+literal|0
+condition|)
+block|{
+comment|// remove the oldest from the last retained boundary,
+name|int
+name|index
+init|=
+name|receivedExchanges
+operator|.
+name|size
+argument_list|()
+operator|-
+name|retainLast
+decl_stmt|;
+if|if
+condition|(
+name|index
+operator|>=
+literal|0
+condition|)
+block|{
+comment|// but must be outside the first range as well
+comment|// otherwise we should not remove the oldest
+if|if
+condition|(
+name|retainFirst
+operator|<=
+literal|0
+operator|||
+name|retainFirst
+operator|<=
+name|index
+condition|)
+block|{
+name|receivedExchanges
+operator|.
+name|remove
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// store a copy of the last n'th received
+name|receivedExchanges
+operator|.
+name|add
+argument_list|(
+name|copy
 argument_list|)
 expr_stmt|;
 block|}
