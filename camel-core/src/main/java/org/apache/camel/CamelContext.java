@@ -759,7 +759,7 @@ parameter_list|)
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
-comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      */
+comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getRouteDefinitions()}      */
 annotation|@
 name|Deprecated
 DECL|method|getRouteDefinitions ()
@@ -770,7 +770,7 @@ argument_list|>
 name|getRouteDefinitions
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the route definition with the given id      *      * @param id id of the route      * @return the route definition or<tt>null</tt> if not found      */
+comment|/**      * Gets the route definition with the given id      *      * @param id id of the route      * @return the route definition or<tt>null</tt> if not found      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getRouteDefinition(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|getRouteDefinition (String id)
@@ -810,7 +810,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be loaded for whatever reason      * @return the route definitions      */
+comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be loaded for whatever reason      * @return the route definitions      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#loadRoutesDefinition(java.io.InputStream)}      */
 annotation|@
 name|Deprecated
 DECL|method|loadRoutesDefinition (InputStream is)
@@ -823,7 +823,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
+comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#addRouteDefinitions(java.util.Collection)}      */
 annotation|@
 name|Deprecated
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
@@ -839,7 +839,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Add a route definition to the context      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      */
+comment|/**      * Add a route definition to the context      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#addRouteDefinition(org.apache.camel.model.RouteDefinition)}      */
 annotation|@
 name|Deprecated
 DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
@@ -852,7 +852,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route(s) definitions to remove      * @throws Exception if the route definitions could not be removed for whatever reason      */
+comment|/**      * Removes a collection of route definitions from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinitions route(s) definitions to remove      * @throws Exception if the route definitions could not be removed for whatever reason      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#removeRouteDefinitions(java.util.Collection)}      */
 annotation|@
 name|Deprecated
 DECL|method|removeRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
@@ -868,7 +868,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes a route definition from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinition route definition to remove      * @throws Exception if the route definition could not be removed for whatever reason      */
+comment|/**      * Removes a route definition from the context - stopping any previously running      * routes if any of them are actively running      *      * @param routeDefinition route definition to remove      * @throws Exception if the route definition could not be removed for whatever reason      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#removeRouteDefinition(org.apache.camel.model.RouteDefinition)}      */
 annotation|@
 name|Deprecated
 DECL|method|removeRouteDefinition (RouteDefinition routeDefinition)
@@ -881,7 +881,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      */
+comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#startRoute(org.apache.camel.model.RouteDefinition)}      */
 annotation|@
 name|Deprecated
 DECL|method|startRoute (RouteDefinition route)
@@ -905,7 +905,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Stops the given route.      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
+comment|/**      * Stops the given route.      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#stopRoute(org.apache.camel.model.RouteDefinition)}      */
 annotation|@
 name|Deprecated
 DECL|method|stopRoute (RouteDefinition route)
@@ -1202,7 +1202,7 @@ argument_list|>
 name|getInterceptStrategies
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the default error handler builder which is inherited by the routes      * @deprecated The return type will be switched to ErrorHandlerFactory in Camel 3.0      *      * @return the builder      */
+comment|/**      * Gets the default error handler builder which is inherited by the routes      * @deprecated The return type will be switched to {@link ErrorHandlerFactory} in Camel 3.0      *      * @return the builder      */
 annotation|@
 name|Deprecated
 DECL|method|getErrorHandlerBuilder ()
@@ -1219,7 +1219,7 @@ name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the data formats that can be referenced in the routes.      *      * @param dataFormats the data formats      */
+comment|/**      * Sets the data formats that can be referenced in the routes.      *      * @param dataFormats the data formats      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#setDataFormats(java.util.Map)}      */
 annotation|@
 name|Deprecated
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
@@ -1235,7 +1235,7 @@ argument_list|>
 name|dataFormats
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the data formats that can be referenced in the routes.      *      * @return the data formats available      */
+comment|/**      * Gets the data formats that can be referenced in the routes.      *      * @return the data formats available      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getDataFormats()}      */
 annotation|@
 name|Deprecated
 DECL|method|getDataFormats ()
@@ -1257,7 +1257,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Resolve a data format definition given its name      *      * @param name the data format definition name or a reference to it in the {@link Registry}      * @return the resolved data format definition, or<tt>null</tt> if not found      */
+comment|/**      * Resolve a data format definition given its name      *      * @param name the data format definition name or a reference to it in the {@link Registry}      * @return the resolved data format definition, or<tt>null</tt> if not found      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#resolveDataFormatDefinition(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|resolveDataFormatDefinition (String name)

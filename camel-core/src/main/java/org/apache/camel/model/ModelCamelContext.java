@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Model level interface for a camel context  *  */
+comment|/**  * Model level interface for the {@link CamelContext}  */
 end_comment
 
 begin_interface
@@ -98,7 +98,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @throws Exception if the route definitions could not be loaded for whatever reason      * @return the route definitions      */
+comment|/**      * Loads a collection of route definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the route(s) definition to add      * @return the route definitions      * @throws Exception if the route definitions could not be loaded for whatever reason      */
 DECL|method|loadRoutesDefinition (InputStream is)
 name|RoutesDefinition
 name|loadRoutesDefinition
@@ -159,7 +159,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      */
+comment|/**      * Starts the given route if it has been previously stopped      *      * @param route the route to start      * @throws Exception is thrown if the route could not be started for whatever reason      * @deprecated favor using {@link CamelContext#startRoute(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|startRoute (RouteDefinition route)
 name|void
 name|startRoute
@@ -170,7 +172,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Stops the given route.      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      */
+comment|/**      * Stops the given route.      *      * @param route the route to stop      * @throws Exception is thrown if the route could not be stopped for whatever reason      * @deprecated favor using {@link CamelContext#stopRoute(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|stopRoute (RouteDefinition route)
 name|void
 name|stopRoute
@@ -205,6 +209,15 @@ name|DataFormatDefinition
 argument_list|>
 name|getDataFormats
 parameter_list|()
+function_decl|;
+comment|/**      * Resolve a data format definition given its name      *      * @param name the data format definition name or a reference to it in the {@link org.apache.camel.spi.Registry}      * @return the resolved data format definition, or<tt>null</tt> if not found      */
+DECL|method|resolveDataFormatDefinition (String name)
+name|DataFormatDefinition
+name|resolveDataFormatDefinition
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 function_decl|;
 block|}
 end_interface
