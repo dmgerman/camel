@@ -260,11 +260,6 @@ name|initialDelay
 init|=
 literal|1000
 decl_stmt|;
-DECL|field|reporter
-specifier|private
-name|Processor
-name|reporter
-decl_stmt|;
 annotation|@
 name|Deprecated
 DECL|method|DataSetEndpoint ()
@@ -284,6 +279,11 @@ name|DataSetEndpoint
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+comment|// optimize as we dont need to copy the exchange
+name|copyOnExchange
+operator|=
+literal|false
 expr_stmt|;
 block|}
 DECL|method|DataSetEndpoint (String endpointUri, Component component, DataSet dataSet)
@@ -323,6 +323,11 @@ name|getLogger
 argument_list|(
 name|endpointUri
 argument_list|)
+expr_stmt|;
+comment|// optimize as we dont need to copy the exchange
+name|copyOnExchange
+operator|=
+literal|false
 expr_stmt|;
 block|}
 DECL|method|assertEquals (String description, Object expected, Object actual, Exchange exchange)
@@ -693,23 +698,6 @@ operator|=
 name|produceDelay
 expr_stmt|;
 block|}
-comment|/**      * Sets a custom progress reporter      */
-DECL|method|setReporter (Processor reporter)
-specifier|public
-name|void
-name|setReporter
-parameter_list|(
-name|Processor
-name|reporter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|reporter
-operator|=
-name|reporter
-expr_stmt|;
-block|}
 DECL|method|getInitialDelay ()
 specifier|public
 name|long
@@ -828,21 +816,6 @@ argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|reporter
-operator|!=
-literal|null
-condition|)
-block|{
-name|reporter
-operator|.
-name|process
-argument_list|(
-name|copy
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|consumeDelay

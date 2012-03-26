@@ -543,6 +543,19 @@ argument_list|)
 decl_stmt|;
 comment|// must be volatile so changes is visible between the thread which performs the assertions
 comment|// and the threads which process the exchanges when routing messages in Camel
+DECL|field|reporter
+specifier|protected
+specifier|volatile
+name|Processor
+name|reporter
+decl_stmt|;
+DECL|field|copyOnExchange
+specifier|protected
+name|boolean
+name|copyOnExchange
+init|=
+literal|true
+decl_stmt|;
 DECL|field|expectedCount
 specifier|private
 specifier|volatile
@@ -696,12 +709,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|actualPropertyValues
-decl_stmt|;
-DECL|field|reporter
-specifier|private
-specifier|volatile
-name|Processor
-name|reporter
 decl_stmt|;
 DECL|field|retainFirst
 specifier|private
@@ -4401,7 +4408,7 @@ operator|=
 name|reporter
 expr_stmt|;
 block|}
-comment|/**      * Specifies to only retain the first n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the first      * 10 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the first 10 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expecation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *       * @param retainFirst  to limit and only keep the first n'th received {@link Exchange}s      * @see #setRetainLast(int)      */
+comment|/**      * Specifies to only retain the first n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the first      * 10 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the first 10 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expecation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *       * @param retainFirst  to limit and only keep the first n'th received {@link Exchange}s, use      *<tt>0</tt> to not retain any messages, or<tt>-1</tt> to retain all.      * @see #setRetainLast(int)      */
 DECL|method|setRetainFirst (int retainFirst)
 specifier|public
 name|void
@@ -4418,7 +4425,7 @@ operator|=
 name|retainFirst
 expr_stmt|;
 block|}
-comment|/**      * Specifies to only retain the last n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the last      * 20 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the last 20 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expecation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *      * @param retainLast  to limit and only keep the last n'th received {@link Exchange}s      * @see #setRetainFirst(int)      */
+comment|/**      * Specifies to only retain the last n'th number of received {@link Exchange}s.      *<p/>      * This is used when testing with big data, to reduce memory consumption by not storing      * copies of every {@link Exchange} this mock endpoint receives.      *<p/>      *<b>Important:</b> When using this limitation, then the {@link #getReceivedCounter()}      * will still return the actual number of received {@link Exchange}s. For example      * if we have received 5000 {@link Exchange}s, and have configured to only retain the last      * 20 {@link Exchange}s, then the {@link #getReceivedCounter()} will still return<tt>5000</tt>      * but there is only the last 20 {@link Exchange}s in the {@link #getExchanges()} and      * {@link #getReceivedExchanges()} methods.      *<p/>      * When using this method, then some of the other expecation methods is not supported,      * for example the {@link #expectedBodiesReceived(Object...)} sets a expectation on the first      * number of bodies received.      *<p/>      * You can configure both {@link #setRetainFirst(int)} and {@link #setRetainLast(int)} methods,      * to limit both the first and last received.      *      * @param retainLast  to limit and only keep the last n'th received {@link Exchange}s, use      *<tt>0</tt> to not retain any messages, or<tt>-1</tt> to retain all.      * @see #setRetainFirst(int)      */
 DECL|method|setRetainLast (int retainLast)
 specifier|public
 name|void
@@ -4550,11 +4557,13 @@ literal|null
 expr_stmt|;
 name|retainFirst
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 name|retainLast
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 block|}
 DECL|method|onExchange (Exchange exchange)
@@ -4584,10 +4593,19 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// copy the exchange so the mock stores the copy and not the actual exchange
 name|Exchange
 name|copy
 init|=
+name|exchange
+decl_stmt|;
+if|if
+condition|(
+name|copyOnExchange
+condition|)
+block|{
+comment|// copy the exchange so the mock stores the copy and not the actual exchange
+name|copy
+operator|=
 name|ExchangeHelper
 operator|.
 name|createCopy
@@ -4596,7 +4614,8 @@ name|exchange
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|performAssertions
 argument_list|(
 name|exchange
@@ -4979,11 +4998,25 @@ block|{
 if|if
 condition|(
 name|retainFirst
-operator|<=
+operator|==
 literal|0
 operator|&&
 name|retainLast
-operator|<=
+operator|==
+literal|0
+condition|)
+block|{
+comment|// do not retain any messages at all
+block|}
+elseif|else
+if|if
+condition|(
+name|retainFirst
+operator|<
+literal|0
+operator|&&
+name|retainLast
+operator|<
 literal|0
 condition|)
 block|{
@@ -4998,6 +5031,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// okay there is some sort of limitations, so figure out what to retain
 if|if
 condition|(
 name|retainFirst
