@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CdiBeanRegistry used by Camel to perform lookup into the  * Cdi BeanManager. The BeanManager must be passed as argument  * to the CdiRegistry constructor.  */
+comment|/**  * CdiBeanRegistry used by Camel to perform lookup into the CDI {@link javax.enterprise.inject.spi.BeanManager}.  */
 end_comment
 
 begin_class
@@ -106,21 +106,22 @@ name|CdiBeanRegistry
 implements|implements
 name|Registry
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
 specifier|final
+specifier|static
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|getClass
-argument_list|()
+name|CdiBeanRegistry
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * @see org.apache.camel.spi.Registry#lookup(java.lang.String)      */
 annotation|@
 name|Override
 DECL|method|lookup (final String name)
@@ -142,11 +143,11 @@ argument_list|,
 literal|"name"
 argument_list|)
 expr_stmt|;
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Looking up bean using name = [{}] in CDI registry ..."
+literal|"Looking up bean {}"
 argument_list|,
 name|name
 argument_list|)
@@ -202,15 +203,27 @@ argument_list|,
 literal|"type"
 argument_list|)
 expr_stmt|;
-return|return
-name|type
+name|LOG
 operator|.
-name|cast
+name|trace
 argument_list|(
-name|lookup
+literal|"Looking up bean {} of type {}"
+argument_list|,
+name|name
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+return|return
+name|BeanProvider
+operator|.
+name|getContextualReference
 argument_list|(
 name|name
-argument_list|)
+argument_list|,
+literal|true
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
@@ -244,6 +257,15 @@ argument_list|(
 name|type
 argument_list|,
 literal|"type"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Looking up beans of type {}"
+argument_list|,
+name|type
 argument_list|)
 expr_stmt|;
 return|return

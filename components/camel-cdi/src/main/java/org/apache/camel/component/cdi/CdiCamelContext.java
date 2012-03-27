@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CDI Camel Context class  * Register the CDI BeanManager to lookup CDI Beans  */
+comment|/**  * CDI {@link org.apache.camel.CamelContext} class.  */
 end_comment
 
 begin_class
