@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -45,6 +35,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
 import|;
 end_import
 
@@ -74,18 +74,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadPoolExecutor
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -93,92 +81,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ErrorHandlerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|LifecycleStrategy
 import|;
 end_import
 
@@ -204,9 +106,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|RouteContext
+name|LifecycleStrategySupport
 import|;
 end_import
 
@@ -243,10 +145,10 @@ DECL|class|OsgiServiceRegistry
 specifier|public
 class|class
 name|OsgiServiceRegistry
+extends|extends
+name|LifecycleStrategySupport
 implements|implements
 name|Registry
-implements|,
-name|LifecycleStrategy
 block|{
 DECL|field|bundleContext
 specifier|private
@@ -277,7 +179,7 @@ decl_stmt|;
 DECL|field|serviceReferenceQueue
 specifier|private
 specifier|final
-name|ConcurrentLinkedQueue
+name|Queue
 argument_list|<
 name|ServiceReference
 argument_list|>
@@ -455,45 +357,8 @@ name|emptyMap
 argument_list|()
 return|;
 block|}
-DECL|method|onComponentAdd (String name, Component component)
-specifier|public
-name|void
-name|onComponentAdd
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|Component
-name|component
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onComponentRemove (String name, Component component)
-specifier|public
-name|void
-name|onComponentRemove
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|Component
-name|component
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onContextStart (CamelContext context)
-specifier|public
-name|void
-name|onContextStart
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-comment|// noop
-block|}
+annotation|@
+name|Override
 DECL|method|onContextStop (CamelContext context)
 specifier|public
 name|void
@@ -535,180 +400,16 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Clean up the OSGi Service Cache
+name|serviceReferenceQueue
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|serviceCacheMap
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|onEndpointAdd (Endpoint endpoint)
-specifier|public
-name|void
-name|onEndpointAdd
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onEndpointRemove (Endpoint endpoint)
-specifier|public
-name|void
-name|onEndpointRemove
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onRouteContextCreate (RouteContext routeContext)
-specifier|public
-name|void
-name|onRouteContextCreate
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onRoutesAdd (Collection<Route> routes)
-specifier|public
-name|void
-name|onRoutesAdd
-parameter_list|(
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onRoutesRemove (Collection<Route> routes)
-specifier|public
-name|void
-name|onRoutesRemove
-parameter_list|(
-name|Collection
-argument_list|<
-name|Route
-argument_list|>
-name|routes
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onServiceAdd (CamelContext context, Service service, Route route)
-specifier|public
-name|void
-name|onServiceAdd
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|Service
-name|service
-parameter_list|,
-name|Route
-name|route
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onServiceRemove (CamelContext context, Service service, Route route)
-specifier|public
-name|void
-name|onServiceRemove
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|Service
-name|service
-parameter_list|,
-name|Route
-name|route
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor processor, ErrorHandlerFactory errorHandlerBuilder)
-specifier|public
-name|void
-name|onErrorHandlerAdd
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|,
-name|ErrorHandlerFactory
-name|errorHandlerBuilder
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor processor, ErrorHandlerFactory errorHandlerBuilder)
-specifier|public
-name|void
-name|onErrorHandlerRemove
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|,
-name|Processor
-name|processor
-parameter_list|,
-name|ErrorHandlerFactory
-name|errorHandlerBuilder
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPoolExecutor, String id, String sourceId, String routeId, String threadPoolProfileId)
-specifier|public
-name|void
-name|onThreadPoolAdd
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|ThreadPoolExecutor
-name|threadPoolExecutor
-parameter_list|,
-name|String
-name|id
-parameter_list|,
-name|String
-name|sourceId
-parameter_list|,
-name|String
-name|routeId
-parameter_list|,
-name|String
-name|threadPoolProfileId
-parameter_list|)
-block|{
-comment|// noop
-block|}
-DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPoolExecutor)
-specifier|public
-name|void
-name|onThreadPoolRemove
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
-name|ThreadPoolExecutor
-name|threadPoolExecutor
-parameter_list|)
-block|{
-comment|// noop
 block|}
 block|}
 end_class

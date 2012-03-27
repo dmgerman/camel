@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.support
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 package|;
 end_package
 
@@ -22,27 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -164,7 +144,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|RouteContext
+name|LifecycleStrategy
 import|;
 end_import
 
@@ -176,39 +156,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|LifecycleStrategySupport
+name|RouteContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * A useful base class for {@link LifecycleStrategy} implementations.  */
 end_comment
 
 begin_class
-DECL|class|DummyLifecycleStrategy
+DECL|class|LifecycleStrategySupport
 specifier|public
+specifier|abstract
 class|class
-name|DummyLifecycleStrategy
-extends|extends
 name|LifecycleStrategySupport
+implements|implements
+name|LifecycleStrategy
 block|{
-DECL|field|events
-specifier|private
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|events
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onContextStart (CamelContext context)
 specifier|public
 name|void
@@ -220,14 +188,10 @@ parameter_list|)
 throws|throws
 name|VetoCamelContextStartException
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onContextStart"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onContextStop (CamelContext context)
 specifier|public
 name|void
@@ -237,14 +201,10 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onContextStop"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onComponentAdd (String name, Component component)
 specifier|public
 name|void
@@ -257,14 +217,10 @@ name|Component
 name|component
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onComponentAdd"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onComponentRemove (String name, Component component)
 specifier|public
 name|void
@@ -277,14 +233,10 @@ name|Component
 name|component
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onComponentRemove"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onEndpointAdd (Endpoint endpoint)
 specifier|public
 name|void
@@ -294,14 +246,10 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onEndpointAdd"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onEndpointRemove (Endpoint endpoint)
 specifier|public
 name|void
@@ -311,14 +259,10 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onEndpointRemove"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onServiceAdd (CamelContext context, Service service, Route route)
 specifier|public
 name|void
@@ -334,14 +278,10 @@ name|Route
 name|route
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onServiceAdd"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onServiceRemove (CamelContext context, Service service, Route route)
 specifier|public
 name|void
@@ -357,14 +297,10 @@ name|Route
 name|route
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onServiceRemove"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onRoutesAdd (Collection<Route> routes)
 specifier|public
 name|void
@@ -377,14 +313,10 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onRoutesAdd"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onRoutesRemove (Collection<Route> routes)
 specifier|public
 name|void
@@ -397,14 +329,10 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onRoutesRemove"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onRouteContextCreate (RouteContext routeContext)
 specifier|public
 name|void
@@ -414,14 +342,10 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onRouteContextCreate"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
@@ -437,14 +361,10 @@ name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onErrorHandlerAdd"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory errorHandlerBuilder)
 specifier|public
 name|void
@@ -460,14 +380,10 @@ name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onErrorHandlerRemove"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPool, String id, String sourceId, String routeId, String threadPoolProfileId)
 specifier|public
 name|void
@@ -492,14 +408,10 @@ name|String
 name|threadPoolProfileId
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onThreadPoolAdd"
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPool)
 specifier|public
 name|void
@@ -512,26 +424,7 @@ name|ThreadPoolExecutor
 name|threadPool
 parameter_list|)
 block|{
-name|events
-operator|.
-name|add
-argument_list|(
-literal|"onThreadPoolRemove"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getEvents ()
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|getEvents
-parameter_list|()
-block|{
-return|return
-name|events
-return|;
+comment|// noop
 block|}
 block|}
 end_class
