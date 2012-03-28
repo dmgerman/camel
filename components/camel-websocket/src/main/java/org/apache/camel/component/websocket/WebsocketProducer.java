@@ -139,17 +139,6 @@ operator|.
 name|getSendToAll
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Configured with "
-operator|+
-name|sendToAll
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

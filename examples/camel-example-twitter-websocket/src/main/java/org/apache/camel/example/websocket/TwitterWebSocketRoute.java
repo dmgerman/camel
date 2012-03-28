@@ -307,7 +307,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// setup Camel web-socket component on port 9090
+comment|// setup Camel web-socket component on the port we have defined
 name|WebsocketComponent
 name|wc
 init|=
@@ -330,11 +330,12 @@ argument_list|(
 name|port
 argument_list|)
 expr_stmt|;
+comment|// we can serve static resources from the classpath: or file: system
 name|wc
 operator|.
 name|setStaticResources
 argument_list|(
-literal|"src/main/resources"
+literal|"classpath:."
 argument_list|)
 expr_stmt|;
 comment|// setup Twitter component
