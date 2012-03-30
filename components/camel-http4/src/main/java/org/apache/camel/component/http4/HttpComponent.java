@@ -1556,6 +1556,11 @@ return|return
 name|port
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|registerPort (boolean secure, X509HostnameVerifier x509HostnameVerifier, int port, SSLContextParameters sslContextParams)
 specifier|protected
 name|void

@@ -66,6 +66,15 @@ name|WebsocketComponentServlet
 extends|extends
 name|WebSocketServlet
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|field|sync
 specifier|private
 specifier|final
