@@ -2669,6 +2669,36 @@ literal|"abc"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testHeadersWithBracket ()
+specifier|public
+name|void
+name|testHeadersWithBracket
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"headers[foo]"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headers[foo]}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${in.headers[foo]}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testIsInstanceOfEmptyBody ()
 specifier|public
 name|void
