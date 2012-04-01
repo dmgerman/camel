@@ -124,6 +124,14 @@ name|?
 argument_list|>
 name|unmarshalType
 decl_stmt|;
+DECL|field|jsonView
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|jsonView
+decl_stmt|;
 comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Map}      */
 DECL|method|JacksonDataFormat ()
 specifier|public
@@ -164,6 +172,36 @@ name|unmarshalType
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Use the default Jackson {@link ObjectMapper} and with a custom      * unmarshal type and JSON view      *      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specifiy properties to be included during marshalling.      *                 See also http://wiki.fasterxml.com/JacksonJsonViews      */
+DECL|method|JacksonDataFormat (Class<?> unmarshalType, Class<?> jsonView)
+specifier|public
+name|JacksonDataFormat
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|unmarshalType
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|jsonView
+parameter_list|)
+block|{
+name|this
+argument_list|(
+operator|new
+name|ObjectMapper
+argument_list|()
+argument_list|,
+name|unmarshalType
+argument_list|,
+name|jsonView
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Use a custom Jackson mapper and and unmarshal type      *      * @param mapper        the custom mapper      * @param unmarshalType the custom unmarshal type      */
 DECL|method|JacksonDataFormat (ObjectMapper mapper, Class<?> unmarshalType)
 specifier|public
@@ -180,6 +218,37 @@ name|unmarshalType
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|mapper
+argument_list|,
+name|unmarshalType
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Use a custom Jackson mapper, unmarshal type and JSON view      *      * @param mapper        the custom mapper      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specifiy properties to be included during marshalling.      *                 See also http://wiki.fasterxml.com/JacksonJsonViews      */
+DECL|method|JacksonDataFormat (ObjectMapper mapper, Class<?> unmarshalType, Class<?> jsonView)
+specifier|public
+name|JacksonDataFormat
+parameter_list|(
+name|ObjectMapper
+name|mapper
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|unmarshalType
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|jsonView
+parameter_list|)
+block|{
+name|this
 operator|.
 name|objectMapper
 operator|=
@@ -190,6 +259,12 @@ operator|.
 name|unmarshalType
 operator|=
 name|unmarshalType
+expr_stmt|;
+name|this
+operator|.
+name|jsonView
+operator|=
+name|jsonView
 expr_stmt|;
 block|}
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
@@ -212,6 +287,11 @@ block|{
 name|this
 operator|.
 name|objectMapper
+operator|.
+name|writerWithView
+argument_list|(
+name|jsonView
+argument_list|)
 operator|.
 name|writeValue
 argument_list|(
@@ -284,6 +364,38 @@ operator|.
 name|unmarshalType
 operator|=
 name|unmarshalType
+expr_stmt|;
+block|}
+DECL|method|getJsonView ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getJsonView
+parameter_list|()
+block|{
+return|return
+name|jsonView
+return|;
+block|}
+DECL|method|setJsonView (Class<?> jsonView)
+specifier|public
+name|void
+name|setJsonView
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|jsonView
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jsonView
+operator|=
+name|jsonView
 expr_stmt|;
 block|}
 DECL|method|getObjectMapper ()
