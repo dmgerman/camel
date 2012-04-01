@@ -4886,9 +4886,6 @@ name|msg
 argument_list|)
 expr_stmt|;
 block|}
-operator|++
-name|counter
-expr_stmt|;
 comment|// record timestamp when exchange was received
 name|copy
 operator|.
@@ -4903,10 +4900,15 @@ name|Date
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// add a copy of the received exchange
 name|addReceivedExchange
 argument_list|(
 name|copy
 argument_list|)
+expr_stmt|;
+comment|// and then increment counter after adding received exchange
+operator|++
+name|counter
 expr_stmt|;
 name|Processor
 name|processor
@@ -5021,7 +5023,7 @@ operator|>
 literal|0
 operator|&&
 name|counter
-operator|<=
+operator|<
 name|retainFirst
 condition|)
 block|{
