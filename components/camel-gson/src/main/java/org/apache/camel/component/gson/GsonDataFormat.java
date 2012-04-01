@@ -221,8 +221,8 @@ name|unmarshalType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Use the default Gson {@link Gson} and with a custom      * unmarshal type and {@link ExclusionStrategy}      *      * @param unmarshalType the custom unmarshal type      * @param exclusionStrategy the custom ExclusionStrategy      */
-DECL|method|GsonDataFormat (Class<?> unmarshalType, ExclusionStrategy exclusionStrategy)
+comment|/**      * Use the default Gson {@link Gson} and with a custom      * unmarshal type and {@link ExclusionStrategy}      *      * @param unmarshalType the custom unmarshal type      * @param exclusionStrategies one or more custom ExclusionStrategy implementations      */
+DECL|method|GsonDataFormat (Class<?> unmarshalType, ExclusionStrategy... exclusionStrategies)
 specifier|public
 name|GsonDataFormat
 parameter_list|(
@@ -233,14 +233,15 @@ argument_list|>
 name|unmarshalType
 parameter_list|,
 name|ExclusionStrategy
-name|exclusionStrategy
+modifier|...
+name|exclusionStrategies
 parameter_list|)
 block|{
 name|this
 argument_list|(
 name|createGsonWithExclusionStrategy
 argument_list|(
-name|exclusionStrategy
+name|exclusionStrategies
 argument_list|)
 argument_list|,
 name|unmarshalType
@@ -275,45 +276,38 @@ operator|=
 name|unmarshalType
 expr_stmt|;
 block|}
-DECL|method|createGsonWithExclusionStrategy (ExclusionStrategy exclusionStrategy)
+DECL|method|createGsonWithExclusionStrategy (ExclusionStrategy... exclusionStrategies)
 specifier|private
 specifier|static
 name|Gson
 name|createGsonWithExclusionStrategy
 parameter_list|(
 name|ExclusionStrategy
-name|exclusionStrategy
+modifier|...
+name|exclusionStrategies
 parameter_list|)
 block|{
-if|if
-condition|(
-name|exclusionStrategy
+return|return
+name|exclusionStrategies
 operator|!=
 literal|null
-condition|)
-block|{
-return|return
+condition|?
 operator|new
 name|GsonBuilder
 argument_list|()
 operator|.
 name|setExclusionStrategies
 argument_list|(
-name|exclusionStrategy
+name|exclusionStrategies
 argument_list|)
 operator|.
 name|create
 argument_list|()
-return|;
-block|}
-else|else
-block|{
-return|return
+else|:
 operator|new
 name|Gson
 argument_list|()
 return|;
-block|}
 block|}
 annotation|@
 name|Override
