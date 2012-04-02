@@ -336,7 +336,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//START SNIPPET: format
+comment|// START SNIPPET: format
 name|JacksonDataFormat
 name|ageViewFormat
 init|=
@@ -354,7 +354,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//END SNIPPET: format
+comment|// END SNIPPET: format
 name|from
 argument_list|(
 literal|"direct:inPojoAgeView"
