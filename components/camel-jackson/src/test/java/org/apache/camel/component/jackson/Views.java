@@ -18,6 +18,10 @@ name|jackson
 package|;
 end_package
 
+begin_comment
+comment|//START SNIPPET: marker
+end_comment
+
 begin_class
 DECL|class|Views
 specifier|public
@@ -36,6 +40,10 @@ name|Age
 block|{ }
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: marker
+end_comment
 
 end_unit
 

@@ -40,6 +40,16 @@ specifier|public
 class|class
 name|TestPojoView
 block|{
+comment|//START SNIPPET: jsonview
+annotation|@
+name|JsonView
+argument_list|(
+name|Views
+operator|.
+name|Age
+operator|.
+name|class
+argument_list|)
 DECL|field|age
 specifier|private
 name|int
@@ -54,6 +64,15 @@ name|height
 init|=
 literal|190
 decl_stmt|;
+annotation|@
+name|JsonView
+argument_list|(
+name|Views
+operator|.
+name|Weight
+operator|.
+name|class
+argument_list|)
 DECL|field|weight
 specifier|private
 name|int
@@ -61,15 +80,7 @@ name|weight
 init|=
 literal|70
 decl_stmt|;
-annotation|@
-name|JsonView
-argument_list|(
-name|Views
-operator|.
-name|Age
-operator|.
-name|class
-argument_list|)
+comment|//END SNIPPET: jsonview
 DECL|method|getAge ()
 specifier|public
 name|int
@@ -122,15 +133,6 @@ operator|=
 name|height
 expr_stmt|;
 block|}
-annotation|@
-name|JsonView
-argument_list|(
-name|Views
-operator|.
-name|Weight
-operator|.
-name|class
-argument_list|)
 DECL|method|getWeight ()
 specifier|public
 name|int

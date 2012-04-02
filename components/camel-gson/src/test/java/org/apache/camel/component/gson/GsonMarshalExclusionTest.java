@@ -424,6 +424,7 @@ literal|false
 return|;
 block|}
 block|}
+comment|//START SNIPPET: strategy
 comment|/**      * Strategy to exclude {@link ExcludeAge} annotated fields      */
 DECL|class|AgeExclusionStrategy
 specifier|protected
@@ -476,6 +477,7 @@ literal|false
 return|;
 block|}
 block|}
+comment|//END SNIPPET: strategy
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -540,6 +542,7 @@ argument_list|(
 literal|"mock:reversePojoExcludeWeight"
 argument_list|)
 expr_stmt|;
+comment|//START SNIPPET: format
 name|GsonDataFormat
 name|ageExclusionFormat
 init|=
@@ -555,6 +558,7 @@ name|AgeExclusionStrategy
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//END SNIPPET: format
 name|from
 argument_list|(
 literal|"direct:inPojoExcludeAge"
