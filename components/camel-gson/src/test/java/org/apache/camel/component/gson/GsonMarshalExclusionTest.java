@@ -558,7 +558,6 @@ name|AgeExclusionStrategy
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//END SNIPPET: format
 name|from
 argument_list|(
 literal|"direct:inPojoExcludeAge"
@@ -569,6 +568,7 @@ argument_list|(
 name|ageExclusionFormat
 argument_list|)
 expr_stmt|;
+comment|//END SNIPPET: format
 name|from
 argument_list|(
 literal|"direct:backPojoExcludeAge"

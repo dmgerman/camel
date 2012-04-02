@@ -354,7 +354,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// END SNIPPET: format
 name|from
 argument_list|(
 literal|"direct:inPojoAgeView"
@@ -365,6 +364,7 @@ argument_list|(
 name|ageViewFormat
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: format
 name|from
 argument_list|(
 literal|"direct:backPojoAgeView"
