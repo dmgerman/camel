@@ -843,7 +843,8 @@ expr_stmt|;
 block|}
 name|answer
 operator|=
-name|unmarshaller
+name|getUnmarshaller
+argument_list|()
 operator|.
 name|unmarshal
 argument_list|(
@@ -875,7 +876,8 @@ argument_list|)
 decl_stmt|;
 name|answer
 operator|=
-name|unmarshaller
+name|getUnmarshaller
+argument_list|()
 operator|.
 name|unmarshal
 argument_list|(
@@ -887,7 +889,8 @@ else|else
 block|{
 name|answer
 operator|=
-name|unmarshaller
+name|getUnmarshaller
+argument_list|()
 operator|.
 name|unmarshal
 argument_list|(
@@ -1275,6 +1278,16 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+block|}
+DECL|method|getUnmarshaller ()
+specifier|public
+name|Unmarshaller
+name|getUnmarshaller
+parameter_list|()
+block|{
+return|return
+name|unmarshaller
+return|;
 block|}
 annotation|@
 name|Override
