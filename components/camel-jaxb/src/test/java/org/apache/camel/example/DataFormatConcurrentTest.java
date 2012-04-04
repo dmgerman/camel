@@ -329,14 +329,7 @@ argument_list|(
 literal|20
 argument_list|)
 decl_stmt|;
-name|long
-name|start
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
+comment|//long start = System.currentTimeMillis();
 for|for
 control|(
 name|int
@@ -397,31 +390,8 @@ name|SECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|long
-name|end
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"took "
-operator|+
-operator|(
-name|end
-operator|-
-name|start
-operator|)
-operator|+
-literal|"ms"
-argument_list|)
-expr_stmt|;
+comment|//long end = System.currentTimeMillis();
+comment|//System.out.println("took " + (end - start) + "ms");
 block|}
 annotation|@
 name|Test
