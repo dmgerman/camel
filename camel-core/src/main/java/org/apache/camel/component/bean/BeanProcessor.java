@@ -477,7 +477,17 @@ literal|true
 return|;
 block|}
 comment|// do we have a custom adapter for this POJO to a Processor
-comment|// should not be invoked if an explicit method has been set
+comment|// but only do this if allowed
+if|if
+condition|(
+name|allowProcessor
+argument_list|(
+name|explicitMethodName
+argument_list|,
+name|beanInfo
+argument_list|)
+condition|)
+block|{
 name|Processor
 name|processor
 init|=
@@ -486,10 +496,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|explicitMethodName
-operator|==
-literal|null
-operator|&&
 name|processor
 operator|!=
 literal|null
@@ -538,6 +544,7 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+block|}
 block|}
 name|Message
 name|in
@@ -1204,6 +1211,62 @@ name|getProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|allowProcessor (String explicitMethodName, BeanInfo info)
+specifier|private
+name|boolean
+name|allowProcessor
+parameter_list|(
+name|String
+name|explicitMethodName
+parameter_list|,
+name|BeanInfo
+name|info
+parameter_list|)
+block|{
+if|if
+condition|(
+name|explicitMethodName
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// don't allow if explicit method name is given, as we then must invoke this method
+return|return
+literal|false
+return|;
+block|}
+comment|// don't allow if any of the methods has a @Handler annotation
+comment|// as the @Handler annotation takes precedence and is supposed to trigger invocation
+comment|// of the given method
+for|for
+control|(
+name|MethodInfo
+name|method
+range|:
+name|info
+operator|.
+name|getMethods
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|method
+operator|.
+name|hasHandlerAnnotation
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+comment|// fallback and allow using the processor
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class
