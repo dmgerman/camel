@@ -65,17 +65,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|TimerRestartTest
+DECL|class|TimerSuspendCamelContextTest
 specifier|public
 class|class
-name|TimerRestartTest
+name|TimerSuspendCamelContextTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testTimerRestart ()
+DECL|method|testTimerSuspendResume ()
 specifier|public
 name|void
-name|testTimerRestart
+name|testTimerSuspendResume
 parameter_list|()
 throws|throws
 name|Exception
@@ -112,7 +112,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|stop
+name|suspend
 argument_list|()
 expr_stmt|;
 name|Thread
@@ -122,14 +122,12 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
 name|mock
 operator|.
 name|reset
-argument_list|()
-expr_stmt|;
-name|context
-operator|.
-name|start
 argument_list|()
 expr_stmt|;
 name|mock
@@ -138,6 +136,11 @@ name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|resume
+argument_list|()
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()

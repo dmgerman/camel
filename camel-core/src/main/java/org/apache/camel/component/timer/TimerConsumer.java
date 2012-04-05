@@ -219,6 +219,16 @@ name|void
 name|run
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|isTaskRunAllowed
+argument_list|()
+condition|)
+block|{
+comment|// do not run timer task as it was not allowed
+return|return;
+block|}
 try|try
 block|{
 name|long
@@ -345,6 +355,23 @@ name|task
 operator|=
 literal|null
 expr_stmt|;
+block|}
+comment|/**      * Whether the timer task is allow to run or not      */
+DECL|method|isTaskRunAllowed ()
+specifier|protected
+name|boolean
+name|isTaskRunAllowed
+parameter_list|()
+block|{
+comment|// only allow running the timer task if we can run and are not suspended
+return|return
+name|isRunAllowed
+argument_list|()
+operator|&&
+operator|!
+name|isSuspended
+argument_list|()
+return|;
 block|}
 DECL|method|configureTask (TimerTask task, Timer timer)
 specifier|protected
