@@ -164,6 +164,20 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat}) using   *<a href="http://json-lib.sourceforge.net/">json-lib</a> to convert between XML  * and JSON directly.  */
 end_comment
@@ -173,6 +187,8 @@ DECL|class|XmlJsonDataFormat
 specifier|public
 class|class
 name|XmlJsonDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 block|{
@@ -257,11 +273,15 @@ specifier|public
 name|XmlJsonDataFormat
 parameter_list|()
 block|{     }
-DECL|method|initSerializer ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|initSerializer
+name|doStart
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|serializer
 operator|=
@@ -547,7 +567,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Marshal from XML to JSON      *       * @param exchange      * @param graph      * @param stream      * @throws Exception      */
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+comment|/**      * Marshal from XML to JSON      */
 annotation|@
 name|Override
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
@@ -567,17 +599,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|serializer
-operator|==
-literal|null
-condition|)
-block|{
-name|initSerializer
-argument_list|()
-expr_stmt|;
-block|}
 name|boolean
 name|streamTreatment
 init|=
@@ -701,7 +722,7 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Convert from JSON to XML      *       * @param exchange      * @param stream      * @throws Exception      */
+comment|/**      * Convert from JSON to XML      */
 annotation|@
 name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
@@ -718,17 +739,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|serializer
-operator|==
-literal|null
-condition|)
-block|{
-name|initSerializer
-argument_list|()
-expr_stmt|;
-block|}
 name|Object
 name|inBody
 init|=
@@ -860,7 +870,7 @@ return|return
 name|encoding
 return|;
 block|}
-comment|/**      * Sets the encoding for the call to {@link XMLSerializer#write(JSON, String)}      * @param encoding      */
+comment|/**      * Sets the encoding for the call to {@link XMLSerializer#write(JSON, String)}      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -887,7 +897,7 @@ return|return
 name|forceTopLevelObject
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setForceTopLevelObject(boolean)}      * @param forceTopLevelObject      */
+comment|/**      * See {@link XMLSerializer#setForceTopLevelObject(boolean)}      */
 DECL|method|setForceTopLevelObject (Boolean forceTopLevelObject)
 specifier|public
 name|void
@@ -914,7 +924,7 @@ return|return
 name|namespaceLenient
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setNamespaceLenient(boolean)}      * @param namespaceLenient      */
+comment|/**      * See {@link XMLSerializer#setNamespaceLenient(boolean)}      */
 DECL|method|setNamespaceLenient (Boolean namespaceLenient)
 specifier|public
 name|void
@@ -944,7 +954,7 @@ return|return
 name|namespaceMappings
 return|;
 block|}
-comment|/**      * Sets associations between elements and namespace mappings. Will only be used when converting from JSON to XML.      * For every association, the whenever a JSON element is found that matches {@link NamespacesPerElementMapping#element},      * the namespaces declarations specified by {@link NamespacesPerElementMapping#namespaces} will be output.      * @see Uses {@link XMLSerializer#addNamespace(String, String, String)}      * @param namespaceMappings      */
+comment|/**      * Sets associations between elements and namespace mappings. Will only be used when converting from JSON to XML.      * For every association, the whenever a JSON element is found that matches {@link NamespacesPerElementMapping#element},      * the namespaces declarations specified by {@link NamespacesPerElementMapping#namespaces} will be output.      * @see {@link XMLSerializer#addNamespace(String, String, String)}      */
 DECL|method|setNamespaceMappings (List<NamespacesPerElementMapping> namespaceMappings)
 specifier|public
 name|void
@@ -974,7 +984,7 @@ return|return
 name|rootName
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setRootName(String)}      * @param rootName      */
+comment|/**      * See {@link XMLSerializer#setRootName(String)}      */
 DECL|method|setRootName (String rootName)
 specifier|public
 name|void
@@ -1001,7 +1011,7 @@ return|return
 name|skipWhitespace
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setSkipWhitespace(boolean)}      * @param skipWhitespace      */
+comment|/**      * See {@link XMLSerializer#setSkipWhitespace(boolean)}      */
 DECL|method|setSkipWhitespace (Boolean skipWhitespace)
 specifier|public
 name|void
@@ -1028,7 +1038,7 @@ return|return
 name|trimSpaces
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setTrimSpaces(boolean)}      * @param trimSpaces      */
+comment|/**      * See {@link XMLSerializer#setTrimSpaces(boolean)}      */
 DECL|method|setTrimSpaces (Boolean trimSpaces)
 specifier|public
 name|void
@@ -1087,7 +1097,7 @@ return|return
 name|skipNamespaces
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setSkipNamespaces(boolean)}      * @param skipNamespaces       */
+comment|/**      * See {@link XMLSerializer#setSkipNamespaces(boolean)}      */
 DECL|method|setSkipNamespaces (Boolean skipNamespaces)
 specifier|public
 name|void
@@ -1104,7 +1114,7 @@ operator|=
 name|skipNamespaces
 expr_stmt|;
 block|}
-comment|/**      * See {@link XMLSerializer#setElementName(String)}      * @param elementName       */
+comment|/**      * See {@link XMLSerializer#setElementName(String)}      */
 DECL|method|setElementName (String elementName)
 specifier|public
 name|void
@@ -1131,7 +1141,7 @@ return|return
 name|elementName
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setArrayName(String)}      * @param arrayName       */
+comment|/**      * See {@link XMLSerializer#setArrayName(String)}      */
 DECL|method|setArrayName (String arrayName)
 specifier|public
 name|void
@@ -1158,7 +1168,7 @@ return|return
 name|arrayName
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setExpandableProperties(String[])}      * @param expandableProperties       */
+comment|/**      * See {@link XMLSerializer#setExpandableProperties(String[])}      */
 DECL|method|setExpandableProperties (List<String> expandableProperties)
 specifier|public
 name|void
@@ -1191,7 +1201,7 @@ return|return
 name|expandableProperties
 return|;
 block|}
-comment|/**      * See {@link XMLSerializer#setRemoveNamespacePrefixFromElements(boolean)}      * @param removeNamespacePrefixes       */
+comment|/**      * See {@link XMLSerializer#setRemoveNamespacePrefixFromElements(boolean)}      */
 DECL|method|setRemoveNamespacePrefixes (Boolean removeNamespacePrefixes)
 specifier|public
 name|void
@@ -1218,7 +1228,7 @@ return|return
 name|removeNamespacePrefixes
 return|;
 block|}
-comment|/**      * Encapsulates the information needed to bind namespace declarations to XML elements when performing JSON to XML conversions      * Given the following JSON: { "root:": { "element": "value", "element2": "value2" }}, it will produce the following XML when "element" is      * bound to prefix "ns1" and namespace URI "http://mynamespace.org":      *<root><element xmlns:ns1="http://mynamespace.org">value</element><element2>value2</element2></root>      * For convenience, the {@link NamespacesPerElementMapping#NamespacesPerElementMapping(String, String)} constructor allows to specify      * multiple prefix-namespaceURI pairs in just one String line, the format being: |ns1|http://mynamespace.org|ns2|http://mynamespace2.org|      *       * @author Raul Kripalani      *      */
+comment|/**      * Encapsulates the information needed to bind namespace declarations to XML elements when performing JSON to XML conversions      * Given the following JSON: { "root:": { "element": "value", "element2": "value2" }}, it will produce the following XML when "element" is      * bound to prefix "ns1" and namespace URI "http://mynamespace.org":      *<root><element xmlns:ns1="http://mynamespace.org">value</element><element2>value2</element2></root>      * For convenience, the {@link NamespacesPerElementMapping#NamespacesPerElementMapping(String, String)} constructor allows to specify      * multiple prefix-namespaceURI pairs in just one String line, the format being: |ns1|http://mynamespace.org|ns2|http://mynamespace2.org|      *      */
 DECL|class|NamespacesPerElementMapping
 specifier|public
 specifier|static
