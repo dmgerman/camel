@@ -202,7 +202,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+comment|/**      * Mock all endpoints matching the given pattern.      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|mockEndpoints (String... pattern)
 specifier|public
 name|void
@@ -237,7 +237,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Mock all endpoints matching the given pattern, and<b>skips</b> sending to the original endpoint (detour messages).      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(String, String)      */
+comment|/**      * Mock all endpoints matching the given pattern, and<b>skips</b> sending to the original endpoint (detour messages).      *      * @param pattern the pattern(s).      * @throws Exception can be thrown if error occurred      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|mockEndpointsAndSkip (String... pattern)
 specifier|public
 name|void

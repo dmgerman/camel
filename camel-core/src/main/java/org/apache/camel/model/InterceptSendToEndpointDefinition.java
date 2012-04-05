@@ -324,11 +324,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProcessor (RouteContext routeContext)
+DECL|method|createProcessor (final RouteContext routeContext)
 specifier|public
 name|Processor
 name|createProcessor
 parameter_list|(
+specifier|final
 name|RouteContext
 name|routeContext
 parameter_list|)
@@ -396,6 +397,11 @@ name|EndpointHelper
 operator|.
 name|matchEndpoint
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|uri
 argument_list|,
 name|getUri

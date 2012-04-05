@@ -185,7 +185,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock endpoints based on the given pattern.      *      * @param pattern the pattern.      * @see EndpointHelper#matchEndpoint(String, String)      */
+comment|/**      * Mock endpoints based on the given pattern.      *      * @param pattern the pattern.      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|InterceptSendToMockEndpointStrategy (String pattern)
 specifier|public
 name|InterceptSendToMockEndpointStrategy
@@ -202,7 +202,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Mock endpoints based on the given pattern.      *      * @param pattern the pattern.      * @param skip<tt>true</tt> to skip sending after the detour to the original endpoint      * @see EndpointHelper#matchEndpoint(String, String)      */
+comment|/**      * Mock endpoints based on the given pattern.      *      * @param pattern the pattern.      * @param skip<tt>true</tt> to skip sending after the detour to the original endpoint      * @see EndpointHelper#matchEndpoint(org.apache.camel.CamelContext, String, String)      */
 DECL|method|InterceptSendToMockEndpointStrategy (String pattern, boolean skip)
 specifier|public
 name|InterceptSendToMockEndpointStrategy
@@ -279,6 +279,11 @@ name|EndpointHelper
 operator|.
 name|matchEndpoint
 argument_list|(
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|uri
 argument_list|,
 name|pattern

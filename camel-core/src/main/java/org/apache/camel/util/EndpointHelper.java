@@ -406,13 +406,16 @@ literal|1000L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Matches the endpoint with the given pattern.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the uri starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param uri     the endpoint uri      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
-DECL|method|matchEndpoint (String uri, String pattern)
+comment|/**      * Matches the endpoint with the given pattern.      *<p/>      * The endpoint will first resolve property placeholders using {@link CamelContext#resolvePropertyPlaceholders(String)}.      *<p/>      * The match rules are applied in this order:      *<ul>      *<li>exact match, returns true</li>      *<li>wildcard match (pattern ends with a * and the uri starts with the pattern), returns true</li>      *<li>regular expression match, returns true</li>      *<li>otherwise returns false</li>      *</ul>      *      * @param context the Camel context, if<tt>null</tt> then property placeholder resolution is skipped.      * @param uri     the endpoint uri      * @param pattern a pattern to match      * @return<tt>true</tt> if match,<tt>false</tt> otherwise.      */
+DECL|method|matchEndpoint (CamelContext context, String uri, String pattern)
 specifier|public
 specifier|static
 name|boolean
 name|matchEndpoint
 parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
 name|String
 name|uri
 parameter_list|,
@@ -420,6 +423,42 @@ name|String
 name|pattern
 parameter_list|)
 block|{
+if|if
+condition|(
+name|context
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|uri
+operator|=
+name|context
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+name|uri
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 comment|// normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
 try|try
 block|{
@@ -557,6 +596,33 @@ comment|// and fallback to test with the uri as is
 return|return
 name|matchPattern
 argument_list|(
+name|uri
+argument_list|,
+name|pattern
+argument_list|)
+return|;
+block|}
+comment|/**      * Matches the endpoint with the given pattern.      * @see #matchEndpoint(org.apache.camel.CamelContext, String, String)      *      * @deprecated use {@link #matchEndpoint(org.apache.camel.CamelContext, String, String)} instead.      */
+annotation|@
+name|Deprecated
+DECL|method|matchEndpoint (String uri, String pattern)
+specifier|public
+specifier|static
+name|boolean
+name|matchEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|pattern
+parameter_list|)
+block|{
+return|return
+name|matchEndpoint
+argument_list|(
+literal|null
+argument_list|,
 name|uri
 argument_list|,
 name|pattern

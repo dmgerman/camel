@@ -2979,6 +2979,8 @@ name|EndpointHelper
 operator|.
 name|matchEndpoint
 argument_list|(
+name|this
+argument_list|,
 name|oldEndpoint
 operator|.
 name|getEndpointUri

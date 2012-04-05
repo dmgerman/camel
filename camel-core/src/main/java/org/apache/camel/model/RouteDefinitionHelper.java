@@ -1299,6 +1299,8 @@ name|EndpointHelper
 operator|.
 name|matchEndpoint
 argument_list|(
+name|context
+argument_list|,
 name|uri
 argument_list|,
 name|intercept
