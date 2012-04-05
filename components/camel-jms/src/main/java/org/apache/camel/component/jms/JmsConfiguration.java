@@ -618,6 +618,13 @@ name|requestTimeout
 init|=
 literal|20000L
 decl_stmt|;
+DECL|field|requestTimeoutCheckerInterval
+specifier|private
+name|long
+name|requestTimeoutCheckerInterval
+init|=
+literal|1000L
+decl_stmt|;
 DECL|field|idleTaskExecutionLimit
 specifier|private
 name|int
@@ -4332,7 +4339,7 @@ name|getConnectionFactory
 argument_list|()
 return|;
 block|}
-comment|/**      * Factory method which which allows derived classes to customize the lazy      * transcationManager creation      */
+comment|/**      * Factory method which which allows derived classes to customize the lazy      * transaction manager creation      */
 DECL|method|createTransactionManager ()
 specifier|protected
 name|PlatformTransactionManager
@@ -4465,6 +4472,33 @@ operator|.
 name|requestTimeout
 operator|=
 name|requestTimeout
+expr_stmt|;
+block|}
+DECL|method|getRequestTimeoutCheckerInterval ()
+specifier|public
+name|long
+name|getRequestTimeoutCheckerInterval
+parameter_list|()
+block|{
+return|return
+name|requestTimeoutCheckerInterval
+return|;
+block|}
+comment|/**      * Sets the interval in milliseconds how often the request timeout checker should run.      */
+DECL|method|setRequestTimeoutCheckerInterval (long requestTimeoutCheckerInterval)
+specifier|public
+name|void
+name|setRequestTimeoutCheckerInterval
+parameter_list|(
+name|long
+name|requestTimeoutCheckerInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestTimeoutCheckerInterval
+operator|=
+name|requestTimeoutCheckerInterval
 expr_stmt|;
 block|}
 DECL|method|getReplyTo ()

@@ -995,7 +995,20 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// purge for timeout every second
+comment|// timeout map to use for purging messages which have timed out, while waiting for an expected reply
+comment|// when doing request/reply over JMS
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Using timeout checker interval with {} millis"
+argument_list|,
+name|endpoint
+operator|.
+name|getRequestTimeoutCheckerInterval
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|correlation
 operator|=
 operator|new
@@ -1003,7 +1016,10 @@ name|CorrelationTimeoutMap
 argument_list|(
 name|executorService
 argument_list|,
-literal|1000
+name|endpoint
+operator|.
+name|getRequestTimeoutCheckerInterval
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ServiceHelper

@@ -1556,6 +1556,24 @@ name|requestTimeout
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setRequestTimeoutCheckerInterval (long requestTimeoutCheckerInterval)
+specifier|public
+name|void
+name|setRequestTimeoutCheckerInterval
+parameter_list|(
+name|long
+name|requestTimeoutCheckerInterval
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setRequestTimeoutCheckerInterval
+argument_list|(
+name|requestTimeoutCheckerInterval
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setTransferExchange (boolean transferExchange)
 specifier|public
 name|void

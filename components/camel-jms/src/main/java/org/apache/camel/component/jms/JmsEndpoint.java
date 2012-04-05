@@ -2974,6 +2974,22 @@ name|getRequestTimeout
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getRequestTimeoutCheckerInterval ()
+specifier|public
+name|long
+name|getRequestTimeoutCheckerInterval
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getRequestTimeoutCheckerInterval
+argument_list|()
+return|;
+block|}
 DECL|method|getTaskExecutor ()
 specifier|public
 name|TaskExecutor
