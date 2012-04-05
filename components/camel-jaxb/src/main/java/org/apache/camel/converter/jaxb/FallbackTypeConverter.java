@@ -866,7 +866,7 @@ block|}
 name|Unmarshaller
 name|unmarshaller
 init|=
-name|getOrCreateUnmarshaller
+name|getUnmarshaller
 argument_list|(
 name|type
 argument_list|)
@@ -1268,13 +1268,7 @@ block|{
 name|XMLStreamWriter
 name|writer
 init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
+name|parentTypeConverter
 operator|.
 name|convertTo
 argument_list|(
@@ -1659,14 +1653,14 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|getOrCreateUnmarshaller (Class<T> type)
+DECL|method|getUnmarshaller (Class<T> type)
 specifier|protected
 specifier|synchronized
 parameter_list|<
 name|T
 parameter_list|>
 name|Unmarshaller
-name|getOrCreateUnmarshaller
+name|getUnmarshaller
 parameter_list|(
 name|Class
 argument_list|<
