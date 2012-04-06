@@ -204,11 +204,6 @@ name|dataFormatName
 expr_stmt|;
 block|}
 comment|/**      * Factory method to create the data format      *      * @param routeContext route context      * @param type         the data format type      * @param ref          reference to lookup for a data format      * @return the data format or null if not possible to create      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|getDataFormat (RouteContext routeContext, DataFormatDefinition type, String ref)
 specifier|public
 specifier|static
