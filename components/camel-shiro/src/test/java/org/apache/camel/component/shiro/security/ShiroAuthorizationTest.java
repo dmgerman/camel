@@ -566,14 +566,14 @@ argument_list|(
 literal|"direct:secureEndpoint"
 argument_list|)
 operator|.
-name|to
-argument_list|(
-literal|"log:incoming payload"
-argument_list|)
-operator|.
 name|policy
 argument_list|(
 name|securityPolicy
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:incoming payload"
 argument_list|)
 operator|.
 name|to
@@ -593,7 +593,7 @@ name|TestShiroSecurityTokenInjector
 extends|extends
 name|ShiroSecurityTokenInjector
 block|{
-DECL|method|TestShiroSecurityTokenInjector ( ShiroSecurityToken shiroSecurityToken, byte[] bytes)
+DECL|method|TestShiroSecurityTokenInjector (ShiroSecurityToken shiroSecurityToken, byte[] bytes)
 specifier|public
 name|TestShiroSecurityTokenInjector
 parameter_list|(

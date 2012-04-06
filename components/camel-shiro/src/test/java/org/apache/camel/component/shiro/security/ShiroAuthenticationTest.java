@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|AuthenticationException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -97,6 +87,20 @@ operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|shiro
+operator|.
+name|authc
+operator|.
+name|AuthenticationException
 import|;
 end_import
 
@@ -441,39 +445,15 @@ argument_list|(
 name|UnknownAccountException
 operator|.
 name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:authenticationException"
-argument_list|)
-expr_stmt|;
-name|onException
-argument_list|(
+argument_list|,
 name|IncorrectCredentialsException
 operator|.
 name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:authenticationException"
-argument_list|)
-expr_stmt|;
-name|onException
-argument_list|(
+argument_list|,
 name|LockedAccountException
 operator|.
 name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:authenticationException"
-argument_list|)
-expr_stmt|;
-name|onException
-argument_list|(
+argument_list|,
 name|AuthenticationException
 operator|.
 name|class
@@ -489,14 +469,14 @@ argument_list|(
 literal|"direct:secureEndpoint"
 argument_list|)
 operator|.
-name|to
-argument_list|(
-literal|"log:incoming payload"
-argument_list|)
-operator|.
 name|policy
 argument_list|(
 name|securityPolicy
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:incoming payload"
 argument_list|)
 operator|.
 name|to
@@ -516,7 +496,7 @@ name|TestShiroSecurityTokenInjector
 extends|extends
 name|ShiroSecurityTokenInjector
 block|{
-DECL|method|TestShiroSecurityTokenInjector ( ShiroSecurityToken shiroSecurityToken, byte[] bytes)
+DECL|method|TestShiroSecurityTokenInjector (ShiroSecurityToken shiroSecurityToken, byte[] bytes)
 specifier|public
 name|TestShiroSecurityTokenInjector
 parameter_list|(
