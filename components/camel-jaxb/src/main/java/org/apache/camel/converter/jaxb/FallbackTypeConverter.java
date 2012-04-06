@@ -1655,7 +1655,6 @@ return|;
 block|}
 DECL|method|getUnmarshaller (Class<T> type)
 specifier|protected
-specifier|synchronized
 parameter_list|<
 name|T
 parameter_list|>
