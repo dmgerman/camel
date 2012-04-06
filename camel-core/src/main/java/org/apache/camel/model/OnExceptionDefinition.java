@@ -1533,30 +1533,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the retry while expression.      *<p/>      * Will continue retrying until expression evaluates to<tt>false</tt>.      *      * @param retryWhile expression that determines when to stop retrying      * @return the builder      */
-DECL|method|retryWhile (Expression retryWhile)
-specifier|public
-name|OnExceptionDefinition
-name|retryWhile
-parameter_list|(
-name|Expression
-name|retryWhile
-parameter_list|)
-block|{
-name|setRetryWhilePolicy
-argument_list|(
-name|ExpressionToPredicateAdapter
-operator|.
-name|toPredicate
-argument_list|(
-name|retryWhile
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the initial redelivery delay      *      * @param delay the initial redelivery delay      * @return the builder      * @deprecated will be removed in the near future. Instead use {@link #redeliveryDelay(String)}      */
 annotation|@
 name|Deprecated

@@ -107,6 +107,8 @@ class|class
 name|ValueBuilder
 implements|implements
 name|Expression
+implements|,
+name|Predicate
 block|{
 DECL|field|expression
 specifier|private
@@ -133,6 +135,8 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -159,6 +163,32 @@ argument_list|(
 name|exchange
 argument_list|,
 name|type
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|matches (Exchange exchange)
+specifier|public
+name|boolean
+name|matches
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|PredicateBuilder
+operator|.
+name|toPredicate
+argument_list|(
+name|getExpression
+argument_list|()
+argument_list|)
+operator|.
+name|matches
+argument_list|(
+name|exchange
 argument_list|)
 return|;
 block|}

@@ -124,9 +124,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|model
 operator|.
-name|Builder
+name|language
+operator|.
+name|HeaderExpression
 import|;
 end_import
 
@@ -260,9 +262,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|Builder
-operator|.
-name|header
+operator|new
+name|HeaderExpression
 argument_list|(
 name|headerName
 argument_list|)
