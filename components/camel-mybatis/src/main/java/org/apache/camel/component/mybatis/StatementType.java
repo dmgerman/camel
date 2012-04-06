@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Statement types to instruct which MyBatis operation to use.  *  * @version   */
+comment|/**  * Statement types to instruct which MyBatis operation to use.  *  * @version  */
 end_comment
 
 begin_enum
@@ -31,6 +31,7 @@ block|{
 DECL|enumConstant|SelectOne
 DECL|enumConstant|SelectList
 DECL|enumConstant|Insert
+DECL|enumConstant|InsertList
 DECL|enumConstant|Update
 DECL|enumConstant|Delete
 name|SelectOne
@@ -38,6 +39,8 @@ block|,
 name|SelectList
 block|,
 name|Insert
+block|,
+name|InsertList
 block|,
 name|Update
 block|,
