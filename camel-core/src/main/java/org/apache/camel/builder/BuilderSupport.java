@@ -557,7 +557,9 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      * @deprecated use {@link #method(Object)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|bean (Object beanOrBeanRef)
 specifier|public
 name|ValueBuilder
@@ -576,7 +578,9 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      * @deprecated use {@link #method(Object, String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|bean (Object beanOrBeanRef, String method)
 specifier|public
 name|ValueBuilder
@@ -634,7 +638,9 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      * @deprecated use {@link #method(Class)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|bean (Class<?> beanType)
 specifier|public
 name|ValueBuilder
@@ -664,11 +670,155 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">bean expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param method   name of method to invoke      * @return the builder      */
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param method   name of method to invoke      * @return the builder      * @deprecated use {@link #method(Class, String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|bean (Class<?> beanType, String method)
 specifier|public
 name|ValueBuilder
 name|bean
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanType
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|MethodCallExpression
+name|expression
+init|=
+operator|new
+name|MethodCallExpression
+argument_list|(
+name|beanType
+argument_list|,
+name|method
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @return the builder      */
+DECL|method|method (Object beanOrBeanRef)
+specifier|public
+name|ValueBuilder
+name|method
+parameter_list|(
+name|Object
+name|beanOrBeanRef
+parameter_list|)
+block|{
+return|return
+name|method
+argument_list|(
+name|beanOrBeanRef
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *<p/>      * This method accepts dual parameters. Either an bean instance or a reference to a bean (String).      *      * @param beanOrBeanRef  either an instanceof a bean or a reference to bean to lookup in the Registry      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|method (Object beanOrBeanRef, String method)
+specifier|public
+name|ValueBuilder
+name|method
+parameter_list|(
+name|Object
+name|beanOrBeanRef
+parameter_list|,
+name|String
+name|method
+parameter_list|)
+block|{
+name|MethodCallExpression
+name|expression
+decl_stmt|;
+if|if
+condition|(
+name|beanOrBeanRef
+operator|instanceof
+name|String
+condition|)
+block|{
+name|expression
+operator|=
+operator|new
+name|MethodCallExpression
+argument_list|(
+operator|(
+name|String
+operator|)
+name|beanOrBeanRef
+argument_list|,
+name|method
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|expression
+operator|=
+operator|new
+name|MethodCallExpression
+argument_list|(
+name|beanOrBeanRef
+argument_list|,
+name|method
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @return the builder      */
+DECL|method|method (Class<?> beanType)
+specifier|public
+name|ValueBuilder
+name|method
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanType
+parameter_list|)
+block|{
+name|MethodCallExpression
+name|expression
+init|=
+operator|new
+name|MethodCallExpression
+argument_list|(
+name|beanType
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a<a href="http://camel.apache.org/bean-language.html">method call expression</a>      * value builder      *      * @param beanType the Class of the bean which we want to invoke      * @param method   name of method to invoke      * @return the builder      */
+DECL|method|method (Class<?> beanType, String method)
+specifier|public
+name|ValueBuilder
+name|method
 parameter_list|(
 name|Class
 argument_list|<

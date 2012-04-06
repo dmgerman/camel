@@ -277,7 +277,7 @@ comment|// use a bean as the dynamic router
 operator|.
 name|dynamicRouter
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|DynamicRouterTest
 operator|.

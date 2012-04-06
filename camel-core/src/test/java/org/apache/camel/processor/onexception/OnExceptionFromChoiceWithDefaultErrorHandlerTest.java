@@ -112,7 +112,7 @@ argument_list|()
 operator|.
 name|when
 argument_list|(
-name|bean
+name|method
 argument_list|(
 literal|"myServiceBean"
 argument_list|)

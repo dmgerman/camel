@@ -232,7 +232,7 @@ argument_list|)
 operator|.
 name|retryWhile
 argument_list|(
-name|bean
+name|method
 argument_list|(
 literal|"myRetryHandler"
 argument_list|)

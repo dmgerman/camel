@@ -252,7 +252,7 @@ argument_list|()
 operator|.
 name|transform
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|IncreaseOne
 operator|.
@@ -275,7 +275,7 @@ argument_list|()
 operator|.
 name|transform
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|IncreaseOne
 operator|.
@@ -318,7 +318,7 @@ argument_list|()
 operator|.
 name|transform
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|IncreaseOne
 operator|.
@@ -328,7 +328,7 @@ argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|bean
+name|method
 argument_list|(
 operator|new
 name|IncreaseTwo
@@ -344,7 +344,7 @@ argument_list|()
 operator|.
 name|transform
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|IncreaseOne
 operator|.
@@ -354,7 +354,7 @@ argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|bean
+name|method
 argument_list|(
 operator|new
 name|IncreaseTwo

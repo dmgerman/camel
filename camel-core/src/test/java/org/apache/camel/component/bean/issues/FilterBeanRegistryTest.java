@@ -233,14 +233,11 @@ operator|.
 name|filter
 argument_list|()
 operator|.
-name|expression
-argument_list|(
-name|bean
+name|method
 argument_list|(
 literal|"foo"
 argument_list|,
 literal|"isGoldCustomer"
-argument_list|)
 argument_list|)
 operator|.
 name|to

@@ -275,13 +275,13 @@ literal|"direct:recipientList"
 argument_list|)
 operator|.
 name|recipientList
-argument_list|(
-name|bean
+argument_list|()
+operator|.
+name|method
 argument_list|(
 literal|"myBean"
 argument_list|,
 literal|"recipientList"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|from

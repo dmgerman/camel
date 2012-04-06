@@ -180,7 +180,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// generate a new file continously
+comment|// generate a new file continuously
 name|from
 argument_list|(
 literal|"timer:foo?period=50"
@@ -192,7 +192,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-name|bean
+name|method
 argument_list|(
 name|FileAsyncStressFileDropper
 operator|.

@@ -428,7 +428,7 @@ name|setHeader
 argument_list|(
 literal|"foo"
 argument_list|,
-name|bean
+name|method
 argument_list|(
 literal|"myCoolBean"
 argument_list|)

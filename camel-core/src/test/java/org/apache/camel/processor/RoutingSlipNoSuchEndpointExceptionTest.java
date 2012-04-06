@@ -146,7 +146,7 @@ argument_list|()
 operator|.
 name|routingSlip
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|Router
 operator|.
@@ -252,7 +252,7 @@ argument_list|)
 operator|.
 name|routingSlip
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|Router
 operator|.

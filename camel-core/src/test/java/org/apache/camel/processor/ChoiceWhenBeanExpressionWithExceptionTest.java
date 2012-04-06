@@ -325,11 +325,8 @@ name|choice
 argument_list|()
 operator|.
 name|when
-argument_list|()
-operator|.
-name|expression
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|MyBean
 operator|.
