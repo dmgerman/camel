@@ -473,7 +473,7 @@ name|type
 argument_list|)
 throw|;
 block|}
-DECL|method|getMandatoryHeader (Exchange exchange, String propertyName, Class<T> type)
+DECL|method|getMandatoryHeader (Exchange exchange, String headerName, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -486,7 +486,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|String
-name|propertyName
+name|headerName
 parameter_list|,
 name|Class
 argument_list|<
@@ -507,7 +507,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|propertyName
+name|headerName
 argument_list|,
 name|type
 argument_list|)
@@ -525,7 +525,7 @@ name|NoSuchHeaderException
 argument_list|(
 name|exchange
 argument_list|,
-name|propertyName
+name|headerName
 argument_list|,
 name|type
 argument_list|)
