@@ -902,7 +902,7 @@ name|typeHints
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: xmljson: element-namespace mapping is not implemented in the XML DSL
+comment|//TODO: xmljson: element-namespace mapping is not implemented in the XML DSL
 comment|// depending on adoption rate of this data format, we'll make this data format NamespaceAware so that it gets
 comment|// the prefix-namespaceURI mappings from the context, and with a new attribute called "namespacedElements",
 comment|// we'll associate named elements with prefixes following a format "element1:prefix1,element2:prefix2,..."
