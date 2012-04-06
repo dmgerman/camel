@@ -258,9 +258,7 @@ name|cmfRef
 init|=
 operator|new
 name|TestingCacheManagerFactory
-argument_list|(
-literal|"ehcache_test.xml"
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|templateProcessor
 specifier|private
@@ -589,32 +587,12 @@ name|TestingCacheManagerFactory
 extends|extends
 name|CacheManagerFactory
 block|{
-DECL|field|xmlName
-specifier|private
-name|String
-name|xmlName
-decl_stmt|;
 comment|//Only for testing purpose, normally not needed
 DECL|field|cacheManager
 specifier|private
 name|CacheManager
 name|cacheManager
 decl_stmt|;
-DECL|method|TestingCacheManagerFactory (String xmlName)
-specifier|public
-name|TestingCacheManagerFactory
-parameter_list|(
-name|String
-name|xmlName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|xmlName
-operator|=
-name|xmlName
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|createCacheManagerInstance ()
@@ -637,15 +615,7 @@ operator|=
 name|CacheManager
 operator|.
 name|create
-argument_list|(
-name|getClass
 argument_list|()
-operator|.
-name|getResourceAsStream
-argument_list|(
-name|xmlName
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 return|return
