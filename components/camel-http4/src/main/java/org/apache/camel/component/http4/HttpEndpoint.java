@@ -240,6 +240,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|protocol
+operator|.
+name|HttpContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -300,6 +314,11 @@ DECL|field|binding
 specifier|private
 name|HttpBinding
 name|binding
+decl_stmt|;
+DECL|field|httpContext
+specifier|private
+name|HttpContext
+name|httpContext
 decl_stmt|;
 DECL|field|component
 specifier|private
@@ -936,6 +955,16 @@ return|return
 name|httpClientConfigurer
 return|;
 block|}
+DECL|method|getHttpContext ()
+specifier|public
+name|HttpContext
+name|getHttpContext
+parameter_list|()
+block|{
+return|return
+name|httpContext
+return|;
+block|}
 comment|/**      * Register a custom configuration strategy for new {@link HttpClient} instances      * created by producers or consumers such as to configure authentication mechanisms etc      *      * @param httpClientConfigurer the strategy for configuring new {@link HttpClient} instances      */
 DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
 specifier|public
@@ -995,7 +1024,6 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-comment|/**      * Used from the IntrospectionSupport in HttpComponent.      * @param binding      */
 DECL|method|setHttpBinding (HttpBinding binding)
 specifier|public
 name|void
@@ -1012,7 +1040,6 @@ operator|=
 name|binding
 expr_stmt|;
 block|}
-comment|/**      * Used from the IntrospectionSupport in HttpComponent.      * @param binding      */
 DECL|method|setHttpBindingRef (HttpBinding binding)
 specifier|public
 name|void
@@ -1027,6 +1054,22 @@ operator|.
 name|binding
 operator|=
 name|binding
+expr_stmt|;
+block|}
+DECL|method|setHttpContext (HttpContext httpContext)
+specifier|public
+name|void
+name|setHttpContext
+parameter_list|(
+name|HttpContext
+name|httpContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpContext
+operator|=
+name|httpContext
 expr_stmt|;
 block|}
 DECL|method|getPath ()
