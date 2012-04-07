@@ -3384,6 +3384,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// must catch any exceptions from aggregation
 try|try
 block|{
 name|doAggregate

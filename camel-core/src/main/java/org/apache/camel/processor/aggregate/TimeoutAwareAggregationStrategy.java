@@ -43,7 +43,7 @@ extends|extends
 name|AggregationStrategy
 block|{
 comment|// TODO: In Camel 3.0 we should move this to org.apache.camel package
-comment|/**      * A timeout occurred      *      * @param oldExchange  the current aggregated exchange, or the original {@link Exchange} if no aggregation      *                     has been done before the timeout occurred      * @param index        the index, may be<tt>-1</tt> if not possible to determine the index      * @param total        the total, may be<tt>-1</tt> if not possible to determine the total      * @param timeout      the timeout value in millis, may be<tt>-1</tt> if not possible to determine the timeout      */
+comment|/**      * A timeout occurred.      *<p/>      *<b>Important:</b> This method must<b>not</b> throw any exceptions.      *      * @param oldExchange  the current aggregated exchange, or the original {@link Exchange} if no aggregation      *                     has been done before the timeout occurred      * @param index        the index, may be<tt>-1</tt> if not possible to determine the index      * @param total        the total, may be<tt>-1</tt> if not possible to determine the total      * @param timeout      the timeout value in millis, may be<tt>-1</tt> if not possible to determine the timeout      */
 DECL|method|timeout (Exchange oldExchange, int index, int total, long timeout)
 name|void
 name|timeout

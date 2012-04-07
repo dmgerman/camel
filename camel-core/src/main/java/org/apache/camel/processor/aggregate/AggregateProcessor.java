@@ -1324,6 +1324,9 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
+comment|// must catch any exception from aggregation
+try|try
+block|{
 name|answer
 operator|=
 name|onAggregation
@@ -1333,6 +1336,25 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Error occurred during aggregation"
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|answer
