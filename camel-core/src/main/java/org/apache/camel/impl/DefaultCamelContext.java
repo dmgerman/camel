@@ -1360,20 +1360,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ReflectionInjector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -10865,11 +10851,13 @@ name|NoFactoryAvailableException
 name|e
 parameter_list|)
 block|{
-comment|// lets use the default
+comment|// lets use the default injector
 return|return
 operator|new
-name|ReflectionInjector
-argument_list|()
+name|DefaultInjector
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 block|}

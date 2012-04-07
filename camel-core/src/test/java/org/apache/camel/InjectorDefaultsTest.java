@@ -22,9 +22,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|impl
 operator|.
-name|Injector
+name|DefaultInjector
 import|;
 end_import
 
@@ -36,9 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|ReflectionInjector
+name|Injector
 import|;
 end_import
 
@@ -47,17 +47,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|InjectorDefaultsToReflectionTest
+DECL|class|InjectorDefaultsTest
 specifier|public
 class|class
-name|InjectorDefaultsToReflectionTest
+name|InjectorDefaultsTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testInjectorIsReflectionByDefault ()
+DECL|method|testInjectorIsDefaultByDefault ()
 specifier|public
 name|void
-name|testInjectorIsReflectionByDefault
+name|testInjectorIsDefaultByDefault
 parameter_list|()
 throws|throws
 name|Exception
@@ -72,7 +72,7 @@ argument_list|()
 decl_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|ReflectionInjector
+name|DefaultInjector
 operator|.
 name|class
 argument_list|,
