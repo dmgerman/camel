@@ -1454,7 +1454,11 @@ name|postProcessBeforeInitialization
 argument_list|(
 name|this
 argument_list|,
-literal|"this"
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
