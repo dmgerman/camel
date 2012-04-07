@@ -1205,9 +1205,8 @@ condition|)
 block|{
 name|x509HostnameVerifier
 operator|=
-name|this
-operator|.
-name|x509HostnameVerifier
+name|getX509HostnameVerifier
+argument_list|()
 expr_stmt|;
 block|}
 name|SSLContextParameters
@@ -1233,9 +1232,8 @@ condition|)
 block|{
 name|sslContextParameters
 operator|=
-name|this
-operator|.
-name|sslContextParameters
+name|getSslContextParameters
+argument_list|()
 expr_stmt|;
 block|}
 name|boolean
@@ -1487,6 +1485,14 @@ name|httpClientConfigurer
 argument_list|)
 expr_stmt|;
 block|}
+name|endpoint
+operator|.
+name|setHttpContext
+argument_list|(
+name|getHttpContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|httpContext
@@ -2135,6 +2141,32 @@ operator|=
 name|httpBinding
 expr_stmt|;
 block|}
+DECL|method|getHttpContext ()
+specifier|public
+name|HttpContext
+name|getHttpContext
+parameter_list|()
+block|{
+return|return
+name|httpContext
+return|;
+block|}
+DECL|method|setHttpContext (HttpContext httpContext)
+specifier|public
+name|void
+name|setHttpContext
+parameter_list|(
+name|HttpContext
+name|httpContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpContext
+operator|=
+name|httpContext
+expr_stmt|;
+block|}
 DECL|method|getSslContextParameters ()
 specifier|public
 name|SSLContextParameters
@@ -2159,6 +2191,32 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getX509HostnameVerifier ()
+specifier|public
+name|X509HostnameVerifier
+name|getX509HostnameVerifier
+parameter_list|()
+block|{
+return|return
+name|x509HostnameVerifier
+return|;
+block|}
+DECL|method|setX509HostnameVerifier (X509HostnameVerifier x509HostnameVerifier)
+specifier|public
+name|void
+name|setX509HostnameVerifier
+parameter_list|(
+name|X509HostnameVerifier
+name|x509HostnameVerifier
+parameter_list|)
+block|{
+name|this
+operator|.
+name|x509HostnameVerifier
+operator|=
+name|x509HostnameVerifier
 expr_stmt|;
 block|}
 DECL|method|getMaxTotalConnections ()
