@@ -579,10 +579,6 @@ operator|new
 name|ClientChannelHandler
 argument_list|(
 name|producer
-argument_list|,
-name|exchange
-argument_list|,
-name|callback
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -160,20 +160,6 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
 name|ChannelHandlerContext
 import|;
 end_import
@@ -255,14 +241,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Server handler which is shared  */
+comment|/**  * Client handler which cannot be shared  */
 end_comment
 
 begin_class
-annotation|@
-name|ChannelHandler
-operator|.
-name|Sharable
 DECL|class|ServerChannelHandler
 specifier|public
 class|class
