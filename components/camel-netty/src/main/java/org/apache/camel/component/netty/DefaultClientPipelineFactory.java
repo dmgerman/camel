@@ -205,25 +205,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|DefaultClientPipelineFactory (NettyProducer producer)
+annotation|@
+name|Override
+DECL|method|getPipeline (NettyProducer producer)
 specifier|public
-name|DefaultClientPipelineFactory
+name|ChannelPipeline
+name|getPipeline
 parameter_list|(
 name|NettyProducer
 name|producer
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|producer
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getPipeline ()
-specifier|public
-name|ChannelPipeline
-name|getPipeline
-parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -240,7 +231,9 @@ name|SslHandler
 name|sslHandler
 init|=
 name|configureClientSSLOnDemand
-argument_list|()
+argument_list|(
+name|producer
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -382,11 +375,14 @@ return|return
 name|channelPipeline
 return|;
 block|}
-DECL|method|configureClientSSLOnDemand ()
+DECL|method|configureClientSSLOnDemand (NettyProducer producer)
 specifier|private
 name|SslHandler
 name|configureClientSSLOnDemand
-parameter_list|()
+parameter_list|(
+name|NettyProducer
+name|producer
+parameter_list|)
 throws|throws
 name|Exception
 block|{

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Stores state for {@link NettyProducer} when sending messages.  *<p/>  * This allows the {@link org.apache.camel.component.netty.handlers.ClientChannelHandler} to access  * this state, which is needed so we can get hold of the current {@link Exchange} and the  * {@link AsyncCallback} so we can continue routing the message in the Camel routing engine.  */
 end_comment
 
 begin_class

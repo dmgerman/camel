@@ -46,19 +46,9 @@ name|ChannelPipelineFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|Channels
-import|;
-end_import
+begin_comment
+comment|/**  * Factory to create {@link ChannelPipeline} for clients, eg {@link NettyConsumer}.  *<p/>  * Implementators should use implement the {@link #getPipeline(NettyConsumer)} method.  *  * @see ChannelPipelineFactory  */
+end_comment
 
 begin_class
 DECL|class|ServerPipelineFactory
@@ -69,31 +59,21 @@ name|ServerPipelineFactory
 implements|implements
 name|ChannelPipelineFactory
 block|{
-DECL|field|consumer
-specifier|protected
-name|NettyConsumer
-name|consumer
-decl_stmt|;
-DECL|method|ServerPipelineFactory ()
+comment|/**      * Returns a newly created {@link ChannelPipeline}.      *      * @param consumer the netty consumer      */
+DECL|method|getPipeline (NettyConsumer consumer)
 specifier|public
-name|ServerPipelineFactory
-parameter_list|()
-block|{     }
-DECL|method|ServerPipelineFactory (NettyConsumer consumer)
-specifier|public
-name|ServerPipelineFactory
+specifier|abstract
+name|ChannelPipeline
+name|getPipeline
 parameter_list|(
 name|NettyConsumer
 name|consumer
 parameter_list|)
-block|{
-name|this
-operator|.
-name|consumer
-operator|=
-name|consumer
-expr_stmt|;
-block|}
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|Override
 DECL|method|getPipeline ()
 specifier|public
 name|ChannelPipeline
@@ -102,43 +82,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ChannelPipeline
-name|channelPipeline
-init|=
-name|Channels
-operator|.
-name|pipeline
-argument_list|()
-decl_stmt|;
-return|return
-name|channelPipeline
-return|;
-block|}
-DECL|method|getConsumer ()
-specifier|public
-name|NettyConsumer
-name|getConsumer
-parameter_list|()
-block|{
-return|return
-name|consumer
-return|;
-block|}
-DECL|method|setConsumer (NettyConsumer consumer)
-specifier|public
-name|void
-name|setConsumer
-parameter_list|(
-name|NettyConsumer
-name|consumer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumer
-operator|=
-name|consumer
-expr_stmt|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"use getPipeline(NettyConsumer) instead"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

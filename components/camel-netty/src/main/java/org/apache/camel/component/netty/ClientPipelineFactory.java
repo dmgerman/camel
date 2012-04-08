@@ -46,19 +46,9 @@ name|ChannelPipelineFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|Channels
-import|;
-end_import
+begin_comment
+comment|/**  * Factory to create {@link ChannelPipeline} for clients, eg {@link NettyProducer}.  *<p/>  * Implementators should use implement the {@link #getPipeline(NettyProducer)} method.  *  * @see ChannelPipelineFactory  */
+end_comment
 
 begin_class
 DECL|class|ClientPipelineFactory
@@ -69,31 +59,26 @@ name|ClientPipelineFactory
 implements|implements
 name|ChannelPipelineFactory
 block|{
-DECL|field|producer
-specifier|protected
-name|NettyProducer
-name|producer
-decl_stmt|;
 DECL|method|ClientPipelineFactory ()
 specifier|public
 name|ClientPipelineFactory
 parameter_list|()
 block|{     }
-DECL|method|ClientPipelineFactory (NettyProducer producer)
+comment|/**      * Returns a newly created {@link ChannelPipeline}.      *      * @param producer the netty producer      */
+DECL|method|getPipeline (NettyProducer producer)
 specifier|public
-name|ClientPipelineFactory
+specifier|abstract
+name|ChannelPipeline
+name|getPipeline
 parameter_list|(
 name|NettyProducer
 name|producer
 parameter_list|)
-block|{
-name|this
-operator|.
-name|producer
-operator|=
-name|producer
-expr_stmt|;
-block|}
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|Override
 DECL|method|getPipeline ()
 specifier|public
 name|ChannelPipeline
@@ -102,43 +87,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ChannelPipeline
-name|channelPipeline
-init|=
-name|Channels
-operator|.
-name|pipeline
-argument_list|()
-decl_stmt|;
-return|return
-name|channelPipeline
-return|;
-block|}
-DECL|method|getProducer ()
-specifier|public
-name|NettyProducer
-name|getProducer
-parameter_list|()
-block|{
-return|return
-name|producer
-return|;
-block|}
-DECL|method|setProducer (NettyProducer producer)
-specifier|public
-name|void
-name|setProducer
-parameter_list|(
-name|NettyProducer
-name|producer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|producer
-operator|=
-name|producer
-expr_stmt|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"use getPipeline(NettyProducer) instead"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

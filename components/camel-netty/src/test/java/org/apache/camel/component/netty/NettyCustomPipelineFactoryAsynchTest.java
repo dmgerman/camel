@@ -465,7 +465,7 @@ literal|true
 argument_list|,
 name|clientPipelineFactory
 operator|.
-name|isfactoryInvoked
+name|isFactoryInvoked
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -475,7 +475,7 @@ literal|true
 argument_list|,
 name|serverPipelineFactory
 operator|.
-name|isfactoryInvoked
+name|isFactoryInvoked
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -499,11 +499,16 @@ specifier|private
 name|boolean
 name|invoked
 decl_stmt|;
-DECL|method|getPipeline ()
+annotation|@
+name|Override
+DECL|method|getPipeline (NettyProducer producer)
 specifier|public
 name|ChannelPipeline
 name|getPipeline
-parameter_list|()
+parameter_list|(
+name|NettyProducer
+name|producer
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -586,10 +591,10 @@ return|return
 name|channelPipeline
 return|;
 block|}
-DECL|method|isfactoryInvoked ()
+DECL|method|isFactoryInvoked ()
 specifier|public
 name|boolean
-name|isfactoryInvoked
+name|isFactoryInvoked
 parameter_list|()
 block|{
 return|return
@@ -616,11 +621,16 @@ specifier|private
 name|boolean
 name|invoked
 decl_stmt|;
-DECL|method|getPipeline ()
+annotation|@
+name|Override
+DECL|method|getPipeline (NettyConsumer consumer)
 specifier|public
 name|ChannelPipeline
 name|getPipeline
-parameter_list|()
+parameter_list|(
+name|NettyConsumer
+name|consumer
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -703,10 +713,10 @@ return|return
 name|channelPipeline
 return|;
 block|}
-DECL|method|isfactoryInvoked ()
+DECL|method|isFactoryInvoked ()
 specifier|public
 name|boolean
-name|isfactoryInvoked
+name|isFactoryInvoked
 parameter_list|()
 block|{
 return|return

@@ -126,20 +126,6 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelPipelineFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
 name|ChannelUpstreamHandler
 import|;
 end_import
@@ -199,8 +185,8 @@ DECL|class|DefaultServerPipelineFactory
 specifier|public
 class|class
 name|DefaultServerPipelineFactory
-implements|implements
-name|ChannelPipelineFactory
+extends|extends
+name|ServerPipelineFactory
 block|{
 DECL|field|LOG
 specifier|private
@@ -219,31 +205,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|consumer
-specifier|private
-name|NettyConsumer
-name|consumer
-decl_stmt|;
-DECL|method|DefaultServerPipelineFactory (NettyConsumer consumer)
+annotation|@
+name|Override
+DECL|method|getPipeline (NettyConsumer consumer)
 specifier|public
-name|DefaultServerPipelineFactory
+name|ChannelPipeline
+name|getPipeline
 parameter_list|(
 name|NettyConsumer
 name|consumer
 parameter_list|)
-block|{
-name|this
-operator|.
-name|consumer
-operator|=
-name|consumer
-expr_stmt|;
-block|}
-DECL|method|getPipeline ()
-specifier|public
-name|ChannelPipeline
-name|getPipeline
-parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -259,7 +230,9 @@ name|SslHandler
 name|sslHandler
 init|=
 name|configureServerSSLOnDemand
-argument_list|()
+argument_list|(
+name|consumer
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -401,11 +374,14 @@ return|return
 name|channelPipeline
 return|;
 block|}
-DECL|method|configureServerSSLOnDemand ()
+DECL|method|configureServerSSLOnDemand (NettyConsumer consumer)
 specifier|private
 name|SslHandler
 name|configureServerSSLOnDemand
-parameter_list|()
+parameter_list|(
+name|NettyConsumer
+name|consumer
+parameter_list|)
 throws|throws
 name|Exception
 block|{
