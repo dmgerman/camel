@@ -114,6 +114,8 @@ DECL|field|chmod
 specifier|private
 name|String
 name|chmod
+init|=
+name|DEFAULT_MOD
 decl_stmt|;
 comment|// comma separated list of ciphers.
 comment|// null means default jsch list will be used
