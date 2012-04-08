@@ -290,6 +290,7 @@ name|messageReceived
 decl_stmt|;
 DECL|field|exceptionHandled
 specifier|private
+specifier|volatile
 name|boolean
 name|exceptionHandled
 decl_stmt|;
