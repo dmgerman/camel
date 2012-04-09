@@ -254,6 +254,14 @@ name|autoStartTls
 init|=
 literal|true
 decl_stmt|;
+DECL|field|maximumPoolSize
+specifier|private
+name|int
+name|maximumPoolSize
+init|=
+literal|16
+decl_stmt|;
+comment|// 16 is the default mina setting
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -903,6 +911,32 @@ operator|.
 name|autoStartTls
 operator|=
 name|autoStartTls
+expr_stmt|;
+block|}
+DECL|method|getMaximumPoolSize ()
+specifier|public
+name|int
+name|getMaximumPoolSize
+parameter_list|()
+block|{
+return|return
+name|maximumPoolSize
+return|;
+block|}
+DECL|method|setMaximumPoolSize (int maximumPoolSize)
+specifier|public
+name|void
+name|setMaximumPoolSize
+parameter_list|(
+name|int
+name|maximumPoolSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumPoolSize
+operator|=
+name|maximumPoolSize
 expr_stmt|;
 block|}
 block|}

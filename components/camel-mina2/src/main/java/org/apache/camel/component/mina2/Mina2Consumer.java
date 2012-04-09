@@ -62,6 +62,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -340,6 +352,22 @@ name|mina
 operator|.
 name|filter
 operator|.
+name|executor
+operator|.
+name|UnorderedThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
+name|filter
+operator|.
 name|logging
 operator|.
 name|LoggingFilter
@@ -512,6 +540,11 @@ specifier|private
 name|Mina2Configuration
 name|configuration
 decl_stmt|;
+DECL|field|workerPool
+specifier|private
+name|ExecutorService
+name|workerPool
+decl_stmt|;
 DECL|method|Mina2Consumer (final Mina2Endpoint endpoint, Processor processor)
 specifier|public
 name|Mina2Consumer
@@ -576,7 +609,7 @@ literal|"tcp"
 argument_list|)
 condition|)
 block|{
-name|createSocketEndpoint
+name|setupSocketProtocol
 argument_list|(
 name|protocol
 argument_list|,
@@ -593,7 +626,7 @@ name|isDatagramProtocol
 argument_list|()
 condition|)
 block|{
-name|createDatagramEndpoint
+name|setupDatagramProtocol
 argument_list|(
 name|protocol
 argument_list|,
@@ -612,7 +645,7 @@ literal|"vm"
 argument_list|)
 condition|)
 block|{
-name|createVmEndpoint
+name|setupVmProtocol
 argument_list|(
 name|protocol
 argument_list|,
@@ -698,12 +731,41 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
-DECL|method|createVmEndpoint (String uri, Mina2Configuration configuration)
+annotation|@
+name|Override
+DECL|method|doShutdown ()
 specifier|protected
 name|void
-name|createVmEndpoint
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|workerPool
+operator|!=
+literal|null
+condition|)
+block|{
+name|workerPool
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
+block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
+DECL|method|setupVmProtocol (String uri, Mina2Configuration configuration)
+specifier|protected
+name|void
+name|setupVmProtocol
 parameter_list|(
 name|String
 name|uri
@@ -809,10 +871,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createSocketEndpoint (String uri, Mina2Configuration configuration)
+DECL|method|setupSocketProtocol (String uri, Mina2Configuration configuration)
 specifier|protected
 name|void
-name|createSocketEndpoint
+name|setupSocketProtocol
 parameter_list|(
 name|String
 name|uri
@@ -865,32 +927,26 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
+name|int
+name|processorCount
+init|=
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|availableProcessors
+argument_list|()
+operator|+
+literal|1
+decl_stmt|;
 name|acceptor
 operator|=
 operator|new
 name|NioSocketAcceptor
 argument_list|(
-operator|new
-name|NioProcessor
-argument_list|(
-name|this
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"MinaSocketAcceptor"
-argument_list|)
-argument_list|)
+name|processorCount
 argument_list|)
 expr_stmt|;
 comment|// acceptor connectorConfig
@@ -922,6 +978,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// using the unordered thread pool is fine as we dont need ordered invocation in our response handler
+name|workerPool
+operator|=
+operator|new
+name|UnorderedThreadPoolExecutor
+argument_list|(
+name|configuration
+operator|.
+name|getMaximumPoolSize
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|acceptor
 operator|.
 name|getFilterChain
@@ -934,23 +1002,7 @@ argument_list|,
 operator|new
 name|ExecutorFilter
 argument_list|(
-name|this
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"MinaThreadPool"
-argument_list|)
+name|workerPool
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1276,10 +1328,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createDatagramEndpoint (String uri, Mina2Configuration configuration)
+DECL|method|setupDatagramProtocol (String uri, Mina2Configuration configuration)
 specifier|protected
 name|void
-name|createDatagramEndpoint
+name|setupDatagramProtocol
 parameter_list|(
 name|String
 name|uri
@@ -1327,25 +1379,7 @@ name|acceptor
 operator|=
 operator|new
 name|NioDatagramAcceptor
-argument_list|(
-name|this
-operator|.
-name|getEndpoint
 argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"MinaDatagramAcceptor"
-argument_list|)
-argument_list|)
 expr_stmt|;
 comment|// acceptor connectorConfig
 name|configureDataGramCodecFactory
@@ -1365,8 +1399,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// reuse address is default true for datagram
-comment|//acceptor.getFilterChain().addLast("threadPool",
-comment|//                                  new ExecutorFilter(this.getEndpoint().getCamelContext().getExecutorServiceStrategy().newDefaultThreadPool(this, "MinaThreadPool")));
 if|if
 condition|(
 name|minaLogger
