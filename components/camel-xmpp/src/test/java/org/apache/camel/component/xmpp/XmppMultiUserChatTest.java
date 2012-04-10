@@ -233,7 +233,7 @@ name|getProducerUri
 parameter_list|()
 block|{
 return|return
-literal|"xmpp://jabber.org:5222?room=camel-test&user=camel_producer&password=secret&serviceName=jabber.org"
+literal|"xmpp://jabber.org:5222?room=camel-test&user=camel_producer@jabber.org&password=secret&serviceName=jabber.org"
 return|;
 block|}
 DECL|method|getConsumerUri ()
@@ -243,7 +243,7 @@ name|getConsumerUri
 parameter_list|()
 block|{
 return|return
-literal|"xmpp://jabber.org:5222?room=camel-test&user=camel_consumer&password=secret&serviceName=jabber.org"
+literal|"xmpp://jabber.org:5222?room=camel-test&user=camel_consumer@jabber.org&password=secret&serviceName=jabber.org"
 return|;
 block|}
 block|}
