@@ -1152,12 +1152,12 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertEquals
 argument_list|(
+literal|"Get a wrong response body"
+argument_list|,
+literal|"Cannot find the customer!"
+argument_list|,
 name|exception
 operator|.
 name|getResponseBody
