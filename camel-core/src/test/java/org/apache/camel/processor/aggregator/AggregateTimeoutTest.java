@@ -126,12 +126,12 @@ name|AggregateTimeoutTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|invoked
+DECL|field|INVOKED
 specifier|private
 specifier|static
 specifier|final
 name|AtomicInteger
-name|invoked
+name|INVOKED
 init|=
 operator|new
 name|AtomicInteger
@@ -204,7 +204,7 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|invoked
+name|INVOKED
 operator|.
 name|get
 argument_list|()
@@ -279,7 +279,7 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|invoked
+name|INVOKED
 operator|.
 name|get
 argument_list|()
@@ -376,7 +376,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
-name|invoked
+name|INVOKED
 operator|.
 name|incrementAndGet
 argument_list|()
