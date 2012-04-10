@@ -1057,7 +1057,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// set up MessageObserver for handlering the conduit message
+comment|// set up MessageObserver for handling the conduit message
 name|MessageObserver
 name|observer
 init|=
@@ -1187,7 +1187,7 @@ argument_list|(
 name|observer
 argument_list|)
 expr_stmt|;
-comment|// set is oneway false for get response from destination
+comment|// set is one way false for get response from destination
 comment|// need to use another thread to send the request message
 name|sendoutMessage
 argument_list|(
@@ -1201,7 +1201,7 @@ literal|"HelloWorld"
 argument_list|)
 expr_stmt|;
 comment|// wait for the message to be got from the destination,
-comment|// create the thread to handler the Destination incomming message
+comment|// create the thread to handler the Destination incoming message
 name|verifyReceivedMessage
 argument_list|(
 name|inMessage
@@ -1294,7 +1294,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// set up MessageObserver for handlering the conduit message
+comment|// set up MessageObserver for handling the conduit message
 name|MessageObserver
 name|observer
 init|=
@@ -1437,7 +1437,7 @@ argument_list|(
 name|observer
 argument_list|)
 expr_stmt|;
-comment|// set is oneway false for get response from destination
+comment|// set is one way false for get response from destination
 comment|// need to use another thread to send the request message
 name|sendoutMessage
 argument_list|(
@@ -1451,7 +1451,7 @@ literal|"HelloWorld"
 argument_list|)
 expr_stmt|;
 comment|// wait for the message to be got from the destination,
-comment|// create the thread to handler the Destination incomming message
+comment|// create the thread to handler the Destination incoming message
 name|verifyReceivedMessage
 argument_list|(
 name|inMessage
@@ -1555,7 +1555,7 @@ expr|new
 name|ConsumerProcessor
 argument_list|()
 decl_stmt|;
-comment|// Send our dummy exchange and check that the exception that occured on incoming is set
+comment|// Send our dummy exchange and check that the exception that occurred on incoming is set
 name|DefaultExchange
 name|exchange
 init|=
