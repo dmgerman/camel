@@ -439,8 +439,15 @@ name|r
 operator|=
 name|Response
 operator|.
-name|notModified
-argument_list|()
+name|status
+argument_list|(
+literal|406
+argument_list|)
+operator|.
+name|entity
+argument_list|(
+literal|"Cannot find the customer"
+argument_list|)
 operator|.
 name|build
 argument_list|()
