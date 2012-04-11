@@ -432,6 +432,7 @@ argument_list|()
 else|:
 literal|1000L
 decl_stmt|;
+comment|// max requests per period is mandatory
 name|Expression
 name|maxRequestsExpression
 init|=
@@ -440,6 +441,23 @@ argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|maxRequestsExpression
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"MaxRequestsPerPeriod expression must be provided on "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 name|Throttler
 name|answer
 init|=
