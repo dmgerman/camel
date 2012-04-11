@@ -1107,6 +1107,9 @@ name|boolean
 name|hasAttachments
 parameter_list|()
 block|{
+comment|// optimized to avoid calling createAttachments as that creates a new empty map
+comment|// that we 99% do not need (only camel-mail supports attachments), and we have
+comment|// then ensure camel-mail always creates attachments to remedy for this
 return|return
 name|this
 operator|.

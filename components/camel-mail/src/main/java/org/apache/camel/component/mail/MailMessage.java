@@ -211,6 +211,12 @@ name|mailMessage
 operator|=
 name|mailMessage
 expr_stmt|;
+comment|// force attachments to be created (by getting attachments) to ensure they are always available due Camel error handler
+comment|// makes defensive copies, and we have optimized it to avoid populating initial attachments, when not needed,
+comment|// as all other Camel components do not use attachments
+name|getAttachments
+argument_list|()
+expr_stmt|;
 return|return
 name|answer
 return|;
