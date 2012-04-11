@@ -3118,27 +3118,39 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+specifier|final
 name|boolean
-name|handled
+name|shouldHandle
 init|=
-literal|false
-decl_stmt|;
-comment|// regard both handled or continued as being handled
-if|if
-condition|(
 name|shouldHandled
 argument_list|(
 name|exchange
 argument_list|,
 name|data
 argument_list|)
-operator|||
+decl_stmt|;
+specifier|final
+name|boolean
+name|shouldContinue
+init|=
 name|shouldContinue
 argument_list|(
 name|exchange
 argument_list|,
 name|data
 argument_list|)
+decl_stmt|;
+comment|// regard both handled or continued as being handled
+name|boolean
+name|handled
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|shouldHandle
+operator|||
+name|shouldContinue
 condition|)
 block|{
 comment|// its handled then remove traces of redelivery attempted
@@ -3369,6 +3381,10 @@ argument_list|(
 name|exchange
 argument_list|,
 name|data
+argument_list|,
+name|shouldHandle
+argument_list|,
+name|shouldContinue
 argument_list|)
 expr_stmt|;
 comment|// fire event as we had a failure processor to handle it, which there is a event for
@@ -3438,6 +3454,10 @@ argument_list|(
 name|exchange
 argument_list|,
 name|data
+argument_list|,
+name|shouldHandle
+argument_list|,
+name|shouldContinue
 argument_list|)
 expr_stmt|;
 block|}
@@ -3520,7 +3540,7 @@ return|return
 name|sync
 return|;
 block|}
-DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data)
+DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data, final boolean shouldHandle, final boolean shouldContinue)
 specifier|protected
 name|void
 name|prepareExchangeAfterFailure
@@ -3532,6 +3552,14 @@ parameter_list|,
 specifier|final
 name|RedeliveryData
 name|data
+parameter_list|,
+specifier|final
+name|boolean
+name|shouldHandle
+parameter_list|,
+specifier|final
+name|boolean
+name|shouldContinue
 parameter_list|)
 block|{
 comment|// we could not process the exchange so we let the failure processor handled it
@@ -3645,12 +3673,7 @@ return|return;
 block|}
 if|if
 condition|(
-name|shouldHandled
-argument_list|(
-name|exchange
-argument_list|,
-name|data
-argument_list|)
+name|shouldHandle
 condition|)
 block|{
 name|log
@@ -3680,11 +3703,6 @@ elseif|else
 if|if
 condition|(
 name|shouldContinue
-argument_list|(
-name|exchange
-argument_list|,
-name|data
-argument_list|)
 condition|)
 block|{
 name|log
