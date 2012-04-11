@@ -1343,6 +1343,21 @@ argument_list|,
 name|LOG
 argument_list|)
 expr_stmt|;
+comment|// force updates to be written, and then close afterwards
+name|IOHelper
+operator|.
+name|force
+argument_list|(
+name|out
+argument_list|,
+name|target
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 name|IOHelper
 operator|.
 name|close
@@ -1484,6 +1499,21 @@ operator|.
 name|close
 argument_list|(
 name|in
+argument_list|,
+name|target
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+comment|// force updates to be written, and then close afterwards
+name|IOHelper
+operator|.
+name|force
+argument_list|(
+name|out
 argument_list|,
 name|target
 operator|.
