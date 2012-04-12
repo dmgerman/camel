@@ -523,6 +523,12 @@ specifier|protected
 name|boolean
 name|logClasspath
 decl_stmt|;
+comment|/**      * Whether to use Blueprint when running, instead of Spring      *      * @parameter expression="${camel.blueprint}"      *            default-value="false"      */
+DECL|field|useBlueprint
+specifier|protected
+name|boolean
+name|useBlueprint
+decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
 specifier|private
@@ -583,7 +589,7 @@ specifier|private
 name|String
 name|routesOutputFile
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
+comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      */
 DECL|field|mainClass
 specifier|private
 name|String
@@ -695,6 +701,11 @@ name|boolean
 name|usingSpringJavaConfigureMain
 init|=
 literal|false
+decl_stmt|;
+name|boolean
+name|usingBlueprintMain
+init|=
+name|useBlueprint
 decl_stmt|;
 if|if
 condition|(
@@ -949,8 +960,69 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Using the org.apache.camel.spring.javaconfig.Main to initiate a CamelContext"
+literal|"Using org.apache.camel.spring.javaconfig.Main to initiate a CamelContext"
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|usingBlueprintMain
+condition|)
+block|{
+name|mainClass
+operator|=
+literal|"org.apache.camel.test.blueprint.Main"
+expr_stmt|;
+comment|// must include plugin dependencies for blueprint
+name|includePluginDependencies
+operator|=
+literal|true
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Using org.apache.camel.test.blueprint.Main to initiate a CamelContext"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|mainClass
+operator|!=
+literal|null
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Using custom "
+operator|+
+name|mainClass
+operator|+
+literal|" to initiate a CamelContext"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// use spring by default
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Using org.apache.camel.spring.Main to initiate a CamelContext"
+argument_list|)
+expr_stmt|;
+name|mainClass
+operator|=
+literal|"org.apache.camel.spring.Main"
 expr_stmt|;
 block|}
 if|if
@@ -968,7 +1040,7 @@ init|=
 operator|new
 name|StringBuffer
 argument_list|(
-literal|"Invoking : "
+literal|"Invoking: "
 argument_list|)
 decl_stmt|;
 name|msg
