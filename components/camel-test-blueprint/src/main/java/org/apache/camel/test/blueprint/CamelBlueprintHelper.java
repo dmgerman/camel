@@ -522,7 +522,7 @@ specifier|private
 name|CamelBlueprintHelper
 parameter_list|()
 block|{     }
-DECL|method|createBundleContext (String name, String descriptors)
+DECL|method|createBundleContext (String name, String descriptors, boolean includeTestBundle)
 specifier|public
 specifier|static
 name|BundleContext
@@ -533,6 +533,9 @@ name|name
 parameter_list|,
 name|String
 name|descriptors
+parameter_list|,
+name|boolean
+name|includeTestBundle
 parameter_list|)
 throws|throws
 name|Exception
