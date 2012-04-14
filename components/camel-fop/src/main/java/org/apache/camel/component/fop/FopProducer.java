@@ -543,6 +543,11 @@ return|return
 name|out
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setEncryptionParameters (FOUserAgent userAgent, Map<String, Object> headers)
 specifier|private
 name|void

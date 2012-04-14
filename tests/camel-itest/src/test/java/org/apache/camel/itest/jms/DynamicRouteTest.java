@@ -288,7 +288,7 @@ argument_list|)
 operator|.
 name|dynamicRouter
 argument_list|(
-name|bean
+name|method
 argument_list|(
 operator|new
 name|MyDynamicRouter

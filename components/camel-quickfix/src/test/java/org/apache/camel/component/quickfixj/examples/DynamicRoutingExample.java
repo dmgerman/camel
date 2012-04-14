@@ -446,7 +446,7 @@ argument_list|)
 operator|.
 name|recipientList
 argument_list|(
-name|bean
+name|method
 argument_list|(
 operator|new
 name|FixMessageRouter

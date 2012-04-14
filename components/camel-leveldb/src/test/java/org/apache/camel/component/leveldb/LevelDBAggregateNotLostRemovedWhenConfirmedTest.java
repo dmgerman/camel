@@ -290,14 +290,6 @@ operator|.
 name|getLevelDBFile
 argument_list|()
 decl_stmt|;
-specifier|final
-name|LevelDBCamelCodec
-name|codec
-init|=
-operator|new
-name|LevelDBCamelCodec
-argument_list|()
-decl_stmt|;
 name|byte
 index|[]
 name|bf

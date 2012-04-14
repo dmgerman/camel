@@ -444,7 +444,7 @@ argument_list|)
 operator|.
 name|setBody
 argument_list|(
-name|bean
+name|method
 argument_list|(
 literal|"foo"
 argument_list|)

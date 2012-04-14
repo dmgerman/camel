@@ -323,7 +323,7 @@ argument_list|)
 operator|.
 name|aggregate
 argument_list|(
-name|bean
+name|method
 argument_list|(
 name|HawtDBBigPayloadTest
 operator|.

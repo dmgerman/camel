@@ -74,18 +74,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -218,6 +206,26 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -230,6 +238,22 @@ name|DataFormatConcurrentTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DataFormatConcurrentTest
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|size
 specifier|private
 name|int
@@ -699,8 +723,6 @@ operator|++
 control|)
 block|{
 comment|// sleep a little so we interleave with the marshaller
-try|try
-block|{
 name|Thread
 operator|.
 name|sleep
@@ -710,15 +732,6 @@ argument_list|,
 literal|500
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|executor
 operator|.
 name|execute
@@ -912,7 +925,34 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-comment|//System.out.println("sending " + payloads.length + " messages to " + template.getDefaultEndpoint().getEndpointUri() + " took " + (end - start) + "ms");
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Sending {} messages to {} took {} ms"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|payloads
+operator|.
+name|length
+block|,
+name|template
+operator|.
+name|getDefaultEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+block|,
+name|end
+operator|-
+name|start
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|marshal (final CountDownLatch latch)
 specifier|public
@@ -1044,7 +1084,34 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-comment|//System.out.println("sending " + payloads.length + " messages to " + template.getDefaultEndpoint().getEndpointUri() + " took " + (end - start) + "ms");
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Sending {} messages to {} took {} ms"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|payloads
+operator|.
+name|length
+block|,
+name|template
+operator|.
+name|getDefaultEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+block|,
+name|end
+operator|-
+name|start
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * the individual size of one record is:      * fooBarSize = 1  -> 104 bytes      * fooBarSize = 50 -> 2046 bytes      * @return the payloads used for this stress test      * @throws Exception      */
 DECL|method|createFoo (int testCount)
