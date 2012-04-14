@@ -206,26 +206,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -238,22 +218,6 @@ name|DataFormatConcurrentTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DataFormatConcurrentTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|size
 specifier|private
 name|int
@@ -925,7 +889,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
@@ -1084,7 +1048,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
