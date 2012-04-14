@@ -1023,10 +1023,6 @@ block|{
 name|close
 argument_list|(
 name|closeable
-argument_list|,
-literal|null
-argument_list|,
-name|LOG
 argument_list|)
 expr_stmt|;
 block|}
