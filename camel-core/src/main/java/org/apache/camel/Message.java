@@ -111,7 +111,7 @@ name|Object
 name|defaultValue
 parameter_list|)
 function_decl|;
-comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *      * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or<tt>null</tt> if there is no header for      *         the given name or<tt>null</tt> if it cannot be converted to the given type      */
+comment|/**      * Returns a header associated with this message by name and specifying the      * type required      *      * @param name the name of the header      * @param type the type of the header      * @return the value of the given header or<tt>null</tt> if there is no header for      *         the given name      * @throws TypeConversionException is thrown if error during type conversion      */
 DECL|method|getHeader (String name, Class<T> type)
 parameter_list|<
 name|T
@@ -238,7 +238,7 @@ parameter_list|()
 throws|throws
 name|InvalidPayloadException
 function_decl|;
-comment|/**      * Returns the body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type, or<tt>null</tt> if not possible to convert      */
+comment|/**      * Returns the body as the specified type      *      * @param type the type that the body      * @return the body of the message as the specified type, or<tt>null</tt> if no body exists      * @throws TypeConversionException is thrown if error during type conversion      */
 DECL|method|getBody (Class<T> type)
 parameter_list|<
 name|T

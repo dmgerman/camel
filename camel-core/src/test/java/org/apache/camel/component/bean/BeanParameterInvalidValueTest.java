@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 import|;
 end_import
 
@@ -157,12 +157,12 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 name|cause
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 operator|.
 name|class
 argument_list|,
@@ -252,12 +252,12 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 name|cause
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 operator|.
 name|class
 argument_list|,

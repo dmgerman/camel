@@ -356,6 +356,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -1079,14 +1091,17 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-name|boolean
-name|answer
-init|=
+try|try
+block|{
+return|return
 name|matches
 argument_list|(
 name|dummy
 argument_list|)
-decl_stmt|;
+return|;
+block|}
+finally|finally
+block|{
 comment|// remove the dummy from the thread local after usage
 name|variableResolver
 operator|.
@@ -1098,9 +1113,7 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-return|return
-name|answer
-return|;
+block|}
 block|}
 comment|/**      * Evaluates the given xpath using the provided body.      *      * @param context the camel context      * @param body    the body      * @param type    the type to return      * @return result of the evaluation      */
 DECL|method|evaluate (CamelContext context, Object body, Class<T> type)
@@ -1153,16 +1166,19 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
-name|T
-name|answer
-init|=
+try|try
+block|{
+return|return
 name|evaluate
 argument_list|(
 name|dummy
 argument_list|,
 name|type
 argument_list|)
-decl_stmt|;
+return|;
+block|}
+finally|finally
+block|{
 comment|// remove the dummy from the thread local after usage
 name|variableResolver
 operator|.
@@ -1174,9 +1190,7 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-return|return
-name|answer
-return|;
+block|}
 block|}
 comment|/**      * Evaluates the given xpath using the provided body as a String return type.      *      * @param context the camel context      * @param body    the body      * @return result of the evaluation      */
 DECL|method|evaluate (CamelContext context, Object body)
@@ -1227,9 +1241,9 @@ operator|.
 name|STRING
 argument_list|)
 expr_stmt|;
-name|String
-name|answer
-init|=
+try|try
+block|{
+return|return
 name|evaluate
 argument_list|(
 name|dummy
@@ -1238,7 +1252,10 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+return|;
+block|}
+finally|finally
+block|{
 comment|// remove the dummy from the thread local after usage
 name|variableResolver
 operator|.
@@ -1250,9 +1267,7 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-return|return
-name|answer
-return|;
+block|}
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
@@ -4276,6 +4291,72 @@ name|Object
 name|body
 parameter_list|)
 block|{
+try|try
+block|{
+return|return
+name|doGetDocument
+argument_list|(
+name|exchange
+argument_list|,
+name|body
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+finally|finally
+block|{
+comment|// call the reset if the in message body is StreamCache
+name|MessageHelper
+operator|.
+name|resetStreamCache
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|doGetDocument (Exchange exchange, Object body)
+specifier|protected
+name|Object
+name|doGetDocument
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|body
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|body
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|Object
 name|answer
 init|=
@@ -4290,6 +4371,11 @@ init|=
 name|getDocumentType
 argument_list|()
 decl_stmt|;
+name|Exception
+name|cause
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|type
@@ -4298,6 +4384,8 @@ literal|null
 condition|)
 block|{
 comment|// try to get the body as the desired type
+try|try
+block|{
 name|answer
 operator|=
 name|exchange
@@ -4318,7 +4406,20 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// fallback to get the body as is
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// we want to store the caused exception, if we could not convert
+name|cause
+operator|=
+name|e
+expr_stmt|;
+block|}
+block|}
+comment|// okay we can try to remedy the failed conversion by some special types
 if|if
 condition|(
 name|answer
@@ -4326,15 +4427,10 @@ operator|==
 literal|null
 condition|)
 block|{
-name|answer
-operator|=
-name|body
-expr_stmt|;
-block|}
-comment|// let's try coercing some common types into something JAXP can work with
+comment|// let's try coercing some common types into something JAXP work with the best for special types
 if|if
 condition|(
-name|answer
+name|body
 operator|instanceof
 name|WrappedFile
 condition|)
@@ -4357,7 +4453,7 @@ name|InputStream
 operator|.
 name|class
 argument_list|,
-name|answer
+name|body
 argument_list|)
 decl_stmt|;
 name|answer
@@ -4372,12 +4468,12 @@ block|}
 elseif|else
 if|if
 condition|(
-name|answer
+name|body
 operator|instanceof
 name|BeanInvocation
 condition|)
 block|{
-comment|// if its a null bean invocation then handle that
+comment|// if its a null bean invocation then handle that specially
 name|BeanInvocation
 name|bi
 init|=
@@ -4395,7 +4491,7 @@ name|BeanInvocation
 operator|.
 name|class
 argument_list|,
-name|answer
+name|body
 argument_list|)
 decl_stmt|;
 if|if
@@ -4437,7 +4533,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|answer
+name|body
 operator|instanceof
 name|String
 condition|)
@@ -4450,25 +4546,65 @@ argument_list|(
 operator|new
 name|StringReader
 argument_list|(
-name|answer
-operator|.
-name|toString
-argument_list|()
+operator|(
+name|String
+operator|)
+name|body
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// call the reset if the in message body is StreamCache
-name|MessageHelper
-operator|.
-name|resetStreamCache
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-argument_list|)
+block|}
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+operator|&&
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to get the body as is
+name|answer
+operator|=
+name|body
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+comment|// there was a type, and we could not convert to it, then fail
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|cause
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|NoTypeConversionAvailableException
+argument_list|(
+name|body
+argument_list|,
+name|type
+argument_list|)
+throw|;
+block|}
+block|}
 return|return
 name|answer
 return|;

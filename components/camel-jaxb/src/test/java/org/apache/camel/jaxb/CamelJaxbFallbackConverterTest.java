@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -317,9 +329,8 @@ operator|.
 name|getTypeConverter
 argument_list|()
 decl_stmt|;
-name|Foo
-name|foo
-init|=
+try|try
+block|{
 name|converter
 operator|.
 name|convertTo
@@ -330,17 +341,23 @@ name|class
 argument_list|,
 literal|"Not every String is XML"
 argument_list|)
-decl_stmt|;
-name|assertNull
+expr_stmt|;
+name|fail
 argument_list|(
-literal|"Should not be able to convert non XML String"
-argument_list|,
-name|foo
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
-name|Bar
-name|bar
-init|=
+block|}
+catch|catch
+parameter_list|(
+name|TypeConversionException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+try|try
+block|{
 name|converter
 operator|.
 name|convertTo
@@ -351,14 +368,21 @@ name|class
 argument_list|,
 literal|"<bar></bar"
 argument_list|)
-decl_stmt|;
-name|assertNull
+expr_stmt|;
+name|fail
 argument_list|(
-literal|"Should not be able to convert misspelled XML String"
-argument_list|,
-name|bar
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TypeConversionException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 block|}
 annotation|@
 name|Test
@@ -493,8 +517,8 @@ argument_list|(
 name|buffers
 argument_list|)
 decl_stmt|;
-name|person
-operator|=
+try|try
+block|{
 name|converter
 operator|.
 name|convertTo
@@ -508,13 +532,20 @@ argument_list|,
 name|is
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|fail
 argument_list|(
-literal|"Should not be able to convert as FILTER_NON_XML_CHARS property is not enabled"
-argument_list|,
-name|person
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TypeConversionException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 block|}
 annotation|@
 name|Test

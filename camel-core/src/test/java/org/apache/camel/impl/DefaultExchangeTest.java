@@ -104,6 +104,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -234,6 +246,8 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|assertEquals
 argument_list|(
 literal|null
@@ -251,6 +265,20 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown a TypeConversionException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TypeConversionException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|assertEquals
 argument_list|(
 literal|"<hello id='m123'>world!</hello>"

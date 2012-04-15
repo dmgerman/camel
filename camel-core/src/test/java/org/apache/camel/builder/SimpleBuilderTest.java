@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -256,11 +268,9 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// not possible
-name|assertEquals
-argument_list|(
-literal|null
-argument_list|,
+try|try
+block|{
+comment|// error during conversion
 name|SimpleBuilder
 operator|.
 name|simple
@@ -280,8 +290,32 @@ name|Object
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TypeConversionException
+name|e
+parameter_list|)
+block|{
+name|assertIsInstanceOf
+argument_list|(
+name|NumberFormatException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 literal|true

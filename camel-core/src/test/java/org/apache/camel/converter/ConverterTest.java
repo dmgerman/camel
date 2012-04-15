@@ -160,6 +160,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -1722,7 +1734,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 name|e
 parameter_list|)
 block|{

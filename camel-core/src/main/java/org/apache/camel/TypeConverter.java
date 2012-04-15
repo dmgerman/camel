@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|TypeConverter
 block|{
-comment|/**      * Converts the value to the specified type      *       * @param type the requested type      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
+comment|/**      * Converts the value to the specified type      *      * @param type the requested type      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      * @throws TypeConversionException is thrown if error during type conversion      */
 DECL|method|convertTo (Class<T> type, Object value)
 parameter_list|<
 name|T
@@ -41,8 +41,10 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|TypeConversionException
 function_decl|;
-comment|/**      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
+comment|/**      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      * @throws TypeConversionException is thrown if error during type conversion      */
 DECL|method|convertTo (Class<T> type, Exchange exchange, Object value)
 parameter_list|<
 name|T
@@ -62,8 +64,10 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|TypeConversionException
 function_decl|;
-comment|/**      * Converts the value to the specified type      *      * @param type the requested type      * @param value the value to be converted      * @return the converted value, is never<tt>null</tt>      * @throws NoTypeConversionAvailableException if conversion not possible      */
+comment|/**      * Converts the value to the specified type      *      * @param type the requested type      * @param value the value to be converted      * @return the converted value, is never<tt>null</tt>      * @throws TypeConversionException is thrown if error during type conversion      * @throws NoTypeConversionAvailableException} if no type converters exists to convert to the given type      */
 DECL|method|mandatoryConvertTo (Class<T> type, Object value)
 parameter_list|<
 name|T
@@ -81,9 +85,11 @@ name|Object
 name|value
 parameter_list|)
 throws|throws
+name|TypeConversionException
+throws|,
 name|NoTypeConversionAvailableException
 function_decl|;
-comment|/**      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, is never<tt>null</tt>      * @throws NoTypeConversionAvailableException} if conversion not possible      */
+comment|/**      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, is never<tt>null</tt>      * @throws TypeConversionException is thrown if error during type conversion      * @throws NoTypeConversionAvailableException} if no type converters exists to convert to the given type      */
 DECL|method|mandatoryConvertTo (Class<T> type, Exchange exchange, Object value)
 parameter_list|<
 name|T
@@ -104,7 +110,48 @@ name|Object
 name|value
 parameter_list|)
 throws|throws
+name|TypeConversionException
+throws|,
 name|NoTypeConversionAvailableException
+function_decl|;
+comment|/**      * Tries to converts the value to the specified type,      * returning<tt>null</tt> if not possible to convert.      *<p/>      * This method will<b>not</b> throw an exception if an exception occurred during conversion.      *      * @param type the requested type      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
+DECL|method|tryConvertTo (Class<T> type, Object value)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|tryConvertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+function_decl|;
+comment|/**      * Tries to converts the value to the specified type in the context of an exchange,      * returning<tt>null</tt> if not possible to convert.      *<p/>      * This method will<b>not</b> throw an exception if an exception occurred during conversion.      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
+DECL|method|tryConvertTo (Class<T> type, Exchange exchange, Object value)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|tryConvertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
 function_decl|;
 block|}
 end_interface

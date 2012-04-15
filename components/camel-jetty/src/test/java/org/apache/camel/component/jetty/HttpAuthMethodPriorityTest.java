@@ -533,11 +533,17 @@ name|e
 operator|.
 name|getCause
 argument_list|()
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Unknown authMethod: foo in authMethodPriority: Basic,foo"
+literal|"No enum const class org.apache.camel.component.http.AuthMethod.foo"
 argument_list|,
 name|cause
 operator|.

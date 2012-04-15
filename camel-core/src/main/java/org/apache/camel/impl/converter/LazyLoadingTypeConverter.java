@@ -182,7 +182,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doConvertTo (final Class<?> type, final Exchange exchange, final Object value)
+DECL|method|doConvertTo (final Class<?> type, final Exchange exchange, final Object value, boolean tryConvert)
 specifier|protected
 name|Object
 name|doConvertTo
@@ -201,6 +201,9 @@ parameter_list|,
 specifier|final
 name|Object
 name|value
+parameter_list|,
+name|boolean
+name|tryConvert
 parameter_list|)
 block|{
 name|Object
@@ -215,6 +218,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|value
+argument_list|,
+name|tryConvert
 argument_list|)
 decl_stmt|;
 if|if
@@ -245,6 +250,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|value
+argument_list|,
+name|tryConvert
 argument_list|)
 expr_stmt|;
 block|}

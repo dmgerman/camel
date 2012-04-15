@@ -15,20 +15,17 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Is thrown if the payload from the exchange could not be retrieved because of being null, wrong class type etc.  *  * @deprecated will be removed in Camel 3.0  * @version   */
+comment|/**  * Exception when failing during type conversion.  *  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
-DECL|class|InvalidPayloadException
+DECL|class|TypeConversionException
 specifier|public
 class|class
-name|InvalidPayloadException
+name|TypeConversionException
 extends|extends
-name|CamelExchangeException
+name|RuntimeCamelException
 block|{
-comment|// TODO: We should remove this class in Camel 3.0, and just rely on the other exceptions for type conversion issues
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
@@ -37,7 +34,14 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|1689157578733908632L
+literal|6118520819865759886L
+decl_stmt|;
+DECL|field|value
+specifier|private
+specifier|final
+specifier|transient
+name|Object
+name|value
 decl_stmt|;
 DECL|field|type
 specifier|private
@@ -49,98 +53,18 @@ name|?
 argument_list|>
 name|type
 decl_stmt|;
-DECL|method|InvalidPayloadException (Exchange exchange, Class<?> type)
+DECL|method|TypeConversionException (Object value, Class<?> type, Throwable cause)
 specifier|public
-name|InvalidPayloadException
+name|TypeConversionException
 parameter_list|(
-name|Exchange
-name|exchange
+name|Object
+name|value
 parameter_list|,
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|type
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|exchange
-argument_list|,
-name|type
-argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|InvalidPayloadException (Exchange exchange, Class<?> type, Message message)
-specifier|public
-name|InvalidPayloadException
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|,
-name|Message
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-literal|"No body available of type: "
-operator|+
-name|type
-operator|.
-name|getCanonicalName
-argument_list|()
-operator|+
-name|NoSuchPropertyException
-operator|.
-name|valueDescription
-argument_list|(
-name|message
-operator|.
-name|getBody
-argument_list|()
-argument_list|)
-operator|+
-literal|" on: "
-operator|+
-name|message
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|type
-operator|=
-name|type
-expr_stmt|;
-block|}
-DECL|method|InvalidPayloadException (Exchange exchange, Class<?> type, Message message, Throwable cause)
-specifier|public
-name|InvalidPayloadException
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|,
-name|Message
-name|message
 parameter_list|,
 name|Throwable
 name|cause
@@ -148,38 +72,23 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"No body available of type: "
-operator|+
-name|type
-operator|.
-name|getCanonicalName
-argument_list|()
-operator|+
-name|NoSuchPropertyException
-operator|.
-name|valueDescription
+name|createMessage
 argument_list|(
-name|message
-operator|.
-name|getBody
-argument_list|()
-argument_list|)
-operator|+
-literal|" on: "
-operator|+
-name|message
-operator|+
-literal|". Caused by: "
-operator|+
-name|cause
-operator|.
-name|getMessage
-argument_list|()
+name|value
 argument_list|,
-name|exchange
+name|type
 argument_list|,
 name|cause
 argument_list|)
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|value
+operator|=
+name|value
 expr_stmt|;
 name|this
 operator|.
@@ -188,18 +97,118 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/**      * The expected type of the body      */
-DECL|method|getType ()
+comment|/**      * Returns the value which could not be converted      */
+DECL|method|getValue ()
+specifier|public
+name|Object
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
+comment|/**      * Returns the required<tt>to</tt> type      */
+DECL|method|getToType ()
 specifier|public
 name|Class
 argument_list|<
 name|?
 argument_list|>
-name|getType
+name|getToType
 parameter_list|()
 block|{
 return|return
 name|type
+return|;
+block|}
+comment|/**      * Returns the required<tt>from</tt> type.      * Returns<tt>null</tt> if the provided value was null.      */
+DECL|method|getFromType ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getFromType
+parameter_list|()
+block|{
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|value
+operator|.
+name|getClass
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
+comment|/**      * Returns an error message for type conversion failed.      */
+DECL|method|createMessage (Object value, Class<?> type, Throwable cause)
+specifier|public
+specifier|static
+name|String
+name|createMessage
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+return|return
+literal|"Error during type conversion from type: "
+operator|+
+operator|(
+name|value
+operator|!=
+literal|null
+condition|?
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+else|:
+literal|null
+operator|)
+operator|+
+literal|" to the required type: "
+operator|+
+name|type
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" with value "
+operator|+
+name|value
+operator|+
+literal|" due "
+operator|+
+name|cause
+operator|.
+name|getMessage
+argument_list|()
 return|;
 block|}
 block|}

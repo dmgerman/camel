@@ -180,6 +180,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -658,6 +670,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|value
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -668,6 +682,7 @@ name|e
 parameter_list|)
 block|{
 comment|// if its a ExecutionException then we have rethrow it as its not due to failed conversion
+comment|// this is special for FutureTypeConverter
 name|boolean
 name|execution
 init|=
@@ -713,40 +728,18 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// we cannot convert so return null
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"{} Caused by: {}. Will ignore this and continue."
-argument_list|,
-name|NoTypeConversionAvailableException
-operator|.
-name|createMessage
+comment|// error occurred during type conversion
+throw|throw
+operator|new
+name|TypeConversionException
 argument_list|(
 name|value
 argument_list|,
 name|type
-argument_list|)
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|null
-return|;
+throw|;
 block|}
 if|if
 condition|(
@@ -866,6 +859,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|value
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -875,9 +870,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// error occurred during type conversion
 throw|throw
 operator|new
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 argument_list|(
 name|value
 argument_list|,
@@ -921,7 +917,125 @@ name|answer
 return|;
 block|}
 block|}
-DECL|method|doConvertTo (final Class<?> type, final Exchange exchange, final Object value)
+annotation|@
+name|Override
+DECL|method|tryConvertTo (Class<T> type, Object value)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|tryConvertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|tryConvertTo
+argument_list|(
+name|type
+argument_list|,
+literal|null
+argument_list|,
+name|value
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|tryConvertTo (Class<T> type, Exchange exchange, Object value)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|tryConvertTo
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+name|Object
+name|answer
+decl_stmt|;
+try|try
+block|{
+name|answer
+operator|=
+name|doConvertTo
+argument_list|(
+name|type
+argument_list|,
+name|exchange
+argument_list|,
+name|value
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
+name|answer
+operator|==
+name|Void
+operator|.
+name|TYPE
+condition|)
+block|{
+comment|// Could not find suitable conversion
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|(
+name|T
+operator|)
+name|answer
+return|;
+block|}
+block|}
+DECL|method|doConvertTo (final Class<?> type, final Exchange exchange, final Object value, final boolean tryConvert)
 specifier|protected
 name|Object
 name|doConvertTo
@@ -940,6 +1054,10 @@ parameter_list|,
 specifier|final
 name|Object
 name|value
+parameter_list|,
+specifier|final
+name|boolean
+name|tryConvert
 parameter_list|)
 block|{
 if|if
@@ -1066,7 +1184,7 @@ operator|.
 name|TYPE
 return|;
 block|}
-comment|// special for NaN numbers, which we can only convert for flating numbers
+comment|// special for NaN numbers, which we can only convert for floating numbers
 if|if
 condition|(
 name|ObjectHelper
@@ -1382,7 +1500,14 @@ argument_list|)
 return|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|tryConvert
+condition|)
+block|{
 comment|// Could not find suitable conversion, so remember it
+comment|// do not register misses for try conversions
 name|misses
 operator|.
 name|put
@@ -1392,6 +1517,7 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Could not find suitable conversion, so return Void to indicate not found
 return|return
 name|Void

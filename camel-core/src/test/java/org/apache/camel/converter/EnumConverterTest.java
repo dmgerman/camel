@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 import|;
 end_import
 
@@ -203,7 +203,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NoTypeConversionAvailableException
+name|TypeConversionException
 name|e
 parameter_list|)
 block|{

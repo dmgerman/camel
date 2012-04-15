@@ -2718,7 +2718,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|StAXSource
 operator|.
@@ -2748,7 +2748,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|SAXSource
 operator|.
@@ -2778,7 +2778,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|StreamSource
 operator|.
@@ -2808,7 +2808,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|DOMSource
 operator|.

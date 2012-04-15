@@ -74,20 +74,6 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for DataSet  *  * @version   */
 end_comment
@@ -265,12 +251,13 @@ block|{
 comment|// let's coerce to the correct type
 name|actualBody
 operator|=
-name|ExchangeHelper
-operator|.
-name|getMandatoryInBody
-argument_list|(
 name|actual
-argument_list|,
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getMandatoryBody
+argument_list|(
 name|expectedBody
 operator|.
 name|getClass

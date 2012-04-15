@@ -245,8 +245,7 @@ argument_list|()
 decl_stmt|;
 comment|// lets first try converting the body itself first
 comment|// as for some types like InputStream v Reader its more efficient to do the transformation
-comment|// from the body itself as its got efficient implementations of them, before trying the
-comment|// message
+comment|// from the body itself as its got efficient implementations of them, before trying the message
 name|T
 name|answer
 init|=
@@ -256,8 +255,7 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
-name|getExchange
-argument_list|()
+name|e
 argument_list|,
 name|body
 argument_list|)
@@ -273,17 +271,16 @@ return|return
 name|answer
 return|;
 block|}
-comment|// fallback to the message itself (e.g. used in camel-http)
+comment|// fallback and try the message itself (e.g. used in camel-http)
 name|answer
 operator|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|type
 argument_list|,
-name|getExchange
-argument_list|()
+name|e
 argument_list|,
 name|this
 argument_list|)

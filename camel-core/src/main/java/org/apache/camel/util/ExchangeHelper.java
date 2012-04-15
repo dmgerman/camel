@@ -260,6 +260,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -414,6 +426,7 @@ return|return
 name|endpoint
 return|;
 block|}
+comment|/**      * Gets the mandatory property of the exchange of the correct type      *      * @param exchange      the exchange      * @param propertyName  the property name      * @param type          the type      * @return the property value      * @throws TypeConversionException is thrown if error during type conversion      * @throws NoSuchPropertyException is thrown if no property exists      */
 DECL|method|getMandatoryProperty (Exchange exchange, String propertyName, Class<T> type)
 specifier|public
 specifier|static
@@ -473,6 +486,7 @@ name|type
 argument_list|)
 throw|;
 block|}
+comment|/**      * Gets the mandatory inbound header of the correct type      *      * @param exchange      the exchange      * @param headerName    the header name      * @param type          the type      * @return the header value      * @throws TypeConversionException is thrown if error during type conversion      * @throws NoSuchHeaderException is thrown if no headers exists      */
 DECL|method|getMandatoryHeader (Exchange exchange, String headerName, Class<T> type)
 specifier|public
 specifier|static
@@ -495,6 +509,8 @@ argument_list|>
 name|type
 parameter_list|)
 throws|throws
+name|TypeConversionException
+throws|,
 name|NoSuchHeaderException
 block|{
 name|T
@@ -535,7 +551,9 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns the mandatory inbound message body of the correct type or throws      * an exception if it is not present      */
+comment|/**      * Returns the mandatory inbound message body of the correct type or throws      * an exception if it is not present      *      * @param exchange the exchange      * @return the body, is never<tt>null</tt>      * @throws InvalidPayloadException Is thrown if the body being<tt>null</tt> or wrong class type      * @deprecated use {@link org.apache.camel.Message#getMandatoryBody()}      */
+annotation|@
+name|Deprecated
 DECL|method|getMandatoryInBody (Exchange exchange)
 specifier|public
 specifier|static
@@ -558,7 +576,9 @@ name|getMandatoryBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the mandatory inbound message body of the correct type or throws      * an exception if it is not present      */
+comment|/**      * Returns the mandatory inbound message body of the correct type or throws      * an exception if it is not present      * @deprecated use {@link org.apache.camel.Message#getMandatoryBody(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|getMandatoryInBody (Exchange exchange, Class<T> type)
 specifier|public
 specifier|static
@@ -592,7 +612,9 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the mandatory outbound message body of the correct type or throws      * an exception if it is not present      */
+comment|/**      * Returns the mandatory outbound message body of the correct type or throws      * an exception if it is not present      * @deprecated use {@link org.apache.camel.Message#getMandatoryBody()}      */
+annotation|@
+name|Deprecated
 DECL|method|getMandatoryOutBody (Exchange exchange)
 specifier|public
 specifier|static
@@ -615,7 +637,9 @@ name|getMandatoryBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the mandatory outbound message body of the correct type or throws      * an exception if it is not present      */
+comment|/**      * Returns the mandatory outbound message body of the correct type or throws      * an exception if it is not present      * @deprecated use {@link org.apache.camel.Message#getMandatoryBody(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|getMandatoryOutBody (Exchange exchange, Class<T> type)
 specifier|public
 specifier|static
@@ -649,7 +673,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the value to the given expected type or throws an exception      */
+comment|/**      * Converts the value to the given expected type or throws an exception      *      * @return the converted value      * @throws TypeConversionException is thrown if error during type conversion      * @throws NoTypeConversionAvailableException} if no type converters exists to convert to the given type      */
 DECL|method|convertToMandatoryType (Exchange exchange, Class<T> type, Object value)
 specifier|public
 specifier|static
@@ -672,6 +696,8 @@ name|Object
 name|value
 parameter_list|)
 throws|throws
+name|TypeConversionException
+throws|,
 name|NoTypeConversionAvailableException
 block|{
 name|CamelContext
@@ -729,7 +755,7 @@ name|type
 argument_list|)
 throw|;
 block|}
-comment|/**      * Converts the value to the given expected type returning null if it could      * not be converted      */
+comment|/**      * Converts the value to the given expected type      *      * @return the converted value      * @throws org.apache.camel.TypeConversionException is thrown if error during type conversion      */
 DECL|method|convertToType (Exchange exchange, Class<T> type, Object value)
 specifier|public
 specifier|static
@@ -751,6 +777,8 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+throws|throws
+name|TypeConversionException
 block|{
 name|CamelContext
 name|camelContext
@@ -1399,7 +1427,7 @@ name|isOutCapable
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a new instance of the given type from the injector      */
+comment|/**      * Creates a new instance of the given type from the injector      *      * @param exchange the exchange      * @param type     the given type      * @return the created instance of the given type      */
 DECL|method|newInstance (Exchange exchange, Class<T> type)
 specifier|public
 specifier|static
@@ -1617,7 +1645,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the MIME content type on the input message or null if one is not defined      */
+comment|/**      * Returns the MIME content type on the input message or null if one is not defined      *      * @param exchange the exchange      * @return the MIME content type      */
 DECL|method|getContentType (Exchange exchange)
 specifier|public
 specifier|static
@@ -1640,7 +1668,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the MIME content encoding on the input message or null if one is not defined      */
+comment|/**      * Returns the MIME content encoding on the input message or null if one is not defined      *      * @param exchange the exchange      * @return the MIME content encoding      */
 DECL|method|getContentEncoding (Exchange exchange)
 specifier|public
 specifier|static
@@ -1663,7 +1691,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Performs a lookup in the registry of the mandatory bean name and throws an exception if it could not be found      */
+comment|/**      * Performs a lookup in the registry of the mandatory bean name and throws an exception if it could not be found      *      * @param exchange the exchange      * @param name     the bean name      * @return the bean      * @throws NoSuchBeanException if no bean could be found in the registry      */
 DECL|method|lookupMandatoryBean (Exchange exchange, String name)
 specifier|public
 specifier|static
@@ -1676,6 +1704,8 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|NoSuchBeanException
 block|{
 name|Object
 name|value
@@ -1706,7 +1736,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Performs a lookup in the registry of the mandatory bean name and throws an exception if it could not be found      */
+comment|/**      * Performs a lookup in the registry of the mandatory bean name and throws an exception if it could not be found      *      * @param exchange the exchange      * @param name     the bean name      * @param type     the expected bean type      * @return the bean      * @throws NoSuchBeanException if no bean could be found in the registry      */
 DECL|method|lookupMandatoryBean (Exchange exchange, String name, Class<T> type)
 specifier|public
 specifier|static
@@ -1760,7 +1790,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Performs a lookup in the registry of the bean name      */
+comment|/**      * Performs a lookup in the registry of the bean name      *      * @param exchange the exchange      * @param name     the bean name      * @return the bean, or<tt>null</tt> if no bean could be found      */
 DECL|method|lookupBean (Exchange exchange, String name)
 specifier|public
 specifier|static
@@ -1789,7 +1819,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Performs a lookup in the registry of the bean name and type      */
+comment|/**      * Performs a lookup in the registry of the bean name and type      *      * @param exchange the exchange      * @param name     the bean name      * @param type     the expected bean type      * @return the bean, or<tt>null</tt> if no bean could be found      */
 DECL|method|lookupBean (Exchange exchange, String name, Class<T> type)
 specifier|public
 specifier|static
@@ -1829,7 +1859,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the first exchange in the given collection of exchanges which has the same exchange ID as the one given      * or null if none could be found      */
+comment|/**      * Returns the first exchange in the given collection of exchanges which has the same exchange ID as the one given      * or null if none could be found      *      * @param exchanges  the exchanges      * @param exchangeId the exchangeId to find      * @return matching exchange, or<tt>null</tt> if none found      */
 DECL|method|getExchangeById (Iterable<Exchange> exchanges, String exchangeId)
 specifier|public
 specifier|static
@@ -1969,6 +1999,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Checks whether the exchange has been failure handed      *      * @param exchange  the exchange      * @return<tt>true</tt> if failure handled,<tt>false</tt> otherwise      */
 DECL|method|isFailureHandled (Exchange exchange)
 specifier|public
 specifier|static
@@ -1996,6 +2027,7 @@ name|class
 argument_list|)
 return|;
 block|}
+comment|/**      * Checks whether the exchange {@link UnitOfWork} is exhausted      *      * @param exchange  the exchange      * @return<tt>true</tt> if exhausted,<tt>false</tt> otherwise      */
 DECL|method|isUnitOfWorkExhausted (Exchange exchange)
 specifier|public
 specifier|static
@@ -2023,6 +2055,7 @@ name|class
 argument_list|)
 return|;
 block|}
+comment|/**      * Sets the exchange to be failure handled.      *      * @param exchange  the exchange      */
 DECL|method|setFailureHandled (Exchange exchange)
 specifier|public
 specifier|static
@@ -2055,6 +2088,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Checks whether the exchange is redelivery exhausted      *      * @param exchange  the exchange      * @return<tt>true</tt> if exhausted,<tt>false</tt> otherwise      */
 DECL|method|isRedeliveryExhausted (Exchange exchange)
 specifier|public
 specifier|static
@@ -2082,6 +2116,7 @@ name|class
 argument_list|)
 return|;
 block|}
+comment|/**      * Checks whether the exchange {@link UnitOfWork} is redelivered      *      * @param exchange  the exchange      * @return<tt>true</tt> if redelivered,<tt>false</tt> otherwise      */
 DECL|method|isRedelivered (Exchange exchange)
 specifier|public
 specifier|static
@@ -2120,6 +2155,7 @@ name|class
 argument_list|)
 return|;
 block|}
+comment|/**      * Checks whether the exchange {@link UnitOfWork} has been interrupted during processing      *      * @param exchange  the exchange      * @return<tt>true</tt> if interrupted,<tt>false</tt> otherwise      */
 DECL|method|isInterrupted (Exchange exchange)
 specifier|public
 specifier|static
@@ -2455,7 +2491,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future  the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type    the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException      *                                 is thrown if a timeout triggered      */
+comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future  the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type    the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException is thrown if a timeout triggered      */
 DECL|method|extractFutureBody (CamelContext context, Future<Object> future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 specifier|static
@@ -2823,6 +2859,7 @@ operator|+
 literal|")"
 return|;
 block|}
+comment|/**      * Copies the exchange but the copy will be tied to the given context      *      * @param exchange  the source exchange      * @param context   the camel context      * @return a copy with the given camel context      */
 DECL|method|copyExchangeAndSetCamelContext (Exchange exchange, CamelContext context)
 specifier|public
 specifier|static

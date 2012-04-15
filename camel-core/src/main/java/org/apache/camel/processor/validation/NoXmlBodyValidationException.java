@@ -79,6 +79,27 @@ literal|"No XML body could be found on the input message"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|NoXmlBodyValidationException (Exchange exchange, Throwable cause)
+specifier|public
+name|NoXmlBodyValidationException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"No XML body could be found on the input message"
+argument_list|,
+name|exchange
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

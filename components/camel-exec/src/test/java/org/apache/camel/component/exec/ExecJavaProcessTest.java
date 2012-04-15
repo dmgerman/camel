@@ -1057,9 +1057,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNull
+name|assertEquals
 argument_list|(
-literal|"Should be null"
+literal|"Should be empty"
+argument_list|,
+literal|""
 argument_list|,
 name|out
 argument_list|)

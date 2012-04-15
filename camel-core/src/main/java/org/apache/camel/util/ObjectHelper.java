@@ -550,7 +550,7 @@ name|value
 init|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|rightValue
 operator|.
@@ -583,7 +583,7 @@ name|value
 operator|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|leftValue
 operator|.
@@ -667,7 +667,7 @@ name|leftNum
 init|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|Long
 operator|.
@@ -681,7 +681,7 @@ name|rightNum
 init|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|Long
 operator|.
@@ -716,7 +716,7 @@ name|leftDouble
 init|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|Double
 operator|.
@@ -730,7 +730,7 @@ name|rightDouble
 init|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|Double
 operator|.
