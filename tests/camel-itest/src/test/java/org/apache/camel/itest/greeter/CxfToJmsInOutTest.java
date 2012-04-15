@@ -98,6 +98,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -247,6 +257,11 @@ name|outputEndpoint
 decl_stmt|;
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"TODO: CAMEL-5174"
+argument_list|)
 DECL|method|testCxfToJmsInOut ()
 specifier|public
 name|void
