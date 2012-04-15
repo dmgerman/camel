@@ -577,21 +577,6 @@ name|HTTP_RESPONSE_CODE
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong header value"
