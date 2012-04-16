@@ -447,12 +447,12 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:b"
+literal|"direct:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -515,7 +515,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -565,7 +565,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda://b"
+literal|"direct://b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -612,7 +612,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|filter
@@ -630,7 +630,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:b"
+literal|"direct:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -702,7 +702,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -770,7 +770,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda://b"
+literal|"direct://b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -817,7 +817,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|choice
@@ -838,7 +838,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:b"
+literal|"direct:b"
 argument_list|)
 operator|.
 name|when
@@ -856,7 +856,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:c"
+literal|"direct:c"
 argument_list|)
 operator|.
 name|otherwise
@@ -864,7 +864,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"seda:d"
+literal|"direct:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -936,7 +936,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -1028,7 +1028,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda://b"
+literal|"direct://b"
 argument_list|)
 expr_stmt|;
 name|FilterProcessor
@@ -1054,7 +1054,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda://c"
+literal|"direct://c"
 argument_list|)
 expr_stmt|;
 name|assertSendTo
@@ -1070,7 +1070,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda://d"
+literal|"direct://d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1135,7 +1135,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|process
@@ -1203,7 +1203,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -1247,7 +1247,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|filter
@@ -1337,7 +1337,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -1381,7 +1381,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|multicast
@@ -1389,9 +1389,9 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"seda:tap"
+literal|"direct:tap"
 argument_list|,
-literal|"seda:b"
+literal|"direct:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1463,7 +1463,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -1554,7 +1554,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda://tap"
+literal|"direct://tap"
 argument_list|)
 expr_stmt|;
 name|assertSendToProcessor
@@ -1572,7 +1572,7 @@ operator|.
 name|getNextProcessor
 argument_list|()
 argument_list|,
-literal|"seda://b"
+literal|"direct://b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1631,7 +1631,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|process
@@ -1646,7 +1646,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:d"
+literal|"direct:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1717,7 +1717,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -1814,7 +1814,7 @@ name|assertSendTo
 argument_list|(
 name|sendTo
 argument_list|,
-literal|"seda://d"
+literal|"direct://d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1850,7 +1850,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|filter
@@ -1868,7 +1868,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:b"
+literal|"direct:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1927,7 +1927,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -1971,7 +1971,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|multicast
@@ -1979,11 +1979,11 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"seda:b"
+literal|"direct:b"
 argument_list|,
-literal|"seda:c"
+literal|"direct:c"
 argument_list|,
-literal|"seda:d"
+literal|"direct:d"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2031,7 +2031,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|recipientList
@@ -2111,7 +2111,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -2257,7 +2257,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|split
@@ -2277,7 +2277,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:b"
+literal|"direct:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2349,7 +2349,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -2428,7 +2428,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|idempotentConsumer
@@ -2448,7 +2448,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:b"
+literal|"direct:b"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2520,7 +2520,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -2618,7 +2618,7 @@ name|assertEquals
 argument_list|(
 literal|"Endpoint URI"
 argument_list|,
-literal|"seda://b"
+literal|"direct://b"
 argument_list|,
 name|sendProcessor
 operator|.
@@ -2665,7 +2665,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:a"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|threads
@@ -2754,7 +2754,7 @@ name|assertEquals
 argument_list|(
 literal|"From endpoint"
 argument_list|,
-literal|"seda://a"
+literal|"direct://a"
 argument_list|,
 name|key
 operator|.
@@ -3181,12 +3181,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:in"
+literal|"direct:in"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:in"
+literal|"direct:in"
 argument_list|)
 operator|.
 name|to
