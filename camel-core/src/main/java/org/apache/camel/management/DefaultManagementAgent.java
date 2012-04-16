@@ -1204,7 +1204,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unregistered MBean with objectname: {}"
+literal|"Unregistered MBean with ObjectName: {}"
 argument_list|,
 name|name
 argument_list|)
@@ -1469,7 +1469,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"ForceRegistration enabled, unregistering existing MBean"
+literal|"ForceRegistration enabled, unregistering existing MBean with ObjectName: {}"
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 name|server
@@ -1487,7 +1489,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"MBean already registered with objectname: {}"
+literal|"MBean already registered with ObjectName: {}"
 argument_list|,
 name|name
 argument_list|)
@@ -1512,7 +1514,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Registering MBean with objectname: {}"
+literal|"Registering MBean with ObjectName: {}"
 argument_list|,
 name|name
 argument_list|)
@@ -1529,6 +1531,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|// need to use the name returned from the server as some JEE servers may modify the name
 if|if
 condition|(
 name|instance
@@ -1548,7 +1551,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Registered MBean with objectname: {}"
+literal|"Registered MBean with ObjectName: {}"
 argument_list|,
 name|registeredName
 argument_list|)
