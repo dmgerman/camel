@@ -236,6 +236,36 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|getStatistics ()
+specifier|public
+name|Statistics
+name|getStatistics
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 

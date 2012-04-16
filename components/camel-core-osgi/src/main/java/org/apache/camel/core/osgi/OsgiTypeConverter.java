@@ -912,6 +912,20 @@ name|getInjector
 argument_list|()
 return|;
 block|}
+DECL|method|getStatistics ()
+specifier|public
+name|Statistics
+name|getStatistics
+parameter_list|()
+block|{
+return|return
+name|getDelegate
+argument_list|()
+operator|.
+name|getStatistics
+argument_list|()
+return|;
+block|}
 DECL|method|getDelegate ()
 specifier|public
 specifier|synchronized
