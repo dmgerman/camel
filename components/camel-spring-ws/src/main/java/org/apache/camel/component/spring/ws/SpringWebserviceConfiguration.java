@@ -120,6 +120,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|ws
@@ -177,6 +193,11 @@ DECL|field|endpointMappingKey
 specifier|private
 name|EndpointMappingKey
 name|endpointMappingKey
+decl_stmt|;
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|field|xmlConverter
 specifier|private
@@ -401,6 +422,32 @@ operator|.
 name|endpointMappingKey
 operator|=
 name|endpointMappingKey
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getEndpointDispatcher ()
