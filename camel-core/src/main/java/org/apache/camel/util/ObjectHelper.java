@@ -808,7 +808,7 @@ name|value
 init|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|rightValue
 operator|.
@@ -856,7 +856,7 @@ name|value
 init|=
 name|converter
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|leftValue
 operator|.
