@@ -207,7 +207,7 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
-comment|//set them as system properties so Spring can use the property placeholder
+comment|//set them as system properties so Spring can use the property place holder
 comment|//things to set them into the URL's in the spring contexts
 name|System
 operator|.
