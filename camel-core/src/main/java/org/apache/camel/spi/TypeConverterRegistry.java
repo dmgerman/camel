@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
 import|;
 end_import
@@ -37,7 +49,45 @@ DECL|interface|TypeConverterRegistry
 specifier|public
 interface|interface
 name|TypeConverterRegistry
+extends|extends
+name|Service
 block|{
+comment|/**      * Utilization statistics of the this registry.      */
+DECL|interface|Statistics
+interface|interface
+name|Statistics
+block|{
+comment|/**          * Number of attempts          */
+DECL|method|getAttemptCounter ()
+name|long
+name|getAttemptCounter
+parameter_list|()
+function_decl|;
+comment|/**          * Number of successful conversions          */
+DECL|method|getHitCounter ()
+name|long
+name|getHitCounter
+parameter_list|()
+function_decl|;
+comment|/**          * Number of attempts which cannot be converted as no suitable type converter exists          */
+DECL|method|getMissCounter ()
+name|long
+name|getMissCounter
+parameter_list|()
+function_decl|;
+comment|/**          * Number of failed attempts during type conversion          */
+DECL|method|getFailedCounter ()
+name|long
+name|getFailedCounter
+parameter_list|()
+function_decl|;
+comment|/**          * Reset the counters          */
+DECL|method|reset ()
+name|void
+name|reset
+parameter_list|()
+function_decl|;
+block|}
 comment|/**      * Registers a new type converter      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
 DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 name|void
@@ -102,6 +152,12 @@ comment|/**      * Gets the injector      *      * @return the injector      */
 DECL|method|getInjector ()
 name|Injector
 name|getInjector
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the utilization statistics of this type converter registry      *      * @return the utilization statistics      */
+DECL|method|getStatistics ()
+name|Statistics
+name|getStatistics
 parameter_list|()
 function_decl|;
 block|}
