@@ -499,7 +499,9 @@ block|{
 name|sshd
 operator|.
 name|stop
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|sshd
 operator|=
