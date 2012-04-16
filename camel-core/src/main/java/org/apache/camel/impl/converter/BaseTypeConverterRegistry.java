@@ -318,6 +318,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|LRUSoftCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -394,10 +408,11 @@ name|TypeConverter
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// for misses use a soft reference cache map, as the classes may be un-deployed at runtime
 DECL|field|misses
 specifier|protected
 specifier|final
-name|ConcurrentMap
+name|LRUSoftCache
 argument_list|<
 name|TypeMapping
 argument_list|,
@@ -406,13 +421,15 @@ argument_list|>
 name|misses
 init|=
 operator|new
-name|ConcurrentHashMap
+name|LRUSoftCache
 argument_list|<
 name|TypeMapping
 argument_list|,
 name|TypeMapping
 argument_list|>
-argument_list|()
+argument_list|(
+literal|1000
+argument_list|)
 decl_stmt|;
 DECL|field|typeConverterLoaders
 specifier|protected
@@ -1093,6 +1110,11 @@ name|answer
 decl_stmt|;
 try|try
 block|{
+name|attemptCounter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 name|answer
 operator|=
 name|doConvertTo
@@ -1113,6 +1135,11 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|failedCounter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1126,6 +1153,11 @@ operator|.
 name|TYPE
 condition|)
 block|{
+name|missCounter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 comment|// Could not find suitable conversion
 return|return
 literal|null
@@ -1133,6 +1165,11 @@ return|;
 block|}
 else|else
 block|{
+name|hitCounter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 return|return
 operator|(
 name|T
@@ -2816,6 +2853,8 @@ class|class
 name|TypeMapping
 block|{
 DECL|field|toType
+specifier|private
+specifier|final
 name|Class
 argument_list|<
 name|?
@@ -2823,6 +2862,8 @@ argument_list|>
 name|toType
 decl_stmt|;
 DECL|field|fromType
+specifier|private
+specifier|final
 name|Class
 argument_list|<
 name|?
@@ -2830,7 +2871,6 @@ argument_list|>
 name|fromType
 decl_stmt|;
 DECL|method|TypeMapping (Class<?> toType, Class<?> fromType)
-specifier|public
 name|TypeMapping
 parameter_list|(
 name|Class
@@ -3031,11 +3071,13 @@ name|FallbackTypeConverter
 block|{
 DECL|field|canPromote
 specifier|private
+specifier|final
 name|boolean
 name|canPromote
 decl_stmt|;
 DECL|field|fallbackTypeConverter
 specifier|private
+specifier|final
 name|TypeConverter
 name|fallbackTypeConverter
 decl_stmt|;
