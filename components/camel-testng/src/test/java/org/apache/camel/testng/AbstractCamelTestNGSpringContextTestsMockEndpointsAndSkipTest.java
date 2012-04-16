@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.junit4
+DECL|package|org.apache.camel.testng
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
-operator|.
-name|junit4
+name|testng
 package|;
 end_package
 
@@ -70,7 +68,7 @@ name|test
 operator|.
 name|spring
 operator|.
-name|MockEndpoints
+name|MockEndpointsAndSkip
 import|;
 end_import
 
@@ -78,7 +76,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|testng
+operator|.
+name|annotations
 operator|.
 name|Test
 import|;
@@ -98,16 +98,16 @@ end_import
 
 begin_class
 annotation|@
-name|MockEndpoints
+name|MockEndpointsAndSkip
 argument_list|(
-literal|"mock:c*"
+literal|"mock:c"
 argument_list|)
-DECL|class|CamelSpringJUnit4ClassRunnerMockEndpointsTest
+DECL|class|AbstractCamelTestNGSpringContextTestsMockEndpointsAndSkipTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerMockEndpointsTest
+name|AbstractCamelTestNGSpringContextTestsMockEndpointsAndSkipTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerPlainTest
+name|AbstractCamelTestNGSpringContextTestsPlainTest
 block|{
 annotation|@
 name|EndpointInject
@@ -124,6 +124,22 @@ DECL|field|mockMockC
 specifier|protected
 name|MockEndpoint
 name|mockMockC
+decl_stmt|;
+annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:c"
+argument_list|,
+name|context
+operator|=
+literal|"camelContext2"
+argument_list|)
+DECL|field|mockC
+specifier|protected
+name|MockEndpoint
+name|mockC
 decl_stmt|;
 annotation|@
 name|Test
@@ -177,9 +193,9 @@ argument_list|)
 expr_stmt|;
 name|mockC
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello David"
+literal|0
 argument_list|)
 expr_stmt|;
 name|mockMockC

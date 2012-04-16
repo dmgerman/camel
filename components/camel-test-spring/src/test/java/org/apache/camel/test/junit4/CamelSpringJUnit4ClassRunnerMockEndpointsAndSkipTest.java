@@ -70,7 +70,7 @@ name|test
 operator|.
 name|spring
 operator|.
-name|MockEndpoints
+name|MockEndpointsAndSkip
 import|;
 end_import
 
@@ -98,14 +98,14 @@ end_import
 
 begin_class
 annotation|@
-name|MockEndpoints
+name|MockEndpointsAndSkip
 argument_list|(
-literal|"mock:c*"
+literal|"mock:c"
 argument_list|)
-DECL|class|CamelSpringJUnit4ClassRunnerMockEndpointsTest
+DECL|class|CamelSpringJUnit4ClassRunnerMockEndpointsAndSkipTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerMockEndpointsTest
+name|CamelSpringJUnit4ClassRunnerMockEndpointsAndSkipTest
 extends|extends
 name|CamelSpringJUnit4ClassRunnerPlainTest
 block|{
@@ -124,6 +124,22 @@ DECL|field|mockMockC
 specifier|protected
 name|MockEndpoint
 name|mockMockC
+decl_stmt|;
+annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:c"
+argument_list|,
+name|context
+operator|=
+literal|"camelContext2"
+argument_list|)
+DECL|field|mockC
+specifier|protected
+name|MockEndpoint
+name|mockC
 decl_stmt|;
 annotation|@
 name|Test
@@ -177,9 +193,9 @@ argument_list|)
 expr_stmt|;
 name|mockC
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Hello David"
+literal|0
 argument_list|)
 expr_stmt|;
 name|mockMockC
