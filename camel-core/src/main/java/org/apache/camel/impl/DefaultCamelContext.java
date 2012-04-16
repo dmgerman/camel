@@ -3102,21 +3102,23 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
-name|uri
-operator|=
-name|normalizeEndpointUri
+comment|// endpoint key will normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
+comment|// and also validate the uri, if the uri is invalid an ResolveEndpointFailedException is thrown from the getEndpointKey
+name|EndpointKey
+name|key
+init|=
+name|getEndpointKey
 argument_list|(
 name|uri
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|log
 operator|.
 name|trace
 argument_list|(
 literal|"Getting endpoint with normalized uri: {}"
 argument_list|,
-name|uri
+name|key
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -3133,10 +3135,7 @@ name|endpoints
 operator|.
 name|get
 argument_list|(
-name|getEndpointKey
-argument_list|(
-name|uri
-argument_list|)
+name|key
 argument_list|)
 expr_stmt|;
 if|if
@@ -3539,6 +3538,8 @@ argument_list|,
 literal|"endpoint"
 argument_list|)
 expr_stmt|;
+comment|// if there is endpoint strategies, then use the endpoints they return
+comment|// as this allows to intercept endpoints etc.
 for|for
 control|(
 name|EndpointStrategy
