@@ -44,7 +44,7 @@ name|String
 name|getEndpointUri
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the object representation of the endpoint configuration      *      * @return the endpoint URI      */
+comment|/**      * Returns the object representation of the endpoint configuration      *      * @return the endpoint configuration      */
 DECL|method|getEndpointConfiguration ()
 name|EndpointConfiguration
 name|getEndpointConfiguration
