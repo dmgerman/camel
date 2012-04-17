@@ -64,6 +64,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|MalformedURLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -256,6 +266,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DefaultClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -287,6 +325,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
 import|;
 end_import
 
@@ -516,6 +568,17 @@ name|CamelBlueprintHelper
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|RESOLVER
+specifier|private
+specifier|static
+specifier|final
+name|ClassResolver
+name|RESOLVER
+init|=
+operator|new
+name|DefaultClassResolver
+argument_list|()
 decl_stmt|;
 DECL|method|CamelBlueprintHelper ()
 specifier|private
@@ -1274,6 +1337,8 @@ name|descriptors
 parameter_list|)
 throws|throws
 name|FileNotFoundException
+throws|,
+name|MalformedURLException
 block|{
 name|TinyBundle
 name|bundle
@@ -1401,6 +1466,8 @@ name|descriptors
 parameter_list|)
 throws|throws
 name|FileNotFoundException
+throws|,
+name|MalformedURLException
 block|{
 name|List
 argument_list|<
@@ -1460,6 +1527,15 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Resource descriptor: {}"
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
 comment|// remove leading / to be able to load resource from the classpath
 name|s
 operator|=
@@ -1605,6 +1681,15 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Resolving resource: {}"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
 name|URL
 name|xmlUrl
 init|=
@@ -1638,13 +1723,24 @@ block|}
 block|}
 else|else
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Resolving resource: {}"
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
 name|URL
 name|url
 init|=
-name|ObjectHelper
+name|ResourceHelper
 operator|.
-name|loadResourceAsURL
+name|resolveMandatoryResourceAsUrl
 argument_list|(
+name|RESOLVER
+argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
@@ -1663,7 +1759,7 @@ literal|"Resource "
 operator|+
 name|s
 operator|+
-literal|" not found in classpath"
+literal|" not found"
 argument_list|)
 throw|;
 block|}
