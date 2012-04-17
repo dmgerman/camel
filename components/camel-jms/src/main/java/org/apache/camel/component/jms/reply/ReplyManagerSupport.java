@@ -194,6 +194,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -598,7 +612,7 @@ name|warn
 argument_list|(
 literal|"Timeout occurred after {} millis waiting for reply message with correlationID [{}]."
 operator|+
-literal|" Setting ExchangeTimedOutException on ExchangeId: {} and continue routing."
+literal|" Setting ExchangeTimedOutException on {} and continue routing."
 argument_list|,
 operator|new
 name|Object
@@ -614,10 +628,12 @@ operator|.
 name|getCorrelationId
 argument_list|()
 block|,
-name|exchange
+name|ExchangeHelper
 operator|.
-name|getExchangeId
-argument_list|()
+name|logIds
+argument_list|(
+name|exchange
+argument_list|)
 block|}
 argument_list|)
 expr_stmt|;
