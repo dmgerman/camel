@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The root Camel resource from which all other resources can be navigated such as for<code>endpoints</code>  * or<code>routes</code>  *  * @version   */
+comment|/**  * The root Camel resource from which all other resources can be navigated such as for<code>endpoints</code>  * or<code>routes</code>  */
 end_comment
 
 begin_class

@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the status of a single single Camel Route which is used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Paterns</a>  *  * @version   */
+comment|/**  * Represents the status of a single single Camel Route which is used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Paterns</a>  */
 end_comment
 
 begin_class

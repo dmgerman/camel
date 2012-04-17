@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A resolver of the JAXB context primed for the Camel XML languages  * which supports JSON as well as XML encoding  *  * @version   */
+comment|/**  * A resolver of the JAXB context primed for the Camel XML languages  * which supports JSON as well as XML encoding  */
 end_comment
 
 begin_class

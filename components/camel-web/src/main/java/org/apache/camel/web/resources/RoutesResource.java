@@ -399,7 +399,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The active routes in Camel which are used to implement one or more<a  * href="http://camel.apache.org/enterprise-integration-patterns.html"  *>Enterprise Integration Patterns</a>  *  * @version   */
+comment|/**  * The active routes in Camel which are used to implement one or more<a  * href="http://camel.apache.org/enterprise-integration-patterns.html"  *>Enterprise Integration Patterns</a>  */
 end_comment
 
 begin_class

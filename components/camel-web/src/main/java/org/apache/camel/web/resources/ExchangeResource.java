@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel<a href="http://camel.apache.org/exchange.html">message exchange</a>  *  * @version   */
+comment|/**  * A Camel<a href="http://camel.apache.org/exchange.html">message exchange</a>  *  */
 end_comment
 
 begin_class
