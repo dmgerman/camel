@@ -4061,6 +4061,27 @@ argument_list|,
 name|route
 argument_list|)
 expr_stmt|;
+name|ManagementAgent
+name|agent
+init|=
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|agent
+operator|==
+literal|null
+condition|)
+block|{
+comment|// do not register if no agent
+return|return
+literal|false
+return|;
+block|}
 comment|// always register if we are starting CamelContext
 if|if
 condition|(
@@ -4079,15 +4100,6 @@ literal|true
 return|;
 block|}
 comment|// register if always is enabled
-name|ManagementAgent
-name|agent
-init|=
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|getManagementAgent
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|agent

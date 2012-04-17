@@ -100,6 +100,14 @@ argument_list|(
 literal|"MyMainBundle"
 argument_list|)
 expr_stmt|;
+comment|// as we run this test without packing ourselves as bundle, then include ourselves
+name|main
+operator|.
+name|setIncludeSelfAsBundle
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// we support *.xml to find any blueprint xml files
 name|main
 operator|.

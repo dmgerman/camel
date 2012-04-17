@@ -166,6 +166,11 @@ name|bundleName
 init|=
 literal|"MyBundle"
 decl_stmt|;
+DECL|field|includeSelfAsBundle
+specifier|private
+name|boolean
+name|includeSelfAsBundle
+decl_stmt|;
 DECL|method|Main ()
 specifier|public
 name|Main
@@ -488,7 +493,8 @@ name|name
 argument_list|,
 name|descriptors
 argument_list|,
-literal|false
+name|isIncludeSelfAsBundle
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -616,6 +622,32 @@ operator|.
 name|bundleName
 operator|=
 name|bundleName
+expr_stmt|;
+block|}
+DECL|method|isIncludeSelfAsBundle ()
+specifier|public
+name|boolean
+name|isIncludeSelfAsBundle
+parameter_list|()
+block|{
+return|return
+name|includeSelfAsBundle
+return|;
+block|}
+DECL|method|setIncludeSelfAsBundle (boolean includeSelfAsBundle)
+specifier|public
+name|void
+name|setIncludeSelfAsBundle
+parameter_list|(
+name|boolean
+name|includeSelfAsBundle
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeSelfAsBundle
+operator|=
+name|includeSelfAsBundle
 expr_stmt|;
 block|}
 block|}

@@ -628,6 +628,7 @@ name|currentTimeMillis
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// get the bundles
 name|List
 argument_list|<
 name|BundleDescriptor
@@ -637,6 +638,12 @@ init|=
 name|getBundleDescriptors
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|includeTestBundle
+condition|)
+block|{
+comment|// add ourselves as a bundle
 name|TinyBundle
 name|bundle
 init|=
@@ -647,7 +654,6 @@ argument_list|,
 name|descriptors
 argument_list|)
 decl_stmt|;
-comment|// add ourself as a bundle
 name|String
 name|jarName
 init|=
@@ -672,6 +678,8 @@ name|bundle
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|// setup pojosr to use our bundles
 name|Map
 argument_list|<
 name|String
@@ -706,6 +714,7 @@ argument_list|,
 name|bundles
 argument_list|)
 expr_stmt|;
+comment|// create pojorsr osgi service registry
 name|PojoServiceRegistry
 name|reg
 init|=
