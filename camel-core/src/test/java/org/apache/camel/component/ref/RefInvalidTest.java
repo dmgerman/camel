@@ -193,7 +193,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to resolve endpoint: ref:xxx due to: No bean could be found in the registry for: xxx of type: org.apache.camel.Endpoint"
+literal|"Failed to resolve endpoint: ref://xxx due to: No bean could be found in the registry for: xxx of type: org.apache.camel.Endpoint"
 argument_list|,
 name|e
 operator|.

@@ -1742,7 +1742,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to resolve endpoint: xxx:foo due to: No component found with scheme: xxx"
+literal|"Failed to resolve endpoint: xxx://foo due to: No component found with scheme: xxx"
 argument_list|,
 name|e
 operator|.

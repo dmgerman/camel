@@ -3102,23 +3102,21 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// endpoint key will normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
-comment|// and also validate the uri, if the uri is invalid an ResolveEndpointFailedException is thrown from the getEndpointKey
-name|EndpointKey
-name|key
-init|=
-name|getEndpointKey
+comment|// normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
+name|uri
+operator|=
+name|normalizeEndpointUri
 argument_list|(
 name|uri
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|log
 operator|.
 name|trace
 argument_list|(
 literal|"Getting endpoint with normalized uri: {}"
 argument_list|,
-name|key
+name|uri
 argument_list|)
 expr_stmt|;
 name|Endpoint
@@ -3128,6 +3126,14 @@ name|String
 name|scheme
 init|=
 literal|null
+decl_stmt|;
+name|EndpointKey
+name|key
+init|=
+name|getEndpointKey
+argument_list|(
+name|uri
+argument_list|)
 decl_stmt|;
 name|answer
 operator|=
