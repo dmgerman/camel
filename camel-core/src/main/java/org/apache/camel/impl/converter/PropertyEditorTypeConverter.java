@@ -329,6 +329,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we are essentially not thread safe as we use 2 calls to convert
 name|editor
 operator|.
 name|setAsText
@@ -390,6 +391,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we are essentially not thread safe as we use 2 calls to convert
 name|editor
 operator|.
 name|setValue
