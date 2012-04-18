@@ -60,14 +60,42 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * A processor which converts the payload of the input message to be of the given type  *<p/>  * If the convertions fails an {@link org.apache.camel.InvalidPayloadException} is thrown.  *  * @version   */
+comment|/**  * A processor which converts the payload of the input message to be of the given type  *<p/>  * If the conversion fails an {@link org.apache.camel.InvalidPayloadException} is thrown.  *  * @version   */
 end_comment
 
 begin_class
@@ -75,6 +103,8 @@ DECL|class|ConvertBodyProcessor
 specifier|public
 class|class
 name|ConvertBodyProcessor
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Processor
 block|{
@@ -104,6 +134,17 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|type
+argument_list|,
+literal|"type"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|type
@@ -131,6 +172,17 @@ name|String
 name|charset
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|type
+argument_list|,
+literal|"type"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|type
@@ -141,7 +193,12 @@ name|this
 operator|.
 name|charset
 operator|=
+name|IOHelper
+operator|.
+name|normalizeCharset
+argument_list|(
 name|charset
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -197,12 +254,7 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
-name|IOHelper
-operator|.
-name|normalizeCharset
-argument_list|(
 name|charset
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -285,6 +337,30 @@ block|{
 return|return
 name|type
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class

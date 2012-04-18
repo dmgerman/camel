@@ -52,8 +52,36 @@ name|Traceable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * The processor which implements the ThrowException DSL  */
+comment|/**  * The processor which sets an {@link Exception} on the {@link Exchange}  */
 end_comment
 
 begin_class
@@ -61,6 +89,8 @@ DECL|class|ThrowExceptionProcessor
 specifier|public
 class|class
 name|ThrowExceptionProcessor
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Processor
 implements|,
@@ -80,6 +110,17 @@ name|Exception
 name|exception
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|exception
+argument_list|,
+literal|"exception"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|exception
@@ -136,6 +177,30 @@ block|{
 return|return
 literal|"ThrowException"
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class

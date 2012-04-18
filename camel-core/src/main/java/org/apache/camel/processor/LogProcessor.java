@@ -84,6 +84,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|AsyncProcessorHelper
@@ -105,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which evaluates an Expression and logs it.  *  * @version   */
+comment|/**  * A processor which evaluates an {@link Expression} and logs it.  *  * @version   */
 end_comment
 
 begin_class
@@ -113,6 +127,8 @@ DECL|class|LogProcessor
 specifier|public
 class|class
 name|LogProcessor
+extends|extends
+name|ServiceSupport
 implements|implements
 name|AsyncProcessor
 implements|,
@@ -290,6 +306,30 @@ name|expression
 operator|+
 literal|"]"
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class

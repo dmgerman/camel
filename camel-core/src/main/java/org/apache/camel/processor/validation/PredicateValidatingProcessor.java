@@ -70,6 +70,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -87,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which validates the content of the inbound message body  * against a predicate.  *   * @version   */
+comment|/**  * A processor which validates the content of the inbound message body against a {@link Predicate}.  *   * @version   */
 end_comment
 
 begin_class
@@ -95,6 +123,8 @@ DECL|class|PredicateValidatingProcessor
 specifier|public
 class|class
 name|PredicateValidatingProcessor
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Processor
 implements|,
@@ -130,6 +160,17 @@ name|Predicate
 name|predicate
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|predicate
+argument_list|,
+literal|"predicate"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|predicate
@@ -245,6 +286,30 @@ name|predicate
 operator|+
 literal|"]"
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
