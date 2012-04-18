@@ -1352,7 +1352,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Option consumer.bridgeErrorHandler is only supported by endpoints,"
 operator|+
-literal|"having the consumer extend the DefaultConsumer. The consumer is a "
+literal|" having their consumer extend DefaultConsumer. The consumer is a "
 operator|+
 name|consumer
 operator|.
