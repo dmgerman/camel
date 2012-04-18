@@ -454,6 +454,13 @@ specifier|private
 name|boolean
 name|blockWhenFull
 decl_stmt|;
+DECL|field|pollTimeout
+specifier|private
+name|int
+name|pollTimeout
+init|=
+literal|1000
+decl_stmt|;
 DECL|method|SedaEndpoint ()
 specifier|public
 name|SedaEndpoint
@@ -1097,6 +1104,34 @@ operator|=
 name|multipleConsumers
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getPollTimeout ()
+specifier|public
+name|int
+name|getPollTimeout
+parameter_list|()
+block|{
+return|return
+name|pollTimeout
+return|;
+block|}
+DECL|method|setPollTimeout (int pollTimeout)
+specifier|public
+name|void
+name|setPollTimeout
+parameter_list|(
+name|int
+name|pollTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollTimeout
+operator|=
+name|pollTimeout
+expr_stmt|;
+block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -1651,6 +1686,49 @@ name|updateMulticastProcessor
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+comment|// special for unit testing where we can set a system property to make seda poll faster
+comment|// and therefore also react faster upon shutdown, which makes overall testing faster of the Camel project
+name|String
+name|override
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
+argument_list|,
+literal|""
+operator|+
+name|getPollTimeout
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|setPollTimeout
+argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
+name|override
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

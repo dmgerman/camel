@@ -400,6 +400,12 @@ specifier|private
 name|ExceptionHandler
 name|exceptionHandler
 decl_stmt|;
+DECL|field|pollTimeout
+specifier|private
+specifier|final
+name|int
+name|pollTimeout
+decl_stmt|;
 DECL|method|SedaConsumer (SedaEndpoint endpoint, Processor processor)
 specifier|public
 name|SedaConsumer
@@ -427,6 +433,15 @@ name|convert
 argument_list|(
 name|processor
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|pollTimeout
+operator|=
+name|endpoint
+operator|.
+name|getPollTimeout
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -700,11 +715,19 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// sleep at most 1 sec
 name|Thread
 operator|.
 name|sleep
 argument_list|(
+name|Math
+operator|.
+name|min
+argument_list|(
+name|pollTimeout
+argument_list|,
 literal|1000
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -749,11 +772,19 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// sleep at most 1 sec
 name|Thread
 operator|.
 name|sleep
 argument_list|(
+name|Math
+operator|.
+name|min
+argument_list|(
+name|pollTimeout
+argument_list|,
 literal|1000
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -786,13 +817,14 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// use the end user configured poll timeout
 name|exchange
 operator|=
 name|queue
 operator|.
 name|poll
 argument_list|(
-literal|1000
+name|pollTimeout
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1389,9 +1421,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating {} consumer tasks"
+literal|"Creating {} consumer tasks with poll timeout {} ms."
 argument_list|,
 name|tasks
+argument_list|,
+name|pollTimeout
 argument_list|)
 expr_stmt|;
 for|for

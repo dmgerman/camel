@@ -292,6 +292,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// make SEDA testing faster
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
+argument_list|,
+literal|"10"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -503,6 +513,13 @@ argument_list|(
 name|JmxSystemPropertyKeys
 operator|.
 name|DISABLED
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
 argument_list|)
 expr_stmt|;
 block|}
