@@ -272,6 +272,7 @@ return|return
 name|jndi
 return|;
 block|}
+comment|// START SNIPPET: e2
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -369,6 +370,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// END SNIPPET: e1
 comment|// START SNIPPET: e1
 comment|/**      * Custom {@link ExceptionHandler} to be used on the file consumer, to send      * exceptions to a Camel route, to let Camel deal with the error.      */
 DECL|class|MyExceptionHandler
