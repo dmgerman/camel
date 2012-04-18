@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at ERROR level.  *  * @version   */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at WARN level.  *  * @version   */
 end_comment
 
 begin_class
@@ -145,7 +145,7 @@ argument_list|)
 argument_list|,
 name|LoggingLevel
 operator|.
-name|ERROR
+name|WARN
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -276,7 +276,7 @@ name|exception
 argument_list|)
 condition|)
 block|{
-comment|// do not log stacktrace for intended rollbacks
+comment|// do not log stack trace for intended rollbacks
 name|logger
 operator|.
 name|log

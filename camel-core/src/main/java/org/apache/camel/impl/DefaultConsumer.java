@@ -432,6 +432,47 @@ name|newt
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Handles the given exception using the {@link #getExceptionHandler()}      *      * @param message additional message about the exception      * @param t the exception to handle      */
+DECL|method|handleException (String message, Throwable t)
+specifier|protected
+name|void
+name|handleException
+parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|Throwable
+name|newt
+init|=
+operator|(
+name|t
+operator|==
+literal|null
+operator|)
+condition|?
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Handling [null] exception"
+argument_list|)
+else|:
+name|t
+decl_stmt|;
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+name|message
+argument_list|,
+name|newt
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
