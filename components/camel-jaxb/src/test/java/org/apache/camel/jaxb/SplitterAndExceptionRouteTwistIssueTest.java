@@ -299,10 +299,10 @@ name|uri
 operator|=
 literal|"mock:mock_output"
 argument_list|)
-DECL|field|mock_output
+DECL|field|mockOutput
 specifier|protected
 name|MockEndpoint
-name|mock_output
+name|mockOutput
 decl_stmt|;
 annotation|@
 name|Test
@@ -331,7 +331,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mock_output
+name|mockOutput
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -378,7 +378,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|mock_output
+name|mockOutput
 operator|.
 name|assertIsSatisfied
 argument_list|()
@@ -411,7 +411,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mock_output
+name|mockOutput
 operator|.
 name|expectedMessageCount
 argument_list|(
@@ -458,7 +458,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|mock_output
+name|mockOutput
 operator|.
 name|assertIsSatisfied
 argument_list|()
@@ -633,7 +633,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-name|mock_output
+name|mockOutput
 argument_list|)
 expr_stmt|;
 name|from
@@ -764,7 +764,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-name|mock_output
+name|mockOutput
 argument_list|)
 expr_stmt|;
 block|}

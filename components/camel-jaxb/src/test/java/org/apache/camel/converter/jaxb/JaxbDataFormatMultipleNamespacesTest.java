@@ -20,13 +20,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|xml
 operator|.
-name|camel
+name|bind
 operator|.
-name|CamelContext
+name|JAXBContext
 import|;
 end_import
 
@@ -108,20 +108,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|test
 operator|.
 name|junit4
@@ -136,53 +122,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|stream
-operator|.
-name|XMLStreamException
 import|;
 end_import
 
@@ -417,7 +357,11 @@ expr_stmt|;
 name|String
 name|payload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ns1:order xmlns:ns2=\"http://www.camel.apache.org/jaxb/example/address/1\" xmlns:ns1=\"http://www.camel.apache.org/jaxb/example/order/1\"><ns1:id>1</ns1:id><ns2:address><ns2:street>Main Street</ns2:street><ns2:streetNumber>3a</ns2:streetNumber><ns2:zip>65843</ns2:zip><ns2:city>Sulzbach</ns2:city></ns2:address></ns1:order>"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ns1:order xmlns:ns2=\"http://www.camel.apache.org/jaxb/example/address/1\""
+operator|+
+literal|" xmlns:ns1=\"http://www.camel.apache.org/jaxb/example/order/1\"><ns1:id>1</ns1:id><ns2:address><ns2:street>Main Street</ns2:street>"
+operator|+
+literal|"<ns2:streetNumber>3a</ns2:streetNumber><ns2:zip>65843</ns2:zip><ns2:city>Sulzbach</ns2:city></ns2:address></ns1:order>"
 decl_stmt|;
 name|template
 operator|.
