@@ -443,6 +443,15 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+name|prepareMessageSenders
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -547,16 +556,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// Populate the given (read) timeout if any
-name|prepareMessageSenders
-argument_list|(
-name|getEndpoint
-argument_list|()
-operator|.
-name|getConfiguration
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|WebServiceMessageCallback
 name|callback
 init|=
@@ -676,8 +675,6 @@ parameter_list|(
 name|SpringWebserviceConfiguration
 name|configuration
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// Skip this whole thing if none of the relevant config options are set.
 if|if
@@ -785,6 +782,21 @@ operator|-
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+name|messageSender
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|CommonsHttpMessageSender
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
 operator|(
 operator|(
 name|CommonsHttpMessageSender
@@ -800,6 +812,21 @@ name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Not applying timeout configuration to CommonsHttpMessageSender based implementation.  "
+operator|+
+literal|"You are using what appears to be a custom MessageSender, which you are not doing by default. "
+operator|+
+literal|"You will need configure timeout on your own."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 elseif|else

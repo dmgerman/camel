@@ -154,6 +154,11 @@ end_import
 
 begin_class
 annotation|@
+name|Ignore
+argument_list|(
+literal|"Run manually, makes connection to external webservice"
+argument_list|)
+annotation|@
 name|ContextConfiguration
 DECL|class|ProducerRemoteRouteTimeOutTest
 specifier|public
@@ -178,16 +183,11 @@ name|ProducerTemplate
 name|template
 decl_stmt|;
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
-annotation|@
 name|Test
-DECL|method|callStockQuoteWebserviceCommonsHttpWith3MillSecondsTimeout ()
+DECL|method|callStockQuoteWebserviceCosmmonsHttpWith3MillSecondsTimeout ()
 specifier|public
 name|void
-name|callStockQuoteWebserviceCommonsHttpWith3MillSecondsTimeout
+name|callStockQuoteWebserviceCosmmonsHttpWith3MillSecondsTimeout
 parameter_list|()
 throws|throws
 name|Exception
@@ -229,11 +229,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|callStockQuoteWebserviceCommonsHttpWith5000MillSecondsTimeout ()
@@ -288,11 +283,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|callStockQuoteWebserviceJDKWith3MillSecondsTimeout ()
 specifier|public
@@ -339,11 +329,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|callStockQuoteWebserviceJDKWith5000MillSecondsTimeout ()

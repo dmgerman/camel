@@ -144,6 +144,11 @@ end_import
 
 begin_class
 annotation|@
+name|Ignore
+argument_list|(
+literal|"Run manually, makes connection to external webservice"
+argument_list|)
+annotation|@
 name|ContextConfiguration
 DECL|class|ProducerRemoteRouteTest
 specifier|public
@@ -175,11 +180,6 @@ specifier|private
 name|ProducerTemplate
 name|template
 decl_stmt|;
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
 annotation|@
 name|Test
 argument_list|(
@@ -221,11 +221,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
-annotation|@
 name|Test
 argument_list|(
 name|timeout
@@ -265,11 +260,6 @@ name|Source
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
 annotation|@
 name|Test
 argument_list|(
@@ -315,11 +305,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
-annotation|@
 name|Test
 argument_list|(
 name|timeout
@@ -359,11 +344,6 @@ name|Source
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
 annotation|@
 name|Test
 argument_list|(
@@ -422,11 +402,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Run manually, makes connection to external webservice"
-argument_list|)
 annotation|@
 name|Test
 argument_list|(
