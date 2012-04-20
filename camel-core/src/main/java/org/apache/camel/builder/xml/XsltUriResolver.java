@@ -366,6 +366,27 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|TransformerException
+argument_list|(
+literal|"Cannot find "
+operator|+
+name|name
+operator|+
+literal|" in the file system"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|StreamSource
@@ -420,9 +441,7 @@ literal|"classpath:"
 operator|+
 name|path
 operator|+
-name|File
-operator|.
-name|separator
+literal|"/"
 operator|+
 name|href
 expr_stmt|;
