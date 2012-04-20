@@ -397,7 +397,7 @@ operator|.
 name|getAttrs
 argument_list|()
 operator|.
-name|getATime
+name|getMTime
 argument_list|()
 expr_stmt|;
 name|newLength
