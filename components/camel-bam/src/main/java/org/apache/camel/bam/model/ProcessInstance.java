@@ -383,7 +383,8 @@ name|isStarted
 parameter_list|()
 block|{
 return|return
-name|timeStarted
+name|getTimeStarted
+argument_list|()
 operator|!=
 literal|null
 return|;
@@ -397,7 +398,8 @@ name|isCompleted
 parameter_list|()
 block|{
 return|return
-name|timeCompleted
+name|getTimeCompleted
+argument_list|()
 operator|!=
 literal|null
 return|;
