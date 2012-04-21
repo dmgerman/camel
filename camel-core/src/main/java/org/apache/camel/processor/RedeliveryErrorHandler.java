@@ -3190,6 +3190,15 @@ operator|.
 name|REDELIVERY_MAX_COUNTER
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|)
+expr_stmt|;
 comment|// and remove traces of rollback only and uow exhausted markers
 name|exchange
 operator|.
@@ -4152,6 +4161,43 @@ name|RedeliveryData
 name|data
 parameter_list|)
 block|{
+comment|// if marked as rollback only then do not continue/redeliver
+name|boolean
+name|exhausted
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+literal|false
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|exhausted
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"This exchange is marked as redelivery exhausted: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 comment|// if marked as rollback only then do not continue/redeliver
 name|boolean
 name|rollbackOnly

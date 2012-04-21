@@ -1864,6 +1864,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// always clear redelivery exhausted in a catch clause
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|)
+expr_stmt|;
 comment|// signal callback to continue routing async
 name|ExchangeHelper
 operator|.
@@ -1925,6 +1935,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// always clear redelivery exhausted in a catch clause
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|sync
