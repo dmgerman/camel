@@ -1555,11 +1555,19 @@ argument_list|()
 decl_stmt|;
 DECL|field|routes
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|Route
 argument_list|>
 name|routes
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|Route
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|field|servicesToClose
 specifier|private
@@ -3720,7 +3728,6 @@ return|;
 block|}
 DECL|method|getRoutes ()
 specifier|public
-specifier|synchronized
 name|List
 argument_list|<
 name|Route
@@ -3728,25 +3735,7 @@ argument_list|>
 name|getRoutes
 parameter_list|()
 block|{
-if|if
-condition|(
-name|routes
-operator|==
-literal|null
-condition|)
-block|{
-name|routes
-operator|=
-operator|new
-name|LinkedHashSet
-argument_list|<
-name|Route
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
-comment|// lets return a copy of the collection as objects are removed later
-comment|// when services are stopped
+comment|// lets return a copy of the collection as objects are removed later when services are stopped
 return|return
 operator|new
 name|ArrayList
@@ -3832,15 +3821,6 @@ argument_list|>
 name|routes
 parameter_list|)
 block|{
-if|if
-condition|(
-name|this
-operator|.
-name|routes
-operator|!=
-literal|null
-condition|)
-block|{
 name|this
 operator|.
 name|routes
@@ -3850,7 +3830,6 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|addRouteCollection (Collection<Route> routes)
 specifier|synchronized
@@ -3866,34 +3845,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|this
-operator|.
-name|routes
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|routes
-operator|=
-operator|new
-name|LinkedHashSet
-argument_list|<
-name|Route
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|routes
-operator|!=
-literal|null
-condition|)
-block|{
 name|this
 operator|.
 name|routes
@@ -3903,7 +3854,6 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|addRoutes (RoutesBuilder builder)
 specifier|public
