@@ -230,6 +230,20 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+comment|// and mark as redelivery exhausted as we cannot do redeliveries
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|bridge

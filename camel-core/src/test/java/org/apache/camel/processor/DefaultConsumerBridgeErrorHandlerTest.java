@@ -203,7 +203,7 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|latch
-specifier|private
+specifier|protected
 specifier|final
 name|CountDownLatch
 name|latch
