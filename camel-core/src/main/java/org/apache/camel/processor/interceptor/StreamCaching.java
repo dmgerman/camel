@@ -212,7 +212,7 @@ if|if
 condition|(
 name|strategy
 operator|instanceof
-name|StreamCachingInterceptor
+name|StreamCaching
 condition|)
 block|{
 name|interceptors
