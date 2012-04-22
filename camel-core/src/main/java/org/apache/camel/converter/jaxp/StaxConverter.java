@@ -307,6 +307,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// TODO: do not use a cxf system property
+comment|// TODO: make higher default pool size as 20 is not much in high end systems
 DECL|field|INPUT_FACTORY_POOL
 specifier|private
 specifier|static

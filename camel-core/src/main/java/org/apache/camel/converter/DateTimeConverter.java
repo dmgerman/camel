@@ -51,6 +51,7 @@ specifier|final
 class|class
 name|DateTimeConverter
 block|{
+comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|DateTimeConverter ()
 specifier|private
 name|DateTimeConverter

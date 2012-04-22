@@ -191,13 +191,21 @@ annotation|@
 name|Converter
 DECL|class|StreamCacheConverter
 specifier|public
+specifier|final
 class|class
 name|StreamCacheConverter
 block|{
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|StreamCacheConverter ()
+specifier|private
+name|StreamCacheConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|Converter
 DECL|method|convertToStreamCache (StreamSource source, Exchange exchange)
 specifier|public
+specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
@@ -224,6 +232,7 @@ annotation|@
 name|Converter
 DECL|method|convertToStreamCache (StringSource source)
 specifier|public
+specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
@@ -240,6 +249,7 @@ annotation|@
 name|Converter
 DECL|method|convertToStreamCache (BytesSource source)
 specifier|public
+specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
@@ -256,6 +266,7 @@ annotation|@
 name|Converter
 DECL|method|convertToStreamCache (SAXSource source, Exchange exchange)
 specifier|public
+specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
@@ -300,6 +311,7 @@ annotation|@
 name|Converter
 DECL|method|convertToStreamCache (InputStream stream, Exchange exchange)
 specifier|public
+specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
@@ -341,6 +353,7 @@ annotation|@
 name|Converter
 DECL|method|convertToStreamCache (Reader reader, Exchange exchange)
 specifier|public
+specifier|static
 name|StreamCache
 name|convertToStreamCache
 parameter_list|(
@@ -385,6 +398,7 @@ annotation|@
 name|Converter
 DECL|method|convertToSerializable (StreamCache cache, Exchange exchange)
 specifier|public
+specifier|static
 name|Serializable
 name|convertToSerializable
 parameter_list|(
@@ -420,6 +434,7 @@ annotation|@
 name|Converter
 DECL|method|convertToByteArray (StreamCache cache, Exchange exchange)
 specifier|public
+specifier|static
 name|byte
 index|[]
 name|convertToByteArray

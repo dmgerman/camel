@@ -77,6 +77,7 @@ specifier|final
 class|class
 name|StreamSourceConverter
 block|{
+comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|StreamSourceConverter ()
 specifier|private
 name|StreamSourceConverter

@@ -97,13 +97,21 @@ annotation|@
 name|Converter
 DECL|class|CamelConverter
 specifier|public
+specifier|final
 class|class
 name|CamelConverter
 block|{
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|CamelConverter ()
+specifier|private
+name|CamelConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|Converter
 DECL|method|toProcessor (final Predicate predicate)
 specifier|public
+specifier|static
 name|Processor
 name|toProcessor
 parameter_list|(
@@ -170,6 +178,7 @@ annotation|@
 name|Converter
 DECL|method|toProcessor (final Expression expresion)
 specifier|public
+specifier|static
 name|Processor
 name|toProcessor
 parameter_list|(

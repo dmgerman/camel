@@ -390,6 +390,7 @@ annotation|@
 name|Converter
 DECL|method|toInteger (NodeList nodeList)
 specifier|public
+specifier|static
 name|Integer
 name|toInteger
 parameter_list|(
@@ -432,6 +433,7 @@ annotation|@
 name|Converter
 DECL|method|toLong (NodeList nodeList)
 specifier|public
+specifier|static
 name|Long
 name|toLong
 parameter_list|(

@@ -230,11 +230,6 @@ name|MESSAGE
 init|=
 literal|"<test>This is a test</test>"
 decl_stmt|;
-DECL|field|converter
-specifier|private
-name|StreamCacheConverter
-name|converter
-decl_stmt|;
 DECL|field|exchange
 specifier|private
 name|Exchange
@@ -253,14 +248,6 @@ block|{
 name|super
 operator|.
 name|setUp
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|converter
-operator|=
-operator|new
-name|StreamCacheConverter
 argument_list|()
 expr_stmt|;
 name|this
@@ -297,7 +284,7 @@ decl_stmt|;
 name|StreamCache
 name|streamCache
 init|=
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToStreamCache
 argument_list|(
@@ -370,7 +357,7 @@ decl_stmt|;
 name|StreamCache
 name|cache
 init|=
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToStreamCache
 argument_list|(
@@ -443,7 +430,7 @@ init|=
 operator|(
 name|InputStream
 operator|)
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToStreamCache
 argument_list|(
@@ -478,10 +465,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testConvertToStreamCacheInpuStreamWithFileCache ()
+DECL|method|testConvertToStreamCacheInputStreamWithFileCache ()
 specifier|public
 name|void
-name|testConvertToStreamCacheInpuStreamWithFileCache
+name|testConvertToStreamCacheInputStreamWithFileCache
 parameter_list|()
 throws|throws
 name|Exception
@@ -537,7 +524,7 @@ init|=
 operator|(
 name|InputStream
 operator|)
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToStreamCache
 argument_list|(
@@ -609,7 +596,7 @@ decl_stmt|;
 name|StreamCache
 name|cache
 init|=
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToStreamCache
 argument_list|(
@@ -621,7 +608,7 @@ decl_stmt|;
 name|Serializable
 name|ser
 init|=
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToSerializable
 argument_list|(
@@ -653,7 +640,7 @@ decl_stmt|;
 name|StreamCache
 name|cache
 init|=
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToStreamCache
 argument_list|(
@@ -666,7 +653,7 @@ name|byte
 index|[]
 name|bytes
 init|=
-name|converter
+name|StreamCacheConverter
 operator|.
 name|convertToByteArray
 argument_list|(

@@ -211,17 +211,10 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|CamelConverter
-name|cc
-init|=
-operator|new
-name|CamelConverter
-argument_list|()
-decl_stmt|;
 name|Processor
 name|pro
 init|=
-name|cc
+name|CamelConverter
 operator|.
 name|toProcessor
 argument_list|(
@@ -306,17 +299,10 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|CamelConverter
-name|cc
-init|=
-operator|new
-name|CamelConverter
-argument_list|()
-decl_stmt|;
 name|Processor
 name|pro
 init|=
-name|cc
+name|CamelConverter
 operator|.
 name|toProcessor
 argument_list|(
