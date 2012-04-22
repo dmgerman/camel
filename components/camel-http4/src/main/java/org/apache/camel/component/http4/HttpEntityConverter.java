@@ -135,13 +135,20 @@ annotation|@
 name|Converter
 DECL|class|HttpEntityConverter
 specifier|public
+specifier|final
 class|class
 name|HttpEntityConverter
 block|{
+DECL|method|HttpEntityConverter ()
+specifier|private
+name|HttpEntityConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|Converter
 DECL|method|toHttpEntity (byte[] data, Exchange exchange)
 specifier|public
+specifier|static
 name|HttpEntity
 name|toHttpEntity
 parameter_list|(
@@ -168,6 +175,7 @@ annotation|@
 name|Converter
 DECL|method|toHttpEntity (InputStream inStream, Exchange exchange)
 specifier|public
+specifier|static
 name|HttpEntity
 name|toHttpEntity
 parameter_list|(
@@ -193,6 +201,7 @@ annotation|@
 name|Converter
 DECL|method|toHttpEntity (String str, Exchange exchange)
 specifier|public
+specifier|static
 name|HttpEntity
 name|toHttpEntity
 parameter_list|(
@@ -259,6 +268,7 @@ block|}
 block|}
 DECL|method|asHttpEntity (InputStream in, Exchange exchange)
 specifier|private
+specifier|static
 name|HttpEntity
 name|asHttpEntity
 parameter_list|(
@@ -302,15 +312,9 @@ argument_list|)
 decl_stmt|;
 name|InputStreamEntity
 name|entity
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
-name|exchange
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|exchange
 operator|.
@@ -383,6 +387,7 @@ return|;
 block|}
 DECL|method|asHttpEntity (byte[] data, Exchange exchange)
 specifier|private
+specifier|static
 name|HttpEntity
 name|asHttpEntity
 parameter_list|(
@@ -427,15 +432,9 @@ argument_list|)
 decl_stmt|;
 name|InputStreamEntity
 name|entity
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
-name|exchange
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|exchange
 operator|.

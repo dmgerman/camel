@@ -141,13 +141,20 @@ annotation|@
 name|Converter
 DECL|class|RequestEntityConverter
 specifier|public
+specifier|final
 class|class
 name|RequestEntityConverter
 block|{
+DECL|method|RequestEntityConverter ()
+specifier|private
+name|RequestEntityConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|Converter
 DECL|method|toRequestEntity (byte[] data, Exchange exchange)
 specifier|public
+specifier|static
 name|RequestEntity
 name|toRequestEntity
 parameter_list|(
@@ -174,6 +181,7 @@ annotation|@
 name|Converter
 DECL|method|toRequestEntity (InputStream inStream, Exchange exchange)
 specifier|public
+specifier|static
 name|RequestEntity
 name|toRequestEntity
 parameter_list|(
@@ -199,6 +207,7 @@ annotation|@
 name|Converter
 DECL|method|toRequestEntity (String str, Exchange exchange)
 specifier|public
+specifier|static
 name|RequestEntity
 name|toRequestEntity
 parameter_list|(
@@ -265,6 +274,7 @@ block|}
 block|}
 DECL|method|asRequestEntity (InputStream in, Exchange exchange)
 specifier|private
+specifier|static
 name|RequestEntity
 name|asRequestEntity
 parameter_list|(
@@ -377,6 +387,7 @@ block|}
 block|}
 DECL|method|asRequestEntity (byte[] data, Exchange exchange)
 specifier|private
+specifier|static
 name|RequestEntity
 name|asRequestEntity
 parameter_list|(

@@ -85,13 +85,20 @@ annotation|@
 name|Converter
 DECL|class|RestletConverter
 specifier|public
+specifier|final
 class|class
 name|RestletConverter
 block|{
+DECL|method|RestletConverter ()
+specifier|private
+name|RestletConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|Converter
 DECL|method|toMethod (String name)
 specifier|public
+specifier|static
 name|Method
 name|toMethod
 parameter_list|(
@@ -115,6 +122,7 @@ annotation|@
 name|Converter
 DECL|method|toMethods (String name)
 specifier|public
+specifier|static
 name|Method
 index|[]
 name|toMethods
@@ -186,6 +194,7 @@ annotation|@
 name|Converter
 DECL|method|toMediaType (String name)
 specifier|public
+specifier|static
 name|MediaType
 name|toMediaType
 parameter_list|(

@@ -125,13 +125,20 @@ annotation|@
 name|Converter
 DECL|class|JcrConverter
 specifier|public
+specifier|final
 class|class
 name|JcrConverter
 block|{
+DECL|method|JcrConverter ()
+specifier|private
+name|JcrConverter
+parameter_list|()
+block|{     }
 annotation|@
 name|Converter
 DECL|method|toValue (Boolean bool)
 specifier|public
+specifier|static
 name|Value
 name|toValue
 parameter_list|(
@@ -151,6 +158,7 @@ annotation|@
 name|Converter
 DECL|method|toValue (InputStream stream)
 specifier|public
+specifier|static
 name|Value
 name|toValue
 parameter_list|(
@@ -170,6 +178,7 @@ annotation|@
 name|Converter
 DECL|method|toValue (Calendar calendar)
 specifier|public
+specifier|static
 name|Value
 name|toValue
 parameter_list|(
@@ -189,6 +198,7 @@ annotation|@
 name|Converter
 DECL|method|toValue (String value)
 specifier|public
+specifier|static
 name|Value
 name|toValue
 parameter_list|(

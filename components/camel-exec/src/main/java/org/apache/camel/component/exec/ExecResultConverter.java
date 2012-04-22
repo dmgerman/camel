@@ -342,7 +342,7 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|convertTo (Class<T> type, Exchange exchange, ExecResult result)
-specifier|public
+specifier|private
 specifier|static
 parameter_list|<
 name|T
@@ -415,7 +415,7 @@ block|}
 block|}
 comment|/**      * Returns<code>InputStream</code> object with the<i>output</i> of the      * executable. If there is {@link ExecCommand#getOutFile()}, its content is      * preferred to {@link ExecResult#getStdout()}. If no out file is set, and      * the stdout of the exec result is<code>null</code> returns the stderr of      * the exec result.<br>      * If the output stream is of type<code>ByteArrayInputStream</code>, its      *<code>reset()</code> method is called.      *       * @param execResult ExecResult object to convert to InputStream.      * @return InputStream object with the<i>output</i> of the executable.      *         Returns<code>null</code> if both {@link ExecResult#getStdout()}      *         and {@link ExecResult#getStderr()} are<code>null</code> , or if      *         the<code>execResult</code> is<code>null</code>.      * @throws FileNotFoundException if the {@link ExecCommand#getOutFile()} can      *             not be opened. In this case the out file must have had a not      *<code>null</code> value      */
 DECL|method|toInputStream (ExecResult execResult)
-specifier|public
+specifier|private
 specifier|static
 name|InputStream
 name|toInputStream
