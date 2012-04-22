@@ -503,6 +503,13 @@ specifier|protected
 name|int
 name|maxMessagesPerPoll
 decl_stmt|;
+DECL|field|eagerMaxMessagesPerPoll
+specifier|protected
+name|boolean
+name|eagerMaxMessagesPerPoll
+init|=
+literal|true
+decl_stmt|;
 DECL|field|maxDepth
 specifier|protected
 name|int
@@ -2521,6 +2528,32 @@ operator|.
 name|maxMessagesPerPoll
 operator|=
 name|maxMessagesPerPoll
+expr_stmt|;
+block|}
+DECL|method|isEagerMaxMessagesPerPoll ()
+specifier|public
+name|boolean
+name|isEagerMaxMessagesPerPoll
+parameter_list|()
+block|{
+return|return
+name|eagerMaxMessagesPerPoll
+return|;
+block|}
+DECL|method|setEagerMaxMessagesPerPoll (boolean eagerMaxMessagesPerPoll)
+specifier|public
+name|void
+name|setEagerMaxMessagesPerPoll
+parameter_list|(
+name|boolean
+name|eagerMaxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerMaxMessagesPerPoll
+operator|=
+name|eagerMaxMessagesPerPoll
 expr_stmt|;
 block|}
 DECL|method|getMaxDepth ()

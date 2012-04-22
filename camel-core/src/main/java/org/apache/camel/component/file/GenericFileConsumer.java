@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Deque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedList
 import|;
 end_import
@@ -280,6 +290,13 @@ specifier|protected
 name|Processor
 name|customProcessor
 decl_stmt|;
+DECL|field|eagerLimitMaxMessagesPerPoll
+specifier|protected
+name|boolean
+name|eagerLimitMaxMessagesPerPoll
+init|=
+literal|true
+decl_stmt|;
 DECL|method|GenericFileConsumer (GenericFileEndpoint<T> endpoint, Processor processor, GenericFileOperations<T> operations)
 specifier|public
 name|GenericFileConsumer
@@ -347,7 +364,38 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+DECL|method|isEagerLimitMaxMessagesPerPoll ()
+specifier|public
+name|boolean
+name|isEagerLimitMaxMessagesPerPoll
+parameter_list|()
+block|{
+return|return
+name|eagerLimitMaxMessagesPerPoll
+return|;
+block|}
+DECL|method|setEagerLimitMaxMessagesPerPoll (boolean eagerLimitMaxMessagesPerPoll)
+specifier|public
+name|void
+name|setEagerLimitMaxMessagesPerPoll
+parameter_list|(
+name|boolean
+name|eagerLimitMaxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerLimitMaxMessagesPerPoll
+operator|=
+name|eagerLimitMaxMessagesPerPoll
+expr_stmt|;
+block|}
 comment|/**      * Poll for files      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|poll ()
 specifier|protected
 name|int
@@ -515,6 +563,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// sort using build in sorters so we can use expressions
+comment|// use a linked list so we can deque the exchanges
 name|LinkedList
 argument_list|<
 name|Exchange
@@ -600,6 +649,55 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// use a queue for the exchanges
+name|Deque
+argument_list|<
+name|Exchange
+argument_list|>
+name|q
+init|=
+name|exchanges
+decl_stmt|;
+comment|// we are not eager limiting, but we have configured a limit, so cut the list of files
+if|if
+condition|(
+operator|!
+name|eagerLimitMaxMessagesPerPoll
+operator|&&
+name|maxMessagesPerPoll
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|files
+operator|.
+name|size
+argument_list|()
+operator|>
+name|maxMessagesPerPoll
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Limiting maximum messages to poll at {} files as there was more messages in this poll."
+argument_list|,
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
+comment|// must first remove excessive files from the in progress repository
+name|removeExcessiveInProgressFiles
+argument_list|(
+name|q
+argument_list|,
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// consume files one by one
 name|int
 name|total
@@ -626,14 +724,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-name|Queue
-argument_list|<
-name|Exchange
-argument_list|>
-name|q
-init|=
-name|exchanges
-decl_stmt|;
 name|int
 name|polledMessages
 init|=
@@ -812,6 +902,38 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// drain any in progress files as we are done with this batch
+name|removeExcessiveInProgressFiles
+argument_list|(
+operator|(
+name|Deque
+operator|)
+name|exchanges
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+return|return
+name|total
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|removeExcessiveInProgressFiles (Deque exchanges, int limit)
+specifier|protected
+name|void
+name|removeExcessiveInProgressFiles
+parameter_list|(
+name|Deque
+name|exchanges
+parameter_list|,
+name|int
+name|limit
+parameter_list|)
+block|{
 comment|// remove the file from the in progress list in case the batch was limited by max messages per poll
 while|while
 condition|(
@@ -820,9 +942,10 @@ operator|.
 name|size
 argument_list|()
 operator|>
-literal|0
+name|limit
 condition|)
 block|{
+comment|// must remove last
 name|Exchange
 name|exchange
 init|=
@@ -831,7 +954,7 @@ name|Exchange
 operator|)
 name|exchanges
 operator|.
-name|poll
+name|removeLast
 argument_list|()
 decl_stmt|;
 name|GenericFile
@@ -874,9 +997,6 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|total
-return|;
 block|}
 comment|/**      * Whether or not we can continue polling for more files      *      * @param fileList  the current list of gathered files      * @return<tt>true</tt> to continue,<tt>false</tt> to stop due hitting maxMessagesPerPoll limit      */
 DECL|method|canPollMoreFiles (List<?> fileList)
@@ -891,6 +1011,17 @@ argument_list|>
 name|fileList
 parameter_list|)
 block|{
+comment|// at this point we should not limit if we are not eager
+if|if
+condition|(
+operator|!
+name|eagerLimitMaxMessagesPerPoll
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 if|if
 condition|(
 name|maxMessagesPerPoll

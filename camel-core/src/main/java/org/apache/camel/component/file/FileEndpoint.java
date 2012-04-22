@@ -410,6 +410,14 @@ name|getMaxMessagesPerPoll
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|result
+operator|.
+name|setEagerLimitMaxMessagesPerPoll
+argument_list|(
+name|isEagerMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|result
