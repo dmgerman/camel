@@ -184,7 +184,7 @@ name|bindy
 operator|.
 name|util
 operator|.
-name|Converter
+name|ConverterUtils
 import|;
 end_import
 
@@ -380,7 +380,7 @@ decl_stmt|;
 comment|// Get CRLF
 name|crlf
 operator|=
-name|Converter
+name|ConverterUtils
 operator|.
 name|getByteReturn
 argument_list|(

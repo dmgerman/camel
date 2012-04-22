@@ -64,7 +64,7 @@ name|bindy
 operator|.
 name|util
 operator|.
-name|Converter
+name|ConverterUtils
 import|;
 end_import
 
@@ -146,7 +146,7 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"\"123\",\"Wednesday, November 9, 2011\",\"Central California\""
 operator|+
-name|Converter
+name|ConverterUtils
 operator|.
 name|getStringCarriageReturn
 argument_list|(

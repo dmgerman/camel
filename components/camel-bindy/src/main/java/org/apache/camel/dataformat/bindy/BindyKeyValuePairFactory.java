@@ -214,7 +214,7 @@ name|bindy
 operator|.
 name|util
 operator|.
-name|Converter
+name|ConverterUtils
 import|;
 end_import
 
@@ -2063,9 +2063,9 @@ expr_stmt|;
 name|char
 name|separator
 init|=
-name|Converter
+name|ConverterUtils
 operator|.
-name|getCharDelimitor
+name|getCharDelimiter
 argument_list|(
 name|this
 operator|.

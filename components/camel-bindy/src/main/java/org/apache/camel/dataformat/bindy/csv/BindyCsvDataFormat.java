@@ -194,7 +194,7 @@ name|bindy
 operator|.
 name|util
 operator|.
-name|Converter
+name|ConverterUtils
 import|;
 end_import
 
@@ -376,7 +376,7 @@ name|byte
 index|[]
 name|bytesCRLF
 init|=
-name|Converter
+name|ConverterUtils
 operator|.
 name|getByteReturn
 argument_list|(

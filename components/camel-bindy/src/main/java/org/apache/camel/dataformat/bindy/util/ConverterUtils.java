@@ -21,28 +21,28 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The ConvertSeparator helps to return the char associated to the unicode  * string  */
+comment|/**  * To help return the char associated to the unicode string  */
 end_comment
 
 begin_class
-DECL|class|Converter
+DECL|class|ConverterUtils
 specifier|public
 specifier|final
 class|class
-name|Converter
+name|ConverterUtils
 block|{
-DECL|method|Converter ()
+DECL|method|ConverterUtils ()
 specifier|private
-name|Converter
+name|ConverterUtils
 parameter_list|()
 block|{
 comment|// helper class
 block|}
-DECL|method|getCharDelimitor (String separator)
+DECL|method|getCharDelimiter (String separator)
 specifier|public
 specifier|static
 name|char
-name|getCharDelimitor
+name|getCharDelimiter
 parameter_list|(
 name|String
 name|separator
