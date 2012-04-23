@@ -32,18 +32,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URI
@@ -57,16 +45,6 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
 import|;
 end_import
 
@@ -136,35 +114,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|URIField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|PropertyEditorTypeConverter
 import|;
 end_import
 
@@ -257,17 +207,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|TC
-specifier|private
-specifier|static
-specifier|final
-name|TypeConverter
-name|TC
-init|=
-operator|new
-name|PropertyEditorTypeConverter
-argument_list|()
-decl_stmt|;
 DECL|method|ConfigurationHelper ()
 specifier|private
 name|ConfigurationHelper
@@ -280,13 +219,17 @@ specifier|public
 interface|interface
 name|ParameterSetter
 block|{
-DECL|method|set (EndpointConfiguration config, String name, T value)
+comment|/**          * Sets the parameter on the configuration.          *          * @param camelContext  the camel context          * @param config        the configuration          * @param name          the name of the parameter          * @param value         the value to set          * @throws RuntimeCamelException is thrown if error setting the parameter          */
+DECL|method|set (CamelContext camelContext, EndpointConfiguration config, String name, T value)
 parameter_list|<
 name|T
 parameter_list|>
 name|void
 name|set
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|EndpointConfiguration
 name|config
 parameter_list|,
@@ -296,6 +239,8 @@ parameter_list|,
 name|T
 name|value
 parameter_list|)
+throws|throws
+name|RuntimeCamelException
 function_decl|;
 block|}
 DECL|method|createConfiguration (String uri, CamelContext context)
@@ -348,7 +293,6 @@ argument_list|,
 name|schemeSeparator
 argument_list|)
 decl_stmt|;
-comment|/* Temporary (maybe) workaround for unclear differentiation between URLs and URNs in Camel         String schemeSpecificPart = uri.substring(schemeSeparator + 1);         if (!schemeSpecificPart.startsWith("//")) {             uri = scheme + "://" + schemeSpecificPart;         } */
 name|Component
 name|component
 init|=
@@ -359,14 +303,26 @@ argument_list|(
 name|scheme
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
 literal|"Lookup for Component handling \"{}:\" configuration returned {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|scheme
-argument_list|,
+block|,
 name|component
 operator|!=
 literal|null
@@ -380,8 +336,17 @@ name|getName
 argument_list|()
 else|:
 literal|"<null>"
+block|}
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+condition|)
+block|{
 name|DefaultEndpointConfiguration
 name|cfg
 init|=
@@ -416,31 +381,23 @@ return|return
 name|cfg
 return|;
 block|}
-DECL|method|formatConfigurationUri (EndpointConfiguration config, EndpointConfiguration.UriFormat format)
-specifier|public
-specifier|static
-name|String
-name|formatConfigurationUri
-parameter_list|(
-name|EndpointConfiguration
-name|config
-parameter_list|,
-name|EndpointConfiguration
-operator|.
-name|UriFormat
-name|format
-parameter_list|)
+else|else
 block|{
+comment|// no component to create the configuration
 return|return
-literal|"TBD"
+literal|null
 return|;
 block|}
-DECL|method|populateFromURI (EndpointConfiguration config, ParameterSetter setter)
+block|}
+DECL|method|populateFromURI (CamelContext camelContext, EndpointConfiguration config, ParameterSetter setter)
 specifier|public
 specifier|static
 name|void
 name|populateFromURI
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|EndpointConfiguration
 name|config
 parameter_list|,
@@ -460,6 +417,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -476,6 +435,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -492,6 +453,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -508,6 +471,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -524,6 +489,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -540,6 +507,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -561,6 +530,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -577,6 +548,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -593,6 +566,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|EndpointConfiguration
@@ -647,6 +622,8 @@ name|setter
 operator|.
 name|set
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|pair
@@ -723,13 +700,9 @@ argument_list|()
 decl_stmt|;
 name|Field
 name|found
-init|=
-literal|null
 decl_stmt|;
 name|URIField
 name|anno
-init|=
-literal|null
 decl_stmt|;
 for|for
 control|(
@@ -822,15 +795,9 @@ name|getName
 argument_list|()
 block|,
 name|found
-operator|!=
-literal|null
-condition|?
-name|found
 operator|.
 name|getName
 argument_list|()
-else|:
-literal|"<null>"
 block|,
 name|name
 block|}
@@ -920,30 +887,38 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|trace
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
-literal|"Filed to invokd setter for field '{}'. Reason: {}"
-argument_list|,
+literal|"Failed to get property '"
+operator|+
 name|field
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|"' on "
+operator|+
+name|config
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
-comment|// We cannot distinguish between a null returned as the actually value of a parameter
-comment|// or the configuration parameter not being present, but it doesn't make much of a difference.
-comment|// Use findConfigurationParameter(EndpointConfiguration, String) to find that out.
 return|return
 literal|null
 return|;
 block|}
-DECL|method|setConfigurationField (EndpointConfiguration config, String name, T value)
+DECL|method|setConfigurationField (CamelContext camelContext, EndpointConfiguration config, String name, T value)
 specifier|public
 specifier|static
 parameter_list|<
@@ -952,6 +927,9 @@ parameter_list|>
 name|void
 name|setConfigurationField
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|EndpointConfiguration
 name|config
 parameter_list|,
@@ -981,72 +959,22 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// now try to set the field value
 try|try
 block|{
-name|String
-name|setterName
-init|=
-literal|"set"
-operator|+
-name|name
+name|IntrospectionSupport
 operator|.
-name|substring
+name|setProperty
 argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
+name|camelContext
 operator|.
-name|toUpperCase
-argument_list|(
-name|Locale
-operator|.
-name|ENGLISH
-argument_list|)
-operator|+
-name|name
-operator|.
-name|substring
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
-name|Method
-name|setter
-init|=
-name|config
-operator|.
-name|getClass
+name|getTypeConverter
 argument_list|()
-operator|.
-name|getMethod
-argument_list|(
-name|setterName
 argument_list|,
-name|field
-operator|.
-name|getType
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|setter
-operator|.
-name|invoke
-argument_list|(
 name|config
 argument_list|,
-name|TC
-operator|.
-name|convertTo
-argument_list|(
-name|field
-operator|.
-name|getType
-argument_list|()
+name|name
 argument_list|,
 name|value
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1056,18 +984,28 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|trace
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
-literal|"Filed to invokd setter for field '{}'. Reason: {}"
-argument_list|,
+literal|"Failed to set property '"
+operator|+
 name|name
+operator|+
+literal|"' on "
+operator|+
+name|config
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-return|return;
+throw|;
 block|}
 block|}
 DECL|class|FieldParameterSetter
@@ -1080,7 +1018,7 @@ name|ParameterSetter
 block|{
 annotation|@
 name|Override
-DECL|method|set (EndpointConfiguration config, String name, T value)
+DECL|method|set (CamelContext camelContext, EndpointConfiguration config, String name, T value)
 specifier|public
 parameter_list|<
 name|T
@@ -1088,6 +1026,9 @@ parameter_list|>
 name|void
 name|set
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|EndpointConfiguration
 name|config
 parameter_list|,
@@ -1100,6 +1041,8 @@ parameter_list|)
 block|{
 name|setConfigurationField
 argument_list|(
+name|camelContext
+argument_list|,
 name|config
 argument_list|,
 name|name

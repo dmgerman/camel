@@ -1134,7 +1134,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TBD"
+literal|null
 argument_list|,
 name|config
 operator|.
@@ -1150,7 +1150,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TBD"
+literal|null
 argument_list|,
 name|config
 operator|.
@@ -1166,7 +1166,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TBD"
+literal|null
 argument_list|,
 name|config
 operator|.
@@ -1182,7 +1182,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TBD"
+literal|null
 argument_list|,
 name|config
 operator|.
@@ -1802,7 +1802,8 @@ return|return
 operator|new
 name|UriDumpConfiguration
 argument_list|(
-name|this
+name|getCamelContext
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1821,7 +1822,8 @@ return|return
 operator|new
 name|DummyConfiguration
 argument_list|(
-name|this
+name|getCamelContext
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1883,17 +1885,17 @@ specifier|private
 name|String
 name|fragment
 decl_stmt|;
-DECL|method|UriDumpConfiguration (Component component)
+DECL|method|UriDumpConfiguration (CamelContext camelContext)
 specifier|public
 name|UriDumpConfiguration
 parameter_list|(
-name|Component
-name|component
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|component
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -2131,6 +2133,19 @@ return|return
 name|fragment
 return|;
 block|}
+DECL|method|toUriString (UriFormat format)
+specifier|public
+name|String
+name|toUriString
+parameter_list|(
+name|UriFormat
+name|format
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|class|DummyConfiguration
 specifier|public
@@ -2177,16 +2192,16 @@ specifier|private
 name|int
 name|second
 decl_stmt|;
-DECL|method|DummyConfiguration (Component component)
+DECL|method|DummyConfiguration (CamelContext camelContext)
 name|DummyConfiguration
 parameter_list|(
-name|Component
-name|component
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|component
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -2267,6 +2282,19 @@ name|second
 operator|=
 name|second
 expr_stmt|;
+block|}
+DECL|method|toUriString (UriFormat format)
+specifier|public
+name|String
+name|toUriString
+parameter_list|(
+name|UriFormat
+name|format
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 block|}

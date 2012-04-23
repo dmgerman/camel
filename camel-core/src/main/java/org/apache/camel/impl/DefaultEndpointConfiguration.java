@@ -44,7 +44,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Component
+name|CamelContext
 import|;
 end_import
 
@@ -72,6 +72,20 @@ name|RuntimeCamelException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default implementation of {@link EndpointConfiguration}.  *  * @version   */
 end_comment
@@ -85,37 +99,47 @@ name|DefaultEndpointConfiguration
 implements|implements
 name|EndpointConfiguration
 block|{
-DECL|field|component
+DECL|field|camelContext
 specifier|private
-name|Component
-name|component
+specifier|final
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|field|uri
 specifier|private
 name|URI
 name|uri
 decl_stmt|;
-DECL|method|DefaultEndpointConfiguration (Component component)
+DECL|method|DefaultEndpointConfiguration (CamelContext camelContext)
 specifier|public
 name|DefaultEndpointConfiguration
 parameter_list|(
-name|Component
-name|component
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
-name|component
+name|camelContext
 operator|=
-name|component
+name|camelContext
 expr_stmt|;
 block|}
-DECL|method|DefaultEndpointConfiguration (Component component, String uri)
+DECL|method|DefaultEndpointConfiguration (CamelContext camelContext, String uri)
 specifier|public
 name|DefaultEndpointConfiguration
 parameter_list|(
-name|Component
-name|component
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|String
 name|uri
@@ -123,7 +147,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|component
+name|camelContext
 argument_list|)
 expr_stmt|;
 try|try
@@ -184,21 +208,45 @@ name|parseURI
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|setComponent (Component component)
+DECL|method|setURI (String uri)
 specifier|public
 name|void
-name|setComponent
+name|setURI
 parameter_list|(
-name|Component
-name|component
+name|String
+name|uri
 parameter_list|)
 block|{
-name|this
-operator|.
-name|component
-operator|=
-name|component
+try|try
+block|{
+name|setURI
+argument_list|(
+operator|new
+name|URI
+argument_list|(
+name|uri
+argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|URISyntaxException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Cannot parse uri: "
+operator|+
+name|uri
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -254,6 +302,8 @@ name|ConfigurationHelper
 operator|.
 name|setConfigurationField
 argument_list|(
+name|camelContext
+argument_list|,
 name|this
 argument_list|,
 name|name
@@ -262,36 +312,14 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toUriString (UriFormat format)
-specifier|public
-name|String
-name|toUriString
-parameter_list|(
-name|UriFormat
-name|format
-parameter_list|)
-block|{
-return|return
-name|ConfigurationHelper
-operator|.
-name|formatConfigurationUri
-argument_list|(
-name|this
-argument_list|,
-name|format
-argument_list|)
-return|;
-block|}
-DECL|method|getComponent ()
+DECL|method|getCamelContext ()
 specifier|protected
-name|Component
-name|getComponent
+name|CamelContext
+name|getCamelContext
 parameter_list|()
 block|{
 return|return
-name|component
+name|camelContext
 return|;
 block|}
 DECL|method|parseURI ()
@@ -304,6 +332,8 @@ name|ConfigurationHelper
 operator|.
 name|populateFromURI
 argument_list|(
+name|camelContext
+argument_list|,
 name|this
 argument_list|,
 operator|new

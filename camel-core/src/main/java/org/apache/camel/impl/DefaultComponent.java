@@ -606,7 +606,8 @@ init|=
 operator|new
 name|MappedEndpointConfiguration
 argument_list|(
-name|this
+name|getCamelContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|config

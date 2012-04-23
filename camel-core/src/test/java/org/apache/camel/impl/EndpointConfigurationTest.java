@@ -289,7 +289,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Query paramater order should not matter"
+literal|"Query parameter order should not matter"
 argument_list|,
 name|uri1
 argument_list|,
@@ -372,7 +372,8 @@ return|return
 operator|new
 name|MappedEndpointConfiguration
 argument_list|(
-name|this
+name|getCamelContext
+argument_list|()
 argument_list|)
 return|;
 block|}

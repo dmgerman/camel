@@ -42,6 +42,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -68,13 +78,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|concurrent
+name|camel
 operator|.
-name|ConcurrentHashMap
+name|CamelContext
 import|;
 end_import
 
@@ -122,22 +132,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|converter
-operator|.
-name|PropertyEditorTypeConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|UnsafeUriCharactersEncoder
@@ -157,17 +151,7 @@ name|MappedEndpointConfiguration
 extends|extends
 name|DefaultEndpointConfiguration
 block|{
-DECL|field|CONVERTER
-specifier|private
-specifier|static
-specifier|final
-name|TypeConverter
-name|CONVERTER
-init|=
-operator|new
-name|PropertyEditorTypeConverter
-argument_list|()
-decl_stmt|;
+comment|// TODO: need 2 sets to differentiate between user keys and fixed keys
 DECL|field|params
 specifier|private
 name|Map
@@ -179,7 +163,7 @@ argument_list|>
 name|params
 init|=
 operator|new
-name|ConcurrentHashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -187,16 +171,37 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|MappedEndpointConfiguration (Component component)
+DECL|method|MappedEndpointConfiguration (CamelContext camelContext)
 name|MappedEndpointConfiguration
 parameter_list|(
-name|Component
-name|component
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|component
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MappedEndpointConfiguration (CamelContext camelContext, String uri)
+name|MappedEndpointConfiguration
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+name|setURI
+argument_list|(
+name|uri
 argument_list|)
 expr_stmt|;
 block|}
@@ -291,10 +296,6 @@ operator|==
 name|other
 operator|||
 operator|(
-name|other
-operator|!=
-literal|null
-operator|&&
 name|this
 operator|.
 name|getClass
@@ -336,6 +337,9 @@ name|ConfigurationHelper
 operator|.
 name|populateFromURI
 argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|this
 argument_list|,
 operator|new
@@ -353,6 +357,9 @@ parameter_list|>
 name|void
 name|set
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|EndpointConfiguration
 name|config
 parameter_list|,
@@ -456,6 +463,15 @@ name|fragment
 init|=
 literal|null
 decl_stmt|;
+name|TypeConverter
+name|converter
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+decl_stmt|;
 comment|// Separate URI values from query parameters
 for|for
 control|(
@@ -502,7 +518,7 @@ condition|)
 block|{
 name|scheme
 operator|=
-name|CONVERTER
+name|converter
 operator|.
 name|convertTo
 argument_list|(
@@ -529,7 +545,7 @@ condition|)
 block|{
 name|schemeSpecificPart
 operator|=
-name|CONVERTER
+name|converter
 operator|.
 name|convertTo
 argument_list|(
@@ -556,7 +572,7 @@ condition|)
 block|{
 name|authority
 operator|=
-name|CONVERTER
+name|converter
 operator|.
 name|convertTo
 argument_list|(
@@ -628,7 +644,7 @@ condition|)
 block|{
 name|path
 operator|=
-name|CONVERTER
+name|converter
 operator|.
 name|convertTo
 argument_list|(
@@ -670,7 +686,7 @@ condition|)
 block|{
 name|fragment
 operator|=
-name|CONVERTER
+name|converter
 operator|.
 name|convertTo
 argument_list|(
