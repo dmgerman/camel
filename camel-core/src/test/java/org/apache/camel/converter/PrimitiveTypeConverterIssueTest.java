@@ -47,38 +47,21 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|PropertyEditorTypeConverterIssueTest
+DECL|class|PrimitiveTypeConverterIssueTest
 specifier|public
 class|class
-name|PropertyEditorTypeConverterIssueTest
+name|PrimitiveTypeConverterIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testPropertyEditorTypeConverter ()
+DECL|method|testPrimitiveTypeConverter ()
 specifier|public
 name|void
-name|testPropertyEditorTypeConverter
+name|testPrimitiveTypeConverter
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// test that converters a custom object (MyBean) to a String which causes
-comment|// PropertyEditorTypeConverter to be used. And this test times how fast
-comment|// this is. As we want to optimize PropertyEditorTypeConverter to be faster
-name|MyBean
-name|bean
-init|=
-operator|new
-name|MyBean
-argument_list|()
-decl_stmt|;
-name|bean
-operator|.
-name|setBar
-argument_list|(
-literal|"Hello"
-argument_list|)
-expr_stmt|;
 name|StopWatch
 name|watch
 init|=
@@ -95,14 +78,14 @@ literal|0
 init|;
 name|i
 operator|<
-literal|500
+literal|10000
 condition|;
 name|i
 operator|++
 control|)
 block|{
-name|String
-name|s
+name|int
+name|num
 init|=
 name|context
 operator|.
@@ -111,23 +94,18 @@ argument_list|()
 operator|.
 name|convertTo
 argument_list|(
-name|String
+name|int
 operator|.
 name|class
 argument_list|,
-name|bean
+literal|"123"
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|debug
+name|assertEquals
 argument_list|(
-name|s
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|s
+literal|123
+argument_list|,
+name|num
 argument_list|)
 expr_stmt|;
 block|}

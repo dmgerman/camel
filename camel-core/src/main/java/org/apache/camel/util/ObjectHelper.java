@@ -3901,8 +3901,9 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|RuntimeCamelException
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
 argument_list|(
 name|e
 operator|.
