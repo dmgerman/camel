@@ -158,6 +158,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|transport
@@ -271,6 +285,8 @@ specifier|public
 name|void
 name|testCreateCxfEndpointFromURI
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|CamelContext
 name|camelContext
@@ -338,11 +354,32 @@ name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// the uri will always be normalized
+name|String
+name|uri1
+init|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+literal|"cxf://bean:routerEndpoint?address=http://localhost:9000/test1"
+argument_list|)
+decl_stmt|;
+name|String
+name|uri2
+init|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+literal|"cxf://bean:routerEndpoint?address=http://localhost:8000/test2"
+argument_list|)
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint key."
 argument_list|,
-literal|"cxf://bean:routerEndpoint?address=http://localhost:9000/test1"
+name|uri1
 argument_list|,
 name|endpoint1
 operator|.
@@ -354,7 +391,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint key."
 argument_list|,
-literal|"cxf://bean:routerEndpoint?address=http://localhost:8000/test2"
+name|uri2
 argument_list|,
 name|endpoint2
 operator|.
