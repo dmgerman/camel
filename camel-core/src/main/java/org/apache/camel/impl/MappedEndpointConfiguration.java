@@ -811,7 +811,7 @@ init|=
 operator|new
 name|StringBuffer
 argument_list|(
-literal|1024
+literal|64
 argument_list|)
 decl_stmt|;
 if|if
@@ -915,6 +915,26 @@ block|}
 block|}
 else|else
 block|{
+comment|// add leading // if not provided
+if|if
+condition|(
+operator|!
+name|schemeSpecificPart
+operator|.
+name|startsWith
+argument_list|(
+literal|"//"
+argument_list|)
+condition|)
+block|{
+name|u
+operator|.
+name|append
+argument_list|(
+literal|"//"
+argument_list|)
+expr_stmt|;
+block|}
 name|u
 operator|.
 name|append

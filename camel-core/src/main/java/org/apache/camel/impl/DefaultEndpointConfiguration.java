@@ -86,6 +86,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default implementation of {@link EndpointConfiguration}.  *  * @version   */
 end_comment
@@ -219,12 +233,22 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|String
+name|encoded
+init|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
 name|setURI
 argument_list|(
 operator|new
 name|URI
 argument_list|(
-name|uri
+name|encoded
 argument_list|)
 argument_list|)
 expr_stmt|;
