@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|LogManager
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -112,6 +124,16 @@ name|Before
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for cdi tests.  */
 end_comment
@@ -130,6 +152,38 @@ specifier|private
 name|CdiContainer
 name|cdiContainer
 decl_stmt|;
+comment|/**      * Reset configuration of java util logging and forward it to slf4j.      *       * @throws Exception In case of failures.      */
+annotation|@
+name|BeforeClass
+DECL|method|before ()
+specifier|public
+specifier|static
+name|void
+name|before
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LogManager
+operator|.
+name|getLogManager
+argument_list|()
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|org
+operator|.
+name|slf4j
+operator|.
+name|bridge
+operator|.
+name|SLF4JBridgeHandler
+operator|.
+name|install
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Before
 DECL|method|setUp ()
