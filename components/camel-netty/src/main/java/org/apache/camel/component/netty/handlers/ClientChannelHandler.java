@@ -289,6 +289,7 @@ name|producer
 decl_stmt|;
 DECL|field|messageReceived
 specifier|private
+specifier|volatile
 name|boolean
 name|messageReceived
 decl_stmt|;
