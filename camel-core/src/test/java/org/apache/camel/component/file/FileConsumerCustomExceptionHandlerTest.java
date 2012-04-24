@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -375,6 +385,7 @@ comment|// START SNIPPET: e1
 comment|/**      * Custom {@link ExceptionHandler} to be used on the file consumer, to send      * exceptions to a Camel route, to let Camel deal with the error.      */
 DECL|class|MyExceptionHandler
 specifier|private
+specifier|static
 class|class
 name|MyExceptionHandler
 implements|implements
@@ -523,10 +534,14 @@ comment|// END SNIPPET: e1
 comment|// used for simulating exception during acquiring a lock on the file
 DECL|class|MyReadLockStrategy
 specifier|private
+specifier|static
 class|class
 name|MyReadLockStrategy
 implements|implements
 name|GenericFileExclusiveReadLockStrategy
+argument_list|<
+name|File
+argument_list|>
 block|{
 DECL|field|counter
 specifier|private
@@ -535,15 +550,21 @@ name|counter
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|prepareOnStartup (GenericFileOperations operations, GenericFileEndpoint endpoint)
+DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
 specifier|public
 name|void
 name|prepareOnStartup
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
 name|operations
 parameter_list|,
 name|GenericFileEndpoint
+argument_list|<
+name|File
+argument_list|>
 name|endpoint
 parameter_list|)
 throws|throws
@@ -553,15 +574,21 @@ comment|// noop
 block|}
 annotation|@
 name|Override
-DECL|method|acquireExclusiveReadLock (GenericFileOperations operations, GenericFile file, Exchange exchange)
+DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
 name|acquireExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
 name|operations
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|File
+argument_list|>
 name|file
 parameter_list|,
 name|Exchange
@@ -607,15 +634,21 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|releaseExclusiveReadLock (GenericFileOperations operations, GenericFile file, Exchange exchange)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
 name|operations
 parameter_list|,
 name|GenericFile
+argument_list|<
+name|File
+argument_list|>
 name|file
 parameter_list|,
 name|Exchange

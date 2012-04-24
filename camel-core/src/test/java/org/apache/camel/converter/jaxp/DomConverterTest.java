@@ -239,9 +239,7 @@ decl_stmt|;
 name|Integer
 name|number
 init|=
-operator|new
 name|DomConverter
-argument_list|()
 operator|.
 name|toInteger
 argument_list|(
@@ -290,9 +288,7 @@ decl_stmt|;
 name|Long
 name|number
 init|=
-operator|new
 name|DomConverter
-argument_list|()
 operator|.
 name|toLong
 argument_list|(

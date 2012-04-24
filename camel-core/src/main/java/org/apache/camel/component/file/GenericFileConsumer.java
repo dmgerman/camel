@@ -391,11 +391,6 @@ name|eagerLimitMaxMessagesPerPoll
 expr_stmt|;
 block|}
 comment|/**      * Poll for files      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|poll ()
 specifier|protected
 name|int
@@ -744,11 +739,6 @@ return|return
 name|polledMessages
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|processBatch (Queue<Object> exchanges)
 specifier|public
 name|int
@@ -917,17 +907,15 @@ return|return
 name|total
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|removeExcessiveInProgressFiles (Deque exchanges, int limit)
+DECL|method|removeExcessiveInProgressFiles (Deque<Exchange> exchanges, int limit)
 specifier|protected
 name|void
 name|removeExcessiveInProgressFiles
 parameter_list|(
 name|Deque
+argument_list|<
+name|Exchange
+argument_list|>
 name|exchanges
 parameter_list|,
 name|int
@@ -949,9 +937,6 @@ comment|// must remove last
 name|Exchange
 name|exchange
 init|=
-operator|(
-name|Exchange
-operator|)
 name|exchanges
 operator|.
 name|removeLast
@@ -959,16 +944,10 @@ argument_list|()
 decl_stmt|;
 name|GenericFile
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|file
 init|=
-operator|(
-name|GenericFile
-argument_list|<
-name|T
-argument_list|>
-operator|)
 name|exchange
 operator|.
 name|getProperty
@@ -976,6 +955,10 @@ argument_list|(
 name|FileComponent
 operator|.
 name|FILE_EXCHANGE_FILE
+argument_list|,
+name|GenericFile
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|String
