@@ -403,11 +403,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
+comment|// stop camel context
+if|if
+condition|(
+name|camelContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|camelContext
 operator|.
-name|doStop
+name|stop
 argument_list|()
 expr_stmt|;
+block|}
+comment|// and then stop blueprint
 name|LOG
 operator|.
 name|debug
@@ -423,6 +433,10 @@ name|disposeBundleContext
 argument_list|(
 name|bundleContext
 argument_list|)
+expr_stmt|;
+comment|// call completed to properly stop as we count down the waiting latch
+name|completed
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
