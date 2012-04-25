@@ -71,7 +71,9 @@ name|ExchangePattern
 name|pattern
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new exchange for communicating with this endpoint using the      * given exchange to pre-populate the values of the headers and messages      *      * @param exchange given exchange to use for pre-populate      * @return a new exchange      */
+comment|/**      * Creates a new exchange for communicating with this endpoint using the      * given exchange to pre-populate the values of the headers and messages      *      * @param exchange given exchange to use for pre-populate      * @return a new exchange      * @deprecated will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|createExchange (Exchange exchange)
 name|Exchange
 name|createExchange
