@@ -372,13 +372,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|endpoint
-operator|.
-name|configureExchange
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 name|String
 name|target
 init|=
