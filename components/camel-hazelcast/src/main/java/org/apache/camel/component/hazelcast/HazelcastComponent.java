@@ -289,7 +289,7 @@ name|hazelcastInstance
 decl_stmt|;
 DECL|field|createOwnInstance
 specifier|private
-name|Boolean
+name|boolean
 name|createOwnInstance
 decl_stmt|;
 DECL|method|HazelcastComponent ()
