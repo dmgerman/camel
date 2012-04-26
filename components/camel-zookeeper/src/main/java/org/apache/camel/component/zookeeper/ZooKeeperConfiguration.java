@@ -132,6 +132,13 @@ specifier|private
 name|String
 name|createMode
 decl_stmt|;
+DECL|field|sendEmptyMessageOnDelete
+specifier|private
+name|boolean
+name|sendEmptyMessageOnDelete
+init|=
+literal|true
+decl_stmt|;
 DECL|method|addZookeeperServer (String server)
 specifier|public
 name|void
@@ -539,6 +546,32 @@ operator|.
 name|createMode
 operator|=
 name|createMode
+expr_stmt|;
+block|}
+DECL|method|isSendEmptyMessageOnDelete ()
+specifier|public
+name|boolean
+name|isSendEmptyMessageOnDelete
+parameter_list|()
+block|{
+return|return
+name|sendEmptyMessageOnDelete
+return|;
+block|}
+DECL|method|setSendEmptyMessageOnDelete (boolean sendEmptyMessageOnDelete)
+specifier|public
+name|void
+name|setSendEmptyMessageOnDelete
+parameter_list|(
+name|boolean
+name|sendEmptyMessageOnDelete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendEmptyMessageOnDelete
+operator|=
+name|sendEmptyMessageOnDelete
 expr_stmt|;
 block|}
 block|}

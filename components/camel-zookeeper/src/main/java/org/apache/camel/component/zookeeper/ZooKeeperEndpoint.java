@@ -668,6 +668,42 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isSendEmptyMessageOnDelete ()
+specifier|public
+name|boolean
+name|isSendEmptyMessageOnDelete
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isSendEmptyMessageOnDelete
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setSendEmptyMessageOnDelete (boolean sendEmptyMessageOnDelete)
+specifier|public
+name|void
+name|setSendEmptyMessageOnDelete
+parameter_list|(
+name|boolean
+name|sendEmptyMessageOnDelete
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSendEmptyMessageOnDelete
+argument_list|(
+name|sendEmptyMessageOnDelete
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

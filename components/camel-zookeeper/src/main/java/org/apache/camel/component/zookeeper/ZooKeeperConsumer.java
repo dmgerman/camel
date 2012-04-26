@@ -43,14 +43,14 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
+import|import
+name|org
 operator|.
-name|lang
+name|apache
 operator|.
-name|String
+name|camel
 operator|.
-name|format
+name|Endpoint
 import|;
 end_import
 
@@ -262,6 +262,18 @@ name|apache
 operator|.
 name|zookeeper
 operator|.
+name|WatchedEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|zookeeper
+operator|.
 name|ZooKeeper
 import|;
 end_import
@@ -336,6 +348,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|(
+name|Endpoint
+operator|)
 name|endpoint
 argument_list|,
 name|processor
@@ -394,6 +409,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
+name|String
+operator|.
 name|format
 argument_list|(
 literal|"Connected to Zookeeper cluster %s"
@@ -485,6 +502,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
+name|String
+operator|.
 name|format
 argument_list|(
 literal|"Shutting down zookeeper consumer of '%s'"
@@ -635,7 +654,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createExchange (String path, OperationResult result)
+DECL|method|createExchange (String path, OperationResult result, WatchedEvent watchedEvent)
 specifier|private
 name|Exchange
 name|createExchange
@@ -645,6 +664,9 @@ name|path
 parameter_list|,
 name|OperationResult
 name|result
+parameter_list|,
+name|WatchedEvent
+name|watchedEvent
 parameter_list|)
 block|{
 name|Exchange
@@ -668,6 +690,8 @@ name|result
 operator|.
 name|getStatistics
 argument_list|()
+argument_list|,
+name|watchedEvent
 argument_list|)
 decl_stmt|;
 name|e
@@ -725,6 +749,11 @@ specifier|private
 name|ZooKeeperOperation
 name|current
 decl_stmt|;
+DECL|field|watchedEvent
+specifier|private
+name|WatchedEvent
+name|watchedEvent
+decl_stmt|;
 DECL|method|run ()
 specifier|public
 name|void
@@ -758,6 +787,8 @@ name|log
 operator|.
 name|trace
 argument_list|(
+name|String
+operator|.
 name|format
 argument_list|(
 literal|"Processing '%s' operation"
@@ -802,6 +833,26 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|ZooKeeperUtils
+operator|.
+name|hasWatchedEvent
+argument_list|(
+name|current
+argument_list|)
+condition|)
+block|{
+name|watchedEvent
+operator|=
+name|ZooKeeperUtils
+operator|.
+name|getWatchedEvent
+argument_list|(
+name|current
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|result
 operator|!=
 literal|null
@@ -822,8 +873,14 @@ argument_list|(
 name|node
 argument_list|,
 name|result
+argument_list|,
+name|watchedEvent
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|watchedEvent
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
@@ -987,6 +1044,11 @@ argument_list|,
 name|node
 argument_list|,
 literal|false
+argument_list|,
+name|configuration
+operator|.
+name|isSendEmptyMessageOnDelete
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

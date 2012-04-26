@@ -152,6 +152,8 @@ name|ResultType
 argument_list|>
 implements|implements
 name|Watcher
+implements|,
+name|WatchedEventProvider
 block|{
 DECL|field|awaitedTypes
 specifier|private
@@ -457,10 +459,12 @@ name|void
 name|installWatch
 parameter_list|()
 function_decl|;
-DECL|method|getEvent ()
+annotation|@
+name|Override
+DECL|method|getWatchedEvent ()
 specifier|public
 name|WatchedEvent
-name|getEvent
+name|getWatchedEvent
 parameter_list|()
 block|{
 return|return

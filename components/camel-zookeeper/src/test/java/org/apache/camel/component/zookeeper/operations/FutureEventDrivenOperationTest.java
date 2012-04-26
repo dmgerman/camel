@@ -226,7 +226,7 @@ name|event
 argument_list|,
 name|future
 operator|.
-name|getEvent
+name|getWatchedEvent
 argument_list|()
 argument_list|)
 expr_stmt|;
