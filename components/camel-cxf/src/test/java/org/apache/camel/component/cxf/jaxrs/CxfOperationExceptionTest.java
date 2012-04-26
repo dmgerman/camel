@@ -272,11 +272,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"cxfrs:http://localhost:"
-operator|+
-name|PORT1
-operator|+
-literal|"/CxfOperationExceptionTest/customerservice/customers?throwExceptionOnFailure=false"
+literal|"cxfrs:bean:rsClient?throwExceptionOnFailure=false"
 argument_list|,
 name|input
 argument_list|,
@@ -302,7 +298,7 @@ name|response
 operator|.
 name|contains
 argument_list|(
-literal|"Problem accessing /CxfOperationExceptionTest/customerservice/customers"
+literal|"Problem accessing /CxfOperationExceptionTest/rest"
 argument_list|)
 argument_list|)
 expr_stmt|;
