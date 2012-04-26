@@ -948,6 +948,9 @@ operator|=
 operator|(
 operator|(
 name|WrappedFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|body
 operator|)

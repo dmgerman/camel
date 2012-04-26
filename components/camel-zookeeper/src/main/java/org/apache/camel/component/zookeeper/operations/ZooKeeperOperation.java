@@ -115,11 +115,6 @@ comment|/**  *<code>ZooKeeperOperation</code> is the base class for wrapping var
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|class|ZooKeeperOperation
 specifier|public
 specifier|abstract
@@ -151,6 +146,9 @@ specifier|protected
 specifier|static
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|CONSTRUCTOR_ARGS
 init|=
@@ -414,6 +412,9 @@ comment|// TODO slightly different to a clone as it uses the constructor
 DECL|method|createCopy ()
 specifier|public
 name|ZooKeeperOperation
+argument_list|<
+name|?
+argument_list|>
 name|createCopy
 parameter_list|()
 throws|throws

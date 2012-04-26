@@ -245,14 +245,12 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|createCopy ()
 specifier|public
 name|ZooKeeperOperation
+argument_list|<
+name|?
+argument_list|>
 name|createCopy
 parameter_list|()
 throws|throws

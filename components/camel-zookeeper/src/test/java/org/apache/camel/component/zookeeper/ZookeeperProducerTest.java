@@ -836,11 +836,6 @@ end_function
 begin_function
 annotation|@
 name|Test
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setAndGetListing ()
 specifier|public
 name|void

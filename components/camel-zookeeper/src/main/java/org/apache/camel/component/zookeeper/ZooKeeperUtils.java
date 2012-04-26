@@ -494,13 +494,16 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|getWatchedEvent (ZooKeeperOperation zooKeeperOperation)
+DECL|method|getWatchedEvent (ZooKeeperOperation<?> zooKeeperOperation)
 specifier|public
 specifier|static
 name|WatchedEvent
 name|getWatchedEvent
 parameter_list|(
 name|ZooKeeperOperation
+argument_list|<
+name|?
+argument_list|>
 name|zooKeeperOperation
 parameter_list|)
 block|{
@@ -533,13 +536,16 @@ return|return
 name|watchedEvent
 return|;
 block|}
-DECL|method|hasWatchedEvent (ZooKeeperOperation zooKeeperOperation)
+DECL|method|hasWatchedEvent (ZooKeeperOperation<?> zooKeeperOperation)
 specifier|public
 specifier|static
 name|boolean
 name|hasWatchedEvent
 parameter_list|(
 name|ZooKeeperOperation
+argument_list|<
+name|?
+argument_list|>
 name|zooKeeperOperation
 parameter_list|)
 block|{
