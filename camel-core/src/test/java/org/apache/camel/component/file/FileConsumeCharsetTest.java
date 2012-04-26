@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for consuming the same filename only.  */
+comment|/**  *  */
 end_comment
 
 begin_class

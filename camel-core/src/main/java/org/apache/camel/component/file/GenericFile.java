@@ -213,6 +213,11 @@ specifier|private
 name|boolean
 name|directory
 decl_stmt|;
+DECL|field|charset
+specifier|private
+name|String
+name|charset
+decl_stmt|;
 DECL|method|getFileSeparator ()
 specifier|public
 name|char
@@ -397,6 +402,16 @@ argument_list|(
 name|source
 operator|.
 name|getBinding
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setCharset
+argument_list|(
+name|source
+operator|.
+name|getCharset
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1216,7 +1231,32 @@ operator|=
 name|lastModified
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.file.WrappedFile#getFile()      */
+DECL|method|getCharset ()
+specifier|public
+name|String
+name|getCharset
+parameter_list|()
+block|{
+return|return
+name|charset
+return|;
+block|}
+DECL|method|setCharset (String charset)
+specifier|public
+name|void
+name|setCharset
+parameter_list|(
+name|String
+name|charset
+parameter_list|)
+block|{
+name|this
+operator|.
+name|charset
+operator|=
+name|charset
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getFile ()

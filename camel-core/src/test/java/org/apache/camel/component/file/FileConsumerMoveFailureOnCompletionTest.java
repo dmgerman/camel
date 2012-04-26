@@ -154,9 +154,9 @@ argument_list|(
 literal|"mock:failed"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Kabom"
+literal|1
 argument_list|)
 expr_stmt|;
 name|template
@@ -224,9 +224,9 @@ argument_list|(
 literal|"mock:failed"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Kabom"
+literal|1
 argument_list|)
 expr_stmt|;
 name|template

@@ -398,6 +398,12 @@ argument_list|(
 name|endpointPath
 argument_list|,
 name|file
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCharset
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -546,7 +552,7 @@ literal|true
 return|;
 block|}
 comment|/**      * Creates a new GenericFile<File> based on the given file.      *      * @param endpointPath the starting directory the endpoint was configured with      * @param file the source file      * @return wrapped as a GenericFile      */
-DECL|method|asGenericFile (String endpointPath, File file)
+DECL|method|asGenericFile (String endpointPath, File file, String charset)
 specifier|public
 specifier|static
 name|GenericFile
@@ -560,6 +566,9 @@ name|endpointPath
 parameter_list|,
 name|File
 name|file
+parameter_list|,
+name|String
+name|charset
 parameter_list|)
 block|{
 name|GenericFile
@@ -583,6 +592,13 @@ argument_list|(
 operator|new
 name|FileBinding
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setCharset
+argument_list|(
+name|charset
 argument_list|)
 expr_stmt|;
 name|answer

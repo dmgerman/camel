@@ -273,6 +273,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// override existing charset with configured charset as that is what the user
+comment|// have explicit configured and expects to be used
 name|exchange
 operator|.
 name|setProperty
@@ -344,6 +346,25 @@ operator|.
 name|setIn
 argument_list|(
 name|msg
+argument_list|)
+expr_stmt|;
+block|}
+comment|// remove charset when we are done as we should not propagate that,
+comment|// as that can lead to double converting later on
+if|if
+condition|(
+name|charset
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
 argument_list|)
 expr_stmt|;
 block|}

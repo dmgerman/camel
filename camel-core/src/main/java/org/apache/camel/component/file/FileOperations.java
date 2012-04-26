@@ -902,34 +902,15 @@ comment|// 2. rename a file from a local work path
 comment|// 3. write stream to file
 try|try
 block|{
-comment|// determine charset, exchange property overrides endpoint configuration
+comment|// is there an explicit charset configured we must write the file as
 name|String
 name|charset
 init|=
-name|IOHelper
-operator|.
-name|getCharsetName
-argument_list|(
-name|exchange
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|charset
-operator|==
-literal|null
-condition|)
-block|{
-name|charset
-operator|=
 name|endpoint
 operator|.
 name|getCharset
 argument_list|()
-expr_stmt|;
-block|}
+decl_stmt|;
 comment|// we can optimize and use file based if no charset must be used, and the input body is a file
 name|File
 name|source
@@ -1469,13 +1450,11 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Using FileChannel to transfer from: {} to: {}"
+literal|"Using FileChannel to write file: {}"
 argument_list|,
-name|in
-argument_list|,
-name|out
+name|target
 argument_list|)
 expr_stmt|;
 name|long
@@ -1595,13 +1574,11 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Using InputStream to transfer from: {} to: {}"
+literal|"Using InputStream to write file: {}"
 argument_list|,
-name|in
-argument_list|,
-name|out
+name|target
 argument_list|)
 expr_stmt|;
 name|int
@@ -1775,20 +1752,13 @@ try|try
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Using Reader to transfer from: {} to: {} with charset: {}"
+literal|"Using Reader to write file: {} with charset: {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|in
-block|,
-name|out
-block|,
+name|target
+argument_list|,
 name|charset
-block|}
 argument_list|)
 expr_stmt|;
 name|int
