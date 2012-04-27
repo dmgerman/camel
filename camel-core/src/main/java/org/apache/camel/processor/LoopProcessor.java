@@ -656,15 +656,15 @@ condition|(
 name|copy
 condition|)
 block|{
-comment|// create a correlated copy, and do not handover completions on copies
+comment|// use a copy but let it reuse the same exchange id so it appear as one exchange
 return|return
 name|ExchangeHelper
 operator|.
-name|createCorrelatedCopy
+name|createCopy
 argument_list|(
 name|exchange
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 return|;
 block|}
