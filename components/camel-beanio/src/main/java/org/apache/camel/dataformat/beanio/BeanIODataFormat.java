@@ -725,8 +725,9 @@ block|{
 name|BufferedWriter
 name|streamWriter
 init|=
-operator|new
-name|BufferedWriter
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 operator|new
 name|OutputStreamWriter
@@ -807,8 +808,9 @@ decl_stmt|;
 name|BufferedReader
 name|streamReader
 init|=
-operator|new
-name|BufferedReader
+name|IOHelper
+operator|.
+name|buffered
 argument_list|(
 operator|new
 name|InputStreamReader
