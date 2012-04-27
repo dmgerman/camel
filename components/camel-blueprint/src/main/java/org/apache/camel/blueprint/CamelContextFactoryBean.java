@@ -1710,6 +1710,16 @@ literal|","
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|sb
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 comment|// location supports multiple separated by comma
 name|pc
 operator|.
@@ -1721,6 +1731,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
