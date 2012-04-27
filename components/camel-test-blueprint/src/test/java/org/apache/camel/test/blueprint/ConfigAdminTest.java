@@ -43,11 +43,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"pojosr need to support config admin"
-argument_list|)
 DECL|class|ConfigAdminTest
 specifier|public
 class|class
