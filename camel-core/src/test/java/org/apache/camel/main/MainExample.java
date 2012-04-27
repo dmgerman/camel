@@ -130,6 +130,18 @@ operator|.
 name|enableHangupSupport
 argument_list|()
 expr_stmt|;
+comment|// bind MyBean into the registery
+name|main
+operator|.
+name|bind
+argument_list|(
+literal|"foo"
+argument_list|,
+operator|new
+name|MyBean
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// add routes
 name|main
 operator|.
@@ -210,6 +222,34 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+operator|.
+name|beanRef
+argument_list|(
+literal|"foo"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|class|MyBean
+specifier|public
+specifier|static
+class|class
+name|MyBean
+block|{
+DECL|method|callMe ()
+specifier|public
+name|void
+name|callMe
+parameter_list|()
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"MyBean.calleMe method has been called"
 argument_list|)
 expr_stmt|;
 block|}

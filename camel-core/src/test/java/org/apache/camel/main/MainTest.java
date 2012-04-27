@@ -78,6 +78,20 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -139,6 +153,19 @@ argument_list|)
 expr_stmt|;
 name|main
 operator|.
+name|bind
+argument_list|(
+literal|"foo"
+argument_list|,
+operator|new
+name|Integer
+argument_list|(
+literal|31
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|main
+operator|.
 name|start
 argument_list|()
 expr_stmt|;
@@ -172,7 +199,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"size"
+literal|"Did not get the expected count of Camel contexts"
 argument_list|,
 literal|1
 argument_list|,
@@ -192,6 +219,28 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Could not find the registry bound object"
+argument_list|,
+literal|31
+argument_list|,
+operator|(
+operator|(
+name|DefaultCamelContext
+operator|)
+name|camelContext
+operator|)
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|endpoint
 init|=

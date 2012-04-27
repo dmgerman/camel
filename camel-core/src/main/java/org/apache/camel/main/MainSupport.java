@@ -847,7 +847,7 @@ name|get
 argument_list|()
 condition|)
 block|{
-comment|// if we have an issue starting the propagate exception to caller
+comment|// if we have an issue starting then propagate the exception to caller
 name|start
 argument_list|()
 expr_stmt|;
@@ -872,7 +872,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// while running then just log errors
+comment|// however while running then just log errors
 name|LOG
 operator|.
 name|error
