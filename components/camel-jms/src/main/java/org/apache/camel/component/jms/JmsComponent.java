@@ -361,10 +361,10 @@ operator|new
 name|JmsHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
-DECL|field|asyncStartExecutorService
+DECL|field|asyncStartStopExecutorService
 specifier|private
 name|ExecutorService
-name|asyncStartExecutorService
+name|asyncStartStopExecutorService
 decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
@@ -1520,6 +1520,24 @@ name|asyncStartListener
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setAsyncStopListener (boolean asyncStopListener)
+specifier|public
+name|void
+name|setAsyncStopListener
+parameter_list|(
+name|boolean
+name|asyncStopListener
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAsyncStopListener
+argument_list|(
+name|asyncStopListener
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setForceSendOriginalMessage (boolean forceSendOriginalMessage)
 specifier|public
 name|void
@@ -1838,7 +1856,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|asyncStartExecutorService
+name|asyncStartStopExecutorService
 operator|!=
 literal|null
 condition|)
@@ -1851,10 +1869,10 @@ argument_list|()
 operator|.
 name|shutdownNow
 argument_list|(
-name|asyncStartExecutorService
+name|asyncStartStopExecutorService
 argument_list|)
 expr_stmt|;
-name|asyncStartExecutorService
+name|asyncStartStopExecutorService
 operator|=
 literal|null
 expr_stmt|;
@@ -1865,23 +1883,23 @@ name|doShutdown
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getAsyncStartExecutorService ()
+DECL|method|getAsyncStartStopExecutorService ()
 specifier|protected
 specifier|synchronized
 name|ExecutorService
-name|getAsyncStartExecutorService
+name|getAsyncStartStopExecutorService
 parameter_list|()
 block|{
 if|if
 condition|(
-name|asyncStartExecutorService
+name|asyncStartStopExecutorService
 operator|==
 literal|null
 condition|)
 block|{
 comment|// use a cached thread pool for async start tasks as they can run for a while, and we need a dedicated thread
 comment|// for each task, and the thread pool will shrink when no more tasks running
-name|asyncStartExecutorService
+name|asyncStartStopExecutorService
 operator|=
 name|getCamelContext
 argument_list|()
@@ -1893,12 +1911,12 @@ name|newCachedThreadPool
 argument_list|(
 name|this
 argument_list|,
-literal|"AsyncStartListener"
+literal|"AsyncStartStopListener"
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|asyncStartExecutorService
+name|asyncStartStopExecutorService
 return|;
 block|}
 annotation|@

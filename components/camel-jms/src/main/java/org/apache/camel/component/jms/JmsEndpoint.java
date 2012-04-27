@@ -2356,10 +2356,10 @@ return|return
 name|replyManagerExecutorService
 return|;
 block|}
-DECL|method|getAsyncStartExecutorService ()
+DECL|method|getAsyncStartStopExecutorService ()
 specifier|protected
 name|ExecutorService
-name|getAsyncStartExecutorService
+name|getAsyncStartStopExecutorService
 parameter_list|()
 block|{
 if|if
@@ -2374,7 +2374,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"AsyncStartListener requires JmsComponent to be configured on this endpoint: "
+literal|"AsyncStartStopListener requires JmsComponent to be configured on this endpoint: "
 operator|+
 name|this
 argument_list|)
@@ -2385,7 +2385,7 @@ return|return
 name|getComponent
 argument_list|()
 operator|.
-name|getAsyncStartExecutorService
+name|getAsyncStartStopExecutorService
 argument_list|()
 return|;
 block|}
@@ -4639,6 +4639,40 @@ return|return
 name|configuration
 operator|.
 name|isAsyncStartListener
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setAsyncStopListener (boolean asyncStoptListener)
+specifier|public
+name|void
+name|setAsyncStopListener
+parameter_list|(
+name|boolean
+name|asyncStoptListener
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setAsyncStopListener
+argument_list|(
+name|asyncStoptListener
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isAsyncStopListener ()
+specifier|public
+name|boolean
+name|isAsyncStopListener
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isAsyncStopListener
 argument_list|()
 return|;
 block|}
