@@ -2282,7 +2282,7 @@ name|filterHolder
 argument_list|,
 name|pathSpec
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -2513,7 +2513,7 @@ name|filterHolder
 argument_list|,
 name|pathSpec
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 expr_stmt|;
 name|LOG
