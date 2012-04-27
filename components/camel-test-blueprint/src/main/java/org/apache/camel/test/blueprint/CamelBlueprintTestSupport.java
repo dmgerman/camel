@@ -108,6 +108,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|this
+operator|.
 name|bundleContext
 operator|=
 name|CamelBlueprintHelper
@@ -121,6 +123,9 @@ name|getSimpleName
 argument_list|()
 argument_list|,
 name|getBlueprintDescriptor
+argument_list|()
+argument_list|,
+name|getBundleFilter
 argument_list|()
 argument_list|,
 literal|true
@@ -166,6 +171,19 @@ parameter_list|()
 block|{
 return|return
 literal|null
+return|;
+block|}
+comment|/**      * Gets filter expression of bundle descriptors. Modify this method if you wish to change      * default behavior.      *      * @return filter expression for OSGi bundles.      */
+DECL|method|getBundleFilter ()
+specifier|protected
+name|String
+name|getBundleFilter
+parameter_list|()
+block|{
+return|return
+name|CamelBlueprintHelper
+operator|.
+name|BUNDLE_FILTER
 return|;
 block|}
 annotation|@

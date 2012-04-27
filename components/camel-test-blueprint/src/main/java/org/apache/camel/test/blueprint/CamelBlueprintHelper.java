@@ -552,6 +552,15 @@ name|DEFAULT_TIMEOUT
 init|=
 literal|30000
 decl_stmt|;
+DECL|field|BUNDLE_FILTER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BUNDLE_FILTER
+init|=
+literal|"(Bundle-SymbolicName=*)"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -603,6 +612,40 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+return|return
+name|createBundleContext
+argument_list|(
+name|name
+argument_list|,
+name|descriptors
+argument_list|,
+name|BUNDLE_FILTER
+argument_list|,
+name|includeTestBundle
+argument_list|)
+return|;
+block|}
+DECL|method|createBundleContext (String name, String descriptors, String bundleFilter, boolean includeTestBundle)
+specifier|public
+specifier|static
+name|BundleContext
+name|createBundleContext
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|descriptors
+parameter_list|,
+name|String
+name|bundleFilter
+parameter_list|,
+name|boolean
+name|includeTestBundle
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 name|deleteDirectory
 argument_list|(
 literal|"target/bundles"
@@ -636,7 +679,9 @@ argument_list|>
 name|bundles
 init|=
 name|getBundleDescriptors
-argument_list|()
+argument_list|(
+name|bundleFilter
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1421,8 +1466,8 @@ return|return
 name|bundle
 return|;
 block|}
-comment|/**      * Gets list of bundle descriptors.      *      * @return List pointers to OSGi bundles.      * @throws Exception If looking up the bundles fails.      */
-DECL|method|getBundleDescriptors ()
+comment|/**      * Gets list of bundle descriptors.      * @param bundleFilter Filter expression for OSGI bundles.      *      * @return List pointers to OSGi bundles.      * @throws Exception If looking up the bundles fails.      */
+DECL|method|getBundleDescriptors (final String bundleFilter)
 specifier|private
 specifier|static
 name|List
@@ -1430,7 +1475,11 @@ argument_list|<
 name|BundleDescriptor
 argument_list|>
 name|getBundleDescriptors
-parameter_list|()
+parameter_list|(
+specifier|final
+name|String
+name|bundleFilter
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1441,7 +1490,7 @@ argument_list|()
 operator|.
 name|scanForBundles
 argument_list|(
-literal|"(Bundle-SymbolicName=*)"
+name|bundleFilter
 argument_list|)
 return|;
 block|}
