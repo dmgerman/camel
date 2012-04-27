@@ -290,6 +290,11 @@ specifier|private
 name|String
 name|delimiter
 decl_stmt|;
+DECL|field|skipFirstLine
+specifier|private
+name|boolean
+name|skipFirstLine
+decl_stmt|;
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public
 name|void
@@ -614,6 +619,11 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|boolean
+name|isFirstLine
+init|=
+literal|true
+decl_stmt|;
 while|while
 condition|(
 literal|true
@@ -628,6 +638,24 @@ operator|.
 name|getLine
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|isFirstLine
+condition|)
+block|{
+name|isFirstLine
+operator|=
+literal|false
+expr_stmt|;
+if|if
+condition|(
+name|skipFirstLine
+condition|)
+block|{
+comment|// skip considering the first line if we're asked to do so
+continue|continue;
+block|}
+block|}
 if|if
 condition|(
 name|strings
@@ -796,6 +824,32 @@ operator|.
 name|autogenColumns
 operator|=
 name|autogenColumns
+expr_stmt|;
+block|}
+DECL|method|isSkipFirstLine ()
+specifier|public
+name|boolean
+name|isSkipFirstLine
+parameter_list|()
+block|{
+return|return
+name|skipFirstLine
+return|;
+block|}
+DECL|method|setSkipFirstLine (boolean skipFirstLine)
+specifier|public
+name|void
+name|setSkipFirstLine
+parameter_list|(
+name|boolean
+name|skipFirstLine
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipFirstLine
+operator|=
+name|skipFirstLine
 expr_stmt|;
 block|}
 DECL|method|updateFieldsInConfig (Set<?> set, Exchange exchange)
