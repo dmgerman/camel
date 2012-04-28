@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OSGI enhanced {@link org.apache.camel.spi.ManagementNameStrategy}.  *<p/>  * This {@link org.apache.camel.spi.ManagementNameStrategy} supports the default  * tokens (see {@link DefaultManagementNameStrategy}) and the following additional OSGi specific tokens  *<ul>  *<li>#bundleId# - The bundle id</li>  *<li>#symbolicName# - The bundle symbolic name</li>  *</ul>  *<p/>  * This implementation will by default use a name pattern as<tt>#bundleId#-#name#</tt> and in case  * of a clash, then the pattern will fallback to be using the counter as<tt>#bundleId#-#name#-#counter#</tt>.  *  * @see DefaultManagementNameStrategy  */
+comment|/**  * OSGI enhanced {@link org.apache.camel.spi.ManagementNameStrategy}.  *<p/>  * This {@link org.apache.camel.spi.ManagementNameStrategy} supports the default  * tokens (see {@link DefaultManagementNameStrategy}) and the following additional OSGi specific tokens  *<ul>  *<li>#bundleId# - The bundle id</li>  *<li>#version# - The bundle version</li>  *<li>#symbolicName# - The bundle symbolic name</li>  *</ul>  *<p/>  * This implementation will by default use a name pattern as<tt>#bundleId#-#name#</tt> and in case  * of a clash, then the pattern will fallback to be using the counter as<tt>#bundleId#-#name#-#counter#</tt>.  *  * @see DefaultManagementNameStrategy  */
 end_comment
 
 begin_class
@@ -156,6 +156,25 @@ name|getSymbolicName
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|String
+name|version
+init|=
+name|Matcher
+operator|.
+name|quoteReplacement
+argument_list|(
+name|bundleContext
+operator|.
+name|getBundle
+argument_list|()
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|answer
 operator|=
 name|answer
@@ -176,6 +195,17 @@ argument_list|(
 literal|"#symbolicName#"
 argument_list|,
 name|symbolicName
+argument_list|)
+expr_stmt|;
+name|answer
+operator|=
+name|answer
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"#version#"
+argument_list|,
+name|version
 argument_list|)
 expr_stmt|;
 return|return

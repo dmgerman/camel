@@ -128,6 +128,9 @@ argument_list|,
 name|getBundleFilter
 argument_list|()
 argument_list|,
+name|getBundleVersion
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
@@ -173,7 +176,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Gets filter expression of bundle descriptors. Modify this method if you wish to change      * default behavior.      *      * @return filter expression for OSGi bundles.      */
+comment|/**      * Gets filter expression of bundle descriptors.      * Modify this method if you wish to change default behavior.      *      * @return filter expression for OSGi bundles.      */
 DECL|method|getBundleFilter ()
 specifier|protected
 name|String
@@ -184,6 +187,19 @@ return|return
 name|CamelBlueprintHelper
 operator|.
 name|BUNDLE_FILTER
+return|;
+block|}
+comment|/**      * Gets test bundle version.      * Modify this method if you wish to change default behavior.      *      * @return test bundle version      */
+DECL|method|getBundleVersion ()
+specifier|protected
+name|String
+name|getBundleVersion
+parameter_list|()
+block|{
+return|return
+name|CamelBlueprintHelper
+operator|.
+name|BUNDLE_VERSION
 return|;
 block|}
 annotation|@

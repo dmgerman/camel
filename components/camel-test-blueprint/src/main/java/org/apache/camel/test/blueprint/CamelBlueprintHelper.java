@@ -561,6 +561,15 @@ name|BUNDLE_FILTER
 init|=
 literal|"(Bundle-SymbolicName=*)"
 decl_stmt|;
+DECL|field|BUNDLE_VERSION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BUNDLE_VERSION
+init|=
+literal|"1.0.0"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -621,11 +630,13 @@ name|descriptors
 argument_list|,
 name|BUNDLE_FILTER
 argument_list|,
+name|BUNDLE_VERSION
+argument_list|,
 name|includeTestBundle
 argument_list|)
 return|;
 block|}
-DECL|method|createBundleContext (String name, String descriptors, String bundleFilter, boolean includeTestBundle)
+DECL|method|createBundleContext (String name, String descriptors, String bundleFilter, String testBundleVersion, boolean includeTestBundle)
 specifier|public
 specifier|static
 name|BundleContext
@@ -639,6 +650,9 @@ name|descriptors
 parameter_list|,
 name|String
 name|bundleFilter
+parameter_list|,
+name|String
+name|testBundleVersion
 parameter_list|,
 name|boolean
 name|includeTestBundle
@@ -695,6 +709,8 @@ init|=
 name|createTestBundle
 argument_list|(
 name|name
+argument_list|,
+name|testBundleVersion
 argument_list|,
 name|descriptors
 argument_list|)
@@ -1362,7 +1378,7 @@ name|references
 argument_list|)
 return|;
 block|}
-DECL|method|createTestBundle (String name, String descriptors)
+DECL|method|createTestBundle (String name, String version, String descriptors)
 specifier|private
 specifier|static
 name|TinyBundle
@@ -1370,6 +1386,9 @@ name|createTestBundle
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+name|version
 parameter_list|,
 name|String
 name|descriptors
@@ -1459,7 +1478,7 @@ name|set
 argument_list|(
 literal|"Bundle-Version"
 argument_list|,
-literal|"0.0.0"
+name|version
 argument_list|)
 expr_stmt|;
 return|return

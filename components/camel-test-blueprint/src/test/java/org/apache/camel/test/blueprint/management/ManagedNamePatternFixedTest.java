@@ -87,6 +87,18 @@ literal|"org/apache/camel/test/blueprint/management/managedNamePatternFixedTest.
 return|;
 block|}
 annotation|@
+name|Override
+DECL|method|getBundleVersion ()
+specifier|protected
+name|String
+name|getBundleVersion
+parameter_list|()
+block|{
+return|return
+literal|"1.2.3"
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testManagedNamePattern ()
 specifier|public
@@ -134,7 +146,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"cool"
+literal|"cool-1.2.3"
 argument_list|,
 name|context
 operator|.

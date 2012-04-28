@@ -60,6 +60,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -69,6 +79,18 @@ operator|.
 name|util
 operator|.
 name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|Version
 import|;
 end_import
 
@@ -549,6 +571,38 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getSignerCertificates (int signersType)
+specifier|public
+name|Map
+name|getSignerCertificates
+parameter_list|(
+name|int
+name|signersType
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getVersion ()
+specifier|public
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|Version
+operator|.
+name|parseVersion
+argument_list|(
+literal|"1.0.0"
+argument_list|)
+return|;
 block|}
 DECL|method|loadClass (String name)
 specifier|public
