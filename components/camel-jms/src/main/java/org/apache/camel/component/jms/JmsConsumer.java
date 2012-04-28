@@ -742,7 +742,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|prepareAndStartListenerContainer
+name|stopAndDestroyListenerContainer
 argument_list|()
 expr_stmt|;
 block|}
