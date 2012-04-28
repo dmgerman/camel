@@ -350,6 +350,7 @@ name|processName
 decl_stmt|;
 DECL|field|activityBuilders
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|ActivityBuilder
@@ -377,6 +378,7 @@ name|class
 decl_stmt|;
 DECL|field|processRules
 specifier|private
+specifier|final
 name|ProcessRules
 name|processRules
 init|=
@@ -386,6 +388,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|processDefinition
 specifier|private
+specifier|volatile
 name|ProcessDefinition
 name|processDefinition
 decl_stmt|;
@@ -728,6 +731,7 @@ return|;
 block|}
 DECL|method|getProcessDefinition ()
 specifier|public
+specifier|synchronized
 name|ProcessDefinition
 name|getProcessDefinition
 parameter_list|()

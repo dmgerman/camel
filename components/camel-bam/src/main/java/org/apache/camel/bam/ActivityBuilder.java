@@ -122,16 +122,19 @@ name|ActivityBuilder
 block|{
 DECL|field|processBuilder
 specifier|private
+specifier|final
 name|ProcessBuilder
 name|processBuilder
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
+specifier|final
 name|Endpoint
 name|endpoint
 decl_stmt|;
 DECL|field|activityRules
 specifier|private
+specifier|final
 name|ActivityRules
 name|activityRules
 decl_stmt|;
@@ -139,6 +142,12 @@ DECL|field|correlationExpression
 specifier|private
 name|Expression
 name|correlationExpression
+decl_stmt|;
+DECL|field|processor
+specifier|private
+specifier|volatile
+name|Processor
+name|processor
 decl_stmt|;
 DECL|method|ActivityBuilder (ProcessBuilder processBuilder, Endpoint endpoint)
 specifier|public
@@ -216,18 +225,26 @@ block|}
 comment|/**      * Returns the processor of the route      */
 DECL|method|getProcessor ()
 specifier|public
+specifier|synchronized
 name|Processor
 name|getProcessor
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Processor
+if|if
+condition|(
 name|processor
-init|=
+operator|==
+literal|null
+condition|)
+block|{
+name|processor
+operator|=
 name|createProcessor
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|processor
