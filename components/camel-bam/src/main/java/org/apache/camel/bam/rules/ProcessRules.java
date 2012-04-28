@@ -160,6 +160,7 @@ argument_list|()
 decl_stmt|;
 DECL|method|processExpired (ActivityState activityState)
 specifier|public
+specifier|synchronized
 name|void
 name|processExpired
 parameter_list|(
@@ -188,6 +189,7 @@ block|}
 block|}
 DECL|method|processExchange (Exchange exchange, ProcessInstance process)
 specifier|public
+specifier|synchronized
 name|void
 name|processExchange
 parameter_list|(
