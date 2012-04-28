@@ -223,13 +223,13 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be slower than about 3 seconds, was: "
+literal|"Should be slower than about 2 seconds, was: "
 operator|+
 name|delta
 argument_list|,
 name|delta
 operator|>
-literal|3200
+literal|2000
 argument_list|)
 expr_stmt|;
 block|}

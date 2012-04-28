@@ -211,30 +211,6 @@ argument_list|(
 literal|3000
 argument_list|)
 expr_stmt|;
-comment|// should be in DLQ
-name|String
-name|reply
-init|=
-name|consumer
-operator|.
-name|receiveBody
-argument_list|(
-literal|"activemq:queue:ActiveMQ.DLQ"
-argument_list|,
-literal|5000
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello World"
-argument_list|,
-name|reply
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
