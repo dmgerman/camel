@@ -440,7 +440,7 @@ name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|// delete done file if used
+comment|// delete done file if used (and not noop=true)
 if|if
 condition|(
 name|endpoint
@@ -449,6 +449,12 @@ name|getDoneFileName
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|endpoint
+operator|.
+name|isNoop
+argument_list|()
 condition|)
 block|{
 comment|// done file must be in same path as the original input file
