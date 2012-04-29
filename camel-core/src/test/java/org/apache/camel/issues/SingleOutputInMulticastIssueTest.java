@@ -74,7 +74,7 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:auit"
+literal|"mock:audit"
 argument_list|)
 operator|.
 name|expectedMessageCount
