@@ -4306,12 +4306,24 @@ argument_list|,
 name|processor
 argument_list|)
 expr_stmt|;
+comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
+name|answer
+operator|=
+name|createUnitOfWorkProcessor
+argument_list|(
+name|routeContext
+argument_list|,
+name|processor
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 comment|// must start the error handler
 name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
-name|processor
+name|answer
 argument_list|)
 expr_stmt|;
 block|}
@@ -4330,18 +4342,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// and wrap in unit of work processor so the copy exchange also can run under UoW
-name|answer
-operator|=
-name|createUnitOfWorkProcessor
-argument_list|(
-name|routeContext
-argument_list|,
-name|processor
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 comment|// add to cache
 name|errorHandlers
 operator|.
