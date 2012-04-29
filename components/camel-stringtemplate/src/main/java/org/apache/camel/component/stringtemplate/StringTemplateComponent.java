@@ -54,6 +54,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -88,7 +102,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Endpoint
+name|StringTemplateEndpoint
 name|answer
 init|=
 operator|new
@@ -108,6 +122,36 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// if its a http resource then append any remaining parameters and update the resource uri
+if|if
+condition|(
+name|ResourceHelper
+operator|.
+name|isHttpUri
+argument_list|(
+name|remaining
+argument_list|)
+condition|)
+block|{
+name|remaining
+operator|=
+name|ResourceHelper
+operator|.
+name|appendParameters
+argument_list|(
+name|remaining
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setResourceUri
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
