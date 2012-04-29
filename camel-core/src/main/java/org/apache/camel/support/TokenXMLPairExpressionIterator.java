@@ -463,6 +463,7 @@ argument_list|)
 operator|+
 name|SCAN_TOKEN_REGEX
 expr_stmt|;
+comment|// the namespaces on the parent tag can be in multi line, so we need to instruct the dot to support multilines
 name|this
 operator|.
 name|inheritNamespaceTokenPattern
@@ -472,6 +473,14 @@ operator|.
 name|compile
 argument_list|(
 name|token
+argument_list|,
+name|Pattern
+operator|.
+name|MULTILINE
+operator||
+name|Pattern
+operator|.
+name|DOTALL
 argument_list|)
 expr_stmt|;
 block|}

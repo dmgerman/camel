@@ -24,33 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
 import|;
 end_import
 
@@ -75,34 +49,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|TokenXMLPairNamespaceSplitTest
+DECL|class|TokenXMLPairNamespaceMultilineSplitTest
 specifier|public
 class|class
-name|TokenXMLPairNamespaceSplitTest
+name|TokenXMLPairNamespaceMultilineSplitTest
 extends|extends
-name|ContextTestSupport
+name|TokenXMLPairNamespaceSplitTest
 block|{
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/pair"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|testTokenXMLPair ()
 specifier|public
 name|void
@@ -138,7 +91,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<order id=\"1\" xmlns=\"http:acme.com\">Camel in Action</order>"
+literal|"<order id=\"1\" xmlns=\"http:acme.com\" xmlns:foo=\"http:foo.com\">Camel in Action</order>"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -153,7 +106,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<order id=\"2\" xmlns=\"http:acme.com\">ActiveMQ in Action</order>"
+literal|"<order id=\"2\" xmlns=\"http:acme.com\" xmlns:foo=\"http:foo.com\">ActiveMQ in Action</order>"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -168,7 +121,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<order id=\"3\" xmlns=\"http:acme.com\">DSL in Action</order>"
+literal|"<order id=\"3\" xmlns=\"http:acme.com\" xmlns:foo=\"http:foo.com\">DSL in Action</order>"
 argument_list|)
 expr_stmt|;
 name|String
@@ -196,12 +149,15 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createBody ()
 specifier|protected
 name|String
 name|createBody
 parameter_list|()
 block|{
+comment|// multiple namespaces on parent on multiple lines
 name|StringBuilder
 name|sb
 init|=
@@ -215,7 +171,14 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"<orders xmlns=\"http:acme.com\">\n"
+literal|"<orders xmlns=\"http:acme.com\"\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"        xmlns:foo=\"http:foo.com\">\n"
 argument_list|)
 expr_stmt|;
 name|sb
@@ -251,57 +214,6 @@ name|sb
 operator|.
 name|toString
 argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// START SNIPPET: e1
-name|from
-argument_list|(
-literal|"file:target/pair"
-argument_list|)
-comment|// split the order child tags, and inherit namespaces from the orders root tag
-operator|.
-name|split
-argument_list|()
-operator|.
-name|tokenizeXML
-argument_list|(
-literal|"order"
-argument_list|,
-literal|"orders"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:split"
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: e1
-block|}
-block|}
 return|;
 block|}
 block|}
