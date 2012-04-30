@@ -668,6 +668,50 @@ name|bindy
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the Bindy data format      *      * @param type      the type of bindy data format to use      * @param classType the POJO class type      */
+DECL|method|bindy (BindyType type, Class<?> classType)
+specifier|public
+name|T
+name|bindy
+parameter_list|(
+name|BindyType
+name|type
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|classType
+parameter_list|)
+block|{
+name|BindyDataFormat
+name|bindy
+init|=
+operator|new
+name|BindyDataFormat
+argument_list|()
+decl_stmt|;
+name|bindy
+operator|.
+name|setType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+name|bindy
+operator|.
+name|setClassType
+argument_list|(
+name|classType
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|bindy
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the CSV data format      */
 DECL|method|csv ()
 specifier|public

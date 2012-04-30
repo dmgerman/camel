@@ -56,6 +56,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -244,6 +254,14 @@ specifier|private
 name|String
 name|locale
 decl_stmt|;
+DECL|field|type
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+decl_stmt|;
 DECL|method|BindyAbstractFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
 name|BindyAbstractFactory
@@ -307,6 +325,42 @@ name|initModel
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|BindyAbstractFactory (PackageScanClassResolver resolver, Class<?> type)
+specifier|public
+name|BindyAbstractFactory
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|this
+operator|.
+name|modelsLoader
+operator|=
+operator|new
+name|AnnotationModelLoader
+argument_list|(
+name|resolver
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+name|initModel
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields.      *      * @throws Exception      */
 DECL|method|initModel ()
 specifier|public
@@ -317,6 +371,13 @@ throws|throws
 name|Exception
 block|{
 comment|// Find classes defined as Model
+if|if
+condition|(
+name|packageNames
+operator|!=
+literal|null
+condition|)
+block|{
 name|initModelClasses
 argument_list|(
 name|this
@@ -324,6 +385,43 @@ operator|.
 name|packageNames
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|type
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use the package name from the type as it may refer to types in the same package
+name|String
+name|pckName
+init|=
+name|type
+operator|.
+name|getPackage
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|initModelClasses
+argument_list|(
+name|pckName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Either packagenames or type should be configured"
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Find all the classes defined as model      */
 DECL|method|initModelClasses (String... packageNames)

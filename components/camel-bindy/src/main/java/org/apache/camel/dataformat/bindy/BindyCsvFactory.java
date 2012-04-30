@@ -454,6 +454,34 @@ name|initCsvModel
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|BindyCsvFactory (PackageScanClassResolver resolver, Class<?> type)
+specifier|public
+name|BindyCsvFactory
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|super
+argument_list|(
+name|resolver
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+comment|// initialize specific parameters of the csv model
+name|initCsvModel
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields and      * retrieve the separator of the CSV record      *       * @throws Exception      */
 DECL|method|initCsvModel ()
 specifier|public

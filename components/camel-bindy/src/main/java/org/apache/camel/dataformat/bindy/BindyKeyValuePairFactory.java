@@ -395,6 +395,34 @@ name|initKeyValuePairModel
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|BindyKeyValuePairFactory (PackageScanClassResolver resolver, Class<?> type)
+specifier|public
+name|BindyKeyValuePairFactory
+parameter_list|(
+name|PackageScanClassResolver
+name|resolver
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|super
+argument_list|(
+name|resolver
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
+comment|// Initialize what is specific to Key Value Pair model
+name|initKeyValuePairModel
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the annotated classes and fields. Next, we retrieve      * the parameters required like : Pair Separator& key value pair separator      *       * @throws Exception      */
 DECL|method|initKeyValuePairModel ()
 specifier|public
