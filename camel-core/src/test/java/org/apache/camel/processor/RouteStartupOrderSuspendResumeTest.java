@@ -185,7 +185,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"seda://foo"
+literal|"direct://foo"
 argument_list|,
 name|order
 operator|.
@@ -227,7 +227,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"seda://bar"
+literal|"direct://baz"
 argument_list|,
 name|order
 operator|.
@@ -309,12 +309,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|routeId
@@ -349,12 +349,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:bar"
+literal|"direct:bar"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:bar"
+literal|"direct:baz"
 argument_list|)
 operator|.
 name|routeId

@@ -90,6 +90,20 @@ name|TestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -131,6 +145,8 @@ argument_list|(
 literal|"jndi-example.properties"
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|assertNotNull
 argument_list|(
 literal|"Cannot find jndi-example.properties on the classpath!"
@@ -168,6 +184,17 @@ name|properties
 argument_list|)
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testLookupOfSimpleName ()
 specifier|public

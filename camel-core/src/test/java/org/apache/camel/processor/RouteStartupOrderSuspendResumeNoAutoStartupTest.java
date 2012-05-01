@@ -201,7 +201,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"seda://foo"
+literal|"direct://foo"
 argument_list|,
 name|order
 operator|.
@@ -364,7 +364,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"seda://foo"
+literal|"direct://foo"
 argument_list|,
 name|order
 operator|.
@@ -428,7 +428,7 @@ expr_stmt|;
 comment|// however its started manually so its started after the auto started
 name|assertEquals
 argument_list|(
-literal|"seda://bar"
+literal|"direct://baz"
 argument_list|,
 name|order
 operator|.
@@ -489,12 +489,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|routeId
@@ -529,12 +529,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"seda:bar"
+literal|"direct:baz"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:bar"
+literal|"direct:baz"
 argument_list|)
 operator|.
 name|routeId
