@@ -3840,7 +3840,7 @@ name|scanner
 operator|.
 name|useDelimiter
 argument_list|(
-name|regexTokenizer
+name|pattern
 argument_list|)
 expr_stmt|;
 return|return
@@ -3872,7 +3872,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns a sort expression which will sort the expression with the given comparator.      *<p/>      * The expression is evaluted as a {@link List} object to allow sorting.      */
+comment|/**      * Returns a sort expression which will sort the expression with the given comparator.      *<p/>      * The expression is evaluated as a {@link List} object to allow sorting.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
