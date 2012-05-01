@@ -106,10 +106,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createTranceiver ()
+DECL|method|createTransceiver ()
 specifier|public
 name|Transceiver
-name|createTranceiver
+name|createTransceiver
 parameter_list|()
 throws|throws
 name|Exception

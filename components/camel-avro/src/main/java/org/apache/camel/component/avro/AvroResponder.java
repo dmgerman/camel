@@ -125,7 +125,6 @@ specifier|private
 name|AvroConsumer
 name|consumer
 decl_stmt|;
-comment|/**      * Constructor      *      * @param consumer      */
 DECL|method|AvroResponder (AvroConsumer consumer)
 specifier|public
 name|AvroResponder
@@ -174,8 +173,6 @@ name|Exception
 block|{
 name|Object
 name|response
-init|=
-literal|null
 decl_stmt|;
 name|int
 name|numParams

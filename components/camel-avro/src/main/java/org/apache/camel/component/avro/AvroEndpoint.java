@@ -219,7 +219,6 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * Whether this class supports being singleton or not.      *      * @return<tt>true</tt> to be a single shared instance,<tt>false</tt> to create new instances.      */
 annotation|@
 name|Override
 DECL|method|isSingleton ()
@@ -229,7 +228,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|getConfiguration ()

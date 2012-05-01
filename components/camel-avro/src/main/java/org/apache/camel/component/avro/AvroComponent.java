@@ -287,8 +287,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Applies enpoint parameters to configuration& resolves protocol and other required configuration properties.      * @param config      * @param enpointUri      * @param parameters      * @throws Exception      */
-DECL|method|applyToConfiguration (AvroConfiguration config, URI enpointUri, Map<String, Object> parameters)
+comment|/**      * Applies endpoint parameters to configuration& resolves protocol and other required configuration properties.      */
+DECL|method|applyToConfiguration (AvroConfiguration config, URI endpointUri, Map<String, Object> parameters)
 specifier|private
 name|void
 name|applyToConfiguration
@@ -297,7 +297,7 @@ name|AvroConfiguration
 name|config
 parameter_list|,
 name|URI
-name|enpointUri
+name|endpointUri
 parameter_list|,
 name|Map
 argument_list|<
@@ -314,7 +314,7 @@ name|config
 operator|.
 name|parseURI
 argument_list|(
-name|enpointUri
+name|endpointUri
 argument_list|,
 name|parameters
 argument_list|,

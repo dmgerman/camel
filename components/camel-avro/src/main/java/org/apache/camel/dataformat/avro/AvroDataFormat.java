@@ -284,7 +284,11 @@ specifier|private
 name|String
 name|instanceClassName
 decl_stmt|;
-comment|/**      * @param schema      */
+DECL|method|AvroDataFormat ()
+specifier|public
+name|AvroDataFormat
+parameter_list|()
+block|{     }
 DECL|method|AvroDataFormat (Schema schema)
 specifier|public
 name|AvroDataFormat
@@ -300,11 +304,6 @@ operator|=
 name|schema
 expr_stmt|;
 block|}
-DECL|method|AvroDataFormat ()
-specifier|public
-name|AvroDataFormat
-parameter_list|()
-block|{     }
 DECL|method|getSchema (Exchange exchange, Object graph)
 specifier|public
 specifier|synchronized
