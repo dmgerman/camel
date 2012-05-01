@@ -159,6 +159,11 @@ specifier|private
 name|boolean
 name|includeTokens
 decl_stmt|;
+DECL|field|group
+specifier|private
+name|int
+name|group
+decl_stmt|;
 DECL|method|tokenize (String token)
 specifier|public
 specifier|static
@@ -485,6 +490,9 @@ return|;
 block|}
 comment|// use the regular tokenizer
 name|Expression
+name|answer
+decl_stmt|;
+name|Expression
 name|exp
 init|=
 name|headerName
@@ -508,7 +516,8 @@ condition|(
 name|regex
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 name|ExpressionBuilder
 operator|.
 name|regexTokenizeExpression
@@ -517,11 +526,12 @@ name|exp
 argument_list|,
 name|token
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
-return|return
+name|answer
+operator|=
 name|ExpressionBuilder
 operator|.
 name|tokenizeExpression
@@ -530,8 +540,33 @@ name|exp
 argument_list|,
 name|token
 argument_list|)
-return|;
+expr_stmt|;
 block|}
+comment|// if group then wrap answer in group expression
+if|if
+condition|(
+name|group
+operator|>
+literal|0
+condition|)
+block|{
+name|answer
+operator|=
+name|ExpressionBuilder
+operator|.
+name|groupIteratorExpression
+argument_list|(
+name|answer
+argument_list|,
+name|token
+argument_list|,
+name|group
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|createExpression (String expression)
 specifier|public
@@ -744,6 +779,32 @@ operator|.
 name|includeTokens
 operator|=
 name|includeTokens
+expr_stmt|;
+block|}
+DECL|method|getGroup ()
+specifier|public
+name|int
+name|getGroup
+parameter_list|()
+block|{
+return|return
+name|group
+return|;
+block|}
+DECL|method|setGroup (int group)
+specifier|public
+name|void
+name|setGroup
+parameter_list|(
+name|int
+name|group
+parameter_list|)
+block|{
+name|this
+operator|.
+name|group
+operator|=
+name|group
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()

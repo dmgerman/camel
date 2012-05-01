@@ -894,6 +894,57 @@ name|regex
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a token expression on the message body      *      * @param token the token      * @param regex whether the token is a regular expression or not      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+DECL|method|tokenize (String token, boolean regex, int group)
+specifier|public
+name|T
+name|tokenize
+parameter_list|(
+name|String
+name|token
+parameter_list|,
+name|boolean
+name|regex
+parameter_list|,
+name|int
+name|group
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|tokenize
+argument_list|(
+name|token
+argument_list|,
+name|regex
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a token expression on the message body      *      * @param token the token      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+DECL|method|tokenize (String token, int group)
+specifier|public
+name|T
+name|tokenize
+parameter_list|(
+name|String
+name|token
+parameter_list|,
+name|int
+name|group
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|tokenize
+argument_list|(
+name|token
+argument_list|,
+name|group
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates a token expression on the given header      *      * @param token the token      * @param headerName name of header to tokenize      * @return the builder to continue processing the DSL      */
 DECL|method|tokenize (String token, String headerName)
 specifier|public
