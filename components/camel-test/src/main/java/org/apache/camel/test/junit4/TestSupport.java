@@ -1838,17 +1838,18 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      */
+comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      * @return<tt>false</tt> if error deleting directory      */
 DECL|method|deleteDirectory (String file)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|deleteDirectory
 parameter_list|(
 name|String
 name|file
 parameter_list|)
 block|{
+return|return
 name|deleteDirectory
 argument_list|(
 operator|new
@@ -1857,13 +1858,13 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      */
+comment|/**      * Recursively delete a directory, useful to zapping test data      *      * @param file the directory to be deleted      * @return<tt>false</tt> if error deleting directory      */
 DECL|method|deleteDirectory (File file)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|deleteDirectory
 parameter_list|(
 name|File
@@ -1936,23 +1937,10 @@ comment|// Ignore
 block|}
 block|}
 block|}
-if|if
-condition|(
+return|return
+operator|!
 name|exists
-condition|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"Deletion of file "
-operator|+
-name|file
-operator|+
-literal|" failed"
-argument_list|)
-throw|;
-block|}
+return|;
 block|}
 DECL|method|recursivelyDeleteDirectory (File file)
 specifier|private
