@@ -252,7 +252,7 @@ specifier|private
 name|IOHelper
 parameter_list|()
 block|{
-comment|//Utility Class
+comment|// Utility Class
 block|}
 comment|/**      * Use this function instead of new String(byte[]) to avoid surprises from non-standard default encodings.      */
 DECL|method|newStringFromBytes (byte[] bytes)
@@ -291,7 +291,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Impossible failure: Charset.forName(\"utf-8\") returns invalid name."
+literal|"Impossible failure: Charset.forName(\"UTF-8\") returns invalid name."
 argument_list|,
 name|e
 argument_list|)
@@ -345,7 +345,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Impossible failure: Charset.forName(\"utf-8\") returns invalid name."
+literal|"Impossible failure: Charset.forName(\"UTF-8\") returns invalid name."
 argument_list|,
 name|e
 argument_list|)
@@ -865,7 +865,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/**      * Forces any updates to this channel's file to be written to the storage device that contains it.      *      * @param channel the file channel      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      */
+comment|/**      * Forces any updates to this channel's file to be written to the storage device that contains it.      *      * @param channel the file channel      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      */
 DECL|method|force (FileChannel channel, String name, Logger log)
 specifier|public
 specifier|static
@@ -901,10 +901,16 @@ block|{
 if|if
 condition|(
 name|log
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+comment|// then fallback to use the own Logger
+name|log
+operator|=
+name|LOG
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|name
@@ -950,8 +956,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-comment|/**      * Closes the given resource if it is available, logging any closing      * exceptions to the given log      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings      */
+comment|/**      * Closes the given resource if it is available, logging any closing exceptions to the given log.      *      * @param closeable the object to close      * @param name the name of the resource      * @param log the log to use when reporting closure warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      */
 DECL|method|close (Closeable closeable, String name, Logger log)
 specifier|public
 specifier|static
@@ -992,10 +997,16 @@ block|{
 if|if
 condition|(
 name|log
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+comment|// then fallback to use the own Logger
+name|log
+operator|=
+name|LOG
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|name
@@ -1038,7 +1049,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
