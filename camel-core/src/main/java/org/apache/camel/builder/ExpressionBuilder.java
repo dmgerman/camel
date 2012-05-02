@@ -3930,6 +3930,9 @@ parameter_list|)
 block|{
 comment|// evaluate expression as iterator
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 init|=
 name|expression

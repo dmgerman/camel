@@ -54,16 +54,6 @@ name|javax
 operator|.
 name|jcr
 operator|.
-name|SimpleCredentials
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jcr
-operator|.
 name|observation
 operator|.
 name|Event

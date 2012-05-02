@@ -577,6 +577,11 @@ name|Override
 DECL|method|getSignerCertificates (int signersType)
 specifier|public
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|getSignerCertificates
 parameter_list|(
 name|int

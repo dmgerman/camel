@@ -112,6 +112,9 @@ class|class
 name|GroupIterator
 implements|implements
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 implements|,
 name|Closeable
 block|{
@@ -125,6 +128,9 @@ DECL|field|it
 specifier|private
 specifier|final
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 decl_stmt|;
 DECL|field|token
@@ -155,7 +161,7 @@ name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new group iterator      *      * @param camelContext  the camel context      * @param it            the iterator to group      * @param token         then token used to separate between the parts, use<tt>null</tt> to not add the token      * @param group         number of parts to group together      * @throws IllegalArgumentException is thrown if group is not a positive number      */
-DECL|method|GroupIterator (CamelContext camelContext, Iterator it, String token, int group)
+DECL|method|GroupIterator (CamelContext camelContext, Iterator<?> it, String token, int group)
 specifier|public
 name|GroupIterator
 parameter_list|(
@@ -163,6 +169,9 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|it
 parameter_list|,
 name|String
