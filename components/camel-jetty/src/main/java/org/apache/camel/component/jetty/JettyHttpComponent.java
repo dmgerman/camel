@@ -3275,11 +3275,13 @@ name|String
 name|value
 parameter_list|)
 block|{
-try|try
-block|{
 name|Object
 name|factory
-init|=
+decl_stmt|;
+try|try
+block|{
+name|factory
+operator|=
 name|connector
 operator|.
 name|getClass
@@ -3294,7 +3296,28 @@ name|invoke
 argument_list|(
 name|connector
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Error invoking method getSslContextFactory on "
+operator|+
+name|connector
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+try|try
+block|{
 name|factory
 operator|.
 name|getClass
@@ -3323,17 +3346,21 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|info
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
-literal|"Problem setting "
+literal|"Error invoking method "
 operator|+
 name|method
+operator|+
+literal|" on "
+operator|+
+name|factory
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 DECL|method|setKeyStorePassword (SslSelectChannelConnector answer, String password)
