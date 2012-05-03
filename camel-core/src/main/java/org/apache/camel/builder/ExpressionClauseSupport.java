@@ -1586,8 +1586,8 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @return the builder to continue processing the DSL      */
-DECL|method|tokenizeXMLPair (String tagName, String inheritNamespaceTagName)
+comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  optional parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizeXMLPair (String tagName, String inheritNamespaceTagName, int group)
 specifier|public
 name|T
 name|tokenizeXMLPair
@@ -1597,6 +1597,9 @@ name|tagName
 parameter_list|,
 name|String
 name|inheritNamespaceTagName
+parameter_list|,
+name|int
+name|group
 parameter_list|)
 block|{
 name|TokenizerExpression
@@ -1627,6 +1630,21 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|group
+operator|>
+literal|0
+condition|)
+block|{
+name|expression
+operator|.
+name|setGroup
+argument_list|(
+name|group
+argument_list|)
+expr_stmt|;
+block|}
 name|setExpressionType
 argument_list|(
 name|expression

@@ -1070,6 +1070,30 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a XML token expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizeXML (String tagName, int group)
+specifier|public
+name|T
+name|tokenizeXML
+parameter_list|(
+name|String
+name|tagName
+parameter_list|,
+name|int
+name|group
+parameter_list|)
+block|{
+return|return
+name|tokenizeXML
+argument_list|(
+name|tagName
+argument_list|,
+literal|null
+argument_list|,
+name|group
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  parent or root tag name that contains namespace(s) to inherit      * @return the builder to continue processing the DSL      */
 DECL|method|tokenizeXML (String tagName, String inheritNamespaceTagName)
 specifier|public
@@ -1084,6 +1108,33 @@ name|inheritNamespaceTagName
 parameter_list|)
 block|{
 return|return
+name|tokenizeXML
+argument_list|(
+name|tagName
+argument_list|,
+name|inheritNamespaceTagName
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a token pair expression on the message body with XML content      *      * @param tagName the the tag name of the child nodes to tokenize      * @param inheritNamespaceTagName  parent or root tag name that contains namespace(s) to inherit      * @param group to group by the given number      * @return the builder to continue processing the DSL      */
+DECL|method|tokenizeXML (String tagName, String inheritNamespaceTagName, int group)
+specifier|public
+name|T
+name|tokenizeXML
+parameter_list|(
+name|String
+name|tagName
+parameter_list|,
+name|String
+name|inheritNamespaceTagName
+parameter_list|,
+name|int
+name|group
+parameter_list|)
+block|{
+return|return
 name|delegate
 operator|.
 name|tokenizeXMLPair
@@ -1091,6 +1142,8 @@ argument_list|(
 name|tagName
 argument_list|,
 name|inheritNamespaceTagName
+argument_list|,
+name|group
 argument_list|)
 return|;
 block|}

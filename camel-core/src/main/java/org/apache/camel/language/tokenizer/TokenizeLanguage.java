@@ -450,13 +450,19 @@ argument_list|,
 literal|"token"
 argument_list|)
 expr_stmt|;
+name|Expression
+name|answer
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|isXml
 argument_list|()
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 name|ExpressionBuilder
 operator|.
 name|tokenizeXMLExpression
@@ -465,7 +471,7 @@ name|token
 argument_list|,
 name|inheritNamespaceTagName
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -475,7 +481,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 name|ExpressionBuilder
 operator|.
 name|tokenizePairExpression
@@ -486,12 +493,16 @@ name|endToken
 argument_list|,
 name|includeTokens
 argument_list|)
-return|;
+expr_stmt|;
 block|}
-comment|// use the regular tokenizer
-name|Expression
+if|if
+condition|(
 name|answer
-decl_stmt|;
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use the regular tokenizer
 name|Expression
 name|exp
 init|=
@@ -542,6 +553,7 @@ name|token
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|// if group then wrap answer in group expression
 if|if
 condition|(
@@ -550,6 +562,17 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// only include group token if not xml
+name|String
+name|groupToken
+init|=
+name|isXml
+argument_list|()
+condition|?
+literal|null
+else|:
+name|token
+decl_stmt|;
 name|answer
 operator|=
 name|ExpressionBuilder
@@ -558,7 +581,7 @@ name|groupIteratorExpression
 argument_list|(
 name|answer
 argument_list|,
-name|token
+name|groupToken
 argument_list|,
 name|group
 argument_list|)
