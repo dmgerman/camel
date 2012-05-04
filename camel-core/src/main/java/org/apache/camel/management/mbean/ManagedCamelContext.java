@@ -394,6 +394,19 @@ name|getName
 argument_list|()
 return|;
 block|}
+DECL|method|getManagementName ()
+specifier|public
+name|String
+name|getManagementName
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
 DECL|method|getCamelVersion ()
 specifier|public
 name|String

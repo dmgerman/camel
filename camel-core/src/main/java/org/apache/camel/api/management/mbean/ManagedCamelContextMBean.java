@@ -97,6 +97,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Camel Management Name"
+argument_list|)
+DECL|method|getManagementName ()
+name|String
+name|getManagementName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Camel Version"
 argument_list|)
 DECL|method|getCamelVersion ()
