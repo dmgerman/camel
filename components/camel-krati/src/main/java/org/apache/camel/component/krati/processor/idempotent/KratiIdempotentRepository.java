@@ -392,7 +392,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error adding item to krati idempotent repository. This exception is ignored."
+literal|"Error checking item exists in krati idempotent repository. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -452,7 +452,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error adding item to krati idempotent repository. This exception is ignored."
+literal|"Error removing item from krati idempotent repository. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
