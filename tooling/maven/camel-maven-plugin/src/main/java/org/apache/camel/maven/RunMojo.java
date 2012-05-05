@@ -2154,16 +2154,18 @@ name|URL
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// project classpath must be first
 name|this
 operator|.
-name|addRelevantPluginDependenciesToClasspath
+name|addRelevantProjectDependenciesToClasspath
 argument_list|(
 name|classpathURLs
 argument_list|)
 expr_stmt|;
+comment|// and plugin classpath last
 name|this
 operator|.
-name|addRelevantProjectDependenciesToClasspath
+name|addRelevantPluginDependenciesToClasspath
 argument_list|(
 name|classpathURLs
 argument_list|)
@@ -2263,6 +2265,50 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// we must skip org.osgi.core, otherwise we get a
+comment|// java.lang.NoClassDefFoundError: org.osgi.vendor.framework property not set
+if|if
+condition|(
+name|classPathElement
+operator|.
+name|getArtifactId
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"org.osgi.core"
+argument_list|)
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Skipping org.osgi.core -> "
+operator|+
+name|classPathElement
+operator|.
+name|getGroupId
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|classPathElement
+operator|.
+name|getArtifactId
+argument_list|()
+operator|+
+literal|"/"
+operator|+
+name|classPathElement
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|getLog
 argument_list|()
 operator|.
