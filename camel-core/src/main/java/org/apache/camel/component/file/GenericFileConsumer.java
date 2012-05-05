@@ -895,10 +895,22 @@ block|}
 comment|// drain any in progress files as we are done with this batch
 name|removeExcessiveInProgressFiles
 argument_list|(
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 operator|(
 name|Deque
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|exchanges
+argument_list|,
+name|Exchange
+operator|.
+name|class
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
