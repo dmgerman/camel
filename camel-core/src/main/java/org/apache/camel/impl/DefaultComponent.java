@@ -488,7 +488,12 @@ argument_list|(
 name|encodedUri
 argument_list|)
 block|,
+name|URISupport
+operator|.
+name|sanitizePath
+argument_list|(
 name|path
+argument_list|)
 block|,
 name|parameters
 block|}

@@ -3242,7 +3242,12 @@ operator|new
 name|Object
 index|[]
 block|{
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 block|,
 name|answer
 block|,
