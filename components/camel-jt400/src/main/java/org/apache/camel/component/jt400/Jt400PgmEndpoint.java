@@ -160,6 +160,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|jt400
+operator|.
+name|Jt400DataQueueEndpoint
+operator|.
+name|Format
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -232,6 +250,15 @@ DECL|field|iSeries
 specifier|private
 name|AS400
 name|iSeries
+decl_stmt|;
+DECL|field|format
+specifier|private
+name|Format
+name|format
+init|=
+name|Format
+operator|.
+name|text
 decl_stmt|;
 comment|/**      * Creates a new AS/400 PGM CALL endpoint      */
 DECL|method|Jt400PgmEndpoint (String endpointUri, Jt400Component component)
@@ -433,6 +460,7 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
+comment|// cannot be singleton as we store an AS400 instance on this endpoint
 return|return
 literal|false
 return|;
@@ -678,6 +706,32 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|setFormat (Format format)
+specifier|public
+name|void
+name|setFormat
+parameter_list|(
+name|Format
+name|format
+parameter_list|)
+block|{
+name|this
+operator|.
+name|format
+operator|=
+name|format
+expr_stmt|;
+block|}
+DECL|method|getFormat ()
+specifier|public
+name|Format
+name|getFormat
+parameter_list|()
+block|{
+return|return
+name|format
+return|;
 block|}
 DECL|method|setGuiAvailable (boolean guiAvailable)
 specifier|public
