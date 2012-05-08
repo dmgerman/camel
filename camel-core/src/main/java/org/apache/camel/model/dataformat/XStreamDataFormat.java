@@ -1067,6 +1067,10 @@ argument_list|(
 name|name
 operator|=
 literal|"converter"
+argument_list|,
+name|namespace
+operator|=
+literal|"http://camel.apache.org/schema/spring"
 argument_list|)
 DECL|field|list
 specifier|private
@@ -1412,6 +1416,10 @@ argument_list|(
 name|name
 operator|=
 literal|"class"
+argument_list|,
+name|namespace
+operator|=
+literal|"http://camel.apache.org/schema/spring"
 argument_list|)
 DECL|field|list
 specifier|private
@@ -1496,6 +1504,10 @@ argument_list|(
 name|name
 operator|=
 literal|"field"
+argument_list|,
+name|namespace
+operator|=
+literal|"http://camel.apache.org/schema/spring"
 argument_list|)
 DECL|field|fields
 specifier|private
@@ -1866,6 +1878,10 @@ argument_list|(
 name|name
 operator|=
 literal|"alias"
+argument_list|,
+name|namespace
+operator|=
+literal|"http://camel.apache.org/schema/spring"
 argument_list|)
 DECL|field|list
 specifier|private
@@ -2308,6 +2324,10 @@ argument_list|(
 name|name
 operator|=
 literal|"omitField"
+argument_list|,
+name|namespace
+operator|=
+literal|"http://camel.apache.org/schema/spring"
 argument_list|)
 DECL|field|list
 specifier|private
@@ -2392,6 +2412,10 @@ argument_list|(
 name|name
 operator|=
 literal|"field"
+argument_list|,
+name|namespace
+operator|=
+literal|"http://camel.apache.org/schema/spring"
 argument_list|)
 DECL|field|fields
 specifier|private
