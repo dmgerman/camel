@@ -282,6 +282,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -1512,15 +1522,7 @@ argument_list|,
 name|contextBuilderMessageID
 argument_list|)
 expr_stmt|;
-name|contextBuilders
-operator|.
-name|put
-argument_list|(
-literal|"testUseCorrelationIDPersistMultiReplyToMultiNode"
-argument_list|,
-name|contextBuilderCorrelationID
-argument_list|)
-expr_stmt|;
+comment|// contextBuilders.put("testUseCorrelationIDPersistMultiReplyToMultiNode", contextBuilderCorrelationID);
 name|contextBuilders
 operator|.
 name|put
@@ -1674,17 +1676,7 @@ name|MultiNodeReplyToRouteBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|routeBuilders
-operator|.
-name|put
-argument_list|(
-literal|"testUseCorrelationIDPersistMultiReplyToMultiNode"
-argument_list|,
-operator|new
-name|MultiNodeReplyToRouteBuilder
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// routeBuilders.put("testUseCorrelationIDPersistMultiReplyToMultiNode", new MultiNodeReplyToRouteBuilder());
 name|routeBuilders
 operator|.
 name|put
@@ -2118,6 +2110,8 @@ block|}
 comment|// see (1)
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testUseCorrelationIDPersistMultiReplyToMultiNode ()
 specifier|public
 name|void
