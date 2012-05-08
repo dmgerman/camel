@@ -452,6 +452,13 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+name|client
+operator|.
+name|delete
+argument_list|(
+literal|"/camel"
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 
