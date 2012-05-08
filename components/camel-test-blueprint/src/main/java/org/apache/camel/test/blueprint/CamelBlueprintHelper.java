@@ -1188,9 +1188,6 @@ expr_stmt|;
 for|for
 control|(
 name|ServiceReference
-argument_list|<
-name|?
-argument_list|>
 name|ref
 range|:
 name|asCollection
@@ -1221,9 +1218,6 @@ block|}
 for|for
 control|(
 name|ServiceReference
-argument_list|<
-name|?
-argument_list|>
 name|ref
 range|:
 name|asCollection
@@ -1397,22 +1391,16 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Provides an iterable collection of references, even if the original array is<code>null</code>.      */
-DECL|method|asCollection (ServiceReference<?>[] references)
+DECL|method|asCollection (ServiceReference[] references)
 specifier|private
 specifier|static
 name|Collection
 argument_list|<
 name|ServiceReference
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|asCollection
 parameter_list|(
 name|ServiceReference
-argument_list|<
-name|?
-argument_list|>
 index|[]
 name|references
 parameter_list|)
@@ -1426,9 +1414,6 @@ operator|new
 name|ArrayList
 argument_list|<
 name|ServiceReference
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|(
 literal|0
