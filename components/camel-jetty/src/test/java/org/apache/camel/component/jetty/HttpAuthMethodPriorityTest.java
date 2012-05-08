@@ -541,14 +541,40 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"No enum const class org.apache.camel.component.http.AuthMethod.foo"
-argument_list|,
+comment|//JAXB 2.2 uses a slightly different message
+name|boolean
+name|b
+init|=
 name|cause
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"No enum const"
+argument_list|)
+operator|&&
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"org.apache.camel.component.http.AuthMethod.foo"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Bad fault message: "
+operator|+
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|b
 argument_list|)
 expr_stmt|;
 block|}
