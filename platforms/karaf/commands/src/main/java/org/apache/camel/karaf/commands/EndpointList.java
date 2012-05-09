@@ -126,7 +126,7 @@ literal|"endpoint-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel endpoints."
+literal|"Lists all Camel endpoints available in CamelContexts."
 argument_list|)
 DECL|class|EndpointList
 specifier|public
