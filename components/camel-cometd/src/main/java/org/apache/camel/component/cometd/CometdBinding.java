@@ -539,6 +539,10 @@ operator|||
 name|attribute
 operator|instanceof
 name|Double
+operator|||
+name|attribute
+operator|instanceof
+name|Boolean
 condition|)
 block|{
 name|message
