@@ -190,6 +190,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|marshaller
+operator|.
+name|NamespacePrefixMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -309,22 +325,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|marshaller
-operator|.
-name|NamespacePrefixMapper
 import|;
 end_import
 
