@@ -317,6 +317,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: jcr-get-node
 name|from
 argument_list|(
 literal|"direct:a"
@@ -346,6 +347,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: jcr-get-node
 block|}
 block|}
 return|;

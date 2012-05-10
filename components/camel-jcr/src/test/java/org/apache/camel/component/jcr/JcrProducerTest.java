@@ -40,16 +40,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|jcr
-operator|.
-name|SimpleCredentials
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -178,22 +168,8 @@ decl_stmt|;
 name|Session
 name|session
 init|=
-name|getRepository
+name|openSession
 argument_list|()
-operator|.
-name|login
-argument_list|(
-operator|new
-name|SimpleCredentials
-argument_list|(
-literal|"user"
-argument_list|,
-literal|"pass"
-operator|.
-name|toCharArray
-argument_list|()
-argument_list|)
-argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -284,7 +260,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: jcr
+comment|// START SNIPPET: jcr-create-node
 name|from
 argument_list|(
 literal|"direct:a"
@@ -315,7 +291,7 @@ argument_list|(
 literal|"jcr://user:pass@repository/home/test"
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: jcr
+comment|// END SNIPPET: jcr-create-node
 block|}
 block|}
 return|;
