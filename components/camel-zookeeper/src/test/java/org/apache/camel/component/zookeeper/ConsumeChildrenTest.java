@@ -187,11 +187,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|class|ConsumeChildrenTest
 specifier|public
 class|class
@@ -374,7 +369,7 @@ block|}
 end_function
 
 begin_function
-DECL|method|validateExchangesContainListings (MockEndpoint mock, List<String>... expected)
+DECL|method|validateExchangesContainListings (MockEndpoint mock, List<?>... expected)
 specifier|private
 name|void
 name|validateExchangesContainListings
@@ -384,7 +379,7 @@ name|mock
 parameter_list|,
 name|List
 argument_list|<
-name|String
+name|?
 argument_list|>
 modifier|...
 name|expected
@@ -450,16 +445,17 @@ expr_stmt|;
 block|}
 name|List
 argument_list|<
-name|String
+name|?
 argument_list|>
 name|actual
 init|=
-name|ExchangeHelper
-operator|.
-name|getMandatoryInBody
-argument_list|(
 name|received
-argument_list|,
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getMandatoryBody
+argument_list|(
 name|List
 operator|.
 name|class

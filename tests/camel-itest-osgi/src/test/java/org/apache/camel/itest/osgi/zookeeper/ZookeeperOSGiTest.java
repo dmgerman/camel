@@ -148,20 +148,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|zookeeper
 operator|.
 name|CreateMode
@@ -436,7 +422,7 @@ empty_stmt|;
 end_empty_stmt
 
 begin_function
-unit|}               @
+unit|}      @
 name|Test
 DECL|method|testRoundtripOfDataToAndFromZnode ()
 specifier|public
@@ -909,11 +895,6 @@ end_function
 begin_function
 annotation|@
 name|Test
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setAndGetListing ()
 specifier|public
 name|void
@@ -991,16 +972,17 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|String
+name|?
 argument_list|>
 name|children
 init|=
-name|ExchangeHelper
-operator|.
-name|getMandatoryOutBody
-argument_list|(
 name|exchange
-argument_list|,
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getMandatoryBody
+argument_list|(
 name|List
 operator|.
 name|class
