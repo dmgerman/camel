@@ -221,7 +221,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"<foo/>"
+literal|"<foo"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint

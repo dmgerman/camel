@@ -282,7 +282,7 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"id>1</"
+literal|"<order:order xmlns:address=\"http://www.camel.apache.org/jaxb/example/address/1\" xmlns:order=\"http://www.camel.apache.org/jaxb/example/order/1\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -292,7 +292,7 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"street>Main Street</"
+literal|"<order:id>1</order:id>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -302,7 +302,7 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"streetNumber>3a</"
+literal|"<address:address>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -312,7 +312,7 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"zip>65843</"
+literal|"<address:street>Main Street</address:street>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -322,7 +322,7 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"city>Sulzbach</"
+literal|"<address:streetNumber>3a</address:streetNumber>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -332,7 +332,37 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"order>"
+literal|"<address:zip>65843</address:zip>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|payload
+operator|.
+name|contains
+argument_list|(
+literal|"<address:city>Sulzbach</address:city>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|payload
+operator|.
+name|contains
+argument_list|(
+literal|"</address:address>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|payload
+operator|.
+name|contains
+argument_list|(
+literal|"</order:order>"
 argument_list|)
 argument_list|)
 expr_stmt|;
