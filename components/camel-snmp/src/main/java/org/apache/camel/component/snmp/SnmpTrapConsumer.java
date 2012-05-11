@@ -585,6 +585,8 @@ block|{
 name|processPDU
 argument_list|(
 name|pdu
+argument_list|,
+name|event
 argument_list|)
 expr_stmt|;
 block|}
@@ -601,13 +603,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|processPDU (PDU pdu)
+DECL|method|processPDU (PDU pdu, CommandResponderEvent event)
 specifier|public
 name|void
 name|processPDU
 parameter_list|(
 name|PDU
 name|pdu
+parameter_list|,
+name|CommandResponderEvent
+name|event
 parameter_list|)
 block|{
 if|if
@@ -643,6 +648,8 @@ operator|.
 name|createExchange
 argument_list|(
 name|pdu
+argument_list|,
+name|event
 argument_list|)
 decl_stmt|;
 try|try
