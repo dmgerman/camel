@@ -939,7 +939,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// just grab the content as string
+comment|// just grab the raw content body
 return|return
 name|httpExchange
 operator|.

@@ -783,16 +783,16 @@ return|;
 block|}
 DECL|method|getBody ()
 specifier|public
-name|String
+name|byte
+index|[]
 name|getBody
 parameter_list|()
-throws|throws
-name|UnsupportedEncodingException
 block|{
+comment|// must return the content as raw bytes
 return|return
 name|super
 operator|.
-name|getResponseContent
+name|getResponseContentBytes
 argument_list|()
 return|;
 block|}
