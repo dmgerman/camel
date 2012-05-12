@@ -783,9 +783,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// try with String at first
-name|String
-name|data
+name|Object
+name|body
 init|=
 name|exchange
 operator|.
@@ -793,33 +792,37 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|data
-operator|!=
-literal|null
+name|body
+operator|instanceof
+name|String
 condition|)
 block|{
 name|String
+name|data
+init|=
+operator|(
+name|String
+operator|)
+name|body
+decl_stmt|;
+comment|// be a bit careful with String as any type can most likely be converted to String
+comment|// so we only do an instanceof check and accept String if the body is really a String
+comment|// do not fallback to use the default charset as it can influence the request
+comment|// (for example application/x-www-form-urlencoded forms being sent)
+name|String
 name|charset
 init|=
-name|exchange
+name|IOHelper
 operator|.
-name|getProperty
+name|getCharsetName
 argument_list|(
-name|Exchange
-operator|.
-name|CHARSET_NAME
+name|exchange
 argument_list|,
-name|String
-operator|.
-name|class
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
