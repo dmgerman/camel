@@ -603,6 +603,8 @@ operator|new
 name|FileOutputStream
 argument_list|(
 name|f
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
