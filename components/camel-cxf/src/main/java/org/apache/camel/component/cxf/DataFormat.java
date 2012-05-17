@@ -32,13 +32,46 @@ comment|/**      * PAYLOAD is the message payload of the message after message c
 DECL|enumConstant|PAYLOAD
 name|PAYLOAD
 block|,
-comment|/**      * MESSAGE is the raw message that is received from the transport layer.      * Streaming and non-streaming are both supported.      */
+comment|/**      * RAW is the raw message that is received from the transport layer.      * Streaming and non-streaming are both supported.      */
+DECL|enumConstant|RAW
+name|RAW
+block|,
+comment|/**      * MESSAGE is the raw message that is received from the transport layer.      * Streaming and non-streaming are both supported.      * @deprecated - equivalent to RAW mode for Camel 2.x      */
+DECL|enumConstant|Deprecated
+annotation|@
+name|Deprecated
 DECL|enumConstant|MESSAGE
 name|MESSAGE
+block|{
+specifier|public
+name|DataFormat
+name|dealias
+parameter_list|()
+block|{
+return|return
+name|RAW
+return|;
+block|}
+block|}
+block|,
+comment|/**      * CXF_MESSAGE is the message that is received from the transport layer      * and then processed through the full set of CXF interceptors.  This       * provides the same functionality as the CXF MESSAGE mode providers.      * Streaming and non-streaming are both supported.      */
+DECL|enumConstant|CXF_MESSAGE
+name|CXF_MESSAGE
 block|,
 comment|/**      * POJOs (Plain old Java objects) are the Java parameters to the method      * it is invoking on the target server.  The "serviceClass" property      * must be included in the endpoint.  Streaming is not available for this      * data format.      */
 DECL|enumConstant|POJO
 name|POJO
+block|;
+DECL|method|dealias ()
+specifier|public
+name|DataFormat
+name|dealias
+parameter_list|()
+block|{
+return|return
+name|this
+return|;
+block|}
 block|}
 end_enum
 

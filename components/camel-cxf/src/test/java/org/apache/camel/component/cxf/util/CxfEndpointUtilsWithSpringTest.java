@@ -325,41 +325,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testGetDataFormat ()
+DECL|method|sepChar ()
 specifier|public
-name|void
-name|testGetDataFormat
+name|char
+name|sepChar
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|CxfEndpoint
-name|endpoint
-init|=
-name|createEndpoint
-argument_list|(
-name|getEndpointURI
-argument_list|()
-operator|+
-literal|"?dataFormat=MESSAGE"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"We should get the Message DataFormat"
-argument_list|,
-name|DataFormat
-operator|.
-name|MESSAGE
-argument_list|,
-name|endpoint
-operator|.
-name|getDataFormat
-argument_list|()
-argument_list|)
-expr_stmt|;
+return|return
+literal|'?'
+return|;
 block|}
 annotation|@
 name|Test
@@ -402,15 +376,18 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The cxf endpoint's DataFromat should be MESSAGE"
+literal|"The cxf endpoint's DataFromat should be RAW"
 argument_list|,
 name|DataFormat
 operator|.
-name|MESSAGE
+name|RAW
 argument_list|,
 name|endpoint
 operator|.
 name|getDataFormat
+argument_list|()
+operator|.
+name|dealias
 argument_list|()
 argument_list|)
 expr_stmt|;
