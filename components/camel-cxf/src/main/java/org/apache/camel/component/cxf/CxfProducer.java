@@ -162,18 +162,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|InvalidPayloadException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -1481,6 +1469,11 @@ block|}
 block|}
 block|}
 comment|/**      * Get the parameters for the web service operation      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|getParams (CxfEndpoint endpoint, Exchange exchange)
 specifier|private
 name|Object
@@ -1494,6 +1487,12 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|InvalidPayloadException
 block|{
 name|Object
