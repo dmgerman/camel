@@ -5271,7 +5271,28 @@ operator|instanceof
 name|NodeList
 condition|)
 block|{
-comment|// is it an empty dom
+comment|// is it an empty dom with empty attributes
+if|if
+condition|(
+name|value
+operator|instanceof
+name|Node
+operator|&&
+operator|(
+operator|(
+name|Node
+operator|)
+name|value
+operator|)
+operator|.
+name|hasAttributes
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 name|NodeList
 name|list
 init|=
