@@ -137,6 +137,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|url
+specifier|private
+name|String
+name|url
+decl_stmt|;
 DECL|field|fileName
 specifier|private
 name|String
@@ -156,11 +161,6 @@ DECL|field|scanStreamDelay
 specifier|private
 name|long
 name|scanStreamDelay
-decl_stmt|;
-DECL|field|url
-specifier|private
-name|String
-name|url
 decl_stmt|;
 DECL|field|delay
 specifier|private
@@ -193,6 +193,13 @@ DECL|field|groupLines
 specifier|private
 name|int
 name|groupLines
+decl_stmt|;
+DECL|field|autoCloseCount
+specifier|private
+name|int
+name|autoCloseCount
+init|=
+literal|0
 decl_stmt|;
 DECL|field|charset
 specifier|private
@@ -610,6 +617,32 @@ operator|.
 name|groupLines
 operator|=
 name|groupLines
+expr_stmt|;
+block|}
+DECL|method|getAutoCloseCount ()
+specifier|public
+name|int
+name|getAutoCloseCount
+parameter_list|()
+block|{
+return|return
+name|autoCloseCount
+return|;
+block|}
+DECL|method|setAutoCloseCount (int autoCloseCount)
+specifier|public
+name|void
+name|setAutoCloseCount
+parameter_list|(
+name|int
+name|autoCloseCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoCloseCount
+operator|=
+name|autoCloseCount
 expr_stmt|;
 block|}
 DECL|method|getCharset ()
