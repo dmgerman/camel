@@ -258,7 +258,19 @@ name|int
 name|attempt
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has completely been sent to the endpoint.      *      * @param exchange  the exchange      * @param endpoint  the destination      * @param timeTaken time in millis taken      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} is about to be sent to the endpoint (eg before).      *      * @param exchange  the exchange      * @param endpoint  the destination      * @return the created event      */
+DECL|method|createExchangeSendingEvent (Exchange exchange, Endpoint endpoint)
+name|EventObject
+name|createExchangeSendingEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has completely been sent to the endpoint (eg after).      *      * @param exchange  the exchange      * @param endpoint  the destination      * @param timeTaken time in millis taken      * @return the created event      */
 DECL|method|createExchangeSentEvent (Exchange exchange, Endpoint endpoint, long timeTaken)
 name|EventObject
 name|createExchangeSentEvent

@@ -43,14 +43,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Event for<b>after</b> an {@link Exchange} has been sent to an {@link Endpoint}.  *  * @see ExchangeSendingEvent  * @version  */
+comment|/**  * Event for<b>before</b> sending an {@link Exchange} to an {@link Endpoint}.  *<p/>  * This event is emitted before attempting to send the {@link Exchange} to an {@link Endpoint}.  * There is still some internal processing occurring before the actual sending takes places, and  * therefore its not a 100% guarantee that the sending actually happens, as there may cause an  * internal error before.  *<p/>  * The {@link ExchangeSentEvent} is an event which is emitted<b>after</b> the sending is done.  *  * @see ExchangeSentEvent  * @version   */
 end_comment
 
 begin_class
-DECL|class|ExchangeSentEvent
+DECL|class|ExchangeSendingEvent
 specifier|public
 class|class
-name|ExchangeSentEvent
+name|ExchangeSendingEvent
 extends|extends
 name|AbstractExchangeEvent
 block|{
@@ -62,7 +62,7 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|19248832613958123L
+literal|19248832613958122L
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -70,24 +70,15 @@ specifier|final
 name|Endpoint
 name|endpoint
 decl_stmt|;
-DECL|field|timeTaken
-specifier|private
-specifier|final
-name|long
-name|timeTaken
-decl_stmt|;
-DECL|method|ExchangeSentEvent (Exchange source, Endpoint endpoint, long timeTaken)
+DECL|method|ExchangeSendingEvent (Exchange source, Endpoint endpoint)
 specifier|public
-name|ExchangeSentEvent
+name|ExchangeSendingEvent
 parameter_list|(
 name|Exchange
 name|source
 parameter_list|,
 name|Endpoint
 name|endpoint
-parameter_list|,
-name|long
-name|timeTaken
 parameter_list|)
 block|{
 name|super
@@ -101,12 +92,6 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
-name|this
-operator|.
-name|timeTaken
-operator|=
-name|timeTaken
-expr_stmt|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public
@@ -116,16 +101,6 @@ parameter_list|()
 block|{
 return|return
 name|endpoint
-return|;
-block|}
-DECL|method|getTimeTaken ()
-specifier|public
-name|long
-name|getTimeTaken
-parameter_list|()
-block|{
-return|return
-name|timeTaken
 return|;
 block|}
 annotation|@
@@ -148,18 +123,12 @@ operator|+
 name|getExchange
 argument_list|()
 operator|+
-literal|" sent to: "
+literal|" is being sent to: "
 operator|+
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
-operator|+
-literal|" took: "
-operator|+
-name|timeTaken
-operator|+
-literal|" ms."
 return|;
 block|}
 block|}

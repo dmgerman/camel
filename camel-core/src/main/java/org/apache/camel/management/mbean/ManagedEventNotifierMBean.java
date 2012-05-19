@@ -141,6 +141,19 @@ name|boolean
 name|ignoreExchangeSentEvents
 parameter_list|)
 function_decl|;
+DECL|method|isIgnoreExchangeSendingEvents ()
+name|boolean
+name|isIgnoreExchangeSendingEvents
+parameter_list|()
+function_decl|;
+DECL|method|setIgnoreExchangeSendingEvents (boolean ignoreExchangeSendingEvents)
+name|void
+name|setIgnoreExchangeSendingEvents
+parameter_list|(
+name|boolean
+name|ignoreExchangeSendingEvents
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

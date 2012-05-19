@@ -118,6 +118,11 @@ specifier|private
 name|boolean
 name|ignoreExchangeRedeliveryEvents
 decl_stmt|;
+DECL|field|ignoreExchangeSendingEvents
+specifier|private
+name|boolean
+name|ignoreExchangeSendingEvents
+decl_stmt|;
 DECL|field|ignoreExchangeSentEvents
 specifier|private
 name|boolean
@@ -355,6 +360,32 @@ operator|.
 name|ignoreExchangeSentEvents
 operator|=
 name|ignoreExchangeSentEvents
+expr_stmt|;
+block|}
+DECL|method|isIgnoreExchangeSendingEvents ()
+specifier|public
+name|boolean
+name|isIgnoreExchangeSendingEvents
+parameter_list|()
+block|{
+return|return
+name|ignoreExchangeSendingEvents
+return|;
+block|}
+DECL|method|setIgnoreExchangeSendingEvents (boolean ignoreExchangeSendingEvents)
+specifier|public
+name|void
+name|setIgnoreExchangeSendingEvents
+parameter_list|(
+name|boolean
+name|ignoreExchangeSendingEvents
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreExchangeSendingEvents
+operator|=
+name|ignoreExchangeSendingEvents
 expr_stmt|;
 block|}
 block|}

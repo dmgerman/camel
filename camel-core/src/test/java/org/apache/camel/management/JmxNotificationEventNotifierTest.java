@@ -345,7 +345,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong number of events"
 argument_list|,
-literal|5
+literal|8
 argument_list|,
 name|listener
 operator|.
@@ -471,7 +471,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong number of events"
 argument_list|,
-literal|3
+literal|4
 argument_list|,
 name|listener
 operator|.

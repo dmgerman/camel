@@ -201,7 +201,7 @@ argument_list|(
 literal|"mock:event"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|4
 argument_list|)

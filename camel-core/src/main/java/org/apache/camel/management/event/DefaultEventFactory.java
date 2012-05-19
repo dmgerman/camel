@@ -414,6 +414,28 @@ name|attempt
 argument_list|)
 return|;
 block|}
+DECL|method|createExchangeSendingEvent (Exchange exchange, Endpoint endpoint)
+specifier|public
+name|EventObject
+name|createExchangeSendingEvent
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ExchangeSendingEvent
+argument_list|(
+name|exchange
+argument_list|,
+name|endpoint
+argument_list|)
+return|;
+block|}
 DECL|method|createExchangeSentEvent (Exchange exchange, Endpoint endpoint, long timeTaken)
 specifier|public
 name|EventObject
