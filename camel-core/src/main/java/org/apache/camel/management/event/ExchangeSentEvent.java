@@ -151,9 +151,6 @@ operator|+
 literal|" sent to: "
 operator|+
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
 operator|+
 literal|" took: "
 operator|+

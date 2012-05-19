@@ -456,9 +456,6 @@ return|return
 literal|"SedaConsumer["
 operator|+
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
 operator|+
 literal|"]"
 return|;

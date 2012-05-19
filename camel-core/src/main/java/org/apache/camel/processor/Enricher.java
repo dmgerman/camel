@@ -854,9 +854,6 @@ name|producer
 operator|.
 name|getEndpoint
 argument_list|()
-operator|.
-name|getEndpointUri
-argument_list|()
 operator|+
 literal|"]"
 return|;

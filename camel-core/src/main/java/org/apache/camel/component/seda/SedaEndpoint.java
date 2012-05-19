@@ -334,6 +334,20 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * An implementation of the<a  * href="http://camel.apache.org/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  */
 end_comment
@@ -788,8 +802,13 @@ name|newDefaultThreadPool
 argument_list|(
 name|this
 argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|getEndpointUri
 argument_list|()
+argument_list|)
 operator|+
 literal|"(multicast)"
 argument_list|)

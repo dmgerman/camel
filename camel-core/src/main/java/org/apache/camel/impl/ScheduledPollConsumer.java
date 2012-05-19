@@ -880,9 +880,6 @@ literal|" failed polling endpoint: "
 operator|+
 name|getEndpoint
 argument_list|()
-operator|.
-name|getEndpointUri
-argument_list|()
 operator|+
 literal|". Will try again at next poll"
 argument_list|,
@@ -915,9 +912,6 @@ operator|+
 literal|" failed polling endpoint: "
 operator|+
 name|getEndpoint
-argument_list|()
-operator|.
-name|getEndpointUri
 argument_list|()
 operator|+
 literal|". Will try again at next poll"

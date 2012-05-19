@@ -108,6 +108,20 @@ name|CamelLogger
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * DataSet consumer.  *  * @version   */
 end_comment
@@ -476,16 +490,27 @@ name|ThroughputLogger
 name|createReporter
 parameter_list|()
 block|{
+comment|// must sanitize uri to avoid logging sensitive information
+name|String
+name|uri
+init|=
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|CamelLogger
 name|logger
 init|=
 operator|new
 name|CamelLogger
 argument_list|(
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
+name|uri
 argument_list|)
 decl_stmt|;
 name|ThroughputLogger

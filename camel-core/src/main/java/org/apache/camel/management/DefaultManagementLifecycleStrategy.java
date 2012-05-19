@@ -1940,12 +1940,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not register Endpoint MBean for uri: "
+literal|"Could not register Endpoint MBean for endpoint: "
 operator|+
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -2001,12 +2000,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not unregister Endpoint MBean for uri: "
+literal|"Could not unregister Endpoint MBean for endpoint: "
 operator|+
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)

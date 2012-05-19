@@ -3019,7 +3019,9 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Endpoint '{}' matching pattern '{}' should be removed, but could not be stopped. Remove ignored..."
+literal|"Error stopping endpoint {}. This exception will be ignored."
+argument_list|,
+name|oldEndpoint
 argument_list|)
 expr_stmt|;
 block|}

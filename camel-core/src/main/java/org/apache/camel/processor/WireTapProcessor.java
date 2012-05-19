@@ -420,9 +420,6 @@ return|return
 literal|"WireTap["
 operator|+
 name|destination
-operator|.
-name|getEndpointUri
-argument_list|()
 operator|+
 literal|"]"
 return|;
@@ -439,9 +436,6 @@ return|return
 literal|"wireTap("
 operator|+
 name|destination
-operator|.
-name|getEndpointUri
-argument_list|()
 operator|+
 literal|")"
 return|;

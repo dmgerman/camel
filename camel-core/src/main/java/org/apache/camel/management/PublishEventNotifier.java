@@ -128,6 +128,20 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link org.apache.camel.spi.EventNotifier} which publishes the {@link EventObject} to some  * {@link org.apache.camel.Endpoint}.  *<p/>  * This notifier is only enabled when {@link CamelContext} is started. This avoids problems when  * sending notifications during start/shutdown of {@link CamelContext} which causes problems by  * sending those events to Camel routes by this notifier.  *  * @version   */
 end_comment
@@ -472,11 +486,13 @@ operator|!=
 literal|null
 condition|?
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
 else|:
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|endpointUri
+argument_list|)
 operator|)
 operator|+
 literal|"]"

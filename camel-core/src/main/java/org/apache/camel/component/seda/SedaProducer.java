@@ -144,6 +144,20 @@ name|ExchangeHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -526,14 +540,9 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"onDone at ["
+literal|"onDone at endpoint: "
 operator|+
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-operator|+
-literal|"]"
 return|;
 block|}
 block|}

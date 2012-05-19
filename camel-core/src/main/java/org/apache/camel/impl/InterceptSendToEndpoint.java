@@ -494,7 +494,7 @@ operator|new
 name|Object
 index|[]
 block|{
-name|getEndpointUri
+name|getEndpoint
 argument_list|()
 block|,
 name|detour
@@ -557,7 +557,7 @@ name|exchange
 argument_list|,
 literal|"skip sending to original intended destination: "
 operator|+
-name|getEndpointUri
+name|getEndpoint
 argument_list|()
 argument_list|,
 name|LOG
@@ -652,7 +652,7 @@ name|debug
 argument_list|(
 literal|"Stop() means skip sending exchange to original intended destination: {} for exchange: {}"
 argument_list|,
-name|getEndpointUri
+name|getEndpoint
 argument_list|()
 argument_list|,
 name|exchange

@@ -126,9 +126,6 @@ operator|+
 literal|" is being sent to: "
 operator|+
 name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
 return|;
 block|}
 block|}
