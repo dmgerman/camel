@@ -123,7 +123,7 @@ operator|+
 name|getExchange
 argument_list|()
 operator|+
-literal|" is being sent to: "
+literal|" sending to: "
 operator|+
 name|endpoint
 return|;

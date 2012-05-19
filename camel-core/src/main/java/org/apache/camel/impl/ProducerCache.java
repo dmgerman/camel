@@ -732,7 +732,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends an exchange to an endpoint using a supplied callback      *<p/>      * If an exception was thrown during processing, it would be set on the given Exchange      *      * @param endpoint  the endpoint to send the exchange to      * @param exchange  the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param pattern   the exchange pattern, can be<tt>null</tt>      * @param callback  the callback      * @return the response from the callback      */
+comment|/**      * Sends an exchange to an endpoint using a supplied callback, using the synchronous processing.      *<p/>      * If an exception was thrown during processing, it would be set on the given Exchange      *      * @param endpoint  the endpoint to send the exchange to      * @param exchange  the exchange, can be<tt>null</tt> if so then create a new exchange from the producer      * @param pattern   the exchange pattern, can be<tt>null</tt>      * @param callback  the callback      * @return the response from the callback      * @see #doInAsyncProducer(org.apache.camel.Endpoint, org.apache.camel.Exchange, org.apache.camel.ExchangePattern, org.apache.camel.AsyncCallback, org.apache.camel.AsyncProducerCallback)      */
 DECL|method|doInProducer (Endpoint endpoint, Exchange exchange, ExchangePattern pattern, ProducerCallback<T> callback)
 specifier|public
 parameter_list|<

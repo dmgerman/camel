@@ -2944,6 +2944,7 @@ operator|.
 name|getProcessor
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Producer
 name|producer
 init|=
@@ -2973,25 +2974,20 @@ else|:
 literal|null
 decl_stmt|;
 comment|// compute time taken if sending to another endpoint
+specifier|final
 name|StopWatch
 name|watch
 init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
 name|producer
 operator|!=
 literal|null
-condition|)
-block|{
-name|watch
-operator|=
+condition|?
 operator|new
 name|StopWatch
 argument_list|()
-expr_stmt|;
-block|}
+else|:
+literal|null
+decl_stmt|;
 try|try
 block|{
 comment|// prepare tracing starting from a new block
@@ -3077,6 +3073,48 @@ operator|.
 name|done
 argument_list|()
 expr_stmt|;
+comment|// okay we are done, so notify the exchange was sent
+if|if
+condition|(
+name|producer
+operator|!=
+literal|null
+condition|)
+block|{
+name|long
+name|timeTaken
+init|=
+name|watch
+operator|.
+name|stop
+argument_list|()
+decl_stmt|;
+name|Endpoint
+name|endpoint
+init|=
+name|producer
+operator|.
+name|getEndpoint
+argument_list|()
+decl_stmt|;
+comment|// emit event that the exchange was sent to the endpoint
+name|EventHelper
+operator|.
+name|notifyExchangeSent
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|endpoint
+argument_list|,
+name|timeTaken
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we only have to handle async completion of the routing slip
 if|if
 condition|(
@@ -3522,47 +3560,6 @@ name|popBlock
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|producer
-operator|!=
-literal|null
-condition|)
-block|{
-name|long
-name|timeTaken
-init|=
-name|watch
-operator|.
-name|stop
-argument_list|()
-decl_stmt|;
-name|Endpoint
-name|endpoint
-init|=
-name|producer
-operator|.
-name|getEndpoint
-argument_list|()
-decl_stmt|;
-comment|// emit event that the exchange was sent to the endpoint
-name|EventHelper
-operator|.
-name|notifyExchangeSent
-argument_list|(
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-argument_list|,
-name|exchange
-argument_list|,
-name|endpoint
-argument_list|,
-name|timeTaken
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|sync
@@ -3687,7 +3684,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// let the prepared process it, remember to begin the exchange pair
-comment|// we invoke it synchronously as parallel async routing is too hard
 name|AsyncProcessor
 name|async
 init|=
@@ -3703,6 +3699,7 @@ operator|.
 name|begin
 argument_list|()
 expr_stmt|;
+comment|// we invoke it synchronously as parallel async routing is too hard
 name|AsyncProcessorHelper
 operator|.
 name|process
@@ -3758,6 +3755,8 @@ name|getEndpoint
 argument_list|()
 decl_stmt|;
 comment|// emit event that the exchange was sent to the endpoint
+comment|// this is okay to do here in the finally block, as the processing is not using the async routing engine
+comment|//( we invoke it synchronously as parallel async routing is too hard)
 name|EventHelper
 operator|.
 name|notifyExchangeSent
