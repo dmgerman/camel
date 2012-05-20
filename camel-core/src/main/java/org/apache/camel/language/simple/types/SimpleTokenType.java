@@ -118,6 +118,21 @@ operator|.
 name|eol
 return|;
 block|}
+comment|/**      * Whether the type is escape      */
+DECL|method|isEscape ()
+specifier|public
+name|boolean
+name|isEscape
+parameter_list|()
+block|{
+return|return
+name|type
+operator|==
+name|TokenType
+operator|.
+name|escape
+return|;
+block|}
 comment|/**      * Whether the type is single quote      */
 DECL|method|isSingleQuote ()
 specifier|public

@@ -51,6 +51,9 @@ name|singleQuote
 block|,
 name|doubleQuote
 block|,
+DECL|enumConstant|escape
+name|escape
+block|,
 DECL|enumConstant|functionStart
 DECL|enumConstant|functionEnd
 name|functionStart
