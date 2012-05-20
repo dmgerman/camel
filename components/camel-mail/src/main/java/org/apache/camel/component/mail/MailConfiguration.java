@@ -213,6 +213,11 @@ specifier|private
 name|boolean
 name|delete
 decl_stmt|;
+DECL|field|copyTo
+specifier|private
+name|String
+name|copyTo
+decl_stmt|;
 DECL|field|unseen
 specifier|private
 name|boolean
@@ -1962,6 +1967,32 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getCopyTo ()
+specifier|public
+name|String
+name|getCopyTo
+parameter_list|()
+block|{
+return|return
+name|copyTo
+return|;
+block|}
+DECL|method|setCopyTo (String copyTo)
+specifier|public
+name|void
+name|setCopyTo
+parameter_list|(
+name|String
+name|copyTo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|copyTo
+operator|=
+name|copyTo
 expr_stmt|;
 block|}
 block|}
