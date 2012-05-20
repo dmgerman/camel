@@ -642,6 +642,55 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// prefer to lookup queue from component, so if this endpoint is re-created or re-started
+comment|// then the existing queue from the component can be used, so new producers and consumers
+comment|// can use the already existing queue referenced from the component
+if|if
+condition|(
+name|getComponent
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|queue
+operator|=
+name|getComponent
+argument_list|()
+operator|.
+name|getOrCreateQueue
+argument_list|(
+name|getEndpointUri
+argument_list|()
+argument_list|,
+name|getSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// fallback and create queue (as this endpoint has no component)
+name|queue
+operator|=
+name|createQueue
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+return|return
+name|queue
+return|;
+block|}
+DECL|method|createQueue ()
+specifier|protected
+name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
+name|createQueue
+parameter_list|()
+block|{
 if|if
 condition|(
 name|size
@@ -649,8 +698,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|queue
-operator|=
+return|return
 operator|new
 name|LinkedBlockingQueue
 argument_list|<
@@ -659,24 +707,19 @@ argument_list|>
 argument_list|(
 name|size
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
-name|queue
-operator|=
+return|return
 operator|new
 name|LinkedBlockingQueue
 argument_list|<
 name|Exchange
 argument_list|>
 argument_list|()
-expr_stmt|;
-block|}
-block|}
-return|return
-name|queue
 return|;
+block|}
 block|}
 DECL|method|getConsumerMulticastProcessor ()
 specifier|protected
@@ -1801,6 +1844,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|// clear queue, as we are shutdown, so if re-created then the queue must be updated
+name|queue
+operator|=
+literal|null
+expr_stmt|;
 name|super
 operator|.
 name|doShutdown
