@@ -116,6 +116,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// do not test on windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 comment|// test by starting the unit test FileAsyncStressFileDropper in another JVM
 name|MockEndpoint
 name|mock

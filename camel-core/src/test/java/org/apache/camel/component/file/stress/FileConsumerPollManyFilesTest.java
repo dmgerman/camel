@@ -105,6 +105,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// do not test on windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|deleteDirectory
 argument_list|(
 literal|"target/manyfiles"
@@ -174,6 +185,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// do not test on windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|context
 operator|.
 name|addRoutes

@@ -125,6 +125,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// do not test on windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|super
 operator|.
 name|setUp
@@ -177,6 +188,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// do not test on windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 comment|// start route when all the files have been written
 name|context
 operator|.
