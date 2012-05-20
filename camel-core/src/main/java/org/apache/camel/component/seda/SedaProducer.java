@@ -641,19 +641,19 @@ name|timeout
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// count down to indicate timeout
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
-comment|// remove   timed out Exchange from queue
+comment|// remove timed out Exchange from queue
 name|queue
 operator|.
 name|remove
 argument_list|(
 name|copy
 argument_list|)
+expr_stmt|;
+comment|// count down to indicate timeout
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}
