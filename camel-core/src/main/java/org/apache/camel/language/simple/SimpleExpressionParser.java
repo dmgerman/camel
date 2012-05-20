@@ -40,6 +40,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -460,6 +474,14 @@ name|parseAndCreateAstModel
 parameter_list|()
 block|{
 comment|// we loop the tokens and create a sequence of ast nodes
+comment|// counter to keep track of number of functions in the tokens
+name|AtomicInteger
+name|functions
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 name|LiteralNode
 name|imageToken
 init|=
@@ -494,6 +516,8 @@ init|=
 name|createNode
 argument_list|(
 name|token
+argument_list|,
+name|functions
 argument_list|)
 decl_stmt|;
 if|if
@@ -580,13 +604,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createNode (SimpleToken token)
+DECL|method|createNode (SimpleToken token, AtomicInteger functions)
 specifier|private
 name|SimpleNode
 name|createNode
 parameter_list|(
 name|SimpleToken
 name|token
+parameter_list|,
+name|AtomicInteger
+name|functions
 parameter_list|)
 block|{
 comment|// expression only support functions and unary operators
@@ -601,6 +628,12 @@ name|isFunctionStart
 argument_list|()
 condition|)
 block|{
+comment|// starting a new function
+name|functions
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|SimpleFunctionStart
@@ -612,6 +645,13 @@ block|}
 elseif|else
 if|if
 condition|(
+name|functions
+operator|.
+name|get
+argument_list|()
+operator|>
+literal|0
+operator|&&
 name|token
 operator|.
 name|getType
@@ -621,6 +661,12 @@ name|isFunctionEnd
 argument_list|()
 condition|)
 block|{
+comment|// there must be a start function already, to let this be a end function
+name|functions
+operator|.
+name|decrementAndGet
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|SimpleFunctionEnd
