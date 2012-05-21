@@ -123,12 +123,19 @@ name|SimpleLanguage
 argument_list|()
 decl_stmt|;
 DECL|field|resultType
-specifier|private
+specifier|protected
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|resultType
+decl_stmt|;
+DECL|field|allowEscape
+specifier|protected
+name|boolean
+name|allowEscape
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Default constructor.      */
 DECL|method|SimpleLanguage ()
@@ -166,6 +173,32 @@ operator|.
 name|resultType
 operator|=
 name|resultType
+expr_stmt|;
+block|}
+DECL|method|isAllowEscape ()
+specifier|public
+name|boolean
+name|isAllowEscape
+parameter_list|()
+block|{
+return|return
+name|allowEscape
+return|;
+block|}
+DECL|method|setAllowEscape (boolean allowEscape)
+specifier|public
+name|void
+name|setAllowEscape
+parameter_list|(
+name|boolean
+name|allowEscape
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowEscape
+operator|=
+name|allowEscape
 expr_stmt|;
 block|}
 annotation|@
@@ -221,6 +254,8 @@ operator|.
 name|parsePredicate
 argument_list|(
 name|expression
+argument_list|,
+name|allowEscape
 argument_list|)
 decl_stmt|;
 if|if
@@ -238,6 +273,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 name|expression
+argument_list|,
+name|allowEscape
 argument_list|)
 decl_stmt|;
 name|answer
@@ -292,6 +329,8 @@ operator|.
 name|parseExpression
 argument_list|(
 name|expression
+argument_list|,
+name|allowEscape
 argument_list|)
 decl_stmt|;
 if|if
@@ -309,6 +348,8 @@ operator|new
 name|SimpleExpressionParser
 argument_list|(
 name|expression
+argument_list|,
+name|allowEscape
 argument_list|)
 decl_stmt|;
 name|answer

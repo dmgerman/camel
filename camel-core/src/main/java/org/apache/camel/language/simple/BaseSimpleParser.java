@@ -274,12 +274,22 @@ specifier|protected
 name|int
 name|index
 decl_stmt|;
-DECL|method|BaseSimpleParser (String expression)
+DECL|field|allowEscape
+specifier|protected
+name|boolean
+name|allowEscape
+init|=
+literal|true
+decl_stmt|;
+DECL|method|BaseSimpleParser (String expression, boolean allowEscape)
 specifier|protected
 name|BaseSimpleParser
 parameter_list|(
 name|String
 name|expression
+parameter_list|,
+name|boolean
+name|allowEscape
 parameter_list|)
 block|{
 name|this
@@ -287,6 +297,12 @@ operator|.
 name|expression
 operator|=
 name|expression
+expr_stmt|;
+name|this
+operator|.
+name|allowEscape
+operator|=
+name|allowEscape
 expr_stmt|;
 block|}
 comment|/**      * Advances the parser position to the next known {@link SimpleToken}      * in the input.      */
@@ -316,6 +332,8 @@ argument_list|(
 name|expression
 argument_list|,
 name|index
+argument_list|,
+name|allowEscape
 argument_list|)
 decl_stmt|;
 comment|// add token
@@ -397,6 +415,8 @@ argument_list|(
 name|expression
 argument_list|,
 name|index
+argument_list|,
+name|allowEscape
 argument_list|,
 name|filter
 argument_list|)

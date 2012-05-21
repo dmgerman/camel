@@ -756,8 +756,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create the next token      *      * @param expression  the input expression      * @param index       the current index      * @param filter      defines the accepted token types to be returned (character is always used as fallback)      * @return the created token, will always return a token      */
-DECL|method|nextToken (String expression, int index, TokenType... filter)
+comment|/**      * Create the next token      *      * @param expression  the input expression      * @param index       the current index      * @param allowEscape whether to allow escapes      * @param filter      defines the accepted token types to be returned (character is always used as fallback)      * @return the created token, will always return a token      */
+DECL|method|nextToken (String expression, int index, boolean allowEscape, TokenType... filter)
 specifier|public
 specifier|static
 name|SimpleToken
@@ -768,6 +768,9 @@ name|expression
 parameter_list|,
 name|int
 name|index
+parameter_list|,
+name|boolean
+name|allowEscape
 parameter_list|,
 name|TokenType
 modifier|...
@@ -781,12 +784,14 @@ name|expression
 argument_list|,
 name|index
 argument_list|,
+name|allowEscape
+argument_list|,
 name|filter
 argument_list|)
 return|;
 block|}
-comment|/**      * Create the next token      *      * @param expression  the input expression      * @param index       the current index      * @return the created token, will always return a token      */
-DECL|method|nextToken (String expression, int index)
+comment|/**      * Create the next token      *      * @param expression  the input expression      * @param index       the current index      * @param allowEscape whether to allow escapes      * @return the created token, will always return a token      */
+DECL|method|nextToken (String expression, int index, boolean allowEscape)
 specifier|public
 specifier|static
 name|SimpleToken
@@ -797,6 +802,9 @@ name|expression
 parameter_list|,
 name|int
 name|index
+parameter_list|,
+name|boolean
+name|allowEscape
 parameter_list|)
 block|{
 return|return
@@ -805,10 +813,12 @@ argument_list|(
 name|expression
 argument_list|,
 name|index
+argument_list|,
+name|allowEscape
 argument_list|)
 return|;
 block|}
-DECL|method|doNextToken (String expression, int index, TokenType... filters)
+DECL|method|doNextToken (String expression, int index, boolean allowEscape, TokenType... filters)
 specifier|private
 specifier|static
 name|SimpleToken
@@ -819,6 +829,9 @@ name|expression
 parameter_list|,
 name|int
 name|index
+parameter_list|,
+name|boolean
+name|allowEscape
 parameter_list|,
 name|TokenType
 modifier|...
@@ -1005,6 +1018,8 @@ block|}
 name|boolean
 name|escapeAllowed
 init|=
+name|allowEscape
+operator|&&
 name|acceptType
 argument_list|(
 name|TokenType

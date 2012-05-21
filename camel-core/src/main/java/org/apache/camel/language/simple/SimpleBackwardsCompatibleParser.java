@@ -148,7 +148,7 @@ parameter_list|()
 block|{
 comment|// static methods
 block|}
-DECL|method|parseExpression (String expression)
+DECL|method|parseExpression (String expression, boolean allowEscape)
 specifier|public
 specifier|static
 name|Expression
@@ -156,16 +156,21 @@ name|parseExpression
 parameter_list|(
 name|String
 name|expression
+parameter_list|,
+name|boolean
+name|allowEscape
 parameter_list|)
 block|{
 return|return
 name|doParseExpression
 argument_list|(
 name|expression
+argument_list|,
+name|allowEscape
 argument_list|)
 return|;
 block|}
-DECL|method|parsePredicate (String expression)
+DECL|method|parsePredicate (String expression, boolean allowEscape)
 specifier|public
 specifier|static
 name|Predicate
@@ -173,6 +178,9 @@ name|parsePredicate
 parameter_list|(
 name|String
 name|expression
+parameter_list|,
+name|boolean
+name|allowEscape
 parameter_list|)
 block|{
 name|Expression
@@ -181,6 +189,8 @@ init|=
 name|doParseExpression
 argument_list|(
 name|expression
+argument_list|,
+name|allowEscape
 argument_list|)
 decl_stmt|;
 if|if
@@ -206,7 +216,7 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|doParseExpression (String expression)
+DECL|method|doParseExpression (String expression, boolean allowEscape)
 specifier|private
 specifier|static
 name|Expression
@@ -214,6 +224,9 @@ name|doParseExpression
 parameter_list|(
 name|String
 name|expression
+parameter_list|,
+name|boolean
+name|allowEscape
 parameter_list|)
 block|{
 comment|// should have no function tokens
@@ -245,6 +258,8 @@ argument_list|(
 name|expression
 argument_list|,
 name|i
+argument_list|,
+name|allowEscape
 argument_list|,
 name|TokenType
 operator|.

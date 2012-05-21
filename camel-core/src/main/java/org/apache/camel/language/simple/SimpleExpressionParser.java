@@ -270,6 +270,8 @@ name|SimpleExpressionParser
 extends|extends
 name|BaseSimpleParser
 block|{
+annotation|@
+name|Deprecated
 DECL|method|SimpleExpressionParser (String expression)
 specifier|public
 name|SimpleExpressionParser
@@ -281,6 +283,27 @@ block|{
 name|super
 argument_list|(
 name|expression
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SimpleExpressionParser (String expression, boolean allowEscape)
+specifier|public
+name|SimpleExpressionParser
+parameter_list|(
+name|String
+name|expression
+parameter_list|,
+name|boolean
+name|allowEscape
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|,
+name|allowEscape
 argument_list|)
 expr_stmt|;
 block|}

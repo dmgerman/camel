@@ -981,6 +981,36 @@ literal|"backup-generatorbybean.txt"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNoEscapeAllowed ()
+specifier|public
+name|void
+name|testNoEscapeAllowed
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"hello.txt"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"target\\newdir\\onwindows\\${file:name}"
+argument_list|,
+literal|"target\\newdir\\onwindows\\hello.txt"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createExchange ()
 specifier|public
 name|Exchange
