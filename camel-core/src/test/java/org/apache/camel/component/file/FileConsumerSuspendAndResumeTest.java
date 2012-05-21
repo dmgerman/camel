@@ -218,12 +218,10 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Thread
+name|oneExchangeDone
 operator|.
-name|sleep
-argument_list|(
-literal|250
-argument_list|)
+name|matchesMockWaitTime
+argument_list|()
 expr_stmt|;
 comment|// the route is suspended by the policy so we should only receive one
 name|String
