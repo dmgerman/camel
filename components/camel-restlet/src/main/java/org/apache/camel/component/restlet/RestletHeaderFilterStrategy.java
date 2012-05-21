@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultHeaderFilterStrategy
@@ -70,6 +82,18 @@ argument_list|(
 name|RestletConstants
 operator|.
 name|RESTLET_PASSWORD
+argument_list|)
+expr_stmt|;
+comment|// The "CamelAcceptContentType" header is not added to the outgoing HTTP
+comment|// headers but it will be going out as "Accept.
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|Exchange
+operator|.
+name|ACCEPT_CONTENT_TYPE
 argument_list|)
 expr_stmt|;
 block|}
