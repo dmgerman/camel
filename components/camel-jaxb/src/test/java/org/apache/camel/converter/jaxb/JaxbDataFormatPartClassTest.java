@@ -219,11 +219,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 name|payload
 argument_list|)
