@@ -279,6 +279,51 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testSplitTokenizerF ()
+specifier|public
+name|void
+name|testSplitTokenizerF
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:split"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"<person name=\"Claus\"/>"
+argument_list|,
+literal|"<person>James</person>"
+argument_list|,
+literal|"<person>Willem</person>"
+argument_list|)
+expr_stmt|;
+name|String
+name|xml
+init|=
+literal|"<persons><person/><person name=\"Claus\"/><person>James</person><person>Willem</person></persons>"
+decl_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:f"
+argument_list|,
+name|xml
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -396,6 +441,34 @@ operator|.
 name|tokenizeXML
 argument_list|(
 literal|"person"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:split"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:f"
+argument_list|)
+operator|.
+name|split
+argument_list|()
+operator|.
+name|xpath
+argument_list|(
+literal|"//person"
+argument_list|)
+comment|// To test the body is not empty
+comment|// it will call the ObjectHelper.evaluateValuePredicate()
+operator|.
+name|filter
+argument_list|()
+operator|.
+name|simple
+argument_list|(
+literal|"${body}"
 argument_list|)
 operator|.
 name|to
