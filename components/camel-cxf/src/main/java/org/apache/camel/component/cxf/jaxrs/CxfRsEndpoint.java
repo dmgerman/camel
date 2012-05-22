@@ -36,6 +36,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -818,7 +828,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// TODO: a bit odd that this endpoint supports multiple resource classes, but cfb only supports one class
 name|cfb
 operator|.
 name|setResourceClass
@@ -830,6 +839,17 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|cfb
+operator|.
+name|getServiceFactory
+argument_list|()
+operator|.
+name|setResourceClasses
+argument_list|(
+name|getResourceClasses
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1192,6 +1212,30 @@ operator|.
 name|resourceClasses
 operator|=
 name|resourceClasses
+expr_stmt|;
+block|}
+DECL|method|setResourceClasses (Class<?>.... classes)
+specifier|public
+name|void
+name|setResourceClasses
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+modifier|...
+name|classes
+parameter_list|)
+block|{
+name|setResourceClasses
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|classes
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setAddress (String address)
