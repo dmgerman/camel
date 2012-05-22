@@ -200,6 +200,11 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|repo
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|tearDown ()
 specifier|public
@@ -209,6 +214,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|repo
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|tearDown
