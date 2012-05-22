@@ -783,24 +783,6 @@ argument_list|(
 name|working
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|working
-operator|.
-name|exists
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|Exception
-argument_list|(
-literal|"Could not delete Test Zookeeper Server working dir "
-operator|+
-name|zookeeperBaseDir
-argument_list|)
-throw|;
-block|}
 block|}
 DECL|method|shutdown ()
 specifier|public
@@ -846,7 +828,9 @@ literal|100
 argument_list|)
 expr_stmt|;
 block|}
-comment|//cleanZookeeperDir();
+name|cleanZookeeperDir
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|class|TestZookeeperClient
