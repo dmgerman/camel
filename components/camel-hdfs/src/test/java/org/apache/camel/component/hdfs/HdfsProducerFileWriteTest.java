@@ -298,14 +298,7 @@ specifier|final
 name|boolean
 name|SKIP
 init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.vendor"
-argument_list|)
-operator|.
-name|contains
+name|isJavaVendor
 argument_list|(
 literal|"IBM"
 argument_list|)
@@ -331,6 +324,11 @@ name|super
 operator|.
 name|setUp
 argument_list|()
+expr_stmt|;
+name|deleteDirectory
+argument_list|(
+literal|"target/test"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -1203,7 +1201,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/test/test-camel-simple-write-file1"
+literal|"target/test/test-camel-simple-write-file3"
 argument_list|)
 operator|.
 name|getAbsolutePath
@@ -1388,7 +1386,7 @@ name|Reader
 argument_list|(
 name|fs1
 argument_list|,
-literal|"target/test/test-camel-simple-write-file1"
+literal|"target/test/test-camel-simple-write-file3"
 argument_list|,
 name|conf
 argument_list|)
@@ -1508,7 +1506,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"target/test/test-camel-simple-write-file1"
+literal|"target/test/test-camel-simple-write-file4"
 argument_list|)
 operator|.
 name|getAbsolutePath
