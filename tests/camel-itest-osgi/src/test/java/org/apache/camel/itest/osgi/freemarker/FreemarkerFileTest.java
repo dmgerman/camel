@@ -147,7 +147,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"../../src/test/resources/org/apache/camel/itest/osgi/freemarker/example.ftl"
+literal|"../../../src/test/resources/org/apache/camel/itest/osgi/freemarker/example.ftl"
 argument_list|)
 decl_stmt|;
 name|File

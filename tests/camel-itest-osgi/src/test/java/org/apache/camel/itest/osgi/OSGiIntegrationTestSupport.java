@@ -905,9 +905,11 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Using working directory: "
+literal|"*** Using working directory: "
 operator|+
 name|workDir
+operator|+
+literal|" ***"
 argument_list|)
 expr_stmt|;
 name|Option

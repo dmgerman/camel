@@ -147,7 +147,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"../../src/test/resources/org/apache/camel/itest/osgi/velocity/example.vm"
+literal|"../../../src/test/resources/org/apache/camel/itest/osgi/velocity/example.vm"
 argument_list|)
 decl_stmt|;
 name|File
