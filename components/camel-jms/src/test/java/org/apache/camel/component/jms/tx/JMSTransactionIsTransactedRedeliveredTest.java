@@ -327,6 +327,14 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// check JMX stats
+comment|// need a little sleep to ensure JMX is updated
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|ObjectName
 name|name
 init|=
