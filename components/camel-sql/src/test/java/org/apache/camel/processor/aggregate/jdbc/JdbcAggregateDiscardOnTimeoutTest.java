@@ -157,12 +157,12 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 3 seconds
+comment|// wait 4 seconds
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|4000
 argument_list|)
 expr_stmt|;
 name|mock
@@ -285,7 +285,7 @@ name|aggregationRepository
 argument_list|(
 name|repo
 argument_list|)
-comment|// use a 3 second timeout
+comment|// use a 2 second timeout
 operator|.
 name|completionTimeout
 argument_list|(
