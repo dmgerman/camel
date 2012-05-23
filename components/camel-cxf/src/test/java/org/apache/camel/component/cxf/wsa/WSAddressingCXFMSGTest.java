@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf.feature
+DECL|package|org.apache.camel.component.cxf.wsa
 package|package
 name|org
 operator|.
@@ -16,24 +16,34 @@ name|component
 operator|.
 name|cxf
 operator|.
-name|feature
+name|wsa
 package|;
 end_package
 
-begin_comment
-comment|/**  *<p>  * MessageDataFormatFeature sets up the CXF endpoint interceptor for handling the  * Message in Message data format.  Only the interceptors of these phases are  *<b>preserved</b>:  *</p>  *<p>  * In phases: {Phase.RECEIVE , Phase.INVOKE, Phase.POST_INVOKE}  *</p>  *<p>  * Out phases: {Phase.PREPARE_SEND, Phase.WRITE, Phase.SEND, Phase.PREPARE_SEND_ENDING}  *</p>  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
+name|ContextConfiguration
+import|;
+end_import
 
 begin_class
 annotation|@
-name|Deprecated
-DECL|class|MessageDataFormatFeature
+name|ContextConfiguration
+DECL|class|WSAddressingCXFMSGTest
 specifier|public
 class|class
-name|MessageDataFormatFeature
+name|WSAddressingCXFMSGTest
 extends|extends
-name|RAWDataFormatFeature
-block|{ }
+name|WSAddressingTest
+block|{  }
 end_class
 
 end_unit

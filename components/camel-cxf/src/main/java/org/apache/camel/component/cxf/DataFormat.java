@@ -54,7 +54,7 @@ return|;
 block|}
 block|}
 block|,
-comment|/**      * CXF_MESSAGE is the message that is received from the transport layer      * and then processed through the full set of CXF interceptors.  This       * provides the same functionality as the CXF MESSAGE mode providers.      * Streaming and non-streaming are both supported.      */
+comment|/**      * CXF_MESSAGE is the message that is received from the transport layer      * and then processed through the full set of CXF interceptors.  This       * provides the same functionality as the CXF MESSAGE mode providers.      */
 DECL|enumConstant|CXF_MESSAGE
 name|CXF_MESSAGE
 block|,
