@@ -1254,7 +1254,7 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-comment|// done the uow on the copy
+comment|// done the uow on the completions
 name|UnitOfWorkHelper
 operator|.
 name|doneSynchronizations
