@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|BlockingQueue
@@ -240,6 +250,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Synchronization
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -299,6 +323,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnitOfWorkHelper
 import|;
 end_import
 
@@ -1085,11 +1123,12 @@ name|newExchange
 return|;
 block|}
 comment|/**      * Send the given {@link Exchange} to the consumer(s).      *<p/>      * If multiple consumers then they will each receive a copy of the Exchange.      * A multicast processor will send the exchange in parallel to the multiple consumers.      *<p/>      * If there is only a single consumer then its dispatched directly to it using same thread.      *       * @param exchange the exchange      * @throws Exception can be thrown if processing of the exchange failed      */
-DECL|method|sendToConsumers (Exchange exchange)
+DECL|method|sendToConsumers (final Exchange exchange)
 specifier|protected
 name|void
 name|sendToConsumers
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -1161,6 +1200,19 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|// handover completions, as we need to done this when the multicast is done
+specifier|final
+name|List
+argument_list|<
+name|Synchronization
+argument_list|>
+name|completions
+init|=
+name|exchange
+operator|.
+name|handoverCompletions
+argument_list|()
+decl_stmt|;
 comment|// use a multicast processor to process it
 name|MulticastProcessor
 name|mp
@@ -1202,7 +1254,18 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-comment|// noop
+comment|// done the uow on the copy
+name|UnitOfWorkHelper
+operator|.
+name|doneSynchronizations
+argument_list|(
+name|exchange
+argument_list|,
+name|completions
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
