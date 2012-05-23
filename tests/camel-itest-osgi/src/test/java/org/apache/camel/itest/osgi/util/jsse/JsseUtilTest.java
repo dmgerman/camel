@@ -431,7 +431,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"../test-classes/org/apache/camel/itest/osgi/util/jsse/localhost.ks"
+literal|"../../test-classes/org/apache/camel/itest/osgi/util/jsse/localhost.ks"
 argument_list|)
 decl_stmt|;
 name|ksp
