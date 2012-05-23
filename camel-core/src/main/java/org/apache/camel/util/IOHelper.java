@@ -884,6 +884,13 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|channel
+operator|!=
+literal|null
+condition|)
+block|{
 name|channel
 operator|.
 name|force
@@ -891,6 +898,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
