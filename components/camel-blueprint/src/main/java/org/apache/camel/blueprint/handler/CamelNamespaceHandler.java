@@ -368,18 +368,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContextAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|EndpointInject
 import|;
 end_import
@@ -3848,49 +3836,8 @@ argument_list|,
 name|beanName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|bean
-operator|instanceof
-name|CamelContextAware
-condition|)
-block|{
-operator|(
-operator|(
-name|CamelContextAware
-operator|)
-name|bean
-operator|)
-operator|.
-name|setCamelContext
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|bean
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-operator|(
-name|CamelContext
-operator|)
-name|blueprintContainer
-operator|.
-name|getComponentInstance
-argument_list|(
-name|camelContextName
-argument_list|)
 return|;
 block|}
 comment|/**          * A strategy method to allow implementations to perform some custom JBI          * based injection of the POJO          *          * @param bean the bean to be injected          */
@@ -4528,16 +4475,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|afterInit (Object o, String s, BeanCreator beanCreator, BeanMetadata beanMetadata)
+DECL|method|afterInit (Object bean, String beanName, BeanCreator beanCreator, BeanMetadata beanMetadata)
 specifier|public
 name|Object
 name|afterInit
 parameter_list|(
 name|Object
-name|o
+name|bean
 parameter_list|,
 name|String
-name|s
+name|beanName
 parameter_list|,
 name|BeanCreator
 name|beanCreator
@@ -4547,31 +4494,31 @@ name|beanMetadata
 parameter_list|)
 block|{
 return|return
-name|o
+name|bean
 return|;
 block|}
-DECL|method|beforeDestroy (Object o, String s)
+DECL|method|beforeDestroy (Object bean, String beanName)
 specifier|public
 name|void
 name|beforeDestroy
 parameter_list|(
 name|Object
-name|o
+name|bean
 parameter_list|,
 name|String
-name|s
+name|beanName
 parameter_list|)
 block|{         }
-DECL|method|afterDestroy (Object o, String s)
+DECL|method|afterDestroy (Object bean, String beanName)
 specifier|public
 name|void
 name|afterDestroy
 parameter_list|(
 name|Object
-name|o
+name|bean
 parameter_list|,
 name|String
-name|s
+name|beanName
 parameter_list|)
 block|{         }
 block|}

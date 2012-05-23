@@ -149,6 +149,8 @@ operator|=
 operator|new
 name|ManagedManagementStrategy
 argument_list|(
+name|context
+argument_list|,
 operator|new
 name|DefaultManagementAgent
 argument_list|(
@@ -221,7 +223,9 @@ name|answer
 operator|=
 operator|new
 name|DefaultManagementStrategy
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 block|}
 return|return

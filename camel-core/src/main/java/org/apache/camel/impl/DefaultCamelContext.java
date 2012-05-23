@@ -7969,11 +7969,39 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// start management strategy before lifecycles are started
+name|ManagementStrategy
+name|managementStrategy
+init|=
 name|getManagementStrategy
 argument_list|()
+decl_stmt|;
+comment|// inject CamelContext if aware
+if|if
+condition|(
+name|managementStrategy
+operator|instanceof
+name|CamelContextAware
+condition|)
+block|{
+operator|(
+operator|(
+name|CamelContextAware
+operator|)
+name|managementStrategy
+operator|)
 operator|.
-name|start
-argument_list|()
+name|setCamelContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|managementStrategy
+argument_list|)
 expr_stmt|;
 comment|// start lifecycle strategies
 name|ServiceHelper

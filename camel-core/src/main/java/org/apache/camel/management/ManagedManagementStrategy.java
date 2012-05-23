@@ -324,24 +324,8 @@ specifier|public
 name|ManagedManagementStrategy
 parameter_list|()
 block|{     }
-DECL|method|ManagedManagementStrategy (CamelContext camelContext)
-specifier|public
-name|ManagedManagementStrategy
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|this
-argument_list|(
-operator|new
-name|DefaultManagementAgent
-argument_list|(
-name|camelContext
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+annotation|@
+name|Deprecated
 DECL|method|ManagedManagementStrategy (ManagementAgent managementAgent)
 specifier|public
 name|ManagedManagementStrategy
@@ -350,6 +334,28 @@ name|ManagementAgent
 name|managementAgent
 parameter_list|)
 block|{
+name|setManagementAgent
+argument_list|(
+name|managementAgent
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ManagedManagementStrategy (CamelContext camelContext, ManagementAgent managementAgent)
+specifier|public
+name|ManagedManagementStrategy
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|ManagementAgent
+name|managementAgent
+parameter_list|)
+block|{
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|setManagementAgent
 argument_list|(
 name|managementAgent
