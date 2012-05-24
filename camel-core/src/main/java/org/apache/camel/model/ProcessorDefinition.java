@@ -3904,7 +3904,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Set the route id for this route      *      * @param id  the route id      * @return the builder      */
+comment|/**      * Set the route id for this route.      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param id  the route id, should be unique      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

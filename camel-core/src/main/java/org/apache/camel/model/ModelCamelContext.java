@@ -109,7 +109,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a collection of route definitions to the context      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
+comment|/**      * Adds a collection of route definitions to the context      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link org.apache.camel.model.ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param routeDefinitions the route(s) definition to add      * @throws Exception if the route definitions could not be created for whatever reason      */
 DECL|method|addRouteDefinitions (Collection<RouteDefinition> routeDefinitions)
 name|void
 name|addRouteDefinitions
@@ -123,7 +123,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Add a route definition to the context      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      */
+comment|/**      * Add a route definition to the context      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link org.apache.camel.model.ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param routeDefinition the route definition to add      * @throws Exception if the route definition could not be created for whatever reason      */
 DECL|method|addRouteDefinition (RouteDefinition routeDefinition)
 name|void
 name|addRouteDefinition
