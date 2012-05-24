@@ -174,6 +174,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -250,6 +260,11 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Causes processes to not cleanly shutdown"
+argument_list|)
 DECL|class|ZookeeperOSGiTest
 specifier|public
 class|class
@@ -257,6 +272,7 @@ name|ZookeeperOSGiTest
 extends|extends
 name|ZookeeperOSGiTestSupport
 block|{
+comment|// TODO: Should not use hardcoded port numbers, but the AvailablePortFinder
 DECL|field|zookeeperUri
 specifier|private
 name|String
