@@ -106,6 +106,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|IdentifiedType
@@ -199,6 +211,7 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 block|{
+comment|// when getting CamelContext then we assume it must exists
 if|if
 condition|(
 name|camelContext
@@ -217,6 +230,23 @@ argument_list|(
 name|camelContextId
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|camelContext
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Cannot find CamelContext with id: "
+operator|+
+name|camelContextId
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
