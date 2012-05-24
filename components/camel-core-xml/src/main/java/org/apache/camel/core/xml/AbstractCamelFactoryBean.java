@@ -166,6 +166,17 @@ name|String
 name|camelContextId
 parameter_list|)
 function_decl|;
+comment|/**      * If no explicit camelContext or camelContextId has been set      * then try to discover a default {@link CamelContext} to use.      */
+DECL|method|discoverDefaultCamelContext ()
+specifier|protected
+name|CamelContext
+name|discoverDefaultCamelContext
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 DECL|method|afterPropertiesSet ()
 specifier|public
 name|void
@@ -205,6 +216,19 @@ name|getCamelContextWithId
 argument_list|(
 name|camelContextId
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|camelContext
+operator|==
+literal|null
+condition|)
+block|{
+name|camelContext
+operator|=
+name|discoverDefaultCamelContext
+argument_list|()
 expr_stmt|;
 block|}
 return|return
