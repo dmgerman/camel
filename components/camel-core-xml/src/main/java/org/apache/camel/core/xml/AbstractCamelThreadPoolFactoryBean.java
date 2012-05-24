@@ -455,16 +455,6 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getCamelContextWithId (String camelContextId)
-specifier|protected
-specifier|abstract
-name|CamelContext
-name|getCamelContextWithId
-parameter_list|(
-name|String
-name|camelContextId
-parameter_list|)
-function_decl|;
 DECL|method|getObjectType ()
 specifier|public
 name|Class

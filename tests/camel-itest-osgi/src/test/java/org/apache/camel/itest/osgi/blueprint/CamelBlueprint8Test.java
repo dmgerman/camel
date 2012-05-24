@@ -222,11 +222,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fix me"
-argument_list|)
 DECL|class|CamelBlueprint8Test
 specifier|public
 class|class
@@ -236,6 +231,11 @@ name|OSGiBlueprintTestSupport
 block|{
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Fix me"
+argument_list|)
 DECL|method|testEndpointInjection ()
 specifier|public
 name|void
@@ -596,57 +596,12 @@ argument_list|(
 name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
-name|bundle
-argument_list|(
-name|newBundle
-argument_list|()
-operator|.
-name|add
-argument_list|(
-literal|"OSGI-INF/blueprint/test.xml"
-argument_list|,
-name|OSGiBlueprintTestSupport
-operator|.
-name|class
-operator|.
-name|getResource
-argument_list|(
-literal|"blueprint-10.xml"
-argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
-name|TestProducer
-operator|.
-name|class
-argument_list|)
-operator|.
-name|set
-argument_list|(
-name|Constants
-operator|.
-name|BUNDLE_SYMBOLICNAME
-argument_list|,
-literal|"CamelBlueprintTestBundle10"
-argument_list|)
-operator|.
-name|set
-argument_list|(
-name|Constants
-operator|.
-name|DYNAMICIMPORT_PACKAGE
-argument_list|,
-literal|"*"
-argument_list|)
-operator|.
-name|build
-argument_list|()
-argument_list|)
-operator|.
-name|noStart
-argument_list|()
-argument_list|,
+comment|//                bundle(newBundle()
+comment|//                        .add("OSGI-INF/blueprint/test.xml", OSGiBlueprintTestSupport.class.getResource("blueprint-10.xml"))
+comment|//                        .add(TestProducer.class)
+comment|//                        .set(Constants.BUNDLE_SYMBOLICNAME, "CamelBlueprintTestBundle10")
+comment|//                        .set(Constants.DYNAMICIMPORT_PACKAGE, "*")
+comment|//                        .build()).noStart(),
 name|bundle
 argument_list|(
 name|newBundle

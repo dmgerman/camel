@@ -234,6 +234,14 @@ init|=
 name|createInstance
 argument_list|()
 decl_stmt|;
+name|newInstance
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|cipherSuites
