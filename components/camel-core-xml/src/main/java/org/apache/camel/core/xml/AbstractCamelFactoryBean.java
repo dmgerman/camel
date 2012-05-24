@@ -211,7 +211,6 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 block|{
-comment|// when getting CamelContext then we assume it must exists
 if|if
 condition|(
 name|camelContext
