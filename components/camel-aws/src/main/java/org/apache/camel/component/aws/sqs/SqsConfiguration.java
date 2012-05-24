@@ -108,6 +108,12 @@ specifier|private
 name|Integer
 name|defaultVisibilityTimeout
 decl_stmt|;
+comment|// producer properties
+DECL|field|delaySeconds
+specifier|private
+name|Integer
+name|delaySeconds
+decl_stmt|;
 comment|// queue properties
 DECL|field|maximumMessageSize
 specifier|private
@@ -364,6 +370,32 @@ operator|=
 name|defaultVisibilityTimeout
 expr_stmt|;
 block|}
+DECL|method|getDelaySeconds ()
+specifier|public
+name|Integer
+name|getDelaySeconds
+parameter_list|()
+block|{
+return|return
+name|delaySeconds
+return|;
+block|}
+DECL|method|setDelaySeconds (Integer delaySeconds)
+specifier|public
+name|void
+name|setDelaySeconds
+parameter_list|(
+name|Integer
+name|delaySeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delaySeconds
+operator|=
+name|delaySeconds
+expr_stmt|;
+block|}
 DECL|method|getMaximumMessageSize ()
 specifier|public
 name|Integer
@@ -488,6 +520,10 @@ operator|+
 literal|", messageRetentionPeriod="
 operator|+
 name|messageRetentionPeriod
+operator|+
+literal|", delaySeconds="
+operator|+
+name|delaySeconds
 operator|+
 literal|", policy="
 operator|+
