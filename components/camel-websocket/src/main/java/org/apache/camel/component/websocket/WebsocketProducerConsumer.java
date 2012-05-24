@@ -18,75 +18,20 @@ name|websocket
 package|;
 end_package
 
-begin_class
-DECL|class|WebsocketConstants
+begin_interface
+DECL|interface|WebsocketProducerConsumer
 specifier|public
-specifier|final
-class|class
-name|WebsocketConstants
+interface|interface
+name|WebsocketProducerConsumer
 block|{
-DECL|field|DEFAULT_PORT
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_PORT
-init|=
-literal|9292
-decl_stmt|;
-DECL|field|DEFAULT_HOST
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_HOST
-init|=
-literal|"0.0.0.0"
-decl_stmt|;
-DECL|field|CONNECTION_KEY
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CONNECTION_KEY
-init|=
-literal|"websocket.connectionKey"
-decl_stmt|;
-DECL|field|SEND_TO_ALL
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SEND_TO_ALL
-init|=
-literal|"websocket.sendToAll"
-decl_stmt|;
-DECL|field|WS_PROTOCOL
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|WS_PROTOCOL
-init|=
-literal|"ws"
-decl_stmt|;
-DECL|field|WSS_PROTOCOL
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|WSS_PROTOCOL
-init|=
-literal|"wss"
-decl_stmt|;
-DECL|method|WebsocketConstants ()
-specifier|private
-name|WebsocketConstants
+comment|/**      * Gets the endpoint      */
+DECL|method|getEndpoint ()
+name|WebsocketEndpoint
+name|getEndpoint
 parameter_list|()
-block|{     }
-empty_stmt|;
+function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 

@@ -95,6 +95,8 @@ class|class
 name|WebsocketProducer
 extends|extends
 name|DefaultProducer
+implements|implements
+name|WebsocketProducerConsumer
 block|{
 DECL|field|store
 specifier|private
@@ -107,6 +109,12 @@ specifier|private
 specifier|final
 name|Boolean
 name|sendToAll
+decl_stmt|;
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|WebsocketEndpoint
+name|endpoint
 decl_stmt|;
 DECL|method|WebsocketProducer (WebsocketEndpoint endpoint, WebsocketStore store)
 specifier|public
@@ -138,6 +146,12 @@ name|endpoint
 operator|.
 name|getSendToAll
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
 expr_stmt|;
 block|}
 annotation|@
@@ -257,6 +271,16 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|WebsocketEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
+return|;
 block|}
 DECL|method|isSendToAllSet (Message in)
 name|boolean

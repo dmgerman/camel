@@ -284,11 +284,13 @@ operator|=
 operator|new
 name|WebsocketEndpoint
 argument_list|(
-name|URI
-argument_list|,
 name|component
 argument_list|,
+name|URI
+argument_list|,
 name|REMAINING
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

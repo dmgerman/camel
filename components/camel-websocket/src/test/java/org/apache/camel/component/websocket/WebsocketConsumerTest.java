@@ -255,7 +255,7 @@ annotation|@
 name|Mock
 DECL|field|endpoint
 specifier|private
-name|Endpoint
+name|WebsocketEndpoint
 name|endpoint
 decl_stmt|;
 annotation|@
