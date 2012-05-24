@@ -1026,6 +1026,18 @@ name|SelectChannelConnector
 argument_list|()
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Jetty Connector added : "
+operator|+
+name|connector
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|port
@@ -1282,6 +1294,25 @@ argument_list|(
 name|connectorKey
 argument_list|,
 name|connectorRef
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Jetty Server started for host : "
+operator|+
+name|connector
+operator|.
+name|getHost
+argument_list|()
+operator|+
+literal|", on port : "
+operator|+
+name|connector
+operator|.
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|server
@@ -1784,6 +1815,15 @@ argument_list|(
 name|servlet
 argument_list|)
 argument_list|,
+name|pathSpec
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"WebSocket servlet added for the following path : "
+operator|+
 name|pathSpec
 argument_list|)
 expr_stmt|;

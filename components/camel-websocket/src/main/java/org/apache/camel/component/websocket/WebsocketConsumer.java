@@ -131,17 +131,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|endpoint
 operator|.
 name|connect
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -191,6 +191,7 @@ name|String
 name|message
 parameter_list|)
 block|{
+comment|/*        if (!endpoint.isStarted()) {             try {                 endpoint.connect(this);             } catch (Exception e) {                 e.printStackTrace();             }         }*/
 specifier|final
 name|Exchange
 name|exchange

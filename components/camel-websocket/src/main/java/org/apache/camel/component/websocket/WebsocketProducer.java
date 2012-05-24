@@ -187,6 +187,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/*        if (!endpoint.isStarted()) {             endpoint.connect(this);         }*/
 if|if
 condition|(
 name|isSendToAllSet
@@ -281,6 +282,52 @@ block|{
 return|return
 name|endpoint
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|endpoint
+operator|.
+name|connect
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|endpoint
+operator|.
+name|disconnect
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|isSendToAllSet (Message in)
 name|boolean
