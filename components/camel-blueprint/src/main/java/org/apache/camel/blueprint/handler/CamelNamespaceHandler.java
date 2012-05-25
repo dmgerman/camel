@@ -1149,12 +1149,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|(
-operator|(
-name|Element
-operator|)
 name|node
-operator|)
 operator|.
 name|getNamespaceURI
 argument_list|()
@@ -1289,6 +1284,15 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing element {}"
+argument_list|,
+name|element
+argument_list|)
+expr_stmt|;
 name|renameNamespaceRecursive
 argument_list|(
 name|element
@@ -1420,6 +1424,15 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing CamelContext {}"
+argument_list|,
+name|element
+argument_list|)
+expr_stmt|;
 comment|// Find the id, generate one if needed
 name|String
 name|contextId
@@ -2036,6 +2049,15 @@ argument_list|,
 name|binder
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing CamelContext done, returning {}"
+argument_list|,
+name|ctx
+argument_list|)
+expr_stmt|;
 return|return
 name|ctx
 return|;
@@ -2187,6 +2209,15 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing RouteContext {}"
+argument_list|,
+name|element
+argument_list|)
+expr_stmt|;
 comment|// now parse the routes with JAXB
 name|Binder
 argument_list|<
@@ -2385,6 +2416,17 @@ argument_list|(
 literal|"getRoutes"
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing RouteContext done, returning {}"
+argument_list|,
+name|element
+argument_list|,
+name|ctx
+argument_list|)
+expr_stmt|;
 return|return
 name|ctx
 return|;
@@ -2401,6 +2443,15 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing KeyStoreParameters {}"
+argument_list|,
+name|element
+argument_list|)
+expr_stmt|;
 comment|// now parse the key store parameters with JAXB
 name|Binder
 argument_list|<
@@ -2625,6 +2676,15 @@ operator|.
 name|setFactoryMethod
 argument_list|(
 literal|"getObject"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing KeyStoreParameters done, returning {}"
+argument_list|,
+name|ctx
 argument_list|)
 expr_stmt|;
 return|return
@@ -2643,6 +2703,15 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing SecureRandomParameters {}"
+argument_list|,
+name|element
+argument_list|)
+expr_stmt|;
 comment|// now parse the key store parameters with JAXB
 name|Binder
 argument_list|<
@@ -2867,6 +2936,15 @@ operator|.
 name|setFactoryMethod
 argument_list|(
 literal|"getObject"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing SecureRandomParameters done, returning {}"
+argument_list|,
+name|ctx
 argument_list|)
 expr_stmt|;
 return|return
@@ -2885,6 +2963,15 @@ name|ParserContext
 name|context
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing SSLContextParameters {}"
+argument_list|,
+name|element
+argument_list|)
+expr_stmt|;
 comment|// now parse the key store parameters with JAXB
 name|Binder
 argument_list|<
@@ -3109,6 +3196,15 @@ operator|.
 name|setFactoryMethod
 argument_list|(
 literal|"getObject"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Parsing SSLContextParameters done, returning {}"
+argument_list|,
+name|ctx
 argument_list|)
 expr_stmt|;
 return|return
