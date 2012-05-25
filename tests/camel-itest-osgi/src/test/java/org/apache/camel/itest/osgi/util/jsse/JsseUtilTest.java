@@ -431,9 +431,23 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"../../test-classes/org/apache/camel/itest/osgi/util/jsse/localhost.ks"
+literal|"../../../test-classes/org/apache/camel/itest/osgi/util/jsse/localhost.ks"
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"the file is "
+operator|+
+name|file
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ksp
 operator|.
 name|setResource

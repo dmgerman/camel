@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -162,20 +172,6 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
 name|Option
 import|;
 end_import
@@ -253,26 +249,6 @@ operator|.
 name|OptionUtils
 operator|.
 name|combine
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
 import|;
 end_import
 
@@ -517,11 +493,8 @@ name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
 comment|// using the features to install the camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"camel-jclouds"
 argument_list|)
 argument_list|)

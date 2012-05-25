@@ -124,7 +124,41 @@ name|exam
 operator|.
 name|junit
 operator|.
+name|ExamReactorStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|junit
+operator|.
 name|JUnit4TestRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|spi
+operator|.
+name|reactors
+operator|.
+name|AllConfinedStagedReactorFactory
 import|;
 end_import
 
@@ -144,26 +178,6 @@ name|combine
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -173,6 +187,13 @@ annotation|@
 name|RunWith
 argument_list|(
 name|JUnit4TestRunner
+operator|.
+name|class
+argument_list|)
+annotation|@
+name|ExamReactorStrategy
+argument_list|(
+name|AllConfinedStagedReactorFactory
 operator|.
 name|class
 argument_list|)
@@ -350,11 +371,8 @@ name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
 comment|// using the features to install other camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"camel-jetty"
 argument_list|,
 literal|"camel-ahc"

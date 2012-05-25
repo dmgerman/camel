@@ -216,26 +216,6 @@ name|combine
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
-import|;
-end_import
-
 begin_class
 annotation|@
 name|RunWith
@@ -554,11 +534,8 @@ name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
 comment|// using the features to install the other camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"camel-leveldb"
 argument_list|)
 argument_list|)

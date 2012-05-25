@@ -176,26 +176,6 @@ name|ops4j
 operator|.
 name|pax
 operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
 name|swissbox
 operator|.
 name|tinybundles
@@ -289,13 +269,8 @@ name|CamelContext
 operator|.
 name|class
 argument_list|,
-literal|"(camel.context.symbolicname="
-operator|+
-name|name
-operator|+
-literal|")"
-operator|+
-literal|"&&(camel.context.name=camel1)"
+comment|//"(camel.context.symbolicname=" + name + ")"
+literal|"camel.context.name=camel1"
 argument_list|,
 literal|10000
 argument_list|)
@@ -423,11 +398,8 @@ name|noStart
 argument_list|()
 argument_list|,
 comment|// using the features to install the camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"camel-blueprint"
 argument_list|)
 argument_list|)

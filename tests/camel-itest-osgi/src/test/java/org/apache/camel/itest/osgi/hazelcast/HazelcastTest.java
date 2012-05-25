@@ -144,9 +144,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|OptionUtils
+name|CoreOptions
 operator|.
-name|combine
+name|scanFeatures
 import|;
 end_import
 
@@ -160,13 +160,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|container
+name|OptionUtils
 operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
+name|combine
 import|;
 end_import
 
@@ -766,11 +762,8 @@ name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
 comment|// using the features to install the other camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"camel-hazelcast"
 argument_list|)
 argument_list|)

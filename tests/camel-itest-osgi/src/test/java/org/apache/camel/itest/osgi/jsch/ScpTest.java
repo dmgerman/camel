@@ -152,45 +152,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
-operator|.
-name|equinox
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
 name|OptionUtils
 operator|.
 name|combine
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
 import|;
 end_import
 
@@ -296,17 +260,10 @@ name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
 comment|// using the features to install the camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"camel-jsch"
 argument_list|)
-argument_list|,
-comment|/*felix(),*/
-name|equinox
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

@@ -265,6 +265,11 @@ name|Ignore
 argument_list|(
 literal|"Causes processes to not cleanly shutdown"
 argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"There is an issue with the zookeeper bundle, so the server cannot be started in pax-exam karaf container"
+argument_list|)
 DECL|class|ZookeeperOSGiTest
 specifier|public
 class|class

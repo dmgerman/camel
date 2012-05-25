@@ -36,7 +36,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileInputStream
+name|FileOutputStream
 import|;
 end_import
 
@@ -46,7 +46,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileOutputStream
+name|InputStream
 import|;
 end_import
 
@@ -141,13 +141,16 @@ argument_list|(
 literal|"mydir"
 argument_list|)
 expr_stmt|;
-name|File
-name|src
+name|InputStream
+name|is
 init|=
-operator|new
-name|File
+name|VelocityFileTest
+operator|.
+name|class
+operator|.
+name|getResourceAsStream
 argument_list|(
-literal|"../../../src/test/resources/org/apache/camel/itest/osgi/velocity/example.vm"
+literal|"/org/apache/camel/itest/osgi/velocity/example.vm"
 argument_list|)
 decl_stmt|;
 name|File
@@ -157,15 +160,6 @@ operator|new
 name|File
 argument_list|(
 literal|"mydir/example.vm"
-argument_list|)
-decl_stmt|;
-name|FileInputStream
-name|fis
-init|=
-operator|new
-name|FileInputStream
-argument_list|(
-name|src
 argument_list|)
 decl_stmt|;
 name|FileOutputStream
@@ -183,7 +177,7 @@ name|IOHelper
 operator|.
 name|copyAndCloseInput
 argument_list|(
-name|fis
+name|is
 argument_list|,
 name|fos
 argument_list|)

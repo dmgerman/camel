@@ -144,7 +144,7 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|felix
+name|scanFeatures
 import|;
 end_import
 
@@ -161,26 +161,6 @@ operator|.
 name|OptionUtils
 operator|.
 name|combine
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|container
-operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
 import|;
 end_import
 
@@ -336,11 +316,8 @@ name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
 comment|// using the features to install the camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"jetty"
 argument_list|,
 literal|"camel-jms"
@@ -355,9 +332,6 @@ literal|"mvn:org.apache.activemq/activemq-karaf/5.5.0/xml/features"
 argument_list|,
 literal|"activemq"
 argument_list|)
-argument_list|,
-name|felix
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

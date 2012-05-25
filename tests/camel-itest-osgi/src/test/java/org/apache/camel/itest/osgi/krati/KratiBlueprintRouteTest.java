@@ -250,9 +250,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|OptionUtils
+name|CoreOptions
 operator|.
-name|combine
+name|provision
 import|;
 end_import
 
@@ -266,13 +266,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|container
+name|OptionUtils
 operator|.
-name|def
-operator|.
-name|PaxRunnerOptions
-operator|.
-name|scanFeatures
+name|combine
 import|;
 end_import
 
@@ -292,7 +288,7 @@ name|core
 operator|.
 name|TinyBundles
 operator|.
-name|modifyBundle
+name|newBundle
 import|;
 end_import
 
@@ -333,14 +329,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getInstalledBundle
-argument_list|(
-literal|"CamelBlueprintKratiTestBundle"
-argument_list|)
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
+comment|//getInstalledBundle("CamelBlueprintKratiTestBundle").start();
 name|CamelContext
 name|ctx
 init|=
@@ -473,35 +462,17 @@ name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
 comment|// using the features to install the camel components
-name|scanFeatures
+name|loadCamelFeatures
 argument_list|(
-name|getCamelKarafFeatureUrl
-argument_list|()
-argument_list|,
 literal|"camel-blueprint"
 argument_list|,
 literal|"camel-krati"
 argument_list|)
 argument_list|,
-operator|new
-name|Customizer
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|InputStream
-name|customizeTestProbe
-parameter_list|(
-name|InputStream
-name|testProbe
-parameter_list|)
-block|{
-return|return
-name|modifyBundle
+name|provision
 argument_list|(
-name|testProbe
-argument_list|)
+name|newBundle
+argument_list|()
 operator|.
 name|add
 argument_list|(
@@ -558,9 +529,7 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-return|;
-block|}
-block|}
+argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
