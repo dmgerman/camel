@@ -1212,6 +1212,23 @@ argument_list|(
 literal|"ServiceReference: "
 operator|+
 name|ref
+operator|+
+literal|", bundle: "
+operator|+
+name|ref
+operator|.
+name|getBundle
+argument_list|()
+operator|+
+literal|", symbolicName: "
+operator|+
+name|ref
+operator|.
+name|getBundle
+argument_list|()
+operator|.
+name|getSymbolicName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1242,6 +1259,23 @@ argument_list|(
 literal|"Filtered ServiceReference: "
 operator|+
 name|ref
+operator|+
+literal|", bundle: "
+operator|+
+name|ref
+operator|.
+name|getBundle
+argument_list|()
+operator|+
+literal|", symbolicName: "
+operator|+
+name|ref
+operator|.
+name|getBundle
+argument_list|()
+operator|.
+name|getSymbolicName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

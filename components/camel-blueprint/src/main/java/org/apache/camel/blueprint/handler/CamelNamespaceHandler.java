@@ -4038,6 +4038,17 @@ name|BeanMetadata
 name|beanMetadata
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Before init of bean: {} -> {}"
+argument_list|,
+name|beanName
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
 comment|// prefer to inject later in afterInit
 return|return
 name|bean
@@ -4696,6 +4707,17 @@ name|BeanMetadata
 name|beanMetadata
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"After init of bean: {} -> {}"
+argument_list|,
+name|beanName
+argument_list|,
+name|bean
+argument_list|)
+expr_stmt|;
 comment|// we cannot inject CamelContextAware beans as the CamelContext may not be ready
 name|injectFields
 argument_list|(

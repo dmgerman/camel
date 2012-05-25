@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -78,6 +92,22 @@ name|BundleContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|blueprint
+operator|.
+name|container
+operator|.
+name|BlueprintContainer
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for OSGi Blueprint unit tests with Camel.  */
 end_comment
@@ -108,6 +138,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|symbolicName
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
 name|this
 operator|.
 name|bundleContext
@@ -116,11 +155,7 @@ name|CamelBlueprintHelper
 operator|.
 name|createBundleContext
 argument_list|(
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
+name|symbolicName
 argument_list|,
 name|getBlueprintDescriptor
 argument_list|()
@@ -138,6 +173,29 @@ name|super
 operator|.
 name|setUp
 argument_list|()
+expr_stmt|;
+comment|// must wait for blueprint container to be published then the namespace parser is complete and we are ready for testing
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Waiting for BlueprintContainer to be published with symbolicName: {}"
+argument_list|,
+name|symbolicName
+argument_list|)
+expr_stmt|;
+name|getOsgiService
+argument_list|(
+name|BlueprintContainer
+operator|.
+name|class
+argument_list|,
+literal|"(osgi.blueprint.container.symbolicname="
+operator|+
+name|symbolicName
+operator|+
+literal|")"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -212,7 +270,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|CamelContext
+name|answer
+init|=
 name|CamelBlueprintHelper
 operator|.
 name|getOsgiService
@@ -223,6 +283,17 @@ name|CamelContext
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// must override context so we use the correct one in testing
+name|context
+operator|=
+operator|(
+name|ModelCamelContext
+operator|)
+name|answer
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|getOsgiService (Class<T> type)

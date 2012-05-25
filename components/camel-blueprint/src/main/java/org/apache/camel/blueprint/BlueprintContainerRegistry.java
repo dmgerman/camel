@@ -350,6 +350,11 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|lookupByType (BlueprintContainer blueprintContainer, Class<T> type)
 specifier|public
 specifier|static

@@ -217,14 +217,19 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Ignored error looking up bean: "
 operator|+
 name|name
 operator|+
-literal|". Error: "
+literal|" due: "
 operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
