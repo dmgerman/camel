@@ -126,24 +126,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|xml
-operator|.
-name|internal
-operator|.
-name|bind
-operator|.
-name|v2
-operator|.
-name|TODO
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
