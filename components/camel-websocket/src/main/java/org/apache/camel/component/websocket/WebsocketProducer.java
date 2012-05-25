@@ -298,7 +298,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// endpoint.connect(this);
+name|endpoint
+operator|.
+name|connect
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -310,7 +316,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// endpoint.disconnect(this);
+name|endpoint
+operator|.
+name|disconnect
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|stop

@@ -390,9 +390,6 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-comment|// We will create the servlet when we
-comment|// will call connect method and Jetty Server created
-comment|// getComponent().addServlet(sync, consumer, remaining);
 return|return
 name|consumer
 return|;
@@ -407,9 +404,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We will create the servlet when we
-comment|// will call connect method and Jetty Server created
-comment|// getComponent().addServlet(sync, null, remaining);
 return|return
 operator|new
 name|WebsocketProducer
@@ -471,6 +465,58 @@ operator|.
 name|disconnect
 argument_list|(
 name|consumer
+argument_list|)
+expr_stmt|;
+comment|// Servlet should be removed
+comment|// getComponent().addServlet(sync, consumer, remaining);
+block|}
+DECL|method|connect (WebsocketProducer producer)
+specifier|public
+name|void
+name|connect
+parameter_list|(
+name|WebsocketProducer
+name|producer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|component
+operator|.
+name|connect
+argument_list|(
+name|producer
+argument_list|)
+expr_stmt|;
+name|getComponent
+argument_list|()
+operator|.
+name|addServlet
+argument_list|(
+name|sync
+argument_list|,
+name|producer
+argument_list|,
+name|remaining
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|disconnect (WebsocketProducer producer)
+specifier|public
+name|void
+name|disconnect
+parameter_list|(
+name|WebsocketProducer
+name|producer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|component
+operator|.
+name|disconnect
+argument_list|(
+name|producer
 argument_list|)
 expr_stmt|;
 comment|// Servlet should be removed
