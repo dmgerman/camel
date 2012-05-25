@@ -204,7 +204,6 @@ name|String
 name|message
 parameter_list|)
 block|{
-comment|/*        if (!endpoint.isStarted()) {             try {                 endpoint.connect(this);             } catch (Exception e) {                 e.printStackTrace();             }         }*/
 specifier|final
 name|Exchange
 name|exchange

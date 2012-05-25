@@ -196,14 +196,15 @@ name|latch
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testWSHttpCallEcho1 ()
+DECL|method|testWSHttpCallEcho ()
 specifier|public
 name|void
-name|testWSHttpCallEcho1
+name|testWSHttpCallEcho
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// We call the route WebSocket BAR
 name|received
 operator|.
 name|clear
@@ -231,7 +232,7 @@ name|c
 operator|.
 name|prepareGet
 argument_list|(
-literal|"ws://127.0.0.1:9292/echo"
+literal|"ws://127.0.0.1:9292/bar"
 argument_list|)
 operator|.
 name|execute
@@ -372,7 +373,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"BeerBeer"
+literal|"The bar has Beer"
 argument_list|,
 name|received
 operator|.
@@ -392,17 +393,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testWSHttpCallEcho2 ()
-specifier|public
-name|void
-name|testWSHttpCallEcho2
-parameter_list|()
-throws|throws
-name|Exception
-block|{
+comment|// We call the route WebSocket PUB
 name|received
 operator|.
 name|clear
@@ -416,21 +407,19 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|AsyncHttpClient
 name|c
-init|=
+operator|=
 operator|new
 name|AsyncHttpClient
 argument_list|()
-decl_stmt|;
-name|WebSocket
+expr_stmt|;
 name|websocket
-init|=
+operator|=
 name|c
 operator|.
 name|prepareGet
 argument_list|(
-literal|"ws://127.0.0.1:9292/bar"
+literal|"ws://127.0.0.1:9292/pub"
 argument_list|)
 operator|.
 name|execute
@@ -537,7 +526,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|websocket
 operator|.
 name|sendTextMessage
@@ -571,7 +560,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"The bar has wine"
+literal|"The pub has wine"
 argument_list|,
 name|received
 operator|.
@@ -614,29 +603,6 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"websocket://localhost:9292/echo"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|">>> Message received from ECHO WebSocket Client : ${body}"
-argument_list|)
-operator|.
-name|transform
-argument_list|()
-operator|.
-name|simple
-argument_list|(
-literal|"${body}${body}"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"websocket://localhost:9292/echo"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
 literal|"websocket://localhost:9292/bar"
 argument_list|)
 operator|.
@@ -656,6 +622,29 @@ operator|.
 name|to
 argument_list|(
 literal|"websocket://localhost:9292/bar"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"websocket://localhost:9292/pub"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|">>> Message received from PUB WebSocket Client : ${body}"
+argument_list|)
+operator|.
+name|transform
+argument_list|()
+operator|.
+name|simple
+argument_list|(
+literal|"The pub has ${body}"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"websocket://localhost:9292/pub"
 argument_list|)
 expr_stmt|;
 block|}
