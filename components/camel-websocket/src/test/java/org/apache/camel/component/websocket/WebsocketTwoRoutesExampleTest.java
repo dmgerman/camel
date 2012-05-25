@@ -193,12 +193,6 @@ specifier|private
 specifier|static
 name|CountDownLatch
 name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
@@ -210,6 +204,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|received
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|latch
+operator|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|AsyncHttpClient
 name|c
 init|=
@@ -396,6 +403,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|received
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|latch
+operator|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|AsyncHttpClient
 name|c
 init|=
@@ -410,7 +430,7 @@ name|c
 operator|.
 name|prepareGet
 argument_list|(
-literal|"ws://127.0.0.1:9393/echo"
+literal|"ws://127.0.0.1:9292/bar"
 argument_list|)
 operator|.
 name|execute
@@ -522,7 +542,7 @@ name|websocket
 operator|.
 name|sendTextMessage
 argument_list|(
-literal|"Beer"
+literal|"wine"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -551,7 +571,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"BeerBeer"
+literal|"The bar has wine"
 argument_list|,
 name|received
 operator|.
@@ -599,7 +619,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|">>> Message received from WebSocket Client : ${body}"
+literal|">>> Message received from ECHO WebSocket Client : ${body}"
 argument_list|)
 operator|.
 name|transform
@@ -617,12 +637,12 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"websocket://localhost:9393/echo"
+literal|"websocket://localhost:9292/bar"
 argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|">>> Message received from WebSocket Client : ${body}"
+literal|">>> Message received from BAR WebSocket Client : ${body}"
 argument_list|)
 operator|.
 name|transform
@@ -630,12 +650,12 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"${body}${body}"
+literal|"The bar has ${body}"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"websocket://localhost:9393/echo"
+literal|"websocket://localhost:9292/bar"
 argument_list|)
 expr_stmt|;
 block|}
