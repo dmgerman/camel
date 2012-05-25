@@ -293,18 +293,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|endpoint
-operator|.
-name|connect
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// endpoint.connect(this);
 block|}
 annotation|@
 name|Override
@@ -316,13 +310,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|endpoint
-operator|.
-name|disconnect
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
+comment|// endpoint.disconnect(this);
 name|super
 operator|.
 name|stop

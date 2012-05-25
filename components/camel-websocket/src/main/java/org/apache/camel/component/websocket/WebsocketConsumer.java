@@ -131,17 +131,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|endpoint
 operator|.
 name|connect
 argument_list|(
 name|this
 argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -175,6 +175,19 @@ parameter_list|()
 block|{
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getPath
+argument_list|()
 return|;
 block|}
 DECL|method|sendMessage (final String connectionKey, final String message)

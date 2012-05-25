@@ -114,6 +114,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
+name|Handler
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -129,6 +143,16 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -175,6 +199,14 @@ specifier|private
 name|URI
 name|uri
 decl_stmt|;
+DECL|field|handlers
+specifier|private
+name|List
+argument_list|<
+name|Handler
+argument_list|>
+name|handlers
+decl_stmt|;
 DECL|field|sendToAll
 specifier|private
 name|Boolean
@@ -184,6 +216,11 @@ DECL|field|enableJmx
 specifier|private
 name|boolean
 name|enableJmx
+decl_stmt|;
+DECL|field|sessionSupport
+specifier|private
+name|boolean
+name|sessionSupport
 decl_stmt|;
 DECL|field|remaining
 specifier|private
@@ -353,18 +390,9 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-name|getComponent
-argument_list|()
-operator|.
-name|addServlet
-argument_list|(
-name|sync
-argument_list|,
-name|consumer
-argument_list|,
-name|remaining
-argument_list|)
-expr_stmt|;
+comment|// We will create the servlet when we
+comment|// will call connect method and Jetty Server created
+comment|// getComponent().addServlet(sync, consumer, remaining);
 return|return
 name|consumer
 return|;
@@ -379,18 +407,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getComponent
-argument_list|()
-operator|.
-name|addServlet
-argument_list|(
-name|sync
-argument_list|,
-literal|null
-argument_list|,
-name|remaining
-argument_list|)
-expr_stmt|;
+comment|// We will create the servlet when we
+comment|// will call connect method and Jetty Server created
+comment|// getComponent().addServlet(sync, null, remaining);
 return|return
 operator|new
 name|WebsocketProducer
@@ -401,13 +420,13 @@ name|memoryStore
 argument_list|)
 return|;
 block|}
-DECL|method|connect (WebsocketProducerConsumer prodcons)
+DECL|method|connect (WebsocketConsumer consumer)
 specifier|public
 name|void
 name|connect
 parameter_list|(
-name|WebsocketProducerConsumer
-name|prodcons
+name|WebsocketConsumer
+name|consumer
 parameter_list|)
 throws|throws
 name|Exception
@@ -416,17 +435,29 @@ name|component
 operator|.
 name|connect
 argument_list|(
-name|prodcons
+name|consumer
+argument_list|)
+expr_stmt|;
+name|getComponent
+argument_list|()
+operator|.
+name|addServlet
+argument_list|(
+name|sync
+argument_list|,
+name|consumer
+argument_list|,
+name|remaining
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|disconnect (WebsocketProducerConsumer prodcons)
+DECL|method|disconnect (WebsocketConsumer consumer)
 specifier|public
 name|void
 name|disconnect
 parameter_list|(
-name|WebsocketProducerConsumer
-name|prodcons
+name|WebsocketConsumer
+name|consumer
 parameter_list|)
 throws|throws
 name|Exception
@@ -435,7 +466,19 @@ name|component
 operator|.
 name|disconnect
 argument_list|(
-name|prodcons
+name|consumer
+argument_list|)
+expr_stmt|;
+name|getComponent
+argument_list|()
+operator|.
+name|addServlet
+argument_list|(
+name|sync
+argument_list|,
+name|consumer
+argument_list|,
+name|remaining
 argument_list|)
 expr_stmt|;
 block|}
@@ -563,6 +606,88 @@ operator|.
 name|sendToAll
 operator|=
 name|sendToAll
+expr_stmt|;
+block|}
+DECL|method|getProtocol ()
+specifier|public
+name|String
+name|getProtocol
+parameter_list|()
+block|{
+return|return
+name|uri
+operator|.
+name|getScheme
+argument_list|()
+return|;
+block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|uri
+operator|.
+name|getPath
+argument_list|()
+return|;
+block|}
+DECL|method|setSessionSupport (boolean support)
+specifier|public
+name|void
+name|setSessionSupport
+parameter_list|(
+name|boolean
+name|support
+parameter_list|)
+block|{
+name|sessionSupport
+operator|=
+name|support
+expr_stmt|;
+block|}
+DECL|method|isSessionSupport ()
+specifier|public
+name|boolean
+name|isSessionSupport
+parameter_list|()
+block|{
+return|return
+name|sessionSupport
+return|;
+block|}
+DECL|method|getHandlers ()
+specifier|public
+name|List
+argument_list|<
+name|Handler
+argument_list|>
+name|getHandlers
+parameter_list|()
+block|{
+return|return
+name|handlers
+return|;
+block|}
+DECL|method|setHandlers (List<Handler> handlers)
+specifier|public
+name|void
+name|setHandlers
+parameter_list|(
+name|List
+argument_list|<
+name|Handler
+argument_list|>
+name|handlers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|handlers
+operator|=
+name|handlers
 expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
