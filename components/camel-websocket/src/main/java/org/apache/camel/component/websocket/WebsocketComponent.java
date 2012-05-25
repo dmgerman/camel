@@ -1996,15 +1996,6 @@ name|servlet
 operator|=
 name|servlet
 expr_stmt|;
-name|servlets
-operator|.
-name|put
-argument_list|(
-name|pathSpec
-argument_list|,
-name|servlet
-argument_list|)
-expr_stmt|;
 name|LOG
 operator|.
 name|debug

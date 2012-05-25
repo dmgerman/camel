@@ -187,7 +187,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/*        if (!endpoint.isStarted()) {             endpoint.connect(this);         }*/
 if|if
 condition|(
 name|isSendToAllSet
