@@ -4144,15 +4144,12 @@ block|}
 elseif|else
 if|if
 condition|(
-name|transacted
-operator|&&
 name|transactionManager
 operator|==
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
+name|transacted
+operator|&&
 operator|!
 name|lazyCreateTransactionManager
 condition|)
@@ -4164,17 +4161,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Property transacted is enabled but neither a transactionManager is available nor lazyCreateTransactionManager is disabled!"
-argument_list|)
-throw|;
-block|}
 block|}
 if|if
 condition|(

@@ -1190,6 +1190,8 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"The JMS sessions will not be transactional!"
+argument_list|,
 name|container
 operator|.
 name|isSessionTransacted
@@ -1198,9 +1200,21 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
+literal|"The transactionManager gets lazily generated!"
+argument_list|,
 name|endpoint
 operator|.
 name|isLazyCreateTransactionManager
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"The endpoint has an injected TransactionManager!"
+argument_list|,
+name|endpoint
+operator|.
+name|getTransactionManager
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1229,6 +1243,8 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
+literal|"The JMS sessions will be transactional!"
+argument_list|,
 name|container
 operator|.
 name|isSessionTransacted
@@ -1237,9 +1253,21 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+literal|"The transactionManager doesn't get lazily generated!"
+argument_list|,
 name|endpoint
 operator|.
 name|isLazyCreateTransactionManager
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"The endpoint has no injected TransactionManager!"
+argument_list|,
+name|endpoint
+operator|.
+name|getTransactionManager
 argument_list|()
 argument_list|)
 expr_stmt|;
