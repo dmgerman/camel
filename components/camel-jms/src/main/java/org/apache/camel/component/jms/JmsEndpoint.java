@@ -3324,6 +3324,22 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|isLazyCreateTransactionManager ()
+specifier|public
+name|boolean
+name|isLazyCreateTransactionManager
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isLazyCreateTransactionManager
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 annotation|@
 name|Deprecated
 DECL|method|isTransactedInOut ()
@@ -4255,6 +4271,26 @@ operator|.
 name|setTransactedInOut
 argument_list|(
 name|transactedInOut
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setLazyCreateTransactionManager (boolean lazyCreating)
+specifier|public
+name|void
+name|setLazyCreateTransactionManager
+parameter_list|(
+name|boolean
+name|lazyCreating
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setLazyCreateTransactionManager
+argument_list|(
+name|lazyCreating
 argument_list|)
 expr_stmt|;
 block|}

@@ -1430,6 +1430,24 @@ name|consumerTransacted
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setLazyCreateTransactionManager (boolean lazyCreating)
+specifier|public
+name|void
+name|setLazyCreateTransactionManager
+parameter_list|(
+name|boolean
+name|lazyCreating
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setLazyCreateTransactionManager
+argument_list|(
+name|lazyCreating
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
 specifier|public
 name|void
