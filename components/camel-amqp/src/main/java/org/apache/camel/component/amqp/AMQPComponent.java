@@ -118,11 +118,7 @@ DECL|method|AMQPComponent ()
 specifier|public
 name|AMQPComponent
 parameter_list|()
-block|{
-name|init
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AMQPComponent (JmsConfiguration configuration)
 specifier|public
 name|AMQPComponent
@@ -149,9 +145,6 @@ name|super
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-name|init
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|AMQPComponent (AMQConnectionFactory connectionFactory)
@@ -196,26 +189,6 @@ argument_list|(
 name|connectionFactory
 argument_list|)
 return|;
-block|}
-comment|/**      * Let's install the default connection factory      */
-DECL|method|init ()
-specifier|private
-name|void
-name|init
-parameter_list|()
-block|{
-name|AMQConnectionFactory
-name|connectionFactory
-init|=
-operator|new
-name|AMQConnectionFactory
-argument_list|()
-decl_stmt|;
-name|setConnectionFactory
-argument_list|(
-name|connectionFactory
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
