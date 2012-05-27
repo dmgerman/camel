@@ -429,8 +429,7 @@ name|ksp
 argument_list|)
 expr_stmt|;
 comment|// NOTE: Needed since the client uses a loose trust configuration when no ssl context
-comment|// is provided.  We turn on client-auth to ensure that the tests onlt pass when
-comment|// the client is configured explicitly.
+comment|// is provided.  We turn on WANT client-auth to prefer using authentication
 name|SSLContextServerParameters
 name|scsp
 init|=
@@ -444,7 +443,7 @@ name|setClientAuthentication
 argument_list|(
 name|ClientAuthentication
 operator|.
-name|REQUIRE
+name|WANT
 operator|.
 name|name
 argument_list|()
