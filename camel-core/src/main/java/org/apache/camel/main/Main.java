@@ -146,11 +146,11 @@ specifier|static
 name|Main
 name|instance
 decl_stmt|;
-DECL|field|registery
-specifier|private
+DECL|field|registry
+specifier|protected
 specifier|final
 name|SimpleRegistry
-name|registery
+name|registry
 init|=
 operator|new
 name|SimpleRegistry
@@ -223,7 +223,7 @@ name|Object
 name|bean
 parameter_list|)
 block|{
-name|registery
+name|registry
 operator|.
 name|put
 argument_list|(
@@ -244,7 +244,7 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|registery
+name|registry
 operator|.
 name|get
 argument_list|(
@@ -272,7 +272,7 @@ name|type
 parameter_list|)
 block|{
 return|return
-name|registery
+name|registry
 operator|.
 name|lookup
 argument_list|(
@@ -304,7 +304,7 @@ name|type
 parameter_list|)
 block|{
 return|return
-name|registery
+name|registry
 operator|.
 name|lookupByType
 argument_list|(
@@ -419,13 +419,12 @@ decl_stmt|;
 name|CamelContext
 name|camelContext
 init|=
-operator|new
-name|DefaultCamelContext
+name|createContext
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|registery
+name|registry
 operator|.
 name|size
 argument_list|()
@@ -434,6 +433,21 @@ literal|0
 condition|)
 block|{
 comment|// set the registry through which we've already bound some beans
+if|if
+condition|(
+name|DefaultCamelContext
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|camelContext
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
 operator|(
 operator|(
 name|DefaultCamelContext
@@ -443,9 +457,10 @@ operator|)
 operator|.
 name|setRegistry
 argument_list|(
-name|registery
+name|registry
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|answer
 operator|.
@@ -458,6 +473,18 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+DECL|method|createContext ()
+specifier|protected
+name|CamelContext
+name|createContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultCamelContext
+argument_list|()
 return|;
 block|}
 DECL|method|createModelFileGenerator ()
