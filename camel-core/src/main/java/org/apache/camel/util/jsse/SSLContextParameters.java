@@ -457,7 +457,7 @@ name|IOException
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Creating SSLContext from SSLContextParameters: {}"
 argument_list|,
@@ -631,6 +631,15 @@ argument_list|(
 name|context
 argument_list|)
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created {}"
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 return|return
