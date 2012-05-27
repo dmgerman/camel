@@ -476,7 +476,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-name|keyPassword
+literal|"********"
 argument_list|)
 expr_stmt|;
 name|builder
