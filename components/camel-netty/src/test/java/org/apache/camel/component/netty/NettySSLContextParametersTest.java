@@ -342,6 +342,13 @@ argument_list|(
 name|tmp
 argument_list|)
 expr_stmt|;
+name|sslContextParameters
+operator|.
+name|setServerParameters
+argument_list|(
+name|scsp
+argument_list|)
+expr_stmt|;
 name|JndiRegistry
 name|registry
 init|=
