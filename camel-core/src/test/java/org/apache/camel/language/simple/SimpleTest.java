@@ -541,7 +541,7 @@ name|assertExpression
 argument_list|(
 literal|" "
 argument_list|,
-literal|""
+literal|" "
 argument_list|)
 expr_stmt|;
 try|try
@@ -820,6 +820,9 @@ block|{
 name|assertExpression
 argument_list|(
 literal|" \texchangeId\n"
+operator|.
+name|trim
+argument_list|()
 argument_list|,
 name|exchange
 operator|.
@@ -830,6 +833,9 @@ expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"\nid\r"
+operator|.
+name|trim
+argument_list|()
 argument_list|,
 name|exchange
 operator|.
@@ -843,6 +849,9 @@ expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"\t\r body"
+operator|.
+name|trim
+argument_list|()
 argument_list|,
 literal|"<hello id='m123'>world!</hello>"
 argument_list|)
@@ -850,6 +859,9 @@ expr_stmt|;
 name|assertExpression
 argument_list|(
 literal|"\nin.body\r"
+operator|.
+name|trim
+argument_list|()
 argument_list|,
 literal|"<hello id='m123'>world!</hello>"
 argument_list|)

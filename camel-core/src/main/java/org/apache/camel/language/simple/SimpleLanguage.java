@@ -232,14 +232,6 @@ argument_list|,
 literal|"expression"
 argument_list|)
 expr_stmt|;
-comment|// trim the expression first
-name|expression
-operator|=
-name|expression
-operator|.
-name|trim
-argument_list|()
-expr_stmt|;
 comment|// support old simple language syntax
 annotation|@
 name|SuppressWarnings
@@ -306,14 +298,6 @@ name|expression
 argument_list|,
 literal|"expression"
 argument_list|)
-expr_stmt|;
-comment|// trim the expression first
-name|expression
-operator|=
-name|expression
-operator|.
-name|trim
-argument_list|()
 expr_stmt|;
 comment|// support old simple language syntax
 annotation|@
