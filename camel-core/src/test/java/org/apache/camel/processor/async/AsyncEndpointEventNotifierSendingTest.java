@@ -392,15 +392,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
 name|events
 operator|.
 name|add
