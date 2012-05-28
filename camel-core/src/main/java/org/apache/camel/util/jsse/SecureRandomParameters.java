@@ -115,7 +115,7 @@ name|GeneralSecurityException
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Creating SecureRandom from SecureRandomParameters: {}"
 argument_list|,

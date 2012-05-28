@@ -393,6 +393,15 @@ argument_list|(
 name|resource
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loaded resource as file {}"
+argument_list|,
+name|resource
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -480,6 +489,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loaded resource from TCCL ClassLoader {}"
+argument_list|,
+name|resource
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -538,6 +559,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loaded resource from JsseParameter ClassLoader {}"
+argument_list|,
+name|resource
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -566,6 +599,15 @@ operator|.
 name|openStream
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loaded resource as URL {}"
+argument_list|,
+name|resource
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -577,7 +619,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not open resource as a URL."
+literal|"Could not open resource as a URL"
 argument_list|,
 name|e
 argument_list|)
@@ -621,6 +663,13 @@ argument_list|(
 name|resource
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|is
+operator|==
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -633,6 +682,19 @@ name|getClassResolver
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Loaded resource using the CamelContext ClassResolver {}"
+argument_list|,
+name|resource
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

@@ -685,7 +685,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Overriding client-side SSLContext parameters with configured client parameters."
 argument_list|)
@@ -713,7 +713,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Overriding server-side SSLContext parameters with configured server parameters."
 argument_list|)
@@ -789,7 +789,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Augmenting SSLEngine configurers with configurers from client parameters."
 argument_list|)
@@ -822,7 +822,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Augmenting SSLEngine configurers with configurers from server parameters."
 argument_list|)
@@ -906,7 +906,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Augmenting SSLSocketFactory configurers with configurers from client parameters."
 argument_list|)
@@ -990,7 +990,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Augmenting SSLServerSocketFactory configurers with configurers from server parameters."
 argument_list|)
