@@ -1018,6 +1018,15 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Enabled ChiperSuites: {}"
+argument_list|,
+name|filteredCipherSuites
+argument_list|)
+expr_stmt|;
 name|engine
 operator|.
 name|setEnabledCipherSuites
@@ -1099,6 +1108,15 @@ name|size
 argument_list|()
 index|]
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Enabled Protocols: {}"
+argument_list|,
+name|filteredSecureSocketProtocols
 argument_list|)
 expr_stmt|;
 return|return
