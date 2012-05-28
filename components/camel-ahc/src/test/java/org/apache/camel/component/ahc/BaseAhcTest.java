@@ -477,6 +477,15 @@ argument_list|(
 name|scsp
 argument_list|)
 expr_stmt|;
+comment|// use SSLv3 to avoid issue with (eg disable TLS)
+comment|// Caused by: javax.net.ssl.SSLException: bad record MAC
+name|sslContextParameters
+operator|.
+name|setSecureSocketProtocol
+argument_list|(
+literal|"SSLv3"
+argument_list|)
+expr_stmt|;
 name|registry
 operator|.
 name|bind
