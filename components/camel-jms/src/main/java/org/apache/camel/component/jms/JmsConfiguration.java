@@ -3702,6 +3702,13 @@ argument_list|(
 name|exposeListenerSession
 argument_list|)
 expr_stmt|;
+name|container
+operator|.
+name|setSessionTransacted
+argument_list|(
+name|transacted
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|transacted

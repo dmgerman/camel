@@ -1241,9 +1241,9 @@ operator|.
 name|getListenerContainer
 argument_list|()
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
-literal|"The JMS sessions will be transactional!"
+literal|"The JMS sessions will not be transactional!"
 argument_list|,
 name|container
 operator|.
