@@ -108,6 +108,15 @@ specifier|private
 name|Integer
 name|defaultVisibilityTimeout
 decl_stmt|;
+DECL|field|extendMessageVisibility
+specifier|private
+name|Boolean
+name|extendMessageVisibility
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 comment|// producer properties
 DECL|field|delaySeconds
 specifier|private
@@ -474,6 +483,34 @@ operator|=
 name|policy
 expr_stmt|;
 block|}
+DECL|method|isExtendMessageVisibility ()
+specifier|public
+name|boolean
+name|isExtendMessageVisibility
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|extendMessageVisibility
+return|;
+block|}
+DECL|method|setExtendMessageVisibility (Boolean extendMessageVisibility)
+specifier|public
+name|void
+name|setExtendMessageVisibility
+parameter_list|(
+name|Boolean
+name|extendMessageVisibility
+parameter_list|)
+block|{
+name|this
+operator|.
+name|extendMessageVisibility
+operator|=
+name|extendMessageVisibility
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -528,6 +565,10 @@ operator|+
 literal|", policy="
 operator|+
 name|policy
+operator|+
+literal|", extendMessageVisibility="
+operator|+
+name|extendMessageVisibility
 operator|+
 literal|"]"
 return|;
