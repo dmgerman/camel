@@ -110,7 +110,8 @@ argument_list|()
 operator|+
 literal|"["
 operator|+
-name|id
+name|getId
+argument_list|()
 operator|+
 literal|"]"
 return|;
