@@ -189,6 +189,13 @@ name|buffer
 argument_list|)
 decl_stmt|;
 comment|// use type converter as it can handle encoding set on the Exchange
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|exchange
 operator|.
@@ -206,6 +213,14 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
+name|bytes
+argument_list|)
+return|;
+block|}
+return|return
+operator|new
+name|String
+argument_list|(
 name|bytes
 argument_list|)
 return|;
