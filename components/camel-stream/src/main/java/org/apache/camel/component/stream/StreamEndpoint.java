@@ -198,8 +198,6 @@ DECL|field|autoCloseCount
 specifier|private
 name|int
 name|autoCloseCount
-init|=
-literal|0
 decl_stmt|;
 DECL|field|charset
 specifier|private
