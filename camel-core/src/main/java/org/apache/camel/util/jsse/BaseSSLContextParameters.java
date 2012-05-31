@@ -2491,7 +2491,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"SSLContext[provider=%s, protocol=%s, needClientAuth=%s, wantClientAuth=%s\n\tdefaultProtocols=%s\n\tdefaultChiperSuites=%s\n\tsupportedProtocols=%s\n\tsupportedChiperSuites=%s\n]"
+literal|"SSLContext[provider=%s, protocol=%s, needClientAuth=%s, "
+operator|+
+literal|"wantClientAuth=%s\n\tdefaultProtocols=%s\n\tdefaultChiperSuites=%s\n\tsupportedProtocols=%s\n\tsupportedChiperSuites=%s\n]"
 argument_list|,
 name|getProvider
 argument_list|()
