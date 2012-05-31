@@ -105,7 +105,6 @@ name|from
 argument_list|(
 literal|"jetty://http://localhost:"
 operator|+
-operator|+
 name|portNum
 operator|+
 literal|"/users"
