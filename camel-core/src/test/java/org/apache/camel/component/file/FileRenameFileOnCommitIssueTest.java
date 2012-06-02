@@ -233,7 +233,25 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// System.out.println(exchange.getIn().getBody(String.class));
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"The exchange's IN body as String is {}"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
