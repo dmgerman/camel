@@ -198,15 +198,6 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"XXXX"
-argument_list|)
-expr_stmt|;
 return|return
 literal|false
 return|;
