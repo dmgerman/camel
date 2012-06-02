@@ -44,7 +44,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|concurrent
+operator|.
+name|CopyOnWriteArraySet
 import|;
 end_import
 
@@ -197,7 +199,7 @@ argument_list|>
 name|activityStates
 init|=
 operator|new
-name|HashSet
+name|CopyOnWriteArraySet
 argument_list|<
 name|ActivityState
 argument_list|>
