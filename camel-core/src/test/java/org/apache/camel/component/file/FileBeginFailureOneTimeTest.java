@@ -355,6 +355,37 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|abort (GenericFileOperations<File> fileGenericFileOperations, GenericFileEndpoint<File> fileGenericFileEndpoint, Exchange exchange, GenericFile<File> fileGenericFile)
+specifier|public
+name|void
+name|abort
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
+name|fileGenericFileOperations
+parameter_list|,
+name|GenericFileEndpoint
+argument_list|<
+name|File
+argument_list|>
+name|fileGenericFileEndpoint
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|File
+argument_list|>
+name|fileGenericFile
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 DECL|method|commit (GenericFileOperations<File> fileGenericFileOperations, GenericFileEndpoint<File> fileGenericFileEndpoint, Exchange exchange, GenericFile<File> fileGenericFile)
 specifier|public
 name|void

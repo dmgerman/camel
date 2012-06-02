@@ -92,6 +92,35 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Called when a begin is aborted, for example to release any resources which may have      * been acquired during the {@link #begin(GenericFileOperations, GenericFileEndpoint, org.apache.camel.Exchange, GenericFile)}      * operation.      *      * @param operations file operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the file      * @throws Exception can be thrown in case of errors      */
+DECL|method|abort (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
+name|void
+name|abort
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFileEndpoint
+argument_list|<
+name|T
+argument_list|>
+name|endpoint
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Releases any file locks and possibly deletes or moves the file after      * successful processing      *      * @param operations file operations      * @param endpoint   the endpoint      * @param exchange   the exchange      * @param file       the file      * @throws Exception can be thrown in case of errors      */
 DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 name|void

@@ -784,10 +784,7 @@ argument_list|>
 name|readLockStrategy
 init|=
 operator|new
-name|GenericFileRenameExclusiveReadLockStrategy
-argument_list|<
-name|File
-argument_list|>
+name|FileRenameExclusiveReadLockStrategy
 argument_list|()
 decl_stmt|;
 name|Long

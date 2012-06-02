@@ -265,8 +265,6 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|long
 name|lastModified
 init|=
@@ -493,53 +491,6 @@ return|return
 literal|false
 return|;
 block|}
-block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// must handle IOException as some apps on Windows etc. will still somehow hold a lock to a file
-comment|// such as AntiVirus or MS Office that has special locks for it's supported files
-if|if
-condition|(
-name|timeout
-operator|==
-literal|0
-condition|)
-block|{
-comment|// if not using timeout, then we cant retry, so rethrow
-throw|throw
-name|e
-throw|;
-block|}
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot acquire read lock. Will try again."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|boolean
-name|interrupted
-init|=
-name|sleep
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|interrupted
-condition|)
-block|{
-comment|// we were interrupted while sleeping, we are likely being shutdown so return false
-return|return
-literal|false
-return|;
 block|}
 block|}
 return|return

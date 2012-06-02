@@ -1186,13 +1186,32 @@ name|log
 operator|.
 name|debug
 argument_list|(
+literal|"{} cannot begin processing file: {}"
+argument_list|,
 name|endpoint
-operator|+
-literal|" cannot begin processing file: {}"
 argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|// abort
+name|processStrategy
+operator|.
+name|abort
+argument_list|(
+name|operations
+argument_list|,
+name|endpoint
+argument_list|,
+name|exchange
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 comment|// begin returned false, so remove file from the in progress list as its no longer in progress
 name|endpoint
 operator|.
@@ -1204,6 +1223,7 @@ argument_list|(
 name|absoluteFileName
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 block|}

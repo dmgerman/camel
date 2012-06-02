@@ -80,22 +80,6 @@ name|component
 operator|.
 name|file
 operator|.
-name|GenericFileEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
 name|GenericFileOperations
 import|;
 end_import
@@ -175,28 +159,6 @@ name|checkInterval
 init|=
 literal|1000
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
-specifier|public
-name|void
-name|prepareOnStartup
-parameter_list|(
-name|GenericFileOperations
-argument_list|<
-name|File
-argument_list|>
-name|operations
-parameter_list|,
-name|GenericFileEndpoint
-argument_list|<
-name|File
-argument_list|>
-name|endpoint
-parameter_list|)
-block|{
-comment|// noop
-block|}
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
@@ -220,6 +182,35 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// must call super
+if|if
+condition|(
+operator|!
+name|super
+operator|.
+name|acquireExclusiveReadLock
+argument_list|(
+name|operations
+argument_list|,
+name|file
+argument_list|,
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"XXXX"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|File
 name|target
 init|=
@@ -246,8 +237,6 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|long
 name|lastModified
 init|=
@@ -364,23 +353,23 @@ operator|&&
 name|newLength
 operator|==
 name|length
+operator|&&
+name|length
+operator|!=
+literal|0
 condition|)
 block|{
-comment|// let super handle the last part of acquiring the lock now the file is not
-comment|// currently being in progress of being copied as file length and modified
-comment|// are stable
+comment|// We consider that zero-length files are files in progress
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Read lock acquired."
+argument_list|)
+expr_stmt|;
 name|exclusive
 operator|=
-name|super
-operator|.
-name|acquireExclusiveReadLock
-argument_list|(
-name|operations
-argument_list|,
-name|file
-argument_list|,
-name|exchange
-argument_list|)
+literal|true
 expr_stmt|;
 block|}
 else|else
@@ -410,53 +399,6 @@ return|return
 literal|false
 return|;
 block|}
-block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// must handle IOException as some apps on Windows etc. will still somehow hold a lock to a file
-comment|// such as AntiVirus or MS Office that has special locks for it's supported files
-if|if
-condition|(
-name|timeout
-operator|==
-literal|0
-condition|)
-block|{
-comment|// if not using timeout, then we cant retry, so rethrow
-throw|throw
-name|e
-throw|;
-block|}
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot acquire read lock. Will try again."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|boolean
-name|interrupted
-init|=
-name|sleep
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|interrupted
-condition|)
-block|{
-comment|// we were interrupted while sleeping, we are likely being shutdown so return false
-return|return
-literal|false
-return|;
 block|}
 block|}
 return|return
