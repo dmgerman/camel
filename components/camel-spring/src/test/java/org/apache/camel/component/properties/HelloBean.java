@@ -18,58 +18,66 @@ name|properties
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * A resolver to load properties from a given source such as a file from a classpath.  *<p/>  * Implementations can also load properties from another source source as JNDI.  *  * @version   */
+comment|/**  *  */
 end_comment
 
-begin_interface
-DECL|interface|PropertiesResolver
+begin_class
+DECL|class|HelloBean
 specifier|public
-interface|interface
-name|PropertiesResolver
+class|class
+name|HelloBean
 block|{
-comment|/**      * Resolve properties from the given uri      *      * @param context the camel context      * @param ignoreMissingLocation ignore silently if the property file is missing      * @param uri uri(s) defining the source(s)      * @return the properties      * @throws Exception is thrown if resolving the properties failed      */
-DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
-name|Properties
-name|resolveProperties
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|boolean
-name|ignoreMissingLocation
-parameter_list|,
+DECL|field|greeting
+specifier|private
 name|String
-modifier|...
-name|uri
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
+name|greeting
+decl_stmt|;
+DECL|method|getGreeting ()
+specifier|public
+name|String
+name|getGreeting
+parameter_list|()
+block|{
+return|return
+name|greeting
+return|;
 block|}
-end_interface
+DECL|method|setGreeting (String greeting)
+specifier|public
+name|void
+name|setGreeting
+parameter_list|(
+name|String
+name|greeting
+parameter_list|)
+block|{
+name|this
+operator|.
+name|greeting
+operator|=
+name|greeting
+expr_stmt|;
+block|}
+DECL|method|say (String hi)
+specifier|public
+name|String
+name|say
+parameter_list|(
+name|String
+name|hi
+parameter_list|)
+block|{
+return|return
+name|greeting
+operator|+
+literal|" "
+operator|+
+name|hi
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 
