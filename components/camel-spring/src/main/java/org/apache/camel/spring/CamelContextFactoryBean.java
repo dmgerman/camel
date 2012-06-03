@@ -2093,9 +2093,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot bridge Camel and Spring property placeholders, as only exact 1 bean of type CamelSpringPropertyPlaceholderConfigurer"
+literal|"Cannot bridge Camel and Spring property placeholders, as exact only 1 bean of type BridgePropertyPlaceholderConfigurer"
 operator|+
-literal|" must be defined, was {} beans"
+literal|" must be defined, was {} beans defined."
 argument_list|,
 name|beans
 operator|.
