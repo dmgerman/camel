@@ -75,7 +75,7 @@ specifier|public
 annotation_defn|@interface
 name|Section
 block|{
-comment|/**      * Number of the section      *       * @return      */
+comment|/**      * Number of the section      */
 DECL|method|number ()
 name|int
 name|number

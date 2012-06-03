@@ -750,6 +750,11 @@ name|String
 name|locale
 parameter_list|)
 block|{
+name|Locale
+name|answer
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|locale
@@ -787,7 +792,8 @@ operator|<=
 literal|2
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 name|result
 operator|.
 name|length
@@ -816,11 +822,11 @@ index|[
 literal|1
 index|]
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 block|}
 return|return
-literal|null
+name|answer
 return|;
 block|}
 block|}

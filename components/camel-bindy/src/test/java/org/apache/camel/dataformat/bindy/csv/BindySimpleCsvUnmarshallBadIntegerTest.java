@@ -566,7 +566,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"String provided does not fit the Integer pattern defined or is not parseable, position: 1, line: 1"
+literal|"Parsing error detected for field defined at the position: 1, line: 1"
 argument_list|,
 name|cause
 operator|.

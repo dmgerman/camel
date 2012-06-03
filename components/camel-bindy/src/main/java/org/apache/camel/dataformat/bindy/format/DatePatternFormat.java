@@ -110,11 +110,6 @@ DECL|field|locale
 specifier|private
 name|Locale
 name|locale
-init|=
-name|Locale
-operator|.
-name|getDefault
-argument_list|()
 decl_stmt|;
 DECL|method|DatePatternFormat ()
 specifier|public
@@ -143,15 +138,6 @@ operator|.
 name|locale
 operator|=
 name|locale
-operator|!=
-literal|null
-condition|?
-name|locale
-else|:
-name|Locale
-operator|.
-name|getDefault
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|format (Date object)
@@ -282,17 +268,33 @@ name|DateFormat
 name|getDateFormat
 parameter_list|()
 block|{
+if|if
+condition|(
+name|locale
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 operator|new
 name|SimpleDateFormat
 argument_list|(
-name|this
-operator|.
 name|pattern
 argument_list|,
 name|locale
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|SimpleDateFormat
+argument_list|(
+name|pattern
+argument_list|)
+return|;
+block|}
 block|}
 DECL|method|getPattern ()
 specifier|public
