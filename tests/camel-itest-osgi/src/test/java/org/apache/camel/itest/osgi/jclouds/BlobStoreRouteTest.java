@@ -376,13 +376,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-operator|new
-name|SimpleObject
-argument_list|(
-literal|"1"
-argument_list|,
 literal|"Test 1"
-argument_list|)
 argument_list|,
 name|JcloudsConstants
 operator|.
@@ -397,13 +391,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-operator|new
-name|SimpleObject
-argument_list|(
-literal|"2"
-argument_list|,
 literal|"Test 2"
-argument_list|)
 argument_list|,
 name|JcloudsConstants
 operator|.

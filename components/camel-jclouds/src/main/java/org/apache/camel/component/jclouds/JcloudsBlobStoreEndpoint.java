@@ -74,15 +74,25 @@ name|JcloudsBlobStoreEndpoint
 extends|extends
 name|JcloudsEndpoint
 block|{
-DECL|field|blobName
+DECL|field|locationId
 specifier|private
 name|String
-name|blobName
+name|locationId
 decl_stmt|;
 DECL|field|container
 specifier|private
 name|String
 name|container
+decl_stmt|;
+DECL|field|directory
+specifier|private
+name|String
+name|directory
+decl_stmt|;
+DECL|field|blobName
+specifier|private
+name|String
+name|blobName
 decl_stmt|;
 DECL|field|operation
 specifier|private
@@ -166,6 +176,32 @@ name|blobStore
 argument_list|)
 return|;
 block|}
+DECL|method|getLocationId ()
+specifier|public
+name|String
+name|getLocationId
+parameter_list|()
+block|{
+return|return
+name|locationId
+return|;
+block|}
+DECL|method|setLocationId (String locationId)
+specifier|public
+name|void
+name|setLocationId
+parameter_list|(
+name|String
+name|locationId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locationId
+operator|=
+name|locationId
+expr_stmt|;
+block|}
 DECL|method|getContainer ()
 specifier|public
 name|String
@@ -192,30 +228,30 @@ operator|=
 name|container
 expr_stmt|;
 block|}
-DECL|method|getOperation ()
+DECL|method|getDirectory ()
 specifier|public
 name|String
-name|getOperation
+name|getDirectory
 parameter_list|()
 block|{
 return|return
-name|operation
+name|directory
 return|;
 block|}
-DECL|method|setOperation (String operation)
+DECL|method|setDirectory (String directory)
 specifier|public
 name|void
-name|setOperation
+name|setDirectory
 parameter_list|(
 name|String
-name|operation
+name|directory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|operation
+name|directory
 operator|=
-name|operation
+name|directory
 expr_stmt|;
 block|}
 DECL|method|getBlobName ()
@@ -242,6 +278,32 @@ operator|.
 name|blobName
 operator|=
 name|blobName
+expr_stmt|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|String
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+DECL|method|setOperation (String operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
 expr_stmt|;
 block|}
 block|}
