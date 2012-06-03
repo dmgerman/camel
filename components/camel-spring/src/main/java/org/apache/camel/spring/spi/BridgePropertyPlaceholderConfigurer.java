@@ -295,24 +295,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|answer
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-else|else
-block|{
+comment|// must not return null
 return|return
 name|answer
 return|;
-block|}
 block|}
 DECL|method|setResolver (PropertiesResolver resolver)
 specifier|public
