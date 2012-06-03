@@ -270,10 +270,10 @@ specifier|private
 name|MessageReceiverListener
 name|messageReceiverListener
 decl_stmt|;
-DECL|field|sessionStateListener
+DECL|field|internalSessionStateListener
 specifier|private
 name|SessionStateListener
-name|sessionStateListener
+name|internalSessionStateListener
 decl_stmt|;
 DECL|field|reconnectLock
 specifier|private
@@ -315,7 +315,7 @@ name|config
 expr_stmt|;
 name|this
 operator|.
-name|sessionStateListener
+name|internalSessionStateListener
 operator|=
 operator|new
 name|SessionStateListener
@@ -337,6 +337,31 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|configuration
+operator|.
+name|getSessionStateListener
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|configuration
+operator|.
+name|getSessionStateListener
+argument_list|()
+operator|.
+name|onStateChange
+argument_list|(
+name|newState
+argument_list|,
+name|oldState
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|newState
 operator|.
 name|equals
@@ -351,15 +376,13 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Lost connection to: "
-operator|+
+literal|"Lost connection to: {} - trying to reconnect..."
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
 name|getConnectionString
 argument_list|()
-operator|+
-literal|" - trying to reconnect..."
 argument_list|)
 expr_stmt|;
 name|closeSession
@@ -482,7 +505,7 @@ name|session
 operator|.
 name|addSessionStateListener
 argument_list|(
-name|sessionStateListener
+name|internalSessionStateListener
 argument_list|)
 expr_stmt|;
 name|session
@@ -655,7 +678,7 @@ name|removeSessionStateListener
 argument_list|(
 name|this
 operator|.
-name|sessionStateListener
+name|internalSessionStateListener
 argument_list|)
 expr_stmt|;
 comment|// remove this hack after http://code.google.com/p/jsmpp/issues/detail?id=93 is fixed

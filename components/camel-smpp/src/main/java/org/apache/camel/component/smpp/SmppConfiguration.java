@@ -100,6 +100,18 @@ name|TypeOfNumber
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jsmpp
+operator|.
+name|session
+operator|.
+name|SessionStateListener
+import|;
+end_import
+
 begin_comment
 comment|/**  * Contains the SMPP component configuration properties</a>  *   * @version   */
 end_comment
@@ -373,6 +385,11 @@ DECL|field|httpProxyPassword
 specifier|private
 name|String
 name|httpProxyPassword
+decl_stmt|;
+DECL|field|sessionStateListener
+specifier|private
+name|SessionStateListener
+name|sessionStateListener
 decl_stmt|;
 comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
@@ -1237,6 +1254,32 @@ operator|.
 name|httpProxyPassword
 operator|=
 name|httpProxyPassword
+expr_stmt|;
+block|}
+DECL|method|getSessionStateListener ()
+specifier|public
+name|SessionStateListener
+name|getSessionStateListener
+parameter_list|()
+block|{
+return|return
+name|sessionStateListener
+return|;
+block|}
+DECL|method|setSessionStateListener (SessionStateListener sessionStateListener)
+specifier|public
+name|void
+name|setSessionStateListener
+parameter_list|(
+name|SessionStateListener
+name|sessionStateListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sessionStateListener
+operator|=
+name|sessionStateListener
 expr_stmt|;
 block|}
 annotation|@
