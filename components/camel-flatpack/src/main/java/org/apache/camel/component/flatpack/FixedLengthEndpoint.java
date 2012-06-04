@@ -309,6 +309,16 @@ name|splitRows
 init|=
 literal|true
 decl_stmt|;
+DECL|field|allowShortLines
+specifier|private
+name|boolean
+name|allowShortLines
+decl_stmt|;
+DECL|field|ignoreExtraColumns
+specifier|private
+name|boolean
+name|ignoreExtraColumns
+decl_stmt|;
 DECL|method|FixedLengthEndpoint ()
 specifier|public
 name|FixedLengthEndpoint
@@ -525,7 +535,9 @@ argument_list|(
 name|is
 argument_list|)
 decl_stmt|;
-return|return
+name|Parser
+name|parser
+init|=
 name|getParserFactory
 argument_list|()
 operator|.
@@ -535,6 +547,49 @@ name|reader
 argument_list|,
 name|bodyReader
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|allowShortLines
+condition|)
+block|{
+name|parser
+operator|.
+name|setHandlingShortLines
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|parser
+operator|.
+name|setIgnoreParseWarnings
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ignoreExtraColumns
+condition|)
+block|{
+name|parser
+operator|.
+name|setIgnoreExtraColumns
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|parser
+operator|.
+name|setIgnoreParseWarnings
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|parser
 return|;
 block|}
 comment|// Properties
@@ -611,6 +666,7 @@ return|return
 name|splitRows
 return|;
 block|}
+comment|/**      * Sets the Component to send each row as a separate exchange once parsed      */
 DECL|method|setSplitRows (boolean splitRows)
 specifier|public
 name|void
@@ -626,6 +682,62 @@ name|splitRows
 operator|=
 name|splitRows
 expr_stmt|;
+block|}
+DECL|method|isAllowShortLines ()
+specifier|public
+name|boolean
+name|isAllowShortLines
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|allowShortLines
+return|;
+block|}
+comment|/**      * Allows for lines to be shorter than expected and ignores the extra characters      */
+DECL|method|setAllowShortLines (boolean allowShortLines)
+specifier|public
+name|void
+name|setAllowShortLines
+parameter_list|(
+name|boolean
+name|allowShortLines
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowShortLines
+operator|=
+name|allowShortLines
+expr_stmt|;
+block|}
+comment|/**      * Allows for lines to be longer than expected and ignores the extra characters      */
+DECL|method|setIgnoreExtraColumns (boolean ignoreExtraColumns)
+specifier|public
+name|void
+name|setIgnoreExtraColumns
+parameter_list|(
+name|boolean
+name|ignoreExtraColumns
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreExtraColumns
+operator|=
+name|ignoreExtraColumns
+expr_stmt|;
+block|}
+DECL|method|isIgnoreExtraColumns ()
+specifier|public
+name|boolean
+name|isIgnoreExtraColumns
+parameter_list|()
+block|{
+return|return
+name|ignoreExtraColumns
+return|;
 block|}
 block|}
 end_class
