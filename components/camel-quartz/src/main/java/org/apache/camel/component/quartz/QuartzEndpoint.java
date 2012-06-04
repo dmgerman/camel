@@ -436,6 +436,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// must use management name as it should be unique in the same JVM
 name|detail
 operator|.
 name|getJobDataMap
@@ -450,7 +451,7 @@ argument_list|,
 name|getCamelContext
 argument_list|()
 operator|.
-name|getName
+name|getManagementName
 argument_list|()
 argument_list|)
 expr_stmt|;

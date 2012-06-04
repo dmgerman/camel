@@ -38,6 +38,7 @@ name|QUARTZ_ENDPOINT_URI
 init|=
 literal|"CamelQuartzEndpoint"
 decl_stmt|;
+comment|// Note: using the CamelContext management name to ensure its unique in the JVM
 DECL|field|QUARTZ_CAMEL_CONTEXT_NAME
 specifier|public
 specifier|static
