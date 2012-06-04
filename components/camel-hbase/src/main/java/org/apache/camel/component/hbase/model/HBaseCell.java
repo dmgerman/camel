@@ -63,6 +63,9 @@ comment|//The value type can be optionally specified for Gets and Scan, to speci
 DECL|field|valueType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|valueType
 init|=
 name|String
@@ -171,6 +174,9 @@ argument_list|)
 DECL|method|getValueType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getValueType
 parameter_list|()
 block|{
@@ -178,12 +184,15 @@ return|return
 name|valueType
 return|;
 block|}
-DECL|method|setValueType (Class valueType)
+DECL|method|setValueType (Class<?> valueType)
 specifier|public
 name|void
 name|setValueType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|valueType
 parameter_list|)
 block|{

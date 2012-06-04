@@ -144,26 +144,6 @@ name|HBaseRow
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A default {@link CellMappingStrategy} implementation.  * It distinguishes between multiple cell, by reading headers with index suffix.  *<p/>  * In case of multiple headers:  *<p>First header is expected to have no suffix</p>.  *<p>Suffixes start from number 2</p>.  *<p>Suffixes need to be sequential</p>.  */
 end_comment
@@ -176,22 +156,6 @@ name|HeaderMappingStrategy
 implements|implements
 name|CellMappingStrategy
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HeaderMappingStrategy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Resolves the cell that the {@link Exchange} refers to.      *      * @param message      * @param index      * @return      */
 DECL|method|resolveRow (Message message, int index)
 specifier|private
@@ -265,6 +229,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|rowClass
 init|=
 name|rowClassName
@@ -375,6 +342,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|valueClass
 init|=
 name|valueClassName

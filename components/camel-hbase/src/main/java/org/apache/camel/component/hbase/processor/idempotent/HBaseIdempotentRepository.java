@@ -233,6 +233,9 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|IdempotentRepository
+argument_list|<
+name|Object
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -249,12 +252,6 @@ name|HBaseIdempotentRepository
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|configuration
-specifier|private
-specifier|final
-name|Configuration
-name|configuration
 decl_stmt|;
 DECL|field|tableName
 specifier|private
@@ -280,7 +277,6 @@ specifier|final
 name|HTable
 name|table
 decl_stmt|;
-comment|/**      * Constructor      *      * @param configuration      * @param tableName      */
 DECL|method|HBaseIdempotentRepository (Configuration configuration, String tableName, String family, String qualifier)
 specifier|public
 name|HBaseIdempotentRepository
@@ -300,12 +296,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
 name|this
 operator|.
 name|tableName

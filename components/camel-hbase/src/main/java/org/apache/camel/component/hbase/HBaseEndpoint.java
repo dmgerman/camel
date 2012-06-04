@@ -176,26 +176,6 @@ name|Filter
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an HBase endpoint.  */
 end_comment
@@ -208,22 +188,6 @@ name|HBaseEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HBaseEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|configuration
 specifier|private
 name|Configuration
@@ -350,20 +314,6 @@ operator|.
 name|tablePool
 operator|=
 name|tablePool
-expr_stmt|;
-block|}
-DECL|method|HBaseEndpoint (String endpointUri)
-specifier|public
-name|HBaseEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createProducer ()

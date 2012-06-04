@@ -50,26 +50,6 @@ name|HBaseData
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A  {@link org.apache.camel.component.hbase.mapping.CellMappingStrategy} implementation.  * It distinguishes between multiple cell, by reading headers with index suffix.  *<p/>  * In case of multiple headers:  *<p>First header is expected to have no suffix</p>.  *<p>Suffixes start from number 2</p>.  *<p>Suffixes need to be sequential</p>.  */
 end_comment
@@ -79,30 +59,9 @@ DECL|class|BodyMappingStrategy
 specifier|public
 class|class
 name|BodyMappingStrategy
-parameter_list|<
-name|R
-parameter_list|,
-name|V
-parameter_list|>
 implements|implements
 name|CellMappingStrategy
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|BodyMappingStrategy
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Resolves the cells that the {@link org.apache.camel.Exchange} refers to.      *      * @param message      * @return      */
 annotation|@
 name|Override

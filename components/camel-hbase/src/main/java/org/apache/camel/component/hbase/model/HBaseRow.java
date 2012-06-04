@@ -92,6 +92,9 @@ comment|//The row type can be optionally specified for Gets and Scan, to specify
 DECL|field|rowType
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|rowType
 init|=
 name|String
@@ -177,6 +180,9 @@ argument_list|)
 DECL|method|getRowType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getRowType
 parameter_list|()
 block|{
@@ -184,12 +190,15 @@ return|return
 name|rowType
 return|;
 block|}
-DECL|method|setRowType (Class rowType)
+DECL|method|setRowType (Class<?> rowType)
 specifier|public
 name|void
 name|setRowType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|rowType
 parameter_list|)
 block|{
