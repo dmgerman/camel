@@ -160,22 +160,6 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
-operator|.
-name|scanFeatures
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
 name|OptionUtils
 operator|.
 name|combine
@@ -210,7 +194,6 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-comment|//@Ignore("TODO: fix me")
 DECL|class|OSGiMulitJettyCamelContextsTest
 specifier|public
 class|class

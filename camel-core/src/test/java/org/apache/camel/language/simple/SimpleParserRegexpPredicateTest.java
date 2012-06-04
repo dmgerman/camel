@@ -79,6 +79,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} regex '^\\d{2}\\.\\d{2}\\.\\d{4}$'"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate

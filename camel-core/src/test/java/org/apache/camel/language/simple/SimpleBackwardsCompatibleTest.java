@@ -232,6 +232,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} == true and ${header.foo} == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -304,6 +306,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} == false or ${header.foo} == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate

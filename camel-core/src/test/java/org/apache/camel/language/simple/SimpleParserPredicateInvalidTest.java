@@ -97,6 +97,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} == abc"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -167,6 +169,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} = true"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -225,6 +229,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == 'foo"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -283,6 +289,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == \"foo"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -341,6 +349,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == 'foo'&&&& ${header} == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -399,6 +409,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == 'foo' || || ${header} == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -457,6 +469,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == == 'foo'"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try

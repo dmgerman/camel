@@ -79,6 +79,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == 'foo'"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -125,6 +127,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -185,6 +189,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == ${header.val}"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -233,6 +239,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body} == 122"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -281,6 +289,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body}> 120"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -329,6 +339,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body}++ == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -377,6 +389,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${body}-- == 121"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -437,6 +451,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} == true"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -497,6 +513,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high}   ==     true"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -569,6 +587,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} == true&& ${header.foo} == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -641,6 +661,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} == false || ${header.foo} == 123"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -725,6 +747,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${header.high} == true&& ${header.foo} == 123&& ${header.bar} == 'beer'"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -850,6 +874,8 @@ name|sb
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -968,6 +994,8 @@ name|sb
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate
@@ -1028,6 +1056,8 @@ operator|new
 name|SimplePredicateParser
 argument_list|(
 literal|"${in.header.number} regex '\\d{4}'"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Predicate

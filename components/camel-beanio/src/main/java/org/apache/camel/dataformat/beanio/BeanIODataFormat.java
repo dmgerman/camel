@@ -951,7 +951,7 @@ literal|": "
 operator|+
 name|ex
 operator|.
-name|getContext
+name|getRecordContext
 argument_list|()
 operator|.
 name|getRecordText
@@ -996,7 +996,7 @@ literal|": "
 operator|+
 name|ex
 operator|.
-name|getContext
+name|getRecordContext
 argument_list|()
 operator|.
 name|getRecordText
@@ -1041,7 +1041,7 @@ literal|": "
 operator|+
 name|ex
 operator|.
-name|getContext
+name|getRecordContext
 argument_list|()
 operator|.
 name|getRecordText

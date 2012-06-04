@@ -75,6 +75,8 @@ operator|new
 name|SimpleExpressionParser
 argument_list|(
 literal|"${body is a nice day"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -123,6 +125,8 @@ operator|new
 name|SimpleExpressionParser
 argument_list|(
 literal|"${body${foo}"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -171,6 +175,8 @@ operator|new
 name|SimpleExpressionParser
 argument_list|(
 literal|"Hello ${foo} how are you?"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -219,6 +225,8 @@ operator|new
 name|SimpleExpressionParser
 argument_list|(
 literal|"Hello ${bodyAs(${foo})} how are you?"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -277,6 +285,8 @@ operator|new
 name|SimpleExpressionParser
 argument_list|(
 literal|"Hello ${body"
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try

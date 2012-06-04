@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -159,20 +149,6 @@ operator|.
 name|runner
 operator|.
 name|RunWith
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|Customizer
 import|;
 end_import
 
@@ -321,26 +297,6 @@ operator|.
 name|OptionUtils
 operator|.
 name|combine
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|swissbox
-operator|.
-name|tinybundles
-operator|.
-name|core
-operator|.
-name|TinyBundles
-operator|.
-name|modifyBundle
 import|;
 end_import
 
