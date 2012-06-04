@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OSGi integration test for camel-xmljson  * @author Raul Kripalani  *  */
+comment|/**  * OSGi integration test for camel-xmljson  */
 end_comment
 
 begin_class

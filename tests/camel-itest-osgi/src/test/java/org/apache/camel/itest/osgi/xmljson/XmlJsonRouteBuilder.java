@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple route for testing camel-xmljson  * @author Raul Kripalani  *  */
+comment|/**  * Simple route for testing camel-xmljson  */
 end_comment
 
 begin_class
