@@ -243,15 +243,6 @@ name|TEST_CONTAINER
 init|=
 literal|"testContainer"
 decl_stmt|;
-DECL|field|TEST_BLOB
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|TEST_BLOB
-init|=
-literal|"testBlob"
-decl_stmt|;
 DECL|field|TEST_BLOB_IN_DIR
 specifier|private
 specifier|static
