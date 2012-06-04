@@ -90,6 +90,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -166,6 +178,20 @@ name|TemporaryQueueReplyManager
 extends|extends
 name|ReplyManagerSupport
 block|{
+DECL|method|TemporaryQueueReplyManager (CamelContext camelContext)
+specifier|public
+name|TemporaryQueueReplyManager
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|registerReply (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
 specifier|public
 name|String
