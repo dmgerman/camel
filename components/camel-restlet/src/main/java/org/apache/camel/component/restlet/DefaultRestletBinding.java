@@ -178,6 +178,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|MessageHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|restlet
 operator|.
 name|Request
@@ -1942,6 +1956,25 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
+comment|// preserve headers from in by copying any non existing headers
+comment|// to avoid overriding existing headers with old values
+name|MessageHelper
+operator|.
+name|copyHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
