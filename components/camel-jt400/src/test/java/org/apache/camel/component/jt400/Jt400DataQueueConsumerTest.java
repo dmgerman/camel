@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test case for {@link Jt400DataQueueConsumer}.  *<p>  * So that timeout semantics can be tested, an URI to an empty data queue on an  * AS400 system should be provided (in a resource named  *<code>"jt400test.properties"</code>, in a property with key  *<code>"org.apache.camel.component.jt400.emptydtaq.uri"</code>).  *</p>  *  * @version   */
+comment|/**  * Test case for {@link Jt400DataQueueConsumer}.  *<p>  * So that timeout semantics can be tested, an URI to an empty data queue on an  * AS400 system should be provided (in a resource named  *<code>"jt400test.properties"</code>, in a property with key  *<code>"org.apache.camel.component.jt400.emptydtaq.uri"</code>).  *</p>  */
 end_comment
 
 begin_class
