@@ -631,6 +631,8 @@ argument_list|)
 decl_stmt|;
 name|DataDictionary
 name|dataDictionary
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -672,9 +674,6 @@ block|{
 name|SessionID
 name|sessionID
 init|=
-operator|(
-name|SessionID
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -685,8 +684,19 @@ argument_list|(
 name|QuickfixjEndpoint
 operator|.
 name|SESSION_ID_KEY
+argument_list|,
+name|SessionID
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|sessionID
+operator|!=
+literal|null
+condition|)
+block|{
 name|Session
 name|session
 init|=
@@ -710,6 +720,7 @@ argument_list|()
 else|:
 literal|null
 expr_stmt|;
+block|}
 block|}
 return|return
 name|dataDictionary
