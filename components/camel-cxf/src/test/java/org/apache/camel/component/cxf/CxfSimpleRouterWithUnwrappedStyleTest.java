@@ -80,11 +80,30 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"As the refelection can't tell the paramenter name from SEI without annonation, "
+operator|+
+literal|"CXF cannot send a meaningful request for unwrapped message."
+operator|+
+literal|"We need to use the annontated SEI for testing"
+argument_list|)
 DECL|class|CxfSimpleRouterWithUnwrappedStyleTest
 specifier|public
 class|class
@@ -212,7 +231,7 @@ name|clientBean
 operator|.
 name|setAddress
 argument_list|(
-name|getServiceAddress
+name|getRouterAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -261,6 +280,62 @@ throws|throws
 name|Exception
 block|{
 comment|// ignore the invocation without parameter, as the document-literal doesn't support the invocation without parameter.
+block|}
+annotation|@
+name|Test
+DECL|method|testInvokingServiceFromCXFClient ()
+specifier|public
+name|void
+name|testInvokingServiceFromCXFClient
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|HelloService
+name|client
+init|=
+name|getCXFClient
+argument_list|()
+decl_stmt|;
+name|Boolean
+name|result
+init|=
+name|client
+operator|.
+name|echoBoolean
+argument_list|(
+literal|true
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"we should get the right answer from router"
+argument_list|,
+literal|true
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
+comment|// The below invocation is failed with CXF 2.6.1 as the request are all start with<arg0>
+name|String
+name|str
+init|=
+name|client
+operator|.
+name|echo
+argument_list|(
+literal|"hello world"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"we should get the right answer from router"
+argument_list|,
+literal|"echo hello world"
+argument_list|,
+name|str
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
