@@ -79,6 +79,8 @@ DECL|interface|ManagedCamelContextMBean
 specifier|public
 interface|interface
 name|ManagedCamelContextMBean
+extends|extends
+name|ManagedPerformanceCounterMBean
 block|{
 annotation|@
 name|ManagedAttribute

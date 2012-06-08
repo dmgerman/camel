@@ -152,6 +152,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ManagementStatisticsLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -294,20 +306,6 @@ name|RoutesDefinition
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ManagementStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -324,6 +322,8 @@ DECL|class|ManagedCamelContext
 specifier|public
 class|class
 name|ManagedCamelContext
+extends|extends
+name|ManagedPerformanceCounter
 implements|implements
 name|TimerListener
 implements|,
@@ -359,17 +359,26 @@ name|context
 operator|=
 name|context
 expr_stmt|;
-block|}
-DECL|method|init (ManagementStrategy strategy)
-specifier|public
-name|void
-name|init
-parameter_list|(
-name|ManagementStrategy
-name|strategy
-parameter_list|)
-block|{
-comment|// do nothing
+name|boolean
+name|enabled
+init|=
+name|context
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getStatisticsLevel
+argument_list|()
+operator|!=
+name|ManagementStatisticsLevel
+operator|.
+name|Off
+decl_stmt|;
+name|setStatisticsEnabled
+argument_list|(
+name|enabled
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getContext ()
 specifier|public
@@ -1219,6 +1228,39 @@ name|getCamelId
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+comment|// use substring as we only want the attributes
+name|String
+name|stat
+init|=
+name|dumpStatsAsXml
+argument_list|(
+name|fullStats
+argument_list|)
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|stat
+operator|.
+name|substring
+argument_list|(
+literal|7
+argument_list|,
+name|stat
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|2
+argument_list|)
+argument_list|)
 operator|.
 name|append
 argument_list|(
@@ -1424,16 +1466,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// use substring as we only want the attributes
-name|String
 name|stat
-init|=
+operator|=
 name|route
 operator|.
 name|dumpStatsAsXml
 argument_list|(
 name|fullStats
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|sb
 operator|.
 name|append
