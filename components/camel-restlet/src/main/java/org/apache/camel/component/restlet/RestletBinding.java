@@ -60,7 +60,7 @@ specifier|public
 interface|interface
 name|RestletBinding
 block|{
-comment|/**      * Populate Restlet request from Camel message      *        * @param exchange message to be copied from       * @param response to be populated      */
+comment|/**      * Populate Restlet request from Camel message      *        * @param exchange message to be copied from       * @param response to be populated      * @throws Exception is thrown if error processing      */
 DECL|method|populateRestletResponseFromExchange (Exchange exchange, Response response)
 name|void
 name|populateRestletResponseFromExchange
@@ -71,8 +71,10 @@ parameter_list|,
 name|Response
 name|response
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Populate Camel message from Restlet request      *       *      * @param request message to be copied from      * @param response      *@param exchange to be populated  @throws Exception is thrown if error processing      */
+comment|/**      * Populate Camel message from Restlet request      *       *      * @param request message to be copied from      * @param response the response      * @param exchange to be populated  @throws Exception is thrown if error processing      * @throws Exception is thrown if error processing      */
 DECL|method|populateExchangeFromRestletRequest (Request request, Response response, Exchange exchange)
 name|void
 name|populateExchangeFromRestletRequest
