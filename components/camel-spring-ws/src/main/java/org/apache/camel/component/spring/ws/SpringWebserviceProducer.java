@@ -665,6 +665,19 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|body
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|prepareMessageSenders (SpringWebserviceConfiguration configuration)
 specifier|private
