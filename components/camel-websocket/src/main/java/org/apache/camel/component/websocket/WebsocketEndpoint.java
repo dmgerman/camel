@@ -425,8 +425,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// Jetty instance will be created
-comment|// if it does not exist
 name|component
 operator|.
 name|connect
@@ -434,10 +432,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-comment|// We will add a WebSocket servlet
-comment|// to a Jetty server using Handler
-name|getComponent
-argument_list|()
+name|component
 operator|.
 name|addServlet
 argument_list|(
@@ -468,7 +463,6 @@ name|consumer
 argument_list|)
 expr_stmt|;
 comment|// Servlet should be removed
-comment|// getComponent().addServlet(sync, consumer, remaining);
 block|}
 DECL|method|connect (WebsocketProducer producer)
 specifier|public
@@ -488,8 +482,7 @@ argument_list|(
 name|producer
 argument_list|)
 expr_stmt|;
-name|getComponent
-argument_list|()
+name|component
 operator|.
 name|addServlet
 argument_list|(
@@ -520,7 +513,6 @@ name|producer
 argument_list|)
 expr_stmt|;
 comment|// Servlet should be removed
-comment|// getComponent().addServlet(sync, consumer, remaining);
 block|}
 annotation|@
 name|Override
