@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create {@link ChannelPipeline} for clients, eg {@link NettyProducer}.  *<p/>  * Implementators should use implement the {@link #getPipeline(NettyProducer)} method.  *  * @see ChannelPipelineFactory  */
+comment|/**  * Factory to create {@link ChannelPipeline} for clients, eg {@link NettyProducer}.  *<p/>  * Implementators must support creating a new instance of this factory which is associated  * to the given {@link NettyProducer} using the {@link #createPipelineFactory(NettyProducer)}  * method.  *  * @see ChannelPipelineFactory  */
 end_comment
 
 begin_class
@@ -59,42 +59,17 @@ name|ClientPipelineFactory
 implements|implements
 name|ChannelPipelineFactory
 block|{
-DECL|method|ClientPipelineFactory ()
-specifier|public
-name|ClientPipelineFactory
-parameter_list|()
-block|{     }
-comment|/**      * Returns a newly created {@link ChannelPipeline}.      *      * @param producer the netty producer      */
-DECL|method|getPipeline (NettyProducer producer)
+comment|/**      * Creates a new {@link ClientPipelineFactory} using the given {@link NettyProducer}      *      * @param producer the associated producers      * @return the {@link ClientPipelineFactory} associated to ghe given producer.      */
+DECL|method|createPipelineFactory (NettyProducer producer)
 specifier|public
 specifier|abstract
-name|ChannelPipeline
-name|getPipeline
+name|ClientPipelineFactory
+name|createPipelineFactory
 parameter_list|(
 name|NettyProducer
 name|producer
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
-annotation|@
-name|Override
-DECL|method|getPipeline ()
-specifier|public
-name|ChannelPipeline
-name|getPipeline
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"use getPipeline(NettyProducer) instead"
-argument_list|)
-throw|;
-block|}
 block|}
 end_class
 

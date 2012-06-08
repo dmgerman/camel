@@ -205,16 +205,31 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|getPipeline (NettyProducer producer)
+DECL|field|producer
+specifier|private
+name|NettyProducer
+name|producer
+decl_stmt|;
+DECL|method|DefaultClientPipelineFactory (NettyProducer producer)
 specifier|public
-name|ChannelPipeline
-name|getPipeline
+name|DefaultClientPipelineFactory
 parameter_list|(
 name|NettyProducer
 name|producer
 parameter_list|)
+block|{
+name|this
+operator|.
+name|producer
+operator|=
+name|producer
+expr_stmt|;
+block|}
+DECL|method|getPipeline ()
+specifier|public
+name|ChannelPipeline
+name|getPipeline
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -610,6 +625,25 @@ name|sslEngine
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|createPipelineFactory (NettyProducer producer)
+specifier|public
+name|ClientPipelineFactory
+name|createPipelineFactory
+parameter_list|(
+name|NettyProducer
+name|producer
+parameter_list|)
+block|{
+return|return
+operator|new
+name|DefaultClientPipelineFactory
+argument_list|(
+name|producer
+argument_list|)
+return|;
 block|}
 block|}
 end_class

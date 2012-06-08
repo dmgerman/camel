@@ -288,20 +288,6 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelPipeline
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
 name|group
 operator|.
 name|ChannelGroup
@@ -644,25 +630,40 @@ name|doStart
 argument_list|()
 expr_stmt|;
 comment|// setup pipeline factory
-name|pipelineFactory
-operator|=
+name|ClientPipelineFactory
+name|factory
+init|=
 name|configuration
 operator|.
 name|getClientPipelineFactory
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|pipelineFactory
-operator|==
+name|factory
+operator|!=
 literal|null
 condition|)
 block|{
 name|pipelineFactory
 operator|=
+name|factory
+operator|.
+name|createPipelineFactory
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pipelineFactory
+operator|=
 operator|new
 name|DefaultClientPipelineFactory
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -1487,19 +1488,6 @@ block|{
 name|ChannelFuture
 name|answer
 decl_stmt|;
-name|ChannelPipeline
-name|clientPipeline
-decl_stmt|;
-comment|// must get the pipeline from the factory when opening a new connection
-name|clientPipeline
-operator|=
-name|pipelineFactory
-operator|.
-name|getPipeline
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|isTcp
@@ -1563,12 +1551,12 @@ name|getConnectTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// set the pipeline on the bootstrap
+comment|// set the pipeline factory, which creates the pipeline for each newly created channels
 name|clientBootstrap
 operator|.
-name|setPipeline
+name|setPipelineFactory
 argument_list|(
-name|clientPipeline
+name|pipelineFactory
 argument_list|)
 expr_stmt|;
 name|answer
@@ -1691,12 +1679,12 @@ name|getReceiveBufferSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// set the pipeline on the bootstrap
+comment|// set the pipeline factory, which creates the pipeline for each newly created channels
 name|connectionlessClientBootstrap
 operator|.
-name|setPipeline
+name|setPipelineFactory
 argument_list|(
-name|clientPipeline
+name|pipelineFactory
 argument_list|)
 expr_stmt|;
 comment|// bind and store channel so we can close it when stopping
