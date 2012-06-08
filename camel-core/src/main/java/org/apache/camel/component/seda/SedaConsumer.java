@@ -409,6 +409,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|latch
 specifier|private
+specifier|volatile
 name|CountDownLatch
 name|latch
 decl_stmt|;
@@ -609,6 +610,13 @@ name|shutdownPending
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+name|latch
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -637,6 +645,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+block|}
 block|}
 block|}
 annotation|@
