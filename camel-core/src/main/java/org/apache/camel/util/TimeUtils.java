@@ -84,7 +84,7 @@ name|uptime
 parameter_list|)
 block|{
 comment|// Code taken from Karaf
-comment|// https://svn.apache.org/repos/asf/felix/trunk/karaf/shell/commands/src/main/java/org/apache/felix/karaf/shell/commands/InfoAction.java
+comment|// https://svn.apache.org/repos/asf/karaf/trunk/shell/commands/src/main/java/org/apache/karaf/shell/commands/impl/InfoAction.java
 name|NumberFormat
 name|fmtI
 init|=
@@ -297,7 +297,7 @@ operator|-
 name|days
 operator|)
 operator|*
-literal|60
+literal|24
 argument_list|)
 decl_stmt|;
 name|String
