@@ -136,6 +136,22 @@ name|component
 operator|.
 name|properties
 operator|.
+name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|properties
+operator|.
 name|PropertiesParser
 import|;
 end_import
@@ -198,6 +214,12 @@ name|BlueprintPropertiesParser
 extends|extends
 name|DefaultPropertiesParser
 block|{
+DECL|field|propertiesComponent
+specifier|private
+specifier|final
+name|PropertiesComponent
+name|propertiesComponent
+decl_stmt|;
 DECL|field|container
 specifier|private
 specifier|final
@@ -206,6 +228,7 @@ name|container
 decl_stmt|;
 DECL|field|delegate
 specifier|private
+specifier|final
 name|PropertiesParser
 name|delegate
 decl_stmt|;
@@ -230,10 +253,13 @@ specifier|private
 name|Method
 name|method
 decl_stmt|;
-DECL|method|BlueprintPropertiesParser (BlueprintContainer container, PropertiesParser delegate)
+DECL|method|BlueprintPropertiesParser (PropertiesComponent propertiesComponent, BlueprintContainer container, PropertiesParser delegate)
 specifier|public
 name|BlueprintPropertiesParser
 parameter_list|(
+name|PropertiesComponent
+name|propertiesComponent
+parameter_list|,
 name|BlueprintContainer
 name|container
 parameter_list|,
@@ -241,6 +267,12 @@ name|PropertiesParser
 name|delegate
 parameter_list|)
 block|{
+name|this
+operator|.
+name|propertiesComponent
+operator|=
+name|propertiesComponent
+expr_stmt|;
 name|this
 operator|.
 name|container
@@ -503,9 +535,52 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|String
+name|answer
+init|=
+literal|null
+decl_stmt|;
+comment|// prefer any override properties
+comment|// this logic is special for BlueprintPropertiesParser as we otherwise prefer
+comment|// to use the AbstractPropertyPlaceholder from OSGi blueprint config admins
+comment|// service to lookup otherwise
+if|if
+condition|(
+name|key
+operator|!=
+literal|null
+operator|&&
+name|propertiesComponent
+operator|.
+name|getOverrideProperties
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|=
+operator|(
+name|String
+operator|)
+name|propertiesComponent
+operator|.
+name|getOverrideProperties
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
 comment|// lookup key in blueprint and return its value
 if|if
 condition|(
+name|answer
+operator|==
+literal|null
+operator|&&
 name|key
 operator|!=
 literal|null
@@ -519,7 +594,7 @@ range|:
 name|placeholders
 control|)
 block|{
-name|value
+name|answer
 operator|=
 operator|(
 name|String
@@ -537,7 +612,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|value
+name|answer
 operator|!=
 literal|null
 condition|)
@@ -550,7 +625,7 @@ literal|"Blueprint parsed property key: {} as value: {}"
 argument_list|,
 name|key
 argument_list|,
-name|value
+name|answer
 argument_list|)
 expr_stmt|;
 break|break;
@@ -559,7 +634,7 @@ block|}
 block|}
 if|if
 condition|(
-name|value
+name|answer
 operator|==
 literal|null
 operator|&&
@@ -569,7 +644,7 @@ literal|null
 condition|)
 block|{
 comment|// let delegate have a try since blueprint didn't resolve it
-name|value
+name|answer
 operator|=
 name|delegate
 operator|.
@@ -591,11 +666,11 @@ literal|"Returning parsed property key: {} as value: {}"
 argument_list|,
 name|key
 argument_list|,
-name|value
+name|answer
 argument_list|)
 expr_stmt|;
 return|return
-name|value
+name|answer
 return|;
 block|}
 block|}

@@ -222,6 +222,23 @@ name|SUFFIX_TOKEN
 init|=
 name|DEFAULT_SUFFIX_TOKEN
 decl_stmt|;
+comment|/**      * Key for stores special override properties that containers such as OSGi can store      * in the OSGi service registry      */
+DECL|field|OVERRIDE_PROPERTIES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OVERRIDE_PROPERTIES
+init|=
+name|PropertiesComponent
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|".OverrideProperties"
+decl_stmt|;
 comment|// must be non greedy patterns
 DECL|field|ENV_PATTERN
 specifier|private
@@ -364,6 +381,11 @@ name|String
 name|suffixToken
 init|=
 name|DEFAULT_SUFFIX_TOKEN
+decl_stmt|;
+DECL|field|overrideProperties
+specifier|private
+name|Properties
+name|overrideProperties
 decl_stmt|;
 DECL|method|PropertiesComponent ()
 specifier|public
@@ -643,6 +665,45 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// use override properties
+if|if
+condition|(
+name|prop
+operator|!=
+literal|null
+operator|&&
+name|overrideProperties
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// make a copy to avoid affecting the original properties
+name|Properties
+name|override
+init|=
+operator|new
+name|Properties
+argument_list|()
+decl_stmt|;
+name|override
+operator|.
+name|putAll
+argument_list|(
+name|prop
+argument_list|)
+expr_stmt|;
+name|override
+operator|.
+name|putAll
+argument_list|(
+name|overrideProperties
+argument_list|)
+expr_stmt|;
+name|prop
+operator|=
+name|override
+expr_stmt|;
 block|}
 comment|// enclose tokens if missing
 if|if
@@ -1076,6 +1137,33 @@ operator|=
 name|suffixToken
 expr_stmt|;
 block|}
+block|}
+DECL|method|getOverrideProperties ()
+specifier|public
+name|Properties
+name|getOverrideProperties
+parameter_list|()
+block|{
+return|return
+name|overrideProperties
+return|;
+block|}
+comment|/**      * Sets a special list of override properties that take precedence      * and will use first, if a property exist.      *      * @param overrideProperties properties that is used first      */
+DECL|method|setOverrideProperties (Properties overrideProperties)
+specifier|public
+name|void
+name|setOverrideProperties
+parameter_list|(
+name|Properties
+name|overrideProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|overrideProperties
+operator|=
+name|overrideProperties
+expr_stmt|;
 block|}
 annotation|@
 name|Override
