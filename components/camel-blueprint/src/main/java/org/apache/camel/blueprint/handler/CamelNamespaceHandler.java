@@ -2416,6 +2416,14 @@ argument_list|(
 literal|"getRoutes"
 argument_list|)
 expr_stmt|;
+comment|// lets inject the namespaces into any namespace aware POJOs
+name|injectNamespaces
+argument_list|(
+name|element
+argument_list|,
+name|binder
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|trace
