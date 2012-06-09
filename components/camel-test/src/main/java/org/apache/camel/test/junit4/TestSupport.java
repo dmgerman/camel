@@ -2303,6 +2303,40 @@ literal|"1.5"
 argument_list|)
 return|;
 block|}
+comment|/**      * Is this Java 1.6      *      * @return<tt>true</tt> if its Java 1.6,<tt>false</tt> if its not (for example Java 1.7 or better)      */
+DECL|method|isJava16 ()
+specifier|public
+specifier|static
+name|boolean
+name|isJava16
+parameter_list|()
+block|{
+name|String
+name|javaVersion
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+decl_stmt|;
+return|return
+name|javaVersion
+operator|.
+name|startsWith
+argument_list|(
+literal|"1.6"
+argument_list|)
+return|;
+block|}
 comment|/**      * Gets the current test method name      *      * @return the method name      */
 DECL|method|getTestMethodName ()
 specifier|public
