@@ -18,84 +18,31 @@ name|rmi
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|rmi
-operator|.
-name|RemoteException
-import|;
-end_import
-
 begin_comment
-comment|/**  * @version   */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|EchoService
+DECL|class|DamnException
 specifier|public
 class|class
-name|EchoService
-implements|implements
-name|IEcho
-block|{
-DECL|method|echo (String s)
-specifier|public
-name|String
-name|echo
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-throws|throws
-name|RemoteException
-block|{
-return|return
-literal|"Echo "
-operator|+
-name|s
-return|;
-block|}
-DECL|method|damn (String s)
-specifier|public
-name|String
-name|damn
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-throws|throws
 name|DamnException
-throws|,
-name|RemoteException
+extends|extends
+name|Exception
 block|{
-throw|throw
-operator|new
-name|DamnException
-argument_list|(
-literal|"Damn this did not work"
-argument_list|)
-throw|;
-block|}
-DECL|method|foo (String s)
+DECL|method|DamnException (String s)
 specifier|public
-name|String
-name|foo
+name|DamnException
 parameter_list|(
 name|String
 name|s
 parameter_list|)
-throws|throws
-name|RemoteException
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|super
 argument_list|(
-literal|"Illegal"
+name|s
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 end_class

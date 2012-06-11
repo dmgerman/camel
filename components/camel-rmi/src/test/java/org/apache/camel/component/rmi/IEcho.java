@@ -56,6 +56,28 @@ parameter_list|)
 throws|throws
 name|RemoteException
 function_decl|;
+DECL|method|damn (String s)
+name|String
+name|damn
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+throws|throws
+name|RemoteException
+throws|,
+name|DamnException
+function_decl|;
+DECL|method|foo (String s)
+name|String
+name|foo
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+throws|throws
+name|RemoteException
+function_decl|;
 block|}
 end_interface
 
