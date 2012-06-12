@@ -222,6 +222,11 @@ specifier|private
 name|boolean
 name|sessionSupport
 decl_stmt|;
+DECL|field|crossOriginFilterOn
+specifier|private
+name|boolean
+name|crossOriginFilterOn
+decl_stmt|;
 DECL|field|remaining
 specifier|private
 name|String
@@ -232,11 +237,22 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
-comment|// Base Resource for the ServletContextHandler
-DECL|field|home
+DECL|field|allowedOrigins
 specifier|private
 name|String
-name|home
+name|allowedOrigins
+decl_stmt|;
+comment|// Used to filter CORS
+DECL|field|filterPath
+specifier|private
+name|String
+name|filterPath
+decl_stmt|;
+comment|// Base Resource for the ServletContextHandler
+DECL|field|staticResources
+specifier|private
+name|String
+name|staticResources
 decl_stmt|;
 DECL|field|port
 specifier|private
@@ -588,30 +604,30 @@ operator|=
 name|port
 expr_stmt|;
 block|}
-DECL|method|getHome ()
+DECL|method|getStaticResources ()
 specifier|public
 name|String
-name|getHome
+name|getStaticResources
 parameter_list|()
 block|{
 return|return
-name|home
+name|staticResources
 return|;
 block|}
-DECL|method|setHome (String home)
+DECL|method|setStaticResources (String staticResources)
 specifier|public
 name|void
-name|setHome
+name|setStaticResources
 parameter_list|(
 name|String
-name|home
+name|staticResources
 parameter_list|)
 block|{
 name|this
 operator|.
-name|home
+name|staticResources
 operator|=
-name|home
+name|staticResources
 expr_stmt|;
 block|}
 DECL|method|getSendToAll ()
@@ -774,6 +790,84 @@ operator|.
 name|enableJmx
 operator|=
 name|enableJmx
+expr_stmt|;
+block|}
+DECL|method|getAllowedOrigins ()
+specifier|public
+name|String
+name|getAllowedOrigins
+parameter_list|()
+block|{
+return|return
+name|allowedOrigins
+return|;
+block|}
+DECL|method|setAllowedOrigins (String allowedOrigins)
+specifier|public
+name|void
+name|setAllowedOrigins
+parameter_list|(
+name|String
+name|allowedOrigins
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowedOrigins
+operator|=
+name|allowedOrigins
+expr_stmt|;
+block|}
+DECL|method|isCrossOriginFilterOn ()
+specifier|public
+name|boolean
+name|isCrossOriginFilterOn
+parameter_list|()
+block|{
+return|return
+name|crossOriginFilterOn
+return|;
+block|}
+DECL|method|setCrossOriginFilterOn (boolean crossOriginFilterOn)
+specifier|public
+name|void
+name|setCrossOriginFilterOn
+parameter_list|(
+name|boolean
+name|crossOriginFilterOn
+parameter_list|)
+block|{
+name|this
+operator|.
+name|crossOriginFilterOn
+operator|=
+name|crossOriginFilterOn
+expr_stmt|;
+block|}
+DECL|method|getFilterPath ()
+specifier|public
+name|String
+name|getFilterPath
+parameter_list|()
+block|{
+return|return
+name|filterPath
+return|;
+block|}
+DECL|method|setFilterPath (String filterPath)
+specifier|public
+name|void
+name|setFilterPath
+parameter_list|(
+name|String
+name|filterPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterPath
+operator|=
+name|filterPath
 expr_stmt|;
 block|}
 annotation|@
