@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Encoder for unsafe URI characters.  */
+comment|/**  * Encoder for unsafe URI characters.  *<p/>  * A good source for details is<a href="http://en.wikipedia.org/wiki/Url_encode">wikipedia url encode</a> article.  */
 end_comment
 
 begin_class
@@ -130,7 +130,13 @@ argument_list|(
 literal|'#'
 argument_list|)
 expr_stmt|;
-comment|// unsafeCharacters.set('%');
+name|unsafeCharacters
+operator|.
+name|set
+argument_list|(
+literal|'%'
+argument_list|)
+expr_stmt|;
 name|unsafeCharacters
 operator|.
 name|set
@@ -307,6 +313,7 @@ return|;
 block|}
 block|}
 comment|// okay there are some unsafe characters so we do need to encode
+comment|// see details at: http://en.wikipedia.org/wiki/Url_encode
 name|StringBuilder
 name|sb
 init|=
@@ -316,12 +323,29 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|char
-name|ch
-range|:
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
 name|chars
+operator|.
+name|length
+condition|;
+name|i
+operator|++
 control|)
 block|{
+name|char
+name|ch
+init|=
+name|chars
+index|[
+name|i
+index|]
+decl_stmt|;
 if|if
 condition|(
 name|ch
@@ -340,6 +364,79 @@ name|ch
 argument_list|)
 condition|)
 block|{
+comment|// special for % sign as it may be a decimal encoded value
+if|if
+condition|(
+name|ch
+operator|==
+literal|'%'
+condition|)
+block|{
+name|char
+name|next
+init|=
+name|i
+operator|+
+literal|1
+operator|<
+name|chars
+operator|.
+name|length
+condition|?
+name|chars
+index|[
+name|i
+operator|+
+literal|1
+index|]
+else|:
+literal|' '
+decl_stmt|;
+name|char
+name|next2
+init|=
+name|i
+operator|+
+literal|2
+operator|<
+name|chars
+operator|.
+name|length
+condition|?
+name|chars
+index|[
+name|i
+operator|+
+literal|2
+index|]
+else|:
+literal|' '
+decl_stmt|;
+if|if
+condition|(
+name|isHexDigit
+argument_list|(
+name|next
+argument_list|)
+operator|&&
+name|isHexDigit
+argument_list|(
+name|next2
+argument_list|)
+condition|)
+block|{
+comment|// its already encoded (decimal encoded) so just append as is
+name|sb
+operator|.
+name|append
+argument_list|(
+name|ch
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// must escape then, as its an unsafe character
 name|appendEscape
 argument_list|(
 name|sb
@@ -350,6 +447,22 @@ operator|)
 name|ch
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// must escape then, as its an unsafe character
+name|appendEscape
+argument_list|(
+name|sb
+argument_list|,
+operator|(
+name|byte
+operator|)
+name|ch
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -421,6 +534,40 @@ literal|0x0f
 index|]
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isHexDigit (char ch)
+specifier|private
+specifier|static
+name|boolean
+name|isHexDigit
+parameter_list|(
+name|char
+name|ch
+parameter_list|)
+block|{
+for|for
+control|(
+name|char
+name|hex
+range|:
+name|HEX_DIGITS
+control|)
+block|{
+if|if
+condition|(
+name|hex
+operator|==
+name|ch
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+return|return
+literal|false
+return|;
 block|}
 block|}
 end_class
