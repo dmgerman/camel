@@ -772,6 +772,8 @@ return|return
 literal|true
 return|;
 block|}
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -809,6 +811,33 @@ name|exchange
 argument_list|,
 name|callback
 argument_list|)
+return|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// must catch exception to ensure callback is invoked as expected
+comment|// to let Camel error handling deal with this
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
 return|;
 block|}
 block|}
