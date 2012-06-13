@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -89,6 +77,20 @@ operator|.
 name|channel
 operator|.
 name|ChannelFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelFutureListener
 import|;
 end_import
 
@@ -270,12 +272,12 @@ return|return
 name|s
 return|;
 block|}
-comment|/**      * Writes the given body to Netty channel. Will wait until the body has been written.      *      * @param channel         the Netty channel      * @param remoteAddress   the remote address when using UDP      * @param body            the body to write (send)      * @param exchange        the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
-DECL|method|writeBodySync (Channel channel, SocketAddress remoteAddress, Object body, Exchange exchange)
+comment|/**      * Writes the given body to Netty channel. Will<b>not</b>wait until the body has been written.      *      * @param channel         the Netty channel      * @param remoteAddress   the remote address when using UDP      * @param body            the body to write (send)      * @param exchange        the exchange      * @param listener        listener with work to be executed when the operation is complete      */
+DECL|method|writeBodyAsync (Channel channel, SocketAddress remoteAddress, Object body, Exchange exchange, ChannelFutureListener listener)
 specifier|public
 specifier|static
 name|void
-name|writeBodySync
+name|writeBodyAsync
 parameter_list|(
 name|Channel
 name|channel
@@ -288,9 +290,10 @@ name|body
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|ChannelFutureListener
+name|listener
 parameter_list|)
-throws|throws
-name|CamelExchangeException
 block|{
 comment|// the write operation is asynchronous. Use future to wait until the session has been written
 name|ChannelFuture
@@ -327,57 +330,13 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-comment|// wait for the write
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Waiting for write to complete"
-argument_list|)
-expr_stmt|;
 name|future
 operator|.
-name|awaitUninterruptibly
-argument_list|()
-expr_stmt|;
-comment|// if it was not a success then thrown an exception
-if|if
-condition|(
-operator|!
-name|future
-operator|.
-name|isSuccess
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
+name|addListener
 argument_list|(
-literal|"Cannot write body: "
-operator|+
-name|body
-operator|+
-literal|" using channel: "
-operator|+
-name|channel
+name|listener
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|CamelExchangeException
-argument_list|(
-literal|"Cannot write body"
-argument_list|,
-name|exchange
-argument_list|,
-name|future
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Closes the given channel      *      * @param channel the channel to close      */
 DECL|method|close (Channel channel)
