@@ -210,6 +210,12 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+comment|// validate config
+name|config
+operator|.
+name|validateConfiguration
+argument_list|()
+expr_stmt|;
 name|NettyEndpoint
 name|nettyEndpoint
 init|=
