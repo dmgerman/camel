@@ -502,11 +502,6 @@ name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|copy ()
 specifier|public
 name|NettyConfiguration
@@ -526,10 +521,16 @@ argument_list|()
 decl_stmt|;
 comment|// make sure the lists is copied in its own instance
 name|List
+argument_list|<
+name|ChannelHandler
+argument_list|>
 name|encodersCopy
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|ChannelHandler
+argument_list|>
 argument_list|(
 name|encoders
 argument_list|)
@@ -542,10 +543,16 @@ name|encodersCopy
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|ChannelHandler
+argument_list|>
 name|decodersCopy
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|ChannelHandler
+argument_list|>
 argument_list|(
 name|decoders
 argument_list|)

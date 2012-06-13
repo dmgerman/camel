@@ -2026,11 +2026,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setResponseHeader (Exchange exchange, org.restlet.Message message, String header, Object value)
 specifier|protected
 name|void
