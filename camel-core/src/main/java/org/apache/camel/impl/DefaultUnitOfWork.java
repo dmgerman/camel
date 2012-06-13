@@ -996,6 +996,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|containsSynchronization (Synchronization synchronization)
+specifier|public
+specifier|synchronized
+name|boolean
+name|containsSynchronization
+parameter_list|(
+name|Synchronization
+name|synchronization
+parameter_list|)
+block|{
+return|return
+name|synchronizations
+operator|!=
+literal|null
+operator|&&
+name|synchronizations
+operator|.
+name|contains
+argument_list|(
+name|synchronization
+argument_list|)
+return|;
+block|}
 DECL|method|handoverSynchronization (Exchange target)
 specifier|public
 name|void

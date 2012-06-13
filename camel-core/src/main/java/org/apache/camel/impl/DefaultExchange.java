@@ -1767,6 +1767,49 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|containsOnCompletion (Synchronization onCompletion)
+specifier|public
+name|boolean
+name|containsOnCompletion
+parameter_list|(
+name|Synchronization
+name|onCompletion
+parameter_list|)
+block|{
+if|if
+condition|(
+name|unitOfWork
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// if there is an unit of work then the completions is moved there
+return|return
+name|unitOfWork
+operator|.
+name|containsSynchronization
+argument_list|(
+name|onCompletion
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+comment|// check temporary completions if no unit of work yet
+return|return
+name|onCompletions
+operator|!=
+literal|null
+operator|&&
+name|onCompletions
+operator|.
+name|contains
+argument_list|(
+name|onCompletion
+argument_list|)
+return|;
+block|}
+block|}
 DECL|method|handoverCompletions (Exchange target)
 specifier|public
 name|void

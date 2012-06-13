@@ -982,6 +982,15 @@ name|Synchronization
 name|onCompletion
 parameter_list|)
 function_decl|;
+comment|/**      * Checks if the passed {@link org.apache.camel.spi.Synchronization} instance is      * already contained on this exchange.      *      * @param onCompletion  the callback instance that is being checked for      * @return<tt>true</tt>, if callback instance is already contained on this exchange, else<tt>false</tt>      */
+DECL|method|containsOnCompletion (Synchronization onCompletion)
+name|boolean
+name|containsOnCompletion
+parameter_list|(
+name|Synchronization
+name|onCompletion
+parameter_list|)
+function_decl|;
 comment|/**      * Handover all the on completions from this exchange to the target exchange.      *      * @param target the target exchange      */
 DECL|method|handoverCompletions (Exchange target)
 name|void
