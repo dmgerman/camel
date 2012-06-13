@@ -101,6 +101,7 @@ decl_stmt|;
 DECL|field|TEST_TOPIC
 specifier|protected
 specifier|static
+specifier|final
 name|String
 name|TEST_TOPIC
 init|=

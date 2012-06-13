@@ -128,8 +128,6 @@ DECL|field|byDefaultRetain
 specifier|private
 name|boolean
 name|byDefaultRetain
-init|=
-literal|false
 decl_stmt|;
 DECL|field|qos
 specifier|private
