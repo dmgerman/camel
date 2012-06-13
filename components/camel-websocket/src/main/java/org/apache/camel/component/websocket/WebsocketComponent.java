@@ -2987,6 +2987,8 @@ return|;
 block|}
 block|}
 comment|// This method is for Jetty 7.5.x
+annotation|@
+name|Override
 DECL|method|checkKeyStore ()
 specifier|public
 name|void
@@ -3245,6 +3247,7 @@ block|}
 block|}
 DECL|method|getConnectorKey (WebsocketEndpoint endpoint)
 specifier|private
+specifier|static
 name|String
 name|getConnectorKey
 parameter_list|(
