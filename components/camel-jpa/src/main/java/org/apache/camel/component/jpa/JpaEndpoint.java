@@ -354,6 +354,8 @@ name|JpaEndpoint
 parameter_list|()
 block|{     }
 comment|/**      *       * @param endpointUri      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|JpaEndpoint (String endpointUri)
 specifier|public
 name|JpaEndpoint
@@ -402,6 +404,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      *       * @param endpointUri      * @param entityManagerFactory      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory)
 specifier|public
 name|JpaEndpoint
@@ -426,6 +430,8 @@ name|entityManagerFactory
 expr_stmt|;
 block|}
 comment|/**      *       * @param endpointUri      * @param entityManagerFactory      * @param transactionManager      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory, PlatformTransactionManager transactionManager)
 specifier|public
 name|JpaEndpoint

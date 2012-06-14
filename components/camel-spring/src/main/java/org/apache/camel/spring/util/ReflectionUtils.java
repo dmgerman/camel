@@ -168,8 +168,6 @@ name|IllegalAccessException
 name|ex
 parameter_list|)
 block|{
-name|ReflectionUtils
-operator|.
 name|handleReflectionException
 argument_list|(
 name|ex

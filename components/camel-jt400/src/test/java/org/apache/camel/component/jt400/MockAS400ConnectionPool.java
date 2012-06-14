@@ -97,9 +97,6 @@ specifier|public
 name|MockAS400ConnectionPool
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setRunMaintenance
 argument_list|(
 literal|false

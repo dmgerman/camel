@@ -286,15 +286,6 @@ specifier|protected
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|method|AbstractMongoDbTest ()
-specifier|public
-name|AbstractMongoDbTest
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Checks whether Mongo is running using the connection URI defined in the mongodb.test.properties file      * @throws IOException       */
 annotation|@
 name|BeforeClass

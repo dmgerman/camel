@@ -172,14 +172,6 @@ operator|.
 name|AT_MOST_ONCE
 argument_list|)
 decl_stmt|;
-name|Topic
-index|[]
-name|topics
-init|=
-block|{
-name|topic
-block|}
-decl_stmt|;
 name|MockEndpoint
 name|mock
 init|=

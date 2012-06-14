@@ -203,6 +203,8 @@ init|=
 literal|"}}"
 decl_stmt|;
 comment|/**      * The default prefix token.      * @deprecated Use {@link #DEFAULT_PREFIX_TOKEN} instead.      */
+annotation|@
+name|Deprecated
 DECL|field|PREFIX_TOKEN
 specifier|public
 specifier|static
@@ -213,6 +215,8 @@ init|=
 name|DEFAULT_PREFIX_TOKEN
 decl_stmt|;
 comment|/**      * The default suffix token.      * @deprecated Use {@link #DEFAULT_SUFFIX_TOKEN} instead.      */
+annotation|@
+name|Deprecated
 DECL|field|SUFFIX_TOKEN
 specifier|public
 specifier|static

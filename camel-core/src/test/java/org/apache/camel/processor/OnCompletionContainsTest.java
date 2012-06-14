@@ -100,11 +100,13 @@ name|SynchronizationAdapter
 block|{
 DECL|field|endPoint
 specifier|private
+specifier|final
 name|String
 name|endPoint
 decl_stmt|;
 DECL|field|body
 specifier|private
+specifier|final
 name|String
 name|body
 decl_stmt|;
@@ -118,9 +120,6 @@ name|String
 name|body
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|endPoint
@@ -288,8 +287,7 @@ argument_list|(
 name|adapter
 argument_list|)
 expr_stmt|;
-comment|// should not add the adapter again as we already have
-comment|// it
+comment|// should not add the adapter again as we already have it
 if|if
 condition|(
 operator|!
@@ -326,8 +324,7 @@ argument_list|(
 name|adapter
 argument_list|)
 expr_stmt|;
-comment|// now add the B again as we want to test that this also
-comment|// work
+comment|// now add the B again as we want to test that this also work
 if|if
 condition|(
 name|exchange
@@ -346,8 +343,7 @@ name|adapter
 argument_list|)
 expr_stmt|;
 block|}
-comment|// add a C that is no a SimpleSynchronizationAdapter
-comment|// class
+comment|// add a C that is no a SimpleSynchronizationAdapter class
 name|exchange
 operator|.
 name|addOnCompletion

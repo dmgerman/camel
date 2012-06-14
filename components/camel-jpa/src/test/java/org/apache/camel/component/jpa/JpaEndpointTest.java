@@ -169,6 +169,8 @@ expr_stmt|;
 block|}
 comment|/**      *       * @deprecated       */
 annotation|@
+name|Deprecated
+annotation|@
 name|Test
 DECL|method|testJpaEndpointCtrUrl ()
 specifier|public
@@ -234,6 +236,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      *       * @deprecated      */
+annotation|@
+name|Deprecated
 annotation|@
 name|Test
 DECL|method|testJpaEndpointCtrUrlEMF ()
@@ -314,6 +318,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      *       * @deprecated      */
+annotation|@
+name|Deprecated
 annotation|@
 name|Test
 DECL|method|testJpaEndpointCtrUrlEMFandTM ()

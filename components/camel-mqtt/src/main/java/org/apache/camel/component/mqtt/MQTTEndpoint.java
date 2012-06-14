@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Twitter direct endpoint  */
+comment|/**  * MQTT endpoint  */
 end_comment
 
 begin_class
@@ -918,14 +918,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|Promise
-name|promise
-init|=
-operator|new
-name|Promise
-argument_list|()
-decl_stmt|;
 name|connection
 operator|.
 name|publish
