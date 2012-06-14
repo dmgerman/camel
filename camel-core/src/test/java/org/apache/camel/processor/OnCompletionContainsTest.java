@@ -288,7 +288,8 @@ argument_list|(
 name|adapter
 argument_list|)
 expr_stmt|;
-comment|// should not add the adapter again as we already have it
+comment|// should not add the adapter again as we already have
+comment|// it
 if|if
 condition|(
 operator|!
@@ -325,7 +326,8 @@ argument_list|(
 name|adapter
 argument_list|)
 expr_stmt|;
-comment|// now add the B again as we want to test that this also work
+comment|// now add the B again as we want to test that this also
+comment|// work
 if|if
 condition|(
 name|exchange
@@ -344,7 +346,8 @@ name|adapter
 argument_list|)
 expr_stmt|;
 block|}
-comment|// add a C that is no a SimpleSynchronizationAdapter class
+comment|// add a C that is no a SimpleSynchronizationAdapter
+comment|// class
 name|exchange
 operator|.
 name|addOnCompletion
