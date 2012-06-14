@@ -118,18 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Converter
 import|;
 end_import
@@ -155,18 +143,6 @@ operator|.
 name|camel
 operator|.
 name|FallbackConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
 import|;
 end_import
 
