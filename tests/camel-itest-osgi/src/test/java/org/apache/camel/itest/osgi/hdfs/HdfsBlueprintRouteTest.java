@@ -262,6 +262,17 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// and does not work well on windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|getInstalledBundle
 argument_list|(
 literal|"CamelBlueprintHdfsTestBundle"
