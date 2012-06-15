@@ -118,7 +118,7 @@ decl_stmt|;
 comment|// must keep a map of consumers on the component to ensure endpoints can lookup old consumers
 comment|// later in case the DirectEndpoint was re-created due the old was evicted from the endpoints LRUCache
 comment|// on DefaultCamelContext
-DECL|field|consumers
+DECL|field|CONSUMERS
 specifier|private
 specifier|static
 specifier|final
@@ -128,7 +128,7 @@ name|String
 argument_list|,
 name|DirectVmConsumer
 argument_list|>
-name|consumers
+name|CONSUMERS
 init|=
 operator|new
 name|ConcurrentHashMap
@@ -206,7 +206,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
-name|consumers
+name|CONSUMERS
 operator|.
 name|get
 argument_list|(
@@ -240,7 +240,7 @@ decl_stmt|;
 name|DirectVmConsumer
 name|existing
 init|=
-name|consumers
+name|CONSUMERS
 operator|.
 name|putIfAbsent
 argument_list|(
@@ -286,7 +286,7 @@ literal|". Multiple consumers not supported"
 argument_list|)
 throw|;
 block|}
-name|consumers
+name|CONSUMERS
 operator|.
 name|put
 argument_list|(
@@ -319,7 +319,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|consumers
+name|CONSUMERS
 operator|.
 name|remove
 argument_list|(
@@ -411,7 +411,7 @@ literal|0
 condition|)
 block|{
 comment|// clear queues when no more direct-vm components in use
-name|consumers
+name|CONSUMERS
 operator|.
 name|clear
 argument_list|()
