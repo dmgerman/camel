@@ -399,7 +399,7 @@ operator|.
 name|getBundle
 argument_list|()
 operator|.
-name|getEntry
+name|getResource
 argument_list|(
 name|uri
 argument_list|)
