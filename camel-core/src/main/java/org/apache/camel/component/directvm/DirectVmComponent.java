@@ -286,15 +286,6 @@ literal|". Multiple consumers not supported"
 argument_list|)
 throw|;
 block|}
-name|CONSUMERS
-operator|.
-name|put
-argument_list|(
-name|key
-argument_list|,
-name|consumer
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|removeConsumer (DirectVmEndpoint endpoint, DirectVmConsumer consumer)
 specifier|public
@@ -417,6 +408,11 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
