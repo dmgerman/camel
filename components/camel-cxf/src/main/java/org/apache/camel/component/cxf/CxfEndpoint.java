@@ -4681,6 +4681,10 @@ block|}
 block|}
 if|if
 condition|(
+name|elements
+operator|!=
+literal|null
+operator|&&
 name|content
 operator|.
 name|size
