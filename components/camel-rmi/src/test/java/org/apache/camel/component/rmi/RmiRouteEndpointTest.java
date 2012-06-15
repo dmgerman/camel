@@ -54,6 +54,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -66,16 +80,6 @@ name|RmiRouteEndpointTest
 extends|extends
 name|RmiRouteTest
 block|{
-DECL|method|getPort ()
-specifier|protected
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-literal|37542
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getRouteBuilder (final CamelContext context)
@@ -123,7 +127,12 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-literal|"rmi://localhost:37542/bye"
+literal|"rmi://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/bye"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -169,7 +178,12 @@ argument_list|(
 operator|new
 name|URI
 argument_list|(
-literal|"rmi://localhost:37542/bye"
+literal|"rmi://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/bye"
 argument_list|)
 argument_list|)
 expr_stmt|;
