@@ -182,6 +182,55 @@ name|ErrorHandlerTest
 extends|extends
 name|TestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// make SEDA testing faster
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
+argument_list|,
+literal|"10"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"CamelSedaPollTimeout"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testOverloadingTheDefaultErrorHandler ()
 specifier|public
 name|void
