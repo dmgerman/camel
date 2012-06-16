@@ -2873,6 +2873,34 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+return|return
+name|copyExchangeAndSetCamelContext
+argument_list|(
+name|exchange
+argument_list|,
+name|context
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Copies the exchange but the copy will be tied to the given context      *      * @param exchange  the source exchange      * @param context   the camel context      * @param handover  whether to handover on completions from the source to the copy      * @return a copy with the given camel context      */
+DECL|method|copyExchangeAndSetCamelContext (Exchange exchange, CamelContext context, boolean handover)
+specifier|public
+specifier|static
+name|Exchange
+name|copyExchangeAndSetCamelContext
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|CamelContext
+name|context
+parameter_list|,
+name|boolean
+name|handover
+parameter_list|)
+block|{
 name|DefaultExchange
 name|answer
 init|=
@@ -2909,6 +2937,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|handover
+condition|)
+block|{
 comment|// Need to hand over the completion for async invocation
 name|exchange
 operator|.
@@ -2917,6 +2950,7 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
 name|answer
 operator|.
 name|setIn

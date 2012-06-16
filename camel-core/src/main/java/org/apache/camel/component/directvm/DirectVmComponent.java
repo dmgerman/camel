@@ -116,7 +116,7 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 comment|// must keep a map of consumers on the component to ensure endpoints can lookup old consumers
-comment|// later in case the DirectEndpoint was re-created due the old was evicted from the endpoints LRUCache
+comment|// later in case the DirectVmEndpoint was re-created due the old was evicted from the endpoints LRUCache
 comment|// on DefaultCamelContext
 DECL|field|CONSUMERS
 specifier|private

@@ -169,7 +169,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// send a new copied exchange with new camel context
+comment|// send a new copied exchange with new camel context (do not handover completions)
 name|Exchange
 name|newExchange
 init|=
@@ -183,6 +183,8 @@ name|endpoint
 operator|.
 name|getCamelContext
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// set the from endpoint
