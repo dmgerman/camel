@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -134,8 +146,8 @@ name|DeadLetterChannel
 extends|extends
 name|RedeliveryErrorHandler
 block|{
-comment|/**      * Creates the dead letter channel.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      * @param retryWhile                retry while      * @param executorServiceRef        reference to a {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      */
-DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy, Predicate retryWhile, String executorServiceRef)
+comment|/**      * Creates the dead letter channel.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      * @param retryWhile                retry while      * @param executorService           the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      */
+DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean useOriginalBodyPolicy, Predicate retryWhile, ScheduledExecutorService executorService)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -169,8 +181,8 @@ parameter_list|,
 name|Predicate
 name|retryWhile
 parameter_list|,
-name|String
-name|executorServiceRef
+name|ScheduledExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|super
@@ -193,7 +205,7 @@ name|useOriginalBodyPolicy
 argument_list|,
 name|retryWhile
 argument_list|,
-name|executorServiceRef
+name|executorService
 argument_list|)
 expr_stmt|;
 name|setExceptionPolicy

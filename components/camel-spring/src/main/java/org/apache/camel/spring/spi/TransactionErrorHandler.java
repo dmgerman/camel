@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -258,8 +270,8 @@ specifier|final
 name|LoggingLevel
 name|rollbackLoggingLevel
 decl_stmt|;
-comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      * @param executorServiceRef      reference to a {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      * @param rollbackLoggingLevel    logging level to use for logging transaction rollback occurred      */
-DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile, String executorServiceRef, LoggingLevel rollbackLoggingLevel)
+comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      * @param executorService         the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      * @param rollbackLoggingLevel    logging level to use for logging transaction rollback occurred      */
+DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile, ScheduledExecutorService executorService, LoggingLevel rollbackLoggingLevel)
 specifier|public
 name|TransactionErrorHandler
 parameter_list|(
@@ -287,8 +299,8 @@ parameter_list|,
 name|Predicate
 name|retryWhile
 parameter_list|,
-name|String
-name|executorServiceRef
+name|ScheduledExecutorService
+name|executorService
 parameter_list|,
 name|LoggingLevel
 name|rollbackLoggingLevel
@@ -314,7 +326,7 @@ literal|false
 argument_list|,
 name|retryWhile
 argument_list|,
-name|executorServiceRef
+name|executorService
 argument_list|)
 expr_stmt|;
 name|setExceptionPolicy

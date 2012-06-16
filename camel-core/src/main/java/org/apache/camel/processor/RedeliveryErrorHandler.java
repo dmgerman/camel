@@ -184,35 +184,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ExecutorServiceManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|SubUnitOfWorkCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ThreadPoolProfile
 import|;
 end_import
 
@@ -372,16 +344,9 @@ implements|implements
 name|AsyncProcessor
 block|{
 DECL|field|executorService
-specifier|private
-specifier|static
+specifier|protected
 name|ScheduledExecutorService
 name|executorService
-decl_stmt|;
-DECL|field|executorServiceRef
-specifier|protected
-specifier|final
-name|String
-name|executorServiceRef
 decl_stmt|;
 DECL|field|camelContext
 specifier|protected
@@ -850,7 +815,7 @@ name|sync
 return|;
 block|}
 block|}
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile, String executorServiceRef)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean useOriginalMessagePolicy, Predicate retryWhile, ScheduledExecutorService executorService)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -881,8 +846,8 @@ parameter_list|,
 name|Predicate
 name|retryWhile
 parameter_list|,
-name|String
-name|executorServiceRef
+name|ScheduledExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -974,9 +939,9 @@ name|retryWhile
 expr_stmt|;
 name|this
 operator|.
-name|executorServiceRef
+name|executorService
 operator|=
-name|executorServiceRef
+name|executorService
 expr_stmt|;
 block|}
 DECL|method|supportTransacted ()
@@ -2506,7 +2471,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// TODO: We may want to store these as state on RedelieryData so we keep them in case end user messes with Exchange
+comment|// TODO: We may want to store these as state on RedeliveryData so we keep them in case end user messes with Exchange
 comment|// and then put these on the exchange when doing a redelivery / fault processor
 comment|// preserve these headers
 name|Integer
@@ -4780,43 +4745,6 @@ argument_list|,
 name|deadLetter
 argument_list|)
 expr_stmt|;
-comment|// use a shared scheduler
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-operator|||
-name|executorService
-operator|.
-name|isShutdown
-argument_list|()
-condition|)
-block|{
-comment|// camel context will shutdown the executor when it shutdown so no need to shut it down when stopping
-if|if
-condition|(
-name|executorServiceRef
-operator|!=
-literal|null
-condition|)
-block|{
-name|executorService
-operator|=
-name|camelContext
-operator|.
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-name|executorServiceRef
-argument_list|,
-name|ScheduledExecutorService
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|executorService
@@ -4824,76 +4752,14 @@ operator|==
 literal|null
 condition|)
 block|{
-name|ExecutorServiceManager
-name|manager
-init|=
-name|camelContext
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-decl_stmt|;
-name|ThreadPoolProfile
-name|profile
-init|=
-name|manager
-operator|.
-name|getThreadPoolProfile
-argument_list|(
-name|executorServiceRef
-argument_list|)
-decl_stmt|;
-name|executorService
-operator|=
-name|manager
-operator|.
-name|newScheduledThreadPool
-argument_list|(
-name|this
-argument_list|,
-name|executorServiceRef
-argument_list|,
-name|profile
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"ExecutorServiceRef "
-operator|+
-name|executorServiceRef
-operator|+
-literal|" not found in registry."
-argument_list|)
-throw|;
-block|}
-block|}
-else|else
-block|{
-comment|// create a default scheduled thread pool
+comment|// use default shared executor service
 name|executorService
 operator|=
 name|camelContext
 operator|.
-name|getExecutorServiceManager
+name|getErrorHandlerExecutorService
 argument_list|()
-operator|.
-name|newDefaultScheduledThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"ErrorHandlerRedeliveryTask"
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// determine if redeliver is enabled or not
 name|redeliveryEnabled

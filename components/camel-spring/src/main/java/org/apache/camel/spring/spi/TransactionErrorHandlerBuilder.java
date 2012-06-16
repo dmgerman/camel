@@ -640,8 +640,13 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 argument_list|,
-name|getExecutorServiceRef
+name|getExecutorService
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
 argument_list|()
+argument_list|)
 argument_list|,
 name|getRollbackLoggingLevel
 argument_list|()

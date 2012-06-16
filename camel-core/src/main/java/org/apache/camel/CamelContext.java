@@ -62,6 +62,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|TimeUnit
 import|;
 end_import
@@ -1218,6 +1230,12 @@ parameter_list|(
 name|ErrorHandlerFactory
 name|errorHandlerBuilder
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the default shared thread pool for error handlers which      * leverages this for asynchronous redelivery tasks.      */
+DECL|method|getErrorHandlerExecutorService ()
+name|ScheduledExecutorService
+name|getErrorHandlerExecutorService
+parameter_list|()
 function_decl|;
 comment|/**      * Sets the data formats that can be referenced in the routes.      *      * @param dataFormats the data formats      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#setDataFormats(java.util.Map)}      */
 annotation|@
