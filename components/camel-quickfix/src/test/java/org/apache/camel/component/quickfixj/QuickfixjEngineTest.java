@@ -741,6 +741,17 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|settings
+operator|.
+name|setBool
+argument_list|(
+name|QuickfixjEngine
+operator|.
+name|SETTING_USE_JMX
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|TestSupport
 operator|.
 name|setSessionID
@@ -4176,9 +4187,51 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+comment|// Try to find the root cause of the failed tests under jdk7 as from time to time the returned Set is not empty!
+if|if
+condition|(
+operator|!
+name|names
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The JMX objects found for the name 'org.quickfixj:*':"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|ObjectName
+name|name
+range|:
+name|names
+control|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"ObjectName => '"
+operator|+
+name|name
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|assertTrue
 argument_list|(
-literal|"QFJ mbean should not not registered"
+literal|"QFJ mbean should not have been registered"
 argument_list|,
 name|names
 operator|.
