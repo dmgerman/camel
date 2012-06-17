@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -39,6 +49,24 @@ operator|.
 name|camel
 operator|.
 name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|karaf
+operator|.
+name|commands
+operator|.
+name|internal
+operator|.
+name|RegexUtil
 import|;
 end_import
 
@@ -108,7 +136,7 @@ literal|" route-stop"
 argument_list|,
 name|description
 operator|=
-literal|"Stop a Camel route."
+literal|"Stop a Camel route or a group of routes."
 argument_list|)
 DECL|class|RouteStop
 specifier|public
@@ -130,7 +158,7 @@ literal|"route"
 argument_list|,
 name|description
 operator|=
-literal|"The Camel route ID."
+literal|"The Camel route ID or a wildcard expression."
 argument_list|,
 name|required
 operator|=
@@ -200,23 +228,36 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|List
+argument_list|<
 name|Route
-name|camelRoute
+argument_list|>
+name|camelRoutes
 init|=
 name|camelController
 operator|.
-name|getRoute
+name|getRoutes
+argument_list|(
+name|context
+argument_list|,
+name|RegexUtil
+operator|.
+name|wildcardAsRegex
 argument_list|(
 name|route
-argument_list|,
-name|context
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|camelRoute
+name|camelRoutes
 operator|==
 literal|null
+operator|||
+name|camelRoutes
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|System
@@ -225,7 +266,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Camel route "
+literal|"Camel routes using "
 operator|+
 name|route
 operator|+
@@ -236,6 +277,14 @@ return|return
 literal|null
 return|;
 block|}
+for|for
+control|(
+name|Route
+name|camelRoute
+range|:
+name|camelRoutes
+control|)
+block|{
 name|CamelContext
 name|camelContext
 init|=
@@ -251,9 +300,13 @@ name|camelContext
 operator|.
 name|stopRoute
 argument_list|(
-name|route
+name|camelRoute
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|null
 return|;

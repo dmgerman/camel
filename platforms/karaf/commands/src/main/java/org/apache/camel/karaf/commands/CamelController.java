@@ -106,6 +106,21 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
+comment|/**      * Get all routes filtered by the regex.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @param filter the filter which supports * and ? as wildcards      * @return the list of the Camel routes.      */
+DECL|method|getRoutes (String camelContextName, String filter)
+name|List
+argument_list|<
+name|Route
+argument_list|>
+name|getRoutes
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|String
+name|filter
+parameter_list|)
+function_decl|;
 comment|/**      * Get all route definitions. If Camel context name is null, all route definitions from all contexts are listed.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @return the list of the Camel route definitions.      */
 DECL|method|getRouteDefinitions (String camelContextName)
 name|List
