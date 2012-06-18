@@ -326,19 +326,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// should get the Content-Length
-name|assertNotNull
-argument_list|(
-literal|"Should get the content-length"
-argument_list|,
-name|headers
-operator|.
-name|get
-argument_list|(
-literal|"Content-Length"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test

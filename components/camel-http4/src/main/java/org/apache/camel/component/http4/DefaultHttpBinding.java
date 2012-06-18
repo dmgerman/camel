@@ -1905,11 +1905,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// other kind of content type
+comment|// prefer streaming
 name|InputStream
 name|is
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1933,6 +1931,32 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// try to use input stream first, so we can copy directly
+name|is
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|tryConvertTo
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|,
+name|message
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|is
@@ -1950,6 +1974,13 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Writing direct response from source input stream to servlet output stream"
+argument_list|)
+expr_stmt|;
 comment|// copy directly from input stream to output stream
 name|IOHelper
 operator|.
@@ -1996,17 +2027,55 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot write from source input stream, falling back to using String content. For binary content this can be a problem."
+argument_list|)
+expr_stmt|;
 comment|// set content length before we write data
+name|String
+name|charset
+init|=
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+specifier|final
+name|int
+name|dataByteLength
+init|=
+name|data
+operator|.
+name|getBytes
+argument_list|(
+name|charset
+argument_list|)
+operator|.
+name|length
+decl_stmt|;
+name|response
+operator|.
+name|setCharacterEncoding
+argument_list|(
+name|charset
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|setContentLength
 argument_list|(
-name|data
-operator|.
-name|length
-argument_list|()
+name|dataByteLength
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|response
 operator|.
 name|getWriter
@@ -2017,6 +2086,9 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|response
 operator|.
 name|getWriter
@@ -2025,6 +2097,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

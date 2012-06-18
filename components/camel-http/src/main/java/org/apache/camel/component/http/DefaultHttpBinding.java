@@ -2036,11 +2036,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// other kind of content type
+comment|// prefer streaming
 name|InputStream
 name|is
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -2064,6 +2062,32 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// try to use input stream first, so we can copy directly
+name|is
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|tryConvertTo
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|,
+name|message
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|is
@@ -2079,6 +2103,13 @@ operator|.
 name|getOutputStream
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Writing direct response from source input stream to servlet output stream"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 comment|// copy directly from input stream to output stream
@@ -2107,7 +2138,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// not convertable as a stream so try as a String
+comment|// not convertable as a stream so fallback as a String
 name|String
 name|data
 init|=
@@ -2127,6 +2158,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot write from source input stream, falling back to using String content. For binary content this can be a problem."
+argument_list|)
+expr_stmt|;
 comment|// set content length and encoding before we write data
 name|String
 name|charset
@@ -2167,6 +2205,8 @@ argument_list|(
 name|dataByteLength
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|response
 operator|.
 name|getWriter
@@ -2177,6 +2217,9 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|response
 operator|.
 name|getWriter
@@ -2185,6 +2228,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
