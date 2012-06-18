@@ -2165,6 +2165,27 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// invoke the on completion callback
+if|if
+condition|(
+name|aggregationStrategy
+operator|instanceof
+name|CompletionAwareAggregationStrategy
+condition|)
+block|{
+operator|(
+operator|(
+name|CompletionAwareAggregationStrategy
+operator|)
+name|aggregationStrategy
+operator|)
+operator|.
+name|onCompletion
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// send this exchange
 name|executorService
 operator|.
