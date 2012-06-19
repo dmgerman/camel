@@ -42,18 +42,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -92,11 +80,11 @@ specifier|final
 name|CamelEventHandler
 name|eventHandler
 decl_stmt|;
-DECL|method|GuavaEventBusConsumer (Endpoint endpoint, Processor processor, EventBus eventBus, Class<?> eventClass)
+DECL|method|GuavaEventBusConsumer (GuavaEventBusEndpoint endpoint, Processor processor, EventBus eventBus, Class<?> eventClass)
 specifier|public
 name|GuavaEventBusConsumer
 parameter_list|(
-name|Endpoint
+name|GuavaEventBusEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
@@ -132,9 +120,6 @@ operator|=
 operator|new
 name|CamelEventHandler
 argument_list|(
-operator|(
-name|GuavaEventBusEndpoint
-operator|)
 name|endpoint
 argument_list|,
 name|processor
