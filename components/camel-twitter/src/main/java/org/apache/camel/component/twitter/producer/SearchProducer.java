@@ -196,7 +196,7 @@ name|getHeader
 argument_list|(
 name|TwitterConstants
 operator|.
-name|TWITTER_SEARCH_QUERY
+name|TWITTER_KEYWORDS
 argument_list|,
 name|String
 operator|.

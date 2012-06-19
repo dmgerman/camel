@@ -25,14 +25,14 @@ specifier|final
 class|class
 name|TwitterConstants
 block|{
-DECL|field|TWITTER_SEARCH_QUERY
+DECL|field|TWITTER_KEYWORDS
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|TWITTER_SEARCH_QUERY
+name|TWITTER_KEYWORDS
 init|=
-literal|"CamelTwitterSearchQuery"
+literal|"CamelTwitterKeywords"
 decl_stmt|;
 DECL|method|TwitterConstants ()
 specifier|private

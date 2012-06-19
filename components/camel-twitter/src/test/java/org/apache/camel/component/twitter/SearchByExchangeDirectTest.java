@@ -257,7 +257,7 @@ literal|null
 argument_list|,
 name|TwitterConstants
 operator|.
-name|TWITTER_SEARCH_QUERY
+name|TWITTER_KEYWORDS
 argument_list|,
 literal|"java"
 argument_list|)
@@ -340,7 +340,7 @@ literal|null
 argument_list|,
 name|TwitterConstants
 operator|.
-name|TWITTER_SEARCH_QUERY
+name|TWITTER_KEYWORDS
 argument_list|,
 literal|"java"
 argument_list|)
@@ -422,7 +422,7 @@ literal|null
 argument_list|,
 name|TwitterConstants
 operator|.
-name|TWITTER_SEARCH_QUERY
+name|TWITTER_KEYWORDS
 argument_list|,
 literal|"java"
 argument_list|)
