@@ -18,69 +18,31 @@ name|twitter
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|data
-operator|.
-name|EndpointType
-import|;
-end_import
-
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|Twitter
-import|;
-end_import
-
-begin_interface
-DECL|interface|TwitterEndpoint
+begin_class
+DECL|class|TwitterConstants
 specifier|public
-interface|interface
-name|TwitterEndpoint
-extends|extends
-name|Endpoint
+specifier|final
+class|class
+name|TwitterConstants
 block|{
-DECL|method|getTwitter ()
-name|Twitter
-name|getTwitter
+DECL|field|TWITTER_SEARCH_QUERY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TWITTER_SEARCH_QUERY
+init|=
+literal|"CamelTwitterSearchQuery"
+decl_stmt|;
+DECL|method|TwitterConstants ()
+specifier|private
+name|TwitterConstants
 parameter_list|()
-function_decl|;
-DECL|method|getProperties ()
-name|TwitterConfiguration
-name|getProperties
-parameter_list|()
-function_decl|;
-DECL|method|getEndpointType ()
-name|EndpointType
-name|getEndpointType
-parameter_list|()
-function_decl|;
+block|{
+comment|// utility
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

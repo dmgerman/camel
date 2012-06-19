@@ -128,6 +128,13 @@ specifier|private
 name|String
 name|userIds
 decl_stmt|;
+DECL|field|filterOld
+specifier|private
+name|boolean
+name|filterOld
+init|=
+literal|true
+decl_stmt|;
 DECL|field|twitter
 specifier|private
 name|Twitter
@@ -492,6 +499,32 @@ operator|.
 name|userIds
 operator|=
 name|userIds
+expr_stmt|;
+block|}
+DECL|method|isFilterOld ()
+specifier|public
+name|boolean
+name|isFilterOld
+parameter_list|()
+block|{
+return|return
+name|filterOld
+return|;
+block|}
+DECL|method|setFilterOld (boolean filterOld)
+specifier|public
+name|void
+name|setFilterOld
+parameter_list|(
+name|boolean
+name|filterOld
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterOld
+operator|=
+name|filterOld
 expr_stmt|;
 block|}
 DECL|method|getTwitter ()

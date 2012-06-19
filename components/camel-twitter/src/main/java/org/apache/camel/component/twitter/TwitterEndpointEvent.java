@@ -108,6 +108,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|twitter
+operator|.
+name|data
+operator|.
+name|EndpointType
+import|;
+end_import
+
+begin_import
+import|import
 name|twitter4j
 operator|.
 name|Twitter
@@ -252,6 +270,20 @@ parameter_list|()
 block|{
 return|return
 name|properties
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpointType ()
+specifier|public
+name|EndpointType
+name|getEndpointType
+parameter_list|()
+block|{
+return|return
+name|EndpointType
+operator|.
+name|EVENT
 return|;
 block|}
 block|}
