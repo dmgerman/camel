@@ -32,24 +32,6 @@ name|file
 operator|.
 name|remote
 operator|.
-name|RemoteFileEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|remote
-operator|.
 name|RemoteFileOperations
 import|;
 end_import
@@ -83,14 +65,11 @@ argument_list|<
 name|ScpFile
 argument_list|>
 block|{
-DECL|method|ScpProducer (RemoteFileEndpoint<ScpFile> endpoint, RemoteFileOperations<ScpFile> operations)
+DECL|method|ScpProducer (ScpEndpoint endpoint, RemoteFileOperations<ScpFile> operations)
 specifier|protected
 name|ScpProducer
 parameter_list|(
-name|RemoteFileEndpoint
-argument_list|<
-name|ScpFile
-argument_list|>
+name|ScpEndpoint
 name|endpoint
 parameter_list|,
 name|RemoteFileOperations
