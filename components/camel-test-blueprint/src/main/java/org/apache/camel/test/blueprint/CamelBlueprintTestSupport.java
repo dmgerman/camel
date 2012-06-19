@@ -186,13 +186,13 @@ argument_list|,
 name|getBlueprintDescriptor
 argument_list|()
 argument_list|,
+literal|true
+argument_list|,
 name|getBundleFilter
 argument_list|()
 argument_list|,
 name|getBundleVersion
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// must register override properties early in OSGi containers
