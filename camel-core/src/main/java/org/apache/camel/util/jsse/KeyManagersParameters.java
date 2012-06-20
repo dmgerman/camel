@@ -168,9 +168,9 @@ name|IOException
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Creating KeyManager[] from KeyManagersParameters: {}"
+literal|"Creating KeyManager[] from KeyManagersParameters [{}]."
 argument_list|,
 name|this
 argument_list|)
@@ -252,6 +252,32 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"KeyManagerFactory [{}], initialized from [{}], is using provider [{}] and algorithm [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|kmf
+block|,
+name|this
+block|,
+name|kmf
+operator|.
+name|getProvider
+argument_list|()
+block|,
+name|kmf
+operator|.
+name|getAlgorithm
+argument_list|()
+block|}
+argument_list|)
+expr_stmt|;
 name|char
 index|[]
 name|kmfPassword
@@ -319,6 +345,17 @@ name|kmf
 operator|.
 name|getKeyManagers
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"KeyManager[] [{}], initialized from KeyManagerFactory [{}]."
+argument_list|,
+name|keyManagers
+argument_list|,
+name|kmf
+argument_list|)
 expr_stmt|;
 return|return
 name|keyManagers

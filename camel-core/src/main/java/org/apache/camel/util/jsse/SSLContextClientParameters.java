@@ -161,7 +161,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configuring client-side SSLContext parameters..."
+literal|"Configuring client-side SSLContext parameters on SSLContext [{}]..."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 if|if
@@ -176,10 +178,12 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Configuring client-side SSLContext session timeout: "
-operator|+
+literal|"Configuring client-side SSLContext session timeout on SSLContext [{}] to [{}]."
+argument_list|,
+name|context
+argument_list|,
 name|this
 operator|.
 name|getSessionTimeout
@@ -206,7 +210,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configured client-side SSLContext parameters."
+literal|"Configured client-side SSLContext parameters on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}

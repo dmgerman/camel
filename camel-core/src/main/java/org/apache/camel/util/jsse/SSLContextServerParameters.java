@@ -225,7 +225,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configuring server-side SSLContext parameters..."
+literal|"Configuring server-side SSLContext parameters on SSLContext [{}]..."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 if|if
@@ -242,8 +244,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring server-side SSLContext session timeout: "
-operator|+
+literal|"Configuring server-side SSLContext session timeout on SSLContext [{}] to [{}]."
+argument_list|,
+name|context
+argument_list|,
 name|this
 operator|.
 name|getSessionTimeout
@@ -270,7 +274,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configured server-side SSLContext parameters."
+literal|"Configured server-side SSLContext parameters on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -366,6 +372,17 @@ name|SSLEngine
 name|engine
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Configuring client-auth on SSLEngine [{}] to [{}]."
+argument_list|,
+name|engine
+argument_list|,
+name|clientAuthValue
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|clientAuthValue
@@ -525,6 +542,17 @@ name|SSLServerSocket
 name|socket
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Configuring client-auth on SSLServerSocket [{}] to [{}]."
+argument_list|,
+name|socket
+argument_list|,
+name|clientAuthValue
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|clientAuthValue

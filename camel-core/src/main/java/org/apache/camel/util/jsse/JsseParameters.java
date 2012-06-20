@@ -382,7 +382,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to open resource as a file."
+literal|"Trying to open resource [{}] as a file."
+argument_list|,
+name|resource
 argument_list|)
 expr_stmt|;
 name|is
@@ -397,7 +399,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded resource as file {}"
+literal|"Opened resource [{}] as a file."
 argument_list|,
 name|resource
 argument_list|)
@@ -413,7 +415,11 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not open resource as a file."
+literal|"Could not open resource ["
+operator|+
+name|resource
+operator|+
+literal|"] as a file."
 argument_list|,
 name|e
 argument_list|)
@@ -440,7 +446,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to open resource as a class path resource with the TCCL {}."
+literal|"Trying to open resource [{}] as a class path resource with the TCCL [{}]."
+argument_list|,
+name|resource
 argument_list|,
 name|Thread
 operator|.
@@ -477,7 +485,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not open resource as a class path resource using the TCCL {}."
+literal|"Could not open resource [{}] as a class path resource using the TCCL [{}]."
+argument_list|,
+name|resource
 argument_list|,
 name|Thread
 operator|.
@@ -495,9 +505,17 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded resource from TCCL ClassLoader {}"
+literal|"Opened resource [{}] as a class path resource with the TCCL [{}]."
 argument_list|,
 name|resource
+argument_list|,
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -513,7 +531,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to open resource as a class path resource using the classloader {}."
+literal|"Trying to open resource [{}] as a class path resource using the classloader [{}]."
 argument_list|,
 name|this
 operator|.
@@ -547,7 +565,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not open resource as a class path resource using the classloader {}."
+literal|"Could not open resource [{}] as a class path resource using the classloader [{}]."
+argument_list|,
+name|resource
 argument_list|,
 name|this
 operator|.
@@ -565,9 +585,17 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded resource from JsseParameter ClassLoader {}"
+literal|"Opened resource [{}] as a class path resource with the classloader [{}]."
 argument_list|,
 name|resource
+argument_list|,
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -585,7 +613,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to open resource as a URL."
+literal|"Trying to open resource [{}] as a URL."
+argument_list|,
+name|resource
 argument_list|)
 expr_stmt|;
 name|is
@@ -603,7 +633,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded resource as URL {}"
+literal|"Opened resource [{}] as a URL."
 argument_list|,
 name|resource
 argument_list|)
@@ -619,7 +649,11 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not open resource as a URL"
+literal|"Could not open resource ["
+operator|+
+name|resource
+operator|+
+literal|"] as a URL."
 argument_list|,
 name|e
 argument_list|)
@@ -643,7 +677,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Trying to open resource using the CamelContext ClassResolver {}"
+literal|"Trying to open resource using the CamelContext ClassResolver [{}]."
 argument_list|,
 name|context
 operator|.
@@ -674,7 +708,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Could not to open resource using the CamelContext ClassResolver {}."
+literal|"Could not to open resource [{}] using the CamelContext ClassResolver [{}]."
+argument_list|,
+name|resource
 argument_list|,
 name|context
 operator|.
@@ -689,9 +725,17 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded resource using the CamelContext ClassResolver {}"
+literal|"Opened resource [{}] using the CamelContext ClassResolver [{}]."
 argument_list|,
 name|resource
+argument_list|,
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

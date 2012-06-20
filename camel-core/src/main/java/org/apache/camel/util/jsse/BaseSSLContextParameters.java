@@ -650,7 +650,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configuring client and server side SSLContext parameters..."
+literal|"Configuring client and server side SSLContext parameters on SSLContext [{}]..."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 if|if
@@ -667,7 +669,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring client and server side SSLContext session timeout: {}"
+literal|"Configuring client and server side SSLContext session timeout on SSLContext [{}] to [{}]"
+argument_list|,
+name|context
 argument_list|,
 name|this
 operator|.
@@ -710,7 +714,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configured client and server side SSLContext parameters."
+literal|"Configured client and server side SSLContext parameters on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -1020,11 +1026,49 @@ argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Enabled ChiperSuites: {}"
+literal|"Configuring SSLEngine [{}] with "
+operator|+
+literal|"\r\n\t explicitly set cipher suites [{}],"
+operator|+
+literal|"\r\n\t cipher suite patterns [{}],"
+operator|+
+literal|"\r\n\t available cipher suites [{}],"
+operator|+
+literal|"\r\n\t currently enabled cipher suites [{}],"
+operator|+
+literal|"\r\n\t and default cipher suite patterns [{}]."
+operator|+
+literal|"\r\n\t Resulting enabled cipher suites are [{}]."
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|engine
+block|,
+name|enabledCipherSuites
+block|,
+name|enabledCipherSuitePatterns
+block|,
+name|engine
+operator|.
+name|getSSLParameters
+argument_list|()
+operator|.
+name|getCipherSuites
+argument_list|()
+block|,
+name|engine
+operator|.
+name|getEnabledCipherSuites
+argument_list|()
+block|,
+name|defaultEnabledCipherSuitePatterns
+block|,
 name|filteredCipherSuites
+block|}
 argument_list|)
 expr_stmt|;
 name|engine
@@ -1091,6 +1135,53 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Configuring SSLEngine [{}] with "
+operator|+
+literal|"\r\n\t explicitly set protocols [{}],"
+operator|+
+literal|"\r\n\t protocol patterns [{}],"
+operator|+
+literal|"\r\n\t available protocols [{}],"
+operator|+
+literal|"\r\n\t currently enabled protocols [{}],"
+operator|+
+literal|"\r\n\t and default protocol patterns [{}]."
+operator|+
+literal|"\r\n\t Resulting enabled protocols are [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|engine
+block|,
+name|enabledSecureSocketProtocols
+block|,
+name|enabledSecureSocketProtocolsPatterns
+block|,
+name|engine
+operator|.
+name|getSSLParameters
+argument_list|()
+operator|.
+name|getProtocols
+argument_list|()
+block|,
+name|engine
+operator|.
+name|getEnabledProtocols
+argument_list|()
+block|,
+name|defaultEnabledSecureSocketProtocolsPatterns
+block|,
+name|filteredSecureSocketProtocols
+block|}
+argument_list|)
+expr_stmt|;
 name|engine
 operator|.
 name|setEnabledProtocols
@@ -1108,15 +1199,6 @@ name|size
 argument_list|()
 index|]
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Enabled Protocols: {}"
-argument_list|,
-name|filteredSecureSocketProtocols
 argument_list|)
 expr_stmt|;
 return|return
@@ -1591,6 +1673,53 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Configuring SSLSocket [{}] with "
+operator|+
+literal|"\r\n\t explicitly set cipher suites [{}],"
+operator|+
+literal|"\r\n\t cipher suite patterns [{}],"
+operator|+
+literal|"\r\n\t available cipher suites [{}],"
+operator|+
+literal|"\r\n\t currently enabled cipher suites [{}],"
+operator|+
+literal|"\r\n\t and default cipher suite patterns [{}]."
+operator|+
+literal|"\r\n\t Resulting enabled cipher suites are [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|socket
+block|,
+name|enabledCipherSuites
+block|,
+name|enabledCipherSuitePatterns
+block|,
+name|socket
+operator|.
+name|getSSLParameters
+argument_list|()
+operator|.
+name|getCipherSuites
+argument_list|()
+block|,
+name|socket
+operator|.
+name|getEnabledCipherSuites
+argument_list|()
+block|,
+name|defaultEnabledCipherSuitePatterns
+block|,
+name|filteredCipherSuites
+block|}
+argument_list|)
+expr_stmt|;
 name|socket
 operator|.
 name|setEnabledCipherSuites
@@ -1655,6 +1784,53 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Configuring SSLSocket [{}] with "
+operator|+
+literal|"\r\n\t explicitly set protocols [{}],"
+operator|+
+literal|"\r\n\t protocol patterns [{}],"
+operator|+
+literal|"\r\n\t available protocols [{}],"
+operator|+
+literal|"\r\n\t currently enabled protocols [{}],"
+operator|+
+literal|"\r\n\t and default protocol patterns [{}]."
+operator|+
+literal|"\r\n\t Resulting enabled protocols are [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|socket
+block|,
+name|enabledSecureSocketProtocols
+block|,
+name|enabledSecureSocketProtocolsPatterns
+block|,
+name|socket
+operator|.
+name|getSSLParameters
+argument_list|()
+operator|.
+name|getProtocols
+argument_list|()
+block|,
+name|socket
+operator|.
+name|getEnabledProtocols
+argument_list|()
+block|,
+name|defaultEnabledSecureSocketProtocolsPatterns
+block|,
+name|filteredSecureSocketProtocols
+block|}
+argument_list|)
+expr_stmt|;
 name|socket
 operator|.
 name|setEnabledProtocols
@@ -1947,6 +2123,50 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Configuring SSLServerSocket [{}] with "
+operator|+
+literal|"\r\n\t explicitly set cipher suites [{}],"
+operator|+
+literal|"\r\n\t cipher suite patterns [{}],"
+operator|+
+literal|"\r\n\t available cipher suites [{}],"
+operator|+
+literal|"\r\n\t currently enabled cipher suites [{}],"
+operator|+
+literal|"\r\n\t and default cipher suite patterns [{}]."
+operator|+
+literal|"\r\n\t Resulting enabled cipher suites are [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|socket
+block|,
+name|enabledCipherSuites
+block|,
+name|enabledCipherSuitePatterns
+block|,
+name|socket
+operator|.
+name|getSupportedCipherSuites
+argument_list|()
+block|,
+name|socket
+operator|.
+name|getEnabledCipherSuites
+argument_list|()
+block|,
+name|defaultEnabledCipherSuitePatterns
+block|,
+name|filteredCipherSuites
+block|}
+argument_list|)
+expr_stmt|;
 name|socket
 operator|.
 name|setEnabledCipherSuites
@@ -2008,6 +2228,50 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Configuring SSLServerSocket [{}] with "
+operator|+
+literal|"\r\n\t explicitly set protocols [{}],"
+operator|+
+literal|"\r\n\t protocol patterns [{}],"
+operator|+
+literal|"\r\n\t available protocols [{}],"
+operator|+
+literal|"\r\n\t currently enabled protocols [{}],"
+operator|+
+literal|"\r\n\t and default protocol patterns [{}]."
+operator|+
+literal|"\r\n\t Resulting enabled protocols are [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|socket
+block|,
+name|enabledSecureSocketProtocols
+block|,
+name|enabledSecureSocketProtocolsPatterns
+block|,
+name|socket
+operator|.
+name|getSupportedProtocols
+argument_list|()
+block|,
+name|socket
+operator|.
+name|getEnabledProtocols
+argument_list|()
+block|,
+name|defaultEnabledSecureSocketProtocolsPatterns
+block|,
+name|filteredSecureSocketProtocols
+block|}
+argument_list|)
+expr_stmt|;
 name|socket
 operator|.
 name|setEnabledProtocols
@@ -2477,6 +2741,20 @@ name|getProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"SSLContextDecorator [{}] decorating SSLContext [{}]."
+argument_list|,
+name|this
+argument_list|,
+name|decorator
+operator|.
+name|getDelegate
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2491,9 +2769,12 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"SSLContext[provider=%s, protocol=%s, needClientAuth=%s, "
+literal|"SSLContext[hash=%h, provider=%s, protocol=%s, needClientAuth=%s, "
 operator|+
 literal|"wantClientAuth=%s\n\tdefaultProtocols=%s\n\tdefaultChiperSuites=%s\n\tsupportedProtocols=%s\n\tsupportedChiperSuites=%s\n]"
+argument_list|,
+name|hashCode
+argument_list|()
 argument_list|,
 name|getProvider
 argument_list|()
@@ -2682,6 +2963,17 @@ operator|.
 name|createSSLEngine
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"SSLEngine [{}] created from SSLContext [{}]."
+argument_list|,
+name|engine
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|configureSSLEngine
@@ -2721,6 +3013,17 @@ argument_list|,
 name|peerPort
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"SSLEngine [{}] created from SSLContext [{}]."
+argument_list|,
+name|engine
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 operator|.
@@ -2782,6 +3085,17 @@ operator|.
 name|getServerSocketFactory
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"SSLServerSocketFactoryEngine [{}] created from SSLContext [{}]."
+argument_list|,
+name|factory
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 operator|.
@@ -2809,6 +3123,17 @@ operator|.
 name|getSocketFactory
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"SSLSocketFactory [{}] created from SSLContext [{}]."
+argument_list|,
+name|factory
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 operator|.
@@ -3241,6 +3566,17 @@ name|SSLServerSocket
 operator|)
 name|s
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created ServerSocket [{}] from SslServerSocketFactory [{}]."
+argument_list|,
+name|s
+argument_list|,
+name|sslServerSocketFactory
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Configurer
@@ -3594,6 +3930,17 @@ name|SSLSocket
 operator|)
 name|s
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created Socket [{}] from SocketFactory [{}]."
+argument_list|,
+name|s
+argument_list|,
+name|sslSocketFactory
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Configurer

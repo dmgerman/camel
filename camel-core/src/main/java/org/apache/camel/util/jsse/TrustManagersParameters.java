@@ -160,7 +160,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating TrustManager[] from TrustManagersParameters: {}"
+literal|"Creating TrustManager[] from TrustManagersParameters [{}]"
 argument_list|,
 name|this
 argument_list|)
@@ -254,6 +254,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"TrustManagerFactory [{}] is using provider [{}] and algorithm [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|tmf
+block|,
+name|tmf
+operator|.
+name|getProvider
+argument_list|()
+block|,
+name|tmf
+operator|.
+name|getAlgorithm
+argument_list|()
+block|}
+argument_list|)
+expr_stmt|;
 name|KeyStore
 name|ks
 init|=
@@ -287,6 +311,17 @@ name|tmf
 operator|.
 name|getTrustManagers
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"TrustManager[] [{}], initialized from TrustManagerFactory [{}]."
+argument_list|,
+name|trustManagers
+argument_list|,
+name|tmf
+argument_list|)
 expr_stmt|;
 block|}
 return|return

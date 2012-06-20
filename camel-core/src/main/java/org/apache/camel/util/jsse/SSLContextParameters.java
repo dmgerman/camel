@@ -459,9 +459,21 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Creating SSLContext from SSLContextParameters: {}"
+literal|"Creating SSLContext from SSLContextParameters [{}]."
 argument_list|,
 name|this
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Available providers: {}."
+argument_list|,
+name|Security
+operator|.
+name|getProviders
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|KeyManager
@@ -581,6 +593,38 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"SSLContext [{}], initialized from [{}], is using provider [{}], protocol [{}], key managers {}, trust managers {}, and secure random [{}]."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|context
+block|,
+name|this
+block|,
+name|context
+operator|.
+name|getProvider
+argument_list|()
+block|,
+name|context
+operator|.
+name|getProtocol
+argument_list|()
+block|,
+name|keyManagers
+block|,
+name|trustManagers
+block|,
+name|secureRandom
+block|}
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|init
@@ -633,15 +677,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Created {}"
-argument_list|,
-name|context
-argument_list|)
-expr_stmt|;
 return|return
 name|context
 return|;
@@ -663,7 +698,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configuring client and server side SSLContext parameters..."
+literal|"Configuring client and server side SSLContext parameters on SSLContext [{}]..."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|super
@@ -687,7 +724,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Overriding client-side SSLContext parameters with configured client parameters."
+literal|"Overriding client-side SSLContext parameters on SSLContext [{}] with configured client parameters."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|this
@@ -715,7 +754,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Overriding server-side SSLContext parameters with configured server parameters."
+literal|"Overriding server-side SSLContext parameters on SSLContext [{}] with configured server parameters."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|this
@@ -733,7 +774,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Configured client and server side SSLContext parameters."
+literal|"Configured client and server side SSLContext parameters on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -758,7 +801,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Collecting client and server side SSLEngine configurers..."
+literal|"Collecting client and server side SSLEngine configurers on SSLContext [{}]..."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|List
@@ -791,7 +836,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Augmenting SSLEngine configurers with configurers from client parameters."
+literal|"Augmenting SSLEngine configurers with configurers from client parameters on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|configurers
@@ -824,7 +871,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Augmenting SSLEngine configurers with configurers from server parameters."
+literal|"Augmenting SSLEngine configurers with configurers from server parameters on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|configurers
@@ -847,7 +896,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Collected client and server side SSLEngine configurers."
+literal|"Collected client and server side SSLEngine configurers on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 return|return
@@ -875,7 +926,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Collecting SSLSocketFactory configurers..."
+literal|"Collecting SSLSocketFactory configurers on SSLContext [{}]..."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|List
@@ -908,7 +961,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Augmenting SSLSocketFactory configurers with configurers from client parameters."
+literal|"Augmenting SSLSocketFactory configurers with configurers from client parameters on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|configurers
@@ -931,7 +986,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Collected SSLSocketFactory configurers."
+literal|"Collected SSLSocketFactory configurers on SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 return|return
@@ -959,7 +1016,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Collecting SSLServerSocketFactory configurers..."
+literal|"Collecting SSLServerSocketFactory configurers for SSLContext [{}]..."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|List
@@ -992,7 +1051,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Augmenting SSLServerSocketFactory configurers with configurers from server parameters."
+literal|"Augmenting SSLServerSocketFactory configurers with configurers from server parameters for SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|configurers
@@ -1015,7 +1076,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Collected client and server side SSLServerSocketFactory configurers."
+literal|"Collected client and server side SSLServerSocketFactory configurers for SSLContext [{}]."
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 return|return
