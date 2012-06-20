@@ -289,6 +289,16 @@ name|Message
 name|that
 parameter_list|)
 block|{
+if|if
+condition|(
+name|that
+operator|==
+name|this
+condition|)
+block|{
+comment|// the same instance so do not need to copy
+return|return;
+block|}
 comment|// must initialize headers before we set the JmsMessage to avoid Camel
 comment|// populating it before we do the copy
 name|getHeaders
