@@ -160,6 +160,16 @@ name|Message
 name|that
 parameter_list|)
 block|{
+if|if
+condition|(
+name|that
+operator|==
+name|this
+condition|)
+block|{
+comment|// the same instance so do not need to copy
+return|return;
+block|}
 name|setMessageId
 argument_list|(
 name|that
