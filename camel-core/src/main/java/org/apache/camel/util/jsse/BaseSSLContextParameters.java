@@ -453,6 +453,92 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|LS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|LS
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|)
+decl_stmt|;
+DECL|field|SSL_ENGINE_CIPHER_SUITE_LOG_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SSL_ENGINE_CIPHER_SUITE_LOG_MSG
+init|=
+name|createCipherSuiteLogMessage
+argument_list|(
+literal|"SSLEngine"
+argument_list|)
+decl_stmt|;
+DECL|field|SSL_SOCKET_CIPHER_SUITE_LOG_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SSL_SOCKET_CIPHER_SUITE_LOG_MSG
+init|=
+name|createCipherSuiteLogMessage
+argument_list|(
+literal|"SSLSocket"
+argument_list|)
+decl_stmt|;
+DECL|field|SSL_SERVER_SOCKET_CIPHER_SUITE_LOG_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SSL_SERVER_SOCKET_CIPHER_SUITE_LOG_MSG
+init|=
+name|createCipherSuiteLogMessage
+argument_list|(
+literal|"SSLServerSocket"
+argument_list|)
+decl_stmt|;
+DECL|field|SSL_ENGINE_PROTOCOL_LOG_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SSL_ENGINE_PROTOCOL_LOG_MSG
+init|=
+name|createProtocolLogMessage
+argument_list|(
+literal|"SSLEngine"
+argument_list|)
+decl_stmt|;
+DECL|field|SSL_SOCKET_PROTOCOL_LOG_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SSL_SOCKET_PROTOCOL_LOG_MSG
+init|=
+name|createProtocolLogMessage
+argument_list|(
+literal|"SSLSocket"
+argument_list|)
+decl_stmt|;
+DECL|field|SSL_SERVER_SOCKET_PROTOCOL_LOG_MSG
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SSL_SERVER_SOCKET_PROTOCOL_LOG_MSG
+init|=
+name|createProtocolLogMessage
+argument_list|(
+literal|"SSLServerSocket"
+argument_list|)
+decl_stmt|;
 comment|/**      * The optional explicitly configured cipher suites for this configuration.      */
 DECL|field|cipherSuites
 specifier|private
@@ -1024,23 +1110,19 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring SSLEngine [{}] with "
-operator|+
-literal|"\r\n\t explicitly set cipher suites [{}],"
-operator|+
-literal|"\r\n\t cipher suite patterns [{}],"
-operator|+
-literal|"\r\n\t available cipher suites [{}],"
-operator|+
-literal|"\r\n\t currently enabled cipher suites [{}],"
-operator|+
-literal|"\r\n\t and default cipher suite patterns [{}]."
-operator|+
-literal|"\r\n\t Resulting enabled cipher suites are [{}]."
+name|SSL_ENGINE_CIPHER_SUITE_LOG_MSG
 argument_list|,
 operator|new
 name|Object
@@ -1071,6 +1153,7 @@ name|filteredCipherSuites
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|engine
 operator|.
 name|setEnabledCipherSuites
@@ -1135,23 +1218,19 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring SSLEngine [{}] with "
-operator|+
-literal|"\r\n\t explicitly set protocols [{}],"
-operator|+
-literal|"\r\n\t protocol patterns [{}],"
-operator|+
-literal|"\r\n\t available protocols [{}],"
-operator|+
-literal|"\r\n\t currently enabled protocols [{}],"
-operator|+
-literal|"\r\n\t and default protocol patterns [{}]."
-operator|+
-literal|"\r\n\t Resulting enabled protocols are [{}]."
+name|SSL_ENGINE_PROTOCOL_LOG_MSG
 argument_list|,
 operator|new
 name|Object
@@ -1182,6 +1261,7 @@ name|filteredSecureSocketProtocols
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|engine
 operator|.
 name|setEnabledProtocols
@@ -1673,23 +1753,19 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring SSLSocket [{}] with "
-operator|+
-literal|"\r\n\t explicitly set cipher suites [{}],"
-operator|+
-literal|"\r\n\t cipher suite patterns [{}],"
-operator|+
-literal|"\r\n\t available cipher suites [{}],"
-operator|+
-literal|"\r\n\t currently enabled cipher suites [{}],"
-operator|+
-literal|"\r\n\t and default cipher suite patterns [{}]."
-operator|+
-literal|"\r\n\t Resulting enabled cipher suites are [{}]."
+name|SSL_SOCKET_CIPHER_SUITE_LOG_MSG
 argument_list|,
 operator|new
 name|Object
@@ -1720,6 +1796,7 @@ name|filteredCipherSuites
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|socket
 operator|.
 name|setEnabledCipherSuites
@@ -1784,23 +1861,19 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring SSLSocket [{}] with "
-operator|+
-literal|"\r\n\t explicitly set protocols [{}],"
-operator|+
-literal|"\r\n\t protocol patterns [{}],"
-operator|+
-literal|"\r\n\t available protocols [{}],"
-operator|+
-literal|"\r\n\t currently enabled protocols [{}],"
-operator|+
-literal|"\r\n\t and default protocol patterns [{}]."
-operator|+
-literal|"\r\n\t Resulting enabled protocols are [{}]."
+name|SSL_SOCKET_PROTOCOL_LOG_MSG
 argument_list|,
 operator|new
 name|Object
@@ -1831,6 +1904,7 @@ name|filteredSecureSocketProtocols
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|socket
 operator|.
 name|setEnabledProtocols
@@ -2123,23 +2197,19 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring SSLServerSocket [{}] with "
-operator|+
-literal|"\r\n\t explicitly set cipher suites [{}],"
-operator|+
-literal|"\r\n\t cipher suite patterns [{}],"
-operator|+
-literal|"\r\n\t available cipher suites [{}],"
-operator|+
-literal|"\r\n\t currently enabled cipher suites [{}],"
-operator|+
-literal|"\r\n\t and default cipher suite patterns [{}]."
-operator|+
-literal|"\r\n\t Resulting enabled cipher suites are [{}]."
+name|SSL_SERVER_SOCKET_CIPHER_SUITE_LOG_MSG
 argument_list|,
 operator|new
 name|Object
@@ -2167,6 +2237,7 @@ name|filteredCipherSuites
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|socket
 operator|.
 name|setEnabledCipherSuites
@@ -2228,23 +2299,19 @@ operator|!
 name|allowPassthrough
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring SSLServerSocket [{}] with "
-operator|+
-literal|"\r\n\t explicitly set protocols [{}],"
-operator|+
-literal|"\r\n\t protocol patterns [{}],"
-operator|+
-literal|"\r\n\t available protocols [{}],"
-operator|+
-literal|"\r\n\t currently enabled protocols [{}],"
-operator|+
-literal|"\r\n\t and default protocol patterns [{}]."
-operator|+
-literal|"\r\n\t Resulting enabled protocols are [{}]."
+name|SSL_SERVER_SOCKET_PROTOCOL_LOG_MSG
 argument_list|,
 operator|new
 name|Object
@@ -2272,6 +2339,7 @@ name|filteredSecureSocketProtocols
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|socket
 operator|.
 name|setEnabledProtocols
@@ -3968,6 +4036,90 @@ return|return
 name|workingSocket
 return|;
 block|}
+block|}
+DECL|method|createCipherSuiteLogMessage (String entityName)
+specifier|private
+specifier|static
+name|String
+name|createCipherSuiteLogMessage
+parameter_list|(
+name|String
+name|entityName
+parameter_list|)
+block|{
+return|return
+literal|"Configuring "
+operator|+
+name|entityName
+operator|+
+literal|" [{}] with "
+operator|+
+name|LS
+operator|+
+literal|"\t explicitly set cipher suites [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t cipher suite patterns [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t available cipher suites [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t currently enabled cipher suites [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t and default cipher suite patterns [{}]."
+operator|+
+name|LS
+operator|+
+literal|"\t Resulting enabled cipher suites are [{}]."
+return|;
+block|}
+DECL|method|createProtocolLogMessage (String entityName)
+specifier|private
+specifier|static
+name|String
+name|createProtocolLogMessage
+parameter_list|(
+name|String
+name|entityName
+parameter_list|)
+block|{
+return|return
+literal|"Configuring "
+operator|+
+name|entityName
+operator|+
+literal|" [{}] with "
+operator|+
+name|LS
+operator|+
+literal|"\t explicitly set protocols [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t protocol patterns [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t available protocols [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t currently enabled protocols [{}],"
+operator|+
+name|LS
+operator|+
+literal|"\t and default protocol patterns [{}]."
+operator|+
+name|LS
+operator|+
+literal|"\t Resulting enabled protocols are [{}]."
+return|;
 block|}
 block|}
 end_class
