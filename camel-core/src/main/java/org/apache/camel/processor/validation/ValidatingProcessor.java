@@ -554,7 +554,6 @@ comment|// Properties
 comment|// -----------------------------------------------------------------------
 DECL|method|getSchema ()
 specifier|public
-specifier|synchronized
 name|Schema
 name|getSchema
 parameter_list|()
@@ -624,7 +623,6 @@ expr_stmt|;
 block|}
 DECL|method|getSchemaSource ()
 specifier|public
-specifier|synchronized
 name|Source
 name|getSchemaSource
 parameter_list|()
@@ -718,7 +716,6 @@ expr_stmt|;
 block|}
 DECL|method|getSchemaFactory ()
 specifier|public
-specifier|synchronized
 name|SchemaFactory
 name|getSchemaFactory
 parameter_list|()
