@@ -232,26 +232,6 @@ name|MessageContentsList
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/type-converter.html">Type Converters</a>  * for CXF related types' converting .  *  * @version   */
 end_comment
@@ -265,22 +245,6 @@ specifier|final
 class|class
 name|CxfConverter
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CxfConverter
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|CxfConverter ()
 specifier|private
 name|CxfConverter

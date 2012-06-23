@@ -54,20 +54,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|AvailablePortFinder
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
