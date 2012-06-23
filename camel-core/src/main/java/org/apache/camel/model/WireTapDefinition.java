@@ -296,7 +296,10 @@ parameter_list|>
 extends|extends
 name|NoOutputDefinition
 argument_list|<
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 argument_list|>
 implements|implements
 name|ExecutorServiceAwareDefinition
