@@ -232,10 +232,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|executor
+DECL|field|scheduledExecutorService
 specifier|private
 name|ScheduledExecutorService
-name|executor
+name|scheduledExecutorService
 decl_stmt|;
 DECL|field|shutdownExecutor
 specifier|private
@@ -336,7 +336,7 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor, ScheduledExecutorService executor)
+DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor, ScheduledExecutorService scheduledExecutorService)
 specifier|public
 name|ScheduledPollConsumer
 parameter_list|(
@@ -347,7 +347,7 @@ name|Processor
 name|processor
 parameter_list|,
 name|ScheduledExecutorService
-name|executor
+name|scheduledExecutorService
 parameter_list|)
 block|{
 name|super
@@ -361,17 +361,17 @@ comment|// we have been given an existing thread pool, so we should not manage i
 comment|// so we should keep shutdownExecutor as false
 name|this
 operator|.
-name|executor
+name|scheduledExecutorService
 operator|=
-name|executor
+name|scheduledExecutorService
 expr_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|executor
+name|scheduledExecutorService
 argument_list|,
-literal|"executor"
+literal|"scheduledExecutorService"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1205,6 +1205,33 @@ return|return
 name|sendEmptyMessageWhenIdle
 return|;
 block|}
+DECL|method|getScheduledExecutorService ()
+specifier|public
+name|ScheduledExecutorService
+name|getScheduledExecutorService
+parameter_list|()
+block|{
+return|return
+name|scheduledExecutorService
+return|;
+block|}
+comment|/**      * Sets a custom shared {@link ScheduledExecutorService} to use as thread pool      *<p/>      *<b>Notice:</b> When using a custom thread pool, then the lifecycle of this thread      * pool is not controlled by this consumer (eg this consumer will not start/stop the thread pool      * when the consumer is started/stopped etc.)      *      * @param scheduledExecutorService the custom thread pool to use      */
+DECL|method|setScheduledExecutorService (ScheduledExecutorService scheduledExecutorService)
+specifier|public
+name|void
+name|setScheduledExecutorService
+parameter_list|(
+name|ScheduledExecutorService
+name|scheduledExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scheduledExecutorService
+operator|=
+name|scheduledExecutorService
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 comment|/**      * The polling method which is invoked periodically to poll this consumer      *      * @return number of messages polled, will be<tt>0</tt> if no message was polled at all.      * @throws Exception can be thrown if an exception occurred during polling      */
@@ -1235,7 +1262,7 @@ expr_stmt|;
 comment|// if no existing executor provided, then create a new thread pool ourselves
 if|if
 condition|(
-name|executor
+name|scheduledExecutorService
 operator|==
 literal|null
 condition|)
@@ -1243,7 +1270,7 @@ block|{
 comment|// we only need one thread in the pool to schedule this task
 name|this
 operator|.
-name|executor
+name|scheduledExecutorService
 operator|=
 name|getEndpoint
 argument_list|()
@@ -1279,9 +1306,9 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|executor
+name|scheduledExecutorService
 argument_list|,
-literal|"executor"
+literal|"scheduledExecutorService"
 argument_list|,
 name|this
 argument_list|)
@@ -1365,7 +1392,7 @@ expr_stmt|;
 block|}
 name|future
 operator|=
-name|executor
+name|scheduledExecutorService
 operator|.
 name|scheduleWithFixedDelay
 argument_list|(
@@ -1429,7 +1456,7 @@ expr_stmt|;
 block|}
 name|future
 operator|=
-name|executor
+name|scheduledExecutorService
 operator|.
 name|scheduleAtFixedRate
 argument_list|(
@@ -1501,7 +1528,7 @@ if|if
 condition|(
 name|shutdownExecutor
 operator|&&
-name|executor
+name|scheduledExecutorService
 operator|!=
 literal|null
 condition|)
@@ -1517,10 +1544,10 @@ argument_list|()
 operator|.
 name|shutdownNow
 argument_list|(
-name|executor
+name|scheduledExecutorService
 argument_list|)
 expr_stmt|;
-name|executor
+name|scheduledExecutorService
 operator|=
 literal|null
 expr_stmt|;
