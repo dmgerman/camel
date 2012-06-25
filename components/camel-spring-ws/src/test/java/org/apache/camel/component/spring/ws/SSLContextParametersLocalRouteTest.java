@@ -112,6 +112,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -171,6 +181,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Under JDK 7 requires minimum Spring-WS 2.0.5 to pass. Should be enabled again as soon as the upgrade to Spring-WS 2.0.5 has been done!"
+argument_list|)
 annotation|@
 name|ContextConfiguration
 DECL|class|SSLContextParametersLocalRouteTest
