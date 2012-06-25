@@ -180,6 +180,10 @@ name|assertTrue
 import|;
 end_import
 
+begin_comment
+comment|// TODO: enable after upgrading to Spring-WS 2.0.5
+end_comment
+
 begin_class
 annotation|@
 name|Ignore
