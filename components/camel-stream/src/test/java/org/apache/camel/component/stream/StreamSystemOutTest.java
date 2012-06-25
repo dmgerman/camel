@@ -238,6 +238,63 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
+DECL|method|shouldSkipNullBody ()
+specifier|public
+name|void
+name|shouldSkipNullBody
+parameter_list|()
+block|{
+try|try
+block|{
+comment|// Given
+name|System
+operator|.
+name|setOut
+argument_list|(
+operator|new
+name|PrintStream
+argument_list|(
+name|mockOut
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// When
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:in"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// Then
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|mockOut
+operator|.
+name|toByteArray
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|System
+operator|.
+name|setOut
+argument_list|(
+name|stdOut
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder

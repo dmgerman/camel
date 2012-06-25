@@ -662,6 +662,22 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|body
+operator|==
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Body is null, cannot write it to the stream."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// if not a string then try as byte array first
 if|if
 condition|(
