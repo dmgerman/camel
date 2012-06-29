@@ -344,6 +344,38 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|onRemove (Route route)
+specifier|public
+name|void
+name|onRemove
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+try|try
+block|{
+comment|// stop and un-schedule jobs
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|createTrigger (Action action, Route route)
