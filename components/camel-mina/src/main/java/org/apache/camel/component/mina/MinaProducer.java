@@ -441,6 +441,35 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
+name|doProcess
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// ensure we always disconnect if configured
+name|maybeDisconnectOnDone
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|doProcess (Exchange exchange)
+specifier|protected
+name|void
+name|doProcess
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 if|if
 condition|(
 name|session
@@ -832,6 +861,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+block|}
+DECL|method|maybeDisconnectOnDone (Exchange exchange)
+specifier|protected
+name|void
+name|maybeDisconnectOnDone
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|session
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
 block|}
 comment|// should session be closed after complete?
 name|Boolean
