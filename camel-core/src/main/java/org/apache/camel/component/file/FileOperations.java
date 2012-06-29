@@ -1447,8 +1447,6 @@ operator|=
 name|prepareOutputFileChannel
 argument_list|(
 name|target
-argument_list|,
-name|out
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -1571,8 +1569,6 @@ operator|=
 name|prepareOutputFileChannel
 argument_list|(
 name|target
-argument_list|,
-name|out
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -1817,16 +1813,13 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates and prepares the output file channel. Will position itself in correct position if the file is writable      * eg. it should append or override any existing content.      */
-DECL|method|prepareOutputFileChannel (File target, FileChannel out)
+DECL|method|prepareOutputFileChannel (File target)
 specifier|private
 name|FileChannel
 name|prepareOutputFileChannel
 parameter_list|(
 name|File
 name|target
-parameter_list|,
-name|FileChannel
-name|out
 parameter_list|)
 throws|throws
 name|IOException
@@ -1843,8 +1836,9 @@ operator|.
 name|Append
 condition|)
 block|{
+name|FileChannel
 name|out
-operator|=
+init|=
 operator|new
 name|RandomAccessFile
 argument_list|(
@@ -1855,9 +1849,8 @@ argument_list|)
 operator|.
 name|getChannel
 argument_list|()
-expr_stmt|;
-name|out
-operator|=
+decl_stmt|;
+return|return
 name|out
 operator|.
 name|position
@@ -1867,13 +1860,9 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-else|else
-block|{
-comment|// will override
-name|out
-operator|=
+return|return
 operator|new
 name|FileOutputStream
 argument_list|(
@@ -1882,10 +1871,6 @@ argument_list|)
 operator|.
 name|getChannel
 argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|out
 return|;
 block|}
 block|}
