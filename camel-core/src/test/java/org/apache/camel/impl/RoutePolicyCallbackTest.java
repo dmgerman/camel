@@ -79,7 +79,7 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|policy
-specifier|private
+specifier|protected
 name|MyRoutePolicy
 name|policy
 init|=
@@ -300,6 +300,16 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+DECL|method|getAndInitMyRoutePolicy ()
+specifier|protected
+name|MyRoutePolicy
+name|getAndInitMyRoutePolicy
+parameter_list|()
+block|{
+return|return
+name|policy
+return|;
+block|}
 DECL|method|testCallback ()
 specifier|public
 name|void
@@ -308,6 +318,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|policy
+operator|=
+name|getAndInitMyRoutePolicy
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|policy
