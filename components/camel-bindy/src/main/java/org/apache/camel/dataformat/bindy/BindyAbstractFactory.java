@@ -347,6 +347,27 @@ name|type
 operator|=
 name|type
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Class name: {}"
+argument_list|,
+name|type
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|initModel
 argument_list|()
 expr_stmt|;
