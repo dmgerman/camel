@@ -482,7 +482,7 @@ init|=
 operator|new
 name|QName
 argument_list|(
-literal|"http://www.w3.org/2003/05/soap-envelope"
+literal|"http://schemas.xmlsoap.org/soap/envelope/"
 argument_list|,
 literal|"Receiver"
 argument_list|)
