@@ -487,19 +487,21 @@ argument_list|,
 literal|"Receiver"
 argument_list|)
 decl_stmt|;
-DECL|field|log
-specifier|protected
+DECL|field|LOG
+specifier|private
+specifier|static
 specifier|final
 specifier|transient
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|getClass
-argument_list|()
+name|SoapJaxbDataFormat
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|elementNameStrategy
@@ -523,7 +525,7 @@ specifier|public
 name|SoapJaxbDataFormat
 parameter_list|()
 block|{     }
-comment|/**      * Initialize with JAXB context path      *       * @param contexPath      */
+comment|/**      * Initialize with JAXB context path      */
 DECL|method|SoapJaxbDataFormat (String contextPath)
 specifier|public
 name|SoapJaxbDataFormat
@@ -538,7 +540,7 @@ name|contextPath
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Initialize the data format. The serviceInterface is necessary to      * determine the element name and namespace of the element inside the soap      * body when marshalling      *       * @param contextPath      *            package for JAXB context      * @param serviceInterface      *            webservice interface      */
+comment|/**      * Initialize the data format. The serviceInterface is necessary to      * determine the element name and namespace of the element inside the soap      * body when marshalling      */
 DECL|method|SoapJaxbDataFormat (String contextPath, ElementNameStrategy elementNameStrategy)
 specifier|public
 name|SoapJaxbDataFormat
@@ -562,7 +564,7 @@ operator|=
 name|elementNameStrategy
 expr_stmt|;
 block|}
-comment|/**      * Initialize the data format. The serviceInterface is necessary to      * determine the element name and namespace of the element inside the soap      * body when marshalling      *       * @param contextPath      *            package for JAXB context      * @param elementNameStrategyRef      *            webservice interface referenced bean name      */
+comment|/**      * Initialize the data format. The serviceInterface is necessary to      * determine the element name and namespace of the element inside the soap      * body when marshalling      */
 DECL|method|SoapJaxbDataFormat (String contextPath, String elementNameStrategyRef)
 specifier|public
 name|SoapJaxbDataFormat
@@ -1050,7 +1052,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create body content from a non Exception object. If the inputObject is a      * BeanInvocation the following should be considered: The first parameter      * will be used for the SOAP body. BeanInvocations with more than one      * parameter are not supported. So the interface should be in doc lit bare      * style.      *       * @param inputObject      *            object to be put into the SOAP body      * @param soapAction      *            for name resolution      * @param classResolver      *            for name resolution      * @param headerElements      *            in/out parameter used to capture header content if present      *                  * @return JAXBElement for the body content      */
+comment|/**      * Create body content from a non Exception object. If the inputObject is a      * BeanInvocation the following should be considered: The first parameter      * will be used for the SOAP body. BeanInvocations with more than one      * parameter are not supported. So the interface should be in doc lit bare      * style.      *       * @param inputObject      *            object to be put into the SOAP body      * @param soapAction      *            for name resolution      * @param headerElements      *            in/out parameter used to capture header content if present      *                  * @return JAXBElement for the body content      */
 DECL|method|createContentFromObject (final Object inputObject, String soapAction, List<JAXBElement<?>> headerElements)
 specifier|private
 name|List
@@ -1365,7 +1367,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -1428,7 +1430,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
@@ -1585,7 +1587,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a SOAP fault from the exception and populates the message as well      * as the detail. The detail object is read from the method getFaultInfo of      * the throwable if present      *       * @param exception      * @return SOAP fault from given Throwable      */
+comment|/**      * Creates a SOAP fault from the exception and populates the message as well      * as the detail. The detail object is read from the method getFaultInfo of      * the throwable if present      *       * @param exception the cause exception      * @return SOAP fault from given Throwable      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1672,8 +1674,6 @@ argument_list|)
 decl_stmt|;
 name|Object
 name|faultObject
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
