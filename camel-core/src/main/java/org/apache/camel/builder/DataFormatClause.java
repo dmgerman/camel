@@ -1350,7 +1350,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Soap JAXB data format      */
+comment|/**      * Uses the Soap 1.1 JAXB data format      */
 DECL|method|soapjaxb ()
 specifier|public
 name|T
@@ -1366,7 +1366,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Soap JAXB data format      */
+comment|/**      * Uses the Soap 1.1 JAXB data format      */
 DECL|method|soapjaxb (String contextPath)
 specifier|public
 name|T
@@ -1387,7 +1387,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Soap JAXB data format      */
+comment|/**      * Uses the Soap 1.1 JAXB data format      */
 DECL|method|soapjaxb (String contextPath, String elementNameStrategyRef)
 specifier|public
 name|T
@@ -1413,7 +1413,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Soap JAXB data format      */
+comment|/**      * Uses the Soap 1.1 JAXB data format      */
 DECL|method|soapjaxb (String contextPath, Object elementNameStrategy)
 specifier|public
 name|T
@@ -1436,6 +1436,143 @@ name|contextPath
 argument_list|,
 name|elementNameStrategy
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Soap 1.2 JAXB data format      */
+DECL|method|soapjaxb12 ()
+specifier|public
+name|T
+name|soapjaxb12
+parameter_list|()
+block|{
+name|SoapJaxbDataFormat
+name|soap
+init|=
+operator|new
+name|SoapJaxbDataFormat
+argument_list|()
+decl_stmt|;
+name|soap
+operator|.
+name|setVersion
+argument_list|(
+literal|"1.2"
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|soap
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Soap 1.2 JAXB data format      */
+DECL|method|soapjaxb12 (String contextPath)
+specifier|public
+name|T
+name|soapjaxb12
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|SoapJaxbDataFormat
+name|soap
+init|=
+operator|new
+name|SoapJaxbDataFormat
+argument_list|(
+name|contextPath
+argument_list|)
+decl_stmt|;
+name|soap
+operator|.
+name|setVersion
+argument_list|(
+literal|"1.2"
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|soap
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Soap 1.2 JAXB data format      */
+DECL|method|soapjaxb12 (String contextPath, String elementNameStrategyRef)
+specifier|public
+name|T
+name|soapjaxb12
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|,
+name|String
+name|elementNameStrategyRef
+parameter_list|)
+block|{
+name|SoapJaxbDataFormat
+name|soap
+init|=
+operator|new
+name|SoapJaxbDataFormat
+argument_list|(
+name|contextPath
+argument_list|,
+name|elementNameStrategyRef
+argument_list|)
+decl_stmt|;
+name|soap
+operator|.
+name|setVersion
+argument_list|(
+literal|"1.2"
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|soap
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Soap JAXB data format      */
+DECL|method|soapjaxb12 (String contextPath, Object elementNameStrategy)
+specifier|public
+name|T
+name|soapjaxb12
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|,
+name|Object
+name|elementNameStrategy
+parameter_list|)
+block|{
+name|SoapJaxbDataFormat
+name|soap
+init|=
+operator|new
+name|SoapJaxbDataFormat
+argument_list|(
+name|contextPath
+argument_list|,
+name|elementNameStrategy
+argument_list|)
+decl_stmt|;
+name|soap
+operator|.
+name|setVersion
+argument_list|(
+literal|"1.2"
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|soap
 argument_list|)
 return|;
 block|}
