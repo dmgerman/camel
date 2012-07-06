@@ -498,7 +498,10 @@ argument_list|(
 name|idleStrategy
 argument_list|)
 argument_list|,
-literal|1000
+name|config
+operator|.
+name|getCheckIdleInterval
+argument_list|()
 argument_list|,
 name|config
 operator|.
