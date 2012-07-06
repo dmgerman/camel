@@ -248,12 +248,19 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|pollMultiple
+specifier|private
+name|Boolean
+name|pollMultiple
+decl_stmt|;
 DECL|method|PollEnrichDefinition ()
 specifier|public
 name|PollEnrichDefinition
 parameter_list|()
 block|{     }
-DECL|method|PollEnrichDefinition (AggregationStrategy aggregationStrategy, String resourceUri, long timeout)
+DECL|method|PollEnrichDefinition (AggregationStrategy aggregationStrategy, String resourceUri, long timeout, Boolean pollMultiple)
 specifier|public
 name|PollEnrichDefinition
 parameter_list|(
@@ -265,6 +272,9 @@ name|resourceUri
 parameter_list|,
 name|long
 name|timeout
+parameter_list|,
+name|Boolean
+name|pollMultiple
 parameter_list|)
 block|{
 name|this
@@ -284,6 +294,12 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+name|this
+operator|.
+name|pollMultiple
+operator|=
+name|pollMultiple
 expr_stmt|;
 block|}
 annotation|@
@@ -456,6 +472,8 @@ name|createPollingConsumer
 argument_list|()
 argument_list|,
 name|timeout
+argument_list|,
+name|pollMultiple
 argument_list|)
 expr_stmt|;
 block|}
@@ -476,6 +494,8 @@ argument_list|()
 argument_list|,
 operator|-
 literal|1
+argument_list|,
+name|pollMultiple
 argument_list|)
 expr_stmt|;
 block|}
@@ -655,6 +675,32 @@ operator|.
 name|aggregationStrategy
 operator|=
 name|aggregationStrategy
+expr_stmt|;
+block|}
+DECL|method|isPollMultiple ()
+specifier|public
+name|Boolean
+name|isPollMultiple
+parameter_list|()
+block|{
+return|return
+name|pollMultiple
+return|;
+block|}
+DECL|method|setPollMultiple (Boolean pollMultiple)
+specifier|public
+name|void
+name|setPollMultiple
+parameter_list|(
+name|Boolean
+name|pollMultiple
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollMultiple
+operator|=
+name|pollMultiple
 expr_stmt|;
 block|}
 block|}
