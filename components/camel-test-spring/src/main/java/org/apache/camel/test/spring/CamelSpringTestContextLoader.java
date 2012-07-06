@@ -1903,7 +1903,7 @@ name|testClass
 operator|.
 name|isAnnotationPresent
 argument_list|(
-name|MockEndpoints
+name|MockEndpointsAndSkip
 operator|.
 name|class
 argument_list|)
@@ -1917,7 +1917,7 @@ name|testClass
 operator|.
 name|getAnnotation
 argument_list|(
-name|MockEndpoints
+name|MockEndpointsAndSkip
 operator|.
 name|class
 argument_list|)
