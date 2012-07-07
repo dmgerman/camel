@@ -2428,6 +2428,9 @@ init|=
 operator|new
 name|ManagedManagementStrategy
 argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
 name|agent
 argument_list|)
 decl_stmt|;

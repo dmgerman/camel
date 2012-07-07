@@ -102,26 +102,6 @@ name|OsgiCommandSupport
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * List the Camel contexts available in the Karaf instance.  */
 end_comment
@@ -572,6 +552,11 @@ name|retval
 init|=
 operator|new
 name|Hashtable
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
 argument_list|(
 literal|3
 argument_list|)
