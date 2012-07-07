@@ -298,23 +298,13 @@ name|MQTTConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|MQTTEndpoint (String uri, org.apache.camel.component.mqtt.MQTTComponent component, MQTTConfiguration properties)
+DECL|method|MQTTEndpoint (String uri, MQTTComponent component, MQTTConfiguration properties)
 specifier|public
 name|MQTTEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mqtt
-operator|.
 name|MQTTComponent
 name|component
 parameter_list|,
@@ -622,10 +612,16 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|Promise
+argument_list|<
+name|Object
+argument_list|>
 name|promise
 init|=
 operator|new
 name|Promise
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|connection
@@ -825,10 +821,16 @@ condition|)
 block|{
 specifier|final
 name|Promise
+argument_list|<
+name|Void
+argument_list|>
 name|promise
 init|=
 operator|new
 name|Promise
+argument_list|<
+name|Void
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|connection
@@ -933,7 +935,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-comment|/*         connection.publish(topic, payload, qoS, retain, new Callback<Void>() {             public void onSuccess(Void value) {                 promise.onSuccess(value);             }              public void onFailure(Throwable value) {                 promise.onFailure(value);             }          });         promise.await(configuration.getSendWaitInSeconds(), TimeUnit.SECONDS);         */
 block|}
 DECL|method|addConsumer (MQTTConsumer consumer)
 name|void
