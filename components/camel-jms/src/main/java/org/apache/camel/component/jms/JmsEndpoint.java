@@ -4251,6 +4251,40 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|isAllowNullBody ()
+specifier|public
+name|boolean
+name|isAllowNullBody
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isAllowNullBody
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setAllowNullBody (boolean allowNullBody)
+specifier|public
+name|void
+name|setAllowNullBody
+parameter_list|(
+name|boolean
+name|allowNullBody
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setAllowNullBody
+argument_list|(
+name|allowNullBody
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getReplyToType ()
 specifier|public
 name|String

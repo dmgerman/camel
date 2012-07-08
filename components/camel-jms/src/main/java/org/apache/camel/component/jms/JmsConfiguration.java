@@ -856,6 +856,13 @@ specifier|private
 name|String
 name|replyToCacheLevelName
 decl_stmt|;
+DECL|field|allowNullBody
+specifier|private
+name|boolean
+name|allowNullBody
+init|=
+literal|true
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -4943,6 +4950,33 @@ block|{
 return|return
 name|replyToCacheLevelName
 return|;
+block|}
+DECL|method|isAllowNullBody ()
+specifier|public
+name|boolean
+name|isAllowNullBody
+parameter_list|()
+block|{
+return|return
+name|allowNullBody
+return|;
+block|}
+comment|/**      * Whether to allow sending with no doy (eg as null)      */
+DECL|method|setAllowNullBody (boolean allowNullBody)
+specifier|public
+name|void
+name|setAllowNullBody
+parameter_list|(
+name|boolean
+name|allowNullBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNullBody
+operator|=
+name|allowNullBody
+expr_stmt|;
 block|}
 block|}
 end_class

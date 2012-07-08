@@ -1682,20 +1682,6 @@ name|destinationResolver
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getReplyToType ()
-specifier|public
-name|ReplyToType
-name|getReplyToType
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|getReplyToType
-argument_list|()
-return|;
-block|}
 DECL|method|setReplyToType (ReplyToType replyToType)
 specifier|public
 name|void
@@ -1713,20 +1699,6 @@ argument_list|(
 name|replyToType
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|isPreserveMessageQos ()
-specifier|public
-name|boolean
-name|isPreserveMessageQos
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|isPreserveMessageQos
-argument_list|()
-return|;
 block|}
 DECL|method|setPreserveMessageQos (boolean preserveMessageQos)
 specifier|public
@@ -1755,7 +1727,8 @@ name|boolean
 name|asyncConsumer
 parameter_list|)
 block|{
-name|configuration
+name|getConfiguration
+argument_list|()
 operator|.
 name|setAsyncConsumer
 argument_list|(
@@ -1763,18 +1736,23 @@ name|asyncConsumer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isAsyncConsumer ()
+DECL|method|setAllowNullBody (boolean allowNullBody)
 specifier|public
+name|void
+name|setAllowNullBody
+parameter_list|(
 name|boolean
-name|isAsyncConsumer
-parameter_list|()
+name|allowNullBody
+parameter_list|)
 block|{
-return|return
-name|configuration
-operator|.
-name|isAsyncConsumer
+name|getConfiguration
 argument_list|()
-return|;
+operator|.
+name|setAllowNullBody
+argument_list|(
+name|allowNullBody
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
