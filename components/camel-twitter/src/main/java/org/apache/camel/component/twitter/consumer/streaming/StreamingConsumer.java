@@ -216,7 +216,7 @@ operator|.
 name|getProperties
 argument_list|()
 operator|.
-name|getTwitterStreamInstance
+name|getTwitterStream
 argument_list|()
 expr_stmt|;
 name|twitterStream

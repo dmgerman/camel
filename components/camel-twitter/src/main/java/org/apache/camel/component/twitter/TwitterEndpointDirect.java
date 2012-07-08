@@ -136,14 +136,6 @@ name|EndpointType
 import|;
 end_import
 
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|Twitter
-import|;
-end_import
-
 begin_comment
 comment|/**  * Twitter direct endpoint  */
 end_comment
@@ -158,11 +150,6 @@ name|DirectEndpoint
 implements|implements
 name|TwitterEndpoint
 block|{
-DECL|field|twitter
-specifier|private
-name|Twitter
-name|twitter
-decl_stmt|;
 DECL|field|properties
 specifier|private
 name|TwitterConfiguration
@@ -254,32 +241,6 @@ argument_list|,
 name|getEndpointUri
 argument_list|()
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-block|{
-name|twitter
-operator|=
-name|properties
-operator|.
-name|getTwitterInstance
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|getTwitter ()
-specifier|public
-name|Twitter
-name|getTwitter
-parameter_list|()
-block|{
-return|return
-name|twitter
 return|;
 block|}
 DECL|method|getProperties ()

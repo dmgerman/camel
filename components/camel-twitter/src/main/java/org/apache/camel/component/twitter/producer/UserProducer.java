@@ -197,6 +197,9 @@ name|Exception
 block|{
 name|te
 operator|.
+name|getProperties
+argument_list|()
+operator|.
 name|getTwitter
 argument_list|()
 operator|.
@@ -256,6 +259,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|te
+operator|.
+name|getProperties
+argument_list|()
 operator|.
 name|getTwitter
 argument_list|()

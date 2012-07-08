@@ -159,6 +159,9 @@ block|{
 return|return
 name|te
 operator|.
+name|getProperties
+argument_list|()
+operator|.
 name|getTwitter
 argument_list|()
 operator|.

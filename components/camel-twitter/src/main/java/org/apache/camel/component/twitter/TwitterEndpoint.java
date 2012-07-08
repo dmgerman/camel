@@ -64,11 +64,6 @@ name|TwitterEndpoint
 extends|extends
 name|Endpoint
 block|{
-DECL|method|getTwitter ()
-name|Twitter
-name|getTwitter
-parameter_list|()
-function_decl|;
 DECL|method|getProperties ()
 name|TwitterConfiguration
 name|getProperties

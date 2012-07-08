@@ -145,10 +145,10 @@ specifier|private
 name|long
 name|lastId
 decl_stmt|;
-DECL|field|twitterEndpoint
+DECL|field|te
 specifier|private
 name|TwitterEndpoint
-name|twitterEndpoint
+name|te
 decl_stmt|;
 DECL|method|SearchProducer (TwitterEndpoint te)
 specifier|public
@@ -165,7 +165,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|twitterEndpoint
+name|te
 operator|=
 name|te
 expr_stmt|;
@@ -212,7 +212,7 @@ condition|)
 block|{
 name|keywords
 operator|=
-name|twitterEndpoint
+name|te
 operator|.
 name|getProperties
 argument_list|()
@@ -265,7 +265,10 @@ block|}
 name|Twitter
 name|twitter
 init|=
-name|twitterEndpoint
+name|te
+operator|.
+name|getProperties
+argument_list|()
 operator|.
 name|getTwitter
 argument_list|()
