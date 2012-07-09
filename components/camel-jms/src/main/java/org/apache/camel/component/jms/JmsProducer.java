@@ -1755,7 +1755,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Resolved JMSReplyTo destination {} using DestinationResolver {} as PubSubDomain {} -> "
+literal|"Resolved JMSReplyTo destination {} using DestinationResolver {} as PubSubDomain {} -> {}"
 argument_list|,
 operator|new
 name|Object
