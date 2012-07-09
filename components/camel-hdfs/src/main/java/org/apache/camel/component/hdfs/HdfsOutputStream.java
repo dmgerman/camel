@@ -123,6 +123,8 @@ DECL|class|HdfsOutputStream
 specifier|public
 class|class
 name|HdfsOutputStream
+implements|implements
+name|Closeable
 block|{
 DECL|field|fileType
 specifier|private
@@ -146,6 +148,7 @@ name|out
 decl_stmt|;
 DECL|field|opened
 specifier|private
+specifier|volatile
 name|boolean
 name|opened
 decl_stmt|;
@@ -428,6 +431,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 name|void

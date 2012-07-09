@@ -298,6 +298,13 @@ name|SplitStrategy
 argument_list|>
 name|splitStrategies
 decl_stmt|;
+DECL|field|connectOnStartup
+specifier|private
+name|boolean
+name|connectOnStartup
+init|=
+literal|true
+decl_stmt|;
 DECL|method|HdfsConfiguration ()
 specifier|public
 name|HdfsConfiguration
@@ -1159,6 +1166,18 @@ operator|.
 name|getHost
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|hostName
+operator|==
+literal|null
+condition|)
+block|{
+name|hostName
+operator|=
+literal|"localhost"
+expr_stmt|;
+block|}
 name|port
 operator|=
 name|uri
@@ -2004,6 +2023,32 @@ name|splitStrategy
 parameter_list|)
 block|{
 comment|// noop
+block|}
+DECL|method|isConnectOnStartup ()
+specifier|public
+name|boolean
+name|isConnectOnStartup
+parameter_list|()
+block|{
+return|return
+name|connectOnStartup
+return|;
+block|}
+DECL|method|setConnectOnStartup (boolean connectOnStartup)
+specifier|public
+name|void
+name|setConnectOnStartup
+parameter_list|(
+name|boolean
+name|connectOnStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectOnStartup
+operator|=
+name|connectOnStartup
+expr_stmt|;
 block|}
 block|}
 end_class

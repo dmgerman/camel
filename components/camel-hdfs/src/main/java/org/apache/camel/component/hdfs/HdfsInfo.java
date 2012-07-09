@@ -119,6 +119,8 @@ operator|new
 name|Configuration
 argument_list|()
 expr_stmt|;
+comment|// this will connect to the hadoop hdfs file system, and in case of no connection
+comment|// then the hardcoded timeout in hadoop is 45 x 20 sec = 15 minutes
 name|this
 operator|.
 name|fileSystem

@@ -85,6 +85,8 @@ DECL|class|HdfsInputStream
 specifier|public
 class|class
 name|HdfsInputStream
+implements|implements
+name|Closeable
 block|{
 DECL|field|fileType
 specifier|private
@@ -268,6 +270,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close ()
 specifier|public
 specifier|final
