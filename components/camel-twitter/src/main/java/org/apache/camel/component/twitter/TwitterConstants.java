@@ -18,6 +18,10 @@ name|twitter
 package|;
 end_package
 
+begin_comment
+comment|/**  * Defines common constants  */
+end_comment
+
 begin_class
 DECL|class|TwitterConstants
 specifier|public

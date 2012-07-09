@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumes the filter stream  *  */
+comment|/**  * Consumes the filter stream  */
 end_comment
 
 begin_class

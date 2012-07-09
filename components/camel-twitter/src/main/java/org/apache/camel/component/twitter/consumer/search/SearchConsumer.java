@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumes search requests  *   */
+comment|/**  * Consumes search requests  */
 end_comment
 
 begin_class
@@ -157,10 +157,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|te
-name|TwitterEndpoint
-name|te
-decl_stmt|;
 DECL|method|SearchConsumer (TwitterEndpoint te)
 specifier|public
 name|SearchConsumer
@@ -169,11 +165,10 @@ name|TwitterEndpoint
 name|te
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|te
-operator|=
-name|te
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|pollConsume ()

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.twitter.consumer.timeline
+DECL|package|org.apache.camel.component.twitter.consumer.trends
 package|package
 name|org
 operator|.
@@ -18,9 +18,19 @@ name|twitter
 operator|.
 name|consumer
 operator|.
-name|timeline
+name|trends
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
 
 begin_import
 import|import
@@ -70,7 +80,7 @@ begin_import
 import|import
 name|twitter4j
 operator|.
-name|Status
+name|Trends
 import|;
 end_import
 
@@ -87,16 +97,16 @@ comment|/**  * Consumes the public timeline  */
 end_comment
 
 begin_class
-DECL|class|PublicConsumer
+DECL|class|DailyTrendConsumer
 specifier|public
 class|class
-name|PublicConsumer
+name|DailyTrendConsumer
 extends|extends
 name|Twitter4JConsumer
 block|{
-DECL|method|PublicConsumer (TwitterEndpoint te)
+DECL|method|DailyTrendConsumer (TwitterEndpoint te)
 specifier|public
-name|PublicConsumer
+name|DailyTrendConsumer
 parameter_list|(
 name|TwitterEndpoint
 name|te
@@ -108,11 +118,12 @@ name|te
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* (non-Javadoc)      * @see org.apache.camel.component.twitter.consumer.Twitter4JConsumer#pollConsume()      */
 DECL|method|pollConsume ()
 specifier|public
 name|List
 argument_list|<
-name|Status
+name|Trends
 argument_list|>
 name|pollConsume
 parameter_list|()
@@ -120,15 +131,16 @@ throws|throws
 name|TwitterException
 block|{
 return|return
-name|getPublicTimeline
+name|getTrends
 argument_list|()
 return|;
 block|}
+comment|/* (non-Javadoc)      * @see org.apache.camel.component.twitter.consumer.Twitter4JConsumer#directConsume()      */
 DECL|method|directConsume ()
 specifier|public
 name|List
 argument_list|<
-name|Status
+name|Trends
 argument_list|>
 name|directConsume
 parameter_list|()
@@ -136,20 +148,39 @@ throws|throws
 name|TwitterException
 block|{
 return|return
-name|getPublicTimeline
+name|getTrends
 argument_list|()
 return|;
 block|}
-DECL|method|getPublicTimeline ()
+comment|/**      * @return      * @throws TwitterException      */
+DECL|method|getTrends ()
 specifier|private
 name|List
 argument_list|<
-name|Status
+name|Trends
 argument_list|>
-name|getPublicTimeline
+name|getTrends
 parameter_list|()
 throws|throws
 name|TwitterException
+block|{
+name|Date
+name|date
+init|=
+name|te
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|parseDate
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|date
+operator|!=
+literal|null
+condition|)
 block|{
 return|return
 name|te
@@ -160,9 +191,29 @@ operator|.
 name|getTwitter
 argument_list|()
 operator|.
-name|getPublicTimeline
+name|getDailyTrends
+argument_list|(
+name|date
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|te
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|getTwitter
+argument_list|()
+operator|.
+name|getDailyTrends
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 end_class

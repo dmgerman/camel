@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.twitter.consumer
+DECL|package|org.apache.camel.component.twitter.producer
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|twitter
 operator|.
-name|consumer
+name|producer
 package|;
 end_package
 
@@ -28,19 +28,69 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|component
+operator|.
+name|twitter
+operator|.
+name|TwitterEndpoint
 import|;
 end_import
 
-begin_interface
-DECL|interface|TwitterConsumer
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultProducer
+import|;
+end_import
+
+begin_comment
+comment|/**  * Abstracts common producer capabilities.  */
+end_comment
+
+begin_class
+DECL|class|Twitter4JProducer
 specifier|public
-interface|interface
-name|TwitterConsumer
+specifier|abstract
+class|class
+name|Twitter4JProducer
 extends|extends
-name|Consumer
-block|{  }
-end_interface
+name|DefaultProducer
+block|{
+comment|/**      * Instance of TwitterEndpoint.      */
+DECL|field|te
+specifier|protected
+name|TwitterEndpoint
+name|te
+decl_stmt|;
+DECL|method|Twitter4JProducer (TwitterEndpoint te)
+specifier|protected
+name|Twitter4JProducer
+parameter_list|(
+name|TwitterEndpoint
+name|te
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|te
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|te
+operator|=
+name|te
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

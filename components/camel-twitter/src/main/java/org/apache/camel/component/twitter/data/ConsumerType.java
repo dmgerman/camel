@@ -28,9 +28,7 @@ name|ConsumerType
 block|{
 DECL|enumConstant|TIMELINE
 DECL|enumConstant|SEARCH
-DECL|enumConstant|USER
 DECL|enumConstant|TRENDS
-DECL|enumConstant|USERLIST
 DECL|enumConstant|DIRECTMESSAGE
 DECL|enumConstant|STREAMING
 DECL|enumConstant|UNKNOWN
@@ -38,11 +36,7 @@ name|TIMELINE
 block|,
 name|SEARCH
 block|,
-name|USER
-block|,
 name|TRENDS
-block|,
-name|USERLIST
 block|,
 name|DIRECTMESSAGE
 block|,

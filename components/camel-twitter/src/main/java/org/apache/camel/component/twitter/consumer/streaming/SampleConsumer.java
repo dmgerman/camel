@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumes the sample stream  *   */
+comment|/**  * Consumes the sample stream  */
 end_comment
 
 begin_class

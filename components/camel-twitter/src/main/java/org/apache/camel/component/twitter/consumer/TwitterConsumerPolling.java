@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides a scheduled polling consumer  *   */
+comment|/**  * Provides a scheduled polling consumer  */
 end_comment
 
 begin_class
@@ -117,8 +117,6 @@ class|class
 name|TwitterConsumerPolling
 extends|extends
 name|ScheduledPollConsumer
-implements|implements
-name|TwitterConsumer
 block|{
 DECL|field|twitter4jConsumer
 specifier|private

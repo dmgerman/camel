@@ -88,20 +88,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultProducer
-import|;
-end_import
-
-begin_import
-import|import
 name|twitter4j
 operator|.
 name|Query
@@ -138,17 +124,12 @@ specifier|public
 class|class
 name|SearchProducer
 extends|extends
-name|DefaultProducer
+name|Twitter4JProducer
 block|{
 DECL|field|lastId
 specifier|private
 name|long
 name|lastId
-decl_stmt|;
-DECL|field|te
-specifier|private
-name|TwitterEndpoint
-name|te
 decl_stmt|;
 DECL|method|SearchProducer (TwitterEndpoint te)
 specifier|public
@@ -162,12 +143,6 @@ name|super
 argument_list|(
 name|te
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|te
-operator|=
-name|te
 expr_stmt|;
 block|}
 annotation|@

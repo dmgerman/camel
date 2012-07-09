@@ -20,6 +20,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|text
+operator|.
+name|ParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|text
+operator|.
+name|SimpleDateFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|twitter4j
 operator|.
 name|Twitter
@@ -76,6 +106,7 @@ specifier|public
 class|class
 name|TwitterConfiguration
 block|{
+comment|/**      * OAuth      */
 DECL|field|consumerKey
 specifier|private
 name|String
@@ -96,16 +127,13 @@ specifier|private
 name|String
 name|accessTokenSecret
 decl_stmt|;
-DECL|field|user
+comment|/**      * Defines the Twitter API endpoint.      */
+DECL|field|type
 specifier|private
 name|String
-name|user
+name|type
 decl_stmt|;
-DECL|field|keywords
-specifier|private
-name|String
-name|keywords
-decl_stmt|;
+comment|/**      * Polling delay.      */
 DECL|field|delay
 specifier|private
 name|int
@@ -113,27 +141,59 @@ name|delay
 init|=
 literal|60
 decl_stmt|;
-DECL|field|type
+comment|/**      * Username -- used for searching, etc.      */
+DECL|field|user
 specifier|private
 name|String
-name|type
+name|user
 decl_stmt|;
+comment|/**      * Keywords used for search and filters.      */
+DECL|field|keywords
+specifier|private
+name|String
+name|keywords
+decl_stmt|;
+comment|/**      * Lon/Lat bounding boxes used for filtering.      */
 DECL|field|locations
 specifier|private
 name|String
 name|locations
 decl_stmt|;
+comment|/**      * List of userIds used for searching, etc.      */
 DECL|field|userIds
 specifier|private
 name|String
 name|userIds
 decl_stmt|;
+comment|/**      * Filter out old tweets that have been previously polled.      */
 DECL|field|filterOld
 specifier|private
 name|boolean
 name|filterOld
 init|=
 literal|true
+decl_stmt|;
+comment|/**      * Used for time-based endpoints (trends, etc.)      */
+DECL|field|date
+specifier|private
+name|String
+name|date
+decl_stmt|;
+DECL|field|parsedDate
+specifier|private
+name|Date
+name|parsedDate
+decl_stmt|;
+DECL|field|sdf
+specifier|private
+name|SimpleDateFormat
+name|sdf
+init|=
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"yyyy-MM-dd"
+argument_list|)
 decl_stmt|;
 comment|/**      * Singleton, on demand instances of Twitter4J's Twitter& TwitterStream.      * This should not be created by an endpoint's doStart(), etc., since      * instances of twitter and/or twitterStream can be supplied by the route      * itself.  Further, as an example, we don't want to initialize twitter      * if we only need twitterStream.      */
 DECL|field|twitter
@@ -146,6 +206,7 @@ specifier|private
 name|TwitterStream
 name|twitterStream
 decl_stmt|;
+comment|/**      * Ensures required fields are available.      */
 DECL|method|checkComplete ()
 specifier|public
 name|void
@@ -194,6 +255,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Builds a Twitter4J Configuration using the OAuth params.      *      * @return Configuration      */
 DECL|method|getConfiguration ()
 specifier|public
 name|Configuration
@@ -619,6 +681,68 @@ name|twitterStream
 operator|=
 name|twitterStream
 expr_stmt|;
+block|}
+DECL|method|getDate ()
+specifier|public
+name|String
+name|getDate
+parameter_list|()
+block|{
+return|return
+name|date
+return|;
+block|}
+DECL|method|parseDate ()
+specifier|public
+name|Date
+name|parseDate
+parameter_list|()
+block|{
+return|return
+name|parsedDate
+return|;
+block|}
+DECL|method|setDate (String date)
+specifier|public
+name|void
+name|setDate
+parameter_list|(
+name|String
+name|date
+parameter_list|)
+block|{
+name|this
+operator|.
+name|date
+operator|=
+name|date
+expr_stmt|;
+try|try
+block|{
+name|parsedDate
+operator|=
+name|sdf
+operator|.
+name|parse
+argument_list|(
+name|date
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParseException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"date must be in yyyy-mm-dd format!"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

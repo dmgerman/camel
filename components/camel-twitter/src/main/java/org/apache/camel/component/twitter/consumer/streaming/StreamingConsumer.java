@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Super class providing consuming capabilities for the streaming API.  *   */
+comment|/**  * Super class providing consuming capabilities for the streaming API.  */
 end_comment
 
 begin_class
@@ -163,10 +163,6 @@ specifier|protected
 specifier|final
 name|TwitterStream
 name|twitterStream
-decl_stmt|;
-DECL|field|te
-name|TwitterEndpoint
-name|te
 decl_stmt|;
 DECL|field|receivedStatuses
 specifier|private
@@ -203,11 +199,10 @@ name|TwitterEndpoint
 name|te
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|te
-operator|=
-name|te
+argument_list|)
 expr_stmt|;
 name|twitterStream
 operator|=

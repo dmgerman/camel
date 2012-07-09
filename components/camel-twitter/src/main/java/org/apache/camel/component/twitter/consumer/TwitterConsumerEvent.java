@@ -112,8 +112,6 @@ name|TwitterConsumerEvent
 extends|extends
 name|DirectConsumer
 implements|implements
-name|TwitterConsumer
-implements|,
 name|TweeterStatusListener
 block|{
 DECL|field|twitter4jConsumer

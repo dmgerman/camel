@@ -52,18 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|twitter
@@ -72,22 +60,8 @@ name|TwitterEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultProducer
-import|;
-end_import
-
 begin_comment
-comment|/**  * Produces text as a direct message.  *   */
+comment|/**  * Produces text as a direct message.  */
 end_comment
 
 begin_class
@@ -96,15 +70,8 @@ specifier|public
 class|class
 name|DirectMessageProducer
 extends|extends
-name|DefaultProducer
-implements|implements
-name|Processor
+name|Twitter4JProducer
 block|{
-DECL|field|te
-specifier|private
-name|TwitterEndpoint
-name|te
-decl_stmt|;
 DECL|method|DirectMessageProducer (TwitterEndpoint te)
 specifier|public
 name|DirectMessageProducer
@@ -117,12 +84,6 @@ name|super
 argument_list|(
 name|te
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|te
-operator|=
-name|te
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)

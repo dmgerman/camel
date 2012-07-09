@@ -48,14 +48,6 @@ name|EndpointType
 import|;
 end_import
 
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|Twitter
-import|;
-end_import
-
 begin_interface
 DECL|interface|TwitterEndpoint
 specifier|public

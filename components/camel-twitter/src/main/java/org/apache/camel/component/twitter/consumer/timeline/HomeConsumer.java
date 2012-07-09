@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumes the user's home timeline.  *   */
+comment|/**  * Consumes the user's home timeline.  */
 end_comment
 
 begin_class
@@ -102,10 +102,6 @@ name|HomeConsumer
 extends|extends
 name|Twitter4JConsumer
 block|{
-DECL|field|te
-name|TwitterEndpoint
-name|te
-decl_stmt|;
 DECL|method|HomeConsumer (TwitterEndpoint te)
 specifier|public
 name|HomeConsumer
@@ -114,11 +110,10 @@ name|TwitterEndpoint
 name|te
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|te
-operator|=
-name|te
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|pollConsume ()

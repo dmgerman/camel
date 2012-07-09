@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel DirectConsumer implementation.  *   */
+comment|/**  * Camel DirectConsumer implementation.  */
 end_comment
 
 begin_class
@@ -107,8 +107,6 @@ class|class
 name|TwitterConsumerDirect
 extends|extends
 name|DirectConsumer
-implements|implements
-name|TwitterConsumer
 block|{
 DECL|field|twitter4jConsumer
 specifier|private

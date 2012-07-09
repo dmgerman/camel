@@ -102,10 +102,6 @@ name|MentionsConsumer
 extends|extends
 name|Twitter4JConsumer
 block|{
-DECL|field|te
-name|TwitterEndpoint
-name|te
-decl_stmt|;
 DECL|method|MentionsConsumer (TwitterEndpoint te)
 specifier|public
 name|MentionsConsumer
@@ -114,11 +110,10 @@ name|TwitterEndpoint
 name|te
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|te
-operator|=
-name|te
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|pollConsume ()

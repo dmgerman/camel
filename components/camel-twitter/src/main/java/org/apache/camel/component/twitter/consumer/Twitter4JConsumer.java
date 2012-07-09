@@ -42,6 +42,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|twitter
+operator|.
+name|TwitterEndpoint
+import|;
+end_import
+
+begin_import
+import|import
 name|twitter4j
 operator|.
 name|TwitterException
@@ -55,6 +71,13 @@ specifier|abstract
 class|class
 name|Twitter4JConsumer
 block|{
+comment|/**      * Instance of TwitterEndpoint.      */
+DECL|field|te
+specifier|protected
+name|TwitterEndpoint
+name|te
+decl_stmt|;
+comment|/**      * The last tweet ID received.      */
 DECL|field|lastId
 specifier|protected
 name|long
@@ -62,8 +85,22 @@ name|lastId
 init|=
 literal|1
 decl_stmt|;
-comment|// Can't assume that the end of the list will be the most recent ID.
-comment|// The Twitter API sometimes returns them slightly out of order.
+DECL|method|Twitter4JConsumer (TwitterEndpoint te)
+specifier|protected
+name|Twitter4JConsumer
+parameter_list|(
+name|TwitterEndpoint
+name|te
+parameter_list|)
+block|{
+name|this
+operator|.
+name|te
+operator|=
+name|te
+expr_stmt|;
+block|}
+comment|/**      * Can't assume that the end of the list will be the most recent ID.      * The Twitter API sometimes returns them slightly out of order.      */
 DECL|method|checkLastId (long newId)
 specifier|protected
 name|void
@@ -86,6 +123,7 @@ name|newId
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Called by polling consumers during each poll.  It needs to be separate      * from directConsume() since, as an example, streaming API polling allows      * tweets to build up between polls.      */
 DECL|method|pollConsume ()
 specifier|public
 specifier|abstract
@@ -100,6 +138,7 @@ parameter_list|()
 throws|throws
 name|TwitterException
 function_decl|;
+comment|/**      * Called by direct consumers.      */
 DECL|method|directConsume ()
 specifier|public
 specifier|abstract
