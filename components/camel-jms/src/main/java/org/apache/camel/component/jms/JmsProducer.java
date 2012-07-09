@@ -1099,7 +1099,7 @@ throws|throws
 name|JMSException
 block|{
 name|Message
-name|message
+name|answer
 init|=
 name|endpoint
 operator|.
@@ -1143,11 +1143,20 @@ name|exchange
 argument_list|)
 throw|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using JMSReplyTo destination: {}"
+argument_list|,
+name|replyTo
+argument_list|)
+expr_stmt|;
 name|JmsMessageHelper
 operator|.
 name|setJMSReplyTo
 argument_list|(
-name|message
+name|answer
 argument_list|,
 name|replyTo
 argument_list|)
@@ -1158,7 +1167,7 @@ name|setReplyToSelectorHeader
 argument_list|(
 name|in
 argument_list|,
-name|message
+name|answer
 argument_list|)
 expr_stmt|;
 name|String
@@ -1166,7 +1175,7 @@ name|correlationId
 init|=
 name|determineCorrelationId
 argument_list|(
-name|message
+name|answer
 argument_list|,
 name|provisionalCorrelationId
 argument_list|)
@@ -1191,8 +1200,26 @@ name|getRequestTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using JMSCorrelationID: {}"
+argument_list|,
+name|correlationId
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Created javax.jms.Message: {}"
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
 return|return
-name|message
+name|answer
 return|;
 block|}
 block|}
@@ -1655,20 +1682,36 @@ condition|)
 block|{
 comment|// must normalize the destination name
 name|String
-name|replyTo
+name|before
 init|=
-name|normalizeDestinationName
-argument_list|(
 operator|(
 name|String
 operator|)
 name|jmsReplyTo
+decl_stmt|;
+name|String
+name|replyTo
+init|=
+name|normalizeDestinationName
+argument_list|(
+name|before
 argument_list|)
 decl_stmt|;
 comment|// we need to null it as we use the String to resolve it as a Destination instance
 name|jmsReplyTo
 operator|=
 literal|null
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Normalized JMSReplyTo destination name {} -> {}"
+argument_list|,
+name|before
+argument_list|,
+name|replyTo
+argument_list|)
 expr_stmt|;
 comment|// try using destination resolver to lookup the destination
 if|if
@@ -1700,6 +1743,41 @@ name|isPubSubDomain
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Resolved JMSReplyTo destination {} using DestinationResolver {} as PubSubDomain {} -> "
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|replyTo
+block|,
+name|endpoint
+operator|.
+name|getDestinationResolver
+argument_list|()
+block|,
+name|endpoint
+operator|.
+name|isPubSubDomain
+argument_list|()
+block|,
+name|jmsReplyTo
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1809,6 +1887,13 @@ block|}
 else|else
 block|{
 comment|// do not use JMSReplyTo
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Not using JMSReplyTo"
+argument_list|)
+expr_stmt|;
 name|JmsMessageHelper
 operator|.
 name|setJMSReplyTo
@@ -1819,6 +1904,15 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Created javax.jms.Message: {}"
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
