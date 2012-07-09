@@ -156,6 +156,9 @@ name|SedaProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
+comment|/**      * @deprecated Better make use of the {@link SedaEndpoint#getQueue()} API which delivers the accurate reference to the queue currently being used.      */
+annotation|@
+name|Deprecated
 DECL|field|queue
 specifier|protected
 specifier|final
@@ -189,7 +192,7 @@ specifier|final
 name|boolean
 name|blockWhenFull
 decl_stmt|;
-comment|/**      * @deprecated use the other constructor      */
+comment|/**      * @deprecated Use {@link #SedaProducer(SedaEndpoint, WaitForTaskToComplete, long, boolean) the other constructor}.      */
 annotation|@
 name|Deprecated
 DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitForTaskToComplete, long timeout)
@@ -216,8 +219,6 @@ name|this
 argument_list|(
 name|endpoint
 argument_list|,
-name|queue
-argument_list|,
 name|waitForTaskToComplete
 argument_list|,
 name|timeout
@@ -226,6 +227,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated Use {@link #SedaProducer(SedaEndpoint, WaitForTaskToComplete, long, boolean) the other constructor}.      */
+annotation|@
+name|Deprecated
 DECL|method|SedaProducer (SedaEndpoint endpoint, BlockingQueue<Exchange> queue, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull)
 specifier|public
 name|SedaProducer
@@ -249,6 +253,35 @@ name|boolean
 name|blockWhenFull
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|endpoint
+argument_list|,
+name|waitForTaskToComplete
+argument_list|,
+name|timeout
+argument_list|,
+name|blockWhenFull
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SedaProducer (SedaEndpoint endpoint, WaitForTaskToComplete waitForTaskToComplete, long timeout, boolean blockWhenFull)
+specifier|public
+name|SedaProducer
+parameter_list|(
+name|SedaEndpoint
+name|endpoint
+parameter_list|,
+name|WaitForTaskToComplete
+name|waitForTaskToComplete
+parameter_list|,
+name|long
+name|timeout
+parameter_list|,
+name|boolean
+name|blockWhenFull
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|endpoint
@@ -258,7 +291,10 @@ name|this
 operator|.
 name|queue
 operator|=
-name|queue
+name|endpoint
+operator|.
+name|getQueue
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -628,7 +664,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// remove timed out Exchange from queue
-name|queue
+name|endpoint
+operator|.
+name|getQueue
+argument_list|()
 operator|.
 name|remove
 argument_list|(
@@ -820,6 +859,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
+name|queue
+init|=
+name|endpoint
+operator|.
+name|getQueue
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|blockWhenFull

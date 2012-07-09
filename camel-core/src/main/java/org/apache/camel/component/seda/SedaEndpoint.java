@@ -590,9 +590,6 @@ name|SedaProducer
 argument_list|(
 name|this
 argument_list|,
-name|getQueue
-argument_list|()
-argument_list|,
 name|getWaitForTaskToComplete
 argument_list|()
 argument_list|,
