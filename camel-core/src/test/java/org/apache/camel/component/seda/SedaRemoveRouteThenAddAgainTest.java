@@ -65,10 +65,10 @@ comment|/**  * @version  */
 end_comment
 
 begin_class
-DECL|class|SedaRemoveRouteThenAddItAgainTest
+DECL|class|SedaRemoveRouteThenAddAgainTest
 specifier|public
 class|class
-name|SedaRemoveRouteThenAddItAgainTest
+name|SedaRemoveRouteThenAddAgainTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -115,10 +115,10 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|testRemoveRouteAndThenAddItAgain ()
+DECL|method|testRemoveRouteAndThenAddAgain ()
 specifier|public
 name|void
-name|testRemoveRouteAndThenAddItAgain
+name|testRemoveRouteAndThenAddAgain
 parameter_list|()
 throws|throws
 name|Exception
@@ -138,13 +138,20 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"before removing the route"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
 literal|"seda:in"
 argument_list|,
-literal|"Test Message"
+literal|"before removing the route"
 argument_list|)
 expr_stmt|;
 name|out
@@ -157,6 +164,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+comment|// now stop& remove the route
 name|context
 operator|.
 name|stopRoute
@@ -171,6 +179,7 @@ argument_list|(
 literal|"sedaToMock"
 argument_list|)
 expr_stmt|;
+comment|// and then add it back again
 name|context
 operator|.
 name|addRoutes
@@ -186,13 +195,20 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"after removing the route"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
 literal|"seda:in"
 argument_list|,
-literal|"Test Message"
+literal|"after removing the route"
 argument_list|)
 expr_stmt|;
 name|out
