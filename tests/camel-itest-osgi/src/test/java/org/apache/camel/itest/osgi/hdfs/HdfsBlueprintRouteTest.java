@@ -225,26 +225,6 @@ name|HdfsBlueprintRouteTest
 extends|extends
 name|OSGiBlueprintTestSupport
 block|{
-comment|//Hadoop doesn't run on IBM JDK
-DECL|field|SKIP
-specifier|private
-specifier|static
-specifier|final
-name|boolean
-name|SKIP
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.vendor"
-argument_list|)
-operator|.
-name|contains
-argument_list|(
-literal|"IBM"
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testWriteAndReadString ()
@@ -257,12 +237,15 @@ name|Exception
 block|{
 if|if
 condition|(
-name|SKIP
+name|isJavaVendor
+argument_list|(
+literal|"IBM"
+argument_list|)
 condition|)
 block|{
+comment|// Hadoop doesn't run on IBM JDK
 return|return;
 block|}
-comment|// and does not work well on windows
 if|if
 condition|(
 name|isPlatform
@@ -271,6 +254,7 @@ literal|"windows"
 argument_list|)
 condition|)
 block|{
+comment|// and does not work well on windows
 return|return;
 block|}
 name|getInstalledBundle
