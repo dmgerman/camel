@@ -85,29 +85,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @version  */
-end_comment
-
-begin_comment
 comment|// START SNIPPET: example
 end_comment
 
-begin_class
+begin_interface
 annotation|@
 name|Path
 argument_list|(
 literal|"/customerservice/"
 argument_list|)
-DECL|class|CustomerServiceResource
+DECL|interface|CustomerServiceResource
 specifier|public
-class|class
+interface|interface
 name|CustomerServiceResource
 block|{
-DECL|method|CustomerServiceResource ()
-specifier|public
-name|CustomerServiceResource
-parameter_list|()
-block|{     }
 annotation|@
 name|GET
 annotation|@
@@ -128,11 +119,7 @@ argument_list|)
 name|String
 name|id
 parameter_list|)
-block|{
-return|return
-literal|null
-return|;
-block|}
+function_decl|;
 annotation|@
 name|PUT
 annotation|@
@@ -148,13 +135,9 @@ parameter_list|(
 name|Customer
 name|customer
 parameter_list|)
-block|{
-return|return
-literal|null
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 begin_comment
 comment|// END SNIPPET: example
