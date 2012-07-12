@@ -1112,10 +1112,7 @@ literal|" = "
 operator|+
 name|camelContext
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|property
 argument_list|)

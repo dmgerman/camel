@@ -313,10 +313,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|THRESHOLD
 argument_list|)
@@ -329,10 +326,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|TEMP_DIR
 argument_list|)

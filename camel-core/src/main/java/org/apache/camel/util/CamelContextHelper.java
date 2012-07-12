@@ -733,10 +733,7 @@ name|s
 init|=
 name|camelContext
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -850,10 +847,7 @@ name|s
 init|=
 name|camelContext
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.

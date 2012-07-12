@@ -600,10 +600,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
@@ -616,10 +613,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)
@@ -632,10 +626,7 @@ init|=
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 literal|"http.proxyHost"
 argument_list|)
@@ -650,10 +641,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 literal|"http.proxyPort"
 argument_list|)

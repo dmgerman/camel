@@ -1326,6 +1326,15 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the property value that can be referenced in the camel context      *      * @return the string value of property      *       */
+DECL|method|getProperty (String name)
+name|String
+name|getProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the default FactoryFinder which will be used for the loading the factory class from META-INF      *      * @return the default factory finder      */
 DECL|method|getDefaultFactoryFinder ()
 name|FactoryFinder

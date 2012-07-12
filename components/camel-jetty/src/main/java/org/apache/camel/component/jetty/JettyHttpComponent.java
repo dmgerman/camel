@@ -2388,10 +2388,7 @@ name|isNotEmpty
 argument_list|(
 name|camelContext
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|TMP_DIR
 argument_list|)
@@ -2406,10 +2403,7 @@ name|File
 argument_list|(
 name|camelContext
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|TMP_DIR
 argument_list|)

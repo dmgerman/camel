@@ -511,10 +511,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -579,10 +576,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|get
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.
