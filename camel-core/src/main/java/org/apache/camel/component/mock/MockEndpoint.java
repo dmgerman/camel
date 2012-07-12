@@ -2056,16 +2056,7 @@ operator|new
 name|CaseInsensitiveMap
 argument_list|()
 expr_stmt|;
-block|}
-name|expectedHeaderValues
-operator|.
-name|put
-argument_list|(
-name|name
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
+comment|// we just wants to expects to be called once
 name|expects
 argument_list|(
 operator|new
@@ -2236,6 +2227,16 @@ block|}
 block|}
 block|}
 block|}
+argument_list|)
+expr_stmt|;
+block|}
+name|expectedHeaderValues
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
