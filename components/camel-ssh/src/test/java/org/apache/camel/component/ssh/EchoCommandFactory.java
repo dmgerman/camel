@@ -151,6 +151,11 @@ specifier|private
 name|OutputStream
 name|out
 decl_stmt|;
+DECL|field|err
+specifier|private
+name|OutputStream
+name|err
+decl_stmt|;
 DECL|field|callback
 specifier|private
 name|ExitCallback
@@ -215,7 +220,14 @@ parameter_list|(
 name|OutputStream
 name|err
 parameter_list|)
-block|{         }
+block|{
+name|this
+operator|.
+name|err
+operator|=
+name|err
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|setExitCallback (ExitCallback callback)
@@ -297,6 +309,32 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+comment|// we set the error with the same command message
+name|err
+operator|.
+name|write
+argument_list|(
+literal|"Error:"
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|err
+operator|.
+name|write
+argument_list|(
+name|command
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|err
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
 name|out
 operator|.
 name|write
