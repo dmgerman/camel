@@ -371,7 +371,6 @@ name|BARE
 argument_list|)
 DECL|interface|BareSoapService
 specifier|public
-specifier|static
 interface|interface
 name|BareSoapService
 block|{

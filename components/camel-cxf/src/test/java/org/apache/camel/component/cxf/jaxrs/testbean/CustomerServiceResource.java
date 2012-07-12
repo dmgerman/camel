@@ -107,7 +107,6 @@ argument_list|(
 literal|"/customers/{id}/"
 argument_list|)
 DECL|method|getCustomer (@athParamR) String id)
-specifier|public
 name|Customer
 name|getCustomer
 parameter_list|(
@@ -128,7 +127,6 @@ argument_list|(
 literal|"/customers/"
 argument_list|)
 DECL|method|updateCustomer (Customer customer)
-specifier|public
 name|Response
 name|updateCustomer
 parameter_list|(
