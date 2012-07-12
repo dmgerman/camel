@@ -132,17 +132,6 @@ operator|.
 name|getReturnType
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"returnType class "
-operator|+
-name|returnType
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
