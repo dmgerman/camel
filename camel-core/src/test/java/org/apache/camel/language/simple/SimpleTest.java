@@ -1825,6 +1825,135 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testOGNLHeaderEmptyTest ()
+specifier|public
+name|void
+name|testOGNLHeaderEmptyTest
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"beer"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == ''"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == \"\""
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == ' '"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == \" \""
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"beer"
+argument_list|,
+literal|" "
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == ''"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == \"\""
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == ' '"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer} == \" \""
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer.toString().trim()} == ''"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer.toString().trim()} == \"\""
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"beer"
+argument_list|,
+literal|"   "
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer.trim()} == ''"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${header.beer.trim()} == \"\""
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testDateExpressions ()
 specifier|public
 name|void
