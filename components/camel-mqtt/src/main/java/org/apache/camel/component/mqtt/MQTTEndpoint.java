@@ -486,7 +486,7 @@ name|setBody
 argument_list|(
 name|body
 operator|.
-name|getData
+name|toByteArray
 argument_list|()
 argument_list|)
 expr_stmt|;
