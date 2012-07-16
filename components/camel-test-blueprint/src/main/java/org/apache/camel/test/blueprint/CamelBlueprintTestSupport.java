@@ -277,6 +277,17 @@ name|bundleContext
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Return the system bundle context      * @return      */
+DECL|method|getBundleContext ()
+specifier|protected
+name|BundleContext
+name|getBundleContext
+parameter_list|()
+block|{
+return|return
+name|bundleContext
+return|;
+block|}
 comment|/**      * Gets the bundle descriptor from the classpath.      *<p/>      * Return the location(s) of the bundle descriptors from the classpath.      * Separate multiple locations by comma, or return a single location.      *<p/>      * For example override this method and return<tt>OSGI-INF/blueprint/camel-context.xml</tt>      *      * @return the location of the bundle descriptor file.      */
 DECL|method|getBlueprintDescriptor ()
 specifier|protected
