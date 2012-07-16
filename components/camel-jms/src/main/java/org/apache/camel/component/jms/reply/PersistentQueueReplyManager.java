@@ -768,6 +768,18 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
+comment|// shared is not as fast as temporary or exclusive, so log this so the end user may be aware of this
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"{} is using a shared reply queue, which is not as fast as alternatives."
+operator|+
+literal|" See more detail at the section 'Request-reply over JMS' at http://camel.apache.org/jms"
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
