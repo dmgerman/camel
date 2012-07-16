@@ -556,6 +556,23 @@ return|return
 name|ignoreInvalidExchanges
 return|;
 block|}
+DECL|method|setRejectOld (Boolean rejectOld)
+specifier|public
+name|void
+name|setRejectOld
+parameter_list|(
+name|Boolean
+name|rejectOld
+parameter_list|)
+block|{
+name|engine
+operator|.
+name|setRejectOld
+argument_list|(
+name|rejectOld
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Sets whether to ignore invalid exchanges which cannot be used by this stream resequencer.      *<p/>      * Default is<tt>false</tt>, by which an {@link CamelExchangeException} is thrown if the {@link Exchange}      * is invalid.      */
 DECL|method|setIgnoreInvalidExchanges (boolean ignoreInvalidExchanges)
 specifier|public

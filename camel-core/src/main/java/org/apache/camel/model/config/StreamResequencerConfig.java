@@ -70,6 +70,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -168,6 +182,13 @@ DECL|field|comparator
 specifier|private
 name|ExpressionResultComparator
 name|comparator
+decl_stmt|;
+annotation|@
+name|XmlElement
+DECL|field|rejectOld
+specifier|private
+name|Boolean
+name|rejectOld
 decl_stmt|;
 comment|/**      * Creates a new {@link StreamResequencerConfig} instance using default      * values for<code>capacity</code> (1000) and<code>timeout</code>      * (1000L). Elements of the sequence are compared using the      * {@link DefaultExchangeComparator}.      */
 DECL|method|StreamResequencerConfig ()
@@ -358,6 +379,32 @@ name|comparator
 operator|=
 name|comparator
 expr_stmt|;
+block|}
+DECL|method|setRejectOld (boolean value)
+specifier|public
+name|void
+name|setRejectOld
+parameter_list|(
+name|boolean
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rejectOld
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|getRejectOld ()
+specifier|public
+name|Boolean
+name|getRejectOld
+parameter_list|()
+block|{
+return|return
+name|rejectOld
+return|;
 block|}
 block|}
 end_class

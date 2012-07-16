@@ -635,6 +635,39 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the rejectOld flag to throw an error when a message older than the last delivered message is processed      * @return the builder      */
+DECL|method|rejectOld ()
+specifier|public
+name|ResequenceDefinition
+name|rejectOld
+parameter_list|()
+block|{
+if|if
+condition|(
+name|streamConfig
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"rejectOld() only supported for stream resequencer"
+argument_list|)
+throw|;
+block|}
+name|streamConfig
+operator|.
+name|setRejectOld
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the in batch size for number of exchanges received      * @param batchSize  the batch size      * @return the builder      */
 DECL|method|size (int batchSize)
 specifier|public
@@ -1423,6 +1456,16 @@ argument_list|(
 name|config
 operator|.
 name|getCapacity
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|resequencer
+operator|.
+name|setRejectOld
+argument_list|(
+name|config
+operator|.
+name|getRejectOld
 argument_list|()
 argument_list|)
 expr_stmt|;

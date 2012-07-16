@@ -99,6 +99,12 @@ name|E
 argument_list|>
 name|sequenceSender
 decl_stmt|;
+comment|/**      * Indicates whether an error should be thrown if message older (based on Comparator) than the last delivered message is received.      */
+DECL|field|rejectOld
+specifier|private
+name|Boolean
+name|rejectOld
+decl_stmt|;
 comment|/**      * Creates a new resequencer instance with a default timeout of 2000      * milliseconds.      *      * @param comparator a sequence element comparator.      */
 DECL|method|ResequencerEngine (SequenceElementComparator<E> comparator)
 specifier|public
@@ -211,6 +217,32 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|getRejectOld ()
+specifier|public
+name|Boolean
+name|getRejectOld
+parameter_list|()
+block|{
+return|return
+name|rejectOld
+return|;
+block|}
+DECL|method|setRejectOld (Boolean rejectOld)
+specifier|public
+name|void
+name|setRejectOld
+parameter_list|(
+name|Boolean
+name|rejectOld
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rejectOld
+operator|=
+name|rejectOld
 expr_stmt|;
 block|}
 comment|/**      * Returns the sequence sender.      *      * @return the sequence sender.      */
@@ -409,6 +441,46 @@ condition|)
 block|{
 comment|// nothing to schedule
 block|}
+elseif|else
+if|if
+condition|(
+name|rejectOld
+operator|!=
+literal|null
+operator|&&
+name|rejectOld
+operator|.
+name|booleanValue
+argument_list|()
+operator|&&
+name|beforeLastDelivered
+argument_list|(
+name|element
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|MessageRejectedException
+argument_list|(
+literal|"rejecting message ["
+operator|+
+name|element
+operator|.
+name|getObject
+argument_list|()
+operator|+
+literal|"], it should have been sent before the last delivered message ["
+operator|+
+name|lastDelivered
+operator|.
+name|getObject
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 else|else
 block|{
 name|element
@@ -554,6 +626,55 @@ name|element
 argument_list|,
 name|lastDelivered
 argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Retuns<code>true</code> if the given element is before the last delivered element.      *      * @param element an element.      * @return<code>true</code> if the given element is before the last delivered element.      */
+DECL|method|beforeLastDelivered (Element<E> element)
+specifier|private
+name|boolean
+name|beforeLastDelivered
+parameter_list|(
+name|Element
+argument_list|<
+name|E
+argument_list|>
+name|element
+parameter_list|)
+block|{
+if|if
+condition|(
+name|lastDelivered
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|sequence
+operator|.
+name|comparator
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+name|element
+argument_list|,
+name|lastDelivered
+argument_list|)
+operator|<
+literal|0
 condition|)
 block|{
 return|return
