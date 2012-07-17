@@ -70,10 +70,10 @@ name|ResequenceStreamRejectOldExchangesTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testInSequenceAfterTimeout ()
+DECL|method|testInSequenceAfterCapacityReached ()
 specifier|public
 name|void
-name|testInSequenceAfterTimeout
+name|testInSequenceAfterCapacityReached
 parameter_list|()
 throws|throws
 name|Exception
@@ -141,13 +141,6 @@ argument_list|,
 literal|"seqno"
 argument_list|,
 literal|1
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1100
 argument_list|)
 expr_stmt|;
 name|template
@@ -167,10 +160,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDuplicateAfterTimeout ()
+DECL|method|testDuplicateAfterCapacityReached ()
 specifier|public
 name|void
-name|testDuplicateAfterTimeout
+name|testDuplicateAfterCapacityReached
 parameter_list|()
 throws|throws
 name|Exception
@@ -238,13 +231,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1100
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -262,10 +248,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testOutOfSequenceAfterTimeoutSimple ()
+DECL|method|testOutOfSequenceAfterCapacityReachedSimple ()
 specifier|public
 name|void
-name|testOutOfSequenceAfterTimeoutSimple
+name|testOutOfSequenceAfterCapacityReachedSimple
 parameter_list|()
 throws|throws
 name|Exception
@@ -333,13 +319,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1100
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -357,10 +336,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testOutOfSequenceAfterTimeoutComplex ()
+DECL|method|testOutOfSequenceAfterCapacityReachedComplex ()
 specifier|public
 name|void
-name|testOutOfSequenceAfterTimeoutComplex
+name|testOutOfSequenceAfterCapacityReachedComplex
 parameter_list|()
 throws|throws
 name|Exception
@@ -399,6 +378,19 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
+literal|"E"
+argument_list|,
+literal|"seqno"
+argument_list|,
+literal|5
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
 literal|"D"
 argument_list|,
 literal|"seqno"
@@ -419,13 +411,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1100
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -437,19 +422,6 @@ argument_list|,
 literal|"seqno"
 argument_list|,
 literal|2
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"E"
-argument_list|,
-literal|"seqno"
-argument_list|,
-literal|5
 argument_list|)
 expr_stmt|;
 name|template
@@ -518,6 +490,11 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|maximumRedeliveries
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|handled
 argument_list|(
 literal|true
@@ -542,9 +519,9 @@ operator|.
 name|stream
 argument_list|()
 operator|.
-name|timeout
+name|capacity
 argument_list|(
-literal|1000
+literal|3
 argument_list|)
 operator|.
 name|rejectOld
