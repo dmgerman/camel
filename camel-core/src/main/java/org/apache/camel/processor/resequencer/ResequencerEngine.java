@@ -459,6 +459,13 @@ name|element
 argument_list|)
 condition|)
 block|{
+name|sequence
+operator|.
+name|remove
+argument_list|(
+name|element
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|MessageRejectedException
