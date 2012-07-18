@@ -126,7 +126,7 @@ specifier|public
 class|class
 name|RegistryLookupAndInjectorTest
 extends|extends
-name|CamelCdiTestContainer
+name|CdiContextTestSupport
 block|{
 DECL|field|resultEndpoint
 specifier|private

@@ -50,6 +50,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ReflectionInjector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|deltaspike
 operator|.
 name|core
@@ -80,6 +94,19 @@ specifier|private
 name|Injector
 name|injector
 decl_stmt|;
+DECL|method|CdiInjector ()
+specifier|public
+name|CdiInjector
+parameter_list|()
+block|{
+name|this
+argument_list|(
+operator|new
+name|ReflectionInjector
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|CdiInjector (Injector parent)
 specifier|public
 name|CdiInjector
