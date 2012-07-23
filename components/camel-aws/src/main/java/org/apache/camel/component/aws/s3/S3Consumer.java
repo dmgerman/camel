@@ -367,6 +367,17 @@ argument_list|)
 expr_stmt|;
 name|listObjectsRequest
 operator|.
+name|setPrefix
+argument_list|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPrefix
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|listObjectsRequest
+operator|.
 name|setMaxKeys
 argument_list|(
 name|maxMessagesPerPoll

@@ -66,6 +66,11 @@ specifier|private
 name|String
 name|bucketName
 decl_stmt|;
+DECL|field|prefix
+specifier|private
+name|String
+name|prefix
+decl_stmt|;
 DECL|field|region
 specifier|private
 name|String
@@ -195,6 +200,32 @@ operator|.
 name|amazonS3Client
 operator|=
 name|amazonS3Client
+expr_stmt|;
+block|}
+DECL|method|getPrefix ()
+specifier|public
+name|String
+name|getPrefix
+parameter_list|()
+block|{
+return|return
+name|prefix
+return|;
+block|}
+DECL|method|setPrefix (String prefix)
+specifier|public
+name|void
+name|setPrefix
+parameter_list|(
+name|String
+name|prefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefix
+operator|=
+name|prefix
 expr_stmt|;
 block|}
 DECL|method|getBucketName ()
