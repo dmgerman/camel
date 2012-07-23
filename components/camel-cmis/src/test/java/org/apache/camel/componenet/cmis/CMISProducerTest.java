@@ -907,23 +907,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|CamelCMISConstants
-operator|.
-name|CMIS_MIME_TYPE
-argument_list|,
-literal|"text/plain; charset=UTF-8"
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-operator|.
-name|put
-argument_list|(
 name|PropertyIds
 operator|.
 name|NAME

@@ -480,8 +480,6 @@ argument_list|,
 name|cmisProperties
 argument_list|,
 name|contentStream
-argument_list|,
-name|cmisSessionFacade
 argument_list|)
 return|;
 block|}
@@ -514,8 +512,6 @@ argument_list|,
 name|cmisProperties
 argument_list|,
 literal|null
-argument_list|,
-name|cmisSessionFacade
 argument_list|)
 return|;
 block|}
@@ -782,7 +778,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating folder with properties: {0}"
+literal|"Creating folder with properties: {}"
 argument_list|,
 name|cmisProperties
 argument_list|)
@@ -796,7 +792,7 @@ name|cmisProperties
 argument_list|)
 return|;
 block|}
-DECL|method|storeDocument (Folder parentFolder, Map<String, Object> cmisProperties, ContentStream contentStream, CMISSessionFacade cmisSessionFacade)
+DECL|method|storeDocument (Folder parentFolder, Map<String, Object> cmisProperties, ContentStream contentStream)
 specifier|private
 name|Document
 name|storeDocument
@@ -814,9 +810,6 @@ name|cmisProperties
 parameter_list|,
 name|ContentStream
 name|contentStream
-parameter_list|,
-name|CMISSessionFacade
-name|cmisSessionFacade
 parameter_list|)
 block|{
 if|if
@@ -855,8 +848,6 @@ name|NONE
 decl_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|cmisSessionFacade
 operator|.
 name|isObjectTypeVersionable
@@ -886,7 +877,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating document with properties: {0}"
+literal|"Creating document with properties: {}"
 argument_list|,
 name|cmisProperties
 argument_list|)

@@ -42,12 +42,6 @@ name|CMIS_FOLDER_PATH
 init|=
 literal|"CamelCMISFolderPath"
 decl_stmt|;
-DECL|field|CMIS_MIME_TYPE
-name|String
-name|CMIS_MIME_TYPE
-init|=
-literal|"CamelCMISMimeType"
-decl_stmt|;
 DECL|field|CAMEL_CMIS_RESULT_COUNT
 name|String
 name|CAMEL_CMIS_RESULT_COUNT

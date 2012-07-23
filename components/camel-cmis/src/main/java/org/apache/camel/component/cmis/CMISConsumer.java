@@ -249,7 +249,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Polling node : {0}"
+literal|"Polling node : {}"
 argument_list|,
 name|properties
 operator|.

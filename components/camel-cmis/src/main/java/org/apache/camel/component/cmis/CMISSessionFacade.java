@@ -728,7 +728,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing page {0}"
+literal|"Processing page {}"
 argument_list|,
 name|pageNumber
 argument_list|)
@@ -937,7 +937,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing page {0}"
+literal|"Processing page {}"
 argument_list|,
 name|pageNumber
 argument_list|)
