@@ -264,20 +264,6 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|helpers
-operator|.
-name|CastUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
 name|jaxrs
 operator|.
 name|JAXRSServerFactoryBean
@@ -714,15 +700,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"rawtypes"
-block|,
-literal|"unchecked"
-block|}
-argument_list|)
 DECL|method|setupJAXRSServerFactoryBean (JAXRSServerFactoryBean sfb)
 specifier|protected
 name|void
@@ -767,13 +744,8 @@ argument_list|>
 argument_list|>
 name|res
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|getResourceClasses
 argument_list|()
-argument_list|)
 decl_stmt|;
 comment|// setup the resource providers
 for|for
