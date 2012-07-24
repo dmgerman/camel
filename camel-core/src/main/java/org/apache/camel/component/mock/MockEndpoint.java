@@ -84,16 +84,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -3257,14 +3247,14 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|Set
+name|List
 argument_list|<
 name|Object
 argument_list|>
 name|actualBodyValuesSet
 init|=
 operator|new
-name|HashSet
+name|ArrayList
 argument_list|<
 name|Object
 argument_list|>
@@ -4838,7 +4828,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// must catch java.lang.Throwable as AssertionException extends java.lang.Error
+comment|// must catch java.lang.Throwable as AssertionError extends java.lang.Error
 name|failures
 operator|.
 name|add
