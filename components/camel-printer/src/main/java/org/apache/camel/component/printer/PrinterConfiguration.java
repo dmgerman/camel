@@ -189,6 +189,11 @@ name|sendToPrinter
 init|=
 literal|true
 decl_stmt|;
+DECL|field|mediaTray
+specifier|private
+name|String
+name|mediaTray
+decl_stmt|;
 DECL|method|PrinterConfiguration ()
 specifier|public
 name|PrinterConfiguration
@@ -471,6 +476,30 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|printSettings
+operator|.
+name|containsKey
+argument_list|(
+literal|"mediaTray"
+argument_list|)
+condition|)
+block|{
+name|setMediaTray
+argument_list|(
+operator|(
+name|String
+operator|)
+name|printSettings
+operator|.
+name|get
+argument_list|(
+literal|"mediaTray"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|assignDocFlavor (String flavor, String mimeType)
@@ -1624,6 +1653,32 @@ operator|.
 name|sendToPrinter
 operator|=
 name|sendToPrinter
+expr_stmt|;
+block|}
+DECL|method|getMediaTray ()
+specifier|public
+name|String
+name|getMediaTray
+parameter_list|()
+block|{
+return|return
+name|mediaTray
+return|;
+block|}
+DECL|method|setMediaTray (String mediaTray)
+specifier|public
+name|void
+name|setMediaTray
+parameter_list|(
+name|String
+name|mediaTray
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mediaTray
+operator|=
+name|mediaTray
 expr_stmt|;
 block|}
 block|}
