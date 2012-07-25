@@ -248,6 +248,7 @@ return|;
 block|}
 DECL|method|getBean ()
 specifier|public
+specifier|synchronized
 name|Object
 name|getBean
 parameter_list|()
