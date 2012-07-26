@@ -42,9 +42,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|websocket
+name|twitter
 operator|.
-name|WebsocketComponent
+name|TwitterComponent
 import|;
 end_import
 
@@ -58,9 +58,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|twitter
+name|websocket
 operator|.
-name|TwitterComponent
+name|WebsocketComponent
 import|;
 end_import
 
