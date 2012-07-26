@@ -419,6 +419,7 @@ return|;
 block|}
 DECL|class|PerformanceTestEndpoint
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|PerformanceTestEndpoint
@@ -547,6 +548,7 @@ block|}
 block|}
 DECL|class|PerformanceTestConsumer
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|PerformanceTestConsumer
@@ -575,6 +577,7 @@ block|}
 block|}
 DECL|class|PerformanceTestProducer
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|PerformanceTestProducer
