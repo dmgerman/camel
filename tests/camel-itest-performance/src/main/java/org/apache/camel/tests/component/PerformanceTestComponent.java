@@ -265,8 +265,8 @@ extends|extends
 name|DefaultComponent
 block|{
 DECL|field|HEADER_THREADS
-specifier|static
 specifier|public
+specifier|static
 specifier|final
 name|String
 name|HEADER_THREADS
@@ -274,8 +274,8 @@ init|=
 literal|"CamelPerfThreads"
 decl_stmt|;
 DECL|field|HEADER_ITERATIONS
-specifier|static
 specifier|public
+specifier|static
 specifier|final
 name|String
 name|HEADER_ITERATIONS
@@ -283,8 +283,8 @@ init|=
 literal|"CamelPerfIterations"
 decl_stmt|;
 DECL|field|DEFAULT_THREADS
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|int
 name|DEFAULT_THREADS
@@ -292,8 +292,8 @@ init|=
 literal|8
 decl_stmt|;
 DECL|field|DEFAULT_ITERATIONS
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|int
 name|DEFAULT_ITERATIONS
