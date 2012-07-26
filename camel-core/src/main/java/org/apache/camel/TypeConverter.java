@@ -114,7 +114,7 @@ name|TypeConversionException
 throws|,
 name|NoTypeConversionAvailableException
 function_decl|;
-comment|/**      * Tries to converts the value to the specified type,      * returning<tt>null</tt> if not possible to convert.      *<p/>      * This method will<b>not</b> throw an exception if an exception occurred during conversion.      *      * @param type the requested type      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
+comment|/**      * Tries to convert the value to the specified type,      * returning<tt>null</tt> if not possible to convert.      *<p/>      * This method will<b>not</b> throw an exception if an exception occurred during conversion.      *      * @param type the requested type      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
 DECL|method|tryConvertTo (Class<T> type, Object value)
 parameter_list|<
 name|T
@@ -132,7 +132,7 @@ name|Object
 name|value
 parameter_list|)
 function_decl|;
-comment|/**      * Tries to converts the value to the specified type in the context of an exchange,      * returning<tt>null</tt> if not possible to convert.      *<p/>      * This method will<b>not</b> throw an exception if an exception occurred during conversion.      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
+comment|/**      * Tries to convert the value to the specified type in the context of an exchange,      * returning<tt>null</tt> if not possible to convert.      *<p/>      * This method will<b>not</b> throw an exception if an exception occurred during conversion.      * Converts the value to the specified type in the context of an exchange      *<p/>      * Used when conversion requires extra information from the current      * exchange (such as encoding).      *      * @param type the requested type      * @param exchange the current exchange      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      */
 DECL|method|tryConvertTo (Class<T> type, Exchange exchange, Object value)
 parameter_list|<
 name|T
