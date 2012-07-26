@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -74,6 +86,25 @@ name|ReportGenerator
 implements|implements
 name|Processor
 block|{
+DECL|field|LOGGER
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOGGER
+init|=
+name|Logger
+operator|.
+name|getLogger
+argument_list|(
+name|RequestProcessor
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -192,13 +223,9 @@ operator|=
 literal|"<error retrieving current temperature>"
 expr_stmt|;
 block|}
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
+name|String
+name|result
+init|=
 operator|new
 name|StringBuilder
 argument_list|()
@@ -255,6 +282,24 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+decl_stmt|;
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Get the result"
+operator|+
+name|result
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|result
 argument_list|)
 expr_stmt|;
 block|}
