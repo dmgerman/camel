@@ -2383,14 +2383,10 @@ operator|)
 name|value
 decl_stmt|;
 return|return
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 operator|new
 name|Iterator
 argument_list|<
-name|Node
+name|Object
 argument_list|>
 argument_list|()
 block|{
@@ -2419,7 +2415,7 @@ argument_list|()
 return|;
 block|}
 specifier|public
-name|Node
+name|Object
 name|next
 parameter_list|()
 block|{
@@ -2447,7 +2443,6 @@ argument_list|()
 throw|;
 block|}
 block|}
-argument_list|)
 return|;
 block|}
 elseif|else
@@ -2540,14 +2535,10 @@ else|else
 block|{
 comment|// use a plain iterator that returns the value as is as there are only a single value
 return|return
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 operator|new
 name|Iterator
 argument_list|<
-name|String
+name|Object
 argument_list|>
 argument_list|()
 block|{
@@ -2582,7 +2573,7 @@ operator|)
 return|;
 block|}
 specifier|public
-name|String
+name|Object
 name|next
 parameter_list|()
 block|{
@@ -2605,7 +2596,6 @@ argument_list|()
 throw|;
 block|}
 block|}
-argument_list|)
 return|;
 block|}
 block|}
