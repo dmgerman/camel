@@ -124,20 +124,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CastUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * JmxInstrumentationCustomMBeanTest will verify that all endpoints are registered  * with the mbean server.  */
 end_comment
@@ -247,10 +233,6 @@ name|ObjectName
 argument_list|>
 name|s
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -264,7 +246,6 @@ literal|":type=endpoints,*"
 argument_list|)
 argument_list|,
 literal|null
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -482,10 +463,6 @@ name|ObjectName
 argument_list|>
 name|s
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -499,7 +476,6 @@ literal|":type=endpoints,*"
 argument_list|)
 argument_list|,
 literal|null
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -518,10 +494,6 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -535,7 +507,6 @@ literal|":type=context,*"
 argument_list|)
 argument_list|,
 literal|null
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -554,10 +525,6 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -571,7 +538,6 @@ literal|":type=processors,*"
 argument_list|)
 argument_list|,
 literal|null
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -590,10 +556,6 @@ argument_list|)
 expr_stmt|;
 name|s
 operator|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|mbsc
 operator|.
 name|queryNames
@@ -607,7 +569,6 @@ literal|":type=routes,*"
 argument_list|)
 argument_list|,
 literal|null
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
