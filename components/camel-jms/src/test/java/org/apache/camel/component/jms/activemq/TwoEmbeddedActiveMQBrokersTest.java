@@ -90,10 +90,10 @@ name|CamelSpringTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testSendToTwoEmbeddedBrokers ()
+DECL|method|sendToTwoEmbeddedBrokers ()
 specifier|public
 name|void
-name|testSendToTwoEmbeddedBrokers
+name|sendToTwoEmbeddedBrokers
 parameter_list|()
 throws|throws
 name|Exception
