@@ -96,20 +96,6 @@ name|DefaultComponent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CastUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -280,12 +266,7 @@ argument_list|>
 argument_list|>
 name|interfaces
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|classes
-argument_list|)
 decl_stmt|;
 name|rmi
 operator|.

@@ -313,10 +313,6 @@ name|Object
 argument_list|>
 name|data
 init|=
-name|CastUtils
-operator|.
-name|cast
-argument_list|(
 name|endpoint
 operator|.
 name|getProcessingStrategy
@@ -328,7 +324,6 @@ name|this
 argument_list|,
 name|getEndpoint
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// create a list of exchange objects with the data
