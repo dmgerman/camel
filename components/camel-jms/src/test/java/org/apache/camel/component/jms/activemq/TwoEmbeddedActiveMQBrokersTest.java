@@ -150,14 +150,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-literal|"classpath:org/apache/camel/component/jms/activemq/brokers.xml"
-block|,
-literal|"classpath:org/apache/camel/component/jms/activemq/camelBrokersClient.xml"
-block|}
+literal|"classpath:org/apache/camel/component/jms/activemq/twoActiveMQBrokers.xml"
 argument_list|)
 return|;
 block|}
