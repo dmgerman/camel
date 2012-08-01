@@ -142,10 +142,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDeccodeValidKeys ()
+DECL|method|testDecodeValidKeys ()
 specifier|public
 name|void
-name|testDeccodeValidKeys
+name|testDecodeValidKeys
 parameter_list|()
 block|{
 name|assertEquals
