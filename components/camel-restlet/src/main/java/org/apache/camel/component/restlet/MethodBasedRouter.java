@@ -218,6 +218,14 @@ name|Response
 name|response
 parameter_list|)
 block|{
+name|Method
+name|method
+init|=
+name|request
+operator|.
+name|getMethod
+argument_list|()
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -226,10 +234,7 @@ literal|"MethodRouter ({}) received request method: {}"
 argument_list|,
 name|uriPattern
 argument_list|,
-name|request
-operator|.
-name|getMethod
-argument_list|()
+name|method
 argument_list|)
 expr_stmt|;
 name|Restlet
@@ -239,10 +244,7 @@ name|routes
 operator|.
 name|get
 argument_list|(
-name|request
-operator|.
-name|getMethod
-argument_list|()
+name|method
 argument_list|)
 decl_stmt|;
 if|if
@@ -270,10 +272,7 @@ name|debug
 argument_list|(
 literal|"No route for request method: {}"
 argument_list|,
-name|request
-operator|.
-name|getMethod
-argument_list|()
+name|method
 argument_list|)
 expr_stmt|;
 name|response
