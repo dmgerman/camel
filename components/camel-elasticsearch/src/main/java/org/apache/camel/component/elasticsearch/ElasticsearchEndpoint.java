@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -167,7 +187,7 @@ specifier|private
 name|ElasticsearchConfiguration
 name|config
 decl_stmt|;
-DECL|method|ElasticsearchEndpoint (String uri, ElasticsearchComponent component, ElasticsearchConfiguration config)
+DECL|method|ElasticsearchEndpoint (String uri, ElasticsearchComponent component, Map<String, Object> parameters)
 specifier|public
 name|ElasticsearchEndpoint
 parameter_list|(
@@ -177,9 +197,16 @@ parameter_list|,
 name|ElasticsearchComponent
 name|component
 parameter_list|,
-name|ElasticsearchConfiguration
-name|config
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|super
 argument_list|(
@@ -192,7 +219,17 @@ name|this
 operator|.
 name|config
 operator|=
-name|config
+operator|new
+name|ElasticsearchConfiguration
+argument_list|(
+operator|new
+name|URI
+argument_list|(
+name|uri
+argument_list|)
+argument_list|,
+name|parameters
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -392,6 +429,23 @@ block|{
 return|return
 name|config
 return|;
+block|}
+DECL|method|setOperation (String operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setOperation
+argument_list|(
+name|operation
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

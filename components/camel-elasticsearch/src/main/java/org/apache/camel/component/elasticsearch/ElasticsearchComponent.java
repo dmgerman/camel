@@ -88,23 +88,12 @@ name|ElasticsearchComponent
 extends|extends
 name|DefaultComponent
 block|{
-DECL|field|config
-specifier|private
-name|ElasticsearchConfiguration
-name|config
-decl_stmt|;
 DECL|method|ElasticsearchComponent ()
 specifier|public
 name|ElasticsearchComponent
 parameter_list|()
 block|{
 name|super
-argument_list|()
-expr_stmt|;
-name|config
-operator|=
-operator|new
-name|ElasticsearchConfiguration
 argument_list|()
 expr_stmt|;
 block|}
@@ -120,12 +109,6 @@ name|super
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-name|config
-operator|=
-operator|new
-name|ElasticsearchConfiguration
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -150,21 +133,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|config
-operator|.
-name|parseURI
-argument_list|(
-operator|new
-name|URI
-argument_list|(
-name|uri
-argument_list|)
-argument_list|,
-name|parameters
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
 name|Endpoint
 name|endpoint
 init|=
@@ -175,7 +143,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|config
+name|parameters
 argument_list|)
 decl_stmt|;
 name|setProperties

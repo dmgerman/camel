@@ -256,6 +256,17 @@ argument_list|()
 block|{
 block|{
 name|put
+parameter_list|(
+name|ElasticsearchConfiguration
+operator|.
+name|PARAM_OPERATION
+parameter_list|,
+name|ElasticsearchConfiguration
+operator|.
+name|OPERATION_INDEX
+parameter_list|)
+constructor_decl|;
+name|put
 argument_list|(
 name|ElasticsearchConfiguration
 operator|.
