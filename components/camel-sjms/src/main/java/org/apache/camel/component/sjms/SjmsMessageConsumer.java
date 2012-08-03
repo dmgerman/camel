@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for SjmsMessageConsumer  *  * @author sully6768  */
+comment|/**  * TODO Add Class documentation for SjmsMessageConsumer  *  */
 end_comment
 
 begin_interface

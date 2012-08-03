@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base SjmsProducer class.  *  * @author sully6768  */
+comment|/**  * Base SjmsProducer class.  *  */
 end_comment
 
 begin_class
@@ -145,7 +145,7 @@ name|SjmsProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-comment|/**      * The {@link MessageProducerResources} pool for all {@link SjmsProducer} classes.      *      * @author sully6768      */
+comment|/**      * The {@link MessageProducerResources} pool for all {@link SjmsProducer} classes.      *      */
 DECL|class|MessageProducerPool
 specifier|protected
 class|class

@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for MissingHeaderException  *  * @author sully6768  */
+comment|/**  * TODO Add Class documentation for MissingHeaderException  *  */
 end_comment
 
 begin_class

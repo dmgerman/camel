@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  * @author sully6768  */
+comment|/**  *  */
 end_comment
 
 begin_class
