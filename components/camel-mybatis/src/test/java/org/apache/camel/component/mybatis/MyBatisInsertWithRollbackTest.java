@@ -160,6 +160,35 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// there should be still 2 rows
+name|Integer
+name|rows
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"mybatis:count?statementType=SelectOne"
+argument_list|,
+literal|null
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"There should be 2 rows"
+argument_list|,
+literal|2
+argument_list|,
+name|rows
+operator|.
+name|intValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
