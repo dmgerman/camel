@@ -216,7 +216,7 @@ name|Exception
 block|{
 name|onException
 argument_list|(
-name|PersistenceException
+name|Exception
 operator|.
 name|class
 argument_list|)
