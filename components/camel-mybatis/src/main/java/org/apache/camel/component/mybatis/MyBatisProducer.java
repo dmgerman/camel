@@ -307,6 +307,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+comment|// flush the batch statements and commit the database connection
 name|session
 operator|.
 name|commit
@@ -319,6 +320,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// discard the pending batch statements and roll the database connection back
 name|session
 operator|.
 name|rollback
@@ -330,6 +332,7 @@ throw|;
 block|}
 finally|finally
 block|{
+comment|// and finally close the session as we're done
 name|session
 operator|.
 name|close
