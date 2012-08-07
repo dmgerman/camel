@@ -1862,12 +1862,16 @@ name|IOException
 block|{
 comment|// As httpclient is using a AutoCloseInputStream, it will be closed when the connection is closed
 comment|// we need to cache the stream for it.
-try|try
-block|{
-comment|// This CachedOutputStream will not be closed when the exchange is onCompletion
 name|CachedOutputStream
 name|cos
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+comment|// This CachedOutputStream will not be closed when the exchange is onCompletion
+name|cos
+operator|=
 operator|new
 name|CachedOutputStream
 argument_list|(
@@ -1875,7 +1879,7 @@ name|exchange
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|IOHelper
 operator|.
 name|copy
@@ -1892,6 +1896,41 @@ operator|.
 name|getWrappedInputStream
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// try to close the CachedOutputStream when we get the IOException
+if|if
+condition|(
+name|cos
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|cos
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ignore
+parameter_list|)
+block|{
+comment|//do nothing here
+block|}
+block|}
+throw|throw
+name|ex
+throw|;
 block|}
 finally|finally
 block|{
