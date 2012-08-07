@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.pool
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 package|;
 end_package
 

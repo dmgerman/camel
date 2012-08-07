@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.pool
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 package|;
 end_package
 
@@ -48,22 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|ConnectionResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -71,14 +55,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for DefaultConnectionResource  *   */
+comment|/**  * The default {@link ConnectionResource} implementation for the SJMSComponent.  */
 end_comment
 
 begin_class
-DECL|class|DefaultConnectionResource
+DECL|class|ConnectionFactoryResource
 specifier|public
 class|class
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 extends|extends
 name|ObjectPool
 argument_list|<
@@ -102,15 +86,15 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
-DECL|field|connectionId
+DECL|field|clientId
 specifier|private
 name|String
-name|connectionId
+name|clientId
 decl_stmt|;
-comment|/**      * TODO Add Constructor Javadoc      *      */
-DECL|method|DefaultConnectionResource ()
+comment|/**      * Default Constructor      */
+DECL|method|ConnectionFactoryResource ()
 specifier|public
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 parameter_list|()
 block|{
 name|super
@@ -118,9 +102,9 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * TODO Add Constructor Javadoc      *       * @param poolSize      * @param connectionFactory      */
-DECL|method|DefaultConnectionResource (int poolSize, ConnectionFactory connectionFactory)
+DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory)
 specifier|public
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 parameter_list|(
 name|int
 name|poolSize
@@ -141,10 +125,10 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *       * @param poolSize      * @param connectionFactory      * @param username      * @param password      */
-DECL|method|DefaultConnectionResource (int poolSize, ConnectionFactory connectionFactory, String username, String password)
+comment|/**      * @param poolSize      * @param connectionFactory      * @param username      * @param password      */
+DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory, String username, String password)
 specifier|public
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 parameter_list|(
 name|int
 name|poolSize
@@ -183,10 +167,10 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *       * @param poolSize      * @param connectionFactory      * @param username      * @param password      */
-DECL|method|DefaultConnectionResource (int poolSize, ConnectionFactory connectionFactory, String username, String password, String connectionId)
+comment|/**      * @param poolSize      * @param connectionFactory      * @param username      * @param password      */
+DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory, String username, String password, String connectionId)
 specifier|public
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 parameter_list|(
 name|int
 name|poolSize
@@ -229,7 +213,7 @@ name|password
 expr_stmt|;
 name|this
 operator|.
-name|connectionId
+name|clientId
 operator|=
 name|connectionId
 expr_stmt|;
@@ -365,7 +349,7 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|getConnectionId
+name|getClientId
 argument_list|()
 argument_list|)
 condition|)
@@ -374,7 +358,7 @@ name|connection
 operator|.
 name|setClientID
 argument_list|(
-name|getConnectionId
+name|getClientId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -499,30 +483,30 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-DECL|method|getConnectionId ()
+DECL|method|getClientId ()
 specifier|public
 name|String
-name|getConnectionId
+name|getClientId
 parameter_list|()
 block|{
 return|return
-name|connectionId
+name|clientId
 return|;
 block|}
-DECL|method|setConnectionId (String connectionId)
+DECL|method|setClientId (String clientId)
 specifier|public
 name|void
-name|setConnectionId
+name|setClientId
 parameter_list|(
 name|String
-name|connectionId
+name|clientId
 parameter_list|)
 block|{
 name|this
 operator|.
-name|connectionId
+name|clientId
 operator|=
-name|connectionId
+name|clientId
 expr_stmt|;
 block|}
 block|}

@@ -102,9 +102,9 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 operator|.
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 import|;
 end_import
 
@@ -253,11 +253,11 @@ argument_list|(
 name|BROKER_URI
 argument_list|)
 decl_stmt|;
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 name|connectionResource
 init|=
 operator|new
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 argument_list|()
 decl_stmt|;
 name|connectionResource
@@ -269,7 +269,7 @@ argument_list|)
 expr_stmt|;
 name|connectionResource
 operator|.
-name|setConnectionId
+name|setClientId
 argument_list|(
 name|CONNECTION_ID
 argument_list|)

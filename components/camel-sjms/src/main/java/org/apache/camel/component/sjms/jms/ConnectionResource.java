@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|sjms
+operator|.
+name|jms
 package|;
 end_package
 
@@ -28,8 +30,18 @@ name|Connection
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * TODO Add Class documentation for ConnectionResource  *  */
+comment|/**  *<p>  * The ConnectionResource is the contract used to provide {@link Connection}  * pools to the SJMS component. A user should use this to provide access to an  * alternative pooled connection resource such as a {@link Connection} pool that  * is managed by a J2EE container.  *</p>  *<p>  * It is recommended though that for standard {@link ConnectionFactory}  * providers you use the {@link ConnectionFactoryResource) implementation that  * is provided with SJMS as it is optimized for this component.  *</p>  */
 end_comment
 
 begin_interface
@@ -38,6 +50,7 @@ specifier|public
 interface|interface
 name|ConnectionResource
 block|{
+comment|/**      * Borrows a {@link Connection} from the connection pool. An exception      * should be thrown if no resource is available.      *       * @return {@link Connection}      * @throws Exception when no resource is available      */
 DECL|method|borrowConnection ()
 name|Connection
 name|borrowConnection
@@ -45,6 +58,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Borrows a {@link Connection} from the connection pool.      *       * @param timeout the amount of time to wait before throwing an      *            {@link Exception}      * @return {@link Connection}      * @throws Exception when no resource is available      */
 DECL|method|borrowConnection (long timeout)
 name|Connection
 name|borrowConnection
@@ -55,6 +69,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the {@link Connection} to the connection pool.      *       * @param connection the borrowed {@link Connection}      * @throws Exception      */
 DECL|method|returnConnection (Connection connection)
 name|void
 name|returnConnection

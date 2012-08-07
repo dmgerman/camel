@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.pool
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 package|;
 end_package
 
@@ -69,40 +69,6 @@ operator|.
 name|xa
 operator|.
 name|XAResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|ConnectionResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|jms
-operator|.
-name|SessionAcknowledgementType
 import|;
 end_import
 
@@ -438,7 +404,7 @@ operator|=
 name|transacted
 expr_stmt|;
 block|}
-comment|/**      * Gets the DefaultConnectionResource value of connectionResource for this instance of SessionPool.      *      * @return the connectionResource      */
+comment|/**      * Gets the ConnectionFactoryResource value of connectionResource for this instance of SessionPool.      *      * @return the connectionResource      */
 DECL|method|getConnectionResource ()
 specifier|public
 name|ConnectionResource

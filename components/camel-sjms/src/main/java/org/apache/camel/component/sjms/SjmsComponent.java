@@ -86,9 +86,27 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 operator|.
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
+name|ConnectionResource
 import|;
 end_import
 
@@ -230,7 +248,7 @@ name|maxConnections
 init|=
 literal|1
 decl_stmt|;
-comment|/*      * @see org.apache.camel.impl.DefaultComponent#createEndpoint(java.lang.String, java.lang.String, java.util.Map)      *      * @param uri The value passed into our call to create an endpoint      * @param remaining      * @param parameters      * @return      * @throws Exception      */
+comment|/*      * @see      * org.apache.camel.impl.DefaultComponent#createEndpoint(java.lang.String,      * java.lang.String, java.util.Map)      * @param uri The value passed into our call to create an endpoint      * @param remaining      * @param parameters      * @return      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -632,15 +650,15 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"No ConnectionResource provided.  Initialize the DefaultConnectionResource."
+literal|"No ConnectionResource provided.  Initialize the ConnectionFactoryResource."
 argument_list|)
 expr_stmt|;
 comment|// We always use a connection pool, even for a pool of 1
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 name|connections
 init|=
 operator|new
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 argument_list|(
 name|getMaxConnections
 argument_list|()
@@ -666,12 +684,12 @@ condition|(
 name|getConnectionResource
 argument_list|()
 operator|instanceof
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 condition|)
 block|{
 operator|(
 operator|(
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 operator|)
 name|getConnectionResource
 argument_list|()
@@ -705,12 +723,12 @@ condition|(
 name|getConnectionResource
 argument_list|()
 operator|instanceof
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 condition|)
 block|{
 operator|(
 operator|(
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 operator|)
 name|getConnectionResource
 argument_list|()
@@ -727,7 +745,7 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *       * @param connectionFactory      *            Sets ConnectionFactory, default is TODO add default      */
+comment|/**      * Sets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *       * @param connectionFactory Sets ConnectionFactory, default is TODO add      *            default      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void

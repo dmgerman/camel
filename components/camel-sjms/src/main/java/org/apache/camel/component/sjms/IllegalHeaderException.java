@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for IllegalHeaderException  *  */
+comment|/**  * IllegalHeaderException is thrown if a header is detected that doesn't meet  * the JMS standard.  */
 end_comment
 
 begin_class
@@ -42,17 +42,7 @@ name|IllegalHeaderException
 extends|extends
 name|RuntimeCamelException
 block|{
-comment|/**      *       */
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1084936154059689378L
-decl_stmt|;
-comment|/**      * TODO Add Constructor Javadoc      *      */
+comment|/**      */
 DECL|method|IllegalHeaderException ()
 specifier|public
 name|IllegalHeaderException
@@ -61,9 +51,8 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param message      * @param cause      */
+comment|/**      * @param message      * @param cause      */
 DECL|method|IllegalHeaderException (String message, Throwable cause)
 specifier|public
 name|IllegalHeaderException
@@ -82,9 +71,8 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param message      */
+comment|/**      * @param message      */
 DECL|method|IllegalHeaderException (String message)
 specifier|public
 name|IllegalHeaderException
@@ -98,9 +86,8 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param cause      */
+comment|/**      * @param cause      */
 DECL|method|IllegalHeaderException (Throwable cause)
 specifier|public
 name|IllegalHeaderException
@@ -114,7 +101,6 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
 block|}
 end_class

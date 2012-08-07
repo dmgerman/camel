@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.pool
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 package|;
 end_package
 
@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for ObjectPoolTest  *   */
+comment|/**  * TODO Add Class documentation for ObjectPoolTest  */
 end_comment
 
 begin_class
@@ -176,7 +176,7 @@ name|AtomicInteger
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#ObjectPool()}.      *       * @throws Exception      */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#ObjectPool()}.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testObjectPool ()
@@ -272,7 +272,7 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#ObjectPool()}.      */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#ObjectPool()}.      */
 annotation|@
 name|Test
 DECL|method|testBadObjectPool ()
@@ -305,7 +305,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#ObjectPool(int)}.      *       * @throws Exception      */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#ObjectPool(int)}.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testObjectPoolInt ()
@@ -515,7 +515,7 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#createObject()}.      *       * @throws Exception      */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#createObject()}.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testCreateObject ()
@@ -542,7 +542,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#borrowObject()}.      *       * @throws Exception       */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#borrowObject()}.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testBorrowObject ()
@@ -616,7 +616,7 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#returnObject(java.lang.Object)}      * .      * @throws Exception       */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#returnObject(java.lang.Object)}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testReturnObject ()
@@ -784,7 +784,7 @@ operator|=
 name|objectId
 expr_stmt|;
 block|}
-comment|/**          *           * @return the OBJECT_ID          */
+comment|/**          * @return the OBJECT_ID          */
 DECL|method|getObjectId ()
 specifier|public
 name|Integer

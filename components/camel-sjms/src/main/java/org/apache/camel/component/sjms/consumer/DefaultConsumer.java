@@ -158,7 +158,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 operator|.
 name|ObjectPool
 import|;

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.pool
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|pool
+name|jms
 package|;
 end_package
 
@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for DefaultConnectionResourceTest  *   */
+comment|/**  * TODO Add Class documentation for ConnectionFactoryResourceTest  */
 end_comment
 
 begin_class
@@ -165,7 +165,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.SessionPoolTest#createObject()}      * .      *       * @throws Exception      */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.SessionPoolTest#createObject()}      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testCreateObject ()
@@ -176,11 +176,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 name|connections
 init|=
 operator|new
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 argument_list|(
 literal|1
 argument_list|,
@@ -237,7 +237,7 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#borrowObject()}.      *       * @throws Exception      */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#borrowObject()}.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testBorrowObject ()
@@ -248,11 +248,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 name|connections
 init|=
 operator|new
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 argument_list|(
 literal|1
 argument_list|,
@@ -337,7 +337,7 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.pool.ObjectPool#returnObject(java.lang.Object)}      * .      *       * @throws Exception      */
+comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#returnObject(java.lang.Object)}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testReturnObject ()
@@ -348,11 +348,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 name|connections
 init|=
 operator|new
-name|DefaultConnectionResource
+name|ConnectionFactoryResource
 argument_list|(
 literal|1
 argument_list|,
