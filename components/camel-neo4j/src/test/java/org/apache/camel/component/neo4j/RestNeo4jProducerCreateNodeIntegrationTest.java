@@ -130,6 +130,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -163,6 +173,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"This test need to start the neo4j server first"
+argument_list|)
 DECL|class|RestNeo4jProducerCreateNodeIntegrationTest
 specifier|public
 class|class
