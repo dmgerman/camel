@@ -58,10 +58,10 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testMinaComponentWithConfiguration ()
+DECL|method|testNettyComponentWithConfiguration ()
 specifier|public
 name|void
-name|testMinaComponentWithConfiguration
+name|testNettyComponentWithConfiguration
 parameter_list|()
 throws|throws
 name|Exception
@@ -127,7 +127,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"netty://tcp://localhost:5566?sync=false"
+literal|"netty://tcp://localhost:5566?sync=false&needClientAuth=true"
 argument_list|)
 decl_stmt|;
 comment|// should not be same
@@ -214,12 +214,38 @@ name|assertEquals
 argument_list|(
 literal|false
 argument_list|,
+name|e1
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isNeedClientAuth
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
 name|e2
 operator|.
 name|getConfiguration
 argument_list|()
 operator|.
 name|isSync
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|e2
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isNeedClientAuth
 argument_list|()
 argument_list|)
 expr_stmt|;

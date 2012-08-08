@@ -501,6 +501,11 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+DECL|field|needClientAuth
+specifier|private
+name|boolean
+name|needClientAuth
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -1909,6 +1914,32 @@ operator|.
 name|ssl
 operator|=
 name|ssl
+expr_stmt|;
+block|}
+DECL|method|isNeedClientAuth ()
+specifier|public
+name|boolean
+name|isNeedClientAuth
+parameter_list|()
+block|{
+return|return
+name|needClientAuth
+return|;
+block|}
+DECL|method|setNeedClientAuth (boolean needClientAuth)
+specifier|public
+name|void
+name|setNeedClientAuth
+parameter_list|(
+name|boolean
+name|needClientAuth
+parameter_list|)
+block|{
+name|this
+operator|.
+name|needClientAuth
+operator|=
+name|needClientAuth
 expr_stmt|;
 block|}
 DECL|method|getReceiveBufferSize ()
