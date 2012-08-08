@@ -139,6 +139,15 @@ name|OPERATION_GET_BY_ID
 init|=
 literal|"GET_BY_ID"
 decl_stmt|;
+DECL|field|OPERATION_DELETE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_DELETE
+init|=
+literal|"DELETE"
+decl_stmt|;
 DECL|field|PARAM_INDEX_ID
 specifier|public
 specifier|static
