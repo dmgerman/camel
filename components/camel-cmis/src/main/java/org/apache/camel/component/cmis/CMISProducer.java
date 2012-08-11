@@ -339,6 +339,18 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created node with id: {}"
+argument_list|,
+name|cmisObject
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getOut
