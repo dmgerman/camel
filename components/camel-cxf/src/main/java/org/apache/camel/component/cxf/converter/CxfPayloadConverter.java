@@ -1209,7 +1209,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|Object
+name|result
+init|=
 name|tc
 operator|.
 name|convertTo
@@ -1229,7 +1231,33 @@ argument_list|,
 name|exchange
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no we could not do it currently, and we just abort the convert here
+return|return
+operator|(
+name|T
+operator|)
+name|Void
+operator|.
+name|TYPE
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|(
+name|T
+operator|)
+name|result
+return|;
+block|}
 block|}
 comment|// we cannot convert a node list, so we try the first item from the
 comment|// node list

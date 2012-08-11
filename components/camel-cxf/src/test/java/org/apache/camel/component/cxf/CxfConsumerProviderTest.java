@@ -268,6 +268,21 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|in
+operator|.
+name|getBody
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Get the parameter list
 name|Node
 name|node
@@ -281,6 +296,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"node is "
+operator|+
+name|node
+argument_list|)
+expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|node
@@ -370,8 +396,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|response
-operator|=
 name|template
 operator|.
 name|requestBody
