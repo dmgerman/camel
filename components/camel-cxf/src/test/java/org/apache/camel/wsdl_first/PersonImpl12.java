@@ -41,6 +41,10 @@ argument_list|,
 name|endpointInterface
 operator|=
 literal|"org.apache.camel.wsdl_first.Person"
+argument_list|,
+name|wsdlLocation
+operator|=
+literal|"classpath:/person.wsdl"
 argument_list|)
 annotation|@
 name|javax
