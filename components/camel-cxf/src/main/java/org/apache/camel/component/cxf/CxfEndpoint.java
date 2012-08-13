@@ -2166,7 +2166,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"soap.force.doclit.bare"
+literal|"soap.no.validate.parts"
 argument_list|,
 name|Boolean
 operator|.
@@ -3045,7 +3045,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"soap.force.doclit.bare"
+literal|"soap.no.validate.parts"
 argument_list|,
 name|Boolean
 operator|.
