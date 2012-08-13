@@ -672,6 +672,7 @@ name|MessageContentsList
 operator|)
 name|value
 decl_stmt|;
+comment|// try to turn the first array element into the object that we want
 for|for
 control|(
 name|Object
@@ -730,7 +731,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|Object
+name|result
+init|=
 name|tc
 operator|.
 name|convertTo
@@ -741,7 +744,23 @@ name|exchange
 argument_list|,
 name|embedded
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|(
+name|T
+operator|)
+name|result
 return|;
+block|}
+comment|// there is no suitable result will be return
+break|break;
 block|}
 block|}
 block|}
