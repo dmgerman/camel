@@ -584,7 +584,7 @@ argument_list|()
 argument_list|,
 name|keyFileName
 argument_list|,
-name|keyUserid
+name|encryptedStream
 argument_list|,
 name|password
 argument_list|)

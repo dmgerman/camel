@@ -60,6 +60,26 @@ name|PGPDataFormatTest
 extends|extends
 name|AbstractPGPDataFormatTest
 block|{
+DECL|method|getKeyFileName ()
+specifier|protected
+name|String
+name|getKeyFileName
+parameter_list|()
+block|{
+return|return
+literal|"org/apache/camel/component/crypto/pubring.gpg"
+return|;
+block|}
+DECL|method|getKeyFileNameSec ()
+specifier|protected
+name|String
+name|getKeyFileNameSec
+parameter_list|()
+block|{
+return|return
+literal|"org/apache/camel/component/crypto/secring.gpg"
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testEncryption ()
@@ -158,13 +178,15 @@ comment|// Public Key FileName
 name|String
 name|keyFileName
 init|=
-literal|"org/apache/camel/component/crypto/pubring.gpg"
+name|getKeyFileName
+argument_list|()
 decl_stmt|;
 comment|// Private Key FileName
 name|String
 name|keyFileNameSec
 init|=
-literal|"org/apache/camel/component/crypto/secring.gpg"
+name|getKeyFileNameSec
+argument_list|()
 decl_stmt|;
 comment|// Keyring Userid Used to Encrypt
 name|String
