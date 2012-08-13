@@ -743,22 +743,6 @@ specifier|final
 name|String
 name|text
 decl_stmt|;
-DECL|field|variableResolver
-specifier|private
-specifier|final
-name|ThreadLocal
-argument_list|<
-name|MessageVariableResolver
-argument_list|>
-name|variableResolver
-init|=
-operator|new
-name|ThreadLocal
-argument_list|<
-name|MessageVariableResolver
-argument_list|>
-argument_list|()
-decl_stmt|;
 DECL|field|exchange
 specifier|private
 specifier|final
@@ -774,6 +758,18 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|variableResolver
+specifier|private
+specifier|final
+name|MessageVariableResolver
+name|variableResolver
+init|=
+operator|new
+name|MessageVariableResolver
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 DECL|field|xpathFactory
 specifier|private
@@ -955,16 +951,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// add on completion so the thread locals is removed when exchange is done
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
-operator|new
-name|XPathBuilderOnCompletion
-argument_list|()
-argument_list|)
-expr_stmt|;
+try|try
+block|{
 name|Object
 name|booleanResult
 init|=
@@ -996,6 +984,18 @@ name|booleanResult
 argument_list|)
 return|;
 block|}
+finally|finally
+block|{
+comment|// remove the thread local after usage
+name|this
+operator|.
+name|exchange
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|evaluate (Exchange exchange, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1014,16 +1014,8 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-comment|// add on completion so the thread locals is removed when exchange is done
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
-operator|new
-name|XPathBuilderOnCompletion
-argument_list|()
-argument_list|)
-expr_stmt|;
+try|try
+block|{
 name|Object
 name|result
 init|=
@@ -1048,6 +1040,18 @@ argument_list|,
 name|result
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+comment|// remove the thread local after usage
+name|this
+operator|.
+name|exchange
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Matches the given xpath using the provided body.      *      * @param context the camel context      * @param body    the body      * @return<tt>true</tt> if matches,<tt>false</tt> otherwise      */
 DECL|method|matches (CamelContext context, Object body)
@@ -1102,12 +1106,7 @@ return|;
 block|}
 finally|finally
 block|{
-comment|// remove the dummy from the thread local after usage
-name|variableResolver
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
+comment|// remove the thread local after usage
 name|exchange
 operator|.
 name|remove
@@ -1179,12 +1178,7 @@ return|;
 block|}
 finally|finally
 block|{
-comment|// remove the dummy from the thread local after usage
-name|variableResolver
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
+comment|// remove the thread local after usage
 name|exchange
 operator|.
 name|remove
@@ -1256,12 +1250,9 @@ return|;
 block|}
 finally|finally
 block|{
-comment|// remove the dummy from the thread local after usage
-name|variableResolver
+comment|// remove the thread local after usage
+name|this
 operator|.
-name|remove
-argument_list|()
-expr_stmt|;
 name|exchange
 operator|.
 name|remove
@@ -4615,39 +4606,8 @@ name|MessageVariableResolver
 name|getVariableResolver
 parameter_list|()
 block|{
-name|MessageVariableResolver
-name|resolver
-init|=
-name|variableResolver
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|resolver
-operator|==
-literal|null
-condition|)
-block|{
-name|resolver
-operator|=
-operator|new
-name|MessageVariableResolver
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|variableResolver
-operator|.
-name|set
-argument_list|(
-name|resolver
-argument_list|)
-expr_stmt|;
-block|}
 return|return
-name|resolver
+name|variableResolver
 return|;
 block|}
 DECL|method|start ()
@@ -4858,93 +4818,6 @@ argument_list|,
 name|defaultXPathFactory
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-comment|/**      * On completion class which cleanup thread local resources      */
-DECL|class|XPathBuilderOnCompletion
-specifier|private
-specifier|final
-class|class
-name|XPathBuilderOnCompletion
-extends|extends
-name|SynchronizationAdapter
-block|{
-annotation|@
-name|Override
-DECL|method|onDone (Exchange exchange)
-specifier|public
-name|void
-name|onDone
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-comment|// when the exchange is done, then cleanup thread locals if they are still
-comment|// pointing to this exchange that was done
-if|if
-condition|(
-name|exchange
-operator|.
-name|equals
-argument_list|(
-name|XPathBuilder
-operator|.
-name|this
-operator|.
-name|exchange
-operator|.
-name|get
-argument_list|()
-argument_list|)
-condition|)
-block|{
-comment|// cleanup thread locals after usage
-name|XPathBuilder
-operator|.
-name|this
-operator|.
-name|variableResolver
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
-name|XPathBuilder
-operator|.
-name|this
-operator|.
-name|exchange
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|allowHandover ()
-specifier|public
-name|boolean
-name|allowHandover
-parameter_list|()
-block|{
-comment|// this completion should not be handed over, as we want to execute it
-comment|// on current thread as the thread locals is bound the current thread
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"XPathBuilderOnCompletion"
-return|;
 block|}
 block|}
 block|}
