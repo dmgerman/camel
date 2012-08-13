@@ -195,6 +195,109 @@ name|foo
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSendTwoMessages ()
+specifier|public
+name|void
+name|testSendTwoMessages
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// 1st message
+name|String
+name|expectedBody
+init|=
+literal|"<env:Envelope xmlns:env='http://www.w3.org/2003/05/soap-envelope'><env:Body>"
+operator|+
+literal|"<foo>bar</foo></env:Body></env:Envelope>"
+decl_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:in"
+argument_list|,
+name|expectedBody
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"bean body: "
+operator|+
+name|myBean
+argument_list|,
+name|expectedBody
+argument_list|,
+name|myBean
+operator|.
+name|body
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"bean foo: "
+operator|+
+name|myBean
+argument_list|,
+literal|"bar"
+argument_list|,
+name|myBean
+operator|.
+name|foo
+argument_list|)
+expr_stmt|;
+comment|// 2nd message
+name|String
+name|expectedBody2
+init|=
+literal|"<env:Envelope xmlns:env='http://www.w3.org/2003/05/soap-envelope'><env:Body>"
+operator|+
+literal|"<foo>baz</foo></env:Body></env:Envelope>"
+decl_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:in"
+argument_list|,
+name|expectedBody2
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"baz"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"bean body: "
+operator|+
+name|myBean
+argument_list|,
+name|expectedBody2
+argument_list|,
+name|myBean
+operator|.
+name|body
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"bean foo: "
+operator|+
+name|myBean
+argument_list|,
+literal|"baz"
+argument_list|,
+name|myBean
+operator|.
+name|foo
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createJndiContext ()
