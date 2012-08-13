@@ -663,6 +663,11 @@ specifier|protected
 name|String
 name|doneFileName
 decl_stmt|;
+DECL|field|allowNullBody
+specifier|protected
+name|boolean
+name|allowNullBody
+decl_stmt|;
 DECL|method|GenericFileEndpoint ()
 specifier|public
 name|GenericFileEndpoint
@@ -2664,6 +2669,32 @@ operator|.
 name|keepLastModified
 operator|=
 name|keepLastModified
+expr_stmt|;
+block|}
+DECL|method|isAllowNullBody ()
+specifier|public
+name|boolean
+name|isAllowNullBody
+parameter_list|()
+block|{
+return|return
+name|allowNullBody
+return|;
+block|}
+DECL|method|setAllowNullBody (boolean allowNullBody)
+specifier|public
+name|void
+name|setAllowNullBody
+parameter_list|(
+name|boolean
+name|allowNullBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNullBody
+operator|=
+name|allowNullBody
 expr_stmt|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */
