@@ -389,6 +389,11 @@ specifier|private
 name|boolean
 name|traceEnabled
 decl_stmt|;
+DECL|field|httpMethodRestrict
+specifier|private
+name|String
+name|httpMethodRestrict
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1401,6 +1406,32 @@ operator|.
 name|traceEnabled
 operator|=
 name|traceEnabled
+expr_stmt|;
+block|}
+DECL|method|getHttpMethodRestrict ()
+specifier|public
+name|String
+name|getHttpMethodRestrict
+parameter_list|()
+block|{
+return|return
+name|httpMethodRestrict
+return|;
+block|}
+DECL|method|setHttpMethodRestrict (String httpMethodRestrict)
+specifier|public
+name|void
+name|setHttpMethodRestrict
+parameter_list|(
+name|String
+name|httpMethodRestrict
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpMethodRestrict
+operator|=
+name|httpMethodRestrict
 expr_stmt|;
 block|}
 block|}
