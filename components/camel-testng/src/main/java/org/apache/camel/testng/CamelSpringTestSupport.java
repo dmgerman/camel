@@ -176,6 +176,18 @@ name|testng
 operator|.
 name|annotations
 operator|.
+name|AfterMethod
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|testng
+operator|.
+name|annotations
+operator|.
 name|AfterTest
 import|;
 end_import
@@ -418,7 +430,7 @@ block|}
 annotation|@
 name|Override
 annotation|@
-name|AfterTest
+name|AfterMethod
 DECL|method|tearDown ()
 specifier|public
 name|void
