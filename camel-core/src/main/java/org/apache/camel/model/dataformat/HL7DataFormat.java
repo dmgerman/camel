@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -136,7 +150,7 @@ name|Boolean
 name|validate
 decl_stmt|;
 annotation|@
-name|XmlAttribute
+name|XmlTransient
 DECL|field|parser
 specifier|private
 name|Object
@@ -233,6 +247,14 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{
+if|if
+condition|(
+name|getParser
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|setProperty
 argument_list|(
 name|dataFormat
@@ -243,6 +265,7 @@ name|getParser
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|setProperty
 argument_list|(
 name|dataFormat
