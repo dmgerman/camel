@@ -130,6 +130,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
@@ -429,7 +443,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// restructure uri to be based on the parameters left as we don't want to include the Camel internal options
+comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
+name|addressUri
+operator|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|addressUri
+argument_list|)
+expr_stmt|;
 name|URI
 name|httpUri
 init|=
