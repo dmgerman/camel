@@ -138,6 +138,34 @@ argument_list|,
 name|reply
 argument_list|)
 expr_stmt|;
+comment|// and with more spaces
+name|String
+name|reply2
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"jetty:http://0.0.0.0:"
+operator|+
+name|port1
+operator|+
+literal|"/foo /bar baz"
+argument_list|,
+literal|"Camel"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye Camel"
+argument_list|,
+name|reply2
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

@@ -288,6 +288,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
 begin_class
 DECL|class|HttpHelper
 specifier|public
@@ -976,6 +990,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// ensure uri is encoded to be valid
+name|uri
+operator|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
 return|return
 name|uri
 return|;
