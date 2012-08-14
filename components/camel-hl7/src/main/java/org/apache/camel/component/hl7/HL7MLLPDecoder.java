@@ -50,9 +50,11 @@ name|apache
 operator|.
 name|mina
 operator|.
-name|common
+name|core
 operator|.
-name|ByteBuffer
+name|buffer
+operator|.
+name|IoBuffer
 import|;
 end_import
 
@@ -64,7 +66,9 @@ name|apache
 operator|.
 name|mina
 operator|.
-name|common
+name|core
+operator|.
+name|session
 operator|.
 name|IoSession
 import|;
@@ -203,7 +207,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doDecode (IoSession session, ByteBuffer in, ProtocolDecoderOutput out)
+DECL|method|doDecode (IoSession session, IoBuffer in, ProtocolDecoderOutput out)
 specifier|protected
 name|boolean
 name|doDecode
@@ -211,7 +215,7 @@ parameter_list|(
 name|IoSession
 name|session
 parameter_list|,
-name|ByteBuffer
+name|IoBuffer
 name|in
 parameter_list|,
 name|ProtocolDecoderOutput
@@ -259,7 +263,7 @@ return|return
 name|foundEnd
 return|;
 block|}
-DECL|method|writeString (IoSession session, ByteBuffer in, ProtocolDecoderOutput out)
+DECL|method|writeString (IoSession session, IoBuffer in, ProtocolDecoderOutput out)
 specifier|private
 name|void
 name|writeString
@@ -267,7 +271,7 @@ parameter_list|(
 name|IoSession
 name|session
 parameter_list|,
-name|ByteBuffer
+name|IoBuffer
 name|in
 parameter_list|,
 name|ProtocolDecoderOutput
@@ -329,14 +333,6 @@ name|session
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -354,7 +350,6 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|out
 operator|.
 name|write
@@ -439,7 +434,7 @@ name|decoder
 return|;
 block|}
 comment|/**      * Scans the buffer for start and end bytes and stores its position in the      * session state object.      *       * @return<code>true</code> if the end bytes were found,<code>false</code>      *         otherwise      */
-DECL|method|scan (IoSession session, ByteBuffer in)
+DECL|method|scan (IoSession session, IoBuffer in)
 specifier|private
 name|boolean
 name|scan
@@ -447,7 +442,7 @@ parameter_list|(
 name|IoSession
 name|session
 parameter_list|,
-name|ByteBuffer
+name|IoBuffer
 name|in
 parameter_list|)
 block|{
@@ -473,8 +468,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Start scanning buffer at position "
-operator|+
+literal|"Start scanning buffer at position {}"
+argument_list|,
 name|in
 operator|.
 name|position
@@ -525,14 +520,12 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring message start at position "
-operator|+
+literal|"Ignoring message start at position {} before previous message has ended."
+argument_list|,
 name|in
 operator|.
 name|position
 argument_list|()
-operator|+
-literal|" before previous message has ended."
 argument_list|)
 expr_stmt|;
 block|}
@@ -553,14 +546,6 @@ name|waitingForEndByte2
 operator|=
 literal|false
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -572,7 +557,6 @@ operator|.
 name|posStart
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// Check end byte1
@@ -613,12 +597,10 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring unexpected 1st end byte "
-operator|+
+literal|"Ignoring unexpected 1st end byte {}. Expected 2nd endpoint {}"
+argument_list|,
 name|b
-operator|+
-literal|". Expected 2nd endpoint  "
-operator|+
+argument_list|,
 name|config
 operator|.
 name|getEndByte2
@@ -661,14 +643,6 @@ name|waitingForEndByte2
 operator|=
 literal|false
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -680,7 +654,6 @@ operator|.
 name|posEnd
 argument_list|)
 expr_stmt|;
-block|}
 break|break;
 block|}
 block|}

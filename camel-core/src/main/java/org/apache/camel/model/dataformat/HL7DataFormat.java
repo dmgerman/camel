@@ -135,6 +135,13 @@ specifier|private
 name|Boolean
 name|validate
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|parser
+specifier|private
+name|Object
+name|parser
+decl_stmt|;
 DECL|method|HL7DataFormat ()
 specifier|public
 name|HL7DataFormat
@@ -189,6 +196,32 @@ operator|=
 name|validate
 expr_stmt|;
 block|}
+DECL|method|getParser ()
+specifier|public
+name|Object
+name|getParser
+parameter_list|()
+block|{
+return|return
+name|parser
+return|;
+block|}
+DECL|method|setParser (Object parser)
+specifier|public
+name|void
+name|setParser
+parameter_list|(
+name|Object
+name|parser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parser
+operator|=
+name|parser
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configureDataFormat (DataFormat dataFormat)
@@ -200,6 +233,16 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{
+name|setProperty
+argument_list|(
+name|dataFormat
+argument_list|,
+literal|"parser"
+argument_list|,
+name|getParser
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProperty
 argument_list|(
 name|dataFormat

@@ -905,6 +905,37 @@ name|hl7
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the HL7 data format      */
+DECL|method|hl7 (Object parser)
+specifier|public
+name|T
+name|hl7
+parameter_list|(
+name|Object
+name|parser
+parameter_list|)
+block|{
+name|HL7DataFormat
+name|hl7
+init|=
+operator|new
+name|HL7DataFormat
+argument_list|()
+decl_stmt|;
+name|hl7
+operator|.
+name|setParser
+argument_list|(
+name|parser
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|hl7
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the PGP data format      */
 DECL|method|pgp (String keyFileName, String keyUserid)
 specifier|public

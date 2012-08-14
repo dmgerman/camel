@@ -52,9 +52,11 @@ name|apache
 operator|.
 name|mina
 operator|.
-name|common
+name|core
 operator|.
-name|ByteBuffer
+name|buffer
+operator|.
+name|IoBuffer
 import|;
 end_import
 
@@ -66,7 +68,9 @@ name|apache
 operator|.
 name|mina
 operator|.
-name|common
+name|core
+operator|.
+name|session
 operator|.
 name|IoSession
 import|;
@@ -318,7 +322,7 @@ name|message
 argument_list|,
 name|config
 operator|.
-name|isValidate
+name|getParser
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -379,7 +383,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|// replace \n with \r as HL7 uses 0x0d = \r as segment termninators
+comment|// replace \n with \r as HL7 uses 0x0d = \r as segment terminators
 if|if
 condition|(
 name|config
@@ -401,10 +405,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// put the data into the byte buffer
-name|ByteBuffer
+name|IoBuffer
 name|buf
 init|=
-name|ByteBuffer
+name|IoBuffer
 operator|.
 name|allocate
 argument_list|(
@@ -475,14 +479,6 @@ operator|.
 name|flip
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -498,7 +494,6 @@ name|getCanonicalName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|out
 operator|.
 name|write

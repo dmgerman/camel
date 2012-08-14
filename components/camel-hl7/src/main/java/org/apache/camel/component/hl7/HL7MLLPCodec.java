@@ -38,6 +38,22 @@ name|apache
 operator|.
 name|mina
 operator|.
+name|core
+operator|.
+name|session
+operator|.
+name|IoSession
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
 name|filter
 operator|.
 name|codec
@@ -99,11 +115,14 @@ operator|new
 name|HL7MLLPConfig
 argument_list|()
 decl_stmt|;
-DECL|method|getDecoder ()
+DECL|method|getDecoder (IoSession session)
 specifier|public
 name|ProtocolDecoder
 name|getDecoder
-parameter_list|()
+parameter_list|(
+name|IoSession
+name|session
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -115,11 +134,14 @@ name|config
 argument_list|)
 return|;
 block|}
-DECL|method|getEncoder ()
+DECL|method|getEncoder (IoSession session)
 specifier|public
 name|ProtocolEncoder
 name|getEncoder
-parameter_list|()
+parameter_list|(
+name|IoSession
+name|session
+parameter_list|)
 throws|throws
 name|Exception
 block|{

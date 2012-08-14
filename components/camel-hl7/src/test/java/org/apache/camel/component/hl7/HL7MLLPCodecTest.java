@@ -261,7 +261,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"mina:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
 argument_list|)
 operator|.
 name|process
@@ -424,7 +424,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
 argument_list|,
 name|in
 operator|.
@@ -625,9 +625,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|adr
-operator|.
-name|getMessage
-argument_list|()
 return|;
 block|}
 comment|// END SNIPPET: e3

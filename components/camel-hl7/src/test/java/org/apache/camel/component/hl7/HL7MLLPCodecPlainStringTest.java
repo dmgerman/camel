@@ -201,7 +201,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -242,7 +242,7 @@ block|{
 comment|// START SNIPPET: e2
 name|from
 argument_list|(
-literal|"mina:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
 argument_list|)
 operator|.
 name|process
