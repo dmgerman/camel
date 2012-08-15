@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -255,22 +245,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|URI
-name|endpointUri
-init|=
-operator|new
-name|URI
-argument_list|(
-name|uri
-argument_list|)
-decl_stmt|;
 name|String
 name|tableName
 init|=
-name|endpointUri
-operator|.
-name|getHost
-argument_list|()
+name|remaining
 decl_stmt|;
 name|HBaseEndpoint
 name|endpoint
@@ -324,7 +302,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Creates an {@link HBaseRow} model from the specified endpoint parameters.      *      * @param parameters      * @return      */
+comment|/**      * Creates an {@link HBaseRow} model from the specified endpoint parameters.      */
 DECL|method|createRowModel (Map<String, Object> parameters)
 specifier|public
 name|HBaseRow

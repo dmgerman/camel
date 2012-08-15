@@ -109,23 +109,22 @@ name|HBaseCell
 argument_list|>
 name|cells
 decl_stmt|;
-comment|/**      * Constructor      */
 DECL|method|HBaseRow ()
 specifier|public
 name|HBaseRow
 parameter_list|()
 block|{
-name|cells
-operator|=
+name|this
+argument_list|(
 operator|new
 name|LinkedHashSet
 argument_list|<
 name|HBaseCell
 argument_list|>
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor      *      * @param cells      */
 DECL|method|HBaseRow (Set<HBaseCell> cells)
 specifier|public
 name|HBaseRow

@@ -40,7 +40,7 @@ specifier|public
 interface|interface
 name|HBaseRemoveHandler
 block|{
-comment|/**      * 'Removes' a row from the table.      * The removal is not necessarily physical remove.      * The implementation decides how a row can be considered as removed.      * @param table      * @param row      */
+comment|/**      * 'Removes' a row from the table.      * The removal is not necessarily physical remove.      * The implementation decides how a row can be considered as removed.      */
 DECL|method|remove (HTableInterface table, byte[] row)
 name|void
 name|remove

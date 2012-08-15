@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A  {@link org.apache.camel.component.hbase.mapping.CellMappingStrategy} implementation.  * It distinguishes between multiple cell, by reading headers with index suffix.  *<p/>  * In case of multiple headers:  *<p>First header is expected to have no suffix</p>.  *<p>Suffixes start from number 2</p>.  *<p>Suffixes need to be sequential</p>.  */
+comment|/**  * A {@link org.apache.camel.component.hbase.mapping.CellMappingStrategy} implementation.  * It distinguishes between multiple cell, by reading headers with index suffix.  *<p/>  * In case of multiple headers:  *<ul>  *<li>First header is expected to have no suffix</li>  *<li>Suffixes start from number 2</li>  *<li>Suffixes need to be sequential</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -62,7 +62,7 @@ name|BodyMappingStrategy
 implements|implements
 name|CellMappingStrategy
 block|{
-comment|/**      * Resolves the cells that the {@link org.apache.camel.Exchange} refers to.      *      * @param message      * @return      */
+comment|/**      * Resolves the cells that the {@link org.apache.camel.Exchange} refers to.      */
 annotation|@
 name|Override
 DECL|method|resolveModel (Message message)
@@ -85,7 +85,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      *      * @param message      * @param data      */
+comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
 DECL|method|applyGetResults (Message message, HBaseData data)
 specifier|public
 name|void
@@ -115,7 +115,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      *      * @param message      * @param data      */
+comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
 DECL|method|applyScanResults (Message message, HBaseData data)
 specifier|public
 name|void

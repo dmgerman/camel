@@ -500,19 +500,15 @@ block|{
 name|HTableInterface
 name|table
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|table
-operator|=
 name|tablePool
 operator|.
 name|getTable
 argument_list|(
 name|tableName
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+try|try
+block|{
 name|shutdownRunningTask
 operator|=
 literal|null
@@ -1211,7 +1207,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/**      * Delegates to the {@link HBaseRemoveHandler }.      *      * @param row      */
+comment|/**      * Delegates to the {@link HBaseRemoveHandler}.      */
 DECL|method|remove (byte[] row)
 specifier|private
 name|void
@@ -1255,11 +1251,19 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|table
+operator|!=
+literal|null
+condition|)
+block|{
 name|table
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getRowModel ()

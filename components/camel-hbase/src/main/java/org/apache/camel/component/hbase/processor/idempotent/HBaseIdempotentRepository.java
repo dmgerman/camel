@@ -623,7 +623,9 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{      }
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -633,7 +635,9 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{      }
+block|{
+comment|// noop
+block|}
 DECL|method|toBytes (Object obj)
 specifier|private
 name|byte

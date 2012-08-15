@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default {@link CellMappingStrategy} implementation.  * It distinguishes between multiple cell, by reading headers with index suffix.  *<p/>  * In case of multiple headers:  *<p>First header is expected to have no suffix</p>.  *<p>Suffixes start from number 2</p>.  *<p>Suffixes need to be sequential</p>.  */
+comment|/**  * A default {@link CellMappingStrategy} implementation.  * It distinguishes between multiple cell, by reading headers with index suffix.  *<p/>  * In case of multiple headers:  *<ul>  *<li>First header is expected to have no suffix</li>  *<li>Suffixes start from number 2</li>  *<li>Suffixes need to be sequential</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -156,7 +156,7 @@ name|HeaderMappingStrategy
 implements|implements
 name|CellMappingStrategy
 block|{
-comment|/**      * Resolves the cell that the {@link Exchange} refers to.      *      * @param message      * @param index      * @return      */
+comment|/**      * Resolves the cell that the {@link Exchange} refers to.      */
 DECL|method|resolveRow (Message message, int index)
 specifier|private
 name|HBaseRow
@@ -453,7 +453,7 @@ return|return
 name|hRow
 return|;
 block|}
-comment|/**      * Resolves the cells that the {@link org.apache.camel.Exchange} refers to.      *      * @param message      * @return      */
+comment|/**      * Resolves the cells that the {@link org.apache.camel.Exchange} refers to.      */
 annotation|@
 name|Override
 DECL|method|resolveModel (Message message)
@@ -614,7 +614,7 @@ return|return
 name|data
 return|;
 block|}
-comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      *      * @param message      * @param hRows      */
+comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
 DECL|method|applyGetResults (Message message, HBaseData data)
 specifier|public
 name|void
@@ -722,7 +722,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      *      * @param message      */
+comment|/**      * Applies the cells to the {@link org.apache.camel.Exchange}.      */
 DECL|method|applyScanResults (Message message, HBaseData data)
 specifier|public
 name|void
@@ -868,7 +868,7 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Searches a list of cells and returns the value, if family/column matches with the specified.      *      * @param family      * @param qualifier      * @param cells      * @return      */
+comment|/**      * Searches a list of cells and returns the value, if family/column matches with the specified.      */
 DECL|method|getValueForColumn (Set<HBaseCell> cells, String family, String qualifier)
 specifier|private
 name|Object

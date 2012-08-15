@@ -79,7 +79,7 @@ parameter_list|>
 extends|extends
 name|Filter
 block|{
-comment|/**      * Applies the message to {@link Filter} to context.      * @param context      * @param rowModel      */
+comment|/**      * Applies the message to {@link Filter} to context.      */
 DECL|method|apply (CamelContext context, HBaseRow rowModel)
 name|void
 name|apply

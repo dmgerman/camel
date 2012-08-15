@@ -195,18 +195,20 @@ name|configuration
 decl_stmt|;
 DECL|field|tableName
 specifier|private
+specifier|final
 name|String
 name|tableName
+decl_stmt|;
+DECL|field|tablePool
+specifier|private
+specifier|final
+name|HTablePool
+name|tablePool
 decl_stmt|;
 DECL|field|admin
 specifier|private
 name|HBaseAdmin
 name|admin
-decl_stmt|;
-DECL|field|tablePool
-specifier|private
-name|HTablePool
-name|tablePool
 decl_stmt|;
 comment|//Operation properties.
 DECL|field|maxResults
@@ -274,11 +276,6 @@ specifier|private
 name|int
 name|maxMessagesPerPoll
 decl_stmt|;
-DECL|method|HBaseEndpoint ()
-specifier|public
-name|HBaseEndpoint
-parameter_list|()
-block|{     }
 DECL|method|HBaseEndpoint (String uri, HBaseComponent component, HTablePool tablePool, String tableName)
 specifier|public
 name|HBaseEndpoint
@@ -315,6 +312,23 @@ name|tablePool
 operator|=
 name|tablePool
 expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|tableName
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Table name can not be null"
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|createProducer ()
 specifier|public

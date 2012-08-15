@@ -104,7 +104,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Performs a {@link Delete} of the specified row.      *      * @param table      * @param row      */
+comment|/**      * Performs a {@link Delete} of the specified row.      */
 annotation|@
 name|Override
 DECL|method|remove (HTableInterface table, byte[] row)
@@ -149,7 +149,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to delete row from table"
+literal|"Failed to delete row from table. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)

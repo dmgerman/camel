@@ -114,7 +114,7 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Applies the message to {@link org.apache.hadoop.hbase.filter.Filter} to context.      *      * @param context      * @param rowModel      */
+comment|/**      * Applies the message to {@link org.apache.hadoop.hbase.filter.Filter} to context.      */
 annotation|@
 name|Override
 DECL|method|apply (CamelContext context, HBaseRow rowModel)
@@ -165,7 +165,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Wraps an existing {@link SkipFilter} filter into a {@link ModelAwareSkipFilter}.      *      * @param filter      * @return      */
+comment|/**      * Wraps an existing {@link SkipFilter} filter into a {@link ModelAwareSkipFilter}.      */
 DECL|method|wrap (SkipFilter filter)
 specifier|public
 name|ModelAwareSkipFilter

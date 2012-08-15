@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Cell resolver is responsible on identifying the cells, to which the Echange refers to.  * Is used for all types of operations (Put, Get etc).  * It is allowed that an exchange refers to more than once cells. This happens if headers for multiple cells are present in the {@Exchange}.  */
+comment|/**  * A Cell resolver is responsible on identifying the cells, to which the Echange refers to.  * Is used for all types of operations (Put, Get etc).  * It is allowed that an exchange refers to more than once cells. This happens if headers  * for multiple cells are present in the {@link Exchange}.  */
 end_comment
 
 begin_interface
@@ -72,7 +72,7 @@ specifier|public
 interface|interface
 name|CellMappingStrategy
 block|{
-comment|/**      * Resolves the cell that the {@link Exchange} refers to.      *      * @param message      * @return      */
+comment|/**      * Resolves the cell that the {@link Exchange} refers to.      */
 DECL|method|resolveModel (Message message)
 name|HBaseData
 name|resolveModel
@@ -93,7 +93,7 @@ name|HBaseData
 name|data
 parameter_list|)
 function_decl|;
-comment|/**      * Applies the KeyValues of a scan operation to the {@link Exchange}.      *      * @param message      * @param rows      */
+comment|/**      * Applies the KeyValues of a scan operation to the {@link Exchange}.      */
 DECL|method|applyScanResults (Message message, HBaseData data)
 name|void
 name|applyScanResults

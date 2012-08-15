@@ -171,7 +171,7 @@ specifier|public
 name|ModelAwareColumnMatchingFilter
 parameter_list|()
 block|{     }
-comment|/**      * Applies the message to {@link org.apache.hadoop.hbase.filter.Filter} to context.      *      * @param context      * @param rowModel      */
+comment|/**      * Applies the message to {@link org.apache.hadoop.hbase.filter.Filter} to context.      */
 annotation|@
 name|Override
 DECL|method|apply (CamelContext context, HBaseRow rowModel)

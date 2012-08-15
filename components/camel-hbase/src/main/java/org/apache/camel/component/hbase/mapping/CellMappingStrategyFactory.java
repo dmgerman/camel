@@ -243,7 +243,7 @@ condition|)
 block|{
 name|strategy
 operator|=
-name|loadStrategyfromClassName
+name|loadStrategyFromClassName
 argument_list|(
 name|message
 operator|.
@@ -279,15 +279,16 @@ name|HEADER
 argument_list|)
 return|;
 block|}
-DECL|method|loadStrategyfromClassName (String strategyClassName)
+DECL|method|loadStrategyFromClassName (String strategyClassName)
 specifier|private
 name|CellMappingStrategy
-name|loadStrategyfromClassName
+name|loadStrategyFromClassName
 parameter_list|(
 name|String
 name|strategyClassName
 parameter_list|)
 block|{
+comment|// TODO: We ought to use ClassResolver from CamelContext API
 name|ClassLoader
 name|classLoader
 init|=

@@ -167,7 +167,7 @@ name|rowFilters
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Applies the message to {@link org.apache.hadoop.hbase.filter.Filter} to context.      *      * @param context      * @param rowModel      */
+comment|/**      * Applies the message to {@link org.apache.hadoop.hbase.filter.Filter} to context.      */
 annotation|@
 name|Override
 DECL|method|apply (CamelContext context, HBaseRow rowModel)
@@ -226,7 +226,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Wraps an existing {@link FilterList} filter into a {@link ModelAwareFilterList}.      * @param filter      * @return      */
+comment|/**      * Wraps an existing {@link FilterList} filter into a {@link ModelAwareFilterList}.      */
 DECL|method|wrap (FilterList filter)
 specifier|public
 name|ModelAwareFilterList
