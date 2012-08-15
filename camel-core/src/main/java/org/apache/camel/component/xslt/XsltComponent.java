@@ -669,17 +669,6 @@ argument_list|,
 name|contentCache
 argument_list|)
 decl_stmt|;
-name|configureXslt
-argument_list|(
-name|xslt
-argument_list|,
-name|uri
-argument_list|,
-name|remaining
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
 comment|// if its a http uri, then append additional parameters as they are part of the uri
 if|if
 condition|(
@@ -761,6 +750,17 @@ operator|.
 name|setUriResolver
 argument_list|(
 name|resolver
+argument_list|)
+expr_stmt|;
+name|configureXslt
+argument_list|(
+name|xslt
+argument_list|,
+name|uri
+argument_list|,
+name|remaining
+argument_list|,
+name|parameters
 argument_list|)
 expr_stmt|;
 return|return
