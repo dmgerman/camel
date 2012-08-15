@@ -1904,6 +1904,11 @@ specifier|private
 name|FactoryFinder
 name|defaultFactoryFinder
 decl_stmt|;
+DECL|field|propertiesComponent
+specifier|private
+name|PropertiesComponent
+name|propertiesComponent
+decl_stmt|;
 DECL|field|factories
 specifier|private
 specifier|final
@@ -2430,6 +2435,29 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
+comment|// keep reference to properties component up to date
+if|if
+condition|(
+name|component
+operator|instanceof
+name|PropertiesComponent
+operator|&&
+literal|"properties"
+operator|.
+name|equals
+argument_list|(
+name|componentName
+argument_list|)
+condition|)
+block|{
+name|propertiesComponent
+operator|=
+operator|(
+name|PropertiesComponent
+operator|)
+name|component
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getComponent (String name)
@@ -2688,6 +2716,26 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// keep reference to properties component up to date
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+operator|&&
+literal|"properties"
+operator|.
+name|equals
+argument_list|(
+name|componentName
+argument_list|)
+condition|)
+block|{
+name|propertiesComponent
+operator|=
+literal|null
+expr_stmt|;
 block|}
 return|return
 name|answer
@@ -8236,6 +8284,96 @@ argument_list|(
 name|packageScanClassResolver
 argument_list|)
 expr_stmt|;
+comment|// eager lookup any configured properties component to avoid subsequent lookup attempts which may impact performance
+comment|// due we use properties component for property placeholder resolution at runtime
+name|Component
+name|existing
+init|=
+name|hasComponent
+argument_list|(
+literal|"properties"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|existing
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no existing properties component so lookup and add as component if possible
+name|propertiesComponent
+operator|=
+name|getRegistry
+argument_list|()
+operator|.
+name|lookup
+argument_list|(
+literal|"properties"
+argument_list|,
+name|PropertiesComponent
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|propertiesComponent
+operator|!=
+literal|null
+condition|)
+block|{
+name|addComponent
+argument_list|(
+literal|"properties"
+argument_list|,
+name|propertiesComponent
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// store reference to the existing properties component
+if|if
+condition|(
+name|existing
+operator|instanceof
+name|PropertiesComponent
+condition|)
+block|{
+name|propertiesComponent
+operator|=
+operator|(
+name|PropertiesComponent
+operator|)
+name|existing
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// properties component must be expected type
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Found properties component of type: "
+operator|+
+name|existing
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|" instead of expected: "
+operator|+
+name|PropertiesComponent
+operator|.
+name|class
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// start components
 name|startServices
 argument_list|(
 name|components
@@ -10408,6 +10546,7 @@ name|status
 operator|!=
 literal|null
 operator|&&
+operator|(
 name|status
 operator|.
 name|isStarted
@@ -10417,6 +10556,7 @@ name|status
 operator|.
 name|isStarting
 argument_list|()
+operator|)
 condition|)
 block|{
 name|existingEndpoints
@@ -11050,72 +11190,15 @@ name|isStarting
 argument_list|()
 return|;
 block|}
-comment|/**      * Looks up the properties component if one may be resolved or has already been created.      * Returns {@code null} if one was not created or is not in the registry.      */
+comment|/**      * Gets the properties component in use.      * Returns {@code null} if no properties component is in use.      */
 DECL|method|getPropertiesComponent ()
 specifier|protected
 name|PropertiesComponent
 name|getPropertiesComponent
 parameter_list|()
 block|{
-name|Component
-name|component
-init|=
-name|hasComponent
-argument_list|(
-literal|"properties"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|component
-operator|==
-literal|null
-condition|)
-block|{
-comment|// then fallback to lookup the component
-name|component
-operator|=
-name|getRegistry
-argument_list|()
-operator|.
-name|lookup
-argument_list|(
-literal|"properties"
-argument_list|,
-name|Component
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
-name|PropertiesComponent
-name|pc
-init|=
-literal|null
-decl_stmt|;
-comment|// Ensure that we don't create one if one is not really available.
-if|if
-condition|(
-name|component
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// force component to be created and registered as a component
-name|pc
-operator|=
-name|getComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 return|return
-name|pc
+name|propertiesComponent
 return|;
 block|}
 DECL|method|setDataFormats (Map<String, DataFormatDefinition> dataFormats)
