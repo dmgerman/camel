@@ -380,11 +380,7 @@ DECL|method|SjmsEndpoint ()
 specifier|public
 name|SjmsEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SjmsEndpoint (String uri, Component component)
 specifier|public
 name|SjmsEndpoint

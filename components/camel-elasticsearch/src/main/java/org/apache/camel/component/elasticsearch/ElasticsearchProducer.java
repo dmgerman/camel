@@ -152,22 +152,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|replication
-operator|.
-name|ReplicationType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|Client
@@ -801,6 +785,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setIndexRequestSource (Message msg, IndexRequestBuilder builder)
 specifier|private
 name|boolean

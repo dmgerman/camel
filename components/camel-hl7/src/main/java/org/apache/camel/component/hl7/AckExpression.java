@@ -115,11 +115,7 @@ DECL|method|AckExpression ()
 specifier|public
 name|AckExpression
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AckExpression (AckCode acknowledgementCode)
 specifier|public
 name|AckExpression
@@ -128,9 +124,6 @@ name|AckCode
 name|acknowledgementCode
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|acknowledgementCode

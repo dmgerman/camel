@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -92,11 +82,7 @@ DECL|method|ElasticsearchComponent ()
 specifier|public
 name|ElasticsearchComponent
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|ElasticsearchComponent (CamelContext context)
 specifier|public
 name|ElasticsearchComponent

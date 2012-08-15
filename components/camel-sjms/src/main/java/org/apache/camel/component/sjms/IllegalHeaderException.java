@@ -42,16 +42,21 @@ name|IllegalHeaderException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 comment|/**      */
 DECL|method|IllegalHeaderException ()
 specifier|public
 name|IllegalHeaderException
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * @param message      * @param cause      */
 DECL|method|IllegalHeaderException (String message, Throwable cause)
 specifier|public

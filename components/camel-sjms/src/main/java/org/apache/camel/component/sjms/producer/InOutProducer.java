@@ -805,9 +805,6 @@ name|Destination
 name|replyToDestination
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|session
@@ -887,9 +884,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|exchange
@@ -966,9 +960,6 @@ argument_list|>
 name|exchanger
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|exchanger

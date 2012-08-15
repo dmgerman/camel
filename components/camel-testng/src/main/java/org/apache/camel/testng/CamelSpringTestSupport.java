@@ -180,18 +180,6 @@ name|AfterMethod
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|testng
-operator|.
-name|annotations
-operator|.
-name|AfterTest
-import|;
-end_import
-
 begin_class
 DECL|class|CamelSpringTestSupport
 specifier|public

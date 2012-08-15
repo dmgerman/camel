@@ -50,8 +50,7 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-operator|-
-literal|6184009502090347023L
+literal|1L
 decl_stmt|;
 comment|/**      * TODO Add Constructor Javadoc      *      */
 DECL|method|MissingHeaderException ()
@@ -59,9 +58,6 @@ specifier|public
 name|MissingHeaderException
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 comment|// TODO Auto-generated constructor stub
 block|}
 comment|/**      * TODO Add Constructor Javadoc      *      * @param message      * @param cause      */

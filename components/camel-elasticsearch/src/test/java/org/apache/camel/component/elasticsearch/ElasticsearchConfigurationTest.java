@@ -257,9 +257,6 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-name|ElasticsearchConfiguration
-name|conf
-init|=
 operator|new
 name|ElasticsearchConfiguration
 argument_list|(
@@ -267,7 +264,7 @@ name|uri
 argument_list|,
 name|parameters
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 annotation|@
 name|Test

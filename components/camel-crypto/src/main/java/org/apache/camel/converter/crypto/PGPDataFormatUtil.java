@@ -608,11 +608,6 @@ return|return
 name|privKey
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findPrivateKey (CamelContext context, InputStream keyringInput, InputStream encryptedInput, String passphrase)
 specifier|public
 specifier|static
@@ -712,6 +707,9 @@ argument_list|()
 expr_stmt|;
 comment|// nextObject() method reads from the InputStream, so rewind it!
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|encryptedDataObjects
 init|=
 name|enc
