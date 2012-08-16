@@ -167,9 +167,9 @@ literal|"Content-Length"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertNotNull
 argument_list|(
-literal|"text/plain; charset=ASCII"
+literal|"Should have Content-Type header"
 argument_list|,
 name|headers
 operator|.
