@@ -310,7 +310,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_35
+name|LUCENE_36
 argument_list|)
 decl_stmt|;
 name|MockEndpoint
@@ -607,7 +607,7 @@ name|SimpleAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_35
+name|LUCENE_36
 argument_list|)
 decl_stmt|;
 name|MockEndpoint

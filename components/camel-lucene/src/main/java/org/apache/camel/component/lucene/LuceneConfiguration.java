@@ -160,7 +160,7 @@ name|luceneVersion
 init|=
 name|Version
 operator|.
-name|LUCENE_35
+name|LUCENE_36
 decl_stmt|;
 DECL|method|LuceneConfiguration ()
 specifier|public

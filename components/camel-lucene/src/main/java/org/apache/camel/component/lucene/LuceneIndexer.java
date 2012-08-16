@@ -881,7 +881,7 @@ name|IndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_35
+name|LUCENE_36
 argument_list|,
 name|getAnalyzer
 argument_list|()
@@ -917,7 +917,7 @@ name|IndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_35
+name|LUCENE_36
 argument_list|,
 name|getAnalyzer
 argument_list|()
