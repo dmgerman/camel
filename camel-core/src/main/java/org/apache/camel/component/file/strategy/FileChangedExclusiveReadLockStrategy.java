@@ -149,6 +149,13 @@ name|checkInterval
 init|=
 literal|1000
 decl_stmt|;
+DECL|field|minLength
+specifier|private
+name|long
+name|minLength
+init|=
+literal|1
+decl_stmt|;
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
@@ -327,6 +334,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|length
+operator|>=
+name|minLength
+operator|&&
+operator|(
 name|newLastModified
 operator|==
 name|lastModified
@@ -334,13 +346,9 @@ operator|&&
 name|newLength
 operator|==
 name|length
-operator|&&
-name|length
-operator|!=
-literal|0
+operator|)
 condition|)
 block|{
-comment|// We consider that zero-length files are files in progress
 name|LOG
 operator|.
 name|trace
@@ -482,6 +490,32 @@ operator|.
 name|checkInterval
 operator|=
 name|checkInterval
+expr_stmt|;
+block|}
+DECL|method|getMinLength ()
+specifier|public
+name|long
+name|getMinLength
+parameter_list|()
+block|{
+return|return
+name|minLength
+return|;
+block|}
+DECL|method|setMinLength (long minLength)
+specifier|public
+name|void
+name|setMinLength
+parameter_list|(
+name|long
+name|minLength
+parameter_list|)
+block|{
+name|this
+operator|.
+name|minLength
+operator|=
+name|minLength
 expr_stmt|;
 block|}
 block|}

@@ -645,6 +645,13 @@ name|readLockTimeout
 init|=
 literal|10000
 decl_stmt|;
+DECL|field|readLockMinLength
+specifier|protected
+name|long
+name|readLockMinLength
+init|=
+literal|1
+decl_stmt|;
 DECL|field|exclusiveReadLockStrategy
 specifier|protected
 name|GenericFileExclusiveReadLockStrategy
@@ -2304,6 +2311,32 @@ operator|=
 name|readLockTimeout
 expr_stmt|;
 block|}
+DECL|method|getReadLockMinLength ()
+specifier|public
+name|long
+name|getReadLockMinLength
+parameter_list|()
+block|{
+return|return
+name|readLockMinLength
+return|;
+block|}
+DECL|method|setReadLockMinLength (long readLockMinLength)
+specifier|public
+name|void
+name|setReadLockMinLength
+parameter_list|(
+name|long
+name|readLockMinLength
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockMinLength
+operator|=
+name|readLockMinLength
+expr_stmt|;
+block|}
 DECL|method|getBufferSize ()
 specifier|public
 name|int
@@ -3141,6 +3174,15 @@ name|readLockTimeout
 argument_list|)
 expr_stmt|;
 block|}
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"readLockMinLength"
+argument_list|,
+name|readLockMinLength
+argument_list|)
+expr_stmt|;
 return|return
 name|params
 return|;

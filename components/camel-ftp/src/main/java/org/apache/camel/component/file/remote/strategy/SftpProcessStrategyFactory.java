@@ -34,6 +34,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|jcraft
+operator|.
+name|jsch
+operator|.
+name|ChannelSftp
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -212,11 +224,10 @@ argument_list|)
 DECL|method|createGenericFileProcessStrategy (CamelContext context, Map<String, Object> params)
 specifier|public
 specifier|static
-parameter_list|<
-name|LsEntry
-parameter_list|>
 name|GenericFileProcessStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|createGenericFileProcessStrategy
@@ -319,6 +330,8 @@ condition|)
 block|{
 name|GenericFileDeleteProcessStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|strategy
@@ -326,6 +339,8 @@ init|=
 operator|new
 name|GenericFileDeleteProcessStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -337,6 +352,8 @@ argument_list|(
 operator|(
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 operator|)
@@ -355,6 +372,8 @@ condition|)
 block|{
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|renamer
@@ -362,6 +381,8 @@ init|=
 operator|new
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -390,6 +411,8 @@ condition|)
 block|{
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|renamer
@@ -397,6 +420,8 @@ init|=
 operator|new
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -430,6 +455,8 @@ condition|)
 block|{
 name|GenericFileRenameProcessStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|strategy
@@ -437,6 +464,8 @@ init|=
 operator|new
 name|GenericFileRenameProcessStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -448,6 +477,8 @@ argument_list|(
 operator|(
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 operator|)
@@ -470,6 +501,8 @@ block|{
 comment|// move on commit is only possible if not noop
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|renamer
@@ -477,6 +510,8 @@ init|=
 operator|new
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -506,6 +541,8 @@ condition|)
 block|{
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|renamer
@@ -513,6 +550,8 @@ init|=
 operator|new
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -542,6 +581,8 @@ condition|)
 block|{
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|renamer
@@ -549,6 +590,8 @@ init|=
 operator|new
 name|GenericFileExpressionRenamer
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -577,6 +620,8 @@ block|{
 comment|// default strategy will do nothing
 name|GenericFileNoOpProcessStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|strategy
@@ -584,6 +629,8 @@ init|=
 operator|new
 name|GenericFileNoOpProcessStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -595,6 +642,8 @@ argument_list|(
 operator|(
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 operator|)
@@ -621,11 +670,10 @@ argument_list|)
 DECL|method|getExclusiveReadLockStrategy (Map<String, Object> params)
 specifier|private
 specifier|static
-parameter_list|<
-name|LsEntry
-parameter_list|>
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|getExclusiveReadLockStrategy
@@ -641,6 +689,8 @@ parameter_list|)
 block|{
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|strategy
@@ -648,6 +698,8 @@ init|=
 operator|(
 name|GenericFileExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 operator|)
@@ -727,6 +779,8 @@ condition|)
 block|{
 name|GenericFileRenameExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 name|readLockStrategy
@@ -734,6 +788,8 @@ init|=
 operator|new
 name|GenericFileRenameExclusiveReadLockStrategy
 argument_list|<
+name|ChannelSftp
+operator|.
 name|LsEntry
 argument_list|>
 argument_list|()
@@ -809,7 +865,7 @@ name|readLock
 argument_list|)
 condition|)
 block|{
-name|GenericFileExclusiveReadLockStrategy
+name|SftpChangedExclusiveReadLockStrategy
 name|readLockStrategy
 init|=
 operator|new
@@ -869,6 +925,34 @@ operator|.
 name|setCheckInterval
 argument_list|(
 name|checkInterval
+argument_list|)
+expr_stmt|;
+block|}
+name|Long
+name|minLength
+init|=
+operator|(
+name|Long
+operator|)
+name|params
+operator|.
+name|get
+argument_list|(
+literal|"readLockMinLength"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|minLength
+operator|!=
+literal|null
+condition|)
+block|{
+name|readLockStrategy
+operator|.
+name|setMinLength
+argument_list|(
+name|minLength
 argument_list|)
 expr_stmt|;
 block|}
