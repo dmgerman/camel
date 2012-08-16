@@ -1068,7 +1068,20 @@ name|String
 name|getPath
 parameter_list|()
 block|{
+comment|//if the path is empty, we just return the default path here
 return|return
+name|httpUri
+operator|.
+name|getPath
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|"/"
+else|:
 name|httpUri
 operator|.
 name|getPath
