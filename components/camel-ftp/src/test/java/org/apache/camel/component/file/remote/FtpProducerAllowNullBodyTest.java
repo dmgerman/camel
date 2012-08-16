@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|file
+operator|.
+name|remote
 package|;
 end_package
 
@@ -48,43 +50,49 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|component
+operator|.
+name|file
+operator|.
+name|GenericFileOperationFailedException
 import|;
 end_import
 
-begin_comment
-comment|/**  * Unit tests to ensure that   * When the allowNullBody option is set to true it will create an empty file and not throw an exception  * When the allowNullBody option is set to false it will throw an exception of "Cannot write null body to file."  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
 
 begin_class
-DECL|class|FileProducerAllowNullBodyTest
+DECL|class|FtpProducerAllowNullBodyTest
 specifier|public
 class|class
-name|FileProducerAllowNullBodyTest
+name|FtpProducerAllowNullBodyTest
 extends|extends
-name|ContextTestSupport
+name|FtpServerTestSupport
 block|{
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|protected
-name|void
-name|setUp
+DECL|method|getFtpUrl ()
+specifier|private
+name|String
+name|getFtpUrl
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/allow"
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|setUp
+return|return
+literal|"ftp://admin@localhost:"
+operator|+
+name|getPort
 argument_list|()
-expr_stmt|;
+operator|+
+literal|"/allownull?password=admin&fileName=allowNullBody.txt"
+return|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAllowNullBodyTrue ()
 specifier|public
 name|void
@@ -97,17 +105,24 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/allow?allowNullBody=true&fileName=allowNullBody.txt"
+name|getFtpUrl
+argument_list|()
+operator|+
+literal|"&allowNullBody=true"
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"./target/allow/allowNullBody.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/allownull/allowNullBody.txt"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testAllowNullBodyFalse ()
 specifier|public
 name|void
@@ -122,7 +137,10 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"file://target/allow?fileName=allowNullBody.txt"
+name|getFtpUrl
+argument_list|()
+operator|+
+literal|"&allowNullBody=false"
 argument_list|,
 literal|null
 argument_list|)
@@ -175,7 +193,9 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"./target/allow/allowNullBody.txt"
+name|FTP_ROOT_DIR
+operator|+
+literal|"/allownull/allowNullBody.txt"
 argument_list|)
 operator|.
 name|exists

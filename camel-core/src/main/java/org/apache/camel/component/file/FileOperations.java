@@ -922,7 +922,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"The in message of exchange body was null."
+literal|"Writing empty file."
 argument_list|)
 expr_stmt|;
 try|try
@@ -961,7 +961,9 @@ throw|throw
 operator|new
 name|GenericFileOperationFailedException
 argument_list|(
-literal|"Cannot write null body to file."
+literal|"Cannot write null body to file: "
+operator|+
+name|file
 argument_list|)
 throw|;
 block|}
@@ -1903,6 +1905,15 @@ name|exists
 argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Creating new empty file: {}"
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
 name|target
 operator|.
 name|createNewFile
@@ -1924,9 +1935,11 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"Truncating file as it already exists and endpoint set to Override file."
+literal|"Truncating existing file: {}"
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 name|FileChannel
