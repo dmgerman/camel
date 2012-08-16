@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -487,6 +497,45 @@ argument_list|,
 literal|"protocol"
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getParamsAsMap ()
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getParamsAsMap
+parameter_list|()
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+init|=
+name|super
+operator|.
+name|getParamsAsMap
+argument_list|()
+decl_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"fastExistsCheck"
+argument_list|,
+name|fastExistsCheck
+argument_list|)
+expr_stmt|;
+return|return
+name|map
+return|;
 block|}
 comment|/**      * Remote File Endpoints, impl this method to create a custom consumer specific to their "protocol" etc.      *      * @param processor  the processor      * @return the created consumer      */
 DECL|method|buildConsumer (Processor processor)

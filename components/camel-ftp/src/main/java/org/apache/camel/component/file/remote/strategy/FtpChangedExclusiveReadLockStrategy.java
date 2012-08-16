@@ -205,6 +205,11 @@ name|minLength
 init|=
 literal|1
 decl_stmt|;
+DECL|field|fastExistsCheck
+specifier|private
+name|boolean
+name|fastExistsCheck
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|prepareOnStartup (GenericFileOperations<FTPFile> tGenericFileOperations, GenericFileEndpoint<FTPFile> tGenericFileEndpoint)
@@ -350,7 +355,50 @@ argument_list|<
 name|FTPFile
 argument_list|>
 name|files
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|fastExistsCheck
+condition|)
+block|{
+comment|// use the absolute file path to only pickup the file we want to check, this avoids expensive
+comment|// list operations if we have a lot of files in the directory
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using fast exists to update file information for {}"
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
+name|files
+operator|=
+name|operations
+operator|.
+name|listFiles
+argument_list|(
+name|file
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using full directory listing to update file information for {}. Consider enabling fastExistsCheck option."
+argument_list|,
+name|file
+argument_list|)
+expr_stmt|;
+comment|// fast option not enabled, so list the directory and filter the file name
+name|files
+operator|=
 name|operations
 operator|.
 name|listFiles
@@ -360,7 +408,25 @@ operator|.
 name|getParent
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"List files {} found {} files"
+argument_list|,
+name|file
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+argument_list|,
+name|files
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|FTPFile
@@ -643,6 +709,32 @@ operator|.
 name|minLength
 operator|=
 name|minLength
+expr_stmt|;
+block|}
+DECL|method|isFastExistsCheck ()
+specifier|public
+name|boolean
+name|isFastExistsCheck
+parameter_list|()
+block|{
+return|return
+name|fastExistsCheck
+return|;
+block|}
+DECL|method|setFastExistsCheck (boolean fastExistsCheck)
+specifier|public
+name|void
+name|setFastExistsCheck
+parameter_list|(
+name|boolean
+name|fastExistsCheck
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fastExistsCheck
+operator|=
+name|fastExistsCheck
 expr_stmt|;
 block|}
 block|}
