@@ -185,6 +185,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|EXPECTED_XML_CONSTANT
 specifier|private
+specifier|static
 specifier|final
 name|String
 name|EXPECTED_XML_CONSTANT
