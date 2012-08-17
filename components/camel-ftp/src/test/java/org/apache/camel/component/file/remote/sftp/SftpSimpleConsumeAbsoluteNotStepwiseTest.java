@@ -36,26 +36,11 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Disabled due CI servers fails on full build running with these tests"
-argument_list|)
 DECL|class|SftpSimpleConsumeAbsoluteNotStepwiseTest
 specifier|public
 class|class
@@ -87,6 +72,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we must remember to use // slash because of the url separator
 name|from
 argument_list|(
 literal|"sftp://localhost:"
@@ -94,7 +80,12 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/tmp/mytemp?username=admin&password=admin&delay=10s&disconnect=true&stepwise=false"
+literal|"//"
+operator|+
+name|createAbsolutePath
+argument_list|()
+operator|+
+literal|"?username=admin&password=admin&delay=10s&disconnect=true&stepwise=false"
 argument_list|)
 operator|.
 name|routeId

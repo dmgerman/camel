@@ -68,16 +68,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -87,11 +77,6 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Disabled due CI servers fails on full build running with these tests"
-argument_list|)
 DECL|class|SftpSetCipherTest
 specifier|public
 class|class

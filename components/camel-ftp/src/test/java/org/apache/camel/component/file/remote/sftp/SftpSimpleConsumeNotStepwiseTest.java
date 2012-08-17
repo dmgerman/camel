@@ -36,26 +36,11 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Disabled due CI servers fails on full build running with these tests"
-argument_list|)
 DECL|class|SftpSimpleConsumeNotStepwiseTest
 specifier|public
 class|class
@@ -94,7 +79,11 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/?username=admin&password=admin&delay=10s&disconnect=true&stepwise=false"
+literal|"/"
+operator|+
+name|FTP_ROOT_DIR
+operator|+
+literal|"?username=admin&password=admin&delay=10s&disconnect=true&stepwise=false"
 argument_list|)
 operator|.
 name|routeId
