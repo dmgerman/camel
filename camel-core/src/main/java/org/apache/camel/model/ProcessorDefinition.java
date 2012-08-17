@@ -4173,7 +4173,8 @@ block|{
 name|ThreadsDefinition
 name|answer
 init|=
-name|threads
+operator|new
+name|ThreadsDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -4208,7 +4209,8 @@ block|{
 name|ThreadsDefinition
 name|answer
 init|=
-name|threads
+operator|new
+name|ThreadsDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -4253,7 +4255,8 @@ block|{
 name|ThreadsDefinition
 name|answer
 init|=
-name|threads
+operator|new
+name|ThreadsDefinition
 argument_list|()
 decl_stmt|;
 name|answer
