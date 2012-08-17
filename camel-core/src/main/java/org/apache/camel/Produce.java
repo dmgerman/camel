@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a field or property as being a producer to an {@link org.apache.camel.Endpoint} either via its  *<a href="http://camel.apache.org/uris.html">URI</a> or via the name of the endpoint reference  * which is then resolved in a registry such as the Spring Application Context.  *  * Methods invoked on the producer object are then converted to a message {@link org.apache.camel.Exchange} via the  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * mechanism.  *  * @see InOnly  *  * @version   */
+comment|/**  * Marks a field or property as being a producer to an {@link org.apache.camel.Endpoint} either via its  *<a href="http://camel.apache.org/uris.html">URI</a> or via the name of the endpoint reference  * which is then resolved in a registry such as the Spring Application Context.  *<p/>  * Methods invoked on the producer object are then converted to a message {@link org.apache.camel.Exchange} via the  *<a href="http://camel.apache.org/bean-integration.html">Bean Integration</a>  * mechanism.  *  * @see InOnly  *  * @version   */
 end_comment
 
 begin_annotation_defn
@@ -120,6 +120,13 @@ function_decl|;
 DECL|method|ref ()
 name|String
 name|ref
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+DECL|method|property ()
+name|String
+name|property
 parameter_list|()
 default|default
 literal|""

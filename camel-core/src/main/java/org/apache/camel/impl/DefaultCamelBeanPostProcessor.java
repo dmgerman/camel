@@ -577,6 +577,11 @@ operator|.
 name|ref
 argument_list|()
 argument_list|,
+name|endpointInject
+operator|.
+name|property
+argument_list|()
+argument_list|,
 name|bean
 argument_list|,
 name|beanName
@@ -627,6 +632,11 @@ operator|.
 name|ref
 argument_list|()
 argument_list|,
+name|produce
+operator|.
+name|property
+argument_list|()
+argument_list|,
 name|bean
 argument_list|,
 name|beanName
@@ -638,7 +648,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectField (Field field, String endpointUri, String endpointRef, Object bean, String beanName)
+DECL|method|injectField (Field field, String endpointUri, String endpointRef, String endpointProperty, Object bean, String beanName)
 specifier|protected
 name|void
 name|injectField
@@ -651,6 +661,9 @@ name|endpointUri
 parameter_list|,
 name|String
 name|endpointRef
+parameter_list|,
+name|String
+name|endpointProperty
 parameter_list|,
 name|Object
 name|bean
@@ -680,6 +693,8 @@ argument_list|,
 name|endpointUri
 argument_list|,
 name|endpointRef
+argument_list|,
+name|endpointProperty
 argument_list|,
 name|field
 operator|.
@@ -822,6 +837,11 @@ name|endpointInject
 operator|.
 name|ref
 argument_list|()
+argument_list|,
+name|endpointInject
+operator|.
+name|property
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -872,11 +892,16 @@ name|produce
 operator|.
 name|ref
 argument_list|()
+argument_list|,
+name|produce
+operator|.
+name|property
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointRef)
+DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointRef, String endpointProperty)
 specifier|protected
 name|void
 name|setterInjection
@@ -895,6 +920,9 @@ name|endpointUri
 parameter_list|,
 name|String
 name|endpointRef
+parameter_list|,
+name|String
+name|endpointProperty
 parameter_list|)
 block|{
 name|Class
@@ -963,6 +991,8 @@ argument_list|,
 name|endpointUri
 argument_list|,
 name|endpointRef
+argument_list|,
+name|endpointProperty
 argument_list|,
 name|propertyName
 argument_list|,

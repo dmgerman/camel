@@ -124,6 +124,13 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+DECL|method|property ()
+name|String
+name|property
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 DECL|method|context ()
 name|String
 name|context

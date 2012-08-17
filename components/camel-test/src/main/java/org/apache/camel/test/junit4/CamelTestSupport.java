@@ -1576,6 +1576,19 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|processor
+operator|.
+name|postProcessAfterInitialization
+argument_list|(
+name|this
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|stopCamelContext ()
 specifier|protected
