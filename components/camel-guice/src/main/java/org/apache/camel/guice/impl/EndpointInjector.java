@@ -216,6 +216,14 @@ operator|.
 name|ref
 argument_list|()
 decl_stmt|;
+name|String
+name|property
+init|=
+name|inject
+operator|.
+name|property
+argument_list|()
+decl_stmt|;
 return|return
 name|getInjectionValue
 argument_list|(
@@ -224,6 +232,8 @@ argument_list|,
 name|uri
 argument_list|,
 name|endpointRef
+argument_list|,
+name|property
 argument_list|,
 name|injectionPointName
 argument_list|,
@@ -309,6 +319,14 @@ operator|.
 name|uri
 argument_list|()
 decl_stmt|;
+name|String
+name|property
+init|=
+name|inject
+operator|.
+name|property
+argument_list|()
+decl_stmt|;
 return|return
 name|getInjectionValue
 argument_list|(
@@ -317,6 +335,8 @@ argument_list|,
 name|uri
 argument_list|,
 name|endpointRef
+argument_list|,
+name|property
 argument_list|,
 name|injectionPointName
 argument_list|,
