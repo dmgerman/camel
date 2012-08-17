@@ -2030,7 +2030,7 @@ try|try
 block|{
 name|IOHelper
 operator|.
-name|copy
+name|copyAndCloseInput
 argument_list|(
 name|bundle
 operator|.
