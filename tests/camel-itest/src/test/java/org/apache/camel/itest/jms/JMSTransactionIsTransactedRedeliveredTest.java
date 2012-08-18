@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -81,22 +69,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|properties
-operator|.
-name|PropertiesComponent
 import|;
 end_import
 
@@ -225,41 +197,6 @@ literal|true
 return|;
 block|}
 annotation|@
-name|Override
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// as we make use of placeholders for the Jetty port we should add PropertiesComponent beforehand
-comment|// so that the port can properly be resolved
-name|CamelContext
-name|context
-init|=
-name|super
-operator|.
-name|createCamelContext
-argument_list|()
-decl_stmt|;
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-operator|new
-name|PropertiesComponent
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|context
-return|;
-block|}
-annotation|@
 name|Test
 DECL|method|testTransactionSuccess ()
 specifier|public
@@ -269,6 +206,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|context
 operator|.
 name|getRouteDefinitions
@@ -313,11 +255,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|start
-argument_list|()
 expr_stmt|;
 comment|// there should be no assertion errors
 name|MockEndpoint
