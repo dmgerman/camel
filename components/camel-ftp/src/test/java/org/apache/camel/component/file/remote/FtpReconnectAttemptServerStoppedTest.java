@@ -179,6 +179,14 @@ operator|.
 name|resume
 argument_list|()
 expr_stmt|;
+comment|// wait a bit so that the server resumes properly
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
