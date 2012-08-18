@@ -112,6 +112,20 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 annotation|@
 name|XmlAccessorType
@@ -184,30 +198,16 @@ name|afterPropertiesSet
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
-DECL|method|destroy ()
-specifier|public
-name|void
-name|destroy
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
 block|{
+comment|// Always try to resolved the camel context by using the camelContextId
 if|if
 condition|(
-name|camelContext
-operator|==
-literal|null
-operator|&&
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|camelContextId
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|camelContext
@@ -248,6 +248,21 @@ name|discoverDefaultCamelContext
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|destroy ()
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
 return|return
 name|camelContext
 return|;
