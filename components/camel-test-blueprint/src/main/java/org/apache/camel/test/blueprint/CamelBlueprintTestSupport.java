@@ -277,7 +277,7 @@ name|bundleContext
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Return the system bundle context      * @return      */
+comment|/**      * Return the system bundle context      */
 DECL|method|getBundleContext ()
 specifier|protected
 name|BundleContext
