@@ -208,11 +208,6 @@ name|Exception
 block|{
 name|context
 operator|.
-name|start
-argument_list|()
-expr_stmt|;
-name|context
-operator|.
 name|getRouteDefinitions
 argument_list|()
 operator|.
@@ -255,6 +250,11 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 comment|// there should be no assertion errors
 name|MockEndpoint
