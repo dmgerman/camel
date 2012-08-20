@@ -160,29 +160,26 @@ name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
 block|{
-comment|// create the properties component
+comment|// configure the properties component
 name|PropertiesComponent
 name|pc
 init|=
-operator|new
+name|context
+operator|.
+name|getComponent
+argument_list|(
+literal|"properties"
+argument_list|,
 name|PropertiesComponent
-argument_list|()
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|pc
 operator|.
 name|setLocation
 argument_list|(
 literal|"classpath:org/apache/camel/itest/osgi/core/properties/myproperties.properties"
-argument_list|)
-expr_stmt|;
-comment|// add properties component to camel context
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|pc
 argument_list|)
 expr_stmt|;
 return|return
