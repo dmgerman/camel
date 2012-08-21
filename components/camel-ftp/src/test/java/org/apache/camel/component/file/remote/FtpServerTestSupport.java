@@ -385,7 +385,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"SunX509 is not avail on this platform [{0}] Testing is skipped! Real cause: {1}"
+literal|"SunX509 is not avail on this platform [{}] Testing is skipped! Real cause: {}"
 argument_list|,
 name|name
 argument_list|,
