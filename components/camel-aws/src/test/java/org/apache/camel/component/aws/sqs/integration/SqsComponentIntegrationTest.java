@@ -597,7 +597,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"aws-sqs://MyNewCamelQueue?accessKey=%s&secretKey=%s&messageRetentionPeriod=%s&maximumMessageSize=%s&policy=%s"
+literal|"aws-sqs://MyNewCamelQueue?accessKey=%s&secretKey=%s&messageRetentionPeriod=%s&maximumMessageSize=%s&visibilityTimeout=%s&policy=%s"
 argument_list|,
 name|accessKey
 argument_list|,
@@ -606,6 +606,8 @@ argument_list|,
 literal|"1209600"
 argument_list|,
 literal|"65536"
+argument_list|,
+literal|"60"
 argument_list|,
 literal|"%7B%22Version%22%3A%222008-10-17%22%2C%22Id%22%3A%22%2F195004372649%2FMyNewCamelQueue%2FSQSDefaultPolicy%22%2C%22"
 operator|+
