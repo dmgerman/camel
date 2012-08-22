@@ -576,6 +576,11 @@ specifier|protected
 name|Expression
 name|preMove
 decl_stmt|;
+DECL|field|moveExisting
+specifier|protected
+name|Expression
+name|moveExisting
+decl_stmt|;
 DECL|field|idempotent
 specifier|protected
 name|Boolean
@@ -1727,6 +1732,60 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getMoveExisting ()
+specifier|public
+name|Expression
+name|getMoveExisting
+parameter_list|()
+block|{
+return|return
+name|moveExisting
+return|;
+block|}
+DECL|method|setMoveExisting (Expression moveExisting)
+specifier|public
+name|void
+name|setMoveExisting
+parameter_list|(
+name|Expression
+name|moveExisting
+parameter_list|)
+block|{
+name|this
+operator|.
+name|moveExisting
+operator|=
+name|moveExisting
+expr_stmt|;
+block|}
+comment|/**      * Sets the move existing expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
+DECL|method|setMoveExisting (String fileLanguageExpression)
+specifier|public
+name|void
+name|setMoveExisting
+parameter_list|(
+name|String
+name|fileLanguageExpression
+parameter_list|)
+block|{
+name|String
+name|expression
+init|=
+name|configureMoveOrPreMoveExpression
+argument_list|(
+name|fileLanguageExpression
+argument_list|)
+decl_stmt|;
+name|this
+operator|.
+name|moveExisting
+operator|=
+name|createFileLanguageExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getFileName ()
 specifier|public
 name|Expression
@@ -2851,7 +2910,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Set up the exchange properties with the options of the file endpoint      *      * @param exchange      */
+comment|/**      * Set up the exchange properties with the options of the file endpoint      */
 DECL|method|configureExchange (Exchange exchange)
 specifier|public
 name|void
@@ -2884,7 +2943,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy to configure the move or premove option based on a String input.      *<p/>      *      * @param expression the original string input      * @return configured string or the original if no modifications is needed      */
+comment|/**      * Strategy to configure the move, preMove, or moveExisting option based on a String input.      *      * @param expression the original string input      * @return configured string or the original if no modifications is needed      */
 DECL|method|configureMoveOrPreMoveExpression (String expression)
 specifier|protected
 name|String

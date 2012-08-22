@@ -32,6 +32,7 @@ DECL|enumConstant|Override
 DECL|enumConstant|Append
 DECL|enumConstant|Fail
 DECL|enumConstant|Ignore
+DECL|enumConstant|Move
 name|Override
 block|,
 name|Append
@@ -39,6 +40,8 @@ block|,
 name|Fail
 block|,
 name|Ignore
+block|,
+name|Move
 block|}
 end_enum
 
