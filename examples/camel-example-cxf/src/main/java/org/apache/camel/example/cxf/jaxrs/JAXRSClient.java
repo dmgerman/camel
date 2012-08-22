@@ -151,7 +151,16 @@ name|JAXRSClientFactory
 operator|.
 name|create
 argument_list|(
-literal|"http://localhost:9002/rest"
+literal|"http://localhost:"
+operator|+
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"restEndpointPort"
+argument_list|)
+operator|+
+literal|"/rest"
 argument_list|,
 name|BookStore
 operator|.

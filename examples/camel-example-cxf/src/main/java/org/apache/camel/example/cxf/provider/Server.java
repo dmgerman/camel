@@ -66,6 +66,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Set a system property used to configure the server.  The example runs on port 9000;
+comment|// however, the unit tests must run on a dynamic port.  As such, we make the port configurable
+comment|// in the Spring context.
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"port"
+argument_list|,
+literal|"9000"
+argument_list|)
+expr_stmt|;
 comment|// Setup the Camel context using Spring
 name|applicationContext
 operator|=

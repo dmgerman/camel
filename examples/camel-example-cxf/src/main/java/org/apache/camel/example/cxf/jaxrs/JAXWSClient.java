@@ -91,7 +91,16 @@ name|cfb
 operator|.
 name|setAddress
 argument_list|(
-literal|"http://localhost:9006/soap"
+literal|"http://localhost:"
+operator|+
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"soapEndpointPort"
+argument_list|)
+operator|+
+literal|"/soap"
 argument_list|)
 expr_stmt|;
 name|bookStore

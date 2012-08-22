@@ -94,6 +94,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Set a system property used to configure the server.  The examples all run on port 9091;
+comment|// however, the unit tests must run on a dynamic port.  As such, we make the port configurable
+comment|// in the Spring context.
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"port"
+argument_list|,
+literal|"9001"
+argument_list|)
+expr_stmt|;
 comment|// setup the Camel context for the Camel transport
 comment|// START SNIPPET: e1
 name|SpringBusFactory

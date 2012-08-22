@@ -54,9 +54,39 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
 import|;
 end_import
 
@@ -78,7 +108,7 @@ specifier|final
 name|String
 name|ROUTER_ADDRESS
 init|=
-literal|"http://localhost:9001/SoapContext/SoapPort"
+literal|"http://localhost:{{routerPort}}/SoapContext/SoapPort"
 decl_stmt|;
 DECL|field|SERVICE_ADDRESS
 specifier|private
@@ -87,7 +117,7 @@ specifier|final
 name|String
 name|SERVICE_ADDRESS
 init|=
-literal|"http://localhost:9003/SoapContext/SoapPort"
+literal|"http://localhost:{{servicePort}}/SoapContext/SoapPort"
 decl_stmt|;
 DECL|field|SERVICE_CLASS
 specifier|private
@@ -215,6 +245,41 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Set system properties for use with Camel property placeholders for running the example tests.
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"routerPort"
+argument_list|,
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"servicePort"
+argument_list|,
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// Here we just pass the exception back, don't need to use errorHandler
 name|errorHandler
 argument_list|(
@@ -247,6 +312,25 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Set system properties for use with Camel property placeholders for running the examples.
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"routerPort"
+argument_list|,
+literal|"9001"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"servicePort"
+argument_list|,
+literal|"9003"
+argument_list|)
+expr_stmt|;
 comment|// START SNIPPET: e1
 name|CamelContext
 name|context
@@ -256,6 +340,22 @@ name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
 comment|// END SNIPPET: e1
+name|PropertiesComponent
+name|pc
+init|=
+operator|new
+name|PropertiesComponent
+argument_list|()
+decl_stmt|;
+name|context
+operator|.
+name|addComponent
+argument_list|(
+literal|"properties"
+argument_list|,
+name|pc
+argument_list|)
+expr_stmt|;
 comment|// Set up the JMS broker and the CXF SOAP over JMS server
 comment|// START SNIPPET: e2
 name|JmsBroker
@@ -322,6 +422,23 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e3
+name|String
+name|address
+init|=
+name|ROUTER_ADDRESS
+operator|.
+name|replace
+argument_list|(
+literal|"{{routerPort}}"
+argument_list|,
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"routerPort"
+argument_list|)
+argument_list|)
+decl_stmt|;
 comment|// Starting the routing context
 comment|// Using the CXF Client to kick off the invocations
 comment|// START SNIPPET: e4
@@ -336,7 +453,7 @@ init|=
 operator|new
 name|Client
 argument_list|(
-name|ROUTER_ADDRESS
+name|address
 operator|+
 literal|"?wsdl"
 argument_list|)

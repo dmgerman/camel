@@ -233,7 +233,7 @@ init|=
 operator|new
 name|Client
 argument_list|(
-literal|"http://localhost:9091/GreeterContext/GreeterPort"
+literal|"http://localhost:9001/GreeterContext/GreeterPort"
 argument_list|)
 decl_stmt|;
 comment|// invoking the services
