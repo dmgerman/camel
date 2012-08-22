@@ -273,6 +273,30 @@ operator|.
 name|POLLING
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|shutdown ()
+specifier|public
+name|void
+name|shutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|properties
+operator|.
+name|getTwitter
+argument_list|()
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -46,6 +46,14 @@ name|FilterQuery
 import|;
 end_import
 
+begin_import
+import|import
+name|twitter4j
+operator|.
+name|TwitterException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Consumes the filter stream  */
 end_comment
@@ -71,6 +79,13 @@ argument_list|(
 name|te
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|startStreaming ()
+specifier|protected
+name|void
+name|startStreaming
+parameter_list|()
+block|{
 name|twitterStream
 operator|.
 name|filter

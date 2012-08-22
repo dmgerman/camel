@@ -63,6 +63,13 @@ argument_list|(
 name|te
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|startStreaming ()
+specifier|protected
+name|void
+name|startStreaming
+parameter_list|()
+block|{
 name|twitterStream
 operator|.
 name|sample

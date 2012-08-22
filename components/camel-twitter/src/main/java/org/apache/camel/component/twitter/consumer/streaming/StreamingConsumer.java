@@ -151,6 +151,7 @@ end_comment
 begin_class
 DECL|class|StreamingConsumer
 specifier|public
+specifier|abstract
 class|class
 name|StreamingConsumer
 extends|extends
@@ -211,7 +212,7 @@ operator|.
 name|getProperties
 argument_list|()
 operator|.
-name|getTwitterStream
+name|createTwitterStream
 argument_list|()
 expr_stmt|;
 name|twitterStream
@@ -406,6 +407,35 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+DECL|method|doStart ()
+specifier|public
+name|void
+name|doStart
+parameter_list|()
+block|{
+name|startStreaming
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|doStop ()
+specifier|public
+name|void
+name|doStop
+parameter_list|()
+block|{
+name|twitterStream
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|startStreaming ()
+specifier|protected
+specifier|abstract
+name|void
+name|startStreaming
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
