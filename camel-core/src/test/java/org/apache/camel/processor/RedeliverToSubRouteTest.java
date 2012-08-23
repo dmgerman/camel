@@ -228,15 +228,32 @@ operator|.
 name|process
 argument_list|(
 operator|new
-name|Processor
+name|MyProcessor
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// END SNIPPET: e1
+block|}
+block|}
+return|;
+block|}
+comment|// START SNIPPET: e2
+DECL|class|MyProcessor
+specifier|public
+specifier|static
+class|class
+name|MyProcessor
+implements|implements
+name|Processor
 block|{
+DECL|field|counter
 specifier|private
 name|int
 name|counter
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -276,13 +293,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: e1
-block|}
-block|}
-return|;
-block|}
+comment|// END SNIPPET: e2
 block|}
 end_class
 
