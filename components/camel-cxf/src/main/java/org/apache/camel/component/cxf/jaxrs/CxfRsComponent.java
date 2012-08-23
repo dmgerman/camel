@@ -391,6 +391,7 @@ name|copy
 argument_list|)
 expr_stmt|;
 block|}
+comment|// setup the skipFaultLogging
 block|}
 else|else
 block|{
