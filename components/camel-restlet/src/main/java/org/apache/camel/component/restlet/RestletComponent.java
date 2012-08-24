@@ -473,6 +473,12 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// set the endpoint uri according to the parameter
+name|result
+operator|.
+name|updateEndpointUri
+argument_list|()
+expr_stmt|;
 comment|// construct URI so we can use it to get the splitted information
 name|URI
 name|u
