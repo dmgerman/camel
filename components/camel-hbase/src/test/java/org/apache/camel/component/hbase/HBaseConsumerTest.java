@@ -465,11 +465,11 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|PUT
 argument_list|)

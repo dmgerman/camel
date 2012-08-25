@@ -478,12 +478,6 @@ block|{
 name|HTableInterface
 name|table
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|table
-operator|=
 name|tablePool
 operator|.
 name|getTable
@@ -493,7 +487,9 @@ operator|.
 name|getBytes
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+try|try
+block|{
 name|updateHeaders
 argument_list|(
 name|exchange
@@ -512,7 +508,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|OPERATION
 argument_list|)
@@ -618,7 +614,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|PUT
 operator|.
@@ -642,7 +638,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|GET
 operator|.
@@ -673,7 +669,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|DELETE
 operator|.
@@ -697,7 +693,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|SCAN
 operator|.
@@ -1844,7 +1840,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|HBASE_MAX_SCAN_RESULTS
 argument_list|)
@@ -1859,7 +1855,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|HBASE_MAX_SCAN_RESULTS
 argument_list|,
@@ -1970,7 +1966,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|OPERATION
 argument_list|)
@@ -1985,7 +1981,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|OPERATION
 argument_list|,
@@ -2013,7 +2009,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|OPERATION
 argument_list|)
@@ -2028,11 +2024,11 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|PUT
 argument_list|)

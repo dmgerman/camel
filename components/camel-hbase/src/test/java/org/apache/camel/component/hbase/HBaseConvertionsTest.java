@@ -583,11 +583,11 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|OPERATION
 argument_list|,
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|PUT
 argument_list|)
@@ -898,7 +898,7 @@ name|DEFAULTTABLE
 operator|+
 literal|"?operation="
 operator|+
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|SCAN
 operator|+

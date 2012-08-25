@@ -567,7 +567,7 @@ name|DEFAULTTABLE
 operator|+
 literal|"?operation="
 operator|+
-name|HBaseContats
+name|HBaseConstants
 operator|.
 name|SCAN
 operator|+
