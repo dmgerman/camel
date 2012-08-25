@@ -1312,6 +1312,12 @@ name|StringWriter
 argument_list|()
 decl_stmt|;
 name|SequenceIterator
+argument_list|<
+name|Item
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|iter
 init|=
 name|getExpression
@@ -1328,6 +1334,9 @@ decl_stmt|;
 for|for
 control|(
 name|Item
+argument_list|<
+name|?
+argument_list|>
 name|item
 init|=
 name|iter
@@ -2347,6 +2356,9 @@ name|getIn
 argument_list|()
 decl_stmt|;
 name|Item
+argument_list|<
+name|?
+argument_list|>
 name|item
 init|=
 name|in
