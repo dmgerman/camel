@@ -706,6 +706,10 @@ operator|.
 name|startsWith
 argument_list|(
 name|endpointNormalized
+operator|+
+name|File
+operator|.
+name|separator
 argument_list|)
 condition|)
 block|{
