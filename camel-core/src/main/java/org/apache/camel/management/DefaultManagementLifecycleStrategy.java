@@ -4329,32 +4329,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// we are disabled either if configured explicit, or if level is off
 name|boolean
-name|enabled
+name|disabled
 init|=
 name|camelContext
 operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|getStatisticsLevel
+name|isLoadStatisticsEnabled
 argument_list|()
-operator|!=
-name|ManagementStatisticsLevel
-operator|.
-name|Off
-decl_stmt|;
-if|if
-condition|(
-name|enabled
-condition|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"StatisticsLevel at {} so enabling load performance statistics"
-argument_list|,
+operator|==
+literal|false
+operator|||
 name|camelContext
 operator|.
 name|getManagementStrategy
@@ -4362,9 +4350,26 @@ argument_list|()
 operator|.
 name|getStatisticsLevel
 argument_list|()
+operator|==
+name|ManagementStatisticsLevel
+operator|.
+name|Off
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|disabled
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Load performance statistics enabled."
 argument_list|)
 expr_stmt|;
 comment|// we have to defer creating this until CamelContext has been started
+comment|// (the thread pool will be shutdown automatic by CamelContext when its stopped)
 name|ScheduledExecutorService
 name|executorService
 init|=

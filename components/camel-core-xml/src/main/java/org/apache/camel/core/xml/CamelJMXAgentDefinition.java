@@ -296,6 +296,19 @@ name|ManagementStatisticsLevel
 operator|.
 name|All
 decl_stmt|;
+comment|/**      * A flag that indicates whether Load statistics is enabled      */
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|loadStatisticsEnabled
+specifier|private
+name|String
+name|loadStatisticsEnabled
+decl_stmt|;
 DECL|method|getDisabled ()
 specifier|public
 name|String
@@ -608,6 +621,32 @@ operator|=
 name|registerNewRoutes
 expr_stmt|;
 block|}
+DECL|method|getLoadStatisticsEnabled ()
+specifier|public
+name|String
+name|getLoadStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|loadStatisticsEnabled
+return|;
+block|}
+DECL|method|setLoadStatisticsEnabled (String loadStatisticsEnabled)
+specifier|public
+name|void
+name|setLoadStatisticsEnabled
+parameter_list|(
+name|String
+name|loadStatisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadStatisticsEnabled
+operator|=
+name|loadStatisticsEnabled
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -779,6 +818,26 @@ operator|.
 name|append
 argument_list|(
 name|statisticsLevel
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|loadStatisticsEnabled
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", loadStatisticsEnabled="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|loadStatisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}

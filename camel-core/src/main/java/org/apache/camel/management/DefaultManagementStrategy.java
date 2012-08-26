@@ -309,6 +309,13 @@ name|ManagementStatisticsLevel
 operator|.
 name|All
 decl_stmt|;
+DECL|field|loadStatisticsEnabled
+specifier|private
+name|boolean
+name|loadStatisticsEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -801,6 +808,32 @@ block|{
 return|return
 name|statisticsLevel
 return|;
+block|}
+DECL|method|isLoadStatisticsEnabled ()
+specifier|public
+name|boolean
+name|isLoadStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|loadStatisticsEnabled
+return|;
+block|}
+DECL|method|setLoadStatisticsEnabled (boolean loadStatisticsEnabled)
+specifier|public
+name|void
+name|setLoadStatisticsEnabled
+parameter_list|(
+name|boolean
+name|loadStatisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loadStatisticsEnabled
+operator|=
+name|loadStatisticsEnabled
+expr_stmt|;
 block|}
 DECL|method|start ()
 specifier|public

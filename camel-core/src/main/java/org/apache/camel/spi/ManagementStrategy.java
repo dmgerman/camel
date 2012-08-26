@@ -305,6 +305,21 @@ name|boolean
 name|isOnlyManageProcessorWithCustomId
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether load statistics is enabled.      *      * @param flag<tt>true</tt> to enable load statistics      */
+DECL|method|setLoadStatisticsEnabled (boolean flag)
+name|void
+name|setLoadStatisticsEnabled
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+function_decl|;
+comment|/**      * Gets whether load statistics is enabled      *      * @return<tt>true</tt> if enabled      */
+DECL|method|isLoadStatisticsEnabled ()
+name|boolean
+name|isLoadStatisticsEnabled
+parameter_list|()
+function_decl|;
 comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#All}      *      * @param level the new level      */
 DECL|method|setStatisticsLevel (ManagementStatisticsLevel level)
 name|void
