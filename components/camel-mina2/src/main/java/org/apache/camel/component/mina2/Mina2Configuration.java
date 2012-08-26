@@ -262,6 +262,13 @@ init|=
 literal|16
 decl_stmt|;
 comment|// 16 is the default mina setting
+DECL|field|orderedThreadPoolExecutor
+specifier|private
+name|boolean
+name|orderedThreadPoolExecutor
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -937,6 +944,32 @@ operator|.
 name|maximumPoolSize
 operator|=
 name|maximumPoolSize
+expr_stmt|;
+block|}
+DECL|method|isOrderedThreadPoolExecutor ()
+specifier|public
+name|boolean
+name|isOrderedThreadPoolExecutor
+parameter_list|()
+block|{
+return|return
+name|orderedThreadPoolExecutor
+return|;
+block|}
+DECL|method|setOrderedThreadPoolExecutor (boolean orderedThreadPoolExecutor)
+specifier|public
+name|void
+name|setOrderedThreadPoolExecutor
+parameter_list|(
+name|boolean
+name|orderedThreadPoolExecutor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|orderedThreadPoolExecutor
+operator|=
+name|orderedThreadPoolExecutor
 expr_stmt|;
 block|}
 block|}
