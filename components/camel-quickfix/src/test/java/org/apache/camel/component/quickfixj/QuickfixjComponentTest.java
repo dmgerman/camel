@@ -122,6 +122,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -576,6 +588,11 @@ specifier|private
 name|QuickfixjComponent
 name|component
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|engineMessageFactory
 specifier|private
 name|MessageFactory
@@ -870,13 +887,12 @@ name|MalformedURLException
 throws|,
 name|NoSuchMethodException
 block|{
-name|DefaultCamelContext
 name|camelContext
-init|=
+operator|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|component
 operator|=
 operator|new
@@ -888,6 +904,15 @@ operator|.
 name|setCamelContext
 argument_list|(
 name|camelContext
+argument_list|)
+expr_stmt|;
+name|camelContext
+operator|.
+name|addComponent
+argument_list|(
+literal|"quickfix"
+argument_list|,
+name|component
 argument_list|)
 expr_stmt|;
 if|if
@@ -1029,6 +1054,19 @@ literal|null
 condition|)
 block|{
 name|component
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|camelContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|camelContext
 operator|.
 name|stop
 argument_list|()
@@ -1280,7 +1318,8 @@ name|sessionID
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|component
+comment|// will start the component
+name|camelContext
 operator|.
 name|start
 argument_list|()
@@ -1389,7 +1428,8 @@ expr_stmt|;
 name|writeSettings
 argument_list|()
 expr_stmt|;
-name|component
+comment|// will start the component
+name|camelContext
 operator|.
 name|start
 argument_list|()
@@ -1752,7 +1792,8 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|component
+comment|// will start the component
+name|camelContext
 operator|.
 name|start
 argument_list|()
@@ -2108,7 +2149,8 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|component
+comment|// will start the component
+name|camelContext
 operator|.
 name|start
 argument_list|()

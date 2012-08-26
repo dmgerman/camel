@@ -108,6 +108,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -419,6 +433,8 @@ DECL|class|QuickfixjEngine
 specifier|public
 class|class
 name|QuickfixjEngine
+extends|extends
+name|ServiceSupport
 block|{
 DECL|field|DEFAULT_START_TIME
 specifier|public
@@ -532,11 +548,6 @@ init|=
 operator|new
 name|MessageCorrelator
 argument_list|()
-decl_stmt|;
-DECL|field|started
-specifier|private
-name|boolean
-name|started
 decl_stmt|;
 DECL|field|eventListeners
 specifier|private
@@ -1081,10 +1092,12 @@ name|inputStream
 argument_list|)
 return|;
 block|}
-DECL|method|start ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -1145,33 +1158,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|started
-operator|=
-literal|true
-expr_stmt|;
 block|}
-DECL|method|stop ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
 name|void
-name|stop
+name|doStop
 parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|stop
-argument_list|(
-name|forcedShutdown
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|stop (boolean force)
-specifier|public
-name|void
-name|stop
-parameter_list|(
-name|boolean
-name|force
-parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1201,20 +1195,23 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-name|started
-operator|=
-literal|false
-expr_stmt|;
 block|}
-DECL|method|isStarted ()
-specifier|public
-name|boolean
-name|isStarted
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-return|return
-name|started
-return|;
+comment|// also clear event listeners
+name|eventListeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createInitiator (Application application, SessionSettings settings, MessageStoreFactory messageStoreFactory, LogFactory sessionLogFactory, MessageFactory messageFactory, ThreadModel threadModel)
 specifier|private
