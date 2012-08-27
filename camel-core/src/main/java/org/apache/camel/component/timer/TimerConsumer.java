@@ -363,8 +363,20 @@ name|boolean
 name|isTaskRunAllowed
 parameter_list|()
 block|{
-comment|// only allow running the timer task if we can run and are not suspended
+comment|// only allow running the timer task if we can run and are not suspended,
+comment|// and CamelContext must have been fully started
 return|return
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+operator|&&
 name|isRunAllowed
 argument_list|()
 operator|&&
@@ -671,7 +683,22 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// log exception if an exception occurred and was not handled
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// handle any thrown exception
 if|if
 condition|(
 name|exchange
@@ -681,29 +708,6 @@ argument_list|()
 operator|!=
 literal|null
 condition|)
-block|{
-name|getExceptionHandler
-argument_list|()
-operator|.
-name|handleException
-argument_list|(
-literal|"Error processing exchange"
-argument_list|,
-name|exchange
-argument_list|,
-name|exchange
-operator|.
-name|getException
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
 block|{
 name|getExceptionHandler
 argument_list|()
