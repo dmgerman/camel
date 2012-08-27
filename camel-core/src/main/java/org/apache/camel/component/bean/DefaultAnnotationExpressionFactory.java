@@ -221,32 +221,14 @@ name|Annotation
 name|annotation
 parameter_list|)
 block|{
-comment|// let's try the 'value()' method
-try|try
-block|{
-name|Method
-name|method
-init|=
-name|annotation
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getMethod
-argument_list|(
-literal|"value"
-argument_list|)
-decl_stmt|;
 name|Object
 name|value
 init|=
-name|ObjectHelper
-operator|.
-name|invokeMethod
+name|getAnnotationObjectValue
 argument_list|(
-name|method
-argument_list|,
 name|annotation
+argument_list|,
+literal|"value"
 argument_list|)
 decl_stmt|;
 if|if
@@ -273,6 +255,50 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/**      * @param annotation The annotation to get the value of       * @param methodName The annotation name       * @return The value of the annotation      */
+DECL|method|getAnnotationObjectValue (Annotation annotation, String methodName)
+specifier|protected
+name|Object
+name|getAnnotationObjectValue
+parameter_list|(
+name|Annotation
+name|annotation
+parameter_list|,
+name|String
+name|methodName
+parameter_list|)
+block|{
+try|try
+block|{
+name|Method
+name|method
+init|=
+name|annotation
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getMethod
+argument_list|(
+name|methodName
+argument_list|)
+decl_stmt|;
+name|Object
+name|value
+init|=
+name|ObjectHelper
+operator|.
+name|invokeMethod
+argument_list|(
+name|method
+argument_list|,
+name|annotation
+argument_list|)
+decl_stmt|;
+return|return
+name|value
+return|;
+block|}
 catch|catch
 parameter_list|(
 name|NoSuchMethodException
@@ -283,11 +309,17 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot determine the expression of the annotation: "
+literal|"Cannot determine the Object value of the annotation: "
 operator|+
 name|annotation
 operator|+
-literal|" as it does not have a value() method"
+literal|" as it does not have the method: "
+operator|+
+name|methodName
+operator|+
+literal|"() method"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}

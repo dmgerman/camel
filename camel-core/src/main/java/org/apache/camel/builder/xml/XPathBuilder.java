@@ -845,6 +845,13 @@ specifier|private
 name|XPathFunction
 name|simpleFunction
 decl_stmt|;
+comment|/**      * The name of the header we want to apply the XPath expression to, which when set will cause      * the xpath to be evaluated on the required header, otherwise it will be applied to the body      */
+DECL|field|headerName
+specifier|private
+name|String
+name|headerName
+decl_stmt|;
+comment|/**      * @param text The XPath expression      */
 DECL|method|XPathBuilder (String text)
 specifier|public
 name|XPathBuilder
@@ -860,6 +867,7 @@ operator|=
 name|text
 expr_stmt|;
 block|}
+comment|/**      * @param text The XPath expression      * @return A new XPathBuilder object      */
 DECL|method|xpath (String text)
 specifier|public
 specifier|static
@@ -878,6 +886,7 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * @param text The XPath expression      * @param resultType The result type that the XPath expression will return.      * @return A new XPathBuilder object      */
 DECL|method|xpath (String text, Class<?> resultType)
 specifier|public
 specifier|static
@@ -1698,6 +1707,32 @@ operator|.
 name|resultQName
 operator|=
 name|resultQName
+expr_stmt|;
+block|}
+DECL|method|getHeaderName ()
+specifier|public
+name|String
+name|getHeaderName
+parameter_list|()
+block|{
+return|return
+name|headerName
+return|;
+block|}
+DECL|method|setHeaderName (String headerName)
+specifier|public
+name|void
+name|setHeaderName
+parameter_list|(
+name|String
+name|headerName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerName
+operator|=
+name|headerName
 expr_stmt|;
 block|}
 DECL|method|getNamespaceContext ()
@@ -3393,6 +3428,90 @@ block|{
 name|Object
 name|document
 decl_stmt|;
+comment|// Check if we need to apply the XPath expression to a header
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|getHeaderName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|String
+name|headerName
+init|=
+name|getHeaderName
+argument_list|()
+decl_stmt|;
+comment|// only convert to input stream if really needed
+if|if
+condition|(
+name|isInputStreamNeeded
+argument_list|(
+name|exchange
+argument_list|,
+name|headerName
+argument_list|)
+condition|)
+block|{
+name|is
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|,
+name|InputStream
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|document
+operator|=
+name|getDocument
+argument_list|(
+name|exchange
+argument_list|,
+name|is
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|Object
+name|headerObject
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|getHeaderName
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|document
+operator|=
+name|getDocument
+argument_list|(
+name|exchange
+argument_list|,
+name|headerObject
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 comment|// only convert to input stream if really needed
 if|if
 condition|(
@@ -3448,6 +3567,7 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -4204,9 +4324,66 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
+return|return
+name|isInputStreamNeededForObject
+argument_list|(
+name|exchange
+argument_list|,
+name|body
+argument_list|)
+return|;
+block|}
+comment|/**      * Checks whether we need an {@link InputStream} to access the message header.      *<p/>      * Depending on the content in the message header, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting afterwards.      */
+DECL|method|isInputStreamNeeded (Exchange exchange, String headerName)
+specifier|protected
+name|boolean
+name|isInputStreamNeeded
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+name|Object
+name|header
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
+decl_stmt|;
+return|return
+name|isInputStreamNeededForObject
+argument_list|(
+name|exchange
+argument_list|,
+name|header
+argument_list|)
+return|;
+block|}
+comment|/**      * Checks whether we need an {@link InputStream} to access this object      *<p/>      * Depending on the content in the object, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting afterwards.      */
+DECL|method|isInputStreamNeededForObject (Exchange exchange, Object obj)
+specifier|protected
+name|boolean
+name|isInputStreamNeededForObject
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|obj
+parameter_list|)
+block|{
 if|if
 condition|(
-name|body
+name|obj
 operator|==
 literal|null
 condition|)
@@ -4217,12 +4394,12 @@ return|;
 block|}
 if|if
 condition|(
-name|body
+name|obj
 operator|instanceof
 name|WrappedFile
 condition|)
 block|{
-name|body
+name|obj
 operator|=
 operator|(
 operator|(
@@ -4231,7 +4408,7 @@ argument_list|<
 name|?
 argument_list|>
 operator|)
-name|body
+name|obj
 operator|)
 operator|.
 name|getFile
@@ -4240,7 +4417,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|body
+name|obj
 operator|instanceof
 name|File
 condition|)

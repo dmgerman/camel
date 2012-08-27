@@ -141,6 +141,7 @@ specifier|public
 annotation_defn|@interface
 name|XPath
 block|{
+comment|/**      * @return The XPath which will be applied      */
 DECL|method|value ()
 name|String
 name|value
@@ -188,6 +189,14 @@ default|default
 name|Object
 operator|.
 name|class
+function_decl|;
+comment|/**      * @return The name of the header we want to apply the XPath expression to.      * 			If this is empty then the XPath expression will be applied to the body instead.      */
+DECL|method|header ()
+name|String
+name|header
+parameter_list|()
+default|default
+literal|""
 function_decl|;
 block|}
 end_annotation_defn
