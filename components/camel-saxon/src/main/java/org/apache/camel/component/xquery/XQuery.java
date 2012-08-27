@@ -198,6 +198,14 @@ literal|"http://www.w3.org/2001/XMLSchema"
 argument_list|)
 block|}
 expr_stmt|;
+comment|/**      * @return The name of the header we want to apply the Xquery expression to.      *  If this is empty then the Xquery expression will be applied to the body instead.      */
+DECL|method|headerName ()
+name|String
+name|headerName
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 
