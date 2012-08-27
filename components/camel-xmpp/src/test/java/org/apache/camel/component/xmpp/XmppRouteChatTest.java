@@ -70,16 +70,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -121,8 +111,6 @@ init|=
 literal|"the second message"
 decl_stmt|;
 annotation|@
-name|Ignore
-annotation|@
 name|Test
 DECL|method|testXmppChat ()
 specifier|public
@@ -132,7 +120,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: requires online against jabber. Test this manually
 name|consumerEndpoint
 operator|=
 name|context
@@ -187,6 +174,13 @@ argument_list|,
 name|body1
 argument_list|)
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -203,6 +197,13 @@ argument_list|(
 literal|"direct:toProducer"
 argument_list|,
 name|body1
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|50
 argument_list|)
 expr_stmt|;
 name|template
@@ -300,7 +301,17 @@ name|getProducerUri
 parameter_list|()
 block|{
 return|return
-literal|"xmpp://jabber.org:5222/camel_consumer@jabber.org?user=camel_producer&password=secret&serviceName=jabber.org"
+literal|"xmpp://localhost:"
+operator|+
+name|EmbeddedXmppTestServer
+operator|.
+name|instance
+argument_list|()
+operator|.
+name|getXmppPort
+argument_list|()
+operator|+
+literal|"/camel_consumer@apache.camel?user=camel_producer&password=secret&serviceName=apache.camel"
 return|;
 block|}
 DECL|method|getConsumerUri ()
@@ -310,7 +321,17 @@ name|getConsumerUri
 parameter_list|()
 block|{
 return|return
-literal|"xmpp://jabber.org:5222/camel_producer@jabber.org?user=camel_consumer&password=secret&serviceName=jabber.org"
+literal|"xmpp://localhost:"
+operator|+
+name|EmbeddedXmppTestServer
+operator|.
+name|instance
+argument_list|()
+operator|.
+name|getXmppPort
+argument_list|()
+operator|+
+literal|"/camel_producer@apache.camel?user=camel_consumer&password=secret&serviceName=apache.camel"
 return|;
 block|}
 block|}

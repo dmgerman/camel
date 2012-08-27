@@ -90,16 +90,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -117,8 +107,6 @@ extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
-name|Ignore
-annotation|@
 name|Test
 DECL|method|testNoConcurrentProducers ()
 specifier|public
@@ -128,7 +116,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
 name|doSendMessages
 argument_list|(
 literal|1
@@ -137,8 +124,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
 annotation|@
 name|Test
 DECL|method|testConcurrentProducers ()
@@ -149,7 +134,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// a disabled test... before enabling you must fill in your own gmail credentials in the route below
 name|doSendMessages
 argument_list|(
 literal|10
@@ -301,7 +285,17 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xmpp://talk.google.com:5222/touser@gmail.com?serviceName=gmail.com&user=fromuser&password=secret"
+literal|"xmpp://localhost:"
+operator|+
+name|EmbeddedXmppTestServer
+operator|.
+name|instance
+argument_list|()
+operator|.
+name|getXmppPort
+argument_list|()
+operator|+
+literal|"?user=camel_consumer&password=secret&serviceName=apache.camel"
 argument_list|)
 operator|.
 name|to
