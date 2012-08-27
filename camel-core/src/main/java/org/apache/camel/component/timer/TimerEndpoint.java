@@ -198,6 +198,8 @@ DECL|field|delay
 specifier|private
 name|long
 name|delay
+init|=
+literal|1000
 decl_stmt|;
 DECL|field|fixedRate
 specifier|private
