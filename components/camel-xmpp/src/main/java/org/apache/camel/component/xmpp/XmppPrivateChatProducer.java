@@ -266,9 +266,24 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// make sure we are connected
 try|try
 block|{
-comment|// make sure we are connected
+if|if
+condition|(
+name|connection
+operator|==
+literal|null
+condition|)
+block|{
+name|connection
+operator|=
+name|endpoint
+operator|.
+name|createConnection
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -278,32 +293,9 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|LOG
+name|this
 operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Reconnecting to: {}"
-argument_list|,
-name|XmppEndpoint
-operator|.
-name|getConnectionMessage
-argument_list|(
-name|connection
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|connection
-operator|.
-name|connect
+name|reconnect
 argument_list|()
 expr_stmt|;
 block|}
@@ -316,18 +308,9 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeExchangeException
+name|RuntimeException
 argument_list|(
-literal|"Cannot connect to: "
-operator|+
-name|XmppEndpoint
-operator|.
-name|getConnectionMessage
-argument_list|(
-name|connection
-argument_list|)
-argument_list|,
-name|exchange
+literal|"Could not connect to XMPP server."
 argument_list|,
 name|e
 argument_list|)
@@ -457,7 +440,7 @@ throw|throw
 operator|new
 name|RuntimeExchangeException
 argument_list|(
-literal|"Cannot send XMPP message: to "
+literal|"Could not send XMPP message: to "
 operator|+
 name|endpoint
 operator|.
@@ -500,7 +483,7 @@ throw|throw
 operator|new
 name|RuntimeExchangeException
 argument_list|(
-literal|"Cannot send XMPP message to "
+literal|"Could not send XMPP message to "
 operator|+
 name|endpoint
 operator|.
@@ -669,6 +652,54 @@ return|return
 name|chat
 return|;
 block|}
+DECL|method|reconnect ()
+specifier|private
+specifier|synchronized
+name|void
+name|reconnect
+parameter_list|()
+throws|throws
+name|XMPPException
+block|{
+if|if
+condition|(
+operator|!
+name|connection
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Reconnecting to: {}"
+argument_list|,
+name|XmppEndpoint
+operator|.
+name|getConnectionMessage
+argument_list|(
+name|connection
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|connection
+operator|.
+name|connect
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -686,6 +717,8 @@ operator|==
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|connection
 operator|=
 name|endpoint
@@ -693,6 +726,54 @@ operator|.
 name|createConnection
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|XMPPException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isTestConnectionOnStartup
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Could not establish connection to XMPP server:  "
+operator|+
+name|endpoint
+operator|.
+name|getConnectionDescription
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not connect to XMPP server. {}  Producer will attempt lazy connection when needed."
+argument_list|,
+name|XmppEndpoint
+operator|.
+name|getXmppExceptionLogMessage
+argument_list|(
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 name|super
 operator|.

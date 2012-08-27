@@ -92,6 +92,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -198,7 +212,12 @@ name|debug
 argument_list|(
 literal|"Using cached endpoint for URI {}"
 argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -216,7 +235,12 @@ name|debug
 argument_list|(
 literal|"Creating new endpoint for URI {}"
 argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|XmppEndpoint
