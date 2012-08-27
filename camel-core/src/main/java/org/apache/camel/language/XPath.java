@@ -190,10 +190,10 @@ name|Object
 operator|.
 name|class
 function_decl|;
-comment|/**      * @return The name of the header we want to apply the XPath expression to.      * 			If this is empty then the XPath expression will be applied to the body instead.      */
-DECL|method|header ()
+comment|/**      * @return The name of the header we want to apply the XPath expression to.      *  If this is empty then the XPath expression will be applied to the body instead.      */
+DECL|method|headerName ()
 name|String
-name|header
+name|headerName
 parameter_list|()
 default|default
 literal|""

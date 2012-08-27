@@ -217,7 +217,7 @@ name|response
 decl_stmt|;
 annotation|@
 name|Handler
-DECL|method|handler (@PathR) String response, @XPath(header = R, value = R) String userName, @XPath(header = R, value = R, resultType = String.class) String date)
+DECL|method|handler (@PathR) String response, @XPath(headerName = R, value = R) String userName, @XPath(headerName = R, value = R, resultType = String.class) String date)
 specifier|public
 name|void
 name|handler
@@ -233,7 +233,7 @@ parameter_list|,
 annotation|@
 name|XPath
 argument_list|(
-name|header
+name|headerName
 operator|=
 literal|"invoiceDetails"
 argument_list|,
@@ -247,7 +247,7 @@ parameter_list|,
 annotation|@
 name|XPath
 argument_list|(
-name|header
+name|headerName
 operator|=
 literal|"invoiceDetails"
 argument_list|,
