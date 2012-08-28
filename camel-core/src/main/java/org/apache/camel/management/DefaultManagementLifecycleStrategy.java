@@ -4333,6 +4333,7 @@ comment|// we are disabled either if configured explicit, or if level is off
 name|boolean
 name|disabled
 init|=
+operator|!
 name|camelContext
 operator|.
 name|getManagementStrategy
@@ -4340,8 +4341,6 @@ argument_list|()
 operator|.
 name|isLoadStatisticsEnabled
 argument_list|()
-operator|==
-literal|false
 operator|||
 name|camelContext
 operator|.

@@ -74,12 +74,12 @@ name|RandomLoadBalancer
 extends|extends
 name|QueueLoadBalancer
 block|{
-DECL|field|random
+DECL|field|RANDOM
 specifier|private
 specifier|static
 specifier|final
 name|Random
-name|random
+name|RANDOM
 init|=
 operator|new
 name|Random
@@ -142,7 +142,7 @@ comment|// pick a random
 name|int
 name|index
 init|=
-name|random
+name|RANDOM
 operator|.
 name|nextInt
 argument_list|(
