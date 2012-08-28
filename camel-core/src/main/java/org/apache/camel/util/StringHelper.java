@@ -632,6 +632,22 @@ literal|"to cannot be null"
 argument_list|)
 throw|;
 block|}
+comment|// fast check if there is any from at all
+if|if
+condition|(
+operator|!
+name|input
+operator|.
+name|contains
+argument_list|(
+name|from
+argument_list|)
+condition|)
+block|{
+return|return
+name|input
+return|;
+block|}
 specifier|final
 name|int
 name|len
@@ -656,10 +672,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-name|input
-operator|.
-name|length
-argument_list|()
+name|max
 argument_list|)
 decl_stmt|;
 for|for
