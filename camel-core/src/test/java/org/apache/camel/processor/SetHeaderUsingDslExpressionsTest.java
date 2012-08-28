@@ -606,6 +606,9 @@ argument_list|,
 literal|"<personFile>ABC</personFile>"
 argument_list|)
 expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testUseBodyExpression ()
 specifier|public
