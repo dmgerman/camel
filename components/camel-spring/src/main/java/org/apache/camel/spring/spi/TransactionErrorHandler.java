@@ -855,6 +855,27 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// throw runtime exception to force rollback (which works best to rollback with Spring transaction manager)
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Throwing runtime exception to force transaction to rollback on {}"
+argument_list|,
+name|transactionTemplate
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 name|rce
 throw|;
