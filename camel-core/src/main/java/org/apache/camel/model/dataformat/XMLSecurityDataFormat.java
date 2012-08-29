@@ -1660,7 +1660,7 @@ name|keyOrTrustStoreParameters
 expr_stmt|;
 block|}
 DECL|method|getKeyPassword ()
-specifier|private
+specifier|public
 name|String
 name|getKeyPassword
 parameter_list|()
@@ -1672,7 +1672,7 @@ name|keyPassword
 return|;
 block|}
 DECL|method|setKeyPassword (String keyPassword)
-specifier|private
+specifier|public
 name|void
 name|setKeyPassword
 parameter_list|(
