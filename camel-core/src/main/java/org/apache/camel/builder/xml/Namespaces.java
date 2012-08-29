@@ -98,6 +98,22 @@ name|model
 operator|.
 name|language
 operator|.
+name|VtdXmlExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
 name|XPathExpression
 import|;
 end_import
@@ -462,6 +478,34 @@ block|}
 block|}
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Creates the XPath expression using the VTD-XML library using the current namespace context      */
+DECL|method|vtdxml (String expression)
+specifier|public
+name|VtdXmlExpression
+name|vtdxml
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|VtdXmlExpression
+name|answer
+init|=
+operator|new
+name|VtdXmlExpression
+argument_list|(
+name|expression
+argument_list|)
+decl_stmt|;
+name|configure
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Creates the XPath expression using the current namespace context      */

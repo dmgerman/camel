@@ -1147,6 +1147,78 @@ name|group
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/vtdxml.html">XPath      * expression using the VTD-XML library</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|vtdxml (String text)
+specifier|public
+name|T
+name|vtdxml
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|vtdxml
+argument_list|(
+name|text
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/vtdxml.html">XPath      * expression using the VTD-XML library</a>      * with the specified set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+DECL|method|vtdxml (String text, Namespaces namespaces)
+specifier|public
+name|T
+name|vtdxml
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Namespaces
+name|namespaces
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|vtdxml
+argument_list|(
+name|text
+argument_list|,
+name|namespaces
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/vtdxml.html">XPath      * expression using the VTD-XML library</a>      * with the specified set of namespace prefixes and URIs      *      * @param text the expression to be evaluated      * @param namespaces the namespace prefix and URIs to use      * @return the builder to continue processing the DSL      */
+DECL|method|vtdxml (String text, Map<String, String> namespaces)
+specifier|public
+name|T
+name|vtdxml
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|namespaces
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|vtdxml
+argument_list|(
+name|text
+argument_list|,
+name|namespaces
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text)
 specifier|public
