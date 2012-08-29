@@ -34,6 +34,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|UnknownHostException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -123,18 +133,6 @@ operator|.
 name|locks
 operator|.
 name|ReentrantLock
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
 import|;
 end_import
 
@@ -340,11 +338,13 @@ name|RoutePolicySupport
 block|{
 DECL|field|uri
 specifier|private
+specifier|final
 name|String
 name|uri
 decl_stmt|;
 DECL|field|enabledCount
 specifier|private
+specifier|final
 name|int
 name|enabledCount
 decl_stmt|;
@@ -377,6 +377,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|suspendedRoutes
 specifier|private
+specifier|final
 name|Set
 argument_list|<
 name|Route
@@ -392,6 +393,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|shouldProcessExchanges
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|shouldProcessExchanges
 init|=
@@ -406,6 +408,7 @@ name|template
 decl_stmt|;
 DECL|field|shouldStopConsumer
 specifier|private
+specifier|volatile
 name|boolean
 name|shouldStopConsumer
 init|=
@@ -413,6 +416,7 @@ literal|true
 decl_stmt|;
 DECL|field|uuidGenerator
 specifier|private
+specifier|final
 name|UuidGenerator
 name|uuidGenerator
 init|=
@@ -422,6 +426,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|isCandidateCreated
 specifier|private
+specifier|volatile
 name|boolean
 name|isCandidateCreated
 decl_stmt|;
@@ -435,8 +440,6 @@ parameter_list|,
 name|int
 name|enabledCount
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|this
 operator|.
@@ -459,8 +462,6 @@ specifier|private
 name|void
 name|createCandidateName
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|/** UUID would be enough, also using hostname for human readability */
 name|StringBuilder
@@ -469,12 +470,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-name|InetAddress
-operator|.
-name|getLocalHost
-argument_list|()
-operator|.
-name|getCanonicalHostName
+name|fetchHostname
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -502,6 +498,44 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|fetchHostname ()
+specifier|private
+name|String
+name|fetchHostname
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+name|InetAddress
+operator|.
+name|getLocalHost
+argument_list|()
+operator|.
+name|getCanonicalHostName
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|UnknownHostException
+name|ex
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to determine the local hostname, using a default."
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+return|return
+literal|"default"
+return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -839,15 +873,12 @@ name|log
 operator|.
 name|debug
 argument_list|(
-name|format
-argument_list|(
-literal|"'%d' have been stopped previously by poilcy, restarting."
+literal|"{} have been stopped previously by policy, restarting."
 argument_list|,
 name|suspendedRoutes
 operator|.
 name|size
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -940,27 +971,15 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|info
 argument_list|(
-name|format
-argument_list|(
-literal|"Initializing ZookeeperRoutePolicy with uri '%s'"
+literal|"Initializing ZookeeperRoutePolicy with uri {}"
 argument_list|,
 name|uri
 argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 name|ZooKeeperEndpoint
 name|zep
 init|=
@@ -1059,7 +1078,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Error setting up election node "
 operator|+
@@ -1074,35 +1093,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|info
 argument_list|(
-name|format
-argument_list|(
-literal|"Candidate node '%s' has been created"
+literal|"Candidate node {} has been created"
 argument_list|,
 name|fullpath
 argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 try|try
-block|{
-if|if
-condition|(
-name|zep
-operator|!=
-literal|null
-condition|)
 block|{
 name|camelContext
 operator|.
@@ -1116,7 +1116,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -1125,9 +1124,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Error configuring ZookeeperRoutePolicy"
+literal|"Error configuring ZookeeperRoutePolicy. This exception is ignored."
 argument_list|,
 name|ex
 argument_list|)
@@ -1350,14 +1349,16 @@ name|log
 operator|.
 name|debug
 argument_list|(
-name|format
-argument_list|(
-literal|"This node is number '%d' on the candidate list, route is configured for the top '%d'. Exchange processing will be %s"
+literal|"This node is number {} on the candidate list, route is configured for the top {}. Exchange processing will be {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|location
-argument_list|,
+block|,
 name|enabledCount
-argument_list|,
+block|,
 name|shouldProcessExchanges
 operator|.
 name|get
@@ -1366,7 +1367,7 @@ condition|?
 literal|"enabled"
 else|:
 literal|"disabled"
-argument_list|)
+block|}
 argument_list|)
 expr_stmt|;
 block|}
