@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.builder
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|builder
 package|;
 end_package
 
@@ -101,6 +101,7 @@ end_import
 begin_class
 DECL|class|ExchangeBuilder
 specifier|public
+specifier|final
 class|class
 name|ExchangeBuilder
 block|{
@@ -172,6 +173,7 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+comment|/**      * Create the exchange by setting the camel context      * @param context the camel context       * @return exchange builder      */
 DECL|method|anExchange (CamelContext context)
 specifier|public
 specifier|static
@@ -190,6 +192,7 @@ name|context
 argument_list|)
 return|;
 block|}
+comment|/**      * Set the in message body on the exchange      * @param body      * @return exchange builder      */
 DECL|method|withBody (Object body)
 specifier|public
 name|ExchangeBuilder
@@ -209,6 +212,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the message header of the in message on the exchange      * @param key the key of the header      * @param value the value of the header      * @return exchange builder      */
 DECL|method|withHeader (String key, Object value)
 specifier|public
 name|ExchangeBuilder
@@ -234,6 +238,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the message exchange pattern on the exchange      * @param pattern exchange pattern      * @return exchange builder      */
 DECL|method|withPattern (ExchangePattern pattern)
 specifier|public
 name|ExchangeBuilder
@@ -253,6 +258,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the exchange property      * @param pattern exchange pattern      * @return exchange builder      */
 DECL|method|withProperty (String key, Object value)
 specifier|public
 name|ExchangeBuilder
@@ -278,6 +284,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Build up the exchange from the exchange builder      * @return exchange       */
 DECL|method|build ()
 specifier|public
 name|Exchange
@@ -308,6 +315,16 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|headers
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|message
 operator|.
 name|setHeaders
@@ -315,6 +332,7 @@ argument_list|(
 name|headers
 argument_list|)
 expr_stmt|;
+block|}
 comment|// setup the properties on the exchange
 for|for
 control|(
