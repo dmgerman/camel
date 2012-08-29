@@ -7591,7 +7591,7 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-comment|// invoke this logic to warmup the routes and if possible also start the routes
+comment|// invoke this logic to warm up the routes and if possible also start the routes
 name|doStartOrResumeRoutes
 argument_list|(
 name|routeServices
