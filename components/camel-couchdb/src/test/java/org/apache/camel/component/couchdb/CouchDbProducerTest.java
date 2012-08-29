@@ -301,6 +301,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Test
 argument_list|(
 name|expected
@@ -483,6 +488,11 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
 name|Test
 argument_list|(
 name|expected
@@ -580,12 +590,15 @@ name|thenAnswer
 argument_list|(
 operator|new
 name|Answer
+argument_list|<
+name|Response
+argument_list|>
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|Object
+name|Response
 name|answer
 parameter_list|(
 name|InvocationOnMock
@@ -609,7 +622,7 @@ argument_list|()
 operator|+
 literal|" but wanted "
 operator|+
-name|JsonObject
+name|JsonElement
 operator|.
 name|class
 argument_list|,

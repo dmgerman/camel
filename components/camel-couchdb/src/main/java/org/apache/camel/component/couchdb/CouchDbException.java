@@ -50,6 +50,15 @@ name|CouchDbException
 extends|extends
 name|CamelExchangeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|CouchDbException (String message, Exchange exchange)
 specifier|public
 name|CouchDbException

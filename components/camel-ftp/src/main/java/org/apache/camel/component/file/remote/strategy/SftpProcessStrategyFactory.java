@@ -216,11 +216,6 @@ specifier|private
 name|SftpProcessStrategyFactory
 parameter_list|()
 block|{     }
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createGenericFileProcessStrategy (CamelContext context, Map<String, Object> params)
 specifier|public
 specifier|static
@@ -349,14 +344,6 @@ name|strategy
 operator|.
 name|setExclusiveReadLockStrategy
 argument_list|(
-operator|(
-name|GenericFileExclusiveReadLockStrategy
-argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
-argument_list|>
-operator|)
 name|getExclusiveReadLockStrategy
 argument_list|(
 name|params
@@ -474,14 +461,6 @@ name|strategy
 operator|.
 name|setExclusiveReadLockStrategy
 argument_list|(
-operator|(
-name|GenericFileExclusiveReadLockStrategy
-argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
-argument_list|>
-operator|)
 name|getExclusiveReadLockStrategy
 argument_list|(
 name|params
@@ -661,11 +640,7 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
-block|{
 literal|"unchecked"
-block|,
-literal|"rawtypes"
-block|}
 argument_list|)
 DECL|method|getExclusiveReadLockStrategy (Map<String, Object> params)
 specifier|private

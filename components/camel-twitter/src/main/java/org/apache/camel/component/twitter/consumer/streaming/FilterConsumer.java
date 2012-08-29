@@ -46,14 +46,6 @@ name|FilterQuery
 import|;
 end_import
 
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|TwitterException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Consumes the filter stream  */
 end_comment
