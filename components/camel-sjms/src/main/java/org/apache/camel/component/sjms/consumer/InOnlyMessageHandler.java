@@ -76,6 +76,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|TransactionCommitStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Synchronization
@@ -97,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for DefaultMessageHandler  *   */
+comment|/**  * An InOnly {@link DefaultMessageHandler}  *   */
 end_comment
 
 begin_class
@@ -108,7 +124,7 @@ name|InOnlyMessageHandler
 extends|extends
 name|DefaultMessageHandler
 block|{
-comment|/**      *       * @param endpoint      * @param processor      */
+comment|/**      * @param endpoint      * @param executor      */
 DECL|method|InOnlyMessageHandler (Endpoint endpoint, ExecutorService executor)
 specifier|public
 name|InOnlyMessageHandler
@@ -120,17 +136,15 @@ name|ExecutorService
 name|executor
 parameter_list|)
 block|{
-name|this
+name|super
 argument_list|(
 name|endpoint
 argument_list|,
 name|executor
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *       * @param stopped      * @param synchronization      */
+comment|/**      * @param endpoint      * @param executor      * @param synchronization      */
 DECL|method|InOnlyMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|InOnlyMessageHandler
@@ -152,6 +166,31 @@ argument_list|,
 name|executor
 argument_list|,
 name|synchronization
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * @param endpoint      * @param executor      * @param commitStrategy      * @param rollbackStrategy      */
+DECL|method|InOnlyMessageHandler (Endpoint endpoint, ExecutorService executor, TransactionCommitStrategy commitStrategy)
+specifier|public
+name|InOnlyMessageHandler
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|ExecutorService
+name|executor
+parameter_list|,
+name|TransactionCommitStrategy
+name|commitStrategy
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|,
+name|executor
+argument_list|,
+name|commitStrategy
 argument_list|)
 expr_stmt|;
 block|}
@@ -220,6 +259,7 @@ name|isSynchronous
 argument_list|()
 condition|)
 block|{
+comment|//SessionTransactionAsyncCallback callback = new SessionTransactionAsyncCallback(exchange, getSession(), getCommitStrategy());
 comment|// must process synchronous if transacted or configured to
 comment|// do so
 if|if
@@ -295,14 +335,6 @@ block|}
 else|else
 block|{
 comment|// process asynchronous using the async routing engine
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -326,10 +358,13 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|sync
 init|=
+literal|false
+decl_stmt|;
+name|sync
+operator|=
 name|AsyncProcessorHelper
 operator|.
 name|process
@@ -341,7 +376,7 @@ name|exchange
 argument_list|,
 name|callback
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!

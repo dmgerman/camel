@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -59,8 +59,10 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-comment|// ignore provider specified JMS extension headers see page 39 of JMS 1.1 specification
-comment|// added "JMSXRecvTimestamp" as a workaround for an Oracle bug/typo in AqjmsMessage
+comment|// ignore provider specified JMS extension headers see page 39 of JMS
+comment|// 1.1 specification
+comment|// added "JMSXRecvTimestamp" as a workaround for an Oracle bug/typo in
+comment|// AqjmsMessage
 name|getOutFilter
 argument_list|()
 operator|.

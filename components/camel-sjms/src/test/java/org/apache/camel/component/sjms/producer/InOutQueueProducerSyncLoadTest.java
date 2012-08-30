@@ -563,6 +563,15 @@ specifier|private
 name|MessageProducer
 name|mp
 decl_stmt|;
+DECL|method|MyMessageListener ()
+specifier|public
+name|MyMessageListener
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|onMessage (Message message)

@@ -470,7 +470,15 @@ argument_list|()
 operator|>
 literal|0
 condition|)
-block|{          }
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+block|}
 name|executor
 operator|.
 name|shutdown
@@ -485,10 +493,16 @@ name|isTerminated
 argument_list|()
 condition|)
 block|{
-comment|//
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 block|}
 block|}
-comment|/*      * @see org.apache.camel.test.junit4.CamelTestSupport#createRouteBuilder()      *       * @return      *       * @throws Exception      */
+comment|/**      * @see org.apache.camel.test.junit4.CamelTestSupport#createRouteBuilder()      *       * @return      *       * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -568,6 +582,15 @@ specifier|private
 name|MessageProducer
 name|mp
 decl_stmt|;
+DECL|method|MyMessageListener ()
+specifier|public
+name|MyMessageListener
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|onMessage (Message message)

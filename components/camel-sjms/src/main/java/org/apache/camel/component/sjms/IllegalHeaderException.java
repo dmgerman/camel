@@ -49,14 +49,18 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|1L
+literal|3136304415267471091L
 decl_stmt|;
 comment|/**      */
 DECL|method|IllegalHeaderException ()
 specifier|public
 name|IllegalHeaderException
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * @param message      * @param cause      */
 DECL|method|IllegalHeaderException (String message, Throwable cause)
 specifier|public

@@ -698,7 +698,11 @@ DECL|method|TestPool ()
 specifier|public
 name|TestPool
 parameter_list|()
-block|{         }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|TestPool (int poolSize)
 specifier|public
 name|TestPool

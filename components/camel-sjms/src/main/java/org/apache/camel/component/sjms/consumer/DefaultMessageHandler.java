@@ -38,16 +38,6 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|Destination
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
 name|Message
 import|;
 end_import
@@ -132,9 +122,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|jms
-operator|.
-name|JmsMessageHelper
+name|TransactionCommitStrategy
 import|;
 end_import
 
@@ -152,7 +140,7 @@ name|sjms
 operator|.
 name|jms
 operator|.
-name|SessionAcknowledgementType
+name|JmsMessageExchangeHelper
 import|;
 end_import
 
@@ -235,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for DefaultMessageHandler  *   */
+comment|/**  * TODO Add Class documentation for DefaultMessageHandler  */
 end_comment
 
 begin_class
@@ -287,26 +275,12 @@ specifier|private
 name|boolean
 name|transacted
 decl_stmt|;
-DECL|field|acknowledgementType
-specifier|private
-name|SessionAcknowledgementType
-name|acknowledgementType
-init|=
-name|SessionAcknowledgementType
-operator|.
-name|AUTO_ACKNOWLEDGE
-decl_stmt|;
 DECL|field|synchronous
 specifier|private
 name|boolean
 name|synchronous
 init|=
 literal|true
-decl_stmt|;
-DECL|field|namedReplyTo
-specifier|private
-name|Destination
-name|namedReplyTo
 decl_stmt|;
 DECL|field|synchronization
 specifier|private
@@ -317,6 +291,11 @@ DECL|field|topic
 specifier|private
 name|boolean
 name|topic
+decl_stmt|;
+DECL|field|commitStrategy
+specifier|private
+name|TransactionCommitStrategy
+name|commitStrategy
 decl_stmt|;
 DECL|method|DefaultMessageHandler (Endpoint endpoint, ExecutorService executor)
 specifier|public
@@ -330,13 +309,16 @@ name|executor
 parameter_list|)
 block|{
 name|this
-argument_list|(
+operator|.
 name|endpoint
-argument_list|,
+operator|=
+name|endpoint
+expr_stmt|;
+name|this
+operator|.
 name|executor
-argument_list|,
-literal|null
-argument_list|)
+operator|=
+name|executor
 expr_stmt|;
 block|}
 DECL|method|DefaultMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
@@ -353,6 +335,9 @@ name|Synchronization
 name|synchronization
 parameter_list|)
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|synchronization
@@ -370,6 +355,42 @@ operator|.
 name|executor
 operator|=
 name|executor
+expr_stmt|;
+block|}
+DECL|method|DefaultMessageHandler (Endpoint endpoint, ExecutorService executor, TransactionCommitStrategy commitStrategy)
+specifier|public
+name|DefaultMessageHandler
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|ExecutorService
+name|executor
+parameter_list|,
+name|TransactionCommitStrategy
+name|commitStrategy
+parameter_list|)
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|executor
+operator|=
+name|executor
+expr_stmt|;
+name|this
+operator|.
+name|commitStrategy
+operator|=
+name|commitStrategy
 expr_stmt|;
 block|}
 annotation|@
@@ -413,7 +434,7 @@ init|=
 operator|(
 name|DefaultExchange
 operator|)
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 operator|.
 name|createExchange
 argument_list|(
@@ -423,14 +444,6 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -443,7 +456,6 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|isTransacted
@@ -473,14 +485,6 @@ name|isSynchronous
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -496,7 +500,6 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|doHandleMessage
 argument_list|(
 name|exchange
@@ -504,14 +507,6 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
 block|{
 name|log
 operator|.
@@ -528,7 +523,6 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|executor
 operator|.
 name|execute
@@ -721,32 +715,6 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
-DECL|method|getAcknowledgementType ()
-specifier|public
-name|SessionAcknowledgementType
-name|getAcknowledgementType
-parameter_list|()
-block|{
-return|return
-name|acknowledgementType
-return|;
-block|}
-DECL|method|setAcknowledgementType ( SessionAcknowledgementType acknowledgementType)
-specifier|public
-name|void
-name|setAcknowledgementType
-parameter_list|(
-name|SessionAcknowledgementType
-name|acknowledgementType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|acknowledgementType
-operator|=
-name|acknowledgementType
-expr_stmt|;
-block|}
 DECL|method|setSession (Session session)
 specifier|public
 name|void
@@ -799,32 +767,6 @@ return|return
 name|synchronous
 return|;
 block|}
-DECL|method|setNamedReplyTo (Destination namedReplyToDestination)
-specifier|public
-name|void
-name|setNamedReplyTo
-parameter_list|(
-name|Destination
-name|namedReplyToDestination
-parameter_list|)
-block|{
-name|this
-operator|.
-name|namedReplyTo
-operator|=
-name|namedReplyToDestination
-expr_stmt|;
-block|}
-DECL|method|getNamedReplyTo ()
-specifier|public
-name|Destination
-name|getNamedReplyTo
-parameter_list|()
-block|{
-return|return
-name|namedReplyTo
-return|;
-block|}
 DECL|method|setTopic (boolean topic)
 specifier|public
 name|void
@@ -849,6 +791,16 @@ parameter_list|()
 block|{
 return|return
 name|topic
+return|;
+block|}
+DECL|method|getCommitStrategy ()
+specifier|public
+name|TransactionCommitStrategy
+name|getCommitStrategy
+parameter_list|()
+block|{
+return|return
+name|commitStrategy
 return|;
 block|}
 block|}

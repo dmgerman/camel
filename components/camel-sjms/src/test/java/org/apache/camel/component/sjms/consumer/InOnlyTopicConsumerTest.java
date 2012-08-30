@@ -160,7 +160,7 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * @see org.apache.camel.test.junit4.CamelTestSupport#createRouteBuilder()      *      * @return      * @throws Exception      */
+comment|/**      * @see org.apache.camel.test.junit4.CamelTestSupport#createRouteBuilder()      *      * @return      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()

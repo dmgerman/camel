@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.consumer
+DECL|package|org.apache.camel.component.sjms.tx
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|consumer
+name|tx
 package|;
 end_package
 
@@ -175,10 +175,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TransactedInOnlyTopicConsumerTest
+DECL|class|TransactedInOnlyQueueConsumerTest
 specifier|public
 class|class
-name|TransactedInOnlyTopicConsumerTest
+name|TransactedInOnlyQueueConsumerTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -189,7 +189,7 @@ specifier|final
 name|String
 name|TEST_DESTINATION_1
 init|=
-literal|"sjms:topic:transacted.in.only.topic.consumer.test.1?transacted=true"
+literal|"sjms:queue:transacted.in.only.queue.consumer.test.1?transacted=true"
 decl_stmt|;
 DECL|field|TEST_DESTINATION_2
 specifier|private
@@ -198,7 +198,7 @@ specifier|final
 name|String
 name|TEST_DESTINATION_2
 init|=
-literal|"sjms:topic:transacted.in.only.topic.consumer.test.2?transacted=true"
+literal|"sjms:queue:transacted.in.only.queue.consumer.test.2?transacted=true"
 decl_stmt|;
 DECL|field|logger
 specifier|protected
@@ -216,10 +216,10 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testTransactedInOnlyTopicConsumerExchangeFailure ()
+DECL|method|testTransactedInOnlyConsumerExchangeFailure ()
 specifier|public
 name|void
-name|testTransactedInOnlyTopicConsumerExchangeFailure
+name|testTransactedInOnlyConsumerExchangeFailure
 parameter_list|()
 throws|throws
 name|Exception
@@ -275,10 +275,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testTransactedInOnlyTopicConsumerRuntimeException ()
+DECL|method|testTransactedInOnlyConsumerRuntimeException ()
 specifier|public
 name|void
-name|testTransactedInOnlyTopicConsumerRuntimeException
+name|testTransactedInOnlyConsumerRuntimeException
 parameter_list|()
 throws|throws
 name|Exception
@@ -484,13 +484,12 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|setException
+name|getOut
+argument_list|()
+operator|.
+name|setFault
 argument_list|(
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Creating Failure"
-argument_list|)
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

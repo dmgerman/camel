@@ -118,6 +118,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|tx
+operator|.
+name|DefaultTransactionCommitStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -248,7 +266,16 @@ name|maxConnections
 init|=
 literal|1
 decl_stmt|;
-comment|/*      * @see      * org.apache.camel.impl.DefaultComponent#createEndpoint(java.lang.String,      * java.lang.String, java.util.Map)      * @param uri The value passed into our call to create an endpoint      * @param remaining      * @param parameters      * @return      * @throws Exception      */
+DECL|field|commitStrategy
+specifier|private
+name|TransactionCommitStrategy
+name|commitStrategy
+init|=
+operator|new
+name|DefaultTransactionCommitStrategy
+argument_list|()
+decl_stmt|;
+comment|/**      * @see      * org.apache.camel.impl.DefaultComponent#createEndpoint(java.lang.String,      * java.lang.String, java.util.Map)      * @param uri The value passed into our call to create an endpoint      * @param remaining      * @param parameters      * @return      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -882,6 +909,34 @@ block|{
 return|return
 name|keyFormatStrategy
 return|;
+block|}
+comment|/**      * Gets the TransactionCommitStrategy value of commitStrategy for this      * instance of SjmsComponent.      *       * @return the commitStrategy      */
+DECL|method|getCommitStrategy ()
+specifier|public
+name|TransactionCommitStrategy
+name|getCommitStrategy
+parameter_list|()
+block|{
+return|return
+name|commitStrategy
+return|;
+block|}
+comment|/**      * Sets the TransactionCommitStrategy value of commitStrategy for this      * instance of SjmsComponent.      *       * @param commitStrategy Sets TransactionCommitStrategy, default is TODO add      *            default      */
+DECL|method|setCommitStrategy (TransactionCommitStrategy commitStrategy)
+specifier|public
+name|void
+name|setCommitStrategy
+parameter_list|(
+name|TransactionCommitStrategy
+name|commitStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|commitStrategy
+operator|=
+name|commitStrategy
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for SjmsConsumer  *  */
+comment|/**  * TODO Add Class documentation for SjmsConsumer  */
 end_comment
 
 begin_class
@@ -234,10 +234,27 @@ name|getSessions
 argument_list|()
 return|;
 block|}
-DECL|method|isEndpointTransacted ()
+DECL|method|getAcknowledgementMode ()
+specifier|public
+name|int
+name|getAcknowledgementMode
+parameter_list|()
+block|{
+return|return
+name|getSjmsEndpoint
+argument_list|()
+operator|.
+name|getAcknowledgementMode
+argument_list|()
+operator|.
+name|intValue
+argument_list|()
+return|;
+block|}
+DECL|method|isTransacted ()
 specifier|public
 name|boolean
-name|isEndpointTransacted
+name|isTransacted
 parameter_list|()
 block|{
 return|return
@@ -329,6 +346,34 @@ name|getSjmsEndpoint
 argument_list|()
 operator|.
 name|getDurableSubscriptionId
+argument_list|()
+return|;
+block|}
+DECL|method|getCommitStrategy ()
+specifier|public
+name|TransactionCommitStrategy
+name|getCommitStrategy
+parameter_list|()
+block|{
+return|return
+name|getSjmsEndpoint
+argument_list|()
+operator|.
+name|getCommitStrategy
+argument_list|()
+return|;
+block|}
+DECL|method|getTransactionBatchCount ()
+specifier|public
+name|int
+name|getTransactionBatchCount
+parameter_list|()
+block|{
+return|return
+name|getSjmsEndpoint
+argument_list|()
+operator|.
+name|getTransactionBatchCount
 argument_list|()
 return|;
 block|}

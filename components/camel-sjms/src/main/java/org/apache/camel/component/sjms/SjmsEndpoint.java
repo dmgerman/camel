@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for SjmsEndpoint  *  */
+comment|/**  * TODO Add Class documentation for SjmsEndpoint  */
 end_comment
 
 begin_class
@@ -376,11 +376,28 @@ specifier|private
 name|String
 name|messageSelector
 decl_stmt|;
+DECL|field|transactionBatchCount
+specifier|private
+name|int
+name|transactionBatchCount
+init|=
+operator|-
+literal|1
+decl_stmt|;
+DECL|field|commitStrategy
+specifier|private
+name|TransactionCommitStrategy
+name|commitStrategy
+decl_stmt|;
 DECL|method|SjmsEndpoint ()
 specifier|public
 name|SjmsEndpoint
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|SjmsEndpoint (String uri, Component component)
 specifier|public
 name|SjmsEndpoint
@@ -469,7 +486,8 @@ name|doStart
 argument_list|()
 expr_stmt|;
 comment|//
-comment|// TODO since we only need a session pool for one use case, find a better way
+comment|// TODO since we only need a session pool for one use case, find a
+comment|// better way
 comment|//
 comment|// We only create a session pool when we are not transacted.
 comment|// Transacted listeners or producers need to be paired with the
@@ -479,6 +497,16 @@ condition|(
 operator|!
 name|isTransacted
 argument_list|()
+operator|&&
+name|getExchangePattern
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
 condition|)
 block|{
 name|sessions
@@ -1137,6 +1165,58 @@ block|{
 return|return
 name|messageSelector
 return|;
+block|}
+DECL|method|getCommitStrategy ()
+specifier|public
+name|TransactionCommitStrategy
+name|getCommitStrategy
+parameter_list|()
+block|{
+return|return
+name|commitStrategy
+return|;
+block|}
+DECL|method|setCommitStrategy (TransactionCommitStrategy commitStrategy)
+specifier|public
+name|void
+name|setCommitStrategy
+parameter_list|(
+name|TransactionCommitStrategy
+name|commitStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|commitStrategy
+operator|=
+name|commitStrategy
+expr_stmt|;
+block|}
+DECL|method|getTransactionBatchCount ()
+specifier|public
+name|int
+name|getTransactionBatchCount
+parameter_list|()
+block|{
+return|return
+name|transactionBatchCount
+return|;
+block|}
+DECL|method|setTransactionBatchCount (int transactionBatchCount)
+specifier|public
+name|void
+name|setTransactionBatchCount
+parameter_list|(
+name|int
+name|transactionBatchCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionBatchCount
+operator|=
+name|transactionBatchCount
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -278,7 +278,7 @@ name|sjms
 operator|.
 name|jms
 operator|.
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 import|;
 end_import
 
@@ -371,7 +371,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for InOutProducer  *  */
+comment|/**  * A Camel Producer that provides the InOut Exchange pattern.  */
 end_comment
 
 begin_class
@@ -382,7 +382,7 @@ name|InOutProducer
 extends|extends
 name|SjmsProducer
 block|{
-comment|/**      * We use the {@link ReadWriteLock} to manage the {@link TreeMap} in place      * of a {@link ConcurrentMap} because due to significant performance gains.      *       * TODO Externalize the Exchanger Map to a store object      */
+comment|/**      * We use the {@link ReadWriteLock} to manage the {@link TreeMap} in place      * of a {@link ConcurrentMap} because due to significant performance gains.      * TODO Externalize the Exchanger Map to a store object      */
 DECL|field|exchangerMap
 specifier|private
 specifier|static
@@ -418,7 +418,7 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-comment|/**      * A pool of {@link MessageConsumerResource} objects that are the      * reply consumers.      *       * TODO Add Class documentation for MessageProducerPool      * TODO Externalize      *      */
+comment|/**      * A pool of {@link MessageConsumerResource} objects that are the reply      * consumers.       * TODO Add Class documentation for MessageProducerPool       * TODO Externalize      */
 DECL|class|MessageConsumerPool
 specifier|protected
 class|class
@@ -429,7 +429,7 @@ argument_list|<
 name|MessageConsumerResource
 argument_list|>
 block|{
-comment|/**          * TODO Add Constructor Javadoc          *          * @param poolSize          */
+comment|/**          * TODO Add Constructor Javadoc          *           * @param poolSize          */
 DECL|method|MessageConsumerPool (int poolSize)
 specifier|public
 name|MessageConsumerPool
@@ -752,7 +752,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// Do nothing.  Just make sure we are cleaned up
+comment|// Do nothing. Just make sure we are cleaned up
 block|}
 block|}
 name|model
@@ -805,6 +805,9 @@ name|Destination
 name|replyToDestination
 parameter_list|)
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|session
@@ -855,69 +858,6 @@ name|replyToDestination
 return|;
 block|}
 block|}
-DECL|class|InOutResponseContainer
-specifier|protected
-class|class
-name|InOutResponseContainer
-block|{
-DECL|field|exchange
-specifier|private
-specifier|final
-name|Exchange
-name|exchange
-decl_stmt|;
-DECL|field|callback
-specifier|private
-specifier|final
-name|AsyncCallback
-name|callback
-decl_stmt|;
-comment|/**          *           * @param exchange          * @param callback          */
-DECL|method|InOutResponseContainer (Exchange exchange, AsyncCallback callback)
-specifier|public
-name|InOutResponseContainer
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-name|this
-operator|.
-name|callback
-operator|=
-name|callback
-expr_stmt|;
-block|}
-DECL|method|getExchange ()
-specifier|public
-name|Exchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-name|exchange
-return|;
-block|}
-DECL|method|getCallback ()
-specifier|public
-name|AsyncCallback
-name|getCallback
-parameter_list|()
-block|{
-return|return
-name|callback
-return|;
-block|}
-block|}
 DECL|class|InternalTempDestinationListener
 specifier|protected
 class|class
@@ -960,6 +900,9 @@ argument_list|>
 name|exchanger
 parameter_list|)
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|exchanger
@@ -1081,14 +1024,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -1097,16 +1032,7 @@ literal|"No reply to destination is defined.  Using temporary destinations."
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 else|else
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
 block|{
 name|log
 operator|.
@@ -1118,7 +1044,6 @@ name|getNamedReplyTo
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1311,7 +1236,7 @@ name|messageProducer
 argument_list|)
 return|;
 block|}
-comment|/**       * TODO Add override javadoc      * TODO time out is actually double as it waits for the producer and then waits for the response.  Use an atomiclong to manage the countdown      *      * @see org.apache.camel.component.sjms.SjmsProducer#sendMessage(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)      *      * @param exchange      * @param callback      * @throws Exception      */
+comment|/**      * TODO time out is actually double as it waits for the producer and then      * waits for the response. Use an atomic long to manage the countdown      *       * @see org.apache.camel.component.sjms.SjmsProducer#sendMessage(org.apache.camel.Exchange,      *      org.apache.camel.AsyncCallback)      * @param exchange      * @param callback      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|sendMessage (final Exchange exchange, final AsyncCallback callback)
@@ -1356,7 +1281,6 @@ name|getResponseTimeOut
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// producer = getProducers().borrowObject();
 block|}
 catch|catch
 parameter_list|(
@@ -1410,6 +1334,9 @@ name|producer
 operator|.
 name|getSession
 argument_list|()
+argument_list|,
+name|getCommitStrategy
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1417,7 +1344,7 @@ block|}
 name|Message
 name|request
 init|=
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 operator|.
 name|createMessage
 argument_list|(
@@ -1510,7 +1437,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 operator|.
 name|setCorrelationId
 argument_list|(
@@ -1561,7 +1488,7 @@ name|getResponseTimeOut
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 operator|.
 name|setJMSReplyTo
 argument_list|(
@@ -1747,7 +1674,7 @@ name|Message
 operator|)
 name|responseObject
 decl_stmt|;
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 operator|.
 name|populateExchange
 argument_list|(

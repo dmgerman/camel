@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.consumer
+DECL|package|org.apache.camel.component.sjms.tx
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|consumer
+name|tx
 package|;
 end_package
 
@@ -41,18 +41,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelException
 import|;
 end_import
 
@@ -187,10 +175,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TransactedInOnlyQueueConsumerTest
+DECL|class|TransactedInOnlyTopicConsumerTest
 specifier|public
 class|class
-name|TransactedInOnlyQueueConsumerTest
+name|TransactedInOnlyTopicConsumerTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -201,7 +189,7 @@ specifier|final
 name|String
 name|TEST_DESTINATION_1
 init|=
-literal|"sjms:queue:transacted.in.only.queue.consumer.test.1?transacted=true"
+literal|"sjms:topic:transacted.in.only.topic.consumer.test.1?transacted=true"
 decl_stmt|;
 DECL|field|TEST_DESTINATION_2
 specifier|private
@@ -210,7 +198,7 @@ specifier|final
 name|String
 name|TEST_DESTINATION_2
 init|=
-literal|"sjms:queue:transacted.in.only.queue.consumer.test.2?transacted=true"
+literal|"sjms:topic:transacted.in.only.topic.consumer.test.2?transacted=true"
 decl_stmt|;
 DECL|field|logger
 specifier|protected
@@ -228,10 +216,10 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testTransactedInOnlyConsumerExchangeFailure ()
+DECL|method|testTransactedInOnlyTopicConsumerExchangeFailure ()
 specifier|public
 name|void
-name|testTransactedInOnlyConsumerExchangeFailure
+name|testTransactedInOnlyTopicConsumerExchangeFailure
 parameter_list|()
 throws|throws
 name|Exception
@@ -287,10 +275,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testTransactedInOnlyConsumerRuntimeException ()
+DECL|method|testTransactedInOnlyTopicConsumerRuntimeException ()
 specifier|public
 name|void
-name|testTransactedInOnlyConsumerRuntimeException
+name|testTransactedInOnlyTopicConsumerRuntimeException
 parameter_list|()
 throws|throws
 name|Exception
@@ -496,13 +484,12 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|setException
+name|getOut
+argument_list|()
+operator|.
+name|setFault
 argument_list|(
-operator|new
-name|CamelException
-argument_list|(
-literal|"Creating Failure"
-argument_list|)
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

@@ -22,6 +22,46 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -151,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base SjmsProducer class.  *  */
+comment|/**  * Base SjmsProducer class.  */
 end_comment
 
 begin_class
@@ -163,7 +203,7 @@ name|SjmsProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-comment|/**      * The {@link MessageProducerResources} pool for all {@link SjmsProducer} classes.      *      */
+comment|/**      * The {@link MessageProducerResources} pool for all {@link SjmsProducer}      * classes.      */
 DECL|class|MessageProducerPool
 specifier|protected
 class|class
@@ -296,7 +336,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * The {@link MessageProducer} resources for all {@link SjmsProducer} classes.       */
+comment|/**      * The {@link MessageProducer} resources for all {@link SjmsProducer}      * classes.      */
 DECL|class|MessageProducerResources
 specifier|protected
 class|class
@@ -314,7 +354,12 @@ specifier|final
 name|MessageProducer
 name|messageProducer
 decl_stmt|;
-comment|/**          * TODO Add Constructor Javadoc          *           * @param session          * @param messageProducer          */
+DECL|field|commitStrategy
+specifier|private
+specifier|final
+name|TransactionCommitStrategy
+name|commitStrategy
+decl_stmt|;
 DECL|method|MessageProducerResources (Session session, MessageProducer messageProducer)
 specifier|public
 name|MessageProducerResources
@@ -327,6 +372,33 @@ name|messageProducer
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|session
+argument_list|,
+name|messageProducer
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MessageProducerResources (Session session, MessageProducer messageProducer, TransactionCommitStrategy commitStrategy)
+specifier|public
+name|MessageProducerResources
+parameter_list|(
+name|Session
+name|session
+parameter_list|,
+name|MessageProducer
+name|messageProducer
+parameter_list|,
+name|TransactionCommitStrategy
+name|commitStrategy
+parameter_list|)
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|this
 operator|.
 name|session
 operator|=
@@ -337,6 +409,12 @@ operator|.
 name|messageProducer
 operator|=
 name|messageProducer
+expr_stmt|;
+name|this
+operator|.
+name|commitStrategy
+operator|=
+name|commitStrategy
 expr_stmt|;
 block|}
 comment|/**          * Gets the Session value of session for this instance of          * MessageProducerResources.          *           * @return the session          */
@@ -359,6 +437,17 @@ parameter_list|()
 block|{
 return|return
 name|messageProducer
+return|;
+block|}
+comment|/**          * Gets the TransactionCommitStrategy value of commitStrategy for this          * instance of SjmsProducer.MessageProducerResources.          *           * @return the commitStrategy          */
+DECL|method|getCommitStrategy ()
+specifier|public
+name|TransactionCommitStrategy
+name|getCommitStrategy
+parameter_list|()
+block|{
+return|return
+name|commitStrategy
 return|;
 block|}
 block|}
@@ -521,14 +610,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -541,6 +622,64 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Object
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|body
+operator|instanceof
+name|InputStream
+condition|)
+block|{
+name|byte
+index|[]
+name|bytes
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|byte
+index|[]
+operator|.
+expr|class
+argument_list|,
+name|body
+argument_list|)
+decl_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 try|try
 block|{
@@ -548,14 +687,6 @@ if|if
 condition|(
 operator|!
 name|isSynchronous
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
@@ -574,7 +705,6 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|getExecutor
 argument_list|()
 operator|.
@@ -622,14 +752,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -645,7 +767,6 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|sendMessage
 argument_list|(
 name|exchange
@@ -661,14 +782,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -683,15 +796,6 @@ operator|+
 literal|" - FAILED"
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|trace
@@ -706,7 +810,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 name|exchange
 operator|.
 name|setException
@@ -715,14 +818,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -737,12 +832,152 @@ operator|+
 literal|" - SUCCESS"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|isSynchronous
 argument_list|()
 return|;
 block|}
+DECL|method|getBytes (InputStream is)
+specifier|public
+specifier|static
+name|byte
+index|[]
+name|getBytes
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|int
+name|len
+decl_stmt|;
+name|int
+name|size
+init|=
+literal|1024
+decl_stmt|;
+name|byte
+index|[]
+name|buf
+decl_stmt|;
+if|if
+condition|(
+name|is
+operator|instanceof
+name|ByteArrayInputStream
+condition|)
+block|{
+name|size
+operator|=
+name|is
+operator|.
+name|available
+argument_list|()
+expr_stmt|;
+name|buf
+operator|=
+operator|new
+name|byte
+index|[
+name|size
+index|]
+expr_stmt|;
+name|len
+operator|=
+name|is
+operator|.
+name|read
+argument_list|(
+name|buf
+argument_list|,
+literal|0
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ByteArrayOutputStream
+name|bos
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+decl_stmt|;
+name|buf
+operator|=
+operator|new
+name|byte
+index|[
+name|size
+index|]
+expr_stmt|;
+while|while
+condition|(
+operator|(
+name|len
+operator|=
+name|is
+operator|.
+name|read
+argument_list|(
+name|buf
+argument_list|,
+literal|0
+argument_list|,
+name|size
+argument_list|)
+operator|)
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+name|bos
+operator|.
+name|write
+argument_list|(
+name|buf
+argument_list|,
+literal|0
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+block|}
+name|buf
+operator|=
+name|bos
+operator|.
+name|toByteArray
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|buf
+return|;
+block|}
+comment|//    public static byte[] getBytesFromStream(InputStream is) throws IOException {
+comment|//        BufferedInputStream bis = new BufferedInputStream(is);
+comment|//        bis.available();
+comment|//
+comment|//        // Create the byte array to hold the data
+comment|//        byte[] bytes = new byte[(int)bis.available()];
+comment|//
+comment|//        // Read in the bytes
+comment|//        int offset = 0;
+comment|//        int numRead = 0;
+comment|//        while (offset< bytes.length&& (numRead = is.read(bytes, offset, bytes.length - offset))>= 0) {
+comment|//            offset += numRead;
+comment|//        }
+comment|//
+comment|//        // Close the input stream and return bytes
+comment|//        is.close();
+comment|//        return bytes;
+comment|//    }
 DECL|method|getSjmsEndpoint ()
 specifier|protected
 name|SjmsEndpoint
@@ -773,7 +1008,7 @@ name|getConnectionResource
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the acknowledgment mode for this instance of DestinationProducer.      *      * @return int      */
+comment|/**      * Gets the acknowledgment mode for this instance of DestinationProducer.      *       * @return int      */
 DECL|method|getAcknowledgeMode ()
 specifier|public
 name|int
@@ -791,7 +1026,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the synchronous value for this instance of DestinationProducer.      *      * @return true if synchronous, otherwise false       */
+comment|/**      * Gets the synchronous value for this instance of DestinationProducer.      *       * @return true if synchronous, otherwise false      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -806,7 +1041,7 @@ name|isSynchronous
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the replyTo for this instance of DestinationProducer.      *      * @return String      */
+comment|/**      * Gets the replyTo for this instance of DestinationProducer.      *       * @return String      */
 DECL|method|getReplyTo ()
 specifier|public
 name|String
@@ -821,7 +1056,7 @@ name|getNamedReplyTo
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the destinationName for this instance of DestinationProducer.      *      * @return String      */
+comment|/**      * Gets the destinationName for this instance of DestinationProducer.      *       * @return String      */
 DECL|method|getDestinationName ()
 specifier|public
 name|String
@@ -836,7 +1071,7 @@ name|getDestinationName
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the producer pool for this instance of SjmsProducer.      *      * @param producers A MessageProducerPool      */
+comment|/**      * Sets the producer pool for this instance of SjmsProducer.      *       * @param producers A MessageProducerPool      */
 DECL|method|setProducers (MessageProducerPool producers)
 specifier|public
 name|void
@@ -853,7 +1088,7 @@ operator|=
 name|producers
 expr_stmt|;
 block|}
-comment|/**      * Gets the MessageProducerPool value of producers for this instance of SjmsProducer.      *      * @return the producers      */
+comment|/**      * Gets the MessageProducerPool value of producers for this instance of      * SjmsProducer.      *       * @return the producers      */
 DECL|method|getProducers ()
 specifier|public
 name|MessageProducerPool
@@ -909,7 +1144,7 @@ name|getNamedReplyTo
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the producerCount for this instance of SjmsProducer.      *      * @return int      */
+comment|/**      * Gets the producerCount for this instance of SjmsProducer.      *       * @return int      */
 DECL|method|getProducerCount ()
 specifier|public
 name|int
@@ -924,7 +1159,7 @@ name|getProducerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets consumerCount for this instance of SjmsProducer.      *      * @return int      */
+comment|/**      * Gets consumerCount for this instance of SjmsProducer.      *       * @return int      */
 DECL|method|getConsumerCount ()
 specifier|public
 name|int
@@ -939,7 +1174,7 @@ name|getConsumerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the executor for this instance of SjmsProducer.      *      * @return ExecutorService      */
+comment|/**      * Gets the executor for this instance of SjmsProducer.      *       * @return ExecutorService      */
 DECL|method|getExecutor ()
 specifier|public
 name|ExecutorService
@@ -950,7 +1185,7 @@ return|return
 name|executor
 return|;
 block|}
-comment|/**      * Gets the ttl for this instance of SjmsProducer.      *      * @return long      */
+comment|/**      * Gets the ttl for this instance of SjmsProducer.      *       * @return long      */
 DECL|method|getTtl ()
 specifier|public
 name|long
@@ -965,7 +1200,7 @@ name|getTtl
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the boolean value of persistent for this instance of SjmsProducer.      *      * @return true if persistent, otherwise false      */
+comment|/**      * Gets the boolean value of persistent for this instance of SjmsProducer.      *       * @return true if persistent, otherwise false      */
 DECL|method|isPersistent ()
 specifier|public
 name|boolean
@@ -980,7 +1215,7 @@ name|isPersistent
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets responseTimeOut for this instance of SjmsProducer.      *      * @return long      */
+comment|/**      * Gets responseTimeOut for this instance of SjmsProducer.      *       * @return long      */
 DECL|method|getResponseTimeOut ()
 specifier|public
 name|long
@@ -992,6 +1227,21 @@ name|getSjmsEndpoint
 argument_list|()
 operator|.
 name|getResponseTimeOut
+argument_list|()
+return|;
+block|}
+comment|/**      * Gets commitStrategy for this instance of SjmsProducer.      *       * @return TransactionCommitStrategy      */
+DECL|method|getCommitStrategy ()
+specifier|public
+name|TransactionCommitStrategy
+name|getCommitStrategy
+parameter_list|()
+block|{
+return|return
+name|getSjmsEndpoint
+argument_list|()
+operator|.
+name|getCommitStrategy
 argument_list|()
 return|;
 block|}

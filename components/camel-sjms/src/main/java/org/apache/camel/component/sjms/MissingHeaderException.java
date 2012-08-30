@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for MissingHeaderException  *  */
+comment|/**  * TODO Add Class documentation for MissingHeaderException  */
 end_comment
 
 begin_class
@@ -50,17 +50,21 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|1L
+operator|-
+literal|6184009502090347023L
 decl_stmt|;
-comment|/**      * TODO Add Constructor Javadoc      *      */
+comment|/**      * TODO Add Constructor Javadoc      */
 DECL|method|MissingHeaderException ()
 specifier|public
 name|MissingHeaderException
 parameter_list|()
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 comment|// TODO Auto-generated constructor stub
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param message      * @param cause      */
+comment|/**      * TODO Add Constructor Javadoc      *       * @param message      * @param cause      */
 DECL|method|MissingHeaderException (String message, Throwable cause)
 specifier|public
 name|MissingHeaderException
@@ -81,7 +85,7 @@ argument_list|)
 expr_stmt|;
 comment|// TODO Auto-generated constructor stub
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param message      */
+comment|/**      * TODO Add Constructor Javadoc      *       * @param message      */
 DECL|method|MissingHeaderException (String message)
 specifier|public
 name|MissingHeaderException
@@ -97,7 +101,7 @@ argument_list|)
 expr_stmt|;
 comment|// TODO Auto-generated constructor stub
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param cause      */
+comment|/**      * TODO Add Constructor Javadoc      *       * @param cause      */
 DECL|method|MissingHeaderException (Throwable cause)
 specifier|public
 name|MissingHeaderException

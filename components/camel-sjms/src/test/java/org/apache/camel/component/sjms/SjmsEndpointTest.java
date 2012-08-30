@@ -471,7 +471,7 @@ name|getExchangePattern
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//            assertTrue(sjms.createExchange().getPattern().equals(ExchangePattern.InOnly));
+comment|// assertTrue(sjms.createExchange().getPattern().equals(ExchangePattern.InOnly));
 block|}
 catch|catch
 parameter_list|(

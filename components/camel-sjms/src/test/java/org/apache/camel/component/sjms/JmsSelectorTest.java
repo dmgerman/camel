@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -211,12 +211,22 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:test-before?showAll=true"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"sjms:test.b"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
 literal|"sjms:test.b?messageSelector=cheese='y'"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:test-after?showAll=true"
 argument_list|)
 operator|.
 name|to

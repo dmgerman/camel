@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -188,9 +198,25 @@ name|component
 operator|.
 name|sjms
 operator|.
+name|TransactionCommitStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
 name|jms
 operator|.
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 import|;
 end_import
 
@@ -255,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for DefaultMessageHandler  * TODO Create a producer cache manager to store and purge unused cashed producers or we will have a memory leak  *   */
+comment|/**  * TODO Add Class documentation for DefaultMessageHandler   * TODO Create a producer  * cache manager to store and purge unused cashed producers or we will have a  * memory leak  */
 end_comment
 
 begin_class
@@ -294,7 +320,7 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-comment|/**      * TODO Add Constructor Javadoc      *       * @param endpoint      * @param processor      */
+comment|/**      * TODO Add Constructor Javadoc      *      * @param endpoint      * @param executor      */
 DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor)
 specifier|public
 name|InOutMessageHandler
@@ -306,17 +332,15 @@ name|ExecutorService
 name|executor
 parameter_list|)
 block|{
-name|this
+name|super
 argument_list|(
 name|endpoint
 argument_list|,
 name|executor
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *       * @param stopped      * @param synchronization      */
+comment|/**      * TODO Add Constructor Javadoc      *      * @param endpoint      * @param executor      * @param synchronization      */
 DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|InOutMessageHandler
@@ -338,6 +362,31 @@ argument_list|,
 name|executor
 argument_list|,
 name|synchronization
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * TODO Add Constructor Javadoc      *      * @param endpoint      * @param executor      * @param commitStrategy      * @param rollbackStrategy      */
+DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor, TransactionCommitStrategy commitStrategy)
+specifier|public
+name|InOutMessageHandler
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|ExecutorService
+name|executor
+parameter_list|,
+name|TransactionCommitStrategy
+name|commitStrategy
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|,
+name|executor
+argument_list|,
+name|commitStrategy
 argument_list|)
 expr_stmt|;
 block|}
@@ -575,14 +624,6 @@ condition|)
 block|{
 comment|// must process synchronous if transacted or configured to
 comment|// do so
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -606,7 +647,6 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 try|try
 block|{
 name|AsyncProcessorHelper
@@ -648,14 +688,6 @@ block|}
 else|else
 block|{
 comment|// process asynchronous using the async routing engine
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
@@ -679,7 +711,6 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|sync
 init|=
@@ -905,6 +936,9 @@ name|MessageProducer
 name|localProducer
 parameter_list|)
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|exchange
@@ -931,10 +965,69 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|Object
+name|body
+init|=
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|body
+operator|instanceof
+name|InputStream
+condition|)
+block|{
+name|byte
+index|[]
+name|bytes
+init|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|byte
+index|[]
+operator|.
+expr|class
+argument_list|,
+name|body
+argument_list|)
+decl_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|Message
 name|response
 init|=
-name|JmsMessageHelper
+name|JmsMessageExchangeHelper
 operator|.
 name|createMessage
 argument_list|(

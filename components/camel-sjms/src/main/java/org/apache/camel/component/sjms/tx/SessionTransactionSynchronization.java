@@ -26,16 +26,6 @@ name|javax
 operator|.
 name|jms
 operator|.
-name|JMSException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
 name|Session
 import|;
 end_import
@@ -49,6 +39,22 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|TransactionCommitStrategy
 import|;
 end_import
 
@@ -87,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for SessionTransactionSynchronization  *  */
+comment|/**  * SessionTransactionSynchronization is called at the completion of each {@link org.apache.camel.Exhcnage}.  */
 end_comment
 
 begin_class
@@ -116,12 +122,21 @@ specifier|private
 name|Session
 name|session
 decl_stmt|;
-DECL|method|SessionTransactionSynchronization (Session session)
+DECL|field|commitStrategy
+specifier|private
+specifier|final
+name|TransactionCommitStrategy
+name|commitStrategy
+decl_stmt|;
+DECL|method|SessionTransactionSynchronization (Session session, TransactionCommitStrategy commitStrategy)
 specifier|public
 name|SessionTransactionSynchronization
 parameter_list|(
 name|Session
 name|session
+parameter_list|,
+name|TransactionCommitStrategy
+name|commitStrategy
 parameter_list|)
 block|{
 name|this
@@ -130,8 +145,33 @@ name|session
 operator|=
 name|session
 expr_stmt|;
+if|if
+condition|(
+name|commitStrategy
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|commitStrategy
+operator|=
+operator|new
+name|DefaultTransactionCommitStrategy
+argument_list|()
+expr_stmt|;
 block|}
-comment|/*      * @see org.apache.camel.spi.Synchronization#onFailure(org.apache.camel.Exchange)      *      * @param exchange      */
+else|else
+block|{
+name|this
+operator|.
+name|commitStrategy
+operator|=
+name|commitStrategy
+expr_stmt|;
+block|}
+block|}
+comment|/**      * @see      * org.apache.camel.spi.Synchronization#onFailure(org.apache.camel.Exchange)      * @param exchange      */
 annotation|@
 name|Override
 DECL|method|onFailure (Exchange exchange)
@@ -143,12 +183,16 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+try|try
+block|{
 if|if
 condition|(
-name|log
+name|commitStrategy
 operator|.
-name|isDebugEnabled
-argument_list|()
+name|rollback
+argument_list|(
+name|exchange
+argument_list|)
 condition|)
 block|{
 name|log
@@ -163,9 +207,6 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-try|try
-block|{
 if|if
 condition|(
 name|session
@@ -187,9 +228,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
 catch|catch
 parameter_list|(
-name|JMSException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -207,7 +249,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*      * @see org.apache.camel.spi.Synchronization#onComplete(org.apache.camel.Exchange)      *      * @param exchange      */
+comment|/**      * @see      * org.apache.camel.spi.Synchronization#onComplete(org.apache.camel.Exchange      * )      * @param exchange      */
 annotation|@
 name|Override
 DECL|method|onComplete (Exchange exchange)
@@ -219,12 +261,16 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+try|try
+block|{
 if|if
 condition|(
-name|log
+name|commitStrategy
 operator|.
-name|isDebugEnabled
-argument_list|()
+name|commit
+argument_list|(
+name|exchange
+argument_list|)
 condition|)
 block|{
 name|log
@@ -239,9 +285,6 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-try|try
-block|{
 if|if
 condition|(
 name|session
@@ -263,9 +306,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
 catch|catch
 parameter_list|(
-name|JMSException
+name|Exception
 name|e
 parameter_list|)
 block|{

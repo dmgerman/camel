@@ -140,6 +140,22 @@ name|component
 operator|.
 name|sjms
 operator|.
+name|TransactionCommitStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
 name|jms
 operator|.
 name|JmsObjectFactory
@@ -178,12 +194,48 @@ name|sjms
 operator|.
 name|tx
 operator|.
+name|BatchTransactionCommitStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|tx
+operator|.
+name|DefaultTransactionCommitStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|tx
+operator|.
 name|SessionTransactionSynchronization
 import|;
 end_import
 
 begin_comment
-comment|/**  * A non-transacted queue consumer for a given JMS Destination  *   */
+comment|/**  * A non-transacted queue consumer for a given JMS Destination  */
 end_comment
 
 begin_class
@@ -244,7 +296,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|isEndpointTransacted
+name|isTransacted
 argument_list|()
 operator|||
 name|getSjmsEndpoint
@@ -412,7 +464,7 @@ specifier|final
 name|MessageConsumer
 name|messageConsumer
 decl_stmt|;
-comment|/**          * TODO Add Constructor Javadoc          *           * @param session          * @param messageProducer          */
+comment|/**          * @param messageProducer          */
 DECL|method|MessageConsumerResources (MessageConsumer messageConsumer)
 specifier|public
 name|MessageConsumerResources
@@ -421,6 +473,9 @@ name|MessageConsumer
 name|messageConsumer
 parameter_list|)
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|session
@@ -434,7 +489,7 @@ operator|=
 name|messageConsumer
 expr_stmt|;
 block|}
-comment|/**          * TODO Add Constructor Javadoc          *           * @param session          * @param messageProducer          */
+comment|/**          * @param session          * @param messageProducer          */
 DECL|method|MessageConsumerResources (Session session, MessageConsumer messageConsumer)
 specifier|public
 name|MessageConsumerResources
@@ -446,6 +501,9 @@ name|MessageConsumer
 name|messageConsumer
 parameter_list|)
 block|{
+name|super
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|session
@@ -642,7 +700,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|isEndpointTransacted
+name|isTransacted
 argument_list|()
 condition|)
 block|{
@@ -848,7 +906,7 @@ name|messageConsumer
 argument_list|)
 return|;
 block|}
-comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *       * @param session      *            a session is only required if we are a transacted consumer      * @return      */
+comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *       * @param session a session is only required if we are a transacted consumer      * @return      */
 DECL|method|createMessageHandler (Session session)
 specifier|protected
 name|MessageListener
@@ -858,6 +916,61 @@ name|Session
 name|session
 parameter_list|)
 block|{
+name|TransactionCommitStrategy
+name|commitStrategy
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|getCommitStrategy
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|commitStrategy
+operator|=
+name|this
+operator|.
+name|getCommitStrategy
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|this
+operator|.
+name|getTransactionBatchCount
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|commitStrategy
+operator|=
+operator|new
+name|BatchTransactionCommitStrategy
+argument_list|(
+name|this
+operator|.
+name|getTransactionBatchCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|commitStrategy
+operator|=
+operator|new
+name|DefaultTransactionCommitStrategy
+argument_list|()
+expr_stmt|;
+block|}
 name|DefaultMessageHandler
 name|messageHandler
 init|=
@@ -881,7 +994,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|isEndpointTransacted
+name|isTransacted
 argument_list|()
 condition|)
 block|{
@@ -899,6 +1012,8 @@ operator|new
 name|SessionTransactionSynchronization
 argument_list|(
 name|session
+argument_list|,
+name|commitStrategy
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -922,7 +1037,7 @@ else|else
 block|{
 if|if
 condition|(
-name|isEndpointTransacted
+name|isTransacted
 argument_list|()
 condition|)
 block|{
@@ -940,6 +1055,8 @@ operator|new
 name|SessionTransactionSynchronization
 argument_list|(
 name|session
+argument_list|,
+name|commitStrategy
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -986,7 +1103,7 @@ name|messageHandler
 operator|.
 name|setTransacted
 argument_list|(
-name|isEndpointTransacted
+name|isTransacted
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for SjmsMessageConsumer  *  */
+comment|/**  * TODO Add Class documentation for SjmsMessageConsumer  */
 end_comment
 
 begin_interface
