@@ -80,6 +80,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|chemistry
+operator|.
+name|opencmis
+operator|.
+name|client
+operator|.
+name|api
+operator|.
+name|OperationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -196,6 +214,19 @@ name|poll
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+DECL|method|createOperationContext ()
+specifier|public
+name|OperationContext
+name|createOperationContext
+parameter_list|()
+block|{
+return|return
+name|sessionFacade
+operator|.
+name|createOperationContext
+argument_list|()
 return|;
 block|}
 DECL|method|sendExchangeWithPropsAndBody (Map<String, Object> properties, InputStream inputStream)

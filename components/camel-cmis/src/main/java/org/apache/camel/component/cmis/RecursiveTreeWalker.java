@@ -296,8 +296,9 @@ expr_stmt|;
 name|OperationContext
 name|operationContext
 init|=
-operator|new
-name|OperationContextImpl
+name|cmisConsumer
+operator|.
+name|createOperationContext
 argument_list|()
 decl_stmt|;
 name|operationContext
