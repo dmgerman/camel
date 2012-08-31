@@ -810,7 +810,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// set the MEP to InOptionalOut as we might not be able to send a reply
+comment|// set the MEP to InOnly as we might not be able to send a reply
 name|from
 argument_list|(
 name|getQueueEndpointName
@@ -821,7 +821,7 @@ name|setExchangePattern
 argument_list|(
 name|ExchangePattern
 operator|.
-name|InOptionalOut
+name|InOnly
 argument_list|)
 operator|.
 name|process

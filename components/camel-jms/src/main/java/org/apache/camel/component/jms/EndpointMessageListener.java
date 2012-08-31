@@ -933,6 +933,7 @@ block|}
 else|else
 block|{
 comment|// process OK so get the reply body if we are InOut and has a body
+comment|// If the ppl don't want to send the message back, he should use the InOnly
 if|if
 condition|(
 name|sendReply
@@ -944,7 +945,10 @@ argument_list|()
 operator|.
 name|isOutCapable
 argument_list|()
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|exchange
 operator|.
 name|hasOut
@@ -958,6 +962,17 @@ operator|.
 name|getOut
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|body
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+expr_stmt|;
+block|}
 name|cause
 operator|=
 literal|null

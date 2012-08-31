@@ -196,6 +196,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangeTimedOutException
 import|;
 end_import
@@ -532,6 +544,14 @@ block|{
 name|from
 argument_list|(
 name|endpointUriA
+argument_list|)
+comment|// We are not expect the response here
+operator|.
+name|setExchangePattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
 argument_list|)
 operator|.
 name|process
