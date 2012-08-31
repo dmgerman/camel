@@ -50,6 +50,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -405,8 +419,16 @@ argument_list|,
 name|engine
 argument_list|)
 expr_stmt|;
+comment|// only start engine if CamelContext is already started, otherwise the engines gets started
+comment|// automatic later when CamelContext has been started using the StartupListener
 if|if
 condition|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+operator|.
 name|isStarted
 argument_list|()
 condition|)
@@ -506,6 +528,33 @@ block|}
 name|super
 operator|.
 name|doStop
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// cleanup when shutting down
+name|engines
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|endpoints
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doShutdown
 argument_list|()
 expr_stmt|;
 block|}
