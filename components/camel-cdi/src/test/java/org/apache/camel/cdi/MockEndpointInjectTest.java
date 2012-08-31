@@ -52,6 +52,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -72,6 +88,18 @@ begin_import
 import|import
 name|javax
 operator|.
+name|enterprise
+operator|.
+name|inject
+operator|.
+name|Produces
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -79,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test endpoint injection  */
+comment|/**  * Test mock endpoint injection  */
 end_comment
 
 begin_class
@@ -98,7 +126,7 @@ name|MockEndpointInjectedBean
 name|bean
 decl_stmt|;
 annotation|@
-name|Ignore
+name|Test
 DECL|method|shouldInjectMockEndpoint ()
 specifier|public
 name|void
@@ -110,7 +138,60 @@ argument_list|(
 name|bean
 argument_list|)
 expr_stmt|;
-comment|/*         TODO         assertNotNull("Could not find injected endpoint!", bean.getEndpoint());          cannot currently figure out how to be able to inject both Endpoint and MockEndpoint using a @Produces         plugin without using explicit qualifier annotations to separate the two scenarios which is a bit ugly         */
+name|MockEndpoint
+name|foo
+init|=
+name|bean
+operator|.
+name|getFoo
+argument_list|()
+decl_stmt|;
+name|MockEndpoint
+name|bar
+init|=
+name|bean
+operator|.
+name|getBar
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not find injected foo endpoint!"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not find injected bar endpoint!"
+argument_list|,
+name|bar
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"foo URI"
+argument_list|,
+literal|"mock://foo"
+argument_list|,
+name|foo
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"bar URI"
+argument_list|,
+literal|"mock://something"
+argument_list|,
+name|bar
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
