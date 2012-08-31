@@ -1238,6 +1238,30 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> on the supplied header name's contents      *       * @param text the expression to be evaluated      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+DECL|method|xpath (String text, String headerName)
+specifier|public
+name|T
+name|xpath
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|xpath
+argument_list|(
+name|text
+argument_list|,
+name|headerName
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
 DECL|method|xpath (String text, Class<?> resultType)
 specifier|public
@@ -1262,6 +1286,38 @@ argument_list|(
 name|text
 argument_list|,
 name|resultType
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type on the supplied      * header name's contents      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+DECL|method|xpath (String text, Class<?> resultType, String headerName)
+specifier|public
+name|T
+name|xpath
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|xpath
+argument_list|(
+name|text
+argument_list|,
+name|resultType
+argument_list|,
+name|headerName
 argument_list|)
 return|;
 block|}
@@ -1294,6 +1350,43 @@ argument_list|,
 name|resultType
 argument_list|,
 name|namespaces
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> with the specified result type and set of namespace      * prefixes and URIs on the supplied header name's contents      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @param namespaces the namespace prefix and URIs to use      *       * @return the builder to continue processing the DSL      */
+DECL|method|xpath (String text, Class<?> resultType, Namespaces namespaces, String headerName)
+specifier|public
+name|T
+name|xpath
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|,
+name|Namespaces
+name|namespaces
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|xpath
+argument_list|(
+name|text
+argument_list|,
+name|resultType
+argument_list|,
+name|namespaces
+argument_list|,
+name|headerName
 argument_list|)
 return|;
 block|}
@@ -1406,6 +1499,30 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/xpath.html">XPath      * expression</a> on the supplied header name's contents      *       * @param text the expression to be evaluated      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+DECL|method|xquery (String text, String headerName)
+specifier|public
+name|T
+name|xquery
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|xquery
+argument_list|(
+name|text
+argument_list|,
+name|headerName
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class<?> resultType)
 specifier|public
@@ -1430,6 +1547,38 @@ argument_list|(
 name|text
 argument_list|,
 name|resultType
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+DECL|method|xquery (String text, Class<?> resultType, String headerName)
+specifier|public
+name|T
+name|xquery
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|xquery
+argument_list|(
+name|text
+argument_list|,
+name|resultType
+argument_list|,
+name|headerName
 argument_list|)
 return|;
 block|}
@@ -1462,6 +1611,43 @@ argument_list|,
 name|resultType
 argument_list|,
 name|namespaces
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @param namespaces the namespace prefix and URIs to use      *       * @return the builder to continue processing the DSL      */
+DECL|method|xquery (String text, Class<?> resultType, Namespaces namespaces, String headerName)
+specifier|public
+name|T
+name|xquery
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|,
+name|Namespaces
+name|namespaces
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|xquery
+argument_list|(
+name|text
+argument_list|,
+name|resultType
+argument_list|,
+name|namespaces
+argument_list|,
+name|headerName
 argument_list|)
 return|;
 block|}
