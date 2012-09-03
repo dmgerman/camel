@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Produce
+name|Endpoint
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|EndpointInject
 import|;
 end_import
 
@@ -66,55 +66,53 @@ name|Uri
 import|;
 end_import
 
+begin_comment
+comment|/**  */
+end_comment
+
 begin_class
-DECL|class|ProduceInjectedBean
+DECL|class|EndpointUriInjectedBean
 specifier|public
 class|class
-name|ProduceInjectedBean
+name|EndpointUriInjectedBean
 block|{
-annotation|@
-name|Produce
-argument_list|(
-name|uri
-operator|=
-literal|"mock:foo"
-argument_list|)
-DECL|field|producer
-specifier|private
-name|ProducerTemplate
-name|producer
-decl_stmt|;
 annotation|@
 name|Inject
 annotation|@
 name|Uri
 argument_list|(
-literal|"mock:bar"
+literal|"mock:uriInjected"
 argument_list|)
-DECL|field|producer2
+DECL|field|endpoint
 specifier|private
-name|ProducerTemplate
-name|producer2
+name|Endpoint
+name|endpoint
 decl_stmt|;
-DECL|method|getProducer ()
+DECL|method|getEndpoint ()
 specifier|public
-name|ProducerTemplate
-name|getProducer
+name|Endpoint
+name|getEndpoint
 parameter_list|()
 block|{
 return|return
-name|producer
+name|endpoint
 return|;
 block|}
-DECL|method|getProducer2 ()
+DECL|method|setEndpoint (Endpoint endpoint)
 specifier|public
-name|ProducerTemplate
-name|getProducer2
-parameter_list|()
+name|void
+name|setEndpoint
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
 block|{
-return|return
-name|producer2
-return|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -126,6 +126,36 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ProducerTemplate
+name|producer2
+init|=
+name|bean
+operator|.
+name|getProducer2
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not find injected producer2!"
+argument_list|,
+name|producer2
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"producer2 default URI"
+argument_list|,
+literal|"mock://bar"
+argument_list|,
+name|producer2
+operator|.
+name|getDefaultEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

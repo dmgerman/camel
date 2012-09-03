@@ -783,7 +783,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|getEndpointInjection (Object bean, String uri, String name, String propertyName, String injectionPointName, boolean mandatory)
-specifier|protected
+specifier|public
 name|Endpoint
 name|getEndpointInjection
 parameter_list|(
