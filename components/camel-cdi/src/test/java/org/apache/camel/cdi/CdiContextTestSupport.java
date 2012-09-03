@@ -265,6 +265,26 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|applyCamelPostProcessor ()
+specifier|protected
+name|void
+name|applyCamelPostProcessor
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// lets do nothing and let CDI do all the injection on this
+comment|// TODO as a workaround until we support backwards compatible injection
+comment|// on @Produce / @EndpointInject without the use of @Inject
+comment|// lets keep the old behaviour
+name|super
+operator|.
+name|applyCamelPostProcessor
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

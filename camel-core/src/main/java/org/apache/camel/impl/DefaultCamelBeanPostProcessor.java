@@ -387,7 +387,7 @@ return|;
 block|}
 comment|/**      * Strategy to get the {@link CamelPostProcessorHelper}      */
 DECL|method|getPostProcessorHelper ()
-specifier|protected
+specifier|public
 name|CamelPostProcessorHelper
 name|getPostProcessorHelper
 parameter_list|()
@@ -649,7 +649,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|injectField (Field field, String endpointUri, String endpointRef, String endpointProperty, Object bean, String beanName)
-specifier|protected
+specifier|public
 name|void
 name|injectField
 parameter_list|(
@@ -902,7 +902,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|setterInjection (Method method, Object bean, String beanName, String endpointUri, String endpointRef, String endpointProperty)
-specifier|protected
+specifier|public
 name|void
 name|setterInjection
 parameter_list|(
