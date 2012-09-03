@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An injection annotation to define the<a href="http://camel.apache.org/uris.html">Camel URI</a> used  * to reference the underlying<a href="http://camel.apache.org/endpoint.html">Camel Endpoint</a>  */
+comment|/**  * An injection annotation to define the<a href="http://camel.apache.org/uris.html">Camel URI</a> used  * to reference the underlying<a href="http://camel.apache.org/endpoint.html">Camel Endpoint</a>.  *  * This annotation can be used to annotate an @Inject injection point for values of type  * {@link org.apache.camel.Endpoint} or {@link org.apache.camel.ProducerTemplate} with a String URI.  *  * For example:  *<code>  *     public class Foo {  *         @Inject @Uri("mock:foo") Endpoint endpoint;  *  *         @Inject @Uri("seda:bar") ProducerTemplate producer;  *     }  *</code>  */
 end_comment
 
 begin_annotation_defn
