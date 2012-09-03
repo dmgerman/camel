@@ -187,7 +187,7 @@ name|Produce
 argument_list|(
 name|uri
 operator|=
-literal|"mock:result"
+literal|"direct:inject"
 argument_list|)
 DECL|field|myProducer
 name|ProducerTemplate
@@ -214,8 +214,6 @@ name|myProducer
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:inject"
-argument_list|,
 literal|"hello"
 argument_list|)
 expr_stmt|;
