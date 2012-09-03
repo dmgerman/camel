@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.cdi
+DECL|package|org.apache.camel.cdi.support
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|cdi
+operator|.
+name|support
 package|;
 end_package
 
@@ -34,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|Endpoint
 import|;
 end_import
 
@@ -46,11 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cdi
-operator|.
-name|support
-operator|.
-name|ProduceInjectedBean
+name|EndpointInject
 import|;
 end_import
 
@@ -58,74 +56,65 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Test
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
-begin_comment
-comment|/**  * Test endpoint injection  */
-end_comment
-
 begin_class
-DECL|class|ProduceInjectTest
+DECL|class|CamelEndpointInjectedBean
 specifier|public
 class|class
-name|ProduceInjectTest
-extends|extends
-name|CdiTestSupport
+name|CamelEndpointInjectedBean
 block|{
 annotation|@
-name|Inject
-DECL|field|bean
-specifier|private
-name|ProduceInjectedBean
-name|bean
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"direct:inject"
+argument_list|)
+DECL|field|endpoint
+name|Endpoint
+name|endpoint
 decl_stmt|;
 annotation|@
-name|Test
-DECL|method|shouldInjectEndpoint ()
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:result"
+argument_list|)
+DECL|field|mockEndpoint
+name|MockEndpoint
+name|mockEndpoint
+decl_stmt|;
+DECL|method|getEndpoint ()
 specifier|public
-name|void
-name|shouldInjectEndpoint
+name|Endpoint
+name|getEndpoint
 parameter_list|()
 block|{
-name|assertNotNull
-argument_list|(
-name|bean
-argument_list|)
-expr_stmt|;
-name|ProducerTemplate
-name|producer
-init|=
-name|bean
-operator|.
-name|getProducer
-argument_list|()
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Could not find injected producer!"
-argument_list|,
-name|producer
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"producer default URI"
-argument_list|,
-literal|"mock://foo"
-argument_list|,
-name|producer
-operator|.
-name|getDefaultEndpoint
-argument_list|()
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
+return|return
+name|endpoint
+return|;
+block|}
+DECL|method|getMockEndpoint ()
+specifier|public
+name|MockEndpoint
+name|getMockEndpoint
+parameter_list|()
+block|{
+return|return
+name|mockEndpoint
+return|;
 block|}
 block|}
 end_class

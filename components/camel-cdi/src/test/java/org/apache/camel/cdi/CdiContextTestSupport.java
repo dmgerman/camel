@@ -48,6 +48,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|cdi
+operator|.
+name|internal
+operator|.
+name|CamelExtension
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -275,14 +293,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// lets do nothing and let CDI do all the injection on this
-comment|// TODO as a workaround until we support backwards compatible injection
-comment|// on @Produce / @EndpointInject without the use of @Inject
-comment|// lets keep the old behaviour
-name|super
+comment|// lets perform any custom camel injection on the test case object
+name|CamelExtension
+name|camelExtension
+init|=
+name|BeanProvider
 operator|.
-name|applyCamelPostProcessor
-argument_list|()
+name|getContextualReference
+argument_list|(
+name|CamelExtension
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|camelExtension
+operator|.
+name|inject
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 block|}

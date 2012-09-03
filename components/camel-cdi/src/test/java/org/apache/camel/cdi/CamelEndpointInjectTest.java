@@ -34,7 +34,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|support
+operator|.
+name|CamelEndpointInjectedBean
 import|;
 end_import
 
@@ -58,6 +86,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -65,14 +109,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test endpoint injection  */
+comment|/**  * Test endpoint injection using vanilla camel annotations without the use of @Inject  */
 end_comment
 
 begin_class
-DECL|class|ProduceInjectTest
+DECL|class|CamelEndpointInjectTest
 specifier|public
 class|class
-name|ProduceInjectTest
+name|CamelEndpointInjectTest
 extends|extends
 name|CdiTestSupport
 block|{
@@ -80,7 +124,7 @@ annotation|@
 name|Inject
 DECL|field|bean
 specifier|private
-name|ProduceInjectedBean
+name|CamelEndpointInjectedBean
 name|bean
 decl_stmt|;
 annotation|@
@@ -96,31 +140,55 @@ argument_list|(
 name|bean
 argument_list|)
 expr_stmt|;
-name|ProducerTemplate
-name|producer
+name|Endpoint
+name|endpoint
 init|=
 name|bean
 operator|.
-name|getProducer
+name|getEndpoint
 argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Could not find injected producer!"
+literal|"Could not find injected endpoint!"
 argument_list|,
-name|producer
+name|endpoint
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"producer default URI"
+literal|"endpoint URI"
 argument_list|,
-literal|"mock://foo"
+literal|"direct://inject"
 argument_list|,
-name|producer
+name|endpoint
 operator|.
-name|getDefaultEndpoint
+name|getEndpointUri
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|MockEndpoint
+name|mockEndpoint
+init|=
+name|bean
+operator|.
+name|getMockEndpoint
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not find injected mock endpoint!"
+argument_list|,
+name|mockEndpoint
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"mock endpoint URI"
+argument_list|,
+literal|"mock://result"
+argument_list|,
+name|mockEndpoint
 operator|.
 name|getEndpointUri
 argument_list|()
