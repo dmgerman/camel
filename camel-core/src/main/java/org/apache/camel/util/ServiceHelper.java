@@ -1242,6 +1242,54 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Is the given service suspended      *      * @return<tt>true</tt> if already suspended, otherwise<tt>false</tt>      */
+DECL|method|isSuspended (Object value)
+specifier|public
+specifier|static
+name|boolean
+name|isSuspended
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|value
+operator|instanceof
+name|StatefulService
+condition|)
+block|{
+name|StatefulService
+name|service
+init|=
+operator|(
+name|StatefulService
+operator|)
+name|value
+decl_stmt|;
+if|if
+condition|(
+name|service
+operator|.
+name|isSuspended
+argument_list|()
+operator|||
+name|service
+operator|.
+name|isSuspending
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Gather all child services by navigating the service to recursively gather all child services.      *      * @param service the service      * @return the services, including the parent service, and all its children      */
 DECL|method|getChildServices (Service service)
 specifier|public
