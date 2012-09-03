@@ -1539,6 +1539,19 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|applyCamelPostProcessor
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Applies the {@link DefaultCamelBeanPostProcessor} to this instance.      *      * Derived classes using IoC / DI frameworks may wish to turn this into a NoOp such as for CDI      * we would just use CDI to inject this      */
+DECL|method|applyCamelPostProcessor ()
+specifier|protected
+name|void
+name|applyCamelPostProcessor
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 comment|// use the default bean post processor from camel-core
 name|DefaultCamelBeanPostProcessor
 name|processor
