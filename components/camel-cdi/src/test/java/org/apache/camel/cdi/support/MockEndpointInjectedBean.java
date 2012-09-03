@@ -76,7 +76,6 @@ specifier|public
 class|class
 name|MockEndpointInjectedBean
 block|{
-comment|/*      TODO - cannot currently figure out how to be able to inject both Endpoint and MockEndpoint     using a @Produces plugin with a single method without using explicit qualifier annotations     to separate the two scenarios which is a bit ugly.      See discussion here:     https://issues.apache.org/jira/browse/CAMEL-5553      Ideally it would be nice to be able to do this:      @Inject     @EndpointInject(uri = "mock:blah")     private MockEndpoint endpoint;      */
 annotation|@
 name|Inject
 annotation|@
@@ -90,11 +89,7 @@ annotation|@
 name|Inject
 annotation|@
 name|Mock
-annotation|@
-name|EndpointInject
 argument_list|(
-name|uri
-operator|=
 literal|"mock:something"
 argument_list|)
 DECL|field|bar

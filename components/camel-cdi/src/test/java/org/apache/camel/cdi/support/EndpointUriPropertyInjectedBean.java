@@ -77,8 +77,6 @@ class|class
 name|EndpointUriPropertyInjectedBean
 block|{
 annotation|@
-name|Inject
-annotation|@
 name|EndpointInject
 argument_list|(
 name|property

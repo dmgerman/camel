@@ -112,10 +112,8 @@ decl_stmt|;
 annotation|@
 name|Inject
 annotation|@
-name|Produce
+name|Uri
 argument_list|(
-name|uri
-operator|=
 literal|"seda:start"
 argument_list|)
 DECL|field|producer

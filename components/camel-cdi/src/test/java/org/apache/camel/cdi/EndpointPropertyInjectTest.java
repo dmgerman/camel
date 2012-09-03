@@ -109,9 +109,8 @@ specifier|private
 name|EndpointUriPropertyInjectedBean
 name|bean
 decl_stmt|;
-comment|// TODO not supported yet!
 annotation|@
-name|Ignore
+name|Test
 DECL|method|shouldInjectEndpointByProperty ()
 specifier|public
 name|void

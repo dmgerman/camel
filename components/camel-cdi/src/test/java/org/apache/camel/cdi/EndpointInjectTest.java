@@ -138,6 +138,18 @@ operator|instanceof
 name|MockEndpoint
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Endpoint URI"
+argument_list|,
+literal|"mock://blah"
+argument_list|,
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

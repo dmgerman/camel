@@ -88,6 +88,18 @@ specifier|private
 name|Endpoint
 name|endpoint
 decl_stmt|;
+annotation|@
+name|Inject
+annotation|@
+name|Uri
+argument_list|(
+literal|"mock:anotherEndpoint"
+argument_list|)
+DECL|field|endpoint2
+specifier|private
+name|Endpoint
+name|endpoint2
+decl_stmt|;
 DECL|method|getEndpoint ()
 specifier|public
 name|Endpoint
@@ -112,6 +124,32 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+block|}
+DECL|method|getEndpoint2 ()
+specifier|public
+name|Endpoint
+name|getEndpoint2
+parameter_list|()
+block|{
+return|return
+name|endpoint2
+return|;
+block|}
+DECL|method|setEndpoint2 (Endpoint endpoint2)
+specifier|public
+name|void
+name|setEndpoint2
+parameter_list|(
+name|Endpoint
+name|endpoint2
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint2
+operator|=
+name|endpoint2
 expr_stmt|;
 block|}
 block|}

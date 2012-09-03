@@ -64,11 +64,35 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|util
+operator|.
+name|Nonbinding
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Qualifier
+import|;
+end_import
+
 begin_comment
 comment|/**  * An injection annotation to define the<a href="http://camel.apache.org/uris.html">Camel URI</a> used  * to reference the underlying<a href="http://camel.apache.org/endpoint.html">Camel Endpoint</a>.  *  * This annotation can be used to annotate an @Inject injection point for values of type  * {@link org.apache.camel.Endpoint} or {@link org.apache.camel.ProducerTemplate} with a String URI.  *  * For example:  *<code>  *     public class Foo {  *         @Inject @Uri("mock:foo") Endpoint endpoint;  *  *         @Inject @Uri("seda:bar") ProducerTemplate producer;  *     }  *</code>  */
 end_comment
 
 begin_annotation_defn
+annotation|@
+name|Qualifier
 annotation|@
 name|Retention
 argument_list|(
@@ -103,6 +127,8 @@ annotation_defn|@interface
 name|Uri
 block|{
 comment|/**      * Returns the<a href="http://camel.apache.org/uris.html">Camel URI</a> of the endpoint      */
+annotation|@
+name|Nonbinding
 DECL|method|value ()
 name|String
 name|value

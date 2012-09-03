@@ -166,6 +166,33 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Endpoint
+name|endpoint2
+init|=
+name|bean
+operator|.
+name|getEndpoint2
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Could not find injected endpoint2!"
+argument_list|,
+name|endpoint2
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Endpoint URI"
+argument_list|,
+literal|"mock://anotherEndpoint"
+argument_list|,
+name|endpoint2
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
