@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -92,7 +102,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CommonsHttpSolrServer
+name|ConcurrentUpdateSolrServer
 import|;
 end_import
 
@@ -110,7 +120,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|StreamingUpdateSolrServer
+name|HttpSolrServer
 import|;
 end_import
 
@@ -128,12 +138,12 @@ name|DefaultEndpoint
 block|{
 DECL|field|solrServer
 specifier|private
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|solrServer
 decl_stmt|;
 DECL|field|streamingSolrServer
 specifier|private
-name|CommonsHttpSolrServer
+name|ConcurrentUpdateSolrServer
 name|streamingSolrServer
 decl_stmt|;
 DECL|field|requestHandler
@@ -182,14 +192,27 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-name|solrServer
-operator|=
+comment|// check the url address
+name|URL
+name|url
+init|=
 operator|new
-name|CommonsHttpSolrServer
+name|URL
 argument_list|(
 literal|"http://"
 operator|+
 name|address
+argument_list|)
+decl_stmt|;
+name|solrServer
+operator|=
+operator|new
+name|HttpSolrServer
+argument_list|(
+name|url
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|streamingQueueSize
@@ -237,11 +260,12 @@ expr_stmt|;
 name|streamingSolrServer
 operator|=
 operator|new
-name|StreamingUpdateSolrServer
+name|ConcurrentUpdateSolrServer
 argument_list|(
-literal|"http://"
-operator|+
-name|address
+name|url
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|streamingQueueSize
 argument_list|,
@@ -342,7 +366,7 @@ return|;
 block|}
 DECL|method|getSolrServer ()
 specifier|public
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|getSolrServer
 parameter_list|()
 block|{
@@ -352,7 +376,7 @@ return|;
 block|}
 DECL|method|getStreamingSolrServer ()
 specifier|public
-name|CommonsHttpSolrServer
+name|ConcurrentUpdateSolrServer
 name|getStreamingSolrServer
 parameter_list|()
 block|{
@@ -360,12 +384,12 @@ return|return
 name|streamingSolrServer
 return|;
 block|}
-DECL|method|setStreamingSolrServer (CommonsHttpSolrServer streamingSolrServer)
+DECL|method|setStreamingSolrServer (ConcurrentUpdateSolrServer streamingSolrServer)
 specifier|public
 name|void
 name|setStreamingSolrServer
 parameter_list|(
-name|CommonsHttpSolrServer
+name|ConcurrentUpdateSolrServer
 name|streamingSolrServer
 parameter_list|)
 block|{
@@ -392,13 +416,6 @@ argument_list|(
 name|maxRetries
 argument_list|)
 expr_stmt|;
-name|streamingSolrServer
-operator|.
-name|setMaxRetries
-argument_list|(
-name|maxRetries
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|setSoTimeout (int soTimeout)
 specifier|public
@@ -410,13 +427,6 @@ name|soTimeout
 parameter_list|)
 block|{
 name|solrServer
-operator|.
-name|setSoTimeout
-argument_list|(
-name|soTimeout
-argument_list|)
-expr_stmt|;
-name|streamingSolrServer
 operator|.
 name|setSoTimeout
 argument_list|(
@@ -440,13 +450,6 @@ argument_list|(
 name|connectionTimeout
 argument_list|)
 expr_stmt|;
-name|streamingSolrServer
-operator|.
-name|setConnectionTimeout
-argument_list|(
-name|connectionTimeout
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|setDefaultMaxConnectionsPerHost (int defaultMaxConnectionsPerHost)
 specifier|public
@@ -458,13 +461,6 @@ name|defaultMaxConnectionsPerHost
 parameter_list|)
 block|{
 name|solrServer
-operator|.
-name|setDefaultMaxConnectionsPerHost
-argument_list|(
-name|defaultMaxConnectionsPerHost
-argument_list|)
-expr_stmt|;
-name|streamingSolrServer
 operator|.
 name|setDefaultMaxConnectionsPerHost
 argument_list|(
@@ -488,13 +484,6 @@ argument_list|(
 name|maxTotalConnections
 argument_list|)
 expr_stmt|;
-name|streamingSolrServer
-operator|.
-name|setMaxTotalConnections
-argument_list|(
-name|maxTotalConnections
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|setFollowRedirects (boolean followRedirects)
 specifier|public
@@ -512,13 +501,6 @@ argument_list|(
 name|followRedirects
 argument_list|)
 expr_stmt|;
-name|streamingSolrServer
-operator|.
-name|setFollowRedirects
-argument_list|(
-name|followRedirects
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|setAllowCompression (boolean allowCompression)
 specifier|public
@@ -530,13 +512,6 @@ name|allowCompression
 parameter_list|)
 block|{
 name|solrServer
-operator|.
-name|setAllowCompression
-argument_list|(
-name|allowCompression
-argument_list|)
-expr_stmt|;
-name|streamingSolrServer
 operator|.
 name|setAllowCompression
 argument_list|(

@@ -146,7 +146,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 import|;
 end_import
 
@@ -251,7 +251,7 @@ decl_stmt|;
 DECL|field|solrServer
 specifier|protected
 specifier|static
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|solrServer
 decl_stmt|;
 DECL|method|solrInsertTestEntry ()
@@ -428,7 +428,7 @@ expr_stmt|;
 name|solrServer
 operator|=
 operator|new
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 argument_list|(
 literal|"http://localhost:"
 operator|+

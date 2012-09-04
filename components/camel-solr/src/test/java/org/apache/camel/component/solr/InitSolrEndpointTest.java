@@ -207,7 +207,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"solr://localhost:-99/solr"
+literal|"solr://localhost:x99/solr"
 argument_list|)
 expr_stmt|;
 block|}
