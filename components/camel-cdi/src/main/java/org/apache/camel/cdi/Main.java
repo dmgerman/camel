@@ -705,6 +705,14 @@ operator|.
 name|boot
 argument_list|()
 expr_stmt|;
+name|cdiContainer
+operator|.
+name|getContextControl
+argument_list|()
+operator|.
+name|startContexts
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|doStart

@@ -78,6 +78,28 @@ begin_import
 import|import
 name|javax
 operator|.
+name|ejb
+operator|.
+name|Startup
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|context
+operator|.
+name|ApplicationScoped
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|enterprise
 operator|.
 name|context
@@ -266,6 +288,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Singleton
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -443,7 +475,7 @@ specifier|private
 name|DefaultCamelBeanPostProcessor
 name|postProcessor
 decl_stmt|;
-DECL|field|beanAdapters
+DECL|field|eagerBeans
 specifier|private
 name|Map
 argument_list|<
@@ -454,7 +486,7 @@ argument_list|>
 argument_list|,
 name|BeanAdapter
 argument_list|>
-name|beanAdapters
+name|eagerBeans
 init|=
 operator|new
 name|HashMap
@@ -468,6 +500,11 @@ name|BeanAdapter
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|CamelExtension ()
+specifier|public
+name|CamelExtension
+parameter_list|()
+block|{     }
 comment|/**      * Process camel context aware bean definitions.      *      * @param process Annotated type.      * @throws Exception In case of exceptions.      */
 DECL|method|contextAwareness (@bserves ProcessAnnotatedType<CamelContextAware> process)
 specifier|protected
@@ -708,14 +745,22 @@ operator|.
 name|getBean
 argument_list|()
 decl_stmt|;
-name|ReflectionHelper
-operator|.
-name|doWithMethods
-argument_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanClass
+init|=
 name|bean
 operator|.
 name|getBeanClass
 argument_list|()
+decl_stmt|;
+name|ReflectionHelper
+operator|.
+name|doWithMethods
+argument_list|(
+name|beanClass
 argument_list|,
 operator|new
 name|ReflectionHelper
@@ -756,26 +801,57 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|BeanAdapter
-name|beanAdapter
-init|=
-name|getBeanAdapter
+name|eagerlyCreate
 argument_list|(
 name|bean
 argument_list|)
-decl_stmt|;
-name|beanAdapter
-operator|.
-name|addConsumeMethod
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+comment|// lets force singletons and application scoped objects
+comment|// to be created eagerly to ensure they startup
+if|if
+condition|(
+name|eagerlyCreateSingletonsOnStartup
+argument_list|()
+operator|&&
+name|isApplicationScopeOrSingleton
 argument_list|(
-name|method
+name|beanClass
+argument_list|)
+operator|&&
+name|beanClass
+operator|.
+name|getAnnotation
+argument_list|(
+name|Startup
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|eagerlyCreate
+argument_list|(
+name|bean
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-argument_list|)
-expr_stmt|;
+comment|/**      * Should we eagerly startup @Singleton and @ApplicationScoped beans annotated with @Startup?      * Defaults to true which enables us to start camel contexts on startup      */
+DECL|method|eagerlyCreateSingletonsOnStartup ()
+specifier|protected
+name|boolean
+name|eagerlyCreateSingletonsOnStartup
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Lets force the CDI container to create all beans annotated with @Consume so that the consumer becomes active      */
 DECL|method|startConsumeBeans (@bserves AfterDeploymentValidation event, BeanManager beanManager)
@@ -818,7 +894,7 @@ argument_list|>
 argument_list|>
 name|entries
 init|=
-name|beanAdapters
+name|eagerBeans
 operator|.
 name|entrySet
 argument_list|()
@@ -873,9 +949,7 @@ argument_list|(
 name|bean
 argument_list|)
 decl_stmt|;
-name|Object
-name|reference
-init|=
+comment|// force lazy creation
 name|beanManager
 operator|.
 name|getReference
@@ -888,10 +962,15 @@ name|class
 argument_list|,
 name|creationalContext
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Lets perform injection of all beans which use Camel annotations      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|onInjectionTarget (@bserves ProcessInjectionTarget event)
 specifier|public
 name|void
@@ -1310,10 +1389,10 @@ return|return
 name|postProcessor
 return|;
 block|}
-DECL|method|getBeanAdapter (Bean<?> bean)
+DECL|method|eagerlyCreate (Bean<?> bean)
 specifier|protected
 name|BeanAdapter
-name|getBeanAdapter
+name|eagerlyCreate
 parameter_list|(
 name|Bean
 argument_list|<
@@ -1325,7 +1404,7 @@ block|{
 name|BeanAdapter
 name|beanAdapter
 init|=
-name|beanAdapters
+name|eagerBeans
 operator|.
 name|get
 argument_list|(
@@ -1345,7 +1424,7 @@ operator|new
 name|BeanAdapter
 argument_list|()
 expr_stmt|;
-name|beanAdapters
+name|eagerBeans
 operator|.
 name|put
 argument_list|(
@@ -1405,6 +1484,43 @@ operator|.
 name|getAnnotation
 argument_list|(
 name|Inject
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+return|;
+block|}
+comment|/**      * Returns true for singletons or application scoped beans      */
+DECL|method|isApplicationScopeOrSingleton (Class<?> aClass)
+specifier|private
+name|boolean
+name|isApplicationScopeOrSingleton
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|aClass
+parameter_list|)
+block|{
+return|return
+name|aClass
+operator|.
+name|getAnnotation
+argument_list|(
+name|Singleton
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+operator|||
+name|aClass
+operator|.
+name|getAnnotation
+argument_list|(
+name|ApplicationScoped
 operator|.
 name|class
 argument_list|)

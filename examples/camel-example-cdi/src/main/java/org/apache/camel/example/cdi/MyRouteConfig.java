@@ -156,9 +156,9 @@ end_comment
 
 begin_class
 annotation|@
-name|Startup
-annotation|@
 name|ApplicationScoped
+annotation|@
+name|Startup
 DECL|class|MyRouteConfig
 specifier|public
 class|class
@@ -289,15 +289,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"======= Starting MyRouteConfig!!"
-argument_list|)
-expr_stmt|;
 name|camelContext
 operator|.
 name|addRoutes
