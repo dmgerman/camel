@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -49,20 +39,6 @@ operator|.
 name|camel
 operator|.
 name|EndpointInject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
-name|Uri
 import|;
 end_import
 
