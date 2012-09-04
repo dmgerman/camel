@@ -84,18 +84,27 @@ class|class
 name|DelegateInjectionTarget
 implements|implements
 name|InjectionTarget
+argument_list|<
+name|Object
+argument_list|>
 block|{
 DECL|field|delegate
 specifier|private
 specifier|final
 name|InjectionTarget
+argument_list|<
+name|Object
+argument_list|>
 name|delegate
 decl_stmt|;
-DECL|method|DelegateInjectionTarget (InjectionTarget delegate)
+DECL|method|DelegateInjectionTarget (InjectionTarget<Object> delegate)
 specifier|public
 name|DelegateInjectionTarget
 parameter_list|(
 name|InjectionTarget
+argument_list|<
+name|Object
+argument_list|>
 name|delegate
 parameter_list|)
 block|{
@@ -145,7 +154,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|inject (Object instance, CreationalContext ctx)
+DECL|method|inject (Object instance, CreationalContext<Object> ctx)
 specifier|public
 name|void
 name|inject
@@ -154,6 +163,9 @@ name|Object
 name|instance
 parameter_list|,
 name|CreationalContext
+argument_list|<
+name|Object
+argument_list|>
 name|ctx
 parameter_list|)
 block|{
@@ -207,12 +219,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|produce (CreationalContext creationalContext)
+DECL|method|produce (CreationalContext<Object> creationalContext)
 specifier|public
 name|Object
 name|produce
 parameter_list|(
 name|CreationalContext
+argument_list|<
+name|Object
+argument_list|>
 name|creationalContext
 parameter_list|)
 block|{

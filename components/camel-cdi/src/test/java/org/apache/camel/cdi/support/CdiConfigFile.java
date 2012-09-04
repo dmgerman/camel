@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/*  * Class which is used to retrieve camel properties files tp configure endpoints.  * By default, it will check for the file META-INF/camel-properties  */
+comment|/**  * Class which is used to retrieve camel properties files tp configure endpoints.  * By default, it will check for the file META-INF/camel-properties  */
 end_comment
 
 begin_class
@@ -48,6 +48,15 @@ name|CdiConfigFile
 implements|implements
 name|PropertyFileConfig
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getPropertyFileName ()
