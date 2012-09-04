@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -25,40 +25,6 @@ operator|.
 name|annotation
 operator|.
 name|PostConstruct
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|ejb
-operator|.
-name|Startup
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|enterprise
-operator|.
-name|context
-operator|.
-name|ApplicationScoped
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|enterprise
-operator|.
-name|inject
-operator|.
-name|Produces
 import|;
 end_import
 
@@ -146,31 +112,38 @@ name|camel
 operator|.
 name|cdi
 operator|.
+name|CamelStartup
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
 name|Uri
 import|;
 end_import
 
 begin_comment
-comment|/**  * Configures all our Camel components, endpoints and beans and create the Camel routes  */
+comment|/**  * Configures all our Camel routes, components, endpoints and beans  */
 end_comment
 
 begin_class
 annotation|@
-name|ApplicationScoped
-annotation|@
-name|Startup
-DECL|class|MyRouteConfig
+name|CamelStartup
+DECL|class|MyRoutes
 specifier|public
 class|class
-name|MyRouteConfig
+name|MyRoutes
+extends|extends
+name|RouteBuilder
 block|{
-annotation|@
-name|Inject
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
-decl_stmt|;
 annotation|@
 name|Inject
 comment|//@Uri("activemq:test.MyQueue")
@@ -197,22 +170,14 @@ name|Endpoint
 name|resultEndpoint
 decl_stmt|;
 annotation|@
-name|Produces
-DECL|method|createRoutes ()
-specifier|public
-name|RouteBuilder
-name|createRoutes
-parameter_list|()
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
+name|Override
+DECL|method|configure ()
 specifier|public
 name|void
 name|configure
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// you can configure the route rule with Java DSL here
 comment|// populate the message queue with some messages
@@ -245,9 +210,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-return|;
-block|}
 comment|/**      * Configure ActiveMQ endpoints      */
 annotation|@
 name|Named
@@ -277,26 +239,6 @@ expr_stmt|;
 return|return
 name|answer
 return|;
-block|}
-comment|/**      * TODO can we avoid this bit and get CDI to automatically create a CamelContext and add its routes?      */
-annotation|@
-name|PostConstruct
-DECL|method|start ()
-specifier|public
-name|void
-name|start
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|camelContext
-operator|.
-name|addRoutes
-argument_list|(
-name|createRoutes
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getResultEndpoint ()
 specifier|public

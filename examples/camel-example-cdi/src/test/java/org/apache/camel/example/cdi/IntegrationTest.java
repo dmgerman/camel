@@ -226,6 +226,18 @@ name|assertNotNull
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -246,7 +258,7 @@ block|{
 annotation|@
 name|Inject
 DECL|field|config
-name|MyRouteConfig
+name|MyRoutes
 name|config
 decl_stmt|;
 annotation|@
@@ -313,6 +325,19 @@ argument_list|(
 literal|"CamelContext not injected!"
 argument_list|,
 name|camelContext
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"CamelContext is started"
+argument_list|,
+name|camelContext
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -383,7 +408,7 @@ argument_list|)
 operator|.
 name|addPackage
 argument_list|(
-name|MyRouteConfig
+name|MyRoutes
 operator|.
 name|class
 operator|.
