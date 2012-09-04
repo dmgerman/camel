@@ -217,11 +217,10 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
-name|this
-operator|.
+name|setEndpoint
+argument_list|(
 name|endpoint
-operator|=
-name|endpoint
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -428,6 +427,29 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+literal|null
+expr_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the endpoint URI or the name of the reference to it      */
 DECL|method|getUriOrRef ()
