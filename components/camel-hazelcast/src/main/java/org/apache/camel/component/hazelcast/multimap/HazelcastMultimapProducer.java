@@ -38,18 +38,6 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|Hazelcast
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|hazelcast
-operator|.
-name|core
-operator|.
 name|HazelcastInstance
 import|;
 end_import
@@ -188,7 +176,7 @@ name|this
 operator|.
 name|cache
 operator|=
-name|Hazelcast
+name|hazelcastInstance
 operator|.
 name|getMultiMap
 argument_list|(
