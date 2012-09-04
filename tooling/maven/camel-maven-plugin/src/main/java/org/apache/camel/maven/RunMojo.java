@@ -529,6 +529,12 @@ specifier|protected
 name|boolean
 name|useBlueprint
 decl_stmt|;
+comment|/**      * Whether to use CDI when running, instead of Spring      *      * @parameter expression="${camel.cdi}"      *            default-value="false"      */
+DECL|field|useCDI
+specifier|protected
+name|boolean
+name|useCDI
+decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
 specifier|private
@@ -701,6 +707,11 @@ name|boolean
 name|usingSpringJavaConfigureMain
 init|=
 literal|false
+decl_stmt|;
+name|boolean
+name|useCdiMain
+init|=
+name|useCDI
 decl_stmt|;
 name|boolean
 name|usingBlueprintMain
@@ -961,6 +972,34 @@ operator|.
 name|info
 argument_list|(
 literal|"Using org.apache.camel.spring.javaconfig.Main to initiate a CamelContext"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|useCdiMain
+condition|)
+block|{
+name|mainClass
+operator|=
+literal|"org.apache.camel.cdi.Main"
+expr_stmt|;
+comment|// must include plugin dependencies for blueprint
+name|includePluginDependencies
+operator|=
+literal|true
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Using "
+operator|+
+name|mainClass
+operator|+
+literal|" to initiate a CamelContext"
 argument_list|)
 expr_stmt|;
 block|}

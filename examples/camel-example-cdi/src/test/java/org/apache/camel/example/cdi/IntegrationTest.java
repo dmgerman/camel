@@ -285,7 +285,8 @@ name|from
 argument_list|(
 name|config
 operator|.
-name|resultEndpoint
+name|getResultEndpoint
+argument_list|()
 argument_list|)
 operator|.
 name|to

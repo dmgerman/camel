@@ -32,6 +32,28 @@ begin_import
 import|import
 name|javax
 operator|.
+name|ejb
+operator|.
+name|Startup
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|context
+operator|.
+name|ApplicationScoped
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|enterprise
 operator|.
 name|inject
@@ -133,6 +155,10 @@ comment|/**  * Configures all our Camel components, endpoints and beans and crea
 end_comment
 
 begin_class
+annotation|@
+name|Startup
+annotation|@
+name|ApplicationScoped
 DECL|class|MyRouteConfig
 specifier|public
 class|class
@@ -141,7 +167,7 @@ block|{
 annotation|@
 name|Inject
 DECL|field|camelContext
-specifier|public
+specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
@@ -154,7 +180,7 @@ argument_list|(
 literal|"file://target/testdata/queue"
 argument_list|)
 DECL|field|queueEndpoint
-specifier|public
+specifier|private
 name|Endpoint
 name|queueEndpoint
 decl_stmt|;
@@ -166,7 +192,7 @@ argument_list|(
 literal|"file://target/testdata/result?noop=true"
 argument_list|)
 DECL|field|resultEndpoint
-specifier|public
+specifier|private
 name|Endpoint
 name|resultEndpoint
 decl_stmt|;
@@ -263,6 +289,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"======= Starting MyRouteConfig!!"
+argument_list|)
+expr_stmt|;
 name|camelContext
 operator|.
 name|addRoutes
@@ -271,6 +306,16 @@ name|createRoutes
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getResultEndpoint ()
+specifier|public
+name|Endpoint
+name|getResultEndpoint
+parameter_list|()
+block|{
+return|return
+name|resultEndpoint
+return|;
 block|}
 block|}
 end_class
