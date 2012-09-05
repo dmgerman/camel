@@ -918,20 +918,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -4367,30 +4353,6 @@ argument_list|(
 literal|"Load performance statistics enabled."
 argument_list|)
 expr_stmt|;
-comment|// we have to defer creating this until CamelContext has been started
-comment|// (the thread pool will be shutdown automatic by CamelContext when its stopped)
-name|ScheduledExecutorService
-name|executorService
-init|=
-name|camelContext
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newSingleThreadScheduledExecutor
-argument_list|(
-name|this
-argument_list|,
-literal|"ManagementLoadTask"
-argument_list|)
-decl_stmt|;
-name|timerListenerManager
-operator|.
-name|setExecutorService
-argument_list|(
-name|executorService
-argument_list|)
-expr_stmt|;
 comment|// must use 1 sec interval as the load statistics is based on 1 sec calculations
 name|timerListenerManager
 operator|.
@@ -4399,9 +4361,11 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|ServiceHelper
+comment|// we have to defer enlisting timer lister manager as a service until CamelContext has been started
+name|getCamelContext
+argument_list|()
 operator|.
-name|startService
+name|addService
 argument_list|(
 name|timerListenerManager
 argument_list|)
@@ -4447,13 +4411,6 @@ name|managedThreadPools
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
-name|timerListenerManager
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Class which holds any pre registration details.      *      * @see org.apache.camel.management.DefaultManagementLifecycleStrategy#enlistPreRegisteredServices()      */

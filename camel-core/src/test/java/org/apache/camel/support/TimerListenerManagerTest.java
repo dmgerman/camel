@@ -66,11 +66,13 @@ end_import
 
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|camel
+operator|.
+name|ContextTestSupport
 import|;
 end_import
 
@@ -96,7 +98,7 @@ specifier|public
 class|class
 name|TimerListenerManagerTest
 extends|extends
-name|TestCase
+name|ContextTestSupport
 block|{
 DECL|field|task
 specifier|private
@@ -108,6 +110,18 @@ operator|new
 name|MyTask
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|testTimerListenerManager ()
 specifier|public
 name|void
@@ -135,9 +149,9 @@ argument_list|()
 decl_stmt|;
 name|manager
 operator|.
-name|setExecutorService
+name|setCamelContext
 argument_list|(
-name|executor
+name|context
 argument_list|)
 expr_stmt|;
 name|manager

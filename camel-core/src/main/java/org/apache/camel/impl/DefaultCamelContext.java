@@ -8536,6 +8536,27 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// the stop order is important
+comment|// shutdown default error handler thread pool
+if|if
+condition|(
+name|errorHandlerExecutorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdown
+argument_list|(
+name|errorHandlerExecutorService
+argument_list|)
+expr_stmt|;
+name|errorHandlerExecutorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|// shutdown debugger
 name|ServiceHelper
 operator|.

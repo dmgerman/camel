@@ -80,6 +80,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TimerListener
 import|;
 end_import
@@ -119,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TimerListener} manager which triggers the  * {@link org.apache.camel.TimerListener} listeners once every second.  *<p/>  * The {@link #setExecutorService(java.util.concurrent.ScheduledExecutorService)} method  * must be invoked prior to starting this manager using the {@link #start()} method.  *<p/>  * Also ensure when adding and remove listeners, that they are correctly removed to avoid  * leaking memory.  *  * @see TimerListener  */
+comment|/**  * A {@link TimerListener} manager which triggers the  * {@link org.apache.camel.TimerListener} listeners once every second.  *<p/>  * Also ensure when adding and remove listeners, that they are correctly removed to avoid  * leaking memory.  *  * @see TimerListener  */
 end_comment
 
 begin_class
@@ -131,6 +155,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|Runnable
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -164,6 +190,11 @@ name|TimerListener
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|ScheduledExecutorService
@@ -190,21 +221,35 @@ specifier|public
 name|TimerListenerManager
 parameter_list|()
 block|{     }
-DECL|method|setExecutorService (ScheduledExecutorService executorService)
+annotation|@
+name|Override
+DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
-name|setExecutorService
+name|setCamelContext
 parameter_list|(
-name|ScheduledExecutorService
-name|executorService
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|executorService
+name|camelContext
 operator|=
-name|executorService
+name|camelContext
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
 block|}
 comment|/**      * Gets the interval in millis.      *<p/>      * The default interval is 1000 millis.      *      * @return interval in millis.      */
 DECL|method|getInterval ()
@@ -381,11 +426,26 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|executorService
+name|camelContext
 argument_list|,
-literal|"executorService"
+literal|"camelContext"
 argument_list|,
 name|this
+argument_list|)
+expr_stmt|;
+comment|// create scheduled thread pool to trigger the task to run every interval
+name|executorService
+operator|=
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newSingleThreadScheduledExecutor
+argument_list|(
+name|this
+argument_list|,
+literal|"ManagementLoadTask"
 argument_list|)
 expr_stmt|;
 name|task
@@ -396,7 +456,7 @@ name|scheduleAtFixedRate
 argument_list|(
 name|this
 argument_list|,
-literal|1000L
+name|interval
 argument_list|,
 name|interval
 argument_list|,
@@ -460,6 +520,21 @@ name|super
 operator|.
 name|doShutdown
 argument_list|()
+expr_stmt|;
+comment|// shutdown thread pool when we are shutting down
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdown
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+name|executorService
+operator|=
+literal|null
 expr_stmt|;
 name|listeners
 operator|.
