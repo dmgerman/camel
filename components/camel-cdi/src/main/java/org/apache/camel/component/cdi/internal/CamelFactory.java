@@ -130,7 +130,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|CamelStartup
+name|ContextName
 import|;
 end_import
 
@@ -484,7 +484,7 @@ name|String
 name|contextName
 parameter_list|)
 block|{
-name|CamelStartup
+name|ContextName
 name|startup
 init|=
 name|point
@@ -494,7 +494,7 @@ argument_list|()
 operator|.
 name|getAnnotation
 argument_list|(
-name|CamelStartup
+name|ContextName
 operator|.
 name|class
 argument_list|)
@@ -533,7 +533,7 @@ argument_list|()
 operator|.
 name|getAnnotation
 argument_list|(
-name|CamelStartup
+name|ContextName
 operator|.
 name|class
 argument_list|)

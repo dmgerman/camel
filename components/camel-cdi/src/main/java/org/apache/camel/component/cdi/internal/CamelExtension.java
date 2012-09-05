@@ -392,7 +392,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|CamelStartup
+name|ContextName
 import|;
 end_import
 
@@ -568,8 +568,8 @@ specifier|public
 name|CamelExtension
 parameter_list|()
 block|{     }
-comment|/**      * If no context name is specified then default it to the value from the {@link org.apache.camel.cdi.CamelStartup} annotation      */
-DECL|method|getCamelContextName (String context, CamelStartup annotation)
+comment|/**      * If no context name is specified then default it to the value from the {@link org.apache.camel.cdi.ContextName} annotation      */
+DECL|method|getCamelContextName (String context, ContextName annotation)
 specifier|public
 specifier|static
 name|String
@@ -578,7 +578,7 @@ parameter_list|(
 name|String
 name|context
 parameter_list|,
-name|CamelStartup
+name|ContextName
 name|annotation
 parameter_list|)
 block|{
@@ -853,7 +853,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Lets detect all beans annotated with @Consume and      * beans of type {@link RouteBuilder} which are annotated with {@link org.apache.camel.cdi.CamelStartup}      * so they can be auto-registered      */
+comment|/**      * Lets detect all beans annotated with @Consume and      * beans of type {@link RouteBuilder} which are annotated with {@link org.apache.camel.cdi.ContextName}      * so they can be auto-registered      */
 DECL|method|detectConsumeBeans (@bserves ProcessBean<?> event)
 specifier|public
 name|void
@@ -949,7 +949,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Lets detect all beans annotated of type {@link RouteBuilder}      * which are annotated with {@link org.apache.camel.cdi.CamelStartup}      * so they can be auto-registered      */
+comment|/**      * Lets detect all beans annotated of type {@link RouteBuilder}      * which are annotated with {@link org.apache.camel.cdi.ContextName}      * so they can be auto-registered      */
 DECL|method|detectRouteBuilderBeans (@bserves ProcessBean<?> event)
 specifier|public
 name|void
@@ -1007,7 +1007,7 @@ name|beanClass
 operator|.
 name|getAnnotation
 argument_list|(
-name|CamelStartup
+name|ContextName
 operator|.
 name|class
 argument_list|)
@@ -1015,7 +1015,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addRouteBuilderBean (Bean<?> bean, CamelStartup annotation)
+DECL|method|addRouteBuilderBean (Bean<?> bean, ContextName annotation)
 specifier|private
 name|void
 name|addRouteBuilderBean
@@ -1026,7 +1026,7 @@ name|?
 argument_list|>
 name|bean
 parameter_list|,
-name|CamelStartup
+name|ContextName
 name|annotation
 parameter_list|)
 block|{
@@ -1087,7 +1087,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Lets detect all producer methods createing instances of {@link RouteBuilder} which are annotated with {@link org.apache.camel.cdi.CamelStartup}      * so they can be auto-registered      */
+comment|/**      * Lets detect all producer methods createing instances of {@link RouteBuilder} which are annotated with {@link org.apache.camel.cdi.ContextName}      * so they can be auto-registered      */
 DECL|method|detectProducerRoutes (@bserves ProcessProducerMethod<?, ?> event)
 specifier|public
 name|void
@@ -1112,14 +1112,14 @@ operator|.
 name|getAnnotated
 argument_list|()
 decl_stmt|;
-name|CamelStartup
+name|ContextName
 name|annotation
 init|=
 name|annotated
 operator|.
 name|getAnnotation
 argument_list|(
-name|CamelStartup
+name|ContextName
 operator|.
 name|class
 argument_list|)
@@ -1330,14 +1330,14 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|CamelStartup
-name|camelStartup
+name|ContextName
+name|contextName
 init|=
 name|annotatedType
 operator|.
 name|getAnnotation
 argument_list|(
-name|CamelStartup
+name|ContextName
 operator|.
 name|class
 argument_list|)
@@ -1350,7 +1350,7 @@ name|createBeanAdapter
 argument_list|(
 name|beanClass
 argument_list|,
-name|camelStartup
+name|contextName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1435,14 +1435,14 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
-name|CamelStartup
-name|camelStartup
+name|ContextName
+name|contextName
 init|=
 name|beanClass
 operator|.
 name|getAnnotation
 argument_list|(
-name|CamelStartup
+name|ContextName
 operator|.
 name|class
 argument_list|)
@@ -1455,7 +1455,7 @@ name|createBeanAdapter
 argument_list|(
 name|beanClass
 argument_list|,
-name|camelStartup
+name|contextName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1490,7 +1490,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createBeanAdapter (Class beanClass, CamelStartup camelStartup)
+DECL|method|createBeanAdapter (Class beanClass, ContextName contextName)
 specifier|private
 name|BeanAdapter
 name|createBeanAdapter
@@ -1498,8 +1498,8 @@ parameter_list|(
 name|Class
 name|beanClass
 parameter_list|,
-name|CamelStartup
-name|camelStartup
+name|ContextName
+name|contextName
 parameter_list|)
 block|{
 specifier|final
@@ -1509,7 +1509,7 @@ init|=
 operator|new
 name|BeanAdapter
 argument_list|(
-name|camelStartup
+name|contextName
 argument_list|)
 decl_stmt|;
 name|ReflectionHelper

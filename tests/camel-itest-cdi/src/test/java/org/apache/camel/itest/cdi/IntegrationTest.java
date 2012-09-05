@@ -543,7 +543,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// lets check the routes where we default the context from the @CamelStartup
+comment|// lets check the routes where we default the context from the @ContextName
 name|CamelContext
 name|contextC
 init|=
@@ -630,7 +630,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// lets check the 2 routes created using @CamelStartup on a @Produces method
+comment|// lets check the 2 routes created using @ContextName on a @Produces method
 name|CamelContext
 name|contextE
 init|=

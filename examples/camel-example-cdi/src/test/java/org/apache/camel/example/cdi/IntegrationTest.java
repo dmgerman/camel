@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -76,7 +64,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|CamelStartup
+name|ContextName
 import|;
 end_import
 
@@ -286,7 +274,7 @@ decl_stmt|;
 annotation|@
 name|Produces
 annotation|@
-name|CamelStartup
+name|ContextName
 DECL|method|createRoutes ()
 specifier|public
 name|RouteBuilder

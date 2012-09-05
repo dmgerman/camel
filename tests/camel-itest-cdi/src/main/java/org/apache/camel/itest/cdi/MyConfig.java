@@ -54,7 +54,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|CamelStartup
+name|ContextName
 import|;
 end_import
 
@@ -71,7 +71,7 @@ block|{
 annotation|@
 name|Produces
 annotation|@
-name|CamelStartup
+name|ContextName
 argument_list|(
 name|contextName
 operator|=
@@ -96,7 +96,7 @@ block|}
 annotation|@
 name|Produces
 annotation|@
-name|CamelStartup
+name|ContextName
 argument_list|(
 name|contextName
 operator|=

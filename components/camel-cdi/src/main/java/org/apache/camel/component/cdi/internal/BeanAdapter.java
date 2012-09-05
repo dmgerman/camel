@@ -110,7 +110,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|CamelStartup
+name|ContextName
 import|;
 end_import
 
@@ -221,14 +221,14 @@ decl_stmt|;
 DECL|field|startup
 specifier|private
 specifier|final
-name|CamelStartup
+name|ContextName
 name|startup
 decl_stmt|;
-DECL|method|BeanAdapter (CamelStartup startup)
+DECL|method|BeanAdapter (ContextName startup)
 specifier|public
 name|BeanAdapter
 parameter_list|(
-name|CamelStartup
+name|ContextName
 name|startup
 parameter_list|)
 block|{

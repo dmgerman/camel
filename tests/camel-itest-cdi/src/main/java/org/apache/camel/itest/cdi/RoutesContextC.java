@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|CamelStartup
+name|ContextName
 import|;
 end_import
 
@@ -148,7 +148,7 @@ end_comment
 
 begin_class
 annotation|@
-name|CamelStartup
+name|ContextName
 argument_list|(
 name|contextName
 operator|=

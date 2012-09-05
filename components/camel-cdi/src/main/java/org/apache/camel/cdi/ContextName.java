@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to annotate a {@link RouteBuilder} class to bind it to a  * {@link CamelContext} instance on startup so that it can startup automatically  */
+comment|/**  * Used to bind objects to a named {@link CamelContext} instance   * such as {@link RouteBuilder} instances.  */
 end_comment
 
 begin_annotation_defn
@@ -123,10 +123,10 @@ operator|.
 name|PARAMETER
 block|}
 argument_list|)
-DECL|annotation|CamelStartup
+DECL|annotation|ContextName
 specifier|public
 annotation_defn|@interface
-name|CamelStartup
+name|ContextName
 block|{
 comment|/**      * Returns the name of the CamelContext to add the routes to.      * If no value is specified then the default CamelContext is used.      */
 DECL|method|contextName ()
