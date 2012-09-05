@@ -134,6 +134,16 @@ name|String
 name|value
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the name of the CamelContext to use to resolve the endpoint for this URI      */
+annotation|@
+name|Nonbinding
+DECL|method|context ()
+name|String
+name|context
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 
