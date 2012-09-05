@@ -856,7 +856,7 @@ name|parentPolicy
 operator|.
 name|getMaximumRedeliveries
 argument_list|()
-operator|>
+operator|!=
 literal|0
 condition|)
 block|{
