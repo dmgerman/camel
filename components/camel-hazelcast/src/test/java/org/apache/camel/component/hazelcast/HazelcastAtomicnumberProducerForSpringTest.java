@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|hazelcast
-operator|.
-name|core
-operator|.
-name|Hazelcast
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
