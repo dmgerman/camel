@@ -350,6 +350,26 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|config
+operator|.
+name|isConvertLFtoCR
+argument_list|()
+condition|)
+block|{
+name|body
+operator|=
+name|body
+operator|.
+name|replace
+argument_list|(
+literal|'\n'
+argument_list|,
+literal|'\r'
+argument_list|)
+expr_stmt|;
+block|}
 name|out
 operator|.
 name|write
@@ -433,7 +453,7 @@ return|return
 name|decoder
 return|;
 block|}
-comment|/**      * Scans the buffer for start and end bytes and stores its position in the      * session state object.      *       * @return<code>true</code> if the end bytes were found,<code>false</code>      *         otherwise      */
+comment|/**      * Scans the buffer for start and end bytes and stores its position in the      * session state object.      *      * @return<code>true</code> if the end bytes were found,<code>false</code>      *         otherwise      */
 DECL|method|scan (IoSession session, IoBuffer in)
 specifier|private
 name|boolean

@@ -93,8 +93,6 @@ DECL|field|convertLFtoCR
 specifier|private
 name|boolean
 name|convertLFtoCR
-init|=
-literal|true
 decl_stmt|;
 comment|// HL7 MLLP start and end markers
 DECL|field|startByte

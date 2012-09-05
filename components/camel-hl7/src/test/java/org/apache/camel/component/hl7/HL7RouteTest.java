@@ -383,7 +383,7 @@ name|in
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|in
@@ -516,7 +516,7 @@ name|in
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|in
@@ -649,7 +649,7 @@ name|in
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|in
@@ -792,7 +792,7 @@ comment|// end choice block
 operator|.
 name|end
 argument_list|()
-comment|// marhsal response back
+comment|// marshal response back
 operator|.
 name|marshal
 argument_list|(

@@ -479,7 +479,7 @@ name|body
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|body
@@ -493,7 +493,7 @@ name|body
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|body
@@ -507,7 +507,7 @@ name|body
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|body
@@ -521,7 +521,7 @@ name|body
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|body
@@ -535,7 +535,7 @@ name|body
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|body
@@ -549,7 +549,7 @@ name|body
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|body
@@ -563,7 +563,7 @@ name|body
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+literal|"\r"
 argument_list|)
 expr_stmt|;
 name|body
