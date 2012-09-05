@@ -1863,7 +1863,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdownNow
+name|shutdown
 argument_list|(
 name|asyncStartStopExecutorService
 argument_list|)

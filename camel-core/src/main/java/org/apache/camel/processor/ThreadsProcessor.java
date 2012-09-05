@@ -785,7 +785,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdownNow
+name|shutdown
 argument_list|(
 name|executorService
 argument_list|)

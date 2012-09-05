@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy to create thread pools.  *<p/>  * This manager is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a JEE server.  *<p/>  * You may want to just implement a custom {@link ThreadPoolFactory} and rely on the  * {@link org.apache.camel.impl.DefaultExecutorServiceManager}, if that is sufficient. The {@link ThreadPoolFactory}  * is always used for creating the actual thread pools. You can implement a custom {@link ThreadPoolFactory}  * to leverage the WorkManager for a JEE server.  *<p/>  * The {@link ThreadPoolFactory} has pure JDK API, where as this {@link ExecutorServiceManager} has Camel API  * concepts such as {@link ThreadPoolProfile}. Therefore it may be easier to only implement a custom  * {@link ThreadPoolFactory}.  *<p/>  * This manager has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *<p/>  * @see ThreadPoolFactory  */
+comment|/**  * Strategy to create thread pools.  *<p/>  * This manager is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a JEE server.  *<p/>  * You may want to just implement a custom {@link ThreadPoolFactory} and rely on the  * {@link org.apache.camel.impl.DefaultExecutorServiceManager}, if that is sufficient. The {@link ThreadPoolFactory}  * is always used for creating the actual thread pools. You can implement a custom {@link ThreadPoolFactory}  * to leverage the WorkManager for a JEE server.  *<p/>  * The {@link ThreadPoolFactory} has pure JDK API, where as this {@link ExecutorServiceManager} has Camel API  * concepts such as {@link ThreadPoolProfile}. Therefore it may be easier to only implement a custom  * {@link ThreadPoolFactory}.  *<p/>  * This manager has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *<p/>  * For more information about shutting down thread pools see the {@link #shutdown(java.util.concurrent.ExecutorService)}  * and {@link #shutdownNow(java.util.concurrent.ExecutorService)}, and {@link #getShutdownAwaitTermination()} methods.  * Notice the details about using a graceful shutdown at fist, and then falling back to aggressive shutdown in case  * of await termination timeout occurred.  *  * @see ThreadPoolFactory  */
 end_comment
 
 begin_interface
@@ -146,6 +146,21 @@ comment|/**      * Gets the thread name patter to use      *      * @return the 
 DECL|method|getThreadNamePattern ()
 name|String
 name|getThreadNamePattern
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the time to wait for thread pools to shutdown orderly, when invoking the      * {@link #shutdown()} method.      *<p/>      * The default value is<tt>30000</tt> millis.      *      * @param timeInMillis time in millis.      */
+DECL|method|setShutdownAwaitTermination (long timeInMillis)
+name|void
+name|setShutdownAwaitTermination
+parameter_list|(
+name|long
+name|timeInMillis
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the time to wait for thread pools to shutdown orderly, when invoking the      * {@link #shutdown()} method.      *<p/>      * The default value is<tt>30000</tt> millis.      *      * @return the timeout value      */
+DECL|method|getShutdownAwaitTermination ()
+name|long
+name|getShutdownAwaitTermination
 parameter_list|()
 function_decl|;
 comment|/**      * Creates a new thread pool using the default thread pool profile.      *      * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name   name which is appended to the thread name      * @return the created thread pool      */
@@ -316,7 +331,7 @@ name|String
 name|profileId
 parameter_list|)
 function_decl|;
-comment|/**      * Shutdown the given executor service.      *      * @param executorService the executor service to shutdown      * @see java.util.concurrent.ExecutorService#shutdown()      */
+comment|/**      * Shutdown the given executor service graceful at first, and then aggressively      * if the await termination timeout was hit.      *<p/>      * Will try to perform an orderly shutdown by giving the running threads      * time to complete tasks, before going more aggressively by doing a      * {@link #shutdownNow(java.util.concurrent.ExecutorService)} which      * forces a shutdown. The {@link #getShutdownAwaitTermination()}      * is used as timeout value waiting for orderly shutdown to      * complete normally, before going aggressively.      *      * @param executorService the executor service to shutdown      * @see java.util.concurrent.ExecutorService#shutdown()      * @see #getShutdownAwaitTermination()      */
 DECL|method|shutdown (ExecutorService executorService)
 name|void
 name|shutdown
@@ -325,7 +340,19 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 function_decl|;
-comment|/**      * Shutdown now the given executor service.      *      * @param executorService the executor service to shutdown now      * @return list of tasks that never commenced execution      * @see java.util.concurrent.ExecutorService#shutdownNow()      */
+comment|/**      * Shutdown the given executor service graceful at first, and then aggressively      * if the await termination timeout was hit.      *<p/>      * Will try to perform an orderly shutdown by giving the running threads      * time to complete tasks, before going more aggressively by doing a      * {@link #shutdownNow(java.util.concurrent.ExecutorService)} which      * forces a shutdown. The parameter<tt>shutdownAwaitTermination</tt>      * is used as timeout value waiting for orderly shutdown to      * complete normally, before going aggressively.      *      * @param executorService the executor service to shutdown      * @param shutdownAwaitTermination timeout in millis to wait for orderly shutdown      * @see java.util.concurrent.ExecutorService#shutdown()      */
+DECL|method|shutdown (ExecutorService executorService, long shutdownAwaitTermination)
+name|void
+name|shutdown
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|,
+name|long
+name|shutdownAwaitTermination
+parameter_list|)
+function_decl|;
+comment|/**      * Shutdown now the given executor service aggressively.      *      * @param executorService the executor service to shutdown now      * @return list of tasks that never commenced execution      * @see java.util.concurrent.ExecutorService#shutdownNow()      */
 DECL|method|shutdownNow (ExecutorService executorService)
 name|List
 argument_list|<
