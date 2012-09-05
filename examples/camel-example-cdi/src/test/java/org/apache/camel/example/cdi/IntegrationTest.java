@@ -76,6 +76,20 @@ name|camel
 operator|.
 name|cdi
 operator|.
+name|CamelStartup
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
 name|Mock
 import|;
 end_import
@@ -263,12 +277,6 @@ name|config
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|field|camelContext
-name|CamelContext
-name|camelContext
-decl_stmt|;
-annotation|@
-name|Inject
 annotation|@
 name|Mock
 DECL|field|result
@@ -277,6 +285,8 @@ name|result
 decl_stmt|;
 annotation|@
 name|Produces
+annotation|@
+name|CamelStartup
 DECL|method|createRoutes ()
 specifier|public
 name|RouteBuilder
@@ -322,26 +332,6 @@ name|Exception
 block|{
 name|assertNotNull
 argument_list|(
-literal|"CamelContext not injected!"
-argument_list|,
-name|camelContext
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"CamelContext is started"
-argument_list|,
-name|camelContext
-operator|.
-name|getStatus
-argument_list|()
-operator|.
-name|isStarted
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
 literal|"config not injected!"
 argument_list|,
 name|config
@@ -352,16 +342,6 @@ argument_list|(
 literal|"MockEndpoint result not injected!"
 argument_list|,
 name|result
-argument_list|)
-expr_stmt|;
-comment|//camelContext.setTracing(true);
-comment|// TODO we could maybe auto-register this?
-name|camelContext
-operator|.
-name|addRoutes
-argument_list|(
-name|createRoutes
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
