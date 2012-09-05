@@ -66,23 +66,27 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|enterprise
+name|apache
 operator|.
-name|util
+name|camel
 operator|.
-name|Nonbinding
+name|CamelContext
 import|;
 end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|inject
+name|apache
 operator|.
-name|Qualifier
+name|camel
+operator|.
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 

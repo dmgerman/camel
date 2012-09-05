@@ -1125,14 +1125,6 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
-name|BeanAdapter
-name|adapter
-init|=
-name|entry
-operator|.
-name|getValue
-argument_list|()
-decl_stmt|;
 name|CreationalContext
 argument_list|<
 name|?
