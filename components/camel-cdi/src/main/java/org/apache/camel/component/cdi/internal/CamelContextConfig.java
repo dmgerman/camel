@@ -50,20 +50,6 @@ name|context
 operator|.
 name|spi
 operator|.
-name|Contextual
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|enterprise
-operator|.
-name|context
-operator|.
-name|spi
-operator|.
 name|CreationalContext
 import|;
 end_import
@@ -98,15 +84,13 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|enterprise
+name|apache
 operator|.
-name|inject
+name|camel
 operator|.
-name|spi
-operator|.
-name|Producer
+name|RoutesBuilder
 import|;
 end_import
 
@@ -130,9 +114,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|component
 operator|.
-name|RouteBuilder
+name|cdi
+operator|.
+name|CdiCamelContext
 import|;
 end_import
 
@@ -144,16 +130,28 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|model
 operator|.
-name|cdi
+name|RouteContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|CdiCamelContext
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
 begin_comment
-comment|/**  * Configuration options to be applied to a {@link CamelContext} by a {@link CamelContextBean}  */
+comment|/**  * Configuration options to be applied to a {@link org.apache.camel.CamelContext} by a {@link CamelContextBean}  */
 end_comment
 
 begin_class
@@ -240,27 +238,66 @@ argument_list|(
 name|bean
 argument_list|)
 decl_stmt|;
-name|RouteBuilder
-name|routeBuilder
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanClass
 init|=
-operator|(
-name|RouteBuilder
-operator|)
+name|bean
+operator|.
+name|getBeanClass
+argument_list|()
+decl_stmt|;
+name|Object
+name|reference
+init|=
 name|beanManager
 operator|.
 name|getReference
 argument_list|(
 name|bean
 argument_list|,
-name|RouteBuilder
-operator|.
-name|class
+name|beanClass
 argument_list|,
 name|createContext
 argument_list|)
 decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|reference
+argument_list|,
+literal|"Could not instantiate bean of type "
+operator|+
+name|beanClass
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" for "
+operator|+
+name|bean
+argument_list|)
+expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|reference
+operator|instanceof
+name|RoutesBuilder
+condition|)
+block|{
+name|RoutesBuilder
+name|routeBuilder
+init|=
+operator|(
+name|RoutesBuilder
+operator|)
+name|reference
+decl_stmt|;
 name|camelContext
 operator|.
 name|addRoutes
@@ -268,6 +305,55 @@ argument_list|(
 name|routeBuilder
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|reference
+operator|instanceof
+name|RouteContainer
+condition|)
+block|{
+name|RouteContainer
+name|routeContainer
+init|=
+operator|(
+name|RouteContainer
+operator|)
+name|reference
+decl_stmt|;
+name|camelContext
+operator|.
+name|addRouteDefinitions
+argument_list|(
+name|routeContainer
+operator|.
+name|getRoutes
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid route builder "
+operator|+
+name|reference
+operator|+
+literal|" of type "
+operator|+
+name|beanClass
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|". Should be RoutesBuilder or RoutesContainer"
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -279,9 +365,13 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Could not add route builder "
+literal|"Could not add "
 operator|+
-name|routeBuilder
+name|reference
+operator|+
+literal|" to CamelContext: "
+operator|+
+name|camelContext
 operator|+
 literal|". Reason: "
 operator|+
