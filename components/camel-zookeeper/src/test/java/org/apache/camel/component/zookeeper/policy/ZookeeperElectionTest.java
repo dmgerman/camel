@@ -469,6 +469,14 @@ argument_list|,
 literal|2
 argument_list|)
 decl_stmt|;
+comment|// Need to wait for a while to Candidate2 to be elected.
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The second candidate should also be a master."
