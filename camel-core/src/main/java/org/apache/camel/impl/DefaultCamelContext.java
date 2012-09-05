@@ -8402,7 +8402,7 @@ argument_list|()
 operator|.
 name|newDefaultScheduledThreadPool
 argument_list|(
-name|this
+literal|"ErrorHandlerRedeliveryThreadPool"
 argument_list|,
 literal|"ErrorHandlerRedeliveryTask"
 argument_list|)
