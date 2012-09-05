@@ -73,8 +73,6 @@ name|Produces
 annotation|@
 name|ContextName
 argument_list|(
-name|contextName
-operator|=
 literal|"contextE"
 argument_list|)
 DECL|method|createRouteA ()
@@ -98,8 +96,6 @@ name|Produces
 annotation|@
 name|ContextName
 argument_list|(
-name|contextName
-operator|=
 literal|"contextE"
 argument_list|)
 DECL|method|createRouteB ()

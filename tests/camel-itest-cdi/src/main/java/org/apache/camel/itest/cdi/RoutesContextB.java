@@ -150,8 +150,6 @@ begin_class
 annotation|@
 name|ContextName
 argument_list|(
-name|contextName
-operator|=
 literal|"contextB"
 argument_list|)
 DECL|class|RoutesContextB

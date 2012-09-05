@@ -568,7 +568,7 @@ specifier|public
 name|CamelExtension
 parameter_list|()
 block|{     }
-comment|/**      * If no context name is specified then default it to the value from the {@link org.apache.camel.cdi.ContextName} annotation      */
+comment|/**      * If no context name is specified then default it to the value from      * the {@link org.apache.camel.cdi.ContextName} annotation      */
 DECL|method|getCamelContextName (String context, ContextName annotation)
 specifier|public
 specifier|static
@@ -599,7 +599,7 @@ block|{
 return|return
 name|annotation
 operator|.
-name|contextName
+name|value
 argument_list|()
 return|;
 block|}
@@ -1042,7 +1042,7 @@ name|contextName
 init|=
 name|annotation
 operator|.
-name|contextName
+name|value
 argument_list|()
 decl_stmt|;
 name|CamelContextConfig

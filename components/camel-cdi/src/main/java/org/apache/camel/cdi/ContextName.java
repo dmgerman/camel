@@ -129,9 +129,9 @@ annotation_defn|@interface
 name|ContextName
 block|{
 comment|/**      * Returns the name of the CamelContext to add the routes to.      * If no value is specified then the default CamelContext is used.      */
-DECL|method|contextName ()
+DECL|method|value ()
 name|String
-name|contextName
+name|value
 parameter_list|()
 default|default
 literal|""
