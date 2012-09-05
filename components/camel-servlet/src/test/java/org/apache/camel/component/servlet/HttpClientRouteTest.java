@@ -208,7 +208,7 @@ specifier|final
 name|String
 name|CONTENT_TYPE
 init|=
-literal|"text/xml"
+literal|"text/xml; charset=UTF-8"
 decl_stmt|;
 DECL|field|UNICODE_TEXT
 specifier|private
@@ -248,7 +248,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 argument_list|,
-literal|"text/xml; charset=UTF-8"
+name|CONTENT_TYPE
 argument_list|)
 decl_stmt|;
 name|ServletUnitClient
@@ -336,7 +336,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 argument_list|,
-literal|"text/xml; charset=UTF-8"
+name|CONTENT_TYPE
 argument_list|)
 expr_stmt|;
 name|response
@@ -688,18 +688,6 @@ literal|"The response body is wrong"
 argument_list|,
 name|UNICODE_TEXT
 argument_list|,
-name|response
-operator|.
-name|getText
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
 name|response
 operator|.
 name|getText
