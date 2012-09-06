@@ -1456,13 +1456,11 @@ block|}
 block|}
 else|else
 block|{
-comment|// use default shared thread pool for error handlers
+comment|// no explicit configured thread pool, so leave it up to the error handler to deceide if it need
+comment|// a default thread pool from CamelContext#getErrorHandlerExecutorService
 name|executorService
 operator|=
-name|camelContext
-operator|.
-name|getErrorHandlerExecutorService
-argument_list|()
+literal|null
 expr_stmt|;
 block|}
 block|}

@@ -1327,6 +1327,18 @@ name|isTransacted
 argument_list|()
 condition|)
 block|{
+comment|// we are doing a redelivery then a thread pool must be configured (see the doStart method)
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|executorService
+argument_list|,
+literal|"Redelivery is enabled but ExecutorService has not been configured."
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 comment|// let the RedeliverTask be the logic which tries to redeliver the Exchange which we can used a scheduler to
 comment|// have it being executed in the future, or immediately
 comment|// we are continuing asynchronously
@@ -1898,6 +1910,18 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// we are doing a redelivery then a thread pool must be configured (see the doStart method)
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|executorService
+argument_list|,
+literal|"Redelivery is enabled but ExecutorService has not been configured."
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 comment|// let the RedeliverTask be the logic which tries to redeliver the Exchange which we can used a scheduler to
 comment|// have it being executed in the future, or immediately
 comment|// Note: the data.redeliverFromSync should be kept as is, in case it was enabled previously
@@ -4745,22 +4769,6 @@ argument_list|,
 name|deadLetter
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-comment|// use default shared executor service
-name|executorService
-operator|=
-name|camelContext
-operator|.
-name|getErrorHandlerExecutorService
-argument_list|()
-expr_stmt|;
-block|}
 comment|// determine if redeliver is enabled or not
 name|redeliveryEnabled
 operator|=
@@ -4786,6 +4794,49 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+comment|// we only need thread pool if redelivery is enabled
+if|if
+condition|(
+name|redeliveryEnabled
+condition|)
+block|{
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use default shared executor service
+name|executorService
+operator|=
+name|camelContext
+operator|.
+name|getErrorHandlerExecutorService
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Using ExecutorService: {} for redeliveries on error handler: {}"
+argument_list|,
+name|executorService
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

@@ -6974,10 +6974,32 @@ expr_stmt|;
 block|}
 DECL|method|getErrorHandlerExecutorService ()
 specifier|public
+specifier|synchronized
 name|ScheduledExecutorService
 name|getErrorHandlerExecutorService
 parameter_list|()
 block|{
+if|if
+condition|(
+name|errorHandlerExecutorService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// setup default thread pool for error handler
+name|errorHandlerExecutorService
+operator|=
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newDefaultScheduledThreadPool
+argument_list|(
+literal|"ErrorHandlerRedeliveryThreadPool"
+argument_list|,
+literal|"ErrorHandlerRedeliveryTask"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|errorHandlerExecutorService
 return|;
@@ -8382,32 +8404,6 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// setup default thread pool for error handler
-if|if
-condition|(
-name|errorHandlerExecutorService
-operator|==
-literal|null
-operator|||
-name|errorHandlerExecutorService
-operator|.
-name|isShutdown
-argument_list|()
-condition|)
-block|{
-name|errorHandlerExecutorService
-operator|=
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newDefaultScheduledThreadPool
-argument_list|(
-literal|"ErrorHandlerRedeliveryThreadPool"
-argument_list|,
-literal|"ErrorHandlerRedeliveryTask"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// start the route definitions before the routes is started
 name|startRouteDefinitions
 argument_list|(
