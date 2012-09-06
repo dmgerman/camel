@@ -84,14 +84,34 @@ class|class
 name|FirstException
 extends|extends
 name|Exception
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|class|SecondException
 specifier|private
 class|class
 name|SecondException
 extends|extends
 name|Exception
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|class|ExceptionThrowingProcessor
 specifier|private
 class|class
