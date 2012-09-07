@@ -174,6 +174,17 @@ name|MyOtherBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"myStrategy"
+argument_list|,
+operator|new
+name|MyHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|jndi
 return|;
@@ -269,6 +280,33 @@ name|getBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// test the headerFilterStrategy
+name|HttpEndpoint
+name|end4
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"http4://www.google.com?headerFilterStrategy=#myStrategy"
+argument_list|,
+name|HttpEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|MyHeaderFilterStrategy
+operator|.
+name|class
+argument_list|,
+name|end4
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
@@ -295,6 +333,14 @@ class|class
 name|MyOtherBinding
 extends|extends
 name|DefaultHttpBinding
+block|{     }
+DECL|class|MyHeaderFilterStrategy
+specifier|private
+specifier|static
+class|class
+name|MyHeaderFilterStrategy
+extends|extends
+name|HttpHeaderFilterStrategy
 block|{     }
 block|}
 end_class
