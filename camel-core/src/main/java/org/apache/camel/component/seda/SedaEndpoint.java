@@ -805,7 +805,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownGraceful
 argument_list|(
 name|multicastExecutor
 argument_list|)
@@ -1831,7 +1831,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|(
 name|multicastExecutor
 argument_list|)

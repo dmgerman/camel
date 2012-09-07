@@ -1542,7 +1542,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|(
 name|scheduledExecutorService
 argument_list|)

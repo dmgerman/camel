@@ -540,7 +540,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownGraceful
 argument_list|(
 name|executor
 argument_list|)

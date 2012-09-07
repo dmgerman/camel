@@ -4586,7 +4586,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|(
 name|executorService
 argument_list|)
@@ -4602,7 +4602,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|(
 name|timeoutCheckerExecutorService
 argument_list|)
