@@ -1665,12 +1665,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// force shutting down as we are shutting down Camel
 name|camelContext
 operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|(
 name|executor
 argument_list|)
