@@ -8540,10 +8540,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// force shutting down the thread pool
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|(
 name|errorHandlerExecutorService
 argument_list|)
