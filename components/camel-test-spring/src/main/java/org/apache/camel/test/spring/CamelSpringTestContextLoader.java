@@ -1860,7 +1860,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Handles auto-intercepting of endpoints with mocks based on {@link MockEndpoints} and skipping the      * original endpoint.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
+comment|/**      * Handles auto-intercepting of endpoints with mocks based on {@link MockEndpointsAndSkip} and skipping the      * original endpoint.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
 DECL|method|handleMockEndpointsAndSkip (GenericApplicationContext context, Class<?> testClass)
 specifier|protected
 name|void
