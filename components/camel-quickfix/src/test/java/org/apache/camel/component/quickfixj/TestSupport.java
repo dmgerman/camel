@@ -772,8 +772,6 @@ literal|""
 argument_list|,
 name|settings
 argument_list|,
-literal|false
-argument_list|,
 name|mockMessageStoreFactory
 argument_list|,
 name|Mockito

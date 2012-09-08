@@ -241,11 +241,6 @@ specifier|private
 name|MessageFactory
 name|messageFactory
 decl_stmt|;
-DECL|field|forcedShutdown
-specifier|private
-name|boolean
-name|forcedShutdown
-decl_stmt|;
 DECL|field|configurations
 specifier|private
 name|Map
@@ -365,8 +360,6 @@ name|uri
 argument_list|,
 name|settings
 argument_list|,
-name|forcedShutdown
-argument_list|,
 name|messageStoreFactory
 argument_list|,
 name|logFactory
@@ -385,8 +378,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|remaining
-argument_list|,
-name|forcedShutdown
 argument_list|,
 name|messageStoreFactory
 argument_list|,
@@ -641,6 +632,9 @@ operator|=
 name|messageStoreFactory
 expr_stmt|;
 block|}
+comment|/**      * @deprecated As it had/has no effect.      */
+annotation|@
+name|Deprecated
 DECL|method|setForcedShutdown (boolean forcedShutdown)
 specifier|public
 name|void
@@ -649,14 +643,7 @@ parameter_list|(
 name|boolean
 name|forcedShutdown
 parameter_list|)
-block|{
-name|this
-operator|.
-name|forcedShutdown
-operator|=
-name|forcedShutdown
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getConfigurations ()
 specifier|public
 name|Map

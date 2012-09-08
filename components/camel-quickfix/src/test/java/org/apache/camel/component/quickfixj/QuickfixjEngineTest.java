@@ -819,8 +819,6 @@ argument_list|(
 literal|"quickfix:test"
 argument_list|,
 literal|"bogus.cfg"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -863,8 +861,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -956,8 +952,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1044,8 +1038,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1150,8 +1142,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1277,8 +1267,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1362,8 +1350,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1511,8 +1497,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1645,8 +1629,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1837,8 +1819,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1962,8 +1942,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2087,8 +2065,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2209,8 +2185,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2368,8 +2342,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|fail
@@ -2486,8 +2458,6 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|messageStoreFactory
 argument_list|,
 name|logFactory
@@ -2598,8 +2568,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|quickfixjEngine
@@ -2713,8 +2681,6 @@ name|settingsFile
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|quickfixjEngine
@@ -2813,8 +2779,6 @@ argument_list|(
 literal|"quickfix:test"
 argument_list|,
 literal|"examples/inprocess.cfg"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|doLogonEventsTest
