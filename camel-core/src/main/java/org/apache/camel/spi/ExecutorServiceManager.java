@@ -373,7 +373,7 @@ name|ExecutorService
 name|executorService
 parameter_list|)
 function_decl|;
-comment|/**      * Awaits the termination of the thread pool.      *<p/>      * This implementation will log every 2nd second at INFO level that we are waiting, so the end user      * can see we are not hanging in case it takes longer time to shutdown the pool.      *      * @param executorService            the thread pool      * @param shutdownAwaitTermination   time in millis to use as timeout      * @return<tt>true</tt> if the pool is terminated, or<tt>false</tt> if we timed out      * @throws InterruptedException is thrown if we are interrupted during waiting      */
+comment|/**      * Awaits the termination of the thread pool.      *<p/>      * This implementation will log every 2nd second at INFO level that we are waiting, so the end user      * can see we are not hanging in case it takes longer time to terminate the pool.      *      * @param executorService            the thread pool      * @param shutdownAwaitTermination   time in millis to use as timeout      * @return<tt>true</tt> if the pool is terminated, or<tt>false</tt> if we timed out      * @throws InterruptedException is thrown if we are interrupted during waiting      */
 DECL|method|awaitTermination (ExecutorService executorService, long shutdownAwaitTermination)
 name|boolean
 name|awaitTermination
