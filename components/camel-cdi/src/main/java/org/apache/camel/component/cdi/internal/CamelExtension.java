@@ -1296,12 +1296,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Lets perform injection of all beans which use Camel annotations      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|onInjectionTarget (@bserves ProcessInjectionTarget event)
+DECL|method|onInjectionTarget (@bserves ProcessInjectionTarget<Object> event)
 specifier|public
 name|void
 name|onInjectionTarget
@@ -1309,11 +1304,17 @@ parameter_list|(
 annotation|@
 name|Observes
 name|ProcessInjectionTarget
+argument_list|<
+name|Object
+argument_list|>
 name|event
 parameter_list|)
 block|{
 specifier|final
 name|InjectionTarget
+argument_list|<
+name|Object
+argument_list|>
 name|injectionTarget
 init|=
 name|event
@@ -1322,6 +1323,9 @@ name|getInjectionTarget
 argument_list|()
 decl_stmt|;
 name|AnnotatedType
+argument_list|<
+name|Object
+argument_list|>
 name|annotatedType
 init|=
 name|event
@@ -1331,6 +1335,9 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|Class
+argument_list|<
+name|Object
+argument_list|>
 name|beanClass
 init|=
 name|annotatedType
@@ -1508,12 +1515,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createBeanAdapter (Class beanClass, ContextName contextName)
+DECL|method|createBeanAdapter (Class<?> beanClass, ContextName contextName)
 specifier|private
 name|BeanAdapter
 name|createBeanAdapter
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|beanClass
 parameter_list|,
 name|ContextName

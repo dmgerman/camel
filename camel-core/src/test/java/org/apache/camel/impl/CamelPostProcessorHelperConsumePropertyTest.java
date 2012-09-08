@@ -589,11 +589,6 @@ name|property
 operator|=
 literal|"foo"
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|consumeSomething (String body)
 specifier|public
 name|void
@@ -623,11 +618,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|()
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|foo (String body)
 specifier|public
 name|void
@@ -657,11 +647,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|()
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|onFoo (String body)
 specifier|public
 name|void
@@ -691,11 +676,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|()
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|bar (String body)
 specifier|public
 name|void
@@ -725,11 +705,6 @@ block|}
 annotation|@
 name|Consume
 argument_list|()
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|onBar (String body)
 specifier|public
 name|void

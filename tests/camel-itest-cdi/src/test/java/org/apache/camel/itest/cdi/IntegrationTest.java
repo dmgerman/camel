@@ -690,7 +690,7 @@ name|expectedBodiesReceived
 argument_list|(
 name|Constants
 operator|.
-name|EXPECTED_BODIES_Ea
+name|EXPECTED_BODIES_E_A
 argument_list|)
 expr_stmt|;
 name|mockEd
@@ -699,7 +699,7 @@ name|expectedBodiesReceived
 argument_list|(
 name|Constants
 operator|.
-name|EXPECTED_BODIES_Ec
+name|EXPECTED_BODIES_E_C
 argument_list|)
 expr_stmt|;
 for|for
@@ -709,7 +709,7 @@ name|body
 range|:
 name|Constants
 operator|.
-name|EXPECTED_BODIES_Ea
+name|EXPECTED_BODIES_E_A
 control|)
 block|{
 name|producerE
@@ -729,7 +729,7 @@ name|body
 range|:
 name|Constants
 operator|.
-name|EXPECTED_BODIES_Ec
+name|EXPECTED_BODIES_E_C
 control|)
 block|{
 name|producerE
