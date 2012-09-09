@@ -211,7 +211,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2200
+literal|3000
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e3
