@@ -92,10 +92,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|FromFilePollThirdTimeOkTest
 specifier|public
@@ -191,10 +187,13 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|assertTrue
+argument_list|(
 name|notify
 operator|.
 name|matchesMockWaitTime
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -212,14 +211,10 @@ name|File
 argument_list|(
 literal|"./target/deletefile/hello.txt"
 argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
 operator|.
 name|getAbsoluteFile
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|assertFalse
 argument_list|(
 literal|"The file should have been deleted"
@@ -291,14 +286,10 @@ name|File
 argument_list|(
 literal|"./target/deletefile/hello.txt"
 argument_list|)
-decl_stmt|;
-name|file
-operator|=
-name|file
 operator|.
 name|getAbsoluteFile
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The file should NOT have been deleted"
