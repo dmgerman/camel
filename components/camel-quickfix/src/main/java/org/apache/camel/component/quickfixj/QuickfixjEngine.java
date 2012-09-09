@@ -575,7 +575,7 @@ name|ThreadPerConnector
 block|,
 name|ThreadPerSession
 block|;     }
-comment|/**      * @deprecated Better make use of the      *             {@link #QuickfixjEngine(String, String)} constructor as      *<tt>forcedShutdown</tt> had/has no effect.      */
+comment|/**      * @deprecated Better make use of the {@link #QuickfixjEngine(String, String)} constructor      *             as the {@code forcedShutdown} paramater had/has no effect.      */
 annotation|@
 name|Deprecated
 DECL|method|QuickfixjEngine (String uri, String settingsResourceName, boolean forcedShutdown)
@@ -649,7 +649,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated Better make use of the      *             {@link #QuickfixjEngine(String, String, MessageStoreFactory, LogFactory, MessageFactory)}      *             constructor as<tt>forcedShutdown</tt> had/has no effect.      */
+comment|/**      * @deprecated Better make use of the {@link #QuickfixjEngine(String, String, MessageStoreFactory, LogFactory, MessageFactory)} constructor      *             as the {@code forcedShutdown} paramater had/has no effect.      */
 annotation|@
 name|Deprecated
 DECL|method|QuickfixjEngine (String uri, String settingsResourceName, boolean forcedShutdown, MessageStoreFactory messageStoreFactoryOverride, LogFactory sessionLogFactoryOverride, MessageFactory messageFactoryOverride)
@@ -747,7 +747,7 @@ name|messageFactoryOverride
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated Better make use of the      *             {@link #QuickfixjEngine(String, SessionSettings, MessageStoreFactory, LogFactory, MessageFactory)}      *             constructor as<tt>forcedShutdown</tt> had/has no effect.      */
+comment|/**      * @deprecated Better make use of the {@link #QuickfixjEngine(String, SessionSettings, MessageStoreFactory, LogFactory, MessageFactory)} constructor      *             as the {@code forcedShutdown} paramater had/has no effect.      */
 annotation|@
 name|Deprecated
 DECL|method|QuickfixjEngine (String uri, SessionSettings settings, boolean forcedShutdown, MessageStoreFactory messageStoreFactoryOverride, LogFactory sessionLogFactoryOverride, MessageFactory messageFactoryOverride)

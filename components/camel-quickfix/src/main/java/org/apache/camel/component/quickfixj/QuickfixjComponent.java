@@ -632,7 +632,7 @@ operator|=
 name|messageStoreFactory
 expr_stmt|;
 block|}
-comment|/**      * @deprecated As it had/has no effect.      */
+comment|/**      * @deprecated Don't use as setting the {@code forcedShutdown} property had/has no effect.      */
 annotation|@
 name|Deprecated
 DECL|method|setForcedShutdown (boolean forcedShutdown)
