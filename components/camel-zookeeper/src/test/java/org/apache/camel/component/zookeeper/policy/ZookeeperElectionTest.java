@@ -398,20 +398,9 @@ name|stop
 argument_list|()
 expr_stmt|;
 comment|// the first candidate was killed.
-name|delay
+name|assertIsMaster
 argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
-comment|// more than the timeout on the zeekeeper server.
-name|assertTrue
-argument_list|(
-literal|"The second candidate should have been elected."
-argument_list|,
 name|electionCandidate2
-operator|.
-name|isMaster
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -474,7 +463,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -652,6 +641,63 @@ argument_list|,
 name|masterCount
 argument_list|)
 return|;
+block|}
+DECL|method|assertIsMaster (ZooKeeperElection electionCandidate)
+specifier|private
+name|void
+name|assertIsMaster
+parameter_list|(
+name|ZooKeeperElection
+name|electionCandidate
+parameter_list|)
+throws|throws
+name|InterruptedException
+block|{
+comment|// Need to wait for a while to be elected.
+name|long
+name|timeout
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|+
+literal|5000
+decl_stmt|;
+while|while
+condition|(
+operator|!
+name|electionCandidate
+operator|.
+name|isMaster
+argument_list|()
+operator|&&
+name|timeout
+operator|>
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+condition|)
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
+block|}
+name|assertTrue
+argument_list|(
+literal|"The candidate should have been elected."
+argument_list|,
+name|electionCandidate
+operator|.
+name|isMaster
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
