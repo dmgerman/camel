@@ -72,10 +72,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|FileConsumePollEnrichFileTest
 specifier|public
@@ -143,24 +139,6 @@ argument_list|(
 literal|"Big file"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|expectedFileExists
-argument_list|(
-literal|"target/enrich/.done/AAA.fin"
-argument_list|,
-literal|"Start"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedFileExists
-argument_list|(
-literal|"target/enrichdata/.done/AAA.dat"
-argument_list|,
-literal|"Big file"
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -193,6 +171,24 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+comment|// because the on completion is executed async, we should wait a bit to not fail on slow CI servers
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
+name|assertFileExists
+argument_list|(
+literal|"target/enrich/.done/AAA.fin"
+argument_list|)
+expr_stmt|;
+name|assertFileExists
+argument_list|(
+literal|"target/enrichdata/.done/AAA.dat"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
