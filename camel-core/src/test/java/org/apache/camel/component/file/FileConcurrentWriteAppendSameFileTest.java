@@ -112,10 +112,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|FileConcurrentWriteAppendSameFileTest
 specifier|public
@@ -130,7 +126,7 @@ specifier|final
 name|int
 name|size
 init|=
-literal|1000
+literal|500
 decl_stmt|;
 annotation|@
 name|Override
@@ -255,7 +251,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// check the file has 10000 lines
+comment|// check the file has 5000 lines
 name|String
 name|txt
 init|=
