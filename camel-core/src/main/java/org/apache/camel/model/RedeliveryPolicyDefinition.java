@@ -731,7 +731,7 @@ condition|)
 block|{
 name|answer
 operator|.
-name|setLogExhausted
+name|setRedeliverWhileStopping
 argument_list|(
 name|CamelContextHelper
 operator|.
