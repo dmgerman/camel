@@ -458,22 +458,9 @@ argument_list|,
 literal|2
 argument_list|)
 decl_stmt|;
-comment|// Need to wait for a while to Candidate2 to be elected.
-name|Thread
-operator|.
-name|sleep
+name|assertIsMaster
 argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"The second candidate should also be a master."
-argument_list|,
 name|electionCandidate2
-operator|.
-name|isMaster
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
