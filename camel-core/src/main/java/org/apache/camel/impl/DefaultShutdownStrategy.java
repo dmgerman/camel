@@ -1033,6 +1033,10 @@ argument_list|(
 literal|"Timeout occurred. Now forcing the routes to be shutdown now."
 argument_list|)
 expr_stmt|;
+name|forceShutdown
+operator|=
+literal|true
+expr_stmt|;
 comment|// force the routes to shutdown now
 name|shutdownRoutesNow
 argument_list|(
@@ -1711,6 +1715,7 @@ condition|(
 name|includeChildren
 condition|)
 block|{
+comment|// include error handlers as we want to prepare them for shutdown as well
 name|list
 operator|=
 name|ServiceHelper
@@ -1718,6 +1723,8 @@ operator|.
 name|getChildServices
 argument_list|(
 name|service
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -2306,6 +2313,47 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|// notify the services we intend to shutdown
+for|for
+control|(
+name|RouteStartupOrder
+name|order
+range|:
+name|routes
+control|)
+block|{
+for|for
+control|(
+name|Service
+name|service
+range|:
+name|order
+operator|.
+name|getServices
+argument_list|()
+control|)
+block|{
+comment|// skip the consumer as we handle that specially
+if|if
+condition|(
+name|service
+operator|instanceof
+name|Consumer
+condition|)
+block|{
+continue|continue;
+block|}
+name|prepareShutdown
+argument_list|(
+name|service
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// wait till there are no more pending and inflight messages

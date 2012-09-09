@@ -264,6 +264,13 @@ specifier|protected
 name|boolean
 name|asyncDelayedRedelivery
 decl_stmt|;
+DECL|field|redeliverWhileStopping
+specifier|protected
+name|boolean
+name|redeliverWhileStopping
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
@@ -293,6 +300,10 @@ operator|+
 literal|", asyncDelayedRedelivery="
 operator|+
 name|asyncDelayedRedelivery
+operator|+
+literal|", redeliverWhileStopping="
+operator|+
+name|redeliverWhileStopping
 operator|+
 literal|", retriesExhaustedLogLevel="
 operator|+
@@ -1078,6 +1089,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param redeliverWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      */
+DECL|method|redeliverWhileStopping (boolean redeliverWhileStopping)
+specifier|public
+name|RedeliveryPolicy
+name|redeliverWhileStopping
+parameter_list|(
+name|boolean
+name|redeliverWhileStopping
+parameter_list|)
+block|{
+name|setRedeliverWhileStopping
+argument_list|(
+name|redeliverWhileStopping
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 comment|/**      * @deprecated will be removed in the near future. Instead use {@link #getRedeliveryDelay()}      */
@@ -1650,6 +1680,33 @@ operator|.
 name|asyncDelayedRedelivery
 operator|=
 name|asyncDelayedRedelivery
+expr_stmt|;
+block|}
+DECL|method|isRedeliverWhileStopping ()
+specifier|public
+name|boolean
+name|isRedeliverWhileStopping
+parameter_list|()
+block|{
+return|return
+name|redeliverWhileStopping
+return|;
+block|}
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param redeliverWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      */
+DECL|method|setRedeliverWhileStopping (boolean redeliverWhileStopping)
+specifier|public
+name|void
+name|setRedeliverWhileStopping
+parameter_list|(
+name|boolean
+name|redeliverWhileStopping
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliverWhileStopping
+operator|=
+name|redeliverWhileStopping
 expr_stmt|;
 block|}
 block|}

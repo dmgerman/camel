@@ -724,6 +724,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param redeliverWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      * @return the builder      */
+DECL|method|redeliverWhileStopping (boolean redeliverWhileStopping)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|redeliverWhileStopping
+parameter_list|(
+name|boolean
+name|redeliverWhileStopping
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setRedeliverWhileStopping
+argument_list|(
+name|redeliverWhileStopping
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets a reference to a thread pool to be used for redelivery.      *      * @param ref reference to a scheduled thread pool      * @return the builder.      */
 DECL|method|executorServiceRef (String ref)
 specifier|public

@@ -184,6 +184,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ShutdownPrepared
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|SubUnitOfWorkCallback
 import|;
 end_import
@@ -342,6 +356,8 @@ extends|extends
 name|ErrorHandlerSupport
 implements|implements
 name|AsyncProcessor
+implements|,
+name|ShutdownPrepared
 block|{
 DECL|field|executorService
 specifier|protected
@@ -412,6 +428,12 @@ DECL|field|redeliveryEnabled
 specifier|protected
 name|boolean
 name|redeliveryEnabled
+decl_stmt|;
+DECL|field|preparingShutdown
+specifier|protected
+specifier|volatile
+name|boolean
+name|preparingShutdown
 decl_stmt|;
 comment|/**      * Contains the current redelivery data      */
 DECL|class|RedeliveryData
@@ -494,6 +516,15 @@ init|=
 name|redeliveryPolicy
 operator|.
 name|isAsyncDelayedRedelivery
+argument_list|()
+decl_stmt|;
+DECL|field|redeliverWhileStopping
+name|boolean
+name|redeliverWhileStopping
+init|=
+name|redeliveryPolicy
+operator|.
+name|isRedeliverWhileStopping
 argument_list|()
 decl_stmt|;
 block|}
@@ -954,15 +985,16 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isRunAllowed ()
-specifier|public
+DECL|method|isRunAllowed (RedeliveryData data)
+specifier|protected
 name|boolean
 name|isRunAllowed
-parameter_list|()
+parameter_list|(
+name|RedeliveryData
+name|data
+parameter_list|)
 block|{
-comment|// determine if we can still run, or the camel context is forcing a shutdown
+comment|// if camel context is forcing a shutdown then do not allow running
 name|boolean
 name|forceShutdown
 init|=
@@ -985,19 +1017,108 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Run not allowed as ShutdownStrategy is forcing shutting down"
+literal|"isRunAllowed() -> false (Run not allowed as ShutdownStrategy is forcing shutting down)"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
-operator|!
-name|forceShutdown
-operator|&&
+literal|false
+return|;
+block|}
+comment|// redelivery policy can control if redelivery is allowed during stopping/shutdown
+comment|// but this only applies during a redelivery (counter must> 0)
+if|if
+condition|(
+name|data
+operator|.
+name|redeliveryCounter
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|data
+operator|.
+name|redeliverWhileStopping
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"isRunAllowed() -> true (Run allowed as RedeliverWhileStopping is enabled)"
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|preparingShutdown
+condition|)
+block|{
+comment|// do not allow redelivery as we are preparing for shutdown
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"isRunAllowed() -> false (Run not allowed as we are preparing for shutdown)"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+block|}
+comment|// fallback and use code from super
+name|boolean
+name|answer
+init|=
 name|super
 operator|.
 name|isRunAllowed
 argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"isRunAllowed() -> {} (Run allowed if we are not stopped/stopping)"
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|prepareShutdown (boolean forced)
+specifier|public
+name|void
+name|prepareShutdown
+parameter_list|(
+name|boolean
+name|forced
+parameter_list|)
+block|{
+comment|// prepare for shutdown, eg do not allow redelivery if configured
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Prepare shutdown on error handler {}"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|preparingShutdown
+operator|=
+literal|true
+expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -1097,7 +1218,9 @@ if|if
 condition|(
 operator|!
 name|isRunAllowed
-argument_list|()
+argument_list|(
+name|data
+argument_list|)
 condition|)
 block|{
 name|log
@@ -1738,7 +1861,9 @@ if|if
 condition|(
 operator|!
 name|isRunAllowed
-argument_list|()
+argument_list|(
+name|data
+argument_list|)
 condition|)
 block|{
 name|log
@@ -4838,6 +4963,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// reset flag when starting
+name|preparingShutdown
+operator|=
+literal|false
+expr_stmt|;
 block|}
 annotation|@
 name|Override
