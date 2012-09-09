@@ -649,7 +649,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 operator|+
-literal|5000
+literal|10000
 decl_stmt|;
 while|while
 condition|(
