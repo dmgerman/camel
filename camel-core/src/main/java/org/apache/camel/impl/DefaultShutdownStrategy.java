@@ -1033,10 +1033,6 @@ argument_list|(
 literal|"Timeout occurred. Now forcing the routes to be shutdown now."
 argument_list|)
 expr_stmt|;
-name|forceShutdown
-operator|=
-literal|true
-expr_stmt|;
 comment|// force the routes to shutdown now
 name|shutdownRoutesNow
 argument_list|(
