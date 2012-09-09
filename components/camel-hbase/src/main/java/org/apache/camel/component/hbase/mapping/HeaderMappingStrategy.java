@@ -431,11 +431,22 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+comment|// String is the default value type
 name|hCell
 operator|.
 name|setValueType
 argument_list|(
+operator|(
 name|valueClass
+operator|!=
+literal|null
+operator|)
+condition|?
+name|valueClass
+else|:
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|hRow

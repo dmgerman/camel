@@ -523,7 +523,9 @@ operator|.
 name|HBASE_VALUE_TYPE
 operator|.
 name|asOption
-argument_list|()
+argument_list|(
+name|i
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -543,7 +545,9 @@ operator|.
 name|HBASE_VALUE_TYPE
 operator|.
 name|asOption
-argument_list|()
+argument_list|(
+name|i
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

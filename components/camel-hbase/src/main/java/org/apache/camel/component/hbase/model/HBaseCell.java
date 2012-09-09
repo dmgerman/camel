@@ -72,6 +72,33 @@ name|String
 operator|.
 name|class
 decl_stmt|;
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"HBaseCell=[family="
+operator|+
+name|family
+operator|+
+literal|", qualifier="
+operator|+
+name|qualifier
+operator|+
+literal|", value="
+operator|+
+name|value
+operator|+
+literal|", valueType="
+operator|+
+name|valueType
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -196,6 +223,21 @@ argument_list|>
 name|valueType
 parameter_list|)
 block|{
+if|if
+condition|(
+name|valueType
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Value type can not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|valueType
