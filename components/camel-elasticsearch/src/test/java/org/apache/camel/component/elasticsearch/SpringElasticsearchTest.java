@@ -94,6 +94,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelSpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -106,11 +122,25 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|test
+name|context
+operator|.
+name|support
+operator|.
+name|AbstractXmlApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
 operator|.
 name|context
 operator|.
-name|ContextConfiguration
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
 import|;
 end_import
 
@@ -124,9 +154,7 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit4
-operator|.
-name|AbstractJUnit4SpringContextTests
+name|ContextConfiguration
 import|;
 end_import
 
@@ -138,7 +166,7 @@ specifier|public
 class|class
 name|SpringElasticsearchTest
 extends|extends
-name|AbstractJUnit4SpringContextTests
+name|CamelSpringTestSupport
 block|{
 annotation|@
 name|Produce
@@ -164,6 +192,40 @@ specifier|protected
 name|MockEndpoint
 name|mock
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractXmlApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/data"
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/component/elasticsearch/SpringElasticsearchTest-context.xml"
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+comment|// let's speed up the tests using the same context
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testSendBody ()
