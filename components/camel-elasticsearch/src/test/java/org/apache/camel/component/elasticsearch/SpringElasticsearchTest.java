@@ -144,23 +144,7 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|ContextConfiguration
-import|;
-end_import
-
 begin_class
-annotation|@
-name|ContextConfiguration
 DECL|class|SpringElasticsearchTest
 specifier|public
 class|class
