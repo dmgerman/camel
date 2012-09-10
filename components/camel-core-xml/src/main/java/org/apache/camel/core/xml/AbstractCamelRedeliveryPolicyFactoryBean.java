@@ -263,10 +263,10 @@ name|delayPattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|redeliverWhileStopping
+DECL|field|allowRedeliveryWhileStopping
 specifier|private
 name|String
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 decl_stmt|;
 DECL|method|getObject ()
 specifier|public
@@ -684,14 +684,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 operator|!=
 literal|null
 condition|)
 block|{
 name|answer
 operator|.
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 argument_list|(
 name|CamelContextHelper
 operator|.
@@ -699,7 +699,7 @@ name|parseBoolean
 argument_list|(
 name|context
 argument_list|,
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1191,30 +1191,30 @@ operator|=
 name|delayPattern
 expr_stmt|;
 block|}
-DECL|method|getRedeliverWhileStopping ()
+DECL|method|getAllowRedeliveryWhileStopping ()
 specifier|public
 name|String
-name|getRedeliverWhileStopping
+name|getAllowRedeliveryWhileStopping
 parameter_list|()
 block|{
 return|return
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 return|;
 block|}
-DECL|method|setRedeliverWhileStopping (String redeliverWhileStopping)
+DECL|method|setAllowRedeliveryWhileStopping (String allowRedeliveryWhileStopping)
 specifier|public
 name|void
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 parameter_list|(
 name|String
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|)
 block|{
 name|this
 operator|.
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 operator|=
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 expr_stmt|;
 block|}
 block|}

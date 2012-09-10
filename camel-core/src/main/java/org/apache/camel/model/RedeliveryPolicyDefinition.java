@@ -290,10 +290,10 @@ name|delayPattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|redeliverWhileStopping
+DECL|field|allowRedeliveryWhileStopping
 specifier|private
 name|String
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 decl_stmt|;
 DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
@@ -724,14 +724,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 operator|!=
 literal|null
 condition|)
 block|{
 name|answer
 operator|.
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 argument_list|(
 name|CamelContextHelper
 operator|.
@@ -739,7 +739,7 @@ name|parseBoolean
 argument_list|(
 name|context
 argument_list|,
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -782,7 +782,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Allow synchronous delayed redelivery.      */
+comment|/**      * Allow synchronous delayed redelivery.      *      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -798,41 +798,41 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Allow synchronous delayed redelivery.      */
-DECL|method|redeliverWhileStopping (boolean redeliverWhileStopping)
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      * @return the builder      */
+DECL|method|allowRedeliveryWhileStopping (boolean allowRedeliveryWhileStopping)
 specifier|public
 name|RedeliveryPolicyDefinition
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|(
 name|boolean
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|)
 block|{
 return|return
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 argument_list|(
 name|Boolean
 operator|.
 name|toString
 argument_list|(
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Allow synchronous delayed redelivery.      */
-DECL|method|redeliverWhileStopping (String redeliverWhileStopping)
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      * @return the builder      */
+DECL|method|allowRedeliveryWhileStopping (String allowRedeliveryWhileStopping)
 specifier|public
 name|RedeliveryPolicyDefinition
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|(
 name|String
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|)
 block|{
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 argument_list|(
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 argument_list|)
 expr_stmt|;
 return|return
@@ -1926,30 +1926,30 @@ operator|=
 name|delayPattern
 expr_stmt|;
 block|}
-DECL|method|getRedeliverWhileStopping ()
+DECL|method|getAllowRedeliveryWhileStopping ()
 specifier|public
 name|String
-name|getRedeliverWhileStopping
+name|getAllowRedeliveryWhileStopping
 parameter_list|()
 block|{
 return|return
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 return|;
 block|}
-DECL|method|setRedeliverWhileStopping (String redeliverWhileStopping)
+DECL|method|setAllowRedeliveryWhileStopping (String allowRedeliveryWhileStopping)
 specifier|public
 name|void
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 parameter_list|(
 name|String
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|)
 block|{
 name|this
 operator|.
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 operator|=
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 expr_stmt|;
 block|}
 block|}

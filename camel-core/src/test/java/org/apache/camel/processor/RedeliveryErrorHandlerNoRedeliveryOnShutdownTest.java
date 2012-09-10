@@ -180,7 +180,7 @@ argument_list|(
 name|defaultErrorHandler
 argument_list|()
 operator|.
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 argument_list|(
 literal|false
 argument_list|)

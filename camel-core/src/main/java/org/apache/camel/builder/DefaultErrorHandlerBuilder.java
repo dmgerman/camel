@@ -724,22 +724,22 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param redeliverWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      * @return the builder      */
-DECL|method|redeliverWhileStopping (boolean redeliverWhileStopping)
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      * @return the builder      */
+DECL|method|allowRedeliveryWhileStopping (boolean allowRedeliveryWhileStopping)
 specifier|public
 name|DefaultErrorHandlerBuilder
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|(
 name|boolean
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|)
 block|{
 name|getRedeliveryPolicy
 argument_list|()
 operator|.
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 argument_list|(
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 argument_list|)
 expr_stmt|;
 return|return

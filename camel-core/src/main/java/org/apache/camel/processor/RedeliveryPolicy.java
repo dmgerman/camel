@@ -264,10 +264,10 @@ specifier|protected
 name|boolean
 name|asyncDelayedRedelivery
 decl_stmt|;
-DECL|field|redeliverWhileStopping
+DECL|field|allowRedeliveryWhileStopping
 specifier|protected
 name|boolean
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 init|=
 literal|true
 decl_stmt|;
@@ -301,9 +301,9 @@ literal|", asyncDelayedRedelivery="
 operator|+
 name|asyncDelayedRedelivery
 operator|+
-literal|", redeliverWhileStopping="
+literal|", allowRedeliveryWhileStopping="
 operator|+
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 operator|+
 literal|", retriesExhaustedLogLevel="
 operator|+
@@ -1090,16 +1090,16 @@ name|this
 return|;
 block|}
 comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param redeliverWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      */
-DECL|method|redeliverWhileStopping (boolean redeliverWhileStopping)
+DECL|method|allowRedeliveryWhileStopping (boolean redeliverWhileStopping)
 specifier|public
 name|RedeliveryPolicy
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|(
 name|boolean
 name|redeliverWhileStopping
 parameter_list|)
 block|{
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 argument_list|(
 name|redeliverWhileStopping
 argument_list|)
@@ -1682,31 +1682,31 @@ operator|=
 name|asyncDelayedRedelivery
 expr_stmt|;
 block|}
-DECL|method|isRedeliverWhileStopping ()
+DECL|method|isAllowRedeliveryWhileStopping ()
 specifier|public
 name|boolean
-name|isRedeliverWhileStopping
+name|isAllowRedeliveryWhileStopping
 parameter_list|()
 block|{
 return|return
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 return|;
 block|}
-comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param redeliverWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      */
-DECL|method|setRedeliverWhileStopping (boolean redeliverWhileStopping)
+comment|/**      * Controls whether to allow redelivery while stopping/shutting down a route that uses error handling.      *      * @param allowRedeliveryWhileStopping<tt>true</tt> to allow redelivery,<tt>false</tt> to reject redeliveries      */
+DECL|method|setAllowRedeliveryWhileStopping (boolean allowRedeliveryWhileStopping)
 specifier|public
 name|void
-name|setRedeliverWhileStopping
+name|setAllowRedeliveryWhileStopping
 parameter_list|(
 name|boolean
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 parameter_list|)
 block|{
 name|this
 operator|.
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 operator|=
-name|redeliverWhileStopping
+name|allowRedeliveryWhileStopping
 expr_stmt|;
 block|}
 block|}
