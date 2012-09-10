@@ -393,23 +393,6 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|doShutdown ()
-specifier|protected
-name|void
-name|doShutdown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// TODO Auto-generated method stub
-name|super
-operator|.
-name|doShutdown
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|getClient ()
 specifier|public
 name|Client

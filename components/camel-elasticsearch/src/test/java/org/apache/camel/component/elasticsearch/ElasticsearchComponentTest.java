@@ -124,7 +124,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -153,9 +153,6 @@ expr_stmt|;
 name|String
 name|indexId
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -163,6 +160,10 @@ argument_list|(
 literal|"direct:index"
 argument_list|,
 name|map
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -184,7 +185,7 @@ throws|throws
 name|Exception
 block|{
 comment|//first, INDEX a value
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -220,9 +221,6 @@ expr_stmt|;
 name|String
 name|indexId
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -230,6 +228,10 @@ argument_list|(
 literal|"direct:index"
 argument_list|,
 name|map
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -243,9 +245,6 @@ comment|//now, verify GET succeeded
 name|GetResponse
 name|response
 init|=
-operator|(
-name|GetResponse
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -253,6 +252,10 @@ argument_list|(
 literal|"direct:get"
 argument_list|,
 name|indexId
+argument_list|,
+name|GetResponse
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -284,7 +287,7 @@ throws|throws
 name|Exception
 block|{
 comment|//first, INDEX a value
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -320,9 +323,6 @@ expr_stmt|;
 name|String
 name|indexId
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -330,6 +330,10 @@ argument_list|(
 literal|"direct:index"
 argument_list|,
 name|map
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -343,9 +347,6 @@ comment|//now, verify GET succeeded
 name|GetResponse
 name|response
 init|=
-operator|(
-name|GetResponse
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -353,6 +354,10 @@ argument_list|(
 literal|"direct:get"
 argument_list|,
 name|indexId
+argument_list|,
+name|GetResponse
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -376,9 +381,6 @@ comment|//now, perform DELETE
 name|DeleteResponse
 name|deleteResponse
 init|=
-operator|(
-name|DeleteResponse
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -386,6 +388,10 @@ argument_list|(
 literal|"direct:delete"
 argument_list|,
 name|indexId
+argument_list|,
+name|DeleteResponse
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -398,9 +404,6 @@ expr_stmt|;
 comment|//now, verify GET fails to find the indexed value
 name|response
 operator|=
-operator|(
-name|GetResponse
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -408,6 +411,10 @@ argument_list|(
 literal|"direct:get"
 argument_list|,
 name|indexId
+argument_list|,
+name|GetResponse
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -438,7 +445,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -519,9 +526,6 @@ expr_stmt|;
 name|String
 name|indexId
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -531,6 +535,10 @@ argument_list|,
 name|map
 argument_list|,
 name|headers
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -552,7 +560,7 @@ throws|throws
 name|Exception
 block|{
 comment|//first, INDEX a value
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -633,9 +641,6 @@ expr_stmt|;
 name|String
 name|indexId
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -645,6 +650,10 @@ argument_list|,
 name|map
 argument_list|,
 name|headers
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|//now, verify GET
@@ -664,9 +673,6 @@ expr_stmt|;
 name|GetResponse
 name|response
 init|=
-operator|(
-name|GetResponse
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -676,6 +682,10 @@ argument_list|,
 name|indexId
 argument_list|,
 name|headers
+argument_list|,
+name|GetResponse
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -707,7 +717,7 @@ throws|throws
 name|Exception
 block|{
 comment|//first, INDEX a value
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -788,9 +798,6 @@ expr_stmt|;
 name|String
 name|indexId
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -800,6 +807,10 @@ argument_list|,
 name|map
 argument_list|,
 name|headers
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|//now, verify GET
@@ -819,9 +830,6 @@ expr_stmt|;
 name|GetResponse
 name|response
 init|=
-operator|(
-name|GetResponse
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -831,6 +839,10 @@ argument_list|,
 name|indexId
 argument_list|,
 name|headers
+argument_list|,
+name|GetResponse
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -867,9 +879,6 @@ expr_stmt|;
 name|DeleteResponse
 name|deleteResponse
 init|=
-operator|(
-name|DeleteResponse
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -879,6 +888,10 @@ argument_list|,
 name|indexId
 argument_list|,
 name|headers
+argument_list|,
+name|DeleteResponse
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -904,9 +917,6 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-operator|(
-name|GetResponse
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -916,6 +926,10 @@ argument_list|,
 name|indexId
 argument_list|,
 name|headers
+argument_list|,
+name|GetResponse
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|assertNotNull

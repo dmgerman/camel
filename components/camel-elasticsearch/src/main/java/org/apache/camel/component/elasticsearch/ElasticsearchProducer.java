@@ -184,11 +184,6 @@ name|ElasticsearchProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|endpoint
-specifier|private
-name|ElasticsearchEndpoint
-name|endpoint
-decl_stmt|;
 DECL|method|ElasticsearchProducer (ElasticsearchEndpoint endpoint)
 specifier|public
 name|ElasticsearchProducer
@@ -202,12 +197,24 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
-name|this
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|ElasticsearchEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|ElasticsearchEndpoint
+operator|)
+name|super
 operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -223,9 +230,6 @@ block|{
 name|String
 name|operation
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -236,6 +240,10 @@ argument_list|(
 name|ElasticsearchConfiguration
 operator|.
 name|PARAM_OPERATION
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -247,7 +255,8 @@ condition|)
 block|{
 name|operation
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
@@ -278,7 +287,8 @@ block|}
 name|Client
 name|client
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getClient
 argument_list|()
@@ -404,7 +414,8 @@ condition|)
 block|{
 name|indexName
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
@@ -441,7 +452,8 @@ condition|)
 block|{
 name|indexType
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
@@ -536,7 +548,8 @@ condition|)
 block|{
 name|indexName
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
@@ -573,7 +586,8 @@ condition|)
 block|{
 name|indexType
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
@@ -668,7 +682,8 @@ condition|)
 block|{
 name|indexName
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
@@ -705,7 +720,8 @@ condition|)
 block|{
 name|indexType
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
