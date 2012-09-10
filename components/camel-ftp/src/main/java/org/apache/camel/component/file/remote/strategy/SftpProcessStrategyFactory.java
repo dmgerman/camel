@@ -618,14 +618,6 @@ name|strategy
 operator|.
 name|setExclusiveReadLockStrategy
 argument_list|(
-operator|(
-name|GenericFileExclusiveReadLockStrategy
-argument_list|<
-name|ChannelSftp
-operator|.
-name|LsEntry
-argument_list|>
-operator|)
 name|getExclusiveReadLockStrategy
 argument_list|(
 name|params
