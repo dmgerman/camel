@@ -133,13 +133,6 @@ end_import
 begin_class
 annotation|@
 name|ContextConfiguration
-argument_list|(
-name|locations
-operator|=
-block|{
-literal|"/SpringElasticsearchTest.xml"
-block|}
-argument_list|)
 DECL|class|SpringElasticsearchTest
 specifier|public
 class|class
