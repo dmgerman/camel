@@ -691,7 +691,9 @@ parameter_list|(
 name|InterruptedException
 name|e1
 parameter_list|)
-block|{             }
+block|{
+comment|// do nothing here
+block|}
 block|}
 block|}
 DECL|method|createCandidateNode (CamelContext camelContext)
@@ -1175,34 +1177,27 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// we cannot use the binary search here and the candidates a not sorted in the normal way
+comment|/**                      * check if the item at this location starts with this nodes                      * candidate name                      */
 name|int
 name|location
 init|=
-name|Math
-operator|.
-name|abs
-argument_list|(
-name|Collections
-operator|.
-name|binarySearch
+name|findCandidateLocationInCandidatesList
 argument_list|(
 name|candidates
 argument_list|,
 name|candidateName
 argument_list|)
-argument_list|)
 decl_stmt|;
-comment|/**                      * check if the item at this location starts with this nodes                      * candidate name                      */
 if|if
 condition|(
-name|isOurCandidateAtLocationInCandidatesList
-argument_list|(
-name|candidates
-argument_list|,
 name|location
-argument_list|)
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
+comment|// set the nodes
 name|masterNode
 operator|.
 name|set
@@ -1248,8 +1243,8 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|private
-name|boolean
-name|isOurCandidateAtLocationInCandidatesList
+name|int
+name|findCandidateLocationInCandidatesList
 parameter_list|(
 name|List
 argument_list|<
@@ -1257,18 +1252,30 @@ name|String
 argument_list|>
 name|candidates
 parameter_list|,
-name|int
-name|location
+name|String
+name|candidateName
 parameter_list|)
 block|{
-return|return
+for|for
+control|(
+name|int
+name|location
+init|=
+literal|1
+init|;
 name|location
 operator|<=
 name|candidates
 operator|.
 name|size
 argument_list|()
-operator|&&
+condition|;
+name|location
+operator|++
+control|)
+block|{
+if|if
+condition|(
 name|candidates
 operator|.
 name|get
@@ -1282,6 +1289,16 @@ name|startsWith
 argument_list|(
 name|candidateName
 argument_list|)
+condition|)
+block|{
+return|return
+name|location
+return|;
+block|}
+block|}
+return|return
+operator|-
+literal|1
 return|;
 block|}
 block|}
