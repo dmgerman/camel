@@ -818,11 +818,11 @@ operator|+=
 name|entry
 expr_stmt|;
 block|}
-name|StringBuffer
+name|StringBuilder
 name|u
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|64
 argument_list|)

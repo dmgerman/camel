@@ -102,11 +102,11 @@ argument_list|()
 decl_stmt|;
 DECL|field|sb
 specifier|private
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 annotation|@

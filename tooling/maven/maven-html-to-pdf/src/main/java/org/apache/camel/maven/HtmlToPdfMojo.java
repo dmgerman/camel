@@ -710,11 +710,11 @@ operator|.
 name|getCommandline
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for

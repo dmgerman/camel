@@ -29,11 +29,11 @@ block|{
 DECL|field|buffer
 specifier|private
 specifier|final
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 DECL|field|separator
