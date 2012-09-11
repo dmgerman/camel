@@ -8695,6 +8695,16 @@ name|log
 operator|.
 name|info
 argument_list|(
+literal|"Uptime {}"
+argument_list|,
+name|getUptime
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
 literal|"Apache Camel "
 operator|+
 name|getVersion
@@ -8716,13 +8726,6 @@ operator|.
 name|taken
 argument_list|()
 argument_list|)
-operator|+
-literal|". Uptime "
-operator|+
-name|getUptime
-argument_list|()
-operator|+
-literal|"."
 argument_list|)
 expr_stmt|;
 block|}
