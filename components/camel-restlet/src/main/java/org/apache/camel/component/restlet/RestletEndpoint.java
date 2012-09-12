@@ -190,8 +190,8 @@ name|Method
 operator|.
 name|GET
 decl_stmt|;
-comment|// Optional and for consumer only.  This allows a single route to service multiple
-comment|// methods.  If it is non-null, restletMethod is ignored.
+comment|// Optional and for consumer only. This allows a single route to service multiple methods.
+comment|// If it is non-null then restletMethod is ignored.
 DECL|field|restletMethods
 specifier|private
 name|Method
@@ -224,8 +224,8 @@ specifier|private
 name|String
 name|uriPattern
 decl_stmt|;
-comment|// Optional and for consumer only.  This allows a single route to service multiple
-comment|// URI patterns.  The URI pattern defined in the endpoint will still be honored.
+comment|// Optional and for consumer only. This allows a single route to service multiple URI patterns.
+comment|// The URI pattern defined in the endpoint will still be honored.
 DECL|field|restletUriPatterns
 specifier|private
 name|List
@@ -766,6 +766,12 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// list the method(s) as a comma seperated list
+name|boolean
+name|first
+init|=
+literal|true
+decl_stmt|;
 for|for
 control|(
 name|Method
@@ -775,17 +781,19 @@ name|getRestletMethods
 argument_list|()
 control|)
 block|{
-name|methods
+if|if
+condition|(
+name|first
+condition|)
+block|{
+name|first
 operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
 name|methods
-operator|.
-name|append
-argument_list|(
-name|method
-operator|.
-name|getName
-argument_list|()
-argument_list|)
 operator|.
 name|append
 argument_list|(
@@ -793,17 +801,6 @@ literal|','
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-name|Method
-name|method
-init|=
-name|getRestletMethod
-argument_list|()
-decl_stmt|;
-name|methods
-operator|=
 name|methods
 operator|.
 name|append
@@ -815,13 +812,20 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|methods
-operator|!=
-literal|null
-condition|)
+block|}
+else|else
 block|{
+comment|// otherwise consider the single method we own
+name|methods
+operator|.
+name|append
+argument_list|(
+name|getRestletMethod
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// update the uri
 name|endpointUri
 operator|=
 name|endpointUri
@@ -829,16 +833,12 @@ operator|+
 literal|"?restletMethods="
 operator|+
 name|methods
-operator|.
-name|toString
-argument_list|()
 expr_stmt|;
 name|setEndpointUri
 argument_list|(
 name|endpointUri
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
