@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This interface configures the flag {@link DocLiteralInInterceptor#KEEP_PARAMETERS_WRAPPER}.  *   * @version @Revision: 789534 $  */
+comment|/**  * This interface configures the flag {@link DocLiteralInInterceptor#KEEP_PARAMETERS_WRAPPER}.  *   * @version   */
 end_comment
 
 begin_class

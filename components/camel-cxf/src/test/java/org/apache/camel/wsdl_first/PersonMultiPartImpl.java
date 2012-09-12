@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test Impl class for PersonMultiPartType port type that verifies multi part SOAP message  * functionality.  *   * @version @Revision: 789534 $  */
+comment|/**  * Test Impl class for PersonMultiPartType port type that verifies multi part SOAP message  * functionality.  *   * @version   */
 end_comment
 
 begin_class
