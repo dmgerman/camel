@@ -755,7 +755,7 @@ argument_list|(
 literal|"http.proxyScheme"
 argument_list|)
 decl_stmt|;
-comment|// fallback and use either http4 or https4 depending on secure
+comment|// fallback and use either http or https depending on secure
 if|if
 condition|(
 name|scheme
@@ -773,9 +773,9 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 condition|?
-literal|"https4"
+literal|"https"
 else|:
-literal|"http4"
+literal|"http"
 expr_stmt|;
 block|}
 name|LOG

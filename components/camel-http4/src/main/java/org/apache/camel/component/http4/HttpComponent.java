@@ -791,14 +791,14 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback and use either http4 or https4 depending on secure
+comment|// fallback and use either http or https depending on secure
 name|proxyAuthScheme
 operator|=
 name|secure
 condition|?
-literal|"https4"
+literal|"https"
 else|:
-literal|"http4"
+literal|"http"
 expr_stmt|;
 block|}
 name|String
