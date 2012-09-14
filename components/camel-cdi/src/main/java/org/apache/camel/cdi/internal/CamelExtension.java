@@ -4,15 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cdi.internal
+DECL|package|org.apache.camel.cdi.internal
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|component
 operator|.
 name|cdi
 operator|.
@@ -404,7 +402,7 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|ContextName
+name|CdiCamelContext
 import|;
 end_import
 
@@ -416,11 +414,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|cdi
 operator|.
-name|CdiCamelContext
+name|ContextName
 import|;
 end_import
 

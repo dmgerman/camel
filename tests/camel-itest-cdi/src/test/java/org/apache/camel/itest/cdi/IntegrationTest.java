@@ -106,8 +106,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|cdi
 operator|.
 name|internal
@@ -123,8 +121,6 @@ operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|component
 operator|.
 name|cdi
 operator|.
