@@ -358,6 +358,12 @@ specifier|final
 name|SoapJaxbDataFormat
 name|dataFormat
 decl_stmt|;
+DECL|field|objectFactory
+specifier|private
+specifier|final
+name|ObjectFactory
+name|objectFactory
+decl_stmt|;
 DECL|method|Soap12DataFormatAdapter (SoapJaxbDataFormat dataFormat)
 specifier|public
 name|Soap12DataFormatAdapter
@@ -371,6 +377,14 @@ operator|.
 name|dataFormat
 operator|=
 name|dataFormat
+expr_stmt|;
+name|this
+operator|.
+name|objectFactory
+operator|=
+operator|new
+name|ObjectFactory
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getDataFormat ()
@@ -408,15 +422,17 @@ block|{
 name|Body
 name|body
 init|=
-operator|new
-name|Body
+name|objectFactory
+operator|.
+name|createBody
 argument_list|()
 decl_stmt|;
 name|Header
 name|header
 init|=
-operator|new
-name|Header
+name|objectFactory
+operator|.
+name|createHeader
 argument_list|()
 decl_stmt|;
 name|Throwable
@@ -619,9 +635,7 @@ name|Envelope
 argument_list|>
 name|envelopeEl
 init|=
-operator|new
-name|ObjectFactory
-argument_list|()
+name|objectFactory
 operator|.
 name|createEnvelope
 argument_list|(
@@ -1148,7 +1162,7 @@ name|payloadEl
 return|;
 block|}
 block|}
-comment|/**      * Creates an exception and eventually an embedded bean that contains the      * fault detail. The exception class is determined by using the      * elementNameStrategy. The qName of the fault detail should match the      * WebFault annotation of the Exception class. If no fault detail is set the      * a RuntimeCamelException is created.      *       * @param fault      *            Soap fault      * @return created Exception      */
+comment|/**      * Creates an exception and eventually an embedded bean that contains the      * fault detail. The exception class is determined by using the      * elementNameStrategy. The qName of the fault detail should match the      * WebFault annotation of the Exception class. If no fault detail is set the      * a RuntimeCamelException is created.      *       * @param fault Soap fault      * @return created Exception      */
 DECL|method|createExceptionFromFault (Fault fault)
 specifier|private
 name|Exception
