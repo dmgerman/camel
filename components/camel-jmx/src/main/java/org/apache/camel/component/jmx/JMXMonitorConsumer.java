@@ -627,10 +627,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|removeNotificationListener ()
+DECL|method|removeNotificationListeners ()
 specifier|protected
 name|void
-name|removeNotificationListener
+name|removeNotificationListeners
 parameter_list|()
 throws|throws
 name|Exception

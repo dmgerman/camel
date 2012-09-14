@@ -326,6 +326,28 @@ specifier|private
 name|Object
 name|mHandback
 decl_stmt|;
+comment|/**      * URI Property:  If true the consumer will throw an exception if unable to establish the JMX connection upon startup.  If false, the consumer will attempt      *                to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured  reconnectionDelay       */
+DECL|field|mTestConnectionOnStartup
+specifier|private
+name|boolean
+name|mTestConnectionOnStartup
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * URI Property:  If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs.  The consumer will attempt      *                to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured  reconnectionDelay      */
+DECL|field|mReconnectOnConnectionFailure
+specifier|private
+name|boolean
+name|mReconnectOnConnectionFailure
+decl_stmt|;
+comment|/**       * URI Property:  The number of seconds to wait before attempting to retry establishment of the initial connection or attempt to reconnect a lost connection       */
+DECL|field|mReconnectDelay
+specifier|private
+name|int
+name|mReconnectDelay
+init|=
+literal|10
+decl_stmt|;
 comment|/**      * URI Property: properties for the object name. These values will be used if the objectName param is not set      */
 DECL|field|mObjectProperties
 specifier|private
@@ -1256,6 +1278,90 @@ block|{
 name|mStringToCompare
 operator|=
 name|aStringToCompare
+expr_stmt|;
+block|}
+DECL|method|getTestConnectionOnStartup ()
+specifier|public
+name|boolean
+name|getTestConnectionOnStartup
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|mTestConnectionOnStartup
+return|;
+block|}
+DECL|method|setTestConnectionOnStartup (boolean testConnectionOnStartup)
+specifier|public
+name|void
+name|setTestConnectionOnStartup
+parameter_list|(
+name|boolean
+name|testConnectionOnStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mTestConnectionOnStartup
+operator|=
+name|testConnectionOnStartup
+expr_stmt|;
+block|}
+DECL|method|getReconnectOnConnectionFailure ()
+specifier|public
+name|boolean
+name|getReconnectOnConnectionFailure
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|mReconnectOnConnectionFailure
+return|;
+block|}
+DECL|method|setReconnectOnConnectionFailure (boolean reconnectOnConnectionFailure)
+specifier|public
+name|void
+name|setReconnectOnConnectionFailure
+parameter_list|(
+name|boolean
+name|reconnectOnConnectionFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mReconnectOnConnectionFailure
+operator|=
+name|reconnectOnConnectionFailure
+expr_stmt|;
+block|}
+DECL|method|getReconnectDelay ()
+specifier|public
+name|int
+name|getReconnectDelay
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|mReconnectDelay
+return|;
+block|}
+DECL|method|setReconnectDelay (int reconnectDelay)
+specifier|public
+name|void
+name|setReconnectDelay
+parameter_list|(
+name|int
+name|reconnectDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mReconnectDelay
+operator|=
+name|reconnectDelay
 expr_stmt|;
 block|}
 DECL|method|buildObjectName ()
