@@ -2103,15 +2103,6 @@ argument_list|(
 name|routeClass
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|routeClass
-argument_list|)
-expr_stmt|;
 name|RouteBuilder
 name|builder
 init|=
