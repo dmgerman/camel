@@ -70,6 +70,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URLDecoder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1164,6 +1174,8 @@ decl_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"Cannot find resource!"
+argument_list|,
+name|resource
 argument_list|)
 expr_stmt|;
 name|File
@@ -1172,10 +1184,17 @@ init|=
 operator|new
 name|File
 argument_list|(
+name|URLDecoder
+operator|.
+name|decode
+argument_list|(
 name|resource
 operator|.
 name|getFile
 argument_list|()
+argument_list|,
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
