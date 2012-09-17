@@ -589,32 +589,9 @@ argument_list|(
 literal|"onRequestComplete"
 argument_list|)
 expr_stmt|;
-comment|// close the input stream when its not needed anymore
-name|InputStream
-name|is
-init|=
-name|getRequestContentSource
+name|closeRequestContentSource
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|is
-operator|!=
-literal|null
-condition|)
-block|{
-name|IOHelper
-operator|.
-name|close
-argument_list|(
-name|is
-argument_list|,
-literal|"RequestContentSource"
-argument_list|,
-name|LOG
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -673,6 +650,10 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// need to close the request input stream
+name|closeRequestContentSource
+argument_list|()
+expr_stmt|;
 name|doTaskCompleted
 argument_list|()
 expr_stmt|;
@@ -710,6 +691,10 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// need to close the request input stream
+name|closeRequestContentSource
+argument_list|()
+expr_stmt|;
 name|doTaskCompleted
 argument_list|(
 name|ex
@@ -749,6 +734,10 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// need to close the request input stream
+name|closeRequestContentSource
+argument_list|()
+expr_stmt|;
 name|doTaskCompleted
 argument_list|(
 name|ex
@@ -832,6 +821,39 @@ else|:
 literal|""
 operator|)
 return|;
+block|}
+DECL|method|closeRequestContentSource ()
+specifier|protected
+name|void
+name|closeRequestContentSource
+parameter_list|()
+block|{
+comment|// close the input stream when its not needed anymore
+name|InputStream
+name|is
+init|=
+name|getRequestContentSource
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+condition|)
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|,
+literal|"RequestContentSource"
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|doTaskCompleted ()
 specifier|protected
