@@ -446,7 +446,7 @@ name|equals
 argument_list|(
 name|file
 operator|.
-name|getFileName
+name|getFileNameOnly
 argument_list|()
 argument_list|)
 condition|)
