@@ -274,6 +274,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|view
 operator|.
 name|ModelFileGenerator
@@ -977,7 +991,36 @@ name|void
 name|beforeStop
 parameter_list|()
 block|{
-comment|// noop
+if|if
+condition|(
+name|camelTemplate
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|camelTemplate
+argument_list|)
+expr_stmt|;
+name|camelTemplate
+operator|=
+literal|null
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 block|}
 comment|/**      * Marks this process as being completed      */
 DECL|method|completed ()
