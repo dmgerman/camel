@@ -295,6 +295,24 @@ name|CAMEL_CXF_RS_THROW_EXCEPTION_ON_FAILURE
 init|=
 literal|"CamelCxfRsThrowExceptionOnFailure"
 decl_stmt|;
+DECL|field|WSA_HEADERS_INBOUND
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|WSA_HEADERS_INBOUND
+init|=
+literal|"javax.xml.ws.addressing.context.inbound"
+decl_stmt|;
+DECL|field|WSA_HEADERS_OUTBOUND
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|WSA_HEADERS_OUTBOUND
+init|=
+literal|"javax.xml.ws.addressing.context.outbound"
+decl_stmt|;
 DECL|method|CxfConstants ()
 specifier|private
 name|CxfConstants
