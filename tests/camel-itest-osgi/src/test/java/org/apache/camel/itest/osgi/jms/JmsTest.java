@@ -152,10 +152,6 @@ name|combine
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 annotation|@
 name|RunWith
@@ -249,7 +245,7 @@ argument_list|,
 comment|// using the features to install AMQ
 name|scanFeatures
 argument_list|(
-literal|"mvn:org.apache.activemq/activemq-karaf/5.4.0/xml/features"
+literal|"mvn:org.apache.activemq/activemq-karaf/5.6.0/xml/features"
 argument_list|,
 literal|"activemq"
 argument_list|)
