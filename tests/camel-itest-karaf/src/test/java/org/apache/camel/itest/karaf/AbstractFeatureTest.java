@@ -900,11 +900,11 @@ operator|.
 name|versionAsInProject
 argument_list|()
 argument_list|)
-comment|//This version doesn't affect the verison of karaf we use
+comment|//This version doesn't affect the version of karaf we use
 operator|.
 name|karafVersion
 argument_list|(
-literal|"2.2.7"
+literal|"2.2.9"
 argument_list|)
 operator|.
 name|name
