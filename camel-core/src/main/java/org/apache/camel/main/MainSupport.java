@@ -607,7 +607,7 @@ literal|"r"
 argument_list|,
 literal|"routers"
 argument_list|,
-literal|"Sets the router builder classes which will be loaded when start the camel context"
+literal|"Sets the router builder classes which will be loaded while starting the camel context"
 argument_list|,
 literal|"routerBuilderClasses"
 argument_list|)
@@ -975,21 +975,25 @@ name|interceptor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Callback to run custom logic after CamelContext has been started      */
+comment|/**      * Callback to run custom logic after CamelContext has been started.      */
 DECL|method|afterStart ()
 specifier|protected
 name|void
 name|afterStart
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * Callback to run custom logic before CamelContext is being stopped      */
+comment|/**      * Callback to run custom logic before CamelContext is being stopped.      */
 DECL|method|beforeStop ()
 specifier|protected
 name|void
 name|beforeStop
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -997,8 +1001,6 @@ name|camelTemplate
 operator|!=
 literal|null
 condition|)
-block|{
-try|try
 block|{
 name|ServiceHelper
 operator|.
@@ -1012,17 +1014,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
 block|}
-block|}
-block|}
-comment|/**      * Marks this process as being completed      */
+comment|/**      * Marks this process as being completed.      */
 DECL|method|completed ()
 specifier|public
 name|void
@@ -1042,7 +1035,7 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Displays the command line options      */
+comment|/**      * Displays the command line options.      */
 DECL|method|showOptions ()
 specifier|public
 name|void
@@ -1074,7 +1067,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Parses the command line arguments      */
+comment|/**      * Parses the command line arguments.      */
 DECL|method|parseArguments (String[] arguments)
 specifier|public
 name|void
@@ -1258,7 +1251,7 @@ return|return
 name|timeUnit
 return|;
 block|}
-comment|/**      * Sets the time unit duration      */
+comment|/**      * Sets the time unit duration.      */
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
@@ -1311,7 +1304,7 @@ return|return
 name|routeBuilderClasses
 return|;
 block|}
-comment|/**      * Sets the output directory of the generated DOT Files to show the visual      * representation of the routes. A null value disables the dot file      * generation      */
+comment|/**      * Sets the output directory of the generated DOT Files to show the visual      * representation of the routes. A null value disables the dot file      * generation.      */
 DECL|method|setDotOutputDir (String dotOutputDir)
 specifier|public
 name|void
@@ -1551,7 +1544,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Parses the command line arguments then runs the program      */
+comment|/**      * Parses the command line arguments then runs the program.      */
 DECL|method|run (String[] args)
 specifier|public
 name|void
@@ -1573,7 +1566,7 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Displays the header message for the command line options      */
+comment|/**      * Displays the header message for the command line options.      */
 DECL|method|showOptionsHeader ()
 specifier|public
 name|void
@@ -2026,7 +2019,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Used for aggregate dot generation, generate a single camel context containing all of the available contexts      */
+comment|/**      * Used for aggregate dot generation, generate a single camel context containing all of the available contexts.      */
 DECL|method|aggregateCamelContext ()
 specifier|private
 name|CamelContext
