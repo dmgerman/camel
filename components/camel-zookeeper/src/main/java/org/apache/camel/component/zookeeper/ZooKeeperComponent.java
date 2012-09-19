@@ -192,6 +192,9 @@ name|config
 init|=
 name|getConfiguration
 argument_list|()
+operator|.
+name|copy
+argument_list|()
 decl_stmt|;
 name|extractConfigFromUri
 argument_list|(
@@ -216,9 +219,6 @@ argument_list|,
 name|this
 argument_list|,
 name|config
-operator|.
-name|copy
-argument_list|()
 argument_list|)
 return|;
 block|}
