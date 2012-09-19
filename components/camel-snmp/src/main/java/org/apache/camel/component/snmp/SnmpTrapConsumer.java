@@ -276,6 +276,11 @@ decl_stmt|;
 DECL|field|transport
 specifier|private
 name|TransportMapping
+argument_list|<
+name|?
+extends|extends
+name|Address
+argument_list|>
 name|transport
 decl_stmt|;
 DECL|method|SnmpTrapConsumer (SnmpEndpoint endpoint, Processor processor)

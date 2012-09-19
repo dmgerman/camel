@@ -467,9 +467,7 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{         }
 block|}
 block|}
 end_class

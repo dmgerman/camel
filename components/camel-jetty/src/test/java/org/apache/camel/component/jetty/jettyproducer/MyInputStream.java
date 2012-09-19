@@ -57,7 +57,6 @@ argument_list|(
 name|buf
 argument_list|)
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
 DECL|method|close ()
 specifier|public

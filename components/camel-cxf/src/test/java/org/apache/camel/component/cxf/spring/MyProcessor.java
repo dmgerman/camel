@@ -109,7 +109,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 name|Thread
 operator|.
 name|sleep
