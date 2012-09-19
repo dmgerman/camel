@@ -174,6 +174,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|model
+operator|.
+name|SetQueueAttributesRequest
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -475,6 +491,23 @@ argument_list|(
 literal|"forced exception for test if this method is called"
 argument_list|)
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|setQueueAttributes (SetQueueAttributesRequest setQueueAttributesRequest)
+specifier|public
+name|void
+name|setQueueAttributes
+parameter_list|(
+name|SetQueueAttributesRequest
+name|setQueueAttributesRequest
+parameter_list|)
+throws|throws
+name|AmazonServiceException
+throws|,
+name|AmazonClientException
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override
