@@ -50,6 +50,24 @@ name|camel
 operator|.
 name|cdi
 operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|CdiPropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
 name|internal
 operator|.
 name|CamelExtension
@@ -181,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Verify if {@link CamelExtension} allows to create custom instance of context.  */
+comment|/**  * Verify if {@link CamelExtension} with custom properties.  */
 end_comment
 
 begin_class
@@ -227,7 +245,7 @@ name|camelContext
 operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
-literal|"property1"
+literal|"{{property1}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -239,7 +257,19 @@ name|camelContext
 operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
-literal|"property2"
+literal|"{{property2}}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"value1_value2"
+argument_list|,
+name|camelContext
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+literal|"{{property1}}_{{property2}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -266,6 +296,16 @@ operator|.
 name|addPackage
 argument_list|(
 name|CamelExtension
+operator|.
+name|class
+operator|.
+name|getPackage
+argument_list|()
+argument_list|)
+operator|.
+name|addPackage
+argument_list|(
+name|CdiPropertiesComponent
 operator|.
 name|class
 operator|.
