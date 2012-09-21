@@ -178,6 +178,13 @@ specifier|private
 name|String
 name|version
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|namespacePrefixRef
+specifier|private
+name|String
+name|namespacePrefixRef
+decl_stmt|;
 DECL|method|SoapJaxbDataFormat ()
 specifier|public
 name|SoapJaxbDataFormat
@@ -462,6 +469,23 @@ argument_list|,
 literal|"version"
 argument_list|,
 name|version
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|namespacePrefixRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|dataFormat
+argument_list|,
+literal|"namespacePrefixRef"
+argument_list|,
+name|namespacePrefixRef
 argument_list|)
 expr_stmt|;
 block|}
