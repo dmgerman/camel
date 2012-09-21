@@ -292,6 +292,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testToString ()
+specifier|public
+name|void
+name|testToString
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"Endpoint[jt400://USER:******@host/qsys.lib/library.lib/prog.pgm?connectionPool=%23mockPool&fieldsLength=10%2C512%2C255&format=binary&guiAvailable=true&outputFieldsIdx=1%2C2]"
+argument_list|,
+name|endpoint
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
