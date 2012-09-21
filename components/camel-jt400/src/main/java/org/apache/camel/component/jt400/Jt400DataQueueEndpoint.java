@@ -172,6 +172,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * AS/400 Data queue endpoint  */
 end_comment
@@ -359,7 +373,12 @@ name|CamelException
 argument_list|(
 literal|"Unable to parse URI for "
 operator|+
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|endpointUri
+argument_list|)
 argument_list|,
 name|e
 argument_list|)
