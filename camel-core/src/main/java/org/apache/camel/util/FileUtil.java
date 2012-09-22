@@ -897,24 +897,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// only normalize path if it contains .. as we want to avoid: path/../sub/../sub2 as this can leads to trouble
-if|if
-condition|(
-name|path
-operator|.
-name|indexOf
-argument_list|(
-literal|".."
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-return|return
-name|path
-return|;
-block|}
 comment|// only normalize if contains a path separator
 if|if
 condition|(
@@ -1038,6 +1020,24 @@ operator|.
 name|pop
 argument_list|()
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|part
+operator|.
+name|equals
+argument_list|(
+literal|"."
+argument_list|)
+operator|||
+name|part
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// do nothing because we don't want a path like foo/./bar
 block|}
 else|else
 block|{
@@ -1681,6 +1681,11 @@ return|return
 name|renamed
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"resource"
+argument_list|)
 DECL|method|copyFile (File from, File to)
 specifier|public
 specifier|static
