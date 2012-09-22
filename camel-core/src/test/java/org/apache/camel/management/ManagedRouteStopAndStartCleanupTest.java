@@ -217,7 +217,7 @@ name|longValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should be 1 consumer and 1 processor
+comment|// should be 1 consumer and 2 processors
 name|Set
 argument_list|<
 name|ObjectName
@@ -266,9 +266,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should be 1 processor"
+literal|"Should be 2 processors"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|set
 operator|.
@@ -542,9 +542,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should be 1 processor"
+literal|"Should be 2 processors"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|set
 operator|.
