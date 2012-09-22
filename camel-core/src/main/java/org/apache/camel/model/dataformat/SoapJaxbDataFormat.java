@@ -393,6 +393,32 @@ return|return
 name|elementNameStrategy
 return|;
 block|}
+DECL|method|getNamespacePrefixRef ()
+specifier|public
+name|String
+name|getNamespacePrefixRef
+parameter_list|()
+block|{
+return|return
+name|namespacePrefixRef
+return|;
+block|}
+DECL|method|setNamespacePrefixRef (String namespacePrefixRef)
+specifier|public
+name|void
+name|setNamespacePrefixRef
+parameter_list|(
+name|String
+name|namespacePrefixRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|namespacePrefixRef
+operator|=
+name|namespacePrefixRef
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configureDataFormat (DataFormat dataFormat)
