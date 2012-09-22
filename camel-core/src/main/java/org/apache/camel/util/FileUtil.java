@@ -875,7 +875,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Compacts a path by stacking it and reducing<tt>..</tt>      */
+comment|/**      * Compacts a path by stacking it and reducing<tt>..</tt>,      * and uses OS specific file separators (eg {@link java.io.File#separator}).      */
 DECL|method|compactPath (String path)
 specifier|public
 specifier|static
@@ -935,6 +935,24 @@ return|return
 name|path
 return|;
 block|}
+comment|// preserve ending slash if given in input path
+name|boolean
+name|endsWithSlash
+init|=
+name|path
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+operator|||
+name|path
+operator|.
+name|endsWith
+argument_list|(
+literal|"\\"
+argument_list|)
+decl_stmt|;
 name|Stack
 argument_list|<
 name|String
@@ -1001,9 +1019,20 @@ name|stack
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+operator|!
+literal|".."
+operator|.
+name|equals
+argument_list|(
+name|stack
+operator|.
+name|peek
+argument_list|()
+argument_list|)
 condition|)
 block|{
-comment|// only pop if there is a previous path
+comment|// only pop if there is a previous path, which is not a ".." path either
 name|stack
 operator|.
 name|pop
@@ -1077,6 +1106,21 @@ name|separator
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|endsWithSlash
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|sb
