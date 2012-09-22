@@ -535,7 +535,7 @@ operator|.
 name|getInstance
 argument_list|()
 decl_stmt|;
-name|Cache
+name|Ehcache
 name|cache
 decl_stmt|;
 if|if
@@ -584,7 +584,7 @@ argument_list|()
 argument_list|,
 name|cacheManager
 operator|.
-name|getCache
+name|getEhcache
 argument_list|(
 name|config
 operator|.
@@ -601,7 +601,7 @@ name|cache
 operator|=
 name|cacheManager
 operator|.
-name|getCache
+name|getEhcache
 argument_list|(
 name|config
 operator|.
