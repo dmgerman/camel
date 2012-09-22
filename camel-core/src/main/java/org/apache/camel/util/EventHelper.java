@@ -559,7 +559,7 @@ name|isIgnoreCamelContextEvents
 argument_list|()
 condition|)
 block|{
-return|return;
+continue|continue;
 block|}
 name|EventFactory
 name|factory
@@ -1107,7 +1107,7 @@ name|isIgnoreRouteEvents
 argument_list|()
 condition|)
 block|{
-return|return;
+continue|continue;
 block|}
 name|EventFactory
 name|factory
