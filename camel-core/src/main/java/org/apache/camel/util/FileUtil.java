@@ -935,6 +935,24 @@ argument_list|(
 literal|"\\"
 argument_list|)
 decl_stmt|;
+comment|// preserve starting slash if given in input path
+name|boolean
+name|startsWithSlash
+init|=
+name|path
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+operator|||
+name|path
+operator|.
+name|startsWith
+argument_list|(
+literal|"\\"
+argument_list|)
+decl_stmt|;
 name|Stack
 argument_list|<
 name|String
@@ -1037,7 +1055,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// do nothing because we don't want a path like foo/./bar
+comment|// do nothing because we don't want a path like foo/./bar or foo//bar
 block|}
 else|else
 block|{
@@ -1058,6 +1076,21 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|startsWithSlash
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|File
+operator|.
+name|separator
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|Iterator
