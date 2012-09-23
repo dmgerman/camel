@@ -58,7 +58,7 @@ specifier|final
 name|String
 name|SUN_JAXB_21_MAPPER
 init|=
-literal|"org.apache.camel.converter.jaxb.mapper.SunNamespacePrefixMapper"
+literal|"org.apache.camel.converter.jaxb.mapper.SunJaxb21NamespacePrefixMapper"
 decl_stmt|;
 DECL|method|NamespacePrefixMapperFactory ()
 specifier|private
