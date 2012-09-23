@@ -1083,6 +1083,11 @@ name|index
 argument_list|)
 decl_stmt|;
 comment|// special for new line, tabs and carriage return
+name|boolean
+name|special
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 literal|'n'
@@ -1096,6 +1101,10 @@ name|append
 argument_list|(
 literal|"\n"
 argument_list|)
+expr_stmt|;
+name|special
+operator|=
+literal|true
 expr_stmt|;
 block|}
 elseif|else
@@ -1113,6 +1122,10 @@ argument_list|(
 literal|"\t"
 argument_list|)
 expr_stmt|;
+name|special
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1129,19 +1142,23 @@ argument_list|(
 literal|"\r"
 argument_list|)
 expr_stmt|;
+name|special
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
-comment|// append the next
+comment|// not special just a regular character
 name|sb
 operator|.
 name|append
 argument_list|(
-name|next
+name|ch
 argument_list|)
 expr_stmt|;
 block|}
-comment|// force 2 as length
+comment|// force 2 as length if special
 return|return
 operator|new
 name|SimpleToken
@@ -1161,7 +1178,11 @@ argument_list|)
 argument_list|,
 name|index
 argument_list|,
+name|special
+condition|?
 literal|2
+else|:
+literal|1
 argument_list|)
 return|;
 block|}

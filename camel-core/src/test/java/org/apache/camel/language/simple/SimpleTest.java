@@ -6603,6 +6603,84 @@ literal|"me"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBodyOgnlReplace ()
+specifier|public
+name|void
+name|testBodyOgnlReplace
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Kamel is a cool Kamel"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace(\"Kamel\", \"Camel\")}"
+argument_list|,
+literal|"Camel is a cool Camel"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBodyOgnlReplaceEscapedChar ()
+specifier|public
+name|void
+name|testBodyOgnlReplaceEscapedChar
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"foo$bar$baz"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace('$', '-')}"
+argument_list|,
+literal|"foo-bar-baz"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testBodyOgnlReplaceEscapedBackslashChar ()
+specifier|public
+name|void
+name|testBodyOgnlReplaceEscapedBackslashChar
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"foo\\bar\\baz"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace('\\', '\\\\')}"
+argument_list|,
+literal|"foo\\\\bar\\\\baz"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testClassSimpleName ()
 specifier|public
 name|void
@@ -6738,7 +6816,7 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"foo\\\\${header.foo}"
+literal|"foo\\${header.foo}"
 argument_list|,
 literal|"foo\\abc"
 argument_list|)
@@ -6852,7 +6930,7 @@ expr_stmt|;
 comment|// slash foo
 name|assertExpression
 argument_list|(
-literal|"\\\\foo"
+literal|"\\foo"
 argument_list|,
 literal|"\\foo"
 argument_list|)
@@ -6915,23 +6993,9 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"\\$${body}"
+literal|"$${body}"
 argument_list|,
 literal|"$Something"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"\\$\\{${body}\\}"
-argument_list|,
-literal|"${Something}"
-argument_list|)
-expr_stmt|;
-name|assertExpression
-argument_list|(
-literal|"\\$\\{body\\}"
-argument_list|,
-literal|"${body}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -6960,9 +7024,6 @@ argument_list|>
 name|expectedType
 parameter_list|)
 block|{
-comment|// TODO [hz]: we should refactor TestSupport.assertExpression(Expression, Exchange, Object)
-comment|// into 2 methods, a helper that returns the value and use that helper in assertExpression
-comment|// Then use the helper here to get the value and move this method to LanguageTestSupport
 name|Language
 name|language
 init|=
@@ -7018,9 +7079,7 @@ argument_list|)
 decl_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|Animal
-operator|.
-name|class
+name|expectedType
 argument_list|,
 name|answer
 argument_list|)
