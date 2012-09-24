@@ -316,6 +316,12 @@ return|return
 name|sanitized
 return|;
 block|}
+comment|/**      * Parses the query part of the uri (eg the parameters).      *      * @param uri the uri      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|parseQuery (String uri)
 specifier|public
 specifier|static
@@ -359,6 +365,30 @@ operator|+
 literal|"Check the uri and remove the trailing& marker."
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|uri
+argument_list|)
+condition|)
+block|{
+comment|// return an empty map
+return|return
+operator|new
+name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+literal|0
+argument_list|)
+return|;
 block|}
 try|try
 block|{
@@ -644,6 +674,7 @@ name|se
 throw|;
 block|}
 block|}
+comment|/**      * Parses the query parameters of the uri (eg the query part).      *      * @param uri the uri      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
 DECL|method|parseParameters (URI uri)
 specifier|public
 specifier|static
@@ -749,7 +780,7 @@ name|query
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a URI with the given query      */
+comment|/**      * Creates a URI with the given query      *      * @param uri the uri      * @param query the query to append to the uri      * @return uri with the query appended      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
 DECL|method|createURIWithQuery (URI uri, String query)
 specifier|public
 specifier|static
@@ -865,6 +896,7 @@ name|s
 argument_list|)
 return|;
 block|}
+comment|/**      * Strips the prefix from the value.      *<p/>      * Returns the value as-is if not starting with the prefix.      *      * @param value  the value      * @param prefix the prefix to remove from value      * @return the value without the prefix      */
 DECL|method|stripPrefix (String value, String prefix)
 specifier|public
 specifier|static
@@ -904,6 +936,7 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * Assembles a query from the given map.      *      * @param options  the map with the options (eg key/value pairs)      * @return a query string with<tt>key1=value&key2=value2&...</tt>, or an empty string if there is no options.      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1267,7 +1300,7 @@ name|s
 argument_list|)
 return|;
 block|}
-comment|/**      * Normalizes the uri by reordering the parameters so they are sorted and thus      * we can use the uris for endpoint matching.      *      * @param uri the uri      * @return the normalized uri      * @throws URISyntaxException in thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException       */
+comment|/**      * Normalizes the uri by reordering the parameters so they are sorted and thus      * we can use the uris for endpoint matching.      *      * @param uri the uri      * @return the normalized uri      * @throws URISyntaxException in thrown if the uri syntax is invalid      * @throws UnsupportedEncodingException is thrown if encoding error      */
 DECL|method|normalizeUri (String uri)
 specifier|public
 specifier|static
