@@ -162,20 +162,6 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
 name|Option
 import|;
 end_import
@@ -209,18 +195,6 @@ operator|.
 name|junit
 operator|.
 name|JUnit4TestRunner
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|framework
-operator|.
-name|BundleContext
 import|;
 end_import
 
@@ -343,13 +317,6 @@ name|String
 name|TEST_CONTAINER
 init|=
 literal|"testContainer"
-decl_stmt|;
-annotation|@
-name|Inject
-DECL|field|bundleContext
-specifier|protected
-name|BundleContext
-name|bundleContext
 decl_stmt|;
 comment|/**      * Strategy to perform any pre setup, before {@link org.apache.camel.CamelContext} is created      */
 annotation|@
@@ -500,6 +467,11 @@ literal|"blob2"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|template
+operator|.
+name|stop
 argument_list|()
 expr_stmt|;
 block|}
