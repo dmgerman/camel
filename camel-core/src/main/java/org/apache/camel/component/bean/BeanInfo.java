@@ -416,22 +416,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExchangeHelper
-operator|.
-name|convertToType
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the metadata about a bean type created via a combination of  * introspection and annotations together with some useful sensible defaults  *  * @version   */
 end_comment
@@ -3350,17 +3334,26 @@ return|return
 name|methodInfo
 return|;
 block|}
+comment|// we should only try to convert, as we are looking for best match
 name|Object
 name|value
 init|=
-name|convertToType
-argument_list|(
 name|exchange
-argument_list|,
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|tryConvertTo
+argument_list|(
 name|methodInfo
 operator|.
 name|getBodyParameterType
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|,
 name|body
 argument_list|)
