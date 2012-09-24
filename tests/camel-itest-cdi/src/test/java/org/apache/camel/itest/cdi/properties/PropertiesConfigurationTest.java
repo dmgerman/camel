@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.cdi
+DECL|package|org.apache.camel.itest.cdi.properties
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|itest
 operator|.
 name|cdi
+operator|.
+name|properties
 package|;
 end_package
 

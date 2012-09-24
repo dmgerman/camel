@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.itest.cdi
+DECL|package|org.apache.camel.itest.cdi.properties
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|itest
 operator|.
 name|cdi
+operator|.
+name|properties
 package|;
 end_package
 
@@ -41,10 +43,10 @@ comment|/**  * Registers new properties configuration.  */
 end_comment
 
 begin_class
-DECL|class|Camel2Config
+DECL|class|Camel1Config
 specifier|public
 class|class
-name|Camel2Config
+name|Camel1Config
 implements|implements
 name|PropertyFileConfig
 block|{
@@ -66,7 +68,7 @@ name|getPropertyFileName
 parameter_list|()
 block|{
 return|return
-literal|"camel2.properties"
+literal|"camel1.properties"
 return|;
 block|}
 empty_stmt|;
