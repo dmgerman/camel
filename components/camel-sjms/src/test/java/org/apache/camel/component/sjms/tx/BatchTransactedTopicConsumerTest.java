@@ -173,7 +173,7 @@ argument_list|(
 literal|"mock:test.after.1"
 argument_list|)
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
 literal|10
 argument_list|)
@@ -422,6 +422,13 @@ name|endsWith
 argument_list|(
 literal|"6"
 argument_list|)
+operator|||
+name|body
+operator|.
+name|endsWith
+argument_list|(
+literal|"10"
+argument_list|)
 condition|)
 block|{
 name|log
@@ -553,7 +560,7 @@ name|body
 operator|.
 name|endsWith
 argument_list|(
-literal|"7"
+literal|"10"
 argument_list|)
 condition|)
 block|{
