@@ -266,10 +266,10 @@ name|maxConnections
 init|=
 literal|1
 decl_stmt|;
-DECL|field|commitStrategy
+DECL|field|transactionCommitStrategy
 specifier|private
 name|TransactionCommitStrategy
-name|commitStrategy
+name|transactionCommitStrategy
 init|=
 operator|new
 name|DefaultTransactionCommitStrategy
@@ -910,22 +910,22 @@ return|return
 name|keyFormatStrategy
 return|;
 block|}
-comment|/**      * Gets the TransactionCommitStrategy value of commitStrategy for this      * instance of SjmsComponent.      *       * @return the commitStrategy      */
-DECL|method|getCommitStrategy ()
+comment|/**      * Gets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *       * @return the transactionCommitStrategy      */
+DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
-name|getCommitStrategy
+name|getTransactionCommitStrategy
 parameter_list|()
 block|{
 return|return
-name|commitStrategy
+name|transactionCommitStrategy
 return|;
 block|}
-comment|/**      * Sets the TransactionCommitStrategy value of commitStrategy for this      * instance of SjmsComponent.      *       * @param commitStrategy Sets TransactionCommitStrategy, default is TODO add      *            default      */
-DECL|method|setCommitStrategy (TransactionCommitStrategy commitStrategy)
+comment|/**      * Sets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *       * @param transactionCommitStrategy Sets TransactionCommitStrategy, default is TODO add      *            default      */
+DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy commitStrategy)
 specifier|public
 name|void
-name|setCommitStrategy
+name|setTransactionCommitStrategy
 parameter_list|(
 name|TransactionCommitStrategy
 name|commitStrategy
@@ -933,7 +933,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|commitStrategy
+name|transactionCommitStrategy
 operator|=
 name|commitStrategy
 expr_stmt|;

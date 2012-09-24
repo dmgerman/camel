@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Verify the ability to batch transactions.  *  */
+comment|/**  * Verify the ability to batch transactions to the consumer.  *  */
 end_comment
 
 begin_class
@@ -136,7 +136,7 @@ name|BatchTransactedQueueConsumerTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|/**      * Verify that messages are being redelivered      * @throws Exception      */
+comment|/**      * Verify that after only sending 10 messages that 10 are delivered to the      * processor and upon the 10th message throwing an Exception which causes      * the messages deliveries to be rolled back. The messages should then be      * redelivered with the JMSRedelivered flag set to true for a total of 10      * delivered messages.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testEndpointConfiguredBatchTransaction ()
@@ -147,7 +147,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We should get two sets of 10 messages.  10 before the rollback and 10 after the rollback.
+comment|// We should get two sets of 10 messages. 10 before the rollback and 10
+comment|// after the rollback.
 name|getMockEndpoint
 argument_list|(
 literal|"mock:test.before"
@@ -375,7 +376,14 @@ name|body
 operator|.
 name|endsWith
 argument_list|(
-literal|"10"
+literal|"4"
+argument_list|)
+operator|||
+name|body
+operator|.
+name|endsWith
+argument_list|(
+literal|"6"
 argument_list|)
 condition|)
 block|{

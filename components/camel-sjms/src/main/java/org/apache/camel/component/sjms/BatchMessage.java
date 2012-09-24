@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link List} of these objects can be used to batch a collection of body and  * header pairs in one exchange.  *   */
+comment|/**  * A {@link List} of these objects can be used to batch a collection of bodies and  * header pairs in one exchange.  *   */
 end_comment
 
 begin_class

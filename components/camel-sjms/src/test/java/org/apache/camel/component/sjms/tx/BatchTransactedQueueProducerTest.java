@@ -72,6 +72,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Produce
 import|;
 end_import
@@ -160,6 +184,10 @@ name|Test
 import|;
 end_import
 
+begin_comment
+comment|/**  * Test used to verify the batch transaction capability of the SJMS Component  * for a Queue Producer.  */
+end_comment
+
 begin_class
 DECL|class|BatchTransactedQueueProducerTest
 specifier|public
@@ -175,6 +203,7 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
+comment|/**      * Verify that after processing a {@link BatchMessage} twice with 30      * messages in for a total of 60 delivery attempts that we only see 30      * messages end up at the final consumer. This is due to an exception being      * thrown during the processing of the first 30 messages which causes a      * redelivery.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testEndpointConfiguredBatchTransaction ()
@@ -185,10 +214,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We should see the World message twice, once for the exception
+comment|// We should see the BatchMessage once in the prebatch and once in the
+comment|// redelivery. Then we should see 30 messages arrive in the postbatch.
 name|getMockEndpoint
 argument_list|(
 literal|"mock:test.prebatch"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:test.redelivery"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -281,20 +321,7 @@ argument_list|,
 name|messages
 argument_list|)
 expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:test.prebatch"
-argument_list|)
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:test.postbatch"
-argument_list|)
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -374,6 +401,43 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|onException
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|)
+operator|.
+name|handled
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setHeader
+argument_list|(
+literal|"redeliveryAttempt"
+argument_list|)
+operator|.
+name|constant
+argument_list|(
+literal|"1"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Redelivery attempt 1"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:test.redelivery"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"direct:start"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -387,6 +451,86 @@ operator|.
 name|to
 argument_list|(
 literal|"sjms:queue:batch.queue?transacted=true"
+argument_list|)
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// This will force an exception to occur on the exchange
+comment|// which will invoke our onException handler to
+comment|// redeliver our batch message
+comment|// Get the redelivery header
+name|String
+name|redeliveryAttempt
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"redeliveryAttempt"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// Verify that it isn't empty
+comment|// if it is do nothing and force the Exception
+if|if
+condition|(
+name|redeliveryAttempt
+operator|!=
+literal|null
+operator|&&
+name|redeliveryAttempt
+operator|.
+name|equals
+argument_list|(
+literal|"1"
+argument_list|)
+condition|)
+block|{
+comment|// do nothing and allow it to proceed
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"BatchMessage received without redelivery. Rolling back."
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|Exception
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 argument_list|)
 operator|.
 name|to

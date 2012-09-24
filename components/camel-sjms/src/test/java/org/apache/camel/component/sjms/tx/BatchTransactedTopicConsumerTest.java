@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Verify the ability to batch transactions.  *  */
+comment|/**  * Verify the ability to batch transactions to the consumer.  *  */
 end_comment
 
 begin_class
@@ -136,7 +136,7 @@ name|BatchTransactedTopicConsumerTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|/**      * Verify that messages are being redelivered      * @throws Exception      */
+comment|/**      * Verify that after only sending 10 messages that 10 are delivered to the      * processor and upon the 10th message throwing an Exception which causes      * the messages deliveries to be rolled back. The messages should then be      * redelivered with the JMSRedelivered flag set to true for a total of 20      * delivered messages, 10 to each topic.      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testEndpointConfiguredBatchTransaction ()
@@ -150,7 +150,7 @@ block|{
 comment|// We should get two sets of 10 messages.  10 before the rollback and 10 after the rollback.
 name|getMockEndpoint
 argument_list|(
-literal|"mock:test.before"
+literal|"mock:test.before.1"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -160,7 +160,27 @@ argument_list|)
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:test.after"
+literal|"mock:test.before.2"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:test.after.1"
+argument_list|)
+operator|.
+name|expectedMinimumMessageCount
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:test.after.2"
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -198,7 +218,7 @@ expr_stmt|;
 block|}
 name|getMockEndpoint
 argument_list|(
-literal|"mock:test.before"
+literal|"mock:test.before.1"
 argument_list|)
 operator|.
 name|assertIsSatisfied
@@ -206,7 +226,23 @@ argument_list|()
 expr_stmt|;
 name|getMockEndpoint
 argument_list|(
-literal|"mock:test.after"
+literal|"mock:test.before.2"
+argument_list|)
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:test.after.1"
+argument_list|)
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:test.after.2"
 argument_list|)
 operator|.
 name|assertIsSatisfied
@@ -252,6 +288,13 @@ operator|.
 name|setConnectionFactory
 argument_list|(
 name|connectionFactory
+argument_list|)
+expr_stmt|;
+name|component
+operator|.
+name|setMaxConnections
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 name|camelContext
@@ -323,14 +366,14 @@ literal|"false"
 argument_list|)
 argument_list|)
 operator|.
-name|to
+name|log
 argument_list|(
-literal|"log:before_log?showAll=true"
+literal|"Consumer 1 Message Before Received: ${body}"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:test.before"
+literal|"mock:test.before.1"
 argument_list|)
 comment|// This is where we will cause the rollback after 10 messages have been sent.
 operator|.
@@ -368,14 +411,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// If the message ends with 10, throw the exception
+comment|// Try failing in two places to
+comment|// ensure we still get the number of messages that
+comment|// we expect across the topics
 if|if
 condition|(
 name|body
 operator|.
 name|endsWith
 argument_list|(
-literal|"10"
+literal|"6"
 argument_list|)
 condition|)
 block|{
@@ -383,7 +428,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"10th message received.  Rolling back."
+literal|"5th message received.  Rolling back."
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -403,7 +448,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"10th message received.  Rolling back."
+literal|"5th message received.  Rolling back."
 argument_list|)
 expr_stmt|;
 block|}
@@ -414,14 +459,147 @@ operator|.
 name|otherwise
 argument_list|()
 operator|.
-name|to
+name|log
 argument_list|(
-literal|"log:after_log?showAll=true"
+literal|"Consumer 1 Message After Received: ${body}"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:test.after"
+literal|"mock:test.after.1"
+argument_list|)
+expr_stmt|;
+comment|// Our test consumer route
+name|from
+argument_list|(
+literal|"sjms:topic:transacted.consumer.test?transacted=true&transactionBatchCount=10"
+argument_list|)
+comment|// first consume all the messages that are not redelivered
+operator|.
+name|choice
+argument_list|()
+operator|.
+name|when
+argument_list|(
+name|header
+argument_list|(
+literal|"JMSRedelivered"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|"false"
+argument_list|)
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Consumer 2 Message Before Received: ${body}"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:test.before.2"
+argument_list|)
+comment|// This is where we will cause the rollback after 10 messages have been sent.
+operator|.
+name|process
+argument_list|(
+operator|new
+name|Processor
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// Get the body
+name|String
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// Try failing in two places to
+comment|// ensure we still get the number of messages that
+comment|// we expect across the topics
+if|if
+condition|(
+name|body
+operator|.
+name|endsWith
+argument_list|(
+literal|"3"
+argument_list|)
+operator|||
+name|body
+operator|.
+name|endsWith
+argument_list|(
+literal|"7"
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"5th message received.  Rolling back."
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setFault
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"5th message received.  Rolling back."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+operator|.
+name|otherwise
+argument_list|()
+operator|.
+name|log
+argument_list|(
+literal|"Consumer 2 Message After Received: ${body}"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:test.after.2"
 argument_list|)
 expr_stmt|;
 block|}
