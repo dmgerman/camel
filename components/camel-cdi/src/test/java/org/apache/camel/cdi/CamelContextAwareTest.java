@@ -84,13 +84,6 @@ name|ContextAwareBean
 name|bean
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|field|context
-specifier|private
-name|CamelContext
-name|context
-decl_stmt|;
-annotation|@
 name|Test
 DECL|method|shouldInjectCamelContextToBean ()
 specifier|public
