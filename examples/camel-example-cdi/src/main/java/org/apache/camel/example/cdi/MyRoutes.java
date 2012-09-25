@@ -148,12 +148,6 @@ name|MyRoutes
 extends|extends
 name|RouteBuilder
 block|{
-DECL|method|MyRoutes ()
-specifier|public
-name|MyRoutes
-parameter_list|()
-block|{}
-empty_stmt|;
 annotation|@
 name|Inject
 comment|//@Uri("activemq:test.MyQueue")
