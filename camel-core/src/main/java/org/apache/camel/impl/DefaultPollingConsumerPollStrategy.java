@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|StatefulService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|PollingConsumerPollStrategy
@@ -87,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation that just logs a<tt>WARN</tt> level log in case of rollback.  *<p/>  * The implement will<b>not</b> log if the rollback occurred during shutdown.  *  * @version   */
+comment|/**  * A default implementation that will not retry on rollback.  *  * @version   */
 end_comment
 
 begin_class
@@ -166,60 +154,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|runAllowed
-init|=
-literal|true
-decl_stmt|;
-if|if
-condition|(
-name|consumer
-operator|instanceof
-name|StatefulService
-condition|)
-block|{
-name|runAllowed
-operator|=
-operator|(
-operator|(
-name|StatefulService
-operator|)
-name|consumer
-operator|)
-operator|.
-name|isRunAllowed
-argument_list|()
-expr_stmt|;
-block|}
-comment|// only log warn if we are running, otherwise we are just stopping which we should not log the issue in the logs
-if|if
-condition|(
-name|runAllowed
-condition|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Consumer "
-operator|+
-name|consumer
-operator|+
-literal|" could not poll endpoint: "
-operator|+
-name|endpoint
-operator|+
-literal|" caused by: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 comment|// we do not want to retry
 return|return
 literal|false

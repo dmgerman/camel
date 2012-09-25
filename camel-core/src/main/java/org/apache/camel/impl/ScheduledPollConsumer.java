@@ -130,6 +130,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StatefulService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -671,6 +683,11 @@ name|done
 init|=
 literal|false
 decl_stmt|;
+name|Throwable
+name|cause
+init|=
+literal|null
+decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -679,6 +696,10 @@ condition|)
 block|{
 try|try
 block|{
+name|cause
+operator|=
+literal|null
+expr_stmt|;
 comment|// eager assume we are done
 name|done
 operator|=
@@ -854,11 +875,23 @@ condition|(
 name|retry
 condition|)
 block|{
+comment|// do not set cause as we retry
 name|done
 operator|=
 literal|false
 expr_stmt|;
 block|}
+else|else
+block|{
+name|cause
+operator|=
+name|e
+expr_stmt|;
+name|done
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -866,7 +899,45 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// catch throwable to not let the thread die
+name|cause
+operator|=
+name|t
+expr_stmt|;
+name|done
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|cause
+operator|=
+name|t
+expr_stmt|;
+name|done
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+operator|&&
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+comment|// let exception handler deal with the caused exception
+comment|// but suppress this during shutdown as the logs may get flooded with exceptions during shutdown/forced shutdown
+try|try
+block|{
 name|getExceptionHandler
 argument_list|()
 operator|.
@@ -883,46 +954,29 @@ argument_list|()
 operator|+
 literal|". Will try again at next poll"
 argument_list|,
-name|t
+name|cause
 argument_list|)
 expr_stmt|;
-comment|// we are done due this fatal error
-name|done
-operator|=
-literal|true
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
 name|Throwable
-name|t
+name|e
 parameter_list|)
 block|{
-comment|// catch throwable to not let the thread die
-name|getExceptionHandler
-argument_list|()
+name|LOG
 operator|.
-name|handleException
+name|warn
 argument_list|(
-literal|"Consumer "
-operator|+
-name|this
-operator|+
-literal|" failed polling endpoint: "
-operator|+
-name|getEndpoint
-argument_list|()
-operator|+
-literal|". Will try again at next poll"
+literal|"Error handling exception. This exception will be ignored."
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
-comment|// we are done due this fatal error
-name|done
+block|}
+name|cause
 operator|=
-literal|true
+literal|null
 expr_stmt|;
 block|}
 block|}
