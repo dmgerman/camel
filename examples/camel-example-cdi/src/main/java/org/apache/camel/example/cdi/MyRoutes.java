@@ -24,7 +24,7 @@ name|javax
 operator|.
 name|ejb
 operator|.
-name|Singleton
+name|Startup
 import|;
 end_import
 
@@ -32,9 +32,11 @@ begin_import
 import|import
 name|javax
 operator|.
-name|ejb
+name|enterprise
 operator|.
-name|Startup
+name|context
+operator|.
+name|ApplicationScoped
 import|;
 end_import
 
@@ -138,7 +140,7 @@ name|ContextName
 annotation|@
 name|Startup
 annotation|@
-name|Singleton
+name|ApplicationScoped
 DECL|class|MyRoutes
 specifier|public
 class|class
@@ -146,6 +148,12 @@ name|MyRoutes
 extends|extends
 name|RouteBuilder
 block|{
+DECL|method|MyRoutes ()
+specifier|public
+name|MyRoutes
+parameter_list|()
+block|{}
+empty_stmt|;
 annotation|@
 name|Inject
 comment|//@Uri("activemq:test.MyQueue")
