@@ -3163,6 +3163,12 @@ name|e
 argument_list|)
 throw|;
 block|}
+specifier|final
+name|String
+name|rawUri
+init|=
+name|uri
+decl_stmt|;
 comment|// normalize uri so we can do endpoint hits with minor mistakes and parameters is not in the same order
 name|uri
 operator|=
@@ -3175,7 +3181,9 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Getting endpoint with normalized uri: {}"
+literal|"Getting endpoint with raw uri: {}, normalized uri: {}"
+argument_list|,
+name|rawUri
 argument_list|,
 name|uri
 argument_list|)
@@ -3264,6 +3272,26 @@ literal|null
 condition|)
 block|{
 comment|// Have the component create the endpoint if it can.
+if|if
+condition|(
+name|component
+operator|.
+name|useRawUri
+argument_list|()
+condition|)
+block|{
+name|answer
+operator|=
+name|component
+operator|.
+name|createEndpoint
+argument_list|(
+name|rawUri
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|answer
 operator|=
 name|component
@@ -3273,6 +3301,7 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|answer

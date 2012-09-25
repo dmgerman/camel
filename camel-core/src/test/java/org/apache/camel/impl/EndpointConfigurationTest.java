@@ -436,6 +436,18 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|useRawUri ()
+specifier|public
+name|boolean
+name|useRawUri
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 end_class

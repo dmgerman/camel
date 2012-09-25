@@ -383,6 +383,14 @@ decl_stmt|;
 name|String
 name|path
 init|=
+name|useRawUri
+argument_list|()
+condition|?
+name|u
+operator|.
+name|getRawSchemeSpecificPart
+argument_list|()
+else|:
 name|u
 operator|.
 name|getSchemeSpecificPart
@@ -454,9 +462,19 @@ argument_list|(
 name|u
 argument_list|)
 decl_stmt|;
+comment|// use encoded or raw uri?
+name|uri
+operator|=
+name|useRawUri
+argument_list|()
+condition|?
+name|uri
+else|:
+name|encodedUri
+expr_stmt|;
 name|validateURI
 argument_list|(
-name|encodedUri
+name|uri
 argument_list|,
 name|path
 argument_list|,
@@ -485,7 +503,7 @@ name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
-name|encodedUri
+name|uri
 argument_list|)
 block|,
 name|URISupport
@@ -505,7 +523,7 @@ name|endpoint
 init|=
 name|createEndpoint
 argument_list|(
-name|encodedUri
+name|uri
 argument_list|,
 name|path
 argument_list|,
@@ -570,7 +588,7 @@ condition|)
 block|{
 name|validateParameters
 argument_list|(
-name|encodedUri
+name|uri
 argument_list|,
 name|parameters
 argument_list|,
@@ -581,7 +599,7 @@ block|}
 block|}
 name|afterConfiguration
 argument_list|(
-name|encodedUri
+name|uri
 argument_list|,
 name|path
 argument_list|,
@@ -630,7 +648,18 @@ return|return
 name|config
 return|;
 block|}
-comment|/**      * Strategy to do post configuration logic.      *<p/>      * Can be used to construct an URI based on the remaining parameters. For example the parameters that configures      * the endpoint have been removed from the parameters which leaves only the additional parameters left.      *      * @param endpoint the created endpoint      * @param parameters the remaining parameters after the endpoint has been created and parsed the parameters      * @throws Exception can be thrown to indicate error creating the endpoint      */
+DECL|method|useRawUri ()
+specifier|public
+name|boolean
+name|useRawUri
+parameter_list|()
+block|{
+comment|// should use encoded uri by default
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Strategy to do post configuration logic.      *<p/>      * Can be used to construct an URI based on the remaining parameters. For example the parameters that configures      * the endpoint have been removed from the parameters which leaves only the additional parameters left.      *      * @param uri the uri      * @param remaining the remaining part of the URI without the query parameters or component prefix      * @param endpoint the created endpoint      * @param parameters the remaining parameters after the endpoint has been created and parsed the parameters      * @throws Exception can be thrown to indicate error creating the endpoint      */
 DECL|method|afterConfiguration (String uri, String remaining, Endpoint endpoint, Map<String, Object> parameters)
 specifier|protected
 name|void
@@ -658,7 +687,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * Strategy for validation of parameters, that was not able to be resolved to any endpoint options.      *      * @param uri          the uri - the uri the end user provided untouched      * @param parameters   the parameters, an empty map if no parameters given      * @param optionPrefix optional prefix to filter the parameters for validation. Use<tt>null</tt> for validate all.      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
+comment|/**      * Strategy for validation of parameters, that was not able to be resolved to any endpoint options.      *      * @param uri          the uri      * @param parameters   the parameters, an empty map if no parameters given      * @param optionPrefix optional prefix to filter the parameters for validation. Use<tt>null</tt> for validate all.      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
 DECL|method|validateParameters (String uri, Map<String, Object> parameters, String optionPrefix)
 specifier|protected
 name|void
@@ -744,7 +773,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Strategy for validation of the uri when creating the endpoint.      *      * @param uri        the uri - the uri the end user provided untouched      * @param path       the path - part after the scheme      * @param parameters the parameters, an empty map if no parameters given      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
+comment|/**      * Strategy for validation of the uri when creating the endpoint.      *      * @param uri        the uri      * @param path       the path - part after the scheme      * @param parameters the parameters, an empty map if no parameters given      * @throws ResolveEndpointFailedException should be thrown if the URI validation failed      */
 DECL|method|validateURI (String uri, String path, Map<String, Object> parameters)
 specifier|protected
 name|void
@@ -898,7 +927,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * A factory method allowing derived components to create a new endpoint      * from the given URI, remaining path and optional parameters      *      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return a newly created endpoint or null if the endpoint cannot be      *         created based on the inputs      */
+comment|/**      * A factory method allowing derived components to create a new endpoint      * from the given URI, remaining path and optional parameters      *      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return a newly created endpoint or null if the endpoint cannot be      *         created based on the inputs      * @throws Exception is thrown if error creating the endpoint      */
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 specifier|abstract

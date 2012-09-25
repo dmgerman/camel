@@ -1831,6 +1831,18 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|useRawUri ()
+specifier|public
+name|boolean
+name|useRawUri
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|class|UriDumpConfiguration
 specifier|public
