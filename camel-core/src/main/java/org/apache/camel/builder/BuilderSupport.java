@@ -239,6 +239,11 @@ specifier|private
 name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 decl_stmt|;
+DECL|method|BuilderSupport ()
+name|BuilderSupport
+parameter_list|()
+block|{}
+empty_stmt|;
 DECL|method|BuilderSupport (CamelContext context)
 specifier|protected
 name|BuilderSupport
