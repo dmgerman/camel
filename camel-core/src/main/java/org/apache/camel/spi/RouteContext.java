@@ -201,6 +201,24 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * lookup an object by name and type or throws {@link org.apache.camel.NoSuchBeanException} if not found.      *      * @param name  the name to lookup      * @param type  the expected type      * @return the found object      */
+DECL|method|mandatoryLookup (String name, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|mandatoryLookup
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * lookup objects by type      *      * @param type the expected type      * @return the found objects with the name as the key in the map. Returns an empty map if none found.      */
 DECL|method|lookupByType (Class<T> type)
 parameter_list|<

@@ -1388,7 +1388,7 @@ name|strategy
 operator|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|strategyRef
 argument_list|,
@@ -1509,7 +1509,7 @@ name|repository
 operator|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|aggregationRepositoryRef
 argument_list|,
@@ -1518,25 +1518,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|repository
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"AggregationRepositoryRef "
-operator|+
-name|aggregationRepositoryRef
-operator|+
-literal|" not found in registry."
-argument_list|)
-throw|;
-block|}
 block|}
 return|return
 name|repository

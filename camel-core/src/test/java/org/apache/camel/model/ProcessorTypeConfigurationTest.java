@@ -119,7 +119,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"registry entry called hello must be specified on: process[ref:hello]"
+literal|"No bean could be found in the registry for: hello of type: org.apache.camel.Processor"
 argument_list|,
 name|e
 operator|.

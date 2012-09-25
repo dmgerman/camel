@@ -726,7 +726,7 @@ name|idempotentRepository
 operator|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|messageIdRepositoryRef
 argument_list|,

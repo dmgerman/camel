@@ -852,7 +852,7 @@ name|aggregationStrategy
 operator|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|strategyRef
 argument_list|,

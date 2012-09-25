@@ -383,7 +383,7 @@ name|answer
 operator|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|getRef
 argument_list|()
@@ -391,20 +391,6 @@ argument_list|,
 name|Processor
 operator|.
 name|class
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|answer
-argument_list|,
-literal|"registry entry called "
-operator|+
-name|getRef
-argument_list|()
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 block|}

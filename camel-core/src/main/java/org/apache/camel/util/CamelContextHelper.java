@@ -449,7 +449,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws NoSuchBeanException if not found.      */
+comment|/**      * Look up the given named bean in the {@link org.apache.camel.spi.Registry} on the      * {@link CamelContext} or throws {@link NoSuchBeanException} if not found.      */
 DECL|method|mandatoryLookup (CamelContext context, String name)
 specifier|public
 specifier|static

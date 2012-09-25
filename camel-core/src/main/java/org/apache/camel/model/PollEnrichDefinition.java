@@ -490,7 +490,7 @@ name|aggregationStrategy
 operator|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|aggregationStrategyRef
 argument_list|,

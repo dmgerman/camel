@@ -304,7 +304,7 @@ name|loadBalancer
 init|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|ref
 argument_list|,

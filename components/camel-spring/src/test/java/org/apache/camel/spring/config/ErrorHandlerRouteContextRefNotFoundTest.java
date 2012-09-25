@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -135,12 +147,12 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|IllegalArgumentException
-name|iae
+name|NoSuchBeanException
+name|nsbe
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|IllegalArgumentException
+name|NoSuchBeanException
 operator|.
 name|class
 argument_list|,
@@ -152,9 +164,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ErrorHandlerBuilder with id bar not found in registry."
+literal|"No bean could be found in the registry for: bar of type: org.apache.camel.builder.ErrorHandlerBuilder"
 argument_list|,
-name|iae
+name|nsbe
 operator|.
 name|getMessage
 argument_list|()

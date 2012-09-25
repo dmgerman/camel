@@ -567,7 +567,7 @@ name|newExchangeProcessor
 operator|=
 name|routeContext
 operator|.
-name|lookup
+name|mandatoryLookup
 argument_list|(
 name|newExchangeProcessorRef
 argument_list|,
