@@ -242,7 +242,7 @@ decl_stmt|;
 DECL|method|BuilderSupport ()
 name|BuilderSupport
 parameter_list|()
-block|{}
+block|{ }
 empty_stmt|;
 DECL|method|BuilderSupport (CamelContext context)
 specifier|protected
