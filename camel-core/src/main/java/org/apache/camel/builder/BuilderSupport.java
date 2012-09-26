@@ -240,10 +240,10 @@ name|ErrorHandlerBuilder
 name|errorHandlerBuilder
 decl_stmt|;
 DECL|method|BuilderSupport ()
+specifier|protected
 name|BuilderSupport
 parameter_list|()
-block|{ }
-empty_stmt|;
+block|{     }
 DECL|method|BuilderSupport (CamelContext context)
 specifier|protected
 name|BuilderSupport
