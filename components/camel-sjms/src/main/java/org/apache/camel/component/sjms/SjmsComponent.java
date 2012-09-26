@@ -241,10 +241,10 @@ specifier|private
 name|KeyFormatStrategy
 name|keyFormatStrategy
 decl_stmt|;
-DECL|field|maxConnections
+DECL|field|connectionCount
 specifier|private
 name|Integer
-name|maxConnections
+name|connectionCount
 init|=
 literal|1
 decl_stmt|;
@@ -680,7 +680,7 @@ init|=
 operator|new
 name|ConnectionFactoryResource
 argument_list|(
-name|getMaxConnections
+name|getConnectionCount
 argument_list|()
 argument_list|,
 name|getConnectionFactory
@@ -851,10 +851,10 @@ return|return
 name|connectionResource
 return|;
 block|}
-DECL|method|setMaxConnections (Integer maxConnections)
+DECL|method|setConnectionCount (Integer maxConnections)
 specifier|public
 name|void
-name|setMaxConnections
+name|setConnectionCount
 parameter_list|(
 name|Integer
 name|maxConnections
@@ -862,19 +862,19 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|maxConnections
+name|connectionCount
 operator|=
 name|maxConnections
 expr_stmt|;
 block|}
-DECL|method|getMaxConnections ()
+DECL|method|getConnectionCount ()
 specifier|public
 name|Integer
-name|getMaxConnections
+name|getConnectionCount
 parameter_list|()
 block|{
 return|return
-name|maxConnections
+name|connectionCount
 return|;
 block|}
 DECL|method|setKeyFormatStrategy (KeyFormatStrategy keyFormatStrategy)

@@ -852,7 +852,7 @@ argument_list|()
 decl_stmt|;
 name|component
 operator|.
-name|setMaxConnections
+name|setConnectionCount
 argument_list|(
 literal|3
 argument_list|)

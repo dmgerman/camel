@@ -298,7 +298,7 @@ argument_list|)
 expr_stmt|;
 name|component
 operator|.
-name|setMaxConnections
+name|setConnectionCount
 argument_list|(
 literal|1
 argument_list|)
