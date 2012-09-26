@@ -226,7 +226,7 @@ decl_stmt|;
 name|BlobStore
 name|blobStore
 init|=
-name|getBlobStoreForProvider
+name|getBlobStore
 argument_list|(
 name|provider
 argument_list|)
@@ -288,7 +288,7 @@ decl_stmt|;
 name|ComputeService
 name|computeService
 init|=
-name|getComputeServiceForProvider
+name|getComputeService
 argument_list|(
 name|provider
 argument_list|)
@@ -328,14 +328,14 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Returns the {@link BlobStore} that matches the given provider.      * @param provider The provider id.      * @return The matching {@link BlobStore}      */
-DECL|method|getBlobStoreForProvider (String provider)
+comment|/**      * Returns the {@link BlobStore} that matches the given providerOrApi.      * @param providerOrApi The providerOrApi id.      * @return The matching {@link BlobStore}      */
+DECL|method|getBlobStore (String providerOrApi)
 specifier|protected
 name|BlobStore
-name|getBlobStoreForProvider
+name|getBlobStore
 parameter_list|(
 name|String
-name|provider
+name|providerOrApi
 parameter_list|)
 throws|throws
 name|Exception
@@ -368,7 +368,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProviderSpecificContext
+name|unwrap
 argument_list|()
 operator|.
 name|getId
@@ -376,7 +376,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|provider
+name|providerOrApi
 argument_list|)
 condition|)
 block|{
@@ -395,7 +395,7 @@ name|format
 argument_list|(
 literal|"No blobstore found for provider:%s"
 argument_list|,
-name|provider
+name|providerOrApi
 argument_list|)
 argument_list|)
 throw|;
@@ -411,14 +411,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns the {@link ComputeService} that matches the given provider.      * @param provider The provider id.      * @return The matching {@link ComputeService}      */
-DECL|method|getComputeServiceForProvider (String provider)
+comment|/**      * Returns the {@link ComputeService} that matches the given providerOrApi.      * @param providerOrApi The providerOrApi id.      * @return The matching {@link ComputeService}      */
+DECL|method|getComputeService (String providerOrApi)
 specifier|protected
 name|ComputeService
-name|getComputeServiceForProvider
+name|getComputeService
 parameter_list|(
 name|String
-name|provider
+name|providerOrApi
 parameter_list|)
 throws|throws
 name|Exception
@@ -451,7 +451,7 @@ operator|.
 name|getContext
 argument_list|()
 operator|.
-name|getProviderSpecificContext
+name|unwrap
 argument_list|()
 operator|.
 name|getId
@@ -459,7 +459,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|provider
+name|providerOrApi
 argument_list|)
 condition|)
 block|{
@@ -478,7 +478,7 @@ name|format
 argument_list|(
 literal|"No compute service found for provider:%s"
 argument_list|,
-name|provider
+name|providerOrApi
 argument_list|)
 argument_list|)
 throw|;
