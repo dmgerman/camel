@@ -307,7 +307,7 @@ specifier|final
 name|String
 name|JMS_REDELIVERED
 init|=
-literal|"JMSTimestamp"
+literal|"JMSRedelivered"
 decl_stmt|;
 comment|/**      * The JMS Reply To {@link Destination} set by the publishing Client      */
 DECL|field|JMS_REPLY_TO
