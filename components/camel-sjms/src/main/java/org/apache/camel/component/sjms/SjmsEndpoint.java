@@ -384,10 +384,10 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|commitStrategy
+DECL|field|transactionCommitStrategy
 specifier|private
 name|TransactionCommitStrategy
-name|commitStrategy
+name|transactionCommitStrategy
 decl_stmt|;
 DECL|method|SjmsEndpoint ()
 specifier|public
@@ -1166,20 +1166,20 @@ return|return
 name|messageSelector
 return|;
 block|}
-DECL|method|getCommitStrategy ()
+DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
-name|getCommitStrategy
+name|getTransactionCommitStrategy
 parameter_list|()
 block|{
 return|return
-name|commitStrategy
+name|transactionCommitStrategy
 return|;
 block|}
-DECL|method|setCommitStrategy (TransactionCommitStrategy commitStrategy)
+DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy commitStrategy)
 specifier|public
 name|void
-name|setCommitStrategy
+name|setTransactionCommitStrategy
 parameter_list|(
 name|TransactionCommitStrategy
 name|commitStrategy
@@ -1187,7 +1187,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|commitStrategy
+name|transactionCommitStrategy
 operator|=
 name|commitStrategy
 expr_stmt|;

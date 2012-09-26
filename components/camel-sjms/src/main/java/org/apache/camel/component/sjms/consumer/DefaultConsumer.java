@@ -676,6 +676,7 @@ name|doSuspend
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Creates a {@link MessageConsumerResources} with a dedicated      * {@link Session} required for transacted and InOut consumers.      *       * @return MessageConsumerResources      * @throws Exception      */
 DECL|method|createConsumerWithDedicatedSession ()
 specifier|private
 name|MessageConsumerResources
@@ -812,6 +813,7 @@ name|messageConsumer
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a {@link MessageConsumerResources} with a shared {@link Session}      * for non-transacted InOnly consumers.      *       * @return      * @throws Exception      */
 DECL|method|createConsumerListener ()
 specifier|private
 name|MessageConsumerResources
@@ -925,7 +927,7 @@ if|if
 condition|(
 name|this
 operator|.
-name|getCommitStrategy
+name|getTransactionCommitStrategy
 argument_list|()
 operator|!=
 literal|null
@@ -935,7 +937,7 @@ name|commitStrategy
 operator|=
 name|this
 operator|.
-name|getCommitStrategy
+name|getTransactionCommitStrategy
 argument_list|()
 expr_stmt|;
 block|}

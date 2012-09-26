@@ -349,17 +349,17 @@ name|getDurableSubscriptionId
 argument_list|()
 return|;
 block|}
-DECL|method|getCommitStrategy ()
+DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
-name|getCommitStrategy
+name|getTransactionCommitStrategy
 parameter_list|()
 block|{
 return|return
 name|getSjmsEndpoint
 argument_list|()
 operator|.
-name|getCommitStrategy
+name|getTransactionCommitStrategy
 argument_list|()
 return|;
 block|}

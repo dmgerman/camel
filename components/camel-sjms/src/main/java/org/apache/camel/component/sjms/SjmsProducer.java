@@ -1241,7 +1241,7 @@ return|return
 name|getSjmsEndpoint
 argument_list|()
 operator|.
-name|getCommitStrategy
+name|getTransactionCommitStrategy
 argument_list|()
 return|;
 block|}
