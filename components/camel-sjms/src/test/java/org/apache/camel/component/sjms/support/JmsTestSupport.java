@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for JmsTestSupport  *  */
+comment|/**  * A support class that builds up and tears down an ActiveMQ instance to be used  * for unit testing.  */
 end_comment
 
 begin_class
@@ -191,28 +191,13 @@ specifier|private
 name|Session
 name|session
 decl_stmt|;
+comment|/**       * Set up the Broker      *      * @see org.apache.camel.test.junit4.CamelTestSupport#doPreSetup()      *      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|doPreSetup ()
 specifier|protected
 name|void
 name|doPreSetup
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doPreSetup
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
 parameter_list|()
 throws|throws
 name|Exception
@@ -252,11 +237,6 @@ expr_stmt|;
 name|broker
 operator|.
 name|start
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|setUp
 argument_list|()
 expr_stmt|;
 block|}
@@ -376,7 +356,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/*      * @see org.apache.camel.test.junit4.CamelTestSupport#createCamelContext()      *      * @return      * @throws Exception      */
+comment|/*      * @see org.apache.camel.test.junit4.CamelTestSupport#createCamelContext()      * @return      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|createCamelContext ()

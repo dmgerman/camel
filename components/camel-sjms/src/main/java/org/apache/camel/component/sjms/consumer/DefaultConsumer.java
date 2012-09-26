@@ -361,30 +361,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|model
-operator|.
-name|getMessageConsumer
-argument_list|()
-operator|.
-name|getMessageListener
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|model
-operator|.
-name|getMessageConsumer
-argument_list|()
-operator|.
-name|setMessageListener
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
+comment|//                    if (model.getMessageConsumer().getMessageListener() != null) {
+comment|//                        model.getMessageConsumer().setMessageListener(null);
+comment|//                    }
 name|model
 operator|.
 name|getMessageConsumer

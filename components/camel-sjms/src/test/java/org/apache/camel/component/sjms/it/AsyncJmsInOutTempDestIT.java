@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Integration test that verifies the ability of SJMS to correctly process  * asynchronous InOut exchanges from both the Producer and Consumer perspective  * using a temporary destination.  */
 end_comment
 
 begin_class
@@ -232,26 +232,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// in a fully sync mode it would take at least 5 + 5 sec to process the 100 messages
-comment|// (there are delays in both routes)
-comment|// however due async routing, we can leverage the fact to let threads non blocked
-comment|// in the first route, and therefore can have the messages processed faster
-comment|// because we can have messages wait concurrently in both routes
-comment|// this means the async processing model is about 2x faster
 name|from
 argument_list|(
 literal|"seda:start"
 argument_list|)
-comment|// we can only send at fastest the 100 msg in 5 sec due the delay
-operator|.
-name|delay
-argument_list|(
-literal|50
-argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sjms:in.out.temp.queue?exchangePattern=InOut&synchronous=false"
+literal|"sjms:in.foo.tempQ?synchronous=false&exchangePattern=InOut"
 argument_list|)
 operator|.
 name|to
@@ -261,18 +249,12 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sjms:in.out.temp.queue?exchangePattern=InOut&synchronous=false"
+literal|"sjms:in.foo.tempQ?synchronous=false&exchangePattern=InOut"
 argument_list|)
 operator|.
 name|log
 argument_list|(
 literal|"Using ${threadName} to process ${body}"
-argument_list|)
-comment|// we can only process at fastest the 100 msg in 5 sec due the delay
-operator|.
-name|delay
-argument_list|(
-literal|50
 argument_list|)
 operator|.
 name|transform

@@ -598,22 +598,31 @@ name|Message
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
 name|logger
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
 argument_list|(
 literal|"Message Received in the Consumer Pool"
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"  Message : {}"
 argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|Exchanger
