@@ -28,6 +28,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicInteger
@@ -175,7 +187,16 @@ specifier|final
 name|int
 name|MESSAGE_COUNT
 init|=
-literal|200
+literal|100
+decl_stmt|;
+DECL|field|BROKER_URI
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|BROKER_URI
+init|=
+literal|"vm://tccTestBroker?broker.persistent=false&broker.useJmx=true"
 decl_stmt|;
 comment|/**      * Verify that transacted and concurrent consumers work correctly together.      *       * @throws Exception      */
 annotation|@
@@ -191,6 +212,13 @@ block|{
 comment|// We are set up for a failure to occur every 50 messages. Even with
 comment|// multiple consumers we should still only see 4 message failures
 comment|// over the course of 200 messages.
+name|int
+name|transactedMsgs
+init|=
+name|MESSAGE_COUNT
+operator|/
+name|MAX_ATTEMPTS_COUNT
+decl_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:test.redelivered.false"
@@ -198,7 +226,9 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|196
+name|MESSAGE_COUNT
+operator|-
+name|transactedMsgs
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -208,7 +238,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|4
+name|transactedMsgs
 argument_list|)
 expr_stmt|;
 comment|// We should never see a message appear in this endpoint or we
@@ -266,7 +296,13 @@ argument_list|)
 expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
-argument_list|()
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -293,7 +329,7 @@ init|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"vm://broker?broker.persistent=false&broker.useJmx=true"
+name|BROKER_URI
 argument_list|)
 decl_stmt|;
 name|SjmsComponent
