@@ -112,18 +112,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorService
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|management
@@ -401,11 +389,6 @@ DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
-decl_stmt|;
-DECL|field|executorService
-specifier|private
-name|ExecutorService
-name|executorService
 decl_stmt|;
 DECL|field|server
 specifier|private
@@ -1020,32 +1003,6 @@ operator|=
 name|registerNewRoutes
 expr_stmt|;
 block|}
-DECL|method|getExecutorService ()
-specifier|public
-name|ExecutorService
-name|getExecutorService
-parameter_list|()
-block|{
-return|return
-name|executorService
-return|;
-block|}
-DECL|method|setExecutorService (ExecutorService executorService)
-specifier|public
-name|void
-name|setExecutorService
-parameter_list|(
-name|ExecutorService
-name|executorService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|executorService
-operator|=
-name|executorService
-expr_stmt|;
-block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -1330,6 +1287,13 @@ name|cs
 operator|.
 name|stop
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stopped JMX Connector"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1948,35 +1912,13 @@ argument_list|,
 name|server
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-comment|// we only need a single thread for the JMX connector
-name|executorService
-operator|=
-name|camelContext
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newSingleThreadExecutor
-argument_list|(
-name|this
-argument_list|,
-literal|"JMXConnector: "
-operator|+
-name|url
-argument_list|)
-expr_stmt|;
-block|}
-comment|// execute the JMX connector
-name|executorService
-operator|.
-name|execute
+comment|// use async thread for starting the JMX Connector
+comment|// (no need to use a thread pool or enlist in JMX as this thread is terminated when the JMX connector has been started)
+name|Thread
+name|thread
+init|=
+operator|new
+name|Thread
 argument_list|(
 operator|new
 name|Runnable
@@ -1989,10 +1931,28 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Staring JMX Connector thread to listen at: {}"
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
 name|cs
 operator|.
 name|start
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"JMX Connector thread started and listening at: {}"
+argument_list|,
+name|url
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -2005,7 +1965,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not start JMXConnector thread."
+literal|"Could not start JMXConnector thread at: "
+operator|+
+name|url
+operator|+
+literal|". JMX Connector not in use."
 argument_list|,
 name|ioe
 argument_list|)
@@ -2014,15 +1978,40 @@ block|}
 block|}
 block|}
 argument_list|)
-expr_stmt|;
-name|LOG
+decl_stmt|;
+name|thread
 operator|.
-name|info
+name|setDaemon
 argument_list|(
-literal|"JMX Connector thread started and listening at: "
+literal|true
+argument_list|)
+expr_stmt|;
+name|String
+name|threadName
+init|=
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|resolveThreadName
+argument_list|(
+literal|"JMXConnector: "
 operator|+
 name|url
 argument_list|)
+decl_stmt|;
+name|thread
+operator|.
+name|setName
+argument_list|(
+name|threadName
+argument_list|)
+expr_stmt|;
+name|thread
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 block|}
 block|}
