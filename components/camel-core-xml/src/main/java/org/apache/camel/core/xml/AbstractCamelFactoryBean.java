@@ -263,6 +263,24 @@ name|CamelContext
 name|getCamelContext
 parameter_list|()
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|camelContextId
+argument_list|)
+condition|)
+block|{
+comment|// always return the context by its id
+return|return
+name|getCamelContextWithId
+argument_list|(
+name|camelContextId
+argument_list|)
+return|;
+block|}
 return|return
 name|camelContext
 return|;
