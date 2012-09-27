@@ -1714,11 +1714,6 @@ return|return
 name|renamed
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"resource"
-argument_list|)
 DECL|method|copyFile (File from, File to)
 specifier|public
 specifier|static

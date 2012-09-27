@@ -317,11 +317,6 @@ name|sanitized
 return|;
 block|}
 comment|/**      * Parses the query part of the uri (eg the parameters).      *      * @param uri the uri      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parseQuery (String uri)
 specifier|public
 specifier|static
