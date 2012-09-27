@@ -429,7 +429,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Exchange does not have a retry message.  Set the exception and allow the retry."
+literal|"{} Messages have been processed. Failing the exchange to force a rollback of the transaction."
+argument_list|,
+name|MAX_ATTEMPTS_COUNT
 argument_list|)
 expr_stmt|;
 name|exchange
