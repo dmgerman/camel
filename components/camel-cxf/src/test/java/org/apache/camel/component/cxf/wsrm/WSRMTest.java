@@ -337,17 +337,6 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"cxfConfig"
-operator|+
-name|cxfConfig
-argument_list|)
-expr_stmt|;
 block|}
 name|proxyFactory
 operator|.
