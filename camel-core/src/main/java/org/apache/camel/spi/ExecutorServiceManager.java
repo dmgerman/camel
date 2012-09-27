@@ -52,6 +52,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -162,6 +174,18 @@ DECL|method|getShutdownAwaitTermination ()
 name|long
 name|getShutdownAwaitTermination
 parameter_list|()
+function_decl|;
+comment|/**      * Creates a new daemon thread with the given name.      *      * @param name     name which is appended to the thread name      * @param runnable a runnable to be executed by new thread instance      * @return the created thread      */
+DECL|method|newThread (String name, Runnable runnable)
+name|Thread
+name|newThread
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Runnable
+name|runnable
+parameter_list|)
 function_decl|;
 comment|/**      * Creates a new thread pool using the default thread pool profile.      *      * @param source the source object, usually it should be<tt>this</tt> passed in as parameter      * @param name   name which is appended to the thread name      * @return the created thread pool      */
 DECL|method|newDefaultThreadPool (Object source, String name)
