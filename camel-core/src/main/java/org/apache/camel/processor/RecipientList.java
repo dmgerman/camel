@@ -906,6 +906,26 @@ argument_list|(
 name|producerCache
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shutdownExecutorService
+operator|&&
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|isStreaming ()
 specifier|public
