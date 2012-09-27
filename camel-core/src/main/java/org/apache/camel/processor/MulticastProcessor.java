@@ -4690,6 +4690,25 @@ name|executorService
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|aggregateExecutorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|aggregateExecutorService
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|setToEndpoint (Exchange exchange, Processor processor)
 specifier|protected
