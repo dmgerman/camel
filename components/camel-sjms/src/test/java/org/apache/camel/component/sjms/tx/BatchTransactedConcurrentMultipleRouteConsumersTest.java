@@ -178,7 +178,7 @@ specifier|final
 name|int
 name|BATCH_COUNT
 init|=
-literal|25
+literal|10
 decl_stmt|;
 DECL|field|MAX_ATTEMPTS_COUNT
 specifier|private
@@ -187,7 +187,7 @@ specifier|final
 name|int
 name|MAX_ATTEMPTS_COUNT
 init|=
-literal|50
+literal|10
 decl_stmt|;
 DECL|field|MESSAGE_COUNT
 specifier|private
@@ -196,7 +196,7 @@ specifier|final
 name|int
 name|MESSAGE_COUNT
 init|=
-literal|200
+literal|20
 decl_stmt|;
 DECL|field|CONSUMER_COUNT
 specifier|private
@@ -206,6 +206,24 @@ name|int
 name|CONSUMER_COUNT
 init|=
 literal|1
+decl_stmt|;
+DECL|field|TOTAL_REDELIVERED_FALSE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|TOTAL_REDELIVERED_FALSE
+init|=
+literal|9
+decl_stmt|;
+DECL|field|TOTAL_REDELIVERED_TRUE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|TOTAL_REDELIVERED_TRUE
+init|=
+literal|10
 decl_stmt|;
 DECL|field|BROKER_URI
 specifier|private
@@ -237,7 +255,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|99
+name|TOTAL_REDELIVERED_FALSE
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -247,7 +265,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|99
+name|TOTAL_REDELIVERED_FALSE
 argument_list|)
 expr_stmt|;
 comment|// We should always get 25 for each endpoint since that is our batch
@@ -259,7 +277,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|25
+name|TOTAL_REDELIVERED_TRUE
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -269,7 +287,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|25
+name|TOTAL_REDELIVERED_TRUE
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -324,9 +342,16 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|(
-literal|10
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -531,7 +556,11 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"1st attempt Body: ${body} | Redeliverd: ${header.JMSRedelivered}"
+literal|"Route "
+operator|+
+name|i
+operator|+
+literal|" 1st attempt Body: ${body} | Redeliverd: ${header.JMSRedelivered}"
 argument_list|)
 operator|.
 name|to
@@ -555,38 +584,13 @@ literal|"true"
 argument_list|)
 argument_list|)
 operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Retry processing attempt.  Continue processing the message."
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-operator|.
 name|log
 argument_list|(
-literal|"2nd attempt Body: ${body} | Redeliverd: ${header.JMSRedelivered}"
+literal|"Route "
+operator|+
+name|i
+operator|+
+literal|" 2nd attempt Body: ${body} | Redeliverd: ${header.JMSRedelivered}"
 argument_list|)
 operator|.
 name|to

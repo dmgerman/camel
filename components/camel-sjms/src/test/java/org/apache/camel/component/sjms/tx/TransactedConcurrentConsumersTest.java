@@ -178,7 +178,7 @@ specifier|final
 name|int
 name|MAX_ATTEMPTS_COUNT
 init|=
-literal|50
+literal|10
 decl_stmt|;
 DECL|field|MESSAGE_COUNT
 specifier|private
@@ -187,7 +187,25 @@ specifier|final
 name|int
 name|MESSAGE_COUNT
 init|=
-literal|100
+literal|20
+decl_stmt|;
+DECL|field|TOTAL_REDELIVERED_FALSE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|TOTAL_REDELIVERED_FALSE
+init|=
+literal|18
+decl_stmt|;
+DECL|field|TOTAL_REDELIVERED_TRUE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|TOTAL_REDELIVERED_TRUE
+init|=
+literal|2
 decl_stmt|;
 DECL|field|BROKER_URI
 specifier|private
@@ -209,16 +227,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We are set up for a failure to occur every 50 messages. Even with
-comment|// multiple consumers we should still only see 4 message failures
-comment|// over the course of 200 messages.
-name|int
-name|transactedMsgs
-init|=
-name|MESSAGE_COUNT
-operator|/
-name|MAX_ATTEMPTS_COUNT
-decl_stmt|;
+comment|// We are set up for a failure to occur every 10 messages. We should see
+comment|// 2 message failures over the course of 20 messages.
 name|getMockEndpoint
 argument_list|(
 literal|"mock:test.redelivered.false"
@@ -226,9 +236,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-name|MESSAGE_COUNT
-operator|-
-name|transactedMsgs
+name|TOTAL_REDELIVERED_FALSE
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -238,7 +246,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-name|transactedMsgs
+name|TOTAL_REDELIVERED_TRUE
 argument_list|)
 expr_stmt|;
 comment|// We should never see a message appear in this endpoint or we
@@ -295,9 +303,16 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|(
-literal|10
+literal|5
 argument_list|,
 name|TimeUnit
 operator|.
@@ -516,35 +531,6 @@ literal|"true"
 argument_list|)
 argument_list|)
 operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Retry processing attempt.  Continue processing the message."
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-operator|.
 name|log
 argument_list|(
 literal|"2nd attempt Body: ${body} | Redeliverd: ${header.JMSRedelivered}"
@@ -567,6 +553,46 @@ block|}
 block|}
 return|;
 block|}
+comment|//    private class RedeliveredProcessor implements Processor {
+comment|//        private CountDownLatch latch;
+comment|//
+comment|//        public RedeliveredProcessor(CountDownLatch latch) {
+comment|//            super();
+comment|//            this.latch = latch;
+comment|//        }
+comment|//
+comment|//        @Override
+comment|//        public void process(Exchange exchange) throws Exception {
+comment|//            // TODO Auto-generated method stub
+comment|//
+comment|//        }
+comment|//
+comment|//    }
+comment|//
+comment|//    private class NotRedeliveredProcessor implements Processor {
+comment|//        private final AtomicInteger counter = new AtomicInteger(0);
+comment|//        private final AtomicInteger total = new AtomicInteger(0);
+comment|//        private CountDownLatch latch;
+comment|//
+comment|//        public NotRedeliveredProcessor(CountDownLatch latch) {
+comment|//            super();
+comment|//            this.latch = latch;
+comment|//        }
+comment|//
+comment|//        @Override
+comment|//        public void process(Exchange exchange) throws Exception {
+comment|//            int count = counter.incrementAndGet();
+comment|//            if (count == MAX_ATTEMPTS_COUNT) {
+comment|//                log.info("{} Messages have been processed. Failing the exchange to force a rollback of the transaction.", MAX_ATTEMPTS_COUNT);
+comment|//                exchange.getOut().setFault(true);
+comment|//                counter.set(0);
+comment|//            }
+comment|//            if(total.incrementAndGet() == TOTAL_REDELIVERED_FALSE) {
+comment|//                cdl.countDown();
+comment|//            }
+comment|//        }
+comment|//
+comment|//    }
 block|}
 end_class
 
