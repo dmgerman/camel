@@ -251,7 +251,7 @@ name|HBaseHelper
 operator|.
 name|getHBaseFieldAsBytes
 argument_list|(
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 argument_list|,
 name|families
@@ -292,7 +292,7 @@ name|hbaseUtil
 operator|.
 name|deleteTable
 argument_list|(
-name|DEFAULTTABLE
+name|PERSON_TABLE
 operator|.
 name|getBytes
 argument_list|()
@@ -431,6 +431,9 @@ name|column
 index|[
 literal|0
 index|]
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -448,6 +451,12 @@ name|asHeader
 argument_list|()
 argument_list|,
 name|body
+index|[
+literal|0
+index|]
+index|[
+literal|0
+index|]
 index|[
 literal|0
 index|]
@@ -486,6 +495,12 @@ name|body
 index|[
 literal|0
 index|]
+index|[
+literal|0
+index|]
+index|[
+literal|0
+index|]
 argument_list|)
 operator|&&
 operator|!
@@ -500,6 +515,12 @@ name|body
 index|[
 literal|1
 index|]
+index|[
+literal|0
+index|]
+index|[
+literal|0
+index|]
 argument_list|)
 operator|&&
 operator|!
@@ -513,6 +534,12 @@ argument_list|(
 name|body
 index|[
 literal|2
+index|]
+index|[
+literal|0
+index|]
+index|[
+literal|0
 index|]
 argument_list|)
 argument_list|)
@@ -551,7 +578,7 @@ name|to
 argument_list|(
 literal|"hbase://"
 operator|+
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 expr_stmt|;
 name|from
@@ -563,7 +590,7 @@ name|to
 argument_list|(
 literal|"hbase://"
 operator|+
-name|DEFAULTTABLE
+name|PERSON_TABLE
 operator|+
 literal|"?operation="
 operator|+

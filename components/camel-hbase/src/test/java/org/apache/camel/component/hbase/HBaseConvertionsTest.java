@@ -243,7 +243,7 @@ index|[]
 name|families
 init|=
 block|{
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 operator|.
 name|getBytes
 argument_list|()
@@ -274,7 +274,7 @@ name|HBaseHelper
 operator|.
 name|getHBaseFieldAsBytes
 argument_list|(
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 argument_list|,
 name|families
@@ -315,7 +315,7 @@ name|hbaseUtil
 operator|.
 name|deleteTable
 argument_list|(
-name|DEFAULTTABLE
+name|PERSON_TABLE
 operator|.
 name|getBytes
 argument_list|()
@@ -396,7 +396,7 @@ operator|.
 name|asHeader
 argument_list|()
 argument_list|,
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 argument_list|)
 expr_stmt|;
 name|headers
@@ -465,7 +465,7 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|,
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 argument_list|)
 expr_stmt|;
 name|headers
@@ -538,7 +538,7 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|,
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 argument_list|)
 expr_stmt|;
 name|headers
@@ -622,7 +622,7 @@ name|HTable
 argument_list|(
 name|configuration
 argument_list|,
-name|DEFAULTTABLE
+name|PERSON_TABLE
 operator|.
 name|getBytes
 argument_list|()
@@ -653,7 +653,7 @@ name|get
 operator|.
 name|addColumn
 argument_list|(
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 operator|.
 name|getBytes
 argument_list|()
@@ -728,7 +728,7 @@ name|get
 operator|.
 name|addColumn
 argument_list|(
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 operator|.
 name|getBytes
 argument_list|()
@@ -800,7 +800,7 @@ name|get
 operator|.
 name|addColumn
 argument_list|(
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 operator|.
 name|getBytes
 argument_list|()
@@ -882,7 +882,7 @@ name|to
 argument_list|(
 literal|"hbase://"
 operator|+
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 expr_stmt|;
 name|from
@@ -894,7 +894,7 @@ name|to
 argument_list|(
 literal|"hbase://"
 operator|+
-name|DEFAULTTABLE
+name|PERSON_TABLE
 operator|+
 literal|"?operation="
 operator|+

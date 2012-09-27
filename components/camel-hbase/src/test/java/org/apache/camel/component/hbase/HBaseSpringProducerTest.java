@@ -134,7 +134,7 @@ name|HBaseHelper
 operator|.
 name|getHBaseFieldAsBytes
 argument_list|(
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 argument_list|,
 name|families

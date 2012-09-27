@@ -242,14 +242,14 @@ name|HBaseHelper
 operator|.
 name|getHBaseFieldAsBytes
 argument_list|(
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 argument_list|,
 name|HBaseHelper
 operator|.
 name|getHBaseFieldAsBytes
 argument_list|(
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -274,9 +274,9 @@ operator|.
 name|getConfiguration
 argument_list|()
 argument_list|,
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|,
-name|DEFAULTFAMILY
+name|INFO_FAMILY
 argument_list|,
 literal|"mycolumn"
 argument_list|)
@@ -291,7 +291,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 argument_list|,
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 expr_stmt|;
 name|super
@@ -324,7 +324,7 @@ name|HBaseHelper
 operator|.
 name|getHBaseFieldAsBytes
 argument_list|(
-name|DEFAULTTABLE
+name|PERSON_TABLE
 argument_list|)
 argument_list|)
 expr_stmt|;
