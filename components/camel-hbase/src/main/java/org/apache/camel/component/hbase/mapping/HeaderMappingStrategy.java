@@ -410,6 +410,17 @@ argument_list|(
 name|rowClass
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|columnFamily
+operator|!=
+literal|null
+operator|&&
+name|columnName
+operator|!=
+literal|null
+condition|)
+block|{
 name|hCell
 operator|.
 name|setQualifier
@@ -459,6 +470,7 @@ argument_list|(
 name|hCell
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|hRow
