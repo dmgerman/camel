@@ -52,6 +52,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -63,6 +73,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -1560,6 +1580,8 @@ argument_list|(
 name|executorService
 argument_list|,
 literal|0
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1580,6 +1602,8 @@ name|executorService
 argument_list|,
 name|getShutdownAwaitTermination
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1602,12 +1626,14 @@ argument_list|(
 name|executorService
 argument_list|,
 name|shutdownAwaitTermination
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doShutdown (ExecutorService executorService, long shutdownAwaitTermination)
+DECL|method|doShutdown (ExecutorService executorService, long shutdownAwaitTermination, boolean failSafe)
 specifier|private
-name|void
+name|boolean
 name|doShutdown
 parameter_list|(
 name|ExecutorService
@@ -1615,6 +1641,9 @@ name|executorService
 parameter_list|,
 name|long
 name|shutdownAwaitTermination
+parameter_list|,
+name|boolean
+name|failSafe
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -1626,6 +1655,11 @@ argument_list|,
 literal|"executorService"
 argument_list|)
 expr_stmt|;
+name|boolean
+name|warned
+init|=
+literal|false
+decl_stmt|;
 comment|// shutting down a thread pool is a 2 step process. First we try graceful, and if that fails, then we go more aggressively
 comment|// and try shutting down again. In both cases we wait at most the given shutdown timeout value given
 comment|// (total wait could then be 2 x shutdownAwaitTermination, but when we shutdown the 2nd time we are aggressive and thus
@@ -1639,11 +1673,6 @@ name|isShutdown
 argument_list|()
 condition|)
 block|{
-name|boolean
-name|warned
-init|=
-literal|false
-decl_stmt|;
 name|StopWatch
 name|watch
 init|=
@@ -1879,7 +1908,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// remove reference as its shutdown
+comment|// remove reference as its shutdown (do not remove if fail-safe)
+if|if
+condition|(
+operator|!
+name|failSafe
+condition|)
+block|{
 name|executorServices
 operator|.
 name|remove
@@ -1887,6 +1922,10 @@ argument_list|(
 name|executorService
 argument_list|)
 expr_stmt|;
+block|}
+return|return
+name|warned
+return|;
 block|}
 annotation|@
 name|Override
@@ -2260,6 +2299,19 @@ comment|// shutdown all remainder executor services by looping and doing this ag
 comment|// as by normal all threads pool should have been shutdown using proper lifecycle
 comment|// by their EIPs, components etc. This is acting as a fail-safe during shutdown
 comment|// of CamelContext itself.
+name|Set
+argument_list|<
+name|ExecutorService
+argument_list|>
+name|forced
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|ExecutorService
+argument_list|>
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2269,11 +2321,12 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// at first give a bit of time to shutdown nicely as the thread pool is most likely in the process of being shutdown also
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"Shutting down {} ExecutorService's which has not been shutdown properly (acting as fail-safe)"
+literal|"Giving time for {} ExecutorService's to shutdown properly (acting as fail-safe)"
 argument_list|,
 name|executorServices
 operator|.
@@ -2289,16 +2342,35 @@ range|:
 name|executorServices
 control|)
 block|{
-comment|// only log if something goes wrong as we want to shutdown them all
 try|try
 block|{
-name|doShutdownNow
+name|boolean
+name|warned
+init|=
+name|doShutdown
 argument_list|(
 name|executorService
 argument_list|,
+name|getShutdownAwaitTermination
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
+decl_stmt|;
+comment|// remember the thread pools that was forced to shutdown (eg warned)
+if|if
+condition|(
+name|warned
+condition|)
+block|{
+name|forced
+operator|.
+name|add
+argument_list|(
+name|executorService
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2306,6 +2378,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// only log if something goes wrong as we want to shutdown them all
 name|LOG
 operator|.
 name|warn
@@ -2322,6 +2395,52 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// log the thread pools which was forced to shutdown so it may help the user to identify a problem of his
+if|if
+condition|(
+operator|!
+name|forced
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Forced shutdown of {} ExecutorService's which has not been shutdown properly (acting as fail-safe)"
+argument_list|,
+name|forced
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|ExecutorService
+name|executorService
+range|:
+name|forced
+control|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"  forced -> {}"
+argument_list|,
+name|executorService
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|forced
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 comment|// clear list
 name|executorServices
 operator|.
