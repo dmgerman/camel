@@ -192,6 +192,16 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// now stop 1, and see that 2 is still working
+name|consumer1
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|producer1
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|context1
 operator|.
 name|stop
@@ -261,6 +271,16 @@ operator|.
 name|getBody
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|consumer2
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|producer2
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 name|context2
 operator|.
