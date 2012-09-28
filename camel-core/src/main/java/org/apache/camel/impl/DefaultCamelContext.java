@@ -5479,6 +5479,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|doAddService
+argument_list|(
+name|object
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doAddService (Object object, boolean closeOnShutdown)
+specifier|private
+name|void
+name|doAddService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|closeOnShutdown
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// inject CamelContext
 if|if
 condition|(
@@ -5604,6 +5626,8 @@ block|{
 comment|// only add to list of services to close if its not already there
 if|if
 condition|(
+name|closeOnShutdown
+operator|&&
 operator|!
 name|hasService
 argument_list|(
@@ -8310,9 +8334,12 @@ argument_list|(
 name|endpoints
 argument_list|)
 expr_stmt|;
-name|addService
+comment|// special for executorServiceManager as want to stop it manually
+name|doAddService
 argument_list|(
 name|executorServiceManager
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addService
@@ -8691,7 +8718,12 @@ name|notifier
 argument_list|)
 expr_stmt|;
 block|}
-comment|// shutdown management as the last one
+comment|// shutdown executor service and management as the last one
+name|shutdownServices
+argument_list|(
+name|executorServiceManager
+argument_list|)
+expr_stmt|;
 name|shutdownServices
 argument_list|(
 name|managementStrategy
