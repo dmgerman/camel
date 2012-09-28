@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|mock
@@ -57,6 +69,20 @@ operator|.
 name|spring
 operator|.
 name|SpringTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -202,10 +228,15 @@ argument_list|(
 literal|"Hello B"
 argument_list|)
 expr_stmt|;
+name|ProducerTemplate
+name|producer1
+init|=
 name|camelA
 operator|.
 name|createProducerTemplate
 argument_list|()
+decl_stmt|;
+name|producer1
 operator|.
 name|sendBody
 argument_list|(
@@ -214,16 +245,31 @@ argument_list|,
 literal|"Hello A"
 argument_list|)
 expr_stmt|;
+name|ProducerTemplate
+name|producer2
+init|=
 name|camelB
 operator|.
 name|createProducerTemplate
 argument_list|()
+decl_stmt|;
+name|producer2
 operator|.
 name|sendBody
 argument_list|(
 literal|"direct:start2"
 argument_list|,
 literal|"Hello B"
+argument_list|)
+expr_stmt|;
+comment|// make sure we properly stop the services we created
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|producer1
+argument_list|,
+name|producer2
 argument_list|)
 expr_stmt|;
 name|mockA
