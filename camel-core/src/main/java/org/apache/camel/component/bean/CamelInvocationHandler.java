@@ -126,20 +126,19 @@ operator|=
 name|methodInfoCache
 expr_stmt|;
 block|}
-DECL|method|invoke (final Object proxy, final Method method, final Object[] args)
+annotation|@
+name|Override
+DECL|method|doInvokeProxy (Object proxy, Method method, Object[] args)
 specifier|public
 name|Object
-name|invoke
+name|doInvokeProxy
 parameter_list|(
-specifier|final
 name|Object
 name|proxy
 parameter_list|,
-specifier|final
 name|Method
 name|method
 parameter_list|,
-specifier|final
 name|Object
 index|[]
 name|args
@@ -186,7 +185,7 @@ operator|.
 name|InOut
 decl_stmt|;
 return|return
-name|invokeWithbody
+name|invokeWithBody
 argument_list|(
 name|method
 argument_list|,

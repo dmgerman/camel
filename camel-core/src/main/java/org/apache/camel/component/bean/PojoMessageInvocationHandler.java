@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Special InvocationHandler for methods that have only one parameter. This  * parameter is directly sent to as the body of the message. The idea is to use  * that as a very open message format especially when combined with e.g. JAXB  * serialization.  */
+comment|/**  * Special {@link java.lang.reflect.InvocationHandler} for methods that have only one parameter. This  * parameter is directly sent to as the body of the message. The idea is to use  * that as a very open message format especially when combined with e.g. JAXB  * serialization.  */
 end_comment
 
 begin_class
@@ -109,20 +109,19 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|invoke (final Object proxy, final Method method, final Object[] args)
+annotation|@
+name|Override
+DECL|method|doInvokeProxy (Object proxy, Method method, Object[] args)
 specifier|public
 name|Object
-name|invoke
+name|doInvokeProxy
 parameter_list|(
-specifier|final
 name|Object
 name|proxy
 parameter_list|,
-specifier|final
 name|Method
 name|method
 parameter_list|,
-specifier|final
 name|Object
 index|[]
 name|args
@@ -202,7 +201,7 @@ operator|.
 name|InOnly
 decl_stmt|;
 return|return
-name|invokeWithbody
+name|invokeWithBody
 argument_list|(
 name|method
 argument_list|,
