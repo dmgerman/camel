@@ -82,8 +82,8 @@ name|LoggingErrorHandler
 extends|extends
 name|DefaultErrorHandler
 block|{
-comment|/**      * Creates the logging error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this logging error handler      * @param logger                  logger to use for logging failures      * @param exceptionPolicyStrategy strategy for onException handling      */
-DECL|method|LoggingErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, ExceptionPolicyStrategy exceptionPolicyStrategy)
+comment|/**      * Creates the logging error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this logging error handler      * @param logger                  logger to use for logging failures      * @param redeliveryPolicy        redelivery policy      * @param exceptionPolicyStrategy strategy for onException handling      */
+DECL|method|LoggingErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy)
 specifier|public
 name|LoggingErrorHandler
 parameter_list|(
@@ -95,6 +95,9 @@ name|output
 parameter_list|,
 name|CamelLogger
 name|logger
+parameter_list|,
+name|RedeliveryPolicy
+name|redeliveryPolicy
 parameter_list|,
 name|ExceptionPolicyStrategy
 name|exceptionPolicyStrategy
@@ -110,9 +113,7 @@ name|logger
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|RedeliveryPolicy
-argument_list|()
+name|redeliveryPolicy
 argument_list|,
 name|exceptionPolicyStrategy
 argument_list|,
