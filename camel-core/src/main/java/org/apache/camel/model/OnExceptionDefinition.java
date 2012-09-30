@@ -1047,6 +1047,8 @@ name|builder
 operator|.
 name|addErrorHandlers
 argument_list|(
+name|routeContext
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

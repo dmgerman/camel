@@ -309,6 +309,32 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|cloneBuilder ()
+specifier|public
+name|ErrorHandlerBuilder
+name|cloneBuilder
+parameter_list|()
+block|{
+name|DeadLetterChannelBuilder
+name|answer
+init|=
+operator|new
+name|DeadLetterChannelBuilder
+argument_list|()
+decl_stmt|;
+name|super
+operator|.
+name|cloneBuilder
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getFailureProcessor ()
