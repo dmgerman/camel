@@ -104,6 +104,26 @@ name|IRCUser
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -115,6 +135,22 @@ specifier|final
 class|class
 name|CodehausIrcChat
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|CodehausIrcChat
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|class|CodehausIRCEventAdapter
 specifier|private
 specifier|static
@@ -137,11 +173,9 @@ operator|.
 name|onRegistered
 argument_list|()
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onRegistered"
 argument_list|)
@@ -160,11 +194,9 @@ operator|.
 name|onDisconnected
 argument_list|()
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onDisconnected"
 argument_list|)
@@ -198,33 +230,27 @@ argument_list|,
 name|ircModeParser
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onMode.string = "
 operator|+
 name|string
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onMode.ircUser = "
 operator|+
 name|ircUser
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onMode.ircModeParser = "
 operator|+
@@ -260,33 +286,27 @@ argument_list|,
 name|string1
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onMode.ircUser = "
 operator|+
 name|ircUser
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onMode.string = "
 operator|+
 name|string
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onMode.string1 = "
 operator|+
@@ -312,11 +332,9 @@ argument_list|(
 name|string
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onPing.string = "
 operator|+
@@ -335,11 +353,9 @@ name|String
 name|string
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onError.string = "
 operator|+
@@ -370,22 +386,18 @@ argument_list|,
 name|string
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onError.i = "
 operator|+
 name|i
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"onError.string = "
 operator|+
@@ -426,44 +438,36 @@ argument_list|,
 name|string3
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"unknown.string = "
 operator|+
 name|string
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"unknown.string1 = "
 operator|+
 name|string1
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"unknown.string2 = "
 operator|+
 name|string2
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"unknown.string3 = "
 operator|+
@@ -623,19 +627,17 @@ expr_stmt|;
 block|}
 comment|// while (!conn.isConnected()) {
 comment|// Thread.sleep(1000);
-comment|// System.out.println("Sleeping");
+comment|// LOG.info("Sleeping");
 comment|// }
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Connected"
 argument_list|)
 expr_stmt|;
 comment|// conn.send("/JOIN #camel-test");
-comment|// System.out.println("Joining Channel: " + config.getTarget());
+comment|// LOG.info("Joining Channel: " + config.getTarget());
 for|for
 control|(
 name|IrcChannel

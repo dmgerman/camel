@@ -625,11 +625,9 @@ throws|throws
 name|URISyntaxException
 block|{
 comment|// TODO replace the Form class with an injected bean?
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Received form! "
 operator|+
@@ -672,11 +670,9 @@ operator|.
 name|getHref
 argument_list|()
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Created endpoint so redirecting to "
 operator|+
@@ -705,11 +701,9 @@ name|error
 operator|=
 literal|"Could not find a component to resolve that URI"
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Failed to create new endpoint!"
 argument_list|)

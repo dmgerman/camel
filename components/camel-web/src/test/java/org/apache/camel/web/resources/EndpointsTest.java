@@ -225,11 +225,9 @@ argument_list|,
 name|camel
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Found: "
 operator|+
@@ -253,11 +251,9 @@ argument_list|,
 name|endpoints
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Found: "
 operator|+

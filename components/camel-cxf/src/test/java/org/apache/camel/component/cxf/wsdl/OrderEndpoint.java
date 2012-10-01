@@ -40,6 +40,26 @@ name|WebService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 annotation|@
 name|WebService
@@ -48,6 +68,22 @@ specifier|public
 class|class
 name|OrderEndpoint
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|OrderEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|WebMethod
 DECL|method|doOrder (Order order)
@@ -59,11 +95,9 @@ name|Order
 name|order
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Processing order"
 argument_list|)

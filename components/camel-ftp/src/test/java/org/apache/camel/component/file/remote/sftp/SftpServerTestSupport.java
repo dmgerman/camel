@@ -355,7 +355,6 @@ name|canTest
 operator|=
 literal|false
 expr_stmt|;
-comment|// warn both through console as well as log that we can not run the test
 name|String
 name|name
 init|=
@@ -374,21 +373,6 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"SunX509 is not avail on this platform ["
-operator|+
-name|name
-operator|+
-literal|"] Testing is skipped! Real cause: "
-operator|+
-name|message
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|warn

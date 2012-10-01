@@ -488,11 +488,9 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
 literal|"Test bundle headers: "
 operator|+
@@ -520,11 +518,9 @@ argument_list|)
 argument_list|)
 control|)
 block|{
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
 literal|"ServiceReference: "
 operator|+
@@ -550,11 +546,9 @@ argument_list|)
 argument_list|)
 control|)
 block|{
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
 literal|"Filtered ServiceReference: "
 operator|+
@@ -697,11 +691,9 @@ name|getBundles
 argument_list|()
 control|)
 block|{
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
 literal|"Bundle: "
 operator|+

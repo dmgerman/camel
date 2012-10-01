@@ -671,16 +671,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: Remove us, but part of investigation issue on Java7 on ubuntu
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|sslContextParameters
-argument_list|)
-expr_stmt|;
 name|SSLContext
 name|ssl
 init|=
@@ -689,15 +679,6 @@ operator|.
 name|createSSLContext
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|ssl
-argument_list|)
-expr_stmt|;
 name|builder
 operator|.
 name|setSSLContext
@@ -734,16 +715,6 @@ operator|.
 name|Builder
 argument_list|()
 decl_stmt|;
-comment|// TODO: Remove us, but part of investigation issue on Java7 on ubuntu
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|sslContextParameters
-argument_list|)
-expr_stmt|;
 name|SSLContext
 name|ssl
 init|=
@@ -752,15 +723,6 @@ operator|.
 name|createSSLContext
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|ssl
-argument_list|)
-expr_stmt|;
 name|builder
 operator|.
 name|setSSLContext

@@ -134,9 +134,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|guiceyfruit
+name|apache
 operator|.
-name|Injectors
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -144,9 +150,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|guiceyfruit
 operator|.
-name|Assert
+name|Injectors
 import|;
 end_import
 
@@ -170,7 +176,7 @@ specifier|public
 class|class
 name|GuiceRouteWithNamedKeysTest
 extends|extends
-name|Assert
+name|TestSupport
 block|{
 DECL|class|MyModule
 specifier|public
@@ -257,11 +263,9 @@ argument_list|,
 name|instance
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Found instance: "
 operator|+
@@ -286,11 +290,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"RouteBuilder List: "
 operator|+
@@ -329,11 +331,9 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"RouteBuilder List: "
 operator|+
@@ -354,7 +354,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|/*          list = Injectors.getInstancesOf(injector, Matchers.subclassesOf(RouteBuilder.class).and(Matchers.annotatedWith(Names.named("foo"))));         System.out.println("RouteBuilder List: " + list);          assertEquals("route builder list: " + list, 1, list.size());          list = Injectors.getInstancesOf(injector, Matchers.subclassesOf(RouteBuilder.class).and(Matchers.annotatedWith(Names.named("bar"))));         System.out.println("RouteBuilder List: " + list);          assertEquals("route builder list: " + list, 0, list.size()); */
+comment|/*          list = Injectors.getInstancesOf(injector, Matchers.subclassesOf(RouteBuilder.class).and(Matchers.annotatedWith(Names.named("foo"))));         log.info("RouteBuilder List: " + list);          assertEquals("route builder list: " + list, 1, list.size());          list = Injectors.getInstancesOf(injector, Matchers.subclassesOf(RouteBuilder.class).and(Matchers.annotatedWith(Names.named("bar"))));         log.info("RouteBuilder List: " + list);          assertEquals("route builder list: " + list, 0, list.size()); */
 name|GuiceTest
 operator|.
 name|assertCamelContextRunningThenCloseInjector

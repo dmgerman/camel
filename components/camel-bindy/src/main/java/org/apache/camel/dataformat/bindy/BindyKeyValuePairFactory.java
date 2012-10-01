@@ -1462,7 +1462,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// System.out.println("Exception : " + e);
 throw|throw
 operator|new
 name|IllegalArgumentException

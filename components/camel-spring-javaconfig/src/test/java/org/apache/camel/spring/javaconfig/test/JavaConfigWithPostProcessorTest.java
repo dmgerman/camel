@@ -144,11 +144,9 @@ name|void
 name|doCheese
 parameter_list|()
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"doCheese called!"
 argument_list|)

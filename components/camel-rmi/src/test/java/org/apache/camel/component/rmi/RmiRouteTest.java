@@ -140,11 +140,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|test
 operator|.
-name|jndi
+name|junit4
 operator|.
-name|JndiContext
+name|TestSupport
 import|;
 end_import
 
@@ -152,9 +152,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Assert
+name|camel
+operator|.
+name|util
+operator|.
+name|jndi
+operator|.
+name|JndiContext
 import|;
 end_import
 
@@ -178,7 +184,7 @@ specifier|public
 class|class
 name|RmiRouteTest
 extends|extends
-name|Assert
+name|TestSupport
 block|{
 DECL|field|port
 specifier|private
@@ -469,20 +475,16 @@ literal|" "
 argument_list|)
 condition|)
 block|{
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"======================================================================="
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|" TEST Skipped: "
 operator|+
@@ -495,38 +497,30 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"   Your probably on windows.  We detected that the classpath"
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"   has a space in it.  Try running maven with the following option: "
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"   -Dmaven.repo.local=C:\\DOCUME~1\\userid\\.m2\\repository"
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"======================================================================="
 argument_list|)

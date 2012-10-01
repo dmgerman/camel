@@ -140,6 +140,26 @@ name|TextMessage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -152,6 +172,22 @@ name|MyInOutTestConsumer
 implements|implements
 name|MessageListener
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|MyInOutTestConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|ackMode
 specifier|private
 specifier|static
@@ -423,11 +459,9 @@ operator|.
 name|getText
 argument_list|()
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"messageText = "
 operator|+

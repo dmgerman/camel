@@ -22,9 +22,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Assert
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -44,7 +50,7 @@ specifier|public
 class|class
 name|UriCharactersEncoderTest
 extends|extends
-name|Assert
+name|TestSupport
 block|{
 annotation|@
 name|Test
@@ -97,12 +103,12 @@ name|noEncoding
 init|=
 literal|"direct:start\uFD04"
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
+literal|"The non-encoded endpoint {} has the lenght {}"
+argument_list|,
 name|noEncoding
 operator|.
 name|length

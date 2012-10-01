@@ -235,17 +235,6 @@ block|{
 name|initPort
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Starting FTP server on port "
-operator|+
-name|port
-argument_list|)
-expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -285,15 +274,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Shutting down FTP server"
-argument_list|)
-expr_stmt|;
 name|LOG
 operator|.
 name|info

@@ -435,7 +435,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// System.out.println(exchange);
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"{}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)

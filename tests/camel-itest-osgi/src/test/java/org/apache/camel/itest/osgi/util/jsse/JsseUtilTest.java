@@ -434,11 +434,9 @@ argument_list|(
 literal|"../../../test-classes/org/apache/camel/itest/osgi/util/jsse/localhost.ks"
 argument_list|)
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"the file is "
 operator|+

@@ -561,23 +561,16 @@ name|Exception
 block|{
 if|if
 condition|(
-name|Boolean
+name|MtomTestHelper
 operator|.
-name|getBoolean
+name|isAwtHeadless
 argument_list|(
-literal|"java.awt.headless"
+name|logger
+argument_list|,
+literal|null
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Running headless. Skipping test as Images may not work."
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 comment|// START SNIPPET: producer

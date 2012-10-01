@@ -108,6 +108,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|web
 operator|.
 name|resources
@@ -123,16 +139,6 @@ operator|.
 name|junit
 operator|.
 name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
 import|;
 end_import
 
@@ -194,7 +200,7 @@ specifier|public
 class|class
 name|CamelRouteTest
 extends|extends
-name|Assert
+name|TestSupport
 block|{
 DECL|field|applicationContext
 specifier|protected
@@ -247,11 +253,9 @@ operator|.
 name|getRoutes
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Found routes: "
 operator|+
@@ -304,11 +308,9 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"XML is: "
 operator|+

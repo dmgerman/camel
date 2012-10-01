@@ -50,11 +50,13 @@ end_import
 
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|camel
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -64,7 +66,7 @@ specifier|public
 class|class
 name|ResequencerEngineTest
 extends|extends
-name|TestCase
+name|TestSupport
 block|{
 DECL|field|IGNORE_LOAD_TESTS
 specifier|private
@@ -492,13 +494,20 @@ name|currentTimeMillis
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
 argument_list|(
-literal|"Input sequence:"
+literal|4000
+argument_list|)
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"Input sequence: "
 argument_list|)
 expr_stmt|;
 name|long
@@ -544,14 +553,15 @@ argument_list|(
 name|r
 argument_list|)
 decl_stmt|;
-name|System
+name|sb
 operator|.
-name|out
-operator|.
-name|print
+name|append
 argument_list|(
 name|next
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
@@ -563,13 +573,34 @@ name|next
 argument_list|)
 expr_stmt|;
 block|}
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"\nOutput sequence:"
+name|sb
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// clear
+name|sb
+operator|.
+name|delete
+argument_list|(
+literal|0
+argument_list|,
+name|sb
+operator|.
+name|length
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"Output sequence: "
 argument_list|)
 expr_stmt|;
 for|for
@@ -587,17 +618,18 @@ name|i
 operator|++
 control|)
 block|{
-name|System
+name|sb
 operator|.
-name|out
-operator|.
-name|print
+name|append
 argument_list|(
 name|buffer
 operator|.
 name|take
 argument_list|()
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
@@ -611,13 +643,21 @@ argument_list|()
 operator|-
 name|millis
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"\nDuration = "
+name|sb
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Duration = "
 operator|+
 name|millis
 operator|+
@@ -708,13 +748,20 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
 argument_list|(
-literal|"\nOutput sequence:"
+literal|2500
+argument_list|)
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"Output sequence: "
 argument_list|)
 expr_stmt|;
 for|for
@@ -732,21 +779,32 @@ name|i
 operator|++
 control|)
 block|{
-name|System
+name|sb
 operator|.
-name|out
-operator|.
-name|print
+name|append
 argument_list|(
 name|buffer
 operator|.
 name|take
 argument_list|()
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|info
+argument_list|(
+name|sb
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|initResequencer (long timeout, int capacity)
 specifier|private

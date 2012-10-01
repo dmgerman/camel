@@ -236,11 +236,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Adding route from "
 operator|+

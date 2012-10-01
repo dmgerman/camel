@@ -442,11 +442,9 @@ name|getBundles
 argument_list|()
 control|)
 block|{
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|warn
 argument_list|(
 literal|"Bundle: "
 operator|+
@@ -655,11 +653,9 @@ argument_list|(
 literal|"karafVersion"
 argument_list|)
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"*** The karaf version is "
 operator|+
@@ -715,11 +711,9 @@ argument_list|(
 literal|"karafVersion"
 argument_list|)
 decl_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"*** The karaf version is "
 operator|+

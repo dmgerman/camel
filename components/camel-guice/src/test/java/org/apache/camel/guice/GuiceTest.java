@@ -68,9 +68,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|guiceyfruit
+name|apache
 operator|.
-name|Injectors
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -78,9 +84,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|guiceyfruit
 operator|.
-name|Assert
+name|Injectors
 import|;
 end_import
 
@@ -104,7 +110,7 @@ specifier|public
 class|class
 name|GuiceTest
 extends|extends
-name|Assert
+name|TestSupport
 block|{
 comment|/**      * Asserts that the CamelContext is available in the given Injector, that its been started, then close the injector      *      * @param injector      */
 DECL|method|assertCamelContextRunningThenCloseInjector (Injector injector)
@@ -280,11 +286,9 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got "
 operator|+

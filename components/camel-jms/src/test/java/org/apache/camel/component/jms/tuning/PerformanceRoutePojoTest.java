@@ -275,11 +275,9 @@ argument_list|()
 operator|-
 name|start
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"RoutePerformancePojoTest: Sent: "
 operator|+

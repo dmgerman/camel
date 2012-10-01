@@ -98,6 +98,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -115,6 +131,8 @@ DECL|class|Mina2ProducerShutdownTest
 specifier|public
 class|class
 name|Mina2ProducerShutdownTest
+extends|extends
+name|TestSupport
 block|{
 DECL|field|URI
 specifier|private
@@ -252,11 +270,9 @@ operator|>
 literal|5000
 condition|)
 block|{
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"ERROR: MinaProducer should be able to shutdown within 5000 millis: time="
 operator|+

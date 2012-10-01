@@ -158,6 +158,26 @@ name|RouteDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the status of a single single Camel Route which is used to implement one or more  *<a href="http://camel.apache.org/enterprise-integration-patterns.html">Enterprise Integration Paterns</a>  */
 end_comment
@@ -168,6 +188,22 @@ specifier|public
 class|class
 name|RouteStatusResource
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|RouteStatusResource
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|routeResource
 specifier|private
 name|RouteResource
@@ -393,11 +429,9 @@ throws|throws
 name|Exception
 block|{
 comment|// TODO replace the Form class with an injected bean?
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Received form! "
 operator|+

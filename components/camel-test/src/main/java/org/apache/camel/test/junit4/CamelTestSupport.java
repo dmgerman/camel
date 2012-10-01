@@ -498,7 +498,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|TestSupport
+name|CamelTestSupport
 operator|.
 name|class
 argument_list|)

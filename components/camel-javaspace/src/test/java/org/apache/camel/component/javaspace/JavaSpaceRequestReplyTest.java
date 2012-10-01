@@ -320,12 +320,15 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
+literal|"{} took {} milliseconds"
+argument_list|,
+name|getTestMethodName
+argument_list|()
+argument_list|,
 name|stop
 operator|-
 name|start
@@ -516,12 +519,15 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
+literal|"{} took {} milliseconds"
+argument_list|,
+name|getTestMethodName
+argument_list|()
+argument_list|,
 name|stop
 operator|-
 name|start
