@@ -1681,6 +1681,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|message
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_CODE
+argument_list|,
+literal|500
+argument_list|)
+expr_stmt|;
 name|doWriteResponse
 argument_list|(
 name|message
