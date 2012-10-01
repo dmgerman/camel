@@ -198,22 +198,6 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|TransactionCommitStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
 name|jms
 operator|.
 name|JmsMessageExchangeHelper
@@ -320,7 +304,7 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-comment|/**      * TODO Add Constructor Javadoc      *      * @param endpoint      * @param executor      */
+comment|/**      *       * @param endpoint      * @param executor      */
 DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor)
 specifier|public
 name|InOutMessageHandler
@@ -340,7 +324,7 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param endpoint      * @param executor      * @param synchronization      */
+comment|/**      *      * @param endpoint      * @param executor      * @param synchronization      */
 DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|InOutMessageHandler
