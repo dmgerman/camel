@@ -317,6 +317,11 @@ specifier|public
 class|class
 name|IntegrationTest
 block|{
+DECL|field|routeConfigured
+specifier|static
+name|boolean
+name|routeConfigured
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -347,11 +352,6 @@ name|Mock
 DECL|field|result
 name|MockEndpoint
 name|result
-decl_stmt|;
-DECL|field|routeConfigured
-specifier|static
-name|boolean
-name|routeConfigured
 decl_stmt|;
 annotation|@
 name|Produces
