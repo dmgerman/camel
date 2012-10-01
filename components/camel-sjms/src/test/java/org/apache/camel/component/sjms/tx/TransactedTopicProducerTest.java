@@ -197,17 +197,6 @@ specifier|protected
 name|ProducerTemplate
 name|template
 decl_stmt|;
-DECL|field|connectionFactory
-specifier|protected
-name|ActiveMQConnectionFactory
-name|connectionFactory
-init|=
-operator|new
-name|ActiveMQConnectionFactory
-argument_list|(
-literal|"vm://broker?broker.persistent=false&broker.useJmx=true"
-argument_list|)
-decl_stmt|;
 DECL|method|TransactedTopicProducerTest ()
 specifier|public
 name|TransactedTopicProducerTest
@@ -227,10 +216,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testTransactedProducer ()
+DECL|method|testRoute ()
 specifier|public
 name|void
-name|testTransactedProducer
+name|testRoute
 parameter_list|()
 throws|throws
 name|Exception

@@ -1526,6 +1526,8 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
+comment|// Return the producer to the pool so another waiting producer can move forward
+comment|// without waiting on us to complete the exchange
 try|try
 block|{
 name|getProducers

@@ -198,10 +198,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testTransactedProducer ()
+DECL|method|testRoute ()
 specifier|public
 name|void
-name|testTransactedProducer
+name|testRoute
 parameter_list|()
 throws|throws
 name|Exception
