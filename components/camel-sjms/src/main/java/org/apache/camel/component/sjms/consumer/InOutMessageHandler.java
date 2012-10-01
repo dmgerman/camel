@@ -365,31 +365,6 @@ name|synchronization
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *      * @param endpoint      * @param executor      * @param commitStrategy      * @param rollbackStrategy      */
-DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor, TransactionCommitStrategy commitStrategy)
-specifier|public
-name|InOutMessageHandler
-parameter_list|(
-name|Endpoint
-name|endpoint
-parameter_list|,
-name|ExecutorService
-name|executor
-parameter_list|,
-name|TransactionCommitStrategy
-name|commitStrategy
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpoint
-argument_list|,
-name|executor
-argument_list|,
-name|commitStrategy
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * @param message      */
 annotation|@
 name|Override
