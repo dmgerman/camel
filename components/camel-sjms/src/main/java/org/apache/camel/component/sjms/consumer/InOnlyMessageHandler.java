@@ -218,7 +218,6 @@ name|isSynchronous
 argument_list|()
 condition|)
 block|{
-comment|//SessionTransactionAsyncCallback callback = new SessionTransactionAsyncCallback(exchange, getSession(), getCommitStrategy());
 comment|// must process synchronous if transacted or configured to
 comment|// do so
 if|if
