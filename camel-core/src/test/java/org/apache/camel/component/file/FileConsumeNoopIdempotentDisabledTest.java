@@ -139,7 +139,7 @@ decl_stmt|;
 comment|// should be able to read the file multiple times as idempotent is false
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|2
 argument_list|)
