@@ -4283,6 +4283,45 @@ name|allowNullBody
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getCustomMessageListenerContainer ()
+specifier|public
+name|AbstractMessageListenerContainer
+name|getCustomMessageListenerContainer
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getCustomMessageListenerContainer
+argument_list|()
+return|;
+block|}
+DECL|method|setCustomMessageListenerContainer ( AbstractMessageListenerContainer customMessageListenerContainer)
+specifier|public
+name|void
+name|setCustomMessageListenerContainer
+parameter_list|(
+name|AbstractMessageListenerContainer
+name|customMessageListenerContainer
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setCustomMessageListenerContainer
+argument_list|(
+name|customMessageListenerContainer
+argument_list|)
+expr_stmt|;
+name|configuration
+operator|.
+name|setConsumerType
+argument_list|(
+name|ConsumerType
+operator|.
+name|Custom
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|ManagedAttribute
 DECL|method|getReplyToType ()

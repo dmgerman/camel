@@ -863,6 +863,11 @@ name|allowNullBody
 init|=
 literal|true
 decl_stmt|;
+DECL|field|customMessageListenerContainer
+specifier|private
+name|AbstractMessageListenerContainer
+name|customMessageListenerContainer
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -2072,6 +2077,13 @@ name|DefaultJmsMessageListenerContainer
 argument_list|(
 name|endpoint
 argument_list|)
+return|;
+case|case
+name|Custom
+case|:
+return|return
+name|getCustomMessageListenerContainer
+argument_list|()
 return|;
 default|default:
 throw|throw
@@ -4976,6 +4988,32 @@ operator|.
 name|allowNullBody
 operator|=
 name|allowNullBody
+expr_stmt|;
+block|}
+DECL|method|getCustomMessageListenerContainer ()
+specifier|public
+name|AbstractMessageListenerContainer
+name|getCustomMessageListenerContainer
+parameter_list|()
+block|{
+return|return
+name|customMessageListenerContainer
+return|;
+block|}
+DECL|method|setCustomMessageListenerContainer ( AbstractMessageListenerContainer customMessageListenerContainer)
+specifier|public
+name|void
+name|setCustomMessageListenerContainer
+parameter_list|(
+name|AbstractMessageListenerContainer
+name|customMessageListenerContainer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customMessageListenerContainer
+operator|=
+name|customMessageListenerContainer
 expr_stmt|;
 block|}
 block|}

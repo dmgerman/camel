@@ -30,9 +30,12 @@ name|ConsumerType
 block|{
 DECL|enumConstant|Simple
 DECL|enumConstant|Default
+DECL|enumConstant|Custom
 name|Simple
 block|,
 name|Default
+block|,
+name|Custom
 block|}
 end_enum
 

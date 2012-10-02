@@ -269,7 +269,7 @@ throws|throws
 name|Exception
 block|{
 comment|// use another thread to send the late reply to simulate that we do it later, not
-comment|// from the origianl route anyway
+comment|// from the original route anyway
 name|Thread
 name|sender
 init|=
