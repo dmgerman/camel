@@ -1344,6 +1344,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -8731,12 +8745,23 @@ argument_list|)
 expr_stmt|;
 name|shutdownServices
 argument_list|(
+name|managementMBeanAssembler
+argument_list|)
+expr_stmt|;
+name|shutdownServices
+argument_list|(
 name|lifecycleStrategies
 argument_list|)
 expr_stmt|;
 comment|// do not clear lifecycleStrategies as we can start Camel again and get the route back as before
 comment|// stop the lazy created so they can be re-created on restart
 name|forceStopLazyInitialization
+argument_list|()
+expr_stmt|;
+comment|// stop to clear introspection cache
+name|IntrospectionSupport
+operator|.
+name|stop
 argument_list|()
 expr_stmt|;
 name|stopWatch
