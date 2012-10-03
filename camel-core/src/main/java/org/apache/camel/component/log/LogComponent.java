@@ -331,8 +331,6 @@ operator|new
 name|LogFormatter
 argument_list|()
 decl_stmt|;
-name|IntrospectionSupport
-operator|.
 name|setProperties
 argument_list|(
 name|formatter
