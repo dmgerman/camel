@@ -306,33 +306,6 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|key
-operator|.
-name|startsWith
-argument_list|(
-literal|"Camel"
-argument_list|)
-condition|)
-block|{
-comment|// use intern String for headers which is Camel* headers
-comment|// this reduces memory allocations needed for those common headers
-name|originalKeys
-operator|.
-name|put
-argument_list|(
-name|s
-argument_list|,
-name|key
-operator|.
-name|intern
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|originalKeys
 operator|.
 name|put
@@ -342,7 +315,6 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|super
 operator|.
@@ -434,33 +406,6 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|key
-operator|.
-name|startsWith
-argument_list|(
-literal|"Camel"
-argument_list|)
-condition|)
-block|{
-comment|// use intern String for headers which is Camel* headers
-comment|// this reduces memory allocations needed for those common headers
-name|originalKeys
-operator|.
-name|put
-argument_list|(
-name|s
-argument_list|,
-name|key
-operator|.
-name|intern
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|originalKeys
 operator|.
 name|put
@@ -470,7 +415,6 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 name|super
 operator|.
 name|put
@@ -609,9 +553,7 @@ name|Object
 name|key
 parameter_list|)
 block|{
-name|String
-name|s
-init|=
+return|return
 name|key
 operator|.
 name|toString
@@ -623,29 +565,6 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|.
-name|startsWith
-argument_list|(
-literal|"camel"
-argument_list|)
-condition|)
-block|{
-comment|// use intern String for headers which is Camel* headers
-comment|// this reduces memory allocations needed for those common headers
-name|s
-operator|=
-name|s
-operator|.
-name|intern
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|s
 return|;
 block|}
 annotation|@

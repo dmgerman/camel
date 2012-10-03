@@ -157,7 +157,7 @@ specifier|private
 name|int
 name|size
 init|=
-literal|250
+literal|1000
 decl_stmt|;
 DECL|field|dataSet
 specifier|private
@@ -229,7 +229,7 @@ name|assertIsSatisfied
 argument_list|(
 name|context
 argument_list|,
-literal|30
+literal|3000
 argument_list|,
 name|TimeUnit
 operator|.

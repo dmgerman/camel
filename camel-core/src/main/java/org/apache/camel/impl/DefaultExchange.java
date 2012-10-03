@@ -551,30 +551,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|hasProperties
-argument_list|()
+name|properties
+operator|!=
+literal|null
 condition|)
 block|{
-comment|// use intern String for properties which is Camel* properties
-comment|// this reduces memory allocations needed for those common properties
-if|if
-condition|(
-name|name
-operator|.
-name|startsWith
-argument_list|(
-literal|"Camel"
-argument_list|)
-condition|)
-block|{
-name|name
-operator|=
-name|name
-operator|.
-name|intern
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|properties
 operator|.
@@ -831,30 +812,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-comment|// use intern String for properties which is Camel* properties
-comment|// this reduces memory allocations needed for those common properties
-if|if
-condition|(
-name|name
-operator|!=
-literal|null
-operator|&&
-name|name
-operator|.
-name|startsWith
-argument_list|(
-literal|"Camel"
-argument_list|)
-condition|)
-block|{
-name|name
-operator|=
-name|name
-operator|.
-name|intern
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|value
