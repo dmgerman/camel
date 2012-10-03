@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Factory to create archive (jar, war)  */
+comment|/**  *  Factory to select appropriate archive according to container  */
 end_comment
 
 begin_class
@@ -78,6 +78,22 @@ specifier|public
 class|class
 name|DeploymentFactory
 block|{
+DECL|field|WELD_EMBEDDED_CONTAINER
+specifier|private
+specifier|static
+name|String
+name|WELD_EMBEDDED_CONTAINER
+init|=
+literal|"weld-ee-embedded"
+decl_stmt|;
+DECL|field|JBOSSAS_MANAGED_CONTAINER
+specifier|private
+specifier|static
+name|String
+name|JBOSSAS_MANAGED_CONTAINER
+init|=
+literal|"jbossas-managed"
+decl_stmt|;
 annotation|@
 name|Deployment
 DECL|method|createArchive ()
@@ -119,24 +135,13 @@ block|,
 literal|"org.apache.camel.example.cdi.two"
 block|}
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Deployment type : "
-operator|+
-name|deploymentType
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|deploymentType
 operator|.
 name|equals
 argument_list|(
-literal|"weld-ee-embedded-1.1"
+name|WELD_EMBEDDED_CONTAINER
 argument_list|)
 condition|)
 block|{
@@ -157,7 +162,7 @@ name|deploymentType
 operator|.
 name|equals
 argument_list|(
-literal|"jbossas-managed"
+name|JBOSSAS_MANAGED_CONTAINER
 argument_list|)
 condition|)
 block|{

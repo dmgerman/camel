@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Util class used to create Archive used by Arquillian  */
+comment|/**  *  Util class used to create Jar or War archive used by Arquillian  */
 end_comment
 
 begin_class
@@ -176,7 +176,6 @@ specifier|public
 class|class
 name|ArchiveUtil
 block|{
-comment|//weld-ee-embedded-1.1
 annotation|@
 name|TargetsContainer
 argument_list|(
@@ -249,7 +248,6 @@ return|return
 name|jar
 return|;
 block|}
-comment|// jbossas-managed
 annotation|@
 name|TargetsContainer
 argument_list|(
