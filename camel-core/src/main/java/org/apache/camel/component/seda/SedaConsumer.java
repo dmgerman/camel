@@ -1391,6 +1391,33 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// need to shutdown executor here as well or each time this endpoint is
+comment|// started a new thread will be created
+if|if
+condition|(
+name|executor
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executor
+argument_list|)
+expr_stmt|;
+name|executor
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
