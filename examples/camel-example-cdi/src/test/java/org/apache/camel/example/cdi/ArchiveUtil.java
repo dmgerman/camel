@@ -176,19 +176,20 @@ specifier|public
 class|class
 name|ArchiveUtil
 block|{
+comment|//weld-ee-embedded-1.1
 annotation|@
 name|TargetsContainer
 argument_list|(
-literal|"weld-ee-embedded-1.1"
+literal|""
 argument_list|)
-DECL|method|createWeldArchive (String[] packages)
+DECL|method|createJarArchive (String[] packages)
 specifier|public
 specifier|static
 name|Archive
 argument_list|<
 name|?
 argument_list|>
-name|createWeldArchive
+name|createJarArchive
 parameter_list|(
 name|String
 index|[]
@@ -248,19 +249,20 @@ return|return
 name|jar
 return|;
 block|}
+comment|// jbossas-managed
 annotation|@
 name|TargetsContainer
 argument_list|(
-literal|"jbossas-managed"
+literal|""
 argument_list|)
-DECL|method|createJBossASArchive (String[] packages)
+DECL|method|createWarArchive (String[] packages)
 specifier|public
 specifier|static
 name|Archive
 argument_list|<
 name|?
 argument_list|>
-name|createJBossASArchive
+name|createWarArchive
 parameter_list|(
 name|String
 index|[]
