@@ -863,10 +863,10 @@ name|allowNullBody
 init|=
 literal|true
 decl_stmt|;
-DECL|field|customMessageListenerContainer
+DECL|field|messageListenerContainerFactory
 specifier|private
-name|AbstractMessageListenerContainer
-name|customMessageListenerContainer
+name|MessageListenerContainerFactory
+name|messageListenerContainerFactory
 decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
@@ -2083,7 +2083,9 @@ name|Custom
 case|:
 return|return
 name|getCustomMessageListenerContainer
-argument_list|()
+argument_list|(
+name|endpoint
+argument_list|)
 return|;
 default|default:
 throw|throw
@@ -2096,6 +2098,35 @@ name|consumerType
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getCustomMessageListenerContainer (JmsEndpoint endpoint)
+specifier|private
+name|AbstractMessageListenerContainer
+name|getCustomMessageListenerContainer
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
+block|{
+if|if
+condition|(
+name|messageListenerContainerFactory
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|messageListenerContainerFactory
+operator|.
+name|createMessageListenerContainer
+argument_list|(
+name|endpoint
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
@@ -4990,30 +5021,30 @@ operator|=
 name|allowNullBody
 expr_stmt|;
 block|}
-DECL|method|getCustomMessageListenerContainer ()
+DECL|method|getMessageListenerContainerFactory ()
 specifier|public
-name|AbstractMessageListenerContainer
-name|getCustomMessageListenerContainer
+name|MessageListenerContainerFactory
+name|getMessageListenerContainerFactory
 parameter_list|()
 block|{
 return|return
-name|customMessageListenerContainer
+name|messageListenerContainerFactory
 return|;
 block|}
-DECL|method|setCustomMessageListenerContainer ( AbstractMessageListenerContainer customMessageListenerContainer)
+DECL|method|setMessageListenerContainerFactory (MessageListenerContainerFactory messageListenerContainerFactory)
 specifier|public
 name|void
-name|setCustomMessageListenerContainer
+name|setMessageListenerContainerFactory
 parameter_list|(
-name|AbstractMessageListenerContainer
-name|customMessageListenerContainer
+name|MessageListenerContainerFactory
+name|messageListenerContainerFactory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|customMessageListenerContainer
+name|messageListenerContainerFactory
 operator|=
-name|customMessageListenerContainer
+name|messageListenerContainerFactory
 expr_stmt|;
 block|}
 block|}

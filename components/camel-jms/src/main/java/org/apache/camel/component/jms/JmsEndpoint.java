@@ -4283,33 +4283,33 @@ name|allowNullBody
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getCustomMessageListenerContainer ()
+DECL|method|getMessageListenerContainerFactory ()
 specifier|public
-name|AbstractMessageListenerContainer
-name|getCustomMessageListenerContainer
+name|MessageListenerContainerFactory
+name|getMessageListenerContainerFactory
 parameter_list|()
 block|{
 return|return
 name|configuration
 operator|.
-name|getCustomMessageListenerContainer
+name|getMessageListenerContainerFactory
 argument_list|()
 return|;
 block|}
-DECL|method|setCustomMessageListenerContainer ( AbstractMessageListenerContainer customMessageListenerContainer)
+DECL|method|setMessageListenerContainerFactory (MessageListenerContainerFactory messageListenerContainerFactory)
 specifier|public
 name|void
-name|setCustomMessageListenerContainer
+name|setMessageListenerContainerFactory
 parameter_list|(
-name|AbstractMessageListenerContainer
-name|customMessageListenerContainer
+name|MessageListenerContainerFactory
+name|messageListenerContainerFactory
 parameter_list|)
 block|{
 name|configuration
 operator|.
-name|setCustomMessageListenerContainer
+name|setMessageListenerContainerFactory
 argument_list|(
-name|customMessageListenerContainer
+name|messageListenerContainerFactory
 argument_list|)
 expr_stmt|;
 name|configuration
