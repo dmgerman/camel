@@ -260,7 +260,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|SjmsProducer
+name|SjmsExchangeMessageHelper
 import|;
 end_import
 
@@ -276,9 +276,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|jms
-operator|.
-name|JmsMessageExchangeHelper
+name|SjmsProducer
 import|;
 end_import
 
@@ -1353,7 +1351,7 @@ block|}
 name|Message
 name|request
 init|=
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|createMessage
 argument_list|(
@@ -1446,7 +1444,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|setCorrelationId
 argument_list|(
@@ -1497,7 +1495,7 @@ name|getResponseTimeOut
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|setJMSReplyTo
 argument_list|(
@@ -1685,7 +1683,7 @@ name|Message
 operator|)
 name|responseObject
 decl_stmt|;
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|populateExchange
 argument_list|(

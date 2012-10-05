@@ -122,7 +122,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|TransactionCommitStrategy
+name|SjmsExchangeMessageHelper
 import|;
 end_import
 
@@ -138,9 +138,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|jms
-operator|.
-name|JmsMessageExchangeHelper
+name|TransactionCommitStrategy
 import|;
 end_import
 
@@ -169,20 +167,6 @@ operator|.
 name|spi
 operator|.
 name|Synchronization
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
@@ -223,15 +207,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for DefaultMessageHandler  */
+comment|/**  * Abstract MessageListener   */
 end_comment
 
 begin_class
-DECL|class|DefaultMessageHandler
+DECL|class|AbstractMessageHandler
 specifier|public
 specifier|abstract
 class|class
-name|DefaultMessageHandler
+name|AbstractMessageHandler
 implements|implements
 name|MessageListener
 block|{
@@ -297,9 +281,9 @@ specifier|private
 name|TransactionCommitStrategy
 name|commitStrategy
 decl_stmt|;
-DECL|method|DefaultMessageHandler (Endpoint endpoint, ExecutorService executor)
+DECL|method|AbstractMessageHandler (Endpoint endpoint, ExecutorService executor)
 specifier|public
-name|DefaultMessageHandler
+name|AbstractMessageHandler
 parameter_list|(
 name|Endpoint
 name|endpoint
@@ -321,9 +305,9 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
-DECL|method|DefaultMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
+DECL|method|AbstractMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
-name|DefaultMessageHandler
+name|AbstractMessageHandler
 parameter_list|(
 name|Endpoint
 name|endpoint
@@ -357,28 +341,13 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
+comment|/*      * @see javax.jms.MessageListener#onMessage(javax.jms.Message)      *      * @param message      */
 annotation|@
 name|Override
 DECL|method|onMessage (Message message)
 specifier|public
 name|void
 name|onMessage
-parameter_list|(
-name|Message
-name|message
-parameter_list|)
-block|{
-name|handleMessage
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * @param message      */
-DECL|method|handleMessage (Message message)
-specifier|private
-name|void
-name|handleMessage
 parameter_list|(
 name|Message
 name|message
@@ -398,7 +367,7 @@ init|=
 operator|(
 name|DefaultExchange
 operator|)
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|createExchange
 argument_list|(
@@ -464,7 +433,7 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|doHandleMessage
+name|handleMessage
 argument_list|(
 name|exchange
 argument_list|)
@@ -504,7 +473,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|doHandleMessage
+name|handleMessage
 argument_list|(
 name|exchange
 argument_list|)
@@ -516,13 +485,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|ObjectHelper
+name|exchange
 operator|.
-name|wrapRuntimeCamelException
+name|setException
 argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+comment|//                                ObjectHelper.wrapRuntimeCamelException(e);
 block|}
 block|}
 block|}
@@ -599,17 +569,19 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|doHandleMessage (final Exchange exchange)
+comment|/**      * @param exchange      */
+DECL|method|handleMessage (final Exchange exchange)
 specifier|public
 specifier|abstract
 name|void
-name|doHandleMessage
+name|handleMessage
 parameter_list|(
 specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Method will be called to       */
 DECL|method|close ()
 specifier|public
 specifier|abstract

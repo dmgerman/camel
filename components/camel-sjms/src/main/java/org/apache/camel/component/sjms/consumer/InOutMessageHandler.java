@@ -198,9 +198,7 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|jms
-operator|.
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 import|;
 end_import
 
@@ -265,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for DefaultMessageHandler   * TODO Create a producer  * cache manager to store and purge unused cashed producers or we will have a  * memory leak  */
+comment|/**  * TODO Add Class documentation for AbstractMessageHandler   * TODO Create a producer  * cache manager to store and purge unused cashed producers or we will have a  * memory leak  */
 end_comment
 
 begin_class
@@ -274,7 +272,7 @@ specifier|public
 class|class
 name|InOutMessageHandler
 extends|extends
-name|DefaultMessageHandler
+name|AbstractMessageHandler
 block|{
 DECL|field|producerCache
 specifier|private
@@ -352,10 +350,10 @@ block|}
 comment|/**      * @param message      */
 annotation|@
 name|Override
-DECL|method|doHandleMessage (final Exchange exchange)
+DECL|method|handleMessage (final Exchange exchange)
 specifier|public
 name|void
-name|doHandleMessage
+name|handleMessage
 parameter_list|(
 specifier|final
 name|Exchange
@@ -986,7 +984,7 @@ block|}
 name|Message
 name|response
 init|=
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|createMessage
 argument_list|(

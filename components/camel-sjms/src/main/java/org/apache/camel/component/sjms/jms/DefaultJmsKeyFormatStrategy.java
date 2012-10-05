@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -15,101 +15,94 @@ operator|.
 name|component
 operator|.
 name|sjms
+operator|.
+name|jms
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
 begin_comment
-comment|/**  * IllegalHeaderException is thrown if a header is detected that doesn't meet  * the JMS standard.  */
+comment|/**  * Default strategy that handles dots and hyphens.  *<p/>  * This can be used for sending keys contain package names that is common by  * Java frameworks.  *   * @version  */
 end_comment
 
 begin_class
-DECL|class|IllegalHeaderException
+DECL|class|DefaultJmsKeyFormatStrategy
 specifier|public
 class|class
-name|IllegalHeaderException
-extends|extends
-name|RuntimeCamelException
+name|DefaultJmsKeyFormatStrategy
+implements|implements
+name|KeyFormatStrategy
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
+DECL|method|encodeKey (String key)
+specifier|public
+name|String
+name|encodeKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|String
+name|answer
 init|=
-literal|3136304415267471091L
-decl_stmt|;
-comment|/**      */
-DECL|method|IllegalHeaderException ()
-specifier|public
-name|IllegalHeaderException
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * @param message      * @param cause      */
-DECL|method|IllegalHeaderException (String message, Throwable cause)
-specifier|public
-name|IllegalHeaderException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
+name|key
+operator|.
+name|replace
 argument_list|(
-name|message
+literal|"."
 argument_list|,
-name|cause
+literal|"_DOT_"
+argument_list|)
+decl_stmt|;
+name|answer
+operator|=
+name|answer
+operator|.
+name|replaceAll
+argument_list|(
+literal|"-"
+argument_list|,
+literal|"_HYPHEN_"
 argument_list|)
 expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
-comment|/**      * @param message      */
-DECL|method|IllegalHeaderException (String message)
+DECL|method|decodeKey (String key)
 specifier|public
-name|IllegalHeaderException
+name|String
+name|decodeKey
 parameter_list|(
 name|String
-name|message
+name|key
 parameter_list|)
 block|{
-name|super
+name|String
+name|answer
+init|=
+name|key
+operator|.
+name|replaceAll
 argument_list|(
-name|message
+literal|"_HYPHEN_"
+argument_list|,
+literal|"-"
+argument_list|)
+decl_stmt|;
+name|answer
+operator|=
+name|answer
+operator|.
+name|replace
+argument_list|(
+literal|"_DOT_"
+argument_list|,
+literal|"."
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * @param cause      */
-DECL|method|IllegalHeaderException (Throwable cause)
-specifier|public
-name|IllegalHeaderException
-parameter_list|(
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|cause
-argument_list|)
-expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
 block|}
 end_class

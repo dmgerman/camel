@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms
+DECL|package|org.apache.camel.component.sjms.jms
 package|package
 name|org
 operator|.
@@ -15,95 +15,41 @@ operator|.
 name|component
 operator|.
 name|sjms
+operator|.
+name|jms
 package|;
 end_package
 
 begin_comment
-comment|/**  * Default strategy that handles dots and hyphens.  *<p/>  * This can be used for sending keys contain package names that is common by  * Java frameworks.  *   * @version  */
+comment|/**  * Strategy for applying encoding and decoding of JMS headers so they apply to  * the JMS spec.  *   * @version  */
 end_comment
 
-begin_class
-DECL|class|DefaultJmsKeyFormatStrategy
+begin_interface
+DECL|interface|KeyFormatStrategy
 specifier|public
-class|class
-name|DefaultJmsKeyFormatStrategy
-implements|implements
+interface|interface
 name|KeyFormatStrategy
 block|{
+comment|/**      * Encodes the key before its sent as a {@link javax.jms.Message} message.      *       * @param key the original key      * @return the encoded key      */
 DECL|method|encodeKey (String key)
-specifier|public
 name|String
 name|encodeKey
 parameter_list|(
 name|String
 name|key
 parameter_list|)
-block|{
-name|String
-name|answer
-init|=
-name|key
-operator|.
-name|replace
-argument_list|(
-literal|"."
-argument_list|,
-literal|"_DOT_"
-argument_list|)
-decl_stmt|;
-name|answer
-operator|=
-name|answer
-operator|.
-name|replaceAll
-argument_list|(
-literal|"-"
-argument_list|,
-literal|"_HYPHEN_"
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
+function_decl|;
+comment|/**      * Decodes the key after its received from a {@link javax.jms.Message}      * message.      *       * @param key the encoded key      * @return the decoded key as the original key      */
 DECL|method|decodeKey (String key)
-specifier|public
 name|String
 name|decodeKey
 parameter_list|(
 name|String
 name|key
 parameter_list|)
-block|{
-name|String
-name|answer
-init|=
-name|key
-operator|.
-name|replaceAll
-argument_list|(
-literal|"_HYPHEN_"
-argument_list|,
-literal|"-"
-argument_list|)
-decl_stmt|;
-name|answer
-operator|=
-name|answer
-operator|.
-name|replace
-argument_list|(
-literal|"_DOT_"
-argument_list|,
-literal|"."
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

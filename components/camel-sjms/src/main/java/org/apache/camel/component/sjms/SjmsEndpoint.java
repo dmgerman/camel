@@ -114,9 +114,9 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|consumer
+name|jms
 operator|.
-name|DefaultConsumer
+name|ConnectionResource
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|sjms
 operator|.
 name|jms
 operator|.
-name|ConnectionResource
+name|KeyFormatStrategy
 import|;
 end_import
 
@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for SjmsEndpoint  */
+comment|/**  * A JMS Endpoint  */
 end_comment
 
 begin_class
@@ -430,10 +430,9 @@ operator|-
 literal|1
 condition|)
 block|{
-name|setTopic
-argument_list|(
+name|topic
+operator|=
 literal|false
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -451,10 +450,9 @@ operator|-
 literal|1
 condition|)
 block|{
-name|setTopic
-argument_list|(
+name|topic
+operator|=
 literal|true
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -645,7 +643,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|DefaultConsumer
+name|SjmsConsumer
 argument_list|(
 name|this
 argument_list|,
@@ -796,6 +794,7 @@ name|getKeyFormatStrategy
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns a SessionPool if available.      *       * @return the sessions      */
 DECL|method|getSessions ()
 specifier|public
 name|SessionPool
@@ -806,22 +805,24 @@ return|return
 name|sessions
 return|;
 block|}
-DECL|method|setSynchronous (boolean asyncConsumer)
+comment|/**      * SessionPool used by endpoints that do not require a dedicated session per      * consumer or producer.      *       * @param sessions default null      */
+DECL|method|setSessions (SessionPool sessions)
 specifier|public
 name|void
-name|setSynchronous
+name|setSessions
 parameter_list|(
-name|boolean
-name|asyncConsumer
+name|SessionPool
+name|sessions
 parameter_list|)
 block|{
 name|this
 operator|.
-name|synchronous
+name|sessions
 operator|=
-name|asyncConsumer
+name|sessions
 expr_stmt|;
 block|}
+comment|/**      * Use to determine whether or not to process exchanges synchronously.      *       * @return true if endoint is synchronous, otherwise false      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -832,6 +833,354 @@ return|return
 name|synchronous
 return|;
 block|}
+comment|/**      * Flag can be set to enable/disable synchronous exchange processing.      *       * @param synchronous true to process synchronously, default is true      */
+DECL|method|setSynchronous (boolean synchronous)
+specifier|public
+name|void
+name|setSynchronous
+parameter_list|(
+name|boolean
+name|synchronous
+parameter_list|)
+block|{
+name|this
+operator|.
+name|synchronous
+operator|=
+name|synchronous
+expr_stmt|;
+block|}
+comment|/**      * Returns the configured acknowledgementMode.      *       * @return the acknowledgementMode      */
+DECL|method|getAcknowledgementMode ()
+specifier|public
+name|SessionAcknowledgementType
+name|getAcknowledgementMode
+parameter_list|()
+block|{
+return|return
+name|acknowledgementMode
+return|;
+block|}
+comment|/**      * Sets the acknowledgementMode configured on this endpoint.      *       * @param acknowledgementMode default is      *            SessionAcknowledgementType.AUTO_ACKNOWLEDGE      */
+DECL|method|setAcknowledgementMode (SessionAcknowledgementType acknowledgementMode)
+specifier|public
+name|void
+name|setAcknowledgementMode
+parameter_list|(
+name|SessionAcknowledgementType
+name|acknowledgementMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acknowledgementMode
+operator|=
+name|acknowledgementMode
+expr_stmt|;
+block|}
+comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the endpoint is a JMS Topic.      *       * @return the topic true if endpoint is a JMS Topic, default is false      */
+DECL|method|isTopic ()
+specifier|public
+name|boolean
+name|isTopic
+parameter_list|()
+block|{
+return|return
+name|topic
+return|;
+block|}
+comment|/**      * Returns the number of Session instances expected on this endpoint.      *       * @return the sessionCount      */
+DECL|method|getSessionCount ()
+specifier|public
+name|int
+name|getSessionCount
+parameter_list|()
+block|{
+return|return
+name|sessionCount
+return|;
+block|}
+comment|/**      * Sets the number of Session instances used for this endpoint. Value is      * ignored for endpoints that require a dedicated session such as a      * transacted or InOut endpoint.      *       * @param sessionCount the number of Session instances, default is 1      */
+DECL|method|setSessionCount (int sessionCount)
+specifier|public
+name|void
+name|setSessionCount
+parameter_list|(
+name|int
+name|sessionCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sessionCount
+operator|=
+name|sessionCount
+expr_stmt|;
+block|}
+comment|/**      * Returns the number of consumer listeners for this endpoint.      *       * @return the producerCount      */
+DECL|method|getProducerCount ()
+specifier|public
+name|int
+name|getProducerCount
+parameter_list|()
+block|{
+return|return
+name|producerCount
+return|;
+block|}
+comment|/**      * Sets the number of producers used for this endpoint.      *       * @param producerCount the number of producers for this endpoint, default      *            is 1      */
+DECL|method|setProducerCount (int producerCount)
+specifier|public
+name|void
+name|setProducerCount
+parameter_list|(
+name|int
+name|producerCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|producerCount
+operator|=
+name|producerCount
+expr_stmt|;
+block|}
+comment|/**      * Returns the number of consumer listeners for this endpoint.      *       * @return the consumerCount      */
+DECL|method|getConsumerCount ()
+specifier|public
+name|int
+name|getConsumerCount
+parameter_list|()
+block|{
+return|return
+name|consumerCount
+return|;
+block|}
+comment|/**      * Sets the number of consumer listeners used for this endpoint.      *       * @param consumerCount the number of consumers for this endpoint, default      *            is 1      */
+DECL|method|setConsumerCount (int consumerCount)
+specifier|public
+name|void
+name|setConsumerCount
+parameter_list|(
+name|int
+name|consumerCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerCount
+operator|=
+name|consumerCount
+expr_stmt|;
+block|}
+comment|/**      * Returns the Time To Live set on this endpoint.      *       * @return the ttl      */
+DECL|method|getTtl ()
+specifier|public
+name|long
+name|getTtl
+parameter_list|()
+block|{
+return|return
+name|ttl
+return|;
+block|}
+comment|/**      * Flag used to adjust the Time To Live value of produced messages.      *       * @param ttl a new TTL, default is -1 (disabled)      */
+DECL|method|setTtl (long ttl)
+specifier|public
+name|void
+name|setTtl
+parameter_list|(
+name|long
+name|ttl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ttl
+operator|=
+name|ttl
+expr_stmt|;
+block|}
+comment|/**      * Use to determine if the enpoint has message persistence enabled or      * disabled.      *       * @return true if persistent, otherwise false      */
+DECL|method|isPersistent ()
+specifier|public
+name|boolean
+name|isPersistent
+parameter_list|()
+block|{
+return|return
+name|persistent
+return|;
+block|}
+comment|/**      * Flag used to enable/disable message persistence.      *       * @param persistent true if persistent, default is true      */
+DECL|method|setPersistent (boolean persistent)
+specifier|public
+name|void
+name|setPersistent
+parameter_list|(
+name|boolean
+name|persistent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|persistent
+operator|=
+name|persistent
+expr_stmt|;
+block|}
+comment|/**      * Gets the durable subscription Id.      *       * @return the durableSubscriptionId      */
+DECL|method|getDurableSubscriptionId ()
+specifier|public
+name|String
+name|getDurableSubscriptionId
+parameter_list|()
+block|{
+return|return
+name|durableSubscriptionId
+return|;
+block|}
+comment|/**      * Sets the durable subscription Id required for durable topics.      *       * @param durableSubscriptionId durable subscription Id or null      */
+DECL|method|setDurableSubscriptionId (String durableSubscriptionId)
+specifier|public
+name|void
+name|setDurableSubscriptionId
+parameter_list|(
+name|String
+name|durableSubscriptionId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|durableSubscriptionId
+operator|=
+name|durableSubscriptionId
+expr_stmt|;
+block|}
+comment|/**      * Returns the InOut response timeout.      *       * @return the responseTimeOut      */
+DECL|method|getResponseTimeOut ()
+specifier|public
+name|long
+name|getResponseTimeOut
+parameter_list|()
+block|{
+return|return
+name|responseTimeOut
+return|;
+block|}
+comment|/**      * Sets the amount of time we should wait before timing out a InOut      * response.      *       * @param responseTimeOut response timeout      */
+DECL|method|setResponseTimeOut (long responseTimeOut)
+specifier|public
+name|void
+name|setResponseTimeOut
+parameter_list|(
+name|long
+name|responseTimeOut
+parameter_list|)
+block|{
+name|this
+operator|.
+name|responseTimeOut
+operator|=
+name|responseTimeOut
+expr_stmt|;
+block|}
+comment|/**      * Returns the JMS Message selector syntax used to refine the messages being      * consumed.      *       * @return the messageSelector      */
+DECL|method|getMessageSelector ()
+specifier|public
+name|String
+name|getMessageSelector
+parameter_list|()
+block|{
+return|return
+name|messageSelector
+return|;
+block|}
+comment|/**      * Sets the JMS Message selector syntax.      *       * @param messageSelector Message selector syntax or null      */
+DECL|method|setMessageSelector (String messageSelector)
+specifier|public
+name|void
+name|setMessageSelector
+parameter_list|(
+name|String
+name|messageSelector
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageSelector
+operator|=
+name|messageSelector
+expr_stmt|;
+block|}
+comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *       * @return the transactionBatchCount      */
+DECL|method|getTransactionBatchCount ()
+specifier|public
+name|int
+name|getTransactionBatchCount
+parameter_list|()
+block|{
+return|return
+name|transactionBatchCount
+return|;
+block|}
+comment|/**      * If transacted sets the number of messages to process before committing a      * transaction.      *       * @param transactionBatchCount number of messages to process before      *            committing, default is 1      */
+DECL|method|setTransactionBatchCount (int transactionBatchCount)
+specifier|public
+name|void
+name|setTransactionBatchCount
+parameter_list|(
+name|int
+name|transactionBatchCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionBatchCount
+operator|=
+name|transactionBatchCount
+expr_stmt|;
+block|}
+comment|/**      * Gets the commit strategy.      *       * @return the transactionCommitStrategy      */
+DECL|method|getTransactionCommitStrategy ()
+specifier|public
+name|TransactionCommitStrategy
+name|getTransactionCommitStrategy
+parameter_list|()
+block|{
+return|return
+name|transactionCommitStrategy
+return|;
+block|}
+comment|/**      * Sets the commit strategy.      *       * @param transactionCommitStrategy commit strategy to use when processing      *            transacted messages      */
+DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy transactionCommitStrategy)
+specifier|public
+name|void
+name|setTransactionCommitStrategy
+parameter_list|(
+name|TransactionCommitStrategy
+name|transactionCommitStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionCommitStrategy
+operator|=
+name|transactionCommitStrategy
+expr_stmt|;
+block|}
+comment|/**      * Use to determine if transactions are enabled or disabled.      *       * @return true if transacted, otherwise false      */
+DECL|method|isTransacted ()
+specifier|public
+name|boolean
+name|isTransacted
+parameter_list|()
+block|{
+return|return
+name|transacted
+return|;
+block|}
+comment|/**      * Enable/disable flag for transactions      *       * @param transacted true if transacted, otherwise false      */
 DECL|method|setTransacted (boolean transacted)
 specifier|public
 name|void
@@ -861,16 +1210,18 @@ operator|=
 name|transacted
 expr_stmt|;
 block|}
-DECL|method|isTransacted ()
+comment|/**      * Returns the reply to destination name used for InOut producer endpoints.      *       * @return the namedReplyTo      */
+DECL|method|getNamedReplyTo ()
 specifier|public
-name|boolean
-name|isTransacted
+name|String
+name|getNamedReplyTo
 parameter_list|()
 block|{
 return|return
-name|transacted
+name|namedReplyTo
 return|;
 block|}
+comment|/**      * Sets the reply to destination name used for InOut producer endpoints.      *       * @param the namedReplyTo the JMS reply to destination name      */
 DECL|method|setNamedReplyTo (String namedReplyTo)
 specifier|public
 name|void
@@ -894,328 +1245,6 @@ name|ExchangePattern
 operator|.
 name|InOut
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getNamedReplyTo ()
-specifier|public
-name|String
-name|getNamedReplyTo
-parameter_list|()
-block|{
-return|return
-name|namedReplyTo
-return|;
-block|}
-DECL|method|setAcknowledgementMode (SessionAcknowledgementType acknowledgementMode)
-specifier|public
-name|void
-name|setAcknowledgementMode
-parameter_list|(
-name|SessionAcknowledgementType
-name|acknowledgementMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|acknowledgementMode
-operator|=
-name|acknowledgementMode
-expr_stmt|;
-block|}
-DECL|method|getAcknowledgementMode ()
-specifier|public
-name|SessionAcknowledgementType
-name|getAcknowledgementMode
-parameter_list|()
-block|{
-return|return
-name|acknowledgementMode
-return|;
-block|}
-DECL|method|setTopic (boolean topic)
-specifier|public
-name|void
-name|setTopic
-parameter_list|(
-name|boolean
-name|topic
-parameter_list|)
-block|{
-name|this
-operator|.
-name|topic
-operator|=
-name|topic
-expr_stmt|;
-block|}
-DECL|method|isTopic ()
-specifier|public
-name|boolean
-name|isTopic
-parameter_list|()
-block|{
-return|return
-name|topic
-return|;
-block|}
-DECL|method|setProducerCount (int producerCount)
-specifier|public
-name|void
-name|setProducerCount
-parameter_list|(
-name|int
-name|producerCount
-parameter_list|)
-block|{
-name|this
-operator|.
-name|producerCount
-operator|=
-name|producerCount
-expr_stmt|;
-block|}
-DECL|method|getProducerCount ()
-specifier|public
-name|int
-name|getProducerCount
-parameter_list|()
-block|{
-return|return
-name|producerCount
-return|;
-block|}
-DECL|method|setConsumerCount (int consumerCount)
-specifier|public
-name|void
-name|setConsumerCount
-parameter_list|(
-name|int
-name|consumerCount
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumerCount
-operator|=
-name|consumerCount
-expr_stmt|;
-block|}
-DECL|method|getConsumerCount ()
-specifier|public
-name|int
-name|getConsumerCount
-parameter_list|()
-block|{
-return|return
-name|consumerCount
-return|;
-block|}
-DECL|method|getTtl ()
-specifier|public
-name|long
-name|getTtl
-parameter_list|()
-block|{
-return|return
-name|ttl
-return|;
-block|}
-DECL|method|setTtl (long ttl)
-specifier|public
-name|void
-name|setTtl
-parameter_list|(
-name|long
-name|ttl
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ttl
-operator|=
-name|ttl
-expr_stmt|;
-block|}
-DECL|method|isPersistent ()
-specifier|public
-name|boolean
-name|isPersistent
-parameter_list|()
-block|{
-return|return
-name|persistent
-return|;
-block|}
-DECL|method|setPersistent (boolean persistent)
-specifier|public
-name|void
-name|setPersistent
-parameter_list|(
-name|boolean
-name|persistent
-parameter_list|)
-block|{
-name|this
-operator|.
-name|persistent
-operator|=
-name|persistent
-expr_stmt|;
-block|}
-DECL|method|getDurableSubscriptionId ()
-specifier|public
-name|String
-name|getDurableSubscriptionId
-parameter_list|()
-block|{
-return|return
-name|durableSubscriptionId
-return|;
-block|}
-DECL|method|setDurableSubscriptionId (String durableSubscription)
-specifier|public
-name|void
-name|setDurableSubscriptionId
-parameter_list|(
-name|String
-name|durableSubscription
-parameter_list|)
-block|{
-name|this
-operator|.
-name|durableSubscriptionId
-operator|=
-name|durableSubscription
-expr_stmt|;
-block|}
-DECL|method|getSessionCount ()
-specifier|public
-name|int
-name|getSessionCount
-parameter_list|()
-block|{
-return|return
-name|sessionCount
-return|;
-block|}
-DECL|method|setSessionCount (int sessionCount)
-specifier|public
-name|void
-name|setSessionCount
-parameter_list|(
-name|int
-name|sessionCount
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sessionCount
-operator|=
-name|sessionCount
-expr_stmt|;
-block|}
-DECL|method|setResponseTimeOut (long responseTimeOut)
-specifier|public
-name|void
-name|setResponseTimeOut
-parameter_list|(
-name|long
-name|responseTimeOut
-parameter_list|)
-block|{
-name|this
-operator|.
-name|responseTimeOut
-operator|=
-name|responseTimeOut
-expr_stmt|;
-block|}
-DECL|method|getResponseTimeOut ()
-specifier|public
-name|long
-name|getResponseTimeOut
-parameter_list|()
-block|{
-return|return
-name|responseTimeOut
-return|;
-block|}
-DECL|method|setMessageSelector (String messageSelector)
-specifier|public
-name|void
-name|setMessageSelector
-parameter_list|(
-name|String
-name|messageSelector
-parameter_list|)
-block|{
-name|this
-operator|.
-name|messageSelector
-operator|=
-name|messageSelector
-expr_stmt|;
-block|}
-DECL|method|getMessageSelector ()
-specifier|public
-name|String
-name|getMessageSelector
-parameter_list|()
-block|{
-return|return
-name|messageSelector
-return|;
-block|}
-DECL|method|getTransactionCommitStrategy ()
-specifier|public
-name|TransactionCommitStrategy
-name|getTransactionCommitStrategy
-parameter_list|()
-block|{
-return|return
-name|transactionCommitStrategy
-return|;
-block|}
-DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy commitStrategy)
-specifier|public
-name|void
-name|setTransactionCommitStrategy
-parameter_list|(
-name|TransactionCommitStrategy
-name|commitStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transactionCommitStrategy
-operator|=
-name|commitStrategy
-expr_stmt|;
-block|}
-DECL|method|getTransactionBatchCount ()
-specifier|public
-name|int
-name|getTransactionBatchCount
-parameter_list|()
-block|{
-return|return
-name|transactionBatchCount
-return|;
-block|}
-DECL|method|setTransactionBatchCount (int transactionBatchCount)
-specifier|public
-name|void
-name|setTransactionBatchCount
-parameter_list|(
-name|int
-name|transactionBatchCount
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transactionBatchCount
-operator|=
-name|transactionBatchCount
 expr_stmt|;
 block|}
 block|}

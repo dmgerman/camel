@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.sjms.jms
+DECL|package|org.apache.camel.component.sjms
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|sjms
-operator|.
-name|jms
 package|;
 end_package
 
@@ -240,6 +238,8 @@ name|component
 operator|.
 name|sjms
 operator|.
+name|jms
+operator|.
 name|DefaultJmsKeyFormatStrategy
 import|;
 end_import
@@ -256,7 +256,63 @@ name|component
 operator|.
 name|sjms
 operator|.
+name|jms
+operator|.
 name|IllegalHeaderException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
+name|JmsConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
+name|JmsMessageHeaderType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
+name|JmsMessageType
 import|;
 end_import
 
@@ -393,15 +449,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for {@link javax.jms.Message}.  *  * @version   */
+comment|/**  * TODO Add Class documentation for SjmsExchangeMessageHelper  *   * @author sully6768  */
 end_comment
 
 begin_class
-DECL|class|JmsMessageExchangeHelper
+DECL|class|SjmsExchangeMessageHelper
 specifier|public
 specifier|final
 class|class
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -414,14 +470,14 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|JmsMessageExchangeHelper ()
+DECL|method|SjmsExchangeMessageHelper ()
 specifier|private
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 parameter_list|()
 block|{     }
 DECL|method|createExchange (Message message, Endpoint endpoint)
@@ -479,7 +535,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|setJmsMessageHeaders
 argument_list|(
@@ -534,7 +590,7 @@ expr_stmt|;
 block|}
 switch|switch
 condition|(
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|discoverType
 argument_list|(
@@ -817,7 +873,7 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * Removes the property from the JMS message.      *      * @param jmsMessage the JMS message      * @param name       name of the property to remove      * @return the old value of the property or<tt>null</tt> if not exists      * @throws JMSException can be thrown      */
+comment|/**      * Removes the property from the JMS message.      *       * @param jmsMessage the JMS message      * @param name name of the property to remove      * @return the old value of the property or<tt>null</tt> if not exists      * @throws JMSException can be thrown      */
 DECL|method|removeJmsProperty (Message jmsMessage, String name)
 specifier|public
 specifier|static
@@ -980,7 +1036,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Tests whether a given property with the name exists      *      * @param jmsMessage the JMS message      * @param name       name of the property to test if exists      * @return<tt>true</tt> if the property exists,<tt>false</tt> if not.      * @throws JMSException can be thrown      */
+comment|/**      * Tests whether a given property with the name exists      *       * @param jmsMessage the JMS message      * @param name name of the property to test if exists      * @return<tt>true</tt> if the property exists,<tt>false</tt> if not.      * @throws JMSException can be thrown      */
 DECL|method|hasProperty (Message jmsMessage, String name)
 specifier|public
 specifier|static
@@ -1045,7 +1101,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Sets the property on the given JMS message.      *      * @param jmsMessage  the JMS message      * @param name        name of the property to set      * @param value       the value      * @throws JMSException can be thrown      */
+comment|/**      * Sets the property on the given JMS message.      *       * @param jmsMessage the JMS message      * @param name name of the property to set      * @param value the value      * @throws JMSException can be thrown      */
 DECL|method|setProperty (Message jmsMessage, String name, Object value)
 specifier|public
 specifier|static
@@ -1254,7 +1310,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *      * @param message  the JMS message      * @param correlationId the correlation id      */
+comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *       * @param message the JMS message      * @param correlationId the correlation id      */
 DECL|method|setCorrelationId (Message message, String correlationId)
 specifier|public
 specifier|static
@@ -1304,7 +1360,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Normalizes the destination name, by removing any leading queue or topic prefixes.      *      * @param destination the destination      * @return the normalized destination      */
+comment|/**      * Normalizes the destination name, by removing any leading queue or topic      * prefixes.      *       * @param destination the destination      * @return the normalized destination      */
 DECL|method|normalizeDestinationName (String destination)
 specifier|public
 specifier|static
@@ -1391,7 +1447,7 @@ name|destination
 return|;
 block|}
 block|}
-comment|/**      * Sets the JMSReplyTo on the message.      *      * @param message  the message      * @param replyTo  the reply to destination      */
+comment|/**      * Sets the JMSReplyTo on the message.      *       * @param message the message      * @param replyTo the reply to destination      */
 DECL|method|setJMSReplyTo (Message message, Destination replyTo)
 specifier|public
 specifier|static
@@ -1435,7 +1491,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the JMSReplyTo from the message.      *      * @param message  the message      * @return the reply to, can be<tt>null</tt>      */
+comment|/**      * Gets the JMSReplyTo from the message.      *       * @param message the message      * @return the reply to, can be<tt>null</tt>      */
 DECL|method|getJMSReplyTo (Message message)
 specifier|public
 specifier|static
@@ -1467,7 +1523,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Gets the JMSType from the message.      *      * @param message  the message      * @return the type, can be<tt>null</tt>      */
+comment|/**      * Gets the JMSType from the message.      *       * @param message the message      * @return the type, can be<tt>null</tt>      */
 DECL|method|getJMSType (Message message)
 specifier|public
 specifier|static
@@ -1499,7 +1555,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Gets the JMSRedelivered from the message.      *      * @param message  the message      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,<tt>null</tt> if not able to determine      */
+comment|/**      * Gets the JMSRedelivered from the message.      *       * @param message the message      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,      *<tt>null</tt> if not able to determine      */
 DECL|method|getJMSRedelivered (Message message)
 specifier|public
 specifier|static
@@ -1531,7 +1587,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Sets the JMSDeliveryMode on the message.      *      * @param exchange the exchange      * @param message  the message      * @param deliveryMode  the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery mode      */
+comment|/**      * Sets the JMSDeliveryMode on the message.      *       * @param exchange the exchange      * @param message the message      * @param deliveryMode the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery      *             mode      */
 DECL|method|setJMSDeliveryMode (Exchange exchange, Message message, Object deliveryMode)
 specifier|public
 specifier|static
@@ -1920,7 +1976,7 @@ literal|"JMSDeliveryMode"
 argument_list|)
 condition|)
 block|{
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|setJMSDeliveryMode
 argument_list|(
@@ -2052,7 +2108,7 @@ argument_list|(
 name|headerName
 argument_list|)
 decl_stmt|;
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|setProperty
 argument_list|(
@@ -2548,7 +2604,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|getJMSReplyTo
 argument_list|(
@@ -2567,7 +2623,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|getJMSType
 argument_list|(
@@ -2820,7 +2876,7 @@ block|}
 name|JmsMessageType
 name|messageType
 init|=
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|discoverType
 argument_list|(
@@ -3016,7 +3072,7 @@ throw|;
 block|}
 name|answer
 operator|=
-name|JmsMessageExchangeHelper
+name|SjmsExchangeMessageHelper
 operator|.
 name|setJmsMessageHeaders
 argument_list|(
@@ -3029,57 +3085,6 @@ return|return
 name|answer
 return|;
 block|}
-comment|//
-comment|//    @SuppressWarnings("unchecked")
-comment|//    public static Message createMessage(Session session, Object payload, ) throws Exception {
-comment|//        Message answer = null;
-comment|//        Object body = null;
-comment|//        try {
-comment|//            if (out&& exchange.getOut().getBody() != null) {
-comment|//                body = exchange.getOut().getBody();
-comment|//            } else {
-comment|//                body = exchange.getIn().getBody();
-comment|//            }
-comment|//            JmsMessageType messageType = JmsMessageExchangeHelper.discoverType(exchange);
-comment|//
-comment|//            switch (messageType) {
-comment|//            case Bytes:
-comment|//                BytesMessage bytesMessage = session.createBytesMessage();
-comment|//                bytesMessage.writeBytes((byte[])body);
-comment|//                answer = bytesMessage;
-comment|//                break;
-comment|//            case Map:
-comment|//                MapMessage mapMessage = session.createMapMessage();
-comment|//                Map<String, Object> objMap = (Map<String, Object>)body;
-comment|//                Set<String> keys = objMap.keySet();
-comment|//                for (String key : keys) {
-comment|//                    Object value = objMap.get(key);
-comment|//                    mapMessage.setObject(key, value);
-comment|//                }
-comment|//                answer = mapMessage;
-comment|//                break;
-comment|//            case Object:
-comment|//                ObjectMessage objectMessage = session.createObjectMessage();
-comment|//                objectMessage.setObject((Serializable)body);
-comment|//                answer = objectMessage;
-comment|//                break;
-comment|//            case Text:
-comment|//                TextMessage textMessage = session.createTextMessage();
-comment|//                textMessage.setText((String)body);
-comment|//                answer = textMessage;
-comment|//                break;
-comment|//            default:
-comment|//                break;
-comment|//            }
-comment|//        } catch (Exception e) {
-comment|//            LOGGER.error("TODO Auto-generated catch block", e);
-comment|//            throw e;
-comment|//        }
-comment|//
-comment|//        answer = JmsMessageExchangeHelper.setJmsMessageHeaders(exchange, answer);
-comment|//        return answer;
-comment|//    }
-comment|//
 DECL|method|hasIllegalHeaderKey (String key)
 specifier|private
 specifier|static

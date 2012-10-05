@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An InOnly {@link DefaultMessageHandler}  *   */
+comment|/**  * An InOnly {@link AbstractMessageHandler}  *   */
 end_comment
 
 begin_class
@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|InOnlyMessageHandler
 extends|extends
-name|DefaultMessageHandler
+name|AbstractMessageHandler
 block|{
 comment|/**      * @param endpoint      * @param executor      */
 DECL|method|InOnlyMessageHandler (Endpoint endpoint, ExecutorService executor)
@@ -156,10 +156,10 @@ block|}
 comment|/**      * @param message      */
 annotation|@
 name|Override
-DECL|method|doHandleMessage (final Exchange exchange)
+DECL|method|handleMessage (final Exchange exchange)
 specifier|public
 name|void
-name|doHandleMessage
+name|handleMessage
 parameter_list|(
 specifier|final
 name|Exchange
