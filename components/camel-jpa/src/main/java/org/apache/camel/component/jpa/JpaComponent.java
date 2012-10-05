@@ -320,6 +320,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 comment|// lookup entity manager factory and use it if only one provided
 if|if
 condition|(
@@ -681,11 +686,6 @@ literal|"No TransactionManager has been configured on this JpaComponent. Each Jp
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class
