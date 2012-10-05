@@ -24,7 +24,7 @@ name|lang
 operator|.
 name|ref
 operator|.
-name|SoftReference
+name|WeakReference
 import|;
 end_import
 
@@ -79,14 +79,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Least Recently Used Cache which uses {@link SoftReference}.  *<p/>  * This implementation uses {@link java.lang.ref.SoftReference} for stored values in the cache, to support the JVM  * when it wants to reclaim objects when it's running out of memory. Therefore this implementation does  * not support<b>all</b> the {@link java.util.Map} methods.  *<p/>  * The following methods is<b>only</b> be be used:  *<ul>  *<li>containsKey - To determine if the key is in the cache and refers to a value</li>  *<li>entrySet - To return a set of all the entries (as key/value paris)</li>  *<li>get - To get a value from the cache</li>  *<li>isEmpty - To determine if the cache contains any values</li>  *<li>keySet - To return a set of the current keys which refers to a value</li>  *<li>put - To add a value to the cache</li>  *<li>putAll - To add values to the cache</li>  *<li>remove - To remove a value from the cache by its key</li>  *<li>size - To get the current size</li>  *<li>values - To return a copy of all the value in a list</li>  *</ul>  *<p/>  * The {@link #containsValue(Object)} method should<b>not</b> be used as it's not adjusted to check  * for the existence of a value without catering for the soft references.  *  * @see LRUCache  * @see LRUWeakCache  */
+comment|/**  * A Least Recently Used Cache which uses {@link java.lang.ref.WeakReference}.  *<p/>  * This implementation uses {@link java.lang.ref.WeakReference} for stored values in the cache, to support the JVM  * when it wants to reclaim objects for example during garbage collection. Therefore this implementation does  * not support<b>all</b> the {@link java.util.Map} methods.  *<p/>  * The following methods is<b>only</b> be be used:  *<ul>  *<li>containsKey - To determine if the key is in the cache and refers to a value</li>  *<li>entrySet - To return a set of all the entries (as key/value paris)</li>  *<li>get - To get a value from the cache</li>  *<li>isEmpty - To determine if the cache contains any values</li>  *<li>keySet - To return a set of the current keys which refers to a value</li>  *<li>put - To add a value to the cache</li>  *<li>putAll - To add values to the cache</li>  *<li>remove - To remove a value from the cache by its key</li>  *<li>size - To get the current size</li>  *<li>values - To return a copy of all the value in a list</li>  *</ul>  *<p/>  * The {@link #containsValue(Object)} method should<b>not</b> be used as it's not adjusted to check  * for the existence of a value without catering for the soft references.  *  * @see LRUCache  * @see LRUSoftCache  */
 end_comment
 
 begin_class
-DECL|class|LRUSoftCache
+DECL|class|LRUWeakCache
 specifier|public
 class|class
-name|LRUSoftCache
+name|LRUWeakCache
 parameter_list|<
 name|K
 parameter_list|,
@@ -109,9 +109,9 @@ name|serialVersionUID
 init|=
 literal|1L
 decl_stmt|;
-DECL|method|LRUSoftCache (int maximumCacheSize)
+DECL|method|LRUWeakCache (int maximumCacheSize)
 specifier|public
-name|LRUSoftCache
+name|LRUWeakCache
 parameter_list|(
 name|int
 name|maximumCacheSize
@@ -123,9 +123,9 @@ name|maximumCacheSize
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|LRUSoftCache (int initialCapacity, int maximumCacheSize)
+DECL|method|LRUWeakCache (int initialCapacity, int maximumCacheSize)
 specifier|public
-name|LRUSoftCache
+name|LRUWeakCache
 parameter_list|(
 name|int
 name|initialCapacity
@@ -161,14 +161,14 @@ name|V
 name|value
 parameter_list|)
 block|{
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
 name|put
 init|=
 operator|new
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -176,14 +176,14 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
 name|prev
 init|=
 operator|(
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -229,14 +229,14 @@ name|Object
 name|o
 parameter_list|)
 block|{
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
 name|ref
 init|=
 operator|(
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -283,8 +283,6 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|?
@@ -334,14 +332,14 @@ name|Object
 name|o
 parameter_list|)
 block|{
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
 name|ref
 init|=
 operator|(
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -385,7 +383,7 @@ block|{
 comment|// return a copy of all the active values
 name|Collection
 argument_list|<
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -395,7 +393,7 @@ init|=
 operator|(
 name|Collection
 argument_list|<
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -421,7 +419,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -483,14 +481,14 @@ name|values
 argument_list|()
 control|)
 block|{
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|?
 argument_list|>
 name|ref
 init|=
 operator|(
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|?
 argument_list|>
@@ -563,8 +561,6 @@ DECL|method|entrySet ()
 specifier|public
 name|Set
 argument_list|<
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|K
@@ -577,8 +573,6 @@ parameter_list|()
 block|{
 name|Set
 argument_list|<
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|K
@@ -598,8 +592,6 @@ comment|// the soft reference so the returned set is without the soft reference,
 comment|// use able for the caller to use
 name|Set
 argument_list|<
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|K
@@ -612,8 +604,6 @@ init|=
 operator|new
 name|LinkedHashSet
 argument_list|<
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|K
@@ -631,8 +621,6 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|K
@@ -644,8 +632,6 @@ range|:
 name|original
 control|)
 block|{
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|K
@@ -655,8 +641,6 @@ argument_list|>
 name|view
 init|=
 operator|new
-name|Map
-operator|.
 name|Entry
 argument_list|<
 name|K
@@ -691,14 +675,14 @@ name|V
 name|getValue
 parameter_list|()
 block|{
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
 name|ref
 init|=
 operator|(
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -743,7 +727,7 @@ operator|(
 name|V
 operator|)
 operator|new
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -751,14 +735,14 @@ argument_list|(
 name|v
 argument_list|)
 decl_stmt|;
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
 name|prev
 init|=
 operator|(
-name|SoftReference
+name|WeakReference
 argument_list|<
 name|V
 argument_list|>
@@ -806,7 +790,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"LRUSoftCache@"
+literal|"LRUWeakCache@"
 operator|+
 name|ObjectHelper
 operator|.

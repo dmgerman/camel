@@ -311,11 +311,14 @@ name|Method
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// use a cache to speedup introspecting for known classes during startup
+comment|// use a weak cache as we dont want the cache to keep around as it reference classes
+comment|// which could prevent classloader to unload classes if being referenced from this cache
 DECL|field|CACHE
 specifier|private
 specifier|static
 specifier|final
-name|Map
+name|LRUCache
 argument_list|<
 name|Class
 argument_list|<
@@ -327,7 +330,7 @@ argument_list|>
 name|CACHE
 init|=
 operator|new
-name|LRUSoftCache
+name|LRUWeakCache
 argument_list|<
 name|Class
 argument_list|<
@@ -450,6 +453,42 @@ name|void
 name|stop
 parameter_list|()
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Clearing cache[size={}, hits={}, misses={}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|CACHE
+operator|.
+name|size
+argument_list|()
+block|,
+name|CACHE
+operator|.
+name|getHits
+argument_list|()
+block|,
+name|CACHE
+operator|.
+name|getMisses
+argument_list|()
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 name|CACHE
 operator|.
 name|clear

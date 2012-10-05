@@ -274,7 +274,21 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUSoftCache
+name|LRUCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUWeakCache
 import|;
 end_import
 
@@ -341,10 +355,12 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// use a cache to speedup gathering JMX MBeanInfo for known classes
+comment|// use a weak cache as we dont want the cache to keep around as it reference classes
+comment|// which could prevent classloader to unload classes if being referenced from this cache
 DECL|field|cache
 specifier|private
 specifier|final
-name|Map
+name|LRUCache
 argument_list|<
 name|Class
 argument_list|<
@@ -356,7 +372,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|LRUSoftCache
+name|LRUWeakCache
 argument_list|<
 name|Class
 argument_list|<
@@ -391,6 +407,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Clearing cache[size={}, hits={}, misses={}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|cache
+operator|.
+name|size
+argument_list|()
+block|,
+name|cache
+operator|.
+name|getHits
+argument_list|()
+block|,
+name|cache
+operator|.
+name|getMisses
+argument_list|()
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 name|cache
 operator|.
 name|clear
