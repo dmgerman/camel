@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -803,6 +813,9 @@ literal|null
 condition|)
 block|{
 comment|// use a single producer cache as we need to only hold reference for one destination
+comment|// and use a regular HashMap as we do not want a soft reference store that may get re-claimed when low on memory
+comment|// as we want to ensure the producer is kept around, to ensure its lifecycle is fully managed,
+comment|// eg stopping the producer when we stop etc.
 name|producerCache
 operator|=
 operator|new
@@ -812,7 +825,16 @@ name|this
 argument_list|,
 name|camelContext
 argument_list|,
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Producer
+argument_list|>
+argument_list|(
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// do not add as service as we do not want to manage the producer cache

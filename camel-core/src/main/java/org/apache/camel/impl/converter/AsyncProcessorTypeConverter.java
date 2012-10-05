@@ -166,7 +166,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * @deprecated use AnycProcessorConverter.convert instead      */
+comment|/**      * @deprecated use {@link AsyncProcessorConverterHelper#convert(org.apache.camel.Processor)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|convert (Processor value)
