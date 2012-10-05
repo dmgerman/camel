@@ -287,10 +287,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAsynchronous ()
+DECL|method|testConnectionResourceRouter ()
 specifier|public
 name|void
-name|testAsynchronous
+name|testConnectionResourceRouter
 parameter_list|()
 throws|throws
 name|Exception
