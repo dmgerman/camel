@@ -343,6 +343,17 @@ argument_list|(
 literal|1000
 argument_list|)
 decl_stmt|;
+DECL|field|LOCK
+specifier|private
+specifier|static
+specifier|final
+name|Object
+name|LOCK
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
 static|static
 block|{
 comment|// exclude all java.lang.Object methods as we dont want to invoke them
@@ -2908,7 +2919,7 @@ name|answer
 decl_stmt|;
 synchronized|synchronized
 init|(
-name|editor
+name|LOCK
 init|)
 block|{
 name|editor
