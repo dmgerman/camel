@@ -655,15 +655,34 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Message received: {}"
+literal|"Receiving from channel: {} body: {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|messageEvent
+operator|.
+name|getChannel
+argument_list|()
+block|,
 name|body
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 comment|// if textline enabled then covert to a String which must be used for textline
 if|if
 condition|(
@@ -844,13 +863,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Closing channel when complete at address: {}"
 argument_list|,

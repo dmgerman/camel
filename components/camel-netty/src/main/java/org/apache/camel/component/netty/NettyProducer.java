@@ -1088,32 +1088,19 @@ return|return
 literal|true
 return|;
 block|}
-comment|// log what we are writing
-name|LOG
+comment|// write body
+name|NettyHelper
 operator|.
-name|debug
+name|writeBodyAsync
 argument_list|(
-literal|"Writing body: {}"
+name|channel
+argument_list|,
+literal|null
 argument_list|,
 name|body
-argument_list|)
-expr_stmt|;
-comment|// write the body asynchronously
-name|ChannelFuture
-name|future
-init|=
-name|channel
-operator|.
-name|write
-argument_list|(
-name|body
-argument_list|)
-decl_stmt|;
-comment|// add listener which handles the operation
-name|future
-operator|.
-name|addListener
-argument_list|(
+argument_list|,
+name|exchange
+argument_list|,
 operator|new
 name|ChannelFutureListener
 argument_list|()
@@ -1130,7 +1117,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Operation complete {}"
 argument_list|,
@@ -1263,13 +1250,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Closing channel when complete at address: {}"
 argument_list|,

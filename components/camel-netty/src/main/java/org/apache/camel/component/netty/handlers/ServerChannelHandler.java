@@ -390,6 +390,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -402,6 +410,7 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// to keep track of open sockets
 name|consumer
 operator|.
@@ -433,6 +442,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -445,6 +462,7 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -522,15 +540,34 @@ operator|.
 name|getMessage
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Incoming message: {}"
+literal|"Receiving from channel: {} body: {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|messageEvent
+operator|.
+name|getChannel
+argument_list|()
+block|,
 name|in
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 comment|// create Exchange and let the consumer process it
 specifier|final
 name|Exchange
@@ -933,13 +970,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Closing channel as no payload to send as reply at address: {}"
 argument_list|,
@@ -1005,15 +1042,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// we got a body to write
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Writing body: {}"
-argument_list|,
-name|body
-argument_list|)
-expr_stmt|;
 name|ChannelFutureListener
 name|listener
 init|=
@@ -1268,13 +1296,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Closing channel when complete at address: {}"
 argument_list|,
