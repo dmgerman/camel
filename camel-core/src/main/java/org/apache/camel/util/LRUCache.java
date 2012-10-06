@@ -82,8 +82,40 @@ name|ConcurrentLinkedHashMap
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|googlecode
+operator|.
+name|concurrentlinkedhashmap
+operator|.
+name|EvictionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  * A Least Recently Used Cache  *  * @version   */
+comment|/**  * A Least Recently Used Cache.  *<p/>  * If this cache stores {@link org.apache.camel.Service} then this implementation will on eviction  * invoke the {@link org.apache.camel.Service#stop()} method, to auto-stop the service.  *  * @see LRUSoftCache  * @see LRUWeakCache  */
 end_comment
 
 begin_class
@@ -104,6 +136,13 @@ argument_list|,
 name|V
 argument_list|>
 implements|,
+name|EvictionListener
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
+implements|,
 name|Serializable
 block|{
 DECL|field|serialVersionUID
@@ -116,12 +155,33 @@ init|=
 operator|-
 literal|342098639681884414L
 decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|LRUCache
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|maxCacheSize
 specifier|private
 name|int
 name|maxCacheSize
 init|=
 literal|10000
+decl_stmt|;
+DECL|field|stopOnEviction
+specifier|private
+name|boolean
+name|stopOnEviction
 decl_stmt|;
 DECL|field|hits
 specifier|private
@@ -143,6 +203,16 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
+DECL|field|evicted
+specifier|private
+specifier|final
+name|AtomicLong
+name|evicted
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
 DECL|field|map
 specifier|private
 name|ConcurrentLinkedHashMap
@@ -153,6 +223,7 @@ name|V
 argument_list|>
 name|map
 decl_stmt|;
+comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified maximumCacheSize, and will stop on eviction.      *      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
 DECL|method|LRUCache (int maximumCacheSize)
 specifier|public
 name|LRUCache
@@ -169,7 +240,7 @@ name|maximumCacheSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize,load factor and ordering mode.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      *                                  or the load factor is non positive.      */
+comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize, and will stop on eviction.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
 DECL|method|LRUCache (int initialCapacity, int maximumCacheSize)
 specifier|public
 name|LRUCache
@@ -179,6 +250,31 @@ name|initialCapacity
 parameter_list|,
 name|int
 name|maximumCacheSize
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|initialCapacity
+argument_list|,
+name|maximumCacheSize
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize,load factor and ordering mode.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @param stopOnEviction   whether to stop service on eviction.      * @throws IllegalArgumentException if the initial capacity is negative      */
+DECL|method|LRUCache (int initialCapacity, int maximumCacheSize, boolean stopOnEviction)
+specifier|public
+name|LRUCache
+parameter_list|(
+name|int
+name|initialCapacity
+parameter_list|,
+name|int
+name|maximumCacheSize
+parameter_list|,
+name|boolean
+name|stopOnEviction
 parameter_list|)
 block|{
 name|map
@@ -204,6 +300,11 @@ argument_list|(
 name|maximumCacheSize
 argument_list|)
 operator|.
+name|listener
+argument_list|(
+name|this
+argument_list|)
+operator|.
 name|build
 argument_list|()
 expr_stmt|;
@@ -212,6 +313,12 @@ operator|.
 name|maxCacheSize
 operator|=
 name|maximumCacheSize
+expr_stmt|;
+name|this
+operator|.
+name|stopOnEviction
+operator|=
+name|stopOnEviction
 expr_stmt|;
 block|}
 annotation|@
@@ -485,6 +592,74 @@ name|entrySet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|onEviction (K key, V value)
+specifier|public
+name|void
+name|onEviction
+parameter_list|(
+name|K
+name|key
+parameter_list|,
+name|V
+name|value
+parameter_list|)
+block|{
+name|evicted
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onEviction {} -> {}"
+argument_list|,
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|stopOnEviction
+condition|)
+block|{
+try|try
+block|{
+comment|// stop service as its evicted from cache
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error stopping service: "
+operator|+
+name|value
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|/**      * Gets the number of cache hits      */
 DECL|method|getHits ()
 specifier|public
@@ -508,6 +683,20 @@ parameter_list|()
 block|{
 return|return
 name|misses
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
+comment|/**      * Gets the number of evicted entries.      */
+DECL|method|getEvicted ()
+specifier|public
+name|long
+name|getEvicted
+parameter_list|()
+block|{
+return|return
+name|evicted
 operator|.
 name|get
 argument_list|()
@@ -539,6 +728,13 @@ literal|0
 argument_list|)
 expr_stmt|;
 name|misses
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|evicted
 operator|.
 name|set
 argument_list|(

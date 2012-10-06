@@ -146,6 +146,7 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
+comment|// do not stop on eviction, as the endpoint may still be in use
 name|super
 argument_list|(
 name|CamelContextHelper
@@ -154,6 +155,15 @@ name|getMaximumEndpointCacheSize
 argument_list|(
 name|context
 argument_list|)
+argument_list|,
+name|CamelContextHelper
+operator|.
+name|getMaximumEndpointCacheSize
+argument_list|(
+name|context
+argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|this

@@ -476,7 +476,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Clearing cache[size={}, hits={}, misses={}]"
+literal|"Clearing cache[size={}, hits={}, misses={}, evicted={}]"
 argument_list|,
 operator|new
 name|Object
@@ -495,6 +495,11 @@ block|,
 name|CACHE
 operator|.
 name|getMisses
+argument_list|()
+block|,
+name|CACHE
+operator|.
+name|getEvicted
 argument_list|()
 block|}
 argument_list|)

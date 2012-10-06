@@ -222,6 +222,19 @@ name|getMisses
 argument_list|()
 return|;
 block|}
+DECL|method|getEvicted ()
+specifier|public
+name|Long
+name|getEvicted
+parameter_list|()
+block|{
+return|return
+name|consumerCache
+operator|.
+name|getEvicted
+argument_list|()
+return|;
+block|}
 DECL|method|resetStatistics ()
 specifier|public
 name|void

@@ -121,6 +121,18 @@ name|getMisses
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Cache evicted"
+argument_list|)
+DECL|method|getEvicted ()
+name|Long
+name|getEvicted
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

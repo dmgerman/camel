@@ -1961,6 +1961,56 @@ return|return
 name|misses
 return|;
 block|}
+comment|/**      * Gets the cache evicted statistic      *<p/>      * Will return<tt>-1</tt> if it cannot determine this if a custom cache was used.      *      * @return the evicted      */
+DECL|method|getEvicted ()
+specifier|public
+name|long
+name|getEvicted
+parameter_list|()
+block|{
+name|long
+name|evicted
+init|=
+operator|-
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|producers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Producer
+argument_list|>
+name|cache
+init|=
+operator|(
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|Producer
+argument_list|>
+operator|)
+name|producers
+decl_stmt|;
+name|evicted
+operator|=
+name|cache
+operator|.
+name|getEvicted
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|evicted
+return|;
+block|}
 comment|/**      * Resets the cache statistics      */
 DECL|method|resetCacheStatistics ()
 specifier|public
