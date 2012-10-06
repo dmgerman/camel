@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MQTT component  */
+comment|/**  * MQTT Component  */
 end_comment
 
 begin_class

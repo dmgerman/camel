@@ -339,9 +339,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|MQTTConsumer
-name|consumer
-init|=
+return|return
 operator|new
 name|MQTTConsumer
 argument_list|(
@@ -349,9 +347,6 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
-decl_stmt|;
-return|return
-name|consumer
 return|;
 block|}
 annotation|@
@@ -364,17 +359,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MQTTProducer
-name|producer
-init|=
+return|return
 operator|new
 name|MQTTProducer
 argument_list|(
 name|this
 argument_list|)
-decl_stmt|;
-return|return
-name|producer
 return|;
 block|}
 DECL|method|getConfiguration ()
@@ -426,8 +416,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"MQTT Endpoint Connected to "
-operator|+
+literal|"MQTT Connection connected to {}"
+argument_list|,
 name|configuration
 operator|.
 name|getHost
@@ -444,7 +434,12 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"MQTT Connection disconnected"
+literal|"MQTT Connection disconnected from {}"
+argument_list|,
+name|configuration
+operator|.
+name|getHost
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -513,8 +508,6 @@ range|:
 name|consumers
 control|)
 block|{
-try|try
-block|{
 name|consumer
 operator|.
 name|processExchange
@@ -522,23 +515,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Failed to process exchange "
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 if|if
@@ -587,7 +563,7 @@ name|void
 name|onFailure
 parameter_list|(
 name|Throwable
-name|value
+name|e
 parameter_list|)
 block|{
 name|LOG
@@ -600,6 +576,10 @@ name|configuration
 operator|.
 name|getHost
 argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -900,7 +880,7 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|publish (String topic, byte[] payload, QoS qoS, boolean retain)
+DECL|method|publish (String topic, byte[] payload, QoS qoS, boolean retain, Callback<Void> callback)
 name|void
 name|publish
 parameter_list|(
@@ -916,6 +896,12 @@ name|qoS
 parameter_list|,
 name|boolean
 name|retain
+parameter_list|,
+name|Callback
+argument_list|<
+name|Void
+argument_list|>
+name|callback
 parameter_list|)
 throws|throws
 name|Exception
@@ -932,7 +918,7 @@ name|qoS
 argument_list|,
 name|retain
 argument_list|,
-literal|null
+name|callback
 argument_list|)
 expr_stmt|;
 block|}
@@ -975,7 +961,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 block|}

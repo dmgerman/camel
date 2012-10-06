@@ -76,7 +76,7 @@ name|mqttQosPropertyName
 init|=
 literal|"MQTTQos"
 decl_stmt|;
-comment|/**      * These are set on the Endpoint - together with properties inheritted from MQTT      */
+comment|/**      * These are set on the Endpoint - together with properties inherited from MQTT      */
 DECL|field|subscribeTopicName
 specifier|private
 name|String
