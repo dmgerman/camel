@@ -130,20 +130,6 @@ name|CamelLogger
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IntrospectionSupport
-import|;
-end_import
-
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/log.html">Log Component</a>  * to log message exchanges to the underlying logging mechanism.  *  * @version   */
 end_comment
