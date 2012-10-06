@@ -1093,6 +1093,8 @@ name|NettyHelper
 operator|.
 name|writeBodyAsync
 argument_list|(
+name|LOG
+argument_list|,
 name|channel
 argument_list|,
 literal|null

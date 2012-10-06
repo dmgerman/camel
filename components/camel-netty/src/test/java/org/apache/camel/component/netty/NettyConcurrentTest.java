@@ -146,6 +146,16 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_class
 DECL|class|NettyConcurrentTest
 specifier|public
@@ -154,6 +164,8 @@ name|NettyConcurrentTest
 extends|extends
 name|BaseNettyTest
 block|{
+annotation|@
+name|Test
 DECL|method|testNoConcurrentProducers ()
 specifier|public
 name|void
@@ -170,6 +182,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testConcurrentProducers ()
 specifier|public
 name|void
@@ -288,7 +302,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|String
+name|reply
+init|=
 name|template
 operator|.
 name|requestBody
@@ -301,6 +317,29 @@ name|String
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Sent {} received {}"
+argument_list|,
+name|index
+argument_list|,
+name|reply
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye "
+operator|+
+name|index
+argument_list|,
+name|reply
+argument_list|)
+expr_stmt|;
+return|return
+name|reply
 return|;
 block|}
 block|}

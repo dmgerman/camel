@@ -264,6 +264,7 @@ name|ClientChannelHandler
 extends|extends
 name|SimpleChannelUpstreamHandler
 block|{
+comment|// use NettyProducer as logger to make it easier to read the logs as this is part of the producer
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -276,7 +277,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|ClientChannelHandler
+name|NettyProducer
 operator|.
 name|class
 argument_list|)
@@ -667,7 +668,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Receiving from channel: {} body: {}"
+literal|"Channel: {} received body: {}"
 argument_list|,
 operator|new
 name|Object

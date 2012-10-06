@@ -314,6 +314,7 @@ name|ServerChannelHandler
 extends|extends
 name|SimpleChannelUpstreamHandler
 block|{
+comment|// use NettyConsumer as logger to make it easier to read the logs as this is part of the consumer
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -326,7 +327,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|ServerChannelHandler
+name|NettyConsumer
 operator|.
 name|class
 argument_list|)
@@ -552,7 +553,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Receiving from channel: {} body: {}"
+literal|"Channel: {} received body: {}"
 argument_list|,
 operator|new
 name|Object
@@ -1071,6 +1072,8 @@ name|NettyHelper
 operator|.
 name|writeBodyAsync
 argument_list|(
+name|LOG
+argument_list|,
 name|messageEvent
 operator|.
 name|getChannel
@@ -1092,6 +1095,8 @@ name|NettyHelper
 operator|.
 name|writeBodyAsync
 argument_list|(
+name|LOG
+argument_list|,
 name|messageEvent
 operator|.
 name|getChannel

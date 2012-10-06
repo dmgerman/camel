@@ -506,6 +506,20 @@ specifier|private
 name|boolean
 name|needClientAuth
 decl_stmt|;
+DECL|field|maximumPoolSize
+specifier|private
+name|int
+name|maximumPoolSize
+init|=
+literal|16
+decl_stmt|;
+DECL|field|orderedThreadPoolExecutor
+specifier|private
+name|boolean
+name|orderedThreadPoolExecutor
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -2396,6 +2410,58 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getMaximumPoolSize ()
+specifier|public
+name|int
+name|getMaximumPoolSize
+parameter_list|()
+block|{
+return|return
+name|maximumPoolSize
+return|;
+block|}
+DECL|method|setMaximumPoolSize (int maximumPoolSize)
+specifier|public
+name|void
+name|setMaximumPoolSize
+parameter_list|(
+name|int
+name|maximumPoolSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumPoolSize
+operator|=
+name|maximumPoolSize
+expr_stmt|;
+block|}
+DECL|method|isOrderedThreadPoolExecutor ()
+specifier|public
+name|boolean
+name|isOrderedThreadPoolExecutor
+parameter_list|()
+block|{
+return|return
+name|orderedThreadPoolExecutor
+return|;
+block|}
+DECL|method|setOrderedThreadPoolExecutor (boolean orderedThreadPoolExecutor)
+specifier|public
+name|void
+name|setOrderedThreadPoolExecutor
+parameter_list|(
+name|boolean
+name|orderedThreadPoolExecutor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|orderedThreadPoolExecutor
+operator|=
+name|orderedThreadPoolExecutor
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)

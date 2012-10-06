@@ -272,13 +272,16 @@ return|return
 name|s
 return|;
 block|}
-comment|/**      * Writes the given body to Netty channel. Will<b>not</b>wait until the body has been written.      *      * @param channel         the Netty channel      * @param remoteAddress   the remote address when using UDP      * @param body            the body to write (send)      * @param exchange        the exchange      * @param listener        listener with work to be executed when the operation is complete      */
-DECL|method|writeBodyAsync (Channel channel, SocketAddress remoteAddress, Object body, Exchange exchange, ChannelFutureListener listener)
+comment|/**      * Writes the given body to Netty channel. Will<b>not</b>wait until the body has been written.      *      * @param log             logger to use      * @param channel         the Netty channel      * @param remoteAddress   the remote address when using UDP      * @param body            the body to write (send)      * @param exchange        the exchange      * @param listener        listener with work to be executed when the operation is complete      */
+DECL|method|writeBodyAsync (Logger log, Channel channel, SocketAddress remoteAddress, Object body, Exchange exchange, ChannelFutureListener listener)
 specifier|public
 specifier|static
 name|void
 name|writeBodyAsync
 parameter_list|(
+name|Logger
+name|log
+parameter_list|,
 name|Channel
 name|channel
 parameter_list|,
@@ -308,17 +311,17 @@ condition|)
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Writing to channel: {} remote address: {} with body: {}"
+literal|"Channel: {} remote address: {} writing body: {}"
 argument_list|,
 operator|new
 name|Object
@@ -349,17 +352,17 @@ else|else
 block|{
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Writing to channel: {} with body: {}"
+literal|"Channel: {} writing body: {}"
 argument_list|,
 operator|new
 name|Object
