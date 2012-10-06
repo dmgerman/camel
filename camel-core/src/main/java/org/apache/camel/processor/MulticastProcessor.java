@@ -1237,13 +1237,6 @@ name|ProcessorExchangePair
 argument_list|>
 name|pairs
 decl_stmt|;
-comment|// multicast uses fine grained error handling on the output processors
-comment|// so use try .. catch to cater for this
-name|boolean
-name|exhaust
-init|=
-literal|false
-decl_stmt|;
 try|try
 block|{
 name|boolean
@@ -1257,15 +1250,6 @@ name|createProcessorExchangePairs
 argument_list|(
 name|exchange
 argument_list|)
-expr_stmt|;
-comment|// after we have created the processors we consider the exchange as exhausted if an unhandled
-comment|// exception was thrown, (used in the catch block)
-comment|// if the processors is working in Streaming model, the exchange could not be processed at this point.
-name|exhaust
-operator|=
-operator|!
-name|isStreaming
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1342,6 +1326,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+comment|// unexpected exception was thrown, maybe from iterator etc. so do not regard as exhausted
 comment|// and do the done work
 name|doDone
 argument_list|(
@@ -1353,7 +1338,7 @@ name|callback
 argument_list|,
 literal|true
 argument_list|,
-name|exhaust
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
@@ -1389,7 +1374,7 @@ name|callback
 argument_list|,
 literal|true
 argument_list|,
-name|exhaust
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -1768,7 +1753,9 @@ literal|null
 condition|)
 block|{
 comment|// wrap in exception to explain where it failed
-throw|throw
+name|CamelExchangeException
+name|cause
+init|=
 operator|new
 name|CamelExchangeException
 argument_list|(
@@ -1783,7 +1770,14 @@ operator|.
 name|getException
 argument_list|()
 argument_list|)
-throw|;
+decl_stmt|;
+name|subExchange
+operator|.
+name|setException
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|LOG
@@ -2803,7 +2797,9 @@ literal|null
 condition|)
 block|{
 comment|// wrap in exception to explain where it failed
-throw|throw
+name|CamelExchangeException
+name|cause
+init|=
 operator|new
 name|CamelExchangeException
 argument_list|(
@@ -2821,10 +2817,15 @@ operator|.
 name|getException
 argument_list|()
 argument_list|)
-throw|;
+decl_stmt|;
+name|subExchange
+operator|.
+name|setException
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
 block|}
-else|else
-block|{
 comment|// we want to stop on exception, and the exception was handled by the error handler
 comment|// this is similar to what the pipeline does, so we should do the same to not surprise end users
 comment|// so we should set the failed exchange as the result and be done
@@ -2838,7 +2839,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
 block|}
 name|LOG
 operator|.

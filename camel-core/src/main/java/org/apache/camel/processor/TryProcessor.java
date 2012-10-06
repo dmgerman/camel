@@ -1751,6 +1751,16 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// and we should not be regarded as exhausted as we are in a try .. catch block
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|)
+expr_stmt|;
 comment|// is the exception handled by the catch clause
 specifier|final
 name|Boolean

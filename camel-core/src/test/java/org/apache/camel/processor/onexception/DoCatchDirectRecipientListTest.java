@@ -56,7 +56,6 @@ name|DoCatchDirectRecipientListTest
 extends|extends
 name|ContextTestSupport
 block|{
-comment|// TODO: CAMEL-5681
 DECL|method|testDoCatchDirectRoute ()
 specifier|public
 name|void
@@ -85,9 +84,16 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// getMockEndpoint("mock:c").expectedMessageCount(1);
-try|try
-block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:c"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -97,15 +103,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// should not happen
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

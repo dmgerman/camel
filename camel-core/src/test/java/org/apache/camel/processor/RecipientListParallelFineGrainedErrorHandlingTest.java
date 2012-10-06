@@ -578,26 +578,11 @@ block|{
 comment|// expected
 name|assertIsInstanceOf
 argument_list|(
-name|ExecutionException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertIsInstanceOf
-argument_list|(
 name|CamelExchangeException
 operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -616,9 +601,6 @@ argument_list|()
 operator|.
 name|getCause
 argument_list|()
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -626,9 +608,6 @@ argument_list|(
 literal|"Damn"
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()
