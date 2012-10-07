@@ -150,20 +150,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|LRUSoftCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -331,7 +317,7 @@ operator|=
 name|source
 expr_stmt|;
 block|}
-comment|/**      * Creates the {@link LRUCache} to be used.      *<p/>      * This implementation returns a {@link org.apache.camel.util.LRUSoftCache} instance.       * @param cacheSize the cache size      * @return the cache      */
+comment|/**      * Creates the {@link LRUCache} to be used.      *<p/>      * This implementation returns a {@link LRUCache} instance.       * @param cacheSize the cache size      * @return the cache      */
 DECL|method|createLRUCache (int cacheSize)
 specifier|protected
 specifier|static
@@ -347,10 +333,13 @@ name|int
 name|cacheSize
 parameter_list|)
 block|{
-comment|// We use a soft reference cache to allow the JVM to re-claim memory if it runs low on memory.
+comment|// Use a regular cache as we want to ensure that the lifecycle of the consumers
+comment|// being cache is properly handled, such as they are stopped when being evicted
+comment|// or when this cache is stopped. This is needed as some consumers requires to
+comment|// be stopped so they can shutdown internal resources that otherwise may cause leaks
 return|return
 operator|new
-name|LRUSoftCache
+name|LRUCache
 argument_list|<
 name|String
 argument_list|,
