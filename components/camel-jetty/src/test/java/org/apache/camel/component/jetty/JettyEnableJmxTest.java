@@ -633,7 +633,7 @@ name|serverUri0
 operator|=
 literal|"http://localhost:"
 operator|+
-name|getPort
+name|getNextPort
 argument_list|()
 operator|+
 literal|"/myservice?enableJmx=true"
