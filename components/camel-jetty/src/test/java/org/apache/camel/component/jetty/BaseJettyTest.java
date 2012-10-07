@@ -110,10 +110,6 @@ name|BeforeClass
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version  */
-end_comment
-
 begin_class
 DECL|class|BaseJettyTest
 specifier|public
@@ -243,8 +239,7 @@ name|int
 name|getNextPort
 parameter_list|()
 block|{
-name|port
-operator|=
+return|return
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
@@ -253,13 +248,29 @@ name|port
 operator|+
 literal|1
 argument_list|)
-expr_stmt|;
+return|;
+block|}
+DECL|method|getNextPort (int startWithPort)
+specifier|protected
+name|int
+name|getNextPort
+parameter_list|(
+name|int
+name|startWithPort
+parameter_list|)
+block|{
 return|return
-name|port
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+name|startWithPort
+argument_list|)
 return|;
 block|}
 DECL|method|getPort ()
 specifier|protected
+specifier|static
 name|int
 name|getPort
 parameter_list|()

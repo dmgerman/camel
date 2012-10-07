@@ -144,16 +144,6 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-name|port1
-operator|=
-name|getPort
-argument_list|()
-expr_stmt|;
-name|port2
-operator|=
-name|getNextPort
-argument_list|()
-expr_stmt|;
 comment|// create jetty component
 name|JettyHttpComponent
 name|jetty

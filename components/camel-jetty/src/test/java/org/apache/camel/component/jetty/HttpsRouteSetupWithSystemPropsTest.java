@@ -177,16 +177,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|port1
-operator|=
-name|getPort
-argument_list|()
-expr_stmt|;
-name|port2
-operator|=
-name|getNextPort
-argument_list|()
-expr_stmt|;
 name|from
 argument_list|(
 literal|"jetty:https://localhost:"
