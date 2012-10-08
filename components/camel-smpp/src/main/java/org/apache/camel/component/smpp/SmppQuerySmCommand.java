@@ -150,6 +150,14 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -167,6 +175,7 @@ name|getMessageId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|QuerySmResult
 name|querySmResult
 decl_stmt|;
@@ -224,6 +233,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -241,6 +258,7 @@ name|getMessageId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Message
 name|message
 init|=

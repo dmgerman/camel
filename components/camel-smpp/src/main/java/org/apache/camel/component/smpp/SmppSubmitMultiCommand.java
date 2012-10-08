@@ -383,6 +383,14 @@ block|{
 name|SubmitMultiResult
 name|result
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -395,6 +403,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|result
@@ -539,6 +548,14 @@ argument_list|)
 throw|;
 block|}
 block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -553,6 +570,7 @@ argument_list|,
 name|results
 argument_list|)
 expr_stmt|;
+block|}
 name|List
 argument_list|<
 name|String

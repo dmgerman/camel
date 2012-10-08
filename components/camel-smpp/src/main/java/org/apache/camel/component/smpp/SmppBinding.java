@@ -212,7 +212,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-comment|/**      * Create the SmppCommand object from the inbound exchange      *       * @throws UnsupportedEncodingException if the encoding is not supported      */
+comment|/**      * Create the SmppCommand object from the inbound exchange      *      * @throws UnsupportedEncodingException if the encoding is not supported      */
 DECL|method|createSmppCommand (SMPPSession session, Exchange exchange)
 specifier|public
 name|SmppCommand

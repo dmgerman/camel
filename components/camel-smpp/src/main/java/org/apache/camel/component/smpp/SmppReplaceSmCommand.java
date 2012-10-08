@@ -258,6 +258,14 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -275,6 +283,7 @@ name|getMessageId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|session
@@ -356,6 +365,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -373,6 +390,7 @@ name|getMessageId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Message
 name|rspMsg
 init|=

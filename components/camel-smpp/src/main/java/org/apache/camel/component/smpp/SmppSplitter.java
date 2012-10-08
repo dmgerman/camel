@@ -373,7 +373,7 @@ control|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"segment number = {}"
 argument_list|,
@@ -407,7 +407,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Length of data = {}"
 argument_list|,
@@ -429,7 +429,7 @@ index|]
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"segments[{}].length = {}"
 argument_list|,

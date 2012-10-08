@@ -178,7 +178,6 @@ name|SENT_MESSAGE_COUNT
 init|=
 literal|"CamelSmppSentMessageCount"
 decl_stmt|;
-comment|// TODO: document this new property
 DECL|field|SEQUENCE_NUMBER
 name|String
 name|SEQUENCE_NUMBER

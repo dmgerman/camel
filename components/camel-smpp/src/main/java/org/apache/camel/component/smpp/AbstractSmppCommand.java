@@ -156,13 +156,6 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Exchange is out capable, setting headers on out exchange..."
-argument_list|)
-expr_stmt|;
 name|message
 operator|=
 name|exchange
@@ -173,13 +166,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Exchange is not out capable, setting headers on in exchange..."
-argument_list|)
-expr_stmt|;
 name|message
 operator|=
 name|exchange

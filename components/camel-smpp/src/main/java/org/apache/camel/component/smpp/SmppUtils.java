@@ -491,7 +491,7 @@ name|date
 argument_list|)
 return|;
 block|}
-comment|/**      * YYMMDDhhmmSS where:      *<ul>      *<li>YY = last two digits of the year (00-99)</li>      *<li>MM = month (01-12)</li>      *<li>DD = day (01-31)</li>      *<li>hh = hour (00-23)</li>      *<li>mm = minute (00-59)</li>      *<li>SS = second (00-59)</li>      *</ul>      *      * Java format is (yyMMddHHmmSS).      *      * @param date in<tt>String</tt> format.      * @return      * @throws NumberFormatException if there is contains non number on      *<code>date</code> parameter.      * @throws IndexOutOfBoundsException if the date length in<tt>String</tt>      *         format is less than 10.      */
+comment|/**      * YYMMDDhhmmSS where:      *<ul>      *<li>YY = last two digits of the year (00-99)</li>      *<li>MM = month (01-12)</li>      *<li>DD = day (01-31)</li>      *<li>hh = hour (00-23)</li>      *<li>mm = minute (00-59)</li>      *<li>SS = second (00-59)</li>      *</ul>      *      * Java format is (yyMMddHHmmSS).      *      * @param date in<tt>String</tt> format.      * @return the date      * @throws NumberFormatException if there is contains non number on      *<code>date</code> parameter.      * @throws IndexOutOfBoundsException if the date length in<tt>String</tt>      *         format is less than 10.      */
 DECL|method|string2Date (String date)
 specifier|public
 specifier|static
