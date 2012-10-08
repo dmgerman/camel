@@ -81,6 +81,7 @@ block|{
 DECL|field|WELD_EMBEDDED_CONTAINER
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|WELD_EMBEDDED_CONTAINER
 init|=
@@ -89,11 +90,17 @@ decl_stmt|;
 DECL|field|JBOSSAS_MANAGED_CONTAINER
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|JBOSSAS_MANAGED_CONTAINER
 init|=
 literal|"jbossas-managed"
 decl_stmt|;
+DECL|method|DeploymentFactory ()
+specifier|protected
+name|DeploymentFactory
+parameter_list|()
+block|{      }
 annotation|@
 name|Deployment
 DECL|method|createArchive ()
