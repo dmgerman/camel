@@ -1591,10 +1591,9 @@ name|boolean
 name|isMultipleConsumersSupported
 parameter_list|()
 block|{
-comment|// only allow multiple consumers for pub sub domain (e.g. topics)
+comment|// JMS allows multiple consumers on both queues and topics
 return|return
-name|isPubSubDomain
-argument_list|()
+literal|true
 return|;
 block|}
 comment|// Properties

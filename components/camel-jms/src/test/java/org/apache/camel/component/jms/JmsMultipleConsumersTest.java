@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToStartRouteException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -124,10 +112,10 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testMultipleConsumersAllowed ()
+DECL|method|testMultipleConsumersTopic ()
 specifier|public
 name|void
-name|testMultipleConsumersAllowed
+name|testMultipleConsumersTopic
 parameter_list|()
 throws|throws
 name|Exception
@@ -241,10 +229,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMultipleConsumersNotAllowed ()
+DECL|method|testMultipleConsumersQueue ()
 specifier|public
 name|void
-name|testMultipleConsumersNotAllowed
+name|testMultipleConsumersQueue
 parameter_list|()
 throws|throws
 name|Exception
@@ -273,7 +261,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:foo"
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 name|from
@@ -293,46 +281,49 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:bar"
+literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|context
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|fail
+name|getMockEndpoint
 argument_list|(
-literal|"Should have thrown an exception"
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|2
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|FailedToStartRouteException
-name|e
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-name|e
+name|template
 operator|.
-name|getMessage
+name|sendBody
+argument_list|(
+literal|"jms:queue:foo"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"jms:queue:foo"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
 argument_list|()
-operator|.
-name|endsWith
-argument_list|(
-literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[jms://queue:foo]"
-argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
