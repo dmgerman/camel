@@ -34,8 +34,8 @@ block|,
 DECL|enumConstant|findAll
 name|findAll
 block|,
-comment|// group, // future
-comment|// mapReduce, // future
+comment|// group,       // future operation
+comment|// mapReduce,   // future operation
 comment|// create/update operations
 DECL|enumConstant|insert
 name|insert

@@ -306,6 +306,12 @@ name|boolean
 name|dynamicity
 decl_stmt|;
 comment|// = false
+DECL|field|writeResultAsHeader
+specifier|private
+name|boolean
+name|writeResultAsHeader
+decl_stmt|;
+comment|// = false
 comment|// tailable cursor consumer by default
 DECL|field|consumerType
 specifier|private
@@ -1785,6 +1791,33 @@ block|{
 return|return
 name|persistentId
 return|;
+block|}
+DECL|method|isWriteResultAsHeader ()
+specifier|public
+name|boolean
+name|isWriteResultAsHeader
+parameter_list|()
+block|{
+return|return
+name|writeResultAsHeader
+return|;
+block|}
+comment|/**      * In write operations, it determines whether instead of returning {@link WriteResult} as the body of the OUT      * message, we transfer the IN message to the OUT and attach the WriteResult as a header.      * @param writeResultAsHeader flag to indicate if this option is enabled      */
+DECL|method|setWriteResultAsHeader (boolean writeResultAsHeader)
+specifier|public
+name|void
+name|setWriteResultAsHeader
+parameter_list|(
+name|boolean
+name|writeResultAsHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writeResultAsHeader
+operator|=
+name|writeResultAsHeader
+expr_stmt|;
 block|}
 block|}
 end_class

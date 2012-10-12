@@ -128,6 +128,16 @@ operator|.
 name|dropDatabase
 argument_list|()
 expr_stmt|;
+name|db
+operator|.
+name|getCollection
+argument_list|(
+literal|"otherCollection"
+argument_list|)
+operator|.
+name|drop
+argument_list|()
+expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"The otherDB database should not exist"
@@ -323,6 +333,16 @@ operator|.
 name|dropDatabase
 argument_list|()
 expr_stmt|;
+name|db
+operator|.
+name|getCollection
+argument_list|(
+literal|"otherCollection"
+argument_list|)
+operator|.
+name|drop
+argument_list|()
+expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"The otherDB database should not exist"
@@ -494,6 +514,16 @@ operator|.
 name|dropDatabase
 argument_list|()
 expr_stmt|;
+name|db
+operator|.
+name|getCollection
+argument_list|(
+literal|"otherCollection"
+argument_list|)
+operator|.
+name|drop
+argument_list|()
+expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"The otherDB database should not exist"
@@ -655,6 +685,16 @@ literal|"otherDB"
 argument_list|)
 operator|.
 name|dropDatabase
+argument_list|()
+expr_stmt|;
+name|db
+operator|.
+name|getCollection
+argument_list|(
+literal|"otherCollection"
+argument_list|)
+operator|.
+name|drop
 argument_list|()
 expr_stmt|;
 name|assertFalse
@@ -835,7 +875,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert"
+literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert&writeConcern=SAFE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -845,7 +885,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert&dynamicity=false"
+literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert&dynamicity=false&writeConcern=SAFE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -855,7 +895,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert&dynamicity=true"
+literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=insert&dynamicity=true&writeConcern=SAFE"
 argument_list|)
 expr_stmt|;
 block|}

@@ -178,6 +178,15 @@ name|FROM_TAILABLE
 init|=
 literal|"CamelMongoDbTailable"
 decl_stmt|;
+DECL|field|WRITERESULT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|WRITERESULT
+init|=
+literal|"CamelMongoWriteResult"
+decl_stmt|;
 DECL|method|MongoDbConstants ()
 specifier|private
 name|MongoDbConstants
