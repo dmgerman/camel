@@ -348,6 +348,24 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|NettyComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|NettyComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|NettyConfiguration
