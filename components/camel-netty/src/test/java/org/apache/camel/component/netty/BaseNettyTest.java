@@ -244,9 +244,17 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
-comment|// use next port
+comment|// use next free port
 name|port
-operator|++
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+name|port
+operator|+
+literal|1
+argument_list|)
 expr_stmt|;
 block|}
 block|}
