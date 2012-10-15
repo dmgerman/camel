@@ -96,22 +96,6 @@ init|=
 name|getNextPort
 argument_list|()
 decl_stmt|;
-DECL|method|JettyEndpointSetHttpTraceTest ()
-specifier|public
-name|JettyEndpointSetHttpTraceTest
-parameter_list|()
-block|{
-name|portTraceOn
-operator|=
-name|getNextPort
-argument_list|()
-expr_stmt|;
-name|portTraceOff
-operator|=
-name|getNextPort
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|testTraceDisabled ()
