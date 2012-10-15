@@ -72,10 +72,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|JettyEndpointSetHttpTraceTest
 specifier|public
@@ -89,14 +85,16 @@ specifier|private
 name|int
 name|portTraceOn
 init|=
-literal|8080
+name|getNextPort
+argument_list|()
 decl_stmt|;
 DECL|field|portTraceOff
 specifier|private
 name|int
 name|portTraceOff
 init|=
-literal|8081
+name|getNextPort
+argument_list|()
 decl_stmt|;
 DECL|method|JettyEndpointSetHttpTraceTest ()
 specifier|public
