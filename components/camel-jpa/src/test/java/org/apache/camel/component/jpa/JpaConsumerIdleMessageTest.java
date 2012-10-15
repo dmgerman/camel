@@ -100,7 +100,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|110
+literal|130
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
