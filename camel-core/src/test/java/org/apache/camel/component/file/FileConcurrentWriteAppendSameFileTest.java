@@ -241,6 +241,14 @@ argument_list|(
 literal|30000
 argument_list|)
 expr_stmt|;
+comment|// we need to wait a bit for our slow CI server to make sure the entire file is written on disc
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|startRoute
@@ -251,7 +259,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// check the file has 5000 lines
+comment|// check the file has 500 lines
 name|String
 name|txt
 init|=
