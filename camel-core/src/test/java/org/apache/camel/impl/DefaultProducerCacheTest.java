@@ -114,12 +114,12 @@ name|DefaultProducerCacheTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|counter
+DECL|field|COUNTER
 specifier|private
 specifier|static
 specifier|final
 name|AtomicInteger
-name|counter
+name|COUNTER
 init|=
 operator|new
 name|AtomicInteger
@@ -326,7 +326,7 @@ name|assertEquals
 argument_list|(
 literal|3
 argument_list|,
-name|counter
+name|COUNTER
 operator|.
 name|get
 argument_list|()
@@ -342,7 +342,7 @@ name|assertEquals
 argument_list|(
 literal|8
 argument_list|,
-name|counter
+name|COUNTER
 operator|.
 name|get
 argument_list|()
@@ -351,6 +351,7 @@ expr_stmt|;
 block|}
 DECL|class|MyEndpoint
 specifier|private
+specifier|final
 class|class
 name|MyEndpoint
 extends|extends
@@ -440,6 +441,7 @@ block|}
 block|}
 DECL|class|MyProducer
 specifier|private
+specifier|final
 class|class
 name|MyProducer
 extends|extends
@@ -484,7 +486,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|counter
+name|COUNTER
 operator|.
 name|incrementAndGet
 argument_list|()
