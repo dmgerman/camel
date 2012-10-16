@@ -1185,6 +1185,14 @@ name|isSuccess
 argument_list|()
 condition|)
 block|{
+name|future
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 name|Exception
 name|e
 init|=
