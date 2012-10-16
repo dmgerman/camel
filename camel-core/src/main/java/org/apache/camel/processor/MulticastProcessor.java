@@ -4919,6 +4919,24 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// it is not safe to use the map directly as the exchange doesn't have the deep copy of it's properties
+comment|// we just create a new copy if we need to change the map
+name|map
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|AggregationStrategy
+argument_list|>
+argument_list|(
+name|map
+argument_list|)
+expr_stmt|;
+block|}
 comment|// store the strategy using this processor as the key
 comment|// (so we can store multiple strategies on the same exchange)
 name|map
