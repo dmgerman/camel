@@ -272,7 +272,7 @@ parameter_list|(
 name|ServerFactoryBean
 name|svrBean
 parameter_list|)
-block|{              }
+block|{     }
 annotation|@
 name|Override
 DECL|method|isCreateCamelContextPerClass ()
