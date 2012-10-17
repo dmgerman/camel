@@ -176,6 +176,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Ignore
@@ -270,6 +284,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
 name|NotifyBuilder
 name|notify
 init|=
@@ -427,6 +448,28 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|MINUTES
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Took "
+operator|+
+name|watch
+operator|.
+name|taken
+argument_list|()
+operator|+
+literal|" millis to process "
+operator|+
+name|files
+operator|+
+literal|" messages using "
+operator|+
+name|poolSize
+operator|+
+literal|" client threads."
 argument_list|)
 expr_stmt|;
 name|assertEquals
