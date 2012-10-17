@@ -132,6 +132,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ResourceHelper
 import|;
 end_import
@@ -280,6 +294,14 @@ name|validator
 operator|.
 name|loadSchema
 argument_list|()
+expr_stmt|;
+comment|// and make sure to close the input stream after the schema has been loaded
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|)
 expr_stmt|;
 return|return
 operator|new

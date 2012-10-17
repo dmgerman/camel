@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -81,6 +91,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
 import|;
 end_import
 
@@ -159,6 +183,28 @@ argument_list|,
 name|finallyEndpoint
 argument_list|)
 expr_stmt|;
+comment|// should be able to delete the file
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be able to delete the file"
+argument_list|,
+name|FileUtil
+operator|.
+name|deleteFile
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"target/validator/valid.xml"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testInvalidMessage ()
 specifier|public
@@ -206,6 +252,28 @@ argument_list|,
 name|invalidEndpoint
 argument_list|,
 name|finallyEndpoint
+argument_list|)
+expr_stmt|;
+comment|// should be able to delete the file
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be able to delete the file"
+argument_list|,
+name|FileUtil
+operator|.
+name|deleteFile
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"target/validator/invalid.xml"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -289,7 +357,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/validator"
+literal|"file:target/validator?noop=true"
 argument_list|)
 operator|.
 name|doTry
