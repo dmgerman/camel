@@ -3655,11 +3655,9 @@ operator|*
 name|result
 operator|+
 operator|(
-operator|(
 name|eventCategory
 operator|==
 literal|null
-operator|)
 condition|?
 literal|0
 else|:
@@ -3676,11 +3674,9 @@ operator|*
 name|result
 operator|+
 operator|(
-operator|(
 name|sessionID
 operator|==
 literal|null
-operator|)
 condition|?
 literal|0
 else|:
