@@ -1924,7 +1924,6 @@ name|packages
 argument_list|,
 name|classLoader
 argument_list|,
-comment|/*getBeanPostProcessor(),*/
 name|getContext
 argument_list|()
 operator|.
