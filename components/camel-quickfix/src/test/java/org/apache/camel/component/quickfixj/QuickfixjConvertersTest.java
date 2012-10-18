@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
+name|DefaultExchange
 import|;
 end_import
 
@@ -120,9 +120,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|test
 operator|.
-name|DefaultExchange
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -157,16 +159,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
 import|;
 end_import
 
@@ -322,42 +314,14 @@ name|nullValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
 begin_class
 DECL|class|QuickfixjConvertersTest
 specifier|public
 class|class
 name|QuickfixjConvertersTest
+extends|extends
+name|CamelTestSupport
 block|{
-DECL|field|camelContext
-specifier|private
-specifier|static
-name|DefaultCamelContext
-name|camelContext
-decl_stmt|;
 DECL|field|settingsFile
 specifier|private
 name|File
@@ -384,24 +348,6 @@ name|QuickfixjEngine
 name|quickfixjEngine
 decl_stmt|;
 annotation|@
-name|BeforeClass
-DECL|method|classSetUp ()
-specifier|public
-specifier|static
-name|void
-name|classSetUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|camelContext
-operator|=
-operator|new
-name|DefaultCamelContext
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -411,6 +357,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|settingsFile
 operator|=
 name|File
@@ -536,6 +487,11 @@ argument_list|(
 name|contextClassLoader
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -548,7 +504,7 @@ block|{
 name|Object
 name|value
 init|=
-name|camelContext
+name|context
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -597,11 +553,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|convertToExchange ()
 specifier|public
@@ -632,7 +583,9 @@ literal|null
 argument_list|,
 literal|""
 argument_list|,
-name|camelContext
+operator|new
+name|QuickfixjComponent
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Message
@@ -751,11 +704,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|convertToExchangeWithNullMessage ()
 specifier|public
@@ -786,7 +734,9 @@ literal|null
 argument_list|,
 literal|""
 argument_list|,
-name|camelContext
+operator|new
+name|QuickfixjComponent
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -898,13 +848,13 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-name|camelContext
+name|context
 argument_list|)
 decl_stmt|;
 name|Object
 name|value
 init|=
-name|camelContext
+name|context
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -978,7 +928,7 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-name|camelContext
+name|context
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -1134,7 +1084,7 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-name|camelContext
+name|context
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -1291,7 +1241,7 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-name|camelContext
+name|context
 argument_list|)
 decl_stmt|;
 name|exchange
