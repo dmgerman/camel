@@ -574,10 +574,10 @@ specifier|final
 name|String
 name|uri
 decl_stmt|;
-DECL|field|connectorObjectName
+DECL|field|initiatorObjectName
 specifier|private
 name|ObjectName
-name|connectorObjectName
+name|initiatorObjectName
 decl_stmt|;
 DECL|enum|ThreadModel
 specifier|public
@@ -1281,7 +1281,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|connectorObjectName
+name|initiatorObjectName
 operator|=
 name|jmxExporter
 operator|.
@@ -1334,7 +1334,7 @@ name|jmxExporter
 operator|!=
 literal|null
 operator|&&
-name|connectorObjectName
+name|initiatorObjectName
 operator|!=
 literal|null
 condition|)
@@ -1346,7 +1346,7 @@ argument_list|()
 operator|.
 name|unregisterMBean
 argument_list|(
-name|connectorObjectName
+name|initiatorObjectName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2666,11 +2666,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|rethrowIfType (Exception e, Class<T> exceptionClass)
 specifier|private
 parameter_list|<
@@ -2693,12 +2688,25 @@ parameter_list|)
 throws|throws
 name|T
 block|{
-throw|throw
-operator|(
-name|T
-operator|)
+if|if
+condition|(
 name|e
+operator|.
+name|getClass
+argument_list|()
+operator|==
+name|exceptionClass
+condition|)
+block|{
+throw|throw
+name|exceptionClass
+operator|.
+name|cast
+argument_list|(
+name|e
+argument_list|)
 throw|;
+block|}
 block|}
 DECL|method|dispatch (QuickfixjEventCategory quickfixjEventCategory, SessionID sessionID, Message message)
 specifier|private
@@ -2765,11 +2773,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 DECL|class|DispatcherException
 specifier|private
 class|class
@@ -2777,6 +2780,15 @@ name|DispatcherException
 extends|extends
 name|RuntimeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|DispatcherException (Throwable cause)
 specifier|public
 name|DispatcherException
