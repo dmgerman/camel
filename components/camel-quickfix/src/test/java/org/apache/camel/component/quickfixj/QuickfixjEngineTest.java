@@ -3690,7 +3690,22 @@ name|hashCode
 argument_list|()
 operator|)
 expr_stmt|;
-comment|// don't take message into the account as otherwise we would break the expected java.lang.Object.equals() contract
+name|result
+operator|=
+name|prime
+operator|*
+name|result
+operator|+
+operator|(
+name|message
+operator|==
+literal|null
+condition|?
+literal|1231
+else|:
+literal|1237
+operator|)
+expr_stmt|;
 return|return
 name|result
 return|;
@@ -3884,7 +3899,7 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.quickfixj:*"
+literal|"org.quickfixj:type=Connector,role=Acceptor,*"
 argument_list|)
 argument_list|,
 literal|null
