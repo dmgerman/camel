@@ -314,39 +314,6 @@ operator|=
 name|producerDataFormat
 expr_stmt|;
 block|}
-comment|/**      * We need to set the exchange as being out capable for the output to be copied in a pipeline      *<p/>      * TODO should we be more clever about other patterns here?      */
-DECL|method|makeOutCapable (Exchange exchange)
-specifier|protected
-name|void
-name|makeOutCapable
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|!
-name|exchange
-operator|.
-name|getPattern
-argument_list|()
-operator|.
-name|isOutCapable
-argument_list|()
-condition|)
-block|{
-name|exchange
-operator|.
-name|setPattern
-argument_list|(
-name|ExchangePattern
-operator|.
-name|InOut
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 end_class
 
