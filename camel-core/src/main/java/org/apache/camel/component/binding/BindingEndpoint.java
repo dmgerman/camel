@@ -126,6 +126,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|HasBinding
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -143,6 +157,8 @@ class|class
 name|BindingEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|HasBinding
 block|{
 DECL|field|binding
 specifier|private
@@ -256,6 +272,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBinding ()
 specifier|public
 name|Binding
