@@ -212,6 +212,16 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|""
+argument_list|,
+name|configuration
+operator|.
+name|getAddressRange
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 operator|new
 name|Integer
 argument_list|(
@@ -1306,6 +1316,8 @@ operator|+
 literal|"sourceAddrNpi=0, "
 operator|+
 literal|"destAddrNpi=0, "
+operator|+
+literal|"addressRange=, "
 operator|+
 literal|"protocolId=0, "
 operator|+

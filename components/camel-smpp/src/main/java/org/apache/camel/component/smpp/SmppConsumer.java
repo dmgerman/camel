@@ -569,7 +569,10 @@ name|NumberingPlanIndicator
 operator|.
 name|UNKNOWN
 argument_list|,
-literal|""
+name|configuration
+operator|.
+name|getAddressRange
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -288,6 +288,13 @@ operator|.
 name|value
 argument_list|()
 decl_stmt|;
+DECL|field|addressRange
+specifier|private
+name|String
+name|addressRange
+init|=
+literal|""
+decl_stmt|;
 DECL|field|protocolId
 specifier|private
 name|byte
@@ -1317,6 +1324,32 @@ operator|=
 name|sessionStateListener
 expr_stmt|;
 block|}
+DECL|method|getAddressRange ()
+specifier|public
+name|String
+name|getAddressRange
+parameter_list|()
+block|{
+return|return
+name|addressRange
+return|;
+block|}
+DECL|method|setAddressRange (String addressRange)
+specifier|public
+name|void
+name|setAddressRange
+parameter_list|(
+name|String
+name|addressRange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|addressRange
+operator|=
+name|addressRange
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1393,6 +1426,10 @@ operator|+
 literal|", destAddrNpi="
 operator|+
 name|destAddrNpi
+operator|+
+literal|", addressRange="
+operator|+
+name|addressRange
 operator|+
 literal|", protocolId="
 operator|+
