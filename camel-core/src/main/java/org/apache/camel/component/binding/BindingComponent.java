@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A composite {@link Component} which creates a {@link BindingEndpoint} from a  * configured {@link Binding} instance and using the optional {@link #setUriPostfix(String)}  * and {@link #setUriPostfix(String)} to create the underlying endpoint from the remaining URI  */
+comment|/**  * A composite {@link Component} which creates a {@link BindingEndpoint} from a  * configured {@link Binding} instance and using the optional {@link #setUriPrefix(String)}  * and {@link #setUriPostfix(String)} to create the underlying endpoint from the remaining URI  */
 end_comment
 
 begin_class
