@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -223,19 +235,73 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-return|return
+name|Endpoint
+name|endpoint
+init|=
 name|component
 operator|.
 name|createEndpoint
 argument_list|(
 name|localEndpoint
 argument_list|)
-return|;
-block|}
-block|}
-return|return
+decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|==
 literal|null
+condition|)
+block|{
+comment|// throw the exception tell we cannot find an then endpoint from the given context
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+literal|"Cannot create a endpoint with uri"
+operator|+
+name|localEndpoint
+operator|+
+literal|" for the CamelContext Component "
+operator|+
+name|contextId
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+return|return
+name|endpoint
 return|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+literal|"Cannot create the camel context component for context "
+operator|+
+name|contextId
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+comment|// the uri is wrong
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+literal|"The uri "
+operator|+
+name|remaining
+operator|+
+literal|"from camel context component is wrong"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

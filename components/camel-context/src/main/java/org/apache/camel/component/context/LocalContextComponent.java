@@ -90,6 +90,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ResolveEndpointFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultComponent
@@ -429,9 +441,23 @@ return|;
 block|}
 block|}
 block|}
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|ResolveEndpointFailedException
+argument_list|(
+literal|"Cannot find the endpoint with uri "
+operator|+
+name|uri
+operator|+
+literal|" in the CamelContext "
+operator|+
+name|getLocalCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+throw|;
 block|}
 DECL|method|logUsingEndpoint (String uri, Endpoint endpoint)
 specifier|protected
