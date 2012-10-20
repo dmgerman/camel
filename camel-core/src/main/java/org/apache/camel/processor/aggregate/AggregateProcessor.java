@@ -1672,6 +1672,13 @@ return|return
 literal|"size"
 return|;
 block|}
+else|else
+block|{
+comment|// not completed yet
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 if|if
