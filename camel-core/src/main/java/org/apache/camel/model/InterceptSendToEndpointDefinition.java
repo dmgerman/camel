@@ -658,16 +658,6 @@ argument_list|)
 expr_stmt|;
 name|newWhen
 operator|.
-name|setNodeFactory
-argument_list|(
-name|when
-operator|.
-name|getNodeFactory
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|newWhen
-operator|.
 name|setDescription
 argument_list|(
 name|when
