@@ -676,6 +676,14 @@ operator|.
 name|suspend
 argument_list|()
 expr_stmt|;
+name|ClassLoader
+name|oldTccl
+init|=
+name|overrideTccl
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|trace
@@ -779,6 +787,21 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|oldTccl
+operator|!=
+literal|null
+condition|)
+block|{
+name|restoreTccl
+argument_list|(
+name|exchange
+argument_list|,
+name|oldTccl
+argument_list|)
+expr_stmt|;
+block|}
 comment|// return to let Jetty continuation to work as it will resubmit and invoke the service
 comment|// method again when its resumed
 return|return;
