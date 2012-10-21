@@ -215,7 +215,7 @@ comment|// test context 1
 name|String
 name|endpointURI1
 init|=
-literal|"http://localhost:9010/camel-context-1/"
+literal|"http://localhost:9010/camel-context-1/continuation/"
 decl_stmt|;
 name|String
 name|response1
@@ -265,7 +265,7 @@ comment|// test context 2
 name|String
 name|endpointURI2
 init|=
-literal|"http://localhost:9010/camel-context-2/"
+literal|"http://localhost:9010/camel-context-2/continuation/"
 decl_stmt|;
 name|String
 name|response2
@@ -283,6 +283,132 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Response from Context 2: "
+operator|+
+name|response2
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Camel Context 2 classloaders unequal"
+argument_list|,
+literal|"true"
+argument_list|,
+name|response2
+operator|.
+name|split
+argument_list|(
+literal|" --- "
+argument_list|)
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+comment|// contexts's both classloaders toString() representation must contain the bundle symbolic ID
+comment|// definition of "both classloaders": the Camel Context classloader and the Thread classloader during processing
+name|assertTrue
+argument_list|(
+name|response1
+operator|.
+name|matches
+argument_list|(
+literal|".*CamelContextBundle1.*CamelContextBundle1.*"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|response2
+operator|.
+name|matches
+argument_list|(
+literal|".*CamelContextBundle2.*CamelContextBundle2.*"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Wait a while to let all the service started
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
+comment|// test context 1
+name|endpointURI1
+operator|=
+literal|"http://localhost:9010/camel-context-1/noContinuation/"
+expr_stmt|;
+name|response1
+operator|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+name|endpointURI1
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Response from Context 1: "
+operator|+
+name|response1
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Camel Context 1 classloaders unequal"
+argument_list|,
+literal|"true"
+argument_list|,
+name|response1
+operator|.
+name|split
+argument_list|(
+literal|" --- "
+argument_list|)
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+comment|// test context 2
+name|endpointURI2
+operator|=
+literal|"http://localhost:9010/camel-context-2/noContinuation/"
+expr_stmt|;
+name|response2
+operator|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+name|endpointURI2
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|System
 operator|.
 name|out

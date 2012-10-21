@@ -506,6 +506,16 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we override the classloader before building the HttpMessage just in case the binding
+comment|// does some class resolution
+name|ClassLoader
+name|oldTccl
+init|=
+name|overrideTccl
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 name|HttpHelper
 operator|.
 name|setCharsetFromContentType
@@ -642,6 +652,16 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+name|restoreTccl
+argument_list|(
+name|exchange
+argument_list|,
+name|oldTccl
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|resolve (HttpServletRequest request)
