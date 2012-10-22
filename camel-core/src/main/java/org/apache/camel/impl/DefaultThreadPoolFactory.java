@@ -334,8 +334,7 @@ parameter_list|)
 throws|throws
 name|IllegalArgumentException
 block|{
-comment|// If we set the corePoolSize to be 0, the whole camel application will hang in JDK5
-comment|// just add a check here to throw the IllegalArgumentException
+comment|// the core pool size must be higher than 0
 if|if
 condition|(
 name|corePoolSize
@@ -347,7 +346,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The corePoolSize can't be lower than 1"
+literal|"CorePoolSize must be>= 1, was "
+operator|+
+name|corePoolSize
 argument_list|)
 throw|;
 block|}
@@ -390,7 +391,7 @@ operator|<=
 literal|0
 condition|)
 block|{
-comment|// use a synchronous queue
+comment|// use a synchronous queue for direct-handover (no tasks stored on the queue)
 name|workQueue
 operator|=
 operator|new
@@ -418,11 +419,11 @@ operator|<=
 literal|0
 condition|)
 block|{
-comment|// unbounded task queue
+comment|// use a synchronous queue for direct-handover (no tasks stored on the queue)
 name|workQueue
 operator|=
 operator|new
-name|LinkedBlockingQueue
+name|SynchronousQueue
 argument_list|<
 name|Runnable
 argument_list|>
@@ -431,7 +432,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// bounded task queue
+comment|// bounded task queue to store tasks on the queue
 name|workQueue
 operator|=
 operator|new

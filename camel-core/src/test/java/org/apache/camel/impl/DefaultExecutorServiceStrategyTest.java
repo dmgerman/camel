@@ -906,8 +906,9 @@ name|custom
 operator|.
 name|setMaxQueueSize
 argument_list|(
-operator|-
-literal|1
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 name|context
