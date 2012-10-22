@@ -718,6 +718,17 @@ argument_list|,
 name|LOG
 argument_list|)
 expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|plaintextStream
+argument_list|,
+literal|"plaintext"
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
