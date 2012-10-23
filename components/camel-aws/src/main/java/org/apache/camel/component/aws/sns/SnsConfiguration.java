@@ -309,7 +309,7 @@ literal|"SnsConfiguration[topicName="
 operator|+
 name|topicName
 operator|+
-literal|", amazonSQSClient="
+literal|", amazonSNSClient="
 operator|+
 name|amazonSNSClient
 operator|+
