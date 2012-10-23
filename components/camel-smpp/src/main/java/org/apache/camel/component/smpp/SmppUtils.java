@@ -726,7 +726,16 @@ name|byte
 name|dataCoding
 parameter_list|)
 block|{
+comment|/* Both the 3.4 and 5.0 SMPP specs clearly state that 0x02 is          * 'Octet-unspecified (8-bit)', but jsmpp doesn't account for this for          * some reason.          */
 return|return
+name|dataCoding
+operator|==
+literal|0x02
+condition|?
+name|Alphabet
+operator|.
+name|ALPHA_8_BIT
+else|:
 name|Alphabet
 operator|.
 name|valueOf
