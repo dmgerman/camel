@@ -710,6 +710,30 @@ name|isUnary
 argument_list|()
 condition|)
 block|{
+comment|// there must be a end function as previous, to let this be a unary function
+if|if
+condition|(
+operator|!
+name|nodes
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|nodes
+operator|.
+name|get
+argument_list|(
+name|nodes
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+operator|instanceof
+name|SimpleFunctionEnd
+condition|)
+block|{
 return|return
 operator|new
 name|UnaryExpression
@@ -717,6 +741,7 @@ argument_list|(
 name|token
 argument_list|)
 return|;
+block|}
 block|}
 comment|// by returning null, we will let the parser determine what to do
 return|return

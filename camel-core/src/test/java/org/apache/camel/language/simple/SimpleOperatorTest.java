@@ -2241,6 +2241,108 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testUnaryInc ()
+specifier|public
+name|void
+name|testUnaryInc
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar}++"
+argument_list|,
+literal|124
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"+++++++++++++"
+argument_list|,
+literal|"+++++++++++++"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"Logging ++ start ++"
+argument_list|,
+literal|"Logging ++ start ++"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"Logging +++ start +++"
+argument_list|,
+literal|"Logging +++ start +++"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"++ start ++"
+argument_list|,
+literal|"++ start ++"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"+++ start +++"
+argument_list|,
+literal|"+++ start +++"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testUnaryDec ()
+specifier|public
+name|void
+name|testUnaryDec
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${in.header.bar}--"
+argument_list|,
+literal|122
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"-------------"
+argument_list|,
+literal|"-------------"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"Logging -- start --"
+argument_list|,
+literal|"Logging -- start --"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"Logging --- start ---"
+argument_list|,
+literal|"Logging --- start ---"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"-- start --"
+argument_list|,
+literal|"-- start --"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"--- start ---"
+argument_list|,
+literal|"--- start ---"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
