@@ -2291,6 +2291,27 @@ argument_list|,
 literal|"+++ start +++"
 argument_list|)
 expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar}++ == 122"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar}++ == 123"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar}++ == 124"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testUnaryDec ()
 specifier|public
@@ -2340,6 +2361,27 @@ argument_list|(
 literal|"--- start ---"
 argument_list|,
 literal|"--- start ---"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar}-- == 122"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar}-- == 123"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar}-- == 124"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
