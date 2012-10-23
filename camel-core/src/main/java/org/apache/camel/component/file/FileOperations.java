@@ -1009,6 +1009,11 @@ name|source
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|fileBased
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|charset
@@ -1050,6 +1055,10 @@ operator|.
 name|getFile
 argument_list|()
 expr_stmt|;
+name|fileBased
+operator|=
+literal|true
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1069,12 +1078,10 @@ block|}
 block|}
 if|if
 condition|(
-name|source
-operator|!=
-literal|null
+name|fileBased
 condition|)
 block|{
-comment|// okay we know the body is a file type
+comment|// okay we know the body is a file based
 comment|// so try to see if we can optimize by renaming the local work path file instead of doing
 comment|// a full file to file copy, as the local work copy is to be deleted afterwards anyway
 comment|// local work path
@@ -1157,6 +1164,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|source
+operator|!=
+literal|null
+operator|&&
 name|source
 operator|.
 name|exists
