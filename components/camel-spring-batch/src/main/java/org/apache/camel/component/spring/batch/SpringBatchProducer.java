@@ -342,7 +342,13 @@ name|headerValue
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|headerValue
+operator|!=
+literal|null
+condition|)
 block|{
 name|parametersBuilder
 operator|.
@@ -354,6 +360,19 @@ name|headerValue
 operator|.
 name|toString
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if the value is null we just put String with null value here to avoid the NPE
+name|parametersBuilder
+operator|.
+name|addString
+argument_list|(
+name|headerKey
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
