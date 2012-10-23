@@ -348,6 +348,20 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Restart Camel (stop and then start)"
+argument_list|)
+DECL|method|restart ()
+name|void
+name|restart
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Suspend Camel"
 argument_list|)
 DECL|method|suspend ()

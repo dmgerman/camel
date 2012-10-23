@@ -767,6 +767,25 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|restart ()
+specifier|public
+name|void
+name|restart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|suspend ()
 specifier|public
 name|void
