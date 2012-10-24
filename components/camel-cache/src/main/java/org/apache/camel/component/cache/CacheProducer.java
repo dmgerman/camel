@@ -624,13 +624,6 @@ if|if
 condition|(
 name|cache
 operator|.
-name|isKeyInCache
-argument_list|(
-name|key
-argument_list|)
-operator|&&
-name|cache
-operator|.
 name|get
 argument_list|(
 name|key
