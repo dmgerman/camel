@@ -142,12 +142,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:b"
+literal|"direct:a"
 argument_list|)
 operator|.
 name|routeId
 argument_list|(
-literal|"b"
+literal|"a"
 argument_list|)
 operator|.
 name|split
@@ -162,7 +162,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:b"
+literal|"mock:a"
 argument_list|)
 expr_stmt|;
 name|from
