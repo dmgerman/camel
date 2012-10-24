@@ -126,7 +126,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/hello?password=admin"
+literal|"/hello/?password=admin"
 return|;
 block|}
 annotation|@
@@ -231,7 +231,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"hello"
+literal|"hello-world.txt"
 argument_list|)
 expr_stmt|;
 name|Producer
