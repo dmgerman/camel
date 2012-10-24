@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -75,18 +65,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|FailedToStartRouteException
 import|;
 end_import
 
@@ -173,7 +151,7 @@ specifier|private
 name|RouteDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Validates that the target route has no duplicate id's from any of the existing routes.      *      * @param target  the target route      * @param routes  the other routes      * @return<tt>null</tt> if no duplicate id's detected, otherwise the duplicate id is returned.      */
+comment|/**      * Validates that the target route has no duplicate id's from any of the existing routes.      *      * @param target  the target route      * @param routes  the existing routes      * @return<tt>null</tt> if no duplicate id's detected, otherwise the first found duplicate id is returned.      */
 DECL|method|validateUniqueIds (RouteDefinition target, List<RouteDefinition> routes)
 specifier|public
 specifier|static
@@ -189,8 +167,6 @@ name|RouteDefinition
 argument_list|>
 name|routes
 parameter_list|)
-throws|throws
-name|FailedToStartRouteException
 block|{
 name|Set
 argument_list|<
@@ -227,7 +203,7 @@ continue|continue;
 block|}
 name|ProcessorDefinitionHelper
 operator|.
-name|getAllIDs
+name|gatherAllNodeIds
 argument_list|(
 name|route
 argument_list|,
@@ -256,7 +232,7 @@ argument_list|()
 decl_stmt|;
 name|ProcessorDefinitionHelper
 operator|.
-name|getAllIDs
+name|gatherAllNodeIds
 argument_list|(
 name|target
 argument_list|,

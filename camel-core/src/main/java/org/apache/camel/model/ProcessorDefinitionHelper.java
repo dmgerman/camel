@@ -543,14 +543,15 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|getAllIDs (ProcessorDefinition<?> node, Set<String> set, boolean onlyCustomId, boolean includeAbstract)
+comment|/**      * Traverses the node, including its children (recursive), and gathers all the node ids.      *      * @param node  the target node      * @param set   set to store ids, if<tt>null</tt> a new set will be created      * @param onlyCustomId  whether to only store custom assigned ids (ie. {@link org.apache.camel.model.OptionalIdentifiedDefinition#hasCustomIdAssigned()}      * @param includeAbstract whether to include abstract nodes (ie. {@link org.apache.camel.model.ProcessorDefinition#isAbstract()}      * @return the set with the found ids.      */
+DECL|method|gatherAllNodeIds (ProcessorDefinition<?> node, Set<String> set, boolean onlyCustomId, boolean includeAbstract)
 specifier|public
 specifier|static
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|getAllIDs
+name|gatherAllNodeIds
 parameter_list|(
 name|ProcessorDefinition
 argument_list|<
@@ -688,7 +689,7 @@ name|children
 control|)
 block|{
 comment|// traverse children also
-name|getAllIDs
+name|gatherAllNodeIds
 argument_list|(
 name|child
 argument_list|,

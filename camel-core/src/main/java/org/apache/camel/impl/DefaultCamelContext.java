@@ -10209,7 +10209,6 @@ parameter_list|)
 throws|throws
 name|FailedToStartRouteException
 block|{
-comment|// TODO: There could potential be routeId clash as well, so we should check for that as well
 comment|// check for clash by startupOrder id
 name|DefaultRouteStartupOrder
 name|other
