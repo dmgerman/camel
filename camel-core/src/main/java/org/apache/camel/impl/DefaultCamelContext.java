@@ -774,6 +774,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|RouteDefinitionHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|RoutesDefinition
 import|;
 end_import
@@ -4404,6 +4418,43 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// validate that the id's is all unique
+name|String
+name|duplicate
+init|=
+name|RouteDefinitionHelper
+operator|.
+name|validateUniqueIds
+argument_list|(
+name|route
+argument_list|,
+name|routeDefinitions
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|duplicate
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|FailedToStartRouteException
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+literal|"duplicate id detected: "
+operator|+
+name|duplicate
+operator|+
+literal|". Please correct ids to be unique among all your routes."
+argument_list|)
+throw|;
+block|}
 comment|// indicate we are staring the route using this thread so
 comment|// we are able to query this if needed
 name|isStartingRoutes
