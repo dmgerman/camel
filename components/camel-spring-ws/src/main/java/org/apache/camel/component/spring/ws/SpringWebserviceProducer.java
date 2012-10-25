@@ -571,6 +571,8 @@ argument_list|()
 operator|.
 name|getConfiguration
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 name|Object
@@ -1184,7 +1186,13 @@ specifier|final
 name|SpringWebserviceConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|DefaultWebserviceMessageCallback (String soapAction, URI wsAddressingAction, SpringWebserviceConfiguration configuration)
+DECL|field|exchange
+specifier|private
+specifier|final
+name|Exchange
+name|exchange
+decl_stmt|;
+DECL|method|DefaultWebserviceMessageCallback (String soapAction, URI wsAddressingAction, SpringWebserviceConfiguration configuration, Exchange exchange)
 specifier|public
 name|DefaultWebserviceMessageCallback
 parameter_list|(
@@ -1196,6 +1204,9 @@ name|wsAddressingAction
 parameter_list|,
 name|SpringWebserviceConfiguration
 name|configuration
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 name|this
@@ -1215,6 +1226,12 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
 expr_stmt|;
 block|}
 DECL|method|doWithMessage (WebServiceMessage message)
@@ -1301,6 +1318,18 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+name|configuration
+operator|.
+name|getMessageFilter
+argument_list|()
+operator|.
+name|filterProducer
+argument_list|(
+name|exchange
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * A {@link SourceExtractor} that performs no conversion, instead conversion      * is handled by Camel's {@link TypeConverter} hierarchy.      */
