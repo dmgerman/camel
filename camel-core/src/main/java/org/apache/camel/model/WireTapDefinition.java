@@ -926,6 +926,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Uses a copy of the original exchange      *      * @param copy if it is true camel will copy the original exchange,      *             if it is false camel will not copy the original exchange       * @return the builder      */
+DECL|method|copy (boolean copy)
+specifier|public
+name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|copy
+parameter_list|(
+name|boolean
+name|copy
+parameter_list|)
+block|{
+name|setCopy
+argument_list|(
+name|copy
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * @deprecated will be removed in Camel 3.0 Instead use {@link #newExchangeBody(org.apache.camel.Expression)}      */
 annotation|@
 name|Deprecated
