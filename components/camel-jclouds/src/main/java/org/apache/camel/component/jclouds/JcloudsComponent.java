@@ -70,6 +70,16 @@ name|org
 operator|.
 name|jclouds
 operator|.
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jclouds
+operator|.
 name|blobstore
 operator|.
 name|BlobStore
@@ -328,14 +338,14 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Returns the {@link BlobStore} that matches the given providerOrApi.      * @param providerOrApi The providerOrApi id.      * @return The matching {@link BlobStore}      */
-DECL|method|getBlobStore (String providerOrApi)
+comment|/**      * Returns the {@link BlobStore} that matches the given providerOrApi.      * @param predicate The blobstore context name, provider or api.      * @return The matching {@link BlobStore}      */
+DECL|method|getBlobStore (String predicate)
 specifier|protected
 name|BlobStore
 name|getBlobStore
 parameter_list|(
 name|String
-name|providerOrApi
+name|predicate
 parameter_list|)
 throws|throws
 name|Exception
@@ -353,6 +363,46 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|//First try using name and then fallback to the provider or api.
+if|if
+condition|(
+name|isNameSupportedByContext
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|BlobStore
+name|blobStore
+range|:
+name|blobStores
+control|)
+block|{
+if|if
+condition|(
+name|blobStore
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|unwrap
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|predicate
+argument_list|)
+condition|)
+block|{
+return|return
+name|blobStore
+return|;
+block|}
+block|}
+block|}
 for|for
 control|(
 name|BlobStore
@@ -376,7 +426,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|providerOrApi
+name|predicate
 argument_list|)
 condition|)
 block|{
@@ -393,9 +443,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"No blobstore found for provider:%s"
+literal|"No blobstore found for:%s"
 argument_list|,
-name|providerOrApi
+name|predicate
 argument_list|)
 argument_list|)
 throw|;
@@ -411,14 +461,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns the {@link ComputeService} that matches the given providerOrApi.      * @param providerOrApi The providerOrApi id.      * @return The matching {@link ComputeService}      */
-DECL|method|getComputeService (String providerOrApi)
+comment|/**      * Returns the {@link ComputeService} that matches the given predicate.      * @param predicate The compute context name, provider or api.      * @return The matching {@link ComputeService}      */
+DECL|method|getComputeService (String predicate)
 specifier|protected
 name|ComputeService
 name|getComputeService
 parameter_list|(
 name|String
-name|providerOrApi
+name|predicate
 parameter_list|)
 throws|throws
 name|Exception
@@ -436,6 +486,46 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|//First try using name and then fallback to the provider or api.
+if|if
+condition|(
+name|isNameSupportedByContext
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|ComputeService
+name|computeService
+range|:
+name|computeServices
+control|)
+block|{
+if|if
+condition|(
+name|computeService
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|unwrap
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|predicate
+argument_list|)
+condition|)
+block|{
+return|return
+name|computeService
+return|;
+block|}
+block|}
+block|}
 for|for
 control|(
 name|ComputeService
@@ -459,7 +549,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|providerOrApi
+name|predicate
 argument_list|)
 condition|)
 block|{
@@ -476,9 +566,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"No compute service found for provider:%s"
+literal|"No compute service found for :%s"
 argument_list|,
-name|providerOrApi
+name|predicate
 argument_list|)
 argument_list|)
 throw|;
@@ -492,6 +582,41 @@ argument_list|(
 literal|"No compute service available."
 argument_list|)
 throw|;
+block|}
+block|}
+comment|/**      * Checks if jclouds {@link Context} supports the name.      * We need this method as getName is not supported in earlier micro version of 1.5.x.      * So we use this check to fallback to traditional means of looking up contexts and services, if name is not present.      *      * @return      */
+DECL|method|isNameSupportedByContext ()
+specifier|private
+name|boolean
+name|isNameSupportedByContext
+parameter_list|()
+block|{
+try|try
+block|{
+name|Context
+operator|.
+name|class
+operator|.
+name|getMethod
+argument_list|(
+literal|"getName"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodException
+name|ex
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
 block|}
 block|}
 DECL|method|getBlobStores ()
