@@ -2141,11 +2141,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|load (TypeConverterRegistry registry)
 specifier|public
 name|void
@@ -2796,7 +2791,7 @@ argument_list|)
 decl_stmt|;
 name|Class
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|type
 init|=
@@ -2847,6 +2842,12 @@ name|injector
 operator|.
 name|newInstance
 argument_list|(
+operator|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+operator|)
 name|type
 argument_list|)
 return|;
@@ -2896,6 +2897,9 @@ decl_stmt|;
 DECL|field|reg
 specifier|private
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 name|reg
 decl_stmt|;
 DECL|method|BaseService (Bundle bundle)
@@ -3035,7 +3039,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doRegister (Class<?> type, Dictionary<?, ?> props)
+DECL|method|doRegister (Class<?> type, Dictionary<String, ?> props)
 specifier|protected
 name|void
 name|doRegister
@@ -3048,7 +3052,7 @@ name|type
 parameter_list|,
 name|Dictionary
 argument_list|<
-name|?
+name|String
 argument_list|,
 name|?
 argument_list|>
