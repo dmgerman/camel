@@ -165,9 +165,17 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|5
+literal|"Bye A"
+argument_list|,
+literal|"Bye B"
+argument_list|,
+literal|"Bye C"
+argument_list|,
+literal|"Bye D"
+argument_list|,
+literal|"Bye E"
 argument_list|)
 expr_stmt|;
 name|log
@@ -299,6 +307,27 @@ name|Exception
 block|{
 name|from
 argument_list|(
+literal|"activemq:queue:foo"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"request - ${body}"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|body
+argument_list|()
+operator|.
+name|prepend
+argument_list|(
+literal|"Bye "
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
 literal|"seda:start"
 argument_list|)
 operator|.
@@ -342,32 +371,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:result"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"activemq:queue:foo"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"request - ${body}"
-argument_list|)
-operator|.
-name|transform
-argument_list|(
-name|body
-argument_list|()
-operator|.
-name|prepend
-argument_list|(
-literal|"Bye "
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:bye"
 argument_list|)
 expr_stmt|;
 block|}

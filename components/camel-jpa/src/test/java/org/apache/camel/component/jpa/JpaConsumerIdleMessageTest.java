@@ -100,7 +100,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|130
+literal|290
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -188,7 +188,7 @@ name|from
 argument_list|(
 literal|"jpa://org.apache.camel.examples.MultiSteps?consumer.nativeQuery=select * from MultiSteps where step = 1"
 operator|+
-literal|"&delay=50&sendEmptyMessageWhenIdle=true"
+literal|"&delay=100&sendEmptyMessageWhenIdle=true"
 argument_list|)
 operator|.
 name|to
