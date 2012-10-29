@@ -24,17 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Dictionary
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Hashtable
+name|Properties
 import|;
 end_import
 
@@ -186,9 +176,6 @@ decl_stmt|;
 DECL|field|registration
 specifier|private
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 name|registration
 decl_stmt|;
 DECL|method|EventAdminConsumer (EventAdminEndpoint endpoint, Processor processor)
@@ -332,21 +319,11 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|Dictionary
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+name|Properties
 name|props
 init|=
 operator|new
-name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+name|Properties
 argument_list|()
 decl_stmt|;
 name|props

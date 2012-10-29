@@ -504,7 +504,7 @@ argument_list|)
 decl_stmt|;
 name|Dictionary
 argument_list|<
-name|String
+name|?
 argument_list|,
 name|?
 argument_list|>
@@ -534,7 +534,7 @@ DECL|method|getProperties (Exchange exchange)
 specifier|protected
 name|Dictionary
 argument_list|<
-name|String
+name|?
 argument_list|,
 name|?
 argument_list|>

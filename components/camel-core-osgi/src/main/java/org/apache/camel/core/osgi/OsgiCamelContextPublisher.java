@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|Map
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|Properties
 import|;
 end_import
 
@@ -241,9 +241,6 @@ argument_list|<
 name|CamelContext
 argument_list|,
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|registrations
 init|=
@@ -253,9 +250,6 @@ argument_list|<
 name|CamelContext
 argument_list|,
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -305,21 +299,11 @@ operator|.
 name|getContext
 argument_list|()
 decl_stmt|;
-name|Dictionary
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|Properties
 name|props
 init|=
 operator|new
-name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|Properties
 argument_list|()
 decl_stmt|;
 name|props
@@ -374,9 +358,6 @@ name|props
 argument_list|)
 expr_stmt|;
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 name|reg
 init|=
 name|bundleContext
@@ -427,9 +408,6 @@ name|getContext
 argument_list|()
 decl_stmt|;
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 name|reg
 init|=
 name|registrations
