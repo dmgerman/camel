@@ -34,6 +34,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|ByteArrayOutputStream
 import|;
 end_import
@@ -178,7 +188,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
+name|Exchange
 import|;
 end_import
 
@@ -190,7 +200,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|InvalidPayloadException
 import|;
 end_import
 
@@ -536,6 +546,14 @@ operator|.
 name|getConnectTimeout
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -565,6 +583,7 @@ else|:
 literal|"no"
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|file
 init|=
@@ -575,6 +594,65 @@ argument_list|,
 name|cfg
 argument_list|)
 decl_stmt|;
+name|InputStream
+name|is
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Do an explicit test for a null body and decide what to do
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isAllowNullBody
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Writing empty file."
+argument_list|)
+expr_stmt|;
+name|is
+operator|=
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+operator|new
+name|byte
+index|[]
+block|{}
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"Cannot write null body to file: "
+operator|+
+name|name
+argument_list|)
+throw|;
+block|}
+block|}
 try|try
 block|{
 name|channel
@@ -622,6 +700,28 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|is
+operator|==
+literal|null
+condition|)
+block|{
+name|is
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getMandatoryBody
+argument_list|(
+name|InputStream
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 name|write
 argument_list|(
 name|channel
@@ -646,7 +746,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CamelExchangeException
+name|InvalidPayloadException
 name|e
 parameter_list|)
 block|{
@@ -654,7 +754,9 @@ throw|throw
 operator|new
 name|GenericFileOperationFailedException
 argument_list|(
-literal|"Failed extract message body as InputStream"
+literal|"Cannot store file: "
+operator|+
+name|name
 argument_list|,
 name|e
 argument_list|)
@@ -678,6 +780,17 @@ name|e
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+comment|// must close stream after usage
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -685,20 +798,17 @@ name|JSchException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|warn
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
 argument_list|(
-literal|"Failed to secure copy file "
+literal|"Failed to write file "
 operator|+
 name|file
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 finally|finally
 block|{
