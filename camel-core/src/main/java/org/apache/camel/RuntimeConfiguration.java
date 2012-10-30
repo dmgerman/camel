@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|RuntimeConfiguration
 block|{
-comment|/**      * Sets whether stream caching is enabled or not (default is disabled).      *<p/>      *      * @param cache whether stream caching is enabled or not      */
+comment|/**      * Sets whether stream caching is enabled or not (default is disabled).      *      * @param cache whether stream caching is enabled or not      */
 DECL|method|setStreamCaching (Boolean cache)
 name|void
 name|setStreamCaching
@@ -33,13 +33,13 @@ name|Boolean
 name|cache
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether stream cache is enabled      *      * @return true if stream cache is enabled      */
+comment|/**      * Returns whether stream cache is enabled      *      * @return<tt>true</tt> if stream cache is enabled      */
 DECL|method|isStreamCaching ()
 name|Boolean
 name|isStreamCaching
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *<p/>      *      * @param tracing whether to enable tracing.      */
+comment|/**      * Sets whether tracing is enabled or not (default is disabled).      *      * @param tracing whether to enable tracing.      */
 DECL|method|setTracing (Boolean tracing)
 name|void
 name|setTracing
@@ -48,13 +48,13 @@ name|Boolean
 name|tracing
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether tracing enabled      *      * @return true if tracing is enabled      */
+comment|/**      * Returns whether tracing enabled      *      * @return<tt>true</tt> if tracing is enabled      */
 DECL|method|isTracing ()
 name|Boolean
 name|isTracing
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether fault handling is enabled or not (default is disabled).      *<p/>      *      * @param handleFault whether to enable fault handling.      */
+comment|/**      * Sets whether fault handling is enabled or not (default is disabled).      *      * @param handleFault whether to enable fault handling.      */
 DECL|method|setHandleFault (Boolean handleFault)
 name|void
 name|setHandleFault
@@ -63,7 +63,7 @@ name|Boolean
 name|handleFault
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether fault handling enabled      *      * @return true if fault handling is enabled      */
+comment|/**      * Returns whether fault handling enabled      *      * @return<tt>true</tt> if fault handling is enabled      */
 DECL|method|isHandleFault ()
 name|Boolean
 name|isHandleFault
@@ -84,7 +84,7 @@ name|Long
 name|getDelayer
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether the object should automatically start when Camel starts.      *<p/>      * Currently only routes can be disabled, as {@link CamelContext}s are always started.      *<br/>      * Default is true to always start up.      *      * @param autoStartup whether to start up automatically.      */
+comment|/**      * Sets whether the object should automatically start when Camel starts.      *<p/>      *<b>Important:</b> Currently only routes can be disabled, as {@link CamelContext}s are always started.      *<br/>      * Default is<tt>true</tt> to always start up.      *      * @param autoStartup whether to start up automatically.      */
 DECL|method|setAutoStartup (Boolean autoStartup)
 name|void
 name|setAutoStartup
@@ -93,7 +93,7 @@ name|Boolean
 name|autoStartup
 parameter_list|)
 function_decl|;
-comment|/**      * Gets whether the object should automatically start when Camel starts.      *      * @return true if object should automatically start      */
+comment|/**      * Gets whether the object should automatically start when Camel starts.      *<p/>      *<b>Important:</b> Currently only routes can be disabled, as {@link CamelContext}s are always started.      *<br/>      * Default is<tt>true</tt> to always start up.      *      * @return<tt>true</tt> if object should automatically start      */
 DECL|method|isAutoStartup ()
 name|Boolean
 name|isAutoStartup
@@ -114,7 +114,7 @@ name|ShutdownRoute
 name|getShutdownRoute
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the ShutdownRunningTask option to use when shutting down a route.      *<p/>      *      * @param shutdownRunningTask the option to use.      */
+comment|/**      * Sets the ShutdownRunningTask option to use when shutting down a route.      *      * @param shutdownRunningTask the option to use.      */
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 name|void
 name|setShutdownRunningTask
