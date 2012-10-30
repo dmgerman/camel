@@ -1169,12 +1169,20 @@ name|long
 name|transactionBatchTimeout
 parameter_list|)
 block|{
+if|if
+condition|(
+name|transactionBatchTimeout
+operator|>=
+literal|1000
+condition|)
+block|{
 name|this
 operator|.
 name|transactionBatchTimeout
 operator|=
 name|transactionBatchTimeout
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Gets the commit strategy.      *       * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
