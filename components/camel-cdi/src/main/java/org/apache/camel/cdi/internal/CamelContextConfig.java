@@ -36,17 +36,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
+name|LinkedHashSet
 import|;
 end_import
 
@@ -192,10 +182,11 @@ specifier|public
 class|class
 name|CamelContextConfig
 block|{
+comment|// use a set to avoid duplicates
 DECL|field|routeBuilderBeans
 specifier|private
 specifier|final
-name|List
+name|Set
 argument_list|<
 name|Bean
 argument_list|<
@@ -205,7 +196,7 @@ argument_list|>
 name|routeBuilderBeans
 init|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<
 name|Bean
 argument_list|<
@@ -217,7 +208,7 @@ decl_stmt|;
 DECL|field|patRouteBuilders
 specifier|private
 specifier|final
-name|List
+name|Set
 argument_list|<
 name|ProcessAnnotatedType
 argument_list|<
@@ -227,7 +218,7 @@ argument_list|>
 name|patRouteBuilders
 init|=
 operator|new
-name|ArrayList
+name|LinkedHashSet
 argument_list|<
 name|ProcessAnnotatedType
 argument_list|<
