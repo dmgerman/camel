@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * TODO Add Class documentation for TimedTaskManagerFactory  *   * @author sully6768  */
+comment|/**  * A thread safe factory that creates an instance of the TimedTaskManager.  */
 end_comment
 
 begin_class
@@ -31,6 +31,12 @@ specifier|final
 class|class
 name|TimedTaskManagerFactory
 block|{
+comment|/**      * Private default constructor for utility class      */
+DECL|method|TimedTaskManagerFactory ()
+specifier|private
+name|TimedTaskManagerFactory
+parameter_list|()
+block|{     }
 DECL|class|TimedTaskManagerHolder
 specifier|private
 specifier|static
@@ -39,8 +45,8 @@ name|TimedTaskManagerHolder
 block|{
 DECL|field|INSTANCE
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|TimedTaskManager
 name|INSTANCE
 init|=
@@ -49,6 +55,7 @@ name|TimedTaskManager
 argument_list|()
 decl_stmt|;
 block|}
+comment|/**      * Returns the local instance of the {@link TimedTaskManager}.      *       * @return TimedTaskManager      */
 DECL|method|getInstance ()
 specifier|public
 specifier|static

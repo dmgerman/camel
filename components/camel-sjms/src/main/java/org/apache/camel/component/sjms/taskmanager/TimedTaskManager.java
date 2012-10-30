@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for TimedTaskManager  *  * @author sully6768  */
+comment|/**  * A thread safe task manager that allows you to add and cancel  * {@link TimerTask} objects.  */
 end_comment
 
 begin_class
