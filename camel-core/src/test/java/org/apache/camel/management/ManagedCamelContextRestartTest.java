@@ -106,15 +106,11 @@ DECL|field|starts
 specifier|private
 name|int
 name|starts
-init|=
-literal|0
 decl_stmt|;
 DECL|field|stops
 specifier|private
 name|int
 name|stops
-init|=
-literal|0
 decl_stmt|;
 annotation|@
 name|Override
