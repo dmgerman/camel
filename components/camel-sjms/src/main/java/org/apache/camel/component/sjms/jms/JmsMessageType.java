@@ -40,8 +40,9 @@ block|,
 DECL|enumConstant|Object
 name|Object
 block|,
-comment|/**      * TODO Write support for Stream Messages      */
-comment|//Stream,
+DECL|enumConstant|Stream
+name|Stream
+block|,
 DECL|enumConstant|Text
 name|Text
 block|,
