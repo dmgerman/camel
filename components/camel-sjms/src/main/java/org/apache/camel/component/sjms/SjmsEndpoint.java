@@ -384,6 +384,13 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+DECL|field|transactionBatchTimeout
+specifier|private
+name|long
+name|transactionBatchTimeout
+init|=
+literal|5000
+decl_stmt|;
 DECL|field|transactionCommitStrategy
 specifier|private
 name|TransactionCommitStrategy
@@ -1139,6 +1146,34 @@ operator|.
 name|transactionBatchCount
 operator|=
 name|transactionBatchCount
+expr_stmt|;
+block|}
+comment|/**      * Returns the timeout value for batch transactions.      *       * @return long      */
+DECL|method|getTransactionBatchTimeout ()
+specifier|public
+name|long
+name|getTransactionBatchTimeout
+parameter_list|()
+block|{
+return|return
+name|transactionBatchTimeout
+return|;
+block|}
+comment|/**      * Sets timeout value for batch transactions.      *       * @param transactionBatchTimeout      */
+DECL|method|setTransactionBatchTimeout (long transactionBatchTimeout)
+specifier|public
+name|void
+name|setTransactionBatchTimeout
+parameter_list|(
+name|long
+name|transactionBatchTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionBatchTimeout
+operator|=
+name|transactionBatchTimeout
 expr_stmt|;
 block|}
 comment|/**      * Gets the commit strategy.      *       * @return the transactionCommitStrategy      */

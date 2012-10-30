@@ -184,6 +184,20 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+name|current
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
