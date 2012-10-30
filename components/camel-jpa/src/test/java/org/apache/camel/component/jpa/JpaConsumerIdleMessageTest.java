@@ -96,13 +96,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|290
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -186,7 +179,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jpa://org.apache.camel.examples.MultiSteps?consumer.nativeQuery=select * from MultiSteps where step = 1"
+literal|"jpa://org.apache.camel.examples.MultiSteps?consumer.nativeQuery=select * from MultiSteps where step = 999"
 operator|+
 literal|"&delay=100&sendEmptyMessageWhenIdle=true"
 argument_list|)
