@@ -186,11 +186,12 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// just sleep a little to simulate testing take a bit time
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|4000
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}
@@ -215,14 +216,38 @@ argument_list|(
 name|stopWatch
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
+name|long
+name|taken
+init|=
 name|stopWatch
 operator|.
 name|taken
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|taken
+operator|+
+literal|"> 0, but was: "
+operator|+
+name|taken
+argument_list|,
+name|taken
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|taken
+operator|+
+literal|"< 3000, but was: "
+operator|+
+name|taken
+argument_list|,
+name|taken
 operator|<
-literal|4100
+literal|3000
 argument_list|)
 expr_stmt|;
 block|}

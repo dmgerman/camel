@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An execution listener that simulates the timing output built in to {@link CamelTestSupport}.  */
+comment|/**  * An execution listener that simulates the timing output built in to {@link org.apache.camel.test.junit4.CamelTestSupport}.  */
 end_comment
 
 begin_class
@@ -124,7 +124,7 @@ name|StopWatch
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Exists primarily for testing purposes, but allows for access to the underlying stop watch instance      * for a test.      */
+comment|/**      * Exists primarily for testing purposes, but allows for access to the underlying stop watch instance for a test.      */
 DECL|method|getStopWatch ()
 specifier|public
 specifier|static

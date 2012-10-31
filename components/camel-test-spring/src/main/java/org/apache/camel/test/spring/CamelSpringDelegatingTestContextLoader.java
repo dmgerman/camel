@@ -334,6 +334,24 @@ name|DelegatingSmartContextLoader
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|spring
+operator|.
+name|CamelSpringTestHelper
+operator|.
+name|getAllMethods
+import|;
+end_import
+
 begin_comment
 comment|/**  * Custom TestContextLoader which fixes issues in Camel's JavaConfigContextLoader. (adds support for Camel's test annotations)  *<br>  *<em>This loader can handle either classes or locations for configuring the context.</em>  *<br>  */
 end_comment
@@ -360,7 +378,6 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/*      * (non-Javadoc)      * @see org.springframework.test.context.support.DelegatingSmartContextLoader#loadContext(org.springframework.test.context.MergedContextConfiguration)      */
 annotation|@
 name|Override
 DECL|method|loadContext (MergedContextConfiguration mergedConfig)
@@ -395,14 +412,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Loading ApplicationContext for merged context configuration [%s]."
+literal|"Loading ApplicationContext for merged context configuration [{}]."
 argument_list|,
 name|mergedConfig
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -461,7 +473,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Performs the bulk of the Spring application context loading/customization.      *      * @param context the partially configured context.  The context should have the bean definitions loaded, but nothing else.      * @param testClass the test class being executed      *      * @return the initialized (refreshed) Spring application context      *      * @throws Exception if there is an error during initialization/customization      */
+comment|/**      * Performs the bulk of the Spring application context loading/customization.      *      * @param context the partially configured context.  The context should have the bean definitions loaded, but nothing else.      * @param testClass the test class being executed      * @return the initialized (refreshed) Spring application context      *      * @throws Exception if there is an error during initialization/customization      */
 DECL|method|loadContext (ConfigurableApplicationContext context, Class<?> testClass)
 specifier|public
 name|ApplicationContext
@@ -601,77 +613,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns all methods defined in {@code clazz} and its superclasses/interfaces.      */
-DECL|method|getAllMethods (Class<?> clazz)
-specifier|protected
-name|Collection
-argument_list|<
-name|Method
-argument_list|>
-name|getAllMethods
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|clazz
-parameter_list|)
-block|{
-name|Set
-argument_list|<
-name|Method
-argument_list|>
-name|methods
-init|=
-operator|new
-name|HashSet
-argument_list|<
-name|Method
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|currentClass
-init|=
-name|clazz
-decl_stmt|;
-while|while
-condition|(
-name|currentClass
-operator|!=
-literal|null
-condition|)
-block|{
-name|methods
-operator|.
-name|addAll
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|clazz
-operator|.
-name|getMethods
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|currentClass
-operator|=
-name|currentClass
-operator|.
-name|getSuperclass
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|methods
-return|;
-block|}
 comment|/**      * Handles disabling of JMX on Camel contexts based on {@link DisableJmx}.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
 DECL|method|handleDisableJmx (ConfigurableApplicationContext context, Class<?> testClass)
 specifier|protected
@@ -733,9 +674,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Disabling Camel JMX globally as DisableJmx annotation was found "
-operator|+
-literal|"and disableJmx is set to true."
+literal|"Disabling Camel JMX globally as DisableJmx annotation was found and disableJmx is set to true."
 argument_list|)
 expr_stmt|;
 name|System
@@ -756,9 +695,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Enabling Camel JMX as DisableJmx annotation was found "
-operator|+
-literal|"and disableJmx is set to false."
+literal|"Enabling Camel JMX as DisableJmx annotation was found and disableJmx is set to false."
 argument_list|)
 expr_stmt|;
 name|System
@@ -778,9 +715,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Disabling Camel JMX globally for tests by default.  Use the DisableJMX annotation to "
-operator|+
-literal|"override the default setting."
+literal|"Disabling Camel JMX globally for tests by default. Use the DisableJMX annotation to override the default setting."
 argument_list|)
 expr_stmt|;
 name|System
@@ -796,7 +731,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Handles the processing of the {@link ProvidesBreakpoint} annotation on a test class.  Exists here      * as it is needed in       *      * @param context the initialized Spring context containing the Camel context(s) to insert breakpoints into       * @param testClass the test class being processed      * @param log the logger to use      * @param statics if static methods or instance methods should be processed      *      * @throws Exception if there is an error processing the class      */
+comment|/**      * Handles the processing of the {@link ProvidesBreakpoint} annotation on a test class.  Exists here      * as it is needed in       *      * @param context the initialized Spring context containing the Camel context(s) to insert breakpoints into       * @param testClass the test class being processed      *      * @throws Exception if there is an error processing the class      */
 DECL|method|handleProvidesBreakpoint (ConfigurableApplicationContext context, Class<?> testClass)
 specifier|protected
 name|void
@@ -1005,11 +940,6 @@ operator|.
 name|invoke
 argument_list|(
 literal|null
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{}
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1243,16 +1173,11 @@ name|info
 argument_list|(
 literal|"Setting shutdown timeout to [{} {}] on CamelContext with name [{}]."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|shutdownTimeout
-block|,
+argument_list|,
 name|shutdownTimeUnit
-block|,
+argument_list|,
 name|contextName
-block|}
 argument_list|)
 expr_stmt|;
 name|camelContext
@@ -1353,9 +1278,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Enabling auto mocking of endpoints matching pattern [{}] on "
-operator|+
-literal|"CamelContext with name [{}]."
+literal|"Enabling auto mocking of endpoints matching pattern [{}] on CamelContext with name [{}]."
 argument_list|,
 name|mockEndpoints
 argument_list|,
@@ -1452,9 +1375,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Enabling auto mocking and skipping of endpoints matching pattern [{}] on "
-operator|+
-literal|"CamelContext with name [{}]."
+literal|"Enabling auto mocking and skipping of endpoints matching pattern [{}] on CamelContext with name [{}]."
 argument_list|,
 name|mockEndpoints
 argument_list|,
@@ -1522,9 +1443,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Skipping starting CamelContext(s) as system property "
-operator|+
-literal|"skipStartingCamelContext is set to be true."
+literal|"Skipping starting CamelContext(s) as system property skipStartingCamelContext is set to be true."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1560,9 +1479,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Skipping starting CamelContext(s) as UseAdviceWith annotation was found "
-operator|+
-literal|"and isUseAdviceWith is set to true."
+literal|"Skipping starting CamelContext(s) as UseAdviceWith annotation was found and isUseAdviceWith is set to true."
 argument_list|)
 expr_stmt|;
 name|skip
@@ -1576,9 +1493,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Starting CamelContext(s) as UseAdviceWith annotation was found, but "
-operator|+
-literal|"isUseAdviceWith is set to false."
+literal|"Starting CamelContext(s) as UseAdviceWith annotation was found, but isUseAdviceWith is set to false."
 argument_list|)
 expr_stmt|;
 name|skip

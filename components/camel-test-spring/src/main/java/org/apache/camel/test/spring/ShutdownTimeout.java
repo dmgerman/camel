@@ -132,7 +132,7 @@ specifier|public
 annotation_defn|@interface
 name|ShutdownTimeout
 block|{
-comment|/**      * The shutdown timeout to set on the {@code CamelContext}(s).   Defaults to {@code 10} seconds.       */
+comment|/**      * The shutdown timeout to set on the {@code CamelContext}(s).      * Defaults to {@code 10} seconds.      */
 DECL|method|value ()
 name|int
 name|value

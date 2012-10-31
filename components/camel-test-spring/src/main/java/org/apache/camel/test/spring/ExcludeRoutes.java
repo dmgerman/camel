@@ -120,7 +120,7 @@ specifier|public
 annotation_defn|@interface
 name|ExcludeRoutes
 block|{
-comment|/**      * The classes to exlcude from resolution when using package scanning.       */
+comment|/**      * The classes to exclude from resolution when using package scanning.      */
 DECL|method|value ()
 name|Class
 argument_list|<

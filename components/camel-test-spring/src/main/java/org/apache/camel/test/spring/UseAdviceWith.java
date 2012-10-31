@@ -132,7 +132,7 @@ specifier|public
 annotation_defn|@interface
 name|UseAdviceWith
 block|{
-comment|/**      * Whether the test annotated with this annotation should be treated as if       * {@code adviceWith()} is in use in the test and the Camel contexts should not be started      * automatically.  Defaults to {@code true}.       */
+comment|/**      * Whether the test annotated with this annotation should be treated as if       * {@code adviceWith()} is in use in the test and the Camel contexts should not be started      * automatically.      * Defaults to {@code true}.      */
 DECL|method|value ()
 DECL|field|true
 name|boolean

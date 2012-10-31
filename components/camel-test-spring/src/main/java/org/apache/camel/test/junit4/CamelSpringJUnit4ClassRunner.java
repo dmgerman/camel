@@ -278,6 +278,7 @@ block|}
 comment|/**          * Augments the default listeners with additional listeners to provide support          * for the Camel testing features.          */
 annotation|@
 name|Override
+DECL|method|getDefaultTestExecutionListenerClasses ()
 specifier|protected
 name|Set
 argument_list|<
@@ -288,7 +289,6 @@ extends|extends
 name|TestExecutionListener
 argument_list|>
 argument_list|>
-DECL|method|getDefaultTestExecutionListenerClasses ()
 name|getDefaultTestExecutionListenerClasses
 parameter_list|()
 block|{

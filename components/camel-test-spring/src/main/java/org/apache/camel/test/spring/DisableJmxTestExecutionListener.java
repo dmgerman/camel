@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides reset to pre-test state behavior for global enable/disable of JMX  * support in Camel through the use of {@link DisableJmx}.  Tries to ensure that   * the pre-test value is restored.  */
+comment|/**  * Provides reset to pre-test state behavior for global enable/disable of JMX  * support in Camel through the use of {@link DisableJmx}.  * Tries to ensure that the pre-test value is restored.  */
 end_comment
 
 begin_class
