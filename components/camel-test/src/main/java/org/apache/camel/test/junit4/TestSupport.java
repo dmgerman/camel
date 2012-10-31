@@ -2375,7 +2375,7 @@ literal|"1.6"
 argument_list|)
 return|;
 block|}
-comment|/**      * Is this Java 1.7      *      * @return<tt>true</tt> if its Java 1.7,<tt>false</tt> if its not (for example Java 1.7 or better)      */
+comment|/**      * Is this Java 1.7      *      * @return<tt>true</tt> if its Java 1.7,<tt>false</tt> if its not (for example Java 1.8 or better)      */
 DECL|method|isJava17 ()
 specifier|public
 specifier|static
