@@ -120,18 +120,6 @@ name|org
 operator|.
 name|jsmpp
 operator|.
-name|extra
-operator|.
-name|ProcessRequestException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jsmpp
-operator|.
 name|session
 operator|.
 name|DataSmResult
@@ -212,18 +200,6 @@ name|org
 operator|.
 name|easymock
 operator|.
-name|EasyMock
-operator|.
-name|expectLastCall
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|easymock
-operator|.
 name|classextension
 operator|.
 name|EasyMock
@@ -280,31 +256,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
 name|assertSame
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
 import|;
 end_import
 
