@@ -79,6 +79,18 @@ import|;
 end_import
 
 begin_comment
+comment|// TODO: This should be refactored, to unit test the MyRoutes from the src/main/java
+end_comment
+
+begin_comment
+comment|// we should not add new routes and whatnot. This is an example for end-users to use as best practice
+end_comment
+
+begin_comment
+comment|// so we should show them how to unit test their routes from their main source code
+end_comment
+
+begin_comment
 comment|/**  * Lets use a separate {@link org.apache.camel.example.cdi.two.TestRouteBuilder} to test the routes  */
 end_comment
 

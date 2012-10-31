@@ -160,6 +160,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -219,6 +229,18 @@ operator|.
 name|assertTrue
 import|;
 end_import
+
+begin_comment
+comment|// TODO: This should be refactored, to unit test the MyRoutes from the src/main/java
+end_comment
+
+begin_comment
+comment|// we should not add new routes and whatnot. This is an example for end-users to use as best practice
+end_comment
+
+begin_comment
+comment|// so we should show them how to unit test their routes from their main source code
+end_comment
 
 begin_class
 annotation|@
@@ -334,6 +356,11 @@ return|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Does not work"
+argument_list|)
 DECL|method|integrationTest ()
 specifier|public
 name|void
