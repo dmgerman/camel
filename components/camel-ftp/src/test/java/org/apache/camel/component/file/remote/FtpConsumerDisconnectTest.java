@@ -38,6 +38,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|net
+operator|.
+name|ftp
+operator|.
+name|FTPClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -82,7 +98,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// force the singleton FtpEndpoint to make use of a custom FTPClient
+comment|// ask the singleton FtpEndpoint to make use of a custom FTPClient
+comment|// so that we can hold a reference on it inside the test below
 name|FtpEndpoint
 argument_list|<
 name|?
@@ -105,9 +122,8 @@ name|endpoint
 operator|.
 name|setFtpClient
 argument_list|(
-name|endpoint
-operator|.
-name|createFtpClient
+operator|new
+name|FTPClient
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -184,7 +200,9 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give time for ftp consumer to disconnect (delay is 5000 ms which is long enough to avoid a second poll cycle)
+comment|// give time for ftp consumer to disconnect, delay is 5000 ms which is long
+comment|// enough to avoid a second poll cycle before we are done with the asserts
+comment|// below inside the main thread
 name|Thread
 operator|.
 name|sleep
@@ -225,7 +243,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The FtpEndpoint is configured to disconnect after each poll"
+literal|"The FtpEndpoint should be configured to disconnect"
 argument_list|,
 name|endpoint
 operator|.
