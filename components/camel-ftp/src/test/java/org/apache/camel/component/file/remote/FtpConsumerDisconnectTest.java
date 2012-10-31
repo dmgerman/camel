@@ -38,22 +38,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|net
-operator|.
-name|ftp
-operator|.
-name|FTPClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -121,8 +105,9 @@ name|endpoint
 operator|.
 name|setFtpClient
 argument_list|(
-operator|new
-name|FTPClient
+name|endpoint
+operator|.
+name|createFtpClient
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -199,7 +184,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give time for ftp consumer to disconnect (delay is 5000 which is long enough to avoid a second poll cycle)
+comment|// give time for ftp consumer to disconnect (delay is 5000 ms which is long enough to avoid a second poll cycle)
 name|Thread
 operator|.
 name|sleep
@@ -225,6 +210,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|assertFalse
+argument_list|(
+literal|"The FTPClient should be already disconnected"
+argument_list|,
+name|endpoint
+operator|.
+name|getFtpClient
+argument_list|()
+operator|.
+name|isConnected
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The FtpEndpoint is configured to disconnect after each poll"
@@ -232,24 +230,6 @@ argument_list|,
 name|endpoint
 operator|.
 name|isDisconnect
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|FTPClient
-name|ftpClient
-init|=
-name|endpoint
-operator|.
-name|getFtpClient
-argument_list|()
-decl_stmt|;
-name|assertFalse
-argument_list|(
-literal|"The FTPClient should not be connected"
-argument_list|,
-name|ftpClient
-operator|.
-name|isConnected
 argument_list|()
 argument_list|)
 expr_stmt|;
