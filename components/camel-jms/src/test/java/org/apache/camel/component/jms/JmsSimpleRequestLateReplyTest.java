@@ -52,6 +52,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -67,16 +79,6 @@ operator|.
 name|jms
 operator|.
 name|Destination
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|JMSException
 import|;
 end_import
 
@@ -176,16 +178,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -229,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple request / late reply test using InOptionalOut.  */
+comment|/**  * A simple request / late reply test.  */
 end_comment
 
 begin_class
@@ -268,12 +260,6 @@ specifier|static
 name|String
 name|cid
 decl_stmt|;
-DECL|field|count
-specifier|private
-specifier|static
-name|int
-name|count
-decl_stmt|;
 DECL|field|expectedBody
 specifier|protected
 name|String
@@ -299,25 +285,6 @@ literal|1
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|count
-operator|++
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Test
 DECL|method|testRequestLateReplyUsingCustomDestinationHeaderForReply ()
 specifier|public
@@ -331,24 +298,6 @@ name|doTest
 argument_list|(
 operator|new
 name|SendLateReply
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testRequestLateReplyUsingDestinationEndpointForReply ()
-specifier|public
-name|void
-name|testRequestLateReplyUsingDestinationEndpointForReply
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|doTest
-argument_list|(
-operator|new
-name|SendLateReplyUsingTemporaryEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -426,15 +375,21 @@ try|try
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Wating for latch"
+literal|"Waiting for latch"
 argument_list|)
 expr_stmt|;
 name|latch
 operator|.
 name|await
-argument_list|()
+argument_list|(
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 comment|// wait 1 sec after latch before sending he late replay
 name|Thread
@@ -455,7 +410,7 @@ comment|// ignore
 block|}
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Sending late reply"
 argument_list|)
@@ -509,103 +464,6 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-DECL|class|SendLateReplyUsingTemporaryEndpoint
-specifier|private
-class|class
-name|SendLateReplyUsingTemporaryEndpoint
-implements|implements
-name|Runnable
-block|{
-DECL|method|run ()
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
-try|try
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Wating for latch"
-argument_list|)
-expr_stmt|;
-name|latch
-operator|.
-name|await
-argument_list|()
-expr_stmt|;
-comment|// wait 1 sec after latch before sending he late replay
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Sending late reply"
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|JmsEndpoint
-name|endpoint
-init|=
-name|JmsEndpoint
-operator|.
-name|newInstance
-argument_list|(
-name|replyDestination
-argument_list|,
-name|activeMQComponent
-argument_list|)
-decl_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
-name|endpoint
-argument_list|,
-name|expectedBody
-argument_list|,
-literal|"JMSCorrelationID"
-argument_list|,
-name|cid
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|JMSException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Failed to create the endpoint for "
-operator|+
-name|replyDestination
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|createCamelContext ()
@@ -692,18 +550,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// set the MEP to InOptionalOut as we might not be able to send a reply
 name|from
 argument_list|(
 name|getQueueEndpointName
 argument_list|()
-argument_list|)
-operator|.
-name|setExchangePattern
-argument_list|(
-name|ExchangePattern
-operator|.
-name|InOptionalOut
 argument_list|)
 operator|.
 name|process
@@ -722,6 +572,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// set the MEP to InOnly as we are not able to send a reply right now but will do it later
+comment|// from that other thread
+name|exchange
+operator|.
+name|setPattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
 name|Message
 name|in
 init|=
@@ -768,7 +629,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"ReplyDestination: "
 operator|+
@@ -777,7 +638,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"JMSCorrelationID: "
 operator|+
@@ -786,11 +647,12 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Ahh I cannot send a reply. Someone else must do it."
 argument_list|)
 expr_stmt|;
+comment|// signal to the other thread to send back the reply message
 name|latch
 operator|.
 name|countDown
@@ -816,11 +678,9 @@ name|String
 name|getQueueEndpointName
 parameter_list|()
 block|{
-comment|// lets use a different queue name for each test
+comment|// need to use a fixed queue for reply as a temp queue may be deleted
 return|return
-literal|"activemq:queue:hello.queue"
-operator|+
-name|count
+literal|"activemq:queue:hello.queue?replyTo=myReplyQueue"
 return|;
 block|}
 block|}
