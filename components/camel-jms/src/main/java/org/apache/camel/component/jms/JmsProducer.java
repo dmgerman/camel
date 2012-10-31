@@ -304,20 +304,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ValueHolder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -1033,22 +1019,6 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|ValueHolder
-argument_list|<
-name|MessageSentCallback
-argument_list|>
-name|sentCallback
-init|=
-operator|new
-name|ValueHolder
-argument_list|<
-name|MessageSentCallback
-argument_list|>
-argument_list|(
-name|messageSentCallback
-argument_list|)
-decl_stmt|;
-specifier|final
 name|String
 name|originalCorrelationId
 init|=
@@ -1266,10 +1236,7 @@ name|destination
 argument_list|,
 name|messageCreator
 argument_list|,
-name|sentCallback
-operator|.
-name|get
-argument_list|()
+name|messageSentCallback
 argument_list|)
 expr_stmt|;
 comment|// after sending then set the OUT message id to the JMSMessageID so its identical
@@ -1518,6 +1485,26 @@ else|:
 literal|""
 operator|+
 name|destination
+decl_stmt|;
+name|MessageSentCallback
+name|messageSentCallback
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isIncludeSentJMSMessageID
+argument_list|()
+condition|?
+operator|new
+name|InOnlyMessageSentCallback
+argument_list|(
+name|exchange
+argument_list|)
+else|:
+literal|null
 decl_stmt|;
 name|MessageCreator
 name|messageCreator
@@ -1961,7 +1948,7 @@ name|destination
 argument_list|,
 name|messageCreator
 argument_list|,
-literal|null
+name|messageSentCallback
 argument_list|)
 expr_stmt|;
 comment|// after sending then set the OUT message id to the JMSMessageID so its identical
@@ -1982,7 +1969,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Sends the message using the JmsTemplate.      *      * @param inOut           use inOut or inOnly template      * @param destinationName the destination name      * @param destination     the destination (if no name provided)      * @param messageCreator  the creator to create the {@link Message} to send      * @param callback        optional callback for inOut messages      */
+comment|/**      * Sends the message using the JmsTemplate.      *      * @param inOut           use inOut or inOnly template      * @param destinationName the destination name      * @param destination     the destination (if no name provided)      * @param messageCreator  the creator to create the {@link Message} to send      * @param callback        optional callback to invoke when message has been sent      */
 DECL|method|doSend (boolean inOut, String destinationName, Destination destination, MessageCreator messageCreator, MessageSentCallback callback)
 specifier|protected
 name|void
@@ -2091,6 +2078,8 @@ argument_list|(
 name|destination
 argument_list|,
 name|messageCreator
+argument_list|,
+name|callback
 argument_list|)
 expr_stmt|;
 block|}
@@ -2145,6 +2134,8 @@ argument_list|(
 name|destinationName
 argument_list|,
 name|messageCreator
+argument_list|,
+name|callback
 argument_list|)
 expr_stmt|;
 block|}

@@ -894,6 +894,38 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Gets the JMSMessageID from the message.      *      * @param message  the message      * @return the JMSMessageID, or<tt>null</tt> if not able to get      */
+DECL|method|getJMSMessageID (Message message)
+specifier|public
+specifier|static
+name|String
+name|getJMSMessageID
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+name|message
+operator|.
+name|getJMSMessageID
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore if JMS broker do not support this
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Sets the JMSDeliveryMode on the message.      *      * @param exchange the exchange      * @param message  the message      * @param deliveryMode  the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery mode      */
 DECL|method|setJMSDeliveryMode (Exchange exchange, Message message, Object deliveryMode)
 specifier|public

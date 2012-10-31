@@ -868,6 +868,11 @@ specifier|private
 name|MessageListenerContainerFactory
 name|messageListenerContainerFactory
 decl_stmt|;
+DECL|field|includeSentJMSMessageID
+specifier|private
+name|boolean
+name|includeSentJMSMessageID
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -5045,6 +5050,33 @@ operator|.
 name|messageListenerContainerFactory
 operator|=
 name|messageListenerContainerFactory
+expr_stmt|;
+block|}
+DECL|method|isIncludeSentJMSMessageID ()
+specifier|public
+name|boolean
+name|isIncludeSentJMSMessageID
+parameter_list|()
+block|{
+return|return
+name|includeSentJMSMessageID
+return|;
+block|}
+comment|/**      * Whether to include the actual JMSMessageID set on the Message by the JMS vendor      * on the Camel Message as a header when sending InOnly messages.      *<p/>      * Can be enable to gather the actual JMSMessageID for InOnly messages, which allows to access      * the message id, which can be used for logging and tracing purposes.      *<p/>      * This option is default<tt>false</tt>.      */
+DECL|method|setIncludeSentJMSMessageID (boolean includeSentJMSMessageID)
+specifier|public
+name|void
+name|setIncludeSentJMSMessageID
+parameter_list|(
+name|boolean
+name|includeSentJMSMessageID
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeSentJMSMessageID
+operator|=
+name|includeSentJMSMessageID
 expr_stmt|;
 block|}
 block|}

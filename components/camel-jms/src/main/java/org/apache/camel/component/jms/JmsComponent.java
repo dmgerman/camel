@@ -1759,6 +1759,24 @@ name|allowNullBody
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setIncludeSentJMSMessageID (boolean includeSentJMSMessageID)
+specifier|public
+name|void
+name|setIncludeSentJMSMessageID
+parameter_list|(
+name|boolean
+name|includeSentJMSMessageID
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setIncludeSentJMSMessageID
+argument_list|(
+name|includeSentJMSMessageID
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

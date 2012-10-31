@@ -4216,20 +4216,20 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|setAsyncStopListener (boolean asyncStoptListener)
+DECL|method|setAsyncStopListener (boolean asyncStopListener)
 specifier|public
 name|void
 name|setAsyncStopListener
 parameter_list|(
 name|boolean
-name|asyncStoptListener
+name|asyncStopListener
 parameter_list|)
 block|{
 name|configuration
 operator|.
 name|setAsyncStopListener
 argument_list|(
-name|asyncStoptListener
+name|asyncStopListener
 argument_list|)
 expr_stmt|;
 block|}
@@ -4279,6 +4279,40 @@ operator|.
 name|setAllowNullBody
 argument_list|(
 name|allowNullBody
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isIncludeSentJMSMessageID ()
+specifier|public
+name|boolean
+name|isIncludeSentJMSMessageID
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isIncludeSentJMSMessageID
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setIncludeSentJMSMessageID (boolean includeSentJMSMessageID)
+specifier|public
+name|void
+name|setIncludeSentJMSMessageID
+parameter_list|(
+name|boolean
+name|includeSentJMSMessageID
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setIncludeSentJMSMessageID
+argument_list|(
+name|includeSentJMSMessageID
 argument_list|)
 expr_stmt|;
 block|}
