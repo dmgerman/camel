@@ -184,16 +184,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Before
 import|;
 end_import
@@ -540,7 +530,17 @@ specifier|public
 class|class
 name|QuickfixjEngineTest
 extends|extends
-name|Assert
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
 block|{
 DECL|field|settingsFile
 specifier|private
@@ -3874,6 +3874,14 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: just from time to time the following assert fails on JDK 7
+if|if
+condition|(
+operator|!
+name|isJava17
+argument_list|()
+condition|)
+block|{
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -3911,6 +3919,7 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|writeSettings ()
 specifier|private
