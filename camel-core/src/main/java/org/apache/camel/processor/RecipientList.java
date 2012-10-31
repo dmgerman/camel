@@ -869,8 +869,10 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startService
+name|startServices
 argument_list|(
+name|aggregationStrategy
+argument_list|,
 name|producerCache
 argument_list|)
 expr_stmt|;
@@ -885,9 +887,11 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopServices
 argument_list|(
 name|producerCache
+argument_list|,
+name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 block|}
@@ -901,9 +905,11 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopAndShutdownService
+name|stopAndShutdownServices
 argument_list|(
 name|producerCache
+argument_list|,
+name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 if|if

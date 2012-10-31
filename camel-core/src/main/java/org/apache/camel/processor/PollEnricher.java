@@ -676,8 +676,10 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|startService
+name|startServices
 argument_list|(
+name|aggregationStrategy
+argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
@@ -692,9 +694,11 @@ name|Exception
 block|{
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopServices
 argument_list|(
 name|consumer
+argument_list|,
+name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 block|}

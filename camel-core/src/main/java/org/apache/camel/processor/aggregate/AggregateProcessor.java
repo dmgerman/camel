@@ -3981,6 +3981,8 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
+name|aggregationStrategy
+argument_list|,
 name|processor
 argument_list|,
 name|aggregationRepository
@@ -4569,12 +4571,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// shutdown aggregation repository
+comment|// shutdown aggregation repository and the strategy
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopAndShutdownServices
 argument_list|(
 name|aggregationRepository
+argument_list|,
+name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 comment|// cleanup when shutting down

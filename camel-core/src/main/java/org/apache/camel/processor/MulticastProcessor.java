@@ -4594,6 +4594,8 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
+name|aggregationStrategy
+argument_list|,
 name|processors
 argument_list|)
 expr_stmt|;
@@ -4641,6 +4643,8 @@ argument_list|(
 name|processors
 argument_list|,
 name|errorHandlers
+argument_list|,
+name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 block|}
@@ -4661,6 +4665,8 @@ argument_list|(
 name|processors
 argument_list|,
 name|errorHandlers
+argument_list|,
+name|aggregationStrategy
 argument_list|)
 expr_stmt|;
 comment|// only clear error handlers when shutting down
