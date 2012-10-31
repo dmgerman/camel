@@ -36,6 +36,16 @@ name|URL
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Enumeration
+import|;
+end_import
+
 begin_comment
 comment|/**  * A class resolver for loading classes in a loosly coupled manner to cater for different platforms such  * as standalone, web container, j2ee container and OSGi platforms.  */
 end_comment
@@ -211,6 +221,18 @@ comment|/**      * Loads the given resource as a URL      *      * @param uri th
 DECL|method|loadResourceAsURL (String uri)
 name|URL
 name|loadResourceAsURL
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
+comment|/**      * Loads the given resources as a URL      *      * @param uri the uri of the resource      * @return the URLs found on the classpath      */
+DECL|method|loadResourcesAsURL (String uri)
+name|Enumeration
+argument_list|<
+name|URL
+argument_list|>
+name|loadResourcesAsURL
 parameter_list|(
 name|String
 name|uri
