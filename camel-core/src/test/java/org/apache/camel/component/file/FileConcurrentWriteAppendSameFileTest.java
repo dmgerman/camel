@@ -126,7 +126,7 @@ specifier|final
 name|int
 name|size
 init|=
-literal|500
+literal|100
 decl_stmt|;
 annotation|@
 name|Override
@@ -246,7 +246,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|1000
 argument_list|)
 expr_stmt|;
 name|context
@@ -259,7 +259,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// check the file has 500 lines
+comment|// check the file has correct number of lines
 name|String
 name|txt
 init|=
