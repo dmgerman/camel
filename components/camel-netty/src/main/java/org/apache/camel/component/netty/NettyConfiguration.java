@@ -532,8 +532,6 @@ DECL|field|producerPoolMinIdle
 specifier|private
 name|int
 name|producerPoolMinIdle
-init|=
-literal|0
 decl_stmt|;
 DECL|field|producerPoolMaxIdle
 specifier|private

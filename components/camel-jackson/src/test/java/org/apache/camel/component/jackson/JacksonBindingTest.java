@@ -66,11 +66,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|component
 operator|.
-name|binding
+name|mock
 operator|.
-name|DataFormatBinding
+name|MockEndpoint
 import|;
 end_import
 
@@ -82,11 +82,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|processor
 operator|.
-name|mock
+name|binding
 operator|.
-name|MockEndpoint
+name|DataFormatBinding
 import|;
 end_import
 
