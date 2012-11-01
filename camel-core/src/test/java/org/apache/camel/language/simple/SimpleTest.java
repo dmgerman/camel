@@ -6999,6 +6999,35 @@ literal|"$Something"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testCamelContextOGNL ()
+specifier|public
+name|void
+name|testCamelContextOGNL
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${camelContext.getName()}"
+argument_list|,
+name|context
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${camelContext.version}"
+argument_list|,
+name|context
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
