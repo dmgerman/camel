@@ -78,12 +78,15 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-comment|/**      * Determines if the given value is valid according to the supported      * values by the bean component.      *      * @param value the value      * @return<tt>true</tt> if valid,<tt>false</tt> otherwise      */
-DECL|method|isValidParameterValue (String value)
+comment|/**      * Determines and maps the given value is valid according to the supported      * values by the bean component.      *      * @param value the value      * @return the parameter type the given value is being mapped as, or<tt>null</tt> if not valid.      */
+DECL|method|getValidParameterType (String value)
 specifier|public
 specifier|static
-name|boolean
-name|isValidParameterValue
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getValidParameterType
 parameter_list|(
 name|String
 name|value
@@ -99,9 +102,8 @@ name|value
 argument_list|)
 condition|)
 block|{
-comment|// empty value is valid
 return|return
-literal|true
+literal|null
 return|;
 block|}
 comment|// trim value
@@ -131,7 +133,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|String
+operator|.
+name|class
 return|;
 block|}
 comment|// double quoted is valid
@@ -153,7 +157,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|String
+operator|.
+name|class
 return|;
 block|}
 comment|// true or false is valid (boolean)
@@ -175,7 +181,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|Boolean
+operator|.
+name|class
 return|;
 block|}
 comment|// null is valid (to force a null value)
@@ -190,7 +198,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|Object
+operator|.
+name|class
 return|;
 block|}
 comment|// simple language tokens is valid
@@ -207,7 +217,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|true
+name|Object
+operator|.
+name|class
 return|;
 block|}
 comment|// numeric is valid
@@ -245,8 +257,55 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-return|return
+if|if
+condition|(
 name|numeric
+condition|)
+block|{
+return|return
+name|Number
+operator|.
+name|class
+return|;
+block|}
+comment|// not valid
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Determines if the given value is valid according to the supported      * values by the bean component.      *      * @param value the value      * @return<tt>true</tt> if valid,<tt>false</tt> otherwise      */
+DECL|method|isValidParameterValue (String value)
+specifier|public
+specifier|static
+name|boolean
+name|isValidParameterValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+comment|// empty value is valid
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|getValidParameterType
+argument_list|(
+name|value
+argument_list|)
+operator|!=
+literal|null
 return|;
 block|}
 comment|/**      * Determines if the given parameter type is assignable to the expected type.      *<p/>      * This implementation will check if the given parameter type matches the expected type as class using either      *<ul>      *<li>FQN class name - com.foo.MyOrder</li>      *<li>Simple class name - MyOrder</li>      *</ul>      * If the given parameter type is<b>not</b> a class, then<tt>null</tt> is returned      *      * @param resolver          the class resolver      * @param parameterType     the parameter type as a String, can be a FQN or a simple name of the class      * @param expectedType      the expected type      * @return<tt>null</tt> if parameter type is<b>not</b> a class,<tt>true</tt> if parameter type is assignable,<tt>false</tt> if not assignable      */
