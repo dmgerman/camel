@@ -134,11 +134,6 @@ DECL|field|executorService
 specifier|private
 name|ExecutorService
 name|executorService
-init|=
-name|Executors
-operator|.
-name|newSingleThreadExecutor
-argument_list|()
 decl_stmt|;
 DECL|method|testUnitOfWorkSync ()
 specifier|public
@@ -159,6 +154,13 @@ condition|)
 block|{
 return|return;
 block|}
+name|executorService
+operator|=
+name|Executors
+operator|.
+name|newSingleThreadExecutor
+argument_list|()
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
