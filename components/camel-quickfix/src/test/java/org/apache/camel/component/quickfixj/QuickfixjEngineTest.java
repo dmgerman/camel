@@ -3874,14 +3874,15 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: just from time to time the following assert fails on JDK 7
 if|if
 condition|(
-operator|!
 name|isJava17
 argument_list|()
 condition|)
 block|{
+comment|// TODO: just from time to time the assert below fails on JDK 7
+return|return;
+block|}
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -3919,7 +3920,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|writeSettings ()
 specifier|private
