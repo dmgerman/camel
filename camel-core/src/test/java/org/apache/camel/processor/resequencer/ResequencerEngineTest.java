@@ -339,10 +339,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testTimout4 ()
+DECL|method|testTimeout4 ()
 specifier|public
 name|void
-name|testTimout4
+name|testTimeout4
 parameter_list|()
 throws|throws
 name|Exception
@@ -386,7 +386,7 @@ name|buffer
 operator|.
 name|poll
 argument_list|(
-literal|125
+literal|250
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -401,7 +401,7 @@ name|buffer
 operator|.
 name|poll
 argument_list|(
-literal|125
+literal|250
 argument_list|)
 argument_list|)
 expr_stmt|;

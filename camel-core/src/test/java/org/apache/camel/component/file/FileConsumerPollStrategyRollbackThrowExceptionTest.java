@@ -218,7 +218,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|20
+literal|200
 argument_list|)
 expr_stmt|;
 comment|// and we should rollback X number of times
