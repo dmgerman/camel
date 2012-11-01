@@ -356,13 +356,19 @@ name|getReceiptHandle
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
+name|Integer
+name|expectedTimeout
+init|=
 operator|new
 name|Integer
 argument_list|(
-literal|4
+literal|6
 argument_list|)
+decl_stmt|;
+comment|// Should be 1.5 x TIMEOUT as takes into account the delay period
+name|assertEquals
+argument_list|(
+name|expectedTimeout
 argument_list|,
 name|req
 operator|.
