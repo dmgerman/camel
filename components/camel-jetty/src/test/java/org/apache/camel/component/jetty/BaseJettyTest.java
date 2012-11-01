@@ -140,6 +140,13 @@ specifier|volatile
 name|int
 name|port
 decl_stmt|;
+DECL|field|port2
+specifier|private
+specifier|static
+specifier|volatile
+name|int
+name|port2
+decl_stmt|;
 DECL|field|counter
 specifier|private
 specifier|final
@@ -171,6 +178,16 @@ operator|.
 name|getNextAvailable
 argument_list|(
 literal|23000
+argument_list|)
+expr_stmt|;
+comment|// find another ports for proxy route test
+name|port2
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|24000
 argument_list|)
 expr_stmt|;
 block|}
@@ -246,6 +263,18 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|prop
+operator|.
+name|setProperty
+argument_list|(
+literal|"port2"
+argument_list|,
+literal|""
+operator|+
+name|getPort2
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|jndi
 operator|.
 name|bind
@@ -306,6 +335,17 @@ parameter_list|()
 block|{
 return|return
 name|port
+return|;
+block|}
+DECL|method|getPort2 ()
+specifier|protected
+specifier|static
+name|int
+name|getPort2
+parameter_list|()
+block|{
+return|return
+name|port2
 return|;
 block|}
 block|}

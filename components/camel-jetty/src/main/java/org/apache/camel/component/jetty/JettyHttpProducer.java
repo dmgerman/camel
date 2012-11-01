@@ -972,6 +972,20 @@ name|queryString
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Need to remove the Host key as it should be not used
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+literal|"host"
+argument_list|)
+expr_stmt|;
 block|}
 comment|// propagate headers as HTTP headers
 name|Message
