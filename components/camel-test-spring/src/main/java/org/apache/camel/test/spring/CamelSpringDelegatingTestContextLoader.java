@@ -1173,11 +1173,16 @@ name|info
 argument_list|(
 literal|"Setting shutdown timeout to [{} {}] on CamelContext with name [{}]."
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|shutdownTimeout
-argument_list|,
+block|,
 name|shutdownTimeUnit
-argument_list|,
+block|,
 name|contextName
+block|}
 argument_list|)
 expr_stmt|;
 name|camelContext
