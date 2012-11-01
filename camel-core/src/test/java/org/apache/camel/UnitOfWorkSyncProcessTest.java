@@ -148,6 +148,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// skip test on AIX
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
