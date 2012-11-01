@@ -288,15 +288,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"get the out message "
-argument_list|)
-expr_stmt|;
 name|originalBody
 operator|=
 name|original
@@ -334,20 +325,6 @@ name|originalBody
 operator|+
 name|resourceResponse
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"The original MEP is "
-operator|+
-name|original
-operator|.
-name|getPattern
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|original
@@ -359,15 +336,6 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"set the out message "
-argument_list|)
-expr_stmt|;
 name|original
 operator|.
 name|getOut
