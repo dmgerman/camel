@@ -1384,16 +1384,7 @@ block|}
 name|String
 name|address
 init|=
-name|uri
-operator|.
-name|startsWith
-argument_list|(
-literal|"jetty:"
-argument_list|)
-condition|?
 name|remaining
-else|:
-name|uri
 decl_stmt|;
 name|URI
 name|addressUri
