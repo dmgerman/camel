@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -66,10 +78,15 @@ name|ControlBusComponent
 extends|extends
 name|DefaultComponent
 block|{
-comment|// TODO: allow to use a thread pool for tasks so you dont have to wait
 comment|// TODO: management command, to use the JMX mbeans easier
 comment|// TODO: Bulk status in POJO / JSON format
 comment|// TODO: a header with the action to do instead of uri, as we may want to be lenient
+comment|// TODO: JMX stats and operations of in-flight tasks, and history of done etc
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -174,6 +191,78 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
+DECL|method|getExecutorService ()
+specifier|synchronized
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+if|if
+condition|(
+name|executorService
+operator|==
+literal|null
+condition|)
+block|{
+name|executorService
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newDefaultThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"ControlBus"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|executorService
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
