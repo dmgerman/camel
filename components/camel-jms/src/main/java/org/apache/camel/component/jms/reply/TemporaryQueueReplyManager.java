@@ -287,6 +287,13 @@ argument_list|(
 name|correlationId
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|handler
+operator|!=
+literal|null
+condition|)
+block|{
 name|correlation
 operator|.
 name|put
@@ -298,6 +305,7 @@ argument_list|,
 name|requestTimeout
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
