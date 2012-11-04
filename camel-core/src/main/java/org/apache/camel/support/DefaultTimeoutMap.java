@@ -1043,7 +1043,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception happened during eviction of entry ID {}, won't evict and will continue trying: "
+literal|"Exception happened during eviction of entry ID {}, won't evict and will continue trying: {}"
 argument_list|,
 name|entry
 operator|.
