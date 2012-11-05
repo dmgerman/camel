@@ -142,22 +142,6 @@ literal|"mock:mock"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|tearDown ()
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
-block|}
 comment|// -------------------------------------------------------------
 comment|//  InOnly routes
 comment|// -------------------------------------------------------------
@@ -178,13 +162,21 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedHeaderReceived
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|property
 argument_list|(
 name|Exchange
 operator|.
 name|TO_ENDPOINT
-argument_list|,
-literal|"direct://enricher-constant-resource"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|"mock://mock"
 argument_list|)
 expr_stmt|;
 name|template
@@ -307,10 +299,7 @@ literal|"direct://enricher-fault-resource"
 argument_list|,
 name|exchange
 operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeader
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.
