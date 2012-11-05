@@ -917,7 +917,7 @@ comment|//This version doesn't affect the version of karaf we use
 operator|.
 name|karafVersion
 argument_list|(
-literal|"2.2.9"
+literal|"2.3.0"
 argument_list|)
 operator|.
 name|name

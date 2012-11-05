@@ -24,7 +24,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
+name|Dictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Hashtable
 import|;
 end_import
 
@@ -93,6 +103,9 @@ block|{
 DECL|field|registration
 specifier|private
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 name|registration
 decl_stmt|;
 DECL|method|start (BundleContext bundleContext)
@@ -106,11 +119,21 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Properties
+name|Dictionary
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|props
 init|=
 operator|new
-name|Properties
+name|Hashtable
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|props
