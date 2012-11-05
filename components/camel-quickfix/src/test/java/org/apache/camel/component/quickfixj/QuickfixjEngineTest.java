@@ -3874,15 +3874,6 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isJava17
-argument_list|()
-condition|)
-block|{
-comment|// TODO: just from time to time the assert below fails on JDK 7
-return|return;
-block|}
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -3904,7 +3895,7 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.quickfixj:type=Connector,role=Acceptor,*"
+literal|"org.quickfixj:*"
 argument_list|)
 argument_list|,
 literal|null
@@ -3912,7 +3903,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"QFJ mbean should not have been registered"
+literal|"QFJ Connector/Initiator mbeans should not have been registered"
 argument_list|,
 name|names
 operator|.
