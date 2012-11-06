@@ -2897,9 +2897,6 @@ decl_stmt|;
 DECL|field|reg
 specifier|private
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 name|reg
 decl_stmt|;
 DECL|method|BaseService (Bundle bundle)

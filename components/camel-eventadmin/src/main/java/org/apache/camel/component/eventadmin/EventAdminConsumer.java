@@ -186,9 +186,6 @@ decl_stmt|;
 DECL|field|registration
 specifier|private
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 name|registration
 decl_stmt|;
 DECL|method|EventAdminConsumer (EventAdminEndpoint endpoint, Processor processor)

@@ -241,9 +241,6 @@ argument_list|<
 name|CamelContext
 argument_list|,
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|registrations
 init|=
@@ -253,9 +250,6 @@ argument_list|<
 name|CamelContext
 argument_list|,
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -374,9 +368,6 @@ name|props
 argument_list|)
 expr_stmt|;
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 name|reg
 init|=
 name|bundleContext
@@ -427,9 +418,6 @@ name|getContext
 argument_list|()
 decl_stmt|;
 name|ServiceRegistration
-argument_list|<
-name|?
-argument_list|>
 name|reg
 init|=
 name|registrations
