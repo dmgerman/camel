@@ -315,20 +315,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|log
-specifier|protected
-specifier|transient
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|field|bundleContext
@@ -939,15 +925,15 @@ operator|.
 name|keepRuntimeFolder
 argument_list|()
 block|,
-comment|// override the jre.properties
+comment|// override the config.properties (to fix pax-exam bug)
 name|replaceConfigurationFile
 argument_list|(
-literal|"etc/jre.properties"
+literal|"etc/config.properties"
 argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/org/apache/camel/itest/karaf/jre.properties"
+literal|"src/test/resources/org/apache/camel/itest/karaf/config.properties"
 argument_list|)
 argument_list|)
 block|,

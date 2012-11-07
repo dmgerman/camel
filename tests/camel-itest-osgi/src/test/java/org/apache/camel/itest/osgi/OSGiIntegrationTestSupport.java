@@ -917,20 +917,19 @@ operator|.
 name|keepRuntimeFolder
 argument_list|()
 block|,
-comment|// override the jre.properties
+comment|// override the config.properties (to fix pax-exam bug)
 name|replaceConfigurationFile
 argument_list|(
-literal|"etc/jre.properties"
+literal|"etc/config.properties"
 argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/org/apache/camel/itest/karaf/jre.properties"
+literal|"src/test/resources/org/apache/camel/itest/karaf/config.properties"
 argument_list|)
 argument_list|)
 block|,
-comment|// install the cxf jaxb spec as the karaf doesn't provide
-comment|// it by default
+comment|// install the cxf jaxb spec as the karaf doesn't provide it by default
 name|scanFeatures
 argument_list|(
 name|getCamelKarafFeatureUrl
