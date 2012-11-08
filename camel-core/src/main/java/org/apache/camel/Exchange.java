@@ -332,6 +332,12 @@ name|FILTER_MATCHED
 init|=
 literal|"CamelFilterMatched"
 decl_stmt|;
+DECL|field|FILE_LOCK_FILE_GOT
+name|String
+name|FILE_LOCK_FILE_GOT
+init|=
+literal|"CamelFileLockFileGot"
+decl_stmt|;
 DECL|field|GROUPED_EXCHANGE
 name|String
 name|GROUPED_EXCHANGE

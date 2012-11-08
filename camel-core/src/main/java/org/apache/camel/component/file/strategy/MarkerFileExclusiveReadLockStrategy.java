@@ -306,6 +306,17 @@ operator|.
 name|createNewFile
 argument_list|()
 decl_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FILE_LOCK_FILE_GOT
+argument_list|,
+name|acquired
+argument_list|)
+expr_stmt|;
 return|return
 name|acquired
 return|;
@@ -350,6 +361,25 @@ argument_list|(
 name|lockFileName
 argument_list|)
 decl_stmt|;
+comment|// only release the file if camel get the lock before
+if|if
+condition|(
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|FILE_LOCK_FILE_GOT
+argument_list|,
+literal|false
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -380,6 +410,19 @@ argument_list|,
 name|deleted
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Don't try to delete the Lock file: {} as camel doesn't get to lock before."
+argument_list|,
+name|lockFileName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|setTimeout (long timeout)
 specifier|public
