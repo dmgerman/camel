@@ -312,7 +312,7 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|FILE_LOCK_FILE_GOT
+name|FILE_LOCK_FILE_ACQUIRED
 argument_list|,
 name|acquired
 argument_list|)
@@ -370,7 +370,7 @@ name|getProperty
 argument_list|(
 name|Exchange
 operator|.
-name|FILE_LOCK_FILE_GOT
+name|FILE_LOCK_FILE_ACQUIRED
 argument_list|,
 literal|false
 argument_list|,
