@@ -132,7 +132,7 @@ name|Exception
 block|{
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)

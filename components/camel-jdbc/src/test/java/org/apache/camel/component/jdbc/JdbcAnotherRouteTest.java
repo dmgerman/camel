@@ -137,6 +137,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// trigger every second
 name|from
 argument_list|(
 literal|"timer://kickoff?period=1s"
