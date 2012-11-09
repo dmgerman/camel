@@ -81,32 +81,6 @@ extends|extends
 name|AbstractJdbcAggregationTestSupport
 block|{
 annotation|@
-name|Override
-DECL|method|configureJdbcAggregationRepository ()
-name|void
-name|configureJdbcAggregationRepository
-parameter_list|()
-block|{
-name|repo
-operator|.
-name|setUseRecovery
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|repo
-operator|.
-name|setRecoveryInterval
-argument_list|(
-literal|500
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
 name|Test
 DECL|method|testAggregateDiscardOnTimeout ()
 specifier|public
