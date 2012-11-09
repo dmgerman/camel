@@ -322,6 +322,33 @@ argument_list|(
 literal|"target/readlock/in/file2.dat"
 argument_list|)
 expr_stmt|;
+name|File
+name|lock
+init|=
+operator|new
+name|File
+argument_list|(
+literal|"target/readlock/in/file2.dat.camelLock"
+argument_list|)
+decl_stmt|;
+name|lock
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
+comment|// wait for a while for camel to clean up the file
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+name|assertFileExists
+argument_list|(
+literal|"target/readlock/out/file2.dat"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|writeFiles ()
 specifier|private
