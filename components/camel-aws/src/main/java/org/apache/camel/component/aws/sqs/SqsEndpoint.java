@@ -747,18 +747,6 @@ name|AmazonSQSClient
 name|client
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Updating queue '{}' with the provided queue attributes..."
-argument_list|,
-name|configuration
-operator|.
-name|getQueueName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|SetQueueAttributesRequest
 name|request
 init|=
@@ -925,6 +913,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|request
+operator|.
+name|getAttributes
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Updating queue '{}' with the provided queue attributes..."
+argument_list|,
+name|configuration
+operator|.
+name|getQueueName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|setQueueAttributes
@@ -946,6 +958,7 @@ argument_list|,
 name|queueUrl
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
