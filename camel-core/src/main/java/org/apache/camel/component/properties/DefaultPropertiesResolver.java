@@ -628,8 +628,9 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// trim string values which can be a problem when loading from a properties file and there
-comment|// is leading or trailing spaces in the value
+comment|// trim any trailing spaces which can be a problem when loading from
+comment|// a properties file, note that java.util.Properties does already this
+comment|// for any potential leading spaces so there's nothing to do there
 if|if
 condition|(
 name|value
@@ -645,12 +646,66 @@ name|String
 operator|)
 name|value
 decl_stmt|;
+name|int
+name|endIndex
+init|=
+name|s
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|index
+init|=
+name|s
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+init|;
+name|index
+operator|>=
+literal|0
+condition|;
+name|index
+operator|--
+control|)
+block|{
+if|if
+condition|(
+name|s
+operator|.
+name|charAt
+argument_list|(
+name|index
+argument_list|)
+operator|==
+literal|' '
+condition|)
+block|{
+name|endIndex
+operator|=
+name|index
+expr_stmt|;
+block|}
+else|else
+block|{
+break|break;
+block|}
+block|}
 name|s
 operator|=
 name|s
 operator|.
-name|trim
-argument_list|()
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|endIndex
+argument_list|)
 expr_stmt|;
 name|value
 operator|=
