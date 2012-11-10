@@ -91,7 +91,7 @@ name|createSpringCamelContext
 argument_list|(
 name|this
 argument_list|,
-literal|"org/apache/camel/spring/processor/aggregator/SpringAggregateSimpleTimeoutTest.xml"
+literal|"org/apache/camel/spring/processor/aggregator/SpringAggregateDiscardOnTimeoutTest.xml"
 argument_list|)
 return|;
 block|}
