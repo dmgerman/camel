@@ -193,6 +193,9 @@ argument_list|()
 argument_list|,
 name|getBundleVersion
 argument_list|()
+argument_list|,
+name|getBundleDirectives
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// must register override properties early in OSGi containers
@@ -323,6 +326,17 @@ return|return
 name|CamelBlueprintHelper
 operator|.
 name|BUNDLE_VERSION
+return|;
+block|}
+comment|/**      * Gets the bundle directives.      * Modify this method if you wish to add some directives.      * @return      */
+DECL|method|getBundleDirectives ()
+specifier|protected
+name|String
+name|getBundleDirectives
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 annotation|@
