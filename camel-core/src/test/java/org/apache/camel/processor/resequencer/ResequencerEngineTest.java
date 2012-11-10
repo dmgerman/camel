@@ -894,6 +894,25 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// give the runner time to start
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 end_class
