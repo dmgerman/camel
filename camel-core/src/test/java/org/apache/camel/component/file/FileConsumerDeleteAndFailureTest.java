@@ -145,8 +145,6 @@ operator|.
 name|expectedFileExists
 argument_list|(
 literal|"target/failed/error/bye.txt"
-argument_list|,
-literal|"Kabom"
 argument_list|)
 expr_stmt|;
 name|template
