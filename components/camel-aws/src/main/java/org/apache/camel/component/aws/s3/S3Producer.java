@@ -52,6 +52,38 @@ name|s3
 operator|.
 name|model
 operator|.
+name|AccessControlList
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
+name|model
+operator|.
+name|CannedAccessControlList
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
+name|model
+operator|.
 name|ObjectMetadata
 import|;
 end_import
@@ -173,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Storage Service  *<a href="http://aws.amazon.com/s3/">AWS S3</a>  */
+comment|/**  * A Producer which sends messages to the Amazon Web Service Simple Storage Service<a  * href="http://aws.amazon.com/s3/">AWS S3</a>  */
 end_comment
 
 begin_class
@@ -200,10 +232,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|S3Producer (Endpoint endpoint)
+DECL|method|S3Producer (final Endpoint endpoint)
 specifier|public
 name|S3Producer
 parameter_list|(
+specifier|final
 name|Endpoint
 name|endpoint
 parameter_list|)
@@ -214,11 +247,14 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
+annotation|@
+name|Override
+DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -525,6 +561,86 @@ name|storageClass
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|cannedAcl
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|S3Constants
+operator|.
+name|CANNED_ACL
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cannedAcl
+operator|!=
+literal|null
+condition|)
+block|{
+name|CannedAccessControlList
+name|objectAcl
+init|=
+name|CannedAccessControlList
+operator|.
+name|valueOf
+argument_list|(
+name|cannedAcl
+argument_list|)
+decl_stmt|;
+name|putObjectRequest
+operator|.
+name|setCannedAcl
+argument_list|(
+name|objectAcl
+argument_list|)
+expr_stmt|;
+block|}
+name|AccessControlList
+name|acl
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|S3Constants
+operator|.
+name|ACL
+argument_list|,
+name|AccessControlList
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|acl
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// note: if cannedacl and acl are both specified the last one will be used. refer to
+comment|// PutObjectRequest#setAccessControlList for more details
+name|putObjectRequest
+operator|.
+name|setAccessControlList
+argument_list|(
+name|acl
+argument_list|)
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -607,11 +723,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|determineKey (Exchange exchange)
+DECL|method|determineKey (final Exchange exchange)
 specifier|private
 name|String
 name|determineKey
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -654,11 +771,12 @@ return|return
 name|key
 return|;
 block|}
-DECL|method|determineStorageClass (Exchange exchange)
+DECL|method|determineStorageClass (final Exchange exchange)
 specifier|private
 name|String
 name|determineStorageClass
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
@@ -702,11 +820,12 @@ return|return
 name|storageClass
 return|;
 block|}
-DECL|method|getMessageForResponse (Exchange exchange)
+DECL|method|getMessageForResponse (final Exchange exchange)
 specifier|private
 name|Message
 name|getMessageForResponse
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)

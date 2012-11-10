@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel AWS S3 module  *  */
+comment|/**  * Constants used in Camel AWS S3 module  *   */
 end_comment
 
 begin_interface
@@ -101,6 +101,18 @@ name|String
 name|VERSION_ID
 init|=
 literal|"CamelAwsS3VersionId"
+decl_stmt|;
+DECL|field|CANNED_ACL
+name|String
+name|CANNED_ACL
+init|=
+literal|"CamelAwsS3CannedAcl"
+decl_stmt|;
+DECL|field|ACL
+name|String
+name|ACL
+init|=
+literal|"CamelAwsS3Acl"
 decl_stmt|;
 block|}
 end_interface
