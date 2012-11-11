@@ -152,26 +152,6 @@ argument_list|,
 literal|"target/data/hawtdb.dat"
 argument_list|)
 expr_stmt|;
-comment|// enable recovery
-name|repo
-operator|.
-name|setUseRecovery
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// check faster
-name|repo
-operator|.
-name|setRecoveryInterval
-argument_list|(
-literal|500
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|setUp
@@ -229,12 +209,12 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 3 seconds
+comment|// wait 4 seconds
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|4000
 argument_list|)
 expr_stmt|;
 name|mock
@@ -357,7 +337,7 @@ name|aggregationRepository
 argument_list|(
 name|repo
 argument_list|)
-comment|// use a 3 second timeout
+comment|// use a 2 second timeout
 operator|.
 name|completionTimeout
 argument_list|(
