@@ -628,9 +628,6 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// trim any trailing spaces which can be a problem when loading from
-comment|// a properties file, note that java.util.Properties does already this
-comment|// for any potential leading spaces so there's nothing to do there
 if|if
 condition|(
 name|value
@@ -646,6 +643,41 @@ name|String
 operator|)
 name|value
 decl_stmt|;
+comment|// trim any trailing spaces which can be a problem when loading from
+comment|// a properties file, note that java.util.Properties does already this
+comment|// for any potential leading spaces so there's nothing to do there
+name|value
+operator|=
+name|trimTrailingWhitespaces
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+block|}
+name|answer
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+DECL|method|trimTrailingWhitespaces (String s)
+specifier|private
+specifier|static
+name|String
+name|trimTrailingWhitespaces
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
 name|int
 name|endIndex
 init|=
@@ -696,8 +728,9 @@ block|{
 break|break;
 block|}
 block|}
-name|s
-operator|=
+name|String
+name|answer
+init|=
 name|s
 operator|.
 name|substring
@@ -706,22 +739,7 @@ literal|0
 argument_list|,
 name|endIndex
 argument_list|)
-expr_stmt|;
-name|value
-operator|=
-name|s
-expr_stmt|;
-block|}
-name|answer
-operator|.
-name|put
-argument_list|(
-name|key
-argument_list|,
-name|value
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 return|return
 name|answer
 return|;
