@@ -34,6 +34,24 @@ name|OPERATION_NAME
 init|=
 literal|"CamelXmlRpcOperationName"
 decl_stmt|;
+DECL|field|ERROR_CODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ERROR_CODE
+init|=
+literal|"CamelXmlRpcErrorCode"
+decl_stmt|;
+DECL|field|ERROR_MESSAGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ERROR_MESSAGE
+init|=
+literal|"CamelXmlRpcErrorMessage"
+decl_stmt|;
 DECL|method|XmlRpcConstants ()
 specifier|private
 name|XmlRpcConstants
