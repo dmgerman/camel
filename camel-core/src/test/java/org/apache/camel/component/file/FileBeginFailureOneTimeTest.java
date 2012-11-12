@@ -281,6 +281,7 @@ argument_list|>
 block|{
 DECL|field|invoked
 specifier|private
+specifier|volatile
 name|int
 name|invoked
 decl_stmt|;
