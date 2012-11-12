@@ -58,6 +58,18 @@ name|JMXAgentTest
 block|{
 annotation|@
 name|Override
+DECL|method|getPort ()
+specifier|protected
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+literal|20009
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext

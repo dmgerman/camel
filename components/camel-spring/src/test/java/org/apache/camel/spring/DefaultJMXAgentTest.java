@@ -128,7 +128,7 @@ specifier|protected
 name|long
 name|sleepForConnection
 init|=
-literal|2000
+literal|3000
 decl_stmt|;
 annotation|@
 name|Override
@@ -171,9 +171,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|releaseMBeanServers
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|mbsc
 operator|=
 literal|null
@@ -183,6 +188,7 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|releaseMBeanServers ()
 specifier|protected

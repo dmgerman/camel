@@ -235,7 +235,10 @@ name|validateDroppedExchanges
 argument_list|(
 name|sentExchanges
 argument_list|,
-literal|2
+name|mock
+operator|.
+name|getReceivedCounter
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -315,7 +318,10 @@ name|validateDroppedExchanges
 argument_list|(
 name|sentExchanges
 argument_list|,
-literal|2
+name|mock
+operator|.
+name|getReceivedCounter
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
