@@ -162,7 +162,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:hello"
+literal|"activemq:queue:hello2"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -171,7 +171,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:queue:hello"
+literal|"activemq:queue:hello2"
 argument_list|,
 literal|"Gooday World"
 argument_list|)
@@ -256,7 +256,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"activemq:queue:hello"
+literal|"activemq:queue:hello2"
 argument_list|)
 operator|.
 name|to
