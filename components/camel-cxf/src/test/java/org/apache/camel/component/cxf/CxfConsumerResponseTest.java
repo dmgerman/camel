@@ -750,6 +750,11 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|client
+argument_list|)
+expr_stmt|;
 name|String
 name|result
 init|=
