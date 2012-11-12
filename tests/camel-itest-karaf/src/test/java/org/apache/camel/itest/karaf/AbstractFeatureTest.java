@@ -937,6 +937,17 @@ literal|"src/test/resources/org/apache/camel/itest/karaf/config.properties"
 argument_list|)
 argument_list|)
 block|,
+name|replaceConfigurationFile
+argument_list|(
+literal|"etc/custom.properties"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"src/test/resources/org/apache/camel/itest/karaf/custom.properties"
+argument_list|)
+argument_list|)
+block|,
 comment|// install the cxf jaxb spec as the karaf doesn't provide it by default
 name|scanFeatures
 argument_list|(
