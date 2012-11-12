@@ -28,6 +28,30 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -128,6 +152,19 @@ name|FileRollbackOnCompletionTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|LATCH
+specifier|private
+specifier|static
+specifier|final
+name|CountDownLatch
+name|LATCH
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 DECL|class|FileRollback
 specifier|public
 specifier|static
@@ -187,6 +224,12 @@ argument_list|(
 name|name
 argument_list|)
 argument_list|)
+expr_stmt|;
+comment|// signal we have deleted the file
+name|LATCH
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -249,25 +292,6 @@ argument_list|(
 literal|"Simulated fatal error"
 argument_list|)
 throw|;
-block|}
-comment|// simulate CPU processing of the order by sleeping a bit
-try|try
-block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|250
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
 block|}
 block|}
 block|}
@@ -410,11 +434,20 @@ name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
 comment|// onCompletion is async so we gotta wait a bit for the file to be deleted
-name|Thread
-operator|.
-name|sleep
+name|assertTrue
 argument_list|(
-literal|250
+literal|"Should countdown the latch"
+argument_list|,
+name|LATCH
+operator|.
+name|await
+argument_list|(
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|File
