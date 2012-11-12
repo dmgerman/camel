@@ -174,7 +174,7 @@ name|mock
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock
@@ -266,7 +266,7 @@ name|mock2
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock2
