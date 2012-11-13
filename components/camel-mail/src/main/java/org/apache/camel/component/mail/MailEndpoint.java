@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|mail
+operator|.
+name|search
+operator|.
+name|SearchTerm
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -184,6 +196,11 @@ DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
 name|maxMessagesPerPoll
+decl_stmt|;
+DECL|field|searchTerm
+specifier|private
+name|SearchTerm
+name|searchTerm
 decl_stmt|;
 DECL|method|MailEndpoint ()
 specifier|public
@@ -683,6 +700,32 @@ operator|.
 name|maxMessagesPerPoll
 operator|=
 name|maxMessagesPerPoll
+expr_stmt|;
+block|}
+DECL|method|getSearchTerm ()
+specifier|public
+name|SearchTerm
+name|getSearchTerm
+parameter_list|()
+block|{
+return|return
+name|searchTerm
+return|;
+block|}
+DECL|method|setSearchTerm (SearchTerm searchTerm)
+specifier|public
+name|void
+name|setSearchTerm
+parameter_list|(
+name|SearchTerm
+name|searchTerm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|searchTerm
+operator|=
+name|searchTerm
 expr_stmt|;
 block|}
 block|}

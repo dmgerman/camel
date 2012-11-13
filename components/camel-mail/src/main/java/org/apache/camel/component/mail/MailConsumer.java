@@ -240,6 +240,44 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mail
+operator|.
+name|SearchTermBuilder
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mail
+operator|.
+name|SearchTermBuilder
+operator|.
+name|Op
+operator|.
+name|and
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link org.apache.camel.Consumer Consumer} which consumes messages from JavaMail using a  * {@link javax.mail.Transport Transport} and dispatches them to the {@link Processor}  */
 end_comment
@@ -547,7 +585,33 @@ name|Message
 index|[]
 name|messages
 decl_stmt|;
-comment|// should we process all messages or only unseen messages
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getSearchTerm
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use custom search term
+name|messages
+operator|=
+name|folder
+operator|.
+name|search
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getSearchTerm
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|getEndpoint
@@ -560,6 +624,7 @@ name|isUnseen
 argument_list|()
 condition|)
 block|{
+comment|// only unseen messages
 name|messages
 operator|=
 name|folder
@@ -567,25 +632,20 @@ operator|.
 name|search
 argument_list|(
 operator|new
-name|FlagTerm
-argument_list|(
-operator|new
-name|Flags
-argument_list|(
-name|Flags
+name|SearchTermBuilder
+argument_list|()
 operator|.
-name|Flag
+name|unseen
+argument_list|()
 operator|.
-name|SEEN
-argument_list|)
-argument_list|,
-literal|false
-argument_list|)
+name|build
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
+comment|// get all messages
 name|messages
 operator|=
 name|folder
