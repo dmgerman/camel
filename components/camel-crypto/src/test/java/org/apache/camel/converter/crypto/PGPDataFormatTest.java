@@ -80,6 +80,26 @@ return|return
 literal|"org/apache/camel/component/crypto/secring.gpg"
 return|;
 block|}
+DECL|method|getKeyUserId ()
+specifier|protected
+name|String
+name|getKeyUserId
+parameter_list|()
+block|{
+return|return
+literal|"sdude@nowhere.net"
+return|;
+block|}
+DECL|method|getKeyPassword ()
+specifier|protected
+name|String
+name|getKeyPassword
+parameter_list|()
+block|{
+return|return
+literal|"sdude"
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testEncryption ()
@@ -192,13 +212,15 @@ comment|// Keyring Userid Used to Encrypt
 name|String
 name|keyUserid
 init|=
-literal|"sdude@nowhere.net"
+name|getKeyUserId
+argument_list|()
 decl_stmt|;
 comment|// Private key password
 name|String
 name|keyPassword
 init|=
-literal|"sdude"
+name|getKeyPassword
+argument_list|()
 decl_stmt|;
 name|from
 argument_list|(
