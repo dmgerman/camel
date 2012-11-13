@@ -1295,6 +1295,12 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|isRetrieveFile
+argument_list|()
+condition|)
+block|{
 comment|// retrieve the file using the stream
 name|log
 operator|.
@@ -1354,6 +1360,31 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Skiped retrieval of file: {} from: {}"
+argument_list|,
+name|name
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|// register on completion callback that does the completion strategies
 comment|// (for instance to move the file after we have processed it)
 name|exchange
@@ -1481,6 +1512,17 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Override if required.  Files are retrieved / returns true by default      *      * @return<tt>true</tt> to retrieve files,<tt>false</tt> to skip retrieval of files.      */
+DECL|method|isRetrieveFile ()
+specifier|protected
+name|boolean
+name|isRetrieveFile
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Processes the exchange using a custom processor.      *      * @param exchange the exchange      * @param processor the custom processor      */
 DECL|method|customProcessExchange (final Exchange exchange, final Processor processor)

@@ -205,6 +205,13 @@ specifier|private
 name|boolean
 name|fastExistsCheck
 decl_stmt|;
+DECL|field|download
+specifier|private
+name|boolean
+name|download
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RemoteFileEndpoint ()
 specifier|public
 name|RemoteFileEndpoint
@@ -792,6 +799,34 @@ operator|.
 name|fastExistsCheck
 operator|=
 name|fastExistsCheck
+expr_stmt|;
+block|}
+DECL|method|isDownload ()
+specifier|public
+name|boolean
+name|isDownload
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|download
+return|;
+block|}
+DECL|method|setDownload (boolean download)
+specifier|public
+name|void
+name|setDownload
+parameter_list|(
+name|boolean
+name|download
+parameter_list|)
+block|{
+name|this
+operator|.
+name|download
+operator|=
+name|download
 expr_stmt|;
 block|}
 block|}

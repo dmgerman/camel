@@ -437,6 +437,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|isRetrieveFile ()
+specifier|protected
+name|boolean
+name|isRetrieveFile
+parameter_list|()
+block|{
+return|return
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDownload
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
