@@ -658,14 +658,10 @@ name|smppMessage
 operator|.
 name|setBody
 argument_list|(
-operator|new
-name|String
-argument_list|(
 name|deliverSm
 operator|.
 name|getShortMessage
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
