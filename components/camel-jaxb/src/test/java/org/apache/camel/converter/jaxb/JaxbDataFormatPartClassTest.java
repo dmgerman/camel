@@ -303,7 +303,7 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"http://www.camel.apache.org/jaxb/example/address/1"
+literal|"xmlns:address=\"http://www.camel.apache.org/jaxb/example/address/1\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -313,7 +313,7 @@ name|payload
 operator|.
 name|contains
 argument_list|(
-literal|"http://www.camel.apache.org/jaxb/example/order/1"
+literal|"xmlns:order=\"http://www.camel.apache.org/jaxb/example/order/1\""
 argument_list|)
 argument_list|)
 expr_stmt|;
