@@ -466,7 +466,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
 literal|"Endpoint URI unsupported: "
 operator|+
@@ -474,6 +474,24 @@ name|uri
 argument_list|)
 throw|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|SjmsComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SjmsComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

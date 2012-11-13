@@ -110,7 +110,7 @@ name|sjms
 operator|.
 name|taskmanager
 operator|.
-name|TimedTaskManagerFactory
+name|TimedTaskManager
 import|;
 end_import
 
@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SessionTransactionSynchronization is called at the completion of each  * {@link org.apache.camel.Exhcnage}.  */
+comment|/**  * SessionTransactionSynchronization is called at the completion of each  * {@link org.apache.camel.Exchange}.  */
 end_comment
 
 begin_class
@@ -160,17 +160,20 @@ name|SessionBatchTransactionSynchronization
 implements|implements
 name|Synchronization
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
+specifier|static
+specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|getClass
-argument_list|()
+name|SessionBatchTransactionSynchronization
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|session
@@ -205,31 +208,19 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-DECL|method|SessionBatchTransactionSynchronization (Session session, TransactionCommitStrategy commitStrategy)
+DECL|field|timedTaskManager
+specifier|private
+specifier|final
+name|TimedTaskManager
+name|timedTaskManager
+decl_stmt|;
+DECL|method|SessionBatchTransactionSynchronization (TimedTaskManager timedTaskManager, Session session, TransactionCommitStrategy commitStrategy, long batchTransactionTimeout)
 specifier|public
 name|SessionBatchTransactionSynchronization
 parameter_list|(
-name|Session
-name|session
+name|TimedTaskManager
+name|timedTaskManager
 parameter_list|,
-name|TransactionCommitStrategy
-name|commitStrategy
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|session
-argument_list|,
-name|commitStrategy
-argument_list|,
-literal|5000
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SessionBatchTransactionSynchronization (Session session, TransactionCommitStrategy commitStrategy, long batchTransactionTimeout)
-specifier|public
-name|SessionBatchTransactionSynchronization
-parameter_list|(
 name|Session
 name|session
 parameter_list|,
@@ -240,6 +231,12 @@ name|long
 name|batchTransactionTimeout
 parameter_list|)
 block|{
+name|this
+operator|.
+name|timedTaskManager
+operator|=
+name|timedTaskManager
+expr_stmt|;
 name|this
 operator|.
 name|session
@@ -289,7 +286,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @see org.apache.camel.spi.Synchronization#onFailure(org.apache.camel.Exchange)      * @param exchange      */
 annotation|@
 name|Override
 DECL|method|onFailure (Exchange exchange)
@@ -321,7 +317,15 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|log
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -333,6 +337,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|session
@@ -359,16 +364,20 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to rollback the session: {}"
-argument_list|,
+literal|"Failed to rollback the session: "
+operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -384,7 +393,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @see org.apache.camel.spi.Synchronization#onComplete(org.apache.camel.Exchange)      * @param exchange      */
 annotation|@
 name|Override
 DECL|method|onComplete (Exchange exchange)
@@ -416,7 +424,15 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|log
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -428,6 +444,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|session
@@ -454,16 +471,20 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to commit the session: {}"
-argument_list|,
+literal|"Failed to commit the session: "
+operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -563,10 +584,7 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
-name|TimedTaskManagerFactory
-operator|.
-name|getInstance
-argument_list|()
+name|timedTaskManager
 operator|.
 name|addTask
 argument_list|(
@@ -578,13 +596,14 @@ expr_stmt|;
 block|}
 DECL|class|TimeoutTask
 specifier|public
+specifier|final
 class|class
 name|TimeoutTask
 extends|extends
 name|TimerTask
 block|{
-comment|/**          * Default constructor          *           * @param str          */
 DECL|method|TimeoutTask ()
+specifier|private
 name|TimeoutTask
 parameter_list|()
 block|{         }
@@ -595,11 +614,11 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|log
+name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Batch Transaction Timer expired:"
+literal|"Batch Transaction Timer expired"
 argument_list|)
 expr_stmt|;
 try|try
@@ -612,9 +631,9 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
-name|log
+name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Committing the current transactions"
 argument_list|)
@@ -656,16 +675,20 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to commit the session during timeout: {}"
-argument_list|,
+literal|"Failed to commit the session during timeout: "
+operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -690,22 +713,13 @@ name|boolean
 name|cancel
 parameter_list|()
 block|{
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
 literal|"Cancelling the TimeoutTask"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|super
 operator|.

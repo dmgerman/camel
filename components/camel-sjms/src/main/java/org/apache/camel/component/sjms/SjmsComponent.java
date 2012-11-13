@@ -142,7 +142,7 @@ name|sjms
 operator|.
 name|taskmanager
 operator|.
-name|TimedTaskManagerFactory
+name|TimedTaskManager
 import|;
 end_import
 
@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link SimpleJmsEndpoint}.  */
+comment|/**  * The<a href="http://camel.apache.org/sjms">Simple JMS</a> component.  */
 end_comment
 
 begin_class
@@ -289,7 +289,11 @@ specifier|private
 name|TransactionCommitStrategy
 name|transactionCommitStrategy
 decl_stmt|;
-comment|/**      * @see      * org.apache.camel.impl.DefaultComponent#createEndpoint(java.lang.String,      * java.lang.String, java.util.Map)      * @param uri The value passed into our call to create an endpoint      * @param remaining      * @param parameters      * @return      * @throws Exception      */
+DECL|field|timedTaskManager
+specifier|private
+name|TimedTaskManager
+name|timedTaskManager
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -382,6 +386,7 @@ block|}
 comment|/**      * Helper method used to detect the type of endpoint and add the "queue"      * protocol if it is a default endpoint URI.      *       * @param uri The value passed into our call to create an endpoint      * @return String      * @throws Exception      */
 DECL|method|normalizeUri (String uri)
 specifier|private
+specifier|static
 name|String
 name|normalizeUri
 parameter_list|(
@@ -498,6 +503,11 @@ elseif|else
 if|if
 condition|(
 name|protocol
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|protocol
 operator|.
 name|equals
 argument_list|(
@@ -510,6 +520,7 @@ name|equals
 argument_list|(
 literal|"topic"
 argument_list|)
+operator|)
 condition|)
 block|{
 name|tempUri
@@ -563,6 +574,7 @@ block|}
 comment|/**      * Helper method used to verify that when there is a namedReplyTo value we      * are using the InOut MEP. If namedReplyTo is defined and the MEP is InOnly      * the endpoint won't be expecting a reply so throw an error to alert the      * user.      *       * @param parameters {@link Endpoint} parameters      * @throws Exception throws a {@link CamelException} when MEP equals InOnly      *             and namedReplyTo is defined.      */
 DECL|method|validateMepAndReplyTo (Map<String, Object> parameters)
 specifier|private
+specifier|static
 name|void
 name|validateMepAndReplyTo
 parameter_list|(
@@ -664,7 +676,7 @@ literal|"Setting parameter namedReplyTo="
 operator|+
 name|namedReplyTo
 operator|+
-literal|" requires a MEP of type InOut.  Parameter exchangePattern is set to "
+literal|" requires a MEP of type InOut. Parameter exchangePattern is set to "
 operator|+
 name|mep
 argument_list|)
@@ -687,9 +699,15 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+name|timedTaskManager
+operator|=
+operator|new
+name|TimedTaskManager
+argument_list|()
+expr_stmt|;
 name|LOGGER
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Verify ConnectionResource"
 argument_list|)
@@ -706,7 +724,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"No ConnectionResource provided.  Initialize the ConnectionFactoryResource."
+literal|"No ConnectionResource provided. Initialize the ConnectionFactoryResource."
 argument_list|)
 expr_stmt|;
 comment|// We always use a connection pool, even for a pool of 1
@@ -766,10 +784,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TimedTaskManagerFactory
-operator|.
-name|getInstance
-argument_list|()
+name|timedTaskManager
 operator|.
 name|cancelTasks
 argument_list|()
@@ -809,7 +824,7 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *       * @param connectionFactory Sets ConnectionFactory, default is TODO add      *            default      */
+comment|/**      * Sets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -958,7 +973,7 @@ return|return
 name|transactionCommitStrategy
 return|;
 block|}
-comment|/**      * Sets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *       * @param transactionCommitStrategy Sets TransactionCommitStrategy, default is TODO add      *            default      */
+comment|/**      * Sets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      */
 DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy commitStrategy)
 specifier|public
 name|void
@@ -973,6 +988,32 @@ operator|.
 name|transactionCommitStrategy
 operator|=
 name|commitStrategy
+expr_stmt|;
+block|}
+DECL|method|getTimedTaskManager ()
+specifier|public
+name|TimedTaskManager
+name|getTimedTaskManager
+parameter_list|()
+block|{
+return|return
+name|timedTaskManager
+return|;
+block|}
+DECL|method|setTimedTaskManager (TimedTaskManager timedTaskManager)
+specifier|public
+name|void
+name|setTimedTaskManager
+parameter_list|(
+name|TimedTaskManager
+name|timedTaskManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timedTaskManager
+operator|=
+name|timedTaskManager
 expr_stmt|;
 block|}
 block|}

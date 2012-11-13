@@ -244,6 +244,24 @@ name|component
 operator|.
 name|sjms
 operator|.
+name|taskmanager
+operator|.
+name|TimedTaskManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
 name|tx
 operator|.
 name|BatchTransactionCommitStrategy
@@ -378,7 +396,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**           * Creates a new MessageConsumerResources instance.          *          * @see org.apache.camel.component.sjms.jms.ObjectPool#createObject()          *          * @return          * @throws Exception          */
+comment|/**           * Creates a new MessageConsumerResources instance.          *          * @see org.apache.camel.component.sjms.jms.ObjectPool#createObject()          */
 annotation|@
 name|Override
 DECL|method|createObject ()
@@ -431,7 +449,7 @@ return|return
 name|model
 return|;
 block|}
-comment|/**           * Cleans up the MessageConsumerResources.          *          * @see org.apache.camel.component.sjms.jms.ObjectPool#destroyObject(java.lang.Object)          *          * @param model          * @throws Exception          */
+comment|/**           * Cleans up the MessageConsumerResources.          *          * @see org.apache.camel.component.sjms.jms.ObjectPool#destroyObject(java.lang.Object)          */
 annotation|@
 name|Override
 DECL|method|destroyObject (MessageConsumerResources model)
@@ -543,7 +561,6 @@ specifier|final
 name|MessageConsumer
 name|messageConsumer
 decl_stmt|;
-comment|/**          * @param messageProducer          */
 DECL|method|MessageConsumerResources (MessageConsumer messageConsumer)
 specifier|public
 name|MessageConsumerResources
@@ -568,7 +585,6 @@ operator|=
 name|messageConsumer
 expr_stmt|;
 block|}
-comment|/**          * @param session          * @param messageProducer          */
 DECL|method|MessageConsumerResources (Session session, MessageConsumer messageConsumer)
 specifier|public
 name|MessageConsumerResources
@@ -659,6 +675,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|SjmsEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SjmsEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -717,45 +751,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doResume ()
-specifier|protected
-name|void
-name|doResume
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doResume
-argument_list|()
-expr_stmt|;
-name|doStart
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doSuspend ()
-specifier|protected
-name|void
-name|doSuspend
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|doStop
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|doSuspend
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Creates a {@link MessageConsumerResources} with a dedicated      * {@link Session} required for transacted and InOut consumers.      *       * @return MessageConsumerResources      * @throws Exception      */
+comment|/**      * Creates a {@link MessageConsumerResources} with a dedicated      * {@link Session} required for transacted and InOut consumers.      */
 DECL|method|createConsumerWithDedicatedSession ()
 specifier|private
 name|MessageConsumerResources
@@ -869,7 +865,7 @@ name|messageConsumer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link MessageConsumerResources} with a shared {@link Session}      * for non-transacted InOnly consumers.      *       * @return      * @throws Exception      */
+comment|/**      * Creates a {@link MessageConsumerResources} with a shared {@link Session}      * for non-transacted InOnly consumers.      */
 DECL|method|createConsumerListener ()
 specifier|private
 name|MessageConsumerResources
@@ -964,7 +960,7 @@ name|messageConsumer
 argument_list|)
 return|;
 block|}
-comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *       * @param session a session is only required if we are a transacted consumer      * @return      */
+comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *       * @param session a session is only required if we are a transacted consumer      * @return the listener      */
 DECL|method|createMessageHandler (Session session)
 specifier|protected
 name|MessageListener
@@ -1031,8 +1027,6 @@ expr_stmt|;
 block|}
 name|Synchronization
 name|synchronization
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1041,11 +1035,25 @@ operator|instanceof
 name|BatchTransactionCommitStrategy
 condition|)
 block|{
+name|TimedTaskManager
+name|timedTaskManager
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|getTimedTaskManager
+argument_list|()
+decl_stmt|;
 name|synchronization
 operator|=
 operator|new
 name|SessionBatchTransactionSynchronization
 argument_list|(
+name|timedTaskManager
+argument_list|,
 name|session
 argument_list|,
 name|commitStrategy
@@ -1070,8 +1078,6 @@ expr_stmt|;
 block|}
 name|AbstractMessageHandler
 name|messageHandler
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1340,7 +1346,7 @@ name|isTopic
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the JMS Message selector syntax.      *       * @param messageSelector Message selector syntax or null      */
+comment|/**      * Gets the JMS Message selector syntax.      */
 DECL|method|getMessageSelector ()
 specifier|public
 name|String

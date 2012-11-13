@@ -90,6 +90,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|lock
 specifier|private
+specifier|final
 name|ReadWriteLock
 name|lock
 init|=
@@ -98,6 +99,7 @@ name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
 DECL|method|TimedTaskManager ()
+specifier|public
 name|TimedTaskManager
 parameter_list|()
 block|{     }
