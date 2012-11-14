@@ -176,18 +176,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|NoTypeConversionAvailableException
 import|;
 end_import
@@ -215,20 +203,6 @@ operator|.
 name|converter
 operator|.
 name|IOConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|TypeConverterRegistry
 import|;
 end_import
 
@@ -465,7 +439,7 @@ name|getInputStream
 argument_list|()
 return|;
 block|}
-comment|/**      * Converts the given JavaMail multipart to a InputStream body, where the contenttype of the multipart      * must be text based (ie start with text). Can return null.      */
+comment|/**      * Converts the given JavaMail multipart to a InputStream body, where the content-type of the multipart      * must be text based (ie start with text). Can return null.      */
 annotation|@
 name|Converter
 DECL|method|toInputStream (Multipart multipart)
@@ -508,46 +482,6 @@ name|toInputStream
 argument_list|(
 name|s
 argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Converter
-DECL|method|toSearchTerm (SimpleSearchTerm simple, Exchange exchange)
-specifier|public
-specifier|static
-name|SearchTerm
-name|toSearchTerm
-parameter_list|(
-name|SimpleSearchTerm
-name|simple
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|ParseException
-throws|,
-name|NoTypeConversionAvailableException
-block|{
-return|return
-name|toSearchTerm
-argument_list|(
-name|simple
-argument_list|,
-name|exchange
-operator|!=
-literal|null
-condition|?
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-else|:
 literal|null
 argument_list|)
 return|;
