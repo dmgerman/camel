@@ -40,6 +40,30 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -116,6 +140,19 @@ name|HttpAsyncCallbackTest
 extends|extends
 name|HttpAsyncTestSupport
 block|{
+DECL|field|LATCH
+specifier|private
+specifier|static
+specifier|final
+name|CountDownLatch
+name|LATCH
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|3
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testAsyncAndSyncAtSameTimeWithHttp ()
@@ -205,18 +242,25 @@ argument_list|,
 name|callback
 argument_list|)
 expr_stmt|;
-comment|// give on completion time to complete properly before we do assertions on its size
-comment|// TODO: improve MockEndpoint.assertIsSatisfied(long) to make this sleep unnecessary
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
 comment|// END SNIPPET: e3
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should get 3 callbacks"
+argument_list|,
+name|LATCH
+operator|.
+name|await
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|// assert that we got all the correct data in our callback
 name|assertEquals
@@ -336,6 +380,11 @@ name|add
 argument_list|(
 name|body
 argument_list|)
+expr_stmt|;
+name|LATCH
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getData ()
