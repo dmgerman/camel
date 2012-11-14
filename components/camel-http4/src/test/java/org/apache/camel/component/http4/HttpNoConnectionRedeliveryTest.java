@@ -161,10 +161,18 @@ throws|throws
 name|Exception
 block|{
 comment|// stop server so there are no connection
+comment|// and wait for it to terminate
 name|localServer
 operator|.
 name|stop
 argument_list|()
+expr_stmt|;
+name|localServer
+operator|.
+name|awaitTermination
+argument_list|(
+literal|5000
+argument_list|)
 expr_stmt|;
 name|Exchange
 name|exchange
