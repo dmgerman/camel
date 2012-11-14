@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Allows to configure common {@link javax.mail.search.SearchTerm}'s using a POJO style,  * which can be done from XML DSLs.  *<p/>  * This POJO has default<tt>true</tt> for the {@link #isUnseen()} option.  *<p/>  * The {@link #setFromSentDate(String)} and {@link #setToSentDate(String)} is using the following date pattern  *<tt>yyyy-MM-dd HH:mm:SS</tt>.  */
+comment|/**  * Allows to configure common {@link javax.mail.search.SearchTerm}'s using a POJO style,  * which can be done from XML DSLs.  *<p/>  * This POJO has default<tt>true</tt> for the {@link #isUnseen()} option.  *<p/>  * The date options (such as {@link #setFromReceivedDate(String)}) is using  * the following date pattern<tt>yyyy-MM-dd HH:mm:SS</tt>.  */
 end_comment
 
 begin_class
@@ -69,6 +69,16 @@ DECL|field|toSentDate
 specifier|private
 name|String
 name|toSentDate
+decl_stmt|;
+DECL|field|fromReceivedDate
+specifier|private
+name|String
+name|fromReceivedDate
+decl_stmt|;
+DECL|field|toReceivedDate
+specifier|private
+name|String
+name|toReceivedDate
 decl_stmt|;
 DECL|method|isUnseen ()
 specifier|public
@@ -276,6 +286,58 @@ operator|.
 name|toSentDate
 operator|=
 name|toSentDate
+expr_stmt|;
+block|}
+DECL|method|getFromReceivedDate ()
+specifier|public
+name|String
+name|getFromReceivedDate
+parameter_list|()
+block|{
+return|return
+name|fromReceivedDate
+return|;
+block|}
+DECL|method|setFromReceivedDate (String fromReceivedDate)
+specifier|public
+name|void
+name|setFromReceivedDate
+parameter_list|(
+name|String
+name|fromReceivedDate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fromReceivedDate
+operator|=
+name|fromReceivedDate
+expr_stmt|;
+block|}
+DECL|method|getToReceivedDate ()
+specifier|public
+name|String
+name|getToReceivedDate
+parameter_list|()
+block|{
+return|return
+name|toReceivedDate
+return|;
+block|}
+DECL|method|setToReceivedDate (String toReceivedDate)
+specifier|public
+name|void
+name|setToReceivedDate
+parameter_list|(
+name|String
+name|toReceivedDate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|toReceivedDate
+operator|=
+name|toReceivedDate
 expr_stmt|;
 block|}
 block|}
