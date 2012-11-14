@@ -70,6 +70,38 @@ name|api
 operator|.
 name|management
 operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
 name|ManagedResource
 import|;
 end_import
@@ -386,6 +418,13 @@ name|uri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether the resource is cached"
+argument_list|)
 DECL|method|isContentCache ()
 specifier|public
 name|boolean
@@ -396,6 +435,13 @@ return|return
 name|contentCache
 return|;
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clears the cached resource, forcing to re-load the resource on next request"
+argument_list|)
 DECL|method|clearContentCache ()
 specifier|public
 name|void
@@ -415,6 +461,18 @@ name|buffer
 operator|=
 literal|null
 expr_stmt|;
+block|}
+DECL|method|isContentCacheCleared ()
+specifier|public
+name|boolean
+name|isContentCacheCleared
+parameter_list|()
+block|{
+return|return
+name|buffer
+operator|==
+literal|null
+return|;
 block|}
 comment|/**      * Sets whether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
 DECL|method|setContentCache (boolean contentCache)

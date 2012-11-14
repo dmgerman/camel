@@ -239,6 +239,13 @@ name|transform
 init|=
 literal|true
 decl_stmt|;
+DECL|field|contentResolvedFromResource
+specifier|private
+name|boolean
+name|contentResolvedFromResource
+init|=
+literal|false
+decl_stmt|;
 DECL|method|LanguageEndpoint ()
 specifier|public
 name|LanguageEndpoint
@@ -548,6 +555,19 @@ name|Expression
 name|getExpression
 parameter_list|()
 block|{
+if|if
+condition|(
+name|isContentResolvedFromResource
+argument_list|()
+operator|&&
+name|isContentCacheCleared
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|expression
 return|;
@@ -627,6 +647,32 @@ operator|.
 name|script
 operator|=
 name|script
+expr_stmt|;
+block|}
+DECL|method|isContentResolvedFromResource ()
+specifier|public
+name|boolean
+name|isContentResolvedFromResource
+parameter_list|()
+block|{
+return|return
+name|contentResolvedFromResource
+return|;
+block|}
+DECL|method|setContentResolvedFromResource (boolean contentResolvedFromResource)
+specifier|public
+name|void
+name|setContentResolvedFromResource
+parameter_list|(
+name|boolean
+name|contentResolvedFromResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentResolvedFromResource
+operator|=
+name|contentResolvedFromResource
 expr_stmt|;
 block|}
 block|}

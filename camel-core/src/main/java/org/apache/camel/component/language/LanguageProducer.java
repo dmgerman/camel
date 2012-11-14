@@ -318,6 +318,15 @@ argument_list|(
 name|script
 argument_list|)
 expr_stmt|;
+comment|// expression was resolved from resource
+name|getEndpoint
+argument_list|()
+operator|.
+name|setContentResolvedFromResource
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// if we cache then set this as expression on endpoint so we don't re-create it again
 if|if
 condition|(
