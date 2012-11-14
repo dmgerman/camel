@@ -99,15 +99,16 @@ argument_list|,
 literal|"direct:cool,direct:start"
 argument_list|)
 expr_stmt|;
+comment|// wait for the message to be fully done using oneExchangeDone
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// give it time to complete
-name|Thread
-operator|.
-name|sleep
+name|assertTrue
 argument_list|(
-literal|200
+name|oneExchangeDone
+operator|.
+name|matchesMockWaitTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
