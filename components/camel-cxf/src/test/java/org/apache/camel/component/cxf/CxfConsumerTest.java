@@ -685,7 +685,10 @@ name|setBus
 argument_list|(
 name|BusFactory
 operator|.
-name|getDefaultBus
+name|newInstance
+argument_list|()
+operator|.
+name|createBus
 argument_list|()
 argument_list|)
 expr_stmt|;

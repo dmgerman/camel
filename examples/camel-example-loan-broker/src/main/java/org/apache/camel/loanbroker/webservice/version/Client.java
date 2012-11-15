@@ -144,13 +144,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// just create a new bus for use
 name|clientBean
 operator|.
 name|setBus
 argument_list|(
 name|BusFactory
 operator|.
-name|getDefaultBus
+name|newInstance
+argument_list|()
+operator|.
+name|createBus
 argument_list|()
 argument_list|)
 expr_stmt|;
