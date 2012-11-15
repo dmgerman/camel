@@ -173,13 +173,6 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Hello Claus"
@@ -263,19 +256,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// assert that we got all the correct data in our callback
-name|assertEquals
-argument_list|(
-literal|3
-argument_list|,
-name|callback
-operator|.
-name|getData
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Claus is missing"
@@ -334,6 +314,7 @@ name|SynchronizationAdapter
 block|{
 DECL|field|data
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -381,6 +362,7 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+comment|// the latch is used for testing purposes
 name|LATCH
 operator|.
 name|countDown
@@ -428,7 +410,7 @@ name|Exception
 block|{
 comment|// START SNIPPET: e1
 comment|// The mocks are here for unit test
-comment|// Simulate a slow http service (delaying 1 sec) we want to invoke async
+comment|// Simulate a slow http service (delaying a bit) we want to invoke async
 name|from
 argument_list|(
 literal|"jetty:http://0.0.0.0:"
