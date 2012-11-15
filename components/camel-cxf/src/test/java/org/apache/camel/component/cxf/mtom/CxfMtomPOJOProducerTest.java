@@ -390,19 +390,6 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// skip test on aix
-if|if
-condition|(
-name|TestHelper
-operator|.
-name|isPlatform
-argument_list|(
-literal|"aix"
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 specifier|final
 name|Holder
 argument_list|<
