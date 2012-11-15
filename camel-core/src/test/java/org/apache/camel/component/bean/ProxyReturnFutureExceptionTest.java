@@ -139,16 +139,6 @@ argument_list|(
 literal|"Got future"
 argument_list|)
 expr_stmt|;
-name|assertFalse
-argument_list|(
-literal|"Should not be done"
-argument_list|,
-name|future
-operator|.
-name|isDone
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
@@ -244,7 +234,7 @@ argument_list|)
 operator|.
 name|delay
 argument_list|(
-literal|2000
+literal|250
 argument_list|)
 operator|.
 name|throwException
