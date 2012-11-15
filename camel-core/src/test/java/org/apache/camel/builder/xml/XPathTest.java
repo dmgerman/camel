@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|ArrayList
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|List
 import|;
 end_import
 
@@ -2408,14 +2408,14 @@ expr_stmt|;
 comment|// convert the node concurrently to test that XML Parser is not thread safe when
 comment|// importing nodes to a new Document, so try a test for that
 specifier|final
-name|Set
+name|List
 argument_list|<
 name|Document
 argument_list|>
 name|result
 init|=
 operator|new
-name|HashSet
+name|ArrayList
 argument_list|<
 name|Document
 argument_list|>
@@ -2474,6 +2474,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|Document
 name|doc
 init|=
@@ -2498,14 +2500,18 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+return|return
+name|doc
+return|;
+block|}
+finally|finally
+block|{
 name|latch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-return|return
-name|doc
-return|;
+block|}
 block|}
 block|}
 argument_list|)
@@ -2524,16 +2530,6 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-name|size
-argument_list|,
-name|result
-operator|.
-name|size
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Iterator
