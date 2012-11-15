@@ -103,6 +103,11 @@ name|String
 argument_list|>
 name|attributeNames
 decl_stmt|;
+DECL|field|waitTimeSeconds
+specifier|private
+name|Integer
+name|waitTimeSeconds
+decl_stmt|;
 DECL|field|defaultVisibilityTimeout
 specifier|private
 name|Integer
@@ -133,6 +138,11 @@ DECL|field|messageRetentionPeriod
 specifier|private
 name|Integer
 name|messageRetentionPeriod
+decl_stmt|;
+DECL|field|receiveMessageWaitTimeSeconds
+specifier|private
+name|Integer
+name|receiveMessageWaitTimeSeconds
 decl_stmt|;
 DECL|field|policy
 specifier|private
@@ -511,6 +521,58 @@ operator|=
 name|extendMessageVisibility
 expr_stmt|;
 block|}
+DECL|method|getReceiveMessageWaitTimeSeconds ()
+specifier|public
+name|Integer
+name|getReceiveMessageWaitTimeSeconds
+parameter_list|()
+block|{
+return|return
+name|receiveMessageWaitTimeSeconds
+return|;
+block|}
+DECL|method|setReceiveMessageWaitTimeSeconds (Integer receiveMessageWaitTimeSeconds)
+specifier|public
+name|void
+name|setReceiveMessageWaitTimeSeconds
+parameter_list|(
+name|Integer
+name|receiveMessageWaitTimeSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|receiveMessageWaitTimeSeconds
+operator|=
+name|receiveMessageWaitTimeSeconds
+expr_stmt|;
+block|}
+DECL|method|getWaitTimeSeconds ()
+specifier|public
+name|Integer
+name|getWaitTimeSeconds
+parameter_list|()
+block|{
+return|return
+name|waitTimeSeconds
+return|;
+block|}
+DECL|method|setWaitTimeSeconds (Integer waitTimeSeconds)
+specifier|public
+name|void
+name|setWaitTimeSeconds
+parameter_list|(
+name|Integer
+name|waitTimeSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitTimeSeconds
+operator|=
+name|waitTimeSeconds
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -546,6 +608,10 @@ literal|", attributeNames="
 operator|+
 name|attributeNames
 operator|+
+literal|", waitTimeSeconds="
+operator|+
+name|waitTimeSeconds
+operator|+
 literal|", defaultVisibilityTimeout="
 operator|+
 name|defaultVisibilityTimeout
@@ -557,6 +623,10 @@ operator|+
 literal|", messageRetentionPeriod="
 operator|+
 name|messageRetentionPeriod
+operator|+
+literal|", receiveMessageWaitTimeSeconds="
+operator|+
+name|receiveMessageWaitTimeSeconds
 operator|+
 literal|", delaySeconds="
 operator|+
