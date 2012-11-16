@@ -101,6 +101,19 @@ name|Integer
 name|aMonitorNumber
 parameter_list|)
 function_decl|;
+DECL|method|getLongNumber ()
+name|Long
+name|getLongNumber
+parameter_list|()
+function_decl|;
+DECL|method|setLongNumber (Long aMonitorNumber)
+name|void
+name|setLongNumber
+parameter_list|(
+name|Long
+name|aMonitorNumber
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

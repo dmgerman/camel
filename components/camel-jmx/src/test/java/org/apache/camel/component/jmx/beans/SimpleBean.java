@@ -171,6 +171,11 @@ specifier|private
 name|int
 name|mMonitorNumber
 decl_stmt|;
+DECL|field|mLongNumber
+specifier|private
+name|long
+name|mLongNumber
+decl_stmt|;
 DECL|method|getStringValue ()
 specifier|public
 name|String
@@ -250,6 +255,30 @@ name|aNumber
 parameter_list|)
 block|{
 name|mMonitorNumber
+operator|=
+name|aNumber
+expr_stmt|;
+block|}
+DECL|method|getLongNumber ()
+specifier|public
+name|Long
+name|getLongNumber
+parameter_list|()
+block|{
+return|return
+name|mLongNumber
+return|;
+block|}
+DECL|method|setLongNumber (Long aNumber)
+specifier|public
+name|void
+name|setLongNumber
+parameter_list|(
+name|Long
+name|aNumber
+parameter_list|)
+block|{
+name|mLongNumber
 operator|=
 name|aNumber
 expr_stmt|;
