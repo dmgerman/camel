@@ -414,6 +414,16 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|hashCode ()
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+return|return
+name|comparison
+return|;
+block|}
 block|}
 end_class
 

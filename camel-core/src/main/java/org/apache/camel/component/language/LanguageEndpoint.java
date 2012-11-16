@@ -243,8 +243,6 @@ DECL|field|contentResolvedFromResource
 specifier|private
 name|boolean
 name|contentResolvedFromResource
-init|=
-literal|false
 decl_stmt|;
 DECL|method|LanguageEndpoint ()
 specifier|public
