@@ -886,6 +886,31 @@ name|String
 name|path
 parameter_list|)
 block|{
+return|return
+name|compactPath
+argument_list|(
+name|path
+argument_list|,
+name|File
+operator|.
+name|separatorChar
+argument_list|)
+return|;
+block|}
+comment|/**      * Compacts a path by stacking it and reducing<tt>..</tt>,      * and uses the given separator.      */
+DECL|method|compactPath (String path, char separator)
+specifier|public
+specifier|static
+name|String
+name|compactPath
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|char
+name|separator
+parameter_list|)
+block|{
 if|if
 condition|(
 name|path
@@ -904,9 +929,17 @@ name|path
 operator|.
 name|indexOf
 argument_list|(
-name|File
+literal|'/'
+argument_list|)
+operator|==
+operator|-
+literal|1
+operator|&&
+name|path
 operator|.
-name|separator
+name|indexOf
+argument_list|(
+literal|'\\'
 argument_list|)
 operator|==
 operator|-
@@ -917,6 +950,14 @@ return|return
 name|path
 return|;
 block|}
+comment|// need to normalize path before compacting
+name|path
+operator|=
+name|normalizePath
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 comment|// preserve ending slash if given in input path
 name|boolean
 name|endsWithSlash
@@ -966,26 +1007,12 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// separator can either be windows or unix style
 name|String
 name|separatorRegex
 init|=
-name|File
-operator|.
-name|separator
+literal|"\\\\|/"
 decl_stmt|;
-if|if
-condition|(
-name|FileUtil
-operator|.
-name|isWindows
-argument_list|()
-condition|)
-block|{
-name|separatorRegex
-operator|=
-literal|"\\\\"
-expr_stmt|;
-block|}
 name|String
 index|[]
 name|parts
@@ -1085,8 +1112,6 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|File
-operator|.
 name|separator
 argument_list|)
 expr_stmt|;
@@ -1133,8 +1158,6 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|File
-operator|.
 name|separator
 argument_list|)
 expr_stmt|;
@@ -1149,8 +1172,6 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|File
-operator|.
 name|separator
 argument_list|)
 expr_stmt|;

@@ -3870,12 +3870,15 @@ name|String
 name|name
 parameter_list|)
 block|{
+comment|// compact the path and use / as separator as that's used for loading resources on the classpath
 return|return
 name|FileUtil
 operator|.
 name|compactPath
 argument_list|(
 name|name
+argument_list|,
+literal|'/'
 argument_list|)
 return|;
 block|}
