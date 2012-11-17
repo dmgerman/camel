@@ -104,7 +104,6 @@ specifier|private
 name|BlobStore
 name|blobStore
 decl_stmt|;
-comment|/**      * Constructor      *      * @param uri      * @param component      * @param blobStore      */
 DECL|method|JcloudsBlobStoreEndpoint (String uri, JcloudsComponent component, BlobStore blobStore)
 specifier|public
 name|JcloudsBlobStoreEndpoint

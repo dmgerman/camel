@@ -287,6 +287,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -302,13 +309,6 @@ argument_list|,
 name|JcloudsConstants
 operator|.
 name|LIST_IMAGES
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|result
@@ -405,6 +405,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -420,13 +427,6 @@ argument_list|,
 name|JcloudsConstants
 operator|.
 name|LIST_HARDWARE
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|result
@@ -523,6 +523,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -538,13 +545,6 @@ argument_list|,
 name|JcloudsConstants
 operator|.
 name|LIST_NODES
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|result
@@ -627,6 +627,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeaders
@@ -658,13 +665,6 @@ argument_list|,
 name|JcloudsConstants
 operator|.
 name|LIST_NODES
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|2
 argument_list|)
 expr_stmt|;
 name|result
@@ -747,6 +747,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|6
+argument_list|)
+expr_stmt|;
 comment|//Create a node for the default group
 name|template
 operator|.
@@ -849,13 +856,6 @@ literal|"other"
 argument_list|,
 literal|"RUNNING"
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|6
 argument_list|)
 expr_stmt|;
 name|result
@@ -1094,6 +1094,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeaders
@@ -1108,13 +1115,6 @@ literal|"1"
 argument_list|,
 literal|"default"
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|result
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|result
@@ -1231,7 +1231,7 @@ argument_list|)
 annotation|@
 name|Ignore
 argument_list|(
-literal|"For now not possible to combine stub provider with ssh module, requird for runScript"
+literal|"For now not possible to combine stub provider with ssh module, required for runScript"
 argument_list|)
 annotation|@
 name|Test
@@ -1371,7 +1371,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns a {@Map} with the create headers.      *      * @param imageId The imageId to use for creating the node.      * @param group   The group to be assigned to the node.      * @return      */
+comment|/**      * Returns a {@Map} with the create headers.      *      * @param imageId The imageId to use for creating the node.      * @param group   The group to be assigned to the node.      */
 DECL|method|createHeaders (String imageId, String group)
 specifier|protected
 name|Map
@@ -1445,7 +1445,7 @@ return|return
 name|createHeaders
 return|;
 block|}
-comment|/**      * Returns a {@Map} with the destroy headers.      *      * @param nodeId The id of the node to destroy.      * @param group  The group of the node to destroy.      * @return      */
+comment|/**      * Returns a {@Map} with the destroy headers.      *      * @param nodeId The id of the node to destroy.      * @param group  The group of the node to destroy.      */
 DECL|method|destroyHeaders (String nodeId, String group)
 specifier|protected
 name|Map
@@ -1535,7 +1535,7 @@ return|return
 name|destroyHeaders
 return|;
 block|}
-comment|/**      * Returns a {@Map} with the destroy headers.      *      * @param nodeId The id of the node to destroy.      * @param group  The group of the node to destroy.      * @return      */
+comment|/**      * Returns a {@Map} with the destroy headers.      *      * @param nodeId The id of the node to destroy.      * @param group  The group of the node to destroy.      */
 DECL|method|listNodeHeaders (String nodeId, String group, Object state)
 specifier|protected
 name|Map

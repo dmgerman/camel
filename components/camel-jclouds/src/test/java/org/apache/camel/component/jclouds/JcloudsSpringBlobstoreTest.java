@@ -244,6 +244,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|resultFoo
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -251,13 +258,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Some message"
-argument_list|)
-expr_stmt|;
-name|resultFoo
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|resultFoo
@@ -276,6 +276,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|resultFoo
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -283,13 +290,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Some message"
-argument_list|)
-expr_stmt|;
-name|resultFoo
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|resultFoo
@@ -308,6 +308,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|resultBar
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -315,13 +322,6 @@ argument_list|(
 literal|"direct:start-with-url-parameters"
 argument_list|,
 literal|"Some message"
-argument_list|)
-expr_stmt|;
-name|resultBar
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
 argument_list|)
 expr_stmt|;
 name|resultBar

@@ -218,6 +218,14 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -233,6 +241,7 @@ operator|+
 name|blobName
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|JcloudsConstants
@@ -297,7 +306,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Retrieves the blobName from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the blobName from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getBlobName (Exchange exchange)
 specifier|protected
 name|String
@@ -360,7 +369,7 @@ return|return
 name|blobName
 return|;
 block|}
-comment|/**      * Retrieves the containerName from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the containerName from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getContainerName (Exchange exchange)
 specifier|protected
 name|String
@@ -423,7 +432,7 @@ return|return
 name|containerName
 return|;
 block|}
-comment|/**      * Retrieves the operation from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the operation from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getOperation (Exchange exchange)
 specifier|public
 name|String
@@ -486,7 +495,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Retrieves the locationId from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the locationId from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getLocationId (Exchange exchange)
 specifier|public
 name|String

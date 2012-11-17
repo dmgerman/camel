@@ -219,6 +219,10 @@ block|{
 if|if
 condition|(
 name|uriParts
+operator|!=
+literal|null
+operator|&&
+name|uriParts
 operator|.
 name|length
 operator|>=
@@ -258,9 +262,13 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Exception
+name|IllegalArgumentException
 argument_list|(
-literal|"Invalid Endpoint URI. It should contains a valid provider name"
+literal|"Invalid Endpoint URI: "
+operator|+
+name|uri
+operator|+
+literal|". It should contains a valid provider name"
 argument_list|)
 throw|;
 block|}
@@ -280,6 +288,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|uriParts
+operator|!=
+literal|null
+operator|&&
 name|uriParts
 operator|.
 name|length
@@ -320,9 +332,9 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Exception
+name|IllegalArgumentException
 argument_list|(
-literal|"Invalid Endpoint URI. It should contains a valid provider name"
+literal|"Invalid Endpoint URI: \" + uri + \". It should contains a valid provider name"
 argument_list|)
 throw|;
 block|}
@@ -348,7 +360,7 @@ name|String
 name|predicate
 parameter_list|)
 throws|throws
-name|Exception
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -437,7 +449,7 @@ block|}
 block|}
 throw|throw
 operator|new
-name|Exception
+name|IllegalArgumentException
 argument_list|(
 name|String
 operator|.
@@ -454,7 +466,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Exception
+name|IllegalArgumentException
 argument_list|(
 literal|"No blobstore available."
 argument_list|)
@@ -471,7 +483,7 @@ name|String
 name|predicate
 parameter_list|)
 throws|throws
-name|Exception
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -560,7 +572,7 @@ block|}
 block|}
 throw|throw
 operator|new
-name|Exception
+name|IllegalArgumentException
 argument_list|(
 name|String
 operator|.
@@ -577,14 +589,14 @@ else|else
 block|{
 throw|throw
 operator|new
-name|Exception
+name|IllegalArgumentException
 argument_list|(
 literal|"No compute service available."
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Checks if jclouds {@link Context} supports the name.      * We need this method as getName is not supported in earlier micro version of 1.5.x.      * So we use this check to fallback to traditional means of looking up contexts and services, if name is not present.      *      * @return      */
+comment|/**      * Checks if jclouds {@link Context} supports the name.      * We need this method as getName is not supported in earlier micro version of 1.5.x.      * So we use this check to fallback to traditional means of looking up contexts and services, if name is not present.      */
 DECL|method|isNameSupportedByContext ()
 specifier|private
 name|boolean

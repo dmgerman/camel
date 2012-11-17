@@ -152,7 +152,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Creates all directories that are part of the blobName.      *      * @param blobStore      * @param container      * @param blobName      */
+comment|/**      * Creates all directories that are part of the blobName.      */
 DECL|method|mkDirs (BlobStore blobStore, String container, String blobName)
 specifier|public
 specifier|static
@@ -268,7 +268,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the {@link Location} that matches the locationId.      *      * @param blobStore      * @param locationId      * @return      */
+comment|/**      * Returns the {@link Location} that matches the locationId.      */
 DECL|method|getLocationById (BlobStore blobStore, String locationId)
 specifier|public
 specifier|static
@@ -331,7 +331,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Writes {@link Payload} to the the {@link BlobStore}.      *      * @param blobStore      * @param container      * @param blobName      * @param payload      */
+comment|/**      * Writes {@link Payload} to the the {@link BlobStore}.      */
 DECL|method|writeBlob (BlobStore blobStore, String container, String blobName, Payload payload)
 specifier|public
 specifier|static
@@ -415,7 +415,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Reads from a {@link BlobStore}. It returns an Object.      *      * @param container      * @param blobName      * @return      */
+comment|/**      * Reads from a {@link BlobStore}. It returns an Object.      */
 DECL|method|readBlob (BlobStore blobStore, String container, String blobName)
 specifier|public
 specifier|static

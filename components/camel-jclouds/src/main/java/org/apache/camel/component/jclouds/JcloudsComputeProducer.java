@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -315,9 +327,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
-literal|"Operation must be specified in the endpoitn URI or as a property on the exchange."
+literal|"Operation must be specified in the endpoint URI or as a property on the exchange."
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -435,7 +449,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create a node with the specified group.      *      * @param exchange      * @throws CamelException      */
+comment|/**      * Create a node with the specified group.      */
 DECL|method|createNode (Exchange exchange)
 specifier|protected
 name|void
@@ -488,9 +502,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
 literal|"Group must be specific in the URI or as exchange property for the destroy node operation."
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -611,16 +627,18 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
 literal|"Error creating jclouds node."
+argument_list|,
+name|exchange
 argument_list|,
 name|e
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Runs a script on the target node.      *      * @param exchange      * @throws CamelException      */
+comment|/**      * Runs a script on the target node.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -757,9 +775,17 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
-literal|"Failed to receive response for run script operation."
+literal|"Failed to receive response for run script operation on node: "
+operator|+
+name|nodeId
+operator|+
+literal|" using script: "
+operator|+
+name|script
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}
@@ -805,7 +831,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Destroys the node with the specified nodeId.      *      * @param exchange      * @throws CamelException      */
+comment|/**      * Destroys the node with the specified nodeId.      */
 DECL|method|destroyNode (Exchange exchange)
 specifier|protected
 name|void
@@ -814,8 +840,6 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|CamelException
 block|{
 name|Predicate
 argument_list|<
@@ -836,7 +860,7 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the metadata of the available nodes to the out message.      *      * @param exchange      * @throws CamelException      */
+comment|/**      * Sets the metadata of the available nodes to the out message.      */
 DECL|method|listNodes (Exchange exchange)
 specifier|protected
 name|void
@@ -845,8 +869,6 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|CamelException
 block|{
 name|Predicate
 argument_list|<
@@ -885,7 +907,7 @@ name|computeMetadatas
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the available images to the out message.      *      * @param exchange      * @throws CamelException      */
+comment|/**      * Sets the available images to the out message.      */
 DECL|method|listImages (Exchange exchange)
 specifier|protected
 name|void
@@ -894,8 +916,6 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|CamelException
 block|{
 name|Set
 argument_list|<
@@ -921,7 +941,7 @@ name|images
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the available hardware profiles to the out message.      *      * @param exchange      * @throws CamelException      */
+comment|/**      * Sets the available hardware profiles to the out message.      */
 DECL|method|listHardware (Exchange exchange)
 specifier|protected
 name|void
@@ -930,8 +950,6 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
-throws|throws
-name|CamelException
 block|{
 name|Set
 argument_list|<
@@ -957,7 +975,7 @@ name|hardwareProfiles
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the required {@ComputeMetadata} {@link Predicate} for the Exhcnage.      * The predicate can be used for filtering.      *      * @param exchange      * @return      */
+comment|/**      * Returns the required {@ComputeMetadata} {@link Predicate} for the Exhcnage.      * The predicate can be used for filtering.      */
 DECL|method|getComputePredicate (final Exchange exchange)
 specifier|public
 name|Predicate
@@ -1071,7 +1089,7 @@ return|return
 name|predicate
 return|;
 block|}
-comment|/**      * Returns the required {@ComputeMetadata} {@link Predicate} for the Exhcnage.      * The predicate can be used for filtering.      *      * @param exchange      * @return      */
+comment|/**      * Returns the required {@ComputeMetadata} {@link Predicate} for the Exhcnage.      * The predicate can be used for filtering.      */
 DECL|method|getNodePredicate (Exchange exchange)
 specifier|public
 name|Predicate
@@ -1239,7 +1257,7 @@ return|return
 name|predicate
 return|;
 block|}
-comment|/**      * Retrieves the operation from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the operation from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getOperation (Exchange exchange)
 specifier|public
 name|String
@@ -1297,7 +1315,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Retrieves the node state from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the node state from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getNodeState (Exchange exchange)
 specifier|public
 name|NodeState
@@ -1420,7 +1438,7 @@ return|return
 name|nodeState
 return|;
 block|}
-comment|/**      * Retrieves the image id from the URI or from the exchange properties. The property will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the image id from the URI or from the exchange properties. The property will take precedence over the URI.      */
 DECL|method|getImageId (Exchange exchange)
 specifier|protected
 name|String
@@ -1478,7 +1496,7 @@ return|return
 name|imageId
 return|;
 block|}
-comment|/**      * Retrieves the hardware id from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the hardware id from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getHardwareId (Exchange exchange)
 specifier|protected
 name|String
@@ -1536,7 +1554,7 @@ return|return
 name|hardwareId
 return|;
 block|}
-comment|/**      * Retrieves the location id from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the location id from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getLocationId (Exchange exchange)
 specifier|protected
 name|String
@@ -1594,7 +1612,7 @@ return|return
 name|locationId
 return|;
 block|}
-comment|/**      * Retrieves the node id from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the node id from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getNodeId (Exchange exchange)
 specifier|protected
 name|String
@@ -1652,7 +1670,7 @@ return|return
 name|nodeId
 return|;
 block|}
-comment|/**      * Retrieves the group from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the group from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getGroup (Exchange exchange)
 specifier|protected
 name|String
@@ -1710,7 +1728,7 @@ return|return
 name|group
 return|;
 block|}
-comment|/**      * Retrieves the user from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the user from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getUser (Exchange exchange)
 specifier|protected
 name|String
