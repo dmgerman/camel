@@ -350,14 +350,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// now start route A
-name|context
-operator|.
-name|startRoute
-argument_list|(
-literal|"a"
-argument_list|)
-expr_stmt|;
 comment|// send new message should go to both A and B
 name|resetMocks
 argument_list|()
@@ -380,6 +372,14 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hi Camel"
+argument_list|)
+expr_stmt|;
+comment|// now start route A
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"a"
 argument_list|)
 expr_stmt|;
 name|template
