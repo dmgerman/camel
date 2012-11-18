@@ -134,9 +134,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|BaseCacheTest
 import|;
 end_import
 
@@ -148,11 +146,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|mock
 operator|.
-name|CamelTestSupport
+name|MockEndpoint
 import|;
 end_import
 
@@ -192,7 +190,7 @@ specifier|public
 class|class
 name|CacheConsumerTest
 extends|extends
-name|CamelTestSupport
+name|BaseCacheTest
 block|{
 DECL|field|LOG
 specifier|protected

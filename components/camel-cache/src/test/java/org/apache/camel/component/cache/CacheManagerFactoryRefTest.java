@@ -398,7 +398,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/ehcache.xml"
+literal|"/test-ehcache.xml"
 argument_list|)
 argument_list|)
 return|;

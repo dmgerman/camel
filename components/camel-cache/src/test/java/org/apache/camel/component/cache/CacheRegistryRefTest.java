@@ -252,9 +252,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|JndiRegistry
+name|BaseCacheTest
 import|;
 end_import
 
@@ -266,11 +266,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|impl
 operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|JndiRegistry
 import|;
 end_import
 
@@ -290,7 +288,7 @@ specifier|public
 class|class
 name|CacheRegistryRefTest
 extends|extends
-name|CamelTestSupport
+name|BaseCacheTest
 block|{
 DECL|field|CACHE_ENDPOINT_URI
 specifier|private

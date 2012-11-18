@@ -125,6 +125,10 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
+literal|"Error creating CacheManager from file: "
+operator|+
+name|fileName
+argument_list|,
 name|exception
 argument_list|)
 throw|;
