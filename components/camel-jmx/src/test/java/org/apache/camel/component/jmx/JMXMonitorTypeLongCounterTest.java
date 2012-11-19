@@ -52,6 +52,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -64,6 +74,11 @@ name|JMXMonitorTypeLongCounterTest
 extends|extends
 name|SimpleBeanFixture
 block|{
+annotation|@
+name|Ignore
+argument_list|(
+literal|"monitorNotificationLong.xml is missing!"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|counter ()
