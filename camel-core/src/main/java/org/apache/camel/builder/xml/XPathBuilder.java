@@ -1257,7 +1257,7 @@ block|}
 block|}
 comment|// Builder methods
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
+comment|/**      * Sets the expression result type to {@link XPathConstants#BOOLEAN}      *      * @return the current builder      */
 DECL|method|booleanResult ()
 specifier|public
 name|XPathBuilder
@@ -1274,7 +1274,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
+comment|/**      * Sets the expression result type to {@link XPathConstants#NODE}      *      * @return the current builder      */
 DECL|method|nodeResult ()
 specifier|public
 name|XPathBuilder
@@ -1291,7 +1291,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
+comment|/**      * Sets the expression result type to {@link XPathConstants#NODESET}      *      * @return the current builder      */
 DECL|method|nodeSetResult ()
 specifier|public
 name|XPathBuilder
@@ -1308,7 +1308,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
+comment|/**      * Sets the expression result type to {@link XPathConstants#NUMBER}      *      * @return the current builder      */
 DECL|method|numberResult ()
 specifier|public
 name|XPathBuilder
@@ -1325,7 +1325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
+comment|/**      * Sets the expression result type to {@link XPathConstants#STRING}      *      * @return the current builder      */
 DECL|method|stringResult ()
 specifier|public
 name|XPathBuilder
@@ -1342,7 +1342,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to boolean      *      * @return the current builder      */
+comment|/**      * Sets the expression result type to the given {@code resultType}       *      * @return the current builder      */
 DECL|method|resultType (Class<?> resultType)
 specifier|public
 name|XPathBuilder
