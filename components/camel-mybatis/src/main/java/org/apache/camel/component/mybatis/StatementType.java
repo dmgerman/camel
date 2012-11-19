@@ -33,7 +33,9 @@ DECL|enumConstant|SelectList
 DECL|enumConstant|Insert
 DECL|enumConstant|InsertList
 DECL|enumConstant|Update
+DECL|enumConstant|UpdateList
 DECL|enumConstant|Delete
+DECL|enumConstant|DeleteList
 name|SelectOne
 block|,
 name|SelectList
@@ -44,7 +46,11 @@ name|InsertList
 block|,
 name|Update
 block|,
+name|UpdateList
+block|,
 name|Delete
+block|,
+name|DeleteList
 block|}
 end_enum
 
