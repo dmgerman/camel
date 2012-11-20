@@ -1,8 +1,4 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
-begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
-
 begin_package
 DECL|package|org.apache.camel.component.spring.ws.filter.impl
 package|package
@@ -179,25 +175,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class populates a SOAP header and attachments  *   *   */
+comment|/**  * This class populates a SOAP header and attachments in the WebServiceMessage instance.  *   * @author andrej@chocolatejar.eu  *   */
 end_comment
 
 begin_class
-DECL|class|BasicFilterStrategy
+DECL|class|BasicMessageFilter
 specifier|public
 class|class
-name|BasicFilterStrategy
+name|BasicMessageFilter
 implements|implements
 name|MessageFilter
 block|{
-DECL|field|BREADCRUMB_ID
+DECL|field|LOWERCASE_BREADCRUMB_ID
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|BREADCRUMB_ID
+name|LOWERCASE_BREADCRUMB_ID
 init|=
-literal|"breadcrumbId"
+literal|"breadcrumbid"
 decl_stmt|;
 annotation|@
 name|Override
@@ -220,7 +216,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|processHeaderAndAttachemtns
+name|processHeaderAndAttachments
 argument_list|(
 name|exchange
 operator|.
@@ -253,7 +249,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|processHeaderAndAttachemtns
+name|processHeaderAndAttachments
 argument_list|(
 name|exchange
 operator|.
@@ -265,11 +261,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * If applicable this method adds a SOAP header and attachments.      *       * @param inOrOut      * @param response      */
-DECL|method|processHeaderAndAttachemtns (Message inOrOut, WebServiceMessage response)
+comment|/** 	 * If applicable this method adds a SOAP headers and attachments. 	 *  	 * @param inOrOut 	 * @param response 	 */
+DECL|method|processHeaderAndAttachments (Message inOrOut, WebServiceMessage response)
 specifier|protected
 name|void
-name|processHeaderAndAttachemtns
+name|processHeaderAndAttachments
 parameter_list|(
 name|Message
 name|inOrOut
@@ -293,14 +289,14 @@ name|SoapMessage
 operator|)
 name|response
 decl_stmt|;
-name|processHeader
+name|processSoapHeader
 argument_list|(
 name|inOrOut
 argument_list|,
 name|soapMessage
 argument_list|)
 expr_stmt|;
-name|processAttachements
+name|doProcessSoapAttachments
 argument_list|(
 name|inOrOut
 argument_list|,
@@ -309,11 +305,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The SOAP header is populated from exchange.getOut().getHeaders() if this      * class is used by the consumer or exchange.getIn().getHeaders() if this      * class is used by the producer.      *       * If .getHeaders() contains under a certain key a value with the QName      * object, it is directly added as a new header element. If it contains only      * a String value, it is transformed into a header attribute.      *       * Following headers are excluded: {@code BREADCRUMB_ID}      *       * @see SpringWebserviceConstants.SPRING_WS_SOAP_ACTION, @see      *      SpringWebserviceConstants.SPRING_WS_ADDRESSING_ACTION), @see      *      SpringWebserviceConstants.SPRING_WS_ENDPOINT_URI      *       * @param inOrOut      * @param soapMessage      */
-DECL|method|processHeader (Message inOrOut, SoapMessage soapMessage)
+comment|/** 	  * If applicable this method adds a SOAP header. 	 *  	 * @param inOrOut 	 * @param soapMessage 	 */
+DECL|method|processSoapHeader (Message inOrOut, SoapMessage soapMessage)
 specifier|protected
 name|void
-name|processHeader
+name|processSoapHeader
 parameter_list|(
 name|Message
 name|inOrOut
@@ -350,6 +346,28 @@ condition|(
 name|isHeaderAvailable
 condition|)
 block|{
+name|doProcessSoapHeader
+argument_list|(
+name|inOrOut
+argument_list|,
+name|soapMessage
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/** 	 * The SOAP header is populated from exchange.getOut().getHeaders() if this 	 * class is used by the consumer or exchange.getIn().getHeaders() if this 	 * class is used by the producer. 	 *  	 * If .getHeaders() contains under a certain key a value with the QName 	 * object, it is directly added as a new header element. If it contains only 	 * a String value, it is transformed into a header attribute. 	 *  	 * Following headers are excluded: {@code LOWERCASE_BREADCRUMB_ID} 	 *  	 * @see SpringWebserviceConstants.SPRING_WS_SOAP_ACTION, @see 	 *      SpringWebserviceConstants.SPRING_WS_ADDRESSING_ACTION), @see 	 *      SpringWebserviceConstants.SPRING_WS_ENDPOINT_URI 	 *  	 * This the convinient method for overriding. 	 * @param inOrOut 	 * @param soapMessage 	 */
+DECL|method|doProcessSoapHeader (Message inOrOut, SoapMessage soapMessage)
+specifier|protected
+name|void
+name|doProcessSoapHeader
+parameter_list|(
+name|Message
+name|inOrOut
+parameter_list|,
+name|SoapMessage
+name|soapMessage
+parameter_list|)
+block|{
 name|SoapHeader
 name|soapHeader
 init|=
@@ -371,7 +389,7 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-name|Set
+name|HashSet
 argument_list|<
 name|String
 argument_list|>
@@ -396,6 +414,9 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_SOAP_ACTION
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -405,6 +426,9 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ADDRESSING_ACTION
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -414,13 +438,16 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ENDPOINT_URI
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
 operator|.
 name|remove
 argument_list|(
-name|BREADCRUMB_ID
+name|LOWERCASE_BREADCRUMB_ID
 argument_list|)
 expr_stmt|;
 for|for
@@ -487,12 +514,11 @@ block|}
 block|}
 block|}
 block|}
-block|}
-comment|/**      * Populate SOAP attachments from in or out exchange message.      *       * @param inOrOut      * @param response      */
-DECL|method|processAttachements (Message inOrOut, SoapMessage response)
+comment|/** 	 * Populate SOAP attachments from in or out exchange message. This the convenient method for overriding. 	 *  	 * @param inOrOut 	 * @param response 	 */
+DECL|method|doProcessSoapAttachments (Message inOrOut, SoapMessage response)
 specifier|protected
 name|void
-name|processAttachements
+name|doProcessSoapAttachments
 parameter_list|(
 name|Message
 name|inOrOut

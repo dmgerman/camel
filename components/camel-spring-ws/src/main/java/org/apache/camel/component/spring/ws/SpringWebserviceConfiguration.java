@@ -118,7 +118,7 @@ name|filter
 operator|.
 name|impl
 operator|.
-name|BasicFilterStrategy
+name|BasicMessageFilter
 import|;
 end_import
 
@@ -703,7 +703,7 @@ operator|.
 name|messageFilter
 operator|=
 operator|new
-name|BasicFilterStrategy
+name|BasicMessageFilter
 argument_list|()
 expr_stmt|;
 block|}
