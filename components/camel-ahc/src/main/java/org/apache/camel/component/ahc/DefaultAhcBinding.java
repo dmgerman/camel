@@ -716,6 +716,14 @@ name|exchange
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -730,6 +738,7 @@ argument_list|,
 name|headerValue
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|addHeader
@@ -875,7 +884,12 @@ name|bos
 init|=
 operator|new
 name|ByteArrayOutputStream
+argument_list|(
+name|endpoint
+operator|.
+name|getBufferSize
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|AhcHelper
 operator|.

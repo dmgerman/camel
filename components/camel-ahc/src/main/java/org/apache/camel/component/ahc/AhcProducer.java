@@ -272,6 +272,12 @@ name|request
 operator|.
 name|getUrl
 argument_list|()
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getBufferSize
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -355,7 +361,7 @@ specifier|private
 name|String
 name|statusText
 decl_stmt|;
-DECL|method|AhcAsyncHandler (Exchange exchange, AsyncCallback callback, String url)
+DECL|method|AhcAsyncHandler (Exchange exchange, AsyncCallback callback, String url, int bufferSize)
 specifier|private
 name|AhcAsyncHandler
 parameter_list|(
@@ -367,6 +373,9 @@ name|callback
 parameter_list|,
 name|String
 name|url
+parameter_list|,
+name|int
+name|bufferSize
 parameter_list|)
 block|{
 name|this
@@ -393,7 +402,9 @@ name|os
 operator|=
 operator|new
 name|ByteArrayOutputStream
-argument_list|()
+argument_list|(
+name|bufferSize
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -406,6 +417,14 @@ parameter_list|(
 name|Throwable
 name|t
 parameter_list|)
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
 block|{
 name|log
 operator|.
@@ -421,6 +440,7 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|getEndpoint
@@ -454,6 +474,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|callback
 operator|.
 name|done
@@ -461,6 +483,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -486,6 +509,14 @@ argument_list|(
 name|os
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -500,6 +531,7 @@ argument_list|,
 name|wrote
 argument_list|)
 expr_stmt|;
+block|}
 name|contentLength
 operator|+=
 name|wrote
@@ -523,6 +555,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -537,6 +577,7 @@ argument_list|,
 name|responseStatus
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|statusCode
@@ -603,6 +644,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -617,6 +666,7 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|getEndpoint
@@ -666,6 +716,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -678,6 +736,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|getEndpoint

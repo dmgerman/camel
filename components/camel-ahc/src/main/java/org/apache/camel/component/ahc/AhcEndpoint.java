@@ -241,6 +241,15 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+DECL|field|bufferSize
+specifier|private
+name|int
+name|bufferSize
+init|=
+literal|4
+operator|*
+literal|1024
+decl_stmt|;
 DECL|method|AhcEndpoint (String endpointUri, AhcComponent component, URI httpUri)
 specifier|public
 name|AhcEndpoint
@@ -616,6 +625,32 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getBufferSize ()
+specifier|public
+name|int
+name|getBufferSize
+parameter_list|()
+block|{
+return|return
+name|bufferSize
+return|;
+block|}
+DECL|method|setBufferSize (int bufferSize)
+specifier|public
+name|void
+name|setBufferSize
+parameter_list|(
+name|int
+name|bufferSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bufferSize
+operator|=
+name|bufferSize
 expr_stmt|;
 block|}
 annotation|@
