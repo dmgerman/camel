@@ -222,7 +222,7 @@ name|getHeader
 argument_list|(
 name|XmlRpcConstants
 operator|.
-name|OPERATION_NAME
+name|METHOD_NAME
 argument_list|,
 name|String
 operator|.
@@ -299,7 +299,7 @@ name|getHeader
 argument_list|(
 name|XmlRpcConstants
 operator|.
-name|OPERATION_NAME
+name|METHOD_NAME
 argument_list|,
 name|String
 operator|.

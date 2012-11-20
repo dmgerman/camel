@@ -25,14 +25,14 @@ specifier|final
 class|class
 name|XmlRpcConstants
 block|{
-DECL|field|OPERATION_NAME
+DECL|field|METHOD_NAME
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|OPERATION_NAME
+name|METHOD_NAME
 init|=
-literal|"CamelXmlRpcOperationName"
+literal|"CamelXmlRpcMethodName"
 decl_stmt|;
 DECL|field|ERROR_CODE
 specifier|public

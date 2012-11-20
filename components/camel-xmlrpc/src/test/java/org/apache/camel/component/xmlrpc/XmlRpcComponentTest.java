@@ -222,7 +222,7 @@ block|}
 argument_list|,
 name|XmlRpcConstants
 operator|.
-name|OPERATION_NAME
+name|METHOD_NAME
 argument_list|,
 literal|"hello"
 argument_list|)
@@ -259,7 +259,7 @@ block|}
 argument_list|,
 name|XmlRpcConstants
 operator|.
-name|OPERATION_NAME
+name|METHOD_NAME
 argument_list|,
 literal|"hello"
 argument_list|)

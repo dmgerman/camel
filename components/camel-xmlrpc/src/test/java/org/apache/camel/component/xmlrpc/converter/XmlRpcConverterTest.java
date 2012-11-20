@@ -175,7 +175,7 @@ name|setHeader
 argument_list|(
 name|XmlRpcConstants
 operator|.
-name|OPERATION_NAME
+name|METHOD_NAME
 argument_list|,
 literal|"greet"
 argument_list|)
