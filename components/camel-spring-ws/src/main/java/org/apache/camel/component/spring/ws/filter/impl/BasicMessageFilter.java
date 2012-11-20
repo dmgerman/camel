@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.component.spring.ws.filter.impl
 package|package
@@ -175,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class populates a SOAP header and attachments in the WebServiceMessage instance.  *   * @author andrej@chocolatejar.eu  *   */
+comment|/**  * This class populates a SOAP header and attachments in the WebServiceMessage  * instance.  */
 end_comment
 
 begin_class
@@ -261,7 +265,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * If applicable this method adds a SOAP headers and attachments. 	 *  	 * @param inOrOut 	 * @param response 	 */
+comment|/**      * If applicable this method adds a SOAP headers and attachments.      *       * @param inOrOut      * @param response      */
 DECL|method|processHeaderAndAttachments (Message inOrOut, WebServiceMessage response)
 specifier|protected
 name|void
@@ -305,7 +309,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	  * If applicable this method adds a SOAP header. 	 *  	 * @param inOrOut 	 * @param soapMessage 	 */
+comment|/**      * If applicable this method adds a SOAP header.      *       * @param inOrOut      * @param soapMessage      */
 DECL|method|processSoapHeader (Message inOrOut, SoapMessage soapMessage)
 specifier|protected
 name|void
@@ -355,7 +359,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * The SOAP header is populated from exchange.getOut().getHeaders() if this 	 * class is used by the consumer or exchange.getIn().getHeaders() if this 	 * class is used by the producer. 	 *  	 * If .getHeaders() contains under a certain key a value with the QName 	 * object, it is directly added as a new header element. If it contains only 	 * a String value, it is transformed into a header attribute. 	 *  	 * Following headers are excluded: {@code LOWERCASE_BREADCRUMB_ID} 	 *  	 * @see SpringWebserviceConstants.SPRING_WS_SOAP_ACTION, @see 	 *      SpringWebserviceConstants.SPRING_WS_ADDRESSING_ACTION), @see 	 *      SpringWebserviceConstants.SPRING_WS_ENDPOINT_URI 	 *  	 * This the convinient method for overriding. 	 * @param inOrOut 	 * @param soapMessage 	 */
+comment|/**      * The SOAP header is populated from exchange.getOut().getHeaders() if this      * class is used by the consumer or exchange.getIn().getHeaders() if this      * class is used by the producer. If .getHeaders() contains under a certain      * key a value with the QName object, it is directly added as a new header      * element. If it contains only a String value, it is transformed into a      * header attribute. Following headers are excluded:      * {@code LOWERCASE_BREADCRUMB_ID}      *       * @see SpringWebserviceConstants.SPRING_WS_SOAP_ACTION, @see      *      SpringWebserviceConstants.SPRING_WS_ADDRESSING_ACTION), @see      *      SpringWebserviceConstants.SPRING_WS_ENDPOINT_URI This the convinient      *      method for overriding.      * @param inOrOut      * @param soapMessage      */
 DECL|method|doProcessSoapHeader (Message inOrOut, SoapMessage soapMessage)
 specifier|protected
 name|void
@@ -514,7 +518,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/** 	 * Populate SOAP attachments from in or out exchange message. This the convenient method for overriding. 	 *  	 * @param inOrOut 	 * @param response 	 */
+comment|/**      * Populate SOAP attachments from in or out exchange message. This the      * convenient method for overriding.      *       * @param inOrOut      * @param response      */
 DECL|method|doProcessSoapAttachments (Message inOrOut, SoapMessage response)
 specifier|protected
 name|void
