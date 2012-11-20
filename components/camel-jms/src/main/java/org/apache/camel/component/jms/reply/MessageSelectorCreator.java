@@ -97,6 +97,7 @@ name|correlationIds
 decl_stmt|;
 DECL|field|dirty
 specifier|protected
+specifier|volatile
 name|boolean
 name|dirty
 init|=
