@@ -1855,6 +1855,14 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|camelExchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
 name|response
 operator|=
 name|camelExchange
@@ -1862,6 +1870,32 @@ operator|.
 name|getOut
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Get the response from the out message"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Take the in message as a fall back
+name|response
+operator|=
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Get the response from the in message as a fallback"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1871,6 +1905,13 @@ name|camelExchange
 operator|.
 name|getIn
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Get the response from the in message"
+argument_list|)
 expr_stmt|;
 block|}
 comment|// propagate response context
