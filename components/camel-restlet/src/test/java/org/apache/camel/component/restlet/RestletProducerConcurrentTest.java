@@ -441,7 +441,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// should be 10 unique responses
+comment|// should be 'files' unique responses
 name|assertEquals
 argument_list|(
 literal|"Should be "

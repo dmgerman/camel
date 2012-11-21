@@ -505,7 +505,7 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
-comment|// should be 10 unique responses
+comment|// should be 1000 unique responses
 name|assertEquals
 argument_list|(
 literal|"Should be "
