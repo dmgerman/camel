@@ -1872,7 +1872,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Get the response from the out message"
 argument_list|)
@@ -1890,7 +1890,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Get the response from the in message as a fallback"
 argument_list|)
@@ -1908,7 +1908,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Get the response from the in message"
 argument_list|)
