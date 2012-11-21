@@ -267,14 +267,12 @@ name|Exception
 block|{
 comment|// a lot of timeouts in the play :)
 comment|// jetty will timeout after 2 seconds
-name|from
+name|fromF
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
-operator|+
+literal|"jetty:http://0.0.0.0:%s/myservice?continuationTimeout=2000"
+argument_list|,
 name|getPort
 argument_list|()
-operator|+
-literal|"/myservice?continuationTimeout=2000"
 argument_list|)
 comment|// jms request/reply will timeout after 5 seconds
 operator|.

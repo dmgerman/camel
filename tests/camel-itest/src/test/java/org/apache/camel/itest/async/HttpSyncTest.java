@@ -52,22 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -84,7 +68,7 @@ specifier|public
 class|class
 name|HttpSyncTest
 extends|extends
-name|CamelTestSupport
+name|HttpAsyncTestSupport
 block|{
 annotation|@
 name|Test
@@ -123,7 +107,12 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://0.0.0.0:9080/myservice"
+literal|"http://0.0.0.0:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/myservice"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -214,9 +203,12 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// Simulate a slow http service (delaying 1 sec) we want to invoke async
-name|from
+name|fromF
 argument_list|(
-literal|"jetty:http://0.0.0.0:9080/myservice"
+literal|"jetty:http://0.0.0.0:%s/myservice"
+argument_list|,
+name|getPort
+argument_list|()
 argument_list|)
 operator|.
 name|delay

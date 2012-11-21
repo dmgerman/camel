@@ -238,14 +238,12 @@ literal|"mock:result"
 argument_list|)
 expr_stmt|;
 comment|// Simulate a slow http service (delaying 1 sec) we want to invoke async
-name|from
+name|fromF
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
-operator|+
+literal|"jetty:http://0.0.0.0:%s/myservice"
+argument_list|,
 name|getPort
 argument_list|()
-operator|+
-literal|"/myservice"
 argument_list|)
 operator|.
 name|delay
