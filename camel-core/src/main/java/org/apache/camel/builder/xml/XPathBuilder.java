@@ -1603,7 +1603,7 @@ name|objectModelUri
 operator|+
 literal|" when created XPathFactory {}"
 argument_list|,
-name|defaultXPathFactory
+name|xpathFactory
 argument_list|)
 expr_stmt|;
 return|return
@@ -4878,7 +4878,7 @@ literal|"Using objectModelUri "
 operator|+
 name|objectModelUri
 operator|+
-literal|" when created XPathFactory {}"
+literal|" when created default XPathFactory {}"
 argument_list|,
 name|defaultXPathFactory
 argument_list|)
@@ -4973,7 +4973,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using system property {} with value {} when created XPathFactory {}"
+literal|"Using system property {} with value {} when created default XPathFactory {}"
 argument_list|,
 operator|new
 name|Object

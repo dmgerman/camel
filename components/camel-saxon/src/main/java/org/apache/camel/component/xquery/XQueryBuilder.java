@@ -1089,6 +1089,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"evaluateAsList: {} for exchange: {}"
+argument_list|,
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 name|initialize
 argument_list|(
 name|exchange
@@ -1118,6 +1129,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"evaluateAsString: {} for exchange: {}"
+argument_list|,
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 name|initialize
 argument_list|(
 name|exchange
@@ -1150,6 +1172,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"evaluateAsBytesSource: {} for exchange: {}"
+argument_list|,
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 name|initialize
 argument_list|(
 name|exchange
@@ -1183,6 +1216,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"evaluateAsDOM: {} for exchange: {}"
+argument_list|,
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 name|initialize
 argument_list|(
 name|exchange
@@ -1239,6 +1283,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"evaluateAsBytes: {} for exchange: {}"
+argument_list|,
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 name|initialize
 argument_list|(
 name|exchange
@@ -1304,6 +1359,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"evaluateAsString: {} for exchange: {}"
+argument_list|,
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 name|initialize
 argument_list|(
 name|exchange
@@ -1389,6 +1455,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Matches: {} for exchange: {}"
+argument_list|,
+name|expression
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|List
@@ -1426,6 +1503,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|assertMatches (String text, Exchange exchange)
 specifier|public
 name|void
