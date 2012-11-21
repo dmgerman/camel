@@ -254,7 +254,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true?sync=true"
+literal|"?textline=true&sync=true"
 argument_list|,
 literal|"World"
 argument_list|,
@@ -281,7 +281,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true?sync=true"
+literal|"?textline=true&sync=true"
 argument_list|,
 literal|"Camel"
 argument_list|,
@@ -402,7 +402,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true?sync=true"
+literal|"?textline=true&sync=true"
 argument_list|,
 name|index
 argument_list|,
@@ -483,7 +483,7 @@ name|future
 operator|.
 name|get
 argument_list|(
-literal|30
+literal|120
 argument_list|,
 name|TimeUnit
 operator|.
@@ -567,7 +567,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true?sync=true?reuseAddress=true?synchronous=false"
+literal|"?textline=true&sync=true&reuseAddress=true&synchronous=false"
 argument_list|)
 operator|.
 name|to
