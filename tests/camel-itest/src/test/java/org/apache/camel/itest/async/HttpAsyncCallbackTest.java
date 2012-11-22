@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|List
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Vector
 import|;
 end_import
 
@@ -312,6 +312,9 @@ name|MyCallback
 extends|extends
 name|SynchronizationAdapter
 block|{
+comment|// below the String elements are added in the context of different threads so that we should make
+comment|// sure that this's done in a thread-safe manner, that's no two threads should call the data.add()
+comment|// method below concurrently, so why we use Vector here and not e.g. ArrayList
 DECL|field|data
 specifier|private
 specifier|final
@@ -322,7 +325,7 @@ argument_list|>
 name|data
 init|=
 operator|new
-name|ArrayList
+name|Vector
 argument_list|<
 name|String
 argument_list|>
