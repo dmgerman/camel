@@ -18,15 +18,9 @@ name|xmlrpc
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
+begin_comment
+comment|//START SNIPPET: e1
+end_comment
 
 begin_import
 import|import
@@ -34,23 +28,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|xmlrpc
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|client
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultComponent
+name|XmlRpcClient
 import|;
 end_import
 
@@ -68,98 +50,60 @@ name|XmlRpcClientConfigImpl
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link XmlRpcEndpoint}.  */
-end_comment
-
 begin_class
-DECL|class|XmlRpcComponent
+DECL|class|MyClientConfigurer
 specifier|public
 class|class
-name|XmlRpcComponent
-extends|extends
-name|DefaultComponent
+name|MyClientConfigurer
+implements|implements
+name|XmlRpcClientConfigurer
 block|{
-DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
-specifier|protected
-name|Endpoint
-name|createEndpoint
+annotation|@
+name|Override
+DECL|method|configureXmlRpcClient (XmlRpcClient client)
+specifier|public
+name|void
+name|configureXmlRpcClient
 parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|String
-name|remaining
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
+name|XmlRpcClient
+name|client
 parameter_list|)
-throws|throws
-name|Exception
 block|{
-comment|// current we just use the uri as the server address
-name|XmlRpcEndpoint
-name|endpoint
-init|=
-operator|new
-name|XmlRpcEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|this
-argument_list|,
-name|remaining
-argument_list|)
-decl_stmt|;
+comment|// get the configure first
 name|XmlRpcClientConfigImpl
 name|clientConfig
 init|=
-name|endpoint
+operator|(
+name|XmlRpcClientConfigImpl
+operator|)
+name|client
 operator|.
 name|getClientConfig
 argument_list|()
 decl_stmt|;
-comment|// find out the clientConfigurer first
-name|XmlRpcClientConfigurer
-name|clientConfigurer
-init|=
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"clientConfigurer"
-argument_list|,
-name|XmlRpcClientConfigurer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|endpoint
-operator|.
-name|setClientConfigurer
-argument_list|(
-name|clientConfigurer
-argument_list|)
-expr_stmt|;
-comment|// we just use the XmlRpcClientConfig to take the parameters
-name|setProperties
-argument_list|(
+comment|// change the value of clientConfig
 name|clientConfig
-argument_list|,
-name|parameters
+operator|.
+name|setEnabledForExtensions
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
-return|return
-name|endpoint
-return|;
+comment|// set the option on the XmlRpcClient
+name|client
+operator|.
+name|setMaxThreads
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: e1
+end_comment
 
 end_unit
 
