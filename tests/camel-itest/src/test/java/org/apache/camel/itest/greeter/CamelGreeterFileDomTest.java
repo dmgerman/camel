@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -402,10 +390,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testMocksAreValid ()
+DECL|method|testCamelGreeter ()
 specifier|public
 name|void
-name|testMocksAreValid
+name|testCamelGreeter
 parameter_list|()
 throws|throws
 name|Exception
@@ -435,17 +423,18 @@ name|result
 init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:start"
-argument_list|,
-name|ExchangePattern
-operator|.
-name|InOut
 argument_list|,
 name|REQUEST
 argument_list|)
 decl_stmt|;
+name|template
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"The result is wrong."
