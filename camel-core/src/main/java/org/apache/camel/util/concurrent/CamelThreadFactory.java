@@ -173,9 +173,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Created thread[{}]: {}"
+literal|"Created thread[{}] -> {}"
 argument_list|,
-name|name
+name|threadName
 argument_list|,
 name|answer
 argument_list|)
