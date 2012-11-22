@@ -446,7 +446,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"activemq:queue:foo?replyTo=bar&replyToType=Exclusive&concurrentConsumers=5&maxConcurrentConsumers=10"
+literal|"activemq:queue:foo?replyTo=bar&replyToType=Exclusive&concurrentConsumers=5&maxConcurrentConsumers=10&maxMessagesPerTask=100"
 argument_list|)
 operator|.
 name|to
@@ -461,7 +461,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq:queue:foo?concurrentConsumers=5&maxConcurrentConsumers=10"
+literal|"activemq:queue:foo?concurrentConsumers=5&maxConcurrentConsumers=10&maxMessagesPerTask=100"
 argument_list|)
 operator|.
 name|transform

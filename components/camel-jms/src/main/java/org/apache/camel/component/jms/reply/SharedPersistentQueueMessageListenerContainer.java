@@ -24,6 +24,38 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|DefaultJmsMessageListenerContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -64,7 +96,7 @@ specifier|public
 class|class
 name|SharedPersistentQueueMessageListenerContainer
 extends|extends
-name|DefaultMessageListenerContainer
+name|DefaultJmsMessageListenerContainer
 block|{
 DECL|field|LOG
 specifier|private
@@ -92,15 +124,23 @@ specifier|private
 name|MessageSelectorCreator
 name|creator
 decl_stmt|;
-comment|/**      * Use a fixed JMS message selector      *      * @param fixedMessageSelector the fixed selector      */
-DECL|method|SharedPersistentQueueMessageListenerContainer (String fixedMessageSelector)
+comment|/**      * Use a fixed JMS message selector      *      * @param endpoint the endpoint      * @param fixedMessageSelector the fixed selector      */
+DECL|method|SharedPersistentQueueMessageListenerContainer (JmsEndpoint endpoint, String fixedMessageSelector)
 specifier|public
 name|SharedPersistentQueueMessageListenerContainer
 parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|,
 name|String
 name|fixedMessageSelector
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|fixedMessageSelector
@@ -108,15 +148,23 @@ operator|=
 name|fixedMessageSelector
 expr_stmt|;
 block|}
-comment|/**      * Use a dynamic JMS message selector      *      * @param creator the create to create the dynamic selector      */
-DECL|method|SharedPersistentQueueMessageListenerContainer (MessageSelectorCreator creator)
+comment|/**      * Use a dynamic JMS message selector      *      * @param endpoint the endpoint      * @param creator the create to create the dynamic selector      */
+DECL|method|SharedPersistentQueueMessageListenerContainer (JmsEndpoint endpoint, MessageSelectorCreator creator)
 specifier|public
 name|SharedPersistentQueueMessageListenerContainer
 parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|,
 name|MessageSelectorCreator
 name|creator
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|creator

@@ -24,13 +24,31 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
 operator|.
 name|jms
 operator|.
-name|listener
+name|DefaultJmsMessageListenerContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|DefaultMessageListenerContainer
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsEndpoint
 import|;
 end_import
 
@@ -44,9 +62,23 @@ specifier|public
 class|class
 name|ExclusivePersistentQueueMessageListenerContainer
 extends|extends
-name|DefaultMessageListenerContainer
+name|DefaultJmsMessageListenerContainer
 block|{
 comment|// no need to override any methods currently
+DECL|method|ExclusivePersistentQueueMessageListenerContainer (JmsEndpoint endpoint)
+specifier|public
+name|ExclusivePersistentQueueMessageListenerContainer
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
