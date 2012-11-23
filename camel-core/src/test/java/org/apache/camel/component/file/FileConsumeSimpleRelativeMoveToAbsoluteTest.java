@@ -118,7 +118,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/move"
+literal|"target/move"
 argument_list|)
 expr_stmt|;
 comment|// use current dir as base as absolute path

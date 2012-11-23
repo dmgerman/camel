@@ -137,9 +137,6 @@ argument_list|(
 literal|"target/issue"
 argument_list|)
 operator|.
-name|getAbsoluteFile
-argument_list|()
-operator|.
 name|getAbsolutePath
 argument_list|()
 expr_stmt|;
@@ -150,9 +147,6 @@ name|File
 argument_list|(
 literal|"target/done"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()

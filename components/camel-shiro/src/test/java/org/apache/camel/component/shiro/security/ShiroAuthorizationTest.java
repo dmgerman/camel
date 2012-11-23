@@ -530,7 +530,7 @@ init|=
 operator|new
 name|ShiroSecurityPolicy
 argument_list|(
-literal|"./src/test/resources/securityconfig.ini"
+literal|"src/test/resources/securityconfig.ini"
 argument_list|,
 name|passPhrase
 argument_list|,

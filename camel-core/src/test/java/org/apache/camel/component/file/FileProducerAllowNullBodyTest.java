@@ -104,7 +104,7 @@ argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"./target/allow/allowNullBody.txt"
+literal|"target/allow/allowNullBody.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -175,7 +175,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"./target/allow/allowNullBody.txt"
+literal|"target/allow/allowNullBody.txt"
 argument_list|)
 operator|.
 name|exists

@@ -125,7 +125,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/movefile"
+literal|"target/movefile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -191,16 +191,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/movefile/hello.txt"
+literal|"target/movefile/hello.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The file should NOT have been moved"

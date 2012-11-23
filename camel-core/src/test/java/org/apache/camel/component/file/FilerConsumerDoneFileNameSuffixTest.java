@@ -194,9 +194,6 @@ name|File
 argument_list|(
 literal|"target/done/hello.txt.ready"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(

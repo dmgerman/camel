@@ -410,9 +410,6 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/builder/xml/example.xsl"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|XsltBuilder
 name|builder
@@ -480,9 +477,6 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/builder/xml/example.xsl"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|XsltBuilder
 name|builder
@@ -554,9 +548,6 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/builder/xml/example.xsl"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|XsltBuilder
 name|builder
@@ -628,9 +619,6 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/builder/xml/example.xsl"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|XsltBuilder
 name|builder
@@ -706,9 +694,6 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/builder/xml/example.xsl"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|Source
 name|styleSheet
@@ -793,9 +778,6 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/builder/xml/example.xsl"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|Source
 name|source
@@ -1249,9 +1231,6 @@ name|File
 argument_list|(
 literal|"target/xslt/xsltout.xml"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -1387,9 +1366,6 @@ name|File
 argument_list|(
 literal|"target/xslt/xsltout.xml"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(

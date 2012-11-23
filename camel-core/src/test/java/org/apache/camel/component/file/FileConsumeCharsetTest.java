@@ -172,9 +172,6 @@ argument_list|(
 literal|"target/files/report.txt"
 argument_list|)
 operator|.
-name|getAbsoluteFile
-argument_list|()
-operator|.
 name|exists
 argument_list|()
 argument_list|)

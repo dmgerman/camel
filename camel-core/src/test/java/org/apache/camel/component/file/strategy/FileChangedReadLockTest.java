@@ -212,9 +212,6 @@ name|File
 argument_list|(
 literal|"target/changed/out/slowfile.dat"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|String

@@ -148,13 +148,6 @@ argument_list|(
 literal|"target/messages/emea/hr_pickup"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The pickup folder should exists"
@@ -186,13 +179,6 @@ name|File
 argument_list|(
 literal|"target/messages/amer/hr_pickup"
 argument_list|)
-expr_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(

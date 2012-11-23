@@ -182,9 +182,6 @@ name|outputDirectory
 operator|+
 literal|"/route.xml"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(

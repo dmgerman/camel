@@ -234,7 +234,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/keep/out/hello.txt"
+literal|"target/keep/out/hello.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -293,7 +293,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/keep/out/hello.txt"
+literal|"target/keep/out/hello.txt"
 argument_list|)
 operator|.
 name|lastModified
@@ -382,7 +382,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/keep/out/hello.txt"
+literal|"target/keep/out/hello.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -441,7 +441,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/keep/out/hello.txt"
+literal|"target/keep/out/hello.txt"
 argument_list|)
 operator|.
 name|lastModified
@@ -530,7 +530,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/keep/out/hello.txt"
+literal|"target/keep/out/hello.txt"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -589,7 +589,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/keep/out/hello.txt"
+literal|"target/keep/out/hello.txt"
 argument_list|)
 operator|.
 name|lastModified

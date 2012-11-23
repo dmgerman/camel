@@ -145,9 +145,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -226,11 +223,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./hello.txt"
+literal|"hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(

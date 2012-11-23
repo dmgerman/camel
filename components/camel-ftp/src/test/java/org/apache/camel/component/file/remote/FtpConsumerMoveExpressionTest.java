@@ -274,13 +274,6 @@ operator|+
 literal|"/123-report2.bak"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"File should have been renamed"

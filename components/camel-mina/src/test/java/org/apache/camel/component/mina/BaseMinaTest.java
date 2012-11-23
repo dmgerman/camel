@@ -195,16 +195,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/minaport.txt"
+literal|"target/minaport.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 comment|// save to file, do not append
 name|FileOutputStream
 name|fos

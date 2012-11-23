@@ -1473,9 +1473,6 @@ name|File
 argument_list|(
 literal|"org/apache/camel/converter/stream/test.xml"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|StreamSource
 name|source
@@ -2805,11 +2802,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./src/test/resources/org/apache/camel/converter/stream/test.xml"
+literal|"src/test/resources/org/apache/camel/converter/stream/test.xml"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|Document
 name|out
@@ -3002,11 +2996,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./src/test/resources/org/apache/camel/converter/stream/test.xml"
+literal|"src/test/resources/org/apache/camel/converter/stream/test.xml"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|InputSource
 name|out

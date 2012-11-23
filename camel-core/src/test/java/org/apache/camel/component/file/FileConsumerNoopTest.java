@@ -215,9 +215,6 @@ name|File
 argument_list|(
 literal|"target/filenoop"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(

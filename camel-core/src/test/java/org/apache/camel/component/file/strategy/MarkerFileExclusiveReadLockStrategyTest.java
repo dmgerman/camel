@@ -277,9 +277,6 @@ name|File
 argument_list|(
 literal|"target/marker/out/file1.dat"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
@@ -339,9 +336,6 @@ name|File
 argument_list|(
 literal|"target/marker/out/file2.dat"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|lines
@@ -662,9 +656,6 @@ name|File
 argument_list|(
 name|filename
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(

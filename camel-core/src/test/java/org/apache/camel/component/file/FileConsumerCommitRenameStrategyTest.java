@@ -171,7 +171,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/done/paris.txt"
+literal|"target/done/paris.txt"
 argument_list|,
 literal|"Hello Paris"
 argument_list|)
@@ -226,7 +226,7 @@ init|=
 operator|new
 name|FileWriter
 argument_list|(
-literal|"./target/done/london.txt"
+literal|"target/done/london.txt"
 argument_list|)
 decl_stmt|;
 try|try
@@ -303,7 +303,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"./target/done/london.txt"
+literal|"target/done/london.txt"
 argument_list|)
 argument_list|,
 literal|null

@@ -174,7 +174,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/ftpsetnamestest"
+literal|"target/ftpsetnamestest"
 argument_list|)
 expr_stmt|;
 name|super

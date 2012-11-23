@@ -209,13 +209,6 @@ operator|+
 literal|"/movefile/hello.txt.old"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The file should have been moved"
@@ -317,13 +310,6 @@ operator|+
 literal|"/movefile/hello.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The file should exists"

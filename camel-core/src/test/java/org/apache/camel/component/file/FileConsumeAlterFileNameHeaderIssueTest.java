@@ -248,9 +248,6 @@ argument_list|(
 literal|"target/files/hello.txt"
 argument_list|)
 operator|.
-name|getAbsoluteFile
-argument_list|()
-operator|.
 name|exists
 argument_list|()
 argument_list|)
@@ -373,9 +370,6 @@ name|File
 argument_list|(
 literal|"target/files/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 operator|.
 name|exists
 argument_list|()
@@ -503,9 +497,6 @@ argument_list|(
 literal|"target/files/.camel/hello.txt"
 argument_list|)
 operator|.
-name|getAbsoluteFile
-argument_list|()
-operator|.
 name|exists
 argument_list|()
 argument_list|)
@@ -628,9 +619,6 @@ name|File
 argument_list|(
 literal|"target/files/.camel/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 operator|.
 name|exists
 argument_list|()

@@ -252,7 +252,7 @@ argument_list|(
 operator|new
 name|FileInputStream
 argument_list|(
-literal|"./src/test/resources/test.txt"
+literal|"src/test/resources/test.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;

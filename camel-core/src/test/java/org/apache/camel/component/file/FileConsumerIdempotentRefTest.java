@@ -313,20 +313,10 @@ literal|"target/idempotent/report.txt"
 argument_list|)
 decl_stmt|;
 name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
-name|file
 operator|.
 name|renameTo
 argument_list|(
 name|renamed
-operator|.
-name|getAbsoluteFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// should NOT consume the file again, let a bit time go

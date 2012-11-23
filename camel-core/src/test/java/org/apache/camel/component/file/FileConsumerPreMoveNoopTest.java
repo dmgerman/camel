@@ -181,9 +181,6 @@ name|File
 argument_list|(
 literal|"target/premove/work/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -291,9 +288,6 @@ name|File
 argument_list|(
 literal|"target/premove/work/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -378,9 +372,6 @@ name|File
 argument_list|(
 literal|"target/premove/work/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(

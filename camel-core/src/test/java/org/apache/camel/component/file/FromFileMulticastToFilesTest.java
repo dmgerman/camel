@@ -96,7 +96,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/multicast"
+literal|"target/multicast"
 argument_list|)
 expr_stmt|;
 name|super
@@ -228,7 +228,7 @@ name|header
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/multicast/out/header.txt"
+literal|"target/multicast/out/header.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -250,7 +250,7 @@ name|footer
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/multicast/out/footer.txt"
+literal|"target/multicast/out/footer.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -272,7 +272,7 @@ name|end
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/multicast/.camel/foo.txt"
+literal|"target/multicast/.camel/foo.txt"
 argument_list|)
 expr_stmt|;
 name|template
@@ -420,7 +420,7 @@ name|header
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/multicast/out/header.txt"
+literal|"target/multicast/out/header.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -442,7 +442,7 @@ name|footer
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/multicast/out/footer.txt"
+literal|"target/multicast/out/footer.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -464,7 +464,7 @@ name|end
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/multicast/.camel/foo.txt"
+literal|"target/multicast/.camel/foo.txt"
 argument_list|)
 expr_stmt|;
 name|template

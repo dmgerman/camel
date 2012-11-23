@@ -222,7 +222,7 @@ init|=
 operator|new
 name|FileWriter
 argument_list|(
-literal|"./target/inprogress/london.bak"
+literal|"target/inprogress/london.bak"
 argument_list|)
 decl_stmt|;
 try|try

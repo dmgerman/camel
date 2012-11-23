@@ -269,7 +269,7 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"./foo/bar/message.txt"
+literal|"foo/bar/message.txt"
 argument_list|)
 expr_stmt|;
 name|Producer
@@ -309,13 +309,6 @@ operator|+
 literal|"/tempfile/foo/bar/message.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The file should exists"

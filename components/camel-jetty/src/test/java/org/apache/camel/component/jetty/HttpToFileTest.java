@@ -196,16 +196,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/myworld/hello.txt"
+literal|"target/myworld/hello.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"File should exists"

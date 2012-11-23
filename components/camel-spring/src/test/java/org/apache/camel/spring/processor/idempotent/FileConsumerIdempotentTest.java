@@ -279,20 +279,10 @@ literal|"target/fileidempotent/report.txt"
 argument_list|)
 decl_stmt|;
 name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
-name|file
 operator|.
 name|renameTo
 argument_list|(
 name|renamed
-operator|.
-name|getAbsoluteFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// sleep to let the consumer try to poll the file

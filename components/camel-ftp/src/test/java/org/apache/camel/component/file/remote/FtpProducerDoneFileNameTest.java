@@ -141,9 +141,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -167,9 +164,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/done"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -222,9 +216,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -248,9 +239,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/done-hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -303,9 +291,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -329,9 +314,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/hello.txt.done"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -384,9 +366,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -410,9 +389,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/done/hello.done"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(

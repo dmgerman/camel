@@ -171,7 +171,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/done/paris.bak"
+literal|"target/done/paris.bak"
 argument_list|,
 literal|"Hello Paris"
 argument_list|)

@@ -112,7 +112,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/renameissue"
+literal|"target/renameissue"
 argument_list|)
 expr_stmt|;
 name|super
@@ -148,7 +148,7 @@ name|mock
 operator|.
 name|expectedFileExists
 argument_list|(
-literal|"./target/renameissue/.camel/hello.xml"
+literal|"target/renameissue/.camel/hello.xml"
 argument_list|)
 expr_stmt|;
 name|String

@@ -194,9 +194,6 @@ name|File
 argument_list|(
 literal|"target/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -289,9 +286,6 @@ name|File
 argument_list|(
 literal|"target/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -369,9 +363,6 @@ name|File
 argument_list|(
 literal|"target/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -449,9 +440,6 @@ name|File
 argument_list|(
 literal|"target/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -573,9 +561,6 @@ name|File
 argument_list|(
 literal|"target/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(

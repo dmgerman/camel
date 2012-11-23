@@ -272,7 +272,7 @@ specifier|final
 name|String
 name|FILEPATH_UPDATEDTEST_TXT
 init|=
-literal|"./src/test/resources/updatedtest.txt"
+literal|"src/test/resources/updatedtest.txt"
 decl_stmt|;
 DECL|field|FILEPATH_TEST_TXT
 specifier|private
@@ -281,7 +281,7 @@ specifier|final
 name|String
 name|FILEPATH_TEST_TXT
 init|=
-literal|"./src/test/resources/test.txt"
+literal|"src/test/resources/test.txt"
 decl_stmt|;
 DECL|field|LOG
 specifier|private
@@ -406,7 +406,6 @@ name|path
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// "./src/test/resources/test.txt"));
 name|byte
 name|buffer
 index|[]

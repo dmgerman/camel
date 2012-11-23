@@ -209,7 +209,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/routetofile"
+literal|"target/routetofile"
 argument_list|)
 decl_stmt|;
 name|assertTrue

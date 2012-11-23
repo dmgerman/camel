@@ -96,7 +96,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/includeexclude"
+literal|"target/includeexclude"
 argument_list|)
 expr_stmt|;
 name|super

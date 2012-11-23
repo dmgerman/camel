@@ -192,9 +192,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"done/fin.dat"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(

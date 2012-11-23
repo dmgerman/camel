@@ -228,13 +228,6 @@ operator|+
 literal|"/thirdpool/hello.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertFalse
 argument_list|(
 literal|"The file should have been deleted"
@@ -342,13 +335,6 @@ operator|+
 literal|"/thirdpool/hello.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"The file should NOT have been deleted"

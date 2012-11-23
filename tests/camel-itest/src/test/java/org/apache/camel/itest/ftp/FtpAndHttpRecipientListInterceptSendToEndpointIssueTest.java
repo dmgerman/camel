@@ -480,11 +480,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./src/test/resources/users.properties"
+literal|"src/test/resources/users.properties"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|UserManager
 name|uman

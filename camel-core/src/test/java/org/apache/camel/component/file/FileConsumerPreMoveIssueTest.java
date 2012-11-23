@@ -241,9 +241,6 @@ name|File
 argument_list|(
 literal|"target/premove/before/hello-moved.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(

@@ -135,12 +135,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/cachedir"
+literal|"target/cachedir"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"./target/cachedir"
+literal|"target/cachedir"
 argument_list|)
 expr_stmt|;
 name|super
@@ -199,7 +199,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/cachedir"
+literal|"target/cachedir"
 argument_list|)
 decl_stmt|;
 name|String
@@ -262,7 +262,7 @@ name|CachedOutputStream
 operator|.
 name|TEMP_DIR
 argument_list|,
-literal|"./target/cachedir"
+literal|"target/cachedir"
 argument_list|)
 expr_stmt|;
 name|context
@@ -320,7 +320,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/cachedir"
+literal|"target/cachedir"
 argument_list|)
 decl_stmt|;
 name|String

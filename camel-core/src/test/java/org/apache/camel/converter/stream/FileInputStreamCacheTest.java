@@ -87,9 +87,6 @@ name|File
 argument_list|(
 name|TEST_FILE
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|FileInputStreamCache
 name|cache

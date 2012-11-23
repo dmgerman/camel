@@ -89,9 +89,6 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/processor/ValidatingProcessor.xsd"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|String
 name|body

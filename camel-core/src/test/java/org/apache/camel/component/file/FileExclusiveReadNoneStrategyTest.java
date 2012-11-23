@@ -171,12 +171,12 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/exclusiveread"
+literal|"target/exclusiveread"
 argument_list|)
 expr_stmt|;
 name|createDirectory
 argument_list|(
-literal|"./target/exclusiveread/slowfile"
+literal|"target/exclusiveread/slowfile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -352,7 +352,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/exclusiveread/slowfile/hello.txt"
+literal|"target/exclusiveread/slowfile/hello.txt"
 argument_list|)
 decl_stmt|;
 name|FileOutputStream

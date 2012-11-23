@@ -177,9 +177,6 @@ name|File
 argument_list|(
 literal|"target/gzip/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(
@@ -201,9 +198,6 @@ name|File
 argument_list|(
 literal|"target/gzip/out/hello.txt.gz"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(

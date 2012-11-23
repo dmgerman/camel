@@ -296,7 +296,7 @@ decl_stmt|;
 comment|// create local file
 name|deleteDirectory
 argument_list|(
-literal|"./target/files"
+literal|"target/files"
 argument_list|)
 expr_stmt|;
 name|template

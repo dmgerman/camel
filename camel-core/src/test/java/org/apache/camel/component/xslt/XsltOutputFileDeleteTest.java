@@ -154,9 +154,6 @@ name|File
 argument_list|(
 literal|"target/xslt/xsltme.xml"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(

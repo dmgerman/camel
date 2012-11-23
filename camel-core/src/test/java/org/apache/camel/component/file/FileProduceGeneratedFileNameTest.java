@@ -171,14 +171,6 @@ operator|+
 name|id
 argument_list|)
 decl_stmt|;
-comment|// use absolute file to let unittest pass on all platforms
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"The generated file should exists: "

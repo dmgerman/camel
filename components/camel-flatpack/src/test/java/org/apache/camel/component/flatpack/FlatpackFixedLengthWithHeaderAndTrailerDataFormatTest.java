@@ -209,9 +209,6 @@ name|File
 argument_list|(
 literal|"src/test/data/headerandtrailer/PEOPLE-HeaderAndTrailer.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 argument_list|,
 literal|null
 argument_list|)

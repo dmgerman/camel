@@ -190,16 +190,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/nettyport.txt"
+literal|"target/nettyport.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -275,16 +268,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/nettyport.txt"
+literal|"target/nettyport.txt"
 argument_list|)
 decl_stmt|;
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 comment|// save to file, do not append
 name|FileOutputStream
 name|fos

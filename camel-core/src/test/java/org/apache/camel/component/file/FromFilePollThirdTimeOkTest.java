@@ -125,7 +125,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"./target/deletefile"
+literal|"target/deletefile"
 argument_list|)
 expr_stmt|;
 name|super
@@ -216,11 +216,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/deletefile/hello.txt"
+literal|"target/deletefile/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(
@@ -299,11 +296,8 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"./target/deletefile/hello.txt"
+literal|"target/deletefile/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(

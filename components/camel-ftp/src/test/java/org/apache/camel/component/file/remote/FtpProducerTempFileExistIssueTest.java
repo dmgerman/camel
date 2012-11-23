@@ -231,9 +231,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -349,9 +346,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -451,9 +445,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -553,9 +544,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 comment|// should not write new file as we should ignore
 name|assertEquals
@@ -689,9 +677,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/tempprefix/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 comment|// should not write new file as we should ignore
 name|assertEquals

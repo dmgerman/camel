@@ -261,12 +261,12 @@ name|createTempFileName
 argument_list|(
 name|exchange
 argument_list|,
-literal|"./"
+literal|"."
 argument_list|)
 decl_stmt|;
 name|assertDirectoryEquals
 argument_list|(
-literal|"./inprogress-claus.tmp"
+literal|"inprogress-claus.tmp"
 argument_list|,
 name|tempFileName
 argument_list|)
@@ -304,14 +304,6 @@ argument_list|(
 literal|"target/tempandrename/hello.txt"
 argument_list|)
 decl_stmt|;
-comment|// use absolute file to let unittest pass on all platforms
-name|file
-operator|=
-name|file
-operator|.
-name|getAbsoluteFile
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"The generated file should exists: "

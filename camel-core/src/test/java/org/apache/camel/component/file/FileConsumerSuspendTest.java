@@ -213,9 +213,6 @@ argument_list|(
 literal|"target/suspended/"
 argument_list|)
 operator|.
-name|getAbsoluteFile
-argument_list|()
-operator|.
 name|list
 argument_list|()
 decl_stmt|;

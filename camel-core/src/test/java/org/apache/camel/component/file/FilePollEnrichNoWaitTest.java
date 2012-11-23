@@ -201,9 +201,6 @@ name|File
 argument_list|(
 literal|"target/pollenrich/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(

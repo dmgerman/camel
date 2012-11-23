@@ -116,9 +116,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/exist/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -186,9 +183,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/exist/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(

@@ -140,9 +140,6 @@ name|File
 argument_list|(
 literal|"target/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -164,9 +161,6 @@ name|File
 argument_list|(
 literal|"target/done/done"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -212,9 +206,6 @@ name|File
 argument_list|(
 literal|"target/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -236,9 +227,6 @@ name|File
 argument_list|(
 literal|"target/done/done-hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -284,9 +272,6 @@ name|File
 argument_list|(
 literal|"target/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -308,9 +293,6 @@ name|File
 argument_list|(
 literal|"target/done/hello.txt.done"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -356,9 +338,6 @@ name|File
 argument_list|(
 literal|"target/done/hello.txt"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -380,9 +359,6 @@ name|File
 argument_list|(
 literal|"target/done/hello.done"
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
