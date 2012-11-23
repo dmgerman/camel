@@ -1058,9 +1058,6 @@ name|equals
 argument_list|(
 name|uri
 argument_list|)
-operator|&&
-operator|!
-name|systemStream
 decl_stmt|;
 name|boolean
 name|reachedLimit
@@ -1089,8 +1086,12 @@ operator|||
 name|reachedLimit
 decl_stmt|;
 comment|// evaluation order is important!
+comment|// never ever close a system stream
 if|if
 condition|(
+operator|!
+name|systemStream
+operator|&&
 name|expiredStream
 condition|)
 block|{
