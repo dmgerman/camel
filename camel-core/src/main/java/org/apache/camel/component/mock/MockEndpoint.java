@@ -3423,9 +3423,6 @@ argument_list|(
 name|name
 argument_list|)
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|expects
 argument_list|(

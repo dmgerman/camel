@@ -2154,9 +2154,6 @@ name|File
 argument_list|(
 name|filename
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -2192,9 +2189,6 @@ name|File
 argument_list|(
 name|filename
 argument_list|)
-operator|.
-name|getAbsoluteFile
-argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(
