@@ -4418,7 +4418,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// validate that the id's is all unique
+comment|// assign ids to the routes and validate that the id's is all unique
+name|RouteDefinitionHelper
+operator|.
+name|forceAssignIds
+argument_list|(
+name|this
+argument_list|,
+name|routeDefinitions
+argument_list|)
+expr_stmt|;
 name|String
 name|duplicate
 init|=
