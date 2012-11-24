@@ -219,6 +219,22 @@ return|;
 block|}
 comment|// Predicate builders
 comment|// -------------------------------------------------------------------------
+DECL|method|matches (Predicate predicate)
+specifier|public
+name|Predicate
+name|matches
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|onNewPredicate
+argument_list|(
+name|predicate
+argument_list|)
+return|;
+block|}
 DECL|method|matches (Expression expression)
 specifier|public
 name|Predicate
