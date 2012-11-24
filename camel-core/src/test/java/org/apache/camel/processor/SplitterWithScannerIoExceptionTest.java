@@ -58,6 +58,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.7"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
