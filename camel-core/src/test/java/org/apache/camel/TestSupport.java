@@ -2154,6 +2154,7 @@ operator|-
 literal|1
 return|;
 block|}
+comment|/**      * Is this version the given Java version.      *<p/>      * Uses<tt>java.version</tt> from the system properties to determine the version.      *      * @param vendor such as IBM      * @return<tt>true</tt> if its that vendor.      */
 DECL|method|isJavaVersion (String version)
 specifier|public
 specifier|static
