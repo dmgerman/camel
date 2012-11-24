@@ -3089,6 +3089,13 @@ name|String
 name|getManagementNamePattern
 parameter_list|()
 function_decl|;
+DECL|method|getThreadNamePattern ()
+specifier|public
+specifier|abstract
+name|String
+name|getThreadNamePattern
+parameter_list|()
+function_decl|;
 comment|/**      * @deprecated this option is no longer supported, will be removed in a future Camel release.      */
 annotation|@
 name|Deprecated
@@ -3417,6 +3424,26 @@ operator|.
 name|setNamePattern
 argument_list|(
 name|getManagementNamePattern
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getThreadNamePattern
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|setThreadNamePattern
+argument_list|(
+name|getThreadNamePattern
 argument_list|()
 argument_list|)
 expr_stmt|;
