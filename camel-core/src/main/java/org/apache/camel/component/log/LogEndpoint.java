@@ -210,6 +210,16 @@ name|logger
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getLogger ()
+specifier|public
+name|Processor
+name|getLogger
+parameter_list|()
+block|{
+return|return
+name|logger
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()

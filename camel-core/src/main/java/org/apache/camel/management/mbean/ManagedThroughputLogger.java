@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.log
+DECL|package|org.apache.camel.management.mbean
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|management
 operator|.
-name|log
+name|mbean
 package|;
 end_package
 
@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
+name|CamelContext
 import|;
 end_import
 
@@ -38,7 +38,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
 import|;
 end_import
 
@@ -50,7 +54,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedThroughputLoggerMBean
 import|;
 end_import
 
@@ -62,7 +72,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|model
+operator|.
+name|ProcessorDefinition
 import|;
 end_import
 
@@ -74,44 +86,63 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|processor
 operator|.
-name|DefaultAsyncProducer
+name|ThroughputLogger
 import|;
 end_import
 
 begin_comment
-comment|/**  * Log producer.  */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|LogProducer
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed ThroughputLogger"
+argument_list|)
+DECL|class|ManagedThroughputLogger
 specifier|public
 class|class
-name|LogProducer
+name|ManagedThroughputLogger
 extends|extends
-name|DefaultAsyncProducer
+name|ManagedProcessor
+implements|implements
+name|ManagedThroughputLoggerMBean
 block|{
 DECL|field|logger
 specifier|private
 specifier|final
-name|Processor
+name|ThroughputLogger
 name|logger
 decl_stmt|;
-DECL|method|LogProducer (Endpoint endpoint, Processor logger)
+DECL|method|ManagedThroughputLogger (CamelContext context, ThroughputLogger logger, ProcessorDefinition<?> definition)
 specifier|public
-name|LogProducer
+name|ManagedThroughputLogger
 parameter_list|(
-name|Endpoint
-name|endpoint
+name|CamelContext
+name|context
 parameter_list|,
-name|Processor
+name|ThroughputLogger
 name|logger
+parameter_list|,
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|definition
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|endpoint
+name|context
+argument_list|,
+name|logger
+argument_list|,
+name|definition
 argument_list|)
 expr_stmt|;
 name|this
@@ -121,65 +152,99 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange, AsyncCallback callback)
-specifier|public
-name|boolean
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|)
-block|{
-try|try
-block|{
-name|logger
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getLogger ()
 specifier|public
-name|Processor
+name|ThroughputLogger
 name|getLogger
 parameter_list|()
 block|{
 return|return
 name|logger
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|reset ()
+specifier|public
+specifier|synchronized
+name|void
+name|reset
+parameter_list|()
+block|{
+name|super
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getReceivedCounter ()
+specifier|public
+name|int
+name|getReceivedCounter
+parameter_list|()
+block|{
+return|return
+name|logger
+operator|.
+name|getReceivedCounter
+argument_list|()
+return|;
+block|}
+DECL|method|getAverage ()
+specifier|public
+name|double
+name|getAverage
+parameter_list|()
+block|{
+return|return
+name|logger
+operator|.
+name|getAverage
+argument_list|()
+return|;
+block|}
+DECL|method|getRate ()
+specifier|public
+name|double
+name|getRate
+parameter_list|()
+block|{
+return|return
+name|logger
+operator|.
+name|getRate
+argument_list|()
+return|;
+block|}
+DECL|method|getLastLogMessage ()
+specifier|public
+name|String
+name|getLastLogMessage
+parameter_list|()
+block|{
+return|return
+name|logger
+operator|.
+name|getLastLogMessage
+argument_list|()
+return|;
+block|}
+DECL|method|resetThroughputLogger ()
+specifier|public
+name|void
+name|resetThroughputLogger
+parameter_list|()
+block|{
+name|logger
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
