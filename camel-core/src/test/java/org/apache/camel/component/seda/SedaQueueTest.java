@@ -164,7 +164,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo?concurrentConsumers=2"
+literal|"seda:foo?size=20&concurrentConsumers=2"
 argument_list|)
 operator|.
 name|to

@@ -190,7 +190,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"vm:foo?concurrentConsumers=2"
+literal|"vm:foo?size=20&concurrentConsumers=2"
 argument_list|)
 operator|.
 name|to

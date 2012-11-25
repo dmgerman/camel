@@ -100,6 +100,26 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * An implementation of the<a href="http://camel.apache.org/seda.html">SEDA components</a>  * for asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version   */
 end_comment
@@ -112,6 +132,21 @@ name|SedaComponent
 extends|extends
 name|DefaultComponent
 block|{
+DECL|field|log
+specifier|protected
+specifier|final
+specifier|transient
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|field|maxConcurrentConsumers
 specifier|protected
 specifier|final
@@ -203,10 +238,7 @@ block|}
 DECL|method|getOrCreateQueue (String uri, Integer size)
 specifier|public
 specifier|synchronized
-name|BlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
+name|QueueReference
 name|getOrCreateQueue
 parameter_list|(
 name|String
@@ -242,17 +274,94 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// if the given size is not provided, we just use the existing queue as is
+if|if
+condition|(
+name|size
+operator|!=
+literal|null
+operator|&&
+name|ref
+operator|.
+name|getSize
+argument_list|()
+operator|!=
+name|size
+condition|)
+block|{
+comment|// there is already a queue, so make sure the size matches
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot use existing queue "
+operator|+
+name|key
+operator|+
+literal|" as the existing queue size "
+operator|+
+operator|(
+name|ref
+operator|.
+name|getSize
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|ref
+operator|.
+name|getSize
+argument_list|()
+else|:
+name|Integer
+operator|.
+name|MAX_VALUE
+operator|)
+operator|+
+literal|" does not match given queue size "
+operator|+
+name|size
+argument_list|)
+throw|;
+block|}
 comment|// add the reference before returning queue
 name|ref
 operator|.
 name|addReference
 argument_list|()
 expr_stmt|;
-return|return
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Reusing existing queue {} with size {} and reference count {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|key
+block|,
+name|size
+block|,
 name|ref
 operator|.
-name|getQueue
+name|getCount
 argument_list|()
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|ref
 return|;
 block|}
 comment|// create queue
@@ -295,6 +404,11 @@ operator|>
 literal|0
 condition|)
 block|{
+name|size
+operator|=
+name|getQueueSize
+argument_list|()
+expr_stmt|;
 name|queue
 operator|=
 operator|new
@@ -321,6 +435,17 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Created queue {} with size {}"
+argument_list|,
+name|key
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
 comment|// create and add a new reference queue
 name|ref
 operator|=
@@ -328,6 +453,8 @@ operator|new
 name|QueueReference
 argument_list|(
 name|queue
+argument_list|,
+name|size
 argument_list|)
 expr_stmt|;
 name|ref
@@ -346,7 +473,7 @@ name|ref
 argument_list|)
 expr_stmt|;
 return|return
-name|queue
+name|ref
 return|;
 block|}
 DECL|method|getQueues ()
@@ -443,20 +570,7 @@ name|consumers
 argument_list|)
 throw|;
 block|}
-name|Integer
-name|size
-init|=
-name|getAndRemoveParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"size"
-argument_list|,
-name|Integer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
+comment|// defer creating queue till endpoint is started, so we pass in null
 name|SedaEndpoint
 name|answer
 init|=
@@ -467,12 +581,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|getOrCreateQueue
-argument_list|(
-name|uri
-argument_list|,
-name|size
-argument_list|)
+literal|null
 argument_list|,
 name|consumers
 argument_list|)
@@ -640,7 +749,12 @@ specifier|volatile
 name|int
 name|count
 decl_stmt|;
-DECL|method|QueueReference (BlockingQueue<Exchange> queue)
+DECL|field|size
+specifier|private
+name|Integer
+name|size
+decl_stmt|;
+DECL|method|QueueReference (BlockingQueue<Exchange> queue, Integer size)
 specifier|private
 name|QueueReference
 parameter_list|(
@@ -649,6 +763,9 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|queue
+parameter_list|,
+name|Integer
+name|size
 parameter_list|)
 block|{
 name|this
@@ -656,6 +773,12 @@ operator|.
 name|queue
 operator|=
 name|queue
+expr_stmt|;
+name|this
+operator|.
+name|size
+operator|=
+name|size
 expr_stmt|;
 block|}
 DECL|method|addReference ()
@@ -685,6 +808,17 @@ parameter_list|()
 block|{
 return|return
 name|count
+return|;
+block|}
+comment|/**          * Gets the queue size          *          * @return<tt>null</tt> if unbounded          */
+DECL|method|getSize ()
+specifier|public
+name|Integer
+name|getSize
+parameter_list|()
+block|{
+return|return
+name|size
 return|;
 block|}
 comment|/**          * Gets the queue          */

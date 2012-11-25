@@ -110,7 +110,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"vm:foo"
+literal|"vm:foo?size=500"
 argument_list|)
 operator|.
 name|to
@@ -153,7 +153,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"vm:foo?size=500"
+literal|"vm:foo"
 argument_list|)
 expr_stmt|;
 block|}
