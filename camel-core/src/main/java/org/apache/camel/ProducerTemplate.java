@@ -98,6 +98,12 @@ name|ProducerTemplate
 extends|extends
 name|Service
 block|{
+comment|/**      * Get the {@link CamelContext}      *      * @return camelContext the Camel context      */
+DECL|method|getCamelContext ()
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+function_decl|;
 comment|// Configuration methods
 comment|// -----------------------------------------------------------------------
 comment|/**      * Gets the maximum cache size used in the backing cache pools.      *      * @return the maximum cache size      */

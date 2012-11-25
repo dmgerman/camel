@@ -211,11 +211,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|context
+DECL|field|camelContext
 specifier|private
 specifier|final
 name|CamelContext
-name|context
+name|camelContext
 decl_stmt|;
 DECL|field|consumerCache
 specifier|private
@@ -227,19 +227,19 @@ specifier|private
 name|int
 name|maximumCacheSize
 decl_stmt|;
-DECL|method|DefaultConsumerTemplate (CamelContext context)
+DECL|method|DefaultConsumerTemplate (CamelContext camelContext)
 specifier|public
 name|DefaultConsumerTemplate
 parameter_list|(
 name|CamelContext
-name|context
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|context
+name|camelContext
 operator|=
-name|context
+name|camelContext
 expr_stmt|;
 block|}
 DECL|method|getMaximumCacheSize ()
@@ -292,6 +292,20 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated use {@link #getCamelContext()}      */
+annotation|@
+name|Deprecated
+DECL|method|getContext ()
+specifier|public
+name|CamelContext
+name|getContext
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+return|;
+block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -299,7 +313,7 @@ name|getCamelContext
 parameter_list|()
 block|{
 return|return
-name|context
+name|camelContext
 return|;
 block|}
 DECL|method|receive (String endpointUri)
@@ -696,7 +710,7 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|=
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -806,7 +820,7 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|=
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -916,7 +930,7 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|=
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -1079,7 +1093,7 @@ name|CamelContextHelper
 operator|.
 name|getMandatoryEndpoint
 argument_list|(
-name|context
+name|camelContext
 argument_list|,
 name|endpointUri
 argument_list|)
@@ -1222,7 +1236,7 @@ name|ConsumerCache
 argument_list|(
 name|this
 argument_list|,
-name|context
+name|camelContext
 argument_list|,
 name|maximumCacheSize
 argument_list|)
@@ -1237,7 +1251,7 @@ name|ConsumerCache
 argument_list|(
 name|this
 argument_list|,
-name|context
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}

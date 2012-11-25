@@ -292,11 +292,11 @@ name|ServiceSupport
 implements|implements
 name|ProducerTemplate
 block|{
-DECL|field|context
+DECL|field|camelContext
 specifier|private
 specifier|final
 name|CamelContext
-name|context
+name|camelContext
 decl_stmt|;
 DECL|field|producerCache
 specifier|private
@@ -320,27 +320,27 @@ specifier|private
 name|int
 name|maximumCacheSize
 decl_stmt|;
-DECL|method|DefaultProducerTemplate (CamelContext context)
+DECL|method|DefaultProducerTemplate (CamelContext camelContext)
 specifier|public
 name|DefaultProducerTemplate
 parameter_list|(
 name|CamelContext
-name|context
+name|camelContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|context
+name|camelContext
 operator|=
-name|context
+name|camelContext
 expr_stmt|;
 block|}
-DECL|method|DefaultProducerTemplate (CamelContext context, ExecutorService executor)
+DECL|method|DefaultProducerTemplate (CamelContext camelContext, ExecutorService executor)
 specifier|public
 name|DefaultProducerTemplate
 parameter_list|(
 name|CamelContext
-name|context
+name|camelContext
 parameter_list|,
 name|ExecutorService
 name|executor
@@ -348,9 +348,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|context
+name|camelContext
 operator|=
-name|context
+name|camelContext
 expr_stmt|;
 name|this
 operator|.
@@ -359,12 +359,12 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
-DECL|method|DefaultProducerTemplate (CamelContext context, Endpoint defaultEndpoint)
+DECL|method|DefaultProducerTemplate (CamelContext camelContext, Endpoint defaultEndpoint)
 specifier|public
 name|DefaultProducerTemplate
 parameter_list|(
 name|CamelContext
-name|context
+name|camelContext
 parameter_list|,
 name|Endpoint
 name|defaultEndpoint
@@ -372,7 +372,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|context
+name|camelContext
 argument_list|)
 expr_stmt|;
 name|this
@@ -1957,7 +1957,7 @@ name|body
 argument_list|)
 decl_stmt|;
 return|return
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -2002,7 +2002,7 @@ name|body
 argument_list|)
 decl_stmt|;
 return|return
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -2047,7 +2047,7 @@ name|body
 argument_list|)
 decl_stmt|;
 return|return
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -2102,7 +2102,7 @@ name|headerValue
 argument_list|)
 decl_stmt|;
 return|return
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -2157,7 +2157,7 @@ name|headerValue
 argument_list|)
 decl_stmt|;
 return|return
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -2212,7 +2212,7 @@ name|headers
 argument_list|)
 decl_stmt|;
 return|return
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -2267,7 +2267,7 @@ name|headers
 argument_list|)
 decl_stmt|;
 return|return
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -2424,6 +2424,9 @@ expr_stmt|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------
+comment|/**      * @deprecated use {@link #getCamelContext()}      */
+annotation|@
+name|Deprecated
 DECL|method|getContext ()
 specifier|public
 name|CamelContext
@@ -2431,7 +2434,18 @@ name|getContext
 parameter_list|()
 block|{
 return|return
-name|context
+name|getCamelContext
+argument_list|()
+return|;
+block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
 return|;
 block|}
 DECL|method|getDefaultEndpoint ()
@@ -2472,7 +2486,7 @@ parameter_list|)
 block|{
 name|setDefaultEndpoint
 argument_list|(
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getEndpoint
@@ -2482,6 +2496,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use {@link CamelContext#getEndpoint(String, Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|getResolvedEndpoint (String endpointUri, Class<T> expectedClass)
 specifier|public
 parameter_list|<
@@ -2503,7 +2520,7 @@ name|expectedClass
 parameter_list|)
 block|{
 return|return
-name|context
+name|camelContext
 operator|.
 name|getEndpoint
 argument_list|(
@@ -2687,7 +2704,7 @@ block|{
 name|Endpoint
 name|endpoint
 init|=
-name|context
+name|camelContext
 operator|.
 name|getEndpoint
 argument_list|(
@@ -3164,7 +3181,7 @@ name|ExchangeHelper
 operator|.
 name|extractFutureBody
 argument_list|(
-name|context
+name|camelContext
 argument_list|,
 name|future
 argument_list|,
@@ -3206,7 +3223,7 @@ name|ExchangeHelper
 operator|.
 name|extractFutureBody
 argument_list|(
-name|context
+name|camelContext
 argument_list|,
 name|future
 argument_list|,
@@ -4420,7 +4437,7 @@ return|;
 block|}
 name|executor
 operator|=
-name|context
+name|camelContext
 operator|.
 name|getExecutorServiceManager
 argument_list|()
@@ -4475,7 +4492,7 @@ name|ProducerCache
 argument_list|(
 name|this
 argument_list|,
-name|context
+name|camelContext
 argument_list|,
 name|maximumCacheSize
 argument_list|)
@@ -4490,7 +4507,7 @@ name|ProducerCache
 argument_list|(
 name|this
 argument_list|,
-name|context
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -4529,7 +4546,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|context
+name|camelContext
 operator|.
 name|getExecutorServiceManager
 argument_list|()

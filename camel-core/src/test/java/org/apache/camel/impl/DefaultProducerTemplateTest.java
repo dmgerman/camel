@@ -207,6 +207,16 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+name|assertSame
+argument_list|(
+name|context
+argument_list|,
+name|template
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testInOut ()
 specifier|public

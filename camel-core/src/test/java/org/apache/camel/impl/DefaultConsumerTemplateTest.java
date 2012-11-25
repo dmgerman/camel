@@ -198,6 +198,16 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertSame
+argument_list|(
+name|context
+argument_list|,
+name|consumer
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testConsumeTwiceReceive ()
 specifier|public
