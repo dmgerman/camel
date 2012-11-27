@@ -817,10 +817,12 @@ block|}
 block|}
 finally|finally
 block|{
-name|table
+name|tablePool
 operator|.
-name|close
-argument_list|()
+name|putTable
+argument_list|(
+name|table
+argument_list|)
 expr_stmt|;
 block|}
 block|}
