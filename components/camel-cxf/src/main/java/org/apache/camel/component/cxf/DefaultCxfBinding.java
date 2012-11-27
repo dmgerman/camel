@@ -1817,6 +1817,16 @@ name|Exchange
 name|cxfExchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|cxfExchange
+operator|.
+name|isOneWay
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// create response context
 name|Map
 argument_list|<
