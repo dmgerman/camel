@@ -285,6 +285,10 @@ block|{
 if|if
 condition|(
 name|thread
+operator|!=
+literal|null
+operator|&&
+name|thread
 operator|.
 name|getName
 argument_list|()
