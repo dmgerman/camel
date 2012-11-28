@@ -9796,13 +9796,17 @@ name|info
 argument_list|(
 literal|"Route: {} {}, was consuming from: {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|route
 operator|.
 name|getId
 argument_list|()
-argument_list|,
+block|,
 name|state
-argument_list|,
+block|,
 name|route
 operator|.
 name|getConsumer
@@ -9810,6 +9814,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}
