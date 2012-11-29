@@ -132,6 +132,24 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSendMessageToLogAllOff ()
+specifier|public
+name|void
+name|testSendMessageToLogAllOff
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"log:org.apache.camel.TEST?showBody=false&showBodyType=false&showExchangePattern=false"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSendMessageToLogSingleOptions ()
 specifier|public
 name|void
