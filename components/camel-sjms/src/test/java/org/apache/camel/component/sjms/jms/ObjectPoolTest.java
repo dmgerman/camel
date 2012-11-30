@@ -698,11 +698,7 @@ DECL|method|TestPool ()
 specifier|public
 name|TestPool
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{         }
 DECL|method|TestPool (int poolSize)
 specifier|public
 name|TestPool
@@ -758,6 +754,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|MyPooledObject
+specifier|static
 class|class
 name|MyPooledObject
 block|{
@@ -799,6 +796,7 @@ return|;
 block|}
 block|}
 DECL|class|BadTestPool
+specifier|static
 class|class
 name|BadTestPool
 extends|extends
@@ -835,9 +833,7 @@ name|t
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{         }
 block|}
 block|}
 end_class

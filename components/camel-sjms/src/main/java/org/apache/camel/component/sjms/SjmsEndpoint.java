@@ -98,18 +98,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|sjms
@@ -400,11 +388,7 @@ DECL|method|SjmsEndpoint ()
 specifier|public
 name|SjmsEndpoint
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|SjmsEndpoint (String uri, Component component)
 specifier|public
 name|SjmsEndpoint
@@ -616,8 +600,6 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|getExchangePattern
 argument_list|()
 operator|.
@@ -759,22 +741,6 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getSjmsComponent ()
-specifier|public
-name|SjmsComponent
-name|getSjmsComponent
-parameter_list|()
-block|{
-return|return
-operator|(
-name|SjmsComponent
-operator|)
-name|this
-operator|.
-name|getComponent
-argument_list|()
-return|;
-block|}
 DECL|method|getConnectionResource ()
 specifier|public
 name|ConnectionResource
@@ -782,9 +748,7 @@ name|getConnectionResource
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|getSjmsComponent
+name|getComponent
 argument_list|()
 operator|.
 name|getConnectionResource
@@ -798,7 +762,7 @@ name|getSjmsHeaderFilterStrategy
 parameter_list|()
 block|{
 return|return
-name|getSjmsComponent
+name|getComponent
 argument_list|()
 operator|.
 name|getHeaderFilterStrategy
@@ -812,7 +776,7 @@ name|getJmsKeyFormatStrategy
 parameter_list|()
 block|{
 return|return
-name|getSjmsComponent
+name|getComponent
 argument_list|()
 operator|.
 name|getKeyFormatStrategy

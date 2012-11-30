@@ -304,8 +304,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|this
-operator|.
 name|getCommitStrategy
 argument_list|()
 operator|!=
@@ -314,8 +312,6 @@ condition|)
 block|{
 name|commitStrategy
 operator|=
-name|this
-operator|.
 name|getCommitStrategy
 argument_list|()
 expr_stmt|;

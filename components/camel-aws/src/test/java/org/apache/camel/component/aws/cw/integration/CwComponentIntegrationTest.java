@@ -24,16 +24,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -164,11 +154,12 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|//@Ignore("Must be manually tested. Provide your own accessKey and secretKey!")
-end_comment
-
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Must be manually tested. Provide your own accessKey and secretKey!"
+argument_list|)
 DECL|class|CwComponentIntegrationTest
 specifier|public
 class|class
@@ -205,9 +196,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|Exchange
-name|exchange
-init|=
 name|template
 operator|.
 name|send
@@ -277,7 +265,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

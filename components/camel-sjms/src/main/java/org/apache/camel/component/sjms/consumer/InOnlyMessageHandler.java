@@ -242,8 +242,6 @@ operator|.
 name|getBody
 argument_list|()
 argument_list|,
-name|this
-operator|.
 name|getEndpoint
 argument_list|()
 operator|.
@@ -307,8 +305,6 @@ operator|.
 name|getBody
 argument_list|()
 argument_list|,
-name|this
-operator|.
 name|getEndpoint
 argument_list|()
 operator|.

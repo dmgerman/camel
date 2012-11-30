@@ -107,8 +107,6 @@ name|intValue
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|intValue
 return|;
 block|}

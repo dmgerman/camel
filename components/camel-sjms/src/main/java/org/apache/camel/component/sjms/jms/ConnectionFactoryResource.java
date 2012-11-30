@@ -96,11 +96,7 @@ DECL|method|ConnectionFactoryResource ()
 specifier|public
 name|ConnectionFactoryResource
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * TODO Add Constructor Javadoc      *       * @param poolSize      * @param connectionFactory      */
 DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory)
 specifier|public
@@ -229,8 +225,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|this
-operator|.
 name|borrowObject
 argument_list|()
 return|;
@@ -249,8 +243,6 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|this
-operator|.
 name|borrowObject
 argument_list|(
 name|timeout

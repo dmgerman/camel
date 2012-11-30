@@ -458,8 +458,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|this
-operator|.
 name|objects
 operator|.
 name|add

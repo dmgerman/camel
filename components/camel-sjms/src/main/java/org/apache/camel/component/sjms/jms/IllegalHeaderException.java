@@ -58,11 +58,7 @@ DECL|method|IllegalHeaderException ()
 specifier|public
 name|IllegalHeaderException
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * @param message      * @param cause      */
 DECL|method|IllegalHeaderException (String message, Throwable cause)
 specifier|public

@@ -417,7 +417,7 @@ condition|(
 name|isTransacted
 argument_list|()
 operator|||
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getExchangePattern
@@ -569,9 +569,6 @@ name|MessageConsumer
 name|messageConsumer
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|session
@@ -596,9 +593,6 @@ name|MessageConsumer
 name|messageConsumer
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|session
@@ -977,8 +971,6 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|getTransactionCommitStrategy
 argument_list|()
 operator|!=
@@ -987,8 +979,6 @@ condition|)
 block|{
 name|commitStrategy
 operator|=
-name|this
-operator|.
 name|getTransactionCommitStrategy
 argument_list|()
 expr_stmt|;
@@ -996,8 +986,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|this
-operator|.
 name|getTransactionBatchCount
 argument_list|()
 operator|>
@@ -1009,8 +997,6 @@ operator|=
 operator|new
 name|BatchTransactionCommitStrategy
 argument_list|(
-name|this
-operator|.
 name|getTransactionBatchCount
 argument_list|()
 argument_list|)
@@ -1081,7 +1067,7 @@ name|messageHandler
 decl_stmt|;
 if|if
 condition|(
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getExchangePattern
@@ -1210,22 +1196,6 @@ return|return
 name|messageHandler
 return|;
 block|}
-DECL|method|getSjmsEndpoint ()
-specifier|protected
-name|SjmsEndpoint
-name|getSjmsEndpoint
-parameter_list|()
-block|{
-return|return
-operator|(
-name|SjmsEndpoint
-operator|)
-name|this
-operator|.
-name|getEndpoint
-argument_list|()
-return|;
-block|}
 DECL|method|getConnectionResource ()
 specifier|protected
 name|ConnectionResource
@@ -1233,7 +1203,7 @@ name|getConnectionResource
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getConnectionResource
@@ -1247,7 +1217,7 @@ name|getSessionPool
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getSessions
@@ -1261,7 +1231,7 @@ name|getAcknowledgementMode
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getAcknowledgementMode
@@ -1279,7 +1249,7 @@ name|isTransacted
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|isTransacted
@@ -1294,7 +1264,7 @@ name|isSynchronous
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|isSynchronous
@@ -1309,7 +1279,7 @@ name|getDestinationName
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getDestinationName
@@ -1324,7 +1294,7 @@ name|getConsumerCount
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getConsumerCount
@@ -1339,7 +1309,7 @@ name|isTopic
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|isTopic
@@ -1354,7 +1324,7 @@ name|getMessageSelector
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getMessageSelector
@@ -1369,7 +1339,7 @@ name|getDurableSubscriptionId
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getDurableSubscriptionId
@@ -1384,7 +1354,7 @@ name|getTransactionCommitStrategy
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getTransactionCommitStrategy
@@ -1399,7 +1369,7 @@ name|getTransactionBatchCount
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getTransactionBatchCount
@@ -1414,7 +1384,7 @@ name|getTransactionBatchTimeout
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getTransactionBatchTimeout

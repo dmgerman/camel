@@ -271,8 +271,6 @@ name|clientQueueName
 argument_list|)
 decl_stmt|;
 comment|//Setup a message producer to send message to the queue the server is consuming from
-name|this
-operator|.
 name|producer
 operator|=
 name|session
@@ -282,8 +280,6 @@ argument_list|(
 name|adminQueue
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|producer
 operator|.
 name|setDeliveryMode
@@ -355,8 +351,6 @@ comment|//message somehow...a Map works good
 name|String
 name|correlationId
 init|=
-name|this
-operator|.
 name|createRandomString
 argument_list|()
 decl_stmt|;
@@ -367,8 +361,6 @@ argument_list|(
 name|correlationId
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|producer
 operator|.
 name|send

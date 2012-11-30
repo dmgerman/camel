@@ -275,9 +275,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Exchange
-name|exchange
-init|=
 name|template
 operator|.
 name|send
@@ -385,7 +382,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|ArgumentCaptor
 argument_list|<
 name|PutMetricDataRequest
@@ -532,9 +529,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Exchange
-name|exchange
-init|=
 name|template
 operator|.
 name|send
@@ -594,7 +588,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|ArgumentCaptor
 argument_list|<
 name|PutMetricDataRequest
@@ -681,9 +675,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Exchange
-name|exchange
-init|=
 name|template
 operator|.
 name|send
@@ -725,7 +716,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|ArgumentCaptor
 argument_list|<
 name|PutMetricDataRequest

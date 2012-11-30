@@ -57,9 +57,6 @@ specifier|public
 name|FixedDerbyDialect
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|registerColumnType
 argument_list|(
 name|Types

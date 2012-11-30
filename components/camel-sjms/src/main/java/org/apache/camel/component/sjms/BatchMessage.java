@@ -83,9 +83,6 @@ argument_list|>
 name|headers
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|payload

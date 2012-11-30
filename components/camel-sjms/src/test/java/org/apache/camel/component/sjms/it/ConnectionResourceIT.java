@@ -520,9 +520,6 @@ name|int
 name|maxConnections
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|pcf
 operator|=
 operator|new

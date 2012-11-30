@@ -219,8 +219,6 @@ name|getTransacted
 argument_list|()
 condition|)
 block|{
-name|this
-operator|.
 name|session
 operator|.
 name|rollback
@@ -297,8 +295,6 @@ name|getTransacted
 argument_list|()
 condition|)
 block|{
-name|this
-operator|.
 name|session
 operator|.
 name|commit

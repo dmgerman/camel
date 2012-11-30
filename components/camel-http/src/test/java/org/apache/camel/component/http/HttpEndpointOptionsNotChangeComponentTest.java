@@ -351,16 +351,7 @@ class|class
 name|MyHeaderFilterStrategy
 extends|extends
 name|HttpHeaderFilterStrategy
-block|{
-DECL|method|MyHeaderFilterStrategy ()
-name|MyHeaderFilterStrategy
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-block|}
+block|{     }
 block|}
 end_class
 

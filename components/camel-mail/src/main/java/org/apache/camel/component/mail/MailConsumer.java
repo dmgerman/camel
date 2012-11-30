@@ -130,18 +130,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|search
-operator|.
-name|FlagTerm
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -237,44 +225,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mail
-operator|.
-name|SearchTermBuilder
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mail
-operator|.
-name|SearchTermBuilder
-operator|.
-name|Op
-operator|.
-name|and
 import|;
 end_import
 

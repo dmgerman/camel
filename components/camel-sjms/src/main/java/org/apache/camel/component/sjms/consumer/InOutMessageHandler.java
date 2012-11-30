@@ -621,8 +621,6 @@ operator|.
 name|getBody
 argument_list|()
 argument_list|,
-name|this
-operator|.
 name|getEndpoint
 argument_list|()
 operator|.
@@ -685,8 +683,6 @@ operator|.
 name|getBody
 argument_list|()
 argument_list|,
-name|this
-operator|.
 name|getEndpoint
 argument_list|()
 operator|.
@@ -919,9 +915,6 @@ name|MessageProducer
 name|localProducer
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|exchange
