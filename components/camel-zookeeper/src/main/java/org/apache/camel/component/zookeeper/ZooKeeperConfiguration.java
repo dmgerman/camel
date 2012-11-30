@@ -453,10 +453,10 @@ return|return
 name|awaitExistence
 return|;
 block|}
-DECL|method|setAwaitExistance (boolean awaitExistence)
+DECL|method|setAwaitExistence (boolean awaitExistence)
 specifier|public
 name|void
-name|setAwaitExistance
+name|setAwaitExistence
 parameter_list|(
 name|boolean
 name|awaitExistence

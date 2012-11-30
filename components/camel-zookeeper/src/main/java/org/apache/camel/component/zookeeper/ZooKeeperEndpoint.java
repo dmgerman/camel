@@ -601,7 +601,7 @@ block|{
 name|getConfiguration
 argument_list|()
 operator|.
-name|setAwaitExistance
+name|setAwaitExistence
 argument_list|(
 name|awaitExistence
 argument_list|)
