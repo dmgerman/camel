@@ -4818,6 +4818,25 @@ name|initDefaultXPathFactory
 argument_list|()
 expr_stmt|;
 block|}
+comment|// force lazy creating default functions
+name|getBodyFunction
+argument_list|()
+expr_stmt|;
+name|getHeaderFunction
+argument_list|()
+expr_stmt|;
+name|getOutBodyFunction
+argument_list|()
+expr_stmt|;
+name|getOutHeaderFunction
+argument_list|()
+expr_stmt|;
+name|getPropertiesFunction
+argument_list|()
+expr_stmt|;
+name|getSimpleFunction
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|stop ()
 specifier|public
