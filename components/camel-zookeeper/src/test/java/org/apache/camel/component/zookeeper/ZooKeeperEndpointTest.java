@@ -45,19 +45,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZookeeperEndpointTest
+DECL|class|ZooKeeperEndpointTest
 specifier|public
 class|class
-name|ZookeeperEndpointTest
+name|ZooKeeperEndpointTest
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testAwaitExistenceOptionOnEndpoint ()
+DECL|method|awaitExistenceOptionOnEndpoint ()
 specifier|public
 name|void
-name|testAwaitExistenceOptionOnEndpoint
+name|awaitExistenceOptionOnEndpoint
 parameter_list|()
 block|{
 name|ZooKeeperEndpoint
@@ -76,7 +76,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The awaitExistance option defaults to true"
+literal|"The awaitExistence option defaults to true"
 argument_list|,
 name|endpoint
 operator|.
@@ -99,7 +99,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The awaitExistance option should be true"
+literal|"The awaitExistence option should be true"
 argument_list|,
 name|endpoint
 operator|.
@@ -122,7 +122,7 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"The awaitExistance option should be false"
+literal|"The awaitExistence option should be false"
 argument_list|,
 name|endpoint
 operator|.
