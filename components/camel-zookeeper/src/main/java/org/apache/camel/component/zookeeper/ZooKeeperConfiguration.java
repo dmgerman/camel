@@ -105,10 +105,10 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
-DECL|field|awaitCreation
+DECL|field|awaitExistence
 specifier|private
 name|boolean
-name|awaitCreation
+name|awaitExistence
 init|=
 literal|true
 decl_stmt|;
@@ -292,7 +292,6 @@ name|String
 name|getConnectString
 parameter_list|()
 block|{
-comment|// return StringHelper.toStringCommaSeparated(servers);
 name|StringBuilder
 name|b
 init|=
@@ -451,23 +450,23 @@ name|shouldAwaitExistence
 parameter_list|()
 block|{
 return|return
-name|awaitCreation
+name|awaitExistence
 return|;
 block|}
-DECL|method|setAwaitExistance (boolean awaitCreation)
+DECL|method|setAwaitExistance (boolean awaitExistence)
 specifier|public
 name|void
 name|setAwaitExistance
 parameter_list|(
 name|boolean
-name|awaitCreation
+name|awaitExistence
 parameter_list|)
 block|{
 name|this
 operator|.
-name|awaitCreation
+name|awaitExistence
 operator|=
-name|awaitCreation
+name|awaitExistence
 expr_stmt|;
 block|}
 DECL|method|getBackoff ()

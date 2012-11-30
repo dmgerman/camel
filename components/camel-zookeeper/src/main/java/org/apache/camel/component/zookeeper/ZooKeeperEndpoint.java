@@ -463,10 +463,6 @@ name|servers
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: check how to allow should to indicate getter of an attribute pair
-comment|//    public boolean shouldListChildren() {
-comment|//        return getConfiguration().listChildren();
-comment|//    }
 annotation|@
 name|ManagedAttribute
 DECL|method|getListChildren ()
@@ -503,9 +499,6 @@ name|listChildren
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    public boolean shouldCreate() {
-comment|//        return getConfiguration().shouldCreate();
-comment|//    }
 annotation|@
 name|ManagedAttribute
 DECL|method|getCreate ()
@@ -578,9 +571,6 @@ name|backoff
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    public boolean shouldAwaitExistence() {
-comment|//        return getConfiguration().shouldAwaitExistence();
-comment|//    }
 annotation|@
 name|ManagedAttribute
 DECL|method|getAwaitExistence ()
