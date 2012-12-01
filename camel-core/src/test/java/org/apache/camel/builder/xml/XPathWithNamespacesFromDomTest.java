@@ -142,6 +142,11 @@ argument_list|(
 name|builder
 argument_list|)
 expr_stmt|;
+name|builder
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|DefaultNamespaceContext
 name|namespaceContext
 init|=

@@ -90,6 +90,11 @@ argument_list|(
 literal|"/foo"
 argument_list|)
 decl_stmt|;
+name|builder
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|DefaultNamespaceContext
 name|context
 init|=
@@ -182,6 +187,11 @@ argument_list|,
 literal|"http://acme/cheese"
 argument_list|)
 decl_stmt|;
+name|builder
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|DefaultNamespaceContext
 name|context
 init|=
@@ -295,6 +305,11 @@ argument_list|,
 literal|"http://acme/bar"
 argument_list|)
 decl_stmt|;
+name|builder
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|DefaultNamespaceContext
 name|context
 init|=
@@ -461,6 +476,11 @@ argument_list|(
 literal|"/foo"
 argument_list|)
 decl_stmt|;
+name|builder
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|DefaultNamespaceContext
 name|context
 init|=
