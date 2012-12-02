@@ -9794,7 +9794,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Route: {} {}, was consuming from: {}"
+literal|"Route: {} is {}, was consuming from: {}"
 argument_list|,
 operator|new
 name|Object
@@ -9824,7 +9824,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Route: {} {}."
+literal|"Route: {} is {}."
 argument_list|,
 name|route
 operator|.
@@ -9869,7 +9869,7 @@ name|logRouteState
 argument_list|(
 name|route
 argument_list|,
-literal|"stoped"
+literal|"stopped"
 argument_list|)
 expr_stmt|;
 block|}

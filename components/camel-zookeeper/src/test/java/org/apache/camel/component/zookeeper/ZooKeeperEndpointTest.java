@@ -76,7 +76,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The awaitExistence option defaults to true"
+literal|"The awaitExistence option should default to true"
 argument_list|,
 name|endpoint
 operator|.
