@@ -75,11 +75,6 @@ extends|extends
 name|SimpleBeanFixture
 block|{
 annotation|@
-name|Ignore
-argument_list|(
-literal|"monitorNotificationLong.xml is missing!"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|counter ()
 specifier|public
