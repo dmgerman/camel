@@ -3840,7 +3840,7 @@ name|matches
 argument_list|()
 return|;
 block|}
-comment|/**      * Does all the expression match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a timeout occur      * which means<tt>false</tt> will be returned.      *<p/>      * The timeout value is by default 10 seconds. But it will use the highest<i>maximum result wait time</i>      * from the configured mocks, if such a value has been configured.      *<p/>      * This method is convenient to use in unit tests to have it adhere and wait      * as long as the mock endpoints.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to timeout      */
+comment|/**      * Does all the expressions match?      *<p/>      * This operation will wait until the match is<tt>true</tt> or otherwise a timeout occur      * which means<tt>false</tt> will be returned.      *<p/>      * The timeout value is by default 10 seconds. But it will use the highest<i>maximum result wait time</i>      * from the configured mocks, if such a value has been configured.      *<p/>      * This method is convenient to use in unit tests to have it adhere and wait      * as long as the mock endpoints.      *      * @return<tt>true</tt> if matching,<tt>false</tt> otherwise due to timeout      */
 DECL|method|matchesMockWaitTime ()
 specifier|public
 name|boolean
