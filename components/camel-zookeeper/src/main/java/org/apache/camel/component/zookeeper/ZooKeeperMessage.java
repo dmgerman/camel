@@ -165,6 +165,15 @@ name|ZOOKEEPER_EVENT_TYPE
 init|=
 literal|"CamelZookeeperEventType"
 decl_stmt|;
+DECL|field|ZOOKEEPER_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ZOOKEEPER_OPERATION
+init|=
+literal|"CamelZookeeperOperation"
+decl_stmt|;
 DECL|method|ZooKeeperMessage (String node, Stat statistics, WatchedEvent watchedEvent)
 specifier|public
 name|ZooKeeperMessage
