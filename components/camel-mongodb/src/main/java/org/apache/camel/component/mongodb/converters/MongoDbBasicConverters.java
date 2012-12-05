@@ -56,6 +56,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -149,6 +159,20 @@ operator|.
 name|converter
 operator|.
 name|IOConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
 import|;
 end_import
 
@@ -489,6 +513,21 @@ argument_list|(
 literal|"String -> DBObject conversion selected, but the following exception occurred. Returning null."
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// we need to make sure to close the input stream
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|,
+literal|"InputStream"
+argument_list|,
+name|LOG
 argument_list|)
 expr_stmt|;
 block|}
