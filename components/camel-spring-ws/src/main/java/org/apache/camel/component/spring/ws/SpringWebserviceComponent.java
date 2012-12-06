@@ -134,7 +134,7 @@ name|ws
 operator|.
 name|bean
 operator|.
-name|CamelEndpointMapping
+name|CamelSpringWSEndpointMapping
 import|;
 end_import
 
@@ -968,8 +968,8 @@ name|SpringWebserviceConfiguration
 name|configuration
 parameter_list|)
 block|{
-comment|// Obtain generic CamelEndpointMapping from registry
-name|CamelEndpointMapping
+comment|// Obtain generic CamelSpringWSEndpointMapping from registry
+name|CamelSpringWSEndpointMapping
 name|endpointMapping
 init|=
 name|resolveAndRemoveReferenceParameter
@@ -978,7 +978,7 @@ name|parameters
 argument_list|,
 literal|"endpointMapping"
 argument_list|,
-name|CamelEndpointMapping
+name|CamelSpringWSEndpointMapping
 operator|.
 name|class
 argument_list|,
@@ -1003,7 +1003,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No CamelEndpointMapping found in Spring ApplicationContext."
+literal|"No instance of CamelSpringWSEndpointMapping found in Spring ApplicationContext."
 operator|+
 literal|" This bean is required for Spring-WS consumer support (unless the 'spring-ws:beanname:' URI scheme is used)"
 argument_list|)

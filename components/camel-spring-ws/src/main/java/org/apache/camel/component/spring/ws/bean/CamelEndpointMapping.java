@@ -238,6 +238,18 @@ name|springframework
 operator|.
 name|util
 operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
 name|StringUtils
 import|;
 end_import
@@ -441,7 +453,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring {@link EndpointMapping} for mapping messages to corresponding Camel endpoints.  * This class needs to be registered in the Spring<tt>ApplicationContext</tt> when  * consuming messages using any of the following URI schemes:  *<p/>  *<ul>  *<li><tt>spring-ws:rootqname:</tt><br/>  * Equivalent to endpoint mappings specified through {@link org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping}  *<p/>  *<li><tt>spring-ws:soapaction:</tt><br/>  * Equivalent to endpoint mappings specified through {@link org.springframework.ws.soap.server.endpoint.mapping.SoapActionEndpointMapping}  *<p/>  *<li><tt>spring-ws:uri:</tt><br/>  * Equivalent to endpoint mappings specified through {@link org.springframework.ws.server.endpoint.mapping.UriEndpointMapping}  *<p/>  *<li><tt>spring-ws:xpathresult:</tt><br/>  * Equivalent to endpoint mappings specified through {@link org.springframework.ws.server.endpoint.mapping.XPathPayloadEndpointMapping}  *</ul>  *  * @see org.springframework.ws.server.endpoint.mapping.AbstractEndpointMapping  * @see org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping  * @see org.springframework.ws.server.endpoint.mapping.UriEndpointMapping  * @see org.springframework.ws.server.endpoint.mapping.XPathPayloadEndpointMapping  * @see org.springframework.ws.soap.server.endpoint.mapping.SoapActionEndpointMapping  */
+comment|/**  * Spring {@link EndpointMapping} for mapping messages to corresponding Camel  * endpoints. This class needs to be registered in the Spring  *<tt>ApplicationContext</tt> when consuming messages using any of the  * following URI schemes:  *<p/>  *<ul>  *<li><tt>spring-ws:rootqname:</tt><br/>  * Equivalent to endpoint mappings specified through  * {@link org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping}  *<p/>  *<li><tt>spring-ws:soapaction:</tt><br/>  * Equivalent to endpoint mappings specified through  * {@link org.springframework.ws.soap.server.endpoint.mapping.SoapActionEndpointMapping}  *<p/>  *<li><tt>spring-ws:uri:</tt><br/>  * Equivalent to endpoint mappings specified through  * {@link org.springframework.ws.server.endpoint.mapping.UriEndpointMapping}  *<p/>  *<li><tt>spring-ws:xpathresult:</tt><br/>  * Equivalent to endpoint mappings specified through  * {@link org.springframework.ws.server.endpoint.mapping.XPathPayloadEndpointMapping}  *</ul>  *   * @see org.springframework.ws.server.endpoint.mapping.AbstractEndpointMapping  * @see org.springframework.ws.server.endpoint.mapping.PayloadRootQNameEndpointMapping  * @see org.springframework.ws.server.endpoint.mapping.UriEndpointMapping  * @see org.springframework.ws.server.endpoint.mapping.XPathPayloadEndpointMapping  * @see org.springframework.ws.soap.server.endpoint.mapping.SoapActionEndpointMapping  */
 end_comment
 
 begin_class
@@ -453,6 +465,8 @@ extends|extends
 name|AbstractEndpointMapping
 implements|implements
 name|InitializingBean
+implements|,
+name|CamelSpringWSEndpointMapping
 block|{
 DECL|field|DOUBLE_QUOTE
 specifier|private
@@ -491,6 +505,19 @@ DECL|field|xmlConverter
 specifier|private
 name|XmlConverter
 name|xmlConverter
+decl_stmt|;
+DECL|field|actorsOrRoles
+specifier|private
+name|String
+index|[]
+name|actorsOrRoles
+decl_stmt|;
+DECL|field|isUltimateReceiver
+specifier|private
+name|boolean
+name|isUltimateReceiver
+init|=
+literal|true
 decl_stmt|;
 annotation|@
 name|Override
@@ -693,10 +720,12 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|interceptors
+argument_list|,
+name|actorsOrRoles
+argument_list|,
+name|isUltimateReceiver
 argument_list|)
 return|;
-comment|// possibly add support for SOAP actors/roles and ultimate
-comment|// receiver in the future
 block|}
 block|}
 block|}
@@ -965,7 +994,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Used by Camel Spring Web Services endpoint to register consumers      *      * @param key      unique consumer key      * @param endpoint consumer      */
+comment|/**      * Used by Camel Spring Web Services endpoint to register consumers      *       * @param key unique consumer key      * @param endpoint consumer      */
 DECL|method|addConsumer (EndpointMappingKey key, MessageEndpoint endpoint)
 specifier|public
 name|void
@@ -988,7 +1017,7 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Used by Camel Spring Web Services endpoint to unregister consumers      *      * @param key unique consumer key      */
+comment|/**      * Used by Camel Spring Web Services endpoint to unregister consumers      *       * @param key unique consumer key      */
 DECL|method|removeConsumer (Object key)
 specifier|public
 name|void
@@ -1006,7 +1035,7 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets the configured TransformerFactory      *      * @return instance of TransformerFactory      */
+comment|/**      * Gets the configured TransformerFactory      *       * @return instance of TransformerFactory      */
 DECL|method|getTransformerFactory ()
 specifier|public
 name|TransformerFactory
@@ -1017,7 +1046,7 @@ return|return
 name|transformerFactory
 return|;
 block|}
-comment|/**      * Optional setter to override default TransformerFactory      *      * @param transformerFactory non-default TransformerFactory      */
+comment|/**      * Optional setter to override default TransformerFactory      *       * @param transformerFactory non-default TransformerFactory      */
 DECL|method|setTransformerFactory (TransformerFactory transformerFactory)
 specifier|public
 name|void
@@ -1073,6 +1102,82 @@ name|newInstance
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+comment|/**      * @see {@link AbstractAddressingEndpointMapping}      * @param actorOrRole      */
+DECL|method|setActorOrRole (String actorOrRole)
+specifier|public
+specifier|final
+name|void
+name|setActorOrRole
+parameter_list|(
+name|String
+name|actorOrRole
+parameter_list|)
+block|{
+name|Assert
+operator|.
+name|notNull
+argument_list|(
+name|actorOrRole
+argument_list|,
+literal|"actorOrRole must not be null"
+argument_list|)
+expr_stmt|;
+name|actorsOrRoles
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+name|actorOrRole
+block|}
+expr_stmt|;
+block|}
+comment|/**      * @see {@link AbstractAddressingEndpointMapping}      * @param actorsOrRoles      */
+DECL|method|setActorsOrRoles (String[] actorsOrRoles)
+specifier|public
+specifier|final
+name|void
+name|setActorsOrRoles
+parameter_list|(
+name|String
+index|[]
+name|actorsOrRoles
+parameter_list|)
+block|{
+name|Assert
+operator|.
+name|notEmpty
+argument_list|(
+name|actorsOrRoles
+argument_list|,
+literal|"actorsOrRoles must not be empty"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|actorsOrRoles
+operator|=
+name|actorsOrRoles
+expr_stmt|;
+block|}
+comment|/**      * @see {@link AbstractAddressingEndpointMapping}      * @param ultimateReceiver      */
+DECL|method|setUltimateReceiver (boolean ultimateReceiver)
+specifier|public
+specifier|final
+name|void
+name|setUltimateReceiver
+parameter_list|(
+name|boolean
+name|ultimateReceiver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|isUltimateReceiver
+operator|=
+name|ultimateReceiver
+expr_stmt|;
 block|}
 block|}
 end_class
