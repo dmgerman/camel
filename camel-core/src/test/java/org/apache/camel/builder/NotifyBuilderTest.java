@@ -1629,6 +1629,11 @@ argument_list|,
 literal|"E"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1756,6 +1761,11 @@ argument_list|(
 literal|"direct:fail"
 argument_list|,
 literal|"G"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2332,6 +2342,11 @@ argument_list|,
 literal|"D"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2350,6 +2365,11 @@ argument_list|(
 literal|"direct:fail"
 argument_list|,
 literal|"E"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2724,6 +2744,11 @@ argument_list|,
 literal|"D"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2761,6 +2786,11 @@ argument_list|(
 literal|"direct:fail"
 argument_list|,
 literal|"F"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2810,6 +2840,11 @@ argument_list|(
 literal|"direct:fail"
 argument_list|,
 literal|"H"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
