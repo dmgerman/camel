@@ -20,6 +20,46 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|sql
+operator|.
+name|DriverManager
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|sql
+operator|.
+name|SQLException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|springframework
@@ -47,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Jms with JDBC idempotent consumer using XA test.  */
+comment|/**  * Jms with JDBC idempotent consumer test using XA.  */
 end_comment
 
 begin_class
@@ -58,6 +98,78 @@ name|FromJmsToJdbcIdempotentConsumerToJmsXaTest
 extends|extends
 name|FromJmsToJdbcIdempotentConsumerToJmsTest
 block|{
+annotation|@
+name|Override
+annotation|@
+name|Before
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/testdb"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+annotation|@
+name|After
+DECL|method|tearDown ()
+specifier|public
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+comment|// shutdown the embedded Derby database so that the next test becomes a clean initial state
+try|try
+block|{
+name|DriverManager
+operator|.
+name|getConnection
+argument_list|(
+literal|"jdbc:derby:target/testdb;shutdown=true"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SQLException
+name|e
+parameter_list|)
+block|{
+comment|// a successful shutdown always results in an SQLException to indicate that Derby has shut down and that there is no other exception.
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getDatasourceName ()
+specifier|protected
+name|String
+name|getDatasourceName
+parameter_list|()
+block|{
+return|return
+literal|"myXADataSource"
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createApplicationContext ()

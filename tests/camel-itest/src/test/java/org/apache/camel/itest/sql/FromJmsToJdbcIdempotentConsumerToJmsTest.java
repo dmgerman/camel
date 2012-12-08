@@ -260,7 +260,8 @@ argument_list|()
 operator|.
 name|lookup
 argument_list|(
-literal|"myNonXADataSource"
+name|getDatasourceName
+argument_list|()
 argument_list|,
 name|DataSource
 operator|.
@@ -280,6 +281,16 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getDatasourceName ()
+specifier|protected
+name|String
+name|getDatasourceName
+parameter_list|()
+block|{
+return|return
+literal|"myNonXADataSource"
+return|;
 block|}
 annotation|@
 name|Test
@@ -369,7 +380,7 @@ name|jdbcTemplate
 operator|.
 name|queryForInt
 argument_list|(
-literal|"select count(*) from  CAMEL_MESSAGEPROCESSED"
+literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -424,6 +435,7 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
+comment|// TODO: occasionally we get only 6 instead of 7 expected exchanges which's most probably an issue in AcitveMQ itself
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -515,7 +527,7 @@ name|jdbcTemplate
 operator|.
 name|queryForInt
 argument_list|(
-literal|"select count(*) from  CAMEL_MESSAGEPROCESSED"
+literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -669,7 +681,7 @@ name|jdbcTemplate
 operator|.
 name|queryForInt
 argument_list|(
-literal|"select count(*) from  CAMEL_MESSAGEPROCESSED"
+literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -816,7 +828,7 @@ name|jdbcTemplate
 operator|.
 name|queryForInt
 argument_list|(
-literal|"select count(*) from  CAMEL_MESSAGEPROCESSED"
+literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1017,7 +1029,7 @@ name|jdbcTemplate
 operator|.
 name|queryForInt
 argument_list|(
-literal|"select count(*) from  CAMEL_MESSAGEPROCESSED"
+literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1079,7 +1091,7 @@ name|jdbcTemplate
 operator|.
 name|queryForInt
 argument_list|(
-literal|"select count(*) from  CAMEL_MESSAGEPROCESSED"
+literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1112,11 +1124,6 @@ name|RouteBuilder
 argument_list|()
 block|{
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Override
 specifier|public
 name|void
@@ -1127,7 +1134,7 @@ name|Exception
 block|{
 name|IdempotentRepository
 argument_list|<
-name|String
+name|?
 argument_list|>
 name|repository
 init|=
