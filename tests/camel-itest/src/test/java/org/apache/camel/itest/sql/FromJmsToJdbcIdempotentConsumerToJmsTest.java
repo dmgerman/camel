@@ -435,7 +435,7 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
-comment|// TODO: occasionally we get only 6 instead of 7 expected exchanges which's most probably an issue in AcitveMQ itself
+comment|// TODO: occasionally we get only 6 instead of 7 expected exchanges which's most probably an issue in ActiveMQ itself
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"

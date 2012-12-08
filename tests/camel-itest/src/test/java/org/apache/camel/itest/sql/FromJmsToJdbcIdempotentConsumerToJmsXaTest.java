@@ -156,6 +156,16 @@ name|e
 parameter_list|)
 block|{
 comment|// a successful shutdown always results in an SQLException to indicate that Derby has shut down and that there is no other exception.
+name|assertEquals
+argument_list|(
+literal|"Database 'target/testdb' shutdown."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
