@@ -1413,11 +1413,6 @@ specifier|private
 name|ReflectionServiceFactoryBean
 name|serviceFactoryBean
 decl_stmt|;
-DECL|field|configurer
-specifier|private
-name|CxfEndpointConfigurer
-name|configurer
-decl_stmt|;
 DECL|method|CxfEndpoint (String remaining, CxfComponent cxfComponent)
 specifier|public
 name|CxfEndpoint
@@ -2266,23 +2261,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|getCxfEndpointConfigurer
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|getCxfEndpointConfigurer
-argument_list|()
-operator|.
-name|configure
-argument_list|(
-name|sfb
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Create a client factory bean object.  Notice that the serviceClass<b>must</b> be      * an interface.      */
 DECL|method|createClientFactoryBean (Class<?> cls)
@@ -3208,23 +3186,6 @@ name|getBus
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|getCxfEndpointConfigurer
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|getCxfEndpointConfigurer
-argument_list|()
-operator|.
-name|configure
-argument_list|(
-name|factoryBean
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// Package private methods
 comment|// -------------------------------------------------------------------------
@@ -5734,32 +5695,6 @@ operator|.
 name|serviceFactoryBean
 operator|=
 name|serviceFactoryBean
-expr_stmt|;
-block|}
-DECL|method|getCxfEndpointConfigurer ()
-specifier|public
-name|CxfEndpointConfigurer
-name|getCxfEndpointConfigurer
-parameter_list|()
-block|{
-return|return
-name|configurer
-return|;
-block|}
-DECL|method|setCxfEndpointConfigurer (CxfEndpointConfigurer configurer)
-specifier|public
-name|void
-name|setCxfEndpointConfigurer
-parameter_list|(
-name|CxfEndpointConfigurer
-name|configurer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|configurer
-operator|=
-name|configurer
 expr_stmt|;
 block|}
 block|}
