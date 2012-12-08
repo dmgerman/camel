@@ -1505,6 +1505,47 @@ name|antExclude
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets case sensitive flag on {@link org.apache.camel.component.file.AntPathMatcherFileFilter}      *<p/>      * Is by default turned on<tt>true</tt>.      */
+DECL|method|setAntFilterCaseSensitive (boolean antFilterCaseSensitive)
+specifier|public
+name|void
+name|setAntFilterCaseSensitive
+parameter_list|(
+name|boolean
+name|antFilterCaseSensitive
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|antFilter
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|antFilter
+operator|=
+operator|new
+name|AntPathMatcherGenericFileFilter
+argument_list|<
+name|T
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+name|this
+operator|.
+name|antFilter
+operator|.
+name|setCaseSensitive
+argument_list|(
+name|antFilterCaseSensitive
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getAntFilter ()
 specifier|public
 name|GenericFileFilter

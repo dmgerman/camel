@@ -122,6 +122,13 @@ name|String
 index|[]
 name|includes
 decl_stmt|;
+DECL|field|caseSensitive
+specifier|private
+name|boolean
+name|caseSensitive
+init|=
+literal|true
+decl_stmt|;
 DECL|method|accept (File pathname)
 specifier|public
 name|boolean
@@ -199,6 +206,8 @@ argument_list|(
 name|exclude
 argument_list|,
 name|path
+argument_list|,
+name|caseSensitive
 argument_list|)
 condition|)
 block|{
@@ -242,6 +251,8 @@ argument_list|(
 name|include
 argument_list|,
 name|path
+argument_list|,
+name|caseSensitive
 argument_list|)
 condition|)
 block|{
@@ -281,6 +292,34 @@ comment|// nothing to include so we can't accept it
 return|return
 literal|false
 return|;
+block|}
+comment|/**      *      * @return<tt>true</tt> if case sensitive pattern matching is on,      *<tt>false</tt> if case sensitive pattern matching is off.      */
+DECL|method|isCaseSensitive ()
+specifier|public
+name|boolean
+name|isCaseSensitive
+parameter_list|()
+block|{
+return|return
+name|caseSensitive
+return|;
+block|}
+comment|/**      * Sets Whether or not pattern matching should be case sensitive      *<p/>      * Is by default turned on<tt>true</tt>.      * @param caseSensitive<tt>false</tt> to disable case sensitive pattern matching      */
+DECL|method|setCaseSensitive (boolean caseSensitive)
+specifier|public
+name|void
+name|setCaseSensitive
+parameter_list|(
+name|boolean
+name|caseSensitive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|caseSensitive
+operator|=
+name|caseSensitive
+expr_stmt|;
 block|}
 DECL|method|getExcludes ()
 specifier|public

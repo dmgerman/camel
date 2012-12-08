@@ -219,6 +219,37 @@ name|includes
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets case sensitive flag on {@link org.apache.camel.component.file.AntPathMatcherFileFilter}      *<p/>      * Is by default turned on<tt>true</tt>.      */
+DECL|method|setCaseSensitive (boolean caseSensitive)
+specifier|public
+name|void
+name|setCaseSensitive
+parameter_list|(
+name|boolean
+name|caseSensitive
+parameter_list|)
+block|{
+name|filter
+operator|.
+name|setCaseSensitive
+argument_list|(
+name|caseSensitive
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isCaseSensitive ()
+specifier|public
+name|boolean
+name|isCaseSensitive
+parameter_list|()
+block|{
+return|return
+name|filter
+operator|.
+name|isCaseSensitive
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

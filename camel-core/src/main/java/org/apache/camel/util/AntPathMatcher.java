@@ -140,7 +140,7 @@ name|path
 parameter_list|)
 block|{
 return|return
-name|doMatch
+name|match
 argument_list|(
 name|pattern
 argument_list|,
@@ -163,6 +163,60 @@ name|path
 parameter_list|)
 block|{
 return|return
+name|matchStart
+argument_list|(
+name|pattern
+argument_list|,
+name|path
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+DECL|method|match (String pattern, String path, boolean isCaseSensitive)
+specifier|public
+name|boolean
+name|match
+parameter_list|(
+name|String
+name|pattern
+parameter_list|,
+name|String
+name|path
+parameter_list|,
+name|boolean
+name|isCaseSensitive
+parameter_list|)
+block|{
+return|return
+name|doMatch
+argument_list|(
+name|pattern
+argument_list|,
+name|path
+argument_list|,
+literal|true
+argument_list|,
+name|isCaseSensitive
+argument_list|)
+return|;
+block|}
+DECL|method|matchStart (String pattern, String path, boolean isCaseSensitive)
+specifier|public
+name|boolean
+name|matchStart
+parameter_list|(
+name|String
+name|pattern
+parameter_list|,
+name|String
+name|path
+parameter_list|,
+name|boolean
+name|isCaseSensitive
+parameter_list|)
+block|{
+return|return
 name|doMatch
 argument_list|(
 name|pattern
@@ -170,11 +224,13 @@ argument_list|,
 name|path
 argument_list|,
 literal|false
+argument_list|,
+name|isCaseSensitive
 argument_list|)
 return|;
 block|}
-comment|/**      * Actually match the given<code>path</code> against the given      *<code>pattern</code>.      *       * @param pattern the pattern to match against      * @param path the path String to test      * @param fullMatch whether a full pattern match is required (else a pattern      *            match as far as the given base path goes is sufficient)      * @return<code>true</code> if the supplied<code>path</code> matched,      *<code>false</code> if it didn't      */
-DECL|method|doMatch (String pattern, String path, boolean fullMatch)
+comment|/**      * Actually match the given<code>path</code> against the given      *<code>pattern</code>.      *       * @param pattern the pattern to match against      * @param path the path String to test      * @param fullMatch whether a full pattern match is required (else a pattern      *            match as far as the given base path goes is sufficient)      * @param isCaseSensitive Whether or not matching should be performed      *                        case sensitively.      * @return<code>true</code> if the supplied<code>path</code> matched,      *<code>false</code> if it didn't      */
+DECL|method|doMatch (String pattern, String path, boolean fullMatch, boolean isCaseSensitive)
 specifier|protected
 name|boolean
 name|doMatch
@@ -187,6 +243,9 @@ name|path
 parameter_list|,
 name|boolean
 name|fullMatch
+parameter_list|,
+name|boolean
+name|isCaseSensitive
 parameter_list|)
 block|{
 if|if
@@ -311,6 +370,8 @@ name|pathDirs
 index|[
 name|pathIdxStart
 index|]
+argument_list|,
+name|isCaseSensitive
 argument_list|)
 condition|)
 block|{
@@ -526,6 +587,8 @@ name|pathDirs
 index|[
 name|pathIdxEnd
 index|]
+argument_list|,
+name|isCaseSensitive
 argument_list|)
 condition|)
 block|{
@@ -747,6 +810,8 @@ argument_list|(
 name|subPat
 argument_list|,
 name|subStr
+argument_list|,
+name|isCaseSensitive
 argument_list|)
 condition|)
 block|{
@@ -824,8 +889,8 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Tests whether or not a string matches against a pattern. The pattern may      * contain two special characters:<br>      * '*' means zero or more characters<br>      * '?' means one and only one character      *       * @param pattern pattern to match against. Must not be<code>null</code>.      * @param str string which must be matched against the pattern. Must not be      *<code>null</code>.      * @return<code>true</code> if the string matches against the pattern, or      *<code>false</code> otherwise.      */
-DECL|method|matchStrings (String pattern, String str)
+comment|/**      * Tests whether or not a string matches against a pattern. The pattern may      * contain two special characters:<br>      * '*' means zero or more characters<br>      * '?' means one and only one character      *       * @param pattern pattern to match against. Must not be<code>null</code>.      * @param str string which must be matched against the pattern. Must not be      *<code>null</code>.      * @param caseSensitive Whether or not matching should be performed      *                      case sensitively.      * @return<code>true</code> if the string matches against the pattern, or      *<code>false</code> otherwise.      */
+DECL|method|matchStrings (String pattern, String str, boolean caseSensitive)
 specifier|private
 name|boolean
 name|matchStrings
@@ -835,6 +900,9 @@ name|pattern
 parameter_list|,
 name|String
 name|str
+parameter_list|,
+name|boolean
+name|caseSensitive
 parameter_list|)
 block|{
 name|char
@@ -963,12 +1031,17 @@ condition|)
 block|{
 if|if
 condition|(
+name|different
+argument_list|(
+name|caseSensitive
+argument_list|,
 name|ch
-operator|!=
+argument_list|,
 name|strArr
 index|[
 name|i
 index|]
+argument_list|)
 condition|)
 block|{
 return|return
@@ -1023,12 +1096,17 @@ condition|)
 block|{
 if|if
 condition|(
+name|different
+argument_list|(
+name|caseSensitive
+argument_list|,
 name|ch
-operator|!=
+argument_list|,
 name|strArr
 index|[
 name|strIdxStart
 index|]
+argument_list|)
 condition|)
 block|{
 return|return
@@ -1115,12 +1193,17 @@ condition|)
 block|{
 if|if
 condition|(
+name|different
+argument_list|(
+name|caseSensitive
+argument_list|,
 name|ch
-operator|!=
+argument_list|,
 name|strArr
 index|[
 name|strIdxEnd
 index|]
+argument_list|)
 condition|)
 block|{
 return|return
@@ -1327,8 +1410,12 @@ condition|)
 block|{
 if|if
 condition|(
+name|different
+argument_list|(
+name|caseSensitive
+argument_list|,
 name|ch
-operator|!=
+argument_list|,
 name|strArr
 index|[
 name|strIdxStart
@@ -1337,6 +1424,7 @@ name|i
 operator|+
 name|j
 index|]
+argument_list|)
 condition|)
 block|{
 continue|continue
@@ -1734,6 +1822,44 @@ operator|.
 name|size
 argument_list|()
 index|]
+argument_list|)
+return|;
+block|}
+DECL|method|different (boolean caseSensitive, char ch, char other)
+specifier|private
+specifier|static
+name|boolean
+name|different
+parameter_list|(
+name|boolean
+name|caseSensitive
+parameter_list|,
+name|char
+name|ch
+parameter_list|,
+name|char
+name|other
+parameter_list|)
+block|{
+return|return
+name|caseSensitive
+condition|?
+name|ch
+operator|!=
+name|other
+else|:
+name|Character
+operator|.
+name|toUpperCase
+argument_list|(
+name|ch
+argument_list|)
+operator|!=
+name|Character
+operator|.
+name|toUpperCase
+argument_list|(
+name|other
 argument_list|)
 return|;
 block|}
