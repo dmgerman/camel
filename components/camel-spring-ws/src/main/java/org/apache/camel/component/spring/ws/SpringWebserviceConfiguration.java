@@ -214,11 +214,43 @@ name|soap
 operator|.
 name|addressing
 operator|.
+name|messageid
+operator|.
+name|MessageIdStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|ws
+operator|.
+name|soap
+operator|.
+name|addressing
+operator|.
 name|server
 operator|.
 name|annotation
 operator|.
 name|Action
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|ws
+operator|.
+name|transport
+operator|.
+name|WebServiceMessageSender
 import|;
 end_import
 
@@ -263,6 +295,16 @@ DECL|field|replyTo
 specifier|private
 name|URI
 name|replyTo
+decl_stmt|;
+DECL|field|replyToMessageSender
+specifier|private
+name|WebServiceMessageSender
+name|replyToMessageSender
+decl_stmt|;
+DECL|field|messageIdStrategy
+specifier|private
+name|MessageIdStrategy
+name|messageIdStrategy
 decl_stmt|;
 DECL|field|timeout
 specifier|private
@@ -1010,6 +1052,62 @@ operator|.
 name|replyTo
 operator|=
 name|replyToAction
+expr_stmt|;
+block|}
+comment|/** * @return Returns the replyToMessageSender for wsa:replyTo.      */
+DECL|method|getMessageSender ()
+specifier|public
+name|WebServiceMessageSender
+name|getMessageSender
+parameter_list|()
+block|{
+return|return
+name|replyToMessageSender
+return|;
+block|}
+comment|/**      * @param replyToMessageSender The replyToMessageSender for wsa:replyTo to set.      */
+DECL|method|setMessageSender (WebServiceMessageSender messageSender)
+specifier|public
+name|void
+name|setMessageSender
+parameter_list|(
+name|WebServiceMessageSender
+name|messageSender
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToMessageSender
+operator|=
+name|messageSender
+expr_stmt|;
+block|}
+comment|/** * @return Returns the messageIdStrategy.      */
+DECL|method|getMessageIdStrategy ()
+specifier|public
+name|MessageIdStrategy
+name|getMessageIdStrategy
+parameter_list|()
+block|{
+return|return
+name|messageIdStrategy
+return|;
+block|}
+comment|/**      * @param messageIdStrategy The messageIdStrategy to set.      */
+DECL|method|setMessageIdStrategy (MessageIdStrategy messageIdStrategy)
+specifier|public
+name|void
+name|setMessageIdStrategy
+parameter_list|(
+name|MessageIdStrategy
+name|messageIdStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageIdStrategy
+operator|=
+name|messageIdStrategy
 expr_stmt|;
 block|}
 block|}
