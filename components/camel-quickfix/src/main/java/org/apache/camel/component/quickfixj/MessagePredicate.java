@@ -40,6 +40,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
 name|quickfix
 operator|.
 name|Field
@@ -215,14 +229,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|value
-operator|!=
-literal|null
-operator|&&
 operator|!
-literal|""
+name|ObjectHelper
 operator|.
-name|equals
+name|isEmpty
 argument_list|(
 name|value
 argument_list|)
@@ -334,7 +344,13 @@ name|FieldNotFound
 name|e
 parameter_list|)
 block|{
-comment|// ignored, shouldn't happen
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(

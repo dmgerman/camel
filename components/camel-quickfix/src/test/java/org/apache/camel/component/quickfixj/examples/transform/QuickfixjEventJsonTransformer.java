@@ -128,9 +128,6 @@ block|{
 name|SessionID
 name|sessionID
 init|=
-operator|(
-name|SessionID
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -141,6 +138,10 @@ argument_list|(
 name|QuickfixjEndpoint
 operator|.
 name|SESSION_ID_KEY
+argument_list|,
+name|SessionID
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|Session

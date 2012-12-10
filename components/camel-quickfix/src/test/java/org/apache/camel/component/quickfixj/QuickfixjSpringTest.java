@@ -424,11 +424,6 @@ argument_list|)
 return|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 DECL|class|CustomNewOrderSingle
 specifier|public
 specifier|static
@@ -436,7 +431,17 @@ class|class
 name|CustomNewOrderSingle
 extends|extends
 name|NewOrderSingle
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 block|}
 end_class
 

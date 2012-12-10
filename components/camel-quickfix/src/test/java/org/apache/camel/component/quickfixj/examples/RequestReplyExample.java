@@ -46,7 +46,7 @@ name|java
 operator|.
 name|net
 operator|.
-name|HttpURLConnection
+name|URL
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|java
 operator|.
 name|net
 operator|.
-name|URL
+name|URLConnection
 import|;
 end_import
 
@@ -157,22 +157,6 @@ operator|.
 name|quickfixj
 operator|.
 name|MessagePredicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|quickfixj
-operator|.
-name|QuickfixjComponent
 import|;
 end_import
 
@@ -485,7 +469,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|QuickfixjComponent
+name|RequestReplyExample
 operator|.
 name|class
 argument_list|)
@@ -714,12 +698,9 @@ operator|+
 literal|"?sessionID=FIX.4.2:TRADER->MARKET&orderID=abc"
 argument_list|)
 decl_stmt|;
-name|HttpURLConnection
+name|URLConnection
 name|connection
 init|=
-operator|(
-name|HttpURLConnection
-operator|)
 name|orderStatusUrl
 operator|.
 name|openConnection
@@ -859,28 +840,16 @@ parameter_list|)
 throws|throws
 name|FieldNotFound
 block|{
+comment|// For the reply take the reverse sessionID into the account, that's the reverse of
+comment|// exchange.getIn().getHeader("sessionID", String.class) which is equal to "FIX.4.2:TRADER->MARKET"
 name|String
 name|sessionID
 init|=
-operator|(
-name|String
-operator|)
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"sessionID"
-argument_list|)
+literal|"FIX.4.2:MARKET->TRADER"
 decl_stmt|;
 name|String
 name|orderID
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -889,6 +858,10 @@ operator|.
 name|getHeader
 argument_list|(
 literal|"orderID"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|OrderStatusRequest
@@ -951,7 +924,7 @@ argument_list|)
 argument_list|,
 name|MsgType
 operator|.
-name|EXECUTION_REPORT
+name|ORDER_STATUS_REQUEST
 argument_list|)
 operator|.
 name|withField
@@ -1000,7 +973,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|QuickfixjComponent
+name|MarketOrderStatusService
 operator|.
 name|class
 argument_list|)
