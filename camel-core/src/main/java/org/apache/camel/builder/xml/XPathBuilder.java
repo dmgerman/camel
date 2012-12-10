@@ -404,18 +404,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|WrappedFile
 import|;
 end_import
@@ -475,6 +463,20 @@ operator|.
 name|spi
 operator|.
 name|NamespaceAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -653,14 +655,14 @@ DECL|class|XPathBuilder
 specifier|public
 class|class
 name|XPathBuilder
+extends|extends
+name|ServiceSupport
 implements|implements
 name|Expression
 implements|,
 name|Predicate
 implements|,
 name|NamespaceAware
-implements|,
-name|Service
 block|{
 DECL|field|LOG
 specifier|private
@@ -4800,10 +4802,12 @@ return|return
 name|variableResolver
 return|;
 block|}
-DECL|method|start ()
+annotation|@
+name|Override
+DECL|method|doStart ()
 specifier|public
 name|void
-name|start
+name|doStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -4950,10 +4954,12 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|stop ()
+annotation|@
+name|Override
+DECL|method|doStop ()
 specifier|public
 name|void
-name|stop
+name|doStop
 parameter_list|()
 throws|throws
 name|Exception
