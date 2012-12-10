@@ -298,7 +298,6 @@ name|ChannelFutureListener
 name|listener
 parameter_list|)
 block|{
-comment|// the write operation is asynchronous. Use future to wait until the session has been written
 name|ChannelFuture
 name|future
 decl_stmt|;
@@ -385,6 +384,13 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|listener
+operator|!=
+literal|null
+condition|)
+block|{
 name|future
 operator|.
 name|addListener
@@ -393,7 +399,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Closes the given channel      *      * @param channel the channel to close      */
+block|}
+comment|/**      * Closes the given channel asynchronously      *      * @param channel the channel to close      */
 DECL|method|close (Channel channel)
 specifier|public
 specifier|static
@@ -423,9 +430,6 @@ expr_stmt|;
 name|channel
 operator|.
 name|close
-argument_list|()
-operator|.
-name|awaitUninterruptibly
 argument_list|()
 expr_stmt|;
 block|}
