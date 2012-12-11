@@ -408,7 +408,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"unable to determine column widths from null Iterable<CamelContext>"
+literal|"Unable to determine column widths from null Iterable<CamelContext>"
 argument_list|)
 throw|;
 block|}

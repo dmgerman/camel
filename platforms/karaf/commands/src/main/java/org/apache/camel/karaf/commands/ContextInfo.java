@@ -453,6 +453,29 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// the statistics are in the mbeans
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\u001B[1mStatistics\u001B[0m"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ObjectName
 name|contextMBean
 init|=
@@ -1131,7 +1154,7 @@ name|StringEscapeUtils
 operator|.
 name|unescapeJava
 argument_list|(
-literal|"\u001B[31mJMX Agent of Camel is not reachable. Maybe it has been disabled on the camel Context"
+literal|"\u001B[31mJMX Agent of Camel is not reachable. Maybe it has been disabled on the Camel context"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1145,7 +1168,7 @@ name|StringEscapeUtils
 operator|.
 name|unescapeJava
 argument_list|(
-literal|"In consequence, the statistics are not available.\u001B[0m"
+literal|"In consequence, some statistics are not available.\u001B[0m"
 argument_list|)
 argument_list|)
 expr_stmt|;
