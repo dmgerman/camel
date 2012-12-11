@@ -831,6 +831,22 @@ specifier|static
 class|class
 name|OrderStatusRequestTransformer
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|OrderStatusRequestTransformer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|transform (Exchange exchange)
 specifier|public
 name|void
@@ -842,13 +858,40 @@ parameter_list|)
 throws|throws
 name|FieldNotFound
 block|{
-comment|// For the reply take the reverse sessionID into the account, that's the reverse of
-comment|// exchange.getIn().getHeader("sessionID", String.class) which is equal to "FIX.4.2:TRADER->MARKET"
+comment|// For the reply take the reverse sessionID into the account, see org.apache.camel.component.quickfixj.MessagePredicate
 name|String
-name|sessionID
+name|requestSessionID
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"sessionID"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|String
+name|replySessionID
 init|=
 literal|"FIX.4.2:MARKET->TRADER"
 decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Given the requestSessionID '{}' calculated the replySessionID as '{}'"
+argument_list|,
+name|requestSessionID
+argument_list|,
+name|replySessionID
+argument_list|)
+expr_stmt|;
 name|String
 name|orderID
 init|=
@@ -921,7 +964,7 @@ argument_list|(
 operator|new
 name|SessionID
 argument_list|(
-name|sessionID
+name|replySessionID
 argument_list|)
 argument_list|,
 name|MsgType
