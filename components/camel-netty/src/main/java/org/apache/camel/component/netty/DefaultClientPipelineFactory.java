@@ -193,6 +193,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|producer
 specifier|private
+specifier|final
 name|NettyProducer
 name|producer
 decl_stmt|;

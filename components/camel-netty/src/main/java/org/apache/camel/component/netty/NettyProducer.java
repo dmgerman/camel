@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -318,20 +330,6 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelLocal
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
 name|group
 operator|.
 name|ChannelGroup
@@ -519,22 +517,6 @@ DECL|field|workerExecutor
 specifier|private
 name|ExecutorService
 name|workerExecutor
-decl_stmt|;
-DECL|field|state
-specifier|private
-specifier|final
-name|ChannelLocal
-argument_list|<
-name|NettyCamelState
-argument_list|>
-name|state
-init|=
-operator|new
-name|ChannelLocal
-argument_list|<
-name|NettyCamelState
-argument_list|>
-argument_list|()
 decl_stmt|;
 DECL|field|pool
 specifier|private
@@ -1239,6 +1221,38 @@ return|return
 literal|true
 return|;
 block|}
+comment|// we must have a channel
+if|if
+condition|(
+name|existing
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Cannot get channel from pool"
+argument_list|,
+name|exchange
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 comment|// need to declare as final
 specifier|final
 name|Channel
@@ -1258,14 +1272,11 @@ argument_list|,
 name|callback
 argument_list|)
 decl_stmt|;
-comment|// setup state now we have the channel we can do this because
-comment|// this producer is not thread safe, but pooled using ServicePoolAware
-name|state
-operator|.
-name|set
-argument_list|(
+comment|// setup state as attachment on the channel, so we can access the state later when needed
 name|channel
-argument_list|,
+operator|.
+name|setAttachment
+argument_list|(
 operator|new
 name|NettyCamelState
 argument_list|(
@@ -1490,7 +1501,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * To get the {@link NettyCamelState} from this producer.      */
+comment|/**      * To get the {@link NettyCamelState} from the given channel.      */
 DECL|method|getState (Channel channel)
 specifier|public
 name|NettyCamelState
@@ -1501,15 +1512,16 @@ name|channel
 parameter_list|)
 block|{
 return|return
-name|state
-operator|.
-name|get
-argument_list|(
+operator|(
+name|NettyCamelState
+operator|)
 name|channel
-argument_list|)
+operator|.
+name|getAttachment
+argument_list|()
 return|;
 block|}
-comment|/**      * To remove the {@link NettyCamelState} stored on this producer,      * when no longer needed      */
+comment|/**      * To remove the {@link NettyCamelState} stored on the channel,      * when no longer needed      */
 DECL|method|removeState (Channel channel)
 specifier|public
 name|void
@@ -1519,11 +1531,11 @@ name|Channel
 name|channel
 parameter_list|)
 block|{
-name|state
-operator|.
-name|remove
-argument_list|(
 name|channel
+operator|.
+name|setAttachment
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1694,6 +1706,7 @@ name|isTcp
 argument_list|()
 condition|)
 block|{
+comment|// its okay to create a new bootstrap for each new channel
 name|ClientBootstrap
 name|clientBootstrap
 init|=
@@ -1803,6 +1816,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// its okay to create a new bootstrap for each new channel
 name|ConnectionlessBootstrap
 name|connectionlessClientBootstrap
 init|=
