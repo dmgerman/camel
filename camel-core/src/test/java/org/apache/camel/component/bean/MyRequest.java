@@ -18,38 +18,22 @@ name|bean
 package|;
 end_package
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
-begin_interface
-DECL|interface|MyService
+begin_class
+DECL|class|MyRequest
 specifier|public
-interface|interface
-name|MyService
-block|{
-DECL|method|method (String in)
-name|String
-name|method
-parameter_list|(
-name|String
-name|in
-parameter_list|)
-throws|throws
-name|MyApplicationException
-function_decl|;
-DECL|method|call (MyRequest in)
-name|MyResponse
-name|call
-parameter_list|(
+class|class
 name|MyRequest
-name|in
-parameter_list|)
-throws|throws
-name|MyApplicationException
-function_decl|;
+block|{
+DECL|field|id
+name|int
+name|id
+decl_stmt|;
+DECL|field|request
+name|String
+name|request
+decl_stmt|;
 block|}
-end_interface
+end_class
 
 end_unit
 
