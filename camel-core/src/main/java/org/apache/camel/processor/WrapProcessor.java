@@ -46,18 +46,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Traceable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -65,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which ensures wrapping processors is having lifecycle handled.  */
+comment|/**  * A processor which ensures wrapping processors is having lifecycle handled.  *  * @version   */
 end_comment
 
 begin_class
@@ -75,8 +63,6 @@ class|class
 name|WrapProcessor
 extends|extends
 name|DelegateAsyncProcessor
-implements|implements
-name|Traceable
 block|{
 DECL|field|wrapped
 specifier|private
@@ -123,20 +109,6 @@ operator|+
 literal|"] -> "
 operator|+
 name|processor
-return|;
-block|}
-DECL|method|getTraceLabel ()
-specifier|public
-name|String
-name|getTraceLabel
-parameter_list|()
-block|{
-return|return
-literal|"wrap["
-operator|+
-name|wrapped
-operator|+
-literal|"]"
 return|;
 block|}
 annotation|@
