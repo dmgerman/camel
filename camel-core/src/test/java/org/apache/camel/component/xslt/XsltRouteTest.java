@@ -96,10 +96,6 @@ name|JndiRegistry
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|XsltRouteTest
 specifier|public
@@ -108,11 +104,45 @@ name|XsltRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testSendMessageAndHaveItTransformed ()
+DECL|method|testSendStringMessage ()
 specifier|public
 name|void
-name|testSendMessageAndHaveItTransformed
+name|testSendStringMessage
 parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|sendMessageAndHaveItTransformed
+argument_list|(
+literal|"<mail><subject>Hey</subject><body>Hello world!</body></mail>"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSendBytesMessage ()
+specifier|public
+name|void
+name|testSendBytesMessage
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|sendMessageAndHaveItTransformed
+argument_list|(
+literal|"<mail><subject>Hey</subject><body>Hello world!</body></mail>"
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|sendMessageAndHaveItTransformed (Object body)
+specifier|private
+name|void
+name|sendMessageAndHaveItTransformed
+parameter_list|(
+name|Object
+name|body
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -137,7 +167,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<mail><subject>Hey</subject><body>Hello world!</body></mail>"
+name|body
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
