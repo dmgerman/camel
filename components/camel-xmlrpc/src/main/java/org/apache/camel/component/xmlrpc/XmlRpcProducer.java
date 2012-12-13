@@ -250,6 +250,23 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|//TODO what if the request is one way operation
+comment|// copy the in message header to the out message
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getOut
