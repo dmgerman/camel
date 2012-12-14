@@ -258,6 +258,21 @@ argument_list|>
 name|processor
 parameter_list|)
 block|{
+if|if
+condition|(
+name|id
+operator|.
+name|equals
+argument_list|(
+literal|"*"
+argument_list|)
+condition|)
+block|{
+comment|// make sure the processor which id isn't be set is matched.
+return|return
+literal|true
+return|;
+block|}
 return|return
 name|EndpointHelper
 operator|.
