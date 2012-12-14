@@ -102,7 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Body
+name|CamelContext
 import|;
 end_import
 
@@ -523,7 +523,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DefaultCamelContext
+specifier|final
+name|CamelContext
 name|context
 init|=
 operator|new
@@ -1162,7 +1163,7 @@ specifier|static
 class|class
 name|FixSessionRouter
 block|{
-DECL|method|route (@eaderR) String sessionID, @Body Object body)
+DECL|method|route (@eaderR) String sessionID)
 specifier|public
 name|String
 name|route
@@ -1174,11 +1175,6 @@ literal|"sessionID"
 argument_list|)
 name|String
 name|sessionID
-parameter_list|,
-annotation|@
-name|Body
-name|Object
-name|body
 parameter_list|)
 block|{
 return|return
