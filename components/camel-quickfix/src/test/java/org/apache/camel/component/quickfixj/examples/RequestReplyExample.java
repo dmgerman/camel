@@ -224,6 +224,26 @@ name|examples
 operator|.
 name|transform
 operator|.
+name|QuickfixjMessageJsonPrinter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|quickfixj
+operator|.
+name|examples
+operator|.
+name|transform
+operator|.
 name|QuickfixjMessageJsonTransformer
 import|;
 end_import
@@ -576,11 +596,11 @@ name|logonLatch
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Incoming status requests are converted to InOut exchange pattern and passed to the
-comment|// order status service. The response is sent back to the session making the request.
+comment|// Incoming status requests are passed to the order status service and afterwards we print out that
+comment|// order status being delivered using the json printer.
 name|from
 argument_list|(
-literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER&exchangePattern=InOut"
+literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER"
 argument_list|)
 operator|.
 name|filter
@@ -604,6 +624,13 @@ name|bean
 argument_list|(
 operator|new
 name|MarketOrderStatusService
+argument_list|()
+argument_list|)
+operator|.
+name|bean
+argument_list|(
+operator|new
+name|QuickfixjMessageJsonPrinter
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -794,7 +821,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Web request response:\n"
+literal|"Web request:\n"
 operator|+
 name|sb
 argument_list|)
