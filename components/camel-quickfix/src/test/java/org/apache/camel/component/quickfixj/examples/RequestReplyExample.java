@@ -601,7 +601,7 @@ comment|// Incoming status requests are passed to the order status service and a
 comment|// order status being delivered using the json printer.
 name|from
 argument_list|(
-literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER"
+literal|"quickfix:examples/inprocess.cfg?sessionID=FIX.4.2:MARKET->TRADER&exchangePattern=InOut"
 argument_list|)
 operator|.
 name|filter
@@ -619,6 +619,11 @@ name|MsgType
 operator|.
 name|ORDER_STATUS_REQUEST
 argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log://OrderStatusRequestLog?showAll=true&showOut=true&multiline=true"
 argument_list|)
 operator|.
 name|bean
