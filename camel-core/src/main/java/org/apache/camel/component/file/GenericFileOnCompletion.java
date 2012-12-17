@@ -440,7 +440,26 @@ name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must be last in batch to delete the done file name
 comment|// delete done file if used (and not noop=true)
+name|boolean
+name|complete
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|BATCH_COMPLETE
+argument_list|,
+literal|false
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -455,6 +474,8 @@ name|endpoint
 operator|.
 name|isNoop
 argument_list|()
+operator|&&
+name|complete
 condition|)
 block|{
 comment|// done file must be in same path as the original input file
