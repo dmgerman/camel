@@ -551,6 +551,11 @@ literal|60
 operator|*
 literal|1000L
 decl_stmt|;
+DECL|field|backlog
+specifier|private
+name|int
+name|backlog
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -2597,6 +2602,32 @@ operator|.
 name|producerPoolMinEvictableIdle
 operator|=
 name|producerPoolMinEvictableIdle
+expr_stmt|;
+block|}
+DECL|method|getBacklog ()
+specifier|public
+name|int
+name|getBacklog
+parameter_list|()
+block|{
+return|return
+name|backlog
+return|;
+block|}
+DECL|method|setBacklog (int backlog)
+specifier|public
+name|void
+name|setBacklog
+parameter_list|(
+name|int
+name|backlog
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backlog
+operator|=
+name|backlog
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)
