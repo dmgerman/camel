@@ -2238,6 +2238,8 @@ name|InputStream
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|in
 argument_list|)
 decl_stmt|;
@@ -2292,6 +2294,8 @@ argument_list|(
 name|InputStream
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 name|in
 argument_list|)

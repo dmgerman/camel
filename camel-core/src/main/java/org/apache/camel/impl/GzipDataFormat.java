@@ -152,6 +152,8 @@ name|InputStream
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|graph
 argument_list|)
 decl_stmt|;

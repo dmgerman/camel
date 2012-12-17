@@ -296,6 +296,8 @@ name|String
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|source
 argument_list|)
 decl_stmt|;
@@ -382,6 +384,8 @@ argument_list|(
 name|String
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 name|reader
 argument_list|)

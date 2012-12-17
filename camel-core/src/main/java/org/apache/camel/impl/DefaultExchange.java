@@ -1037,6 +1037,8 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
+name|this
+argument_list|,
 name|in
 argument_list|)
 return|;
@@ -1175,6 +1177,8 @@ operator|.
 name|convertTo
 argument_list|(
 name|type
+argument_list|,
+name|this
 argument_list|,
 name|out
 argument_list|)

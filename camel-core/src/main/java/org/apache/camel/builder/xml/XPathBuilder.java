@@ -1082,6 +1082,8 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
+name|exchange
+argument_list|,
 name|result
 argument_list|)
 return|;
@@ -4636,6 +4638,8 @@ name|InputStream
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
@@ -4673,6 +4677,8 @@ argument_list|(
 name|BeanInvocation
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 name|body
 argument_list|)

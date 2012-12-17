@@ -544,6 +544,11 @@ name|Boolean
 operator|.
 name|class
 argument_list|,
+name|message
+operator|.
+name|getExchange
+argument_list|()
+argument_list|,
 name|property
 argument_list|)
 expr_stmt|;
@@ -860,6 +865,11 @@ name|String
 operator|.
 name|class
 argument_list|,
+name|message
+operator|.
+name|getExchange
+argument_list|()
+argument_list|,
 name|obj
 argument_list|)
 expr_stmt|;
@@ -1171,6 +1181,11 @@ argument_list|(
 name|String
 operator|.
 name|class
+argument_list|,
+name|message
+operator|.
+name|getExchange
+argument_list|()
 argument_list|,
 name|value
 argument_list|)
