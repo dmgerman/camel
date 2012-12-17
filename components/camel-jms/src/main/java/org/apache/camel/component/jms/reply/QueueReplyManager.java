@@ -193,14 +193,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link ReplyManager} when using persistent queues.  *  * @version   */
+comment|/**  * A {@link ReplyManager} when using regular queues.  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|PersistentQueueReplyManager
+DECL|class|QueueReplyManager
 specifier|public
 class|class
-name|PersistentQueueReplyManager
+name|QueueReplyManager
 extends|extends
 name|ReplyManagerSupport
 block|{
@@ -214,9 +214,9 @@ specifier|private
 name|MessageSelectorCreator
 name|dynamicMessageSelector
 decl_stmt|;
-DECL|method|PersistentQueueReplyManager (CamelContext camelContext)
+DECL|method|QueueReplyManager (CamelContext camelContext)
 specifier|public
-name|PersistentQueueReplyManager
+name|QueueReplyManager
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -253,11 +253,11 @@ name|requestTimeout
 parameter_list|)
 block|{
 comment|// add to correlation map
-name|PersistentQueueReplyHandler
+name|QueueReplyHandler
 name|handler
 init|=
 operator|new
-name|PersistentQueueReplyHandler
+name|QueueReplyHandler
 argument_list|(
 name|replyManager
 argument_list|,
@@ -548,7 +548,7 @@ name|JMSException
 block|{
 synchronized|synchronized
 init|(
-name|PersistentQueueReplyManager
+name|QueueReplyManager
 operator|.
 name|this
 init|)
@@ -616,7 +616,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// use shared by default for persistent reply queues
+comment|// use shared by default for reply queues
 name|type
 operator|=
 name|ReplyToType
@@ -649,7 +649,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// create a random selector value we will use for the persistent reply queue
+comment|// create a random selector value we will use for the reply queue
 name|replyToSelectorValue
 operator|=
 literal|"ID:"
@@ -685,7 +685,7 @@ decl_stmt|;
 name|answer
 operator|=
 operator|new
-name|SharedPersistentQueueMessageListenerContainer
+name|SharedQueueMessageListenerContainer
 argument_list|(
 name|endpoint
 argument_list|,
@@ -737,7 +737,7 @@ expr_stmt|;
 name|answer
 operator|=
 operator|new
-name|SharedPersistentQueueMessageListenerContainer
+name|SharedQueueMessageListenerContainer
 argument_list|(
 name|endpoint
 argument_list|,
@@ -798,7 +798,7 @@ block|{
 name|answer
 operator|=
 operator|new
-name|ExclusivePersistentQueueMessageListenerContainer
+name|ExclusiveQueueMessageListenerContainer
 argument_list|(
 name|endpoint
 argument_list|)
@@ -840,7 +840,7 @@ literal|"ReplyToType "
 operator|+
 name|type
 operator|+
-literal|" is not supported for persistent reply queues"
+literal|" is not supported for reply queues"
 argument_list|)
 throw|;
 block|}
@@ -1120,7 +1120,7 @@ argument_list|(
 operator|new
 name|DefaultSpringErrorHandler
 argument_list|(
-name|PersistentQueueReplyManager
+name|QueueReplyManager
 operator|.
 name|class
 argument_list|,
@@ -1228,7 +1228,7 @@ comment|// setup a bean name which is used ny Spring JMS as the thread name
 name|String
 name|name
 init|=
-literal|"PersistentQueueReplyManager["
+literal|"QueueReplyManager["
 operator|+
 name|answer
 operator|.

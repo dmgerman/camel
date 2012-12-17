@@ -45,20 +45,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ReplyHandler} to handle processing replies when using persistent queues.  *  * @version   */
+comment|/**  * {@link ReplyHandler} to handle processing replies when using regular queues.  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|PersistentQueueReplyHandler
+DECL|class|QueueReplyHandler
 specifier|public
 class|class
-name|PersistentQueueReplyHandler
+name|QueueReplyHandler
 extends|extends
 name|TemporaryQueueReplyHandler
 block|{
-DECL|method|PersistentQueueReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long timeout)
+DECL|method|QueueReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long timeout)
 specifier|public
-name|PersistentQueueReplyHandler
+name|QueueReplyHandler
 parameter_list|(
 name|ReplyManager
 name|replyManager

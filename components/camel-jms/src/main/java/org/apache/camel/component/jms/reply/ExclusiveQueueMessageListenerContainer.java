@@ -53,21 +53,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This {@link org.springframework.jms.listener.DefaultMessageListenerContainer} is used for persistent reply queues  * which are exclusive.  *<p/>  * Mind that exclusive persistent reply queues is per producer, so if you run in a clustered environment then  * each producer should use an unique reply queue destination name. If not then other nodes may steal reply  * messages which was intended for another. For clustered environments it may be safer to use shared persistent queues  * as each node will only consume reply messages which are intended for itself.  *<p/>  * See more details at<a href="http://camel.apache.org/jms">camel-jms</a>.  *  * @see SharedPersistentQueueMessageListenerContainer  */
+comment|/**  * This {@link org.springframework.jms.listener.DefaultMessageListenerContainer} is used for reply queues  * which are exclusive.  *<p/>  * Mind that exclusive reply queues is per producer, so if you run in a clustered environment then  * each producer should use an unique reply queue destination name. If not then other nodes may steal reply  * messages which was intended for another. For clustered environments it may be safer to use shared queues  * as each node will only consume reply messages which are intended for itself.  *<p/>  * See more details at<a href="http://camel.apache.org/jms">camel-jms</a>.  *  * @see SharedQueueMessageListenerContainer  */
 end_comment
 
 begin_class
-DECL|class|ExclusivePersistentQueueMessageListenerContainer
+DECL|class|ExclusiveQueueMessageListenerContainer
 specifier|public
 class|class
-name|ExclusivePersistentQueueMessageListenerContainer
+name|ExclusiveQueueMessageListenerContainer
 extends|extends
 name|DefaultJmsMessageListenerContainer
 block|{
 comment|// no need to override any methods currently
-DECL|method|ExclusivePersistentQueueMessageListenerContainer (JmsEndpoint endpoint)
+DECL|method|ExclusiveQueueMessageListenerContainer (JmsEndpoint endpoint)
 specifier|public
-name|ExclusivePersistentQueueMessageListenerContainer
+name|ExclusiveQueueMessageListenerContainer
 parameter_list|(
 name|JmsEndpoint
 name|endpoint

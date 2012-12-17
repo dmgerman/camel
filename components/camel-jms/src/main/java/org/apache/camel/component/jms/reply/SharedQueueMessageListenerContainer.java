@@ -87,14 +87,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This {@link DefaultMessageListenerContainer} is used for persistent reply queues which are shared.  *<p/>  * This implementation supports using a fixed or dynamic JMS Message Selector to pickup the  * designated reply messages from the shared queue. Since the queue is shared, then we can only  * pickup the reply messages which is intended for us, so to support that we must use JMS  * Message Selectors.  *<p/>  * See more details at<a href="http://camel.apache.org/jms">camel-jms</a>.  *  * @see ExclusivePersistentQueueMessageListenerContainer  */
+comment|/**  * This {@link DefaultMessageListenerContainer} is used for reply queues which are shared.  *<p/>  * This implementation supports using a fixed or dynamic JMS Message Selector to pickup the  * designated reply messages from the shared queue. Since the queue is shared, then we can only  * pickup the reply messages which is intended for us, so to support that we must use JMS  * Message Selectors.  *<p/>  * See more details at<a href="http://camel.apache.org/jms">camel-jms</a>.  *  * @see ExclusiveQueueMessageListenerContainer  */
 end_comment
 
 begin_class
-DECL|class|SharedPersistentQueueMessageListenerContainer
+DECL|class|SharedQueueMessageListenerContainer
 specifier|public
 class|class
-name|SharedPersistentQueueMessageListenerContainer
+name|SharedQueueMessageListenerContainer
 extends|extends
 name|DefaultJmsMessageListenerContainer
 block|{
@@ -109,7 +109,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|SharedPersistentQueueMessageListenerContainer
+name|SharedQueueMessageListenerContainer
 operator|.
 name|class
 argument_list|)
@@ -125,9 +125,9 @@ name|MessageSelectorCreator
 name|creator
 decl_stmt|;
 comment|/**      * Use a fixed JMS message selector      *      * @param endpoint the endpoint      * @param fixedMessageSelector the fixed selector      */
-DECL|method|SharedPersistentQueueMessageListenerContainer (JmsEndpoint endpoint, String fixedMessageSelector)
+DECL|method|SharedQueueMessageListenerContainer (JmsEndpoint endpoint, String fixedMessageSelector)
 specifier|public
-name|SharedPersistentQueueMessageListenerContainer
+name|SharedQueueMessageListenerContainer
 parameter_list|(
 name|JmsEndpoint
 name|endpoint
@@ -149,9 +149,9 @@ name|fixedMessageSelector
 expr_stmt|;
 block|}
 comment|/**      * Use a dynamic JMS message selector      *      * @param endpoint the endpoint      * @param creator the create to create the dynamic selector      */
-DECL|method|SharedPersistentQueueMessageListenerContainer (JmsEndpoint endpoint, MessageSelectorCreator creator)
+DECL|method|SharedQueueMessageListenerContainer (JmsEndpoint endpoint, MessageSelectorCreator creator)
 specifier|public
-name|SharedPersistentQueueMessageListenerContainer
+name|SharedQueueMessageListenerContainer
 parameter_list|(
 name|JmsEndpoint
 name|endpoint

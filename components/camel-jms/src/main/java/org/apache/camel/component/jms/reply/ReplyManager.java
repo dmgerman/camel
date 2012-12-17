@@ -157,7 +157,7 @@ name|Destination
 name|getReplyTo
 parameter_list|()
 function_decl|;
-comment|/**      * To be used when a persistent reply queue is used with a custom JMS selector is being used.      */
+comment|/**      * To be used when a reply queue is used with a custom JMS selector is being used.      */
 DECL|method|setReplyToSelectorHeader (org.apache.camel.Message camelMessage, Message jmsMessage)
 name|void
 name|setReplyToSelectorHeader

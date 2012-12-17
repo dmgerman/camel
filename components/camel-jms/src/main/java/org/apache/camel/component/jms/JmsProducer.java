@@ -186,7 +186,7 @@ name|jms
 operator|.
 name|reply
 operator|.
-name|PersistentQueueReplyManager
+name|QueueReplyManager
 import|;
 end_import
 
@@ -2585,12 +2585,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// use a persistent queue
+comment|// use a regular queue
 name|ReplyManager
 name|replyManager
 init|=
 operator|new
-name|PersistentQueueReplyManager
+name|QueueReplyManager
 argument_list|(
 name|getEndpoint
 argument_list|()
