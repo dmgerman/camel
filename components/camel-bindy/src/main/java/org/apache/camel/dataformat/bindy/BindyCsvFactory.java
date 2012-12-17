@@ -983,15 +983,10 @@ operator|.
 name|getType
 argument_list|()
 argument_list|,
-name|pattern
-argument_list|,
 name|getLocale
 argument_list|()
 argument_list|,
 name|dataField
-operator|.
-name|precision
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// field object to be set
@@ -2128,12 +2123,10 @@ name|getFormat
 argument_list|(
 name|type
 argument_list|,
-name|pattern
-argument_list|,
 name|getLocale
 argument_list|()
 argument_list|,
-name|precision
+name|datafield
 argument_list|)
 decl_stmt|;
 comment|// Get field value
@@ -3039,15 +3032,10 @@ operator|.
 name|getType
 argument_list|()
 argument_list|,
-name|pattern
-argument_list|,
 name|getLocale
 argument_list|()
 argument_list|,
 name|dataField
-operator|.
-name|precision
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|Object

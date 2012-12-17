@@ -180,6 +180,15 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Indicates if there is a decimal point implied at a specified location      */
+DECL|method|impliedDecimalSeparator ()
+DECL|field|false
+name|boolean
+name|impliedDecimalSeparator
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 

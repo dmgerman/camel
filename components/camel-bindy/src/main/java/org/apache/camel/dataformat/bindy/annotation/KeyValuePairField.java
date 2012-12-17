@@ -113,10 +113,20 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
+comment|/**      * Indicates if the field is mandatory      */
 DECL|method|required ()
 DECL|field|false
 name|boolean
 name|required
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      * Indicates if there is a decimal point implied at a specified location      */
+DECL|method|impliedDecimalSeparator ()
+DECL|field|false
+name|boolean
+name|impliedDecimalSeparator
 parameter_list|()
 default|default
 literal|false

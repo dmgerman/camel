@@ -304,7 +304,7 @@ name|result
 init|=
 literal|"Order Nr,Client Nr,First Name,Last Name,Instrument Code,Instrument Nr,Order Type,Instrument Type,amount,currency,Order Date\r\n"
 operator|+
-literal|"10,A1,Julia,Roberts,ISIN,LU123456789,BUY,Share,150,USD,14-01-2009\r\n"
+literal|"10,A1,Julia,Roberts,ISIN,LU123456789,BUY,Share,150.00,USD,14-01-2009\r\n"
 decl_stmt|;
 annotation|@
 name|Produce

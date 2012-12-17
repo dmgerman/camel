@@ -1396,15 +1396,10 @@ operator|.
 name|getType
 argument_list|()
 argument_list|,
-name|pattern
-argument_list|,
 name|getLocale
 argument_list|()
 argument_list|,
 name|keyValuePairField
-operator|.
-name|precision
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// format the value of the key received
@@ -1601,15 +1596,10 @@ operator|.
 name|getType
 argument_list|()
 argument_list|,
-name|pattern
-argument_list|,
 name|getLocale
 argument_list|()
 argument_list|,
 name|keyValuePairField
-operator|.
-name|precision
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// format the value of the key received
@@ -2271,12 +2261,10 @@ name|getFormat
 argument_list|(
 name|type
 argument_list|,
-name|pattern
-argument_list|,
 name|getLocale
 argument_list|()
 argument_list|,
-name|precision
+name|keyValuePairField
 argument_list|)
 decl_stmt|;
 comment|// Get object to be formatted
