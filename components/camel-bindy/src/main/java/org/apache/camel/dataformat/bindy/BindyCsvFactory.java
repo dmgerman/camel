@@ -428,6 +428,11 @@ specifier|private
 name|String
 name|quote
 decl_stmt|;
+DECL|field|quoting
+specifier|private
+name|boolean
+name|quoting
+decl_stmt|;
 DECL|method|BindyCsvFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
 name|BindyCsvFactory
@@ -1590,6 +1595,8 @@ block|{
 comment|// the field may be enclosed in quotes if a quote was configured
 if|if
 condition|(
+name|quoting
+operator|&&
 name|quote
 operator|!=
 literal|null
@@ -1612,6 +1619,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|quoting
+operator|&&
 name|quote
 operator|!=
 literal|null
@@ -2847,6 +2856,22 @@ name|quote
 argument_list|)
 expr_stmt|;
 block|}
+name|quoting
+operator|=
+name|record
+operator|.
+name|quoting
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"CSV will be quoted: {}"
+argument_list|,
+name|messageOrdered
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3092,6 +3117,16 @@ parameter_list|()
 block|{
 return|return
 name|messageOrdered
+return|;
+block|}
+DECL|method|getQuote ()
+specifier|public
+name|String
+name|getQuote
+parameter_list|()
+block|{
+return|return
+name|quote
 return|;
 block|}
 block|}

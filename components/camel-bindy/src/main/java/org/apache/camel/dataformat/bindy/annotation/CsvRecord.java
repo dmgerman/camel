@@ -130,7 +130,16 @@ name|String
 name|quote
 parameter_list|()
 default|default
-literal|""
+literal|"\""
+function_decl|;
+comment|/**      * Indicate if the values must be quoted when marshaling (optional)      */
+DECL|method|quoting ()
+DECL|field|false
+name|boolean
+name|quoting
+parameter_list|()
+default|default
+literal|false
 function_decl|;
 block|}
 end_annotation_defn

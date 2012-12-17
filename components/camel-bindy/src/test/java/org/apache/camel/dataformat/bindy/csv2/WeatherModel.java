@@ -71,6 +71,10 @@ argument_list|,
 name|quote
 operator|=
 literal|"\""
+argument_list|,
+name|quoting
+operator|=
+literal|true
 argument_list|)
 DECL|class|WeatherModel
 specifier|public

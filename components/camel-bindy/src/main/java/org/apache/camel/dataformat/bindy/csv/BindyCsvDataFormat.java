@@ -757,6 +757,14 @@ operator|.
 name|getSeparator
 argument_list|()
 decl_stmt|;
+name|String
+name|quote
+init|=
+name|factory
+operator|.
+name|getQuote
+argument_list|()
+decl_stmt|;
 name|ObjectHelper
 operator|.
 name|notNull
@@ -881,6 +889,8 @@ argument_list|(
 name|result
 argument_list|,
 name|separator
+argument_list|,
+name|quote
 argument_list|)
 expr_stmt|;
 if|if
@@ -1035,7 +1045,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Unquote the tokens, by removing leading and trailing quote chars,      * as will handling fixing broken tokens which may have been split      * by a separator inside a quote.      */
-DECL|method|unquoteTokens (List<String> result, String separator)
+DECL|method|unquoteTokens (List<String> result, String separator, String quote)
 specifier|private
 name|List
 argument_list|<
@@ -1051,6 +1061,9 @@ name|result
 parameter_list|,
 name|String
 name|separator
+parameter_list|,
+name|String
+name|quote
 parameter_list|)
 block|{
 comment|// a current quoted token which we assemble from the broken pieces
@@ -1102,14 +1115,7 @@ name|s
 operator|.
 name|startsWith
 argument_list|(
-literal|"\""
-argument_list|)
-operator|||
-name|s
-operator|.
-name|startsWith
-argument_list|(
-literal|"'"
+name|quote
 argument_list|)
 condition|)
 block|{
@@ -1133,14 +1139,7 @@ name|s
 operator|.
 name|endsWith
 argument_list|(
-literal|"\""
-argument_list|)
-operator|||
-name|s
-operator|.
-name|endsWith
-argument_list|(
-literal|"'"
+name|quote
 argument_list|)
 condition|)
 block|{
