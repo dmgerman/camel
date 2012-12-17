@@ -1367,7 +1367,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Skiped retrieval of file: {} from: {}"
+literal|"Skipped retrieval of file: {} from: {}"
 argument_list|,
 name|name
 argument_list|,
@@ -1640,8 +1640,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Strategy for validating if the given remote file should be included or not      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
-DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory)
+comment|/**      * Strategy for validating if the given remote file should be included or not      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @param files       files in the directory      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
+DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory, List<T> files)
 specifier|protected
 name|boolean
 name|isValidFile
@@ -1654,6 +1654,12 @@ name|file
 parameter_list|,
 name|boolean
 name|isDirectory
+parameter_list|,
+name|List
+argument_list|<
+name|T
+argument_list|>
+name|files
 parameter_list|)
 block|{
 if|if
@@ -1664,6 +1670,8 @@ argument_list|(
 name|file
 argument_list|,
 name|isDirectory
+argument_list|,
+name|files
 argument_list|)
 condition|)
 block|{
@@ -1720,8 +1728,8 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
-DECL|method|isMatched (GenericFile<T> file, boolean isDirectory)
+comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @param files       files in the directory      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
+DECL|method|isMatched (GenericFile<T> file, boolean isDirectory, List<T> files)
 specifier|protected
 name|boolean
 name|isMatched
@@ -1734,6 +1742,12 @@ name|file
 parameter_list|,
 name|boolean
 name|isDirectory
+parameter_list|,
+name|List
+argument_list|<
+name|T
+argument_list|>
+name|files
 parameter_list|)
 block|{
 name|String
@@ -2016,6 +2030,8 @@ argument_list|(
 name|file
 argument_list|,
 name|doneFileName
+argument_list|,
+name|files
 argument_list|)
 condition|)
 block|{
@@ -2028,9 +2044,10 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Strategy to perform file matching based on endpoint configuration in terms of done file name.      *      * @param file         the file      * @param doneFileName the done file name      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
-DECL|method|isMatched (GenericFile<T> file, String doneFileName)
+comment|/**      * Strategy to perform file matching based on endpoint configuration in terms of done file name.      *      * @param file         the file      * @param doneFileName the done file name (without any paths)      * @param files        files in the directory      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
+DECL|method|isMatched (GenericFile<T> file, String doneFileName, List<T> files)
 specifier|protected
+specifier|abstract
 name|boolean
 name|isMatched
 parameter_list|(
@@ -2042,38 +2059,14 @@ name|file
 parameter_list|,
 name|String
 name|doneFileName
+parameter_list|,
+name|List
+argument_list|<
+name|T
+argument_list|>
+name|files
 parameter_list|)
-block|{
-comment|// the file is only valid if the done file exist
-if|if
-condition|(
-operator|!
-name|operations
-operator|.
-name|existsFile
-argument_list|(
-name|doneFileName
-argument_list|)
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Done file: {} does not exist"
-argument_list|,
-name|doneFileName
-argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
-block|}
-comment|// assume matched
-return|return
-literal|true
-return|;
-block|}
+function_decl|;
 comment|/**      * Is the given file already in progress.      *      * @param file the file      * @return<tt>true</tt> if the file is already in progress      */
 DECL|method|isInProgress (GenericFile<T> file)
 specifier|protected

@@ -3502,16 +3502,6 @@ argument_list|()
 operator|+
 name|pattern
 expr_stmt|;
-name|answer
-operator|=
-name|path
-operator|+
-name|File
-operator|.
-name|separator
-operator|+
-name|pattern
-expr_stmt|;
 block|}
 if|if
 condition|(
