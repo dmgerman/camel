@@ -529,7 +529,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-comment|//@Ignore
+annotation|@
+name|Ignore
+argument_list|(
+literal|"To fix CAMEL-5871. doesn't support the signle quote test case any more"
+argument_list|)
 DECL|method|testBindyUnmarshalSingleQuoteCommaIssueTwo ()
 specifier|public
 name|void
