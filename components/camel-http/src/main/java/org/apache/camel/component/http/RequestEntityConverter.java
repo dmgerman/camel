@@ -222,6 +222,10 @@ name|Exception
 block|{
 if|if
 condition|(
+name|exchange
+operator|!=
+literal|null
+operator|&&
 name|GZIPHelper
 operator|.
 name|isGzip
