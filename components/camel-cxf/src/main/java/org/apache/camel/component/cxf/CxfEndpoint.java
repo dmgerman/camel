@@ -164,6 +164,20 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|sax
+operator|.
+name|SAXSource
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|stax
 operator|.
 name|StAXSource
@@ -5217,6 +5231,10 @@ condition|(
 name|source
 operator|instanceof
 name|StreamSource
+operator|||
+name|source
+operator|instanceof
+name|SAXSource
 condition|)
 block|{
 comment|//flip to stax so we can get the name
