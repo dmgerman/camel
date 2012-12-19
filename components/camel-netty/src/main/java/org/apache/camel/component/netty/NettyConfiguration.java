@@ -128,6 +128,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -555,6 +569,16 @@ DECL|field|backlog
 specifier|private
 name|int
 name|backlog
+decl_stmt|;
+DECL|field|options
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|options
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
@@ -1105,6 +1129,35 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// additional netty options, we don't want to store an empty map, so set it as null if empty
+name|options
+operator|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"option."
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|options
+operator|!=
+literal|null
+operator|&&
+name|options
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|options
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|// add default encoders and decoders
 if|if
 condition|(
@@ -2628,6 +2681,43 @@ operator|.
 name|backlog
 operator|=
 name|backlog
+expr_stmt|;
+block|}
+DECL|method|getOptions ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getOptions
+parameter_list|()
+block|{
+return|return
+name|options
+return|;
+block|}
+comment|/**      * Additional options to set on Netty.      */
+DECL|method|setOptions (Map<String, Object> options)
+specifier|public
+name|void
+name|setOptions
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|options
+parameter_list|)
+block|{
+name|this
+operator|.
+name|options
+operator|=
+name|options
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)
