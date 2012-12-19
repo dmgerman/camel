@@ -76,6 +76,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -2194,15 +2206,29 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Waiting for operation to complete {}"
+literal|"Waiting for operation to complete {} for {} millis"
 argument_list|,
 name|channelFuture
+argument_list|,
+name|configuration
+operator|.
+name|getConnectTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|latch
 operator|.
 name|await
+argument_list|(
+name|configuration
+operator|.
+name|getConnectTimeout
 argument_list|()
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
