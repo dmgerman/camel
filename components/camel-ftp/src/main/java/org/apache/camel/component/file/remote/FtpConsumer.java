@@ -986,6 +986,16 @@ name|getRelativeFilePath
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setCharset
+argument_list|(
+name|endpoint
+operator|.
+name|getCharset
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
