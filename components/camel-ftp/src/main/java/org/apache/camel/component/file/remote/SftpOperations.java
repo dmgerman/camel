@@ -2122,7 +2122,8 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// must compact path so FTP server can traverse correctly
+comment|// must compact path so SFTP server can traverse correctly, make use of the '/'
+comment|// separator because JSch expects this as the file separator even on Windows
 name|path
 operator|=
 name|FileUtil
@@ -2130,6 +2131,8 @@ operator|.
 name|compactPath
 argument_list|(
 name|path
+argument_list|,
+literal|'/'
 argument_list|)
 expr_stmt|;
 comment|// not stepwise should change directory in one operation
