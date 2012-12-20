@@ -565,6 +565,13 @@ literal|60
 operator|*
 literal|1000L
 decl_stmt|;
+DECL|field|producerPoolEnabled
+specifier|private
+name|boolean
+name|producerPoolEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|field|backlog
 specifier|private
 name|int
@@ -2655,6 +2662,32 @@ operator|.
 name|producerPoolMinEvictableIdle
 operator|=
 name|producerPoolMinEvictableIdle
+expr_stmt|;
+block|}
+DECL|method|isProducerPoolEnabled ()
+specifier|public
+name|boolean
+name|isProducerPoolEnabled
+parameter_list|()
+block|{
+return|return
+name|producerPoolEnabled
+return|;
+block|}
+DECL|method|setProducerPoolEnabled (boolean producerPoolEnabled)
+specifier|public
+name|void
+name|setProducerPoolEnabled
+parameter_list|(
+name|boolean
+name|producerPoolEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|producerPoolEnabled
+operator|=
+name|producerPoolEnabled
 expr_stmt|;
 block|}
 DECL|method|getBacklog ()
