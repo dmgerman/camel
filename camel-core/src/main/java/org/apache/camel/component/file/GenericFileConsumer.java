@@ -558,7 +558,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// sort using build in sorters so we can use expressions
-comment|// use a linked list so we can deque the exchanges
+comment|// use a linked list so we can dequeue the exchanges
 name|LinkedList
 argument_list|<
 name|Exchange
