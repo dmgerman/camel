@@ -113,7 +113,7 @@ specifier|private
 name|String
 name|payload
 init|=
-literal|"Ã¦Ã¸Ã¥ Â©"
+literal|"\u00e6\u00f8\u00e5 \u00a9"
 decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private
