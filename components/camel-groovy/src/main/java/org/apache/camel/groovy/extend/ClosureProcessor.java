@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.language.groovy
+DECL|package|org.apache.camel.groovy.extend
 package|package
 name|org
 operator|.
@@ -12,21 +12,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|language
-operator|.
 name|groovy
+operator|.
+name|extend
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|groovy
 operator|.
-name|apache
+name|lang
 operator|.
-name|camel
-operator|.
-name|CamelContext
+name|Closure
 import|;
 end_import
 
@@ -38,45 +36,78 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|RouteBuilder
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
 begin_comment
-comment|/**  * @deprecated the standard {@link RouteBuilder} can be used to write  * Groovy routes.  */
+comment|/**  * Bridges a Closure to a Processor  */
 end_comment
 
 begin_class
-DECL|class|GroovyRouteBuilder
-specifier|public
-specifier|abstract
+DECL|class|ClosureProcessor
 class|class
-name|GroovyRouteBuilder
-extends|extends
-name|RouteBuilder
+name|ClosureProcessor
+implements|implements
+name|Processor
 block|{
-DECL|method|GroovyRouteBuilder ()
-specifier|public
-name|GroovyRouteBuilder
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|GroovyRouteBuilder (CamelContext context)
-specifier|public
-name|GroovyRouteBuilder
+DECL|field|closure
+specifier|private
+name|Closure
+argument_list|<
+name|?
+argument_list|>
+name|closure
+decl_stmt|;
+DECL|method|ClosureProcessor (Closure<?> closure)
+name|ClosureProcessor
 parameter_list|(
-name|CamelContext
-name|context
+name|Closure
+argument_list|<
+name|?
+argument_list|>
+name|closure
 parameter_list|)
 block|{
-name|super
+name|this
+operator|.
+name|closure
+operator|=
+name|closure
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|ClosureSupport
+operator|.
+name|call
 argument_list|(
-name|context
+name|closure
+argument_list|,
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
