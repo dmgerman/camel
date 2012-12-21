@@ -322,6 +322,7 @@ comment|// END SNIPPET: e1
 block|}
 DECL|class|MyComponent
 specifier|public
+specifier|static
 class|class
 name|MyComponent
 extends|extends
@@ -364,6 +365,7 @@ block|}
 block|}
 DECL|class|MyEndpoint
 specifier|public
+specifier|static
 class|class
 name|MyEndpoint
 extends|extends
@@ -450,6 +452,7 @@ block|}
 block|}
 DECL|class|MyConsumer
 specifier|public
+specifier|static
 class|class
 name|MyConsumer
 extends|extends

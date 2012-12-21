@@ -506,13 +506,11 @@ name|info
 argument_list|(
 literal|"Going to {} JMX for the test {}"
 argument_list|,
-operator|(
 name|enable
 condition|?
 literal|"enable"
 else|:
 literal|"disable"
-operator|)
 argument_list|,
 name|getName
 argument_list|()

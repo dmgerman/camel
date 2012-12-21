@@ -56,16 +56,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -232,13 +222,6 @@ end_import
 
 begin_class
 annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"rawtypes"
-block|}
-argument_list|)
-annotation|@
 name|Converter
 DECL|class|MongoDbBasicConverters
 specifier|public
@@ -278,7 +261,7 @@ DECL|method|MongoDbBasicConverters ()
 specifier|private
 name|MongoDbBasicConverters
 parameter_list|()
-block|{ }
+block|{     }
 annotation|@
 name|Converter
 DECL|method|fromMapToDBObject (Map<?, ?> map)
@@ -617,6 +600,11 @@ decl_stmt|;
 try|try
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|m
 init|=
 name|MongoDbBasicConverters

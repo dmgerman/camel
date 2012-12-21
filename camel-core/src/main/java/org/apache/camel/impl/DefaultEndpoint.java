@@ -1098,7 +1098,7 @@ argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
-comment|// special consumer.routeExceptionHandler option
+comment|// special consumer.bridgeErrorHandler option
 name|Object
 name|bridge
 init|=
