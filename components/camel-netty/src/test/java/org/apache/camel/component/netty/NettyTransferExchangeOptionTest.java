@@ -284,6 +284,9 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// ensure to stop producer after usage
+try|try
+block|{
 name|producer
 operator|.
 name|process
@@ -291,6 +294,15 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|producer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|exchange
 return|;
