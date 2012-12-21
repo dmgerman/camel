@@ -441,7 +441,7 @@ operator|.
 name|toURI
 argument_list|()
 operator|.
-name|toString
+name|toASCIIString
 argument_list|()
 expr_stmt|;
 block|}
