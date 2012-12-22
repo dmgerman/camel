@@ -1050,13 +1050,30 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|abstracts
-operator|.
-name|addAll
-argument_list|(
+for|for
+control|(
+name|OnExceptionDefinition
+name|output
+range|:
 name|onExceptions
+control|)
+block|{
+comment|// these are context scoped on exceptions so set this flag
+name|output
+operator|.
+name|setRouteScoped
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
+name|abstracts
+operator|.
+name|add
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// now add onExceptions to the route
 for|for

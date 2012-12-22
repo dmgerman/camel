@@ -6978,6 +6978,13 @@ argument_list|(
 name|exceptionType
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setRouteScoped
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer
@@ -7017,6 +7024,13 @@ name|exceptions
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setRouteScoped
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer

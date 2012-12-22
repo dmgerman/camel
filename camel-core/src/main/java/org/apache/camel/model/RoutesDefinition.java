@@ -894,6 +894,13 @@ argument_list|(
 name|exception
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setRouteScoped
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|getOnExceptions
 argument_list|()
 operator|.

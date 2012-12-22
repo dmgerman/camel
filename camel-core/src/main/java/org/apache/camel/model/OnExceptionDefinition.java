@@ -686,6 +686,22 @@ name|exceptionType
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setRouteScoped (boolean routeScoped)
+specifier|public
+name|void
+name|setRouteScoped
+parameter_list|(
+name|boolean
+name|routeScoped
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeScoped
+operator|=
+name|routeScoped
+expr_stmt|;
+block|}
 DECL|method|isRouteScoped ()
 specifier|public
 name|boolean
