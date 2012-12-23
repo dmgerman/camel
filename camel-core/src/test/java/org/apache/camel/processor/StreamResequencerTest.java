@@ -453,7 +453,7 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedBodiesReceivedInAnyOrder
+name|expectedBodiesReceived
 argument_list|(
 name|bodies
 argument_list|)
