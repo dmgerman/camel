@@ -1121,27 +1121,6 @@ name|connectorKey
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|prodcon
-operator|instanceof
-name|WebsocketConsumer
-condition|)
-block|{
-comment|// connect websocket consumer, to servlet
-name|connectorRef
-operator|.
-name|servlet
-operator|.
-name|connect
-argument_list|(
-operator|(
-name|WebsocketConsumer
-operator|)
-name|prodcon
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Disconnects the URL specified on the endpoint from the specified      * processor.      */
@@ -2349,6 +2328,14 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+comment|// registry the consumer here
+name|servlet
+operator|.
+name|connect
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
 name|servlet
 return|;
