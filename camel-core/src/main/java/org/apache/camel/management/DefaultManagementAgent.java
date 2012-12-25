@@ -64,6 +64,16 @@ name|java
 operator|.
 name|rmi
 operator|.
+name|NoSuchObjectException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|rmi
+operator|.
 name|RemoteException
 import|;
 end_import
@@ -77,6 +87,30 @@ operator|.
 name|registry
 operator|.
 name|LocateRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|rmi
+operator|.
+name|registry
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|rmi
+operator|.
+name|server
+operator|.
+name|UnicastRemoteObject
 import|;
 end_import
 
@@ -395,7 +429,7 @@ specifier|private
 name|MBeanServer
 name|server
 decl_stmt|;
-comment|// need a name -> actual name mapping as some servers changes the names (suc as WebSphere)
+comment|// need a name -> actual name mapping as some servers changes the names (such as WebSphere)
 DECL|field|mbeansRegistered
 specifier|private
 specifier|final
@@ -420,6 +454,11 @@ DECL|field|cs
 specifier|private
 name|JMXConnectorServer
 name|cs
+decl_stmt|;
+DECL|field|registry
+specifier|private
+name|Registry
+name|registry
 decl_stmt|;
 DECL|field|registryPort
 specifier|private
@@ -1273,7 +1312,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// close JMX Connector
+comment|// close JMX Connector, if it was created
 if|if
 condition|(
 name|cs
@@ -1318,6 +1357,48 @@ name|cs
 operator|=
 literal|null
 expr_stmt|;
+block|}
+comment|// Unexport JMX RMI registry, if it was created
+if|if
+condition|(
+name|registry
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|UnicastRemoteObject
+operator|.
+name|unexportObject
+argument_list|(
+name|registry
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Unexported JMX RMI Registry"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchObjectException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error occurred while unexporting JMX RMI registry. This exception will be ignored."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1801,6 +1882,8 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|registry
+operator|=
 name|LocateRegistry
 operator|.
 name|createRegistry
