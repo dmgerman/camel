@@ -145,7 +145,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"activemq:queue:start"
+literal|"activemq:queue:start?replyTo=bar"
 argument_list|,
 literal|"Hello World"
 argument_list|,
