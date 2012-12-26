@@ -224,6 +224,24 @@ argument_list|(
 name|mimeMessage
 argument_list|)
 expr_stmt|;
+comment|// set the message ID for further processing
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|MailConstants
+operator|.
+name|MAIL_MESSAGE_ID
+argument_list|,
+name|mimeMessage
+operator|.
+name|getMessageID
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

@@ -52,6 +52,15 @@ name|MAIL_DEFAULT_FROM
 init|=
 literal|"camel@localhost"
 decl_stmt|;
+DECL|field|MAIL_MESSAGE_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAIL_MESSAGE_ID
+init|=
+literal|"CamelMailMessageId"
+decl_stmt|;
 DECL|field|MAIL_DEFAULT_CONNECTION_TIMEOUT
 specifier|public
 specifier|static
