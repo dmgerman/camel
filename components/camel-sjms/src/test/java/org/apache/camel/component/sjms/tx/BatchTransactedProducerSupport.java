@@ -188,10 +188,6 @@ name|CamelTestSupport
 import|;
 end_import
 
-begin_comment
-comment|/**  * TODO Add Class documentation for BatchTransactedProducerSupport  *  * @author sully6768  */
-end_comment
-
 begin_class
 DECL|class|BatchTransactedProducerSupport
 specifier|public

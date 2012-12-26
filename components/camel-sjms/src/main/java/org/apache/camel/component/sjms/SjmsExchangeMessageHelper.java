@@ -484,10 +484,6 @@ name|removeStartingCharacters
 import|;
 end_import
 
-begin_comment
-comment|/**  * TODO Add Class documentation for SjmsExchangeMessageHelper  *   * @author sully6768  */
-end_comment
-
 begin_class
 DECL|class|SjmsExchangeMessageHelper
 specifier|public

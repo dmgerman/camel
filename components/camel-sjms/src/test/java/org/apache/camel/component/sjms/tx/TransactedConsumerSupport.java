@@ -152,10 +152,6 @@ name|CamelTestSupport
 import|;
 end_import
 
-begin_comment
-comment|/**  * TODO Add Class documentation for TransactedConsumerSupport  *  * @author sully6768  */
-end_comment
-
 begin_class
 DECL|class|TransactedConsumerSupport
 specifier|public
