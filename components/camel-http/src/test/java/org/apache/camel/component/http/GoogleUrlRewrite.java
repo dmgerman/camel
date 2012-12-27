@@ -31,7 +31,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|// START SNIPPET: e1
+end_comment
+
+begin_comment
+comment|/**  * A very simple url rewrite that replaces yahoo with google in the url.  *<p/>  * This is only used for testing purposes.  */
 end_comment
 
 begin_class
@@ -69,6 +73,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: e1
+end_comment
 
 end_unit
 

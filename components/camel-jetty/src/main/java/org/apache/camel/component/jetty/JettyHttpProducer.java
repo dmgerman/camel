@@ -565,6 +565,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// creating the url to use takes 2-steps
 name|String
 name|url
 init|=
@@ -593,7 +594,7 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// get the url and query string from the uri
+comment|// get the url from the uri
 name|url
 operator|=
 name|uri
