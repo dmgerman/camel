@@ -357,6 +357,11 @@ specifier|private
 name|String
 name|httpMethodRestrict
 decl_stmt|;
+DECL|field|urlRewrite
+specifier|private
+name|UrlRewrite
+name|urlRewrite
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1501,6 +1506,32 @@ operator|.
 name|httpMethodRestrict
 operator|=
 name|httpMethodRestrict
+expr_stmt|;
+block|}
+DECL|method|getUrlRewrite ()
+specifier|public
+name|UrlRewrite
+name|getUrlRewrite
+parameter_list|()
+block|{
+return|return
+name|urlRewrite
+return|;
+block|}
+DECL|method|setUrlRewrite (UrlRewrite urlRewrite)
+specifier|public
+name|void
+name|setUrlRewrite
+parameter_list|(
+name|UrlRewrite
+name|urlRewrite
+parameter_list|)
+block|{
+name|this
+operator|.
+name|urlRewrite
+operator|=
+name|urlRewrite
 expr_stmt|;
 block|}
 block|}

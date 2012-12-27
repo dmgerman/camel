@@ -1223,6 +1223,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|UrlRewrite
+name|urlRewrite
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"urlRewrite"
+argument_list|,
+name|UrlRewrite
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// http client can be configured from URI options
 name|HttpClientParams
 name|clientParams
@@ -1334,6 +1348,31 @@ block|{
 name|setEndpointHeaderFilterStrategy
 argument_list|(
 name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|urlRewrite
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// let CamelContext deal with the lifecycle of the url rewrite
+comment|// this ensures its being shutdown when Camel shutdown etc.
+name|getCamelContext
+argument_list|()
+operator|.
+name|addService
+argument_list|(
+name|urlRewrite
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setUrlRewrite
+argument_list|(
+name|urlRewrite
 argument_list|)
 expr_stmt|;
 block|}

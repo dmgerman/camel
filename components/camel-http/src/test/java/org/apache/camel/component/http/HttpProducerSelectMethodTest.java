@@ -638,6 +638,7 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
+comment|// no body should be GET
 name|exchange
 operator|.
 name|getIn
@@ -645,7 +646,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 try|try
@@ -744,6 +745,7 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
+comment|// no body should be GET
 name|exchange
 operator|.
 name|getIn
@@ -751,7 +753,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -864,6 +866,7 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
+comment|// no body should be GET
 name|exchange
 operator|.
 name|getIn
@@ -871,7 +874,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|""
+literal|null
 argument_list|)
 expr_stmt|;
 name|exchange
