@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Url rewrite filter based on<a href="https://code.google.com/p/urlrewritefilter/">url rewrite filter</a>  */
+comment|/**  * Url rewrite filter based on<a href="https://code.google.com/p/urlrewritefilter/">url rewrite filter</a>  *<p/>  * See more details about the Camel<a href="http://camel.apache.org/urlrewrite">Url Rewrite</a> component.  */
 end_comment
 
 begin_class
