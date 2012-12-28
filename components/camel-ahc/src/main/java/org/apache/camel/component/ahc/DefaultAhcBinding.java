@@ -92,6 +92,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|LinkedHashMap
@@ -468,6 +478,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+comment|// creating the url to use takes 2-steps
 name|String
 name|url
 init|=
@@ -480,6 +491,28 @@ argument_list|,
 name|endpoint
 argument_list|)
 decl_stmt|;
+name|URI
+name|uri
+init|=
+name|AhcHelper
+operator|.
+name|createURI
+argument_list|(
+name|exchange
+argument_list|,
+name|url
+argument_list|,
+name|endpoint
+argument_list|)
+decl_stmt|;
+comment|// get the url from the uri
+name|url
+operator|=
+name|uri
+operator|.
+name|toASCIIString
+argument_list|()
+expr_stmt|;
 name|log
 operator|.
 name|trace
