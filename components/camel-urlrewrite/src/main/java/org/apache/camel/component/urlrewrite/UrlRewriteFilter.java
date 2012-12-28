@@ -247,7 +247,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: Add support in camel-http4 and camel-ahc
 DECL|field|camelContext
 specifier|protected
 name|CamelContext
