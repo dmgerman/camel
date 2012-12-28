@@ -120,6 +120,7 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
+comment|// START SNIPPET: e1
 name|HttpUrlRewrite
 name|myRewrite
 init|=
@@ -134,6 +135,7 @@ argument_list|(
 literal|"RewriteRule page/([^/\\.]+)/?$ index.php?page=$1 [L]"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 name|jndi
 operator|.
 name|bind

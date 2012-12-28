@@ -120,6 +120,7 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
+comment|// START SNIPPET: e1
 name|HttpUrlRewrite
 name|myRewrite
 init|=
@@ -134,6 +135,7 @@ argument_list|(
 literal|"example/urlrewrite2.xml"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 name|jndi
 operator|.
 name|bind
@@ -210,6 +212,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// START SNIPPET: e2
 name|from
 argument_list|(
 literal|"jetty:http://localhost:{{port}}/myapp?matchOnUriPrefix=true"
@@ -220,6 +223,7 @@ argument_list|(
 literal|"jetty:http://localhost:{{port2}}/myapp2?bridgeEndpoint=true&throwExceptionOnFailure=false&urlRewrite=#myRewrite"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e2
 name|from
 argument_list|(
 literal|"jetty:http://localhost:{{port2}}/myapp2?matchOnUriPrefix=true"
