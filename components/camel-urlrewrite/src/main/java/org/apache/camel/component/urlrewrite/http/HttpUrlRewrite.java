@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.http
+DECL|package|org.apache.camel.component.urlrewrite.http
 package|package
 name|org
 operator|.
@@ -14,9 +14,23 @@ name|camel
 operator|.
 name|component
 operator|.
+name|urlrewrite
+operator|.
 name|http
 package|;
 end_package
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletRequest
+import|;
+end_import
 
 begin_import
 import|import
@@ -30,22 +44,83 @@ name|Producer
 import|;
 end_import
 
-begin_comment
-comment|// START SNIPPET: e1
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
+name|HttpServletUrlRewrite
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|urlrewrite
+operator|.
+name|UrlRewriteFilter
+import|;
+end_import
 
 begin_comment
-comment|/**  * A very simple url rewrite that replaces yahoo with google in the url.  *<p/>  * This is only used for testing purposes.  */
+comment|/**  * The camel-http component implementation of the {@link HttpServletUrlRewrite}.  */
 end_comment
 
 begin_class
-DECL|class|GoogleUrlRewrite
+DECL|class|HttpUrlRewrite
 specifier|public
 class|class
-name|GoogleUrlRewrite
+name|HttpUrlRewrite
+extends|extends
+name|UrlRewriteFilter
 implements|implements
-name|UrlRewrite
+name|HttpServletUrlRewrite
 block|{
+annotation|@
+name|Override
+DECL|method|rewrite (String url, String relativeUrl, Producer producer, HttpServletRequest request)
+specifier|public
+name|String
+name|rewrite
+parameter_list|(
+name|String
+name|url
+parameter_list|,
+name|String
+name|relativeUrl
+parameter_list|,
+name|Producer
+name|producer
+parameter_list|,
+name|HttpServletRequest
+name|request
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|rewrite
+argument_list|(
+name|relativeUrl
+argument_list|,
+name|request
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|rewrite (String url, String relativeUrl, Producer producer)
@@ -62,24 +137,16 @@ parameter_list|,
 name|Producer
 name|producer
 parameter_list|)
+throws|throws
+name|Exception
 block|{
+comment|// not in use
 return|return
-name|url
-operator|.
-name|replaceAll
-argument_list|(
-literal|"yahoo"
-argument_list|,
-literal|"google"
-argument_list|)
+literal|null
 return|;
 block|}
 block|}
 end_class
-
-begin_comment
-comment|// END SNIPPET: e1
-end_comment
 
 end_unit
 

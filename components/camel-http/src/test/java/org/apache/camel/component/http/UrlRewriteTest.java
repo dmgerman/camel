@@ -176,7 +176,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"null"
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

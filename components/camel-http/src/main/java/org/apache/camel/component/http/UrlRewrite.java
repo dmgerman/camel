@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Producer
 import|;
 end_import
@@ -52,13 +40,16 @@ specifier|public
 interface|interface
 name|UrlRewrite
 block|{
-comment|/**      * Rewrite the url.      *      * @param url  the url      * @param producer the producer to use the rewritten url      * @return the rewritten url, or<tt>null</tt> to use the original url      * @throws Exception is thrown if error rewriting the url      */
-DECL|method|rewrite (String url, Producer producer)
+comment|/**      * Rewrite the url.      *      * @param url  the absolute url (eg with scheme://host:port/path?query)      * @param relativeUrl optional relative url, if bridging endpoints, which then would be without the base path from the      *                    endpoint from the given producer.      * @param producer the producer to use the rewritten url      * @return the rewritten url, or<tt>null</tt> to use the original url      * @throws Exception is thrown if error rewriting the url      */
+DECL|method|rewrite (String url, String relativeUrl, Producer producer)
 name|String
 name|rewrite
 parameter_list|(
 name|String
 name|url
+parameter_list|,
+name|String
+name|relativeUrl
 parameter_list|,
 name|Producer
 name|producer

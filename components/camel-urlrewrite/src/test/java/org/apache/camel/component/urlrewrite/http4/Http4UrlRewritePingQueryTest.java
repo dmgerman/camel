@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.urlrewrite.jetty
+DECL|package|org.apache.camel.component.urlrewrite.http4
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|urlrewrite
 operator|.
-name|jetty
+name|http4
 package|;
 end_package
 
@@ -58,24 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|urlrewrite
-operator|.
-name|http
-operator|.
-name|HttpUrlRewrite
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -97,10 +79,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|JettyUrlRewriteModTest
+DECL|class|Http4UrlRewritePingQueryTest
 specifier|public
 class|class
-name|JettyUrlRewriteModTest
+name|Http4UrlRewritePingQueryTest
 extends|extends
 name|BaseUrlRewriteTest
 block|{
@@ -122,18 +104,25 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
-name|HttpUrlRewrite
+name|Http4UrlRewrite
 name|myRewrite
 init|=
 operator|new
-name|HttpUrlRewrite
+name|Http4UrlRewrite
 argument_list|()
 decl_stmt|;
 name|myRewrite
 operator|.
-name|setModRewriteConfText
+name|setConfigFile
 argument_list|(
-literal|"RewriteRule page/([^/\\.]+)/?$ index.php?page=$1 [L]"
+literal|"example/urlrewrite-ping.xml"
+argument_list|)
+expr_stmt|;
+name|myRewrite
+operator|.
+name|setUseQueryString
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|jndi
@@ -166,7 +155,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/page/software/"
+literal|"http4://localhost:{{port}}/ping?foo=bar"
 argument_list|,
 literal|null
 argument_list|,
@@ -182,7 +171,7 @@ operator|+
 name|getPort2
 argument_list|()
 operator|+
-literal|"/myapp2/index.php?page=software"
+literal|"/proxy/ping?foo=bar"
 argument_list|,
 name|out
 argument_list|)
@@ -214,17 +203,17 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp?matchOnUriPrefix=true"
+literal|"jetty:http://localhost:{{port}}/?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:{{port2}}/myapp2?bridgeEndpoint=true&throwExceptionOnFailure=false&urlRewrite=#myRewrite"
+literal|"http4://localhost:{{port2}}/?bridgeEndpoint=true&throwExceptionOnFailure=false&urlRewrite=#myRewrite"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port2}}/myapp2?matchOnUriPrefix=true"
+literal|"jetty:http://localhost:{{port2}}/proxy/?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|transform

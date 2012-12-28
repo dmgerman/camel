@@ -54,13 +54,16 @@ name|HttpServletUrlRewrite
 extends|extends
 name|UrlRewrite
 block|{
-comment|/**      * Rewrite the url.      *      * @param url  the url      * @param producer the producer to use the rewritten url      * @param request  the http servlet request      * @return the rewritten url, or<tt>null</tt> to use the original url      * @throws Exception is thrown if error rewriting the url      */
-DECL|method|rewrite (String url, Producer producer, HttpServletRequest request)
+comment|/**      * Rewrite the url.      *      * @param url  the absolute url (eg with scheme://host:port/path?query)      * @param relativeUrl optional relative url, if bridging endpoints, which then would be without the base path from the      *                    endpoint from the given producer.      * @param producer the producer to use the rewritten url      * @param request  the http servlet request      * @return the rewritten url, or<tt>null</tt> to use the original url      * @throws Exception is thrown if error rewriting the url      */
+DECL|method|rewrite (String url, String relativeUrl, Producer producer, HttpServletRequest request)
 name|String
 name|rewrite
 parameter_list|(
 name|String
 name|url
+parameter_list|,
+name|String
+name|relativeUrl
 parameter_list|,
 name|Producer
 name|producer

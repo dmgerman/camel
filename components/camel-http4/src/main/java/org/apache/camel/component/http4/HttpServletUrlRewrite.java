@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.http
+DECL|package|org.apache.camel.component.http4
 package|package
 name|org
 operator|.
@@ -14,9 +14,21 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|http4
 package|;
 end_package
+
+begin_import
+import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletRequest
+import|;
+end_import
 
 begin_import
 import|import
@@ -31,25 +43,19 @@ import|;
 end_import
 
 begin_comment
-comment|// START SNIPPET: e1
+comment|/**  * Extended {@link UrlRewrite} which leverages {@link HttpServletRequest}  * during the rewrite process.  *<p/>  * For example the camel-urlrewrite component supports  * {@link HttpServletUrlRewrite} implementations.  */
 end_comment
 
-begin_comment
-comment|/**  * A very simple url rewrite that replaces yahoo with google in the url.  *<p/>  * This is only used for testing purposes.  */
-end_comment
-
-begin_class
-DECL|class|GoogleUrlRewrite
+begin_interface
+DECL|interface|HttpServletUrlRewrite
 specifier|public
-class|class
-name|GoogleUrlRewrite
-implements|implements
+interface|interface
+name|HttpServletUrlRewrite
+extends|extends
 name|UrlRewrite
 block|{
-annotation|@
-name|Override
-DECL|method|rewrite (String url, String relativeUrl, Producer producer)
-specifier|public
+comment|/**      * Rewrite the url.      *      * @param url  the absolute url (eg with scheme://host:port/path?query)      * @param relativeUrl optional relative url, if bridging endpoints, which then would be without the base path from the      *                    endpoint from the given producer.      * @param producer the producer to use the rewritten url      * @param request  the http servlet request      * @return the rewritten url, or<tt>null</tt> to use the original url      * @throws Exception is thrown if error rewriting the url      */
+DECL|method|rewrite (String url, String relativeUrl, Producer producer, HttpServletRequest request)
 name|String
 name|rewrite
 parameter_list|(
@@ -61,25 +67,15 @@ name|relativeUrl
 parameter_list|,
 name|Producer
 name|producer
+parameter_list|,
+name|HttpServletRequest
+name|request
 parameter_list|)
-block|{
-return|return
-name|url
-operator|.
-name|replaceAll
-argument_list|(
-literal|"yahoo"
-argument_list|,
-literal|"google"
-argument_list|)
-return|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-block|}
-end_class
-
-begin_comment
-comment|// END SNIPPET: e1
-end_comment
+end_interface
 
 end_unit
 

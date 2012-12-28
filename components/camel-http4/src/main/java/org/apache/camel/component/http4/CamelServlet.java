@@ -159,6 +159,8 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CamelServlet
 specifier|public
 class|class
@@ -407,6 +409,30 @@ name|response
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// set context path as header
+name|String
+name|contextPath
+init|=
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getPath
+argument_list|()
+decl_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"CamelServletContextPath"
+argument_list|,
+name|contextPath
+argument_list|)
+expr_stmt|;
 name|consumer
 operator|.
 name|getProcessor
@@ -417,10 +443,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// HC: The getBinding() is interesting because it illustrates the
-comment|// impedance miss-match between
-comment|// HTTP's stream oriented protocol, and Camels more message oriented
-comment|// protocol exchanges.
 comment|// now lets output to the response
 name|consumer
 operator|.
@@ -441,11 +463,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 throw|throw
 operator|new
 name|ServletException

@@ -247,7 +247,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: Find a better way of starting/stopping this without adding as service to CamelContext
 comment|// TODO: Add support in camel-http4 and camel-ahc
 DECL|field|camelContext
 specifier|protected

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.urlrewrite.jetty
+DECL|package|org.apache.camel.component.urlrewrite.http4
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|urlrewrite
 operator|.
-name|jetty
+name|http4
 package|;
 end_package
 
@@ -58,24 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|urlrewrite
-operator|.
-name|http
-operator|.
-name|HttpUrlRewrite
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -97,10 +79,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|JettyUrlRewriteModTest
+DECL|class|Http4UrlRewriteModTest
 specifier|public
 class|class
-name|JettyUrlRewriteModTest
+name|Http4UrlRewriteModTest
 extends|extends
 name|BaseUrlRewriteTest
 block|{
@@ -122,11 +104,12 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
-name|HttpUrlRewrite
+comment|// START SNIPPET: e1
+name|Http4UrlRewrite
 name|myRewrite
 init|=
 operator|new
-name|HttpUrlRewrite
+name|Http4UrlRewrite
 argument_list|()
 decl_stmt|;
 name|myRewrite
@@ -136,6 +119,7 @@ argument_list|(
 literal|"RewriteRule page/([^/\\.]+)/?$ index.php?page=$1 [L]"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: e1
 name|jndi
 operator|.
 name|bind
@@ -166,7 +150,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/page/software/"
+literal|"http4://localhost:{{port}}/myapp/page/software/"
 argument_list|,
 literal|null
 argument_list|,
@@ -219,7 +203,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://localhost:{{port2}}/myapp2?bridgeEndpoint=true&throwExceptionOnFailure=false&urlRewrite=#myRewrite"
+literal|"http4://localhost:{{port2}}/myapp2?bridgeEndpoint=true&throwExceptionOnFailure=false&urlRewrite=#myRewrite"
 argument_list|)
 expr_stmt|;
 name|from

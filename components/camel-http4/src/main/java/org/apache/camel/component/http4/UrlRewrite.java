@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.http
+DECL|package|org.apache.camel.component.http4
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|http4
 package|;
 end_package
 
@@ -31,25 +31,17 @@ import|;
 end_import
 
 begin_comment
-comment|// START SNIPPET: e1
+comment|/**  * Allows to plugin custom strategy for rewriting url.  *<p/>  * This allows for example to proxy http services and plugin a url rewrite  * strategy such as the<a href="http://camel.apache.org/urlrewrite">url-rewrite</a> component.  */
 end_comment
 
-begin_comment
-comment|/**  * A very simple url rewrite that replaces yahoo with google in the url.  *<p/>  * This is only used for testing purposes.  */
-end_comment
-
-begin_class
-DECL|class|GoogleUrlRewrite
+begin_interface
+DECL|interface|UrlRewrite
 specifier|public
-class|class
-name|GoogleUrlRewrite
-implements|implements
+interface|interface
 name|UrlRewrite
 block|{
-annotation|@
-name|Override
+comment|/**      * Rewrite the url.      *      * @param url  the absolute url (eg with scheme://host:port/path?query)      * @param relativeUrl optional relative url, if bridging endpoints, which then would be without the base path from the      *                    endpoint from the given producer.      * @param producer the producer to use the rewritten url      * @return the rewritten url, or<tt>null</tt> to use the original url      * @throws Exception is thrown if error rewriting the url      */
 DECL|method|rewrite (String url, String relativeUrl, Producer producer)
-specifier|public
 name|String
 name|rewrite
 parameter_list|(
@@ -62,24 +54,11 @@ parameter_list|,
 name|Producer
 name|producer
 parameter_list|)
-block|{
-return|return
-name|url
-operator|.
-name|replaceAll
-argument_list|(
-literal|"yahoo"
-argument_list|,
-literal|"google"
-argument_list|)
-return|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-block|}
-end_class
-
-begin_comment
-comment|// END SNIPPET: e1
-end_comment
+end_interface
 
 end_unit
 

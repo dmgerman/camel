@@ -1260,6 +1260,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|UrlRewrite
+name|urlRewrite
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"urlRewrite"
+argument_list|,
+name|UrlRewrite
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|boolean
 name|secure
 init|=
@@ -1318,6 +1332,31 @@ argument_list|,
 name|configurer
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|urlRewrite
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// let CamelContext deal with the lifecycle of the url rewrite
+comment|// this ensures its being shutdown when Camel shutdown etc.
+name|getCamelContext
+argument_list|()
+operator|.
+name|addService
+argument_list|(
+name|urlRewrite
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setUrlRewrite
+argument_list|(
+name|urlRewrite
+argument_list|)
+expr_stmt|;
+block|}
 comment|// configure the endpoint
 name|setProperties
 argument_list|(

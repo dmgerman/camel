@@ -60,13 +60,16 @@ name|UrlRewrite
 block|{
 annotation|@
 name|Override
-DECL|method|rewrite (String url, Producer producer)
+DECL|method|rewrite (String url, String relativeUrl, Producer producer)
 specifier|public
 name|String
 name|rewrite
 parameter_list|(
 name|String
 name|url
+parameter_list|,
+name|String
+name|relativeUrl
 parameter_list|,
 name|Producer
 name|producer

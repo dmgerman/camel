@@ -62,6 +62,8 @@ name|component
 operator|.
 name|urlrewrite
 operator|.
+name|http
+operator|.
 name|HttpUrlRewrite
 import|;
 end_import
