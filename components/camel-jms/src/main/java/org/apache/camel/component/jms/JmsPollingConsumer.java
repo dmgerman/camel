@@ -174,7 +174,9 @@ block|{
 return|return
 name|receive
 argument_list|(
-literal|1
+name|JmsTemplate
+operator|.
+name|RECEIVE_TIMEOUT_NO_WAIT
 argument_list|)
 return|;
 block|}
@@ -187,7 +189,9 @@ block|{
 return|return
 name|receive
 argument_list|(
-literal|0L
+name|JmsTemplate
+operator|.
+name|RECEIVE_TIMEOUT_INDEFINITE_WAIT
 argument_list|)
 return|;
 block|}
