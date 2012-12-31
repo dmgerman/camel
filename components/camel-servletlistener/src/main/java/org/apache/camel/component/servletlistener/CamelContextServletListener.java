@@ -770,38 +770,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|// validate that we could set all the init parameters
-if|if
-condition|(
-operator|!
-name|map
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error setting init parameters on CamelContext."
-operator|+
-literal|" There are "
-operator|+
-name|map
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|" unknown parameters. ["
-operator|+
-name|map
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
-comment|// Any custom CamelContextLifecycle
+comment|// any custom CamelContextLifecycle
 name|String
 name|lifecycle
 init|=
@@ -880,6 +849,37 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+comment|// validate that we could set all the init parameters
+if|if
+condition|(
+operator|!
+name|map
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error setting init parameters on CamelContext."
+operator|+
+literal|" There are "
+operator|+
+name|map
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" unknown parameters. ["
+operator|+
+name|map
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 try|try
 block|{
