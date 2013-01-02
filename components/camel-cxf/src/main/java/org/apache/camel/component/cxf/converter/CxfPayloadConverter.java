@@ -879,7 +879,7 @@ operator|=
 operator|(
 name|Source
 operator|)
-name|src
+name|value
 expr_stmt|;
 block|}
 if|if
