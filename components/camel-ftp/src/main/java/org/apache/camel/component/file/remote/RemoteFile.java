@@ -252,6 +252,31 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RemoteFile["
+operator|+
+operator|(
+name|isAbsolute
+argument_list|()
+condition|?
+name|getAbsoluteFilePath
+argument_list|()
+else|:
+name|getRelativeFilePath
+argument_list|()
+operator|)
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 
