@@ -49,6 +49,8 @@ comment|/**  * @deprecated the standard {@link RouteBuilder} can be used to writ
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GroovyRouteBuilder
 specifier|public
 specifier|abstract

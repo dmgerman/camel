@@ -58,12 +58,6 @@ name|HttpConsumer
 extends|extends
 name|DefaultConsumer
 block|{
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|HttpEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|traceEnabled
 specifier|private
 name|boolean
@@ -101,12 +95,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -133,7 +121,8 @@ name|getBinding
 parameter_list|()
 block|{
 return|return
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getBinding
 argument_list|()
@@ -146,7 +135,8 @@ name|getPath
 parameter_list|()
 block|{
 return|return
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getPath
 argument_list|()
@@ -167,7 +157,8 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|connect
 argument_list|(
@@ -185,7 +176,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|disconnect
 argument_list|(
@@ -205,8 +197,6 @@ name|isTraceEnabled
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|traceEnabled
 return|;
 block|}

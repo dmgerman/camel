@@ -2328,7 +2328,7 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-comment|// registry the consumer here
+comment|// register the consumer here
 name|servlet
 operator|.
 name|connect

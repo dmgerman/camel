@@ -36,6 +36,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -86,12 +100,11 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 name|execute
@@ -99,14 +112,6 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|end
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -114,19 +119,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Run "
-operator|+
+literal|"Ran {} tests in {}ms"
+argument_list|,
 name|count
-operator|+
-literal|" tests in "
-operator|+
-operator|(
-name|end
-operator|-
-name|start
-operator|)
-operator|+
-literal|"ms"
+argument_list|,
+name|watch
+operator|.
+name|taken
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -158,12 +158,11 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 name|execute
@@ -171,14 +170,6 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|end
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -186,19 +177,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Run "
-operator|+
+literal|"Ran {} tests in {}ms"
+argument_list|,
 name|count
-operator|+
-literal|" tests in "
-operator|+
-operator|(
-name|end
-operator|-
-name|start
-operator|)
-operator|+
-literal|"ms"
+argument_list|,
+name|watch
+operator|.
+name|taken
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -230,12 +216,11 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 name|execute
@@ -243,14 +228,6 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|end
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -258,19 +235,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Run "
-operator|+
+literal|"Ran {} tests in {}ms"
+argument_list|,
 name|count
-operator|+
-literal|" tests in "
-operator|+
-operator|(
-name|end
-operator|-
-name|start
-operator|)
-operator|+
-literal|"ms"
+argument_list|,
+name|watch
+operator|.
+name|taken
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -302,12 +274,11 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|start
+name|StopWatch
+name|watch
 init|=
-name|System
-operator|.
-name|currentTimeMillis
+operator|new
+name|StopWatch
 argument_list|()
 decl_stmt|;
 name|execute
@@ -315,14 +286,6 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|long
-name|end
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -330,19 +293,14 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Run "
-operator|+
+literal|"Ran {} tests in {}ms"
+argument_list|,
 name|count
-operator|+
-literal|" tests in "
-operator|+
-operator|(
-name|end
-operator|-
-name|start
-operator|)
-operator|+
-literal|"ms"
+argument_list|,
+name|watch
+operator|.
+name|taken
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

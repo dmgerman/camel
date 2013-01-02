@@ -101,6 +101,8 @@ comment|/**  * @version   * @deprecated see {@link org.apache.camel.groovy.exten
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CamelGroovyMethods
 specifier|public
 specifier|final

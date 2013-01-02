@@ -956,24 +956,13 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Create format object to format the field
 name|Format
 argument_list|<
 name|?
 argument_list|>
 name|format
-decl_stmt|;
-comment|// Get pattern defined for the field
-name|String
-name|pattern
 init|=
-name|dataField
-operator|.
-name|pattern
-argument_list|()
-decl_stmt|;
-comment|// Create format object to format the field
-name|format
-operator|=
 name|FormatFactory
 operator|.
 name|getFormat
@@ -988,7 +977,7 @@ argument_list|()
 argument_list|,
 name|dataField
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// field object to be set
 name|Object
 name|modelField
@@ -2081,8 +2070,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Retrieve the format, pattern and precision associated to
-comment|// the type
+comment|// Retrieve the format, pattern and precision associated to the type
 name|Class
 argument_list|<
 name|?
@@ -2092,22 +2080,6 @@ init|=
 name|field
 operator|.
 name|getType
-argument_list|()
-decl_stmt|;
-name|String
-name|pattern
-init|=
-name|datafield
-operator|.
-name|pattern
-argument_list|()
-decl_stmt|;
-name|int
-name|precision
-init|=
-name|datafield
-operator|.
-name|precision
 argument_list|()
 decl_stmt|;
 comment|// Create format
@@ -3009,14 +2981,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|String
-name|pattern
-init|=
-name|dataField
-operator|.
-name|pattern
-argument_list|()
-decl_stmt|;
 name|Format
 argument_list|<
 name|?

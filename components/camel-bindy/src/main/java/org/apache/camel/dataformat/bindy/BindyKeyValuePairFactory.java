@@ -1371,15 +1371,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Get pattern defined for the field
-name|String
-name|pattern
-init|=
-name|keyValuePairField
-operator|.
-name|pattern
-argument_list|()
-decl_stmt|;
 comment|// Create format object to format the field
 name|Format
 argument_list|<
@@ -1571,15 +1562,6 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-comment|// Get pattern defined for the field
-name|String
-name|pattern
-init|=
-name|keyValuePairField
-operator|.
-name|pattern
-argument_list|()
-decl_stmt|;
 comment|// Create format object to format the field
 name|Format
 argument_list|<
@@ -2219,22 +2201,6 @@ init|=
 name|field
 operator|.
 name|getType
-argument_list|()
-decl_stmt|;
-name|String
-name|pattern
-init|=
-name|keyValuePairField
-operator|.
-name|pattern
-argument_list|()
-decl_stmt|;
-name|int
-name|precision
-init|=
-name|keyValuePairField
-operator|.
-name|precision
 argument_list|()
 decl_stmt|;
 comment|// Create format
