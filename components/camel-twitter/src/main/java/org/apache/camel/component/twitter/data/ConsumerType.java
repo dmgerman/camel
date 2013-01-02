@@ -28,15 +28,12 @@ name|ConsumerType
 block|{
 DECL|enumConstant|TIMELINE
 DECL|enumConstant|SEARCH
-DECL|enumConstant|TRENDS
 DECL|enumConstant|DIRECTMESSAGE
 DECL|enumConstant|STREAMING
 DECL|enumConstant|UNKNOWN
 name|TIMELINE
 block|,
 name|SEARCH
-block|,
-name|TRENDS
 block|,
 name|DIRECTMESSAGE
 block|,

@@ -106,7 +106,7 @@ begin_import
 import|import
 name|twitter4j
 operator|.
-name|Tweet
+name|Status
 import|;
 end_import
 
@@ -269,7 +269,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Tweet
+name|Status
 argument_list|>
 name|list
 init|=
@@ -280,7 +280,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Tweet
+name|Status
 name|t
 range|:
 name|list

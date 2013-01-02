@@ -46,6 +46,14 @@ name|FilterQuery
 import|;
 end_import
 
+begin_import
+import|import
+name|twitter4j
+operator|.
+name|StallWarning
+import|;
+end_import
+
 begin_comment
 comment|/**  * Consumes the filter stream  */
 end_comment
@@ -72,6 +80,8 @@ name|te
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|startStreaming ()
 specifier|protected
 name|void
@@ -88,6 +98,19 @@ name|te
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onStallWarning (StallWarning stallWarning)
+specifier|public
+name|void
+name|onStallWarning
+parameter_list|(
+name|StallWarning
+name|stallWarning
+parameter_list|)
+block|{
+comment|// noop
 block|}
 DECL|method|createFilter (TwitterEndpoint te)
 specifier|private
@@ -369,13 +392,6 @@ literal|"At least one filter parameter is required"
 argument_list|)
 throw|;
 block|}
-name|filterQuery
-operator|.
-name|setIncludeEntities
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 return|return
 name|filterQuery
 return|;

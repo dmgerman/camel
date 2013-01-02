@@ -38,6 +38,14 @@ name|TwitterEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|twitter4j
+operator|.
+name|StallWarning
+import|;
+end_import
+
 begin_comment
 comment|/**  * Consumes the sample stream  */
 end_comment
@@ -64,6 +72,8 @@ name|te
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|startStreaming ()
 specifier|protected
 name|void
@@ -75,6 +85,19 @@ operator|.
 name|sample
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onStallWarning (StallWarning stallWarning)
+specifier|public
+name|void
+name|onStallWarning
+parameter_list|(
+name|StallWarning
+name|stallWarning
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 end_class

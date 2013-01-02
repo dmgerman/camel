@@ -116,7 +116,7 @@ begin_import
 import|import
 name|twitter4j
 operator|.
-name|Tweet
+name|Status
 import|;
 end_import
 
@@ -175,7 +175,7 @@ DECL|method|pollConsume ()
 specifier|public
 name|List
 argument_list|<
-name|Tweet
+name|Status
 argument_list|>
 name|pollConsume
 parameter_list|()
@@ -241,7 +241,7 @@ DECL|method|directConsume ()
 specifier|public
 name|List
 argument_list|<
-name|Tweet
+name|Status
 argument_list|>
 name|directConsume
 parameter_list|()
@@ -307,7 +307,7 @@ DECL|method|search (Query query)
 specifier|private
 name|List
 argument_list|<
-name|Tweet
+name|Status
 argument_list|>
 name|search
 parameter_list|(
@@ -335,7 +335,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Tweet
+name|Status
 argument_list|>
 name|tweets
 init|=
@@ -357,7 +357,7 @@ condition|)
 block|{
 for|for
 control|(
-name|Tweet
+name|Status
 name|t
 range|:
 name|tweets

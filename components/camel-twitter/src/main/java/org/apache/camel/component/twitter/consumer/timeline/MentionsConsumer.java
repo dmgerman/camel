@@ -141,7 +141,7 @@ operator|.
 name|getTwitter
 argument_list|()
 operator|.
-name|getMentions
+name|getMentionsTimeline
 argument_list|(
 operator|new
 name|Paging
@@ -191,7 +191,7 @@ operator|.
 name|getTwitter
 argument_list|()
 operator|.
-name|getMentions
+name|getMentionsTimeline
 argument_list|()
 return|;
 block|}
