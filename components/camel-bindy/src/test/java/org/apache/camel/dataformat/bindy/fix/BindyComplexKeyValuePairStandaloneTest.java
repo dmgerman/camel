@@ -202,7 +202,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|Assert
 import|;
 end_import
 
@@ -212,7 +212,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|Before
 import|;
 end_import
 
