@@ -170,7 +170,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"file://target/test-classes/org/apache/camel/component/stringtemplate?fileExist=Override"
 argument_list|,
-literal|"Hello $headers.name$"
+literal|"Hello<headers.name>"
 argument_list|,
 name|Exchange
 operator|.
@@ -242,7 +242,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"file://target/test-classes/org/apache/camel/component/stringtemplate?fileExist=Override"
 argument_list|,
-literal|"Bye $headers.name$"
+literal|"Bye<headers.name>"
 argument_list|,
 name|Exchange
 operator|.
@@ -332,7 +332,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"file://target/test-classes/org/apache/camel/component/stringtemplate?fileExist=Override"
 argument_list|,
-literal|"Bye $headers.name$"
+literal|"Bye<headers.name>"
 argument_list|,
 name|Exchange
 operator|.
@@ -423,7 +423,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"file://target/test-classes/org/apache/camel/component/stringtemplate?fileExist=Override"
 argument_list|,
-literal|"Bye $headers.name$"
+literal|"Bye<headers.name>"
 argument_list|,
 name|Exchange
 operator|.
@@ -546,7 +546,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"file://target/test-classes/org/apache/camel/component/stringtemplate?fileExist=Override"
 argument_list|,
-literal|"Bye $headers.name$"
+literal|"Bye<headers.name>"
 argument_list|,
 name|Exchange
 operator|.
@@ -592,7 +592,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"file://target/test-classes/org/apache/camel/component/stringtemplate?fileExist=Override"
 argument_list|,
-literal|"Hello $headers.name$"
+literal|"Hello<headers.name>"
 argument_list|,
 name|Exchange
 operator|.
