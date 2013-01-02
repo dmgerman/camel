@@ -125,7 +125,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Open your web browser on http://localhost:9090"
+literal|"Open your web browser on http://localhost:9090/index.html"
 argument_list|)
 expr_stmt|;
 name|System

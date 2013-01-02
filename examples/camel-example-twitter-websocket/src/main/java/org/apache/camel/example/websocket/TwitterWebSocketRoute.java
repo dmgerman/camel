@@ -391,6 +391,11 @@ name|delay
 argument_list|,
 name|searchTerm
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:tweet"
+argument_list|)
 comment|// and push tweets to all web socket subscribers on camel-tweet
 operator|.
 name|to
