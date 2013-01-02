@@ -78,23 +78,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
 operator|.
-name|assertThat
+name|assertEquals
 import|;
 end_import
 
@@ -326,14 +314,11 @@ operator|.
 name|getProcessorName
 argument_list|()
 decl_stmt|;
-name|assertThat
-argument_list|(
-name|processorName
-argument_list|,
-name|is
+name|assertEquals
 argument_list|(
 name|REPOSITORY
-argument_list|)
+argument_list|,
+name|processorName
 argument_list|)
 expr_stmt|;
 block|}
