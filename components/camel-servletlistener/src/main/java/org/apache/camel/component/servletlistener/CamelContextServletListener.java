@@ -34,7 +34,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Enumeration
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
 import|;
 end_import
 
@@ -55,6 +75,16 @@ operator|.
 name|util
 operator|.
 name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -276,10 +306,7 @@ name|CamelContextServletListener
 implements|implements
 name|ServletContextListener
 block|{
-comment|// TODO: Allow to lookup and configure some of the stuff we do in camel-core-xml
-comment|// more easily with this listener as well
-comment|// TODO: Add more tests
-comment|// TODO: Allow to lookup route builders using package scanning
+comment|/**      * instance is used for testing purpose      */
 DECL|field|instance
 specifier|public
 specifier|static
@@ -493,10 +520,8 @@ throw|;
 block|}
 block|}
 comment|// get the routes and add to the CamelContext
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|Object
 argument_list|>
 name|routes
@@ -508,49 +533,19 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|String
-argument_list|,
 name|Object
-argument_list|>
-name|entry
+name|route
 range|:
 name|routes
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 if|if
 condition|(
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 operator|instanceof
 name|RouteBuilder
 condition|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Adding route(s) {} -> {}"
-argument_list|,
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|camelContext
@@ -560,10 +555,7 @@ argument_list|(
 operator|(
 name|RoutesBuilder
 operator|)
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 argument_list|)
 expr_stmt|;
 block|}
@@ -577,12 +569,9 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Error adding route(s) "
+literal|"Error adding route "
 operator|+
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|route
 argument_list|,
 name|e
 argument_list|)
@@ -592,10 +581,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 operator|instanceof
 name|Set
 condition|)
@@ -609,26 +595,9 @@ range|:
 operator|(
 name|Set
 operator|)
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 control|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Adding route(s) {} -> {}"
-argument_list|,
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|clazz
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|camelContext
@@ -652,12 +621,9 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Error adding route(s) "
+literal|"Error adding route "
 operator|+
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|clazz
 argument_list|,
 name|e
 argument_list|)
@@ -668,31 +634,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 operator|instanceof
 name|RoutesDefinition
 condition|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Adding routes {} -> {}"
-argument_list|,
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|camelContext
@@ -703,10 +649,7 @@ operator|(
 operator|(
 name|RoutesDefinition
 operator|)
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 operator|)
 operator|.
 name|getRoutes
@@ -726,10 +669,7 @@ name|RuntimeException
 argument_list|(
 literal|"Error adding route(s) "
 operator|+
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|route
 argument_list|,
 name|e
 argument_list|)
@@ -739,31 +679,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 operator|instanceof
 name|RouteDefinition
 condition|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Adding routes {} -> {}"
-argument_list|,
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|camelContext
@@ -773,10 +693,7 @@ argument_list|(
 operator|(
 name|RouteDefinition
 operator|)
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|route
 argument_list|)
 expr_stmt|;
 block|}
@@ -792,10 +709,7 @@ name|RuntimeException
 argument_list|(
 literal|"Error adding route(s) "
 operator|+
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|route
 argument_list|,
 name|e
 argument_list|)
@@ -808,25 +722,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unsupported route "
+literal|"Unsupported route: "
 operator|+
-name|entry
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|" of type: "
-operator|+
-name|entry
-operator|.
-name|getValue
-argument_list|()
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
+name|route
 argument_list|)
 throw|;
 block|}
@@ -1031,10 +929,8 @@ expr_stmt|;
 block|}
 DECL|method|extractRoutes (Map<String, Object> map)
 specifier|private
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|Object
 argument_list|>
 name|extractRoutes
@@ -1048,20 +944,29 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|Object
 argument_list|>
-name|routes
+name|answer
 init|=
 operator|new
-name|LinkedHashMap
+name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|List
 argument_list|<
 name|String
-argument_list|,
-name|Object
+argument_list|>
+name|names
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1103,6 +1008,17 @@ literal|"routebuilder"
 argument_list|)
 condition|)
 block|{
+name|names
+operator|.
+name|add
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// we can have multiple values assigned, separated by comma, so create an iterator
 name|String
 name|value
 init|=
@@ -1114,6 +1030,34 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+name|Iterator
+name|it
+init|=
+name|ObjectHelper
+operator|.
+name|createIterator
+argument_list|(
+name|value
+argument_list|)
+decl_stmt|;
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|value
+operator|=
+operator|(
+name|String
+operator|)
+name|it
+operator|.
+name|next
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1124,6 +1068,14 @@ name|value
 argument_list|)
 condition|)
 block|{
+comment|// trim value before usage, as people can indent the values
+name|value
+operator|=
+name|value
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 name|Object
 name|target
 init|=
@@ -1170,6 +1122,7 @@ name|value
 argument_list|)
 condition|)
 block|{
+comment|// XML resource from classpath or file system
 name|InputStream
 name|is
 init|=
@@ -1430,18 +1383,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|routes
+name|answer
 operator|.
-name|put
+name|add
 argument_list|(
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1452,10 +1401,7 @@ control|(
 name|String
 name|name
 range|:
-name|routes
-operator|.
-name|keySet
-argument_list|()
+name|names
 control|)
 block|{
 name|map
@@ -1467,7 +1413,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|routes
+name|answer
 return|;
 block|}
 DECL|method|extractInitParameters (ServletContextEvent sce)
