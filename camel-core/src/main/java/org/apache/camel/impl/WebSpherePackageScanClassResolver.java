@@ -93,6 +93,10 @@ parameter_list|)
 block|{
 return|return
 name|loader
+operator|!=
+literal|null
+condition|?
+name|loader
 operator|.
 name|getClass
 argument_list|()
@@ -104,6 +108,8 @@ name|startsWith
 argument_list|(
 literal|"com.ibm"
 argument_list|)
+else|:
+literal|false
 return|;
 block|}
 comment|/**      * Overloaded to handle specific problem with getting resources on the IBM WebSphere platform.      *<p/>      * WebSphere can<b>not</b> load resources if the resource to load is a folder name, such as a      * packagename, you have to explicit name a resource that is a file.      *      * @param loader  the classloader      * @param packageName   the packagename for the package to load      * @return  URL's for the given package      * @throws java.io.IOException is thrown by the classloader      */
