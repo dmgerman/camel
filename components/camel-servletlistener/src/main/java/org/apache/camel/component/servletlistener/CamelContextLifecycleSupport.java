@@ -35,16 +35,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A callback lifecycle allows end users to implement custom logic before  * the {@link ServletCamelContext} is started and stopped.  */
+comment|/**  * Support class for {@link CamelContextLifecycle} to make sub-classing easier,  * allowing to only override methods needed.  */
 end_comment
 
-begin_interface
-DECL|interface|CamelContextLifecycle
+begin_class
+DECL|class|CamelContextLifecycleSupport
 specifier|public
-interface|interface
+class|class
+name|CamelContextLifecycleSupport
+implements|implements
 name|CamelContextLifecycle
 block|{
+annotation|@
+name|Override
 DECL|method|beforeStart (ServletCamelContext camelContext, JndiContext jndi)
+specifier|public
 name|void
 name|beforeStart
 parameter_list|(
@@ -56,8 +61,13 @@ name|jndi
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
 DECL|method|afterStart (ServletCamelContext camelContext, JndiContext jndi)
+specifier|public
 name|void
 name|afterStart
 parameter_list|(
@@ -69,8 +79,13 @@ name|jndi
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
 DECL|method|beforeStop (ServletCamelContext camelContext, JndiContext jndi)
+specifier|public
 name|void
 name|beforeStop
 parameter_list|(
@@ -82,8 +97,13 @@ name|jndi
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
 DECL|method|afterStop (ServletCamelContext camelContext, JndiContext jndi)
+specifier|public
 name|void
 name|afterStop
 parameter_list|(
@@ -95,9 +115,11 @@ name|jndi
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
+block|{
+comment|// noop
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 
