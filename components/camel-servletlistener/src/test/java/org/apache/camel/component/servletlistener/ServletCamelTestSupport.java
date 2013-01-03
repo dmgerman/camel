@@ -89,12 +89,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Base class for unit testing.  */
 end_comment
 
 begin_class
 DECL|class|ServletCamelTestSupport
 specifier|public
+specifier|abstract
 class|class
 name|ServletCamelTestSupport
 extends|extends
@@ -199,14 +200,11 @@ block|}
 comment|/**      * @return The web.xml to use for testing.      */
 DECL|method|getConfiguration ()
 specifier|protected
+specifier|abstract
 name|String
 name|getConfiguration
 parameter_list|()
-block|{
-return|return
-literal|"/myweb.xml"
-return|;
-block|}
+function_decl|;
 DECL|method|getCamelContext ()
 specifier|protected
 name|ServletCamelContext
