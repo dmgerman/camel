@@ -44,6 +44,7 @@ specifier|public
 interface|interface
 name|CamelContextLifecycle
 block|{
+comment|/**      * Callback before starting {@link ServletCamelContext}.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
 DECL|method|beforeStart (ServletCamelContext camelContext, JndiContext jndi)
 name|void
 name|beforeStart
@@ -57,6 +58,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Callback after {@link ServletCamelContext} has been started.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
 DECL|method|afterStart (ServletCamelContext camelContext, JndiContext jndi)
 name|void
 name|afterStart
@@ -70,6 +72,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Callback before stopping {@link ServletCamelContext}.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
 DECL|method|beforeStop (ServletCamelContext camelContext, JndiContext jndi)
 name|void
 name|beforeStop
@@ -83,6 +86,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Callback after {@link ServletCamelContext} has been stopped.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
 DECL|method|afterStop (ServletCamelContext camelContext, JndiContext jndi)
 name|void
 name|afterStop

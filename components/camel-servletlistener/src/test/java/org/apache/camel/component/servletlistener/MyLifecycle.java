@@ -20,113 +20,71 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|Context
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|ServletContext
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|util
 operator|.
-name|DefaultCamelContext
+name|jndi
+operator|.
+name|JndiContext
 import|;
 end_import
 
 begin_comment
-comment|/**  * A servlet based {@link org.apache.camel.CamelContext}.  */
+comment|/**  *  */
+end_comment
+
+begin_comment
+comment|// START SNIPPET: e1
 end_comment
 
 begin_class
-DECL|class|ServletCamelContext
+DECL|class|MyLifecycle
 specifier|public
 class|class
-name|ServletCamelContext
+name|MyLifecycle
 extends|extends
-name|DefaultCamelContext
+name|CamelContextLifecycleSupport
 block|{
-DECL|field|jndiContext
-specifier|private
-specifier|final
-name|Context
-name|jndiContext
-decl_stmt|;
-DECL|field|servletContext
-specifier|private
-specifier|final
-name|ServletContext
-name|servletContext
-decl_stmt|;
-DECL|method|ServletCamelContext (Context jndiContext, ServletContext servletContext)
+annotation|@
+name|Override
+DECL|method|beforeStart (ServletCamelContext camelContext, JndiContext jndi)
 specifier|public
-name|ServletCamelContext
+name|void
+name|beforeStart
 parameter_list|(
-name|Context
-name|jndiContext
+name|ServletCamelContext
+name|camelContext
 parameter_list|,
-name|ServletContext
-name|servletContext
+name|JndiContext
+name|jndi
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|super
+comment|// enlist our bean(s) in the registry
+name|jndi
+operator|.
+name|bind
 argument_list|(
-name|jndiContext
+literal|"myBean"
+argument_list|,
+operator|new
+name|HelloBean
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|jndiContext
-operator|=
-name|jndiContext
-expr_stmt|;
-name|this
-operator|.
-name|servletContext
-operator|=
-name|servletContext
-expr_stmt|;
-block|}
-DECL|method|getJndiContext ()
-specifier|public
-name|Context
-name|getJndiContext
-parameter_list|()
-block|{
-return|return
-name|jndiContext
-return|;
-block|}
-DECL|method|getServletContext ()
-specifier|public
-name|ServletContext
-name|getServletContext
-parameter_list|()
-block|{
-return|return
-name|servletContext
-return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// END SNIPPET: e1
+end_comment
 
 end_unit
 
