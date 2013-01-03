@@ -73,10 +73,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|CamelContextServletListenerTest
+DECL|class|PropertyPlaceholderRouteTest
 specifier|public
 class|class
-name|CamelContextServletListenerTest
+name|PropertyPlaceholderRouteTest
 extends|extends
 name|ServletCamelTestSupport
 block|{
@@ -87,7 +87,7 @@ name|getConfiguration
 parameter_list|()
 block|{
 return|return
-literal|"/myweb.xml"
+literal|"/myweb6.xml"
 return|;
 block|}
 annotation|@
@@ -136,7 +136,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"mock:foo"
+literal|"mock:result"
 argument_list|,
 name|MockEndpoint
 operator|.
@@ -145,18 +145,18 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|,
-literal|"Hello World"
+literal|"World"
 argument_list|)
 expr_stmt|;
 name|mock

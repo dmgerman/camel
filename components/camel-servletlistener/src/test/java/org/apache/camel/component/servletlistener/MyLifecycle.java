@@ -35,11 +35,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|// START SNIPPET: e1
 end_comment
 
 begin_comment
-comment|// START SNIPPET: e1
+comment|/**  * Our custom {@link CamelContextLifecycle} which allows us to enlist beans in the {@link JndiContext}  * so the Camel application can lookup the beans in the {@link org.apache.camel.spi.Registry}.  *<p/>  * We can of course also do other kind of custom logic as well.  */
 end_comment
 
 begin_class
@@ -76,6 +76,31 @@ argument_list|,
 operator|new
 name|HelloBean
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|afterStop (ServletCamelContext camelContext, JndiContext jndi)
+specifier|public
+name|void
+name|afterStop
+parameter_list|(
+name|ServletCamelContext
+name|camelContext
+parameter_list|,
+name|JndiContext
+name|jndi
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// unbind our bean when Camel has been stopped
+name|jndi
+operator|.
+name|unbind
+argument_list|(
+literal|"myBean"
 argument_list|)
 expr_stmt|;
 block|}
