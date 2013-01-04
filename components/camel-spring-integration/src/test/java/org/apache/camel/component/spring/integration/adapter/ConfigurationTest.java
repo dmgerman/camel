@@ -28,7 +28,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
+name|After
 import|;
 end_import
 
@@ -70,19 +70,55 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
 begin_class
 DECL|class|ConfigurationTest
 specifier|public
 class|class
 name|ConfigurationTest
-extends|extends
-name|Assert
 block|{
 DECL|field|context
 specifier|private
 name|AbstractXmlApplicationContext
 name|context
 decl_stmt|;
+annotation|@
+name|After
+DECL|method|tearDown ()
+specifier|public
+name|void
+name|tearDown
+parameter_list|()
+block|{
+name|context
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testCamelSourceEndpoint ()
@@ -98,12 +134,7 @@ operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"/org/apache/camel/component/spring/integration/adapter/CamelSource.xml"
-block|}
 argument_list|)
 expr_stmt|;
 name|CamelSourceAdapter
@@ -198,11 +229,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|destroy
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -291,11 +317,6 @@ argument_list|()
 argument_list|,
 literal|"channelC"
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|destroy
-argument_list|()
 expr_stmt|;
 block|}
 block|}

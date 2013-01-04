@@ -63,12 +63,21 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"Status"
+argument_list|,
+literal|"Done"
+argument_list|)
+expr_stmt|;
 name|String
-name|request
+name|result
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -76,11 +85,6 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|()
-decl_stmt|;
-name|String
-name|result
-init|=
-name|request
 operator|+
 literal|" is processed"
 decl_stmt|;

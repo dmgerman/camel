@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -396,7 +408,7 @@ name|isInOut
 argument_list|()
 condition|)
 block|{
-comment|// we need to setup right inputChannel for further processing
+comment|// we need to setup right outputChannel for further processing
 name|ObjectHelper
 operator|.
 name|notEmpty
@@ -480,7 +492,21 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|createExchange
+argument_list|(
+name|getEndpoint
 argument_list|()
+operator|.
+name|isInOut
+argument_list|()
+condition|?
+name|ExchangePattern
+operator|.
+name|InOut
+else|:
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
 decl_stmt|;
 name|exchange
 operator|.
