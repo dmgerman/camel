@@ -937,7 +937,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// validate that we could set all the init parameters
+comment|// just log if we could not use all the parameters, as they may be used by others
 if|if
 condition|(
 operator|!
@@ -947,26 +947,20 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|LOG
+operator|.
+name|info
 argument_list|(
-literal|"Error setting init parameters on CamelContext."
-operator|+
-literal|" There are "
-operator|+
+literal|"There are {} ServletContext init parameters, unknown to Camel. Maybe they are used by other frameworks? [{}]"
+argument_list|,
 name|map
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" unknown parameters. ["
-operator|+
+argument_list|,
 name|map
-operator|+
-literal|"]"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 try|try
 block|{
