@@ -212,7 +212,7 @@ name|getCamelContext
 parameter_list|()
 block|{
 return|return
-name|CamelContextServletListener
+name|CamelServletContextListener
 operator|.
 name|instance
 return|;

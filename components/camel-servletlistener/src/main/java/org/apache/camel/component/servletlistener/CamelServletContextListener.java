@@ -425,10 +425,10 @@ comment|/**  * A {@link ServletContextListener} which is used to bootstrap  * {@
 end_comment
 
 begin_class
-DECL|class|CamelContextServletListener
+DECL|class|CamelServletContextListener
 specifier|public
 class|class
-name|CamelContextServletListener
+name|CamelServletContextListener
 implements|implements
 name|ServletContextListener
 block|{
@@ -450,7 +450,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelContextServletListener
+name|CamelServletContextListener
 operator|.
 name|class
 argument_list|)
