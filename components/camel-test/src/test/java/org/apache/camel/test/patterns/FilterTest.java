@@ -94,6 +94,8 @@ name|camel
 operator|.
 name|test
 operator|.
+name|junit4
+operator|.
 name|CamelTestSupport
 import|;
 end_import
@@ -112,13 +114,11 @@ begin_comment
 comment|/**  * Tests filtering using Camel Test  *   * @version   */
 end_comment
 
-begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
+begin_comment
 comment|// START SNIPPET: example
+end_comment
+
+begin_class
 DECL|class|FilterTest
 specifier|public
 class|class
