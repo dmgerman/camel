@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An injector which uses Guice to perform the dependency injection of types  *  * @version   */
+comment|/**  * An injector which uses Guice to perform the dependency injection of types  *   * @version  */
 end_comment
 
 begin_class
@@ -105,7 +105,7 @@ name|type
 parameter_list|)
 block|{
 comment|// TODO if not bound we could create an instance and inject it?
-comment|//injector.injectMembers(instance);
+comment|// injector.injectMembers(instance);
 return|return
 name|injector
 operator|.

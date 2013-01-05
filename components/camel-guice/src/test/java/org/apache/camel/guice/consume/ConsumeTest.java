@@ -84,7 +84,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|guiceyfruit
+name|apache
+operator|.
+name|camel
+operator|.
+name|guice
 operator|.
 name|testing
 operator|.
@@ -96,7 +100,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|guiceyfruit
+name|apache
+operator|.
+name|camel
+operator|.
+name|guice
 operator|.
 name|testing
 operator|.

@@ -104,7 +104,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|guiceyfruit
+name|apache
+operator|.
+name|camel
+operator|.
+name|guice
 operator|.
 name|jndi
 operator|.
@@ -113,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configures the CamelContext, RouteBuilder, Component and Endpoint instances using  * Guice  *  * @version   */
+comment|/**  * Configures the CamelContext, RouteBuilder, Component and Endpoint instances using  * Guice  *  */
 end_comment
 
 begin_class
