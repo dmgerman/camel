@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indicates that an attempt to close an injector or scope failed closing one or  * more bindings.  *   * @author james.strachan@gmail.com (James Strachan)  * @version  */
+comment|/**  * Indicates that an attempt to close an injector or scope failed closing one or  * more bindings.  *   */
 end_comment
 
 begin_class
