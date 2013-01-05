@@ -62,6 +62,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// warm up with 1.000 messages so that the JIT compiler kicks in
+name|send
+argument_list|(
+literal|"http://127.0.0.1:8192/service/CBRProxy"
+argument_list|,
+literal|1000
+argument_list|)
+expr_stmt|;
 name|StopWatch
 name|watch
 init|=

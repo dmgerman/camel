@@ -453,6 +453,15 @@ argument_list|,
 literal|"urn:buyStocks.2"
 argument_list|)
 expr_stmt|;
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"routing"
+argument_list|,
+literal|"xadmin;server1;community#1.0##"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

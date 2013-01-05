@@ -122,10 +122,9 @@ decl_stmt|;
 DECL|field|PAYLOAD
 specifier|protected
 specifier|static
+specifier|final
 name|String
 name|PAYLOAD
-init|=
-literal|null
 decl_stmt|;
 static|static
 block|{
