@@ -443,6 +443,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * The usage of this option has no effect at all.      */
+annotation|@
+name|Deprecated
 DECL|method|shouldAwaitExistence ()
 specifier|public
 name|boolean
@@ -453,6 +456,9 @@ return|return
 name|awaitExistence
 return|;
 block|}
+comment|/**      * The usage of this option has no effect at all.      */
+annotation|@
+name|Deprecated
 DECL|method|setAwaitExistence (boolean awaitExistence)
 specifier|public
 name|void

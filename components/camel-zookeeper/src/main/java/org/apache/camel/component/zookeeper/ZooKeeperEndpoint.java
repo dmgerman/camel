@@ -571,6 +571,9 @@ name|backoff
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The usage of this property has no effect at all.      */
+annotation|@
+name|Deprecated
 annotation|@
 name|ManagedAttribute
 DECL|method|getAwaitExistence ()
@@ -587,6 +590,9 @@ name|shouldAwaitExistence
 argument_list|()
 return|;
 block|}
+comment|/**      * The usage of this property has no effect at all.      */
+annotation|@
+name|Deprecated
 annotation|@
 name|ManagedAttribute
 DECL|method|setAwaitExistence (boolean awaitExistence)
