@@ -443,7 +443,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * The usage of this option has no effect at all.      */
+comment|/**      * @deprecated The usage of this option has no effect at all.      */
 annotation|@
 name|Deprecated
 DECL|method|shouldAwaitExistence ()
@@ -456,7 +456,7 @@ return|return
 name|awaitExistence
 return|;
 block|}
-comment|/**      * The usage of this option has no effect at all.      */
+comment|/**      * @deprecated The usage of this option has no effect at all.      */
 annotation|@
 name|Deprecated
 DECL|method|setAwaitExistence (boolean awaitExistence)
