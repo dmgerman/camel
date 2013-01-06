@@ -236,7 +236,7 @@ parameter_list|()
 block|{
 name|assertThat
 argument_list|(
-name|getSampleWS
+name|getSampleWSWithCXFAPI
 argument_list|(
 literal|"direct:start2"
 argument_list|)
