@@ -179,6 +179,14 @@ specifier|private
 name|String
 name|date
 decl_stmt|;
+comment|/**      * Used to set the sinceId from pulling      */
+DECL|field|sinceId
+specifier|private
+name|long
+name|sinceId
+init|=
+literal|1
+decl_stmt|;
 DECL|field|parsedDate
 specifier|private
 name|Date
@@ -753,6 +761,32 @@ block|}
 return|return
 name|twitterStream
 return|;
+block|}
+DECL|method|getSinceId ()
+specifier|public
+name|long
+name|getSinceId
+parameter_list|()
+block|{
+return|return
+name|sinceId
+return|;
+block|}
+DECL|method|setSinceId (long sinceId)
+specifier|public
+name|void
+name|setSinceId
+parameter_list|(
+name|long
+name|sinceId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sinceId
+operator|=
+name|sinceId
+expr_stmt|;
 block|}
 block|}
 end_class

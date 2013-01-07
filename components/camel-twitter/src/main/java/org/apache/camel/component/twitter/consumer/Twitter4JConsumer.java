@@ -153,6 +153,21 @@ parameter_list|()
 throws|throws
 name|TwitterException
 function_decl|;
+comment|/**      * Support to update the Consumer's lastId when starting the consumer      * @param sinceId      */
+DECL|method|setLastId (long sinceId)
+specifier|public
+name|void
+name|setLastId
+parameter_list|(
+name|long
+name|sinceId
+parameter_list|)
+block|{
+name|lastId
+operator|=
+name|sinceId
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -195,6 +195,17 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// update the sinceId
+name|twitter4jConsumer
+operator|.
+name|setLastId
+argument_list|(
+name|properties
+operator|.
+name|getSinceId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Consumer
 name|tc
 init|=
