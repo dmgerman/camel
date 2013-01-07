@@ -394,6 +394,9 @@ operator|.
 name|getContentType
 argument_list|()
 operator|.
+name|toLowerCase
+argument_list|()
+operator|.
 name|startsWith
 argument_list|(
 literal|"text"
