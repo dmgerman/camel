@@ -195,7 +195,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// update the sinceId
+comment|// update the pulling lastID with sinceId
 name|twitter4jConsumer
 operator|.
 name|setLastId
