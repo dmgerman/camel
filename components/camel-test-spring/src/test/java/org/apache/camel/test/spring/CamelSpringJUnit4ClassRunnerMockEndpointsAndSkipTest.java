@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.junit4
+DECL|package|org.apache.camel.test.spring
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 package|;
 end_package
 
@@ -85,22 +85,6 @@ operator|.
 name|impl
 operator|.
 name|InterceptSendToEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|spring
-operator|.
-name|MockEndpointsAndSkip
 import|;
 end_import
 

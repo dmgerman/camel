@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.junit4
+DECL|package|org.apache.camel.test.spring
 package|package
 name|org
 operator|.
@@ -14,25 +14,9 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|spring
-operator|.
-name|LazyLoadTypeConverters
-import|;
-end_import
 
 begin_import
 import|import
@@ -52,7 +36,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertTrue
+name|assertFalse
 import|;
 end_import
 
@@ -65,14 +49,14 @@ argument_list|)
 annotation|@
 name|LazyLoadTypeConverters
 argument_list|(
-literal|true
+literal|false
 argument_list|)
-DECL|class|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersInheritedOverrideTest
+DECL|class|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersInheritedOverrideTest
+name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersInheritedTest
+name|CamelSpringJUnit4ClassRunnerPlainTest
 block|{
 annotation|@
 name|Test
@@ -84,7 +68,7 @@ name|void
 name|testLazyLoadTypeConverters
 parameter_list|()
 block|{
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|camelContext
 operator|.
@@ -92,7 +76,7 @@ name|isLazyLoadTypeConverters
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|camelContext2
 operator|.

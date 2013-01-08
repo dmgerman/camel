@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.junit4
+DECL|package|org.apache.camel.test.spring
 package|package
 name|org
 operator|.
@@ -14,18 +14,18 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 package|;
 end_package
 
 begin_class
-DECL|class|CamelSpringJUnit4ClassRunnerShutdownTimeoutInheritedTest
+DECL|class|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersInheritedTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerShutdownTimeoutInheritedTest
+name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersInheritedTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerShutdownTimeoutTest
-block|{  }
+name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersTest
+block|{ }
 end_class
 
 end_unit

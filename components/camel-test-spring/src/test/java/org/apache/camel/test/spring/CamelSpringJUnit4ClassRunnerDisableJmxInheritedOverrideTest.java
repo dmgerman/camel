@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.junit4
+DECL|package|org.apache.camel.test.spring
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 package|;
 end_package
 
@@ -26,11 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|management
 operator|.
-name|spring
-operator|.
-name|LazyLoadTypeConverters
+name|DefaultManagementStrategy
 import|;
 end_import
 
@@ -52,51 +50,42 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertFalse
+name|assertEquals
 import|;
 end_import
 
 begin_class
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-annotation|@
-name|LazyLoadTypeConverters
-argument_list|(
-literal|false
-argument_list|)
-DECL|class|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersTest
+name|DisableJmx
+DECL|class|CamelSpringJUnit4ClassRunnerDisableJmxInheritedOverrideTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersTest
+name|CamelSpringJUnit4ClassRunnerDisableJmxInheritedOverrideTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerPlainTest
+name|CamelSpringJUnit4ClassRunnerDisableJmxTest
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Override
-DECL|method|testLazyLoadTypeConverters ()
+DECL|method|testJmx ()
 specifier|public
 name|void
-name|testLazyLoadTypeConverters
+name|testJmx
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|assertFalse
+name|assertEquals
 argument_list|(
+name|DefaultManagementStrategy
+operator|.
+name|class
+argument_list|,
 name|camelContext
 operator|.
-name|isLazyLoadTypeConverters
+name|getManagementStrategy
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-name|camelContext2
 operator|.
-name|isLazyLoadTypeConverters
+name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -81,6 +81,7 @@ name|createApplicationContext
 parameter_list|()
 block|{
 comment|// must not refresh when using active profiles
+comment|// lets reuse the xml file from the other test
 return|return
 operator|new
 name|ClassPathXmlApplicationContext
@@ -89,7 +90,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"org/apache/camel/test/junit4/CamelSpringActiveProfileTest-context.xml"
+literal|"org/apache/camel/test/spring/CamelSpringActiveProfileTest-context.xml"
 block|}
 argument_list|,
 literal|false

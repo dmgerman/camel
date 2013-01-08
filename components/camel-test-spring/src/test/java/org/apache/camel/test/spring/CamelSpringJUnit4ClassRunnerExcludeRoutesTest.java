@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.junit4
+DECL|package|org.apache.camel.test.spring
 package|package
 name|org
 operator|.
@@ -14,18 +14,57 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 package|;
 end_package
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNull
+import|;
+end_import
+
 begin_class
-DECL|class|CamelSpringJUnit4ClassRunnerProvidesBreakpointInherritedTest
+annotation|@
+name|ExcludeRoutes
+argument_list|(
+name|TestRouteBuilder
+operator|.
+name|class
+argument_list|)
+DECL|class|CamelSpringJUnit4ClassRunnerExcludeRoutesTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerProvidesBreakpointInherritedTest
+name|CamelSpringJUnit4ClassRunnerExcludeRoutesTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerProvidesBreakpointTest
-block|{  }
+name|CamelSpringJUnit4ClassRunnerPlainTest
+block|{
+annotation|@
+name|Override
+DECL|method|testExcludedRoute ()
+specifier|public
+name|void
+name|testExcludedRoute
+parameter_list|()
+block|{
+name|assertNull
+argument_list|(
+name|camelContext
+operator|.
+name|getRoute
+argument_list|(
+literal|"excludedRoute"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit
