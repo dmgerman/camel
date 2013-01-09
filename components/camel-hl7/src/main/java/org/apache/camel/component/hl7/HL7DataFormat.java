@@ -171,6 +171,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -557,6 +571,16 @@ argument_list|,
 name|parser
 argument_list|)
 decl_stmt|;
+name|String
+name|charsetName
+init|=
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
 name|outputStream
 operator|.
 name|write
@@ -564,7 +588,9 @@ argument_list|(
 name|encoded
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+name|charsetName
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
