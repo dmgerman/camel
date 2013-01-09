@@ -907,6 +907,28 @@ name|end
 argument_list|()
 return|;
 block|}
+comment|/**      * Set the delimiter      *      * @param delimiter the delimiter      * @return the builder      */
+DECL|method|delimiter (String delimiter)
+specifier|public
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|delimiter
+parameter_list|(
+name|String
+name|delimiter
+parameter_list|)
+block|{
+name|setDelimiter
+argument_list|(
+name|delimiter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategy the strategy      * @return the builder      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public

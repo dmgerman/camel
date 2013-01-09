@@ -92,7 +92,7 @@ literal|"Hello World"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"mock:foo,direct:foo"
+literal|"mock:foo;direct:foo"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -209,6 +209,11 @@ operator|.
 name|header
 argument_list|(
 literal|"foo"
+argument_list|)
+operator|.
+name|delimiter
+argument_list|(
+literal|";"
 argument_list|)
 expr_stmt|;
 block|}
