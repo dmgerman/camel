@@ -5275,6 +5275,56 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @param delimiter  a custom delimiter to use      * @return the builder      */
+DECL|method|recipientList (String delimiter)
+specifier|public
+name|ExpressionClause
+argument_list|<
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+argument_list|>
+name|recipientList
+parameter_list|(
+name|String
+name|delimiter
+parameter_list|)
+block|{
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|answer
+init|=
+operator|new
+name|RecipientListDefinition
+argument_list|<
+name|Type
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setDelimiter
+argument_list|(
+name|delimiter
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|ExpressionClause
+operator|.
+name|createAndSetExpression
+argument_list|(
+name|answer
+argument_list|)
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/recipient-list.html">Recipient List EIP:</a>      * Creates a dynamic recipient list allowing you to route messages to a number of dynamically specified recipients      *      * @return the expression clause to configure the expression to decide the destinations      */
 DECL|method|recipientList ()
 specifier|public
