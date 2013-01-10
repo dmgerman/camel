@@ -297,10 +297,6 @@ DECL|field|level
 specifier|private
 name|LoggingLevel
 name|level
-init|=
-name|LoggingLevel
-operator|.
-name|ERROR
 decl_stmt|;
 annotation|@
 name|XmlAttribute

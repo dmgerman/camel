@@ -112,20 +112,6 @@ name|IdentifiedType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|RedeliveryPolicyDefinition
-import|;
-end_import
-
 begin_comment
 comment|/**  * The&lt;errorHandler&gt; tag element.  *  * @version   */
 end_comment
@@ -181,10 +167,6 @@ DECL|field|level
 specifier|private
 name|LoggingLevel
 name|level
-init|=
-name|LoggingLevel
-operator|.
-name|ERROR
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -192,10 +174,6 @@ DECL|field|rollbackLoggingLevel
 specifier|private
 name|LoggingLevel
 name|rollbackLoggingLevel
-init|=
-name|LoggingLevel
-operator|.
-name|WARN
 decl_stmt|;
 annotation|@
 name|XmlAttribute
