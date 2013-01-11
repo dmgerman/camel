@@ -639,23 +639,6 @@ argument_list|)
 expr_stmt|;
 comment|//Expecting 2 listeners- one added by us: TestCacheEventListener and
 comment|//one added by ehcache by cfg file.
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"EventListenser is "
-operator|+
-name|ehcacheEventListners
-operator|.
-name|iterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Number of registered listeners"
