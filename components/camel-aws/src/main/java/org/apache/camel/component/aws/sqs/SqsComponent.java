@@ -203,6 +203,32 @@ literal|"AmazonSQSClient or accessKey and secretKey must be specified."
 argument_list|)
 throw|;
 block|}
+comment|// Verify that visibilityTimeout is set if extendMessageVisibility is set to true.
+if|if
+condition|(
+name|configuration
+operator|.
+name|isExtendMessageVisibility
+argument_list|()
+operator|&&
+operator|(
+name|configuration
+operator|.
+name|getVisibilityTimeout
+argument_list|()
+operator|==
+literal|null
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Extending message visibilty (extendMessageVisibility) requires visibilityTimeout to be set on the Endpoint."
+argument_list|)
+throw|;
+block|}
 name|SqsEndpoint
 name|sqsEndpoint
 init|=
