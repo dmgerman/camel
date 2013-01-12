@@ -278,6 +278,12 @@ name|FAILURE_ENDPOINT
 init|=
 literal|"CamelFailureEndpoint"
 decl_stmt|;
+DECL|field|FAILURE_ROUTE_ID
+name|String
+name|FAILURE_ROUTE_ID
+init|=
+literal|"CamelFailureRouteId"
+decl_stmt|;
 DECL|field|FILTER_NON_XML_CHARS
 name|String
 name|FILTER_NON_XML_CHARS
