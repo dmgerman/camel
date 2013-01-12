@@ -20,11 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|io
+name|xml
 operator|.
-name|FileNotFoundException
+name|transform
+operator|.
+name|TransformerException
 import|;
 end_import
 
@@ -163,7 +165,6 @@ name|FailedToCreateRouteException
 name|e
 parameter_list|)
 block|{
-comment|// expected
 name|assertIsInstanceOf
 argument_list|(
 name|ResolveEndpointFailedException
@@ -178,7 +179,7 @@ argument_list|)
 expr_stmt|;
 name|assertIsInstanceOf
 argument_list|(
-name|FileNotFoundException
+name|TransformerException
 operator|.
 name|class
 argument_list|,
@@ -188,6 +189,22 @@ name|getCause
 argument_list|()
 operator|.
 name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Cannot find org/apache/camel/component/xslt/notfound.xsl in classpath"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;

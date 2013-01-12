@@ -395,6 +395,34 @@ name|file
 argument_list|)
 return|;
 block|}
+comment|// if href and location is the same, then its the initial resolve
+if|if
+condition|(
+name|href
+operator|.
+name|equals
+argument_list|(
+name|location
+argument_list|)
+condition|)
+block|{
+comment|// default to use classpath: location
+name|String
+name|path
+init|=
+literal|"classpath:"
+operator|+
+name|href
+decl_stmt|;
+return|return
+name|resolve
+argument_list|(
+name|path
+argument_list|,
+name|base
+argument_list|)
+return|;
+block|}
 comment|// okay then its relative to the starting location from the XSLT component
 name|String
 name|path
