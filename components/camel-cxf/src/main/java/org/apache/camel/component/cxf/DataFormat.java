@@ -32,7 +32,7 @@ comment|/**      * PAYLOAD is the message payload of the message after message c
 DECL|enumConstant|PAYLOAD
 name|PAYLOAD
 block|,
-comment|/**      * RAW is the raw message that is received from the transport layer.      * Streaming and non-streaming are both supported.      */
+comment|/**      *<p>      * RAW is the raw message that is received from the transport layer.      * Streaming and non-streaming are both supported.      *<p>      *<p>      * Only the interceptors of these phases are<b>preserved</b>:      *</p>      *<p>      * In phases: {Phase.RECEIVE , Phase.INVOKE, Phase.POST_INVOKE}      *</p>      *<p>      * Out phases: {Phase.PREPARE_SEND, Phase.WRITE, Phase.SEND, Phase.PREPARE_SEND_ENDING}      *</p>      *       */
 DECL|enumConstant|RAW
 name|RAW
 block|,
