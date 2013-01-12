@@ -509,6 +509,15 @@ else|:
 literal|"smpp://"
 operator|)
 operator|+
+operator|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSystemId
+argument_list|()
+operator|!=
+literal|null
+condition|?
 name|getConfiguration
 argument_list|()
 operator|.
@@ -516,6 +525,9 @@ name|getSystemId
 argument_list|()
 operator|+
 literal|"@"
+else|:
+literal|""
+operator|)
 operator|+
 name|getConfiguration
 argument_list|()
