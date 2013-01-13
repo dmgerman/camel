@@ -321,8 +321,19 @@ condition|(
 name|scheme
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+comment|// need to compact paths for file/classpath as it can be relative paths using .. to go backwards
+if|if
+condition|(
 literal|"file:"
+operator|.
+name|equals
+argument_list|(
+name|scheme
+argument_list|)
+operator|||
+literal|"classpath:"
 operator|.
 name|equals
 argument_list|(
@@ -330,7 +341,6 @@ name|scheme
 argument_list|)
 condition|)
 block|{
-comment|// need to compact paths for file as it can be relative paths using .. to go backwards
 name|href
 operator|=
 name|FileUtil
@@ -338,18 +348,9 @@ operator|.
 name|compactPath
 argument_list|(
 name|href
-argument_list|,
-literal|'/'
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|scheme
-operator|!=
-literal|null
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
