@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|CamelExchangeException
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|InvalidPayloadException
+name|Exchange
 import|;
 end_import
 
@@ -385,7 +385,7 @@ modifier|...
 name|expected
 parameter_list|)
 throws|throws
-name|InvalidPayloadException
+name|CamelExchangeException
 throws|,
 name|NoSuchHeaderException
 block|{
