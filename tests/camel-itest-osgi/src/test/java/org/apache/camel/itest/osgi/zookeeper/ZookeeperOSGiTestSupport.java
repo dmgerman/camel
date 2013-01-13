@@ -358,7 +358,7 @@ name|zookeeper
 operator|.
 name|server
 operator|.
-name|NIOServerCnxn
+name|NIOServerCnxnFactory
 import|;
 end_import
 
@@ -709,9 +709,7 @@ name|TestZookeeperServer
 block|{
 DECL|field|connectionFactory
 specifier|private
-name|NIOServerCnxn
-operator|.
-name|Factory
+name|NIOServerCnxnFactory
 name|connectionFactory
 decl_stmt|;
 DECL|field|zkServer
@@ -820,9 +818,12 @@ expr_stmt|;
 name|connectionFactory
 operator|=
 operator|new
-name|NIOServerCnxn
+name|NIOServerCnxnFactory
+argument_list|()
+expr_stmt|;
+name|connectionFactory
 operator|.
-name|Factory
+name|configure
 argument_list|(
 operator|new
 name|InetSocketAddress
