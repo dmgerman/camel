@@ -447,7 +447,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-literal|"camelContext"
+literal|"camelContextId"
 operator|.
 name|equals
 argument_list|(
