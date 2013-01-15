@@ -324,12 +324,30 @@ literal|null
 condition|)
 block|{
 comment|// not encrypted
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Property is not encrypted {}"
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
 return|return
 name|value
 return|;
 block|}
 else|else
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Decrypting property {}"
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
 comment|// do not log the decrypted text as it could be sensitive information such as a password
 return|return
 name|getEncryptor
