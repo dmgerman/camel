@@ -655,8 +655,31 @@ name|getConnectionFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we use CACHE_CONSUMER to cling to the consumer as long as we can, since we can only consume
+comment|// we use CACHE_CONSUMER by default to cling to the consumer as long as we can, since we can only consume
 comment|// msgs from the JMS Connection that created the temp destination in the first place
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getReplyToCacheLevelName
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setCacheLevelName
+argument_list|(
+name|endpoint
+operator|.
+name|getReplyToCacheLevelName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|answer
 operator|.
 name|setCacheLevel
@@ -666,6 +689,7 @@ operator|.
 name|CACHE_CONSUMER
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|clientId
 init|=
