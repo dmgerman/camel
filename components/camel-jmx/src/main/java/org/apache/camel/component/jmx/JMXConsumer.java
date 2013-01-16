@@ -254,6 +254,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -348,30 +362,32 @@ specifier|private
 name|NotificationXmlFormatter
 name|mFormatter
 decl_stmt|;
-DECL|method|JMXConsumer (JMXEndpoint aEndpoint, Processor aProcessor)
+DECL|method|JMXConsumer (JMXEndpoint endpoint, Processor processor)
 specifier|public
 name|JMXConsumer
 parameter_list|(
 name|JMXEndpoint
-name|aEndpoint
+name|endpoint
 parameter_list|,
 name|Processor
-name|aProcessor
+name|processor
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|aEndpoint
+name|endpoint
 argument_list|,
-name|aProcessor
+name|processor
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|mJmxEndpoint
 operator|=
-name|aEndpoint
+name|endpoint
 expr_stmt|;
+name|this
+operator|.
 name|mFormatter
 operator|=
 operator|new
@@ -390,6 +406,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|mFormatter
+argument_list|)
+expr_stmt|;
 comment|// connect to the mbean server
 if|if
 condition|(
@@ -1071,6 +1094,13 @@ block|}
 name|removeNotificationListeners
 argument_list|()
 expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|mFormatter
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Removes the configured notification listener and the connection notification listener from the       * connection      */
 DECL|method|removeNotificationListeners ()
@@ -1107,6 +1137,10 @@ name|removeConnectionNotificationListener
 argument_list|(
 name|mConnectionNotificationListener
 argument_list|)
+expr_stmt|;
+name|mConnectionNotificationListener
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
