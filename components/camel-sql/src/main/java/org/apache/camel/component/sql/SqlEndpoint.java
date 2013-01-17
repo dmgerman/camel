@@ -149,10 +149,26 @@ operator|new
 name|DefaultSqlProcessingStrategy
 argument_list|()
 decl_stmt|;
+DECL|field|prepareStatementStrategy
+specifier|private
+name|SqlPrepareStatementStrategy
+name|prepareStatementStrategy
+init|=
+operator|new
+name|DefaultSqlPrepareStatementStrategy
+argument_list|()
+decl_stmt|;
 DECL|field|onConsume
 specifier|private
 name|String
 name|onConsume
+decl_stmt|;
+DECL|field|allowNamedParameters
+specifier|private
+name|boolean
+name|allowNamedParameters
+init|=
+literal|true
 decl_stmt|;
 comment|// TODO: onConsumeBatchDone to execute a query when batch done
 DECL|method|SqlEndpoint ()
@@ -410,6 +426,32 @@ operator|=
 name|processingStrategy
 expr_stmt|;
 block|}
+DECL|method|getPrepareStatementStrategy ()
+specifier|public
+name|SqlPrepareStatementStrategy
+name|getPrepareStatementStrategy
+parameter_list|()
+block|{
+return|return
+name|prepareStatementStrategy
+return|;
+block|}
+DECL|method|setPrepareStatementStrategy (SqlPrepareStatementStrategy prepareStatementStrategy)
+specifier|public
+name|void
+name|setPrepareStatementStrategy
+parameter_list|(
+name|SqlPrepareStatementStrategy
+name|prepareStatementStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prepareStatementStrategy
+operator|=
+name|prepareStatementStrategy
+expr_stmt|;
+block|}
 DECL|method|getOnConsume ()
 specifier|public
 name|String
@@ -434,6 +476,32 @@ operator|.
 name|onConsume
 operator|=
 name|onConsume
+expr_stmt|;
+block|}
+DECL|method|isAllowNamedParameters ()
+specifier|public
+name|boolean
+name|isAllowNamedParameters
+parameter_list|()
+block|{
+return|return
+name|allowNamedParameters
+return|;
+block|}
+DECL|method|setAllowNamedParameters (boolean allowNamedParameters)
+specifier|public
+name|void
+name|setAllowNamedParameters
+parameter_list|(
+name|boolean
+name|allowNamedParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNamedParameters
+operator|=
+name|allowNamedParameters
 expr_stmt|;
 block|}
 annotation|@
