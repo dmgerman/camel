@@ -163,6 +163,11 @@ specifier|private
 name|String
 name|onConsume
 decl_stmt|;
+DECL|field|onConsumeBatchComplete
+specifier|private
+name|String
+name|onConsumeBatchComplete
+decl_stmt|;
 DECL|field|allowNamedParameters
 specifier|private
 name|boolean
@@ -252,6 +257,14 @@ operator|.
 name|setOnConsume
 argument_list|(
 name|getOnConsume
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|setOnConsumeBatchComplete
+argument_list|(
+name|getOnConsumeBatchComplete
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -476,6 +489,32 @@ operator|.
 name|onConsume
 operator|=
 name|onConsume
+expr_stmt|;
+block|}
+DECL|method|getOnConsumeBatchComplete ()
+specifier|public
+name|String
+name|getOnConsumeBatchComplete
+parameter_list|()
+block|{
+return|return
+name|onConsumeBatchComplete
+return|;
+block|}
+DECL|method|setOnConsumeBatchComplete (String onConsumeBatchComplete)
+specifier|public
+name|void
+name|setOnConsumeBatchComplete
+parameter_list|(
+name|String
+name|onConsumeBatchComplete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onConsumeBatchComplete
+operator|=
+name|onConsumeBatchComplete
 expr_stmt|;
 block|}
 DECL|method|isAllowNamedParameters ()

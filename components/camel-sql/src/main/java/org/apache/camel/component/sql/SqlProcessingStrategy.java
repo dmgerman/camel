@@ -77,6 +77,23 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Commit callback when the batch is complete. This allows you to do one extra query after all rows has been processed in the batch.      *      * @param endpoint     the endpoint      * @param jdbcTemplate The JDBC template      * @param query        The SQL query to execute      * @return the update count if the query returned an update count      * @throws Exception can be thrown in case of error      */
+DECL|method|commitBatchComplete (SqlEndpoint endpoint, JdbcTemplate jdbcTemplate, String query)
+name|int
+name|commitBatchComplete
+parameter_list|(
+name|SqlEndpoint
+name|endpoint
+parameter_list|,
+name|JdbcTemplate
+name|jdbcTemplate
+parameter_list|,
+name|String
+name|query
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 
