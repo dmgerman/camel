@@ -141,7 +141,6 @@ end_comment
 begin_class
 DECL|class|JdbcCamelCodec
 specifier|public
-specifier|final
 class|class
 name|JdbcCamelCodec
 block|{
