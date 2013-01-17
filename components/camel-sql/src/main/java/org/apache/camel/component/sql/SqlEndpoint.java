@@ -175,7 +175,6 @@ name|allowNamedParameters
 init|=
 literal|true
 decl_stmt|;
-comment|// TODO: onConsumeBatchDone to execute a query when batch done
 DECL|method|SqlEndpoint ()
 specifier|public
 name|SqlEndpoint
