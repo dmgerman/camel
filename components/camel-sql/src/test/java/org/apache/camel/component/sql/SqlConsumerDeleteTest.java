@@ -60,6 +60,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|NotifyBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|RouteBuilder
 import|;
 end_import
@@ -122,7 +136,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|Test
 import|;
 end_import
 
@@ -130,9 +144,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|springframework
 operator|.
-name|Test
+name|jdbc
+operator|.
+name|core
+operator|.
+name|JdbcTemplate
 import|;
 end_import
 
@@ -189,8 +207,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|SqlConsumerDeleteTest
 specifier|public
 class|class
@@ -202,6 +218,11 @@ DECL|field|db
 specifier|private
 name|EmbeddedDatabase
 name|db
+decl_stmt|;
+DECL|field|jdbcTemplate
+specifier|private
+name|JdbcTemplate
+name|jdbcTemplate
 decl_stmt|;
 annotation|@
 name|Before
@@ -233,6 +254,14 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+expr_stmt|;
+name|jdbcTemplate
+operator|=
+operator|new
+name|JdbcTemplate
+argument_list|(
+name|db
+argument_list|)
 expr_stmt|;
 name|super
 operator|.
@@ -472,6 +501,29 @@ literal|"PROJECT"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// give it a little tine to delete
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+comment|// there should only be 1 row in the table
+name|assertEquals
+argument_list|(
+literal|"Should have deleted all 3 rows"
+argument_list|,
+literal|0
+argument_list|,
+name|jdbcTemplate
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from projects"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -516,7 +568,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sql:select * from projects order by id?consumer.onConsume=delete from projects where id = #"
+literal|"sql:select * from projects order by id?consumer.onConsume=delete from projects where id = :#id"
 argument_list|)
 operator|.
 name|to

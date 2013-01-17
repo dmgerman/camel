@@ -54,9 +54,9 @@ specifier|public
 interface|interface
 name|SqlProcessingStrategy
 block|{
-comment|/**      * Commit callback if there are a query to be run after processing.      *      * @param endpoint     the endpoint      * @param exchange     The exchange after it has been processed      * @param data         The original data delivered to the route      * @param jdbcTemplate The JDBC template      * @param query        The SQL query to execute      * @throws Exception can be thrown in case of error      */
+comment|/**      * Commit callback if there are a query to be run after processing.      *      * @param endpoint     the endpoint      * @param exchange     The exchange after it has been processed      * @param data         The original data delivered to the route      * @param jdbcTemplate The JDBC template      * @param query        The SQL query to execute      * @return the update count if the query returned an update count      * @throws Exception can be thrown in case of error      */
 DECL|method|commit (SqlEndpoint endpoint, Exchange exchange, Object data, JdbcTemplate jdbcTemplate, String query)
-name|void
+name|int
 name|commit
 parameter_list|(
 name|SqlEndpoint

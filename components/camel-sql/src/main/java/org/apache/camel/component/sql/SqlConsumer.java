@@ -270,13 +270,11 @@ specifier|final
 name|JdbcTemplate
 name|jdbcTemplate
 decl_stmt|;
-comment|/**      * Statement to run after data has been processed in the route      */
 DECL|field|onConsume
 specifier|private
 name|String
 name|onConsume
 decl_stmt|;
-comment|/**      * Process resultset individually or as a list      */
 DECL|field|useIterator
 specifier|private
 name|boolean
@@ -284,11 +282,23 @@ name|useIterator
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Whether allow empty resultset to be routed to the next hop      */
 DECL|field|routeEmptyResultSet
 specifier|private
 name|boolean
 name|routeEmptyResultSet
+decl_stmt|;
+DECL|field|expectedUpdateCount
+specifier|private
+name|int
+name|expectedUpdateCount
+init|=
+operator|-
+literal|1
+decl_stmt|;
+DECL|field|breakBatchOnConsumeFail
+specifier|private
+name|boolean
+name|breakBatchOnConsumeFail
 decl_stmt|;
 DECL|class|DataHolder
 specifier|private
@@ -451,6 +461,15 @@ name|DataHolder
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Executing query: {}"
+argument_list|,
+name|preparedQuery
+argument_list|)
+expr_stmt|;
 name|ResultSet
 name|rs
 init|=
@@ -465,7 +484,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Got result list from query {}"
+literal|"Got result list from query: {}"
 argument_list|,
 name|rs
 argument_list|)
@@ -872,20 +891,6 @@ operator|-
 literal|1
 expr_stmt|;
 comment|// process the current exchange
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Processing exchange: {} with properties: {}"
-argument_list|,
-name|exchange
-argument_list|,
-name|exchange
-operator|.
-name|getProperties
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|getProcessor
 argument_list|()
 operator|.
@@ -894,8 +899,108 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// TODO: support when with CAMEL-5977
-comment|/*             try {                 if (onConsume != null) {                     SqlEndpoint endpoint = (SqlEndpoint) getEndpoint();                     endpoint.getProcessingStrategy().commit(endpoint, exchange, data, jdbcTemplate, onConsume);                 }             } catch (Exception e) {                 handleException(e);             }*/
+try|try
+block|{
+comment|// we can only run on consume if there was data
+if|if
+condition|(
+name|onConsume
+operator|!=
+literal|null
+operator|&&
+name|data
+operator|!=
+literal|null
+condition|)
+block|{
+name|int
+name|updateCount
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getProcessingStrategy
+argument_list|()
+operator|.
+name|commit
+argument_list|(
+name|getEndpoint
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|data
+argument_list|,
+name|jdbcTemplate
+argument_list|,
+name|onConsume
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|expectedUpdateCount
+operator|>
+operator|-
+literal|1
+operator|&&
+name|updateCount
+operator|!=
+name|expectedUpdateCount
+condition|)
+block|{
+name|String
+name|msg
+init|=
+literal|"Expected update count "
+operator|+
+name|expectedUpdateCount
+operator|+
+literal|" but was "
+operator|+
+name|updateCount
+operator|+
+literal|" executing query: "
+operator|+
+name|onConsume
+decl_stmt|;
+throw|throw
+operator|new
+name|SQLException
+argument_list|(
+name|msg
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|breakBatchOnConsumeFail
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+else|else
+block|{
+name|handleException
+argument_list|(
+literal|"Error executing onConsume query "
+operator|+
+name|onConsume
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 return|return
 name|total
@@ -983,6 +1088,60 @@ operator|.
 name|routeEmptyResultSet
 operator|=
 name|routeEmptyResultSet
+expr_stmt|;
+block|}
+DECL|method|getExpectedUpdateCount ()
+specifier|public
+name|int
+name|getExpectedUpdateCount
+parameter_list|()
+block|{
+return|return
+name|expectedUpdateCount
+return|;
+block|}
+comment|/**      * Sets an expected update count to validate when using onConsume.      *      * @param expectedUpdateCount typically set this value to<tt>1</tt> to expect 1 row updated.      */
+DECL|method|setExpectedUpdateCount (int expectedUpdateCount)
+specifier|public
+name|void
+name|setExpectedUpdateCount
+parameter_list|(
+name|int
+name|expectedUpdateCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expectedUpdateCount
+operator|=
+name|expectedUpdateCount
+expr_stmt|;
+block|}
+DECL|method|isBreakBatchOnConsumeFail ()
+specifier|public
+name|boolean
+name|isBreakBatchOnConsumeFail
+parameter_list|()
+block|{
+return|return
+name|breakBatchOnConsumeFail
+return|;
+block|}
+comment|/**      * Sets whether to break batch if onConsume failed.      */
+DECL|method|setBreakBatchOnConsumeFail (boolean breakBatchOnConsumeFail)
+specifier|public
+name|void
+name|setBreakBatchOnConsumeFail
+parameter_list|(
+name|boolean
+name|breakBatchOnConsumeFail
+parameter_list|)
+block|{
+name|this
+operator|.
+name|breakBatchOnConsumeFail
+operator|=
+name|breakBatchOnConsumeFail
 expr_stmt|;
 block|}
 block|}
