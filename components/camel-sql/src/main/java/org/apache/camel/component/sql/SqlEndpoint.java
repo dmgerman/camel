@@ -163,6 +163,11 @@ specifier|private
 name|String
 name|onConsume
 decl_stmt|;
+DECL|field|onConsumeFailed
+specifier|private
+name|String
+name|onConsumeFailed
+decl_stmt|;
 DECL|field|onConsumeBatchComplete
 specifier|private
 name|String
@@ -256,6 +261,14 @@ operator|.
 name|setOnConsume
 argument_list|(
 name|getOnConsume
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|setOnConsumeFailed
+argument_list|(
+name|getOnConsumeFailed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -488,6 +501,32 @@ operator|.
 name|onConsume
 operator|=
 name|onConsume
+expr_stmt|;
+block|}
+DECL|method|getOnConsumeFailed ()
+specifier|public
+name|String
+name|getOnConsumeFailed
+parameter_list|()
+block|{
+return|return
+name|onConsumeFailed
+return|;
+block|}
+DECL|method|setOnConsumeFailed (String onConsumeFailed)
+specifier|public
+name|void
+name|setOnConsumeFailed
+parameter_list|(
+name|String
+name|onConsumeFailed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onConsumeFailed
+operator|=
+name|onConsumeFailed
 expr_stmt|;
 block|}
 DECL|method|getOnConsumeBatchComplete ()

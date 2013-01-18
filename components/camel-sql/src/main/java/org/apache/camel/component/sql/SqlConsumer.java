@@ -275,6 +275,11 @@ specifier|private
 name|String
 name|onConsume
 decl_stmt|;
+DECL|field|onConsumeFailed
+specifier|private
+name|String
+name|onConsumeFailed
+decl_stmt|;
 DECL|field|onConsumeBatchComplete
 specifier|private
 name|String
@@ -896,6 +901,8 @@ operator|-
 literal|1
 expr_stmt|;
 comment|// process the current exchange
+try|try
+block|{
 name|getProcessor
 argument_list|()
 operator|.
@@ -904,16 +911,44 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+comment|// pick the on consume to use
+name|String
+name|sql
+init|=
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+condition|?
+name|onConsumeFailed
+else|:
+name|onConsume
+decl_stmt|;
 try|try
 block|{
 comment|// we can only run on consume if there was data
 if|if
 condition|(
-name|onConsume
+name|data
 operator|!=
 literal|null
 operator|&&
-name|data
+name|sql
 operator|!=
 literal|null
 condition|)
@@ -938,7 +973,7 @@ name|data
 argument_list|,
 name|jdbcTemplate
 argument_list|,
-name|onConsume
+name|sql
 argument_list|)
 decl_stmt|;
 if|if
@@ -966,7 +1001,7 @@ name|updateCount
 operator|+
 literal|" executing query: "
 operator|+
-name|onConsume
+name|sql
 decl_stmt|;
 throw|throw
 operator|new
@@ -997,9 +1032,9 @@ else|else
 block|{
 name|handleException
 argument_list|(
-literal|"Error executing onConsume query "
+literal|"Error executing onConsume/onConsumeFailed query "
 operator|+
-name|onConsume
+name|sql
 argument_list|,
 name|e
 argument_list|)
@@ -1078,7 +1113,6 @@ return|return
 name|total
 return|;
 block|}
-comment|/**      * Gets the statement(s) to run after successful processing.      * Use comma to separate multiple statements.      */
 DECL|method|getOnConsume ()
 specifier|public
 name|String
@@ -1089,7 +1123,7 @@ return|return
 name|onConsume
 return|;
 block|}
-comment|/**      * Sets the statement to run after successful processing.      * Use comma to separate multiple statements.      */
+comment|/**      * Sets a SQL to execute when the row has been successfully processed.      */
 DECL|method|setOnConsume (String onConsume)
 specifier|public
 name|void
@@ -1104,6 +1138,33 @@ operator|.
 name|onConsume
 operator|=
 name|onConsume
+expr_stmt|;
+block|}
+DECL|method|getOnConsumeFailed ()
+specifier|public
+name|String
+name|getOnConsumeFailed
+parameter_list|()
+block|{
+return|return
+name|onConsumeFailed
+return|;
+block|}
+comment|/**      * Sets a SQL to execute when the row failed being processed.      */
+DECL|method|setOnConsumeFailed (String onConsumeFailed)
+specifier|public
+name|void
+name|setOnConsumeFailed
+parameter_list|(
+name|String
+name|onConsumeFailed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onConsumeFailed
+operator|=
+name|onConsumeFailed
 expr_stmt|;
 block|}
 DECL|method|getOnConsumeBatchComplete ()
