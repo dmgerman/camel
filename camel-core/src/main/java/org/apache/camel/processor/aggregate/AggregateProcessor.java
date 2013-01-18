@@ -1609,6 +1609,11 @@ literal|"predicate"
 return|;
 block|}
 block|}
+name|boolean
+name|sizeChecked
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|getCompletionSizeExpression
@@ -1643,6 +1648,11 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// mark as already checked size as expression takes precedence over static configured
+name|sizeChecked
+operator|=
+literal|true
+expr_stmt|;
 name|int
 name|size
 init|=
@@ -1672,17 +1682,13 @@ return|return
 literal|"size"
 return|;
 block|}
-else|else
-block|{
-comment|// not completed yet
-return|return
-literal|null
-return|;
-block|}
 block|}
 block|}
 if|if
 condition|(
+operator|!
+name|sizeChecked
+operator|&&
 name|getCompletionSize
 argument_list|()
 operator|>

@@ -95,10 +95,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|AggregateExpressionSizeOverrideFixedTest
+DECL|class|AggregateExpressionSizeOverrideFixedTimeoutTest
 specifier|public
 class|class
-name|AggregateExpressionSizeOverrideFixedTest
+name|AggregateExpressionSizeOverrideFixedTimeoutTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -131,7 +131,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"size"
+literal|"timeout"
 argument_list|)
 expr_stmt|;
 name|Map
@@ -166,7 +166,7 @@ name|put
 argument_list|(
 literal|"mySize"
 argument_list|,
-literal|3
+literal|4
 argument_list|)
 expr_stmt|;
 name|template
@@ -202,6 +202,7 @@ argument_list|,
 name|headers
 argument_list|)
 expr_stmt|;
+comment|// do not send the 4th as we want to test for timeout then
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -258,6 +259,11 @@ name|header
 argument_list|(
 literal|"mySize"
 argument_list|)
+argument_list|)
+operator|.
+name|completionTimeout
+argument_list|(
+literal|1000
 argument_list|)
 operator|.
 name|to
