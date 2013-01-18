@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -147,8 +157,23 @@ argument_list|,
 name|service
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"It should be the instance of MyService "
+argument_list|,
 name|service
-operator|=
+operator|instanceof
+name|MyService
+argument_list|)
+expr_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|MyService
+argument_list|>
+name|collection
+init|=
 name|context
 operator|.
 name|getRegistry
@@ -160,12 +185,29 @@ name|MyService
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"MyService should not be null"
 argument_list|,
-name|service
+name|collection
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"There should have one MyService."
+argument_list|,
+name|collection
+operator|.
+name|get
+argument_list|(
+name|MyService
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|context
