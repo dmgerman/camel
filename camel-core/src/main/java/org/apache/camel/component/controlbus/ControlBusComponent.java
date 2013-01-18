@@ -78,10 +78,6 @@ name|ControlBusComponent
 extends|extends
 name|DefaultComponent
 block|{
-comment|// TODO: management command, to use the JMX mbeans easier
-comment|// TODO: Bulk status in POJO / JSON format
-comment|// TODO: a header with the action to do instead of uri, as we may want to be lenient
-comment|// TODO: JMX stats and operations of in-flight tasks, and history of done etc
 DECL|field|executorService
 specifier|private
 name|ExecutorService
