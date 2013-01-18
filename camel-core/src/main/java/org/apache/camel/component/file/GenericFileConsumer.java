@@ -265,6 +265,7 @@ name|operations
 decl_stmt|;
 DECL|field|loggedIn
 specifier|protected
+specifier|volatile
 name|boolean
 name|loggedIn
 decl_stmt|;
@@ -296,6 +297,12 @@ name|boolean
 name|eagerLimitMaxMessagesPerPoll
 init|=
 literal|true
+decl_stmt|;
+DECL|field|prepareOnStartup
+specifier|protected
+specifier|volatile
+name|boolean
+name|prepareOnStartup
 decl_stmt|;
 DECL|method|GenericFileConsumer (GenericFileEndpoint<T> endpoint, Processor processor, GenericFileOperations<T> operations)
 specifier|public
@@ -399,6 +406,31 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// must prepare on startup the very first time
+if|if
+condition|(
+operator|!
+name|prepareOnStartup
+condition|)
+block|{
+comment|// prepare on startup
+name|endpoint
+operator|.
+name|getGenericFileProcessStrategy
+argument_list|()
+operator|.
+name|prepareOnStartup
+argument_list|(
+name|operations
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|prepareOnStartup
+operator|=
+literal|true
+expr_stmt|;
+block|}
 comment|// must reset for each poll
 name|fileExpressionResult
 operator|=
@@ -2190,18 +2222,25 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// prepare on startup
-name|endpoint
-operator|.
-name|getGenericFileProcessStrategy
-argument_list|()
-operator|.
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|prepareOnStartup
-argument_list|(
-name|operations
-argument_list|,
-name|endpoint
-argument_list|)
+operator|=
+literal|false
+expr_stmt|;
+name|super
+operator|.
+name|doStop
+argument_list|()
 expr_stmt|;
 block|}
 block|}

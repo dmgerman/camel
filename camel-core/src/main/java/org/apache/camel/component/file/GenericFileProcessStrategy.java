@@ -43,7 +43,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Allows custom logic to be run on startup preparing the strategy,      * such as removing old lock files etc.      *      * @param operations file operations      * @param endpoint   the endpoint      * @throws Exception can be thrown in case of errors which causes startup to fail      */
+comment|/**      * Allows custom logic to be run on first poll preparing the strategy,      * such as removing old lock files etc.      *      * @param operations file operations      * @param endpoint   the endpoint      * @throws Exception can be thrown in case of errors which causes poll to fail      */
 DECL|method|prepareOnStartup (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint)
 name|void
 name|prepareOnStartup

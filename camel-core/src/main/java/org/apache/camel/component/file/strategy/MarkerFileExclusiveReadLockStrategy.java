@@ -140,6 +140,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StopWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -235,6 +249,13 @@ argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
+name|StopWatch
+name|watch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+decl_stmt|;
 name|deleteLockFiles
 argument_list|(
 name|file
@@ -245,6 +266,32 @@ name|isRecursive
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// log anything that takes more than a second
+if|if
+condition|(
+name|watch
+operator|.
+name|taken
+argument_list|()
+operator|>
+literal|1000
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Prepared on startup by deleting orphaned lock files from: {} took {} millis to complete."
+argument_list|,
+name|dir
+argument_list|,
+name|watch
+operator|.
+name|taken
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
