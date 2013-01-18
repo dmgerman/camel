@@ -160,6 +160,24 @@ argument_list|(
 literal|"Creating table orders ..."
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|jdbc
+operator|.
+name|execute
+argument_list|(
+literal|"drop table orders"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 name|jdbc
 operator|.
 name|execute
@@ -174,6 +192,42 @@ argument_list|(
 literal|"... created table orders"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|destroy ()
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JdbcTemplate
+name|jdbc
+init|=
+operator|new
+name|JdbcTemplate
+argument_list|(
+name|dataSource
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|jdbc
+operator|.
+name|execute
+argument_list|(
+literal|"drop table orders"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 end_class
