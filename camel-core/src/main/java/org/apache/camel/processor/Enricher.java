@@ -454,6 +454,8 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 comment|// prepare the exchanges for aggregation
 name|ExchangeHelper
 operator|.
@@ -466,11 +468,7 @@ argument_list|)
 expr_stmt|;
 name|Exchange
 name|aggregatedExchange
-decl_stmt|;
-try|try
-block|{
-name|aggregatedExchange
-operator|=
+init|=
 name|aggregationStrategy
 operator|.
 name|aggregate
@@ -479,7 +477,7 @@ name|exchange
 argument_list|,
 name|resourceExchange
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|aggregatedExchange
@@ -526,6 +524,8 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// we failed so break out now
+return|return;
 block|}
 block|}
 comment|// set property with the uri of the endpoint enriched so we can use that for tracing etc
@@ -617,6 +617,8 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 comment|// prepare the exchanges for aggregation
 name|ExchangeHelper
 operator|.
@@ -627,14 +629,9 @@ argument_list|,
 name|resourceExchange
 argument_list|)
 expr_stmt|;
-comment|// must catch any exception from aggregation
 name|Exchange
 name|aggregatedExchange
-decl_stmt|;
-try|try
-block|{
-name|aggregatedExchange
-operator|=
+init|=
 name|aggregationStrategy
 operator|.
 name|aggregate
@@ -643,7 +640,23 @@ name|exchange
 argument_list|,
 name|resourceExchange
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|aggregatedExchange
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// copy aggregation result onto original exchange (preserving pattern)
+name|copyResultsPreservePattern
+argument_list|(
+name|exchange
+argument_list|,
+name|aggregatedExchange
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -651,6 +664,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// if the aggregationStrategy threw an exception, set it on the original exchange
 name|exchange
 operator|.
 name|setException
@@ -673,25 +687,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// we failed so break out now
 return|return
 literal|true
 return|;
-block|}
-if|if
-condition|(
-name|aggregatedExchange
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// copy aggregation result onto original exchange (preserving pattern)
-name|copyResultsPreservePattern
-argument_list|(
-name|exchange
-argument_list|,
-name|aggregatedExchange
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|// set property with the uri of the endpoint enriched so we can use that for tracing etc
@@ -736,13 +735,18 @@ name|ExchangePattern
 name|pattern
 parameter_list|)
 block|{
+comment|// copy exchange, and do not share the unit of work
 name|Exchange
 name|target
 init|=
-name|source
+name|ExchangeHelper
 operator|.
-name|copy
-argument_list|()
+name|createCorrelatedCopy
+argument_list|(
+name|source
+argument_list|,
+literal|false
+argument_list|)
 decl_stmt|;
 name|target
 operator|.

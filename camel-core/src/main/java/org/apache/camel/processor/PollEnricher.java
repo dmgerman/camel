@@ -454,6 +454,8 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 comment|// prepare the exchanges for aggregation
 name|ExchangeHelper
 operator|.
@@ -467,11 +469,7 @@ expr_stmt|;
 comment|// must catch any exception from aggregation
 name|Exchange
 name|aggregatedExchange
-decl_stmt|;
-try|try
-block|{
-name|aggregatedExchange
-operator|=
+init|=
 name|aggregationStrategy
 operator|.
 name|aggregate
@@ -480,26 +478,7 @@ name|exchange
 argument_list|,
 name|resourceExchange
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CamelExchangeException
-argument_list|(
-literal|"Error occurred during aggregation"
-argument_list|,
-name|exchange
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|aggregatedExchange
@@ -531,6 +510,25 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Error occurred during aggregation"
+argument_list|,
+name|exchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 comment|// set header with the uri of the endpoint enriched so we can use that for tracing etc
