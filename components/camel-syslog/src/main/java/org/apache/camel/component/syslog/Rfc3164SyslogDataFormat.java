@@ -369,7 +369,7 @@ condition|)
 block|{
 name|message
 operator|.
-name|setRemoteAddress
+name|setLocalAddress
 argument_list|(
 name|exchange
 operator|.
@@ -399,7 +399,7 @@ name|SYSLOG_LOCAL_ADDRESS
 argument_list|,
 name|message
 operator|.
-name|getRemoteAddress
+name|getLocalAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
