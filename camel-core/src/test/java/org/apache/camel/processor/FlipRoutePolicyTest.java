@@ -104,7 +104,7 @@ name|foo
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|5
+literal|3
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -119,7 +119,7 @@ name|bar
 operator|.
 name|expectedMinimumMessageCount
 argument_list|(
-literal|5
+literal|3
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
