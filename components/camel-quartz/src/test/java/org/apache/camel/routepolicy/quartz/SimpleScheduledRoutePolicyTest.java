@@ -415,11 +415,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|consumerStopped
-init|=
-literal|false
-decl_stmt|;
 name|context
 operator|.
 name|getComponent
@@ -541,6 +536,11 @@ operator|.
 name|Stopped
 argument_list|)
 expr_stmt|;
+name|boolean
+name|consumerStopped
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|template
@@ -594,11 +594,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|consumerSuspended
-init|=
-literal|false
-decl_stmt|;
 name|context
 operator|.
 name|getComponent
@@ -706,6 +701,11 @@ argument_list|(
 literal|4000
 argument_list|)
 expr_stmt|;
+name|boolean
+name|consumerSuspended
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|template
@@ -904,6 +904,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Ready or not, Here, I come"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1134,6 +1139,11 @@ argument_list|,
 literal|"Ready or not, Here, I come"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1360,6 +1370,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Ready or not, Here, I come"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
 argument_list|)
 expr_stmt|;
 block|}

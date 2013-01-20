@@ -86,6 +86,11 @@ argument_list|,
 literal|"{\"scientist\": \"Einstein}"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -141,6 +146,11 @@ operator|.
 name|OPERATION_HEADER
 argument_list|,
 literal|"dummyOp"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
 argument_list|)
 expr_stmt|;
 block|}

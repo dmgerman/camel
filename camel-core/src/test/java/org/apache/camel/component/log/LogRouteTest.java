@@ -153,7 +153,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Shoudl have failed!"
+literal|"Should have failed!"
 argument_list|)
 expr_stmt|;
 block|}

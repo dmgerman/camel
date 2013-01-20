@@ -363,6 +363,11 @@ argument_list|,
 literal|"Random"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
