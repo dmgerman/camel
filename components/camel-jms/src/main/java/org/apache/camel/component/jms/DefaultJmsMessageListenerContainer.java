@@ -26,9 +26,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|util
 operator|.
-name|ExecutorServiceManager
+name|concurrent
+operator|.
+name|CamelThreadFactory
 import|;
 end_import
 
@@ -36,15 +38,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|core
 operator|.
-name|util
+name|task
 operator|.
-name|concurrent
-operator|.
-name|CamelThreadFactory
+name|SimpleAsyncTaskExecutor
 import|;
 end_import
 
@@ -76,22 +76,8 @@ name|DefaultMessageListenerContainer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|scheduling
-operator|.
-name|concurrent
-operator|.
-name|ThreadPoolTaskExecutor
-import|;
-end_import
-
 begin_comment
-comment|/**  * The default {@link DefaultMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link DefaultMessageListenerContainer} supporting  * automatic recovery and throttling.  *  * @version  */
+comment|/**  * The default {@link DefaultMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link DefaultMessageListenerContainer} supporting  * automatic recovery and throttling.  *  * @version   */
 end_comment
 
 begin_class
@@ -139,7 +125,7 @@ name|isRunning
 argument_list|()
 return|;
 block|}
-comment|/**      * Create a default TaskExecutor. Called if no explicit TaskExecutor has been specified.      *<p>The default implementation builds a {@link ThreadPoolTaskExecutor} with the following parameters:      *<ul>      *<li>corePoolSize = concurrentConsumers</li>      *<li>maxPoolSize = maxConcurrentConsumers</li>      *</ul>      * It uses the specified bean name and Camel's {@link org.apache.camel.spi.ExecutorServiceManager}      * to resolve the thread name.      * @see ThreadPoolTaskExecutor#setBeanName(String)      */
+comment|/**      * Create a default TaskExecutor. Called if no explicit TaskExecutor has been specified.      *<p>The default implementation builds a {@link org.springframework.core.task.SimpleAsyncTaskExecutor}      * with the specified bean name and using Camel's {@link org.apache.camel.spi.ExecutorServiceManager}      * to resolve the thread name.      * @see org.springframework.core.task.SimpleAsyncTaskExecutor#SimpleAsyncTaskExecutor(String)      */
 annotation|@
 name|Override
 DECL|method|createDefaultTaskExecutor ()
@@ -148,8 +134,8 @@ name|TaskExecutor
 name|createDefaultTaskExecutor
 parameter_list|()
 block|{
-name|ExecutorServiceManager
-name|esm
+name|String
+name|pattern
 init|=
 name|endpoint
 operator|.
@@ -158,11 +144,6 @@ argument_list|()
 operator|.
 name|getExecutorServiceManager
 argument_list|()
-decl_stmt|;
-name|String
-name|pattern
-init|=
-name|esm
 operator|.
 name|getThreadNamePattern
 argument_list|()
@@ -173,20 +154,15 @@ init|=
 name|getBeanName
 argument_list|()
 decl_stmt|;
-name|ThreadPoolTaskExecutor
+name|SimpleAsyncTaskExecutor
 name|answer
 init|=
 operator|new
-name|ThreadPoolTaskExecutor
-argument_list|()
-decl_stmt|;
-name|answer
-operator|.
-name|setBeanName
+name|SimpleAsyncTaskExecutor
 argument_list|(
 name|beanName
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|answer
 operator|.
 name|setThreadFactory
@@ -200,26 +176,6 @@ name|beanName
 argument_list|,
 literal|true
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
-name|setCorePoolSize
-argument_list|(
-name|endpoint
-operator|.
-name|getConcurrentConsumers
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
-name|setMaxPoolSize
-argument_list|(
-name|endpoint
-operator|.
-name|getMaxConcurrentConsumers
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
