@@ -200,6 +200,11 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -252,6 +257,11 @@ argument_list|,
 literal|"dns.domain"
 argument_list|,
 literal|""
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}

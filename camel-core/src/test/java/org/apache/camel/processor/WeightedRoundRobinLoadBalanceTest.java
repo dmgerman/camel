@@ -486,11 +486,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|error
-init|=
-literal|false
-decl_stmt|;
 try|try
 block|{
 name|context
@@ -541,6 +536,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -558,16 +558,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|error
-operator|=
-literal|true
-expr_stmt|;
 block|}
-name|assertTrue
-argument_list|(
-name|error
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|sendBulkMessages (int number)
 specifier|protected

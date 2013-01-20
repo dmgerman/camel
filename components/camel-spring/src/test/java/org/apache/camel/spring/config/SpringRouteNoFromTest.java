@@ -102,15 +102,24 @@ name|AbstractXmlApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
+name|AbstractXmlApplicationContext
+name|answer
+decl_stmt|;
 try|try
 block|{
-return|return
+name|answer
+operator|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
 literal|"org/apache/camel/spring/config/SpringRouteNoFromTest.xml"
 argument_list|)
-return|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -146,6 +155,9 @@ return|return
 literal|null
 return|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 block|}
 end_class

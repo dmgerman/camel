@@ -70,6 +70,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Before
 import|;
 end_import
@@ -157,6 +167,13 @@ argument_list|>
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|Assert
+operator|.
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
