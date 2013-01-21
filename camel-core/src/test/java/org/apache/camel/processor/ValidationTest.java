@@ -246,10 +246,11 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// the expected empty catch block here is not intended for this class itself but the drived
-comment|// ones e.g. ValidationWithErrorInHandleAndFinallyBlockTest where noErrorHandler() is being
-comment|// installed. this's also why there's no fail("Should have thrown an exception") call here
-comment|// right after template.sendBodyAndHeader()
+comment|// the expected empty catch block here is not intended for this class itself but the subclasses
+comment|// e.g. ValidationWithErrorInHandleAndFinallyBlockTest where noErrorHandler() is being installed.
+comment|// this's also why there's no fail("Should have thrown an exception") call here right after
+comment|// template.sendBodyAndHeader() call as RuntimeCamelException will be not thrown by *all* subclasses
+comment|// but only by some of them.
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
