@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -78,8 +66,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
-block|{
+comment|// through the onException clause below we've marked the exceptions containing the message
+comment|// "Donkey" as being handled so that we don't count with any exception on the client side.
 name|template
 operator|.
 name|sendBody
@@ -89,38 +77,6 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-comment|// expected as we fail
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"We don't have Donkeys, only Camels"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|int
 name|count
 init|=

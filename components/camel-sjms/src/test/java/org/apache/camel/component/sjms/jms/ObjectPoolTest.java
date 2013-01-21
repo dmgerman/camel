@@ -58,9 +58,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Before
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -94,42 +100,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
 begin_comment
 comment|/**  * TODO Add Class documentation for ObjectPoolTest  */
 end_comment
@@ -139,6 +109,8 @@ DECL|class|ObjectPoolTest
 specifier|public
 class|class
 name|ObjectPoolTest
+extends|extends
+name|TestSupport
 block|{
 DECL|field|LOGGER
 specifier|private
@@ -156,26 +128,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|atomicInteger
-specifier|private
-name|AtomicInteger
-name|atomicInteger
-decl_stmt|;
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-block|{
-name|atomicInteger
-operator|=
-operator|new
-name|AtomicInteger
-argument_list|()
-expr_stmt|;
-block|}
 comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#ObjectPool()}.      *       * @throws Exception      */
 annotation|@
 name|Test
@@ -187,7 +139,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TestPool
+name|ObjectPool
+argument_list|<
+name|MyPooledObject
+argument_list|>
 name|testPool
 init|=
 operator|new
@@ -281,11 +236,27 @@ name|void
 name|testBadObjectPool
 parameter_list|()
 block|{
-try|try
-block|{
+name|ObjectPool
+argument_list|<
+name|Object
+argument_list|>
+name|objectPool
+init|=
 operator|new
 name|BadTestPool
 argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|objectPool
+operator|.
+name|createObject
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -294,13 +265,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertIsInstanceOf
 argument_list|(
-literal|"Should have thrown an IllegalStateException"
+name|IllegalStateException
+operator|.
+name|class
 argument_list|,
 name|e
-operator|instanceof
-name|IllegalStateException
 argument_list|)
 expr_stmt|;
 block|}
@@ -322,7 +293,10 @@ name|maxPoolObjects
 init|=
 literal|5
 decl_stmt|;
-name|TestPool
+name|ObjectPool
+argument_list|<
+name|MyPooledObject
+argument_list|>
 name|testPool
 init|=
 operator|new
@@ -526,7 +500,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TestPool
+name|ObjectPool
+argument_list|<
+name|MyPooledObject
+argument_list|>
 name|testPool
 init|=
 operator|new
@@ -553,7 +530,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TestPool
+name|ObjectPool
+argument_list|<
+name|MyPooledObject
+argument_list|>
 name|testPool
 init|=
 operator|new
@@ -627,7 +607,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TestPool
+name|ObjectPool
+argument_list|<
+name|MyPooledObject
+argument_list|>
 name|testPool
 init|=
 operator|new
@@ -686,6 +669,8 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|class|TestPool
+specifier|private
+specifier|static
 class|class
 name|TestPool
 extends|extends
@@ -694,6 +679,16 @@ argument_list|<
 name|MyPooledObject
 argument_list|>
 block|{
+DECL|field|atomicInteger
+specifier|private
+specifier|final
+name|AtomicInteger
+name|atomicInteger
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 DECL|method|TestPool ()
 specifier|public
 name|TestPool
@@ -796,6 +791,7 @@ return|;
 block|}
 block|}
 DECL|class|BadTestPool
+specifier|private
 specifier|static
 class|class
 name|BadTestPool
@@ -817,8 +813,10 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|Exception
-argument_list|()
+name|IllegalStateException
+argument_list|(
+literal|"I'm a bad ObjectPool impl"
+argument_list|)
 throw|;
 block|}
 annotation|@
@@ -833,7 +831,9 @@ name|t
 parameter_list|)
 throws|throws
 name|Exception
-block|{         }
+block|{
+comment|// noop
+block|}
 block|}
 block|}
 end_class

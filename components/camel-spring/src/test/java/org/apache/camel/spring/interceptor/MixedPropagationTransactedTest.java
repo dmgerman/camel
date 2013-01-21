@@ -407,10 +407,10 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testRequiredOnlkyRollback ()
+DECL|method|testRequiredOnlyRollback ()
 specifier|public
 name|void
-name|testRequiredOnlkyRollback
+name|testRequiredOnlyRollback
 parameter_list|()
 throws|throws
 name|Exception
@@ -426,107 +426,9 @@ argument_list|,
 literal|"Donkey in Action"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-comment|// expected as we fail
-name|assertIsInstanceOf
+name|fail
 argument_list|(
-name|RuntimeCamelException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"We don't have Donkeys, only Camels"
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|int
-name|count
-init|=
-name|jdbc
-operator|.
-name|queryForInt
-argument_list|(
-literal|"select count(*) from books"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-name|jdbc
-operator|.
-name|queryForInt
-argument_list|(
-literal|"select count(*) from books where title = ?"
-argument_list|,
-literal|"Donkey in Action"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Number of books"
-argument_list|,
-literal|1
-argument_list|,
-name|count
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testRequiresNewOnlkyRollback ()
-specifier|public
-name|void
-name|testRequiresNewOnlkyRollback
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:new"
-argument_list|,
-literal|"Donkey in Action"
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -613,10 +515,10 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testRequiredAndNewRollback ()
+DECL|method|testRequiresNewOnlyRollback ()
 specifier|public
 name|void
-name|testRequiredAndNewRollback
+name|testRequiresNewOnlyRollback
 parameter_list|()
 throws|throws
 name|Exception
@@ -629,7 +531,12 @@ name|sendBody
 argument_list|(
 literal|"direct:new"
 argument_list|,
-literal|"Tiger in Action"
+literal|"Donkey in Action"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -639,7 +546,7 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// expeced as we fail
+comment|// expected as we fail
 name|assertIsInstanceOf
 argument_list|(
 name|RuntimeCamelException
@@ -694,20 +601,6 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-argument_list|,
-name|jdbc
-operator|.
-name|queryForInt
-argument_list|(
-literal|"select count(*) from books where title = ?"
-argument_list|,
-literal|"Tiger in Action"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|0
 argument_list|,
 name|jdbc
@@ -720,12 +613,76 @@ literal|"Donkey in Action"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// the tiger in action should be committed, but our 2nd route should rollback
 name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
+literal|1
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testRequiredAndNew ()
+specifier|public
+name|void
+name|testRequiredAndNew
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:requiredAndNew"
+argument_list|,
+literal|"Tiger in Action"
+argument_list|)
+expr_stmt|;
+name|int
+name|count
+init|=
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
 literal|2
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = ?"
+argument_list|,
+literal|"Tiger in Action"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|jdbc
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from books where title = ?"
+argument_list|,
+literal|"Donkey in Action"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Number of books"
+argument_list|,
+literal|3
 argument_list|,
 name|count
 argument_list|)
