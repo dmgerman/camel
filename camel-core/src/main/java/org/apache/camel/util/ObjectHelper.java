@@ -1482,11 +1482,11 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param name   the key that resolved the value      * @return the passed {@code value} as is      * @throws IllegalArgumentException is thrown if assertion fails      */
 DECL|method|notNull (Object value, String name)
 specifier|public
 specifier|static
-name|void
+name|Object
 name|notNull
 parameter_list|(
 name|Object
@@ -1513,12 +1513,15 @@ literal|" must be specified"
 argument_list|)
 throw|;
 block|}
+return|return
+name|value
+return|;
 block|}
-comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occurred (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occurred (appended as toString())      * @param name   the key that resolved the value      * @return the passed {@code value} as is      * @throws IllegalArgumentException is thrown if assertion fails      */
 DECL|method|notNull (Object value, String name, Object on)
 specifier|public
 specifier|static
-name|void
+name|Object
 name|notNull
 parameter_list|(
 name|Object
@@ -1566,12 +1569,15 @@ name|on
 argument_list|)
 throw|;
 block|}
+return|return
+name|value
+return|;
 block|}
-comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param name   the key that resolved the value      * @return the passed {@code value} as is      * @throws IllegalArgumentException is thrown if assertion fails      */
 DECL|method|notEmpty (String value, String name)
 specifier|public
 specifier|static
-name|void
+name|String
 name|notEmpty
 parameter_list|(
 name|String
@@ -1599,12 +1605,15 @@ literal|" must be specified and not empty"
 argument_list|)
 throw|;
 block|}
+return|return
+name|value
+return|;
 block|}
-comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param on     additional description to indicate where this problem occurred (appended as toString())      * @param name   the key that resolved the value      * @throws IllegalArgumentException is thrown if assertion fails      */
+comment|/**      * Asserts whether the string is<b>not</b> empty.      *      * @param value  the string to test      * @param on     additional description to indicate where this problem occurred (appended as toString())      * @param name   the key that resolved the value      * @return the passed {@code value} as is      * @throws IllegalArgumentException is thrown if assertion fails      */
 DECL|method|notEmpty (String value, String name, Object on)
 specifier|public
 specifier|static
-name|void
+name|String
 name|notEmpty
 parameter_list|(
 name|String
@@ -1653,6 +1662,9 @@ name|on
 argument_list|)
 throw|;
 block|}
+return|return
+name|value
+return|;
 block|}
 comment|/**      * Tests whether the value is<tt>null</tt> or an empty string.      *      * @param value  the value, if its a String it will be tested for text length as well      * @return true if empty      */
 DECL|method|isEmpty (Object value)
