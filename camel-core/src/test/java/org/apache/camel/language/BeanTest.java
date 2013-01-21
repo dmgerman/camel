@@ -368,6 +368,9 @@ argument_list|(
 literal|"Claus"
 argument_list|)
 decl_stmt|;
+name|Object
+name|result
+init|=
 name|exp
 operator|.
 name|evaluate
@@ -377,6 +380,11 @@ argument_list|,
 name|Object
 operator|.
 name|class
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+name|result
 argument_list|)
 expr_stmt|;
 name|MethodNotFoundException
@@ -441,6 +449,9 @@ argument_list|(
 literal|"Claus"
 argument_list|)
 decl_stmt|;
+name|Object
+name|result
+init|=
 name|exp
 operator|.
 name|evaluate
@@ -450,6 +461,11 @@ argument_list|,
 name|Object
 operator|.
 name|class
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+name|result
 argument_list|)
 expr_stmt|;
 name|MethodNotFoundException

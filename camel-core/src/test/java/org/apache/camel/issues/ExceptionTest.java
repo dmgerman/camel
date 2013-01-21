@@ -128,16 +128,9 @@ argument_list|)
 decl_stmt|;
 name|errorEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|0
+literal|"<exception/>"
 argument_list|)
 expr_stmt|;
 name|exceptionEndpoint
@@ -147,10 +140,17 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|resultEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 comment|// we don't expect any thrown exception here as there's no onException clause defined for this test
-comment|// so that the general purpose dead letter channel will come into the play here and then when all
-comment|// the attempts of redelivery fail the exchange will be moved to "mock:error" and then from the client
-comment|// point of view the exchange is completed.
+comment|// so that the general purpose dead letter channel will come into the play and then when all the attempts
+comment|// to redelivery fails the exchange will be moved to "mock:error" and then from the client point of
+comment|// view the exchange is completed.
 name|template
 operator|.
 name|sendBody
@@ -205,9 +205,9 @@ argument_list|)
 expr_stmt|;
 name|exceptionEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+literal|"<exception/>"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -289,7 +289,7 @@ name|exceptionEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<handled/>"
+literal|"<not-handled/>"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -369,9 +369,9 @@ argument_list|)
 expr_stmt|;
 name|exceptionEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+literal|"<exception/>"
 argument_list|)
 expr_stmt|;
 name|resultEndpoint
@@ -515,7 +515,7 @@ name|setBody
 argument_list|(
 name|constant
 argument_list|(
-literal|"<handled/>"
+literal|"<not-handled/>"
 argument_list|)
 argument_list|)
 operator|.
