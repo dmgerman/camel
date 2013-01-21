@@ -1292,21 +1292,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|Endpoint
-name|endpoint
-init|=
 name|ctx
 operator|.
 name|hasEndpoint
 argument_list|(
 literal|null
-argument_list|)
-decl_stmt|;
-name|assertNull
-argument_list|(
-literal|"Should not have endpoint"
-argument_list|,
-name|endpoint
 argument_list|)
 expr_stmt|;
 name|fail
