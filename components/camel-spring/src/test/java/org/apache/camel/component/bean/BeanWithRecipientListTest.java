@@ -62,6 +62,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -98,9 +108,9 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
+name|junit4
 operator|.
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 import|;
 end_import
 
@@ -116,7 +126,7 @@ specifier|public
 class|class
 name|BeanWithRecipientListTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|AbstractJUnit4SpringContextTests
 block|{
 annotation|@
 name|Autowired
@@ -156,6 +166,8 @@ name|body
 init|=
 literal|"James"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSendBody ()
 specifier|public
 name|void

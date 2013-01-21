@@ -44,20 +44,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -89,18 +75,14 @@ index|[]
 name|getArguments
 parameter_list|()
 function_decl|;
-DECL|method|proceed (AsyncCallback callback, AtomicBoolean doneSync)
-name|Object
+comment|/**      * Proceed and invokes the method.      *      * @param callback   the callback      * @return see {@link org.apache.camel.AsyncProcessor#process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)}      */
+DECL|method|proceed (AsyncCallback callback)
+name|boolean
 name|proceed
 parameter_list|(
 name|AsyncCallback
 name|callback
-parameter_list|,
-name|AtomicBoolean
-name|doneSync
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 DECL|method|getThis ()
 name|Object

@@ -249,9 +249,6 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-name|Object
-name|value
-init|=
 name|invocation
 operator|.
 name|proceed
@@ -271,10 +268,8 @@ block|{
 comment|// nnop
 block|}
 block|}
-argument_list|,
-name|sync
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|true
@@ -289,7 +284,13 @@ name|assertEquals
 argument_list|(
 literal|"Hello James!"
 argument_list|,
-name|value
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
