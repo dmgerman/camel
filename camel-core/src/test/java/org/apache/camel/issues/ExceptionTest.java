@@ -153,7 +153,7 @@ comment|// the attempts of redelivery fail the exchange will be moved to "mock:e
 comment|// point of view the exchange is completed.
 name|template
 operator|.
-name|requestBody
+name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
