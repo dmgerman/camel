@@ -187,6 +187,12 @@ name|sinceId
 init|=
 literal|1
 decl_stmt|;
+comment|/**      * Used ot set the preferred language on which to search      */
+DECL|field|lang
+specifier|private
+name|String
+name|lang
+decl_stmt|;
 DECL|field|parsedDate
 specifier|private
 name|Date
@@ -786,6 +792,32 @@ operator|.
 name|sinceId
 operator|=
 name|sinceId
+expr_stmt|;
+block|}
+DECL|method|getLang ()
+specifier|public
+name|String
+name|getLang
+parameter_list|()
+block|{
+return|return
+name|lang
+return|;
+block|}
+DECL|method|setLang (String lang)
+specifier|public
+name|void
+name|setLang
+parameter_list|(
+name|String
+name|lang
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lang
+operator|=
+name|lang
 expr_stmt|;
 block|}
 block|}

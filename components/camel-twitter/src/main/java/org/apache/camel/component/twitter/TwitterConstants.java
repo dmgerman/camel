@@ -38,6 +38,15 @@ name|TWITTER_KEYWORDS
 init|=
 literal|"CamelTwitterKeywords"
 decl_stmt|;
+DECL|field|TWITTER_SEARCH_LANGUAGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TWITTER_SEARCH_LANGUAGE
+init|=
+literal|"CamelTwitterSearchLanguage"
+decl_stmt|;
 DECL|method|TwitterConstants ()
 specifier|private
 name|TwitterConstants
