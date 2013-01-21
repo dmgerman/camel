@@ -191,15 +191,15 @@ argument_list|,
 literal|"bar"
 argument_list|)
 decl_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"validResult"
 argument_list|,
 name|result
 argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testInvalidMessage ()
@@ -210,18 +210,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|invalidEndpoint
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|validEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
 literal|0
+argument_list|)
+expr_stmt|;
+name|invalidEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 try|try
@@ -246,7 +246,10 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+comment|// the expected empty catch block here is not intended for this class itself but the drived
+comment|// ones e.g. ValidationWithErrorInHandleAndFinallyBlockTest where noErrorHandler() is being
+comment|// installed. this's also why there's no fail("Should have thrown an exception") call here
+comment|// right after template.sendBodyAndHeader()
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -296,7 +299,7 @@ name|RuntimeCamelException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+comment|// the same as above
 block|}
 name|Object
 name|result
