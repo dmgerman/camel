@@ -190,6 +190,7 @@ block|}
 comment|/**      * Use a thread to flip the routes.      */
 DECL|class|FlipThread
 specifier|private
+specifier|final
 class|class
 name|FlipThread
 extends|extends
