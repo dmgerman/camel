@@ -623,23 +623,75 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testRequiredAndNew ()
+DECL|method|testRequiredAndNewRollback ()
 specifier|public
 name|void
-name|testRequiredAndNew
+name|testRequiredAndNewRollback
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
 block|{
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:requiredAndNew"
+literal|"direct:requiredAndNewRollback"
 argument_list|,
 literal|"Tiger in Action"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeCamelException
+name|e
+parameter_list|)
+block|{
+comment|// expeced as we fail
+name|assertIsInstanceOf
+argument_list|(
+name|RuntimeCamelException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|IllegalArgumentException
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"We don't have Donkeys, only Camels"
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|count
 init|=
@@ -652,7 +704,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|1
 argument_list|,
 name|jdbc
 operator|.
@@ -678,11 +730,12 @@ literal|"Donkey in Action"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// the tiger in action should be committed, but our 2nd route should rollback
 name|assertEquals
 argument_list|(
 literal|"Number of books"
 argument_list|,
-literal|3
+literal|2
 argument_list|,
 name|count
 argument_list|)
