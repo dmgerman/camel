@@ -193,7 +193,7 @@ literal|"Inject a wrong camel context"
 argument_list|,
 name|producer1
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getName
@@ -220,7 +220,7 @@ literal|"Inject a wrong camel context"
 argument_list|,
 name|producer2
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getName

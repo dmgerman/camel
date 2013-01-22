@@ -72,6 +72,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -98,22 +108,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test using the ConsumerTemplate  *  * @version   */
 end_comment
@@ -130,7 +124,7 @@ specifier|public
 class|class
 name|SpringConsumerTemplateTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|Autowired
@@ -158,6 +152,8 @@ specifier|private
 name|MockEndpoint
 name|mock
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testConsumeTemplate ()
 specifier|public
 name|void

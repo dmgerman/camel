@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -106,7 +96,7 @@ specifier|public
 class|class
 name|CamelProxyTest
 extends|extends
-name|TestCase
+name|TestSupport
 block|{
 DECL|method|testCamelProxy ()
 specifier|public
@@ -195,8 +185,6 @@ decl_stmt|;
 name|MockEndpoint
 name|result
 init|=
-name|TestSupport
-operator|.
 name|resolveMandatoryEndpoint
 argument_list|(
 name|context

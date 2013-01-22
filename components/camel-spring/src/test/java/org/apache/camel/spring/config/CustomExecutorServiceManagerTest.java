@@ -20,11 +20,13 @@ end_package
 
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|Assert
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
@@ -36,7 +38,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|spring
+operator|.
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -70,22 +84,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -98,7 +96,7 @@ specifier|public
 class|class
 name|CustomExecutorServiceManagerTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|Autowired
@@ -107,6 +105,8 @@ specifier|protected
 name|CamelContext
 name|context
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testCustomExecutorService ()
 specifier|public
 name|void
@@ -115,16 +115,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assert
-operator|.
-name|assertTrue
+name|assertIsInstanceOf
 argument_list|(
+name|CustomExecutorServiceManager
+operator|.
+name|class
+argument_list|,
 name|context
 operator|.
 name|getExecutorServiceManager
 argument_list|()
-operator|instanceof
-name|CustomExecutorServiceManager
 argument_list|)
 expr_stmt|;
 block|}

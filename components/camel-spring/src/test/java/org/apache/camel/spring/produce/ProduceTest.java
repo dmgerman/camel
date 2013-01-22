@@ -54,13 +54,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|test
+name|camel
 operator|.
-name|context
+name|spring
 operator|.
-name|ContextConfiguration
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -74,9 +84,7 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
+name|ContextConfiguration
 import|;
 end_import
 
@@ -92,7 +100,7 @@ specifier|public
 class|class
 name|ProduceTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|Produce
@@ -106,6 +114,8 @@ specifier|protected
 name|MyListener
 name|producer
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testInvokeService ()
 specifier|public
 name|void
@@ -135,6 +145,8 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokeServiceWithMessageHeader ()
 specifier|public
 name|void

@@ -56,6 +56,30 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -82,22 +106,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -110,7 +118,7 @@ specifier|public
 class|class
 name|BeanRouteUsingSpringEndpointTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|Autowired
@@ -140,6 +148,8 @@ name|body
 init|=
 literal|"James"
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testSayHello ()
 specifier|public
 name|void
@@ -180,6 +190,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testSayGoodbye ()
 specifier|public
 name|void

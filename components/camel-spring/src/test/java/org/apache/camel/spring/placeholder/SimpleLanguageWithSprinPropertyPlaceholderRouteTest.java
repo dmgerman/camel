@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|text
 operator|.
 name|SimpleDateFormat
@@ -81,6 +71,20 @@ operator|.
 name|camel
 operator|.
 name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringRunWithTestSupport
 import|;
 end_import
 
@@ -142,34 +146,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit4
-operator|.
-name|AbstractJUnit4SpringContextTests
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
 begin_class
 annotation|@
 name|ContextConfiguration
@@ -178,7 +154,7 @@ specifier|public
 class|class
 name|SimpleLanguageWithSprinPropertyPlaceholderRouteTest
 extends|extends
-name|AbstractJUnit4SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|Produce
@@ -254,7 +230,7 @@ name|Ignore
 argument_list|(
 name|value
 operator|=
-literal|"dissabled because of https://jira.springsource.org/browse/SPR-7593"
+literal|"disabled because of https://jira.springsource.org/browse/SPR-7593"
 argument_list|)
 annotation|@
 name|Test
@@ -327,39 +303,6 @@ name|s
 operator|+
 literal|".txt"
 return|;
-block|}
-DECL|method|assertFileExists (String filename)
-specifier|private
-name|void
-name|assertFileExists
-parameter_list|(
-name|String
-name|filename
-parameter_list|)
-block|{
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-name|filename
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"File "
-operator|+
-name|filename
-operator|+
-literal|" should exist"
-argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

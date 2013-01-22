@@ -74,7 +74,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TestSupport
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -86,11 +90,29 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|spring
 operator|.
-name|mock
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|MockEndpoint
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -124,22 +146,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -152,7 +158,7 @@ specifier|public
 class|class
 name|SpringFileAntPathMatcherFileFilterTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 DECL|field|expectedBody
 specifier|protected
@@ -192,6 +198,8 @@ specifier|protected
 name|MockEndpoint
 name|result
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testAntPatchMatherFilter ()
 specifier|public
 name|void
@@ -289,17 +297,15 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|Before
 DECL|method|setUp ()
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TestSupport
-operator|.
 name|deleteDirectory
 argument_list|(
 literal|"target/antpathmatcher"

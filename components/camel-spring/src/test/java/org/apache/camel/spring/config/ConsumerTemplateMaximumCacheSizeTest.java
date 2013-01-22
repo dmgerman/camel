@@ -58,6 +58,30 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -84,22 +108,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -112,7 +120,7 @@ specifier|public
 class|class
 name|ConsumerTemplateMaximumCacheSizeTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|Autowired
@@ -128,6 +136,8 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testTemplateMaximumCache ()
 specifier|public
 name|void

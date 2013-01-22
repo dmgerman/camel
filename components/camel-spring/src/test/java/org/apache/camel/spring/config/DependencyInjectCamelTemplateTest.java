@@ -62,6 +62,30 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -88,22 +112,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -116,7 +124,7 @@ specifier|public
 class|class
 name|DependencyInjectCamelTemplateTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 DECL|field|body
 specifier|protected
@@ -144,6 +152,8 @@ specifier|private
 name|MockEndpoint
 name|endpoint
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testBeanHasCamelTemplateInjected ()
 specifier|public
 name|void

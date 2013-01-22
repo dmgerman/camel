@@ -84,9 +84,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringRunWithTestSupport
 import|;
 end_import
 
@@ -94,9 +98,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|junit
 operator|.
-name|LoggerFactory
+name|Test
 import|;
 end_import
 
@@ -130,22 +134,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -158,24 +146,8 @@ specifier|public
 class|class
 name|SpringRemotingWithOneWayTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SpringRemotingWithOneWayTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Autowired
 DECL|field|myService
@@ -195,6 +167,8 @@ specifier|protected
 name|MockEndpoint
 name|endpoint
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testAsyncInvocation ()
 specifier|public
 name|void
@@ -242,7 +216,7 @@ range|:
 name|list
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(

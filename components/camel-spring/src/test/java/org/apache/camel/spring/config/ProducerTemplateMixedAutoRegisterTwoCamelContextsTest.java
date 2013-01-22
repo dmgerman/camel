@@ -70,13 +70,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|test
+name|camel
 operator|.
-name|context
+name|spring
 operator|.
-name|ContextConfiguration
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -90,9 +100,7 @@ name|test
 operator|.
 name|context
 operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
+name|ContextConfiguration
 import|;
 end_import
 
@@ -108,7 +116,7 @@ specifier|public
 class|class
 name|ProducerTemplateMixedAutoRegisterTwoCamelContextsTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|Resource
@@ -134,6 +142,8 @@ specifier|private
 name|CamelContext
 name|context2
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testHasTemplateCamel1 ()
 specifier|public
 name|void
@@ -170,7 +180,7 @@ literal|"camel1"
 argument_list|,
 name|lookup
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getName
@@ -178,6 +188,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasTemplateCamel2 ()
 specifier|public
 name|void
@@ -214,7 +226,7 @@ literal|"camel2"
 argument_list|,
 name|lookup
 operator|.
-name|getContext
+name|getCamelContext
 argument_list|()
 operator|.
 name|getName
@@ -222,6 +234,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasNoConsumerTemplateCamel1 ()
 specifier|public
 name|void
@@ -253,6 +267,8 @@ name|lookup
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testHasNoConsumerTemplateCamel2 ()
 specifier|public
 name|void

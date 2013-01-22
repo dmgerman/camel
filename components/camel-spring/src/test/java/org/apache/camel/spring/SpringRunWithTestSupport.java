@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.config
+DECL|package|org.apache.camel.spring
 package|package
 name|org
 operator|.
@@ -13,18 +13,18 @@ operator|.
 name|camel
 operator|.
 name|spring
-operator|.
-name|config
 package|;
 end_package
 
 begin_import
 import|import
-name|javax
+name|java
+operator|.
+name|lang
 operator|.
 name|annotation
 operator|.
-name|Resource
+name|Inherited
 import|;
 end_import
 
@@ -36,25 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|SpringRunWithTestSupport
+name|TestSupport
 import|;
 end_import
 
@@ -64,7 +46,9 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|runner
+operator|.
+name|RunWith
 import|;
 end_import
 
@@ -78,82 +62,31 @@ name|test
 operator|.
 name|context
 operator|.
-name|ContextConfiguration
+name|junit4
+operator|.
+name|SpringJUnit4ClassRunner
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * As the {@link RunWith} annotation is flagged to be {@link Inherited} we  * make use of this class as the base class of those tests where we need  * {@link SpringJUnit4ClassRunner} as the test runner but at the same time  * require the useful testing methods provided by {@link TestSupport}.  */
 end_comment
 
 begin_class
 annotation|@
-name|ContextConfiguration
-DECL|class|EndpointUriSetFromSpringTest
+name|RunWith
+argument_list|(
+name|SpringJUnit4ClassRunner
+operator|.
+name|class
+argument_list|)
+DECL|class|SpringRunWithTestSupport
 specifier|public
 class|class
-name|EndpointUriSetFromSpringTest
-extends|extends
 name|SpringRunWithTestSupport
-block|{
-annotation|@
-name|Resource
-argument_list|(
-name|name
-operator|=
-literal|"foo:bar"
-argument_list|)
-DECL|field|endpoint
-name|MockEndpoint
-name|endpoint
-decl_stmt|;
-annotation|@
-name|Test
-DECL|method|testEndpointCreatedWithCorrectUri ()
-specifier|public
-name|void
-name|testEndpointCreatedWithCorrectUri
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertNotNull
-argument_list|(
-literal|"foo"
-argument_list|,
-name|endpoint
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"foo.getEndpointUri()"
-argument_list|,
-literal|"foo:bar"
-argument_list|,
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Found endpoint "
-operator|+
-name|endpoint
-operator|+
-literal|" with URI: "
-operator|+
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+extends|extends
+name|TestSupport
+block|{  }
 end_class
 
 end_unit

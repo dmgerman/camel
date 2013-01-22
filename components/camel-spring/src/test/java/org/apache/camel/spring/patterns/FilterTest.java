@@ -74,6 +74,30 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringRunWithTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|test
@@ -98,22 +122,6 @@ name|ContextConfiguration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|test
-operator|.
-name|context
-operator|.
-name|junit38
-operator|.
-name|AbstractJUnit38SpringContextTests
-import|;
-end_import
-
 begin_comment
 comment|/**  * Tests filtering using Spring Test and XML Config   *  * @version   */
 end_comment
@@ -130,7 +138,7 @@ specifier|public
 class|class
 name|FilterTest
 extends|extends
-name|AbstractJUnit38SpringContextTests
+name|SpringRunWithTestSupport
 block|{
 annotation|@
 name|EndpointInject
@@ -158,6 +166,8 @@ name|template
 decl_stmt|;
 annotation|@
 name|DirtiesContext
+annotation|@
+name|Test
 DECL|method|testSendMatchingMessage ()
 specifier|public
 name|void
@@ -197,6 +207,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|DirtiesContext
+annotation|@
+name|Test
 DECL|method|testSendNotMatchingMessage ()
 specifier|public
 name|void
