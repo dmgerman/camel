@@ -144,16 +144,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -650,8 +640,6 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// verify request
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -768,8 +756,6 @@ literal|4
 argument_list|)
 decl_stmt|;
 comment|// skip "cid:"
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|MtomTestHelper
@@ -813,8 +799,6 @@ literal|4
 argument_list|)
 decl_stmt|;
 comment|// skip "cid:"
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|MtomTestHelper
@@ -837,8 +821,6 @@ argument_list|(
 name|photoId
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"application/octet-stream"
@@ -880,8 +862,6 @@ argument_list|(
 name|imageId
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"image/jpeg"

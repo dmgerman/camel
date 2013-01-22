@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -571,8 +561,6 @@ argument_list|(
 literal|"Enter Processor..."
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|e
@@ -591,8 +579,6 @@ argument_list|(
 literal|"Enter Processor...1"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|e
@@ -611,8 +597,6 @@ argument_list|(
 literal|"Enter Processor...2"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|e
@@ -628,8 +612,6 @@ argument_list|(
 literal|"Enter Processor...3"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Hello!"
@@ -650,8 +632,6 @@ argument_list|(
 literal|"Enter Processor...4"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"feta"
@@ -674,8 +654,6 @@ argument_list|(
 literal|"Enter Processor...5"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"old"
@@ -695,8 +673,6 @@ argument_list|(
 literal|"Enter Processor...6"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|ExchangePattern

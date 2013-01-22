@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -546,8 +536,6 @@ name|Text
 operator|)
 name|value
 decl_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 operator|(
@@ -717,8 +705,6 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rBoolean
@@ -874,8 +860,6 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rByte
@@ -1031,8 +1015,6 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rInt
@@ -1188,13 +1170,13 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rFloat
 argument_list|,
 name|aFloat
+argument_list|,
+literal|0.0F
 argument_list|)
 expr_stmt|;
 block|}
@@ -1215,10 +1197,10 @@ condition|)
 block|{
 return|return;
 block|}
-name|double
+name|Double
 name|aDouble
 init|=
-literal|12.34d
+literal|12.34D
 decl_stmt|;
 name|template
 operator|.
@@ -1345,8 +1327,6 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rDouble
@@ -1502,8 +1482,6 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rLong
@@ -1654,8 +1632,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rTxt
@@ -1807,8 +1783,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|key
@@ -1819,8 +1793,6 @@ argument_list|,
 name|txtKey
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|value
@@ -1982,8 +1954,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|key
@@ -1994,8 +1964,6 @@ argument_list|,
 name|txtKey
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|value
@@ -2128,8 +2096,6 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|value
@@ -2291,8 +2257,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|key
@@ -2303,8 +2267,6 @@ argument_list|,
 name|txtKey
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|value

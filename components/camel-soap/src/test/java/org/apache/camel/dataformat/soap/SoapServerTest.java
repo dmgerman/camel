@@ -40,16 +40,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|example
@@ -298,8 +288,6 @@ argument_list|,
 name|reply
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|TestUtil

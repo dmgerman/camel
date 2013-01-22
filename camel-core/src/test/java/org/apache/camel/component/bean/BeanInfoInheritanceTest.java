@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -163,8 +153,6 @@ name|AmbiguousMethodCallException
 name|e
 parameter_list|)
 block|{
-name|Assert
-operator|.
 name|fail
 argument_list|(
 literal|"This should not be ambiguous!"
@@ -269,8 +257,6 @@ name|AmbiguousMethodCallException
 name|e
 parameter_list|)
 block|{
-name|Assert
-operator|.
 name|fail
 argument_list|(
 literal|"This should not be ambiguous!"
@@ -331,8 +317,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|fail
 argument_list|(
 literal|"This should be ambiguous!"

@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -526,8 +516,6 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|e
@@ -539,8 +527,6 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|e
@@ -552,8 +538,6 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNotNull
 argument_list|(
 name|e
@@ -562,8 +546,6 @@ name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Hello!"
@@ -577,8 +559,6 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"feta"
@@ -594,8 +574,6 @@ literal|"cheese"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"old"
@@ -608,8 +586,6 @@ literal|"ham"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|ExchangePattern

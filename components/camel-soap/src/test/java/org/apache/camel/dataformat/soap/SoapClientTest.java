@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|example
@@ -219,8 +209,6 @@ name|GetCustomersByName
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -247,8 +235,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|100000.0
@@ -257,6 +243,8 @@ name|firstCustomer
 operator|.
 name|getRevenue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 block|}
