@@ -122,10 +122,10 @@ name|ZooKeeperUtilsTest
 block|{
 annotation|@
 name|Test
-DECL|method|testCreatModeExtraction ()
+DECL|method|testCreateModeExtraction ()
 specifier|public
 name|void
-name|testCreatModeExtraction
+name|testCreateModeExtraction
 parameter_list|()
 block|{
 name|assertEquals
@@ -211,10 +211,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCreatModeExtractionFromMessageHeader ()
+DECL|method|testCreateModeExtractionFromMessageHeader ()
 specifier|public
 name|void
-name|testCreatModeExtractionFromMessageHeader
+name|testCreateModeExtractionFromMessageHeader
 parameter_list|()
 block|{
 name|assertEquals

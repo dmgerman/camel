@@ -245,7 +245,7 @@ argument_list|)
 expr_stmt|;
 name|delay
 argument_list|(
-literal|200
+literal|500
 argument_list|)
 expr_stmt|;
 name|client
@@ -257,19 +257,14 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|await
+name|assertIsSatisfied
 argument_list|(
-literal|5
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 name|int
 name|lastVersion
@@ -406,7 +401,7 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|11
 argument_list|)
@@ -416,7 +411,7 @@ argument_list|()
 expr_stmt|;
 name|delay
 argument_list|(
-literal|200
+literal|500
 argument_list|)
 expr_stmt|;
 comment|// by now we are back waiting for a change so delete the node
@@ -438,19 +433,14 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|await
+name|assertIsSatisfied
 argument_list|(
-literal|5
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
-argument_list|()
 expr_stmt|;
 name|client
 operator|.
@@ -472,8 +462,6 @@ name|int
 name|times
 parameter_list|)
 throws|throws
-name|InterruptedException
-throws|,
 name|Exception
 block|{
 for|for
@@ -493,7 +481,7 @@ control|)
 block|{
 name|delay
 argument_list|(
-literal|200
+literal|500
 argument_list|)
 expr_stmt|;
 name|client
@@ -523,8 +511,6 @@ name|void
 name|createCamelNode
 parameter_list|()
 throws|throws
-name|InterruptedException
-throws|,
 name|Exception
 block|{
 try|try
