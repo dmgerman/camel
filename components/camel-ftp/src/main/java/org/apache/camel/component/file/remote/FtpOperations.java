@@ -3671,11 +3671,25 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-return|return
+name|String
+name|answer
+init|=
 name|client
 operator|.
 name|printWorkingDirectory
 argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Current dir: {}"
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 catch|catch

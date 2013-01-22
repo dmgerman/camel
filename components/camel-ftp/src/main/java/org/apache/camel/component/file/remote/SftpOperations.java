@@ -2066,11 +2066,25 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-return|return
+name|String
+name|answer
+init|=
 name|channel
 operator|.
 name|pwd
 argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Current dir: {}"
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 catch|catch
