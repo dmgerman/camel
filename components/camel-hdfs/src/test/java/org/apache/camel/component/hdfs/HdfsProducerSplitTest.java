@@ -328,6 +328,10 @@ literal|2000
 argument_list|)
 expr_stmt|;
 block|}
+comment|// stop Camel to flush and close file stream
+name|stopCamelContext
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
