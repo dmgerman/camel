@@ -353,7 +353,7 @@ name|reader
 argument_list|)
 return|;
 block|}
-DECL|method|getXmlContext (ClassResolver resolver, ClassLoader contetClassLoader)
+DECL|method|getXmlContext (ClassResolver resolver, ClassLoader contextClassLoader)
 specifier|public
 name|XMLContext
 name|getXmlContext
@@ -362,7 +362,7 @@ name|ClassResolver
 name|resolver
 parameter_list|,
 name|ClassLoader
-name|contetClassLoader
+name|contextClassLoader
 parameter_list|)
 throws|throws
 name|Exception
@@ -396,7 +396,7 @@ name|xmlMap
 decl_stmt|;
 if|if
 condition|(
-name|contetClassLoader
+name|contextClassLoader
 operator|!=
 literal|null
 condition|)
@@ -406,7 +406,7 @@ operator|=
 operator|new
 name|Mapping
 argument_list|(
-name|contetClassLoader
+name|contextClassLoader
 argument_list|)
 expr_stmt|;
 block|}
