@@ -390,8 +390,6 @@ range|:
 name|exchanges
 control|)
 block|{
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"CIAO"

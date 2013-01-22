@@ -451,8 +451,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 literal|"Timeout waiting for match"
@@ -516,8 +514,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|40
@@ -670,8 +666,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 literal|"Timeout waiting for match"
@@ -817,8 +811,6 @@ name|getLength
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"CIAO"
@@ -830,8 +822,6 @@ name|i
 operator|++
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|10
@@ -980,8 +970,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 literal|"Timeout waiting for match"
@@ -1127,8 +1115,6 @@ name|getLength
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"CIAO"
@@ -1136,8 +1122,6 @@ argument_list|,
 name|str
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"CIAO"
@@ -1154,8 +1138,6 @@ name|i
 operator|++
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|10
@@ -1306,8 +1288,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 literal|"Timeout waiting for match"
@@ -1442,8 +1422,6 @@ name|getLength
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"CIAO"
@@ -1453,8 +1431,6 @@ argument_list|,
 name|str
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"CIAO"
@@ -1640,8 +1616,6 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 literal|"Timeout waiting for match"
@@ -1776,8 +1750,6 @@ name|value
 argument_list|)
 condition|)
 block|{
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|value
@@ -1796,8 +1768,6 @@ name|i
 operator|++
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
