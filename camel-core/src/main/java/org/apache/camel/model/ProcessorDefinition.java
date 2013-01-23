@@ -3825,7 +3825,7 @@ name|endpoints
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the id of this node      *      * @param id  the id      * @return the builder      */
+comment|/**      * Sets the id of this node.      *<p/>      *<b>Important:</b> If you want to set the id of the route,      * then you<b>must</b> use {@link #routeId(String)} instead.      *      * @param id  the id      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
