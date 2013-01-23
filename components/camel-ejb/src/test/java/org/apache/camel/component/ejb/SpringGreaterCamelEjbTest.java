@@ -152,7 +152,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"mySpringBean"
 argument_list|,

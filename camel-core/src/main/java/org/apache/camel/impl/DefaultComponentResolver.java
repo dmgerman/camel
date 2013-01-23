@@ -194,7 +194,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 name|name
 argument_list|)

@@ -99,7 +99,7 @@ name|my
 argument_list|,
 name|simple
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"my"
 argument_list|)
@@ -111,7 +111,7 @@ name|my
 argument_list|,
 name|simple
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"my"
 argument_list|,
@@ -125,7 +125,7 @@ name|assertNull
 argument_list|(
 name|simple
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -135,7 +135,7 @@ name|assertNull
 argument_list|(
 name|simple
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -195,7 +195,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"my"
 argument_list|)
@@ -210,7 +210,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"my"
 argument_list|,
@@ -227,7 +227,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -240,7 +240,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -286,7 +286,7 @@ try|try
 block|{
 name|simple
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"my"
 argument_list|,
@@ -379,7 +379,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"my"
 argument_list|,

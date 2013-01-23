@@ -198,7 +198,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 name|getSplitter
 argument_list|()

@@ -268,7 +268,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 name|getDatasourceName
 argument_list|()
@@ -1164,7 +1164,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"messageIdRepository"
 argument_list|,

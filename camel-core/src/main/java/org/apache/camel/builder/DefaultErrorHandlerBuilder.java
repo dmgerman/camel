@@ -1593,7 +1593,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 name|executorServiceRef
 argument_list|,

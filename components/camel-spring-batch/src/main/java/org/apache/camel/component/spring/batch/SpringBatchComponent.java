@@ -214,7 +214,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 name|DEFAULT_JOB_LAUNCHER_REF_NAME
 argument_list|,
@@ -231,7 +231,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|JobLauncher
 operator|.

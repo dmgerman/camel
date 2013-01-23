@@ -26,6 +26,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a service registry which may be implemented via a Spring ApplicationContext,  * via JNDI, a simple Map or the OSGi Service Registry  *  * @version   */
 end_comment
@@ -37,6 +47,73 @@ interface|interface
 name|Registry
 block|{
 comment|/**      * Looks up a service in the registry based purely on name,      * returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @return the service from the registry or<tt>null</tt> if it could not be found      */
+DECL|method|lookupByName (String name)
+name|Object
+name|lookupByName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Looks up a service in the registry, returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @param type the type of the required service      * @return the service from the registry or<tt>null</tt> if it could not be found      */
+DECL|method|lookupByNameAndType (String name, Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|lookupByNameAndType
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Finds services in the registry by their type.      *<p/>      *<b>Note:</b> Not all registry implementations support this feature,      * such as the {@link org.apache.camel.impl.JndiRegistry}.      *      * @param type  the type of the registered services      * @return the types found, with their ids as the key. Returns an empty Map if none found.      */
+DECL|method|findByTypeWithName (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|T
+argument_list|>
+name|findByTypeWithName
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Finds services in the registry by their type.      *<p/>      *<b>Note:</b> Not all registry implementations support this feature,      * such as the {@link org.apache.camel.impl.JndiRegistry}.      *      * @param type  the type of the registered services      * @return the types found. Returns an empty Set if none found.      */
+DECL|method|findByType (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|Set
+argument_list|<
+name|T
+argument_list|>
+name|findByType
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Looks up a service in the registry based purely on name,      * returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @return the service from the registry or<tt>null</tt> if it could not be found      * @deprecated use {@link #lookupByName(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|lookup (String name)
 name|Object
 name|lookup
@@ -45,11 +122,13 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Looks up a service in the registry, returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @param type the type of the required service      * @return the service from the registry or<tt>null</tt> if it could not be found      */
+comment|/**      * Looks up a service in the registry, returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @param type the type of the required service      * @return the service from the registry or<tt>null</tt> if it could not be found      * @deprecated use {@link #lookupByNameAndType(String, Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|lookup (String name, Class<T> type)
-parameter_list|<
+argument_list|<
 name|T
-parameter_list|>
+argument_list|>
 name|T
 name|lookup
 parameter_list|(
@@ -63,11 +142,13 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Looks up services in the registry by their type.      *<p/>      *<b>Note:</b> Not all registry implementations support this feature,      * such as the {@link org.apache.camel.impl.JndiRegistry}.      *      * @param type  the type of the registered services      * @return the types found, with their id as the key. Returns an empty Map if none found.      */
+comment|/**      * Looks up services in the registry by their type.      *<p/>      *<b>Note:</b> Not all registry implementations support this feature,      * such as the {@link org.apache.camel.impl.JndiRegistry}.      *      * @param type  the type of the registered services      * @return the types found, with their id as the key. Returns an empty Map if none found.      * @deprecated use {@link #findByTypeWithName(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|lookupByType (Class<T> type)
-parameter_list|<
+argument_list|<
 name|T
-parameter_list|>
+argument_list|>
 name|Map
 argument_list|<
 name|String

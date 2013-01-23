@@ -260,7 +260,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -275,7 +275,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -288,7 +288,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"unknown"
 argument_list|)
@@ -317,7 +317,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"{{bean.foo}}"
 argument_list|)
@@ -332,7 +332,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"{{bean.bar}}"
 argument_list|)
@@ -345,7 +345,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"{{bean.unknown}}"
 argument_list|)
@@ -411,7 +411,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"{{bean.foo}}"
 argument_list|,
@@ -430,7 +430,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"{{bean.bar}}"
 argument_list|,
@@ -447,7 +447,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"{{bean.unknown}}"
 argument_list|,

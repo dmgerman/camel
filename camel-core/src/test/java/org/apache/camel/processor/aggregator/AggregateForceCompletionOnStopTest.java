@@ -100,7 +100,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"myCompletionProcessor"
 argument_list|,
@@ -232,7 +232,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"myCompletionProcessor"
 argument_list|,
@@ -364,7 +364,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"myCompletionProcessor"
 argument_list|,
@@ -499,7 +499,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"myCompletionProcessor"
 argument_list|,

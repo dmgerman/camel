@@ -754,7 +754,7 @@ name|assertNotNull
 argument_list|(
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -800,7 +800,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"foo"
 argument_list|)

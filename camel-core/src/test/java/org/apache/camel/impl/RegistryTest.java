@@ -121,7 +121,7 @@ name|list
 init|=
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -153,7 +153,7 @@ name|value
 init|=
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -181,7 +181,7 @@ name|value
 init|=
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"No such entry!"
 argument_list|)

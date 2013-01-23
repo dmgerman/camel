@@ -1267,7 +1267,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|Tracer
 operator|.
@@ -1328,7 +1328,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|TraceFormatter
 operator|.

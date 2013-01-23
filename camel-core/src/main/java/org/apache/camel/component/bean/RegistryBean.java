@@ -561,7 +561,7 @@ block|{
 return|return
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 name|name
 argument_list|)

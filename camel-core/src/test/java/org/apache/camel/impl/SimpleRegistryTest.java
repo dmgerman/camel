@@ -106,7 +106,7 @@ literal|"b"
 argument_list|,
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"a"
 argument_list|)
@@ -123,7 +123,7 @@ name|assertNull
 argument_list|(
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"x"
 argument_list|)
@@ -142,7 +142,7 @@ literal|"b"
 argument_list|,
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"a"
 argument_list|,
@@ -163,7 +163,7 @@ try|try
 block|{
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"a"
 argument_list|,
@@ -224,7 +224,7 @@ name|map
 init|=
 name|registry
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|String
 operator|.
@@ -257,7 +257,7 @@ name|map
 operator|=
 name|registry
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|Object
 operator|.
@@ -315,7 +315,7 @@ name|map
 init|=
 name|registry
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|Float
 operator|.

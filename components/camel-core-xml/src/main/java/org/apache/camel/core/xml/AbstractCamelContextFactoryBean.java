@@ -1484,7 +1484,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|EventNotifier
 operator|.
@@ -1592,7 +1592,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|EndpointStrategy
 operator|.
@@ -1713,7 +1713,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|InterceptStrategy
 operator|.
@@ -1815,7 +1815,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|LifecycleStrategy
 operator|.
@@ -3541,7 +3541,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|ThreadPoolProfile
 operator|.

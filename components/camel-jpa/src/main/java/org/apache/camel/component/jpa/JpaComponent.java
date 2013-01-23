@@ -347,7 +347,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|EntityManagerFactory
 operator|.
@@ -460,7 +460,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|PlatformTransactionManager
 operator|.
@@ -573,7 +573,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|TransactionTemplate
 operator|.

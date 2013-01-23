@@ -1545,7 +1545,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 name|ref
 argument_list|)

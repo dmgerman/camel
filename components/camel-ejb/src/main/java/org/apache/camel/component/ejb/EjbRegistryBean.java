@@ -126,11 +126,10 @@ name|Object
 name|lookupBean
 parameter_list|()
 block|{
-comment|// TODO: override lookupBean to be backwards compatible with Camel 2.3.0
 return|return
 name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 name|getName
 argument_list|()

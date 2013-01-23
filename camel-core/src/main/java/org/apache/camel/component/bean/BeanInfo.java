@@ -1014,7 +1014,7 @@ name|answer
 init|=
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 name|BeanConstants
 operator|.

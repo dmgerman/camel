@@ -24,7 +24,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 
@@ -45,6 +65,16 @@ operator|.
 name|util
 operator|.
 name|Queue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -225,14 +255,14 @@ operator|=
 name|bc
 expr_stmt|;
 block|}
-comment|/**      * Support to lookup the Object with filter with the (name=NAME) and class type      *       */
-DECL|method|lookup (String name, Class<T> type)
+comment|/**      * Support to lookup the Object with filter with the (name=NAME) and class type      */
+DECL|method|lookupByNameAndType (String name, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|lookup
+name|lookupByNameAndType
 parameter_list|(
 name|String
 name|name
@@ -376,10 +406,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * It's only support to look up the ServiceReference with Class name      */
-DECL|method|lookup (String name)
+DECL|method|lookupByName (String name)
 specifier|public
 name|Object
-name|lookup
+name|lookupByName
 parameter_list|(
 name|String
 name|name
@@ -463,7 +493,7 @@ return|return
 name|service
 return|;
 block|}
-DECL|method|lookupByType (Class<T> type)
+DECL|method|findByTypeWithName (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
@@ -474,7 +504,7 @@ name|String
 argument_list|,
 name|T
 argument_list|>
-name|lookupByType
+name|findByTypeWithName
 parameter_list|(
 name|Class
 argument_list|<
@@ -627,6 +657,121 @@ throw|;
 block|}
 return|return
 name|result
+return|;
+block|}
+DECL|method|findByType (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Set
+argument_list|<
+name|T
+argument_list|>
+name|findByType
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|T
+argument_list|>
+name|map
+init|=
+name|findByTypeWithName
+argument_list|(
+name|type
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|HashSet
+argument_list|<
+name|T
+argument_list|>
+argument_list|(
+name|map
+operator|.
+name|values
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|lookup (String name)
+specifier|public
+name|Object
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|lookupByName
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+DECL|method|lookup (String name, Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|lookupByNameAndType
+argument_list|(
+name|name
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
+DECL|method|lookupByType (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|T
+argument_list|>
+name|lookupByType
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|findByTypeWithName
+argument_list|(
+name|type
+argument_list|)
 return|;
 block|}
 annotation|@

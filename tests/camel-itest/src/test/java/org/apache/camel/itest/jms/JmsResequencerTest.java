@@ -578,7 +578,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"myBean1"
 argument_list|)
@@ -599,7 +599,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"myBean2"
 argument_list|)
@@ -620,7 +620,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 literal|"myBean3"
 argument_list|)

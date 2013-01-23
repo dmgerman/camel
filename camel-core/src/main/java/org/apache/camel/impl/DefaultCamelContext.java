@@ -8484,7 +8484,7 @@ operator|=
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 literal|"properties"
 argument_list|,
@@ -11278,7 +11278,7 @@ init|=
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 name|uri
 argument_list|)
@@ -12217,7 +12217,7 @@ operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 name|ref
 argument_list|,

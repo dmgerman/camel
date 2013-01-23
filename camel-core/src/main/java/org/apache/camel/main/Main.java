@@ -233,7 +233,7 @@ name|bean
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Using the given<code>name</code> does lookup for the bean being already      * bound using the {@link #bind(String, Object)} method.      *       * @see Registry#lookup(String)      */
+comment|/**      * Using the given<code>name</code> does lookup for the bean being already      * bound using the {@link #bind(String, Object)} method.      *       * @see Registry#lookupByName(String)      */
 DECL|method|lookup (String name)
 specifier|public
 name|Object
@@ -252,7 +252,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Using the given<code>name</code> and<code>type</code> does lookup for      * the bean being already bound using the {@link #bind(String, Object)}      * method.      *       * @see Registry#lookup(String, Class)      */
+comment|/**      * Using the given<code>name</code> and<code>type</code> does lookup for      * the bean being already bound using the {@link #bind(String, Object)}      * method.      *       * @see Registry#lookupByNameAndType(String, Class)      */
 DECL|method|lookup (String name, Class<T> type)
 specifier|public
 parameter_list|<
@@ -274,7 +274,7 @@ block|{
 return|return
 name|registry
 operator|.
-name|lookup
+name|lookupByNameAndType
 argument_list|(
 name|name
 argument_list|,
@@ -282,7 +282,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Using the given<code>type</code> does lookup for the bean being already      * bound using the {@link #bind(String, Object)} method.      *       * @see Registry#lookupByType(Class)      */
+comment|/**      * Using the given<code>type</code> does lookup for the bean being already      * bound using the {@link #bind(String, Object)} method.      *       * @see Registry#findByTypeWithName(Class)      */
 DECL|method|lookupByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -306,7 +306,7 @@ block|{
 return|return
 name|registry
 operator|.
-name|lookupByType
+name|findByTypeWithName
 argument_list|(
 name|type
 argument_list|)

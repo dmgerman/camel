@@ -48,6 +48,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|naming
@@ -161,13 +171,13 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|lookup (String name, Class<T> type)
+DECL|method|lookupByNameAndType (String name, Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|lookup
+name|lookupByNameAndType
 parameter_list|(
 name|String
 name|name
@@ -182,7 +192,7 @@ block|{
 name|Object
 name|answer
 init|=
-name|lookup
+name|lookupByName
 argument_list|(
 name|name
 argument_list|)
@@ -254,10 +264,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|lookup (String name)
+DECL|method|lookupByName (String name)
 specifier|public
 name|Object
-name|lookup
+name|lookupByName
 parameter_list|(
 name|String
 name|name
@@ -296,6 +306,103 @@ literal|null
 return|;
 block|}
 block|}
+DECL|method|findByTypeWithName (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|T
+argument_list|>
+name|findByTypeWithName
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+comment|// not implemented so we return an empty map
+return|return
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+return|;
+block|}
+DECL|method|findByType (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|Set
+argument_list|<
+name|T
+argument_list|>
+name|findByType
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+comment|// not implemented so we return an empty set
+return|return
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
+return|;
+block|}
+DECL|method|lookup (String name)
+specifier|public
+name|Object
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|lookupByName
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+DECL|method|lookup (String name, Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|lookup
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|lookupByNameAndType
+argument_list|(
+name|name
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
 DECL|method|lookupByType (Class<T> type)
 specifier|public
 parameter_list|<
@@ -316,12 +423,11 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-comment|// not implemented so we return an empty map
 return|return
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
+name|findByTypeWithName
+argument_list|(
+name|type
+argument_list|)
 return|;
 block|}
 DECL|method|bind (String s, Object o)
