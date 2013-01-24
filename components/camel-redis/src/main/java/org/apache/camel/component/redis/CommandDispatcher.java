@@ -138,6 +138,8 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
+comment|// TODO: This method is longer than maximally allowed 200 lines
+comment|// CHECKSTYLE:OFF
 DECL|method|execute (final RedisClient redisClient)
 specifier|public
 name|void
@@ -1838,6 +1840,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// CHECKSTYLE:ON
 DECL|method|determineCommand ()
 specifier|private
 name|Command
