@@ -164,7 +164,6 @@ operator|=
 name|sqlMapClient
 expr_stmt|;
 block|}
-comment|/**      * Creates an IbatisEndpoint for use by an IbatisConsumer or IbatisProducer.      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -214,7 +213,7 @@ name|answer
 return|;
 block|}
 DECL|method|createSqlMapClient ()
-specifier|private
+specifier|protected
 name|SqlMapClient
 name|createSqlMapClient
 parameter_list|()
@@ -248,33 +247,16 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-comment|/**      * Returns the configured SqlMapClient.      *      * @return com.ibatis.sqlmap.client.SqlMapClient      * @throws IOException If configured with a SqlMapConfig and there      * is a problem reading the resource.      */
 DECL|method|getSqlMapClient ()
 specifier|public
 name|SqlMapClient
 name|getSqlMapClient
 parameter_list|()
-throws|throws
-name|IOException
 block|{
-if|if
-condition|(
-name|sqlMapClient
-operator|==
-literal|null
-condition|)
-block|{
-name|sqlMapClient
-operator|=
-name|createSqlMapClient
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|sqlMapClient
 return|;
 block|}
-comment|/**      * Sets the SqlMapClient      */
 DECL|method|setSqlMapClient (SqlMapClient sqlMapClient)
 specifier|public
 name|void
@@ -291,7 +273,6 @@ operator|=
 name|sqlMapClient
 expr_stmt|;
 block|}
-comment|/**      * The Spring uri of the SqlMapConfig      */
 DECL|method|getSqlMapConfig ()
 specifier|public
 name|String
@@ -342,6 +323,51 @@ operator|.
 name|useTransactions
 operator|=
 name|useTransactions
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|sqlMapClient
+operator|==
+literal|null
+condition|)
+block|{
+name|sqlMapClient
+operator|=
+name|createSqlMapClient
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
