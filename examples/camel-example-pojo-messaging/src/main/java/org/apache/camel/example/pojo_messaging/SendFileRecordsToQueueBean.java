@@ -80,7 +80,7 @@ name|Consume
 argument_list|(
 name|uri
 operator|=
-literal|"file:src/data?noop=true"
+literal|"file:src/data?noop=true&initialDelay=100&delay=100"
 argument_list|)
 DECL|method|onFileSendToQueue (String body)
 specifier|public
