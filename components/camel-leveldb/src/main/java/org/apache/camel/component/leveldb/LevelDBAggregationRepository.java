@@ -142,6 +142,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -1209,10 +1223,12 @@ block|}
 finally|finally
 block|{
 comment|// Make sure you close the iterator to avoid resource leaks.
-name|it
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|it
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -1381,10 +1397,12 @@ block|}
 finally|finally
 block|{
 comment|// Make sure you close the iterator to avoid resource leaks.
-name|it
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|it
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -1630,10 +1648,12 @@ block|}
 finally|finally
 block|{
 comment|// Make sure you close the iterator to avoid resource leaks.
-name|it
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|it
+argument_list|)
 expr_stmt|;
 block|}
 name|LOG
