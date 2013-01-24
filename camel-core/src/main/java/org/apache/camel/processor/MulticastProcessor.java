@@ -4391,6 +4391,18 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// here we don't cache the ChildUnitOfWorkProcessor
+comment|// As the UnitOfWorkProcess will be delegate to the Parent
+if|if
+condition|(
+operator|!
+operator|(
+name|answer
+operator|instanceof
+name|ChildUnitOfWorkProcessor
+operator|)
+condition|)
+block|{
 comment|// add to cache
 name|errorHandlers
 operator|.
@@ -4401,6 +4413,7 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
