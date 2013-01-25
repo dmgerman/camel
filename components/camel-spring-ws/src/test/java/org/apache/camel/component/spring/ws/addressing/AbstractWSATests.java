@@ -140,7 +140,7 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 operator|.
 name|CamelSpringTestSupport
 import|;
