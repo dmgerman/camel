@@ -323,6 +323,19 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|hasRoutes ()
+name|boolean
+name|hasRoutes
+parameter_list|()
+block|{
+return|return
+operator|!
+name|routes
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 comment|/**      * This method does "test-and-set" on the underlying flag that indicates      * whether this router restlet has been attached to a server or not.  It       * is the caller's responsibility to perform the "attach" when this method       * returns false.       *       * @return true only this method is called the first time.      */
 DECL|method|hasBeenAttached ()
 name|boolean
