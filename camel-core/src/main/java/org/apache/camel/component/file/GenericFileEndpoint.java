@@ -576,6 +576,11 @@ specifier|protected
 name|Boolean
 name|idempotent
 decl_stmt|;
+DECL|field|idempotentKey
+specifier|protected
+name|Expression
+name|idempotentKey
+decl_stmt|;
 DECL|field|idempotentRepository
 specifier|protected
 name|IdempotentRepository
@@ -1964,6 +1969,51 @@ operator|.
 name|idempotent
 operator|=
 name|idempotent
+expr_stmt|;
+block|}
+DECL|method|getIdempotentKey ()
+specifier|public
+name|Expression
+name|getIdempotentKey
+parameter_list|()
+block|{
+return|return
+name|idempotentKey
+return|;
+block|}
+DECL|method|setIdempotentKey (Expression idempotentKey)
+specifier|public
+name|void
+name|setIdempotentKey
+parameter_list|(
+name|Expression
+name|idempotentKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|idempotentKey
+operator|=
+name|idempotentKey
+expr_stmt|;
+block|}
+DECL|method|setIdempotentKey (String expression)
+specifier|public
+name|void
+name|setIdempotentKey
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|idempotentKey
+operator|=
+name|createFileLanguageExpression
+argument_list|(
+name|expression
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getIdempotentRepository ()
