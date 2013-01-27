@@ -1694,8 +1694,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Inferring message store factory: "
-operator|+
+literal|"Inferring message store factory: {}"
+argument_list|,
 name|messageStoreFactory
 operator|.
 name|getClass
@@ -1948,8 +1948,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Inferring log factory: "
-operator|+
+literal|"Inferring log factory: {}"
+argument_list|,
 name|sessionLogFactory
 operator|.
 name|getClass
@@ -2754,14 +2754,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -2779,7 +2771,6 @@ else|:
 literal|""
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|QuickfixjEventListener

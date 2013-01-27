@@ -394,9 +394,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Creating QuickFIX/J consumer: "
-operator|+
-operator|(
+literal|"Creating QuickFIX/J consumer: {}, ExchangePattern={}"
+argument_list|,
 name|sessionID
 operator|!=
 literal|null
@@ -404,10 +403,7 @@ condition|?
 name|sessionID
 else|:
 literal|"No Session"
-operator|)
-operator|+
-literal|", ExchangePattern="
-operator|+
+argument_list|,
 name|getExchangePattern
 argument_list|()
 argument_list|)
@@ -446,9 +442,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Creating QuickFIX/J producer: "
-operator|+
-operator|(
+literal|"Creating QuickFIX/J producer: {}"
+argument_list|,
 name|sessionID
 operator|!=
 literal|null
@@ -456,7 +451,6 @@ condition|?
 name|sessionID
 else|:
 literal|"No Session"
-operator|)
 argument_list|)
 expr_stmt|;
 if|if

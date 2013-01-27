@@ -242,27 +242,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Sending FIX message reply: "
-operator|+
+literal|"Sending FIX message reply: {}"
+argument_list|,
 name|quickfixjMessage
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|SessionID
 name|messageSessionID
 init|=

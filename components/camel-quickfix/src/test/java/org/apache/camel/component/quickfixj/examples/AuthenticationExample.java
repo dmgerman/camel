@@ -52,7 +52,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|CamelExchangeException
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|InvalidPayloadException
+name|Exchange
 import|;
 end_import
 
@@ -535,7 +535,7 @@ parameter_list|)
 throws|throws
 name|RejectLogon
 throws|,
-name|InvalidPayloadException
+name|CamelExchangeException
 throws|,
 name|FieldNotFound
 block|{
@@ -647,7 +647,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|InvalidPayloadException
+name|CamelExchangeException
 block|{
 name|LOG
 operator|.
