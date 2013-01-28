@@ -26,18 +26,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|atomic
 operator|.
 name|AtomicInteger
@@ -115,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -128,7 +116,6 @@ name|ContextTestSupport
 block|{
 DECL|field|INVOKED
 specifier|private
-specifier|static
 specifier|final
 name|AtomicInteger
 name|INVOKED
@@ -136,6 +123,30 @@ init|=
 operator|new
 name|AtomicInteger
 argument_list|()
+decl_stmt|;
+DECL|field|receivedExchange
+specifier|private
+specifier|volatile
+name|Exchange
+name|receivedExchange
+decl_stmt|;
+DECL|field|receivedIndex
+specifier|private
+specifier|volatile
+name|int
+name|receivedIndex
+decl_stmt|;
+DECL|field|receivedTotal
+specifier|private
+specifier|volatile
+name|int
+name|receivedTotal
+decl_stmt|;
+DECL|field|receivedTimeout
+specifier|private
+specifier|volatile
+name|long
+name|receivedTimeout
 decl_stmt|;
 DECL|method|testAggregateTimeout ()
 specifier|public
@@ -186,7 +197,7 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 3 seconds
+comment|// wait 3 seconds so that the timeout kicks in
 name|Thread
 operator|.
 name|sleep
@@ -210,7 +221,47 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// now send 3 which does not timeout
+name|assertNotNull
+argument_list|(
+name|receivedExchange
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"A+B"
+argument_list|,
+name|receivedExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+name|receivedIndex
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+name|receivedTotal
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2000
+argument_list|,
+name|receivedTimeout
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -220,9 +271,10 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"C+D+E"
+literal|"A+B+C"
 argument_list|)
 expr_stmt|;
+comment|// now send 3 exchanges which shouldn't trigger the timeout anymore
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -265,16 +317,12 @@ expr_stmt|;
 comment|// should complete before timeout
 name|mock
 operator|.
-name|await
+name|assertIsSatisfied
 argument_list|(
 literal|1500
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-comment|// should not invoke the timeout method
+comment|// should have not invoked the timeout method anymore
 name|assertEquals
 argument_list|(
 literal|1
@@ -352,7 +400,6 @@ return|;
 block|}
 DECL|class|MyAggregationStrategy
 specifier|private
-specifier|static
 class|class
 name|MyAggregationStrategy
 implements|implements
@@ -381,46 +428,24 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|2000
-argument_list|,
-name|timeout
-argument_list|)
+comment|// we can't assert on the expected values here as the contract of this method doesn't
+comment|// allow to throw any Throwable here (including AssertionFailedError) so that we assert
+comment|// about the expected values directly inside the test method itself
+name|receivedExchange
+operator|=
+name|oldExchange
 expr_stmt|;
-name|assertEquals
-argument_list|(
-operator|-
-literal|1
-argument_list|,
-name|total
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-operator|-
-literal|1
-argument_list|,
+name|receivedIndex
+operator|=
 name|index
-argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-name|oldExchange
-argument_list|)
+name|receivedTotal
+operator|=
+name|total
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"AB"
-argument_list|,
-name|oldExchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-argument_list|)
+name|receivedTimeout
+operator|=
+name|timeout
 expr_stmt|;
 block|}
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
@@ -469,6 +494,8 @@ operator|.
 name|setBody
 argument_list|(
 name|body
+operator|+
+literal|"+"
 operator|+
 name|newExchange
 operator|.
