@@ -402,14 +402,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -419,7 +411,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 comment|// add service listener so we can be notified when blueprint container is done
 comment|// and we would be ready to start CamelContext
 name|bundleContext
@@ -438,14 +429,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -455,7 +438,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 comment|// remove listener and stop this CamelContext
 name|bundleContext
 operator|.
@@ -544,11 +526,18 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|error
 argument_list|(
-literal|"Error occurred during starting "
+literal|"Error occurred during starting Camel: "
 operator|+
 name|this
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -655,14 +644,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -672,7 +653,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
