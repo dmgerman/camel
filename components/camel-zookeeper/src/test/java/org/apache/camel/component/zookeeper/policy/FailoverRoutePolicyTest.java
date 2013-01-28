@@ -587,7 +587,12 @@ init|=
 operator|new
 name|ZooKeeperRoutePolicy
 argument_list|(
-literal|"zookeeper:localhost:39913/someapp/somepolicy"
+literal|"zookeeper:localhost:"
+operator|+
+name|getServerPort
+argument_list|()
+operator|+
+literal|"/someapp/somepolicy"
 argument_list|,
 literal|1
 argument_list|)

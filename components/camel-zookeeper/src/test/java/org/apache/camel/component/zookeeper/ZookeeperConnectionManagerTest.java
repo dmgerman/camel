@@ -81,7 +81,10 @@ name|config
 operator|.
 name|addZookeeperServer
 argument_list|(
-literal|"localhost:39913"
+literal|"localhost:"
+operator|+
+name|getServerPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ZooKeeperComponent

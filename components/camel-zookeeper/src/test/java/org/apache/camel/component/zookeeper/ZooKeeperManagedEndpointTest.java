@@ -699,7 +699,14 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"zookeeper://localhost:39913/node"
+literal|"zookeeper://localhost:"
+operator|+
+name|ZooKeeperTestSupport
+operator|.
+name|getServerPort
+argument_list|()
+operator|+
+literal|"/node"
 argument_list|)
 operator|.
 name|to

@@ -137,7 +137,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"zookeeper://localhost:39913/camel?repeat=true"
+literal|"zookeeper://localhost:"
+operator|+
+name|getServerPort
+argument_list|()
+operator|+
+literal|"/camel?repeat=true"
 argument_list|)
 operator|.
 name|to
