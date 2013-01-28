@@ -132,6 +132,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|getException
+import|;
+end_import
+
 begin_class
 DECL|class|BlueprintComponentResolver
 specifier|public
@@ -262,26 +278,27 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|NoSuchComponentException
-name|e
-parameter_list|)
-block|{
-comment|// can be expected so ignore
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Component: {} not found in registry."
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|Exception
 name|e
 parameter_list|)
+block|{
+if|if
+condition|(
+name|getException
+argument_list|(
+name|NoSuchComponentException
+operator|.
+name|class
+argument_list|,
+name|e
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// if the caused error is NoSuchComponentException then that can be expected so ignore
+block|}
+else|else
 block|{
 name|LOG
 operator|.
@@ -301,6 +318,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 try|try
 block|{
