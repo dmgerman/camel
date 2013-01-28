@@ -52,30 +52,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -232,9 +208,25 @@ name|RMContextUtils
 import|;
 end_import
 
-begin_comment
-comment|/**  *   */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
 
 begin_class
 DECL|class|MessageLossSimulator
@@ -254,7 +246,7 @@ specifier|final
 name|Logger
 name|LOG
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -456,7 +448,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|fine
+name|debug
 argument_list|(
 literal|"Removed MessageSenderInterceptor from interceptor chain."
 argument_list|)
@@ -582,12 +574,8 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isLoggable
-argument_list|(
-name|Level
-operator|.
-name|FINE
-argument_list|)
+name|isDebugEnabled
+argument_list|()
 condition|)
 block|{
 name|Long
@@ -610,10 +598,10 @@ argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
-name|fine
+name|debug
 argument_list|(
-literal|"Losing message "
-operator|+
+literal|"Losing message {}"
+argument_list|,
 name|nr
 argument_list|)
 expr_stmt|;

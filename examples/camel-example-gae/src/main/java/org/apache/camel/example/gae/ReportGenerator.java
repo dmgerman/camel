@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -78,6 +66,26 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|ReportGenerator
 specifier|public
@@ -93,16 +101,13 @@ specifier|final
 name|Logger
 name|LOGGER
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
 name|RequestProcessor
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|method|process (Exchange exchange)
