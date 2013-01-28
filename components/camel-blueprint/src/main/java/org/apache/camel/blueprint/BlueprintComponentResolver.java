@@ -100,6 +100,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|blueprint
+operator|.
+name|container
+operator|.
+name|NoSuchComponentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -243,6 +259,23 @@ name|component
 return|;
 block|}
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchComponentException
+name|e
+parameter_list|)
+block|{
+comment|// can be expected so ignore
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Component: {} not found in registry."
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
