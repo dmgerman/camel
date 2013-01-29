@@ -448,6 +448,8 @@ name|JettyHttpComponent
 operator|.
 name|createHttpClient
 argument_list|(
+name|this
+argument_list|,
 name|min
 argument_list|,
 name|max
