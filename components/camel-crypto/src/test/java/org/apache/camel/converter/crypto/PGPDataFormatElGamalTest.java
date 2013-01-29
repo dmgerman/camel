@@ -32,9 +32,7 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"It looks like the bcpg dosen't work well with the JDK of CI"
-operator|+
-literal|"The tests are passed in my Mac JDK-1.6.0_33"
+literal|"Requires JCE unlimited strength jurisdiction policy files on CI server"
 argument_list|)
 DECL|class|PGPDataFormatElGamalTest
 specifier|public

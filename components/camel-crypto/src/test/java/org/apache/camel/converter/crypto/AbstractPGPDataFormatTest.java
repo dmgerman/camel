@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -115,21 +125,13 @@ name|AbstractPGPDataFormatTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|method|doRoundTripEncryptionTests (String endpoint, Map<String, Object> headers)
+DECL|method|doRoundTripEncryptionTests (String endpoint)
 specifier|protected
 name|void
 name|doRoundTripEncryptionTests
 parameter_list|(
 name|String
 name|endpoint
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|headers
 parameter_list|)
 throws|throws
 name|Exception
@@ -162,6 +164,17 @@ name|String
 name|payload
 init|=
 literal|"Hi Alice, Be careful Eve is listening, signed Bob"
+decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+init|=
+name|getHeaders
+argument_list|()
 decl_stmt|;
 name|template
 operator|.
@@ -215,6 +228,28 @@ argument_list|,
 name|payload
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getHeaders ()
+specifier|protected
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getHeaders
+parameter_list|()
+block|{
+return|return
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+return|;
 block|}
 DECL|method|assertMocksSatisfied (MockEndpoint encrypted, MockEndpoint unencrypted, String payload)
 specifier|protected

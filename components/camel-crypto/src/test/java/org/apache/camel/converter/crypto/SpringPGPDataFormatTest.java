@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -102,15 +92,6 @@ block|{
 name|doRoundTripEncryptionTests
 argument_list|(
 literal|"direct:inline"
-argument_list|,
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
