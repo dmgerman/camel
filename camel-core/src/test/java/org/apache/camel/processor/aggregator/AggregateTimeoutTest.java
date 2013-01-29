@@ -228,7 +228,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"A+B"
+literal|"AB"
 argument_list|,
 name|receivedExchange
 operator|.
@@ -271,7 +271,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"A+B+C"
+literal|"ABC"
 argument_list|)
 expr_stmt|;
 comment|// now send 3 exchanges which shouldn't trigger the timeout anymore
@@ -429,8 +429,10 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 comment|// we can't assert on the expected values here as the contract of this method doesn't
-comment|// allow to throw any Throwable here (including AssertionFailedError) so that we assert
-comment|// about the expected values directly inside the test method itself
+comment|// allow to throw any Throwable (including AssertionFailedError) so that we assert
+comment|// about the expected values directly inside the test method itself. other than that
+comment|// asserting inside a thread other than the main thread dosen't make much sense as
+comment|// junit would not realize the failed assertion!
 name|receivedExchange
 operator|=
 name|oldExchange
@@ -494,8 +496,6 @@ operator|.
 name|setBody
 argument_list|(
 name|body
-operator|+
-literal|"+"
 operator|+
 name|newExchange
 operator|.
