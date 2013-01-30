@@ -362,6 +362,7 @@ literal|"mock:unencrypted"
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: pgp-format-header
+comment|// START SNIPPET: pgp-format-signature
 name|PGPDataFormat
 name|pgpSignAndEncrypt
 init|=
@@ -471,6 +472,7 @@ argument_list|(
 literal|"mock:unencrypted"
 argument_list|)
 expr_stmt|;
+comment|// END SNIPPET: pgp-format-signature
 block|}
 block|}
 return|;
