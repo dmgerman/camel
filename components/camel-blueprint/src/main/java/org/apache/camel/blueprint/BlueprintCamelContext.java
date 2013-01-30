@@ -196,6 +196,18 @@ name|org
 operator|.
 name|osgi
 operator|.
+name|framework
+operator|.
+name|ServiceRegistration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
 name|service
 operator|.
 name|blueprint
@@ -203,6 +215,38 @@ operator|.
 name|container
 operator|.
 name|BlueprintContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|blueprint
+operator|.
+name|container
+operator|.
+name|BlueprintEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|blueprint
+operator|.
+name|container
+operator|.
+name|BlueprintListener
 import|;
 end_import
 
@@ -235,6 +279,8 @@ extends|extends
 name|DefaultCamelContext
 implements|implements
 name|ServiceListener
+implements|,
+name|BlueprintListener
 block|{
 DECL|field|LOG
 specifier|private
@@ -262,6 +308,14 @@ DECL|field|blueprintContainer
 specifier|private
 name|BlueprintContainer
 name|blueprintContainer
+decl_stmt|;
+DECL|field|registration
+specifier|private
+name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
+name|registration
 decl_stmt|;
 DECL|method|BlueprintCamelContext ()
 specifier|public
@@ -420,6 +474,23 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// add blueprint listener as service, as we need this for the blueprint container
+comment|// to support change events when it changes states
+name|registration
+operator|=
+name|bundleContext
+operator|.
+name|registerService
+argument_list|(
+name|BlueprintListener
+operator|.
+name|class
+argument_list|,
+name|this
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|destroy ()
 specifier|public
@@ -439,6 +510,8 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// remove listener and stop this CamelContext
+try|try
+block|{
 name|bundleContext
 operator|.
 name|removeServiceListener
@@ -446,9 +519,84 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error removing ServiceListener "
+operator|+
+name|this
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|registration
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|registration
+operator|.
+name|unregister
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error unregistering service registration "
+operator|+
+name|registration
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|registration
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|// must stop Camel
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|blueprintEvent (BlueprintEvent event)
+specifier|public
+name|void
+name|blueprintEvent
+parameter_list|(
+name|BlueprintEvent
+name|event
+parameter_list|)
+block|{
+comment|// noop as we just needed to enlist the BlueprintListener to have events triggered to serviceChanged method
 block|}
 annotation|@
 name|Override
