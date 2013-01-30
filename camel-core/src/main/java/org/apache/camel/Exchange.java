@@ -500,6 +500,12 @@ name|ON_COMPLETION
 init|=
 literal|"CamelOnCompletion"
 decl_stmt|;
+DECL|field|OVERRULE_FILE_NAME
+name|String
+name|OVERRULE_FILE_NAME
+init|=
+literal|"CamelOverruleFileName"
+decl_stmt|;
 DECL|field|PARENT_UNIT_OF_WORK
 name|String
 name|PARENT_UNIT_OF_WORK
