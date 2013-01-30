@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.blueprint.scan
+DECL|package|org.apache.camel.test.blueprint
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|test
 operator|.
 name|blueprint
-operator|.
-name|scan
 package|;
 end_package
 
@@ -24,13 +22,19 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|builder
+name|junit
 operator|.
-name|RouteBuilder
+name|Test
 import|;
 end_import
 
@@ -39,32 +43,65 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|MyCoolRoute
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Issue with @EndpointInject"
+argument_list|)
+DECL|class|BlueprintPackageScan2Test
 specifier|public
 class|class
-name|MyCoolRoute
+name|BlueprintPackageScan2Test
 extends|extends
-name|RouteBuilder
+name|CamelBlueprintTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|configure ()
+DECL|method|getBlueprintDescriptor ()
+specifier|protected
+name|String
+name|getBlueprintDescriptor
+parameter_list|()
+block|{
+return|return
+literal|"org/apache/camel/test/blueprint/packagescan2.xml"
+return|;
+block|}
+comment|// here we have regular Junit @Test method
+annotation|@
+name|Test
+DECL|method|testRoute ()
 specifier|public
 name|void
-name|configure
+name|testRoute
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|to
+comment|// set mock expectations
+name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
 argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// send a message
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"World"
+argument_list|)
+expr_stmt|;
+comment|// assert mocks
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 block|}

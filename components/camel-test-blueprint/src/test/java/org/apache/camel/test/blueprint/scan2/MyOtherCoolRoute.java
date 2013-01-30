@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.test.blueprint.scan
+DECL|package|org.apache.camel.test.blueprint.scan2
 package|package
 name|org
 operator|.
@@ -16,9 +16,33 @@ name|test
 operator|.
 name|blueprint
 operator|.
-name|scan
+name|scan2
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|EndpointInject
+import|;
+end_import
 
 begin_import
 import|import
@@ -39,13 +63,25 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|MyCoolRoute
+DECL|class|MyOtherCoolRoute
 specifier|public
 class|class
-name|MyCoolRoute
+name|MyOtherCoolRoute
 extends|extends
 name|RouteBuilder
 block|{
+annotation|@
+name|EndpointInject
+argument_list|(
+name|ref
+operator|=
+literal|"foo"
+argument_list|)
+DECL|field|foo
+specifier|private
+name|Endpoint
+name|foo
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|configure ()
@@ -58,7 +94,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+name|foo
 argument_list|)
 operator|.
 name|to
