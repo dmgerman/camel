@@ -133,6 +133,15 @@ name|IsSingleton
 implements|,
 name|CamelContextAware
 block|{
+DECL|field|RESOURCE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RESOURCE
+init|=
+literal|"resource:"
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -198,7 +207,7 @@ name|expression
 operator|.
 name|startsWith
 argument_list|(
-literal|"resource:"
+name|RESOURCE
 argument_list|)
 condition|)
 block|{
@@ -209,7 +218,10 @@ name|expression
 operator|.
 name|substring
 argument_list|(
-literal|9
+name|RESOURCE
+operator|.
+name|length
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|InputStream
