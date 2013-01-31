@@ -470,7 +470,7 @@ specifier|final
 name|String
 name|OPEN_CMIS_SERVER_WAR_PATH
 init|=
-literal|"target/dependency/chemistry-opencmis-server-inmemory-0.7.0.war"
+literal|"target/dependency/chemistry-opencmis-server-inmemory-0.8.0.war"
 decl_stmt|;
 DECL|field|cmisServer
 specifier|protected
