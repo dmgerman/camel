@@ -90,6 +90,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|LanguageSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -105,10 +119,8 @@ DECL|class|SimpleLanguage
 specifier|public
 class|class
 name|SimpleLanguage
-implements|implements
-name|Language
-implements|,
-name|IsSingleton
+extends|extends
+name|LanguageSupport
 block|{
 comment|// singleton for expressions without a result type
 DECL|field|SIMPLE
@@ -232,6 +244,13 @@ argument_list|,
 literal|"expression"
 argument_list|)
 expr_stmt|;
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 comment|// support old simple language syntax
 annotation|@
 name|SuppressWarnings
@@ -297,6 +316,13 @@ argument_list|(
 name|expression
 argument_list|,
 literal|"expression"
+argument_list|)
+expr_stmt|;
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
 argument_list|)
 expr_stmt|;
 comment|// support old simple language syntax

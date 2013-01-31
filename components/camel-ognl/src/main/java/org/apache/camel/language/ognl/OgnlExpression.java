@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://www.ognl.org/">OGNL</a> {@link Expression}  *  * @version   */
+comment|/**  * An<a href="http://www.ognl.org/">OGNL</a> {@link org.apache.camel.Expression}  *  * @version   */
 end_comment
 
 begin_class
@@ -104,6 +104,12 @@ name|OgnlExpression
 extends|extends
 name|ExpressionSupport
 block|{
+DECL|field|language
+specifier|private
+specifier|final
+name|OgnlLanguage
+name|language
+decl_stmt|;
 DECL|field|expressionString
 specifier|private
 specifier|final
@@ -141,6 +147,12 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+name|this
+operator|.
+name|language
+operator|=
+name|language
+expr_stmt|;
 name|this
 operator|.
 name|expressionString
@@ -228,8 +240,6 @@ argument_list|>
 name|tClass
 parameter_list|)
 block|{
-comment|// TODO we could use caching here but then we'd have possible
-comment|// concurrency issues so lets assume that the provider caches
 name|OgnlContext
 name|oglContext
 init|=

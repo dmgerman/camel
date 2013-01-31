@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|IsSingleton
+name|ExpressionIllegalSyntaxException
 import|;
 end_import
 
@@ -51,18 +51,6 @@ operator|.
 name|camel
 operator|.
 name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
 import|;
 end_import
 
@@ -90,9 +78,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Language
+name|LanguageSupport
 import|;
 end_import
 
@@ -107,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * XPath language.  *  * @version   */
+comment|/**  * JoSQL language.  *  * @version   */
 end_comment
 
 begin_class
@@ -115,10 +103,8 @@ DECL|class|SqlLanguage
 specifier|public
 class|class
 name|SqlLanguage
-implements|implements
-name|Language
-implements|,
-name|IsSingleton
+extends|extends
+name|LanguageSupport
 block|{
 DECL|method|createPredicate (String expression)
 specifier|public
@@ -129,6 +115,13 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|SqlBuilder
@@ -151,19 +144,14 @@ name|QueryParseException
 name|e
 parameter_list|)
 block|{
-name|RuntimeException
-name|exception
-init|=
+throw|throw
 operator|new
-name|RuntimeCamelException
+name|ExpressionIllegalSyntaxException
 argument_list|(
-literal|"Canont create the SqlBuilder."
+name|expression
 argument_list|,
 name|e
 argument_list|)
-decl_stmt|;
-throw|throw
-name|exception
 throw|;
 block|}
 block|}
@@ -176,6 +164,13 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|SqlBuilder
@@ -198,31 +193,16 @@ name|QueryParseException
 name|e
 parameter_list|)
 block|{
-name|RuntimeException
-name|exception
-init|=
+throw|throw
 operator|new
-name|RuntimeCamelException
+name|ExpressionIllegalSyntaxException
 argument_list|(
-literal|"Canont create the SqlBuilder."
+name|expression
 argument_list|,
 name|e
 argument_list|)
-decl_stmt|;
-throw|throw
-name|exception
 throw|;
 block|}
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class

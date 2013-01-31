@@ -50,14 +50,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|Language
+name|LanguageSupport
 import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/el.html">EL Language from JSP and JSF</a>  * using the<a href="http://camel.apache.org/juel.html">JUEL library</a>  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/el.html">EL Language from JSP and JSF</a>  *  * @version   */
 end_comment
 
 begin_class
@@ -65,8 +65,8 @@ DECL|class|JuelLanguage
 specifier|public
 class|class
 name|JuelLanguage
-implements|implements
-name|Language
+extends|extends
+name|LanguageSupport
 block|{
 DECL|method|createPredicate (String expression)
 specifier|public
@@ -77,6 +77,13 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|JuelExpression
@@ -98,6 +105,13 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|JuelExpression

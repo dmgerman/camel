@@ -26,21 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|IsSingleton
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|support
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Language
+name|LanguageSupport
 import|;
 end_import
 
@@ -53,10 +41,8 @@ DECL|class|GroovyLanguage
 specifier|public
 class|class
 name|GroovyLanguage
-implements|implements
-name|Language
-implements|,
-name|IsSingleton
+extends|extends
+name|LanguageSupport
 block|{
 DECL|method|groovy (String expression)
 specifier|public
@@ -104,22 +90,19 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|GroovyExpression
 argument_list|(
 name|expression
 argument_list|)
-return|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 block|}

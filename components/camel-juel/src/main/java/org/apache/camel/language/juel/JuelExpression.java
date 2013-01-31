@@ -352,8 +352,6 @@ argument_list|>
 name|tClass
 parameter_list|)
 block|{
-comment|// TODO we could use caching here but then we'd have possible concurrency issues
-comment|// so lets assume that the provider caches
 comment|// Create (if needed) the ExpressionFactory first from the CamelContext using FactoryFinder
 name|ExpressionFactory
 name|factory
@@ -401,6 +399,15 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Value returned {}"
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 return|return
 name|exchange
 operator|.
@@ -420,6 +427,7 @@ return|;
 block|}
 DECL|method|getExpressionFactory (CamelContext context)
 specifier|public
+specifier|synchronized
 name|ExpressionFactory
 name|getExpressionFactory
 parameter_list|(
@@ -560,6 +568,7 @@ return|;
 block|}
 DECL|method|getExpressionFactory ()
 specifier|public
+specifier|synchronized
 name|ExpressionFactory
 name|getExpressionFactory
 parameter_list|()
@@ -735,7 +744,6 @@ name|CompositeELResolver
 argument_list|()
 block|{
 block|{
-comment|//add(methodResolver);
 name|add
 argument_list|(
 operator|new

@@ -141,6 +141,22 @@ name|getExchangeId
 argument_list|()
 return|;
 block|}
+DECL|method|getBody ()
+specifier|public
+name|Object
+name|getBody
+parameter_list|()
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+return|;
+block|}
 DECL|method|getRequest ()
 specifier|public
 name|Message

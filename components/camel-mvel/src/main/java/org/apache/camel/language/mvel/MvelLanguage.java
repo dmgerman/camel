@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|IsSingleton
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
 import|;
 end_import
@@ -68,6 +56,20 @@ name|Language
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|LanguageSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * An<a href="http://mvel.codehaus.org/">MVEL</a> {@link Language} plugin  *   * @version   */
 end_comment
@@ -77,10 +79,8 @@ DECL|class|MvelLanguage
 specifier|public
 class|class
 name|MvelLanguage
-implements|implements
-name|Language
-implements|,
-name|IsSingleton
+extends|extends
+name|LanguageSupport
 block|{
 DECL|method|createPredicate (String expression)
 specifier|public
@@ -91,6 +91,13 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|MvelExpression
@@ -114,6 +121,13 @@ name|String
 name|expression
 parameter_list|)
 block|{
+name|expression
+operator|=
+name|loadResource
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|MvelExpression
@@ -126,16 +140,6 @@ name|Object
 operator|.
 name|class
 argument_list|)
-return|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 block|}
