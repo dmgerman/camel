@@ -420,10 +420,13 @@ condition|)
 block|{
 try|try
 block|{
+comment|// stop asap as we may hang forever
 name|sshd
 operator|.
 name|stop
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|sshd
 operator|=
