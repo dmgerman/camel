@@ -332,6 +332,12 @@ name|FILE_LAST_MODIFIED
 init|=
 literal|"CamelFileLastModified"
 decl_stmt|;
+DECL|field|FILE_LENGTH
+name|String
+name|FILE_LENGTH
+init|=
+literal|"CamelFileLength"
+decl_stmt|;
 DECL|field|FILTER_MATCHED
 name|String
 name|FILTER_MATCHED

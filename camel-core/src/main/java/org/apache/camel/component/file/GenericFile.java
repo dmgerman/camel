@@ -735,7 +735,9 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-literal|"CamelFileLength"
+name|Exchange
+operator|.
+name|FILE_LENGTH
 argument_list|,
 name|getFileLength
 argument_list|()
@@ -758,12 +760,8 @@ name|Exchange
 operator|.
 name|FILE_LAST_MODIFIED
 argument_list|,
-operator|new
-name|Date
-argument_list|(
 name|getLastModified
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

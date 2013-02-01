@@ -494,8 +494,8 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// modified is a Date object
-name|Date
+comment|// modified is a long object
+name|Long
 name|modified
 init|=
 name|SimpleLanguage
@@ -509,23 +509,22 @@ name|evaluate
 argument_list|(
 name|exchange
 argument_list|,
-name|Date
+name|Long
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-operator|new
-name|Date
-argument_list|(
 name|file
 operator|.
 name|lastModified
 argument_list|()
-argument_list|)
 argument_list|,
 name|modified
+operator|.
+name|longValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -659,8 +658,8 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// modified is a Date object
-name|Date
+comment|// modified is a long object
+name|long
 name|modified
 init|=
 name|SimpleLanguage
@@ -674,21 +673,17 @@ name|evaluate
 argument_list|(
 name|exchange
 argument_list|,
-name|Date
+name|long
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-operator|new
-name|Date
-argument_list|(
 name|file
 operator|.
 name|lastModified
 argument_list|()
-argument_list|)
 argument_list|,
 name|modified
 argument_list|)
