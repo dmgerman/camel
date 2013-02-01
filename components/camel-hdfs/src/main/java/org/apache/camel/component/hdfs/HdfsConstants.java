@@ -159,6 +159,15 @@ name|DEFAULT_CHECK_IDLE_INTERVAL
 init|=
 literal|500
 decl_stmt|;
+DECL|field|HDFS_CLOSE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HDFS_CLOSE
+init|=
+literal|"CamelHdfsClose"
+decl_stmt|;
 DECL|method|HdfsConstants ()
 specifier|private
 name|HdfsConstants
