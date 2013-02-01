@@ -954,6 +954,23 @@ name|config
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|path
+init|=
+name|ostream
+operator|.
+name|getActualPath
+argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Writing body to hdfs-file {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 name|ostream
 operator|.
 name|append
@@ -976,6 +993,44 @@ operator|.
 name|set
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+comment|// if no idle checker then we need to explicit close the stream after usage
+if|if
+condition|(
+name|scheduler
+operator|==
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|ostream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|ostream
+operator|=
+literal|null
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Wrote body to hdfs-file {}"
+argument_list|,
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -1108,6 +1163,17 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|HdfsProducer
+operator|.
+name|this
+operator|.
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Closing stream as idle"
+argument_list|)
+expr_stmt|;
 name|ostream
 operator|.
 name|close

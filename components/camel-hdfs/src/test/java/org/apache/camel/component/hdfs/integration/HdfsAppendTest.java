@@ -339,9 +339,6 @@ literal|"PIPPO"
 argument_list|)
 expr_stmt|;
 block|}
-name|stopCamelContext
-argument_list|()
-expr_stmt|;
 name|Configuration
 name|conf
 init|=
@@ -467,7 +464,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|250
 argument_list|)
 expr_stmt|;
 name|Configuration

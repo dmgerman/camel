@@ -274,6 +274,11 @@ if|if
 condition|(
 name|configuration
 operator|.
+name|isWantAppend
+argument_list|()
+operator|||
+name|configuration
+operator|.
 name|isAppend
 argument_list|()
 condition|)
@@ -308,6 +313,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|configuration
+operator|.
+name|setAppend
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|info
 operator|=
 operator|new

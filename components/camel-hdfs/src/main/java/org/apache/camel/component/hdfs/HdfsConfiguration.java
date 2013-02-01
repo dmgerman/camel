@@ -138,6 +138,11 @@ specifier|private
 name|boolean
 name|append
 decl_stmt|;
+DECL|field|wantAppend
+specifier|private
+name|boolean
+name|wantAppend
+decl_stmt|;
 DECL|field|bufferSize
 specifier|private
 name|int
@@ -1241,6 +1246,10 @@ argument_list|,
 name|append
 argument_list|)
 expr_stmt|;
+name|wantAppend
+operator|=
+name|append
+expr_stmt|;
 name|bufferSize
 operator|=
 name|getInteger
@@ -1552,6 +1561,16 @@ parameter_list|()
 block|{
 return|return
 name|append
+return|;
+block|}
+DECL|method|isWantAppend ()
+specifier|public
+name|boolean
+name|isWantAppend
+parameter_list|()
+block|{
+return|return
+name|wantAppend
 return|;
 block|}
 DECL|method|setAppend (boolean append)
