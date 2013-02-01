@@ -56,9 +56,9 @@ name|camel
 operator|.
 name|test
 operator|.
-name|spring
+name|junit4
 operator|.
-name|CamelSpringTestSupport
+name|TestSupport
 import|;
 end_import
 
@@ -72,9 +72,9 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 operator|.
-name|TestSupport
+name|CamelSpringTestSupport
 import|;
 end_import
 

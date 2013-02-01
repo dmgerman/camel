@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -119,16 +129,6 @@ import|import
 name|twitter4j
 operator|.
 name|Twitter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -475,12 +475,11 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|results
 operator|.
 name|hasNext
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 break|break;
