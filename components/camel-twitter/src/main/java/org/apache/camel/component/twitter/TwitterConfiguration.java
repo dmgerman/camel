@@ -193,6 +193,12 @@ specifier|private
 name|String
 name|lang
 decl_stmt|;
+comment|/**      * Used to set the maximum tweets per page (max = 100)      */
+DECL|field|count
+specifier|private
+name|Integer
+name|count
+decl_stmt|;
 DECL|field|parsedDate
 specifier|private
 name|Date
@@ -219,6 +225,18 @@ DECL|field|twitterStream
 specifier|private
 name|TwitterStream
 name|twitterStream
+decl_stmt|;
+comment|/**      * Number of page to iterate before stop (default is 1)      */
+DECL|field|numberOfPages
+specifier|private
+name|Integer
+name|numberOfPages
+init|=
+operator|new
+name|Integer
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 comment|/**      * Ensures required fields are available.      */
 DECL|method|checkComplete ()
@@ -818,6 +836,58 @@ operator|.
 name|lang
 operator|=
 name|lang
+expr_stmt|;
+block|}
+DECL|method|getCount ()
+specifier|public
+name|Integer
+name|getCount
+parameter_list|()
+block|{
+return|return
+name|count
+return|;
+block|}
+DECL|method|setCount (int count)
+specifier|public
+name|void
+name|setCount
+parameter_list|(
+name|int
+name|count
+parameter_list|)
+block|{
+name|this
+operator|.
+name|count
+operator|=
+name|count
+expr_stmt|;
+block|}
+DECL|method|getNumberOfPages ()
+specifier|public
+name|Integer
+name|getNumberOfPages
+parameter_list|()
+block|{
+return|return
+name|numberOfPages
+return|;
+block|}
+DECL|method|setNumberOfPages (Integer numberOfPages)
+specifier|public
+name|void
+name|setNumberOfPages
+parameter_list|(
+name|Integer
+name|numberOfPages
+parameter_list|)
+block|{
+name|this
+operator|.
+name|numberOfPages
+operator|=
+name|numberOfPages
 expr_stmt|;
 block|}
 block|}

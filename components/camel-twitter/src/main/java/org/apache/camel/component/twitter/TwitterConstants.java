@@ -47,6 +47,24 @@ name|TWITTER_SEARCH_LANGUAGE
 init|=
 literal|"CamelTwitterSearchLanguage"
 decl_stmt|;
+DECL|field|TWITTER_COUNT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TWITTER_COUNT
+init|=
+literal|"CamelTwitterCount"
+decl_stmt|;
+DECL|field|TWITTER_NUMBER_OF_PAGES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TWITTER_NUMBER_OF_PAGES
+init|=
+literal|"CamelTwitterNumberOfPages"
+decl_stmt|;
 DECL|method|TwitterConstants ()
 specifier|private
 name|TwitterConstants
