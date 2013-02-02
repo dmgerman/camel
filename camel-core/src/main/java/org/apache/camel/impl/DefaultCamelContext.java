@@ -2145,6 +2145,7 @@ specifier|private
 name|Date
 name|startDate
 decl_stmt|;
+comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
 DECL|method|DefaultCamelContext ()
 specifier|public
 name|DefaultCamelContext
@@ -6591,7 +6592,7 @@ name|Registry
 name|registry
 parameter_list|)
 block|{
-comment|// wrap the registry so we always do propery placeholder lookups
+comment|// wrap the registry so we always do property placeholder lookups
 if|if
 condition|(
 operator|!
@@ -11086,6 +11087,9 @@ name|void
 name|forceLazyInitialization
 parameter_list|()
 block|{
+name|getRegistry
+argument_list|()
+expr_stmt|;
 name|getInjector
 argument_list|()
 expr_stmt|;
@@ -11256,11 +11260,53 @@ name|Registry
 name|createRegistry
 parameter_list|()
 block|{
-return|return
+name|JndiRegistry
+name|jndi
+init|=
 operator|new
 name|JndiRegistry
 argument_list|()
+decl_stmt|;
+try|try
+block|{
+comment|// getContext() will force setting up JNDI
+name|jndi
+operator|.
+name|getContext
+argument_list|()
+expr_stmt|;
+return|return
+name|jndi
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot create javax.naming.InitialContext due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". Will fallback and use SimpleRegistry instead. This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|SimpleRegistry
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**      * A pluggable strategy to allow an endpoint to be created without requiring      * a component to be its factory, such as for looking up the URI inside some      * {@link Registry}      *      * @param uri the uri for the endpoint to be created      * @return the newly created endpoint or null if it could not be resolved      */
 DECL|method|createEndpoint (String uri)
