@@ -867,12 +867,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
+name|Expression
+name|exp
+init|=
 name|ExpressionBuilder
 operator|.
 name|typeExpression
 argument_list|(
 name|remainder
+argument_list|)
+decl_stmt|;
+comment|// we want to cache this expression so we wont re-evaluate it as the type/constant wont change
+return|return
+name|ExpressionBuilder
+operator|.
+name|cacheExpression
+argument_list|(
+name|exp
 argument_list|)
 return|;
 block|}
