@@ -187,7 +187,7 @@ name|getUrlFetchService
 argument_list|()
 return|;
 block|}
-comment|/**      * Invokes the URL fetch service.      *       * @param exchange      *            contains the request data in the in-message. The result is      *            written to the out-message.      * @throws GHttpException      *             if the response code is>= 400 and      *             {@link GHttpEndpoint#isThrowExceptionOnFailure()} returns      *<code>true</code>.      * @see GHttpBinding      */
+comment|/**      * Invokes the URL fetch service.      *       * @param exchange contains the request data in the in-message. The result is written to the out-message.      * @throws GHttpException if the response code is>= 400 and {@link GHttpEndpoint#isThrowExceptionOnFailure()}      * returns<code>true</code>.      *      * @see GHttpBinding      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

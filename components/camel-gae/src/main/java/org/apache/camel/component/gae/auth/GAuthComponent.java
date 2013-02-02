@@ -401,6 +401,23 @@ argument_list|(
 name|service
 argument_list|)
 expr_stmt|;
+comment|// ensure to inject CamelContext to key loader
+if|if
+condition|(
+name|keyLoader
+operator|!=
+literal|null
+condition|)
+block|{
+name|keyLoader
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|endpoint
 operator|.
 name|setKeyLoader

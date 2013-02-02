@@ -30,7 +30,7 @@ specifier|public
 interface|interface
 name|GLoginService
 block|{
-comment|/**      * Authenticates a user and stores the authentication token to      * {@link GLoginData#setAuthenticationToken(String)} (only if needed by      * {@link #authorize(GLoginData)}).      *       * @param data      *            authentication input data and response data (authentication      *            token) container.      * @throws Exception      */
+comment|/**      * Authenticates a user and stores the authentication token to      * {@link GLoginData#setAuthenticationToken(String)} (only if needed by      * {@link #authorize(GLoginData)}).      *       * @param data authentication input data and response data (authentication token) container.      */
 DECL|method|authenticate (GLoginData data)
 name|void
 name|authenticate
@@ -41,7 +41,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Authorizes access to an application and stores an authorization cookie to      * {@link GLoginData#setAuthorizationCookie(String)}.      *       * @param data      *            authentication input data and response data (authorization      *            cookie) container.      * @throws Exception      */
+comment|/**      * Authorizes access to an application and stores an authorization cookie to      * {@link GLoginData#setAuthorizationCookie(String)}.      *       * @param data authentication input data and response data (authorization cookie) container.      */
 DECL|method|authorize (GLoginData data)
 name|void
 name|authorize

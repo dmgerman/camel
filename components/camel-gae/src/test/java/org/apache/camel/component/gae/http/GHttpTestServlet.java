@@ -92,11 +92,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|camel
 operator|.
-name|io
+name|util
 operator|.
-name|IOUtils
+name|IOHelper
 import|;
 end_import
 
@@ -322,22 +322,19 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Copy body from request to response
-name|resp
+name|IOHelper
 operator|.
-name|getWriter
-argument_list|()
-operator|.
-name|println
-argument_list|(
-name|IOUtils
-operator|.
-name|toString
+name|copyAndCloseInput
 argument_list|(
 name|req
 operator|.
 name|getInputStream
 argument_list|()
-argument_list|)
+argument_list|,
+name|resp
+operator|.
+name|getOutputStream
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|resp

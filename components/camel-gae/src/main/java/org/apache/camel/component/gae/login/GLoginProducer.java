@@ -139,7 +139,7 @@ name|getService
 argument_list|()
 return|;
 block|}
-comment|/**      * First obtains an authentication token and then exchanges the token against      * an authorization cookie.      *       * @param exchange      *       * @see GLoginBinding      * @see GLoginServiceImpl      */
+comment|/**      * First obtains an authentication token and then exchanges the token against      * an authorization cookie.      *      * @see GLoginBinding      * @see GLoginServiceImpl      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

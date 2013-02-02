@@ -78,13 +78,39 @@ begin_import
 import|import
 name|org
 operator|.
-name|springframework
+name|apache
 operator|.
-name|core
+name|camel
 operator|.
-name|io
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|Resource
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
 import|;
 end_import
 
@@ -100,9 +126,14 @@ name|GAuthJksLoader
 implements|implements
 name|GAuthKeyLoader
 block|{
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|keyStoreLocation
 specifier|private
-name|Resource
+name|String
 name|keyStoreLocation
 decl_stmt|;
 DECL|field|storePass
@@ -137,11 +168,11 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|GAuthJksLoader (Resource keyStoreLocation, String storePass, String keyPass, String keyAlias)
+DECL|method|GAuthJksLoader (String keyStoreLocation, String storePass, String keyPass, String keyAlias)
 specifier|public
 name|GAuthJksLoader
 parameter_list|(
-name|Resource
+name|String
 name|keyStoreLocation
 parameter_list|,
 name|String
@@ -179,13 +210,39 @@ operator|=
 name|keyAlias
 expr_stmt|;
 block|}
-comment|/**      * Set the location of the Java keystore.      *       * @param keyStoreLocation      */
-DECL|method|setKeyStoreLocation (Resource keyStoreLocation)
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
+comment|/**      * Set the location of the Java keystore.      */
+DECL|method|setKeyStoreLocation (String keyStoreLocation)
 specifier|public
 name|void
 name|setKeyStoreLocation
 parameter_list|(
-name|Resource
+name|String
 name|keyStoreLocation
 parameter_list|)
 block|{
@@ -196,7 +253,7 @@ operator|=
 name|keyStoreLocation
 expr_stmt|;
 block|}
-comment|/**      * Sets the password used to open the key store.      *       * @param storePass      */
+comment|/**      * Sets the password used to open the key store.      */
 DECL|method|setStorePass (String storePass)
 specifier|public
 name|void
@@ -213,7 +270,7 @@ operator|=
 name|storePass
 expr_stmt|;
 block|}
-comment|/**      * Sets the password used to get access to a specific key.      *       * @param keyPass      */
+comment|/**      * Sets the password used to get access to a specific key.      */
 DECL|method|setKeyPass (String keyPass)
 specifier|public
 name|void
@@ -230,7 +287,7 @@ operator|=
 name|keyPass
 expr_stmt|;
 block|}
-comment|/**      * Sets the alias of the key to be loaded.      *       * @param keyAlias      */
+comment|/**      * Sets the alias of the key to be loaded.      */
 DECL|method|setKeyAlias (String keyAlias)
 specifier|public
 name|void
@@ -247,7 +304,7 @@ operator|=
 name|keyAlias
 expr_stmt|;
 block|}
-comment|/**      * Loads a private key from a Java keystore depending on this loader's       * properties.      */
+comment|/**      * Loads a private key from a Java keystore depending on this loader's properties.      */
 DECL|method|loadPrivateKey ()
 specifier|public
 name|PrivateKey
@@ -259,10 +316,18 @@ block|{
 name|InputStream
 name|input
 init|=
-name|keyStoreLocation
+name|ResourceHelper
 operator|.
-name|getInputStream
+name|resolveMandatoryResourceAsInputStream
+argument_list|(
+name|getCamelContext
 argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|,
+name|keyStoreLocation
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -275,10 +340,12 @@ return|;
 block|}
 finally|finally
 block|{
-name|input
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|input
+argument_list|)
 expr_stmt|;
 block|}
 block|}

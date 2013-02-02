@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the binding of request and response types to an {@link Exchange}.  * The request and response types are defined via the type parameters  *<code>S</code> and<code>T</code>, respectively. The OutboundBinding is used  * by {@link Producer} implementations to translate between {@link Exchange}  * objects and protocol-specific or services-specific messages.  *   * @param S  *            request type.  * @param T  *            response type.  * @param E  *            endpoint type.  */
+comment|/**  * Represents the binding of request and response types to an {@link Exchange}.  * The request and response types are defined via the type parameters  *<code>S</code> and<code>T</code>, respectively. The OutboundBinding is used  * by {@link Producer} implementations to translate between {@link Exchange}  * objects and protocol-specific or services-specific messages.  *   * @param S request type.  * @param T response type.  * @param E endpoint type.  */
 end_comment
 
 begin_interface

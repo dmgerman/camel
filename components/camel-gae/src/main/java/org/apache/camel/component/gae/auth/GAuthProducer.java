@@ -186,7 +186,7 @@ name|getUpgradeBinding
 argument_list|()
 return|;
 block|}
-comment|/**      * Depending on the {@link GAuthEndpoint.Name}, this method either fetches      * an unauthorized request token and creates a redirect response, or      * upgrades an authorized request token to an access token.      *       * @param exchange      *       * @see GAuthAuthorizeBinding      * @see GAuthUpgradeBinding      * @see GAuthServiceImpl      */
+comment|/**      * Depending on the {@link GAuthEndpoint.Name}, this method either fetches      * an unauthorized request token and creates a redirect response, or      * upgrades an authorized request token to an access token.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

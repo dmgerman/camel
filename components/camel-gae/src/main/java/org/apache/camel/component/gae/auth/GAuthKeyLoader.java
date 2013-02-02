@@ -30,6 +30,18 @@ name|PrivateKey
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface used by {@link GAuthComponent} for loading private keys. The private  * key is needed for RSA-SHA1 signatures.  */
 end_comment
@@ -39,8 +51,10 @@ DECL|interface|GAuthKeyLoader
 specifier|public
 interface|interface
 name|GAuthKeyLoader
+extends|extends
+name|CamelContextAware
 block|{
-comment|/**      * Loads a private key.      *       * @return the loaded private key.      * @throws Exception      *             if key loading failed.      */
+comment|/**      * Loads a private key.      *       * @return the loaded private key.      * @throws Exception if key loading failed.      */
 DECL|method|loadPrivateKey ()
 name|PrivateKey
 name|loadPrivateKey

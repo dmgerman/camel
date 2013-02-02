@@ -48,7 +48,7 @@ specifier|public
 interface|interface
 name|GAuthService
 block|{
-comment|/**      * Gets an unauthorized request token from Google.      *       * @param oauthParameters      *            value object for providing input data and storing result data      *            (unauthorized request token).      * @throws Exception      */
+comment|/**      * Gets an unauthorized request token from Google.      *       * @param oauthParameters value object for providing input data and storing result data      *                        (unauthorized request token).      */
 DECL|method|getUnauthorizedRequestToken (OAuthParameters oauthParameters)
 name|void
 name|getUnauthorizedRequestToken
@@ -59,7 +59,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Gets an access token from Google.      *       * @param oauthParameters      *            value object for providing input data (authorized request      *            token) and storing result data (access token).      * @throws Exception      */
+comment|/**      * Gets an access token from Google.      *       * @param oauthParameters value object for providing input data (authorized request token)      *                        and storing result data (access token).      */
 DECL|method|getAccessToken (OAuthParameters oauthParameters)
 name|void
 name|getAccessToken

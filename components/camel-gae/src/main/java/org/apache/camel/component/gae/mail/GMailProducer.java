@@ -173,7 +173,7 @@ name|getMailService
 argument_list|()
 return|;
 block|}
-comment|/**      * Invokes the mail service.      *       * @param exchange      *            contains the mail data in the in-message.      * @see GMailBinding      */
+comment|/**      * Invokes the mail service.      *       * @param exchange contains the mail data in the in-message.      * @see GMailBinding      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

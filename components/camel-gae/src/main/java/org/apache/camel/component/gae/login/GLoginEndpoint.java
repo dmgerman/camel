@@ -164,7 +164,7 @@ specifier|private
 name|GLoginService
 name|service
 decl_stmt|;
-comment|/**      * Creates a new GLoginEndpoint.      *       * @param endpointUri      * @param component      *            component that created this endpoint.      * @param hostName      *            internet hostname of a GAE application, for example      *<code>example.appspot.com</code>, or<code>localhost</code> if      *            the application is running on a local development server.      * @param devPort      *            port for connecting to the local development server.      */
+comment|/**      * Creates a new GLoginEndpoint.      *       * @param endpointUri the endpoint uri      * @param component component that created this endpoint.      * @param hostName internet hostname of a GAE application, for example      *<code>example.appspot.com</code>, or<code>localhost</code> if      *            the application is running on a local development server.      * @param devPort port for connecting to the local development server.      */
 DECL|method|GLoginEndpoint (String endpointUri, Component component, String hostName, int devPort)
 specifier|public
 name|GLoginEndpoint
@@ -295,7 +295,7 @@ return|return
 name|clientName
 return|;
 block|}
-comment|/**      * Sets the client name used for authentication. The default name is      *<code>apache-camel-2.x</code>.      *       * @param clientName      */
+comment|/**      * Sets the client name used for authentication. The default name is      *<code>apache-camel-2.x</code>.      */
 DECL|method|setClientName (String clientName)
 specifier|public
 name|void
@@ -322,7 +322,7 @@ return|return
 name|userName
 return|;
 block|}
-comment|/**      * Sets the login username (a Google mail address).      *       * @param userName      */
+comment|/**      * Sets the login username (a Google mail address).      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -349,7 +349,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * Sets the login password.      *       * @param password      */
+comment|/**      * Sets the login password.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -387,7 +387,7 @@ return|return
 name|devAdmin
 return|;
 block|}
-comment|/**      * Set to<code>true</code> for logging in as admin to a development server.      * Only used if {@link #devMode} is<code>true</code>. Default is      *<code>false</code>.      *       * @param devAdmin      */
+comment|/**      * Set to<code>true</code> for logging in as admin to a development server.      * Only used if {@link #devMode} is<code>true</code>. Default is      *<code>false</code>.      */
 DECL|method|setDevAdmin (boolean devAdmin)
 specifier|public
 name|void
@@ -414,7 +414,7 @@ return|return
 name|devMode
 return|;
 block|}
-comment|/**      * Set to<code>true</code> for connecting to a development server.      *       * @param devMode      */
+comment|/**      * Set to<code>true</code> for connecting to a development server.      */
 DECL|method|setDevMode (boolean devMode)
 specifier|public
 name|void
@@ -441,7 +441,7 @@ return|return
 name|service
 return|;
 block|}
-comment|/**      * Sets the service that makes the remote calls to Google services or the      * local development server. Testing code should inject a mock service here      * (using serviceRef in endpoint URI).      *       * @param service      */
+comment|/**      * Sets the service that makes the remote calls to Google services or the      * local development server. Testing code should inject a mock service here      * (using serviceRef in endpoint URI).      */
 DECL|method|setService (GLoginService service)
 specifier|public
 name|void

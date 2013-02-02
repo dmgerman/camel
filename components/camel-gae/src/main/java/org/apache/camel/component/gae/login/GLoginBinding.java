@@ -119,7 +119,7 @@ name|GLOGIN_COOKIE
 init|=
 literal|"CamelGloginCookie"
 decl_stmt|;
-comment|/**      * Creates a {@link GLoginData} object from endpoint and      *<code>exchange.getIn()</code> header data. The created object is used to      * obtain an authentication token and an authorization cookie.      *       * @param endpoint      * @param exchange      * @param request      *            ignored.      * @return      */
+comment|/**      * Creates a {@link GLoginData} object from endpoint and      *<code>exchange.getIn()</code> header data. The created object is used to      * obtain an authentication token and an authorization cookie.      */
 DECL|method|writeRequest (GLoginEndpoint endpoint, Exchange exchange, GLoginData request)
 specifier|public
 name|GLoginData
@@ -302,7 +302,7 @@ return|return
 name|request
 return|;
 block|}
-comment|/**      * Creates an<code>exchange.getOut()</code> message with a      * {@link #GLOGIN_TOKEN} header containing an authentication token and a      * {@link #GLOGIN_COOKIE} header containing an authorization cookie. If the      * endpoint is configured to run in development mode, no authentication      * token will be set, only an authorization cookie.      *       * @param endpoint      * @param exchange      * @param response      * @return      */
+comment|/**      * Creates an<code>exchange.getOut()</code> message with a      * {@link #GLOGIN_TOKEN} header containing an authentication token and a      * {@link #GLOGIN_COOKIE} header containing an authorization cookie. If the      * endpoint is configured to run in development mode, no authentication      * token will be set, only an authorization cookie.      */
 DECL|method|readResponse (GLoginEndpoint endpoint, Exchange exchange, GLoginData response)
 specifier|public
 name|Exchange

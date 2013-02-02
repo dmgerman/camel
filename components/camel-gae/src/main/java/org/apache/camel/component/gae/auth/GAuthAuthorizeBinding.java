@@ -231,7 +231,7 @@ return|return
 name|request
 return|;
 block|}
-comment|/**      * Creates an<code>exchange.getOut()</code> message that represents an HTTP      * redirect to Google's OAuth confirmation page. Additionally, if the      * {@link GAuthComponent} is configured to use the HMAC_SHA1 signature      * method, a cookie is created containing the request token secret. It is      * needed later to upgrade an authorized request token to an access token.      *       * @param endpoint      * @param exchange      * @param response      * @return      */
+comment|/**      * Creates an<code>exchange.getOut()</code> message that represents an HTTP      * redirect to Google's OAuth confirmation page. Additionally, if the      * {@link GAuthComponent} is configured to use the HMAC_SHA1 signature      * method, a cookie is created containing the request token secret. It is      * needed later to upgrade an authorized request token to an access token.      */
 DECL|method|readResponse (GAuthEndpoint endpoint, Exchange exchange, GoogleOAuthParameters response)
 specifier|public
 name|Exchange

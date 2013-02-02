@@ -34,6 +34,20 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|SimpleRegistry
+import|;
+end_import
+
 begin_class
 DECL|class|GaeDefaultCamelContext
 specifier|public
@@ -42,24 +56,24 @@ name|GaeDefaultCamelContext
 extends|extends
 name|DefaultCamelContext
 block|{
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
+DECL|method|GaeDefaultCamelContext ()
+specifier|public
+name|GaeDefaultCamelContext
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-comment|// JMX not allowed on GAE
+name|super
+argument_list|()
+expr_stmt|;
+comment|// disable JMX and use the simple registry as JNDI is not allowed
 name|disableJMX
 argument_list|()
 expr_stmt|;
-name|super
-operator|.
-name|doStart
+name|setRegistry
+argument_list|(
+operator|new
+name|SimpleRegistry
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

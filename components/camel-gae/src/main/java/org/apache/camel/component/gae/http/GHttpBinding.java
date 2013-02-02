@@ -305,7 +305,7 @@ block|{
 comment|// ----------------------------------------------------------------
 comment|//  Outbound binding
 comment|// ----------------------------------------------------------------
-comment|/**      * Reads data from<code>response</code> and writes it to the out-message of      * the<code>exchange</code>.      *       * @param endpoint      * @param exchange      * @param response      * @return the original<code>exchange</code> instance populated with      *         response data.      * @throws GHttpException      *             if the response code is>= 400 and      *             {@link GHttpEndpoint#isThrowExceptionOnFailure()} returns      *<code>true</code>.      */
+comment|/**      * Reads data from<code>response</code> and writes it to the out-message of      * the<code>exchange</code>.      *       * @return the original<code>exchange</code> instance populated with response data.      * @throws GHttpException if the response code is>= 400 and      *             {@link GHttpEndpoint#isThrowExceptionOnFailure()} returns      *<code>true</code>.      */
 DECL|method|readResponse (GHttpEndpoint endpoint, Exchange exchange, HTTPResponse response)
 specifier|public
 name|Exchange
@@ -393,7 +393,7 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * Reads data from<code>exchange</code> and writes it to a newly created      * {@link HTTPRequest} instance. The<code>request</code> parameter is      * ignored.      *       * @param endpoint      * @param exchange      * @param request      *            ignored.      * @return a newly created {@link HTTPRequest} instance containing data from      *<code>exchange</code>.      */
+comment|/**      * Reads data from<code>exchange</code> and writes it to a newly created      * {@link HTTPRequest} instance. The<code>request</code> parameter is      * ignored.      *      * @return a newly created {@link HTTPRequest} instance containing data from      *<code>exchange</code>.      */
 DECL|method|writeRequest (GHttpEndpoint endpoint, Exchange exchange, HTTPRequest request)
 specifier|public
 name|HTTPRequest

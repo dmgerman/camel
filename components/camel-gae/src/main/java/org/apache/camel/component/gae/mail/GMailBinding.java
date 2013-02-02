@@ -137,7 +137,7 @@ name|GMAIL_BCC
 init|=
 literal|"CamelGmailBcc"
 decl_stmt|;
-comment|/**      * Reads data from<code>exchange</code> and writes it to a newly created      * {@link Message} instance. The<code>request</code> parameter is      * ignored.      *       * @param endpoint      * @param exchange      * @param request      *            ignored.      * @return a newly created {@link Message} instance containing data from      *<code>exchange</code>.      */
+comment|/**      * Reads data from<code>exchange</code> and writes it to a newly created      * {@link Message} instance. The<code>request</code> parameter is      * ignored.      *      * @return a newly created {@link Message} instance containing data from<code>exchange</code>.      */
 DECL|method|writeRequest (GMailEndpoint endpoint, Exchange exchange, Message request)
 specifier|public
 name|Message

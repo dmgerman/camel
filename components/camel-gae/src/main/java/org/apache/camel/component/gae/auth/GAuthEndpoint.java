@@ -308,7 +308,6 @@ specifier|private
 name|PrivateKey
 name|cachedKey
 decl_stmt|;
-comment|/**      * Creates a new GAuthEndpoint.      *       * @param endpointUri      * @param component      *            component that created this endpoint.      * @param name      *            either<code>authorize</code> or<code>upgrade</code>.      * @throws IllegalArgumentException      *             if the endpoint name is invalid.      */
 DECL|method|GAuthEndpoint (String endpointUri, Component component, String name)
 specifier|public
 name|GAuthEndpoint
@@ -372,7 +371,7 @@ return|return
 name|authorizeBinding
 return|;
 block|}
-comment|/**      * Sets the binding for<code>gauth:authorize</code> endpoints.        *       * @param authorizeBinding      * @see GAuthAuthorizeBinding      */
+comment|/**      * Sets the binding for<code>gauth:authorize</code> endpoints.        */
 DECL|method|setAuthorizeBinding (OutboundBinding<GAuthEndpoint, GoogleOAuthParameters, GoogleOAuthParameters> authorizeBinding)
 specifier|public
 name|void
@@ -413,7 +412,7 @@ return|return
 name|upgradeBinding
 return|;
 block|}
-comment|/**      * Sets the binding for<code>gauth:upgrade</code> endpoints.       *       * @param upgradeBinding      * @see GAuthUpgradeBinding      */
+comment|/**      * Sets the binding for<code>gauth:upgrade</code> endpoints.       */
 DECL|method|setUpgradeBinding (OutboundBinding<GAuthEndpoint, GoogleOAuthParameters, GoogleOAuthParameters> upgradeBinding)
 specifier|public
 name|void
@@ -606,7 +605,7 @@ return|return
 name|consumerSecret
 return|;
 block|}
-comment|/**      * Sets the consumer secret. This secret is generated when a web application      * is registered at Google. Only set the consumer secret if the HMAC-SHA1       * signature method shall be used.      *       * @param consumerSecret      *            consumer secret to set.      */
+comment|/**      * Sets the consumer secret. This secret is generated when a web application      * is registered at Google. Only set the consumer secret if the HMAC-SHA1       * signature method shall be used.      */
 DECL|method|setConsumerSecret (String consumerSecret)
 specifier|public
 name|void
@@ -649,7 +648,7 @@ return|return
 name|keyLoader
 return|;
 block|}
-comment|/**      * Sets a key loader for loading a private key. A private key is required      * when the RSA-SHA1 signature method shall be used.          *       * @param keyLoader      *            key loader to set.      */
+comment|/**      * Sets a key loader for loading a private key. A private key is required      * when the RSA-SHA1 signature method shall be used.          */
 DECL|method|setKeyLoader (GAuthKeyLoader keyLoader)
 specifier|public
 name|void
@@ -676,7 +675,7 @@ return|return
 name|service
 return|;
 block|}
-comment|/**      * Sets the service that makes the remote calls to Google services. Testing      * code should inject a mock service here (using serviceRef in endpoint      * URI).      *       * @param service      */
+comment|/**      * Sets the service that makes the remote calls to Google services. Testing      * code should inject a mock service here (using serviceRef in endpoint      * URI).      */
 DECL|method|setService (GAuthService service)
 specifier|public
 name|void
@@ -741,7 +740,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Creates an {@link OAuthHelper} configured with either an      * {@link OAuthHmacSha1Signer} or an {@link OAuthRsaSha1Signer}, depending      * on this endpoint's properties.      *       * @return      * @throws Exception      */
+comment|/**      * Creates an {@link OAuthHelper} configured with either an      * {@link OAuthHmacSha1Signer} or an {@link OAuthRsaSha1Signer}, depending      * on this endpoint's properties.      */
 DECL|method|newOAuthHelper ()
 name|OAuthHelper
 name|newOAuthHelper
