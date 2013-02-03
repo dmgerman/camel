@@ -659,7 +659,58 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// need to ensure we release resources
+comment|// need to ensure we release resources, but only if closeFolder or disconnect = true
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isCloseFolder
+argument_list|()
+operator|||
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isDisconnect
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Close mailbox folder {} from {}"
+argument_list|,
+name|folder
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getMailStoreLogInformation
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 if|if
@@ -696,10 +747,13 @@ name|folder
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|". This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// should we disconnect, the header can override the configuration
@@ -720,6 +774,14 @@ condition|(
 name|disconnect
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -736,6 +798,7 @@ name|getMailStoreLogInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|store
@@ -764,6 +827,8 @@ argument_list|()
 operator|.
 name|getMailStoreLogInformation
 argument_list|()
+operator|+
+literal|". This exception is ignored."
 argument_list|,
 name|e
 argument_list|)

@@ -316,6 +316,13 @@ specifier|private
 name|boolean
 name|disconnect
 decl_stmt|;
+DECL|field|closeFolder
+specifier|private
+name|boolean
+name|closeFolder
+init|=
+literal|true
+decl_stmt|;
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
@@ -1941,6 +1948,32 @@ operator|.
 name|disconnect
 operator|=
 name|disconnect
+expr_stmt|;
+block|}
+DECL|method|isCloseFolder ()
+specifier|public
+name|boolean
+name|isCloseFolder
+parameter_list|()
+block|{
+return|return
+name|closeFolder
+return|;
+block|}
+DECL|method|setCloseFolder (boolean closeFolder)
+specifier|public
+name|void
+name|setCloseFolder
+parameter_list|(
+name|boolean
+name|closeFolder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|closeFolder
+operator|=
+name|closeFolder
 expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
