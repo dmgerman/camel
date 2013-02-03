@@ -112,7 +112,7 @@ return|return
 name|content
 return|;
 block|}
-comment|// as we use java.io.File itself as the body (not loading its content into a OutputStream etc.)
+comment|// as we use java.io.File itself as the body (not loading its content into an OutputStream etc.)
 comment|// we just store a java.io.File handle to the actual file denoted by the
 comment|// file.getAbsoluteFilePath. We must do this as the original file consumed can be renamed before
 comment|// being processed (preMove) and thus it points to an invalid file location.
@@ -218,9 +218,6 @@ argument_list|,
 name|exchange
 argument_list|,
 name|file
-operator|.
-name|getFile
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

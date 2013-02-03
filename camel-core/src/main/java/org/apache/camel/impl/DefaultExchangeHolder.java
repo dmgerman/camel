@@ -22,6 +22,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|Serializable
 import|;
 end_import
@@ -76,6 +86,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|WrappedFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -103,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holder object for sending an exchange over a remote wire as a serialized object.  * This is usually configured using the<tt>transferExchange=true</tt> option on the endpoint.  *<p/>  * As opposed to normal usage where only the body part of the exchange is transferred over the wire,  * this holder object serializes the following fields over the wire:  *<ul>  *<li>exchangeId</li>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version   */
+comment|/**  * Holder object for sending an exchange over a remote wire as a serialized object.  * This is usually configured using the<tt>transferExchange=true</tt> option on the endpoint.  *<p/>  * Note: Message body of type {@link File} or {@link WrappedFile} is<b>not</b> supported and  * a {@link RuntimeExchangeException} is thrown.  *<p/>  * As opposed to normal usage where only the body part of the exchange is transferred over the wire,  * this holder object serializes the following fields over the wire:  *<ul>  *<li>exchangeId</li>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version   */
 end_comment
 
 begin_class
@@ -233,6 +267,49 @@ name|boolean
 name|includeProperties
 parameter_list|)
 block|{
+comment|// we do not support files
+name|Object
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|WrappedFile
+operator|||
+name|body
+operator|instanceof
+name|File
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Message body of type "
+operator|+
+name|body
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" is not supported by this marshaller."
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 name|DefaultExchangeHolder
 name|payload
 init|=

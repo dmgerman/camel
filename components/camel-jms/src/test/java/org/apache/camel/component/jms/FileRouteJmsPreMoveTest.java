@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|jms
@@ -125,10 +115,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|FileRouteJmsKeepLastModifiedTest
+DECL|class|FileRouteJmsPreMoveTest
 specifier|public
 class|class
-name|FileRouteJmsKeepLastModifiedTest
+name|FileRouteJmsPreMoveTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -167,10 +157,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testKeepLastModified ()
+DECL|method|testPreMove ()
 specifier|public
 name|void
-name|testKeepLastModified
+name|testPreMove
 parameter_list|()
 throws|throws
 name|Exception
@@ -183,6 +173,18 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/outbox/hello.txt"
+argument_list|,
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -202,39 +204,6 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-name|File
-name|inbox
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"trarget/inbox/hello.txt"
-argument_list|)
-decl_stmt|;
-name|File
-name|outbox
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"trarget/outbox/hello.txt"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Should keep last modified"
-argument_list|,
-name|inbox
-operator|.
-name|lastModified
-argument_list|()
-argument_list|,
-name|outbox
-operator|.
-name|lastModified
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createCamelContext ()
@@ -299,7 +268,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/inbox?noop=true"
+literal|"file://target/inbox?preMove=transfer"
 argument_list|)
 operator|.
 name|to
@@ -311,16 +280,15 @@ name|from
 argument_list|(
 literal|"activemq:queue:hello"
 argument_list|)
-comment|// just a little delay so the write of the file happens later
 operator|.
-name|delayer
+name|to
 argument_list|(
-literal|100
+literal|"log:outbox"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"file://target/outbox?keepLastModified=true"
+literal|"file://target/outbox"
 argument_list|)
 operator|.
 name|to
