@@ -385,7 +385,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -872,6 +872,11 @@ DECL|field|includeSentJMSMessageID
 specifier|private
 name|boolean
 name|includeSentJMSMessageID
+decl_stmt|;
+DECL|field|defaultTaskExecutorType
+specifier|private
+name|DefaultTaskExecutorType
+name|defaultTaskExecutorType
 decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
@@ -5077,6 +5082,33 @@ operator|.
 name|includeSentJMSMessageID
 operator|=
 name|includeSentJMSMessageID
+expr_stmt|;
+block|}
+DECL|method|getDefaultTaskExecutorType ()
+specifier|public
+name|DefaultTaskExecutorType
+name|getDefaultTaskExecutorType
+parameter_list|()
+block|{
+return|return
+name|defaultTaskExecutorType
+return|;
+block|}
+comment|/**      * Indicates what type of {@link TaskExecutor} to use by default for JMS consumers.      * Refer to the documentation of {@link DefaultTaskExecutorType} for available options.      */
+DECL|method|setDefaultTaskExecutorType (DefaultTaskExecutorType defaultTaskExecutorType)
+specifier|public
+name|void
+name|setDefaultTaskExecutorType
+parameter_list|(
+name|DefaultTaskExecutorType
+name|defaultTaskExecutorType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultTaskExecutorType
+operator|=
+name|defaultTaskExecutorType
 expr_stmt|;
 block|}
 block|}

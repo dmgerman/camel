@@ -76,6 +76,20 @@ name|DefaultMessageListenerContainer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|scheduling
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolTaskExecutor
+import|;
+end_import
+
 begin_comment
 comment|/**  * The default {@link DefaultMessageListenerContainer container} which listen for messages  * on the JMS destination.  *<p/>  * This implementation extends Springs {@link DefaultMessageListenerContainer} supporting  * automatic recovery and throttling.  *  * @version   */
 end_comment
@@ -125,7 +139,7 @@ name|isRunning
 argument_list|()
 return|;
 block|}
-comment|/**      * Create a default TaskExecutor. Called if no explicit TaskExecutor has been specified.      *<p>The default implementation builds a {@link org.springframework.core.task.SimpleAsyncTaskExecutor}      * with the specified bean name and using Camel's {@link org.apache.camel.spi.ExecutorServiceManager}      * to resolve the thread name.      * @see org.springframework.core.task.SimpleAsyncTaskExecutor#SimpleAsyncTaskExecutor(String)      */
+comment|/**      * Create a default TaskExecutor. Called if no explicit TaskExecutor has been specified.      *<p />      * The type of {@link TaskExecutor} will depend on the value of      * {@link JmsConfiguration#getDefaultTaskExecutorType()}. For more details, refer to the Javadoc of      * {@link DefaultTaskExecutorType}.      *<p />      * In all cases, it uses the specified bean name and Camel's {@link org.apache.camel.spi.ExecutorServiceManager}      * to resolve the thread name.      * @see JmsConfiguration#setDefaultTaskExecutorType(DefaultTaskExecutorType)      * @see ThreadPoolTaskExecutor#setBeanName(String)      */
 annotation|@
 name|Override
 DECL|method|createDefaultTaskExecutor ()
@@ -153,7 +167,90 @@ name|beanName
 init|=
 name|getBeanName
 argument_list|()
+operator|==
+literal|null
+condition|?
+name|endpoint
+operator|.
+name|getThreadName
+argument_list|()
+else|:
+name|getBeanName
+argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getDefaultTaskExecutorType
+argument_list|()
+operator|==
+name|DefaultTaskExecutorType
+operator|.
+name|ThreadPool
+condition|)
+block|{
+name|ThreadPoolTaskExecutor
+name|answer
+init|=
+operator|new
+name|ThreadPoolTaskExecutor
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setBeanName
+argument_list|(
+name|beanName
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setThreadFactory
+argument_list|(
+operator|new
+name|CamelThreadFactory
+argument_list|(
+name|pattern
+argument_list|,
+name|beanName
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setCorePoolSize
+argument_list|(
+name|endpoint
+operator|.
+name|getConcurrentConsumers
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Direct hand-off mode. Do not queue up tasks: assign it to a thread immediately.
+comment|// We set no upper-bound on the thread pool (no maxPoolSize) as it's already implicitly constrained by
+comment|// maxConcurrentConsumers on the DMLC itself (i.e. DMLC will only grow up to a level of concurrency as
+comment|// defined by maxConcurrentConsumers).
+name|answer
+operator|.
+name|setQueueCapacity
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|initialize
+argument_list|()
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+else|else
+block|{
 name|SimpleAsyncTaskExecutor
 name|answer
 init|=
@@ -181,6 +278,7 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
 block|}
 block|}
 end_class

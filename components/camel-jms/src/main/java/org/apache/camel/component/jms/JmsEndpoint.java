@@ -531,7 +531,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  *  * @version   */
+comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  *  * @version  */
 end_comment
 
 begin_class
@@ -1180,12 +1180,8 @@ comment|// include destination name as part of thread and transaction name
 name|String
 name|consumerName
 init|=
-literal|"JmsConsumer["
-operator|+
-name|getEndpointConfiguredDestinationName
+name|getThreadName
 argument_list|()
-operator|+
-literal|"]"
 decl_stmt|;
 if|if
 condition|(
@@ -1231,8 +1227,32 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|(
+name|listenerContainer
+operator|instanceof
+name|DefaultJmsMessageListenerContainer
+operator|&&
+name|configuration
+operator|.
+name|getDefaultTaskExecutorType
+argument_list|()
+operator|==
+literal|null
+operator|)
+operator|||
+operator|!
+operator|(
+name|listenerContainer
+operator|instanceof
+name|DefaultJmsMessageListenerContainer
+operator|)
+condition|)
 block|{
+comment|// preserve backwards compatibility if an explicit Default TaskExecutor Type was not set;
+comment|// otherwise, defer the creation of the TaskExecutor
 comment|// use a cached pool as DefaultMessageListenerContainer will throttle pool sizing
 name|ExecutorService
 name|executor
@@ -1255,6 +1275,25 @@ argument_list|(
 name|listenerContainer
 argument_list|,
 name|executor
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// do nothing, as we're working with a DefaultJmsMessageListenerContainer with an explicit DefaultTaskExecutorType,
+comment|// so DefaultJmsMessageListenerContainer#createDefaultTaskExecutor will handle the creation
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Deferring creation of TaskExecutor for listener container: {} as per policy: {}"
+argument_list|,
+name|listenerContainer
+argument_list|,
+name|configuration
+operator|.
+name|getDefaultTaskExecutorType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1594,6 +1633,21 @@ block|{
 comment|// JMS allows multiple consumers on both queues and topics
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getThreadName ()
+specifier|public
+name|String
+name|getThreadName
+parameter_list|()
+block|{
+return|return
+literal|"JmsConsumer["
+operator|+
+name|getEndpointConfiguredDestinationName
+argument_list|()
+operator|+
+literal|"]"
 return|;
 block|}
 comment|// Properties
@@ -4313,6 +4367,36 @@ operator|.
 name|setIncludeSentJMSMessageID
 argument_list|(
 name|includeSentJMSMessageID
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getDefaultTaskExecutorType ()
+specifier|public
+name|DefaultTaskExecutorType
+name|getDefaultTaskExecutorType
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getDefaultTaskExecutorType
+argument_list|()
+return|;
+block|}
+DECL|method|setDefaultTaskExecutorType (DefaultTaskExecutorType type)
+specifier|public
+name|void
+name|setDefaultTaskExecutorType
+parameter_list|(
+name|DefaultTaskExecutorType
+name|type
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setDefaultTaskExecutorType
+argument_list|(
+name|type
 argument_list|)
 expr_stmt|;
 block|}
