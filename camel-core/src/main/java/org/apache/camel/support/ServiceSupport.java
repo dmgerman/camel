@@ -922,7 +922,17 @@ parameter_list|()
 block|{
 return|return
 operator|!
-operator|(
+name|isStoppingOrStopped
+argument_list|()
+return|;
+block|}
+DECL|method|isStoppingOrStopped ()
+specifier|public
+name|boolean
+name|isStoppingOrStopped
+parameter_list|()
+block|{
+return|return
 name|stopping
 operator|.
 name|get
@@ -932,7 +942,6 @@ name|stopped
 operator|.
 name|get
 argument_list|()
-operator|)
 return|;
 block|}
 comment|/**      * Implementations override this method to support customized start/stop.      *<p/>      *<b>Important:</b> See {@link #doStop()} for more details.      *       * @see #doStop()      */

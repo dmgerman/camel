@@ -1043,26 +1043,33 @@ condition|(
 name|preparingShutdown
 condition|)
 block|{
-comment|// do not allow redelivery as we are preparing for shutdown
+comment|// we are preparing for shutdown, now determine if we can still run
+name|boolean
+name|answer
+init|=
+name|isRunAllowedOnPreparingShutdown
+argument_list|()
+decl_stmt|;
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"isRunAllowed() -> false (Run not allowed as we are preparing for shutdown)"
+literal|"isRunAllowed() -> {} (Run not allowed as we are preparing for shutdown)"
+argument_list|,
+name|answer
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|answer
 return|;
 block|}
 block|}
-comment|// fallback and use code from super
+comment|// we cannot run if we are stopping/stopped
 name|boolean
 name|answer
 init|=
-name|super
-operator|.
-name|isRunAllowed
+operator|!
+name|isStoppingOrStopped
 argument_list|()
 decl_stmt|;
 name|log
@@ -1076,6 +1083,104 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+DECL|method|isRunAllowedOnPreparingShutdown ()
+specifier|protected
+name|boolean
+name|isRunAllowedOnPreparingShutdown
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+DECL|method|isRedeliveryAllowed (RedeliveryData data)
+specifier|protected
+name|boolean
+name|isRedeliveryAllowed
+parameter_list|(
+name|RedeliveryData
+name|data
+parameter_list|)
+block|{
+comment|// redelivery policy can control if redelivery is allowed during stopping/shutdown
+comment|// but this only applies during a redelivery (counter must> 0)
+if|if
+condition|(
+name|data
+operator|.
+name|redeliveryCounter
+operator|>
+literal|0
+condition|)
+block|{
+name|boolean
+name|stopping
+init|=
+name|isStoppingOrStopped
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|preparingShutdown
+operator|&&
+operator|!
+name|stopping
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"isRedeliveryAllowed() -> true (we are not stopping/stopped)"
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+else|else
+block|{
+comment|// we are stopping or preparing to shutdown
+if|if
+condition|(
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|allowRedeliveryWhileStopping
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"isRedeliveryAllowed() -> true (Redelivery allowed as RedeliverWhileStopping is enabled)"
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"isRedeliveryAllowed() -> false (Redelivery not allowed as RedeliverWhileStopping is disabled)"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+block|}
+block|}
+return|return
+literal|true
 return|;
 block|}
 annotation|@
@@ -1274,7 +1379,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|// compute if we are exhausted or not
+comment|// compute if we are exhausted, and whether redelivery is allowed
 name|boolean
 name|exhausted
 init|=
@@ -1285,8 +1390,20 @@ argument_list|,
 name|data
 argument_list|)
 decl_stmt|;
+name|boolean
+name|redeliverAllowed
+init|=
+name|isRedeliveryAllowed
+argument_list|(
+name|data
+argument_list|)
+decl_stmt|;
+comment|// if we are exhausted or redelivery is not allowed, then deliver to failure processor (eg such as DLC)
 if|if
 condition|(
+operator|!
+name|redeliverAllowed
+operator|||
 name|exhausted
 condition|)
 block|{

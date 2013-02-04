@@ -297,6 +297,19 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isRunAllowedOnPreparingShutdown ()
+specifier|protected
+name|boolean
+name|isRunAllowedOnPreparingShutdown
+parameter_list|()
+block|{
+comment|// allow tu run as we want to move the message eto DLC, instead of rejecting the message
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 
