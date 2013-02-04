@@ -4471,15 +4471,35 @@ name|ChoiceDefinition
 name|endChoice
 parameter_list|()
 block|{
+comment|// are we already a choice?
 name|ProcessorDefinition
 argument_list|<
 name|?
 argument_list|>
 name|def
 init|=
+name|this
+decl_stmt|;
+if|if
+condition|(
+name|def
+operator|instanceof
+name|ChoiceDefinition
+condition|)
+block|{
+return|return
+operator|(
+name|ChoiceDefinition
+operator|)
+name|def
+return|;
+block|}
+comment|// okay end this and get back to the choice
+name|def
+operator|=
 name|end
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|def
