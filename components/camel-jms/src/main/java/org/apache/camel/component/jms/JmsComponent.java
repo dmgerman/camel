@@ -1777,6 +1777,24 @@ name|includeSentJMSMessageID
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setDefaultTaskExecutorType (DefaultTaskExecutorType type)
+specifier|public
+name|void
+name|setDefaultTaskExecutorType
+parameter_list|(
+name|DefaultTaskExecutorType
+name|type
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setDefaultTaskExecutorType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

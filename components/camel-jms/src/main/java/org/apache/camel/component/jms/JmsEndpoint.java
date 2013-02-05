@@ -4370,6 +4370,8 @@ name|includeSentJMSMessageID
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getDefaultTaskExecutorType ()
 specifier|public
 name|DefaultTaskExecutorType
