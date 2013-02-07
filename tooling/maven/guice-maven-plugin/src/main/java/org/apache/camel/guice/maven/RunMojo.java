@@ -496,25 +496,25 @@ comment|//
 comment|// If we could avoid the mega-cut-n-paste it would really really help!
 comment|// ideally all I wanna do is auto-default 2 values!
 comment|// namely the main and the command line arguments..
-comment|/**      * The maven project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
+comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="-1"      *      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="-1"      *      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT output directory name used to generate the DOT diagram of the      * route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc"      * @readonly      */
+comment|/**      * The DOT output directory name used to generate the DOT diagram of the      * route definitions      *      * @parameter property="${project.build.directory}/site/cameldoc"      * @readonly      */
 DECL|field|dotDir
 specifier|protected
 name|String
 name|dotDir
 decl_stmt|;
-comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter expression="true"      * @readonly      */
+comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter property="true"      * @readonly      */
 DECL|field|dotEnabled
 specifier|protected
 name|boolean
@@ -538,13 +538,13 @@ specifier|private
 name|ArtifactMetadataSource
 name|metadataSource
 decl_stmt|;
-comment|/**      * @parameter expression="${localRepository}"      * @required      * @readonly      */
+comment|/**      * @parameter property="localRepository"      * @required      * @readonly      */
 DECL|field|localRepository
 specifier|private
 name|ArtifactRepository
 name|localRepository
 decl_stmt|;
-comment|/**      * @parameter expression="${project.remoteArtifactRepositories}"      */
+comment|/**      * @parameter property="project.remoteArtifactRepositories"      */
 DECL|field|remoteRepositories
 specifier|private
 name|List
@@ -559,7 +559,7 @@ specifier|private
 name|MavenProjectBuilder
 name|projectBuilder
 decl_stmt|;
-comment|/**      * @parameter expression="${plugin.artifacts}"      * @readonly      */
+comment|/**      * @parameter property="plugin.artifacts"      * @readonly      */
 DECL|field|pluginDependencies
 specifier|private
 name|List
@@ -568,31 +568,31 @@ name|Artifact
 argument_list|>
 name|pluginDependencies
 decl_stmt|;
-comment|/**      * Whether to enable the debugger or not      *      * @parameter expression="${camel.debug}"      *            default-value="false"      * @required      */
+comment|/**      * Whether to enable the debugger or not      *      * @parameter property="camel.debug"      *            default-value="false"      * @required      */
 DECL|field|debug
 specifier|private
 name|boolean
 name|debug
 decl_stmt|;
-comment|/**      * Whether to enable the tracer or not      *      * @parameter expression="${camel.trace}"      *            default-value="false"      * @required      */
+comment|/**      * Whether to enable the tracer or not      *      * @parameter property="camel.trace"      *            default-value="false"      * @required      */
 DECL|field|trace
 specifier|private
 name|boolean
 name|trace
 decl_stmt|;
-comment|/**      * Output all routes to the specified XML file      *      * @parameter expression="${camel.routesOutputFile}"      */
+comment|/**      * Output all routes to the specified XML file      *      * @parameter property="camel.routesOutputFile"      */
 DECL|field|routesOutputFile
 specifier|private
 name|String
 name|routesOutputFile
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.guice.Main"      * @required      */
+comment|/**      * The main class to execute.      *      * @parameter property="camel.mainClass"      *            default-value="org.apache.camel.guice.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
 name|String
 name|mainClass
 decl_stmt|;
-comment|/**      * The class arguments.      *      * @parameter expression="${camel.arguments}"      */
+comment|/**      * The class arguments.      *      * @parameter property="camel.arguments"      */
 DECL|field|arguments
 specifier|private
 name|String
@@ -606,19 +606,19 @@ name|Property
 index|[]
 name|systemProperties
 decl_stmt|;
-comment|/**      * Deprecated; this is not needed anymore. Indicates if mojo should be kept      * running after the mainclass terminates. Usefull for serverlike apps with      * deamonthreads.      *      * @parameter expression="${camel.keepAlive}" default-value="false"      */
+comment|/**      * Deprecated; this is not needed anymore. Indicates if mojo should be kept      * running after the mainclass terminates. Usefull for serverlike apps with      * deamonthreads.      *      * @parameter property="camel.keepAlive" default-value="false"      */
 DECL|field|keepAlive
 specifier|private
 name|boolean
 name|keepAlive
 decl_stmt|;
-comment|/**      * Indicates if the project dependencies should be used when executing the      * main class.      *      * @parameter expression="${camel.includeProjectDependencies}"      *            default-value="true"      */
+comment|/**      * Indicates if the project dependencies should be used when executing the      * main class.      *      * @parameter property="camel.includeProjectDependencies"      *            default-value="true"      */
 DECL|field|includeProjectDependencies
 specifier|private
 name|boolean
 name|includeProjectDependencies
 decl_stmt|;
-comment|/**      * Indicates if this plugin's dependencies should be used when executing the      * main class.<p/> This is useful when project dependencies are not      * appropriate. Using only the plugin dependencies can be particularly      * useful when the project is not a java project. For example a mvn project      * using the csharp plugins only expects to see dotnet libraries as      * dependencies.      *      * @parameter expression="${camel.includePluginDependencies}"      *            default-value="false"      */
+comment|/**      * Indicates if this plugin's dependencies should be used when executing the      * main class.<p/> This is useful when project dependencies are not      * appropriate. Using only the plugin dependencies can be particularly      * useful when the project is not a java project. For example a mvn project      * using the csharp plugins only expects to see dotnet libraries as      * dependencies.      *      * @parameter property="camel.includePluginDependencies"      *            default-value="false"      */
 DECL|field|includePluginDependencies
 specifier|private
 name|boolean
@@ -630,25 +630,25 @@ specifier|private
 name|ExecutableDependency
 name|executableDependency
 decl_stmt|;
-comment|/**      * Wether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *      * @parameter expression="${camel.cleanupDaemonThreads} default-value="true"      */
+comment|/**      * Wether to interrupt/join and possibly stop the daemon threads upon      * quitting.<br/> If this is<code>false</code>, maven does nothing      * about the daemon threads. When maven has no more work to do, the VM will      * normally terminate any remaining daemon threads.      *<p>      * In certain cases (in particular if maven is embedded), you might need to      * keep this enabled to make sure threads are properly cleaned up to ensure      * they don't interfere with subsequent activity. In that case, see      * {@link #daemonThreadJoinTimeout} and      * {@link #stopUnresponsiveDaemonThreads} for further tuning.      *</p>      *      * @parameter property="camel.cleanupDaemonThreads" default-value="true"      */
 DECL|field|cleanupDaemonThreads
 specifier|private
 name|boolean
 name|cleanupDaemonThreads
 decl_stmt|;
-comment|/**      * This defines the number of milliseconds to wait for daemon threads to      * quit following their interruption.<br/> This is only taken into account      * if {@link #cleanupDaemonThreads} is<code>true</code>. A value&lt;=0      * means to not timeout (i.e. wait indefinitely for threads to finish).      * Following a timeout, a warning will be logged.      *<p>      * Note: properly coded threads<i>should</i> terminate upon interruption      * but some threads may prove problematic: as the VM does interrupt daemon      * threads, some code may not have been written to handle interruption      * properly. For example java.util.Timer is known to not handle      * interruptions in JDK&lt;= 1.6. So it is not possible for us to      * infinitely wait by default otherwise maven could hang. A sensible default      * value has been chosen, but this default value<i>may change</i> in the      * future based on user feedback.      *</p>      *      * @parameter expression="${camel.daemonThreadJoinTimeout}"      *            default-value="15000"      */
+comment|/**      * This defines the number of milliseconds to wait for daemon threads to      * quit following their interruption.<br/> This is only taken into account      * if {@link #cleanupDaemonThreads} is<code>true</code>. A value&lt;=0      * means to not timeout (i.e. wait indefinitely for threads to finish).      * Following a timeout, a warning will be logged.      *<p>      * Note: properly coded threads<i>should</i> terminate upon interruption      * but some threads may prove problematic: as the VM does interrupt daemon      * threads, some code may not have been written to handle interruption      * properly. For example java.util.Timer is known to not handle      * interruptions in JDK&lt;= 1.6. So it is not possible for us to      * infinitely wait by default otherwise maven could hang. A sensible default      * value has been chosen, but this default value<i>may change</i> in the      * future based on user feedback.      *</p>      *      * @parameter property="camel.daemonThreadJoinTimeout"      *            default-value="15000"      */
 DECL|field|daemonThreadJoinTimeout
 specifier|private
 name|long
 name|daemonThreadJoinTimeout
 decl_stmt|;
-comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting      * for an interrupted thread to finish. This is only taken into account if      * {@link #cleanupDaemonThreads} is<code>true</code> and the      * {@link #daemonThreadJoinTimeout} threshold has been reached for an      * uncooperative thread. If this is<code>false</code>, or if      * {@link Thread#stop()} fails to get the thread to stop, then a warning is      * logged and Maven will continue on while the affected threads (and related      * objects in memory) linger on. Consider setting this to<code>true</code>      * if you are invoking problematic code that you can't fix. An example is      * {@link java.util.Timer} which doesn't respond to interruption. To have      *<code>Timer</code> fixed, vote for<a      * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this      * bug</a>.      *      * @parameter expression="${camel.stopUnresponsiveDaemonThreads}      *            default-value="false"      */
+comment|/**      * Wether to call {@link Thread#stop()} following a timing out of waiting      * for an interrupted thread to finish. This is only taken into account if      * {@link #cleanupDaemonThreads} is<code>true</code> and the      * {@link #daemonThreadJoinTimeout} threshold has been reached for an      * uncooperative thread. If this is<code>false</code>, or if      * {@link Thread#stop()} fails to get the thread to stop, then a warning is      * logged and Maven will continue on while the affected threads (and related      * objects in memory) linger on. Consider setting this to<code>true</code>      * if you are invoking problematic code that you can't fix. An example is      * {@link java.util.Timer} which doesn't respond to interruption. To have      *<code>Timer</code> fixed, vote for<a      * href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6336543">this      * bug</a>.      *      * @parameter property="camel.stopUnresponsiveDaemonThreads"      *            default-value="false"      */
 DECL|field|stopUnresponsiveDaemonThreads
 specifier|private
 name|boolean
 name|stopUnresponsiveDaemonThreads
 decl_stmt|;
-comment|/**      * Deprecated this is not needed anymore.      *      * @parameter expression="${camel.killAfter}" default-value="-1"      */
+comment|/**      * Deprecated this is not needed anymore.      *      * @parameter property="camel.killAfter" default-value="-1"      */
 DECL|field|killAfter
 specifier|private
 name|long

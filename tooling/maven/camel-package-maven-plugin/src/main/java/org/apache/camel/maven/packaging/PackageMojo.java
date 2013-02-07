@@ -126,13 +126,13 @@ name|PackageMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**      * The maven project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
+comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
 specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory of classes      *      * @parameter expression="${project.build.directory}/classes"      * @readonly      */
+comment|/**      * The output directory of classes      *      * @parameter property="${project.build.directory}/classes"      * @readonly      */
 DECL|field|outDir
 specifier|protected
 name|File

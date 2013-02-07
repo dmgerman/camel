@@ -150,43 +150,43 @@ name|EmbeddedMojo
 extends|extends
 name|AbstractExecMojo
 block|{
-comment|/**      * The duration to run the application for which by default is in milliseconds.      * A value<= 0 will run forever.       * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="-1"      * @readonly      */
+comment|/**      * The duration to run the application for which by default is in milliseconds.      * A value<= 0 will run forever.       * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="-1"      * @readonly      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter expression="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
+comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter property="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
 DECL|field|outputDirectory
 specifier|protected
 name|String
 name|outputDirectory
 decl_stmt|;
-comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter expression="true"      * @readonly      */
+comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter property="true"      * @readonly      */
 DECL|field|dotEnabled
 specifier|protected
 name|boolean
 name|dotEnabled
 decl_stmt|;
-comment|/**      * Allows the routes from multiple contexts to be aggregated into one DOT file (in addition to the individual files)      *      * @parameter expression="false"      * @readonly      */
+comment|/**      * Allows the routes from multiple contexts to be aggregated into one DOT file (in addition to the individual files)      *      * @parameter property="false"      * @readonly      */
 DECL|field|dotAggregationEnabled
 specifier|protected
 name|boolean
 name|dotAggregationEnabled
 decl_stmt|;
-comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter expression="${camel.applicationContextUri}"      */
+comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter property="camel.applicationContextUri"      */
 DECL|field|applicationContextUri
 specifier|protected
 name|String
 name|applicationContextUri
 decl_stmt|;
-comment|/**      * The filesystem based application context uri that spring wants to get.      *      * @parameter expression="${camel.fileApplicationContextUri}"      */
+comment|/**      * The filesystem based application context uri that spring wants to get.      *      * @parameter property="camel.fileApplicationContextUri"      */
 DECL|field|fileApplicationContextUri
 specifier|protected
 name|String
 name|fileApplicationContextUri
 decl_stmt|;
-comment|/**      * Project classpath.      *      * @parameter expression="${project.testClasspathElements}"      * @required      * @readonly      */
+comment|/**      * Project classpath.      *      * @parameter property="project.testClasspathElements"      * @required      * @readonly      */
 DECL|field|classpathElements
 specifier|private
 name|List
@@ -195,7 +195,7 @@ name|?
 argument_list|>
 name|classpathElements
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.spring.Main"      * @required      */
+comment|/**      * The main class to execute.      *      * @parameter property="camel.mainClass"      *            default-value="org.apache.camel.spring.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
 name|String

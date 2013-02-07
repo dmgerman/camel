@@ -329,13 +329,13 @@ name|XSLT_SYSTEM_PROPERTY_KEY
 init|=
 literal|"javax.xml.transform.TransformerFactory"
 decl_stmt|;
-comment|/**      * The URL to the confluence page to convert.      *      * @parameter expression="${page}"      * @required      */
+comment|/**      * The URL to the confluence page to convert.      *      * @parameter property="page"      * @required      */
 DECL|field|page
 specifier|private
 name|String
 name|page
 decl_stmt|;
-comment|/**      * The output file name for the pdf.      *      * @parameter expression="${pdf}"      *            default-value="${project.build.directory}/site/manual/${project.artifactId}-${project.version}.pdf"      */
+comment|/**      * The output file name for the pdf.      *      * @parameter property="pdf"      *            default-value="${project.build.directory}/site/manual/${project.artifactId}-${project.version}.pdf"      */
 DECL|field|pdf
 specifier|private
 name|String
@@ -393,7 +393,7 @@ specifier|private
 name|boolean
 name|errorOnDownloadFailure
 decl_stmt|;
-comment|/**      * The maven project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
+comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
 specifier|private
 name|MavenProject
@@ -1139,7 +1139,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Set the XSL transformer factory class name to be '"
+literal|"Set the XSLT factory class name to be '"
 operator|+
 name|transformerFactoryClassName
 operator|+
@@ -1343,7 +1343,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Removed the set XSL transformer factory class name '"
+literal|"Removed the set XSLT factory class name '"
 operator|+
 name|transformerFactoryClassName
 operator|+
@@ -1368,7 +1368,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Resetted the XSL transformer factory class name to be '"
+literal|"Resetted the XSLT factory class name to be '"
 operator|+
 name|previousTransformerFactoryClassName
 operator|+

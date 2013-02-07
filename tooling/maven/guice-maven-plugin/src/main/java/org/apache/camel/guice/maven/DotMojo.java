@@ -380,37 +380,37 @@ comment|//
 comment|// For running Camel embedded
 comment|// -------------------------------------------------------------------------
 comment|//
-comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter expression="2s"      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="2s"      */
 DECL|field|duration
 specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * Whether we should boot up camel with the jndi.properties file to      * generate the DOT file      *      * @parameter expression="true"      */
+comment|/**      * Whether we should boot up camel with the jndi.properties file to      * generate the DOT file      *      * @parameter property="true"      */
 DECL|field|runCamel
 specifier|protected
 name|boolean
 name|runCamel
 decl_stmt|;
-comment|/**      * Should we try run the DOT executable on the generated .DOT file to      * generate images      *      * @parameter expression="true"      */
+comment|/**      * Should we try run the DOT executable on the generated .DOT file to      * generate images      *      * @parameter property="true"      */
 DECL|field|useDot
 specifier|protected
 name|boolean
 name|useDot
 decl_stmt|;
-comment|/**      * The main class to execute.      *      * @parameter expression="${camel.mainClass}"      *            default-value="org.apache.camel.guice.Main"      * @required      */
+comment|/**      * The main class to execute.      *      * @parameter property="camel.mainClass"      *            default-value="org.apache.camel.guice.Main"      * @required      */
 DECL|field|mainClass
 specifier|private
 name|String
 name|mainClass
 decl_stmt|;
-comment|/**      * Reference to Maven 2 Project.      *      * @parameter expression="${project}"      * @required      * @readonly      */
+comment|/**      * Reference to Maven 2 Project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
 specifier|private
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Base output directory.      *      * @parameter expression="${project.build.directory}"      * @required      */
+comment|/**      * Base output directory.      *      * @parameter property="project.build.directory"      * @required      */
 DECL|field|buildDirectory
 specifier|private
 name|File
@@ -428,7 +428,7 @@ specifier|private
 name|String
 name|aggregate
 decl_stmt|;
-comment|/**      * GraphViz executable location; visualization (images) will be generated      * only if you install this program and set this property to the executable      * dot (dot.exe on Win).      *      * @parameter expression="dot"      */
+comment|/**      * GraphViz executable location; visualization (images) will be generated      * only if you install this program and set this property to the executable      * dot (dot.exe on Win).      *      * @parameter property="dot"      */
 DECL|field|executable
 specifier|private
 name|String
