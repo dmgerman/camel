@@ -1945,6 +1945,7 @@ name|charset
 expr_stmt|;
 block|}
 DECL|method|isIdempotentSet ()
+specifier|protected
 name|boolean
 name|isIdempotentSet
 parameter_list|()
