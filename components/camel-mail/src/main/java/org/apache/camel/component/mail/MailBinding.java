@@ -1800,6 +1800,14 @@ operator|.
 name|getDisposition
 argument_list|()
 decl_stmt|;
+name|String
+name|fileName
+init|=
+name|part
+operator|.
+name|getFileName
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -1816,10 +1824,7 @@ literal|"Part #{}: Disposition: {}"
 argument_list|,
 name|i
 argument_list|,
-name|part
-operator|.
-name|getDisposition
-argument_list|()
+name|disposition
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -1858,10 +1863,7 @@ literal|"Part #{}: FileName: {}"
 argument_list|,
 name|i
 argument_list|,
-name|part
-operator|.
-name|getFileName
-argument_list|()
+name|fileName
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -1895,6 +1897,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|(
 name|disposition
 operator|!=
 literal|null
@@ -1918,19 +1921,8 @@ operator|.
 name|INLINE
 argument_list|)
 operator|)
-condition|)
-block|{
-comment|// only add named attachments
-name|String
-name|fileName
-init|=
-name|part
-operator|.
-name|getFileName
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
+operator|)
+operator|||
 name|fileName
 operator|!=
 literal|null
@@ -1940,8 +1932,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Mail contains file attachment: "
-operator|+
+literal|"Mail contains file attachment: {}"
+argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
@@ -1976,12 +1968,11 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot extract duplicate attachment: "
-operator|+
+literal|"Cannot extract duplicate file attachment: {}."
+argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
