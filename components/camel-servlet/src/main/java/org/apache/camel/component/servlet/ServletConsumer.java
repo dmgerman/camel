@@ -26,11 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|CamelServlet
+name|Processor
 import|;
 end_import
 
@@ -51,57 +47,56 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Keeps track of HttpConsumers and CamelServlets and   * connects them to each other. In OSGi there should  * be one HttpRegistry per bundle.  *   * A CamelServlet that should serve more than one  * bundle should be registered as an OSGi service.  * The HttpRegistryImpl can then be configured to listen  * to service changes. See /tests/camel-itest-osgi/../servlet  * for an example how to use this.  */
+comment|/**  *  */
 end_comment
 
-begin_interface
-DECL|interface|HttpRegistry
+begin_class
+DECL|class|ServletConsumer
 specifier|public
-interface|interface
-name|HttpRegistry
+class|class
+name|ServletConsumer
+extends|extends
+name|HttpConsumer
 block|{
-DECL|method|register (HttpConsumer consumer)
-name|void
-name|register
+DECL|method|ServletConsumer (ServletEndpoint endpoint, Processor processor)
+specifier|public
+name|ServletConsumer
 parameter_list|(
-name|HttpConsumer
-name|consumer
+name|ServletEndpoint
+name|endpoint
+parameter_list|,
+name|Processor
+name|processor
 parameter_list|)
-function_decl|;
-DECL|method|unregister (HttpConsumer consumer)
-name|void
-name|unregister
-parameter_list|(
-name|HttpConsumer
-name|consumer
-parameter_list|)
-function_decl|;
-DECL|method|register (CamelServlet provider)
-name|void
-name|register
-parameter_list|(
-name|CamelServlet
-name|provider
-parameter_list|)
-function_decl|;
-DECL|method|unregister (CamelServlet provider)
-name|void
-name|unregister
-parameter_list|(
-name|CamelServlet
-name|provider
-parameter_list|)
-function_decl|;
-DECL|method|getCamelServlet (String servletName)
-name|CamelServlet
-name|getCamelServlet
-parameter_list|(
-name|String
-name|servletName
-parameter_list|)
-function_decl|;
+block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|,
+name|processor
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|ServletEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|ServletEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 
