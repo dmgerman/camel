@@ -379,7 +379,7 @@ literal|"Generated "
 operator|+
 name|outFile
 operator|+
-literal|" containing the camel "
+literal|" containing the Camel "
 operator|+
 operator|(
 name|files
