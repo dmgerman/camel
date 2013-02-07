@@ -565,6 +565,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|serializer
+operator|.
+name|setTypeHintsCompatibility
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
