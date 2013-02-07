@@ -156,7 +156,7 @@ specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter property="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
+comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter default-value="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
 DECL|field|outputDirectory
 specifier|protected
 name|String

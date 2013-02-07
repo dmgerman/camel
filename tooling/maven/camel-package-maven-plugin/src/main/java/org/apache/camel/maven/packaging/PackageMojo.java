@@ -132,7 +132,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory of classes      *      * @parameter property="${project.build.directory}/classes"      * @readonly      */
+comment|/**      * The output directory of classes      *      * @parameter default-value="${project.build.directory}/classes"      * @readonly      */
 DECL|field|outDir
 specifier|protected
 name|File
