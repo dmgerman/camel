@@ -1175,6 +1175,46 @@ argument_list|()
 operator|>
 literal|0
 decl_stmt|;
+comment|// situation when field ending with a separator symbol.
+if|if
+condition|(
+name|currentInProgress
+operator|&&
+name|startQuote
+operator|&&
+name|s
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// Add separator, append current and reset it
+name|current
+operator|.
+name|append
+argument_list|(
+name|separator
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|add
+argument_list|(
+name|current
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|current
+operator|.
+name|setLength
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 comment|// if we hit a start token then rebuild a broken token
 if|if
 condition|(
