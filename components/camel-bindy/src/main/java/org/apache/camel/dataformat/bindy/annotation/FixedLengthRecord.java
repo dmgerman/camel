@@ -107,6 +107,7 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
+comment|/**      * Indicates that the record(s) of this type may be preceded by a single header record at the beginning of in the file      */
 DECL|method|hasHeader ()
 DECL|field|false
 name|boolean
@@ -115,10 +116,47 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Indicates that the record(s) of this type may be followed by a single footer record at the end of the file      */
 DECL|method|hasFooter ()
 DECL|field|false
 name|boolean
 name|hasFooter
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      * Configures the data format to skip marshalling / unmarshalling of the header record      */
+DECL|method|skipHeader ()
+DECL|field|false
+name|boolean
+name|skipHeader
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      * Configures the data format to skip marshalling / unmarshalling of the footer record      */
+DECL|method|skipFooter ()
+DECL|field|false
+name|boolean
+name|skipFooter
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      * Identifies this FixedLengthRecord as a header record, which may precede all other records in the file      */
+DECL|method|isHeader ()
+DECL|field|false
+name|boolean
+name|isHeader
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      * Identifies this FixedLengthRecord as a footer record, which may be used as the last record in the file      */
+DECL|method|isFooter ()
+DECL|field|false
+name|boolean
+name|isFooter
 parameter_list|()
 default|default
 literal|false

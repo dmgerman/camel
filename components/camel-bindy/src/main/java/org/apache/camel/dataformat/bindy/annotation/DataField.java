@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation used to identify in a POJO which property is link to a field of  * a record (csv, ...). The pos (mandatory) identifies the position of the data  * in the record The name is optional and could be used in the future to bind a  * property which a different name The columnName (optional) represents the name  * of the column who will appear in the header The pattern (optional) allows to  * define the pattern of the data (useful for Date, ...) The length (optional)  * allows to define for fixed length message the size of the data's block The  * precision(optional) reflects the precision to be used with BigDecimal number  * The position (optional) identify the position of the field in the CSV  * generated The required (optional) property identifies a field which is  * mandatory.  */
+comment|/**  * An annotation used to identify in a POJO which property is link to a field of  * a record (csv, ...). The pos (mandatory) identifies the position of the data  * in the record The name is optional and could be used in the future to bind a  * property which a different name The columnName (optional) represents the name  * of the column who will appear in the header The pattern (optional) allows to  * define the pattern of the data (useful for Date, ...) The length (optional)  * allows to define for fixed length message the size of the data's block The  * precision(optional) reflects the precision to be used with BigDecimal number  * The position (optional) identify the position of the field in the CSV  * generated The required (optional) property identifies a field which is  * mandatory. The lengthPos (optional) identifies a field in this record that   * defines the fixed length for this field.  The delimiter (optional) defines a  * character that is used to demarcate the field, if it has a variable length.  */
 end_comment
 
 begin_annotation_defn
@@ -109,6 +109,14 @@ comment|/**      * Length of the data block if the record is set to a fixed leng
 DECL|method|length ()
 name|int
 name|length
+parameter_list|()
+default|default
+literal|0
+function_decl|;
+comment|/**      * Identifies a data field in the record that defines the expected fixed length for this field      */
+DECL|method|lengthPos ()
+name|int
+name|lengthPos
 parameter_list|()
 default|default
 literal|0
@@ -171,6 +179,14 @@ name|clip
 parameter_list|()
 default|default
 literal|false
+function_decl|;
+comment|/**      * Optional delimiter to be used if the field has a variable length      */
+DECL|method|delimiter ()
+name|String
+name|delimiter
+parameter_list|()
+default|default
+literal|""
 function_decl|;
 comment|/**      * Field's default value in case no value is set       */
 DECL|method|defaultValue ()
