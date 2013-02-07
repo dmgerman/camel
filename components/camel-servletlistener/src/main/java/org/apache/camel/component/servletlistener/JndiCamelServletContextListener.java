@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of {@link CamelServletContextListener} that uses the {@link org.apache.camel.impl.JndiRegistry}  * as its {@link Registry}.  */
+comment|/**  * An implementation of {@link CamelServletContextListener} that uses the {@link JndiRegistry}  * as its {@link Registry}.  */
 end_comment
 
 begin_class
@@ -77,6 +77,9 @@ class|class
 name|JndiCamelServletContextListener
 extends|extends
 name|CamelServletContextListener
+argument_list|<
+name|JndiRegistry
+argument_list|>
 block|{
 DECL|field|jndiContext
 specifier|private
@@ -87,7 +90,7 @@ annotation|@
 name|Override
 DECL|method|createRegistry ()
 specifier|public
-name|Registry
+name|JndiRegistry
 name|createRegistry
 parameter_list|()
 throws|throws

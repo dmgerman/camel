@@ -342,6 +342,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CastUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IOHelper
 import|;
 end_import
@@ -392,22 +406,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jndi
-operator|.
-name|JndiContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -425,7 +423,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link ServletContextListener} which is used to bootstrap  * {@link org.apache.camel.CamelContext} in web applications.  */
+comment|/**  * A {@link ServletContextListener} which is used to bootstrap  * {@link org.apache.camel.CamelContext} in web applications.  *   * @param<R> the type of the {@link Registry} being {@link #createRegistry() created}  */
 end_comment
 
 begin_class
@@ -434,6 +432,11 @@ specifier|public
 specifier|abstract
 class|class
 name|CamelServletContextListener
+parameter_list|<
+name|R
+extends|extends
+name|Registry
+parameter_list|>
 implements|implements
 name|ServletContextListener
 block|{
@@ -468,6 +471,9 @@ decl_stmt|;
 DECL|field|camelContextLifecycle
 specifier|protected
 name|CamelContextLifecycle
+argument_list|<
+name|R
+argument_list|>
 name|camelContextLifecycle
 decl_stmt|;
 DECL|field|test
@@ -477,16 +483,11 @@ name|test
 decl_stmt|;
 DECL|field|registry
 specifier|protected
-name|Registry
+name|R
 name|registry
 decl_stmt|;
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|contextInitialized (ServletContextEvent sce)
 specifier|public
 name|void
@@ -732,10 +733,13 @@ comment|// its a set of route builders
 for|for
 control|(
 name|Object
-name|clazz
+name|routesBuilder
 range|:
 operator|(
 name|Set
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|route
 control|)
@@ -749,7 +753,7 @@ argument_list|(
 operator|(
 name|RoutesBuilder
 operator|)
-name|clazz
+name|routesBuilder
 argument_list|)
 expr_stmt|;
 block|}
@@ -765,7 +769,7 @@ name|RuntimeException
 argument_list|(
 literal|"Error adding route "
 operator|+
-name|clazz
+name|routesBuilder
 argument_list|,
 name|e
 argument_list|)
@@ -897,9 +901,16 @@ block|{
 name|Class
 argument_list|<
 name|CamelContextLifecycle
+argument_list|<
+name|R
+argument_list|>
 argument_list|>
 name|clazz
 init|=
+name|CastUtils
+operator|.
+name|cast
+argument_list|(
 name|camelContext
 operator|.
 name|getClassResolver
@@ -912,6 +923,7 @@ argument_list|,
 name|CamelContextLifecycle
 operator|.
 name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|camelContextLifecycle
@@ -1060,11 +1072,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|contextDestroyed (ServletContextEvent sce)
 specifier|public
 name|void
@@ -1167,17 +1174,17 @@ literal|"CamelContextServletListener destroyed"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create the {@link Registry} implementation to use.      */
+comment|/**      * Creates the {@link Registry} implementation to use.      */
 DECL|method|createRegistry ()
 specifier|public
 specifier|abstract
-name|Registry
+name|R
 name|createRegistry
 parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Extracts all the init parameters, and will do reference lookup in {@link JndiContext}      * if the value starts with a # sign.      */
+comment|/**      * Extracts all the init parameters, and will do reference lookup in {@link #createRegistry() registry}      * in case the value starts with a {@code #} sign.      */
 DECL|method|extractInitParameters (ServletContextEvent sce)
 specifier|private
 name|Map
@@ -1211,6 +1218,9 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|Enumeration
+argument_list|<
+name|?
+argument_list|>
 name|names
 init|=
 name|sce
@@ -1278,7 +1288,7 @@ literal|"#"
 argument_list|)
 condition|)
 block|{
-comment|// a reference lookup in jndi
+comment|// a reference lookup in registry
 name|value
 operator|=
 name|value
@@ -1290,11 +1300,20 @@ argument_list|)
 expr_stmt|;
 name|target
 operator|=
-name|lookupRegistry
+name|lookupRegistryByName
 argument_list|(
-name|registry
+name|value
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Resolved the servlet context's initialization parameter {} to {}"
 argument_list|,
 name|value
+argument_list|,
+name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -1583,7 +1602,7 @@ argument_list|(
 name|managementStrategy
 argument_list|)
 expr_stmt|;
-comment|// clear the existing lifecycle strategies define by the DefaultCamelContext constructor
+comment|// clear the existing lifecycle strategies defined by the DefaultCamelContext constructor
 name|camelContext
 operator|.
 name|getLifecycleStrategies
@@ -2284,6 +2303,9 @@ name|getValue
 argument_list|()
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|it
 init|=
 name|ObjectHelper
@@ -2356,10 +2378,8 @@ argument_list|)
 expr_stmt|;
 name|target
 operator|=
-name|lookupRegistry
+name|lookupRegistryByName
 argument_list|(
-name|registry
-argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
@@ -2669,15 +2689,11 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|lookupRegistry (Registry registry, String name)
+DECL|method|lookupRegistryByName (String name)
 specifier|private
-specifier|static
 name|Object
-name|lookupRegistry
+name|lookupRegistryByName
 parameter_list|(
-name|Registry
-name|registry
-parameter_list|,
 name|String
 name|name
 parameter_list|)

@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A callback lifecycle allows end users to implement custom logic before  * the {@link ServletCamelContext} is started and stopped.  */
+comment|/**  * A callback lifecycle allows end users to implement custom logic before  * the {@link ServletCamelContext} is started and stopped.  *   * @param<R> the type of the {@link Registry} being used by this callback  */
 end_comment
 
 begin_interface

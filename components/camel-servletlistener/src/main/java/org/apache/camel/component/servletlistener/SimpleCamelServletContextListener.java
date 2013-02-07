@@ -67,17 +67,20 @@ class|class
 name|SimpleCamelServletContextListener
 extends|extends
 name|CamelServletContextListener
+argument_list|<
+name|SimpleRegistry
+argument_list|>
 block|{
 DECL|field|map
 specifier|private
-name|Map
+name|SimpleRegistry
 name|map
 decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createRegistry ()
 specifier|public
-name|Registry
+name|SimpleRegistry
 name|createRegistry
 parameter_list|()
 throws|throws
@@ -90,9 +93,6 @@ name|SimpleRegistry
 argument_list|()
 expr_stmt|;
 return|return
-operator|(
-name|Registry
-operator|)
 name|map
 return|;
 block|}
@@ -100,6 +100,11 @@ comment|/**      * Gets the {@link Map} that contains the data for the {@link Si
 DECL|method|getMap ()
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|getMap
 parameter_list|()
 block|{
