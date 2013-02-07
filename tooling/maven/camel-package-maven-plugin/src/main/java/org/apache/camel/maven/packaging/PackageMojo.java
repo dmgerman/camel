@@ -218,11 +218,11 @@ operator|new
 name|Properties
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for
@@ -379,7 +379,19 @@ literal|"Generated "
 operator|+
 name|outFile
 operator|+
-literal|" containing camel components "
+literal|" containing the camel "
+operator|+
+operator|(
+name|files
+operator|.
+name|length
+operator|>
+literal|1
+condition|?
+literal|"components "
+else|:
+literal|"component "
+operator|)
 operator|+
 name|names
 argument_list|)
