@@ -22,9 +22,19 @@ begin_import
 import|import
 name|javax
 operator|.
-name|servlet
+name|naming
 operator|.
-name|ServletContext
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
+name|InitialContext
 import|;
 end_import
 
@@ -38,7 +48,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
+name|JndiRegistry
 import|;
 end_import
 
@@ -57,54 +67,54 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A servlet based {@link org.apache.camel.CamelContext}.  */
+comment|/**  * An implementation of {@link CamelServletContextListener} that uses the {@link org.apache.camel.impl.JndiRegistry}  * as its {@link Registry}.  */
 end_comment
 
 begin_class
-DECL|class|ServletCamelContext
+DECL|class|JndiCamelServletContextListener
 specifier|public
 class|class
-name|ServletCamelContext
+name|JndiCamelServletContextListener
 extends|extends
-name|DefaultCamelContext
+name|CamelServletContextListener
 block|{
-DECL|field|servletContext
+DECL|field|jndiContext
 specifier|private
-specifier|final
-name|ServletContext
-name|servletContext
+name|Context
+name|jndiContext
 decl_stmt|;
-DECL|method|ServletCamelContext (Registry registry, ServletContext servletContext)
+annotation|@
+name|Override
+DECL|method|createRegistry ()
 specifier|public
-name|ServletCamelContext
-parameter_list|(
 name|Registry
-name|registry
-parameter_list|,
-name|ServletContext
-name|servletContext
-parameter_list|)
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|super
-argument_list|(
-name|registry
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|servletContext
+name|jndiContext
 operator|=
-name|servletContext
+operator|new
+name|InitialContext
+argument_list|()
 expr_stmt|;
+return|return
+operator|new
+name|JndiRegistry
+argument_list|(
+name|jndiContext
+argument_list|)
+return|;
 block|}
-DECL|method|getServletContext ()
+DECL|method|getJndiContext ()
 specifier|public
-name|ServletContext
-name|getServletContext
+name|Context
+name|getJndiContext
 parameter_list|()
 block|{
 return|return
-name|servletContext
+name|jndiContext
 return|;
 block|}
 block|}

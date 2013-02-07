@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|servlet
+name|util
 operator|.
-name|ServletContext
+name|Map
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultCamelContext
+name|SimpleRegistry
 import|;
 end_import
 
@@ -57,54 +57,54 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A servlet based {@link org.apache.camel.CamelContext}.  */
+comment|/**  * An implementation of {@link CamelServletContextListener} that uses the {@link SimpleRegistry}  * as its {@link Registry}.  */
 end_comment
 
 begin_class
-DECL|class|ServletCamelContext
+DECL|class|SimpleCamelServletContextListener
 specifier|public
 class|class
-name|ServletCamelContext
+name|SimpleCamelServletContextListener
 extends|extends
-name|DefaultCamelContext
+name|CamelServletContextListener
 block|{
-DECL|field|servletContext
+DECL|field|map
 specifier|private
-specifier|final
-name|ServletContext
-name|servletContext
+name|Map
+name|map
 decl_stmt|;
-DECL|method|ServletCamelContext (Registry registry, ServletContext servletContext)
+annotation|@
+name|Override
+DECL|method|createRegistry ()
 specifier|public
-name|ServletCamelContext
-parameter_list|(
 name|Registry
-name|registry
-parameter_list|,
-name|ServletContext
-name|servletContext
-parameter_list|)
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|super
-argument_list|(
-name|registry
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|servletContext
+name|map
 operator|=
-name|servletContext
+operator|new
+name|SimpleRegistry
+argument_list|()
 expr_stmt|;
+return|return
+operator|(
+name|Registry
+operator|)
+name|map
+return|;
 block|}
-DECL|method|getServletContext ()
+comment|/**      * Gets the {@link Map} that contains the data for the {@link SimpleRegistry}      */
+DECL|method|getMap ()
 specifier|public
-name|ServletContext
-name|getServletContext
+name|Map
+name|getMap
 parameter_list|()
 block|{
 return|return
-name|servletContext
+name|map
 return|;
 block|}
 block|}

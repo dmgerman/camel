@@ -26,11 +26,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|spi
 operator|.
-name|jndi
-operator|.
-name|JndiContext
+name|Registry
 import|;
 end_import
 
@@ -43,59 +41,64 @@ DECL|interface|CamelContextLifecycle
 specifier|public
 interface|interface
 name|CamelContextLifecycle
+parameter_list|<
+name|R
+extends|extends
+name|Registry
+parameter_list|>
 block|{
-comment|/**      * Callback before starting {@link ServletCamelContext}.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
-DECL|method|beforeStart (ServletCamelContext camelContext, JndiContext jndi)
+comment|/**      * Callback before starting {@link ServletCamelContext}.      *      * @param camelContext the Camel context      * @param registry     the registry      * @throws Exception is thrown if any error.      */
+DECL|method|beforeStart (ServletCamelContext camelContext, R registry)
 name|void
 name|beforeStart
 parameter_list|(
 name|ServletCamelContext
 name|camelContext
 parameter_list|,
-name|JndiContext
-name|jndi
+name|R
+name|registry
 parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Callback after {@link ServletCamelContext} has been started.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
-DECL|method|afterStart (ServletCamelContext camelContext, JndiContext jndi)
+comment|/**      * Callback after {@link ServletCamelContext} has been started.      *      * @param camelContext the Camel context      * @param registry     the registry      * @throws Exception is thrown if any error.      */
+DECL|method|afterStart (ServletCamelContext camelContext, R registry)
 name|void
 name|afterStart
 parameter_list|(
 name|ServletCamelContext
 name|camelContext
 parameter_list|,
-name|JndiContext
-name|jndi
+name|R
+name|registry
 parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Callback before stopping {@link ServletCamelContext}.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
-DECL|method|beforeStop (ServletCamelContext camelContext, JndiContext jndi)
+comment|/**      * Callback before stopping {@link ServletCamelContext}.      *      * @param camelContext the Camel context      * @param registry     the registry      * @throws Exception is thrown if any error.      */
+DECL|method|beforeStop (ServletCamelContext camelContext, R registry)
 name|void
 name|beforeStop
 parameter_list|(
 name|ServletCamelContext
 name|camelContext
 parameter_list|,
-name|JndiContext
-name|jndi
+name|R
+name|registry
 parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Callback after {@link ServletCamelContext} has been stopped.      *      * @param camelContext the Camel context      * @param jndi         the JNDI context.      * @throws Exception is thrown if any error.      */
-DECL|method|afterStop (ServletCamelContext camelContext, JndiContext jndi)
+comment|/**      * Callback after {@link ServletCamelContext} has been stopped.      *      * @param camelContext the Camel context      * @param registry     the registry      * @throws Exception is thrown if any error.      */
+DECL|method|afterStop (ServletCamelContext camelContext, R registry)
 name|void
 name|afterStop
 parameter_list|(
 name|ServletCamelContext
 name|camelContext
 parameter_list|,
-name|JndiContext
-name|jndi
+name|R
+name|registry
 parameter_list|)
 throws|throws
 name|Exception

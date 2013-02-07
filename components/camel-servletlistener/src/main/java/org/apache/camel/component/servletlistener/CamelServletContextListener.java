@@ -122,16 +122,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|naming
-operator|.
-name|NamingException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|servlet
 operator|.
 name|ServletContextEvent
@@ -322,6 +312,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Registry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -427,6 +431,7 @@ end_comment
 begin_class
 DECL|class|CamelServletContextListener
 specifier|public
+specifier|abstract
 class|class
 name|CamelServletContextListener
 implements|implements
@@ -440,7 +445,7 @@ name|ServletCamelContext
 name|instance
 decl_stmt|;
 DECL|field|LOG
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|Logger
@@ -455,28 +460,33 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|jndiContext
-specifier|private
-name|JndiContext
-name|jndiContext
-decl_stmt|;
 DECL|field|camelContext
-specifier|private
+specifier|protected
 name|ServletCamelContext
 name|camelContext
 decl_stmt|;
 DECL|field|camelContextLifecycle
-specifier|private
+specifier|protected
 name|CamelContextLifecycle
 name|camelContextLifecycle
 decl_stmt|;
 DECL|field|test
-specifier|private
+specifier|protected
 name|boolean
 name|test
 decl_stmt|;
+DECL|field|registry
+specifier|protected
+name|Registry
+name|registry
+decl_stmt|;
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|contextInitialized (ServletContextEvent sce)
 specifier|public
 name|void
@@ -496,10 +506,9 @@ expr_stmt|;
 comment|// create jndi and camel context
 try|try
 block|{
-name|jndiContext
+name|registry
 operator|=
-operator|new
-name|JndiContext
+name|createRegistry
 argument_list|()
 expr_stmt|;
 name|camelContext
@@ -507,7 +516,7 @@ operator|=
 operator|new
 name|ServletCamelContext
 argument_list|(
-name|jndiContext
+name|registry
 argument_list|,
 name|sce
 operator|.
@@ -977,7 +986,7 @@ name|beforeStart
 argument_list|(
 name|camelContext
 argument_list|,
-name|jndiContext
+name|registry
 argument_list|)
 expr_stmt|;
 block|}
@@ -999,7 +1008,7 @@ name|afterStart
 argument_list|(
 name|camelContext
 argument_list|,
-name|jndiContext
+name|registry
 argument_list|)
 expr_stmt|;
 block|}
@@ -1051,6 +1060,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|contextDestroyed (ServletContextEvent sce)
 specifier|public
 name|void
@@ -1089,7 +1103,7 @@ name|beforeStop
 argument_list|(
 name|camelContext
 argument_list|,
-name|jndiContext
+name|registry
 argument_list|)
 expr_stmt|;
 block|}
@@ -1111,7 +1125,7 @@ name|afterStop
 argument_list|(
 name|camelContext
 argument_list|,
-name|jndiContext
+name|registry
 argument_list|)
 expr_stmt|;
 block|}
@@ -1137,7 +1151,7 @@ name|camelContext
 operator|=
 literal|null
 expr_stmt|;
-name|jndiContext
+name|registry
 operator|=
 literal|null
 expr_stmt|;
@@ -1153,6 +1167,16 @@ literal|"CamelContextServletListener destroyed"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create the {@link Registry} implementation to use.      */
+DECL|method|createRegistry ()
+specifier|public
+specifier|abstract
+name|Registry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Extracts all the init parameters, and will do reference lookup in {@link JndiContext}      * if the value starts with a # sign.      */
 DECL|method|extractInitParameters (ServletContextEvent sce)
 specifier|private
@@ -1266,9 +1290,9 @@ argument_list|)
 expr_stmt|;
 name|target
 operator|=
-name|lookupJndi
+name|lookupRegistry
 argument_list|(
-name|jndiContext
+name|registry
 argument_list|,
 name|value
 argument_list|)
@@ -2155,7 +2179,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Extract the routes from the parameters.      *      * @param map  parameters      * @return a list of routes, which can be of different types. See source code for more details.      */
+comment|/**      * Extract the routes from the parameters.      *      * @param map parameters      * @return a list of routes, which can be of different types. See source code for more details.      */
 DECL|method|extractRoutes (Map<String, Object> map)
 specifier|private
 name|List
@@ -2332,9 +2356,9 @@ argument_list|)
 expr_stmt|;
 name|target
 operator|=
-name|lookupJndi
+name|lookupRegistry
 argument_list|(
-name|jndiContext
+name|registry
 argument_list|,
 name|value
 argument_list|)
@@ -2645,48 +2669,27 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|lookupJndi (JndiContext jndiContext, String name)
+DECL|method|lookupRegistry (Registry registry, String name)
 specifier|private
 specifier|static
 name|Object
-name|lookupJndi
+name|lookupRegistry
 parameter_list|(
-name|JndiContext
-name|jndiContext
+name|Registry
+name|registry
 parameter_list|,
 name|String
 name|name
 parameter_list|)
 block|{
-try|try
-block|{
 return|return
-name|jndiContext
+name|registry
 operator|.
-name|lookup
+name|lookupByName
 argument_list|(
 name|name
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|NamingException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"Error looking up in jndi with name: "
-operator|+
-name|name
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class

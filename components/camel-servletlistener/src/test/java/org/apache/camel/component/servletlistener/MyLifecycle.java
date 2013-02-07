@@ -26,6 +26,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|SimpleRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jndi
@@ -47,12 +61,15 @@ DECL|class|MyLifecycle
 specifier|public
 class|class
 name|MyLifecycle
-extends|extends
-name|CamelContextLifecycleSupport
+implements|implements
+name|CamelContextLifecycle
+argument_list|<
+name|SimpleRegistry
+argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|beforeStart (ServletCamelContext camelContext, JndiContext jndi)
+DECL|method|beforeStart (ServletCamelContext camelContext, SimpleRegistry registry)
 specifier|public
 name|void
 name|beforeStart
@@ -60,16 +77,16 @@ parameter_list|(
 name|ServletCamelContext
 name|camelContext
 parameter_list|,
-name|JndiContext
-name|jndi
+name|SimpleRegistry
+name|registry
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 comment|// enlist our bean(s) in the registry
-name|jndi
+name|registry
 operator|.
-name|bind
+name|put
 argument_list|(
 literal|"myBean"
 argument_list|,
@@ -81,7 +98,43 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterStop (ServletCamelContext camelContext, JndiContext jndi)
+DECL|method|afterStart (ServletCamelContext camelContext, SimpleRegistry registry)
+specifier|public
+name|void
+name|afterStart
+parameter_list|(
+name|ServletCamelContext
+name|camelContext
+parameter_list|,
+name|SimpleRegistry
+name|registry
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|beforeStop (ServletCamelContext camelContext, SimpleRegistry registry)
+specifier|public
+name|void
+name|beforeStop
+parameter_list|(
+name|ServletCamelContext
+name|camelContext
+parameter_list|,
+name|SimpleRegistry
+name|registry
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|afterStop (ServletCamelContext camelContext, SimpleRegistry registry)
 specifier|public
 name|void
 name|afterStop
@@ -89,16 +142,16 @@ parameter_list|(
 name|ServletCamelContext
 name|camelContext
 parameter_list|,
-name|JndiContext
-name|jndi
+name|SimpleRegistry
+name|registry
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 comment|// unbind our bean when Camel has been stopped
-name|jndi
+name|registry
 operator|.
-name|unbind
+name|remove
 argument_list|(
 literal|"myBean"
 argument_list|)
