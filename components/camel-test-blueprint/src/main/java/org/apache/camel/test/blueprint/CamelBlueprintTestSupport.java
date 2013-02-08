@@ -302,6 +302,14 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must reuse props as we can do both load from .cfg file and override afterwards
+name|Dictionary
+name|props
+init|=
+operator|new
+name|Properties
+argument_list|()
+decl_stmt|;
 comment|// load configuration file
 name|String
 index|[]
@@ -340,21 +348,23 @@ condition|(
 name|file
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+name|String
+name|fileName
+init|=
 name|file
 index|[
 literal|0
 index|]
-operator|!=
-literal|null
-condition|)
-block|{
-name|Dictionary
-name|props
+decl_stmt|;
+name|String
+name|pid
 init|=
-operator|new
-name|Properties
-argument_list|()
+name|file
+index|[
+literal|1
+index|]
 decl_stmt|;
 name|File
 name|load
@@ -362,10 +372,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|file
-index|[
-literal|0
-index|]
+name|fileName
 argument_list|)
 decl_stmt|;
 name|log
@@ -460,10 +467,7 @@ name|configAdmin
 operator|.
 name|getConfiguration
 argument_list|(
-name|file
-index|[
-literal|1
-index|]
+name|pid
 argument_list|)
 decl_stmt|;
 name|log
@@ -487,13 +491,6 @@ expr_stmt|;
 block|}
 block|}
 comment|// allow end user to override properties
-name|Dictionary
-name|props
-init|=
-operator|new
-name|Properties
-argument_list|()
-decl_stmt|;
 name|String
 name|pid
 init|=

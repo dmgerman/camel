@@ -33,6 +33,11 @@ specifier|private
 name|String
 name|say
 decl_stmt|;
+DECL|field|echo
+specifier|private
+name|String
+name|echo
+decl_stmt|;
 DECL|method|getSay ()
 specifier|public
 name|String
@@ -59,6 +64,32 @@ operator|=
 name|say
 expr_stmt|;
 block|}
+DECL|method|getEcho ()
+specifier|public
+name|String
+name|getEcho
+parameter_list|()
+block|{
+return|return
+name|echo
+return|;
+block|}
+DECL|method|setEcho (String echo)
+specifier|public
+name|void
+name|setEcho
+parameter_list|(
+name|String
+name|echo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|echo
+operator|=
+name|echo
+expr_stmt|;
+block|}
 DECL|method|saySomething (String s)
 specifier|public
 name|String
@@ -70,6 +101,29 @@ parameter_list|)
 block|{
 return|return
 name|say
+operator|+
+literal|" "
+operator|+
+name|s
+return|;
+block|}
+DECL|method|echoSomething (String s)
+specifier|public
+name|String
+name|echoSomething
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+return|return
+name|echo
+operator|+
+literal|" "
+operator|+
+name|s
+operator|+
+name|echo
 operator|+
 literal|" "
 operator|+
