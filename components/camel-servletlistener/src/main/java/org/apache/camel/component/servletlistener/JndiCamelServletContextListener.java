@@ -89,7 +89,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createRegistry ()
-specifier|public
+specifier|protected
 name|JndiRegistry
 name|createRegistry
 parameter_list|()

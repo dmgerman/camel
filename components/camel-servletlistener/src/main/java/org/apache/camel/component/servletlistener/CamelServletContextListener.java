@@ -1176,7 +1176,7 @@ expr_stmt|;
 block|}
 comment|/**      * Creates the {@link Registry} implementation to use.      */
 DECL|method|createRegistry ()
-specifier|public
+specifier|protected
 specifier|abstract
 name|R
 name|createRegistry

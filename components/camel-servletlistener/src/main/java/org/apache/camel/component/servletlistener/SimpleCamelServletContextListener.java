@@ -79,7 +79,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createRegistry ()
-specifier|public
+specifier|protected
 name|SimpleRegistry
 name|createRegistry
 parameter_list|()
