@@ -275,7 +275,6 @@ name|createRoute
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// new ReconciliationRoute()
 name|ctx
 operator|.
 name|start
@@ -479,7 +478,7 @@ name|BindyType
 operator|.
 name|Csv
 argument_list|,
-name|Record
+name|MyCsvRecord
 operator|.
 name|class
 argument_list|)

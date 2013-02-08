@@ -83,10 +83,10 @@ name|skipFirstLine
 operator|=
 literal|false
 argument_list|)
-DECL|class|Record
+DECL|class|MyCsvRecord
 specifier|public
 class|class
-name|Record
+name|MyCsvRecord
 implements|implements
 name|Serializable
 block|{
@@ -198,9 +198,9 @@ specifier|private
 name|String
 name|dummy2
 decl_stmt|;
-DECL|method|Record ()
+DECL|method|MyCsvRecord ()
 specifier|public
-name|Record
+name|MyCsvRecord
 parameter_list|()
 block|{
 name|super
