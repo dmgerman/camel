@@ -2550,7 +2550,7 @@ return|;
 block|}
 DECL|method|type (String key)
 specifier|public
-name|DataType
+name|String
 name|type
 parameter_list|(
 name|String
@@ -2564,6 +2564,9 @@ name|type
 argument_list|(
 name|key
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 DECL|method|sort (String key)

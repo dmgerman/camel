@@ -132,11 +132,6 @@ specifier|private
 name|String
 name|channels
 decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|Integer
-name|timeout
-decl_stmt|;
 DECL|field|host
 specifier|private
 name|String
@@ -253,32 +248,6 @@ operator|.
 name|host
 operator|=
 name|host
-expr_stmt|;
-block|}
-DECL|method|getTimeout ()
-specifier|public
-name|Integer
-name|getTimeout
-parameter_list|()
-block|{
-return|return
-name|timeout
-return|;
-block|}
-DECL|method|setTimeout (Integer timeout)
-specifier|public
-name|void
-name|setTimeout
-parameter_list|(
-name|Integer
-name|timeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timeout
-operator|=
-name|timeout
 expr_stmt|;
 block|}
 DECL|method|getRedisTemplate ()

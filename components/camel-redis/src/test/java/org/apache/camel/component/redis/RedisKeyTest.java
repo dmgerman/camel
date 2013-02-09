@@ -1404,6 +1404,9 @@ argument_list|(
 name|DataType
 operator|.
 name|STRING
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|result
 argument_list|)
