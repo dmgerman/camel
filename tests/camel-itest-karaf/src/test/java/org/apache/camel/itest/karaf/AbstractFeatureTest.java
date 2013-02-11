@@ -134,6 +134,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|openengsb
+operator|.
+name|labs
+operator|.
+name|paxexam
+operator|.
+name|karaf
+operator|.
+name|options
+operator|.
+name|LogLevelOption
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|ops4j
 operator|.
 name|pax
@@ -221,6 +239,26 @@ operator|.
 name|KarafDistributionOption
 operator|.
 name|karafDistributionConfiguration
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|openengsb
+operator|.
+name|labs
+operator|.
+name|paxexam
+operator|.
+name|karaf
+operator|.
+name|options
+operator|.
+name|KarafDistributionOption
+operator|.
+name|logLevel
 import|;
 end_import
 
@@ -946,6 +984,16 @@ name|File
 argument_list|(
 literal|"src/test/resources/org/apache/camel/itest/karaf/custom.properties"
 argument_list|)
+argument_list|)
+block|,
+comment|// we need INFO logging otherwise we cannot see what happens
+name|logLevel
+argument_list|(
+name|LogLevelOption
+operator|.
+name|LogLevel
+operator|.
+name|INFO
 argument_list|)
 block|,
 comment|// install the cxf jaxb spec as the karaf doesn't provide it by default
