@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Producer to send messages using JavaMail.  *    * @version   */
+comment|/**  * A Producer to send messages using JavaMail.  */
 end_comment
 
 begin_class
@@ -164,9 +164,44 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+try|try
+block|{
 name|MimeMessage
 name|mimeMessage
+decl_stmt|;
+specifier|final
+name|Object
+name|body
 init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|MimeMessage
+condition|)
+block|{
+comment|// Body is directly a MimeMessage
+name|mimeMessage
+operator|=
+operator|(
+name|MimeMessage
+operator|)
+name|body
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Create a message with exchange data
+name|mimeMessage
+operator|=
 operator|new
 name|MimeMessage
 argument_list|(
@@ -175,9 +210,7 @@ operator|.
 name|getSession
 argument_list|()
 argument_list|)
-decl_stmt|;
-try|try
-block|{
+expr_stmt|;
 name|getEndpoint
 argument_list|()
 operator|.
@@ -194,6 +227,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG
