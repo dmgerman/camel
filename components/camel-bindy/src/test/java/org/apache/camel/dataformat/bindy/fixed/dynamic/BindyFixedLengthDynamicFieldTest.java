@@ -772,9 +772,9 @@ name|pos
 operator|=
 literal|7
 argument_list|,
-name|length
+name|lengthPos
 operator|=
-literal|10
+literal|6
 argument_list|)
 DECL|field|instrumentNumber
 specifier|private
