@@ -168,6 +168,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|FileUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IOHelper
 import|;
 end_import
@@ -925,10 +939,12 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|fileStore
+name|FileUtil
 operator|.
 name|createNewFile
-argument_list|()
+argument_list|(
+name|fileStore
+argument_list|)
 expr_stmt|;
 block|}
 comment|// append to store

@@ -2239,10 +2239,12 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-name|target
+name|FileUtil
 operator|.
 name|createNewFile
-argument_list|()
+argument_list|(
+name|target
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
