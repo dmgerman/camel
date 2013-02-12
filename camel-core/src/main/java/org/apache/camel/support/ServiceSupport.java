@@ -691,6 +691,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|shutdown
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Service already shut down"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// ensure we are stopped first
 name|stop
 argument_list|()
