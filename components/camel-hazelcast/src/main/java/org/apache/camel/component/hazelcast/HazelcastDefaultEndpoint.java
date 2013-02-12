@@ -206,6 +206,16 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getHazelcastInstance ()
+specifier|public
+name|HazelcastInstance
+name|getHazelcastInstance
+parameter_list|()
+block|{
+return|return
+name|hazelcastInstance
+return|;
+block|}
 block|}
 end_class
 

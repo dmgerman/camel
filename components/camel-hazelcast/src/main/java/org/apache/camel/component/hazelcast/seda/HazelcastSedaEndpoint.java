@@ -188,10 +188,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|component
-operator|.
-name|getHazelcastInstance
-argument_list|()
+name|hazelcastInstance
 argument_list|,
 name|uri
 argument_list|,
