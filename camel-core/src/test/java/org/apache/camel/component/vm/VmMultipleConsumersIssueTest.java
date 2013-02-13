@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.issues
+DECL|package|org.apache.camel.component.vm
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|issues
+name|component
+operator|.
+name|vm
 package|;
 end_package
 
@@ -59,17 +61,17 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SedaMultipleConsumersIssueTest
+DECL|class|VmMultipleConsumersIssueTest
 specifier|public
 class|class
-name|SedaMultipleConsumersIssueTest
+name|VmMultipleConsumersIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testSedaMultipleConsumersIssue ()
+DECL|method|testVmMultipleConsumersIssue ()
 specifier|public
 name|void
-name|testSedaMultipleConsumersIssue
+name|testVmMultipleConsumersIssue
 parameter_list|()
 throws|throws
 name|Exception
