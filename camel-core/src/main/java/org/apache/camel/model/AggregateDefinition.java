@@ -483,6 +483,13 @@ name|parallelProcessing
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|optimisticLocking
+specifier|private
+name|Boolean
+name|optimisticLocking
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|executorServiceRef
 specifier|private
 name|String
@@ -1038,6 +1045,14 @@ operator|.
 name|setParallelProcessing
 argument_list|(
 name|isParallelProcessing
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setOptimisticLocking
+argument_list|(
+name|isOptimisticLocking
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1839,6 +1854,46 @@ operator|=
 name|executorService
 expr_stmt|;
 block|}
+DECL|method|getOptimisticLocking ()
+specifier|public
+name|Boolean
+name|getOptimisticLocking
+parameter_list|()
+block|{
+return|return
+name|optimisticLocking
+return|;
+block|}
+DECL|method|setOptimisticLocking (boolean optimisticLocking)
+specifier|public
+name|void
+name|setOptimisticLocking
+parameter_list|(
+name|boolean
+name|optimisticLocking
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optimisticLocking
+operator|=
+name|optimisticLocking
+expr_stmt|;
+block|}
+DECL|method|isOptimisticLocking ()
+specifier|public
+name|boolean
+name|isOptimisticLocking
+parameter_list|()
+block|{
+return|return
+name|optimisticLocking
+operator|!=
+literal|null
+operator|&&
+name|optimisticLocking
+return|;
+block|}
 DECL|method|getParallelProcessing ()
 specifier|public
 name|Boolean
@@ -2557,6 +2612,21 @@ name|parallelProcessing
 parameter_list|()
 block|{
 name|setParallelProcessing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|optimisticLocking ()
+specifier|public
+name|AggregateDefinition
+name|optimisticLocking
+parameter_list|()
+block|{
+name|setOptimisticLocking
 argument_list|(
 literal|true
 argument_list|)
