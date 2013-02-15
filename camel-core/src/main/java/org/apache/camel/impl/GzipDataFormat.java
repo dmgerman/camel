@@ -180,6 +180,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// must close all input streams
 name|IOHelper
 operator|.
 name|close
@@ -223,11 +224,7 @@ decl_stmt|;
 name|GZIPInputStream
 name|unzipInput
 init|=
-operator|new
-name|GZIPInputStream
-argument_list|(
-name|is
-argument_list|)
+literal|null
 decl_stmt|;
 comment|// Create an expandable byte array to hold the inflated data
 name|ByteArrayOutputStream
@@ -239,6 +236,14 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|unzipInput
+operator|=
+operator|new
+name|GZIPInputStream
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
 name|IOHelper
 operator|.
 name|copy
@@ -257,11 +262,14 @@ return|;
 block|}
 finally|finally
 block|{
+comment|// must close all input streams
 name|IOHelper
 operator|.
 name|close
 argument_list|(
 name|unzipInput
+argument_list|,
+name|is
 argument_list|)
 expr_stmt|;
 block|}
