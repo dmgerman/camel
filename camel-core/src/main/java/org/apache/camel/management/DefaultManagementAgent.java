@@ -1161,6 +1161,13 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|mbean
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// and register the mbean
 name|registerMBeanWithServer
 argument_list|(
@@ -1171,6 +1178,7 @@ argument_list|,
 name|forceRegistration
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|unregister (ObjectName name)

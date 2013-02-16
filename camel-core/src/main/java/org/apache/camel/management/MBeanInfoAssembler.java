@@ -32,6 +32,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Proxy
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|LinkedHashMap
@@ -481,7 +493,7 @@ argument_list|>
 name|operations
 decl_stmt|;
 block|}
-comment|/**      * Gets the {@link ModelMBeanInfo} for the given managed bean      *      * @param defaultManagedBean  the default managed bean      * @param customManagedBean   an optional custom managed bean      * @param objectName   the object name      * @return the model info      * @throws JMException is thrown if error creating the model info      */
+comment|/**      * Gets the {@link ModelMBeanInfo} for the given managed bean      *      * @param defaultManagedBean  the default managed bean      * @param customManagedBean   an optional custom managed bean      * @param objectName   the object name      * @return the model info, or<tt>null</tt> if not possible to create, for example due the managed bean is a proxy class      * @throws JMException is thrown if error creating the model info      */
 DECL|method|getMBeanInfo (Object defaultManagedBean, Object customManagedBean, String objectName)
 specifier|public
 name|ModelMBeanInfo
@@ -499,6 +511,36 @@ parameter_list|)
 throws|throws
 name|JMException
 block|{
+comment|// skip proxy classes
+if|if
+condition|(
+name|Proxy
+operator|.
+name|isProxyClass
+argument_list|(
+name|defaultManagedBean
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Skip creating ModelMBeanInfo due proxy class {}"
+argument_list|,
+name|defaultManagedBean
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
 comment|// maps and lists to contain information about attributes and operations
 name|Map
 argument_list|<

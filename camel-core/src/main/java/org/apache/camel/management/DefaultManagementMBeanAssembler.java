@@ -403,6 +403,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|mbi
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|RequiredModelMBean
 name|mbean
 init|=
