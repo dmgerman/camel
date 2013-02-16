@@ -159,6 +159,45 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the value of a CamelContext property name      *      * @param name the name of the property      * @return String the value of the property      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Get the value of a Camel property"
+argument_list|)
+DECL|method|getProperty (String name)
+name|String
+name|getProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Sets the value of a CamelContext property name      *      * @param name the name of the property      * @param value the new value of the property      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Set the value of a Camel property"
+argument_list|)
+DECL|method|setProperty (String name, String value)
+name|void
+name|setProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 annotation|@
 name|ManagedAttribute
 argument_list|(
