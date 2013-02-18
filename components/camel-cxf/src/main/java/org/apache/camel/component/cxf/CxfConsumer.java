@@ -495,7 +495,8 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// NOTE this code cannot work with CXF 2.2.x
+comment|// NOTE this code cannot work with CXF 2.2.x and JMSContinuation
+comment|// as it doesn't break out the interceptor chain when we call it
 specifier|private
 name|Object
 name|asyncInvoke
@@ -689,7 +690,9 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-return|return
+name|Continuation
+name|continuation
+init|=
 name|provider
 operator|==
 literal|null
@@ -700,7 +703,39 @@ name|provider
 operator|.
 name|getContinuation
 argument_list|()
+decl_stmt|;
+comment|// Make sure we don't return the JMSContinuation, as it doesn't support the Continuation we wants
+comment|// Don't want to introduce the dependency of cxf-rt-transprot-jms here
+if|if
+condition|(
+name|continuation
+operator|!=
+literal|null
+operator|&&
+name|continuation
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"org.apache.cxf.transport.jms.continuations.JMSContinuation"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|null
 return|;
+block|}
+else|else
+block|{
+return|return
+name|continuation
+return|;
+block|}
 block|}
 specifier|private
 name|Object
