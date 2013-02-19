@@ -419,7 +419,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  *   * @version  */
+comment|/**  * A processor which validates the XML version of the inbound message body  * against some schema either in XSD or RelaxNG  */
 end_comment
 
 begin_class
@@ -522,6 +522,18 @@ name|failOnNullBody
 init|=
 literal|true
 decl_stmt|;
+DECL|field|failOnNullHeader
+specifier|private
+name|boolean
+name|failOnNullHeader
+init|=
+literal|true
+decl_stmt|;
+DECL|field|headerName
+specifier|private
+name|String
+name|headerName
+decl_stmt|;
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -593,13 +605,10 @@ condition|)
 block|{
 name|is
 operator|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
+name|getContentToValidate
 argument_list|(
+name|exchange
+argument_list|,
 name|InputStream
 operator|.
 name|class
@@ -626,19 +635,16 @@ block|}
 else|else
 block|{
 name|Object
-name|body
+name|content
 init|=
+name|getContentToValidate
+argument_list|(
 name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|body
+name|content
 operator|!=
 literal|null
 condition|)
@@ -649,11 +655,40 @@ name|getSource
 argument_list|(
 name|exchange
 argument_list|,
-name|body
+name|content
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|shouldUseHeader
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|source
+operator|==
+literal|null
+operator|&&
+name|isFailOnNullHeader
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoXmlHeaderValidationException
+argument_list|(
+name|exchange
+argument_list|,
+name|headerName
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|source
@@ -671,6 +706,7 @@ argument_list|(
 name|exchange
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -845,6 +881,111 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getContentToValidate (Exchange exchange)
+specifier|private
+name|Object
+name|getContentToValidate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|shouldUseHeader
+argument_list|()
+condition|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+return|;
+block|}
+block|}
+DECL|method|getContentToValidate (Exchange exchange, Class<T> clazz)
+specifier|private
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getContentToValidate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|clazz
+parameter_list|)
+block|{
+if|if
+condition|(
+name|shouldUseHeader
+argument_list|()
+condition|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|headerName
+argument_list|,
+name|clazz
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|clazz
+argument_list|)
+return|;
+block|}
+block|}
+DECL|method|shouldUseHeader ()
+specifier|private
+name|boolean
+name|shouldUseHeader
+parameter_list|()
+block|{
+return|return
+name|headerName
+operator|!=
+literal|null
+return|;
 block|}
 DECL|method|loadSchema ()
 specifier|public
@@ -1199,6 +1340,58 @@ operator|=
 name|failOnNullBody
 expr_stmt|;
 block|}
+DECL|method|isFailOnNullHeader ()
+specifier|public
+name|boolean
+name|isFailOnNullHeader
+parameter_list|()
+block|{
+return|return
+name|failOnNullHeader
+return|;
+block|}
+DECL|method|setFailOnNullHeader (boolean failOnNullHeader)
+specifier|public
+name|void
+name|setFailOnNullHeader
+parameter_list|(
+name|boolean
+name|failOnNullHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failOnNullHeader
+operator|=
+name|failOnNullHeader
+expr_stmt|;
+block|}
+DECL|method|getHeaderName ()
+specifier|public
+name|String
+name|getHeaderName
+parameter_list|()
+block|{
+return|return
+name|headerName
+return|;
+block|}
+DECL|method|setHeaderName (String headerName)
+specifier|public
+name|void
+name|setHeaderName
+parameter_list|(
+name|String
+name|headerName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerName
+operator|=
+name|headerName
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
 DECL|method|createSchemaFactory ()
@@ -1324,7 +1517,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Checks whether we need an {@link InputStream} to access the message body.      *<p/>      * Depending on the content in the message body, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting to {@link Source} afterwards.      */
+comment|/**      * Checks whether we need an {@link InputStream} to access the message body or header.      *<p/>      * Depending on the content in the message body or header, we may not need to convert      * to {@link InputStream}.      *      * @param exchange the current exchange      * @return<tt>true</tt> to convert to {@link InputStream} beforehand converting to {@link Source} afterwards.      */
 DECL|method|isInputStreamNeeded (Exchange exchange)
 specifier|protected
 name|boolean
@@ -1335,19 +1528,16 @@ name|exchange
 parameter_list|)
 block|{
 name|Object
-name|body
+name|content
 init|=
+name|getContentToValidate
+argument_list|(
 name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|body
+name|content
 operator|==
 literal|null
 condition|)
@@ -1358,7 +1548,7 @@ return|;
 block|}
 if|if
 condition|(
-name|body
+name|content
 operator|instanceof
 name|InputStream
 condition|)
@@ -1370,7 +1560,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|body
+name|content
 operator|instanceof
 name|Source
 condition|)
@@ -1382,7 +1572,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|body
+name|content
 operator|instanceof
 name|String
 condition|)
@@ -1394,7 +1584,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|body
+name|content
 operator|instanceof
 name|byte
 index|[]
@@ -1407,7 +1597,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|body
+name|content
 operator|instanceof
 name|Node
 condition|)
@@ -1433,7 +1623,7 @@ name|Source
 operator|.
 name|class
 argument_list|,
-name|body
+name|content
 operator|.
 name|getClass
 argument_list|()
@@ -1452,8 +1642,8 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Converts the inbound body to a {@link Source}, if the body is<b>not</b> already a {@link Source}.      *<p/>      * This implementation will prefer to source in the following order:      *<ul>      *<li>DOM - DOM if explicit configured to use DOM</li>      *<li>SAX - SAX as 2nd choice</li>      *<li>Stream - Stream as 3rd choice</li>      *<li>DOM - DOM as 4th choice</li>      *</ul>      */
-DECL|method|getSource (Exchange exchange, Object body)
+comment|/**      * Converts the inbound body or header to a {@link Source}, if it is<b>not</b> already a {@link Source}.      *<p/>      * This implementation will prefer to source in the following order:      *<ul>      *<li>DOM - DOM if explicit configured to use DOM</li>      *<li>SAX - SAX as 2nd choice</li>      *<li>Stream - Stream as 3rd choice</li>      *<li>DOM - DOM as 4th choice</li>      *</ul>      */
+DECL|method|getSource (Exchange exchange, Object content)
 specifier|protected
 name|Source
 name|getSource
@@ -1462,7 +1652,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|Object
-name|body
+name|content
 parameter_list|)
 block|{
 if|if
@@ -1489,14 +1679,14 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|body
+name|content
 argument_list|)
 return|;
 block|}
-comment|// body may already be a source
+comment|// body or header may already be a source
 if|if
 condition|(
-name|body
+name|content
 operator|instanceof
 name|Source
 condition|)
@@ -1505,7 +1695,7 @@ return|return
 operator|(
 name|Source
 operator|)
-name|body
+name|content
 return|;
 block|}
 name|Source
@@ -1515,7 +1705,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|body
+name|content
 operator|instanceof
 name|InputStream
 condition|)
@@ -1527,13 +1717,13 @@ argument_list|(
 operator|(
 name|InputStream
 operator|)
-name|body
+name|content
 argument_list|)
 return|;
 block|}
 if|if
 condition|(
-name|body
+name|content
 operator|!=
 literal|null
 condition|)
@@ -1555,7 +1745,7 @@ name|Source
 operator|.
 name|class
 argument_list|,
-name|body
+name|content
 operator|.
 name|getClass
 argument_list|()
@@ -1580,7 +1770,7 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|body
+name|content
 argument_list|)
 expr_stmt|;
 block|}
@@ -1611,7 +1801,7 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|body
+name|content
 argument_list|)
 expr_stmt|;
 block|}
@@ -1641,7 +1831,7 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|body
+name|content
 argument_list|)
 expr_stmt|;
 block|}
@@ -1671,7 +1861,7 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|body
+name|content
 argument_list|)
 expr_stmt|;
 block|}
