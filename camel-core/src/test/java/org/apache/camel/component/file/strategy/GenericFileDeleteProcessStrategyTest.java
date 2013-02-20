@@ -292,6 +292,21 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|releaseRetreivedFileResources (Exchange exchange)
+specifier|public
+name|void
+name|releaseRetreivedFileResources
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+comment|// No-op
+block|}
 DECL|method|storeFile (String name, Exchange exchange)
 specifier|public
 name|boolean
