@@ -67,6 +67,15 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+DECL|field|REMOTE_FILE_INPUT_STREAM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REMOTE_FILE_INPUT_STREAM
+init|=
+literal|"CamelRemoteFileInputStream"
+decl_stmt|;
 DECL|method|RemoteFileComponent ()
 specifier|public
 name|RemoteFileComponent

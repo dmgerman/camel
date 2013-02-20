@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote.sftp
+DECL|package|org.apache.camel.component.file.remote
 package|package
 name|org
 operator|.
@@ -17,8 +17,6 @@ operator|.
 name|file
 operator|.
 name|remote
-operator|.
-name|sftp
 package|;
 end_package
 
@@ -79,19 +77,19 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|SftpSimpleConsumeTest
+DECL|class|FtpSimpleConsumeStreamingWithMultipleFilesTest
 specifier|public
 class|class
-name|SftpSimpleConsumeTest
+name|FtpSimpleConsumeStreamingWithMultipleFilesTest
 extends|extends
-name|SftpServerTestSupport
+name|FtpServerTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testSftpSimpleConsume ()
+DECL|method|testFtpSimpleConsumeAbsolute ()
 specifier|public
 name|void
-name|testSftpSimpleConsume
+name|testFtpSimpleConsumeAbsolute
 parameter_list|()
 throws|throws
 name|Exception
@@ -110,14 +108,27 @@ name|expected
 init|=
 literal|"Hello World"
 decl_stmt|;
+name|String
+name|expected2
+init|=
+literal|"Goodbye World"
+decl_stmt|;
 comment|// create file using regular file
+comment|// FTP Server does not support absolute path, so lets simulate it
+name|String
+name|path
+init|=
+name|FTP_ROOT_DIR
+operator|+
+literal|"/tmp/mytemp"
+decl_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://"
+literal|"file:"
 operator|+
-name|FTP_ROOT_DIR
+name|path
 argument_list|,
 name|expected
 argument_list|,
@@ -126,6 +137,23 @@ operator|.
 name|FILE_NAME
 argument_list|,
 literal|"hello.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file:"
+operator|+
+name|path
+argument_list|,
+name|expected2
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"goodbye.txt"
 argument_list|)
 expr_stmt|;
 name|MockEndpoint
@@ -140,25 +168,16 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 name|expected
+argument_list|,
+name|expected2
 argument_list|)
 expr_stmt|;
 name|context
@@ -196,18 +215,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// notice we use an absolute starting path: /tmp/mytemp
+comment|// - we must remember to use // slash because of the url separator
 name|from
 argument_list|(
-literal|"sftp://localhost:"
+literal|"ftp://localhost:"
 operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/"
-operator|+
-name|FTP_ROOT_DIR
-operator|+
-literal|"?username=admin&password=admin&delay=10s&disconnect=true"
+literal|"//tmp/mytemp?username=admin&password=admin&delay=10s&disconnect=true&streamDownload=true"
 argument_list|)
 operator|.
 name|routeId

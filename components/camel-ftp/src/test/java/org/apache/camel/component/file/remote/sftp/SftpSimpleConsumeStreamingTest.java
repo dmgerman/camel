@@ -79,10 +79,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|SftpSimpleConsumeTest
+DECL|class|SftpSimpleConsumeStreamingTest
 specifier|public
 class|class
-name|SftpSimpleConsumeTest
+name|SftpSimpleConsumeStreamingTest
 extends|extends
 name|SftpServerTestSupport
 block|{
@@ -207,7 +207,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&password=admin&delay=10s&disconnect=true"
+literal|"?username=admin&password=admin&delay=10s&disconnect=true&streamDownload=true"
 argument_list|)
 operator|.
 name|routeId

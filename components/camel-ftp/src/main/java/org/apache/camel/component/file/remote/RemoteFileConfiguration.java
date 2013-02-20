@@ -169,6 +169,11 @@ name|PathSeparator
 operator|.
 name|Auto
 decl_stmt|;
+DECL|field|streamDownload
+specifier|private
+name|boolean
+name|streamDownload
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -742,6 +747,33 @@ operator|.
 name|separator
 operator|=
 name|separator
+expr_stmt|;
+block|}
+DECL|method|isStreamDownload ()
+specifier|public
+name|boolean
+name|isStreamDownload
+parameter_list|()
+block|{
+return|return
+name|streamDownload
+return|;
+block|}
+comment|/**      * Sets the download method to use when not using a local working directory.  If set to true,      * the remote files are streamed to the route as they are read.  When set to false, the remote files      * are loaded into memory before being sent into the route.      *      * @param streamDownload       */
+DECL|method|setStreamDownload (boolean streamDownload)
+specifier|public
+name|void
+name|setStreamDownload
+parameter_list|(
+name|boolean
+name|streamDownload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamDownload
+operator|=
+name|streamDownload
 expr_stmt|;
 block|}
 comment|/**      * Normalizes the given path according to the configured path separator.      *      * @param path  the given path      * @return the normalized path      */

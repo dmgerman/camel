@@ -382,6 +382,13 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+name|operations
+operator|.
+name|releaseRetreivedFileResources
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
@@ -436,6 +443,13 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+name|operations
+operator|.
+name|releaseRetreivedFileResources
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
@@ -486,6 +500,13 @@ argument_list|)
 expr_stmt|;
 block|}
 name|deleteLocalWorkFile
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|operations
+operator|.
+name|releaseRetreivedFileResources
 argument_list|(
 name|exchange
 argument_list|)

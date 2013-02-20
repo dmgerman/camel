@@ -79,10 +79,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|SftpSimpleConsumeTest
+DECL|class|SftpSimpleConsumeStreamingWithMultipleFilesTest
 specifier|public
 class|class
-name|SftpSimpleConsumeTest
+name|SftpSimpleConsumeStreamingWithMultipleFilesTest
 extends|extends
 name|SftpServerTestSupport
 block|{
@@ -110,6 +110,11 @@ name|expected
 init|=
 literal|"Hello World"
 decl_stmt|;
+name|String
+name|expected2
+init|=
+literal|"Goodbye World"
+decl_stmt|;
 comment|// create file using regular file
 name|template
 operator|.
@@ -128,6 +133,23 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://"
+operator|+
+name|FTP_ROOT_DIR
+argument_list|,
+name|expected2
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"goodbye.txt"
+argument_list|)
+expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -140,25 +162,16 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"hello.txt"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 name|expected
+argument_list|,
+name|expected2
 argument_list|)
 expr_stmt|;
 name|context
@@ -207,7 +220,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&password=admin&delay=10s&disconnect=true"
+literal|"?username=admin&password=admin&delay=10s&disconnect=true&streamDownload=true"
 argument_list|)
 operator|.
 name|routeId

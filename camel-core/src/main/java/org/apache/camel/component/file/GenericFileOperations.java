@@ -125,6 +125,17 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 function_decl|;
+comment|/**      * Releases the resources consumed by a retrieved file      *       * @param exchange exchange with the content of the file      * @throws GenericFileOperationFailedException can be thrown      */
+DECL|method|releaseRetreivedFileResources (Exchange exchange)
+name|void
+name|releaseRetreivedFileResources
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+function_decl|;
 comment|/**      * Stores the content as a new remote file (upload)      *      * @param name     name of new file      * @param exchange with the content content of the file      * @return true if the file was stored, false if not      * @throws GenericFileOperationFailedException can be thrown      */
 DECL|method|storeFile (String name, Exchange exchange)
 name|boolean

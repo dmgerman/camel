@@ -803,6 +803,21 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|releaseRetreivedFileResources (Exchange exchange)
+specifier|public
+name|void
+name|releaseRetreivedFileResources
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|GenericFileOperationFailedException
+block|{
+comment|// noop as we used type converters to read the body content for java.io.File
+block|}
 DECL|method|storeFile (String fileName, Exchange exchange)
 specifier|public
 name|boolean
