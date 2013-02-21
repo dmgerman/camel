@@ -460,7 +460,7 @@ condition|)
 block|{
 name|setFirstChildAsProperty
 argument_list|(
-name|element
+name|elem
 argument_list|,
 name|context
 argument_list|,
@@ -663,7 +663,7 @@ else|else
 block|{
 name|setFirstChildAsProperty
 argument_list|(
-name|element
+name|elem
 argument_list|,
 name|context
 argument_list|,
