@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -446,6 +458,21 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// just check the MEP here
+name|assertEquals
+argument_list|(
+literal|"Don't get the right MEP"
+argument_list|,
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|,
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// adding some binary segment
 name|String
 name|msg

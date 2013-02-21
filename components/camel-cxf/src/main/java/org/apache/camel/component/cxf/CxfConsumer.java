@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -843,7 +855,7 @@ operator|.
 name|getCxfBinding
 argument_list|()
 decl_stmt|;
-comment|// create a Camel exchange
+comment|// create a Camel exchange, the default MEP is InOut
 name|org
 operator|.
 name|apache
@@ -938,6 +950,28 @@ argument_list|,
 name|boi
 argument_list|)
 expr_stmt|;
+comment|// set the message exchange patter with the boi
+if|if
+condition|(
+name|boi
+operator|.
+name|getOperationInfo
+argument_list|()
+operator|.
+name|isOneWay
+argument_list|()
+condition|)
+block|{
+name|camelExchange
+operator|.
+name|setPattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// set data format mode in Camel exchange
 name|camelExchange
