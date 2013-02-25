@@ -54,6 +54,12 @@ name|RECEIPT_HANDLE
 init|=
 literal|"CamelAwsSqsReceiptHandle"
 decl_stmt|;
+DECL|field|DELAY_HEADER
+name|String
+name|DELAY_HEADER
+init|=
+literal|"CamelAwsSqsDelaySeconds"
+decl_stmt|;
 block|}
 end_interface
 
