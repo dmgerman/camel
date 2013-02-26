@@ -2291,8 +2291,6 @@ name|getErrorHandler
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|getErrorHandlerLoggingLevel ()
 specifier|public
 name|LoggingLevel
