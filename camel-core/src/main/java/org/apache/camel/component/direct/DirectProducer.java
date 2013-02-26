@@ -76,7 +76,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultProducer
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -138,9 +138,7 @@ specifier|public
 class|class
 name|DirectProducer
 extends|extends
-name|DefaultProducer
-implements|implements
-name|AsyncProcessor
+name|DefaultAsyncProducer
 block|{
 DECL|field|LOG
 specifier|private
@@ -161,6 +159,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
+specifier|final
 name|DirectEndpoint
 name|endpoint
 decl_stmt|;
