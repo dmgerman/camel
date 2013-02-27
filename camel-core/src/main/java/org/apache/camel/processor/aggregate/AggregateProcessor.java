@@ -2239,6 +2239,37 @@ name|boolean
 name|fromTimeout
 parameter_list|)
 block|{
+comment|// store the correlation key as property before we remove so the repository has that information
+if|if
+condition|(
+name|original
+operator|!=
+literal|null
+condition|)
+block|{
+name|original
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_CORRELATION_KEY
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+name|aggregated
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_CORRELATION_KEY
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
 comment|// remove from repository as its completed, we do this first as to trigger any OptimisticLockingException's
 name|aggregationRepository
 operator|.
@@ -2252,18 +2283,6 @@ argument_list|,
 name|key
 argument_list|,
 name|original
-argument_list|)
-expr_stmt|;
-comment|// store the correlation key as property
-name|aggregated
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|AGGREGATED_CORRELATION_KEY
-argument_list|,
-name|key
 argument_list|)
 expr_stmt|;
 if|if
