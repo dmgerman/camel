@@ -1326,7 +1326,7 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the property value that can be referenced in the camel context      *      * @return the string value of property      *       */
+comment|/**      * Gets the property value that can be referenced in the camel context      *      * @return the string value of property      */
 DECL|method|getProperty (String name)
 name|String
 name|getProperty
