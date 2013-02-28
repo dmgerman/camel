@@ -167,6 +167,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// parent must be a try
+if|if
+condition|(
+operator|!
+operator|(
+name|getParent
+argument_list|()
+operator|instanceof
+name|TryDefinition
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"This doFinally should have a doTry as its parent on "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 comment|// do finally does mandate a child processor
 return|return
 name|this

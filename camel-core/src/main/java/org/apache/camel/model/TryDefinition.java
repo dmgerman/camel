@@ -435,6 +435,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// must have either a catch or finally
+if|if
+condition|(
+name|finallyClause
+operator|==
+literal|null
+operator|&&
+name|catchClauses
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"doTry must have one or more catch or finally blocks on "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|TryProcessor

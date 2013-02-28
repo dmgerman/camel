@@ -507,6 +507,28 @@ literal|"At least one Exception must be configured to catch"
 argument_list|)
 throw|;
 block|}
+comment|// parent must be a try
+if|if
+condition|(
+operator|!
+operator|(
+name|getParent
+argument_list|()
+operator|instanceof
+name|TryDefinition
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"This doCatch should have a doTry as its parent on "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 comment|// do catch does not mandate a child processor
 name|Processor
 name|childProcessor
