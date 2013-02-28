@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/type-coverter.html">Type Converter</a>  * of XMLBeans objects  *  * @version   */
+comment|/**  * A<a href="http://camel.apache.org/type-coverter.html">Type Converter</a>  * of XMLBeans objects  */
 end_comment
 
 begin_class
@@ -445,6 +445,7 @@ annotation|@
 name|Converter
 DECL|method|toXmlObject (Source value, Exchange exchange)
 specifier|public
+specifier|static
 name|XmlObject
 name|toXmlObject
 parameter_list|(
