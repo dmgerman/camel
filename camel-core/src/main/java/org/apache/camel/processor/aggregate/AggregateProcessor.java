@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|LinkedHashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -3900,6 +3910,23 @@ argument_list|(
 literal|"Starting recover check"
 argument_list|)
 expr_stmt|;
+comment|// copy the current in progress before doing scan
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|copyOfInProgress
+init|=
+operator|new
+name|LinkedHashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
+name|inProgressCompleteExchanges
+argument_list|)
+decl_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -3938,9 +3965,18 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// consider in progress if it was in progress before we did the scan, or currently after we did the scan
+comment|// its safer to consider it in progress than risk duplicates due both in progress + recovered
 name|boolean
 name|inProgress
 init|=
+name|copyOfInProgress
+operator|.
+name|contains
+argument_list|(
+name|exchangeId
+argument_list|)
+operator|||
 name|inProgressCompleteExchanges
 operator|.
 name|contains
