@@ -126,6 +126,12 @@ name|AGGREGATION_COMPLETE_ALL_GROUPS
 init|=
 literal|"CamelAggregationCompleteAllGroups"
 decl_stmt|;
+DECL|field|AGGREGATION_COMPLETE_ALL_GROUPS_INCLUSIVE
+name|String
+name|AGGREGATION_COMPLETE_ALL_GROUPS_INCLUSIVE
+init|=
+literal|"CamelAggregationCompleteAllGroupsInclusive"
+decl_stmt|;
 DECL|field|ASYNC_WAIT
 name|String
 name|ASYNC_WAIT

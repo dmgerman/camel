@@ -1304,6 +1304,37 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// check for the special header to force completion of all groups (inclusive of the message)
+name|boolean
+name|completeAllGroupsInclusive
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATION_COMPLETE_ALL_GROUPS_INCLUSIVE
+argument_list|,
+literal|false
+argument_list|,
+name|boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|completeAllGroupsInclusive
+condition|)
+block|{
+name|forceCompletionOfAllGroups
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param newExchange the exchange      * @return the aggregated exchange      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
 DECL|method|doAggregation (String key, Exchange newExchange)
