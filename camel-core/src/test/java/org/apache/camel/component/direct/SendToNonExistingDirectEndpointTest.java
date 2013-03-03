@@ -109,12 +109,12 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|CamelExchangeException
+name|DirectConsumerNotAvailableException
 name|cause
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|CamelExchangeException
+name|DirectConsumerNotAvailableException
 operator|.
 name|class
 argument_list|,
@@ -124,6 +124,16 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|assertIsInstanceOf
+argument_list|(
+name|CamelExchangeException
+operator|.
+name|class
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+comment|// ensure backwards compatibility
 name|assertEquals
 argument_list|(
 literal|"No consumers available on endpoint: Endpoint[direct://foo]. Exchange[Message: Hello World]"

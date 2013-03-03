@@ -50,18 +50,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -219,7 +207,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|CamelExchangeException
+name|DirectConsumerNotAvailableException
 argument_list|(
 literal|"No consumers available on endpoint: "
 operator|+
@@ -287,7 +275,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|CamelExchangeException
+name|DirectConsumerNotAvailableException
 argument_list|(
 literal|"No consumers available on endpoint: "
 operator|+
