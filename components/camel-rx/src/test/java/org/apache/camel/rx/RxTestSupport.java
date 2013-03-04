@@ -136,6 +136,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|producerTemplate
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|After
@@ -147,6 +152,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|producerTemplate
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|camelContext
 operator|.
 name|stop
