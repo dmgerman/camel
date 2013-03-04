@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the<a href="https://rx.codeplex.com/">Reactive Extensions</a> support for  * Camel via the<a href="https://github.com/Netflix/RxJava#readme">RxJava library</a>  */
+comment|/**  * Provides the<a href="https://rx.codeplex.com/">Reactive Extensions</a> support for  * Camel via the<a href="https://github.com/Netflix/RxJava/wiki">RxJava library</a>  */
 end_comment
 
 begin_class
