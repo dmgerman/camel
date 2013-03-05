@@ -1060,7 +1060,7 @@ block|{
 comment|// There is some issue on the StaxStreamReader to CXFPayload message body with different namespaces
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Cannot use StaxStreamReader to unmarshal the message, due to {}"
 argument_list|,
