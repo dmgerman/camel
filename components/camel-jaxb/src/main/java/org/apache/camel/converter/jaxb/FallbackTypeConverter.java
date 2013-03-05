@@ -1028,6 +1028,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|Object
 name|unmarshalled
 init|=
@@ -1048,6 +1050,24 @@ argument_list|(
 name|unmarshalled
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+comment|// There is some issue on the StaxStreamReader to CXFPayload message body with different namespaces
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Cannot use StaxStreamReader to unmarshal the message, due to {}"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 name|InputStream
