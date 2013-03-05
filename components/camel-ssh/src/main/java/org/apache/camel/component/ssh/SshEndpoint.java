@@ -212,22 +212,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|sshd
-operator|.
-name|common
-operator|.
-name|keyprovider
-operator|.
-name|FileKeyPairProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -532,14 +516,14 @@ name|keyPairProvider
 decl_stmt|;
 specifier|final
 name|String
-name|certFilename
+name|certResource
 init|=
-name|getCertFilename
+name|getCertResource
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|certFilename
+name|certResource
 operator|!=
 literal|null
 condition|)
@@ -548,22 +532,28 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Attempting to authenticate using FileKey '{}'..."
+literal|"Attempting to authenticate using ResourceKey '{}'..."
 argument_list|,
-name|certFilename
+name|certResource
 argument_list|)
 expr_stmt|;
 name|keyPairProvider
 operator|=
 operator|new
-name|FileKeyPairProvider
+name|ResourceHelperKeyPairProvider
 argument_list|(
 operator|new
 name|String
 index|[]
 block|{
-name|certFilename
+name|certResource
 block|}
+argument_list|,
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1159,6 +1149,7 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated As of version 2.11, replaced by {@link #getCertResource()}      */
 DECL|method|getCertFilename ()
 specifier|public
 name|String
@@ -1173,6 +1164,7 @@ name|getCertFilename
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void
@@ -1188,6 +1180,38 @@ operator|.
 name|setCertFilename
 argument_list|(
 name|certFilename
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getCertResource ()
+specifier|public
+name|String
+name|getCertResource
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCertResource
+argument_list|()
+return|;
+block|}
+DECL|method|setCertResource (String certResource)
+specifier|public
+name|void
+name|setCertResource
+parameter_list|(
+name|String
+name|certResource
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCertResource
+argument_list|(
+name|certResource
 argument_list|)
 expr_stmt|;
 block|}

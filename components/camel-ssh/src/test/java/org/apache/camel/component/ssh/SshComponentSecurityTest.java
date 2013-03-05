@@ -326,7 +326,7 @@ literal|"ssh://smx@localhost:"
 operator|+
 name|port
 operator|+
-literal|"?certFilename=src/test/resources/hostkey.pem"
+literal|"?certResource=file:src/test/resources/hostkey.pem"
 argument_list|)
 operator|.
 name|to

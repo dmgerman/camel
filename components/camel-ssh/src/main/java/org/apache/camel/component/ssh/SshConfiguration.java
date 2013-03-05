@@ -126,10 +126,10 @@ name|KeyPairProvider
 operator|.
 name|SSH_RSA
 decl_stmt|;
-DECL|field|certFilename
+DECL|field|certResource
 specifier|private
 name|String
-name|certFilename
+name|certResource
 decl_stmt|;
 DECL|field|timeout
 specifier|private
@@ -523,6 +523,7 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+comment|/**      * @deprecated As of version 2.11, replaced by {@link #getCertResource()}      */
 DECL|method|getCertFilename ()
 specifier|public
 name|String
@@ -530,12 +531,32 @@ name|getCertFilename
 parameter_list|()
 block|{
 return|return
-name|this
+operator|(
+operator|(
+name|certResource
+operator|!=
+literal|null
+operator|)
+operator|&&
+name|certResource
 operator|.
-name|certFilename
+name|startsWith
+argument_list|(
+literal|"file:"
+argument_list|)
+operator|)
+condition|?
+name|certResource
+operator|.
+name|substring
+argument_list|(
+literal|5
+argument_list|)
+else|:
+literal|null
 return|;
 block|}
-comment|/**      * Sets the filename of the certificate to use for Authentication.      * Will use FileKeyPairProvider to resolve file based certificate, and depends on keyType setting.      *      * @param certFilename      */
+comment|/**      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void
@@ -547,9 +568,38 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|certFilename
+name|certResource
 operator|=
+literal|"file:"
+operator|+
 name|certFilename
+expr_stmt|;
+block|}
+DECL|method|getCertResource ()
+specifier|public
+name|String
+name|getCertResource
+parameter_list|()
+block|{
+return|return
+name|certResource
+return|;
+block|}
+comment|/**      * Sets the resource path of the certificate to use for Authentication.      * Will use {@link ResourceHelperKeyPairProvider} to resolve file based certificate, and depends on keyType setting.      *      * @param certResource String file, classpath, or http url for the certificate      */
+DECL|method|setCertResource (String certResource)
+specifier|public
+name|void
+name|setCertResource
+parameter_list|(
+name|String
+name|certResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|certResource
+operator|=
+name|certResource
 expr_stmt|;
 block|}
 block|}

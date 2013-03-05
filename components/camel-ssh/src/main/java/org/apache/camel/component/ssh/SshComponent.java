@@ -475,6 +475,7 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated As of version 2.11, replaced by {@link #getCertResource()}      */
 DECL|method|getCertFilename ()
 specifier|public
 name|String
@@ -489,6 +490,7 @@ name|getCertFilename
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void
@@ -504,6 +506,38 @@ operator|.
 name|setCertFilename
 argument_list|(
 name|certFilename
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getCertResource ()
+specifier|public
+name|String
+name|getCertResource
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCertResource
+argument_list|()
+return|;
+block|}
+DECL|method|setCertResource (String certResource)
+specifier|public
+name|void
+name|setCertResource
+parameter_list|(
+name|String
+name|certResource
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCertResource
+argument_list|(
+name|certResource
 argument_list|)
 expr_stmt|;
 block|}
