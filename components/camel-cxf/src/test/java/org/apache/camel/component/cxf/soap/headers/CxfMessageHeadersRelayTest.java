@@ -4987,6 +4987,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// You should be able to get the header if exchange is routed from camel-cxf endpoint
 name|List
 argument_list|<
 name|SoapHeader
@@ -5016,6 +5017,24 @@ name|HEADER_LIST
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|soapHeaders
+operator|==
+literal|null
+condition|)
+block|{
+comment|// we just create a new soap headers in case the header is null
+name|soapHeaders
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|SoapHeader
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Insert a new header
 name|String
 name|xml
