@@ -89,14 +89,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * An {@link Observer} which sends events to a given {@link Endpoint}  */
 end_comment
 
 begin_class
-DECL|class|ProducerObserver
+DECL|class|ObserverSender
 specifier|public
 class|class
-name|ProducerObserver
+name|ObserverSender
 implements|implements
 name|Observer
 block|{
@@ -110,9 +110,9 @@ specifier|private
 name|Producer
 name|producer
 decl_stmt|;
-DECL|method|ProducerObserver (Endpoint endpoint)
+DECL|method|ObserverSender (Endpoint endpoint)
 specifier|public
-name|ProducerObserver
+name|ObserverSender
 parameter_list|(
 name|Endpoint
 name|endpoint

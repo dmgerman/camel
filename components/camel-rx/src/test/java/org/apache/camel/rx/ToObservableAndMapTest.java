@@ -111,10 +111,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|ObservableMessageMapTest
+DECL|class|ToObservableAndMapTest
 specifier|public
 class|class
-name|ObservableMessageMapTest
+name|ToObservableAndMapTest
 extends|extends
 name|RxTestSupport
 block|{
@@ -130,7 +130,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|ObservableMessageMapTest
+name|ToObservableAndMapTest
 operator|.
 name|class
 argument_list|)
