@@ -136,7 +136,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Failed to create route route1: Route[[From[direct:start?foo=bar]] -> [To[mock:result]]] because of"
+literal|"Failed to create route route1: Route(route1)[[From[direct:start?foo=bar]] -> [To[mock:resul... because of"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -214,7 +214,7 @@ name|startsWith
 argument_list|(
 literal|"Failed to create route route2 at:>>> To[direct:result?foo=bar]<<< in route:"
 operator|+
-literal|" Route[[From[direct:start]] -> [To[direct:result?foo=bar]]] because of"
+literal|" Route(route2)[[From[direct:start]] -> [To[direct:result?foo=... because of"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -299,7 +299,7 @@ name|startsWith
 argument_list|(
 literal|"Failed to create route route3 at:>>> Bean[ref:]<<< in route:"
 operator|+
-literal|" Route[[From[direct:start]] -> [To[mock:foo], Bean[ref:]]] because of"
+literal|" Route(route3)[[From[direct:start]] -> [To[mock:foo], Bean[re... because of"
 argument_list|)
 argument_list|)
 expr_stmt|;
