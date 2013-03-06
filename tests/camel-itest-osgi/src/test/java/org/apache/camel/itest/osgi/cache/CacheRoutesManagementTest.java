@@ -306,22 +306,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Is cache manager initialized before doing any routing?
-name|CacheManager
-name|cacheManager
-init|=
-name|cmfRef
-operator|.
-name|getCacheManager
-argument_list|()
-decl_stmt|;
-name|assertNull
-argument_list|(
-literal|"CacheManager initialized"
-argument_list|,
-name|cacheManager
-argument_list|)
-expr_stmt|;
 comment|// Now do some routes to let endpoints be initialized
 name|template
 operator|.
@@ -341,14 +325,14 @@ argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-comment|//Now should not be null
+name|CacheManager
 name|cacheManager
-operator|=
+init|=
 name|cmfRef
 operator|.
 name|getCacheManager
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"CacheManager initialized"
