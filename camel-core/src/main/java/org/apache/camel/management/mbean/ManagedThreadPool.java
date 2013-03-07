@@ -542,6 +542,40 @@ name|purge
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getTaskQueueRemainingCapacity ()
+specifier|public
+name|int
+name|getTaskQueueRemainingCapacity
+parameter_list|()
+block|{
+if|if
+condition|(
+name|threadPool
+operator|.
+name|getQueue
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|threadPool
+operator|.
+name|getQueue
+argument_list|()
+operator|.
+name|remainingCapacity
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+comment|// no queue found, so no capacity
+return|return
+literal|0
+return|;
+block|}
+block|}
 block|}
 end_class
 

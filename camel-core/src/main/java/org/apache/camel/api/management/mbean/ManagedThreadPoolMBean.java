@@ -295,6 +295,20 @@ name|void
 name|purge
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the number of additional elements that the Task queue can"
+operator|+
+literal|" ideally (in the absence of memory or resource constraints) accept"
+argument_list|)
+DECL|method|getTaskQueueRemainingCapacity ()
+name|int
+name|getTaskQueueRemainingCapacity
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
