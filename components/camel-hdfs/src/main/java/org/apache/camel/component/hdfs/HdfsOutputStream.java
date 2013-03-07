@@ -131,6 +131,11 @@ specifier|private
 name|HdfsFileType
 name|fileType
 decl_stmt|;
+DECL|field|info
+specifier|private
+name|HdfsInfo
+name|info
+decl_stmt|;
 DECL|field|actualPath
 specifier|private
 name|String
@@ -244,9 +249,10 @@ name|actualPath
 operator|=
 name|hdfsPath
 expr_stmt|;
-name|HdfsInfo
+name|ret
+operator|.
 name|info
-init|=
+operator|=
 operator|new
 name|HdfsInfo
 argument_list|(
@@ -254,7 +260,7 @@ name|ret
 operator|.
 name|actualPath
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|ret
 operator|.
 name|suffixedPath
@@ -286,6 +292,8 @@ block|{
 if|if
 condition|(
 operator|!
+name|ret
+operator|.
 name|info
 operator|.
 name|getFileSystem
@@ -320,6 +328,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|ret
+operator|.
 name|info
 operator|=
 operator|new
@@ -330,6 +340,8 @@ operator|.
 name|suffixedPath
 argument_list|)
 expr_stmt|;
+name|ret
+operator|.
 name|info
 operator|.
 name|getFileSystem
@@ -360,6 +372,8 @@ else|else
 block|{
 if|if
 condition|(
+name|ret
+operator|.
 name|info
 operator|.
 name|getFileSystem
@@ -385,6 +399,8 @@ name|isOverwrite
 argument_list|()
 condition|)
 block|{
+name|ret
+operator|.
 name|info
 operator|.
 name|getFileSystem
@@ -465,15 +481,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|HdfsInfo
-name|info
-init|=
-operator|new
-name|HdfsInfo
-argument_list|(
-name|actualPath
-argument_list|)
-decl_stmt|;
 name|info
 operator|.
 name|getFileSystem

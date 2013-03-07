@@ -21,6 +21,7 @@ end_package
 begin_class
 DECL|class|Holder
 specifier|public
+specifier|final
 class|class
 name|Holder
 parameter_list|<
