@@ -143,7 +143,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Route myRoute has no inputs: Route[[] -> [To[mock:result]]]"
+literal|"Route myRoute has no inputs: Route(myRoute)[[] -> [To[mock:result]]]"
 argument_list|,
 name|iae
 operator|.

@@ -143,7 +143,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Route myRoute has no outputs: Route[[From[direct:start]] -> []]"
+literal|"Route myRoute has no outputs: Route(myRoute)[[From[direct:start]] -> []]"
 argument_list|,
 name|iae
 operator|.
