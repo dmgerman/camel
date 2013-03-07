@@ -122,7 +122,7 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Looks up a service in the registry, returning the service or<tt>null</tt> if it could not be found.      *      * @param name the name of the service      * @param type the type of the required service      * @return the service from the registry or<tt>null</tt> if it could not be found      * @deprecated use {@link #lookupByNameAndType(String, Class)}      */
+comment|/**      * Looks up a service in the registry, returning the service or<tt>null</tt> if it could not be found.                                            cha      *      * @param name the name of the service      * @param type the type of the required service      * @return the service from the registry or<tt>null</tt> if it could not be found      * @deprecated use {@link #lookupByNameAndType(String, Class)}      */
 annotation|@
 name|Deprecated
 DECL|method|lookup (String name, Class<T> type)
