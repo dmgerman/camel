@@ -130,7 +130,12 @@ name|?
 argument_list|>
 name|type
 decl_stmt|;
-comment|/**      * Creates a new JXPathExpression instance      *       * @param expression the JXPath expression to be evaluated      * @param type the expected result type      */
+DECL|field|lenient
+specifier|private
+name|boolean
+name|lenient
+decl_stmt|;
+comment|/**      * Creates a new JXPathExpression instance (lenient is disabled)      *       * @param expression the JXPath expression to be evaluated      * @param type the expected result type      */
 DECL|method|JXPathExpression (String expression, Class<?> type)
 specifier|public
 name|JXPathExpression
@@ -146,6 +151,34 @@ name|type
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|expression
+argument_list|,
+name|type
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new JXPathExpression instance      *      * @param expression the JXPath expression to be evaluated      * @param type the expected result type      * @param lenient to configure lenient      */
+DECL|method|JXPathExpression (String expression, Class<?> type, boolean lenient)
+specifier|public
+name|JXPathExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|boolean
+name|lenient
+parameter_list|)
+block|{
+name|this
 operator|.
 name|expression
 operator|=
@@ -156,6 +189,38 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+name|this
+operator|.
+name|lenient
+operator|=
+name|lenient
+expr_stmt|;
+block|}
+DECL|method|isLenient ()
+specifier|public
+name|boolean
+name|isLenient
+parameter_list|()
+block|{
+return|return
+name|lenient
+return|;
+block|}
+DECL|method|setLenient (boolean lenient)
+specifier|public
+name|void
+name|setLenient
+parameter_list|(
+name|boolean
+name|lenient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lenient
+operator|=
+name|lenient
 expr_stmt|;
 block|}
 DECL|method|evaluate (Exchange exchange, Class<T> tClass)
@@ -188,6 +253,13 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+name|context
+operator|.
+name|setLenient
+argument_list|(
+name|lenient
+argument_list|)
+expr_stmt|;
 name|Object
 name|result
 init|=
