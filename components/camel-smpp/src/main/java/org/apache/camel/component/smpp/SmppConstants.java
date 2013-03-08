@@ -238,6 +238,12 @@ name|VALIDITY_PERIOD
 init|=
 literal|"CamelSmppValidityPeriod"
 decl_stmt|;
+DECL|field|OPTIONAL_PARAMETERS
+name|String
+name|OPTIONAL_PARAMETERS
+init|=
+literal|"CamelSmppOptionalParameters"
+decl_stmt|;
 DECL|field|UCS2_ENCODING
 name|String
 name|UCS2_ENCODING
