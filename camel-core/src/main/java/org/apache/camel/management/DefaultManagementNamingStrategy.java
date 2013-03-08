@@ -1498,6 +1498,18 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 block|{
+comment|// use the simple name of the class as the mbean name (eg Tracer, BacklogTracer)
+name|String
+name|name
+init|=
+name|tracer
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+decl_stmt|;
 name|StringBuilder
 name|buffer
 init|=
@@ -1563,7 +1575,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"Tracer"
+name|name
 argument_list|)
 expr_stmt|;
 return|return

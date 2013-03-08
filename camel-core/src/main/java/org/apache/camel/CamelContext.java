@@ -1452,13 +1452,28 @@ name|InterceptStrategy
 name|getDefaultTracer
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a custom tracer to be used as the default tracer.      *<p/>      *<b>Note:</b> This must be set before any routes are created,      * changing the defaultTracer for existing routes is not supported.      *      * @param tracer the custom tracer to use as default tracer      */
+comment|/**      * Sets a custom tracer to be used as the default tracer.      *<p/>      *<b>Note:</b> This must be set before any routes are created,      * changing the default tracer for existing routes is not supported.      *      * @param tracer the custom tracer to use as default tracer      */
 DECL|method|setDefaultTracer (InterceptStrategy tracer)
 name|void
 name|setDefaultTracer
 parameter_list|(
 name|InterceptStrategy
 name|tracer
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the default backlog tracer      *      * @return the default backlog tracer      */
+DECL|method|getDefaultBacklogTracer ()
+name|InterceptStrategy
+name|getDefaultBacklogTracer
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom backlog tracer to be used as the default backlog tracer.      *<p/>      *<b>Note:</b> This must be set before any routes are created,      * changing the default backlog tracer for existing routes is not supported.      *      * @param backlogTracer the custom tracer to use as default backlog tracer      */
+DECL|method|setDefaultBacklogTracer (InterceptStrategy backlogTracer)
+name|void
+name|setDefaultBacklogTracer
+parameter_list|(
+name|InterceptStrategy
+name|backlogTracer
 parameter_list|)
 function_decl|;
 comment|/**      * Disables using JMX as {@link org.apache.camel.spi.ManagementStrategy}.      */

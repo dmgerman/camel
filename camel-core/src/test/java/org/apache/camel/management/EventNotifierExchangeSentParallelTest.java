@@ -111,6 +111,14 @@ name|matchesMockWaitTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// give little delay due parallel stuff
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|12
