@@ -89,11 +89,14 @@ name|String
 name|getMessageAsXml
 parameter_list|()
 function_decl|;
-comment|/**      * Dumps the event message as XML using the {@link #ROOT_TAG} as root tag.      *<p/>      * The<tt>timestamp</tt> tag is formatted in the format defined by {@link #TIMESTAMP_FORMAT}      *      * @return xml representation of this event      */
-DECL|method|toXml ()
+comment|/**      * Dumps the event message as XML using the {@link #ROOT_TAG} as root tag.      *<p/>      * The<tt>timestamp</tt> tag is formatted in the format defined by {@link #TIMESTAMP_FORMAT}      *      * @param indent number of spaces to indent      * @return xml representation of this event      */
+DECL|method|toXml (int indent)
 name|String
 name|toXml
-parameter_list|()
+parameter_list|(
+name|int
+name|indent
+parameter_list|)
 function_decl|;
 block|}
 end_interface

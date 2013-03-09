@@ -762,7 +762,9 @@ argument_list|(
 name|event
 operator|.
 name|toXml
-argument_list|()
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -891,7 +893,9 @@ argument_list|(
 name|event
 operator|.
 name|toXml
-argument_list|()
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

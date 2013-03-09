@@ -292,7 +292,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Gets the given body class type name as a String.      *<p/>      * Will skip java.lang. for the build in Java types.      *       * @param message the message with the body      * @return the body typename as String, can return      *<tt>null</null> if no body      */
+comment|/**      * Gets the given body class type name as a String.      *<p/>      * Will skip java.lang. for the build in Java types.      *       * @param message the message with the body      * @return the body type name as String, can return      *<tt>null</null> if no body      */
 DECL|method|getBodyTypeName (Message message)
 specifier|public
 specifier|static
@@ -702,7 +702,7 @@ name|BytesSource
 operator|)
 condition|)
 block|{
-comment|/*                  * Generally do not log StreamSources but as StringSource and                  * ByteSoure are memory based they are ok                  */
+comment|/*                  * Generally do not log StreamSources but as StringSource and                  * ByteSource are memory based they are ok                  */
 return|return
 name|prepend
 operator|+
@@ -1005,6 +1005,34 @@ name|boolean
 name|includeBody
 parameter_list|)
 block|{
+return|return
+name|dumpAsXml
+argument_list|(
+name|message
+argument_list|,
+name|includeBody
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+comment|/**      * Dumps the message as a generic XML structure.      *      * @param message the message      * @param includeBody whether or not to include the message body      * @param indent number of spaces to indent      * @return the XML      */
+DECL|method|dumpAsXml (Message message, boolean includeBody, int indent)
+specifier|public
+specifier|static
+name|String
+name|dumpAsXml
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|boolean
+name|includeBody
+parameter_list|,
+name|int
+name|indent
+parameter_list|)
+block|{
 name|StringBuilder
 name|sb
 init|=
@@ -1012,7 +1040,44 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|StringBuilder
+name|prefix
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|indent
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|prefix
+operator|.
+name|append
+argument_list|(
+literal|" "
+argument_list|)
+expr_stmt|;
+block|}
 comment|// include exchangeId as attribute on the<message> tag
+name|sb
+operator|.
+name|append
+argument_list|(
+name|prefix
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
@@ -1045,6 +1110,13 @@ name|hasHeaders
 argument_list|()
 condition|)
 block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|prefix
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
@@ -1111,6 +1183,13 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|prefix
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
@@ -1233,6 +1312,13 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|prefix
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
 literal|"</headers>\n"
 argument_list|)
 expr_stmt|;
@@ -1242,6 +1328,13 @@ condition|(
 name|includeBody
 condition|)
 block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|prefix
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
@@ -1339,6 +1432,13 @@ literal|"</body>\n"
 argument_list|)
 expr_stmt|;
 block|}
+name|sb
+operator|.
+name|append
+argument_list|(
+name|prefix
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
