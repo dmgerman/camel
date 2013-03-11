@@ -74,6 +74,11 @@ name|Date
 name|getTimestamp
 parameter_list|()
 function_decl|;
+DECL|method|getRouteId ()
+name|String
+name|getRouteId
+parameter_list|()
+function_decl|;
 DECL|method|getToNode ()
 name|String
 name|getToNode

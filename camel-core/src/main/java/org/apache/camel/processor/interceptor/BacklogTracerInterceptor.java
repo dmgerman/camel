@@ -345,6 +345,14 @@ literal|4
 argument_list|)
 decl_stmt|;
 comment|// if first we should add a pseudo trace message as well, so we have a starting message (eg from the route)
+name|String
+name|routeId
+init|=
+name|routeDefinition
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|first
@@ -368,14 +376,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|String
-name|routeId
-init|=
-name|routeDefinition
-operator|.
-name|getId
-argument_list|()
-decl_stmt|;
 name|DefaultBacklogTracerEventMessage
 name|pseudo
 init|=
@@ -390,6 +390,8 @@ argument_list|,
 name|created
 argument_list|,
 name|routeId
+argument_list|,
+literal|null
 argument_list|,
 name|exchangeId
 argument_list|,
@@ -416,6 +418,8 @@ name|incrementTraceCounter
 argument_list|()
 argument_list|,
 name|timestamp
+argument_list|,
+name|routeId
 argument_list|,
 name|toNode
 argument_list|,
