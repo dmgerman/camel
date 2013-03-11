@@ -94,10 +94,10 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelNeo4jTest
+DECL|class|CamelSpringNeo4jTest
 specifier|public
 class|class
-name|CamelNeo4jTest
+name|CamelSpringNeo4jTest
 extends|extends
 name|AbstractFeatureTest
 block|{
@@ -110,7 +110,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelNeo4jTest
+name|CamelSpringNeo4jTest
 operator|.
 name|class
 argument_list|)
