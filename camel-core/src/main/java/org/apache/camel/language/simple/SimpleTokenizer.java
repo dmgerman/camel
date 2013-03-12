@@ -1068,6 +1068,8 @@ name|expression
 operator|.
 name|length
 argument_list|()
+operator|-
+literal|1
 condition|)
 block|{
 comment|// grab next character to escape
