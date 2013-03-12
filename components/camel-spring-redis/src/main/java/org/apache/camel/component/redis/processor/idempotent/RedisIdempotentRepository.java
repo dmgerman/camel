@@ -124,40 +124,6 @@ name|data
 operator|.
 name|redis
 operator|.
-name|connection
-operator|.
-name|RedisConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|data
-operator|.
-name|redis
-operator|.
-name|connection
-operator|.
-name|jedis
-operator|.
-name|JedisConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|data
-operator|.
-name|redis
-operator|.
 name|core
 operator|.
 name|RedisTemplate
@@ -186,7 +152,7 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Redis based message id repository"
+literal|"Spring Redis based message id repository"
 argument_list|)
 DECL|class|RedisIdempotentRepository
 specifier|public
@@ -454,6 +420,26 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 DECL|method|doShutdown ()
 specifier|protected
 name|void
@@ -481,22 +467,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{     }
 block|}
 end_class
 

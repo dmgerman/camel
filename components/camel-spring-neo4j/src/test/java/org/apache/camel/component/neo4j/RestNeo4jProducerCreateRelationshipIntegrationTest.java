@@ -247,7 +247,7 @@ specifier|final
 name|String
 name|neo4jEndpoint
 init|=
-literal|"neo4j:http://localhost:7474/db/data/"
+literal|"spring-neo4j:http://localhost:7474/db/data/"
 decl_stmt|;
 DECL|field|neo
 specifier|private

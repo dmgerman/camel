@@ -174,7 +174,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"redis://localhost:6379?redisTemplate=#redisTemplate"
+literal|"spring-redis://localhost:6379?redisTemplate=#redisTemplate"
 argument_list|)
 expr_stmt|;
 block|}

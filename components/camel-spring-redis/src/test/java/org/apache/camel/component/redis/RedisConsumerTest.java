@@ -551,7 +551,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"redis://localhost:6379?command=SUBSCRIBE&channels=one,two&listenerContainer=#listenerContainer"
+literal|"spring-redis://localhost:6379?command=SUBSCRIBE&channels=one,two&listenerContainer=#listenerContainer"
 argument_list|)
 operator|.
 name|to

@@ -72,7 +72,7 @@ init|=
 operator|new
 name|Neo4jEndpoint
 argument_list|(
-literal|"neo4j:http://localhost/db"
+literal|"spring-neo4j:http://localhost/db"
 argument_list|,
 literal|"http://localhost/db"
 argument_list|,

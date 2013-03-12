@@ -168,7 +168,7 @@ decl_stmt|;
 name|String
 name|uri
 init|=
-literal|"neo4j:http://localhost:5984/db"
+literal|"spring-neo4j:http://localhost:5984/db"
 decl_stmt|;
 name|String
 name|remaining
