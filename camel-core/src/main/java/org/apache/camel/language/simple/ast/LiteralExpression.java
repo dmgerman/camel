@@ -152,6 +152,29 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|quoteEmbeddedNodes ()
+specifier|public
+name|boolean
+name|quoteEmbeddedNodes
+parameter_list|()
+block|{
+comment|// we should quote embedded nodes if using the bean function as the nodes can be parameters
+comment|// to a bean method call so we want to ensure their parameter value is quoted to avoid parsing
+comment|// issues with commas in parameter values being mixed up with commas used for parameter separator
+return|return
+name|text
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"bean:"
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createExpression (String expression)
 specifier|public
 name|Expression

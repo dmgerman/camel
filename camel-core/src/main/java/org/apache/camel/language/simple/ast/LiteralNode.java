@@ -47,6 +47,12 @@ name|String
 name|getText
 parameter_list|()
 function_decl|;
+comment|/**      * Whether to quote embedded nodes.      *<p/>      * Some functions such as the<tt>bean:</tt> function would need to quote its embedded nodes      * as they are parameter values for method names.      */
+DECL|method|quoteEmbeddedNodes ()
+name|boolean
+name|quoteEmbeddedNodes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

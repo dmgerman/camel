@@ -98,6 +98,20 @@ name|SimpleToken
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Starts a function  */
 end_comment
@@ -317,6 +331,11 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|boolean
+name|quoteEmbeddedFunctions
+init|=
+literal|false
+decl_stmt|;
 comment|// we need to concat the block so we have the expression
 for|for
 control|(
@@ -356,6 +375,19 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
+name|quoteEmbeddedFunctions
+operator||=
+operator|(
+operator|(
+name|LiteralNode
+operator|)
+name|child
+operator|)
+operator|.
+name|quoteEmbeddedNodes
+argument_list|()
+expr_stmt|;
+comment|// if its a function or quoted literal, then embed that as text
 block|}
 elseif|else
 if|if
@@ -363,6 +395,14 @@ condition|(
 name|child
 operator|instanceof
 name|SimpleFunctionStart
+operator|||
+name|child
+operator|instanceof
+name|SingleQuoteStart
+operator|||
+name|child
+operator|instanceof
+name|DoubleQuoteStart
 condition|)
 block|{
 try|try
@@ -399,6 +439,39 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|quoteEmbeddedFunctions
+operator|&&
+operator|!
+name|StringHelper
+operator|.
+name|isQuoted
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"'"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|text
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"'"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|sb
 operator|.
 name|append
@@ -406,6 +479,7 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -534,7 +608,7 @@ name|SimpleNode
 name|node
 parameter_list|)
 block|{
-comment|// only accept literals or embedded functions
+comment|// only accept literals, quotes or embedded functions
 if|if
 condition|(
 name|node
@@ -544,6 +618,14 @@ operator|||
 name|node
 operator|instanceof
 name|SimpleFunctionStart
+operator|||
+name|node
+operator|instanceof
+name|SingleQuoteStart
+operator|||
+name|node
+operator|instanceof
+name|DoubleQuoteStart
 condition|)
 block|{
 name|block
