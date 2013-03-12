@@ -157,6 +157,11 @@ specifier|private
 name|boolean
 name|retry
 decl_stmt|;
+DECL|field|closeOnDone
+specifier|private
+name|boolean
+name|closeOnDone
+decl_stmt|;
 DECL|field|scanStreamDelay
 specifier|private
 name|long
@@ -563,6 +568,32 @@ operator|.
 name|retry
 operator|=
 name|retry
+expr_stmt|;
+block|}
+DECL|method|isCloseOnDone ()
+specifier|public
+name|boolean
+name|isCloseOnDone
+parameter_list|()
+block|{
+return|return
+name|closeOnDone
+return|;
+block|}
+DECL|method|setCloseOnDone (boolean closeOnDone)
+specifier|public
+name|void
+name|setCloseOnDone
+parameter_list|(
+name|boolean
+name|closeOnDone
+parameter_list|)
+block|{
+name|this
+operator|.
+name|closeOnDone
+operator|=
+name|closeOnDone
 expr_stmt|;
 block|}
 DECL|method|getScanStreamDelay ()
