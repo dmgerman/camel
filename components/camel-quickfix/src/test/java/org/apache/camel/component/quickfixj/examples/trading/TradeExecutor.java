@@ -1183,10 +1183,14 @@ decl_stmt|;
 name|BigDecimal
 name|thePrice
 init|=
+operator|new
+name|BigDecimal
+argument_list|(
 name|price
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
 decl_stmt|;
 return|return
 operator|(
