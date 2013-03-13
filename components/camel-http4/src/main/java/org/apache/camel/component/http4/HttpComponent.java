@@ -50,6 +50,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -519,6 +531,15 @@ name|int
 name|connectionsPerRoute
 init|=
 literal|20
+decl_stmt|;
+comment|// It's MILLISECONDS, the default value is always keep alive
+DECL|field|connectionTimeToLive
+specifier|protected
+name|long
+name|connectionTimeToLive
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
 DECL|method|connect (HttpConsumer consumer)
@@ -1924,6 +1945,7 @@ operator|new
 name|SchemeRegistry
 argument_list|()
 decl_stmt|;
+comment|// setup the connection live time
 name|PoolingClientConnectionManager
 name|answer
 init|=
@@ -1931,6 +1953,13 @@ operator|new
 name|PoolingClientConnectionManager
 argument_list|(
 name|schemeRegistry
+argument_list|,
+name|getConnectionTimeToLive
+argument_list|()
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 decl_stmt|;
 if|if
@@ -2345,6 +2374,32 @@ operator|.
 name|connectionsPerRoute
 operator|=
 name|connectionsPerRoute
+expr_stmt|;
+block|}
+DECL|method|getConnectionTimeToLive ()
+specifier|public
+name|long
+name|getConnectionTimeToLive
+parameter_list|()
+block|{
+return|return
+name|connectionTimeToLive
+return|;
+block|}
+DECL|method|setConnectionTimeToLive (long connectionTimeToLive)
+specifier|public
+name|void
+name|setConnectionTimeToLive
+parameter_list|(
+name|long
+name|connectionTimeToLive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionTimeToLive
+operator|=
+name|connectionTimeToLive
 expr_stmt|;
 block|}
 annotation|@
