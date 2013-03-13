@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version  */
+comment|/**  * This is a manual test to run  *  * @version  */
 end_comment
 
 begin_class
@@ -192,6 +192,16 @@ DECL|method|testForkAndJoin ()
 specifier|public
 name|void
 name|testForkAndJoin
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+comment|// enable the other test method for manual testing
+block|}
+DECL|method|xxxTestForkAndJoin ()
+specifier|public
+name|void
+name|xxxTestForkAndJoin
 parameter_list|()
 throws|throws
 name|InterruptedException
