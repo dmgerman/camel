@@ -379,13 +379,14 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// give much time as slow servers may take long time
 name|assertMockEndpointsSatisfied
 argument_list|(
-literal|30000
+literal|60
 argument_list|,
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|SECONDS
 argument_list|)
 expr_stmt|;
 comment|// test that all messages are equal
