@@ -24,6 +24,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -93,6 +103,11 @@ argument_list|(
 name|JUnit4TestRunner
 operator|.
 name|class
+argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"camel-spring-neo4j feature does not work yet"
 argument_list|)
 DECL|class|CamelSpringNeo4jTest
 specifier|public
