@@ -112,9 +112,9 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 operator|.
-name|CamelSpringJUnit4ClassRunner
+name|CamelSpringDelegatingTestContextLoader
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|test
 operator|.
 name|spring
 operator|.
-name|CamelSpringDelegatingTestContextLoader
+name|CamelSpringJUnit4ClassRunner
 import|;
 end_import
 
@@ -216,6 +216,10 @@ end_import
 
 begin_comment
 comment|/**  * Test for CamelSpringDelegatingTestContextLoader.  *   */
+end_comment
+
+begin_comment
+comment|//START SNIPPET: example
 end_comment
 
 begin_class
@@ -409,6 +413,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//END SNIPPET: example
+end_comment
 
 end_unit
 
