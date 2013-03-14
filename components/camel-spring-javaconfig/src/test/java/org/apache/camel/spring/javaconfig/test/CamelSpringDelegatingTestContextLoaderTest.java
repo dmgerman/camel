@@ -243,6 +243,7 @@ operator|.
 name|class
 block|}
 argument_list|,
+comment|// Since Camel 2.11.0
 name|loader
 operator|=
 name|CamelSpringDelegatingTestContextLoader
