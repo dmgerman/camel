@@ -281,6 +281,36 @@ name|backlogSize
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setTracePattern (String pattern)
+specifier|public
+name|void
+name|setTracePattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+block|{
+name|backlogTracer
+operator|.
+name|setTracePattern
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTracePattern ()
+specifier|public
+name|String
+name|getTracePattern
+parameter_list|()
+block|{
+return|return
+name|backlogTracer
+operator|.
+name|getTracePattern
+argument_list|()
+return|;
+block|}
 DECL|method|getTraceCounter ()
 specifier|public
 name|long

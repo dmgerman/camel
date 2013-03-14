@@ -127,6 +127,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"To filter tracing by nodes (pattern)"
+argument_list|)
+DECL|method|setTracePattern (String pattern)
+name|void
+name|setTracePattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"To filter tracing by nodes (pattern)"
+argument_list|)
+DECL|method|getTracePattern ()
+name|String
+name|getTracePattern
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Number of total traced messages"
 argument_list|)
 DECL|method|getTraceCounter ()
