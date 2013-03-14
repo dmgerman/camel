@@ -323,7 +323,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Custom TestContextLoader which fixes issues in Camel's JavaConfigContextLoader. (adds support for Camel's test annotations)  *<br>  *<em>This loader can handle either classes or locations for configuring the context.</em>  *<br>  */
+comment|/**  * CamelSpringDelegatingTestContextLoader which fixes issues in Camel's JavaConfigContextLoader. (adds support for Camel's test annotations)  *<br>  *<em>This loader can handle either classes or locations for configuring the context.</em>  *<br>  * NOTE: This TestContextLoader doesn't support the annotation of ExcludeRoutes now.  */
 end_comment
 
 begin_class
@@ -1277,7 +1277,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Handles auto-intercepting of endpoints with mocks based on {@link MockEndpoints} and skipping the      * original endpoint.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
+comment|/**      * Handles auto-intercepting of endpoints with mocks based on {@link MockEndpointsAndSkip} and skipping the      * original endpoint.      *      * @param context the initialized Spring context      * @param testClass the test class being executed      */
 DECL|method|handleMockEndpointsAndSkip (ConfigurableApplicationContext context, Class<?> testClass)
 specifier|protected
 name|void
@@ -1301,7 +1301,7 @@ name|testClass
 operator|.
 name|isAnnotationPresent
 argument_list|(
-name|MockEndpoints
+name|MockEndpointsAndSkip
 operator|.
 name|class
 argument_list|)
@@ -1315,7 +1315,7 @@ name|testClass
 operator|.
 name|getAnnotation
 argument_list|(
-name|MockEndpoints
+name|MockEndpointsAndSkip
 operator|.
 name|class
 argument_list|)
