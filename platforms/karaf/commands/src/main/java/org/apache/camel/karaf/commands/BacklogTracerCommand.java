@@ -300,11 +300,11 @@ literal|1
 argument_list|,
 name|name
 operator|=
-literal|"nodeId"
+literal|"pattern"
 argument_list|,
 name|description
 operator|=
-literal|"To dump trace messages only for the given node id (default is all)"
+literal|"To trace/dump trace messages only for nodes matching the given pattern (default is all)"
 argument_list|,
 name|required
 operator|=
@@ -314,9 +314,9 @@ name|multiValued
 operator|=
 literal|false
 argument_list|)
-DECL|field|route
+DECL|field|pattern
 name|String
-name|route
+name|pattern
 decl_stmt|;
 annotation|@
 name|Argument
@@ -345,6 +345,7 @@ DECL|field|format
 name|String
 name|format
 decl_stmt|;
+comment|// TODO: need to work on a better command syntax to make it easier to use
 DECL|field|camelController
 specifier|private
 name|CamelController
@@ -455,6 +456,41 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|pattern
+operator|!=
+literal|null
+condition|)
+block|{
+name|backlogTracer
+operator|.
+name|setTracePattern
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"BacklogTracer enabled on "
+operator|+
+name|camel
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" using pattern: "
+operator|+
+name|pattern
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|System
 operator|.
 name|out
@@ -469,6 +505,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|null
 return|;
@@ -489,6 +526,13 @@ operator|.
 name|setEnabled
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|backlogTracer
+operator|.
+name|setTracePattern
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 name|System
@@ -546,6 +590,31 @@ name|backlogTracer
 operator|.
 name|isEnabled
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"BacklogTracer pattern:"
+operator|+
+operator|(
+name|backlogTracer
+operator|.
+name|getTracePattern
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|backlogTracer
+operator|.
+name|getTracePattern
+argument_list|()
+else|:
+literal|""
+operator|)
 argument_list|)
 expr_stmt|;
 name|System
