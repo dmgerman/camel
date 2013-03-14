@@ -332,7 +332,22 @@ name|equals
 argument_list|(
 name|scheme
 argument_list|)
-operator|||
+condition|)
+block|{
+comment|// compact path use file OS separator
+name|href
+operator|=
+name|FileUtil
+operator|.
+name|compactPath
+argument_list|(
+name|href
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"classpath:"
 operator|.
 name|equals
@@ -341,6 +356,7 @@ name|scheme
 argument_list|)
 condition|)
 block|{
+comment|// for classpath always use /
 name|href
 operator|=
 name|FileUtil
@@ -348,6 +364,8 @@ operator|.
 name|compactPath
 argument_list|(
 name|href
+argument_list|,
+literal|'/'
 argument_list|)
 expr_stmt|;
 block|}
