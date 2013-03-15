@@ -2166,6 +2166,16 @@ return|return;
 block|}
 comment|// must compact path so SFTP server can traverse correctly, make use of the '/'
 comment|// separator because JSch expects this as the file separator even on Windows
+name|String
+name|before
+init|=
+name|path
+decl_stmt|;
+name|char
+name|separatorChar
+init|=
+literal|'/'
+decl_stmt|;
 name|path
 operator|=
 name|FileUtil
@@ -2174,9 +2184,36 @@ name|compactPath
 argument_list|(
 name|path
 argument_list|,
-literal|'/'
+name|separatorChar
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Compacted path: {} -> {} using separator: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|before
+block|,
+name|path
+block|,
+name|separatorChar
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 comment|// not stepwise should change directory in one operation
 if|if
 condition|(

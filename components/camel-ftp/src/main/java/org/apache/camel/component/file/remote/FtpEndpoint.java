@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -95,6 +105,26 @@ operator|.
 name|file
 operator|.
 name|GenericFileProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|file
+operator|.
+name|remote
+operator|.
+name|RemoteFileConfiguration
+operator|.
+name|PathSeparator
 import|;
 end_import
 
@@ -843,6 +873,52 @@ name|soTimeout
 operator|=
 name|soTimeout
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getFileSeparator ()
+specifier|public
+name|char
+name|getFileSeparator
+parameter_list|()
+block|{
+comment|// the regular ftp component should use the configured separator
+comment|// as FTP servers may require you to use windows or unix style
+comment|// and therefore you need to be able to control that
+name|PathSeparator
+name|pathSeparator
+init|=
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSeparator
+argument_list|()
+decl_stmt|;
+switch|switch
+condition|(
+name|pathSeparator
+condition|)
+block|{
+case|case
+name|Windows
+case|:
+return|return
+literal|'\\'
+return|;
+case|case
+name|UNIX
+case|:
+return|return
+literal|'/'
+return|;
+default|default:
+comment|// use the OS specific separator
+return|return
+name|File
+operator|.
+name|separatorChar
+return|;
+block|}
 block|}
 block|}
 end_class

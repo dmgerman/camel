@@ -3978,6 +3978,19 @@ block|{
 return|return;
 block|}
 comment|// must compact path so FTP server can traverse correctly
+name|String
+name|before
+init|=
+name|path
+decl_stmt|;
+name|char
+name|separatorChar
+init|=
+name|endpoint
+operator|.
+name|getFileSeparator
+argument_list|()
+decl_stmt|;
 name|path
 operator|=
 name|FileUtil
@@ -3985,8 +3998,37 @@ operator|.
 name|compactPath
 argument_list|(
 name|path
+argument_list|,
+name|separatorChar
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Compacted path: {} -> {} using separator: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|before
+block|,
+name|path
+block|,
+name|separatorChar
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 comment|// not stepwise should change directory in one operation
 if|if
 condition|(
