@@ -835,13 +835,21 @@ argument_list|(
 name|newName
 argument_list|)
 decl_stmt|;
+name|String
+name|newEndpointPath
+init|=
+name|normalizePath
+argument_list|(
+name|endpointPath
+argument_list|)
+decl_stmt|;
 name|LOG
 operator|.
 name|trace
 argument_list|(
 literal|"Normalized endpointPath: {}"
 argument_list|,
-name|endpointPath
+name|newEndpointPath
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -875,28 +883,31 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|endpointPath
+name|newEndpointPath
 argument_list|)
 operator|&&
 name|newFileName
 operator|.
 name|startsWith
 argument_list|(
-name|endpointPath
+name|newEndpointPath
 argument_list|)
 condition|)
 block|{
 comment|// clip starting endpoint in case it was added
+comment|// use File.separatorChar as the normalizePath uses this as path separator so we should use the same
+comment|// in this logic here
 if|if
 condition|(
-name|endpointPath
+name|newEndpointPath
 operator|.
 name|endsWith
 argument_list|(
 literal|""
 operator|+
-name|getFileSeparator
-argument_list|()
+name|File
+operator|.
+name|separatorChar
 argument_list|)
 condition|)
 block|{
@@ -908,7 +919,7 @@ name|after
 argument_list|(
 name|newFileName
 argument_list|,
-name|endpointPath
+name|newEndpointPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -922,10 +933,11 @@ name|after
 argument_list|(
 name|newFileName
 argument_list|,
-name|endpointPath
+name|newEndpointPath
 operator|+
-name|getFileSeparator
-argument_list|()
+name|File
+operator|.
+name|separatorChar
 argument_list|)
 expr_stmt|;
 block|}
