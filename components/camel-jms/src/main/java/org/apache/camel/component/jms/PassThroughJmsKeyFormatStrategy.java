@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A strategy that does not do any encoding or decoding, eg. the keys is passed throught as is.  *  * @version   */
+comment|/**  * A strategy that does not do any encoding or decoding, eg. the keys is passed through as is.  *  * @version   */
 end_comment
 
 begin_class
