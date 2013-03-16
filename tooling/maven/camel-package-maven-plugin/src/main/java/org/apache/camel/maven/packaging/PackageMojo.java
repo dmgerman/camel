@@ -114,6 +114,20 @@ name|MavenProject
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|project
+operator|.
+name|MavenProjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal package  * @execute phase="compile"  */
 end_comment
@@ -137,6 +151,12 @@ DECL|field|outDir
 specifier|protected
 name|File
 name|outDir
+decl_stmt|;
+comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
+DECL|field|projectHelper
+specifier|private
+name|MavenProjectHelper
+name|projectHelper
 decl_stmt|;
 comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
 DECL|method|execute ()
@@ -396,6 +416,29 @@ operator|+
 name|names
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|projectHelper
+operator|!=
+literal|null
+condition|)
+block|{
+name|projectHelper
+operator|.
+name|attachArtifact
+argument_list|(
+name|this
+operator|.
+name|project
+argument_list|,
+literal|"properties"
+argument_list|,
+literal|"camelComponent"
+argument_list|,
+name|outFile
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
