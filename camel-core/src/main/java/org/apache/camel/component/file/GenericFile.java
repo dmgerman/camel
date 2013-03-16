@@ -826,10 +826,12 @@ argument_list|,
 name|newName
 argument_list|)
 expr_stmt|;
-comment|// Make sure the newName is normalized.
+comment|// Make sure the names is normalized.
 name|String
 name|newFileName
 init|=
+name|FileUtil
+operator|.
 name|normalizePath
 argument_list|(
 name|newName
@@ -838,6 +840,8 @@ decl_stmt|;
 name|String
 name|newEndpointPath
 init|=
+name|FileUtil
+operator|.
 name|normalizePath
 argument_list|(
 name|endpointPath

@@ -912,11 +912,11 @@ return|return
 literal|'/'
 return|;
 default|default:
-comment|// use the OS specific separator
 return|return
-name|File
+name|super
 operator|.
-name|separatorChar
+name|getFileSeparator
+argument_list|()
 return|;
 block|}
 block|}
