@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder.zip
+DECL|package|org.apache.camel.dataformat.zipfile
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|dataformat
 operator|.
-name|zip
+name|zipfile
 package|;
 end_package
 

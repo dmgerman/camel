@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.builder.zip
+DECL|package|org.apache.camel.dataformat.zipfile
 package|package
 name|org
 operator|.
@@ -12,23 +12,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|dataformat
 operator|.
-name|zip
+name|zipfile
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ContextTestSupport
-import|;
-end_import
 
 begin_import
 import|import
@@ -64,6 +52,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -76,7 +80,7 @@ specifier|public
 class|class
 name|ZipSplitterRouteTest
 extends|extends
-name|ContextTestSupport
+name|CamelTestSupport
 block|{
 annotation|@
 name|Test
@@ -138,7 +142,7 @@ block|{
 comment|// Unzip file and Split it according to FileEntry
 name|from
 argument_list|(
-literal|"file:src/test/resources/org/apache/camel/builder/zip/?consumer.delay=1000&noop=true"
+literal|"file:src/test/resources/org/apache/camel/dataformat/zipfile?consumer.delay=1000&noop=true"
 argument_list|)
 operator|.
 name|log
