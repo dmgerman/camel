@@ -36,6 +36,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -644,6 +654,26 @@ parameter_list|(
 name|String
 name|pattern
 parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a map with the component name, and value with component details.      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Find all Camel components available in the classpath"
+argument_list|)
+DECL|method|findComponents ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Properties
+argument_list|>
+name|findComponents
+parameter_list|()
 throws|throws
 name|Exception
 function_decl|;

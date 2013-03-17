@@ -74,6 +74,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -306,6 +316,20 @@ name|RoutesDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelContextHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -491,8 +515,6 @@ name|getProperties
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|getProperty (String name)
 specifier|public
 name|String
@@ -513,8 +535,6 @@ name|name
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|setProperty (String name, String value)
 specifier|public
 name|void
@@ -756,8 +776,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|onTimer ()
 specifier|public
 name|void
@@ -1256,8 +1274,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|dumpRoutesStatsAsXml (boolean fullStats, boolean includeProcessors)
 specifier|public
 name|String
@@ -1862,6 +1878,28 @@ name|removed
 operator|.
 name|size
 argument_list|()
+return|;
+block|}
+DECL|method|findComponents ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Properties
+argument_list|>
+name|findComponents
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|CamelContextHelper
+operator|.
+name|findComponents
+argument_list|(
+name|context
+argument_list|)
 return|;
 block|}
 block|}
