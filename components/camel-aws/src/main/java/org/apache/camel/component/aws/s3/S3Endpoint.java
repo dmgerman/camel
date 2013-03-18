@@ -64,6 +64,20 @@ name|services
 operator|.
 name|s3
 operator|.
+name|AmazonS3
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
 name|AmazonS3Client
 import|;
 end_import
@@ -306,7 +320,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|s3Client
 specifier|private
-name|AmazonS3Client
+name|AmazonS3
 name|s3Client
 decl_stmt|;
 DECL|field|configuration
@@ -940,12 +954,12 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|setS3Client (AmazonS3Client s3Client)
+DECL|method|setS3Client (AmazonS3 s3Client)
 specifier|public
 name|void
 name|setS3Client
 parameter_list|(
-name|AmazonS3Client
+name|AmazonS3
 name|s3Client
 parameter_list|)
 block|{
@@ -958,7 +972,7 @@ expr_stmt|;
 block|}
 DECL|method|getS3Client ()
 specifier|public
-name|AmazonS3Client
+name|AmazonS3
 name|getS3Client
 parameter_list|()
 block|{
@@ -993,7 +1007,7 @@ return|;
 block|}
 comment|/**      * Provide the possibility to override this method for an mock implementation      *      * @return AmazonS3Client      */
 DECL|method|createS3Client ()
-name|AmazonS3Client
+name|AmazonS3
 name|createS3Client
 parameter_list|()
 block|{
@@ -1014,7 +1028,7 @@ name|getSecretKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AmazonS3Client
+name|AmazonS3
 name|client
 init|=
 operator|new

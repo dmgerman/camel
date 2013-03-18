@@ -64,6 +64,20 @@ name|services
 operator|.
 name|sqs
 operator|.
+name|AmazonSQS
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
 name|AmazonSQSClient
 import|;
 end_import
@@ -299,7 +313,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|client
 specifier|private
-name|AmazonSQSClient
+name|AmazonSQS
 name|client
 decl_stmt|;
 DECL|field|queueUrl
@@ -511,12 +525,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createQueue (AmazonSQSClient client)
+DECL|method|createQueue (AmazonSQS client)
 specifier|private
 name|void
 name|createQueue
 parameter_list|(
-name|AmazonSQSClient
+name|AmazonSQS
 name|client
 parameter_list|)
 block|{
@@ -776,12 +790,12 @@ name|queueUrl
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|updateQueueAttributes (AmazonSQSClient client)
+DECL|method|updateQueueAttributes (AmazonSQS client)
 specifier|private
 name|void
 name|updateQueueAttributes
 parameter_list|(
-name|AmazonSQSClient
+name|AmazonSQS
 name|client
 parameter_list|)
 block|{
@@ -1238,7 +1252,7 @@ expr_stmt|;
 block|}
 DECL|method|getClient ()
 specifier|public
-name|AmazonSQSClient
+name|AmazonSQS
 name|getClient
 parameter_list|()
 block|{
@@ -1259,12 +1273,12 @@ return|return
 name|client
 return|;
 block|}
-DECL|method|setClient (AmazonSQSClient client)
+DECL|method|setClient (AmazonSQS client)
 specifier|public
 name|void
 name|setClient
 parameter_list|(
-name|AmazonSQSClient
+name|AmazonSQS
 name|client
 parameter_list|)
 block|{
@@ -1277,7 +1291,7 @@ expr_stmt|;
 block|}
 comment|/**      * Provide the possibility to override this method for an mock implementation      * @return AmazonSQSClient      */
 DECL|method|createClient ()
-name|AmazonSQSClient
+name|AmazonSQS
 name|createClient
 parameter_list|()
 block|{
@@ -1298,7 +1312,7 @@ name|getSecretKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AmazonSQSClient
+name|AmazonSQS
 name|client
 init|=
 operator|new

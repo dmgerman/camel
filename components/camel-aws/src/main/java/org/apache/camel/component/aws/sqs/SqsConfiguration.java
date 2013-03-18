@@ -40,7 +40,7 @@ name|services
 operator|.
 name|sqs
 operator|.
-name|AmazonSQSClient
+name|AmazonSQS
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|queueName
 decl_stmt|;
 DECL|field|amazonSQSClient
 specifier|private
-name|AmazonSQSClient
+name|AmazonSQS
 name|amazonSQSClient
 decl_stmt|;
 DECL|field|accessKey
@@ -281,7 +281,7 @@ expr_stmt|;
 block|}
 DECL|method|getAmazonSQSClient ()
 specifier|public
-name|AmazonSQSClient
+name|AmazonSQS
 name|getAmazonSQSClient
 parameter_list|()
 block|{
@@ -289,12 +289,12 @@ return|return
 name|amazonSQSClient
 return|;
 block|}
-DECL|method|setAmazonSQSClient (AmazonSQSClient amazonSQSClient)
+DECL|method|setAmazonSQSClient (AmazonSQS amazonSQSClient)
 specifier|public
 name|void
 name|setAmazonSQSClient
 parameter_list|(
-name|AmazonSQSClient
+name|AmazonSQS
 name|amazonSQSClient
 parameter_list|)
 block|{

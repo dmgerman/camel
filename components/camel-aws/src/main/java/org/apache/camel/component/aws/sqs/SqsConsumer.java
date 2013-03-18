@@ -106,7 +106,7 @@ name|services
 operator|.
 name|sqs
 operator|.
-name|AmazonSQSClient
+name|AmazonSQS
 import|;
 end_import
 
@@ -1210,7 +1210,7 @@ return|;
 block|}
 DECL|method|getClient ()
 specifier|protected
-name|AmazonSQSClient
+name|AmazonSQS
 name|getClient
 parameter_list|()
 block|{

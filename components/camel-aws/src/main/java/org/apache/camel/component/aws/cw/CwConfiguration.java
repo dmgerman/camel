@@ -44,7 +44,7 @@ name|services
 operator|.
 name|cloudwatch
 operator|.
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|Cloneable
 block|{
 DECL|field|amazonCwClient
 specifier|private
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|amazonCwClient
 decl_stmt|;
 DECL|field|amazonCwEndpoint
@@ -345,7 +345,7 @@ return|;
 block|}
 DECL|method|getAmazonCwClient ()
 specifier|public
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|getAmazonCwClient
 parameter_list|()
 block|{
@@ -353,12 +353,12 @@ return|return
 name|amazonCwClient
 return|;
 block|}
-DECL|method|setAmazonCwClient (AmazonCloudWatchClient amazonCwClient)
+DECL|method|setAmazonCwClient (AmazonCloudWatch amazonCwClient)
 specifier|public
 name|void
 name|setAmazonCwClient
 parameter_list|(
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|amazonCwClient
 parameter_list|)
 block|{

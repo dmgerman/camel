@@ -54,6 +54,20 @@ name|services
 operator|.
 name|cloudwatch
 operator|.
+name|AmazonCloudWatch
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|cloudwatch
+operator|.
 name|AmazonCloudWatchClient
 import|;
 end_import
@@ -151,7 +165,7 @@ name|configuration
 decl_stmt|;
 DECL|field|cloudWatchClient
 specifier|private
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|cloudWatchClient
 decl_stmt|;
 annotation|@
@@ -299,12 +313,12 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|setCloudWatchClient (AmazonCloudWatchClient cloudWatchClient)
+DECL|method|setCloudWatchClient (AmazonCloudWatch cloudWatchClient)
 specifier|public
 name|void
 name|setCloudWatchClient
 parameter_list|(
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|cloudWatchClient
 parameter_list|)
 block|{
@@ -317,7 +331,7 @@ expr_stmt|;
 block|}
 DECL|method|getCloudWatchClient ()
 specifier|public
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|getCloudWatchClient
 parameter_list|()
 block|{
@@ -351,7 +365,7 @@ name|cloudWatchClient
 return|;
 block|}
 DECL|method|createCloudWatchClient ()
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|createCloudWatchClient
 parameter_list|()
 block|{
@@ -372,7 +386,7 @@ name|getSecretKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AmazonCloudWatchClient
+name|AmazonCloudWatch
 name|client
 init|=
 operator|new

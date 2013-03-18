@@ -30,7 +30,7 @@ name|services
 operator|.
 name|s3
 operator|.
-name|AmazonS3Client
+name|AmazonS3
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|secretKey
 decl_stmt|;
 DECL|field|amazonS3Client
 specifier|private
-name|AmazonS3Client
+name|AmazonS3
 name|amazonS3Client
 decl_stmt|;
 DECL|field|bucketName
@@ -178,7 +178,7 @@ expr_stmt|;
 block|}
 DECL|method|getAmazonS3Client ()
 specifier|public
-name|AmazonS3Client
+name|AmazonS3
 name|getAmazonS3Client
 parameter_list|()
 block|{
@@ -186,12 +186,12 @@ return|return
 name|amazonS3Client
 return|;
 block|}
-DECL|method|setAmazonS3Client (AmazonS3Client amazonS3Client)
+DECL|method|setAmazonS3Client (AmazonS3 amazonS3Client)
 specifier|public
 name|void
 name|setAmazonS3Client
 parameter_list|(
-name|AmazonS3Client
+name|AmazonS3
 name|amazonS3Client
 parameter_list|)
 block|{

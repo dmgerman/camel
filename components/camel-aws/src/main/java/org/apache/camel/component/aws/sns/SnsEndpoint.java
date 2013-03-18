@@ -54,6 +54,20 @@ name|services
 operator|.
 name|sns
 operator|.
+name|AmazonSNS
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sns
+operator|.
 name|AmazonSNSClient
 import|;
 end_import
@@ -235,7 +249,7 @@ name|configuration
 decl_stmt|;
 DECL|field|snsClient
 specifier|private
-name|AmazonSNSClient
+name|AmazonSNS
 name|snsClient
 decl_stmt|;
 annotation|@
@@ -500,12 +514,12 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|setSNSClient (AmazonSNSClient snsClient)
+DECL|method|setSNSClient (AmazonSNS snsClient)
 specifier|public
 name|void
 name|setSNSClient
 parameter_list|(
-name|AmazonSNSClient
+name|AmazonSNS
 name|snsClient
 parameter_list|)
 block|{
@@ -518,7 +532,7 @@ expr_stmt|;
 block|}
 DECL|method|getSNSClient ()
 specifier|public
-name|AmazonSNSClient
+name|AmazonSNS
 name|getSNSClient
 parameter_list|()
 block|{
@@ -553,7 +567,7 @@ return|;
 block|}
 comment|/**      * Provide the possibility to override this method for an mock implementation      *      * @return AmazonSNSClient      */
 DECL|method|createSNSClient ()
-name|AmazonSNSClient
+name|AmazonSNS
 name|createSNSClient
 parameter_list|()
 block|{
@@ -574,7 +588,7 @@ name|getSecretKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AmazonSNSClient
+name|AmazonSNS
 name|client
 init|=
 operator|new

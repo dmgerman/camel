@@ -34,7 +34,7 @@ name|services
 operator|.
 name|sns
 operator|.
-name|AmazonSNSClient
+name|AmazonSNS
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|topicName
 decl_stmt|;
 DECL|field|amazonSNSClient
 specifier|private
-name|AmazonSNSClient
+name|AmazonSNS
 name|amazonSNSClient
 decl_stmt|;
 DECL|field|accessKey
@@ -220,7 +220,7 @@ expr_stmt|;
 block|}
 DECL|method|getAmazonSNSClient ()
 specifier|public
-name|AmazonSNSClient
+name|AmazonSNS
 name|getAmazonSNSClient
 parameter_list|()
 block|{
@@ -228,12 +228,12 @@ return|return
 name|amazonSNSClient
 return|;
 block|}
-DECL|method|setAmazonSNSClient (AmazonSNSClient amazonSNSClient)
+DECL|method|setAmazonSNSClient (AmazonSNS amazonSNSClient)
 specifier|public
 name|void
 name|setAmazonSNSClient
 parameter_list|(
-name|AmazonSNSClient
+name|AmazonSNS
 name|amazonSNSClient
 parameter_list|)
 block|{

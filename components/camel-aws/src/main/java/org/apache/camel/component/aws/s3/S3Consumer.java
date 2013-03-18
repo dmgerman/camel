@@ -70,7 +70,7 @@ name|services
 operator|.
 name|s3
 operator|.
-name|AmazonS3Client
+name|AmazonS3
 import|;
 end_import
 
@@ -884,7 +884,7 @@ return|;
 block|}
 DECL|method|getAmazonS3Client ()
 specifier|protected
-name|AmazonS3Client
+name|AmazonS3
 name|getAmazonS3Client
 parameter_list|()
 block|{

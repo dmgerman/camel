@@ -511,7 +511,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|createSdbClient ()
-name|AmazonSimpleDBClient
+name|AmazonSimpleDB
 name|createSdbClient
 parameter_list|()
 block|{
@@ -532,7 +532,7 @@ name|getSecretKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|AmazonSimpleDBClient
+name|AmazonSimpleDB
 name|client
 init|=
 operator|new
