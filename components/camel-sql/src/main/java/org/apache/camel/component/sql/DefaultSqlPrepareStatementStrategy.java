@@ -263,6 +263,11 @@ block|{
 comment|// the body may be a map which we look at first
 specifier|final
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|bodyMap
 init|=
 name|exchange
@@ -284,6 +289,11 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|headerMap
 init|=
 name|exchange
@@ -307,6 +317,9 @@ decl_stmt|;
 return|return
 operator|new
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|private
