@@ -275,6 +275,15 @@ operator|.
 name|getBacklogSize
 argument_list|()
 decl_stmt|;
+comment|// and we need room for ourselves and possible also a first pseudo message as well
+name|drain
+operator|+=
+name|first
+condition|?
+literal|2
+else|:
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|drain
