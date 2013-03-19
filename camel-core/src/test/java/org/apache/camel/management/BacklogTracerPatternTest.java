@@ -191,9 +191,9 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Should be 10"
+literal|"Should be 1000"
 argument_list|,
-literal|10
+literal|1000
 argument_list|,
 name|size
 operator|.

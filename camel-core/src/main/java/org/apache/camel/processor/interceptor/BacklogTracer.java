@@ -262,6 +262,16 @@ name|ServiceSupport
 implements|implements
 name|InterceptStrategy
 block|{
+comment|// lets limit the tracer to 1000 messages per node
+DECL|field|MAX_BACKLOG_SIZE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|MAX_BACKLOG_SIZE
+init|=
+literal|1000
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 specifier|final
@@ -301,7 +311,7 @@ argument_list|<
 name|DefaultBacklogTracerEventMessage
 argument_list|>
 argument_list|(
-literal|1000
+name|MAX_BACKLOG_SIZE
 argument_list|)
 decl_stmt|;
 comment|// how many of the last messages per node to keep in the backlog
@@ -310,7 +320,14 @@ specifier|private
 name|int
 name|backlogSize
 init|=
-literal|10
+name|MAX_BACKLOG_SIZE
+decl_stmt|;
+DECL|field|removeOnDump
+specifier|private
+name|boolean
+name|removeOnDump
+init|=
+literal|true
 decl_stmt|;
 comment|// a pattern to filter tracing nodes
 DECL|field|tracePattern
@@ -719,11 +736,58 @@ name|backlogSize
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|backlogSize
+operator|>
+name|MAX_BACKLOG_SIZE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The backlog size cannot be greater than the max size of "
+operator|+
+name|MAX_BACKLOG_SIZE
+operator|+
+literal|", was: "
+operator|+
+name|backlogSize
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|backlogSize
 operator|=
 name|backlogSize
+expr_stmt|;
+block|}
+DECL|method|isRemoveOnDump ()
+specifier|public
+name|boolean
+name|isRemoveOnDump
+parameter_list|()
+block|{
+return|return
+name|removeOnDump
+return|;
+block|}
+DECL|method|setRemoveOnDump (boolean removeOnDump)
+specifier|public
+name|void
+name|setRemoveOnDump
+parameter_list|(
+name|boolean
+name|removeOnDump
+parameter_list|)
+block|{
+name|this
+operator|.
+name|removeOnDump
+operator|=
+name|removeOnDump
 expr_stmt|;
 block|}
 DECL|method|getTracePattern ()
@@ -871,6 +935,19 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|removeOnDump
+condition|)
+block|{
+name|queue
+operator|.
+name|removeAll
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -1002,11 +1079,18 @@ argument_list|(
 name|queue
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isRemoveOnDump
+argument_list|()
+condition|)
+block|{
 name|queue
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;

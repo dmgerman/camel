@@ -281,6 +281,36 @@ name|backlogSize
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isRemoveOnDump ()
+specifier|public
+name|boolean
+name|isRemoveOnDump
+parameter_list|()
+block|{
+return|return
+name|backlogTracer
+operator|.
+name|isRemoveOnDump
+argument_list|()
+return|;
+block|}
+DECL|method|setRemoveOnDump (boolean removeOnDump)
+specifier|public
+name|void
+name|setRemoveOnDump
+parameter_list|(
+name|boolean
+name|removeOnDump
+parameter_list|)
+block|{
+name|backlogTracer
+operator|.
+name|setRemoveOnDump
+argument_list|(
+name|removeOnDump
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setTracePattern (String pattern)
 specifier|public
 name|void

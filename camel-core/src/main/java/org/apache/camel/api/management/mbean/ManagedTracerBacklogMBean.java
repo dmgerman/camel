@@ -127,6 +127,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether to remove traced message from backlog when dumping trace messages"
+argument_list|)
+DECL|method|isRemoveOnDump ()
+name|boolean
+name|isRemoveOnDump
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to remove traced message from backlog when dumping trace messages"
+argument_list|)
+DECL|method|setRemoveOnDump (boolean removeOnDump)
+name|void
+name|setRemoveOnDump
+parameter_list|(
+name|boolean
+name|removeOnDump
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"To filter tracing by nodes (pattern)"
 argument_list|)
 DECL|method|setTracePattern (String pattern)
