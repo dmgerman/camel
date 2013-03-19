@@ -1033,6 +1033,51 @@ name|int
 name|indent
 parameter_list|)
 block|{
+return|return
+name|dumpAsXml
+argument_list|(
+name|message
+argument_list|,
+name|includeBody
+argument_list|,
+name|indent
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+literal|128
+operator|*
+literal|1024
+argument_list|)
+return|;
+block|}
+comment|/**      * Dumps the message as a generic XML structure.      *      * @param message the message      * @param includeBody whether or not to include the message body      * @param indent number of spaces to indent      * @param allowStreams whether to include message body if they are stream based      * @param allowFiles whether to include message body if they are file based      * @param maxChars clip body after maximum chars (to avoid very big messages). Use 0 or negative value to not limit at all.      * @return the XML      */
+DECL|method|dumpAsXml (Message message, boolean includeBody, int indent, boolean allowStreams, boolean allowFiles, int maxChars)
+specifier|public
+specifier|static
+name|String
+name|dumpAsXml
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|boolean
+name|includeBody
+parameter_list|,
+name|int
+name|indent
+parameter_list|,
+name|boolean
+name|allowStreams
+parameter_list|,
+name|boolean
+name|allowFiles
+parameter_list|,
+name|int
+name|maxChars
+parameter_list|)
+block|{
 name|StringBuilder
 name|sb
 init|=
@@ -1381,10 +1426,6 @@ argument_list|(
 literal|">"
 argument_list|)
 expr_stmt|;
-comment|// dump body value as XML, use Camel type converter to convert to
-comment|// String
-comment|// do not allow streams, but allow files, and clip very big message
-comment|// bodies (128kb)
 name|String
 name|xml
 init|=
@@ -1394,13 +1435,11 @@ name|message
 argument_list|,
 literal|""
 argument_list|,
-literal|false
+name|allowStreams
 argument_list|,
-literal|true
+name|allowFiles
 argument_list|,
-literal|128
-operator|*
-literal|1024
+name|maxChars
 argument_list|)
 decl_stmt|;
 if|if

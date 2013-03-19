@@ -262,7 +262,7 @@ name|ServiceSupport
 implements|implements
 name|InterceptStrategy
 block|{
-comment|// lets limit the tracer to 1000 messages per node
+comment|// lets limit the tracer to 100 thousand messages in total
 DECL|field|MAX_BACKLOG_SIZE
 specifier|public
 specifier|static
@@ -270,6 +270,8 @@ specifier|final
 name|int
 name|MAX_BACKLOG_SIZE
 init|=
+literal|100
+operator|*
 literal|1000
 decl_stmt|;
 DECL|field|camelContext
@@ -314,18 +316,39 @@ argument_list|(
 name|MAX_BACKLOG_SIZE
 argument_list|)
 decl_stmt|;
-comment|// how many of the last messages per node to keep in the backlog
+comment|// how many of the last messages to keep in the backlog at total
 DECL|field|backlogSize
 specifier|private
 name|int
 name|backlogSize
 init|=
-name|MAX_BACKLOG_SIZE
+literal|1000
 decl_stmt|;
 DECL|field|removeOnDump
 specifier|private
 name|boolean
 name|removeOnDump
+init|=
+literal|true
+decl_stmt|;
+DECL|field|bodyMaxChars
+specifier|private
+name|int
+name|bodyMaxChars
+init|=
+literal|128
+operator|*
+literal|1024
+decl_stmt|;
+DECL|field|bodyIncludeStreams
+specifier|private
+name|boolean
+name|bodyIncludeStreams
+decl_stmt|;
+DECL|field|bodyIncludeFiles
+specifier|private
+name|boolean
+name|bodyIncludeFiles
 init|=
 literal|true
 decl_stmt|;
@@ -788,6 +811,84 @@ operator|.
 name|removeOnDump
 operator|=
 name|removeOnDump
+expr_stmt|;
+block|}
+DECL|method|getBodyMaxChars ()
+specifier|public
+name|int
+name|getBodyMaxChars
+parameter_list|()
+block|{
+return|return
+name|bodyMaxChars
+return|;
+block|}
+DECL|method|setBodyMaxChars (int bodyMaxChars)
+specifier|public
+name|void
+name|setBodyMaxChars
+parameter_list|(
+name|int
+name|bodyMaxChars
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bodyMaxChars
+operator|=
+name|bodyMaxChars
+expr_stmt|;
+block|}
+DECL|method|isBodyIncludeStreams ()
+specifier|public
+name|boolean
+name|isBodyIncludeStreams
+parameter_list|()
+block|{
+return|return
+name|bodyIncludeStreams
+return|;
+block|}
+DECL|method|setBodyIncludeStreams (boolean bodyIncludeStreams)
+specifier|public
+name|void
+name|setBodyIncludeStreams
+parameter_list|(
+name|boolean
+name|bodyIncludeStreams
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bodyIncludeStreams
+operator|=
+name|bodyIncludeStreams
+expr_stmt|;
+block|}
+DECL|method|isBodyIncludeFiles ()
+specifier|public
+name|boolean
+name|isBodyIncludeFiles
+parameter_list|()
+block|{
+return|return
+name|bodyIncludeFiles
+return|;
+block|}
+DECL|method|setBodyIncludeFiles (boolean bodyIncludeFiles)
+specifier|public
+name|void
+name|setBodyIncludeFiles
+parameter_list|(
+name|boolean
+name|bodyIncludeFiles
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bodyIncludeFiles
+operator|=
+name|bodyIncludeFiles
 expr_stmt|;
 block|}
 DECL|method|getTracePattern ()

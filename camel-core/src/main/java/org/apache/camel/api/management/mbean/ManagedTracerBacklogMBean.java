@@ -100,7 +100,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of traced messages to keep in the backlog (FIFO queue)"
+literal|"Number of maximum traced messages in total to keep in the backlog (FIFO queue)"
 argument_list|)
 DECL|method|getBacklogSize ()
 name|int
@@ -112,7 +112,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of traced messages to keep in the backlog (FIFO queue)"
+literal|"Number of maximum traced messages in total to keep in the backlog (FIFO queue)"
 argument_list|)
 DECL|method|setBacklogSize (int backlogSize)
 name|void
@@ -201,13 +201,94 @@ name|resetTraceCounter
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of maximum chars in the message body in the trace message. Use zero or negative value to have unlimited size."
+argument_list|)
+DECL|method|getBodyMaxChars ()
+name|int
+name|getBodyMaxChars
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of maximum chars in the message body in the trace message. Use zero or negative value to have unlimited size."
+argument_list|)
+DECL|method|setBodyMaxChars (int bodyMaxChars)
+name|void
+name|setBodyMaxChars
+parameter_list|(
+name|int
+name|bodyMaxChars
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include stream based message body in the trace message."
+argument_list|)
+DECL|method|isBodyIncludeStreams ()
+name|boolean
+name|isBodyIncludeStreams
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include stream based message body in the trace message."
+argument_list|)
+DECL|method|setBodyIncludeStreams (boolean bodyIncludeStreams)
+name|void
+name|setBodyIncludeStreams
+parameter_list|(
+name|boolean
+name|bodyIncludeStreams
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include file based message body in the trace message."
+argument_list|)
+DECL|method|isBodyIncludeFiles ()
+name|boolean
+name|isBodyIncludeFiles
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include file based message body in the trace message."
+argument_list|)
+DECL|method|setBodyIncludeFiles (boolean bodyIncludeFiles)
+name|void
+name|setBodyIncludeFiles
+parameter_list|(
+name|boolean
+name|bodyIncludeFiles
+parameter_list|)
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Dumps the traced messages for the given node"
+literal|"Dumps the traced messages for the given node or route"
 argument_list|)
-DECL|method|dumpTracedMessages (String nodeId)
+DECL|method|dumpTracedMessages (String nodeOrRouteId)
 name|List
 argument_list|<
 name|BacklogTracerEventMessage
@@ -215,7 +296,7 @@ argument_list|>
 name|dumpTracedMessages
 parameter_list|(
 name|String
-name|nodeId
+name|nodeOrRouteId
 parameter_list|)
 function_decl|;
 annotation|@
@@ -223,14 +304,14 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Dumps the traced messages for the given node in xml format"
+literal|"Dumps the traced messages for the given node or route in xml format"
 argument_list|)
-DECL|method|dumpTracedMessagesAsXml (String nodeId)
+DECL|method|dumpTracedMessagesAsXml (String nodeOrRouteId)
 name|String
 name|dumpTracedMessagesAsXml
 parameter_list|(
 name|String
-name|nodeId
+name|nodeOrRouteId
 parameter_list|)
 function_decl|;
 annotation|@
@@ -238,7 +319,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Dumps the traced messages for all nodes"
+literal|"Dumps all the traced messages"
 argument_list|)
 DECL|method|dumpAllTracedMessages ()
 name|List
@@ -253,7 +334,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Dumps the traced messages for all nodes in xml format"
+literal|"Dumps all the traced messages in xml format"
 argument_list|)
 DECL|method|dumpAllTracedMessagesAsXml ()
 name|String

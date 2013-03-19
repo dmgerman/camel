@@ -366,7 +366,97 @@ name|resetTraceCounter
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|dumpTracedMessages (String nodeId)
+DECL|method|getBodyMaxChars ()
+specifier|public
+name|int
+name|getBodyMaxChars
+parameter_list|()
+block|{
+return|return
+name|backlogTracer
+operator|.
+name|getBodyMaxChars
+argument_list|()
+return|;
+block|}
+DECL|method|setBodyMaxChars (int bodyMaxChars)
+specifier|public
+name|void
+name|setBodyMaxChars
+parameter_list|(
+name|int
+name|bodyMaxChars
+parameter_list|)
+block|{
+name|backlogTracer
+operator|.
+name|setBodyMaxChars
+argument_list|(
+name|bodyMaxChars
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isBodyIncludeStreams ()
+specifier|public
+name|boolean
+name|isBodyIncludeStreams
+parameter_list|()
+block|{
+return|return
+name|backlogTracer
+operator|.
+name|isBodyIncludeStreams
+argument_list|()
+return|;
+block|}
+DECL|method|setBodyIncludeStreams (boolean bodyIncludeStreams)
+specifier|public
+name|void
+name|setBodyIncludeStreams
+parameter_list|(
+name|boolean
+name|bodyIncludeStreams
+parameter_list|)
+block|{
+name|backlogTracer
+operator|.
+name|setBodyIncludeStreams
+argument_list|(
+name|bodyIncludeStreams
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isBodyIncludeFiles ()
+specifier|public
+name|boolean
+name|isBodyIncludeFiles
+parameter_list|()
+block|{
+return|return
+name|backlogTracer
+operator|.
+name|isBodyIncludeFiles
+argument_list|()
+return|;
+block|}
+DECL|method|setBodyIncludeFiles (boolean bodyIncludeFiles)
+specifier|public
+name|void
+name|setBodyIncludeFiles
+parameter_list|(
+name|boolean
+name|bodyIncludeFiles
+parameter_list|)
+block|{
+name|backlogTracer
+operator|.
+name|setBodyIncludeFiles
+argument_list|(
+name|bodyIncludeFiles
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|dumpTracedMessages (String nodeOrRouteId)
 specifier|public
 name|List
 argument_list|<
@@ -375,7 +465,7 @@ argument_list|>
 name|dumpTracedMessages
 parameter_list|(
 name|String
-name|nodeId
+name|nodeOrRouteId
 parameter_list|)
 block|{
 return|return
@@ -383,7 +473,7 @@ name|backlogTracer
 operator|.
 name|dumpTracedMessages
 argument_list|(
-name|nodeId
+name|nodeOrRouteId
 argument_list|)
 return|;
 block|}
@@ -403,13 +493,13 @@ name|dumpAllTracedMessages
 argument_list|()
 return|;
 block|}
-DECL|method|dumpTracedMessagesAsXml (String nodeId)
+DECL|method|dumpTracedMessagesAsXml (String nodeOrRouteId)
 specifier|public
 name|String
 name|dumpTracedMessagesAsXml
 parameter_list|(
 name|String
-name|nodeId
+name|nodeOrRouteId
 parameter_list|)
 block|{
 return|return
@@ -417,7 +507,7 @@ name|backlogTracer
 operator|.
 name|dumpTracedMessagesAsXml
 argument_list|(
-name|nodeId
+name|nodeOrRouteId
 argument_list|)
 return|;
 block|}

@@ -351,6 +351,21 @@ argument_list|,
 literal|true
 argument_list|,
 literal|4
+argument_list|,
+name|backlogTracer
+operator|.
+name|isBodyIncludeStreams
+argument_list|()
+argument_list|,
+name|backlogTracer
+operator|.
+name|isBodyIncludeFiles
+argument_list|()
+argument_list|,
+name|backlogTracer
+operator|.
+name|getBodyMaxChars
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// if first we should add a pseudo trace message as well, so we have a starting message (eg from the route)
