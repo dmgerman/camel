@@ -165,7 +165,9 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"unchecked"
+block|{
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|createBody ()
 specifier|private
@@ -174,10 +176,16 @@ name|createBody
 parameter_list|()
 block|{
 name|List
+argument_list|<
+name|Person
+argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Person
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|list

@@ -1681,6 +1681,9 @@ argument_list|)
 decl_stmt|;
 comment|// any extra properties
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 name|ref
 init|=
 name|bundleContext

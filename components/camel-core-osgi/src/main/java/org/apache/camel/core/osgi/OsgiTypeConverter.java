@@ -299,6 +299,11 @@ implements|,
 name|TypeConverterRegistry
 implements|,
 name|ServiceTrackerCustomizer
+argument_list|<
+name|TypeConverterLoader
+argument_list|,
+name|Object
+argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -338,6 +343,11 @@ DECL|field|tracker
 specifier|private
 specifier|final
 name|ServiceTracker
+argument_list|<
+name|TypeConverterLoader
+argument_list|,
+name|Object
+argument_list|>
 name|tracker
 decl_stmt|;
 DECL|field|delegate
@@ -384,6 +394,11 @@ name|tracker
 operator|=
 operator|new
 name|ServiceTracker
+argument_list|<
+name|TypeConverterLoader
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|bundleContext
 argument_list|,
@@ -398,12 +413,15 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addingService (ServiceReference serviceReference)
+DECL|method|addingService (ServiceReference<TypeConverterLoader> serviceReference)
 specifier|public
 name|Object
 name|addingService
 parameter_list|(
 name|ServiceReference
+argument_list|<
+name|TypeConverterLoader
+argument_list|>
 name|serviceReference
 parameter_list|)
 block|{
@@ -467,24 +485,30 @@ return|return
 name|loader
 return|;
 block|}
-DECL|method|modifiedService (ServiceReference serviceReference, Object o)
+DECL|method|modifiedService (ServiceReference<TypeConverterLoader> serviceReference, Object o)
 specifier|public
 name|void
 name|modifiedService
 parameter_list|(
 name|ServiceReference
+argument_list|<
+name|TypeConverterLoader
+argument_list|>
 name|serviceReference
 parameter_list|,
 name|Object
 name|o
 parameter_list|)
 block|{     }
-DECL|method|removedService (ServiceReference serviceReference, Object o)
+DECL|method|removedService (ServiceReference<TypeConverterLoader> serviceReference, Object o)
 specifier|public
 name|void
 name|removedService
 parameter_list|(
 name|ServiceReference
+argument_list|<
+name|TypeConverterLoader
+argument_list|>
 name|serviceReference
 parameter_list|,
 name|Object

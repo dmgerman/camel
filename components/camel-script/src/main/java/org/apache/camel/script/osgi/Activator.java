@@ -610,6 +610,9 @@ throws|throws
 name|InvalidSyntaxException
 block|{
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|refs
 init|=
@@ -661,6 +664,9 @@ expr_stmt|;
 for|for
 control|(
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 name|ref
 range|:
 name|refs
