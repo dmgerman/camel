@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -109,7 +99,7 @@ name|response
 init|=
 name|template
 operator|.
-name|requestBodyAndHeader
+name|requestBody
 argument_list|(
 literal|"http://localhost:"
 operator|+
@@ -117,18 +107,7 @@ name|port2
 operator|+
 literal|"/jettyTestRouteA?param1=%2B447777111222"
 argument_list|,
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-literal|"This is a test"
-operator|.
-name|getBytes
-argument_list|()
-argument_list|)
-argument_list|,
-literal|"Content-Type"
-argument_list|,
-literal|"text/plain"
+literal|null
 argument_list|,
 name|String
 operator|.
@@ -210,36 +189,28 @@ argument_list|(
 literal|"param1"
 argument_list|)
 decl_stmt|;
-name|assertEquals
+comment|// can be either + or %2B
+name|assertTrue
+argument_list|(
+name|s
+operator|.
+name|equals
 argument_list|(
 literal|" 447777111222"
-argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-literal|"param1"
 argument_list|)
+operator|||
+name|s
+operator|.
+name|equals
+argument_list|(
+literal|"+447777111222"
 argument_list|)
-expr_stmt|;
-comment|// and in the http query %20 becomes a + sign
-name|assertEquals
+operator|||
+name|s
+operator|.
+name|equals
 argument_list|(
-literal|"param1=+447777111222"
-argument_list|,
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|Exchange
-operator|.
-name|HTTP_QUERY
+literal|"%2B447777111222"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -280,12 +251,10 @@ name|log
 argument_list|(
 literal|"Using JettyTestRouteA route: CamelHttpPath=[${header.CamelHttpPath}], CamelHttpUri=[${header.CamelHttpUri}]"
 argument_list|)
-comment|// TODO: Jetty has a bug in its client so use http for now
-comment|// .to("jetty://http://localhost:" + port1 + "/jettyTestRouteB?throwExceptionOnFailure=false&bridgeEndpoint=true");
 operator|.
 name|to
 argument_list|(
-literal|"http://localhost:"
+literal|"jetty://http://localhost:"
 operator|+
 name|port1
 operator|+
