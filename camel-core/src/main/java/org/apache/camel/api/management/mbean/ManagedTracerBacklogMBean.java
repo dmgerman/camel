@@ -341,6 +341,18 @@ name|String
 name|dumpAllTracedMessagesAsXml
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clears the backlog"
+argument_list|)
+DECL|method|clear ()
+name|void
+name|clear
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

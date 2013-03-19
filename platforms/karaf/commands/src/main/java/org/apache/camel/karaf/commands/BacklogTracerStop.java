@@ -241,12 +241,23 @@ name|getDefaultBacklogTracer
 argument_list|()
 expr_stmt|;
 block|}
+comment|// disable tracer and clear counter and the backlog queue
 name|backlogTracer
 operator|.
 name|setEnabled
 argument_list|(
 literal|false
 argument_list|)
+expr_stmt|;
+name|backlogTracer
+operator|.
+name|resetTraceCounter
+argument_list|()
+expr_stmt|;
+name|backlogTracer
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 name|System
 operator|.
