@@ -146,11 +146,6 @@ name|Endpoint
 argument_list|>
 block|{
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
-annotation|@
 name|XmlAttribute
 argument_list|(
 name|required

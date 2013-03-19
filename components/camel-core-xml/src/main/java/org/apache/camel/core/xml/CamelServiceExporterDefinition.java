@@ -72,11 +72,6 @@ name|name
 operator|=
 literal|"export"
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|class|CamelServiceExporterDefinition
 specifier|public
 class|class

@@ -76,11 +76,6 @@ name|name
 operator|=
 literal|"proxy"
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|class|CamelProxyFactoryDefinition
 specifier|public
 class|class
