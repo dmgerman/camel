@@ -1188,16 +1188,17 @@ comment|/**      * Format the object into a string according to the format rule 
 annotation|@
 name|SuppressWarnings
 argument_list|(
-block|{
 literal|"unchecked"
-block|}
 argument_list|)
-DECL|method|formatString (Format format, Object value)
+DECL|method|formatString (Format<?> format, Object value)
 specifier|public
 name|String
 name|formatString
 parameter_list|(
 name|Format
+argument_list|<
+name|?
+argument_list|>
 name|format
 parameter_list|,
 name|Object
@@ -1222,7 +1223,15 @@ try|try
 block|{
 name|strValue
 operator|=
+operator|(
+operator|(
+name|Format
+argument_list|<
+name|Object
+argument_list|>
+operator|)
 name|format
+operator|)
 operator|.
 name|format
 argument_list|(

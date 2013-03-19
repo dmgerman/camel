@@ -106,6 +106,8 @@ name|aries
 operator|.
 name|blueprint
 operator|.
+name|services
+operator|.
 name|ExtendedBlueprintContainer
 import|;
 end_import
