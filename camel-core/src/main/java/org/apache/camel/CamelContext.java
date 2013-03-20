@@ -663,7 +663,7 @@ argument_list|>
 name|getComponentNames
 parameter_list|()
 function_decl|;
-comment|/**      * Removes a previously added component.      *      * @param componentName the component name to remove      * @return the previously added component or null if it had not been previously added.      */
+comment|/**      * Removes a previously added component.      *<p/>      * The component being removed will be stopped first.      *      * @param componentName the component name to remove      * @return the previously added component or null if it had not been previously added.      */
 DECL|method|removeComponent (String componentName)
 name|Component
 name|removeComponent
@@ -746,7 +746,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes all endpoints with the given URI.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed which could be empty if there are no endpoints found for the given<tt>pattern</tt>      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String)  for pattern      */
+comment|/**      * Removes all endpoints with the given URI.      *<p/>      * The endpoints being removed will be stopped first.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed which could be empty if there are no endpoints found for the given<tt>pattern</tt>      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String)  for pattern      */
 DECL|method|removeEndpoints (String pattern)
 name|Collection
 argument_list|<

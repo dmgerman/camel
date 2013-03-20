@@ -2732,7 +2732,7 @@ name|components
 init|)
 block|{
 name|Component
-name|answer
+name|oldComponent
 init|=
 name|components
 operator|.
@@ -2743,11 +2743,39 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|answer
+name|oldComponent
 operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
+name|stopServices
+argument_list|(
+name|oldComponent
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error stopping component "
+operator|+
+name|oldComponent
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|LifecycleStrategy
@@ -2762,7 +2790,7 @@ name|onComponentRemove
 argument_list|(
 name|componentName
 argument_list|,
-name|answer
+name|oldComponent
 argument_list|)
 expr_stmt|;
 block|}
@@ -2770,7 +2798,7 @@ block|}
 comment|// keep reference to properties component up to date
 if|if
 condition|(
-name|answer
+name|oldComponent
 operator|!=
 literal|null
 operator|&&
@@ -2788,7 +2816,7 @@ literal|null
 expr_stmt|;
 block|}
 return|return
-name|answer
+name|oldComponent
 return|;
 block|}
 block|}
@@ -3092,6 +3120,27 @@ argument_list|(
 name|oldEndpoint
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error stopping endpoint "
+operator|+
+name|oldEndpoint
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|.
 name|add
@@ -3109,23 +3158,6 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Error stopping endpoint {}. This exception will be ignored."
-argument_list|,
-name|oldEndpoint
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
