@@ -78,6 +78,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -115,6 +127,8 @@ class|class
 name|GuavaEventBusEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|MultipleConsumersSupport
 block|{
 DECL|field|eventBus
 specifier|private
@@ -302,6 +316,18 @@ name|eventClass
 operator|=
 name|eventClass
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class
