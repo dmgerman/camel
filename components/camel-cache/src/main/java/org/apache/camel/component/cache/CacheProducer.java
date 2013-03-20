@@ -703,14 +703,22 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|Element
+name|element
+init|=
 name|cache
 operator|.
-name|isKeyInCache
+name|getQuiet
 argument_list|(
 name|key
 argument_list|)
+decl_stmt|;
+comment|// getQuiet checks for element expiry
+if|if
+condition|(
+name|element
+operator|!=
+literal|null
 condition|)
 block|{
 name|exchange
