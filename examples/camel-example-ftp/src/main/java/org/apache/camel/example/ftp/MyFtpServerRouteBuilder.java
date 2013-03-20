@@ -110,14 +110,14 @@ argument_list|(
 literal|"{{ftp.server}}"
 argument_list|)
 operator|.
-name|log
-argument_list|(
-literal|"Downloading file ${file:name}"
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"file:target/download"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Downloaded file ${file:name} complete."
 argument_list|)
 expr_stmt|;
 comment|// use system out so it stand out

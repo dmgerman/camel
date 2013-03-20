@@ -117,7 +117,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"{{ftp.server}}"
+literal|"{{ftp.client}}"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Uploaded file ${file:name} complete."
 argument_list|)
 expr_stmt|;
 comment|// use system out so it stand out
