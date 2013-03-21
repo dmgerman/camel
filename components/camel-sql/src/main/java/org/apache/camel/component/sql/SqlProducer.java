@@ -173,7 +173,12 @@ specifier|private
 name|boolean
 name|batch
 decl_stmt|;
-DECL|method|SqlProducer (SqlEndpoint endpoint, String query, JdbcTemplate jdbcTemplate, boolean batch)
+DECL|field|alwaysPopulateStatement
+specifier|private
+name|boolean
+name|alwaysPopulateStatement
+decl_stmt|;
+DECL|method|SqlProducer (SqlEndpoint endpoint, String query, JdbcTemplate jdbcTemplate, boolean batch, boolean alwaysPopulateStatement)
 specifier|public
 name|SqlProducer
 parameter_list|(
@@ -188,6 +193,9 @@ name|jdbcTemplate
 parameter_list|,
 name|boolean
 name|batch
+parameter_list|,
+name|boolean
+name|alwaysPopulateStatement
 parameter_list|)
 block|{
 name|super
@@ -212,6 +220,12 @@ operator|.
 name|batch
 operator|=
 name|batch
+expr_stmt|;
+name|this
+operator|.
+name|alwaysPopulateStatement
+operator|=
+name|alwaysPopulateStatement
 expr_stmt|;
 block|}
 annotation|@
@@ -340,6 +354,16 @@ operator|.
 name|getParameterCount
 argument_list|()
 decl_stmt|;
+comment|// only populate if really needed
+if|if
+condition|(
+name|alwaysPopulateStatement
+operator|||
+name|expected
+operator|>
+literal|0
+condition|)
+block|{
 comment|// transfer incoming message body data to prepared statement parameters, if necessary
 if|if
 condition|(
@@ -479,6 +503,7 @@ argument_list|,
 name|expected
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// execute the prepared statement and populate the outgoing message
 if|if

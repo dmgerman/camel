@@ -180,6 +180,11 @@ name|allowNamedParameters
 init|=
 literal|true
 decl_stmt|;
+DECL|field|alwaysPopulateStatement
+specifier|private
+name|boolean
+name|alwaysPopulateStatement
+decl_stmt|;
 DECL|method|SqlEndpoint ()
 specifier|public
 name|SqlEndpoint
@@ -308,6 +313,8 @@ argument_list|,
 name|jdbcTemplate
 argument_list|,
 name|batch
+argument_list|,
+name|alwaysPopulateStatement
 argument_list|)
 return|;
 block|}
@@ -579,6 +586,32 @@ operator|.
 name|allowNamedParameters
 operator|=
 name|allowNamedParameters
+expr_stmt|;
+block|}
+DECL|method|isAlwaysPopulateStatement ()
+specifier|public
+name|boolean
+name|isAlwaysPopulateStatement
+parameter_list|()
+block|{
+return|return
+name|alwaysPopulateStatement
+return|;
+block|}
+DECL|method|setAlwaysPopulateStatement (boolean alwaysPopulateStatement)
+specifier|public
+name|void
+name|setAlwaysPopulateStatement
+parameter_list|(
+name|boolean
+name|alwaysPopulateStatement
+parameter_list|)
+block|{
+name|this
+operator|.
+name|alwaysPopulateStatement
+operator|=
+name|alwaysPopulateStatement
 expr_stmt|;
 block|}
 annotation|@
