@@ -343,19 +343,6 @@ decl_stmt|;
 comment|// transfer incoming message body data to prepared statement parameters, if necessary
 if|if
 condition|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|batch
 condition|)
 block|{
@@ -492,7 +479,6 @@ argument_list|,
 name|expected
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// execute the prepared statement and populate the outgoing message
 if|if
