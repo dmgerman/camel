@@ -1200,6 +1200,53 @@ argument_list|(
 name|message
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isMapMailMessage
+argument_list|()
+condition|)
+block|{
+comment|// ensure the mail message is mapped, which can be ensured by touching the body/header/attachment
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Mapping #{} from javax.mail.Message to Camel MailMessage"
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachments
+argument_list|()
+expr_stmt|;
+block|}
 comment|// If the protocol is POP3 we need to remember the uid on the exchange
 comment|// so we can find the mail message again later to be able to delete it
 if|if
