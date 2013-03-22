@@ -168,7 +168,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/incoming?password=admin&binary=true&recursive=true"
+literal|"/incoming?password=admin&binary=true&recursive=true&initialDelay=0&delay=100"
 return|;
 block|}
 annotation|@
