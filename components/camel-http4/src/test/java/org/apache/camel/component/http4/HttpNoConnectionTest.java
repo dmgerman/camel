@@ -203,6 +203,13 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+name|localServer
+operator|.
+name|awaitTermination
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|Exchange
 name|reply
 init|=
