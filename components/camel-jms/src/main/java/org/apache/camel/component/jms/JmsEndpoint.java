@@ -1226,6 +1226,35 @@ name|getTaskExecutor
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we are using a shared thread pool that this listener container is using.
+comment|// store a reference to the consumer, but we should not shutdown the thread pool when the consumer stops
+comment|// as the lifecycle of the shared thread pool is handled elsewhere
+if|if
+condition|(
+name|configuration
+operator|.
+name|getTaskExecutor
+argument_list|()
+operator|instanceof
+name|ExecutorService
+condition|)
+block|{
+name|consumer
+operator|.
+name|setListenerContainerExecutorService
+argument_list|(
+operator|(
+name|ExecutorService
+operator|)
+name|configuration
+operator|.
+name|getTaskExecutor
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1275,6 +1304,17 @@ argument_list|(
 name|listenerContainer
 argument_list|,
 name|executor
+argument_list|)
+expr_stmt|;
+comment|// we created a new private thread pool that this listener container is using, now store a reference on the consumer
+comment|// so when the consumer is stopped we can shutdown the thread pool also, to ensure all resources is shutdown
+name|consumer
+operator|.
+name|setListenerContainerExecutorService
+argument_list|(
+name|executor
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -137,6 +149,18 @@ specifier|private
 specifier|volatile
 name|boolean
 name|initialized
+decl_stmt|;
+DECL|field|executorService
+specifier|private
+specifier|volatile
+name|ExecutorService
+name|executorService
+decl_stmt|;
+DECL|field|shutdownExecutorService
+specifier|private
+specifier|volatile
+name|boolean
+name|shutdownExecutorService
 decl_stmt|;
 DECL|method|JmsConsumer (JmsEndpoint endpoint, Processor processor, AbstractMessageListenerContainer listenerContainer)
 specifier|public
@@ -332,6 +356,31 @@ argument_list|(
 name|getEndpointMessageListener
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the {@link ExecutorService} the {@link AbstractMessageListenerContainer} is using (if any).      *<p/>      * The {@link AbstractMessageListenerContainer} may use a private thread pool, and then when this consumer      * is stopped, we need to shutdown this thread pool as well, to clean up all resources.      * If a shared thread pool is used by the {@link AbstractMessageListenerContainer} then the lifecycle      * of that shared thread pool is handled elsewhere (not by this consumer); and therefore      * the<tt>shutdownExecutorService</tt> parameter should be<tt>false</tt>.      *      * @param executorService         the thread pool      * @param shutdownExecutorService whether to shutdown the thread pool when this consumer stops      */
+DECL|method|setListenerContainerExecutorService (ExecutorService executorService, boolean shutdownExecutorService)
+name|void
+name|setListenerContainerExecutorService
+parameter_list|(
+name|ExecutorService
+name|executorService
+parameter_list|,
+name|boolean
+name|shutdownExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
+name|this
+operator|.
+name|shutdownExecutorService
+operator|=
+name|shutdownExecutorService
 expr_stmt|;
 block|}
 comment|/**      * Starts the JMS listener container      *<p/>      * Can be used to start this consumer later if it was configured to not auto startup.      */
@@ -640,6 +689,35 @@ operator|=
 literal|null
 expr_stmt|;
 name|messageListener
+operator|=
+literal|null
+expr_stmt|;
+comment|// shutdown thread pool if listener container was using a private thread pool
+if|if
+condition|(
+name|shutdownExecutorService
+operator|&&
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+block|}
+name|executorService
 operator|=
 literal|null
 expr_stmt|;
