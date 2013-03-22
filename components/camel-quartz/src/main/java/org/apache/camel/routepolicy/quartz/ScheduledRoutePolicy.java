@@ -577,7 +577,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Scheduled trigger: {} for action: {} on route: "
+literal|"Scheduled trigger: {} for action: {} on route {}"
 argument_list|,
 operator|new
 name|Object
