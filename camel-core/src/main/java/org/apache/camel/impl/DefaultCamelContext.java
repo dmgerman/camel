@@ -2547,6 +2547,27 @@ condition|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using ComponentResolver: {} to resolve component with name: {}"
+argument_list|,
+name|getComponentResolver
+argument_list|()
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 name|component
 operator|=
 name|getComponentResolver
@@ -2621,6 +2642,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"getComponent({}) -> {}"
+argument_list|,
+name|name
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
 return|return
 name|component
 return|;
@@ -3337,6 +3369,17 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Endpoint uri: {} is from component with name: {}"
+argument_list|,
+name|uri
+argument_list|,
+name|scheme
+argument_list|)
+expr_stmt|;
 name|Component
 name|component
 init|=
@@ -3353,6 +3396,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Creating endpoint from uri: {} using component: {}"
+argument_list|,
+name|uri
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
 comment|// Have the component create the endpoint if it can.
 if|if
 condition|(
@@ -3435,6 +3489,17 @@ operator|=
 name|createEndpoint
 argument_list|(
 name|uri
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"No component to create endpoint from uri: {} fallback lookup in registry -> {}"
+argument_list|,
+name|uri
+argument_list|,
+name|answer
 argument_list|)
 expr_stmt|;
 block|}
