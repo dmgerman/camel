@@ -214,6 +214,8 @@ name|String
 name|name
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 name|blueprintContainer
 operator|.
@@ -222,6 +224,17 @@ argument_list|(
 name|name
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchComponentException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 annotation|@
 name|Override
