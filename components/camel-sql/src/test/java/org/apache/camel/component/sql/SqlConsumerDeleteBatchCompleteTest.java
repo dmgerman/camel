@@ -272,6 +272,22 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// some servers may be a bit slow for this
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|5
+condition|;
+name|i
+operator|++
+control|)
+block|{
 comment|// give it a little tine to delete
 name|Thread
 operator|.
@@ -280,6 +296,26 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
+name|int
+name|rows
+init|=
+name|jdbcTemplate
+operator|.
+name|queryForInt
+argument_list|(
+literal|"select count(*) from projects"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|rows
+operator|==
+literal|0
+condition|)
+block|{
+break|break;
+block|}
+block|}
 name|assertEquals
 argument_list|(
 literal|"Should have deleted all 3 rows"
