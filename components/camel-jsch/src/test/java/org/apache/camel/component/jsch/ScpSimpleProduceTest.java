@@ -130,7 +130,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|800
 argument_list|)
 expr_stmt|;
 name|File
@@ -223,7 +223,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|800
 argument_list|)
 expr_stmt|;
 name|File
@@ -316,7 +316,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|800
 argument_list|)
 expr_stmt|;
 name|File
@@ -409,7 +409,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|800
 argument_list|)
 expr_stmt|;
 name|File
@@ -504,7 +504,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|800
 argument_list|)
 expr_stmt|;
 name|File
