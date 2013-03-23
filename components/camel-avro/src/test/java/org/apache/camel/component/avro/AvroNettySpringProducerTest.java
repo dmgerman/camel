@@ -87,30 +87,6 @@ name|applicationContext
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|initializeServer
-argument_list|()
-expr_stmt|;
-name|applicationContext
-operator|=
-name|createApplicationContext
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -138,22 +114,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|createApplicationContext ()
-specifier|public
-name|AbstractApplicationContext
-name|createApplicationContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/component/avro/avro-netty-producer.xml"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -164,6 +124,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|applicationContext
+operator|=
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/component/avro/avro-netty-producer.xml"
+argument_list|)
+expr_stmt|;
 return|return
 name|SpringCamelContext
 operator|.

@@ -152,6 +152,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Assert
 import|;
 end_import
@@ -198,25 +208,27 @@ name|IOException
 function_decl|;
 annotation|@
 name|Override
-DECL|method|setUp ()
-specifier|public
+DECL|method|doPreSetup ()
+specifier|protected
 name|void
-name|setUp
+name|doPreSetup
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|initializeServer
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
-name|setUp
+name|doPreSetup
+argument_list|()
+expr_stmt|;
+name|initializeServer
 argument_list|()
 expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|After
 DECL|method|tearDown ()
 specifier|public
 name|void

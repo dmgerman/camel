@@ -142,16 +142,6 @@ name|AvroNettyConsumerTest
 extends|extends
 name|AvroConsumerTestSupport
 block|{
-DECL|field|avroPort
-specifier|static
-name|int
-name|avroPort
-init|=
-name|setupFreePort
-argument_list|(
-literal|"avroport"
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|initializeTranceiver ()

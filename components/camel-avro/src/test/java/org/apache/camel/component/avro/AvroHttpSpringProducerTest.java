@@ -58,16 +58,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -108,32 +98,6 @@ decl_stmt|;
 annotation|@
 name|Override
 annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|initializeServer
-argument_list|()
-expr_stmt|;
-name|applicationContext
-operator|=
-name|createApplicationContext
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-annotation|@
 name|After
 DECL|method|tearDown ()
 specifier|public
@@ -162,22 +126,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|createApplicationContext ()
-specifier|public
-name|AbstractApplicationContext
-name|createApplicationContext
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/component/avro/avro-http-producer.xml"
-argument_list|)
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -188,6 +136,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|applicationContext
+operator|=
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/component/avro/avro-http-producer.xml"
+argument_list|)
+expr_stmt|;
 return|return
 name|SpringCamelContext
 operator|.
