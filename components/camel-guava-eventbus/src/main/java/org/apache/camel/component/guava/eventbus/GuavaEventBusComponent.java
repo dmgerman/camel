@@ -84,6 +84,10 @@ name|CamelContextHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Camel component for Guava EventBus  * (http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/eventbus/EventBus.html). Supports both  * producer and consumer endpoints.  */
+end_comment
+
 begin_class
 DECL|class|GuavaEventBusComponent
 specifier|public

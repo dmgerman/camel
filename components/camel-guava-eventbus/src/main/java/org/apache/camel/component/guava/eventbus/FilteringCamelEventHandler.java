@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Subtype of CamelEventHandler with public method marked with Guava @Subscribe annotation.  */
+comment|/**  * Subtype of CamelEventHandler with public method marked with Guava @Subscribe annotation. Supports  * filtering the messages by event type on the Camel level.  */
 end_comment
 
 begin_class
