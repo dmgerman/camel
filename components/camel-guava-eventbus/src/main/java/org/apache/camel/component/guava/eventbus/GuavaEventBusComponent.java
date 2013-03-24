@@ -97,6 +97,14 @@ specifier|private
 name|EventBus
 name|eventBus
 decl_stmt|;
+DECL|field|listenerInterface
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|listenerInterface
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -159,6 +167,8 @@ argument_list|,
 name|this
 argument_list|,
 name|resolvedEventBus
+argument_list|,
+name|listenerInterface
 argument_list|)
 return|;
 block|}
@@ -186,6 +196,38 @@ operator|.
 name|eventBus
 operator|=
 name|eventBus
+expr_stmt|;
+block|}
+DECL|method|getListenerInterface ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getListenerInterface
+parameter_list|()
+block|{
+return|return
+name|listenerInterface
+return|;
+block|}
+DECL|method|setListenerInterface (Class<?> listenerInterface)
+specifier|public
+name|void
+name|setListenerInterface
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|listenerInterface
+parameter_list|)
+block|{
+name|this
+operator|.
+name|listenerInterface
+operator|=
+name|listenerInterface
 expr_stmt|;
 block|}
 block|}

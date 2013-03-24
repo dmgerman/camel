@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|eventbus
-operator|.
-name|Subscribe
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -131,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class with public method marked with Guava @Subscribe annotation. Responsible for receiving events from the bus and  * sending them to the Camel infrastructure.  */
+comment|/*  * Handler responsible for receiving events from the Guava event bus and sending them to the Camel infrastructure.  */
 end_comment
 
 begin_class
@@ -140,13 +126,12 @@ specifier|public
 class|class
 name|CamelEventHandler
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
+DECL|field|log
+specifier|protected
 specifier|final
 specifier|transient
 name|Logger
-name|LOG
+name|log
 init|=
 name|LoggerFactory
 operator|.
@@ -158,27 +143,18 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|eventBusEndpoint
-specifier|private
+specifier|protected
 specifier|final
 name|GuavaEventBusEndpoint
 name|eventBusEndpoint
 decl_stmt|;
 DECL|field|processor
-specifier|private
+specifier|protected
 specifier|final
 name|AsyncProcessor
 name|processor
 decl_stmt|;
-DECL|field|eventClass
-specifier|private
-specifier|final
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|eventClass
-decl_stmt|;
-DECL|method|CamelEventHandler (GuavaEventBusEndpoint eventBusEndpoint, Processor processor, Class<?> eventClass)
+DECL|method|CamelEventHandler (GuavaEventBusEndpoint eventBusEndpoint, Processor processor)
 specifier|public
 name|CamelEventHandler
 parameter_list|(
@@ -187,12 +163,6 @@ name|eventBusEndpoint
 parameter_list|,
 name|Processor
 name|processor
-parameter_list|,
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|eventClass
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -230,20 +200,12 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|eventClass
-operator|=
-name|eventClass
-expr_stmt|;
 block|}
-comment|/**      * Guava callback when an event was received      * @param event the event      * @throws Exception is thrown if error processing the even      */
-annotation|@
-name|Subscribe
-DECL|method|eventReceived (Object event)
+comment|/**      * Callback executed to propagate event from Guava listener to Camel route.      *      * @param event the event received by Guava      * @throws Exception is thrown if error processing the event      */
+DECL|method|doEventReceived (Object event)
 specifier|public
 name|void
-name|eventReceived
+name|doEventReceived
 parameter_list|(
 name|Object
 name|event
@@ -251,30 +213,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
 literal|"Received event: {}"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|eventClass
-operator|==
-literal|null
-operator|||
-name|eventClass
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|event
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-condition|)
-block|{
 specifier|final
 name|Exchange
 name|exchange
@@ -286,7 +231,7 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -321,46 +266,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Cannot process event: {} as its class type: {} is not assignable with: {}"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|event
-block|,
-name|event
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-block|,
-name|eventClass
-operator|.
-name|getName
-argument_list|()
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 end_class

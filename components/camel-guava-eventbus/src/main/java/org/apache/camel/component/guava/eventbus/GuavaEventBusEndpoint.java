@@ -143,7 +143,15 @@ name|?
 argument_list|>
 name|eventClass
 decl_stmt|;
-DECL|method|GuavaEventBusEndpoint (String endpointUri, Component component, EventBus eventBus)
+DECL|field|listenerInterface
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|listenerInterface
+decl_stmt|;
+DECL|method|GuavaEventBusEndpoint (String endpointUri, Component component, EventBus eventBus, Class<?> listenerInterface)
 specifier|public
 name|GuavaEventBusEndpoint
 parameter_list|(
@@ -155,6 +163,12 @@ name|component
 parameter_list|,
 name|EventBus
 name|eventBus
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|listenerInterface
 parameter_list|)
 block|{
 name|super
@@ -169,6 +183,12 @@ operator|.
 name|eventBus
 operator|=
 name|eventBus
+expr_stmt|;
+name|this
+operator|.
+name|listenerInterface
+operator|=
+name|listenerInterface
 expr_stmt|;
 block|}
 annotation|@
@@ -215,6 +235,8 @@ argument_list|,
 name|eventBus
 argument_list|,
 name|eventClass
+argument_list|,
+name|listenerInterface
 argument_list|)
 return|;
 block|}
@@ -224,6 +246,18 @@ DECL|method|isSingleton ()
 specifier|public
 name|boolean
 name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
 parameter_list|()
 block|{
 return|return
@@ -317,17 +351,37 @@ operator|=
 name|eventClass
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|isMultipleConsumersSupported ()
+DECL|method|getListenerInterface ()
 specifier|public
-name|boolean
-name|isMultipleConsumersSupported
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getListenerInterface
 parameter_list|()
 block|{
 return|return
-literal|true
+name|listenerInterface
 return|;
+block|}
+DECL|method|setListenerInterface (Class<?> listenerInterface)
+specifier|public
+name|void
+name|setListenerInterface
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|listenerInterface
+parameter_list|)
+block|{
+name|this
+operator|.
+name|listenerInterface
+operator|=
+name|listenerInterface
+expr_stmt|;
 block|}
 block|}
 end_class
