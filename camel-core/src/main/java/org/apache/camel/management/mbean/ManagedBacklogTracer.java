@@ -341,6 +341,36 @@ name|getTracePattern
 argument_list|()
 return|;
 block|}
+DECL|method|setTraceFilter (String predicate)
+specifier|public
+name|void
+name|setTraceFilter
+parameter_list|(
+name|String
+name|predicate
+parameter_list|)
+block|{
+name|backlogTracer
+operator|.
+name|setTraceFilter
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTraceFilter ()
+specifier|public
+name|String
+name|getTraceFilter
+parameter_list|()
+block|{
+return|return
+name|backlogTracer
+operator|.
+name|getTraceFilter
+argument_list|()
+return|;
+block|}
 DECL|method|getTraceCounter ()
 specifier|public
 name|long

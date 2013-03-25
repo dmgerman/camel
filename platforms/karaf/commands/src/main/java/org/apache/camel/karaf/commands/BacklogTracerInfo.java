@@ -300,6 +300,31 @@ name|out
 operator|.
 name|println
 argument_list|(
+literal|"BacklogTracer filter:\t\t"
+operator|+
+operator|(
+name|backlogTracer
+operator|.
+name|getTraceFilter
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|backlogTracer
+operator|.
+name|getTraceFilter
+argument_list|()
+else|:
+literal|""
+operator|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
 literal|"BacklogTracer removeOnDump:\t"
 operator|+
 name|backlogTracer

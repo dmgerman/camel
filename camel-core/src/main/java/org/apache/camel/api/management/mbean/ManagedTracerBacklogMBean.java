@@ -181,6 +181,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"To filter tracing by predicate (uses simple language by default)"
+argument_list|)
+DECL|method|setTraceFilter (String predicate)
+name|void
+name|setTraceFilter
+parameter_list|(
+name|String
+name|predicate
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"To filter tracing by predicate (uses simple language by default)"
+argument_list|)
+DECL|method|getTraceFilter ()
+name|String
+name|getTraceFilter
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Number of total traced messages"
 argument_list|)
 DECL|method|getTraceCounter ()

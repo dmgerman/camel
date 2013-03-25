@@ -258,6 +258,8 @@ operator|.
 name|shouldTrace
 argument_list|(
 name|processorDefinition
+argument_list|,
+name|exchange
 argument_list|)
 condition|)
 block|{
