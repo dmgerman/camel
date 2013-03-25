@@ -72,6 +72,10 @@ name|DefaultProducer
 import|;
 end_import
 
+begin_comment
+comment|/**  * Guava EventBus (http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/eventbus/EventBus.html)  * producer forwarding messages from Camel routes to the bus.  */
+end_comment
+
 begin_class
 DECL|class|GuavaEventBusProducer
 specifier|public

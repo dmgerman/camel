@@ -130,6 +130,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Guava EventBus (http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/eventbus/EventBus.html)  * consumer reading messages from the bus and forwarding them to the Camel routes.  */
+end_comment
+
 begin_class
 DECL|class|GuavaEventBusConsumer
 specifier|public
