@@ -462,6 +462,16 @@ argument_list|(
 name|u
 argument_list|)
 decl_stmt|;
+comment|// parameters using raw syntax: RAW(value)
+comment|// should have the token removed, so its only the value we have in parameters, as we are about to create
+comment|// an endpoint and want to have the parameter values without the RAW tokens
+name|URISupport
+operator|.
+name|resolveRawParameterValues
+argument_list|(
+name|parameters
+argument_list|)
+expr_stmt|;
 comment|// use encoded or raw uri?
 name|uri
 operator|=
@@ -485,13 +495,14 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
+comment|// at trace level its okay to have parameters logged, that may contain passwords
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Creating endpoint uri=[{}], path=[{}], parameters=[{}]"
 argument_list|,
@@ -514,6 +525,43 @@ name|path
 argument_list|)
 block|,
 name|parameters
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+comment|// but at debug level only output sanitized uris
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Creating endpoint uri=[{}], path=[{}]"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|uri
+argument_list|)
+block|,
+name|URISupport
+operator|.
+name|sanitizePath
+argument_list|(
+name|path
+argument_list|)
 block|}
 argument_list|)
 expr_stmt|;
@@ -543,10 +591,6 @@ return|;
 block|}
 if|if
 condition|(
-name|parameters
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|parameters
 operator|.
