@@ -207,12 +207,32 @@ argument_list|(
 literal|"windows"
 argument_list|)
 decl_stmt|;
-comment|// Does not work on AIX and the problem is hard to identify, could be issues not allowing to use a custom port
+name|boolean
+name|solaris
+init|=
+name|os
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"sunos"
+argument_list|)
+decl_stmt|;
+comment|// Does not work on AIX / solaris and the problem is hard to identify, could be issues not allowing to use a custom port
 comment|// java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.NameNotFoundException: jmxrmi/camel
 comment|// windows CI servers is often slow/tricky so skip as well
 return|return
 operator|!
 name|aix
+operator|&&
+operator|!
+name|solaris
 operator|&&
 operator|!
 name|windows
@@ -342,6 +362,53 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|// restore environment to original state
+comment|// the following properties may have been set by specialization of this test class
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|USE_PLATFORM_MBS
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|DOMAIN
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|MBEAN_DOMAIN
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|CREATE_CONNECTOR
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+name|JmxSystemPropertyKeys
+operator|.
+name|REGISTRY_PORT
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|tearDown
