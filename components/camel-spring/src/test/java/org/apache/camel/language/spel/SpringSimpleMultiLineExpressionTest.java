@@ -60,30 +60,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
 begin_class
 DECL|class|SpringSimpleMultiLineExpressionTest
 specifier|public
@@ -134,14 +110,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertThat
-argument_list|(
-name|result
-argument_list|,
-name|is
+name|assertEquals
 argument_list|(
 literal|"correct"
-argument_list|)
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
 block|}
