@@ -156,6 +156,13 @@ name|copyAndDeleteOnRenameFail
 init|=
 literal|true
 decl_stmt|;
+DECL|field|forceWrites
+specifier|private
+name|boolean
+name|forceWrites
+init|=
+literal|true
+decl_stmt|;
 DECL|method|FileEndpoint ()
 specifier|public
 name|FileEndpoint
@@ -741,6 +748,32 @@ operator|.
 name|copyAndDeleteOnRenameFail
 operator|=
 name|copyAndDeleteOnRenameFail
+expr_stmt|;
+block|}
+DECL|method|isForceWrites ()
+specifier|public
+name|boolean
+name|isForceWrites
+parameter_list|()
+block|{
+return|return
+name|forceWrites
+return|;
+block|}
+DECL|method|setForceWrites (boolean forceWrites)
+specifier|public
+name|void
+name|setForceWrites
+parameter_list|(
+name|boolean
+name|forceWrites
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceWrites
+operator|=
+name|forceWrites
 expr_stmt|;
 block|}
 block|}
