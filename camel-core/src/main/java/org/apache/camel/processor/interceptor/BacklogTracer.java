@@ -320,6 +320,18 @@ name|ServiceSupport
 implements|implements
 name|InterceptStrategy
 block|{
+comment|// lets limit the tracer to 100 thousand messages in total
+DECL|field|MAX_BACKLOG_SIZE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|MAX_BACKLOG_SIZE
+init|=
+literal|100
+operator|*
+literal|1000
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -336,18 +348,6 @@ name|BacklogTracer
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-comment|// lets limit the tracer to 100 thousand messages in total
-DECL|field|MAX_BACKLOG_SIZE
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|MAX_BACKLOG_SIZE
-init|=
-literal|100
-operator|*
-literal|1000
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
