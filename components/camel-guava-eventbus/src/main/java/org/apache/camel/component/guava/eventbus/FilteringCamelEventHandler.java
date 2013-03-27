@@ -98,7 +98,7 @@ operator|=
 name|eventClass
 expr_stmt|;
 block|}
-comment|/**      * Guava callback executed when an event was received.      *      * @param event the event      * @throws Exception is thrown if error processing the event      */
+comment|/**      * Guava callback executed when an event was received.      *      * @param event the event      */
 annotation|@
 name|Subscribe
 DECL|method|eventReceived (Object event)
@@ -109,8 +109,6 @@ parameter_list|(
 name|Object
 name|event
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

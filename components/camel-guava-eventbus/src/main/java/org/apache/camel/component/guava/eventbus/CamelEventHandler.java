@@ -201,7 +201,7 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Callback executed to propagate event from Guava listener to Camel route.      *      * @param event the event received by Guava EventBus.      * @throws Exception is thrown if error processing the event      */
+comment|/**      * Callback executed to propagate event from Guava listener to Camel route.      *      * @param event the event received by Guava EventBus.      */
 DECL|method|doEventReceived (Object event)
 specifier|public
 name|void
@@ -210,8 +210,6 @@ parameter_list|(
 name|Object
 name|event
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|log
 operator|.
