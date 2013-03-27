@@ -74,6 +74,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -1174,8 +1184,7 @@ name|exchange
 argument_list|)
 throw|;
 block|}
-comment|//
-comment|// todo: explain optimistic lock handling
+comment|// when optimist locking is enabled we keep trying until we succeed
 if|if
 condition|(
 name|optimisticLocking
@@ -1259,6 +1268,35 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// use a little random delay to avoid being to aggressive when retrying, and avoid potential clashing
+name|int
+name|ran
+init|=
+operator|new
+name|Random
+argument_list|()
+operator|.
+name|nextInt
+argument_list|(
+literal|1000
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Sleeping for {} millis before attempting again"
+argument_list|,
+name|ran
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+name|ran
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 else|else
