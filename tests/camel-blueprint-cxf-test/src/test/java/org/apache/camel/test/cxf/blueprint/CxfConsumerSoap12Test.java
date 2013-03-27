@@ -255,24 +255,18 @@ return|return
 literal|"org/apache/camel/test/cxf/blueprint/CxfConsumerSoap12Beans.xml"
 return|;
 block|}
+DECL|method|isCreateCamelContextPerClass ()
+specifier|public
+name|boolean
+name|isCreateCamelContextPerClass
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Test
-DECL|method|testBeanDefinitionParserAndInvokeGreeter ()
-specifier|public
-name|void
-name|testBeanDefinitionParserAndInvokeGreeter
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// the execution order of the test could cause the test failed
-name|testInvokeGreeter
-argument_list|()
-expr_stmt|;
-name|testCxfEndpointBeanDefinitionParser
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|testCxfEndpointBeanDefinitionParser ()
 specifier|public
 name|void
@@ -380,6 +374,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testInvokeGreeter ()
 specifier|public
 name|void
