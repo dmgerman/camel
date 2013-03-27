@@ -114,6 +114,12 @@ name|ACL
 init|=
 literal|"CamelAwsS3Acl"
 decl_stmt|;
+DECL|field|USER_METADATA
+name|String
+name|USER_METADATA
+init|=
+literal|"CamelAwsS3UserMetadata"
+decl_stmt|;
 block|}
 end_interface
 
