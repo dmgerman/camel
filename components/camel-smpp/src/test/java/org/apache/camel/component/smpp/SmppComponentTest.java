@@ -787,10 +787,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|allowEmptySystemTypeOption ()
+DECL|method|allowEmptySystemTypeAndServiceTypeOption ()
 specifier|public
 name|void
-name|allowEmptySystemTypeOption
+name|allowEmptySystemTypeAndServiceTypeOption
 parameter_list|()
 throws|throws
 name|Exception
@@ -821,6 +821,15 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|parameters
+operator|.
+name|put
+argument_list|(
+literal|"serviceType"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|Endpoint
 name|endpoint
 init|=
@@ -830,7 +839,7 @@ name|createEndpoint
 argument_list|(
 literal|"smpp://smppclient@localhost:2775"
 argument_list|,
-literal|"?systemType="
+literal|"?systemType=&serviceType="
 argument_list|,
 name|parameters
 argument_list|)
@@ -853,6 +862,19 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|getSystemType
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|smppEndpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getServiceType
 argument_list|()
 argument_list|)
 expr_stmt|;

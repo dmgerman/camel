@@ -195,6 +195,7 @@ name|uri
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO Camel 3.0 cmueller: We should change the default in Camel 3.0 to '' so that we can remove this special handling
 comment|// special handling to set the system type to an empty string
 if|if
 condition|(
@@ -227,6 +228,41 @@ operator|.
 name|remove
 argument_list|(
 literal|"systemType"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// special handling to set the service type to an empty string
+if|if
+condition|(
+name|parameters
+operator|.
+name|containsKey
+argument_list|(
+literal|"serviceType"
+argument_list|)
+operator|&&
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"serviceType"
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|config
+operator|.
+name|setServiceType
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+name|parameters
+operator|.
+name|remove
+argument_list|(
+literal|"serviceType"
 argument_list|)
 expr_stmt|;
 block|}
