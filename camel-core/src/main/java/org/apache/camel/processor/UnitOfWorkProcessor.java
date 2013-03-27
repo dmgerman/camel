@@ -385,12 +385,21 @@ name|Exception
 block|{
 comment|// if a route context has been configured, then wrap the processor with a
 comment|// RouteContextProcessor to ensure we track the route context properly during
-comment|// processing of the exchange
+comment|// processing of the exchange, but only do this once
 if|if
 condition|(
 name|routeContext
 operator|!=
 literal|null
+operator|&&
+operator|(
+operator|!
+operator|(
+name|processor
+operator|instanceof
+name|RouteContextProcessor
+operator|)
+operator|)
 condition|)
 block|{
 name|processor
