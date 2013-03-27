@@ -120,6 +120,10 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_comment
+comment|/**  * Guava EventBus (http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/eventbus/EventBus.html)  * endpoint. Can create both producer and consumer ends of the route.  */
+end_comment
+
 begin_class
 DECL|class|GuavaEventBusEndpoint
 specifier|public
