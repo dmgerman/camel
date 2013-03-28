@@ -39,9 +39,15 @@ end_comment
 begin_class
 DECL|class|MyFtpServer
 specifier|public
+specifier|final
 class|class
 name|MyFtpServer
 block|{
+DECL|method|MyFtpServer ()
+specifier|private
+name|MyFtpServer
+parameter_list|()
+block|{     }
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
