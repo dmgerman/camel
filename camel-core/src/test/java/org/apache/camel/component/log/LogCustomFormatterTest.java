@@ -643,15 +643,11 @@ DECL|field|counter
 specifier|private
 name|int
 name|counter
-init|=
-literal|0
 decl_stmt|;
 DECL|field|addTen
 specifier|private
 name|boolean
 name|addTen
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|Override
