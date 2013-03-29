@@ -83,6 +83,11 @@ name|deleteAfterRead
 init|=
 literal|true
 decl_stmt|;
+DECL|field|deleteAfterWrite
+specifier|private
+name|boolean
+name|deleteAfterWrite
+decl_stmt|;
 DECL|field|amazonS3Endpoint
 specifier|private
 name|String
@@ -304,6 +309,32 @@ operator|.
 name|deleteAfterRead
 operator|=
 name|deleteAfterRead
+expr_stmt|;
+block|}
+DECL|method|isDeleteAfterWrite ()
+specifier|public
+name|boolean
+name|isDeleteAfterWrite
+parameter_list|()
+block|{
+return|return
+name|deleteAfterWrite
+return|;
+block|}
+DECL|method|setDeleteAfterWrite (boolean deleteAfterWrite)
+specifier|public
+name|void
+name|setDeleteAfterWrite
+parameter_list|(
+name|boolean
+name|deleteAfterWrite
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deleteAfterWrite
+operator|=
+name|deleteAfterWrite
 expr_stmt|;
 block|}
 DECL|method|getPolicy ()
