@@ -233,7 +233,7 @@ specifier|private
 name|Exception
 name|exception
 decl_stmt|;
-comment|/**      * Creates a payload object with the information from the given exchange.      *      * @param exchange the exchange      * @return the holder object with information copied form the exchange      */
+comment|/**      * Creates a payload object with the information from the given exchange.      *      * @param exchange the exchange, must<b>not</b> be<tt>null</tt>      * @return the holder object with information copied form the exchange      */
 DECL|method|marshal (Exchange exchange)
 specifier|public
 specifier|static
@@ -253,7 +253,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a payload object with the information from the given exchange.      *      * @param exchange the exchange      * @param includeProperties whether or not to include exchange properties      * @return the holder object with information copied form the exchange      */
+comment|/**      * Creates a payload object with the information from the given exchange.      *      * @param exchange the exchange, must<b>not</b> be<tt>null</tt>      * @param includeProperties whether or not to include exchange properties      * @return the holder object with information copied form the exchange      */
 DECL|method|marshal (Exchange exchange, boolean includeProperties)
 specifier|public
 specifier|static
@@ -267,6 +267,15 @@ name|boolean
 name|includeProperties
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|exchange
+argument_list|,
+literal|"exchange"
+argument_list|)
+expr_stmt|;
 comment|// we do not support files
 name|Object
 name|body
@@ -425,7 +434,7 @@ return|return
 name|payload
 return|;
 block|}
-comment|/**      * Transfers the information from the payload to the exchange.      *      * @param exchange the exchange to set values from the payload      * @param payload  the payload with the values      */
+comment|/**      * Transfers the information from the payload to the exchange.      *      * @param exchange the exchange to set values from the payload, must<b>not</b> be<tt>null</tt>      * @param payload  the payload with the values, must<b>not</b> be<tt>null</tt>      */
 DECL|method|unmarshal (Exchange exchange, DefaultExchangeHolder payload)
 specifier|public
 specifier|static
@@ -439,6 +448,24 @@ name|DefaultExchangeHolder
 name|payload
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|exchange
+argument_list|,
+literal|"exchange"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|payload
+argument_list|,
+literal|"payload"
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setExchangeId
@@ -525,6 +552,15 @@ name|outHeaders
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|payload
+operator|.
+name|outFaultFlag
+operator|!=
+literal|null
+condition|)
+block|{
 name|exchange
 operator|.
 name|getOut
@@ -535,11 +571,9 @@ argument_list|(
 name|payload
 operator|.
 name|outFaultFlag
-operator|.
-name|booleanValue
-argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
