@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.csv
+DECL|package|org.apache.camel.dataformat.bindy.model.csv
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|dataformat
 operator|.
 name|bindy
+operator|.
+name|model
 operator|.
 name|csv
 package|;

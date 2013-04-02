@@ -785,7 +785,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"Skipping marshal of header row; 'skipHeader=true'"
 argument_list|)
@@ -854,7 +854,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"Skipping marshal of footer row; 'skipFooter=true'"
 argument_list|)
