@@ -455,6 +455,42 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// content type should match
+name|boolean
+name|match1
+init|=
+literal|"image/jpeg; name=logo.jpeg"
+operator|.
+name|equals
+argument_list|(
+name|handler
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|boolean
+name|match2
+init|=
+literal|"application/octet-stream; name=logo.jpeg"
+operator|.
+name|equals
+argument_list|(
+name|handler
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should match 1 or 2"
+argument_list|,
+name|match1
+operator|||
+name|match2
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Handler name should be the file name"

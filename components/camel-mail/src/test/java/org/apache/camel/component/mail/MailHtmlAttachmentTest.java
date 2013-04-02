@@ -420,36 +420,41 @@ literal|1000
 argument_list|)
 expr_stmt|;
 comment|// content type should match
-if|if
-condition|(
-name|isJava16
-argument_list|()
-condition|)
-block|{
-name|assertEquals
-argument_list|(
+name|boolean
+name|match1
+init|=
 literal|"image/jpeg; name=logo.jpeg"
-argument_list|,
-name|handler
 operator|.
-name|getContentType
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
+name|equals
 argument_list|(
-literal|"application/octet-stream; name=logo.jpeg"
-argument_list|,
 name|handler
 operator|.
 name|getContentType
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|boolean
+name|match2
+init|=
+literal|"application/octet-stream; name=logo.jpeg"
+operator|.
+name|equals
+argument_list|(
+name|handler
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should match 1 or 2"
+argument_list|,
+name|match1
+operator|||
+name|match2
+argument_list|)
 expr_stmt|;
-block|}
 comment|// save logo for visual inspection
 name|template
 operator|.
