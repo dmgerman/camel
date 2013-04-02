@@ -454,14 +454,84 @@ argument_list|,
 name|Object
 argument_list|>
 name|parameters
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|useRawUri
+argument_list|()
+condition|)
+block|{
+comment|// when using raw uri then the query is taking from the uri as is
+name|String
+name|query
+decl_stmt|;
+name|idx
+operator|=
+name|uri
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|idx
+operator|>
+operator|-
+literal|1
+condition|)
+block|{
+name|query
+operator|=
+name|uri
+operator|.
+name|substring
+argument_list|(
+name|idx
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|query
+operator|=
+name|u
+operator|.
+name|getRawQuery
+argument_list|()
+expr_stmt|;
+block|}
+comment|// and use method parseQuery
+name|parameters
+operator|=
+name|URISupport
+operator|.
+name|parseQuery
+argument_list|(
+name|query
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// however when using the encoded (default mode) uri then the query,
+comment|// is taken from the URI (ensures values is URI encoded)
+comment|// and use method parseParameters
+name|parameters
+operator|=
 name|URISupport
 operator|.
 name|parseParameters
 argument_list|(
 name|u
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// parameters using raw syntax: RAW(value)
 comment|// should have the token removed, so its only the value we have in parameters, as we are about to create
 comment|// an endpoint and want to have the parameter values without the RAW tokens

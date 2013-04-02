@@ -352,6 +352,36 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
+return|return
+name|parseQuery
+argument_list|(
+name|uri
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Parses the query part of the uri (eg the parameters).      *<p/>      * The URI parameters will by default be URI encoded. However you can define a parameter      * values with the syntax:<tt>key=RAW(value)</tt> which tells Camel to not encode the value,      * and use the value as is (eg key=value) and the value has<b>not</b> been encoded.      *      * @param uri the uri      * @param useRaw whether to force using raw values      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      * @see #RAW_TOKEN_START      * @see #RAW_TOKEN_END      */
+DECL|method|parseQuery (String uri, boolean useRaw)
+specifier|public
+specifier|static
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parseQuery
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|useRaw
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
 comment|// must check for trailing& as the uri.split("&") will ignore those
 if|if
 condition|(
@@ -608,6 +638,8 @@ argument_list|()
 argument_list|,
 name|rc
 argument_list|,
+name|useRaw
+operator|||
 name|isRaw
 argument_list|)
 expr_stmt|;
@@ -691,6 +723,8 @@ argument_list|()
 argument_list|,
 name|rc
 argument_list|,
+name|useRaw
+operator|||
 name|isRaw
 argument_list|)
 expr_stmt|;
@@ -776,6 +810,8 @@ argument_list|()
 argument_list|,
 name|rc
 argument_list|,
+name|useRaw
+operator|||
 name|isRaw
 argument_list|)
 expr_stmt|;
@@ -1340,6 +1376,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|value
+operator|!=
+literal|null
+operator|&&
 name|value
 operator|.
 name|startsWith

@@ -37,7 +37,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Whether to use raw or encoded uri, when creating endpoints.      *      * @return<tt>true</tt> to use raw uris,<tt>false</tt> to use encoded uris (default).      *      * @since Camel 2.11.0      */
+comment|/**      * Whether to use raw or encoded uri, when creating endpoints.      *<p/>      *<b>Notice:</b> When using raw uris, then the parameter values is raw as well.      *      * @return<tt>true</tt> to use raw uris,<tt>false</tt> to use encoded uris (default).      *      * @since Camel 2.11.0      */
 DECL|method|useRawUri ()
 name|boolean
 name|useRawUri
