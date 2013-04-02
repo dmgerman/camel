@@ -302,6 +302,18 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Data format supporting SOAP 1.1 and 1.2.  */
 end_comment
@@ -566,7 +578,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Marshal inputObjects to SOAP xml. If the exchange or message has an      * EXCEPTION_CAUGTH property or header then instead of the object the      * exception is marshaled.      *       * To determine the name of the top level xml elements the elementNameStrategy      * is used.      */
+comment|/**      * Marshal inputObjects to SOAP xml. If the exchange or message has an      * EXCEPTION_CAUGTH property or header then instead of the object the      * exception is marshaled.      *       * To determine the name of the top level xml elements the elementNameStrategy      * is used.      * @throws IOException,SAXException       */
 DECL|method|marshal (Exchange exchange, Object inputObject, OutputStream stream)
 specifier|public
 name|void
@@ -583,6 +595,8 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|SAXException
 block|{
 name|checkElementNameStrategy
 argument_list|(
@@ -1218,7 +1232,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Unmarshal a given SOAP xml stream and return the content of the SOAP body      */
+comment|/**      * Unmarshal a given SOAP xml stream and return the content of the SOAP body      * @throws IOException,SAXException      */
 DECL|method|unmarshal (Exchange exchange, InputStream stream)
 specifier|public
 name|Object
@@ -1232,6 +1246,8 @@ name|stream
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|SAXException
 block|{
 name|checkElementNameStrategy
 argument_list|(
