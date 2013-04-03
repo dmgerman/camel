@@ -1992,6 +1992,16 @@ name|getPropertiesResolver
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|configurer
+operator|.
+name|setParser
+argument_list|(
+name|pc
+operator|.
+name|getPropertiesParser
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|ref
 init|=
@@ -1999,9 +2009,17 @@ literal|"ref:"
 operator|+
 name|id
 decl_stmt|;
+comment|// use the bridge to handle the resolve and parsing
 name|pc
 operator|.
 name|setPropertiesResolver
+argument_list|(
+name|configurer
+argument_list|)
+expr_stmt|;
+name|pc
+operator|.
+name|setPropertiesParser
 argument_list|(
 name|configurer
 argument_list|)
