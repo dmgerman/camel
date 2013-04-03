@@ -621,7 +621,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<ChannelSftp.LsEntry> tGenericFileOperations, GenericFile<ChannelSftp.LsEntry> tGenericFile, Exchange exchange)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<ChannelSftp.LsEntry> operations, GenericFile<ChannelSftp.LsEntry> file, Exchange exchange)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
@@ -632,7 +632,7 @@ name|ChannelSftp
 operator|.
 name|LsEntry
 argument_list|>
-name|tGenericFileOperations
+name|operations
 parameter_list|,
 name|GenericFile
 argument_list|<
@@ -640,7 +640,7 @@ name|ChannelSftp
 operator|.
 name|LsEntry
 argument_list|>
-name|tGenericFile
+name|file
 parameter_list|,
 name|Exchange
 name|exchange

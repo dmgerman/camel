@@ -608,7 +608,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<FTPFile> tGenericFileOperations, GenericFile<FTPFile> tGenericFile, Exchange exchange)
+DECL|method|releaseExclusiveReadLock (GenericFileOperations<FTPFile> operations, GenericFile<FTPFile> file, Exchange exchange)
 specifier|public
 name|void
 name|releaseExclusiveReadLock
@@ -617,13 +617,13 @@ name|GenericFileOperations
 argument_list|<
 name|FTPFile
 argument_list|>
-name|tGenericFileOperations
+name|operations
 parameter_list|,
 name|GenericFile
 argument_list|<
 name|FTPFile
 argument_list|>
-name|tGenericFile
+name|file
 parameter_list|,
 name|Exchange
 name|exchange
