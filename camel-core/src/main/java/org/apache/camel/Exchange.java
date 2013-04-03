@@ -356,6 +356,12 @@ name|FILE_LOCK_FILE_ACQUIRED
 init|=
 literal|"CamelFileLockFileAcquired"
 decl_stmt|;
+DECL|field|FILE_LOCK_FILE_NAME
+name|String
+name|FILE_LOCK_FILE_NAME
+init|=
+literal|"CamelFileLockFileName"
+decl_stmt|;
 DECL|field|GROUPED_EXCHANGE
 name|String
 name|GROUPED_EXCHANGE
