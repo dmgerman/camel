@@ -719,6 +719,16 @@ name|getBinding
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// the JmsBinding is designed to be "pull-based": it will populate the Camel message on demand
+comment|// therefore, we link Exchange and OUT message before continuing, so that the JmsBinding has full access
+comment|// to everything it may need, and can populate headers, properties, etc. accordingly (solves CAMEL-6218).
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|Object
 name|body
 init|=
@@ -743,7 +753,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reply received. Setting reply as an Exception: {}"
+literal|"Reply was an Exception. Setting the Exception on the Exchange: {}"
 argument_list|,
 name|body
 argument_list|)
@@ -767,17 +777,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Reply received. Setting reply as OUT message: {}"
+literal|"Reply received. OUT message body set to reply payload: {}"
 argument_list|,
 name|body
-argument_list|)
-expr_stmt|;
-comment|// regular response
-name|exchange
-operator|.
-name|setOut
-argument_list|(
-name|response
 argument_list|)
 expr_stmt|;
 block|}
