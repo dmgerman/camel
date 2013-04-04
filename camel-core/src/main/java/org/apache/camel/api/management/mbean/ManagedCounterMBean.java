@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -68,6 +78,18 @@ argument_list|)
 DECL|method|reset ()
 name|void
 name|reset
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timestamp when the stats was last reset or initially started"
+argument_list|)
+DECL|method|getResetTimestamp ()
+name|Date
+name|getResetTimestamp
 parameter_list|()
 function_decl|;
 annotation|@

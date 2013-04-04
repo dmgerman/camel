@@ -176,6 +176,13 @@ name|meanProcessingTime
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|resetTimestamp
+specifier|private
+name|String
+name|resetTimestamp
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|firstExchangeCompletedTimestamp
 specifier|private
 name|String
@@ -514,6 +521,32 @@ operator|.
 name|meanProcessingTime
 operator|=
 name|meanProcessingTime
+expr_stmt|;
+block|}
+DECL|method|getResetTimestamp ()
+specifier|public
+name|String
+name|getResetTimestamp
+parameter_list|()
+block|{
+return|return
+name|resetTimestamp
+return|;
+block|}
+DECL|method|setResetTimestamp (String resetTimestamp)
+specifier|public
+name|void
+name|setResetTimestamp
+parameter_list|(
+name|String
+name|resetTimestamp
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resetTimestamp
+operator|=
+name|resetTimestamp
 expr_stmt|;
 block|}
 DECL|method|getFirstExchangeCompletedTimestamp ()

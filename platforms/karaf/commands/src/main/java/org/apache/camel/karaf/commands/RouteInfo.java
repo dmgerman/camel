@@ -928,7 +928,7 @@ argument_list|)
 expr_stmt|;
 comment|// Test for null to see if a any exchanges have been processed first to avoid NPE
 name|Object
-name|firstExchangeTimestampObj
+name|resetTimestampObj
 init|=
 name|mBeanServer
 operator|.
@@ -936,7 +936,7 @@ name|getAttribute
 argument_list|(
 name|routeMBean
 argument_list|,
-literal|"FirstExchangeCompletedTimestamp"
+literal|"ResetTimestamp"
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -946,6 +946,74 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|resetTimestampObj
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Print an empty value for scripting
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\tReset Statistics Date:"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|Date
+name|firstExchangeTimestamp
+init|=
+operator|(
+name|Date
+operator|)
+name|resetTimestampObj
+decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\tReset Statistics Date: "
+operator|+
+name|format
+operator|.
+name|format
+argument_list|(
+name|firstExchangeTimestamp
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Test for null to see if a any exchanges have been processed first to avoid NPE
+name|Object
+name|firstExchangeTimestampObj
+init|=
+name|mBeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|routeMBean
+argument_list|,
+literal|"FirstExchangeCompletedTimestamp"
 argument_list|)
 decl_stmt|;
 if|if

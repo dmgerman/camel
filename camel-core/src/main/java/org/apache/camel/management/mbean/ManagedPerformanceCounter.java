@@ -1451,6 +1451,26 @@ name|String
 operator|.
 name|format
 argument_list|(
+literal|" resetTimestamp=\"%s\""
+argument_list|,
+name|dateAsString
+argument_list|(
+name|resetTimestamp
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
 literal|" firstExchangeCompletedTimestamp=\"%s\""
 argument_list|,
 name|dateAsString
