@@ -178,6 +178,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|felix
 operator|.
 name|gogo
@@ -449,6 +463,33 @@ name|StringEscapeUtils
 operator|.
 name|unescapeJava
 argument_list|(
+literal|"\tEndpoint uri: "
+operator|+
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|camelRoute
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
 literal|"\tCamel Context: "
 operator|+
 name|camelRoute
@@ -585,7 +626,6 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-comment|// TODO: add a row with the route endpoint, so you can see that
 comment|// TODO: add column with total time (delta for self time)
 name|String
 name|xml

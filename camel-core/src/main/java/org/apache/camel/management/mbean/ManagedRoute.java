@@ -1347,7 +1347,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// get all the processor mbeans and sort them accordinly to their index
+comment|// get all the processor mbeans and sort them accordingly to their index
 name|ObjectName
 name|query
 init|=
