@@ -268,7 +268,7 @@ specifier|final
 name|String
 name|HEADER_FORMAT
 init|=
-literal|"%-30s %10s %10s %12s %12s %12s %12s %12s"
+literal|"%-30s %10s %10s %12s %12s %12s %12s %12s %12s"
 decl_stmt|;
 DECL|field|OUTPUT_FORMAT
 specifier|protected
@@ -277,7 +277,7 @@ specifier|final
 name|String
 name|OUTPUT_FORMAT
 init|=
-literal|"[%-28s] [%8d] [%8d] [%10d] [%10d] [%10d] [%10d] [%10d]"
+literal|"[%-28s] [%8d] [%8d] [%10d] [%10d] [%10d] [%10d] [%10d] [%10d]"
 decl_stmt|;
 annotation|@
 name|Argument
@@ -661,6 +661,8 @@ literal|"Failed"
 argument_list|,
 literal|"Last (ms)"
 argument_list|,
+literal|"Delta (ms)"
+argument_list|,
 literal|"Mean (ms)"
 argument_list|,
 literal|"Min (ms)"
@@ -701,6 +703,11 @@ argument_list|,
 name|route
 operator|.
 name|getLastProcessingTime
+argument_list|()
+argument_list|,
+name|route
+operator|.
+name|getDeltaProcessingTime
 argument_list|()
 argument_list|,
 name|route
@@ -781,6 +788,11 @@ argument_list|,
 name|ps
 operator|.
 name|getLastProcessingTime
+argument_list|()
+argument_list|,
+name|ps
+operator|.
+name|getDeltaProcessingTime
 argument_list|()
 argument_list|,
 name|ps

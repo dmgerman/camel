@@ -215,6 +215,20 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Delta Processing Time [milliseconds]"
+argument_list|)
+DECL|method|getDeltaProcessingTime ()
+name|long
+name|getDeltaProcessingTime
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Last Exchange Completed Timestamp"
 argument_list|)
 DECL|method|getLastExchangeCompletedTimestamp ()

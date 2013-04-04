@@ -214,6 +214,13 @@ name|lastProcessingTime
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|deltaProcessingTime
+specifier|private
+name|Long
+name|deltaProcessingTime
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|meanProcessingTime
 specifier|private
 name|Long
@@ -548,6 +555,32 @@ operator|.
 name|lastProcessingTime
 operator|=
 name|lastProcessingTime
+expr_stmt|;
+block|}
+DECL|method|getDeltaProcessingTime ()
+specifier|public
+name|Long
+name|getDeltaProcessingTime
+parameter_list|()
+block|{
+return|return
+name|deltaProcessingTime
+return|;
+block|}
+DECL|method|setDeltaProcessingTime (Long deltaProcessingTime)
+specifier|public
+name|void
+name|setDeltaProcessingTime
+parameter_list|(
+name|Long
+name|deltaProcessingTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deltaProcessingTime
+operator|=
+name|deltaProcessingTime
 expr_stmt|;
 block|}
 DECL|method|getMeanProcessingTime ()
