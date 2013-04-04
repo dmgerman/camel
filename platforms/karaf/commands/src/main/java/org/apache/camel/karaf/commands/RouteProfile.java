@@ -626,6 +626,39 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// the route must be part of the camel context
+name|String
+name|camelId
+init|=
+operator|(
+name|String
+operator|)
+name|mBeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|routeMBean
+argument_list|,
+literal|"CamelId"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|camelId
+operator|!=
+literal|null
+operator|&&
+name|camelId
+operator|.
+name|equals
+argument_list|(
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
 comment|// TODO: add column with total time (delta for self time)
 name|String
 name|xml
@@ -854,6 +887,7 @@ name|selfTime
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
