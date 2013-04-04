@@ -1808,7 +1808,9 @@ operator|.
 name|getSeverity
 argument_list|()
 operator|==
-literal|0
+name|ValidationEvent
+operator|.
+name|WARNING
 return|;
 block|}
 block|}
@@ -1890,7 +1892,9 @@ operator|.
 name|getSeverity
 argument_list|()
 operator|==
-literal|0
+name|ValidationEvent
+operator|.
+name|WARNING
 return|;
 block|}
 block|}
