@@ -106,6 +106,13 @@ name|id
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|index
+specifier|private
+name|Integer
+name|index
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|exchangesCompleted
 specifier|private
 name|Long
@@ -247,6 +254,32 @@ operator|.
 name|id
 operator|=
 name|id
+expr_stmt|;
+block|}
+DECL|method|getIndex ()
+specifier|public
+name|Integer
+name|getIndex
+parameter_list|()
+block|{
+return|return
+name|index
+return|;
+block|}
+DECL|method|setIndex (Integer index)
+specifier|public
+name|void
+name|setIndex
+parameter_list|(
+name|Integer
+name|index
+parameter_list|)
+block|{
+name|this
+operator|.
+name|index
+operator|=
+name|index
 expr_stmt|;
 block|}
 DECL|method|getExchangesCompleted ()

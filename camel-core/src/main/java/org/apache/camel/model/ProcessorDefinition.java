@@ -132,6 +132,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -810,6 +824,51 @@ name|Object
 argument_list|>
 name|otherAttributes
 decl_stmt|;
+DECL|field|COUNTER
+specifier|private
+specifier|static
+specifier|final
+name|AtomicInteger
+name|COUNTER
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
+DECL|field|index
+specifier|private
+specifier|final
+name|int
+name|index
+decl_stmt|;
+DECL|method|ProcessorDefinition ()
+specifier|protected
+name|ProcessorDefinition
+parameter_list|()
+block|{
+comment|// every time we create a definition we should inc the COUNTER counter
+name|index
+operator|=
+name|COUNTER
+operator|.
+name|getAndIncrement
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Gets the unique index number for when this {@link ProcessorDefinition} was created by its constructor.      *<p/>      * This can be used to know the order in which the definition was created when assembled as a route.      *      * @return the current COUNTER value      */
+annotation|@
+name|XmlTransient
+comment|// do not expose this in the XML DSL
+DECL|method|getIndex ()
+specifier|public
+name|int
+name|getIndex
+parameter_list|()
+block|{
+return|return
+name|index
+return|;
+block|}
 comment|// else to use an optional attribute in JAXB2
 DECL|method|getOutputs ()
 specifier|public

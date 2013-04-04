@@ -587,7 +587,6 @@ argument_list|()
 decl_stmt|;
 comment|// TODO: add a row with the route endpoint, so you can see that
 comment|// TODO: add column with total time (delta for self time)
-comment|// TODO: ensure the jmx mbeans for processors is sorted correctly
 name|String
 name|xml
 init|=
@@ -731,40 +730,15 @@ expr_stmt|;
 comment|// output in reverse order which prints the route as we want
 for|for
 control|(
-name|int
-name|i
-init|=
-name|route
-operator|.
-name|getProcessorStats
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-init|;
-name|i
-operator|>=
-literal|0
-condition|;
-name|i
-operator|--
-control|)
-block|{
 name|ProcessorStatDump
 name|ps
-init|=
+range|:
 name|route
 operator|.
 name|getProcessorStats
 argument_list|()
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
+control|)
+block|{
 comment|// the self time is the total time of the processor itself
 name|long
 name|selfTime

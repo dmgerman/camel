@@ -134,7 +134,7 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"PerformanceCounter"
+literal|"Managed PerformanceCounter"
 argument_list|)
 DECL|class|ManagedPerformanceCounter
 specifier|public

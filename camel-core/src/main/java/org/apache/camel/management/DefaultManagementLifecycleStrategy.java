@@ -110,6 +110,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -990,6 +1004,17 @@ name|DefaultManagementLifecycleStrategy
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// unique counter we use when registering a new mbean which allows to know the order they were registered
+DECL|field|counter
+specifier|private
+specifier|final
+name|AtomicLong
+name|counter
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 comment|// the wrapped processors is for performance counters, which are in use for the created routes
 comment|// when a route is removed, we should remove the associated processors from this map

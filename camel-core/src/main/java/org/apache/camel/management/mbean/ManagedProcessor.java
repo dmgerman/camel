@@ -326,6 +326,29 @@ return|return
 name|definition
 return|;
 block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|getIndex ()
+specifier|public
+name|Integer
+name|getIndex
+parameter_list|()
+block|{
+return|return
+name|definition
+operator|.
+name|getIndex
+argument_list|()
+return|;
+block|}
 DECL|method|getRoute ()
 specifier|public
 name|Route

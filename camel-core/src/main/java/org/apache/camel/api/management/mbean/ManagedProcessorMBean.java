@@ -109,6 +109,18 @@ name|getProcessorId
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Processor Index"
+argument_list|)
+DECL|method|getIndex ()
+name|Integer
+name|getIndex
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
