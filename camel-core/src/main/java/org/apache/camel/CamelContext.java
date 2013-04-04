@@ -438,6 +438,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RouteStartupOrder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ServicePool
 import|;
 end_import
@@ -792,6 +806,15 @@ parameter_list|(
 name|String
 name|id
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */
+DECL|method|getRouteStartupOrder ()
+name|List
+argument_list|<
+name|RouteStartupOrder
+argument_list|>
+name|getRouteStartupOrder
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the current routes in this context      *      * @return the current routes      */
 DECL|method|getRoutes ()
