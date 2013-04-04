@@ -1606,8 +1606,8 @@ block|}
 comment|/**      * Used for sorting the processor mbeans accordingly to their index.      */
 DECL|class|OrderProcessorMBeans
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|OrderProcessorMBeans
 implements|implements

@@ -753,6 +753,17 @@ argument_list|>
 implements|implements
 name|Block
 block|{
+DECL|field|COUNTER
+specifier|private
+specifier|static
+specifier|final
+name|AtomicInteger
+name|COUNTER
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 DECL|field|log
 specifier|protected
 specifier|final
@@ -824,17 +835,6 @@ name|Object
 argument_list|>
 name|otherAttributes
 decl_stmt|;
-DECL|field|COUNTER
-specifier|private
-specifier|static
-specifier|final
-name|AtomicInteger
-name|COUNTER
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
-decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|final
@@ -855,7 +855,7 @@ name|getAndIncrement
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Gets the unique index number for when this {@link ProcessorDefinition} was created by its constructor.      *<p/>      * This can be used to know the order in which the definition was created when assembled as a route.      *      * @return the current COUNTER value      */
+comment|/**      * Gets the unique index number for when this {@link ProcessorDefinition} was created by its constructor.      *<p/>      * This can be used to know the order in which the definition was created when assembled as a route.      *      * @return the index number      */
 annotation|@
 name|XmlTransient
 comment|// do not expose this in the XML DSL
