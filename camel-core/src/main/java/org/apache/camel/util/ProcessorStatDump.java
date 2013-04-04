@@ -183,6 +183,13 @@ name|meanProcessingTime
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|accumulatedProcessingTime
+specifier|private
+name|Long
+name|accumulatedProcessingTime
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|resetTimestamp
 specifier|private
 name|String
@@ -554,6 +561,32 @@ operator|.
 name|meanProcessingTime
 operator|=
 name|meanProcessingTime
+expr_stmt|;
+block|}
+DECL|method|getAccumulatedProcessingTime ()
+specifier|public
+name|Long
+name|getAccumulatedProcessingTime
+parameter_list|()
+block|{
+return|return
+name|accumulatedProcessingTime
+return|;
+block|}
+DECL|method|setAccumulatedProcessingTime (Long accumulatedProcessingTime)
+specifier|public
+name|void
+name|setAccumulatedProcessingTime
+parameter_list|(
+name|Long
+name|accumulatedProcessingTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accumulatedProcessingTime
+operator|=
+name|accumulatedProcessingTime
 expr_stmt|;
 block|}
 DECL|method|getResetTimestamp ()

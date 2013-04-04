@@ -240,7 +240,7 @@ specifier|final
 name|String
 name|HEADER_FORMAT
 init|=
-literal|"%-30s %10s %12s %12s %12s %12s %12s %12s"
+literal|"%-30s %10s %12s %12s %12s %12s %12s %12s %12s"
 decl_stmt|;
 DECL|field|OUTPUT_FORMAT
 specifier|protected
@@ -249,7 +249,7 @@ specifier|final
 name|String
 name|OUTPUT_FORMAT
 init|=
-literal|"[%-28s] [%8d] [%10d] [%10d] [%10d] [%10d] [%10d] [%10s]"
+literal|"[%-28s] [%8d] [%10d] [%10d] [%10d] [%10d] [%10d] [%10d] [%10d]"
 decl_stmt|;
 DECL|field|previousCamelContextName
 specifier|private
@@ -407,6 +407,8 @@ literal|"Min (ms)"
 argument_list|,
 literal|"Max (ms)"
 argument_list|,
+literal|"Total (ms)"
+argument_list|,
 literal|"Self (ms)"
 argument_list|)
 argument_list|)
@@ -511,7 +513,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// TODO: add column with total time (delta for self time)
 name|String
 name|xml
 init|=
@@ -623,7 +624,15 @@ operator|.
 name|getMaxProcessingTime
 argument_list|()
 argument_list|,
-literal|""
+name|route
+operator|.
+name|getTotalProcessingTime
+argument_list|()
+argument_list|,
+name|route
+operator|.
+name|getSelfProcessingTime
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -639,11 +648,9 @@ argument_list|()
 control|)
 block|{
 comment|// the self time is the total time of the processor itself
-name|String
+name|long
 name|selfTime
 init|=
-literal|""
-operator|+
 name|ps
 operator|.
 name|getTotalProcessingTime
@@ -706,6 +713,11 @@ argument_list|,
 name|ps
 operator|.
 name|getMaxProcessingTime
+argument_list|()
+argument_list|,
+name|ps
+operator|.
+name|getAccumulatedProcessingTime
 argument_list|()
 argument_list|,
 name|selfTime
