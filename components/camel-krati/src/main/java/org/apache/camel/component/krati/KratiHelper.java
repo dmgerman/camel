@@ -376,7 +376,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Failed to create Krati DataSet."
+literal|"Failed to create Krati DataSet. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)

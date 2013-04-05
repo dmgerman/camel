@@ -203,13 +203,6 @@ name|Object
 argument_list|>
 name|dataStore
 decl_stmt|;
-DECL|field|maxMessagesPerPoll
-specifier|protected
-name|int
-name|maxMessagesPerPoll
-init|=
-literal|10
-decl_stmt|;
 DECL|method|KratiConsumer (KratiEndpoint endpoint, Processor processor, DataStore<Object, Object> dataStore)
 specifier|public
 name|KratiConsumer
@@ -524,7 +517,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to remove from datastore."
+literal|"Failed to remove from datastore. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -539,7 +532,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|//emtpy
+comment|// noop
 block|}
 block|}
 argument_list|)

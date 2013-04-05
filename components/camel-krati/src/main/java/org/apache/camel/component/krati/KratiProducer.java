@@ -105,11 +105,13 @@ argument_list|)
 decl_stmt|;
 DECL|field|endpoint
 specifier|protected
+specifier|final
 name|KratiEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|dataStore
 specifier|protected
+specifier|final
 name|DataStore
 argument_list|<
 name|Object
@@ -206,6 +208,39 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// preserve headers and attachments
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setAttachments
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachments
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getOut
@@ -272,6 +307,38 @@ operator|.
 name|getOut
 argument_list|()
 operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setAttachments
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachments
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
 name|setHeader
 argument_list|(
 name|KratiConstants
@@ -286,6 +353,38 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setAttachments
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachments
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getOut
@@ -329,6 +428,38 @@ operator|.
 name|getOut
 argument_list|()
 operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setAttachments
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachments
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
 name|setHeader
 argument_list|(
 name|KratiConstants
@@ -356,6 +487,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// This is not so good to ignore exceptions, the end user have not access the exception, and cannot use Camel error handling
 name|exchange
 operator|.
 name|getOut
@@ -408,7 +540,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Retrieves the operation from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the operation from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getOperation (Exchange exchange)
 specifier|public
 name|String
@@ -471,7 +603,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Retrieves the key from the URI or from the exchange headers. The header will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the key from the URI or from the exchange headers. The header will take precedence over the URI.      */
 DECL|method|getKey (Exchange exchange)
 specifier|public
 name|Object
@@ -531,7 +663,7 @@ return|return
 name|key
 return|;
 block|}
-comment|/**      * Retrieves the value from the URI or from the exchange headers/body. The header/body will take precedence over the URI.      *      * @param exchange      * @return      */
+comment|/**      * Retrieves the value from the URI or from the exchange headers/body. The header/body will take precedence over the URI.      */
 DECL|method|getValue (Exchange exchange)
 specifier|public
 name|Object

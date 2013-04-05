@@ -314,6 +314,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|// TODO: should use Camel's ClassResolver for classloading
 name|ByteArrayInputStream
 name|bais
 init|=

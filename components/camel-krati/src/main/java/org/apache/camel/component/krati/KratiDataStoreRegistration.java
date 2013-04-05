@@ -160,7 +160,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error while closing datastore."
+literal|"Error while closing datastore. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
