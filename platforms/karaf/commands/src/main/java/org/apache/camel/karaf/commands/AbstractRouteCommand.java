@@ -394,23 +394,23 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|compare (Route o1, Route o2)
+DECL|method|compare (Route route1, Route route2)
 specifier|public
 name|int
 name|compare
 parameter_list|(
 name|Route
-name|o1
+name|route1
 parameter_list|,
 name|Route
-name|o2
+name|route2
 parameter_list|)
 block|{
 comment|// sort by camel context first
 name|CamelContext
 name|camel1
 init|=
-name|o1
+name|route1
 operator|.
 name|getRouteContext
 argument_list|()
@@ -421,7 +421,7 @@ decl_stmt|;
 name|CamelContext
 name|camel2
 init|=
-name|o2
+name|route2
 operator|.
 name|getRouteContext
 argument_list|()
@@ -446,27 +446,27 @@ argument_list|)
 condition|)
 block|{
 comment|// and then accordingly to startup order
-name|int
+name|Integer
 name|order1
 init|=
 name|getRouteStartupOrder
 argument_list|(
 name|camel1
 argument_list|,
-name|o1
+name|route1
 operator|.
 name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|int
+name|Integer
 name|order2
 init|=
 name|getRouteStartupOrder
 argument_list|(
 name|camel2
 argument_list|,
-name|o2
+name|route2
 operator|.
 name|getId
 argument_list|()
@@ -485,14 +485,14 @@ condition|)
 block|{
 comment|// fallback and use name if not startup order was found
 return|return
-name|o1
+name|route1
 operator|.
 name|getId
 argument_list|()
 operator|.
 name|compareTo
 argument_list|(
-name|o2
+name|route2
 operator|.
 name|getId
 argument_list|()
@@ -502,12 +502,10 @@ block|}
 else|else
 block|{
 return|return
-name|Integer
-operator|.
-name|compare
-argument_list|(
 name|order1
-argument_list|,
+operator|.
+name|compareTo
+argument_list|(
 name|order2
 argument_list|)
 return|;
