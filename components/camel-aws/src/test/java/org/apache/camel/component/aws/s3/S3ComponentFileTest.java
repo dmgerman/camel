@@ -645,6 +645,19 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+literal|"sendFileAndDelete"
+operator|.
+name|equals
+argument_list|(
+name|getTestMethodName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// as we delete the file using the "deleteAfterWrite=true" option here we can not assert on it's content anymore
 name|assertEquals
 argument_list|(
 literal|"This is my bucket content."
@@ -662,6 +675,7 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 literal|"mycamelbucket"
