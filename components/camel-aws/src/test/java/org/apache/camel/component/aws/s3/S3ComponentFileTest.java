@@ -657,7 +657,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// as we delete the file using the "deleteAfterWrite=true" option here we can not assert on it's content anymore
+comment|// assert on the file content only in case the "deleteAfterWrite" option is NOT enabled
+comment|// in which case we would still have the file and thereby could assert on it's content
 name|assertEquals
 argument_list|(
 literal|"This is my bucket content."
