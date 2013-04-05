@@ -506,6 +506,13 @@ argument_list|(
 literal|"org.apache.camel.dataformat.bindy.model.simple.oneclassgenerateheader"
 argument_list|)
 decl_stmt|;
+name|camelDataFormat
+operator|.
+name|setLocale
+argument_list|(
+literal|"en"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"

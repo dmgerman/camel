@@ -459,16 +459,6 @@ name|ContextConfig
 extends|extends
 name|RouteBuilder
 block|{
-DECL|field|csvBindyDataFormat
-name|BindyCsvDataFormat
-name|csvBindyDataFormat
-init|=
-operator|new
-name|BindyCsvDataFormat
-argument_list|(
-literal|"org.apache.camel.dataformat.bindy.model.simple.oneclassdifferentposition"
-argument_list|)
-decl_stmt|;
 DECL|method|configure ()
 specifier|public
 name|void
@@ -504,6 +494,22 @@ operator|.
 name|addInterceptStrategy
 argument_list|(
 name|tracer
+argument_list|)
+expr_stmt|;
+name|BindyCsvDataFormat
+name|csvBindyDataFormat
+init|=
+operator|new
+name|BindyCsvDataFormat
+argument_list|(
+literal|"org.apache.camel.dataformat.bindy.model.simple.oneclassdifferentposition"
+argument_list|)
+decl_stmt|;
+name|csvBindyDataFormat
+operator|.
+name|setLocale
+argument_list|(
+literal|"en"
 argument_list|)
 expr_stmt|;
 comment|// default should errors go to mock:error

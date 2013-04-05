@@ -495,7 +495,12 @@ name|ContextConfig
 extends|extends
 name|RouteBuilder
 block|{
-DECL|field|camelDataFormat
+DECL|method|configure ()
+specifier|public
+name|void
+name|configure
+parameter_list|()
+block|{
 name|BindyCsvDataFormat
 name|camelDataFormat
 init|=
@@ -505,12 +510,13 @@ argument_list|(
 literal|"org.apache.camel.dataformat.bindy.model.simple.oneclass"
 argument_list|)
 decl_stmt|;
-DECL|method|configure ()
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
+name|camelDataFormat
+operator|.
+name|setLocale
+argument_list|(
+literal|"en"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"

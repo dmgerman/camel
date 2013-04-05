@@ -466,6 +466,13 @@ argument_list|(
 literal|"org.apache.camel.dataformat.bindy.model.simple.oneclass"
 argument_list|)
 decl_stmt|;
+name|camelDataFormat
+operator|.
+name|setLocale
+argument_list|(
+literal|"en"
+argument_list|)
+expr_stmt|;
 name|Tracer
 name|tracer
 init|=

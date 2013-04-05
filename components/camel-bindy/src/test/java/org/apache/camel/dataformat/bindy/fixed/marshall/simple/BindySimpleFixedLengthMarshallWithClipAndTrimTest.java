@@ -264,6 +264,13 @@ argument_list|(
 literal|"org.apache.camel.dataformat.bindy.fixed.marshall.simple"
 argument_list|)
 decl_stmt|;
+name|bindy
+operator|.
+name|setLocale
+argument_list|(
+literal|"en"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
