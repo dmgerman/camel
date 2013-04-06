@@ -492,7 +492,7 @@ argument_list|(
 operator|(
 name|Long
 operator|)
-literal|123l
+literal|123L
 argument_list|,
 name|transferMessage
 operator|.
@@ -633,7 +633,7 @@ argument_list|(
 operator|(
 name|Long
 operator|)
-literal|123l
+literal|123L
 argument_list|,
 name|resultMessage
 operator|.
