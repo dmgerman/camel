@@ -231,7 +231,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|CamelExchangeException
+name|DirectVmConsumerNotAvailableException
 argument_list|(
 literal|"No consumers available on endpoint: "
 operator|+
@@ -308,7 +308,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|CamelExchangeException
+name|DirectVmConsumerNotAvailableException
 argument_list|(
 literal|"No consumers available on endpoint: "
 operator|+
