@@ -269,6 +269,8 @@ argument_list|,
 literal|"onComponentRemove"
 argument_list|,
 literal|"onContextStop"
+argument_list|,
+literal|"onThreadPoolRemove"
 argument_list|)
 decl_stmt|;
 name|assertEquals
