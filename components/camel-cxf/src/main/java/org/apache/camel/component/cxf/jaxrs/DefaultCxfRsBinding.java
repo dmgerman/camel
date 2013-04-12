@@ -1133,6 +1133,36 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+comment|// we need to make sure the entry value is not null
+if|if
+condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Drop Camel header: {}={}"
+argument_list|,
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|String
 name|mappedHeaderName
 init|=
@@ -1766,6 +1796,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+comment|// just make sure the first String element is not null
 if|if
 condition|(
 name|headerFilterStrategy
@@ -1784,6 +1815,18 @@ argument_list|()
 argument_list|,
 name|camelExchange
 argument_list|)
+operator|||
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|null
 condition|)
 block|{
 name|LOG
