@@ -173,6 +173,12 @@ operator|.
 name|DESTINATION_OVERRIDE_URL
 argument_list|)
 expr_stmt|;
+comment|// filter headers begin with "Camel" or "org.apache.camel"
+name|setOutFilterPattern
+argument_list|(
+literal|"(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

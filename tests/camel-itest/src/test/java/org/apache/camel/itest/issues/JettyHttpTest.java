@@ -98,10 +98,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|JettyHttpTest
 specifier|public
@@ -271,7 +267,7 @@ name|getHeader
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_PATH
+name|HTTP_URI
 argument_list|,
 name|String
 operator|.

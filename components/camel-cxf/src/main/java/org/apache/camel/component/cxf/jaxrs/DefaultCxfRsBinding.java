@@ -1081,6 +1081,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+comment|// Need to make sure the cxf needed header will not be filtered
 if|if
 condition|(
 name|headerFilterStrategy
@@ -1099,6 +1100,18 @@ argument_list|()
 argument_list|,
 name|camelExchange
 argument_list|)
+operator|&&
+name|camelToCxfHeaderMap
+operator|.
+name|get
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+operator|==
+literal|null
 condition|)
 block|{
 name|LOG

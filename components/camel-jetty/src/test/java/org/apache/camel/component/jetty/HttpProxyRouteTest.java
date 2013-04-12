@@ -348,7 +348,7 @@ name|header
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_PATH
+name|HTTP_URI
 argument_list|)
 argument_list|)
 expr_stmt|;

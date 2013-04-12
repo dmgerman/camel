@@ -232,12 +232,12 @@ name|CxfRsRouterTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
-DECL|field|PORT0
+DECL|field|PORT
 specifier|private
 specifier|static
 specifier|final
 name|int
-name|PORT0
+name|PORT
 init|=
 name|CXFTestSupport
 operator|.
@@ -262,6 +262,16 @@ name|POST_REQUEST
 init|=
 literal|"<Customer><name>Jack</name></Customer>"
 decl_stmt|;
+DECL|method|getPort ()
+specifier|protected
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|PORT
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createApplicationContext ()
@@ -358,7 +368,8 @@ name|HttpGet
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customers/123"
 argument_list|)
@@ -450,7 +461,8 @@ name|HttpGet
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customers?id=123"
 argument_list|)
@@ -542,7 +554,8 @@ name|HttpGet
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customers/"
 argument_list|)
@@ -675,7 +688,8 @@ name|HttpGet
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/orders/223/products/323"
 argument_list|)
@@ -767,7 +781,8 @@ name|HttpPut
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customers"
 argument_list|)
@@ -875,7 +890,8 @@ name|HttpPost
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customers"
 argument_list|)
@@ -969,7 +985,8 @@ name|HttpDelete
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customers/124/"
 argument_list|)
@@ -1012,7 +1029,8 @@ name|HttpPost
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customersUniqueResponseCode"
 argument_list|)
@@ -1106,7 +1124,8 @@ name|HttpDelete
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|PORT0
+name|getPort
+argument_list|()
 operator|+
 literal|"/CxfRsRouterTest/route/customerservice/customers/124/"
 argument_list|)
