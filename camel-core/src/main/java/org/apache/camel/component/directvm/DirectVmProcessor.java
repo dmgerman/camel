@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -52,7 +64,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 import|;
 end_import
 
@@ -101,7 +113,7 @@ specifier|final
 class|class
 name|DirectVmProcessor
 extends|extends
-name|DelegateProcessor
+name|DelegateAsyncProcessor
 block|{
 DECL|field|LOG
 specifier|private
@@ -151,18 +163,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// need to use a copy of the incoming exchange, so we route using this camel context
+specifier|final
 name|Exchange
 name|copy
 init|=
@@ -232,16 +248,29 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+return|return
 name|getProcessor
 argument_list|()
 operator|.
 name|process
 argument_list|(
 name|copy
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|done
+parameter_list|)
+block|{
+try|try
 block|{
 comment|// make sure to copy results back
 name|ExchangeHelper
@@ -253,6 +282,25 @@ argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// must call callback when we are done
+name|callback
+operator|.
+name|done
+argument_list|(
+name|done
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+return|;
+block|}
+finally|finally
+block|{
 comment|// restore TCCL if it was changed during processing
 if|if
 condition|(
