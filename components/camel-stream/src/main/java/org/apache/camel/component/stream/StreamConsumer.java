@@ -523,8 +523,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// important: do not close the stream as it will close the standard
-comment|// system.in etc.
 if|if
 condition|(
 name|executor
@@ -540,7 +538,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdownGraceful
+name|shutdownNow
 argument_list|(
 name|executor
 argument_list|)
@@ -580,6 +578,14 @@ block|{
 name|readFromStream
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+comment|// we are closing down so ignore
 block|}
 catch|catch
 parameter_list|(
