@@ -1280,6 +1280,14 @@ name|getterOrSetterShorthandName
 decl_stmt|;
 try|try
 block|{
+comment|// we may want to set options on classes that has package view visibility, so override the accessible
+name|method
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|Object
 name|value
 init|=
@@ -1312,7 +1320,28 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Error invoking getter method "
+operator|+
+name|method
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -2839,6 +2868,14 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// we may want to set options on classes that has package view visibility, so override the accessible
+name|setter
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|setter
 operator|.
 name|invoke
@@ -2894,6 +2931,14 @@ argument_list|,
 name|ref
 argument_list|)
 decl_stmt|;
+comment|// we may want to set options on classes that has package view visibility, so override the accessible
+name|setter
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|setter
 operator|.
 name|invoke
@@ -2985,6 +3030,17 @@ throw|;
 block|}
 block|}
 comment|// ignore exceptions as there could be another setter method where we could type convert successfully
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+name|typeConversionFailed
+operator|=
+name|e
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
