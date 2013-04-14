@@ -195,7 +195,7 @@ name|InOut
 argument_list|)
 decl_stmt|;
 comment|// set the input on the in body
-comment|// must you correct type to match the expected type of an Integer object
+comment|// must be correct type to match the expected type of an Integer object
 name|exchange
 operator|.
 name|getIn
