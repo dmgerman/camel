@@ -75,11 +75,21 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
+literal|1
 argument_list|,
 name|out
 operator|.
 name|length
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|""
+argument_list|,
+name|out
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 name|out
@@ -510,7 +520,7 @@ name|StringQuoteHelper
 operator|.
 name|splitSafeQuote
 argument_list|(
-literal|"'Hello Camel', 'Bye World'"
+literal|"'Hello Camel', ' Bye World'"
 argument_list|,
 literal|','
 argument_list|,
@@ -539,6 +549,48 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|" Bye World"
+argument_list|,
+name|out
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
+name|out
+operator|=
+name|StringQuoteHelper
+operator|.
+name|splitSafeQuote
+argument_list|(
+literal|"'http:', ' '"
+argument_list|,
+literal|','
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|out
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"http:"
+argument_list|,
+name|out
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|" "
 argument_list|,
 name|out
 index|[
