@@ -2984,6 +2984,9 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|noParameters
+operator|&&
 name|localOperationsWithBody
 operator|.
 name|size
@@ -4908,6 +4911,33 @@ return|return
 literal|false
 return|;
 block|}
+comment|// is it a method with no parameters
+name|boolean
+name|noParameters
+init|=
+name|methodName
+operator|.
+name|endsWith
+argument_list|(
+literal|"()"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|noParameters
+condition|)
+block|{
+return|return
+name|method
+operator|.
+name|getParameterTypes
+argument_list|()
+operator|.
+name|length
+operator|==
+literal|0
+return|;
+block|}
 comment|// match qualifier types which is used to select among overloaded methods
 name|String
 name|types
@@ -4925,9 +4955,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|types
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 comment|// we must qualify based on types to match method
