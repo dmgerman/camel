@@ -138,20 +138,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicLong
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -502,46 +488,6 @@ operator|new
 name|UtilizationStatistics
 argument_list|()
 decl_stmt|;
-DECL|field|attemptCounter
-specifier|protected
-specifier|final
-name|AtomicLong
-name|attemptCounter
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
-DECL|field|missCounter
-specifier|protected
-specifier|final
-name|AtomicLong
-name|missCounter
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
-DECL|field|hitCounter
-specifier|protected
-specifier|final
-name|AtomicLong
-name|hitCounter
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
-DECL|field|failedCounter
-specifier|protected
-specifier|final
-name|AtomicLong
-name|failedCounter
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
 DECL|method|BaseTypeConverterRegistry (PackageScanClassResolver resolver, Injector injector, FactoryFinder factoryFinder)
 specifier|public
 name|BaseTypeConverterRegistry
@@ -736,11 +682,6 @@ name|answer
 decl_stmt|;
 try|try
 block|{
-name|attemptCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 name|answer
 operator|=
 name|doConvertTo
@@ -761,11 +702,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|failedCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 comment|// if its a ExecutionException then we have rethrow it as its not due to failed conversion
 comment|// this is special for FutureTypeConverter
 name|boolean
@@ -853,23 +789,12 @@ name|TYPE
 condition|)
 block|{
 comment|// Could not find suitable conversion
-name|missCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
-comment|// Could not find suitable conversion
 return|return
 literal|null
 return|;
 block|}
 else|else
 block|{
-name|hitCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 return|return
 operator|(
 name|T
@@ -963,11 +888,6 @@ name|answer
 decl_stmt|;
 try|try
 block|{
-name|attemptCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 name|answer
 operator|=
 name|doConvertTo
@@ -988,11 +908,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|failedCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 comment|// error occurred during type conversion
 if|if
 condition|(
@@ -1037,12 +952,6 @@ literal|null
 condition|)
 block|{
 comment|// Could not find suitable conversion
-name|missCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
-comment|// Could not find suitable conversion
 throw|throw
 operator|new
 name|NoTypeConversionAvailableException
@@ -1055,11 +964,6 @@ throw|;
 block|}
 else|else
 block|{
-name|hitCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 return|return
 operator|(
 name|T
@@ -1143,11 +1047,6 @@ name|answer
 decl_stmt|;
 try|try
 block|{
-name|attemptCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 name|answer
 operator|=
 name|doConvertTo
@@ -1168,11 +1067,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|failedCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1186,11 +1080,6 @@ operator|.
 name|TYPE
 condition|)
 block|{
-name|missCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 comment|// Could not find suitable conversion
 return|return
 literal|null
@@ -1198,11 +1087,6 @@ return|;
 block|}
 else|else
 block|{
-name|hitCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 return|return
 operator|(
 name|T
@@ -2817,41 +2701,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// log utilization statistics when stopping, including mappings
-name|String
-name|info
-init|=
-name|statistics
-operator|.
-name|toString
-argument_list|()
-decl_stmt|;
-name|info
-operator|+=
-name|String
-operator|.
-name|format
-argument_list|(
-literal|" mappings[total=%s, misses=%s]"
-argument_list|,
-name|typeMappings
-operator|.
-name|size
-argument_list|()
-argument_list|,
-name|misses
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-name|info
-argument_list|)
-expr_stmt|;
 name|typeMappings
 operator|.
 name|clear
@@ -2869,6 +2718,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Represents utilization statistics      */
+annotation|@
+name|Deprecated
 DECL|class|UtilizationStatistics
 specifier|private
 specifier|final
@@ -2886,10 +2737,7 @@ name|getAttemptCounter
 parameter_list|()
 block|{
 return|return
-name|attemptCounter
-operator|.
-name|get
-argument_list|()
+literal|0
 return|;
 block|}
 annotation|@
@@ -2901,10 +2749,7 @@ name|getHitCounter
 parameter_list|()
 block|{
 return|return
-name|hitCounter
-operator|.
-name|get
-argument_list|()
+literal|0
 return|;
 block|}
 annotation|@
@@ -2916,10 +2761,7 @@ name|getMissCounter
 parameter_list|()
 block|{
 return|return
-name|missCounter
-operator|.
-name|get
-argument_list|()
+literal|0
 return|;
 block|}
 annotation|@
@@ -2931,10 +2773,7 @@ name|getFailedCounter
 parameter_list|()
 block|{
 return|return
-name|failedCounter
-operator|.
-name|get
-argument_list|()
+literal|0
 return|;
 block|}
 annotation|@
@@ -2945,34 +2784,7 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|attemptCounter
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|hitCounter
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|missCounter
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|failedCounter
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 annotation|@
 name|Override

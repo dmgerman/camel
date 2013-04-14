@@ -52,7 +52,9 @@ name|TypeConverterRegistry
 extends|extends
 name|Service
 block|{
-comment|/**      * Utilization statistics of the this registry.      */
+comment|/**      * Utilization statistics of the this registry.      * @deprecated the statistics has been disabled and the API will be removed in Camel 2.12      */
+annotation|@
+name|Deprecated
 DECL|interface|Statistics
 interface|interface
 name|Statistics
@@ -154,7 +156,9 @@ name|Injector
 name|getInjector
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the utilization statistics of this type converter registry      *      * @return the utilization statistics      */
+comment|/**      * Gets the utilization statistics of this type converter registry      *      * @return the utilization statistics      * @deprecated the statistics has been disabled and the API will be removed in Camel 2.12      */
+annotation|@
+name|Deprecated
 DECL|method|getStatistics ()
 name|Statistics
 name|getStatistics
