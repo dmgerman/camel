@@ -11327,17 +11327,6 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
-name|answer
-operator|.
-name|getStatistics
-argument_list|()
-operator|.
-name|setStatisticsEnabled
-argument_list|(
-name|isTypeConverterStatisticsEnabled
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 name|answer
 return|;
