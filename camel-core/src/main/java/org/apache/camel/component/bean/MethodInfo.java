@@ -2562,6 +2562,8 @@ argument_list|(
 name|methodParameters
 argument_list|,
 literal|','
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|it
@@ -2571,6 +2573,10 @@ operator|.
 name|createIterator
 argument_list|(
 name|parameters
+argument_list|,
+literal|","
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -2831,14 +2837,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// must trim first as there may be spaces between parameters
-name|exp
-operator|=
-name|exp
-operator|.
-name|trim
-argument_list|()
-expr_stmt|;
 comment|// check if its a valid parameter value
 name|boolean
 name|valid

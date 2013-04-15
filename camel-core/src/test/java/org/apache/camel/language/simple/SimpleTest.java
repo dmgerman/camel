@@ -6810,6 +6810,60 @@ literal|"foo\\\\bar\\\\baz"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBodyOgnlReplaceFirst ()
+specifier|public
+name|void
+name|testBodyOgnlReplaceFirst
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"http:camel.apache.org"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replaceFirst('http:', 'http4:')}"
+argument_list|,
+literal|"http4:camel.apache.org"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replaceFirst('http:', '')}"
+argument_list|,
+literal|"camel.apache.org"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replaceFirst('http:', ' ')}"
+argument_list|,
+literal|" camel.apache.org"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replaceFirst('http:',    ' ')}"
+argument_list|,
+literal|" camel.apache.org"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replaceFirst('http:',' ')}"
+argument_list|,
+literal|" camel.apache.org"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testClassSimpleName ()
 specifier|public
 name|void
