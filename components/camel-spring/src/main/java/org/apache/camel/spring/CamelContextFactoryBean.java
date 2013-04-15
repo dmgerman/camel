@@ -929,6 +929,18 @@ name|Boolean
 name|lazyLoadTypeConverters
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|typeConverterStatisticsEnabled
+specifier|private
+name|Boolean
+name|typeConverterStatisticsEnabled
+decl_stmt|;
+annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -2943,6 +2955,32 @@ operator|.
 name|lazyLoadTypeConverters
 operator|=
 name|lazyLoadTypeConverters
+expr_stmt|;
+block|}
+DECL|method|getTypeConverterStatisticsEnabled ()
+specifier|public
+name|Boolean
+name|getTypeConverterStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|typeConverterStatisticsEnabled
+return|;
+block|}
+DECL|method|setTypeConverterStatisticsEnabled (Boolean typeConverterStatisticsEnabled)
+specifier|public
+name|void
+name|setTypeConverterStatisticsEnabled
+parameter_list|(
+name|Boolean
+name|typeConverterStatisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|typeConverterStatisticsEnabled
+operator|=
+name|typeConverterStatisticsEnabled
 expr_stmt|;
 block|}
 DECL|method|getCamelJMXAgent ()

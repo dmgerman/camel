@@ -219,6 +219,42 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|isStatisticsEnabled ()
+specifier|public
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|registry
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|isStatisticsEnabled
+argument_list|()
+return|;
+block|}
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+specifier|public
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
+block|{
+name|registry
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|setStatisticsEnabled
+argument_list|(
+name|statisticsEnabled
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

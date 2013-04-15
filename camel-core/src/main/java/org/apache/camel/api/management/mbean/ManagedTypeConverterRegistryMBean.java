@@ -71,8 +71,6 @@ name|description
 operator|=
 literal|"Number of type conversion attempts"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|getAttemptCounter ()
 name|long
 name|getAttemptCounter
@@ -85,8 +83,6 @@ name|description
 operator|=
 literal|"Number of type conversion hits (successful conversions)"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|getHitCounter ()
 name|long
 name|getHitCounter
@@ -99,8 +95,6 @@ name|description
 operator|=
 literal|"Number of type conversion misses (no suitable type converter)"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|getMissCounter ()
 name|long
 name|getMissCounter
@@ -113,8 +107,6 @@ name|description
 operator|=
 literal|"Number of type conversion failures (failed conversions)"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|getFailedCounter ()
 name|long
 name|getFailedCounter
@@ -127,12 +119,37 @@ name|description
 operator|=
 literal|"Resets the type conversion counters"
 argument_list|)
-annotation|@
-name|Deprecated
 DECL|method|resetTypeConversionCounters ()
 name|void
 name|resetTypeConversionCounters
 parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Utilization statistics enabled"
+argument_list|)
+DECL|method|isStatisticsEnabled ()
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Utilization statistics enabled"
+argument_list|)
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
 function_decl|;
 block|}
 end_interface

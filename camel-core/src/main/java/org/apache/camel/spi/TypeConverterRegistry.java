@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Registry for type converters.  *  * @version   */
+comment|/**  * Registry for type converters.  *<p/>  * The utilization {@link Statistics} is by default disabled, as it has a slight performance impact under very high  * concurrent load. The statistics can be enabled using {@link Statistics#setStatisticsEnabled(boolean)} method.  *  * @version   */
 end_comment
 
 begin_interface
@@ -52,9 +52,7 @@ name|TypeConverterRegistry
 extends|extends
 name|Service
 block|{
-comment|/**      * Utilization statistics of the this registry.      * @deprecated the statistics has been disabled and the API will be removed in Camel 2.12      */
-annotation|@
-name|Deprecated
+comment|/**      * Utilization statistics of the this registry.      */
 DECL|interface|Statistics
 interface|interface
 name|Statistics
@@ -88,6 +86,21 @@ DECL|method|reset ()
 name|void
 name|reset
 parameter_list|()
+function_decl|;
+comment|/**          * Whether statistics is enabled.          */
+DECL|method|isStatisticsEnabled ()
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+function_decl|;
+comment|/**          * Sets whether statistics is enabled.          *          * @param statisticsEnabled<tt>true</tt> to enable          */
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
 function_decl|;
 block|}
 comment|/**      * Registers a new type converter      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
@@ -156,9 +169,7 @@ name|Injector
 name|getInjector
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the utilization statistics of this type converter registry      *      * @return the utilization statistics      * @deprecated the statistics has been disabled and the API will be removed in Camel 2.12      */
-annotation|@
-name|Deprecated
+comment|/**      * Gets the utilization statistics of this type converter registry      *      * @return the utilization statistics      */
 DECL|method|getStatistics ()
 name|Statistics
 name|getStatistics

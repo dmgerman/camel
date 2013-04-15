@@ -1645,6 +1645,21 @@ name|Boolean
 name|lazyLoadTypeConverters
 parameter_list|)
 function_decl|;
+comment|/**      * Whether or not type converter statistics is enabled.      *<p/>      * By default the type converter utilization statistics is disabled.      *<b>Notice:</b> If enabled then there is a slight performance impact under very heavy load.      *      * @return<tt>true</tt> if enabled,<tt>false</tt> if disabled (default).      */
+DECL|method|isTypeConverterStatisticsEnabled ()
+name|Boolean
+name|isTypeConverterStatisticsEnabled
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether or not type converter statistics is enabled.      *<p/>      * By default the type converter utilization statistics is disabled.      *<b>Notice:</b> If enabled then there is a slight performance impact under very heavy load.      *<p/>      * You can enable/disable the statistics at runtime using the      * {@link org.apache.camel.spi.TypeConverterRegistry#getStatistics()#setTypeConverterStatisticsEnabled(Boolean)} method,      * or from JMX on the {@link org.apache.camel.api.management.mbean.ManagedTypeConverterRegistryMBean} mbean.      *      * @param typeConverterStatisticsEnabled<tt>true</tt> to enable,<tt>false</tt> to disable      */
+DECL|method|setTypeConverterStatisticsEnabled (Boolean typeConverterStatisticsEnabled)
+name|void
+name|setTypeConverterStatisticsEnabled
+parameter_list|(
+name|Boolean
+name|typeConverterStatisticsEnabled
+parameter_list|)
+function_decl|;
 comment|/**      * Whether or not<a href="http://www.slf4j.org/api/org/slf4j/MDC.html">MDC</a> logging is being enabled.      *      * @return<tt>true</tt> if MDC logging is enabled      */
 DECL|method|isUseMDCLogging ()
 name|Boolean

@@ -3157,6 +3157,13 @@ name|Boolean
 name|getLazyLoadTypeConverters
 parameter_list|()
 function_decl|;
+DECL|method|getTypeConverterStatisticsEnabled ()
+specifier|public
+specifier|abstract
+name|Boolean
+name|getTypeConverterStatisticsEnabled
+parameter_list|()
+function_decl|;
 DECL|method|getCamelJMXAgent ()
 specifier|public
 specifier|abstract
@@ -3549,6 +3556,23 @@ name|getDataFormats
 argument_list|()
 operator|.
 name|asMap
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getTypeConverterStatisticsEnabled
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|setTypeConverterStatisticsEnabled
+argument_list|(
+name|getTypeConverterStatisticsEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;
