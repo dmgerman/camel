@@ -146,6 +146,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -346,7 +358,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Quering objects in bucket [{}]..."
+literal|"Queueing objects in bucket [{}]..."
 argument_list|,
 name|bucketName
 argument_list|)
@@ -394,6 +406,14 @@ argument_list|(
 name|listObjectsRequest
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -411,6 +431,7 @@ argument_list|,
 name|bucketName
 argument_list|)
 expr_stmt|;
+block|}
 name|Queue
 argument_list|<
 name|Exchange
@@ -452,6 +473,14 @@ argument_list|>
 name|s3ObjectSummaries
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -464,6 +493,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Queue
 argument_list|<
 name|Exchange
@@ -568,6 +598,7 @@ operator|++
 control|)
 block|{
 comment|// only loop if we are started (allowed to run)
+specifier|final
 name|Exchange
 name|exchange
 init|=
@@ -692,12 +723,38 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|getProcessor
+name|getAsyncProcessor
 argument_list|()
 operator|.
 name|process
 argument_list|(
 name|exchange
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing exchange [{}] done."
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -789,7 +846,11 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Object deleted"
+literal|"Deleted object from bucket {} with key {}..."
+argument_list|,
+name|bucketName
+argument_list|,
+name|key
 argument_list|)
 expr_stmt|;
 block|}
@@ -800,19 +861,15 @@ name|AmazonClientException
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|getExceptionHandler
+argument_list|()
 operator|.
-name|warn
+name|handleException
 argument_list|(
-literal|"Error occurred during deleting object"
+literal|"Error occurred during deleting object. This exception is ignored."
 argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 name|exchange
-operator|.
-name|setException
-argument_list|(
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

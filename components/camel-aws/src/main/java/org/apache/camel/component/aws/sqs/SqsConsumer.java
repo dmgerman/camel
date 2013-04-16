@@ -230,6 +230,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -530,6 +542,14 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -545,6 +565,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Queue
 argument_list|<
 name|Exchange
@@ -586,6 +607,14 @@ argument_list|>
 name|messages
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -598,6 +627,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Queue
 argument_list|<
 name|Exchange
@@ -683,6 +713,7 @@ operator|++
 control|)
 block|{
 comment|// only loop if we are started (allowed to run)
+specifier|final
 name|Exchange
 name|exchange
 init|=
@@ -799,27 +830,6 @@ operator|.
 name|intValue
 argument_list|()
 decl_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Scheduled TimeoutExtender task to start after {} delay, and run with {} period (seconds) to extend exchangeId: {}"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|delay
-block|,
-name|period
-block|,
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
-block|}
-argument_list|)
-expr_stmt|;
 name|int
 name|repeatSeconds
 init|=
@@ -837,25 +847,38 @@ operator|.
 name|intValue
 argument_list|()
 decl_stmt|;
-comment|//
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"period :"
-operator|+
+literal|"Scheduled TimeoutExtender task to start after {} delay, and run with {}/{} period/repeat (seconds), to extend exchangeId: {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|delay
+block|,
 name|period
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"repeatSeconds :"
-operator|+
+block|,
 name|repeatSeconds
+block|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|ScheduledFuture
 argument_list|<
@@ -1019,19 +1042,26 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-comment|// This blocks while message is consumed.
-name|getProcessor
+name|getAsyncProcessor
 argument_list|()
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
+argument_list|,
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
 block|{
 name|LOG
 operator|.
@@ -1043,6 +1073,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|total
@@ -1121,7 +1154,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Message deleted"
+literal|"Deleted message with receipt handle {}..."
+argument_list|,
+name|receiptHandle
 argument_list|)
 expr_stmt|;
 block|}
@@ -1137,7 +1172,9 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
-literal|"Error occurred during deleting message."
+literal|"Error occurred during deleting message. This exception is ignored."
+argument_list|,
+name|exchange
 argument_list|,
 name|e
 argument_list|)
