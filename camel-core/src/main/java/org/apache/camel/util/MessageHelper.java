@@ -94,6 +94,18 @@ name|xml
 operator|.
 name|transform
 operator|.
+name|Source
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
 name|stream
 operator|.
 name|StreamSource
@@ -634,7 +646,7 @@ name|maxChars
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *       * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed      * @param maxChars limit to maximum number of chars. Use 0 or negative value      *            to not limit at all.      * @return the logging message      */
+comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *       * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed (currently not in use)      * @param maxChars limit to maximum number of chars. Use 0 or negative value to not limit at all.      * @return the logging message      */
 DECL|method|extractBodyForLogging (Message message, String prepend, boolean allowStreams, boolean allowFiles, int maxChars)
 specifier|public
 specifier|static
@@ -688,7 +700,7 @@ if|if
 condition|(
 name|obj
 operator|instanceof
-name|StreamSource
+name|Source
 operator|&&
 operator|!
 operator|(
@@ -702,11 +714,12 @@ name|BytesSource
 operator|)
 condition|)
 block|{
-comment|/*                  * Generally do not log StreamSources but as StringSource and                  * ByteSource are memory based they are ok                  */
+comment|// for Source its only StringSource or BytesSource that is okay as they are memory based
+comment|// all other kinds we should not touch the body
 return|return
 name|prepend
 operator|+
-literal|"[Body is instance of java.xml.transform.StreamSource]"
+literal|"[Body is instance of java.xml.transform.Source]"
 return|;
 block|}
 elseif|else
