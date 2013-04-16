@@ -231,6 +231,11 @@ literal|"/person/city = 'London'"
 argument_list|)
 argument_list|)
 operator|.
+name|log
+argument_list|(
+literal|"UK message"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"file:target/messages/uk"
@@ -238,6 +243,11 @@ argument_list|)
 operator|.
 name|otherwise
 argument_list|()
+operator|.
+name|log
+argument_list|(
+literal|"Other message"
+argument_list|)
 operator|.
 name|to
 argument_list|(
