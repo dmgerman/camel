@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Main class to make it easy to run this example.  *  * @version   */
 end_comment
 
 begin_class
