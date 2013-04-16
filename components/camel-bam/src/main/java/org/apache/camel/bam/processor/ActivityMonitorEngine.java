@@ -553,17 +553,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Caught: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|// ignore
 block|}
 block|}
 block|}
@@ -575,11 +565,9 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Caught: "
-operator|+
-name|e
+literal|"Error during running ActivityMonitorEngine. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -636,10 +624,10 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Attempting to lock: "
-operator|+
+literal|"Attempting to lock: {}"
+argument_list|,
 name|activityState
 argument_list|)
 expr_stmt|;
@@ -656,10 +644,10 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Grabbed lock: "
-operator|+
+literal|"Grabbed lock: {}"
+argument_list|,
 name|activityState
 argument_list|)
 expr_stmt|;

@@ -440,17 +440,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Caught: "
-operator|+
-name|e
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|// ignore
 block|}
 block|}
 try|try
@@ -546,7 +536,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Attempt {} worked!"
 argument_list|,
@@ -566,9 +556,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to complete transaction: "
-operator|+
-name|e
+literal|"Failed to complete transaction. This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -743,7 +731,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Caught: "
 operator|+

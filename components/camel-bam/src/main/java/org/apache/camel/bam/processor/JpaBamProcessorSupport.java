@@ -558,9 +558,9 @@ try|try
 block|{
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
-literal|">> LoadEntity call"
+literal|"LoadEntity call"
 argument_list|)
 expr_stmt|;
 name|T
@@ -633,12 +633,10 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"About to flush on entity: "
-operator|+
+literal|"About to flush on entity: {} with key: {}"
+argument_list|,
 name|entity
-operator|+
-literal|" with key: "
-operator|+
+argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
@@ -816,9 +814,7 @@ operator|+
 name|getEntityType
 argument_list|()
 operator|+
-literal|". Reason: "
-operator|+
-name|e
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
