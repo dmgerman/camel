@@ -110,20 +110,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|DefaultManagementAgent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|ModelHelper
@@ -558,9 +544,10 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-name|DefaultManagementAgent
+name|agent
 operator|.
-name|DEFAULT_DOMAIN
+name|getMBeanObjectDomainName
+argument_list|()
 operator|+
 literal|":type=routes,name=\""
 operator|+
@@ -632,6 +619,37 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|Integer
+name|inflightExchange
+init|=
+operator|(
+name|Integer
+operator|)
+name|mBeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|routeMBean
+argument_list|,
+literal|"InflightExchanges"
+argument_list|)
+decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
+literal|"\tInflight Exchanges: "
+operator|+
+name|inflightExchange
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Long
 name|exchangesTotal
 init|=
@@ -754,7 +772,7 @@ literal|"\tMin Processing Time: "
 operator|+
 name|minProcessingTime
 operator|+
-literal|"ms"
+literal|" ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -787,7 +805,7 @@ literal|"\tMax Processing Time: "
 operator|+
 name|maxProcessingTime
 operator|+
-literal|"ms"
+literal|" ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -820,7 +838,7 @@ literal|"\tMean Processing Time: "
 operator|+
 name|meanProcessingTime
 operator|+
-literal|"ms"
+literal|" ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -853,7 +871,7 @@ literal|"\tTotal Processing Time: "
 operator|+
 name|totalProcessingTime
 operator|+
-literal|"ms"
+literal|" ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -886,7 +904,7 @@ literal|"\tLast Processing Time: "
 operator|+
 name|lastProcessingTime
 operator|+
-literal|"ms"
+literal|" ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -919,7 +937,7 @@ literal|"\tDelta Processing Time: "
 operator|+
 name|deltaProcessingTime
 operator|+
-literal|"ms"
+literal|" ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
