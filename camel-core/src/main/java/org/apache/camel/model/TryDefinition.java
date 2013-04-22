@@ -906,6 +906,23 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|preCreateProcessor ()
+specifier|protected
+name|void
+name|preCreateProcessor
+parameter_list|()
+block|{
+comment|// force re-creating initialization to ensure its up-to-date
+name|initialized
+operator|=
+literal|false
+expr_stmt|;
+name|checkInitialized
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Checks whether or not this object has been initialized      */
 DECL|method|checkInitialized ()
 specifier|protected
