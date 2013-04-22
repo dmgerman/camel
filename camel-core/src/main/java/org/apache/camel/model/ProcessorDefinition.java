@@ -3901,6 +3901,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|isOutputSupported
+argument_list|()
+operator|&&
 name|getOutputs
 argument_list|()
 operator|.

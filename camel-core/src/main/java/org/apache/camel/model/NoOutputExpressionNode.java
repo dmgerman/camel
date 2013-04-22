@@ -227,6 +227,30 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|id (String id)
+specifier|public
+name|ExpressionNode
+name|id
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+comment|// let parent handle assigning the id, as we do not support outputs
+name|getParent
+argument_list|()
+operator|.
+name|id
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 
