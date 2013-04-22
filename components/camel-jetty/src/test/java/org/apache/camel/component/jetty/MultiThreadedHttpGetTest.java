@@ -112,6 +112,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|HttpConnectionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|MultiThreadedHttpConnectionManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -169,6 +197,24 @@ block|{
 comment|// This is needed as by default there are 2 parallel
 comment|// connections to some host and there is nothing that
 comment|// closes the http connection here.
+comment|// Need to set the httpConnectionManager
+name|HttpConnectionManager
+name|httpConnectionManager
+init|=
+operator|new
+name|MultiThreadedHttpConnectionManager
+argument_list|()
+decl_stmt|;
+name|httpConnectionManager
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|setDefaultMaxConnectionsPerHost
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|getComponent
@@ -180,15 +226,9 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|getHttpConnectionManager
-argument_list|()
-operator|.
-name|getParams
-argument_list|()
-operator|.
-name|setDefaultMaxConnectionsPerHost
+name|setHttpConnectionManager
 argument_list|(
-literal|5
+name|httpConnectionManager
 argument_list|)
 expr_stmt|;
 name|String
