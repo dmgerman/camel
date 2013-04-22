@@ -350,6 +350,33 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|getServiceType ()
+specifier|public
+name|String
+name|getServiceType
+parameter_list|()
+block|{
+if|if
+condition|(
+name|service
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|service
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void

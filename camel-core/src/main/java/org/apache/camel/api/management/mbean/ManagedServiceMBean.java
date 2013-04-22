@@ -95,6 +95,18 @@ name|getRouteId
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Service Type"
+argument_list|)
+DECL|method|getServiceType ()
+name|String
+name|getServiceType
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
