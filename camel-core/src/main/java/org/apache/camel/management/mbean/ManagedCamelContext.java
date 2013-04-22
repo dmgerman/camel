@@ -1916,7 +1916,7 @@ block|{
 name|reset
 argument_list|()
 expr_stmt|;
-comment|// and now reset all processors for this route
+comment|// and now reset all routes for this route
 if|if
 condition|(
 name|includeRoutes
