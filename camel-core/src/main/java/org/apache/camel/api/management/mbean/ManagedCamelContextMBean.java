@@ -677,6 +677,24 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Resets all the performance counters.      *      * @param includeRoutes  whether to reset all routes as well.      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset counters"
+argument_list|)
+DECL|method|reset (boolean includeRoutes)
+name|void
+name|reset
+parameter_list|(
+name|boolean
+name|includeRoutes
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 

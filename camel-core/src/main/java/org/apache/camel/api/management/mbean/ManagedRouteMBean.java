@@ -374,6 +374,23 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset counters"
+argument_list|)
+DECL|method|reset (boolean includeProcessors)
+name|void
+name|reset
+parameter_list|(
+name|boolean
+name|includeProcessors
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 
