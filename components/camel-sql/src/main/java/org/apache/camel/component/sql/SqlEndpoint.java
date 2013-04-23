@@ -74,6 +74,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultPollingEndpoint
@@ -113,6 +127,19 @@ comment|/**  * SQL Endpoint. Endpoint URI should contain valid SQL statement, bu
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"sql"
+argument_list|,
+name|consumerClass
+operator|=
+name|SqlConsumer
+operator|.
+name|class
+argument_list|)
 DECL|class|SqlEndpoint
 specifier|public
 class|class
@@ -125,21 +152,29 @@ specifier|private
 name|JdbcTemplate
 name|jdbcTemplate
 decl_stmt|;
+annotation|@
+name|UriPath
 DECL|field|query
 specifier|private
 name|String
 name|query
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|batch
 specifier|private
 name|boolean
 name|batch
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
 name|maxMessagesPerPoll
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|processingStrategy
 specifier|private
 name|SqlProcessingStrategy
@@ -149,6 +184,8 @@ operator|new
 name|DefaultSqlProcessingStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|prepareStatementStrategy
 specifier|private
 name|SqlPrepareStatementStrategy
@@ -158,21 +195,29 @@ operator|new
 name|DefaultSqlPrepareStatementStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|onConsume
 specifier|private
 name|String
 name|onConsume
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|onConsumeFailed
 specifier|private
 name|String
 name|onConsumeFailed
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|onConsumeBatchComplete
 specifier|private
 name|String
 name|onConsumeBatchComplete
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|allowNamedParameters
 specifier|private
 name|boolean
@@ -180,6 +225,8 @@ name|allowNamedParameters
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|alwaysPopulateStatement
 specifier|private
 name|boolean
@@ -364,6 +411,7 @@ return|return
 name|query
 return|;
 block|}
+comment|/**      * Sets the SQL query to perform      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -390,6 +438,7 @@ return|return
 name|batch
 return|;
 block|}
+comment|/**      * Enables or disables batch mode      */
 DECL|method|setBatch (boolean batch)
 specifier|public
 name|void
@@ -416,6 +465,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * Sets the maximum number of messages to poll      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void

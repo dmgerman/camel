@@ -68,11 +68,46 @@ name|ProcessorEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  * Endpoint for the bean component.  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"bean"
+argument_list|)
 DECL|class|BeanEndpoint
 specifier|public
 class|class
@@ -80,21 +115,29 @@ name|BeanEndpoint
 extends|extends
 name|ProcessorEndpoint
 block|{
+annotation|@
+name|UriParam
 DECL|field|cache
 specifier|private
 name|boolean
 name|cache
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|multiParameterArray
 specifier|private
 name|boolean
 name|multiParameterArray
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|beanName
 specifier|private
 name|String
 name|beanName
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|method
 specifier|private
 name|String
@@ -175,6 +218,7 @@ return|return
 name|beanName
 return|;
 block|}
+comment|/**      * Sets the name of the bean to invoke      */
 DECL|method|setBeanName (String beanName)
 specifier|public
 name|void
@@ -251,6 +295,7 @@ return|return
 name|method
 return|;
 block|}
+comment|/**      * Sets the name of the method to invoke on the bean      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void

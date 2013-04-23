@@ -144,6 +144,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|PollingConsumerPollStrategy
 import|;
 end_import
@@ -251,6 +265,8 @@ argument_list|>
 name|future
 decl_stmt|;
 comment|// if adding more options then align with ScheduledPollEndpoint#configureScheduledPollConsumerProperties
+annotation|@
+name|UriParam
 DECL|field|startScheduler
 specifier|private
 name|boolean
@@ -258,6 +274,8 @@ name|startScheduler
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -265,6 +283,8 @@ name|initialDelay
 init|=
 literal|1000
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|delay
 specifier|private
 name|long
@@ -272,6 +292,8 @@ name|delay
 init|=
 literal|500
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|timeUnit
 specifier|private
 name|TimeUnit
@@ -281,6 +303,8 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|useFixedDelay
 specifier|private
 name|boolean
@@ -288,6 +312,8 @@ name|useFixedDelay
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|pollStrategy
 specifier|private
 name|PollingConsumerPollStrategy
@@ -297,6 +323,8 @@ operator|new
 name|DefaultPollingConsumerPollStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|runLoggingLevel
 specifier|private
 name|LoggingLevel
@@ -306,6 +334,8 @@ name|LoggingLevel
 operator|.
 name|TRACE
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|sendEmptyMessageWhenIdle
 specifier|private
 name|boolean
