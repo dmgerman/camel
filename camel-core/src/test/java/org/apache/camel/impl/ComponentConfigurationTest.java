@@ -850,11 +850,9 @@ name|InvalidPropertyException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got expected exception: "
 operator|+
@@ -965,11 +963,9 @@ name|InvalidPropertyException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got expected exception: "
 operator|+
@@ -1083,11 +1079,9 @@ name|getBar
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Created endpoint "
 operator|+
@@ -1151,11 +1145,9 @@ name|InvalidPropertyException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got expected exception: "
 operator|+
@@ -1223,11 +1215,9 @@ name|ResolveEndpointFailedException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got expected exception: "
 operator|+
@@ -1341,16 +1331,14 @@ name|getParameterType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
+literal|"{} has has configuration properties {}"
+argument_list|,
 name|component
-operator|+
-literal|" has has configuration properties "
-operator|+
+argument_list|,
 name|parameterMap
 operator|.
 name|keySet
@@ -1650,11 +1638,9 @@ name|InvalidPropertyException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got expected exception: "
 operator|+
@@ -1823,11 +1809,9 @@ name|InvalidPropertyException
 name|e
 parameter_list|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Got expected exception: "
 operator|+
