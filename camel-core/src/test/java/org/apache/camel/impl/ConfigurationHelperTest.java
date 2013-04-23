@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ComponentConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -193,6 +205,10 @@ operator|.
 name|assertTrue
 import|;
 end_import
+
+begin_comment
+comment|/**  * @see ComponentConfigurationTest for tests using the {@link ComponentConfiguration} mechanism  */
+end_comment
 
 begin_class
 DECL|class|ConfigurationHelperTest
@@ -1770,6 +1786,18 @@ name|uri
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponentConfiguration ()
+specifier|public
+name|ComponentConfiguration
+name|createComponentConfiguration
+parameter_list|()
 block|{
 return|return
 literal|null

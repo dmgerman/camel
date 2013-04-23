@@ -104,6 +104,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -130,7 +144,7 @@ specifier|public
 class|class
 name|SedaComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|log
 specifier|protected
@@ -187,6 +201,19 @@ name|QueueReference
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|SedaComponent ()
+specifier|public
+name|SedaComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|SedaEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setQueueSize (int size)
 specifier|public
 name|void

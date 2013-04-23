@@ -88,6 +88,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ComponentConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -724,6 +736,22 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createComponentConfiguration ()
+specifier|public
+name|ComponentConfiguration
+name|createComponentConfiguration
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultComponentConfiguration
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 DECL|method|createConfiguration (String uri)
