@@ -168,6 +168,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -232,7 +246,7 @@ specifier|public
 class|class
 name|SjmsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
@@ -294,6 +308,19 @@ specifier|private
 name|TimedTaskManager
 name|timedTaskManager
 decl_stmt|;
+DECL|method|SjmsComponent ()
+specifier|public
+name|SjmsComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|SjmsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

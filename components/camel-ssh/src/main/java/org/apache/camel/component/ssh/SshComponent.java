@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -88,13 +88,26 @@ specifier|public
 class|class
 name|SshComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|configuration
 specifier|private
 name|SshConfiguration
 name|configuration
 decl_stmt|;
+DECL|method|SshComponent ()
+specifier|public
+name|SshComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|SshEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

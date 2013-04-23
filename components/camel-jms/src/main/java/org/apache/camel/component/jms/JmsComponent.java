@@ -116,7 +116,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -322,7 +322,7 @@ specifier|public
 class|class
 name|JmsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 implements|implements
 name|ApplicationContextAware
 implements|,
@@ -375,7 +375,15 @@ DECL|method|JmsComponent ()
 specifier|public
 name|JmsComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|JmsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JmsComponent (CamelContext context)
 specifier|public
 name|JmsComponent
@@ -387,6 +395,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|JmsEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -398,6 +410,9 @@ name|JmsConfiguration
 name|configuration
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|configuration

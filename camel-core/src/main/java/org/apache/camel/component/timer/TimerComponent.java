@@ -104,6 +104,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the component that manages {@link TimerEndpoint}.  It holds the  * list of {@link TimerConsumer} objects that are started.  *  * @version   */
 end_comment
@@ -114,7 +128,7 @@ specifier|public
 class|class
 name|TimerComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|timers
 specifier|private
@@ -136,6 +150,19 @@ name|Timer
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|TimerComponent ()
+specifier|public
+name|TimerComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|TimerEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getTimer (TimerEndpoint endpoint)
 specifier|public
 name|Timer

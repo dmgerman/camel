@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -62,7 +52,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|ProcessorEndpoint
 import|;
 end_import
 
@@ -76,7 +66,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|ProcessorEndpoint
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -114,6 +104,16 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/bean.html">Bean Component</a>  * will look up the URI in the {@link org.apache.camel.spi.Registry} and use that to handle message dispatching.  *  * @version   */
 end_comment
@@ -124,7 +124,7 @@ specifier|public
 class|class
 name|BeanComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -171,7 +171,15 @@ DECL|method|BeanComponent ()
 specifier|public
 name|BeanComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|BeanEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A helper method to create a new endpoint from a bean with a generated URI      */
 DECL|method|createEndpoint (Object bean)
 specifier|public

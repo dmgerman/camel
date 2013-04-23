@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -128,7 +128,7 @@ specifier|public
 class|class
 name|SqlComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|dataSource
 specifier|private
@@ -146,7 +146,15 @@ DECL|method|SqlComponent ()
 specifier|public
 name|SqlComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|SqlEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SqlComponent (CamelContext context)
 specifier|public
 name|SqlComponent
@@ -158,6 +166,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|SqlEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
