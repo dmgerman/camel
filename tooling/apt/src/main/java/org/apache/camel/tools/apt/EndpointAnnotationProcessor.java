@@ -1153,6 +1153,7 @@ argument_list|(
 literal|"</tr>"
 argument_list|)
 expr_stmt|;
+block|}
 name|writer
 operator|.
 name|println
@@ -1160,7 +1161,6 @@ argument_list|(
 literal|"</table>"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|findClassProperties (RoundEnvironment roundEnv, SortedMap<String, List<String>> sortedMap, TypeElement classElement, String prefix)
