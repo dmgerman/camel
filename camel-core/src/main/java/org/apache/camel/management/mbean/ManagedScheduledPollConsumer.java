@@ -288,6 +288,33 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isSchedulerStarted ()
+specifier|public
+name|boolean
+name|isSchedulerStarted
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|isSchedulerStarted
+argument_list|()
+return|;
+block|}
+DECL|method|startScheduler ()
+specifier|public
+name|void
+name|startScheduler
+parameter_list|()
+block|{
+name|getConsumer
+argument_list|()
+operator|.
+name|startScheduler
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -36,6 +36,22 @@ name|ManagedAttribute
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedSchedulePollConsumerMBean
 specifier|public
@@ -151,6 +167,30 @@ parameter_list|(
 name|String
 name|timeUnit
 parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Is the scheduler started"
+argument_list|)
+DECL|method|isSchedulerStarted ()
+name|boolean
+name|isSchedulerStarted
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Starts the scheduler"
+argument_list|)
+DECL|method|startScheduler ()
+name|void
+name|startScheduler
+parameter_list|()
 function_decl|;
 block|}
 end_interface

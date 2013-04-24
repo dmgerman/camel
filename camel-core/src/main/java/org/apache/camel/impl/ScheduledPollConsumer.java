@@ -258,6 +258,7 @@ name|shutdownExecutor
 decl_stmt|;
 DECL|field|future
 specifier|private
+specifier|volatile
 name|ScheduledFuture
 argument_list|<
 name|?
@@ -1287,6 +1288,19 @@ return|return
 name|scheduledExecutorService
 return|;
 block|}
+comment|/**      * Whether the scheduler has been started.      *<p/>      * The scheduler can be started with the {@link #startScheduler()} method.      *      * @return<tt>true</tt> if started,<tt>false</tt> if not.      */
+DECL|method|isSchedulerStarted ()
+specifier|public
+name|boolean
+name|isSchedulerStarted
+parameter_list|()
+block|{
+return|return
+name|future
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**      * Sets a custom shared {@link ScheduledExecutorService} to use as thread pool      *<p/>      *<b>Notice:</b> When using a custom thread pool, then the lifecycle of this thread      * pool is not controlled by this consumer (eg this consumer will not start/stop the thread pool      * when the consumer is started/stopped etc.)      *      * @param scheduledExecutorService the custom thread pool to use      */
 DECL|method|setScheduledExecutorService (ScheduledExecutorService scheduledExecutorService)
 specifier|public
@@ -1407,11 +1421,20 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Starts the scheduler.      *<p/>      * If the scheduler is already started, then this is a noop method call.      */
 DECL|method|startScheduler ()
-specifier|protected
+specifier|public
 name|void
 name|startScheduler
 parameter_list|()
+block|{
+comment|// only schedule task if we have not already done that
+if|if
+condition|(
+name|future
+operator|==
+literal|null
+condition|)
 block|{
 if|if
 condition|(
@@ -1546,6 +1569,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -1578,6 +1602,10 @@ name|cancel
 argument_list|(
 literal|false
 argument_list|)
+expr_stmt|;
+name|future
+operator|=
+literal|null
 expr_stmt|;
 block|}
 name|super
