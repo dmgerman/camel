@@ -6864,6 +6864,85 @@ literal|" camel.apache.org"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBodyOgnlSpaces ()
+specifier|public
+name|void
+name|testBodyOgnlSpaces
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+comment|// no quotes, which is discouraged to use
+name|assertExpression
+argument_list|(
+literal|"${body.compareTo(Hello World)}"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.compareTo('Hello World')}"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.compareTo(${body})}"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.compareTo('foo')}"
+argument_list|,
+literal|"Hello World"
+operator|.
+name|compareTo
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.compareTo( 'Hello World' )}"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.compareTo( ${body} )}"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.compareTo( 'foo' )}"
+argument_list|,
+literal|"Hello World"
+operator|.
+name|compareTo
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testClassSimpleName ()
 specifier|public
 name|void
