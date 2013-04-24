@@ -144,7 +144,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|UriParam
+name|PollingConsumerPollStrategy
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|PollingConsumerPollStrategy
+name|UriParam
 import|;
 end_import
 

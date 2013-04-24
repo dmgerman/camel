@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|ParameterConfiguration
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -58,8 +44,22 @@ name|SortedMap
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|ParameterConfiguration
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a set of configuration values for an endpoint URI which can be created from a URI string  * or a base URI string and a set of parameter names and values.  *  * The configuration values can then be introspected, modified and converted back into a URI string  * or Endpoint.  *  * For @{link UriEndpointComponent} implementations created for Endpoints annotated with {@link UriEndpoint} and the  * associated annotations then all the parameter values can be introspected and the parameter values are converted to their  * correct type.  *  * Other implementations keep all the types as String and there is no validation until you try to create  * an Endpoint from the values.  */
+comment|/**  * Represents a set of configuration values for an endpoint URI which can be created from a URI string  * or a base URI string and a set of parameter names and values.  *  * The configuration values can then be introspected, modified and converted back into a URI string  * or Endpoint.  *  * For @{link UriEndpointComponent} implementations created for Endpoints annotated with {@link org.apache.camel.spi.UriEndpoint} and the  * associated annotations then all the parameter values can be introspected and the parameter values are converted to their  * correct type.  *  * Other implementations keep all the types as String and there is no validation until you try to create  * an Endpoint from the values.  */
 end_comment
 
 begin_interface
@@ -166,7 +166,7 @@ argument_list|>
 name|getParameterConfigurationMap
 parameter_list|()
 function_decl|;
-comment|/**      * Converts the configuration into a URI and then looks up the endpoint in the {@link CamelContext}      * which typically results in a new {@link Endpoint} instance being creatd.      */
+comment|/**      * Converts the configuration into a URI and then looks up the endpoint in the {@link CamelContext}      * which typically results in a new {@link Endpoint} instance being created.      */
 DECL|method|createEndpoint ()
 name|Endpoint
 name|createEndpoint
