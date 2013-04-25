@@ -149,7 +149,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|DefaultScheduledPollConsumer
+name|Consumer
 name|result
 init|=
 operator|new

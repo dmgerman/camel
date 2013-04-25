@@ -264,7 +264,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|PollingConsumer
+name|answer
+init|=
 operator|new
 name|ProcessorPollingConsumer
 argument_list|(
@@ -273,6 +275,14 @@ argument_list|,
 name|getProcessor
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|getProcessor ()
