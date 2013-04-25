@@ -423,24 +423,6 @@ throws|throws
 name|Exception
 block|{
 comment|// no redelivery for unit test as we want it to be polled next time
-name|errorHandler
-argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:error"
-argument_list|)
-operator|.
-name|maximumRedeliveries
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|logStackTrace
-argument_list|(
-literal|false
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -448,12 +430,11 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|handled
+name|to
 argument_list|(
-literal|false
+literal|"mock:error"
 argument_list|)
 expr_stmt|;
-comment|// DLC should not handle
 name|from
 argument_list|(
 literal|"imap://localhost?username=claus&password=secret&unseen=true&delay=250"

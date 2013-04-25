@@ -1476,11 +1476,25 @@ block|}
 comment|// we should always invoke the deliverToFailureProcessor as it prepares, logs and does a fair
 comment|// bit of work for exhausted exchanges (its only the target processor which may be null if handled by a savepoint)
 name|boolean
+name|isDeadLetterChannel
+init|=
+name|isDeadLetterChannel
+argument_list|()
+operator|&&
+name|target
+operator|==
+name|data
+operator|.
+name|deadLetterProcessor
+decl_stmt|;
+name|boolean
 name|sync
 init|=
 name|deliverToFailureProcessor
 argument_list|(
 name|target
+argument_list|,
+name|isDeadLetterChannel
 argument_list|,
 name|exchange
 argument_list|,
@@ -2113,9 +2127,23 @@ expr_stmt|;
 block|}
 comment|// we should always invoke the deliverToFailureProcessor as it prepares, logs and does a fair
 comment|// bit of work for exhausted exchanges (its only the target processor which may be null if handled by a savepoint)
+name|boolean
+name|isDeadLetterChannel
+init|=
+name|isDeadLetterChannel
+argument_list|()
+operator|&&
+name|target
+operator|==
+name|data
+operator|.
+name|deadLetterProcessor
+decl_stmt|;
 name|deliverToFailureProcessor
 argument_list|(
 name|target
+argument_list|,
+name|isDeadLetterChannel
 argument_list|,
 name|exchange
 argument_list|,
@@ -3275,7 +3303,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * All redelivery attempts failed so move the exchange to the dead letter queue      */
-DECL|method|deliverToFailureProcessor (final Processor processor, final Exchange exchange, final RedeliveryData data, final AsyncCallback callback)
+DECL|method|deliverToFailureProcessor (final Processor processor, final boolean isDeadLetterChannel, final Exchange exchange, final RedeliveryData data, final AsyncCallback callback)
 specifier|protected
 name|boolean
 name|deliverToFailureProcessor
@@ -3283,6 +3311,10 @@ parameter_list|(
 specifier|final
 name|Processor
 name|processor
+parameter_list|,
+specifier|final
+name|boolean
+name|isDeadLetterChannel
 parameter_list|,
 specifier|final
 name|Exchange
@@ -3319,10 +3351,13 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// always handle if dead letter channel
 specifier|final
 name|boolean
 name|shouldHandle
 init|=
+name|isDeadLetterChannel
+operator|||
 name|shouldHandled
 argument_list|(
 name|exchange

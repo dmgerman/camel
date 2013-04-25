@@ -142,7 +142,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/thridpool"
+literal|"target/thirdpool"
 argument_list|)
 expr_stmt|;
 name|super
@@ -260,24 +260,7 @@ throws|throws
 name|Exception
 block|{
 comment|// no redeliveries as we want the ftp consumer to try again
-name|errorHandler
-argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:error"
-argument_list|)
-operator|.
-name|maximumRedeliveries
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|logStackTrace
-argument_list|(
-literal|false
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// use no delay for fast unit testing
 name|onException
 argument_list|(
 name|IllegalArgumentException
@@ -285,12 +268,16 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|handled
+name|logStackTrace
 argument_list|(
 literal|false
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:error"
+argument_list|)
 expr_stmt|;
-comment|// DLC should not handle
 name|from
 argument_list|(
 name|getFtpUrl

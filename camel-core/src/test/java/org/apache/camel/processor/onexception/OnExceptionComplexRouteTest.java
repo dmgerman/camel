@@ -193,8 +193,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+comment|// we use DLC so all exceptions gets handled
 name|template
 operator|.
 name|sendBody
@@ -204,31 +203,6 @@ argument_list|,
 literal|"<order><type>myType</type><user>Func</user></order>"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown a MyFunctionalException"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
-name|assertIsInstanceOf
-argument_list|(
-name|MyFunctionalException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

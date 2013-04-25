@@ -1499,20 +1499,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|errorHandler
-argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:failed"
-argument_list|)
-operator|.
-name|maximumRedeliveries
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// we don't want the DLC to handle the Exception
 name|onException
 argument_list|(
 name|CamelException
@@ -1520,9 +1506,9 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|handled
+name|to
 argument_list|(
-literal|false
+literal|"mock:failed"
 argument_list|)
 expr_stmt|;
 name|from

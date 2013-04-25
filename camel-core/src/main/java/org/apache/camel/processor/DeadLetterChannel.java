@@ -310,6 +310,18 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isDeadLetterChannel ()
+specifier|public
+name|boolean
+name|isDeadLetterChannel
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

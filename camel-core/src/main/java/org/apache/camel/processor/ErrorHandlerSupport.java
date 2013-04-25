@@ -500,6 +500,17 @@ name|boolean
 name|supportTransacted
 parameter_list|()
 function_decl|;
+comment|/**      * Whether this error handler handles exhausted errors by moving the exchange to a dead letter channel.      */
+DECL|method|isDeadLetterChannel ()
+specifier|public
+name|boolean
+name|isDeadLetterChannel
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Gets the output      */
 DECL|method|getOutput ()
 specifier|public

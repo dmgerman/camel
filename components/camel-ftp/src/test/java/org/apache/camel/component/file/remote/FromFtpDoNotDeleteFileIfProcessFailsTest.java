@@ -366,11 +366,11 @@ throws|throws
 name|Exception
 block|{
 comment|// use no delay for fast unit testing
-name|errorHandler
+name|onException
 argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:error"
+name|IllegalArgumentException
+operator|.
+name|class
 argument_list|)
 operator|.
 name|maximumRedeliveries
@@ -382,21 +382,12 @@ name|redeliveryDelay
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:error"
 argument_list|)
 expr_stmt|;
-name|onException
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
-operator|.
-name|handled
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// DLC should not handle
 name|from
 argument_list|(
 name|getFtpUrl

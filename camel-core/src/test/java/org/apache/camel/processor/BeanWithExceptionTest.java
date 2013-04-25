@@ -470,14 +470,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|errorHandler
-argument_list|(
-name|deadLetterChannel
-argument_list|(
-literal|"mock:error"
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|onException
 argument_list|(
 name|ValidationException
