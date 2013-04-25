@@ -209,7 +209,9 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 decl_stmt|;
-return|return
+name|TwitterConsumerDirect
+name|answer
+init|=
 operator|new
 name|TwitterConsumerDirect
 argument_list|(
@@ -219,6 +221,14 @@ name|processor
 argument_list|,
 name|twitter4jConsumer
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 annotation|@

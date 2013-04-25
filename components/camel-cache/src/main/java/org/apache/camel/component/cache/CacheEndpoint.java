@@ -332,7 +332,9 @@ argument_list|,
 literal|"cacheManagerFactory"
 argument_list|)
 expr_stmt|;
-return|return
+name|CacheConsumer
+name|answer
+init|=
 operator|new
 name|CacheConsumer
 argument_list|(
@@ -342,6 +344,14 @@ name|processor
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createProducer ()

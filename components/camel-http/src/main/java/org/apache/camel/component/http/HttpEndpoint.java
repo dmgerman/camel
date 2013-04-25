@@ -557,12 +557,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|HttpPollingConsumer
+name|answer
+init|=
 operator|new
 name|HttpPollingConsumer
 argument_list|(
 name|this
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Factory method used by producers and consumers to create a new {@link HttpClient} instance      */

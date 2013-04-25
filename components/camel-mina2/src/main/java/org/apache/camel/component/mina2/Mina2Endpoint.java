@@ -235,7 +235,9 @@ argument_list|,
 literal|"configuration"
 argument_list|)
 expr_stmt|;
-return|return
+name|Mina2Consumer
+name|answer
+init|=
 operator|new
 name|Mina2Consumer
 argument_list|(
@@ -243,6 +245,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createExchange (IoSession session, Object payload)

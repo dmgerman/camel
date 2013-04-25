@@ -310,7 +310,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Could not create a new feed."
+literal|"Could not create a new feed. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -356,8 +356,12 @@ parameter_list|,
 name|boolean
 name|throttleEntries
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
+name|RssEntryPollingConsumer
+name|answer
+init|=
 operator|new
 name|RssEntryPollingConsumer
 argument_list|(
@@ -371,6 +375,14 @@ name|lastUpdate
 argument_list|,
 name|throttleEntries
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 annotation|@
@@ -386,8 +398,12 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
+name|RssPollingConsumer
+name|answer
+init|=
 operator|new
 name|RssPollingConsumer
 argument_list|(
@@ -395,6 +411,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 block|}

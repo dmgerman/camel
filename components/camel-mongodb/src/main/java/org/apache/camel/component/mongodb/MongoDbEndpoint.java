@@ -482,8 +482,6 @@ expr_stmt|;
 block|}
 name|Consumer
 name|consumer
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -517,6 +515,11 @@ name|consumerType
 argument_list|)
 throw|;
 block|}
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
 name|consumer
 return|;

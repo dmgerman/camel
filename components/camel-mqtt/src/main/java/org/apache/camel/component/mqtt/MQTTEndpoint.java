@@ -339,7 +339,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|MQTTConsumer
+name|answer
+init|=
 operator|new
 name|MQTTConsumer
 argument_list|(
@@ -347,6 +349,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 annotation|@

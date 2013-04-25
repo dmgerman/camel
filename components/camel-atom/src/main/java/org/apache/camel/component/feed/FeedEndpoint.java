@@ -308,6 +308,8 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|createEntryPollingConsumer (FeedEndpoint feedEndpoint, Processor processor, boolean filter, Date lastUpdate, boolean throttleEntries)
 specifier|protected
@@ -330,6 +332,8 @@ parameter_list|,
 name|boolean
 name|throttleEntries
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|createExchangeWithFeedHeader (Object feed, String header)
 specifier|protected

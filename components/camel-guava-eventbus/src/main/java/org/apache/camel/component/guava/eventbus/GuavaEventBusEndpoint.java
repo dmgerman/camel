@@ -228,7 +228,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|GuavaEventBusConsumer
+name|answer
+init|=
 operator|new
 name|GuavaEventBusConsumer
 argument_list|(
@@ -242,6 +244,14 @@ name|eventClass
 argument_list|,
 name|listenerInterface
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 annotation|@

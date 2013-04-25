@@ -235,7 +235,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|KestrelConsumer
+name|answer
+init|=
 operator|new
 name|KestrelConsumer
 argument_list|(
@@ -246,6 +248,14 @@ argument_list|,
 name|getMemcachedClient
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * @return a client to kestrel using the memcached client as configured by this endpoint      */

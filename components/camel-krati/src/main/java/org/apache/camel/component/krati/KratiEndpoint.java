@@ -589,7 +589,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|KratiConsumer
+name|answer
+init|=
 operator|new
 name|KratiConsumer
 argument_list|(
@@ -599,6 +601,14 @@ name|processor
 argument_list|,
 name|dataStore
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|isSingleton ()

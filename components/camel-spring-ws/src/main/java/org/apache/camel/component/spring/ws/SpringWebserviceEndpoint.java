@@ -166,6 +166,11 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
 name|consumer
 return|;

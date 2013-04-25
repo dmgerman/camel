@@ -162,8 +162,12 @@ parameter_list|(
 name|Processor
 name|processor
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
+name|JcloudsBlobStoreConsumer
+name|answer
+init|=
 operator|new
 name|JcloudsBlobStoreConsumer
 argument_list|(
@@ -173,6 +177,14 @@ name|processor
 argument_list|,
 name|blobStore
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|getLocationId ()

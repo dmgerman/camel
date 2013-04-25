@@ -1578,6 +1578,11 @@ argument_list|,
 name|consumer
 argument_list|)
 expr_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
 name|consumer
 return|;
@@ -1598,7 +1603,9 @@ init|=
 name|createInOnlyTemplate
 argument_list|()
 decl_stmt|;
-return|return
+name|JmsPollingConsumer
+name|answer
+init|=
 operator|new
 name|JmsPollingConsumer
 argument_list|(
@@ -1606,6 +1613,14 @@ name|this
 argument_list|,
 name|template
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 annotation|@

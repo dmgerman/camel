@@ -399,7 +399,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|RouteboxSedaConsumer
+name|answer
+init|=
 operator|new
 name|RouteboxSedaConsumer
 argument_list|(
@@ -407,6 +409,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createProducer ()

@@ -393,7 +393,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Currently unsupported      * @throws RuntimeCamelException      */
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -405,7 +404,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|JcrConsumer
+name|answer
+init|=
 operator|new
 name|JcrConsumer
 argument_list|(
@@ -413,6 +414,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createProducer ()
@@ -438,7 +447,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 comment|/**      * Get the {@link Repository}      *       * @return the repository      */

@@ -188,7 +188,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|CMISConsumer
+name|answer
+init|=
 operator|new
 name|CMISConsumer
 argument_list|(
@@ -198,6 +200,14 @@ name|processor
 argument_list|,
 name|sessionFacade
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|isSingleton ()

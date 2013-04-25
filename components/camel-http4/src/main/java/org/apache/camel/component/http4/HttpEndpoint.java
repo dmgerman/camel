@@ -606,12 +606,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+name|HttpPollingConsumer
+name|answer
+init|=
 operator|new
 name|HttpPollingConsumer
 argument_list|(
 name|this
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 comment|/**      * Gets the HttpClient to be used by {@link org.apache.camel.component.http4.HttpProducer}      */

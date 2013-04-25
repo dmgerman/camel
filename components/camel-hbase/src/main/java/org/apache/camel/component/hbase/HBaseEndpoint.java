@@ -376,6 +376,11 @@ argument_list|,
 name|tableName
 argument_list|)
 decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 name|consumer
 operator|.
 name|setMaxMessagesPerPoll
