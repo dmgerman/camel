@@ -1509,17 +1509,6 @@ operator|==
 literal|null
 condition|)
 block|{
-specifier|final
-name|Charset
-name|charset
-init|=
-name|getEncodingParameter
-argument_list|(
-name|type
-argument_list|,
-name|configuration
-argument_list|)
-decl_stmt|;
 name|codecFactory
 operator|=
 operator|new
@@ -1532,8 +1521,6 @@ argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
-argument_list|,
-name|charset
 argument_list|)
 expr_stmt|;
 if|if
@@ -1548,7 +1535,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"{}: Using CodecFactory: {} using encoding: {}"
+literal|"{}: Using CodecFactory: {}"
 argument_list|,
 operator|new
 name|Object
@@ -1557,8 +1544,6 @@ block|{
 name|type
 block|,
 name|codecFactory
-block|,
-name|charset
 block|}
 argument_list|)
 expr_stmt|;

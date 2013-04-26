@@ -32,30 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|Charset
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|CharsetEncoder
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -187,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -198,27 +174,18 @@ name|MinaUdpProtocolCodecFactory
 implements|implements
 name|ProtocolCodecFactory
 block|{
-DECL|field|charset
-specifier|private
-specifier|final
-name|Charset
-name|charset
-decl_stmt|;
 DECL|field|context
 specifier|private
 specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|method|MinaUdpProtocolCodecFactory (CamelContext context, Charset charset)
+DECL|method|MinaUdpProtocolCodecFactory (CamelContext context)
 specifier|public
 name|MinaUdpProtocolCodecFactory
 parameter_list|(
 name|CamelContext
 name|context
-parameter_list|,
-name|Charset
-name|charset
 parameter_list|)
 block|{
 name|this
@@ -226,12 +193,6 @@ operator|.
 name|context
 operator|=
 name|context
-expr_stmt|;
-name|this
-operator|.
-name|charset
-operator|=
-name|charset
 expr_stmt|;
 block|}
 DECL|method|getEncoder ()
@@ -247,10 +208,6 @@ operator|new
 name|ProtocolEncoder
 argument_list|()
 block|{
-specifier|private
-name|CharsetEncoder
-name|encoder
-decl_stmt|;
 specifier|public
 name|void
 name|encode
@@ -267,29 +224,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|encoder
-operator|==
-literal|null
-condition|)
-block|{
-name|encoder
-operator|=
-name|charset
-operator|.
-name|newEncoder
-argument_list|()
-expr_stmt|;
-block|}
 name|ByteBuffer
 name|buf
 init|=
 name|toByteBuffer
 argument_list|(
 name|message
-argument_list|,
-name|encoder
 argument_list|)
 decl_stmt|;
 name|buf
@@ -349,8 +289,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// convert to bytes to write, we can not pass in the byte buffer as it could be sent to
-comment|// multiple mina sessions so we must convert it to bytes
+comment|// convert to bytes to write, we can not pass in the byte buffer
+comment|// as it could be sent to multiple mina sessions so we must convert it to bytes
 name|byte
 index|[]
 name|bytes
@@ -360,7 +300,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|byte
 index|[]
@@ -408,23 +348,22 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|toByteBuffer (Object message, CharsetEncoder encoder)
+DECL|method|toByteBuffer (Object message)
 specifier|private
 name|ByteBuffer
 name|toByteBuffer
 parameter_list|(
 name|Object
 name|message
-parameter_list|,
-name|CharsetEncoder
-name|encoder
 parameter_list|)
 throws|throws
 name|CharacterCodingException
 throws|,
 name|NoTypeConversionAvailableException
 block|{
-name|String
+comment|// try to convert it to a byte array
+name|byte
+index|[]
 name|value
 init|=
 name|context
@@ -432,11 +371,12 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
-name|String
+name|byte
+index|[]
 operator|.
-name|class
+expr|class
 argument_list|,
 name|message
 argument_list|)
@@ -458,7 +398,6 @@ argument_list|(
 name|value
 operator|.
 name|length
-argument_list|()
 argument_list|)
 operator|.
 name|setAutoExpand
@@ -468,18 +407,16 @@ argument_list|)
 decl_stmt|;
 name|answer
 operator|.
-name|putString
+name|put
 argument_list|(
 name|value
-argument_list|,
-name|encoder
 argument_list|)
 expr_stmt|;
 return|return
 name|answer
 return|;
 block|}
-comment|// failback to use a byte buffer converter
+comment|// fallback to use a byte buffer converter
 return|return
 name|context
 operator|.
