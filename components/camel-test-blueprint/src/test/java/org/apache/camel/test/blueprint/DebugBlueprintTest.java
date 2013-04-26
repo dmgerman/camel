@@ -22,16 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -84,19 +74,15 @@ name|DebugBlueprintTest
 extends|extends
 name|CamelBlueprintTestSupport
 block|{
-DECL|field|wasDebugBeforeCalled
-specifier|public
+DECL|field|debugBeforeMethodCalled
+specifier|private
 name|boolean
-name|wasDebugBeforeCalled
-init|=
-literal|false
+name|debugBeforeMethodCalled
 decl_stmt|;
-DECL|field|wasDebugAfterCalled
-specifier|public
+DECL|field|debugAfterMethodCalled
+specifier|private
 name|boolean
-name|wasDebugAfterCalled
-init|=
-literal|false
+name|debugAfterMethodCalled
 decl_stmt|;
 comment|// override this method, and return the location of our Blueprint XML file to be used for testing
 annotation|@
@@ -111,7 +97,7 @@ return|return
 literal|"org/apache/camel/test/blueprint/camelContext.xml"
 return|;
 block|}
-comment|// here we have regular Junit @Test method
+comment|// here we have regular JUnit @Test method
 annotation|@
 name|Test
 DECL|method|testRoute ()
@@ -147,18 +133,15 @@ comment|// assert mocks
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|Assert
-operator|.
+comment|// assert on the debugBefore/debugAfter methods below being called as we've enabled the debugger
 name|assertTrue
 argument_list|(
-name|wasDebugBeforeCalled
+name|debugBeforeMethodCalled
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
-name|wasDebugAfterCalled
+name|debugAfterMethodCalled
 argument_list|)
 expr_stmt|;
 block|}
@@ -226,7 +209,7 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|wasDebugBeforeCalled
+name|debugBeforeMethodCalled
 operator|=
 literal|true
 expr_stmt|;
@@ -285,7 +268,7 @@ name|getBody
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|wasDebugAfterCalled
+name|debugAfterMethodCalled
 operator|=
 literal|true
 expr_stmt|;
