@@ -27,7 +27,6 @@ specifier|final
 class|class
 name|SpringWebserviceConstants
 block|{
-comment|/* Producer constants */
 DECL|field|SPRING_WS_ENDPOINT_URI
 specifier|public
 specifier|static
@@ -45,6 +44,15 @@ name|String
 name|SPRING_WS_SOAP_ACTION
 init|=
 literal|"CamelSpringWebserviceSoapAction"
+decl_stmt|;
+DECL|field|SPRING_WS_SOAP_HEADER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SPRING_WS_SOAP_HEADER
+init|=
+literal|"CamelSpringWebserviceSoapHeader"
 decl_stmt|;
 DECL|field|SPRING_WS_ADDRESSING_ACTION
 specifier|public
@@ -73,7 +81,6 @@ name|SPRING_WS_ADDRESSING_PRODUCER_REPLY_TO
 init|=
 literal|"CamelSpringWebserviceAddressingReplyTo"
 decl_stmt|;
-comment|/* Consumers constants (reserved, not impl. yet) */
 DECL|field|SPRING_WS_ADDRESSING_CONSUMER_OUTPUT_ACTION
 specifier|public
 specifier|static
