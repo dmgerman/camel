@@ -4038,6 +4038,45 @@ operator|=
 name|documentBuilderFactory
 expr_stmt|;
 block|}
+DECL|method|getTransformerFactory ()
+specifier|public
+name|TransformerFactory
+name|getTransformerFactory
+parameter_list|()
+block|{
+if|if
+condition|(
+name|transformerFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|transformerFactory
+operator|=
+name|createTransformerFactory
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|transformerFactory
+return|;
+block|}
+DECL|method|setTransformerFactory (TransformerFactory transformerFactory)
+specifier|public
+name|void
+name|setTransformerFactory
+parameter_list|(
+name|TransformerFactory
+name|transformerFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transformerFactory
+operator|=
+name|transformerFactory
+expr_stmt|;
+block|}
 comment|// Helper methods
 comment|//-------------------------------------------------------------------------
 DECL|method|createDocumentBuilderFactory ()
@@ -4120,45 +4159,6 @@ operator|.
 name|newDocument
 argument_list|()
 return|;
-block|}
-DECL|method|getTransformerFactory ()
-specifier|public
-name|TransformerFactory
-name|getTransformerFactory
-parameter_list|()
-block|{
-if|if
-condition|(
-name|transformerFactory
-operator|==
-literal|null
-condition|)
-block|{
-name|transformerFactory
-operator|=
-name|createTransformerFactory
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|transformerFactory
-return|;
-block|}
-DECL|method|setTransformerFactory (TransformerFactory transformerFactory)
-specifier|public
-name|void
-name|setTransformerFactory
-parameter_list|(
-name|TransformerFactory
-name|transformerFactory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transformerFactory
-operator|=
-name|transformerFactory
-expr_stmt|;
 block|}
 comment|/**      * @deprecated use {@link #createTransformer}, will be removed in Camel 3.0      */
 annotation|@
