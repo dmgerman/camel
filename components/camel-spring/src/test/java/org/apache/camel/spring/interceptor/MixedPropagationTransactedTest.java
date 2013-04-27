@@ -120,9 +120,7 @@ name|jdbc
 operator|.
 name|core
 operator|.
-name|simple
-operator|.
-name|SimpleJdbcTemplate
+name|JdbcTemplate
 import|;
 end_import
 
@@ -140,7 +138,7 @@ name|SpringTestSupport
 block|{
 DECL|field|jdbc
 specifier|protected
-name|SimpleJdbcTemplate
+name|JdbcTemplate
 name|jdbc
 decl_stmt|;
 DECL|field|useTransactionErrorHandler
@@ -196,7 +194,7 @@ decl_stmt|;
 name|jdbc
 operator|=
 operator|new
-name|SimpleJdbcTemplate
+name|JdbcTemplate
 argument_list|(
 name|ds
 argument_list|)

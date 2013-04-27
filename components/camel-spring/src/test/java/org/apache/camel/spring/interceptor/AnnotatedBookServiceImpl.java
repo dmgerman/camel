@@ -78,9 +78,7 @@ name|jdbc
 operator|.
 name|core
 operator|.
-name|simple
-operator|.
-name|SimpleJdbcTemplate
+name|JdbcTemplate
 import|;
 end_import
 
@@ -231,7 +229,7 @@ throw|;
 block|}
 comment|// create new local datasource to store in DB
 operator|new
-name|SimpleJdbcTemplate
+name|JdbcTemplate
 argument_list|(
 name|dataSource
 argument_list|)
