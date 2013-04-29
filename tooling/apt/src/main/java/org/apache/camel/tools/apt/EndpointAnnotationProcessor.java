@@ -453,8 +453,6 @@ annotation|@
 name|SupportedAnnotationTypes
 argument_list|(
 block|{
-literal|"org.apache.camel.*"
-block|,
 literal|"org.apache.camel.spi.*"
 block|}
 argument_list|)
@@ -463,7 +461,7 @@ name|SupportedSourceVersion
 argument_list|(
 name|SourceVersion
 operator|.
-name|RELEASE_6
+name|RELEASE_7
 argument_list|)
 DECL|class|EndpointAnnotationProcessor
 specifier|public
