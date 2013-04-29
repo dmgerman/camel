@@ -461,7 +461,7 @@ name|SupportedSourceVersion
 argument_list|(
 name|SourceVersion
 operator|.
-name|RELEASE_7
+name|RELEASE_6
 argument_list|)
 DECL|class|EndpointAnnotationProcessor
 specifier|public
