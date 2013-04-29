@@ -2464,10 +2464,6 @@ name|parameterInfo
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// will ignore the expression for parameter evaluation
-block|}
 block|}
 name|LOG
 operator|.

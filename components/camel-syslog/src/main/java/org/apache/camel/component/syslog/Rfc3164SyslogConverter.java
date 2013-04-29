@@ -1162,14 +1162,9 @@ decl_stmt|;
 if|if
 condition|(
 name|charFound
-operator|==
+operator|!=
 literal|' '
 condition|)
-block|{
-comment|//Extra space for the day - this is okay.
-comment|//Just ignored per the spec.
-block|}
-else|else
 block|{
 name|day
 operator|*=

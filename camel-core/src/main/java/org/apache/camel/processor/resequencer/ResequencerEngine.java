@@ -458,17 +458,12 @@ block|}
 comment|// start delivery if current element is successor of last delivered element
 if|if
 condition|(
+operator|!
 name|successorOfLastDelivered
 argument_list|(
 name|element
 argument_list|)
-condition|)
-block|{
-comment|// nothing to schedule
-block|}
-elseif|else
-if|if
-condition|(
+operator|&&
 name|sequence
 operator|.
 name|predecessor
@@ -478,10 +473,6 @@ argument_list|)
 operator|!=
 literal|null
 condition|)
-block|{
-comment|// nothing to schedule
-block|}
-else|else
 block|{
 name|element
 operator|.

@@ -10490,25 +10490,6 @@ if|if
 condition|(
 name|answer
 operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|otherId
-argument_list|)
-condition|)
-block|{
-comment|// its the same route id so skip clash check as its the same route (can happen when using suspend/resume)
-block|}
-elseif|else
-if|if
-condition|(
-name|answer
-operator|.
 name|getStartupOrder
 argument_list|()
 operator|==
