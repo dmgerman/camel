@@ -150,6 +150,24 @@ name|codec
 operator|.
 name|http
 operator|.
+name|HttpContentCompressor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
 name|HttpRequestDecoder
 import|;
 end_import
@@ -207,6 +225,10 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+
+begin_comment
+comment|/**  * {@link ServerPipelineFactory} for the Netty HTTP server.  */
+end_comment
 
 begin_class
 DECL|class|HttpServerPipelineFactory
@@ -400,6 +422,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Uncomment the following line if you don't want to handle HttpChunks.
+if|if
+condition|(
+name|supportChunked
+argument_list|()
+condition|)
+block|{
 name|pipeline
 operator|.
 name|addLast
@@ -413,6 +441,7 @@ literal|1048576
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|pipeline
 operator|.
 name|addLast
@@ -424,8 +453,24 @@ name|HttpResponseEncoder
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Remove the following line if you don't want automatic content compression.
-comment|//pipeline.addLast("deflater", new HttpContentCompressor());
+if|if
+condition|(
+name|supportCompressed
+argument_list|()
+condition|)
+block|{
+name|pipeline
+operator|.
+name|addLast
+argument_list|(
+literal|"deflater"
+argument_list|,
+operator|new
+name|HttpContentCompressor
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// handler to route Camel messages
 name|pipeline
 operator|.
@@ -496,6 +541,44 @@ return|;
 block|}
 return|return
 literal|null
+return|;
+block|}
+DECL|method|supportChunked ()
+specifier|private
+name|boolean
+name|supportChunked
+parameter_list|()
+block|{
+return|return
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isChunked
+argument_list|()
+return|;
+block|}
+DECL|method|supportCompressed ()
+specifier|private
+name|boolean
+name|supportCompressed
+parameter_list|()
+block|{
+return|return
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isCompression
+argument_list|()
 return|;
 block|}
 block|}

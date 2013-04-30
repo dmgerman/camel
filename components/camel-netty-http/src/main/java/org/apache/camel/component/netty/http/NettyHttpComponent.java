@@ -112,6 +112,10 @@ name|HeaderFilterStrategyAware
 import|;
 end_import
 
+begin_comment
+comment|/**  * Netty HTTP based component.  */
+end_comment
+
 begin_class
 DECL|class|NettyHttpComponent
 specifier|public
@@ -163,10 +167,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: allow to turn mapMessage=true|false
+comment|// TODO: allow to turn mapMessage=true|false and rely on on-demand mapping
 comment|// TODO: netty http producer
-comment|// TODO: make it easy to turn chunked on|off
-comment|// TODO: make it easy to turn compression on|off
+comment|// TODO: make it easy to turn keep-alive on|off on producer
 comment|// TODO: add logging
 annotation|@
 name|Override

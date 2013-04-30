@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Http {@link NettyConsumer}  */
+comment|/**  * HTTP based {@link NettyConsumer}  */
 end_comment
 
 begin_class

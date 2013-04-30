@@ -204,6 +204,10 @@ name|HttpRequest
 import|;
 end_import
 
+begin_comment
+comment|/**  * HTTP based {@link NettyEndpoint}  */
+end_comment
+
 begin_class
 DECL|class|NettyHttpEndpoint
 specifier|public
@@ -392,15 +396,21 @@ name|getLocalAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Honor the character encoding
+comment|// honor the character encoding
 name|String
 name|contentType
 init|=
-name|request
+name|in
 operator|.
 name|getHeader
 argument_list|(
-literal|"content-type"
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|NettyHttpHelper
@@ -414,6 +424,24 @@ argument_list|)
 expr_stmt|;
 return|return
 name|exchange
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|NettyHttpConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+operator|(
+name|NettyHttpConfiguration
+operator|)
+name|super
+operator|.
+name|getConfiguration
+argument_list|()
 return|;
 block|}
 DECL|method|getNettyHttpBinding ()

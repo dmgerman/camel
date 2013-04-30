@@ -315,7 +315,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Our http server channel handler to handle HTTP status 100 to continue.  */
+comment|/**  * Netty HTTP {@link ServerChannelHandler} that handles the incoming HTTP requests and routes  * the received message in Camel.  */
 end_comment
 
 begin_class

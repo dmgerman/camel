@@ -94,6 +94,18 @@ name|NettyHttpConfiguration
 extends|extends
 name|NettyConfiguration
 block|{
+DECL|field|chunked
+specifier|private
+name|boolean
+name|chunked
+init|=
+literal|true
+decl_stmt|;
+DECL|field|compression
+specifier|private
+name|boolean
+name|compression
+decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public
 name|NettyHttpConfiguration
@@ -203,6 +215,58 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|isChunked ()
+specifier|public
+name|boolean
+name|isChunked
+parameter_list|()
+block|{
+return|return
+name|chunked
+return|;
+block|}
+DECL|method|setChunked (boolean chunked)
+specifier|public
+name|void
+name|setChunked
+parameter_list|(
+name|boolean
+name|chunked
+parameter_list|)
+block|{
+name|this
+operator|.
+name|chunked
+operator|=
+name|chunked
+expr_stmt|;
+block|}
+DECL|method|isCompression ()
+specifier|public
+name|boolean
+name|isCompression
+parameter_list|()
+block|{
+return|return
+name|compression
+return|;
+block|}
+DECL|method|setCompression (boolean compression)
+specifier|public
+name|void
+name|setCompression
+parameter_list|(
+name|boolean
+name|compression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compression
+operator|=
+name|compression
+expr_stmt|;
 block|}
 block|}
 end_class
