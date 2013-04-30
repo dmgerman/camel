@@ -76,16 +76,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedList
 import|;
 end_import
@@ -287,6 +277,7 @@ DECL|field|isOneToMany
 name|boolean
 name|isOneToMany
 decl_stmt|;
+comment|//private Map<Integer, DataField> dataFields = new LinkedHashMap<Integer, DataField>();
 DECL|field|dataFields
 specifier|private
 name|Map
@@ -298,7 +289,7 @@ argument_list|>
 name|dataFields
 init|=
 operator|new
-name|LinkedHashMap
+name|TreeMap
 argument_list|<
 name|Integer
 argument_list|,
@@ -306,6 +297,7 @@ name|DataField
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|//private Map<Integer, Field> annotatedFields = new LinkedHashMap<Integer, Field>();
 DECL|field|annotatedFields
 specifier|private
 name|Map
@@ -317,7 +309,7 @@ argument_list|>
 name|annotatedFields
 init|=
 operator|new
-name|LinkedHashMap
+name|TreeMap
 argument_list|<
 name|Integer
 argument_list|,
