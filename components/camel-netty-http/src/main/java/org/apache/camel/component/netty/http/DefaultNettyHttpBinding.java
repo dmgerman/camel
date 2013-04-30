@@ -264,6 +264,26 @@ name|HttpVersion
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default {@link NettyHttpBinding}.  */
 end_comment
@@ -276,6 +296,22 @@ name|DefaultNettyHttpBinding
 implements|implements
 name|NettyHttpBinding
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DefaultNettyHttpBinding
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -317,6 +353,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"toCamelMessage: {}"
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 name|NettyHttpMessage
 name|answer
 init|=
@@ -324,11 +369,67 @@ operator|new
 name|NettyHttpMessage
 argument_list|(
 name|request
+argument_list|,
+name|this
 argument_list|)
 decl_stmt|;
+comment|// force getting headers which will populate them
 name|answer
 operator|.
-name|setHeader
+name|getHeaders
+argument_list|()
+expr_stmt|;
+comment|// keep the body as is, and use type converters
+name|answer
+operator|.
+name|setBody
+argument_list|(
+name|request
+operator|.
+name|getContent
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|populateCamelHeaders (HttpRequest request, Map<String, Object> headers, Exchange exchange)
+specifier|public
+name|void
+name|populateCamelHeaders
+parameter_list|(
+name|HttpRequest
+name|request
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"populateCamelHeaders: {}"
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+name|headers
+operator|.
+name|put
 argument_list|(
 name|Exchange
 operator|.
@@ -343,9 +444,9 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|answer
+name|headers
 operator|.
-name|setHeader
+name|put
 argument_list|(
 name|Exchange
 operator|.
@@ -357,20 +458,42 @@ name|getUri
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// populate the headers from the request
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|headers
-init|=
-name|answer
+if|if
+condition|(
+name|LOG
 operator|.
-name|getHeaders
+name|isTraceEnabled
 argument_list|()
-decl_stmt|;
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP-Method {}"
+argument_list|,
+name|request
+operator|.
+name|getMethod
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP-Uri {}"
+argument_list|,
+name|request
+operator|.
+name|getUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|String
@@ -446,6 +569,15 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP-header: {}"
+argument_list|,
+name|extracted
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|headerFilterStrategy
@@ -479,20 +611,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// keep the body as is, and use type converters
-name|answer
-operator|.
-name|setBody
-argument_list|(
-name|request
-operator|.
-name|getContent
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
 block|}
 annotation|@
 name|Override
@@ -507,6 +625,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"fromCamelMessage: {}"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
 comment|// the status code is default 200, but a header can override that
 name|Integer
 name|code
@@ -544,6 +671,15 @@ name|code
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP Status Code: {}"
+argument_list|,
+name|code
+argument_list|)
+expr_stmt|;
 name|TypeConverter
 name|tc
 init|=
@@ -665,6 +801,17 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HTTP-Header: {}={}"
+argument_list|,
+name|key
+argument_list|,
+name|headerValue
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|addHeader
@@ -772,6 +919,15 @@ argument_list|(
 name|buffer
 argument_list|)
 expr_stmt|;
+name|int
+name|len
+init|=
+name|buffer
+operator|.
+name|readableBytes
+argument_list|()
+decl_stmt|;
+comment|// set content-length
 name|response
 operator|.
 name|setHeader
@@ -782,10 +938,16 @@ name|Names
 operator|.
 name|CONTENT_LENGTH
 argument_list|,
-name|buffer
+name|len
+argument_list|)
+expr_stmt|;
+name|LOG
 operator|.
-name|readableBytes
-argument_list|()
+name|trace
+argument_list|(
+literal|"Content-Length: {}"
+argument_list|,
+name|len
 argument_list|)
 expr_stmt|;
 block|}
@@ -808,6 +970,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// set content-type
 name|response
 operator|.
 name|setHeader
@@ -821,8 +984,26 @@ argument_list|,
 name|contentType
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Content-Type: {}"
+argument_list|,
+name|contentType
+argument_list|)
+expr_stmt|;
 block|}
 comment|// TODO: keep alive should be something we can control
+name|String
+name|keepAlive
+init|=
+name|HttpHeaders
+operator|.
+name|Values
+operator|.
+name|CLOSE
+decl_stmt|;
 name|response
 operator|.
 name|setHeader
@@ -833,11 +1014,16 @@ name|Names
 operator|.
 name|CONNECTION
 argument_list|,
-name|HttpHeaders
+name|keepAlive
+argument_list|)
+expr_stmt|;
+name|LOG
 operator|.
-name|Values
-operator|.
-name|CLOSE
+name|trace
+argument_list|(
+literal|"Connection: {}"
+argument_list|,
+name|keepAlive
 argument_list|)
 expr_stmt|;
 return|return

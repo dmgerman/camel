@@ -167,10 +167,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: allow to turn mapMessage=true|false and rely on on-demand mapping
 comment|// TODO: netty http producer
 comment|// TODO: make it easy to turn keep-alive on|off on producer
-comment|// TODO: add logging
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

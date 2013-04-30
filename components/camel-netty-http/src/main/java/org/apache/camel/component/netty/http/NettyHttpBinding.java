@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -111,6 +121,28 @@ name|toCamelMessage
 parameter_list|(
 name|HttpRequest
 name|request
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Binds from Netty {@link HttpRequest} to Camel headers as a {@link Map}.      *      * @param request   the netty http request      * @param headers   the Camel headers that should be populated      * @param exchange  the exchange that should contain the returned message.      * @throws Exception is thrown if error during binding      */
+DECL|method|populateCamelHeaders (HttpRequest request, Map<String, Object> headers, Exchange exchange)
+name|void
+name|populateCamelHeaders
+parameter_list|(
+name|HttpRequest
+name|request
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
 parameter_list|,
 name|Exchange
 name|exchange
