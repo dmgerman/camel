@@ -634,6 +634,27 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
+comment|// the message body may already be a Netty HTTP response
+if|if
+condition|(
+name|message
+operator|.
+name|getBody
+argument_list|()
+operator|instanceof
+name|HttpResponse
+condition|)
+block|{
+return|return
+operator|(
+name|HttpResponse
+operator|)
+name|message
+operator|.
+name|getBody
+argument_list|()
+return|;
+block|}
 comment|// the status code is default 200, but a header can override that
 name|Integer
 name|code

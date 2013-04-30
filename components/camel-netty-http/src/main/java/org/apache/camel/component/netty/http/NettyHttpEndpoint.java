@@ -228,6 +228,16 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
+DECL|field|traceEnabled
+specifier|private
+name|boolean
+name|traceEnabled
+decl_stmt|;
+DECL|field|httpMethodRestrict
+specifier|private
+name|String
+name|httpMethodRestrict
+decl_stmt|;
 DECL|method|NettyHttpEndpoint (String endpointUri, NettyHttpComponent component, NettyConfiguration configuration)
 specifier|public
 name|NettyHttpEndpoint
@@ -494,6 +504,58 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|isTraceEnabled ()
+specifier|public
+name|boolean
+name|isTraceEnabled
+parameter_list|()
+block|{
+return|return
+name|traceEnabled
+return|;
+block|}
+DECL|method|setTraceEnabled (boolean traceEnabled)
+specifier|public
+name|void
+name|setTraceEnabled
+parameter_list|(
+name|boolean
+name|traceEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|traceEnabled
+operator|=
+name|traceEnabled
+expr_stmt|;
+block|}
+DECL|method|getHttpMethodRestrict ()
+specifier|public
+name|String
+name|getHttpMethodRestrict
+parameter_list|()
+block|{
+return|return
+name|httpMethodRestrict
+return|;
+block|}
+DECL|method|setHttpMethodRestrict (String httpMethodRestrict)
+specifier|public
+name|void
+name|setHttpMethodRestrict
+parameter_list|(
+name|String
+name|httpMethodRestrict
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpMethodRestrict
+operator|=
+name|httpMethodRestrict
 expr_stmt|;
 block|}
 annotation|@

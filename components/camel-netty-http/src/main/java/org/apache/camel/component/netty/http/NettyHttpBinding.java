@@ -150,9 +150,9 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Binds from Camel {@link Message} to Netty {@link HttpResponse}.      *      * @param message  the Camel message      * @return the http response      * @throws Exception is thrown if error during binding      */
+comment|/**      * Binds from Camel {@link Message} to Netty {@link HttpResponse}.      *      *      * @param message  the Camel message      * @return the http response      * @throws Exception is thrown if error during binding      */
 DECL|method|fromCamelMessage (Message message)
-name|HttpResponse
+name|Object
 name|fromCamelMessage
 parameter_list|(
 name|Message
