@@ -183,7 +183,6 @@ name|String
 name|msgType
 parameter_list|)
 block|{
-comment|// Reverse session ID for reply
 comment|// TODO may need to optionally include subID and locationID
 name|addHeaderFieldIfPresent
 argument_list|(
@@ -193,7 +192,7 @@ name|FIELD
 argument_list|,
 name|requestingSessionID
 operator|.
-name|getTargetCompID
+name|getSenderCompID
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -205,7 +204,7 @@ name|FIELD
 argument_list|,
 name|requestingSessionID
 operator|.
-name|getSenderCompID
+name|getTargetCompID
 argument_list|()
 argument_list|)
 expr_stmt|;

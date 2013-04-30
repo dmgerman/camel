@@ -827,7 +827,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Web request:\n"
+literal|"Web reply:\n"
 operator|+
 name|sb
 argument_list|)
@@ -1002,7 +1002,7 @@ argument_list|)
 argument_list|,
 name|MsgType
 operator|.
-name|ORDER_STATUS_REQUEST
+name|EXECUTION_REPORT
 argument_list|)
 operator|.
 name|withField

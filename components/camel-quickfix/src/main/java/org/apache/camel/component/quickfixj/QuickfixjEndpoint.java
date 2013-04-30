@@ -545,6 +545,9 @@ argument_list|,
 name|message
 argument_list|,
 name|eventCategory
+argument_list|,
+name|getExchangePattern
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|consumer
