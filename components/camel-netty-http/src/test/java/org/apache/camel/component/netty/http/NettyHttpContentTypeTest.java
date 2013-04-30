@@ -22,6 +22,30 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -45,19 +69,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpSimpleTest
+DECL|class|NettyHttpContentTypeTest
 specifier|public
 class|class
-name|NettyHttpSimpleTest
+name|NettyHttpContentTypeTest
 extends|extends
 name|BaseNettyTest
 block|{
 annotation|@
 name|Test
-DECL|method|testHttpSimple ()
+DECL|method|testContentType ()
 specifier|public
 name|void
-name|testHttpSimple
+name|testContentType
 parameter_list|()
 throws|throws
 name|Exception
@@ -72,16 +96,64 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"text/plain; charset=\"iso-8859-1\""
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+operator|.
+name|expectedPropertyReceived
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+literal|"iso-8859-1"
+argument_list|)
+expr_stmt|;
+name|byte
+index|[]
+name|data
+init|=
+literal|"Hello World"
+operator|.
+name|getBytes
+argument_list|(
+name|Charset
+operator|.
+name|forName
+argument_list|(
+literal|"iso-8859-1"
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|String
 name|out
 init|=
 name|template
 operator|.
-name|requestBody
+name|requestBodyAndHeader
 argument_list|(
 literal|"http://localhost:{{port}}/foo"
 argument_list|,
-literal|"Hello World"
+name|data
+argument_list|,
+literal|"content-type"
+argument_list|,
+literal|"text/plain; charset=\"iso-8859-1\""
 argument_list|,
 name|String
 operator|.

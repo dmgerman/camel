@@ -326,7 +326,7 @@ name|HttpServerChannelHandler
 extends|extends
 name|ServerChannelHandler
 block|{
-comment|// use NettyConsumer as logger to make it easier to read the logs as this is part of the consumer
+comment|// use NettyHttpConsumer as logger to make it easier to read the logs as this is part of the consumer
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -339,7 +339,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|NettyConsumer
+name|NettyHttpConsumer
 operator|.
 name|class
 argument_list|)
@@ -618,7 +618,7 @@ operator|.
 name|getNettyHttpBinding
 argument_list|()
 operator|.
-name|toHttpResponse
+name|fromCamelMessage
 argument_list|(
 name|exchange
 operator|.
@@ -638,7 +638,7 @@ operator|.
 name|getNettyHttpBinding
 argument_list|()
 operator|.
-name|toHttpResponse
+name|fromCamelMessage
 argument_list|(
 name|exchange
 operator|.

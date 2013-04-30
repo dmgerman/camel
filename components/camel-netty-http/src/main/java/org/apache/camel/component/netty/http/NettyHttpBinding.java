@@ -90,20 +90,22 @@ specifier|public
 interface|interface
 name|NettyHttpBinding
 block|{
-DECL|method|toCamelMessage (Exchange exchange, HttpRequest request)
+comment|/**      * Binds from Netty {@link HttpRequest} to Camel {@Message}.      *      * @param request   the netty http request      * @param exchange  the exchange that should contain the returned message.      * @return the message to store on the given exchange      */
+DECL|method|toCamelMessage (HttpRequest request, Exchange exchange)
 name|Message
 name|toCamelMessage
 parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|,
 name|HttpRequest
 name|request
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 function_decl|;
-DECL|method|toHttpResponse (Message msg)
+comment|/**      * Binds from Camel {@link Message} to Netty {@link HttpResponse}.      *      * @param msg  the Camel message      * @return the http response      */
+DECL|method|fromCamelMessage (Message msg)
 name|HttpResponse
-name|toHttpResponse
+name|fromCamelMessage
 parameter_list|(
 name|Message
 name|msg
