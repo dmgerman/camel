@@ -1797,12 +1797,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|MessageHelper
-operator|.
-name|getContentType
-argument_list|(
-name|message
-argument_list|)
+name|contentType
 operator|!=
 literal|null
 condition|)

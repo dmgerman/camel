@@ -599,6 +599,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 comment|// use the binding
 if|if

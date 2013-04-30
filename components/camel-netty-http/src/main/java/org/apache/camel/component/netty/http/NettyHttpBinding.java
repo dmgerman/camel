@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -90,7 +104,7 @@ specifier|public
 interface|interface
 name|NettyHttpBinding
 block|{
-comment|/**      * Binds from Netty {@link HttpRequest} to Camel {@Message}.      *      * @param request   the netty http request      * @param exchange  the exchange that should contain the returned message.      * @return the message to store on the given exchange      */
+comment|/**      * Binds from Netty {@link HttpRequest} to Camel {@Message}.      *      * @param request   the netty http request      * @param exchange  the exchange that should contain the returned message.      * @return the message to store on the given exchange      * @throws Exception is thrown if error during binding      */
 DECL|method|toCamelMessage (HttpRequest request, Exchange exchange)
 name|Message
 name|toCamelMessage
@@ -101,14 +115,33 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Binds from Camel {@link Message} to Netty {@link HttpResponse}.      *      * @param msg  the Camel message      * @return the http response      */
-DECL|method|fromCamelMessage (Message msg)
+comment|/**      * Binds from Camel {@link Message} to Netty {@link HttpResponse}.      *      * @param message  the Camel message      * @return the http response      * @throws Exception is thrown if error during binding      */
+DECL|method|fromCamelMessage (Message message)
 name|HttpResponse
 name|fromCamelMessage
 parameter_list|(
 name|Message
-name|msg
+name|message
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Gets the header filter strategy      *      * @return the strategy      */
+DECL|method|getHeaderFilterStrategy ()
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the header filter strategy to use.      *      * @param headerFilterStrategy the custom strategy      */
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
 parameter_list|)
 function_decl|;
 block|}

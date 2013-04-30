@@ -1039,7 +1039,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Gets the object we want to use as the response object for sending to netty.      *      * @param exchange the exchange      * @return the object to use as response      */
+comment|/**      * Gets the object we want to use as the response object for sending to netty.      *      * @param exchange the exchange      * @return the object to use as response      * @throws Exception is thrown if error getting the response body      */
 DECL|method|getResponseBody (Exchange exchange)
 specifier|protected
 name|Object
@@ -1048,6 +1048,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(

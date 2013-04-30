@@ -280,6 +280,8 @@ parameter_list|,
 name|MessageEvent
 name|messageEvent
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Exchange
 name|exchange

@@ -84,6 +84,34 @@ name|NettyConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|HeaderFilterStrategyAware
+import|;
+end_import
+
 begin_class
 DECL|class|NettyHttpComponent
 specifier|public
@@ -91,18 +119,25 @@ class|class
 name|NettyHttpComponent
 extends|extends
 name|NettyComponent
+implements|implements
+name|HeaderFilterStrategyAware
 block|{
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
 name|nettyHttpBinding
 decl_stmt|;
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
 DECL|method|NettyHttpComponent ()
 specifier|public
 name|NettyHttpComponent
 parameter_list|()
 block|{
-comment|// use the http configuration
+comment|// use the http configuration and filter strategy
 name|setConfiguration
 argument_list|(
 operator|new
@@ -110,12 +145,28 @@ name|NettyHttpConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|NettyHttpHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|setNettyHttpBinding
+argument_list|(
+operator|new
+name|DefaultNettyHttpBinding
+argument_list|(
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// TODO: allow to turn mapMessage=true|false
 comment|// TODO: netty http producer
 comment|// TODO: make it easy to turn chunked on|off
 comment|// TODO: make it easy to turn compression on|off
-comment|// TODO: use HeaderFilterStrategy to filter headers
 comment|// TODO: add logging
 annotation|@
 name|Override
@@ -188,7 +239,7 @@ name|validateConfiguration
 argument_list|()
 expr_stmt|;
 name|NettyHttpEndpoint
-name|nettyEndpoint
+name|answer
 init|=
 operator|new
 name|NettyHttpEndpoint
@@ -200,7 +251,7 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
-name|nettyEndpoint
+name|answer
 operator|.
 name|setTimer
 argument_list|(
@@ -210,7 +261,7 @@ argument_list|)
 expr_stmt|;
 name|setProperties
 argument_list|(
-name|nettyEndpoint
+name|answer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -218,8 +269,47 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// set component options on endpoint as defaults
+if|if
+condition|(
+name|answer
+operator|.
+name|getNettyHttpBinding
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setNettyHttpBinding
+argument_list|(
+name|getNettyHttpBinding
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|answer
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-name|nettyEndpoint
+name|answer
 return|;
 block|}
 annotation|@
@@ -308,6 +398,32 @@ operator|.
 name|nettyHttpBinding
 operator|=
 name|nettyHttpBinding
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+return|;
+block|}
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
 expr_stmt|;
 block|}
 block|}
