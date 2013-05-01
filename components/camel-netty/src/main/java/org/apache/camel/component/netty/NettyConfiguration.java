@@ -386,6 +386,16 @@ specifier|private
 name|File
 name|trustStoreFile
 decl_stmt|;
+DECL|field|keyStoreResource
+specifier|private
+name|String
+name|keyStoreResource
+decl_stmt|;
+DECL|field|trustStoreResource
+specifier|private
+name|String
+name|trustStoreResource
+decl_stmt|;
 DECL|field|sslHandler
 specifier|private
 name|SslHandler
@@ -944,7 +954,7 @@ name|passphrase
 operator|=
 name|component
 operator|.
-name|resolveAndRemoveReferenceParameter
+name|getAndRemoveParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -1035,6 +1045,40 @@ operator|.
 name|class
 argument_list|,
 name|trustStoreFile
+argument_list|)
+expr_stmt|;
+name|keyStoreResource
+operator|=
+name|component
+operator|.
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"keyStoreResource"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|,
+name|keyStoreResource
+argument_list|)
+expr_stmt|;
+name|trustStoreResource
+operator|=
+name|component
+operator|.
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"trustStoreResource"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|,
+name|trustStoreResource
 argument_list|)
 expr_stmt|;
 name|clientPipelineFactory
@@ -2159,6 +2203,8 @@ operator|=
 name|passphrase
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getKeyStoreFile ()
 specifier|public
 name|File
@@ -2169,6 +2215,8 @@ return|return
 name|keyStoreFile
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setKeyStoreFile (File keyStoreFile)
 specifier|public
 name|void
@@ -2185,6 +2233,8 @@ operator|=
 name|keyStoreFile
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getTrustStoreFile ()
 specifier|public
 name|File
@@ -2195,6 +2245,8 @@ return|return
 name|trustStoreFile
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setTrustStoreFile (File trustStoreFile)
 specifier|public
 name|void
@@ -2209,6 +2261,58 @@ operator|.
 name|trustStoreFile
 operator|=
 name|trustStoreFile
+expr_stmt|;
+block|}
+DECL|method|getKeyStoreResource ()
+specifier|public
+name|String
+name|getKeyStoreResource
+parameter_list|()
+block|{
+return|return
+name|keyStoreResource
+return|;
+block|}
+DECL|method|setKeyStoreResource (String keyStoreResource)
+specifier|public
+name|void
+name|setKeyStoreResource
+parameter_list|(
+name|String
+name|keyStoreResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyStoreResource
+operator|=
+name|keyStoreResource
+expr_stmt|;
+block|}
+DECL|method|getTrustStoreResource ()
+specifier|public
+name|String
+name|getTrustStoreResource
+parameter_list|()
+block|{
+return|return
+name|trustStoreResource
+return|;
+block|}
+DECL|method|setTrustStoreResource (String trustStoreResource)
+specifier|public
+name|void
+name|setTrustStoreResource
+parameter_list|(
+name|String
+name|trustStoreResource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trustStoreResource
+operator|=
+name|trustStoreResource
 expr_stmt|;
 block|}
 DECL|method|getKeyStoreFormat ()
