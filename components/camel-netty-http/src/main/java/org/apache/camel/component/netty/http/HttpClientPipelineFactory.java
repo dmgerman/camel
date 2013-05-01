@@ -240,7 +240,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|producer
 specifier|private
-name|NettyProducer
+name|NettyHttpProducer
 name|producer
 decl_stmt|;
 DECL|field|sslContext
@@ -255,11 +255,11 @@ parameter_list|()
 block|{
 comment|// default constructor needed
 block|}
-DECL|method|HttpClientPipelineFactory (NettyProducer nettyProducer)
+DECL|method|HttpClientPipelineFactory (NettyHttpProducer nettyProducer)
 specifier|public
 name|HttpClientPipelineFactory
 parameter_list|(
-name|NettyProducer
+name|NettyHttpProducer
 name|nettyProducer
 parameter_list|)
 block|{
@@ -296,6 +296,13 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|sslContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -305,6 +312,7 @@ argument_list|,
 name|sslContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -321,6 +329,9 @@ return|return
 operator|new
 name|HttpClientPipelineFactory
 argument_list|(
+operator|(
+name|NettyHttpProducer
+operator|)
 name|nettyProducer
 argument_list|)
 return|;

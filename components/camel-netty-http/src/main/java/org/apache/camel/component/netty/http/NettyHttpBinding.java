@@ -150,7 +150,43 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Binds from Camel {@link Message} to Netty {@link org.jboss.netty.handler.codec.http.HttpResponse}.      *      * @param message  the Camel message      * @return the http response      * @throws Exception is thrown if error during binding      */
+comment|/**      * Binds from Netty {@link HttpResponse} to Camel {@Message}.      *      * @param response  the netty http response      * @param exchange  the exchange that should contain the returned message.      * @return the message to store on the given exchange      * @throws Exception is thrown if error during binding      */
+DECL|method|toCamelMessage (HttpResponse response, Exchange exchange)
+name|Message
+name|toCamelMessage
+parameter_list|(
+name|HttpResponse
+name|response
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Binds from Netty {@link HttpResponse} to Camel headers as a {@link Map}.      *      * @param response   the netty http response      * @param headers   the Camel headers that should be populated      * @param exchange  the exchange that should contain the returned message.      * @throws Exception is thrown if error during binding      */
+DECL|method|populateCamelHeaders (HttpResponse response, Map<String, Object> headers, Exchange exchange)
+name|void
+name|populateCamelHeaders
+parameter_list|(
+name|HttpResponse
+name|response
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Binds from Camel {@link Message} to Netty {@link HttpResponse}.      *      * @param message  the Camel message      * @return the http response      * @throws Exception is thrown if error during binding      */
 DECL|method|toNettyResponse (Message message)
 name|HttpResponse
 name|toNettyResponse

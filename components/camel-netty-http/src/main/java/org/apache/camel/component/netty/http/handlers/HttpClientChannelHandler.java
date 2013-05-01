@@ -30,11 +30,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|netty
+name|apache
 operator|.
-name|NettyProducer
+name|camel
+operator|.
+name|Message
 import|;
 end_import
 
@@ -106,6 +114,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -122,6 +148,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Netty HTTP {@link org.apache.camel.component.netty.handlers.ClientChannelHandler} that handles the response combing  * back from thhe HTTP server, called by this client.  *  */
+end_comment
+
 begin_class
 DECL|class|HttpClientChannelHandler
 specifier|public
@@ -130,7 +160,7 @@ name|HttpClientChannelHandler
 extends|extends
 name|ClientChannelHandler
 block|{
-comment|// use NettyHttpConsumer as logger to make it easier to read the logs as this is part of the producer
+comment|// use NettyHttpProducer as logger to make it easier to read the logs as this is part of the producer
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -148,11 +178,22 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|HttpClientChannelHandler (NettyProducer producer)
+DECL|field|producer
+specifier|private
+specifier|final
+name|NettyHttpProducer
+name|producer
+decl_stmt|;
+DECL|field|response
+specifier|private
+name|HttpResponse
+name|response
+decl_stmt|;
+DECL|method|HttpClientChannelHandler (NettyHttpProducer producer)
 specifier|public
 name|HttpClientChannelHandler
 parameter_list|(
-name|NettyProducer
+name|NettyHttpProducer
 name|producer
 parameter_list|)
 block|{
@@ -160,6 +201,12 @@ name|super
 argument_list|(
 name|producer
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|producer
+operator|=
+name|producer
 expr_stmt|;
 block|}
 annotation|@
@@ -178,6 +225,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// store response, as this channel handler is created per pipeline
+name|response
+operator|=
+operator|(
+name|HttpResponse
+operator|)
+name|messageEvent
+operator|.
+name|getMessage
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|messageReceived
@@ -187,7 +245,40 @@ argument_list|,
 name|messageEvent
 argument_list|)
 expr_stmt|;
-comment|//To change body of overridden methods use File | Settings | File Templates.
+block|}
+annotation|@
+name|Override
+DECL|method|getResponseMessage (Exchange exchange, MessageEvent messageEvent)
+specifier|protected
+name|Message
+name|getResponseMessage
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|MessageEvent
+name|messageEvent
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// use the binding
+return|return
+name|producer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getNettyHttpBinding
+argument_list|()
+operator|.
+name|toCamelMessage
+argument_list|(
+name|response
+argument_list|,
+name|exchange
+argument_list|)
+return|;
 block|}
 block|}
 end_class

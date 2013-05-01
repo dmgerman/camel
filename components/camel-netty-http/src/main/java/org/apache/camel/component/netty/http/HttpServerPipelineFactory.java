@@ -350,6 +350,13 @@ name|e
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|sslContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -359,6 +366,7 @@ argument_list|,
 name|sslContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

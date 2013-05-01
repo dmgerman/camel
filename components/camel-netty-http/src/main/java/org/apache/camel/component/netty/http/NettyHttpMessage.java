@@ -74,6 +74,24 @@ name|HttpRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpResponse
+import|;
+end_import
+
 begin_comment
 comment|/**  * Netty HTTP based {@link org.apache.camel.Message}.  *<p/>  * This implementation allows direct access to the Netty {@link HttpRequest} using  * the {@link #getHttpRequest()} method.  */
 end_comment
@@ -93,6 +111,13 @@ specifier|transient
 name|HttpRequest
 name|httpRequest
 decl_stmt|;
+DECL|field|httpResponse
+specifier|private
+specifier|final
+specifier|transient
+name|HttpResponse
+name|httpResponse
+decl_stmt|;
 DECL|field|httpBinding
 specifier|private
 specifier|final
@@ -100,12 +125,15 @@ specifier|transient
 name|NettyHttpBinding
 name|httpBinding
 decl_stmt|;
-DECL|method|NettyHttpMessage (HttpRequest httpRequest, NettyHttpBinding httpBinding)
+DECL|method|NettyHttpMessage (HttpRequest httpRequest, HttpResponse httpResponse, NettyHttpBinding httpBinding)
 specifier|public
 name|NettyHttpMessage
 parameter_list|(
 name|HttpRequest
 name|httpRequest
+parameter_list|,
+name|HttpResponse
+name|httpResponse
 parameter_list|,
 name|NettyHttpBinding
 name|httpBinding
@@ -116,6 +144,12 @@ operator|.
 name|httpRequest
 operator|=
 name|httpRequest
+expr_stmt|;
+name|this
+operator|.
+name|httpResponse
+operator|=
+name|httpResponse
 expr_stmt|;
 name|this
 operator|.
@@ -132,6 +166,16 @@ parameter_list|()
 block|{
 return|return
 name|httpRequest
+return|;
+block|}
+DECL|method|getHttpResponse ()
+specifier|public
+name|HttpResponse
+name|getHttpResponse
+parameter_list|()
+block|{
+return|return
+name|httpResponse
 return|;
 block|}
 annotation|@
@@ -152,6 +196,13 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|httpRequest
+operator|!=
+literal|null
+condition|)
+block|{
 name|httpBinding
 operator|.
 name|populateCamelHeaders
@@ -164,6 +215,22 @@ name|getExchange
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|httpBinding
+operator|.
+name|populateCamelHeaders
+argument_list|(
+name|httpResponse
+argument_list|,
+name|map
+argument_list|,
+name|getExchange
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -195,6 +262,8 @@ operator|new
 name|NettyHttpMessage
 argument_list|(
 name|httpRequest
+argument_list|,
+name|httpResponse
 argument_list|,
 name|httpBinding
 argument_list|)
