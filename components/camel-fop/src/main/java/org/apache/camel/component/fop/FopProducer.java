@@ -408,6 +408,17 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+comment|// propagate headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|headers
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getOutputFormat (Exchange exchange)
 specifier|private
