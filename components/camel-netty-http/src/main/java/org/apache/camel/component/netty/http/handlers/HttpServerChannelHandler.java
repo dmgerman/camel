@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.netty.http
+DECL|package|org.apache.camel.component.netty.http.handlers
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|netty
 operator|.
 name|http
+operator|.
+name|handlers
 package|;
 end_package
 
@@ -101,6 +103,24 @@ operator|.
 name|handlers
 operator|.
 name|ServerChannelHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty
+operator|.
+name|http
+operator|.
+name|NettyHttpConsumer
 import|;
 end_import
 
@@ -805,7 +825,7 @@ operator|.
 name|getNettyHttpBinding
 argument_list|()
 operator|.
-name|fromCamelMessage
+name|toNettyResponse
 argument_list|(
 name|exchange
 operator|.
@@ -825,7 +845,7 @@ operator|.
 name|getNettyHttpBinding
 argument_list|()
 operator|.
-name|fromCamelMessage
+name|toNettyResponse
 argument_list|(
 name|exchange
 operator|.

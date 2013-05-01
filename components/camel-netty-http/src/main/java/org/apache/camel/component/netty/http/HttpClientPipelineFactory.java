@@ -56,7 +56,7 @@ name|component
 operator|.
 name|netty
 operator|.
-name|NettyConsumer
+name|ClientPipelineFactory
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|component
 operator|.
 name|netty
 operator|.
-name|ServerPipelineFactory
+name|NettyProducer
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|http
 operator|.
 name|handlers
 operator|.
-name|HttpServerChannelHandler
+name|HttpClientChannelHandler
 import|;
 end_import
 
@@ -170,61 +170,7 @@ name|codec
 operator|.
 name|http
 operator|.
-name|HttpChunkAggregator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|HttpContentCompressor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|HttpRequestDecoder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|HttpResponseEncoder
+name|HttpClientCodec
 import|;
 end_import
 
@@ -265,16 +211,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ServerPipelineFactory} for the Netty HTTP server.  */
+comment|/**  * {@link org.apache.camel.component.netty.ClientPipelineFactory} for the Netty HTTP client.  */
 end_comment
 
 begin_class
-DECL|class|HttpServerPipelineFactory
+DECL|class|HttpClientPipelineFactory
 specifier|public
 class|class
-name|HttpServerPipelineFactory
+name|HttpClientPipelineFactory
 extends|extends
-name|ServerPipelineFactory
+name|ClientPipelineFactory
 block|{
 DECL|field|LOG
 specifier|private
@@ -287,41 +233,41 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|HttpServerPipelineFactory
+name|HttpClientPipelineFactory
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|consumer
+DECL|field|producer
 specifier|private
-name|NettyHttpConsumer
-name|consumer
+name|NettyProducer
+name|producer
 decl_stmt|;
 DECL|field|sslContext
 specifier|private
 name|SSLContext
 name|sslContext
 decl_stmt|;
-DECL|method|HttpServerPipelineFactory ()
+DECL|method|HttpClientPipelineFactory ()
 specifier|public
-name|HttpServerPipelineFactory
+name|HttpClientPipelineFactory
 parameter_list|()
 block|{
 comment|// default constructor needed
 block|}
-DECL|method|HttpServerPipelineFactory (NettyHttpConsumer nettyConsumer)
+DECL|method|HttpClientPipelineFactory (NettyProducer nettyProducer)
 specifier|public
-name|HttpServerPipelineFactory
+name|HttpClientPipelineFactory
 parameter_list|(
-name|NettyHttpConsumer
-name|nettyConsumer
+name|NettyProducer
+name|nettyProducer
 parameter_list|)
 block|{
 name|this
 operator|.
-name|consumer
+name|producer
 operator|=
-name|nettyConsumer
+name|nettyProducer
 expr_stmt|;
 try|try
 block|{
@@ -331,7 +277,7 @@ name|sslContext
 operator|=
 name|createSSLContext
 argument_list|(
-name|consumer
+name|producer
 argument_list|)
 expr_stmt|;
 block|}
@@ -362,23 +308,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createPipelineFactory (NettyConsumer nettyConsumer)
+DECL|method|createPipelineFactory (NettyProducer nettyProducer)
 specifier|public
-name|ServerPipelineFactory
+name|ClientPipelineFactory
 name|createPipelineFactory
 parameter_list|(
-name|NettyConsumer
-name|nettyConsumer
+name|NettyProducer
+name|nettyProducer
 parameter_list|)
 block|{
 return|return
 operator|new
-name|HttpServerPipelineFactory
+name|HttpClientPipelineFactory
 argument_list|(
-operator|(
-name|NettyHttpConsumer
-operator|)
-name|nettyConsumer
+name|nettyProducer
 argument_list|)
 return|;
 block|}
@@ -392,7 +335,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Create a default pipeline implementation.
 name|ChannelPipeline
 name|pipeline
 init|=
@@ -404,7 +346,7 @@ decl_stmt|;
 name|SslHandler
 name|sslHandler
 init|=
-name|configureServerSSLOnDemand
+name|configureClientSSLOnDemand
 argument_list|()
 decl_stmt|;
 if|if
@@ -418,7 +360,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Server SSL handler configured and added as an interceptor against the ChannelPipeline: {}"
+literal|"Client SSL handler configured and added as an interceptor against the ChannelPipeline: {}"
 argument_list|,
 name|sslHandler
 argument_list|)
@@ -437,63 +379,13 @@ name|pipeline
 operator|.
 name|addLast
 argument_list|(
-literal|"decoder"
+literal|"http"
 argument_list|,
 operator|new
-name|HttpRequestDecoder
+name|HttpClientCodec
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Uncomment the following line if you don't want to handle HttpChunks.
-if|if
-condition|(
-name|supportChunked
-argument_list|()
-condition|)
-block|{
-name|pipeline
-operator|.
-name|addLast
-argument_list|(
-literal|"aggregator"
-argument_list|,
-operator|new
-name|HttpChunkAggregator
-argument_list|(
-literal|1048576
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|pipeline
-operator|.
-name|addLast
-argument_list|(
-literal|"encoder"
-argument_list|,
-operator|new
-name|HttpResponseEncoder
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|supportCompressed
-argument_list|()
-condition|)
-block|{
-name|pipeline
-operator|.
-name|addLast
-argument_list|(
-literal|"deflater"
-argument_list|,
-operator|new
-name|HttpContentCompressor
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 comment|// handler to route Camel messages
 name|pipeline
 operator|.
@@ -502,9 +394,9 @@ argument_list|(
 literal|"handler"
 argument_list|,
 operator|new
-name|HttpServerChannelHandler
+name|HttpClientChannelHandler
 argument_list|(
-name|consumer
+name|producer
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -512,13 +404,13 @@ return|return
 name|pipeline
 return|;
 block|}
-DECL|method|createSSLContext (NettyConsumer consumer)
+DECL|method|createSSLContext (NettyProducer producer)
 specifier|private
 name|SSLContext
 name|createSSLContext
 parameter_list|(
-name|NettyConsumer
-name|consumer
+name|NettyProducer
+name|producer
 parameter_list|)
 throws|throws
 name|Exception
@@ -526,7 +418,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -542,7 +434,7 @@ block|}
 comment|// create ssl context once
 if|if
 condition|(
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -556,7 +448,7 @@ block|{
 name|SSLContext
 name|context
 init|=
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -575,10 +467,10 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|configureServerSSLOnDemand ()
+DECL|method|configureClientSSLOnDemand ()
 specifier|private
 name|SslHandler
-name|configureServerSSLOnDemand
+name|configureClientSSLOnDemand
 parameter_list|()
 throws|throws
 name|Exception
@@ -586,7 +478,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -601,7 +493,7 @@ return|;
 block|}
 if|if
 condition|(
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -613,7 +505,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -642,20 +534,7 @@ name|engine
 operator|.
 name|setUseClientMode
 argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|engine
-operator|.
-name|setNeedClientAuth
-argument_list|(
-name|consumer
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isNeedClientAuth
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -670,7 +549,7 @@ else|else
 block|{
 if|if
 condition|(
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -680,7 +559,7 @@ argument_list|()
 operator|==
 literal|null
 operator|&&
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -701,7 +580,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -711,7 +590,7 @@ argument_list|()
 operator|==
 literal|null
 operator|&&
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -732,7 +611,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -759,7 +638,7 @@ name|sslEngineFactory
 decl_stmt|;
 if|if
 condition|(
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -769,7 +648,7 @@ argument_list|()
 operator|!=
 literal|null
 operator|||
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -785,7 +664,7 @@ operator|=
 operator|new
 name|SSLEngineFactory
 argument_list|(
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -793,7 +672,7 @@ operator|.
 name|getKeyStoreFormat
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -801,7 +680,7 @@ operator|.
 name|getSecurityProvider
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -809,7 +688,7 @@ operator|.
 name|getKeyStoreFile
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -817,7 +696,7 @@ operator|.
 name|getTrustStoreFile
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -837,7 +716,7 @@ operator|=
 operator|new
 name|SSLEngineFactory
 argument_list|(
-name|consumer
+name|producer
 operator|.
 name|getContext
 argument_list|()
@@ -845,7 +724,7 @@ operator|.
 name|getClassResolver
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -853,7 +732,7 @@ operator|.
 name|getKeyStoreFormat
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -861,7 +740,7 @@ operator|.
 name|getSecurityProvider
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -869,7 +748,7 @@ operator|.
 name|getKeyStoreResource
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -877,7 +756,7 @@ operator|.
 name|getTrustStoreResource
 argument_list|()
 argument_list|,
-name|consumer
+name|producer
 operator|.
 name|getConfiguration
 argument_list|()
@@ -902,20 +781,7 @@ name|sslEngine
 operator|.
 name|setUseClientMode
 argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|sslEngine
-operator|.
-name|setNeedClientAuth
-argument_list|(
-name|consumer
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isNeedClientAuth
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
@@ -926,44 +792,6 @@ name|sslEngine
 argument_list|)
 return|;
 block|}
-block|}
-DECL|method|supportChunked ()
-specifier|private
-name|boolean
-name|supportChunked
-parameter_list|()
-block|{
-return|return
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isChunked
-argument_list|()
-return|;
-block|}
-DECL|method|supportCompressed ()
-specifier|private
-name|boolean
-name|supportCompressed
-parameter_list|()
-block|{
-return|return
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isCompression
-argument_list|()
-return|;
 block|}
 block|}
 end_class

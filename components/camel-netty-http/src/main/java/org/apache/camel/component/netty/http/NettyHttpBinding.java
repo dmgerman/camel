@@ -150,13 +150,27 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Binds from Camel {@link Message} to Netty {@link HttpResponse}.      *      *      * @param message  the Camel message      * @return the http response      * @throws Exception is thrown if error during binding      */
-DECL|method|fromCamelMessage (Message message)
-name|Object
-name|fromCamelMessage
+comment|/**      * Binds from Camel {@link Message} to Netty {@link org.jboss.netty.handler.codec.http.HttpResponse}.      *      * @param message  the Camel message      * @return the http response      * @throws Exception is thrown if error during binding      */
+DECL|method|toNettyResponse (Message message)
+name|HttpResponse
+name|toNettyResponse
 parameter_list|(
 name|Message
 name|message
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Binds from Camel {@link Message} to Netty {@link org.jboss.netty.handler.codec.http.HttpRequest}.      *      * @param message  the Camel message      * @param uri      the uri which is the intended uri to call, though the message may override the uri      * @return the http request      * @throws Exception is thrown if error during binding      */
+DECL|method|toNettyRequest (Message message, String uri)
+name|HttpRequest
+name|toNettyRequest
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|String
+name|uri
 parameter_list|)
 throws|throws
 name|Exception
