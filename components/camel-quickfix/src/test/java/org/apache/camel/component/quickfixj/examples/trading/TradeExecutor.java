@@ -3305,6 +3305,8 @@ operator|=
 name|defaultMarketPrice
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAsk (String symbol)
 specifier|public
 name|double
@@ -3318,6 +3320,8 @@ return|return
 name|defaultMarketPrice
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBid (String symbol)
 specifier|public
 name|double

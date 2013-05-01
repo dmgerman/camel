@@ -449,6 +449,8 @@ name|TradeExecutorThreadFactory
 implements|implements
 name|ThreadFactory
 block|{
+annotation|@
+name|Override
 DECL|method|newThread (Runnable r)
 specifier|public
 name|Thread
@@ -643,6 +645,8 @@ operator|new
 name|QuickfixjMessageListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|onMessage
@@ -656,7 +660,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// Inject session ID into message so produce will know where to send it
+comment|// Inject session ID into message so producer will know where to send it
 name|Header
 name|header
 init|=
@@ -841,6 +845,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -856,6 +862,8 @@ argument_list|(
 name|this
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -875,6 +883,8 @@ operator|new
 name|Runnable
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -924,6 +934,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -962,6 +974,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|protected
 name|void
 name|doStop
@@ -981,6 +995,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

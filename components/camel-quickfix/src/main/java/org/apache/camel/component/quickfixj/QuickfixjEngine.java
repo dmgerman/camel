@@ -2307,6 +2307,8 @@ name|Dispatcher
 implements|implements
 name|Application
 block|{
+annotation|@
+name|Override
 DECL|method|fromAdmin (Message message, SessionID sessionID)
 specifier|public
 name|void
@@ -2402,6 +2404,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|fromApp (Message message, SessionID sessionID)
 specifier|public
 name|void
@@ -2497,6 +2501,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onCreate (SessionID sessionID)
 specifier|public
 name|void
@@ -2535,6 +2541,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onLogon (SessionID sessionID)
 specifier|public
 name|void
@@ -2573,6 +2581,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onLogout (SessionID sessionID)
 specifier|public
 name|void
@@ -2611,6 +2621,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toAdmin (Message message, SessionID sessionID)
 specifier|public
 name|void
@@ -2652,6 +2664,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toApp (Message message, SessionID sessionID)
 specifier|public
 name|void

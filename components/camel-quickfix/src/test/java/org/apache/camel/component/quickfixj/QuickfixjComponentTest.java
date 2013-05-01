@@ -1719,6 +1719,8 @@ operator|new
 name|Processor
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process
@@ -2079,6 +2081,8 @@ operator|new
 name|Processor
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|process

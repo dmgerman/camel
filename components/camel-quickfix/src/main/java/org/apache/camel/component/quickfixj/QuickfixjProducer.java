@@ -158,6 +158,8 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void

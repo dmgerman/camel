@@ -595,7 +595,7 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|isA
 argument_list|(
@@ -693,7 +693,7 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|isA
 argument_list|(
@@ -808,7 +808,7 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|isA
 argument_list|(
@@ -867,21 +867,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Mockito
-operator|.
-name|when
-argument_list|(
-name|mockExchange
-operator|.
-name|copy
-argument_list|()
-argument_list|)
-operator|.
-name|thenReturn
-argument_list|(
-name|mockExchange
-argument_list|)
-expr_stmt|;
 name|Mockito
 operator|.
 name|when
@@ -1178,7 +1163,7 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|isA
 argument_list|(
@@ -1528,7 +1513,7 @@ argument_list|)
 operator|.
 name|send
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|isA
 argument_list|(
@@ -1559,7 +1544,7 @@ argument_list|)
 operator|.
 name|setBody
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|isA
 argument_list|(
