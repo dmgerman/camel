@@ -126,6 +126,11 @@ name|NettyComponent
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
+comment|// TODO: consider supporting on consumer
+comment|// - bridgeEndpoint
+comment|// - matchOnUriPrefix
+comment|// TODO: netty http producer
+comment|// TODO: make it easy to turn keep-alive on|off on producer
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
@@ -167,8 +172,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: netty http producer
-comment|// TODO: make it easy to turn keep-alive on|off on producer
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
