@@ -984,6 +984,21 @@ name|result
 operator|.
 name|getPattern
 argument_list|()
+operator|==
+name|ExchangePattern
+operator|.
+name|InOptionalOut
+condition|)
+block|{
+comment|// keep as is
+block|}
+elseif|else
+if|if
+condition|(
+name|result
+operator|.
+name|getPattern
+argument_list|()
 operator|.
 name|isOutCapable
 argument_list|()
@@ -1197,6 +1212,21 @@ condition|)
 block|{
 comment|// we just need to ensure MEP is as expected (eg copy result to OUT if out capable)
 comment|// and the result is not failed
+if|if
+condition|(
+name|result
+operator|.
+name|getPattern
+argument_list|()
+operator|==
+name|ExchangePattern
+operator|.
+name|InOptionalOut
+condition|)
+block|{
+comment|// keep as is
+block|}
+elseif|else
 if|if
 condition|(
 name|result

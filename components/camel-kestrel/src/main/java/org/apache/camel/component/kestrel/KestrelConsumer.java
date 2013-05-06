@@ -861,9 +861,13 @@ argument_list|()
 operator|.
 name|getWaitTimeMs
 argument_list|()
-operator|<=
+operator|>
 literal|0
 condition|)
+block|{
+comment|// Kestrel did the blocking for us
+block|}
+else|else
 block|{
 comment|// We're doing non-blocking get, so in between we
 comment|// should at least sleep some short period of time
