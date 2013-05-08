@@ -112,6 +112,20 @@ name|HeaderFilterStrategyAware
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Netty HTTP based component.  */
 end_comment
@@ -126,11 +140,15 @@ name|NettyComponent
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-comment|// TODO: consider supporting on consumer
+comment|// TODO: support on consumer
 comment|// - bridgeEndpoint
 comment|// - matchOnUriPrefix
-comment|// TODO: netty http producer
-comment|// TODO: make it easy to turn keep-alive on|off on producer
+comment|// - urlrewrite
+comment|// TODO: producer
+comment|// - add support for HTTP_URI / HTTP_QUERY overrides
+comment|// - add actual url to state so we know exactly which url we called also for done callback
+comment|// - add support for connection timeout
+comment|// - add support for request timeout
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
@@ -273,6 +291,34 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// any leftover parameters is uri parameters
+if|if
+condition|(
+operator|!
+name|parameters
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|String
+name|query
+init|=
+name|URISupport
+operator|.
+name|createQueryString
+argument_list|(
+name|parameters
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setUriParameters
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set component options on endpoint as defaults
 if|if
 condition|(

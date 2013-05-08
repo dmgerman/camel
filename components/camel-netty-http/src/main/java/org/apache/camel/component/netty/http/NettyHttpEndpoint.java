@@ -64,6 +64,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|PollingConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -244,6 +256,11 @@ name|NettyEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
+DECL|field|uriParameters
+specifier|private
+name|String
+name|uriParameters
+decl_stmt|;
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
@@ -344,6 +361,9 @@ name|this
 argument_list|,
 name|getConfiguration
 argument_list|()
+argument_list|,
+name|getUriParameters
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -366,6 +386,24 @@ return|return
 name|answer
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|createPollingConsumer ()
+specifier|public
+name|PollingConsumer
+name|createPollingConsumer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"This component does not support polling consumer"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -412,6 +450,9 @@ argument_list|(
 name|request
 argument_list|,
 name|exchange
+argument_list|,
+name|getConfiguration
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|exchange
@@ -503,6 +544,19 @@ argument_list|)
 expr_stmt|;
 return|return
 name|exchange
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// true to allow dynamic URI options to be configured and passed to external system for eg. the HttpProducer
+return|return
+literal|true
 return|;
 block|}
 annotation|@
@@ -625,6 +679,32 @@ operator|.
 name|httpMethodRestrict
 operator|=
 name|httpMethodRestrict
+expr_stmt|;
+block|}
+DECL|method|getUriParameters ()
+specifier|public
+name|String
+name|getUriParameters
+parameter_list|()
+block|{
+return|return
+name|uriParameters
+return|;
+block|}
+DECL|method|setUriParameters (String uriParameters)
+specifier|public
+name|void
+name|setUriParameters
+parameter_list|(
+name|String
+name|uriParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriParameters
+operator|=
+name|uriParameters
 expr_stmt|;
 block|}
 annotation|@

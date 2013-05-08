@@ -118,6 +118,24 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|NettyHttpConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+operator|(
+name|NettyHttpConfiguration
+operator|)
+name|super
+operator|.
+name|getConfiguration
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

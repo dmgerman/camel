@@ -474,9 +474,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Message received: {} keep-alive: {}"
+literal|"Message received: {}"
 argument_list|,
 name|request
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"   is keep-alive: {}"
 argument_list|,
 name|isKeepAlive
 argument_list|(
@@ -710,7 +717,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Channel already closed. Ignoring this exception."
 argument_list|)
@@ -774,6 +781,13 @@ name|request
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Request has Connection: keep-alive so Channel is not being closed"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -782,9 +796,9 @@ else|else
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"Closing channel as not keep-alive"
+literal|"Request is not Connection: close so Channel is being closed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -831,6 +845,11 @@ name|exchange
 operator|.
 name|getOut
 argument_list|()
+argument_list|,
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -850,6 +869,11 @@ argument_list|(
 name|exchange
 operator|.
 name|getIn
+argument_list|()
+argument_list|,
+name|consumer
+operator|.
+name|getConfiguration
 argument_list|()
 argument_list|)
 return|;

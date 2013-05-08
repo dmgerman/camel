@@ -215,7 +215,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:{{port}}/foo"
+literal|"netty-http:http://localhost:{{port}}/foo"
 argument_list|,
 literal|"World"
 argument_list|,
@@ -238,7 +238,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:{{port}}/foo"
+literal|"netty-http:http://localhost:{{port}}/foo"
 argument_list|,
 literal|"Camel"
 argument_list|,

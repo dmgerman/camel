@@ -147,7 +147,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http://localhost:{{port}}/foo"
+literal|"netty-http:http://localhost:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
