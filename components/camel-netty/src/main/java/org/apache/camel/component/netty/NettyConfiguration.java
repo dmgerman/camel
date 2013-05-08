@@ -883,6 +883,10 @@ block|{
 if|if
 condition|(
 name|protocol
+operator|!=
+literal|null
+operator|&&
+name|protocol
 operator|.
 name|equalsIgnoreCase
 argument_list|(
