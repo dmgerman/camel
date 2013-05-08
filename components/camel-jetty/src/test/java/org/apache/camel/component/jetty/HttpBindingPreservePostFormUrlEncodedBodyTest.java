@@ -105,7 +105,7 @@ name|exchange
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"http://localhost:{{port}}/myapp/myservice?query1=a&query2=b"
 argument_list|,
