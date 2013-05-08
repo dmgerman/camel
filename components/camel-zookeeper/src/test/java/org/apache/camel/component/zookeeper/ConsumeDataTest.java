@@ -260,7 +260,7 @@ argument_list|(
 literal|"/camel"
 argument_list|)
 expr_stmt|;
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|(
@@ -436,7 +436,7 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-name|mock
+name|MockEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|(
