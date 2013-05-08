@@ -110,18 +110,18 @@ argument_list|(
 literal|"org/apache/camel/test/blueprint/main-loadfile.xml"
 argument_list|)
 expr_stmt|;
-comment|// set the adminConfig persistent id
+comment|// set the configAdmin persistent id
 name|main
 operator|.
-name|setPid
+name|setConfigAdminPid
 argument_list|(
 literal|"stuff"
 argument_list|)
 expr_stmt|;
-comment|// set the adminConfig persistent file name
+comment|// set the configAdmin persistent file name
 name|main
 operator|.
-name|setPFileName
+name|setConfigAdminFileName
 argument_list|(
 literal|"src/test/resources/etc/stuff.cfg"
 argument_list|)

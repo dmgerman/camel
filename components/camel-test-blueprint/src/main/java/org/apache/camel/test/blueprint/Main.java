@@ -283,11 +283,11 @@ name|ParameterOption
 argument_list|(
 literal|"pid"
 argument_list|,
-literal|"persistentId"
+literal|"configAdminPid"
 argument_list|,
 literal|"Sets the ConfigAdmin persistentId"
 argument_list|,
-literal|"persistentId"
+literal|"configAdminPid"
 argument_list|)
 block|{
 specifier|protected
@@ -323,11 +323,11 @@ name|ParameterOption
 argument_list|(
 literal|"pf"
 argument_list|,
-literal|"persistentFileName"
+literal|"configAdminFileName"
 argument_list|,
 literal|"Sets the ConfigAdmin persistent file name"
 argument_list|,
-literal|"persistentFileName"
+literal|"configAdminFileName"
 argument_list|)
 block|{
 specifier|protected
