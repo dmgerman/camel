@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -32,8 +42,22 @@ name|LanguageSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUSoftCache
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -44,6 +68,35 @@ name|GroovyLanguage
 extends|extends
 name|LanguageSupport
 block|{
+comment|// Cache used to stores the compiled scripts (aka their classes)
+DECL|field|scriptCache
+specifier|private
+specifier|final
+name|LRUSoftCache
+argument_list|<
+name|String
+argument_list|,
+name|Class
+argument_list|<
+name|Script
+argument_list|>
+argument_list|>
+name|scriptCache
+init|=
+operator|new
+name|LRUSoftCache
+argument_list|<
+name|String
+argument_list|,
+name|Class
+argument_list|<
+name|Script
+argument_list|>
+argument_list|>
+argument_list|(
+literal|1000
+argument_list|)
+decl_stmt|;
 DECL|method|groovy (String expression)
 specifier|public
 specifier|static
@@ -104,6 +157,50 @@ argument_list|(
 name|expression
 argument_list|)
 return|;
+block|}
+DECL|method|getScriptFromCache (String script)
+name|Class
+argument_list|<
+name|Script
+argument_list|>
+name|getScriptFromCache
+parameter_list|(
+name|String
+name|script
+parameter_list|)
+block|{
+return|return
+name|scriptCache
+operator|.
+name|get
+argument_list|(
+name|script
+argument_list|)
+return|;
+block|}
+DECL|method|addScriptToCache (String script, Class<Script> scriptClass)
+name|void
+name|addScriptToCache
+parameter_list|(
+name|String
+name|script
+parameter_list|,
+name|Class
+argument_list|<
+name|Script
+argument_list|>
+name|scriptClass
+parameter_list|)
+block|{
+name|scriptCache
+operator|.
+name|put
+argument_list|(
+name|script
+argument_list|,
+name|scriptClass
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
