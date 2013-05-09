@@ -418,7 +418,7 @@ name|transport
 operator|.
 name|http
 operator|.
-name|CommonsHttpMessageSender
+name|HttpComponentsMessageSender
 import|;
 end_import
 
@@ -895,7 +895,7 @@ if|if
 condition|(
 name|messageSender
 operator|instanceof
-name|CommonsHttpMessageSender
+name|HttpComponentsMessageSender
 condition|)
 block|{
 if|if
@@ -912,7 +912,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Not applying SSLContextParameters based configuration to CommonsHttpMessageSender.  "
+literal|"Not applying SSLContextParameters based configuration to HttpComponentsMessageSender.  "
 operator|+
 literal|"If you are using this MessageSender, which you are not by default, you will need "
 operator|+
@@ -940,7 +940,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|CommonsHttpMessageSender
+name|HttpComponentsMessageSender
 operator|.
 name|class
 argument_list|)
@@ -948,7 +948,7 @@ condition|)
 block|{
 operator|(
 operator|(
-name|CommonsHttpMessageSender
+name|HttpComponentsMessageSender
 operator|)
 name|messageSender
 operator|)
@@ -968,7 +968,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Not applying timeout configuration to CommonsHttpMessageSender based implementation.  "
+literal|"Not applying timeout configuration to HttpComponentsMessageSender based implementation.  "
 operator|+
 literal|"You are using what appears to be a custom MessageSender, which you are not doing by default. "
 operator|+
