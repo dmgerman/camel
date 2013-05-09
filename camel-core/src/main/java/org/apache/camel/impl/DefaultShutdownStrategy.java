@@ -1168,6 +1168,21 @@ name|long
 name|timeout
 parameter_list|)
 block|{
+if|if
+condition|(
+name|timeout
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Timeout must not be lesser than 0."
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|timeout
@@ -2479,6 +2494,13 @@ condition|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|timeout
+operator|>
+literal|0
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -2521,6 +2543,16 @@ operator|*
 literal|1000
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we should not wait here
+throw|throw
+operator|new
+name|InterruptedException
+argument_list|()
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
