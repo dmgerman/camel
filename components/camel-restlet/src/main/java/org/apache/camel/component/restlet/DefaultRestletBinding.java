@@ -1419,7 +1419,17 @@ name|out
 operator|=
 name|exchange
 operator|.
+name|hasOut
+argument_list|()
+condition|?
+name|exchange
+operator|.
 name|getOut
+argument_list|()
+else|:
+name|exchange
+operator|.
+name|getIn
 argument_list|()
 expr_stmt|;
 block|}
