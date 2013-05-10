@@ -555,20 +555,11 @@ comment|// need to remember auth as Hadoop will override that, which otherwise m
 name|Configuration
 name|auth
 init|=
-name|Configuration
+name|HdfsComponent
 operator|.
-name|getConfiguration
+name|getJAASConfiguration
 argument_list|()
 decl_stmt|;
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Existing JAAS Configuration {}"
-argument_list|,
-name|auth
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 return|return
@@ -578,30 +569,13 @@ return|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|auth
-operator|!=
-literal|null
-condition|)
-block|{
-name|log
+name|HdfsComponent
 operator|.
-name|trace
-argument_list|(
-literal|"Restoring existing JAAS Configuration {}"
-argument_list|,
-name|auth
-argument_list|)
-expr_stmt|;
-name|Configuration
-operator|.
-name|setConfiguration
+name|setJAASConfiguration
 argument_list|(
 name|auth
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|doPoll ()
