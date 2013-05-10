@@ -131,7 +131,7 @@ argument_list|()
 decl_stmt|;
 name|student
 operator|.
-name|setStuName
+name|setStuLastName
 argument_list|(
 literal|"Dilshan"
 argument_list|)
@@ -197,7 +197,7 @@ expr_stmt|;
 name|String
 name|xml
 init|=
-literal|"<student><name>Sagara Gunathunga</name><age>27</age></student>"
+literal|"<student><firstname>Sagara</firstname><lastname>Gunathunga</lastname><age>27</age></student>"
 decl_stmt|;
 name|template
 operator|.
@@ -217,9 +217,16 @@ argument_list|()
 decl_stmt|;
 name|student
 operator|.
-name|setStuName
+name|setStuLastName
 argument_list|(
-literal|"Sagara Gunathunga"
+literal|"Gunathunga"
+argument_list|)
+expr_stmt|;
+name|student
+operator|.
+name|setStuFirstName
+argument_list|(
+literal|"Sagara"
 argument_list|)
 expr_stmt|;
 name|student
