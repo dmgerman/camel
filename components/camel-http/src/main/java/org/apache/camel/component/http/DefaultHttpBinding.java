@@ -1444,6 +1444,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Message
+name|target
+init|=
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|?
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+else|:
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -1478,10 +1496,7 @@ block|{
 comment|// it must be a fault, no need to check for the fault flag on the message
 name|doWriteFaultResponse
 argument_list|(
-name|exchange
-operator|.
-name|getOut
-argument_list|()
+name|target
 argument_list|,
 name|response
 argument_list|,
@@ -1492,7 +1507,15 @@ block|}
 block|}
 else|else
 block|{
-comment|// just copy the protocol relates header
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+comment|// just copy the protocol relates header if we do not have them
 name|copyProtocolHeaders
 argument_list|(
 name|exchange
@@ -1506,31 +1529,16 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Message
-name|out
-init|=
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|out
-operator|!=
-literal|null
-condition|)
-block|{
+block|}
 name|doWriteResponse
 argument_list|(
-name|out
+name|target
 argument_list|,
 name|response
 argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|copyProtocolHeaders (Message request, Message response)
