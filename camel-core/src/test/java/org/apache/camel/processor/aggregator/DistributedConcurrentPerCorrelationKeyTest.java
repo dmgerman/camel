@@ -146,16 +146,6 @@ name|MemoryAggregationRepository
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -194,8 +184,6 @@ name|uri
 init|=
 literal|"direct:start"
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testAggregateConcurrentPerCorrelationKey ()
 specifier|public
 name|void
