@@ -219,6 +219,13 @@ name|hasNext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|gi
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

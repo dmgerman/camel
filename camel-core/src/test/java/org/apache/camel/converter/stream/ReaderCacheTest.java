@@ -40,6 +40,20 @@ name|ContextTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -115,6 +129,15 @@ argument_list|(
 literal|"<foo>bar</foo>"
 argument_list|,
 name|s
+argument_list|)
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|cache
+argument_list|,
+name|bos
 argument_list|)
 expr_stmt|;
 block|}

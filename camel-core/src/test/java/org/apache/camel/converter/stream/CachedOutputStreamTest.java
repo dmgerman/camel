@@ -538,6 +538,13 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|cos
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testCacheStreamToFileAndCloseStreamEncrypted ()
 specifier|public
@@ -808,6 +815,13 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|cos
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testCacheStreamToFileCloseStreamBeforeDone ()
 specifier|public
@@ -992,6 +1006,13 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|cos
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testCacheStreamToMemory ()
 specifier|public
@@ -1104,6 +1125,13 @@ argument_list|,
 name|temp
 argument_list|,
 name|TEST_STRING
+argument_list|)
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|cos
 argument_list|)
 expr_stmt|;
 block|}
@@ -1229,6 +1257,13 @@ operator|.
 name|done
 argument_list|(
 name|exchange
+argument_list|)
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|cos
 argument_list|)
 expr_stmt|;
 block|}
@@ -1441,6 +1476,13 @@ operator|.
 name|length
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|cos
 argument_list|)
 expr_stmt|;
 block|}
