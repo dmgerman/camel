@@ -538,7 +538,9 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"SHIRO_SECURITY_TOKEN"
+name|ShiroConstants
+operator|.
+name|SHIRO_SECURITY_TOKEN
 argument_list|,
 name|encrypt
 argument_list|()
