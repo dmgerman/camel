@@ -504,7 +504,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|ShiroConstants
+name|ShiroSecurityConstants
 operator|.
 name|SHIRO_SECURITY_TOKEN
 argument_list|,

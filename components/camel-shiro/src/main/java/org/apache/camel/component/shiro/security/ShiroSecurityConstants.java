@@ -25,11 +25,11 @@ comment|/**  * Shiro constants.  */
 end_comment
 
 begin_class
-DECL|class|ShiroConstants
+DECL|class|ShiroSecurityConstants
 specifier|public
 specifier|final
 class|class
-name|ShiroConstants
+name|ShiroSecurityConstants
 block|{
 DECL|field|SHIRO_SECURITY_TOKEN
 specifier|public
@@ -40,9 +40,27 @@ name|SHIRO_SECURITY_TOKEN
 init|=
 literal|"SHIRO_SECURITY_TOKEN"
 decl_stmt|;
-DECL|method|ShiroConstants ()
+DECL|field|SHIRO_SECURITY_USERNAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SHIRO_SECURITY_USERNAME
+init|=
+literal|"SHIRO_SECURITY_USERNAME"
+decl_stmt|;
+DECL|field|SHIRO_SECURITY_PASSWORD
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SHIRO_SECURITY_PASSWORD
+init|=
+literal|"SHIRO_SECURITY_PASSWORD"
+decl_stmt|;
+DECL|method|ShiroSecurityConstants ()
 specifier|private
-name|ShiroConstants
+name|ShiroSecurityConstants
 parameter_list|()
 block|{     }
 block|}
