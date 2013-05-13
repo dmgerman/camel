@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor which sets the body on the IN message with an {@link Expression}  */
+comment|/**  * A processor which sets the body on the IN or OUT message with an {@link Expression}  */
 end_comment
 
 begin_class
@@ -166,9 +166,24 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|boolean
+name|out
+init|=
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+decl_stmt|;
 name|Message
 name|old
 init|=
+name|out
+condition|?
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+else|:
 name|exchange
 operator|.
 name|getIn
@@ -196,6 +211,21 @@ argument_list|(
 name|newBody
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|out
+condition|)
+block|{
+name|exchange
+operator|.
+name|setOut
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|setIn
@@ -203,6 +233,7 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

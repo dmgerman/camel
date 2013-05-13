@@ -204,7 +204,7 @@ argument_list|>
 name|getHeaders
 parameter_list|()
 function_decl|;
-comment|/**      * Set all the headers associated with this message      *      * @param headers headers to set      */
+comment|/**      * Set all the headers associated with this message      *<p/>      *<b>Important:</b> If you want to copy headers from another {@link Message} to this {@link Message}, then      * use<tt>getHeaders().putAll(other)</tt> to copy the headers, where<tt>other</tt> is the other headers.      *      * @param headers headers to set      */
 DECL|method|setHeaders (Map<String, Object> headers)
 name|void
 name|setHeaders
