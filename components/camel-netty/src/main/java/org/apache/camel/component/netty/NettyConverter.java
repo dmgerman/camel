@@ -60,6 +60,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -178,6 +188,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|UnsupportedEncodingException
 block|{
 name|byte
 index|[]
@@ -222,6 +234,8 @@ operator|new
 name|String
 argument_list|(
 name|bytes
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 return|;
 block|}
