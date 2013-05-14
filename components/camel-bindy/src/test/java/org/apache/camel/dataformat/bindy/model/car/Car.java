@@ -73,6 +73,14 @@ argument_list|,
 name|skipFirstLine
 operator|=
 literal|true
+argument_list|,
+name|quoting
+operator|=
+literal|true
+argument_list|,
+name|crlf
+operator|=
+literal|"UNIX"
 argument_list|)
 DECL|class|Car
 specifier|public
@@ -224,7 +232,7 @@ literal|12
 argument_list|)
 DECL|field|colour
 specifier|private
-name|String
+name|Colour
 name|colour
 decl_stmt|;
 annotation|@
@@ -615,7 +623,7 @@ expr_stmt|;
 block|}
 DECL|method|getColour ()
 specifier|public
-name|String
+name|Colour
 name|getColour
 parameter_list|()
 block|{
@@ -623,12 +631,12 @@ return|return
 name|colour
 return|;
 block|}
-DECL|method|setColour (String colour)
+DECL|method|setColour (Colour colour)
 specifier|public
 name|void
 name|setColour
 parameter_list|(
-name|String
+name|Colour
 name|colour
 parameter_list|)
 block|{
@@ -846,6 +854,15 @@ name|nvic
 operator|=
 name|nvic
 expr_stmt|;
+block|}
+DECL|enum|Colour
+specifier|public
+specifier|static
+enum|enum
+name|Colour
+block|{
+DECL|enumConstant|BLACK
+name|BLACK
 block|}
 block|}
 end_class

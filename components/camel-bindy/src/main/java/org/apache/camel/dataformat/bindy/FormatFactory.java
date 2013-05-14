@@ -252,6 +252,24 @@ name|bindy
 operator|.
 name|format
 operator|.
+name|EnumFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|format
+operator|.
 name|FloatFormat
 import|;
 end_import
@@ -430,7 +448,12 @@ specifier|private
 name|FormatFactory
 parameter_list|()
 block|{     }
-comment|/**      * Retrieves the format to use for the given type      *       * @param clazz represents the type of the format (String, Integer, Byte)      * @param pattern is the pattern to be used during the formatting of the data      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @param precision optional scale for BigDecimal parsing.      * @param impliedDecimalSeparator optional flag for floatign-point values      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      */
+comment|/**      * Retrieves the format to use for the given type      *      * @param clazz represents the type of the format (String, Integer, Byte)      * @param pattern is the pattern to be used during the formatting of the data      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @param precision optional scale for BigDecimal parsing.      * @param impliedDecimalSeparator optional flag for floatign-point values      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchcecked"
+argument_list|)
 DECL|method|doGetFormat (Class<?> clazz, String pattern, String locale, int precision, boolean impliedDecimalSeparator)
 specifier|private
 specifier|static
@@ -818,6 +841,23 @@ return|return
 operator|new
 name|CharacterFormat
 argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|clazz
+operator|.
+name|isEnum
+argument_list|()
+condition|)
+block|{
+return|return
+operator|new
+name|EnumFormat
+argument_list|(
+name|clazz
+argument_list|)
 return|;
 block|}
 else|else
