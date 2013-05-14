@@ -104,7 +104,7 @@ name|format
 decl_stmt|;
 DECL|field|multiplier
 specifier|private
-name|int
+name|double
 name|multiplier
 decl_stmt|;
 comment|/**      *      */
@@ -245,9 +245,6 @@ name|this
 operator|.
 name|multiplier
 operator|=
-operator|(
-name|int
-operator|)
 name|Math
 operator|.
 name|pow
@@ -322,7 +319,7 @@ return|;
 block|}
 DECL|method|getMultiplier ()
 specifier|protected
-name|int
+name|double
 name|getMultiplier
 parameter_list|()
 block|{
