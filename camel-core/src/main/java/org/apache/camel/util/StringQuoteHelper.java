@@ -218,8 +218,18 @@ argument_list|)
 else|:
 literal|0
 decl_stmt|;
+name|boolean
+name|isQuoting
+init|=
+name|singleQuoted
+operator|||
+name|doubleQuoted
+decl_stmt|;
 if|if
 condition|(
+operator|!
+name|doubleQuoted
+operator|&&
 name|ch
 operator|==
 literal|'\''
@@ -310,6 +320,9 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|singleQuoted
+operator|&&
 name|ch
 operator|==
 literal|'"'
@@ -400,6 +413,9 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|isQuoting
+operator|&&
 name|ch
 operator|==
 literal|' '
@@ -407,12 +423,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|singleQuoted
-operator|&&
-operator|!
-name|doubleQuoted
-operator|&&
 name|skipLeadingWhitespace
 condition|)
 block|{
@@ -422,6 +432,9 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|isQuoting
+operator|&&
 name|ch
 operator|==
 name|separator
@@ -430,12 +443,6 @@ block|{
 comment|// add as answer if we are not in a quote
 if|if
 condition|(
-operator|!
-name|singleQuoted
-operator|&&
-operator|!
-name|doubleQuoted
-operator|&&
 name|sb
 operator|.
 name|length

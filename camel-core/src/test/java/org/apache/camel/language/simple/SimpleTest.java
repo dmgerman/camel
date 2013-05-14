@@ -6864,6 +6864,60 @@ literal|" camel.apache.org"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testBodyOgnlReplaceSingleQuoteInDouble ()
+specifier|public
+name|void
+name|testBodyOgnlReplaceSingleQuoteInDouble
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello O'Conner"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace(\"O'C\", \"OC\")}"
+argument_list|,
+literal|"Hello OConner"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace(\"O'C\", \"O C\")}"
+argument_list|,
+literal|"Hello O Conner"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace(\"O'C\", \"O-C\")}"
+argument_list|,
+literal|"Hello O-Conner"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace(\"O'C\", \"O''C\")}"
+argument_list|,
+literal|"Hello O''Conner"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${body.replace(\"O'C\", \"O\n'C\")}"
+argument_list|,
+literal|"Hello O\n'Conner"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testBodyOgnlSpaces ()
 specifier|public
 name|void
