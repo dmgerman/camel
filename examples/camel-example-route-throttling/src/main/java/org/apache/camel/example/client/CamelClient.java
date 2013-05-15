@@ -82,11 +82,27 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationContext
+name|support
+operator|.
+name|AbstractApplicationContext
 import|;
 end_import
 
@@ -163,7 +179,7 @@ argument_list|(
 literal|"Notice this client requires that the CamelServer is already running!"
 argument_list|)
 expr_stmt|;
-name|ApplicationContext
+name|AbstractApplicationContext
 name|context
 init|=
 operator|new
@@ -333,11 +349,12 @@ operator|.
 name|shutdownNow
 argument_list|()
 expr_stmt|;
-name|System
+comment|// we're done so let's properly close the application context
+name|IOHelper
 operator|.
-name|exit
+name|close
 argument_list|(
-literal|0
+name|context
 argument_list|)
 expr_stmt|;
 block|}

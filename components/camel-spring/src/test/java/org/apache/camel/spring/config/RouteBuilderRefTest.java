@@ -34,11 +34,27 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationContext
+name|support
+operator|.
+name|AbstractApplicationContext
 import|;
 end_import
 
@@ -76,7 +92,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ApplicationContext
+name|AbstractApplicationContext
 name|applicationContext
 init|=
 operator|new
@@ -102,6 +118,14 @@ decl_stmt|;
 name|assertValidContext
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+comment|// we're done so let's properly close the application context
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|applicationContext
 argument_list|)
 expr_stmt|;
 block|}

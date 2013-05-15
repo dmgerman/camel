@@ -1218,7 +1218,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// setup a bean name which is used ny Spring JMS as the thread name
+comment|// setup a bean name which is used by Spring JMS as the thread name
 name|String
 name|name
 init|=

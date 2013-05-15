@@ -42,11 +42,27 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
 operator|.
-name|ApplicationContext
+name|support
+operator|.
+name|AbstractApplicationContext
 import|;
 end_import
 
@@ -80,7 +96,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ApplicationContext
+name|AbstractApplicationContext
 name|appContext
 init|=
 operator|new
@@ -116,6 +132,14 @@ name|camelContext
 operator|.
 name|isStreamCaching
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// we're done so let's properly close the application context
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|appContext
 argument_list|)
 expr_stmt|;
 block|}
