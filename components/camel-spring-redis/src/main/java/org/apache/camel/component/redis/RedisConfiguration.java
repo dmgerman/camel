@@ -526,6 +526,11 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
+name|listenerContainer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 return|return
 name|listenerContainer
 return|;
