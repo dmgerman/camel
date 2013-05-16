@@ -636,11 +636,11 @@ block|{
 name|Processor
 name|processor
 init|=
-name|header
-operator|.
 name|createProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+name|header
 argument_list|)
 decl_stmt|;
 name|answer

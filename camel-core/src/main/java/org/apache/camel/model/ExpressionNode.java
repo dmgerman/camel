@@ -447,13 +447,9 @@ block|{
 name|Processor
 name|childProcessor
 init|=
-name|this
-operator|.
-name|createChildProcessor
+name|createOutputsProcessor
 argument_list|(
 name|routeContext
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 return|return

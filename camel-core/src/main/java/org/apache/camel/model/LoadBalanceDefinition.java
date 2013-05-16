@@ -870,11 +870,11 @@ block|{
 name|Processor
 name|processor
 init|=
-name|processorType
-operator|.
 name|createProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+name|processorType
 argument_list|)
 decl_stmt|;
 name|loadBalancer
@@ -960,11 +960,11 @@ block|}
 name|Processor
 name|processor
 init|=
-name|processorType
-operator|.
 name|createProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+name|processorType
 argument_list|)
 decl_stmt|;
 name|processor

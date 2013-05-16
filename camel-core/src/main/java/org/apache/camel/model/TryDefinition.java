@@ -385,11 +385,11 @@ condition|)
 block|{
 name|finallyProcessor
 operator|=
-name|finallyClause
-operator|.
 name|createProcessor
 argument_list|(
 name|routeContext
+argument_list|,
+name|finallyClause
 argument_list|)
 expr_stmt|;
 block|}
