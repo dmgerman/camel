@@ -626,13 +626,11 @@ name|processor
 decl_stmt|;
 DECL|field|aggregationStrategy
 specifier|private
-specifier|final
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
 DECL|field|correlationExpression
 specifier|private
-specifier|final
 name|Expression
 name|correlationExpression
 decl_stmt|;
@@ -3367,6 +3365,58 @@ block|{
 return|return
 name|optimisticLockRetryPolicy
 return|;
+block|}
+DECL|method|getAggregationStrategy ()
+specifier|public
+name|AggregationStrategy
+name|getAggregationStrategy
+parameter_list|()
+block|{
+return|return
+name|aggregationStrategy
+return|;
+block|}
+DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
+specifier|public
+name|void
+name|setAggregationStrategy
+parameter_list|(
+name|AggregationStrategy
+name|aggregationStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|aggregationStrategy
+operator|=
+name|aggregationStrategy
+expr_stmt|;
+block|}
+DECL|method|getCorrelationExpression ()
+specifier|public
+name|Expression
+name|getCorrelationExpression
+parameter_list|()
+block|{
+return|return
+name|correlationExpression
+return|;
+block|}
+DECL|method|setCorrelationExpression (Expression correlationExpression)
+specifier|public
+name|void
+name|setCorrelationExpression
+parameter_list|(
+name|Expression
+name|correlationExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationExpression
+operator|=
+name|correlationExpression
+expr_stmt|;
 block|}
 comment|/**      * On completion task which keeps the booking of the in progress up to date      */
 DECL|class|AggregateOnCompletion
