@@ -42,20 +42,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -135,12 +121,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we're done so let's properly close the application context
-name|IOHelper
+name|appContext
 operator|.
 name|close
-argument_list|(
-name|appContext
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
