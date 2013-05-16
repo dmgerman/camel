@@ -138,8 +138,20 @@ name|ST
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|stringtemplate
+operator|.
+name|v4
+operator|.
+name|STGroup
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -150,6 +162,28 @@ name|StringTemplateEndpoint
 extends|extends
 name|ResourceEndpoint
 block|{
+DECL|field|delimiterStart
+specifier|private
+name|char
+name|delimiterStart
+init|=
+name|STGroup
+operator|.
+name|defaultGroup
+operator|.
+name|delimiterStartChar
+decl_stmt|;
+DECL|field|delimiterStop
+specifier|private
+name|char
+name|delimiterStop
+init|=
+name|STGroup
+operator|.
+name|defaultGroup
+operator|.
+name|delimiterStopChar
+decl_stmt|;
 DECL|method|StringTemplateEndpoint ()
 specifier|public
 name|StringTemplateEndpoint
@@ -204,6 +238,58 @@ name|ExchangePattern
 operator|.
 name|InOut
 return|;
+block|}
+DECL|method|getDelimiterStart ()
+specifier|public
+name|char
+name|getDelimiterStart
+parameter_list|()
+block|{
+return|return
+name|delimiterStart
+return|;
+block|}
+DECL|method|setDelimiterStart (char delimiterStart)
+specifier|public
+name|void
+name|setDelimiterStart
+parameter_list|(
+name|char
+name|delimiterStart
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delimiterStart
+operator|=
+name|delimiterStart
+expr_stmt|;
+block|}
+DECL|method|getDelimiterStop ()
+specifier|public
+name|char
+name|getDelimiterStop
+parameter_list|()
+block|{
+return|return
+name|delimiterStop
+return|;
+block|}
+DECL|method|setDelimiterStop (char delimiterStop)
+specifier|public
+name|void
+name|setDelimiterStop
+parameter_list|(
+name|char
+name|delimiterStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delimiterStop
+operator|=
+name|delimiterStop
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -269,6 +355,10 @@ operator|new
 name|ST
 argument_list|(
 name|text
+argument_list|,
+name|delimiterStart
+argument_list|,
+name|delimiterStop
 argument_list|)
 decl_stmt|;
 for|for
