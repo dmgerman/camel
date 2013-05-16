@@ -940,6 +940,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Container
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|DataFormat
 import|;
 end_import
@@ -2244,6 +2258,15 @@ name|DefaultPackageScanClassResolver
 argument_list|()
 expr_stmt|;
 block|}
+name|Container
+operator|.
+name|Instance
+operator|.
+name|manage
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the registry      *      * @param jndiContext the JNDI context      */
 DECL|method|DefaultCamelContext (Context jndiContext)
