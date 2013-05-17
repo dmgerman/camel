@@ -407,6 +407,8 @@ argument_list|(
 name|uri
 argument_list|,
 name|this
+argument_list|,
+name|logger
 argument_list|)
 decl_stmt|;
 name|setProperties
@@ -417,15 +419,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|LogEndpoint
-argument_list|(
-name|uri
-argument_list|,
-name|this
-argument_list|,
-name|logger
-argument_list|)
+name|endpoint
 return|;
 block|}
 comment|/**      * Gets the logging level, will default to use INFO if no level parameter provided.      */
