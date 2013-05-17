@@ -79,8 +79,6 @@ DECL|field|verbose
 specifier|private
 name|boolean
 name|verbose
-init|=
-literal|true
 decl_stmt|;
 DECL|field|prefix
 specifier|private
