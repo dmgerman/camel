@@ -254,6 +254,12 @@ name|EXCEPTION_CAUGHT
 init|=
 literal|"CamelExceptionCaught"
 decl_stmt|;
+DECL|field|EXCEPTION_HANDLED
+name|String
+name|EXCEPTION_HANDLED
+init|=
+literal|"CamelExceptionHandled"
+decl_stmt|;
 DECL|field|EVALUATE_EXPRESSION_RESULT
 name|String
 name|EVALUATE_EXPRESSION_RESULT

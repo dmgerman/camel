@@ -50,7 +50,7 @@ name|AOPProcessor
 extends|extends
 name|TryProcessor
 block|{
-DECL|method|AOPProcessor (Processor tryProcessor, List<CatchProcessor> catchClauses, Processor finallyProcessor)
+DECL|method|AOPProcessor (Processor tryProcessor, List<Processor> catchClauses, Processor finallyProcessor)
 specifier|public
 name|AOPProcessor
 parameter_list|(
@@ -59,7 +59,7 @@ name|tryProcessor
 parameter_list|,
 name|List
 argument_list|<
-name|CatchProcessor
+name|Processor
 argument_list|>
 name|catchClauses
 parameter_list|,
