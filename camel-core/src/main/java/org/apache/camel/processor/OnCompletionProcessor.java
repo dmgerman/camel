@@ -358,16 +358,11 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
-comment|// wrap processor in UnitOfWork so what we send out runs in a UoW
 name|this
 operator|.
 name|processor
 operator|=
-operator|new
-name|UnitOfWorkProcessor
-argument_list|(
 name|processor
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
