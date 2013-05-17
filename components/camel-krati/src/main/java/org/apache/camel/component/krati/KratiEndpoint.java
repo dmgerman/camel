@@ -186,7 +186,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -200,7 +200,7 @@ specifier|public
 class|class
 name|KratiEndpoint
 extends|extends
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 block|{
 DECL|field|dataStoreRegistry
 specifier|protected
@@ -319,6 +319,11 @@ DECL|field|path
 specifier|protected
 name|String
 name|path
+decl_stmt|;
+DECL|field|maxMessagesPerPoll
+specifier|protected
+name|int
+name|maxMessagesPerPoll
 decl_stmt|;
 DECL|method|KratiEndpoint (String uri, KratiComponent component)
 specifier|public
@@ -602,6 +607,14 @@ argument_list|,
 name|dataStore
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setMaxMessagesPerPoll
+argument_list|(
+name|getMaxMessagesPerPoll
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|configureConsumer
 argument_list|(
 name|answer
@@ -897,6 +910,32 @@ block|{
 return|return
 name|path
 return|;
+block|}
+DECL|method|getMaxMessagesPerPoll ()
+specifier|public
+name|int
+name|getMaxMessagesPerPoll
+parameter_list|()
+block|{
+return|return
+name|maxMessagesPerPoll
+return|;
+block|}
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerPoll
+operator|=
+name|maxMessagesPerPoll
+expr_stmt|;
 block|}
 block|}
 end_class
