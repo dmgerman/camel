@@ -1214,6 +1214,36 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// the predicate has whitespace in the function
+name|parser
+operator|=
+operator|new
+name|SimplePredicateParser
+argument_list|(
+literal|"${body[foo bar]} == 456"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|pre
+operator|=
+name|parser
+operator|.
+name|parsePredicate
+argument_list|()
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should match"
+argument_list|,
+name|pre
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
