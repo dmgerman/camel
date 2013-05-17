@@ -1773,8 +1773,12 @@ return|return
 literal|false
 return|;
 block|}
+comment|// if its a file then check we have the file in the idempotent registry already
 if|if
 condition|(
+operator|!
+name|isDirectory
+operator|&&
 name|endpoint
 operator|.
 name|isIdempotent
