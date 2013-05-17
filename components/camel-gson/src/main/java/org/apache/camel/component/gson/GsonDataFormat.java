@@ -507,6 +507,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|gson
+operator|==
+literal|null
+condition|)
+block|{
 name|GsonBuilder
 name|builder
 init|=
@@ -650,6 +657,7 @@ operator|.
 name|create
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
