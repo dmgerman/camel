@@ -79,7 +79,7 @@ specifier|private
 name|ProcessorBuilder
 parameter_list|()
 block|{     }
-comment|/**      * Creates a processor which sets the body of the IN message to the value of the expression      */
+comment|/**      * Creates a processor which sets the body of the message to the value of the expression      */
 DECL|method|setBody (final Expression expression)
 specifier|public
 specifier|static
@@ -118,6 +118,27 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|newBody
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -128,6 +149,7 @@ argument_list|(
 name|newBody
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -147,7 +169,9 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Creates a processor which sets the body of the OUT message to the value of the expression      */
+comment|/**      * Creates a processor which sets the body of the OUT message to the value of the expression      *      * @deprecated use {@link #setBody(org.apache.camel.Expression)}      */
+annotation|@
+name|Deprecated
 DECL|method|setOutBody (final Expression expression)
 specifier|public
 specifier|static
@@ -215,7 +239,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Creates a processor which sets the body of the FAULT message to the value of the expression      */
+comment|/**      * Creates a processor which sets the body of the FAULT message (FAULT must be OUT) to the value of the expression      */
 DECL|method|setFaultBody (final Expression expression)
 specifier|public
 specifier|static
@@ -293,7 +317,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Sets the header on the IN message      */
+comment|/**      * Sets the header on the message.      */
 DECL|method|setHeader (final String name, final Expression expression)
 specifier|public
 specifier|static
@@ -336,6 +360,29 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -348,6 +395,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -371,7 +419,9 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Sets the header on the OUT message      */
+comment|/**      * Sets the header on the OUT message      *      * @deprecated use {@link #setHeader(String, org.apache.camel.Expression)}      */
+annotation|@
+name|Deprecated
 DECL|method|setOutHeader (final String name, final Expression expression)
 specifier|public
 specifier|static
@@ -449,7 +499,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Sets the header on the FAULT message      */
+comment|/**      * Sets the header on the FAULT message (FAULT must be OUT)      */
 DECL|method|setFaultHeader (final String name, final Expression expression)
 specifier|public
 specifier|static
@@ -612,7 +662,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Removes the header on the IN message      */
+comment|/**      * Removes the header on the message.      */
 DECL|method|removeHeader (final String name)
 specifier|public
 specifier|static
@@ -637,6 +687,27 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -647,6 +718,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -666,7 +738,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Removes the headers on the IN message      */
+comment|/**      * Removes the headers on the message      */
 DECL|method|removeHeaders (final String pattern)
 specifier|public
 specifier|static
@@ -691,6 +763,27 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|removeHeaders
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -701,6 +794,7 @@ argument_list|(
 name|pattern
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -720,7 +814,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Removes all headers on the IN message, except for the ones provided in the<tt>names</tt> parameter      */
+comment|/**      * Removes all headers on the message, except for the ones provided in the<tt>names</tt> parameter      */
 DECL|method|removeHeaders (final String pattern, final String... exceptionPatterns)
 specifier|public
 specifier|static
@@ -750,6 +844,29 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|removeHeaders
+argument_list|(
+name|pattern
+argument_list|,
+name|exceptionPatterns
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -762,6 +879,7 @@ argument_list|,
 name|exceptionPatterns
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -790,7 +908,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Removes the header on the FAULT message      * @deprecated will be removed in the near future. Instead use {@link #removeHeader(String)}      */
+comment|/**      * Removes the header on the FAULT message (FAULT must be OUT)      * @deprecated will be removed in the near future. Instead use {@link #removeHeader(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|removeFaultHeader (final String name)
