@@ -9112,7 +9112,17 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Uptime {}"
+literal|"Apache Camel "
+operator|+
+name|getVersion
+argument_list|()
+operator|+
+literal|" (CamelContext: "
+operator|+
+name|getName
+argument_list|()
+operator|+
+literal|") uptime {}"
 argument_list|,
 name|getUptime
 argument_list|()
