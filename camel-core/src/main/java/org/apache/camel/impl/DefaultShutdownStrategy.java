@@ -148,6 +148,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -862,13 +876,6 @@ name|routesOrdered
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|timeout
-operator|>
-literal|0
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -901,25 +908,15 @@ operator|+
 literal|")"
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Starting to graceful shutdown "
-operator|+
-name|routesOrdered
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|" routes (no timeout)"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// use another thread to perform the shutdowns so we can support timeout
+specifier|final
+name|AtomicBoolean
+name|timeoutOccurred
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 name|Future
 argument_list|<
 name|?
@@ -945,17 +942,12 @@ argument_list|,
 name|suspendOnly
 argument_list|,
 name|abortAfterTimeout
+argument_list|,
+name|timeoutOccurred
 argument_list|)
 argument_list|)
 decl_stmt|;
 try|try
-block|{
-if|if
-condition|(
-name|timeout
-operator|>
-literal|0
-condition|)
 block|{
 name|future
 operator|.
@@ -967,21 +959,20 @@ name|timeUnit
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|future
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 catch|catch
 parameter_list|(
 name|TimeoutException
 name|e
 parameter_list|)
 block|{
+comment|// we hit a timeout, so set the flag
+name|timeoutOccurred
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// timeout then cancel the task
 name|future
 operator|.
@@ -1171,7 +1162,7 @@ block|{
 if|if
 condition|(
 name|timeout
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -1179,7 +1170,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Timeout must not be lesser than 0."
+literal|"Timeout must be a positive value"
 argument_list|)
 throw|;
 block|}
@@ -1935,7 +1926,13 @@ specifier|final
 name|TimeUnit
 name|timeUnit
 decl_stmt|;
-DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout)
+DECL|field|timeoutOccurred
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|timeoutOccurred
+decl_stmt|;
+DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout, AtomicBoolean timeoutOccurred)
 specifier|public
 name|ShutdownTask
 parameter_list|(
@@ -1959,6 +1956,9 @@ name|suspendOnly
 parameter_list|,
 name|boolean
 name|abortAfterTimeout
+parameter_list|,
+name|AtomicBoolean
+name|timeoutOccurred
 parameter_list|)
 block|{
 name|this
@@ -1996,6 +1996,12 @@ operator|.
 name|timeUnit
 operator|=
 name|timeUnit
+expr_stmt|;
+name|this
+operator|.
+name|timeoutOccurred
+operator|=
+name|timeoutOccurred
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -2387,6 +2393,12 @@ while|while
 condition|(
 operator|!
 name|done
+operator|&&
+operator|!
+name|timeoutOccurred
+operator|.
+name|get
+argument_list|()
 condition|)
 block|{
 name|int
@@ -2494,13 +2506,6 @@ condition|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|timeout
-operator|>
-literal|0
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
@@ -2543,16 +2548,6 @@ operator|*
 literal|1000
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// we should not wait here
-throw|throw
-operator|new
-name|InterruptedException
-argument_list|()
-throw|;
-block|}
 block|}
 catch|catch
 parameter_list|(
