@@ -877,6 +877,38 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polled queue {} with timeout {} ms. -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|queue
+argument_list|)
+block|,
+name|pollTimeout
+block|,
+name|exchange
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|exchange
 operator|!=
 literal|null
@@ -1144,6 +1176,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// validate multiple consumers has been enabled
 name|int
 name|size
 init|=
@@ -1155,17 +1188,12 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-comment|// if there are multiple consumers then multicast to them
 if|if
 condition|(
 name|size
 operator|>
 literal|1
-condition|)
-block|{
-comment|// validate multiple consumers has been enabled
-if|if
-condition|(
+operator|&&
 operator|!
 name|endpoint
 operator|.
@@ -1183,27 +1211,30 @@ name|endpoint
 argument_list|)
 throw|;
 block|}
+comment|// if there are multiple consumers then multicast to them
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isMultipleConsumersSupported
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|LOG
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Multicasting to {} consumers for Exchange: {}"
 argument_list|,
-name|endpoint
-operator|.
-name|getConsumers
-argument_list|()
-operator|.
 name|size
-argument_list|()
 argument_list|,
 name|exchange
 argument_list|)

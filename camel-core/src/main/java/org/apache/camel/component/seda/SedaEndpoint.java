@@ -980,6 +980,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// only needed if we support multiple consumers
+if|if
+condition|(
+operator|!
+name|isMultipleConsumersSupported
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+comment|// stop old before we create a new
 if|if
 condition|(
 name|consumerMulticastProcessor
@@ -994,6 +1005,10 @@ argument_list|(
 name|consumerMulticastProcessor
 argument_list|)
 expr_stmt|;
+name|consumerMulticastProcessor
+operator|=
+literal|null
+expr_stmt|;
 block|}
 name|int
 name|size
@@ -1007,35 +1022,7 @@ decl_stmt|;
 if|if
 condition|(
 name|size
-operator|==
-literal|0
-operator|&&
-name|multicastExecutor
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// stop the multicast executor as its not needed anymore when size is zero
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|shutdownGraceful
-argument_list|(
-name|multicastExecutor
-argument_list|)
-expr_stmt|;
-name|multicastExecutor
-operator|=
-literal|null
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|size
-operator|>
+operator|>=
 literal|1
 condition|)
 block|{
@@ -1140,14 +1127,6 @@ literal|null
 argument_list|,
 literal|false
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// not needed
-name|consumerMulticastProcessor
-operator|=
-literal|null
 expr_stmt|;
 block|}
 block|}
@@ -2022,14 +2001,67 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doShutdown ()
-specifier|protected
+DECL|method|stop ()
+specifier|public
 name|void
-name|doShutdown
+name|stop
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|getConsumers
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|super
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"There is still active consumers."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|shutdown ()
+specifier|public
+name|void
+name|shutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|shutdown
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Service already shut down"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// notify component we are shutting down this endpoint
 if|if
 condition|(
@@ -2048,6 +2080,42 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|getConsumers
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|super
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"There is still active consumers."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 comment|// shutdown thread pool if it was in use
 if|if
 condition|(
@@ -2076,11 +2144,6 @@ comment|// clear queue, as we are shutdown, so if re-created then the queue must
 name|queue
 operator|=
 literal|null
-expr_stmt|;
-name|super
-operator|.
-name|doShutdown
-argument_list|()
 expr_stmt|;
 block|}
 block|}
