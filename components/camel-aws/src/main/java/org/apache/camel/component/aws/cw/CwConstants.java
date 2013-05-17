@@ -60,6 +60,24 @@ name|METRIC_TIMESTAMP
 init|=
 literal|"CamelAwsCwMetricTimestamp"
 decl_stmt|;
+DECL|field|METRIC_DIMENSIONS
+name|String
+name|METRIC_DIMENSIONS
+init|=
+literal|"CamelAwsCwMetricDimensions"
+decl_stmt|;
+DECL|field|METRIC_DIMENSION_NAME
+name|String
+name|METRIC_DIMENSION_NAME
+init|=
+literal|"CamelAwsCwMetricDimensionName"
+decl_stmt|;
+DECL|field|METRIC_DIMENSION_VALUE
+name|String
+name|METRIC_DIMENSION_VALUE
+init|=
+literal|"CamelAwsCwMetricDimensionValue"
+decl_stmt|;
 block|}
 end_interface
 
