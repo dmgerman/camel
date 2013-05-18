@@ -46,17 +46,17 @@ specifier|final
 class|class
 name|Instance
 block|{
-DECL|method|Instance ()
-specifier|private
-name|Instance
-parameter_list|()
-block|{}
 DECL|field|container
 specifier|private
 specifier|static
 name|Container
 name|container
 decl_stmt|;
+DECL|method|Instance ()
+specifier|private
+name|Instance
+parameter_list|()
+block|{         }
 comment|/**          * Access the registered Container.          *          * @return the Container singleton          */
 DECL|method|get ()
 specifier|public
