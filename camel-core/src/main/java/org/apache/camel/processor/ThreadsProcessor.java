@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Threads processor that leverage a thread pool for continue processing the {@link Exchange}s  * using the asynchronous routing engine.  *<p/>  * Pay attention to how this processor handles rejected tasks.  *<ul>  *<li>Abort - The current exchange will be set with a {@link RejectedExecutionException} exception,  * and marked to stop continue routing.  * The {@link org.apache.camel.spi.UnitOfWork} will be regarded as<b>failed</b>, due the exception.</li>  *<li>Discard - The current exchange will be marked to stop continue routing (notice no exception is set).  * The {@link org.apache.camel.spi.UnitOfWork} will be regarded as<b>successful</b>, due no exception being set.</li>  *<li>DiscardOldest - The oldest exchange will be marked to stop continue routing (notice no exception is set).  * The {@link org.apache.camel.spi.UnitOfWork} will be regarded as<b>successful</b>, due no exception being set.  * And the current exchange will be added to the task queue.</li>  *<li>CallerRuns - The current exchange will be processed by the current thread. Which mean the current thread  * will not be free to process a new exchange, as its processing the current exchange.</li>  *</ul>  */
+comment|/**  * Threads processor that leverage a thread pool for continue processing the {@link Exchange}s  * using the asynchronous routing engine.  *<p/>  *<b>Notice:</b> For transacted routes then this {@link ThreadsProcessor} is not in use, as we want to  * process messages using the same thread to support all work done in the same transaction. The reason  * is that the transaction manager that orchestrate the transaction, requires all the work to be done  * on the same thread.  *<p/>  * Pay attention to how this processor handles rejected tasks.  *<ul>  *<li>Abort - The current exchange will be set with a {@link RejectedExecutionException} exception,  * and marked to stop continue routing.  * The {@link org.apache.camel.spi.UnitOfWork} will be regarded as<b>failed</b>, due the exception.</li>  *<li>Discard - The current exchange will be marked to stop continue routing (notice no exception is set).  * The {@link org.apache.camel.spi.UnitOfWork} will be regarded as<b>successful</b>, due no exception being set.</li>  *<li>DiscardOldest - The oldest exchange will be marked to stop continue routing (notice no exception is set).  * The {@link org.apache.camel.spi.UnitOfWork} will be regarded as<b>successful</b>, due no exception being set.  * And the current exchange will be added to the task queue.</li>  *<li>CallerRuns - The current exchange will be processed by the current thread. Which mean the current thread  * will not be free to process a new exchange, as its processing the current exchange.</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -567,6 +567,41 @@ argument_list|(
 literal|"ThreadsProcessor is not running."
 argument_list|)
 throw|;
+block|}
+comment|// we cannot execute this asynchronously for transacted exchanges, as the transaction manager doesn't support
+comment|// using different threads in the same transaction
+if|if
+condition|(
+name|exchange
+operator|.
+name|isTransacted
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Transacted Exchange must be routed synchronously for exchangeId: {} -> {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 name|ProcessCall
 name|call

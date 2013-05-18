@@ -85,6 +85,8 @@ comment|/**  * This processor tracks the current {@link RouteContext} while proc
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RouteContextProcessor
 specifier|public
 class|class

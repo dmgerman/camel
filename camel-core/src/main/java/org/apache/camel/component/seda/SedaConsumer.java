@@ -294,20 +294,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|AsyncProcessorHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ExchangeHelper
 import|;
 end_import
@@ -1274,12 +1260,10 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// and use the asynchronous routing engine to support it
-name|AsyncProcessorHelper
+name|mp
 operator|.
 name|process
 argument_list|(
-name|mp
-argument_list|,
 name|exchange
 argument_list|,
 operator|new
@@ -1314,12 +1298,10 @@ block|}
 else|else
 block|{
 comment|// use the regular processor and use the asynchronous routing engine to support it
-name|AsyncProcessorHelper
+name|processor
 operator|.
 name|process
 argument_list|(
-name|processor
-argument_list|,
 name|exchange
 argument_list|,
 operator|new

@@ -487,6 +487,39 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|addDefinition (ProcessorDefinition<?> definition)
+specifier|public
+name|void
+name|addDefinition
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|definition
+parameter_list|)
+block|{
+name|processors
+operator|.
+name|add
+argument_list|(
+name|definition
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getQueue ()
+specifier|public
+name|Queue
+argument_list|<
+name|DefaultBacklogTracerEventMessage
+argument_list|>
+name|getQueue
+parameter_list|()
+block|{
+return|return
+name|queue
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|wrapProcessorInInterceptors (CamelContext context, ProcessorDefinition<?> definition, Processor target, Processor nextTarget)
@@ -1559,6 +1592,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|incrementTraceCounter ()
+specifier|public
 name|long
 name|incrementTraceCounter
 parameter_list|()

@@ -659,12 +659,10 @@ comment|// this error handler, which means we have to invoke the callback with f
 comment|// be notified when we are done
 name|sync
 operator|=
-name|AsyncProcessorHelper
+name|outputAsync
 operator|.
 name|process
 argument_list|(
-name|outputAsync
-argument_list|,
 name|exchange
 argument_list|,
 operator|new
@@ -740,12 +738,10 @@ comment|// this redelivery task was scheduled from asynchronous, which means we 
 comment|// handle when the asynchronous task was done
 name|sync
 operator|=
-name|AsyncProcessorHelper
+name|outputAsync
 operator|.
 name|process
 argument_list|(
-name|outputAsync
-argument_list|,
 name|exchange
 argument_list|,
 operator|new
@@ -1753,12 +1749,10 @@ comment|// process the exchange (also redelivery)
 name|boolean
 name|sync
 init|=
-name|AsyncProcessorHelper
+name|outputAsync
 operator|.
 name|process
 argument_list|(
-name|outputAsync
-argument_list|,
 name|exchange
 argument_list|,
 operator|new
@@ -2070,13 +2064,25 @@ init|=
 literal|true
 decl_stmt|;
 comment|// the unit of work may have an optional callback associated we need to leverage
-name|SubUnitOfWorkCallback
-name|uowCallback
+name|UnitOfWork
+name|uow
 init|=
 name|exchange
 operator|.
 name|getUnitOfWork
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|uow
+operator|!=
+literal|null
+condition|)
+block|{
+name|SubUnitOfWorkCallback
+name|uowCallback
+init|=
+name|uow
 operator|.
 name|getSubUnitOfWorkCallback
 argument_list|()
@@ -2101,6 +2107,7 @@ name|deliver
 operator|=
 literal|false
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -3626,12 +3633,10 @@ argument_list|)
 decl_stmt|;
 name|sync
 operator|=
-name|AsyncProcessorHelper
+name|afp
 operator|.
 name|process
 argument_list|(
-name|afp
-argument_list|,
 name|exchange
 argument_list|,
 operator|new

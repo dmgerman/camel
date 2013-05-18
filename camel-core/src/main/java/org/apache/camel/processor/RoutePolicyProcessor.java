@@ -151,6 +151,8 @@ comment|/**  * {@link Processor} which instruments the {@link RoutePolicy}.  *  
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RoutePolicyProcessor
 specifier|public
 class|class

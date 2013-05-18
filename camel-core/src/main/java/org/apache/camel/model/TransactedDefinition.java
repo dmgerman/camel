@@ -592,6 +592,7 @@ argument_list|,
 name|childProcessor
 argument_list|)
 decl_stmt|;
+comment|// TODO: should not be needed as its already a service
 comment|// wrap the target so it becomes a service and we can manage its lifecycle
 name|WrapProcessor
 name|wrap

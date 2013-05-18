@@ -121,6 +121,8 @@ comment|/**  * An interceptor for tracing messages by using the {@link BacklogTr
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BacklogTracerInterceptor
 specifier|public
 class|class

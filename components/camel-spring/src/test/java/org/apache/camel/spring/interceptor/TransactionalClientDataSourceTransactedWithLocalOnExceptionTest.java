@@ -82,9 +82,6 @@ name|from
 argument_list|(
 literal|"direct:okay"
 argument_list|)
-operator|.
-name|transacted
-argument_list|()
 comment|// use local on exception
 operator|.
 name|onException
@@ -105,6 +102,9 @@ literal|"mock:error"
 argument_list|)
 operator|.
 name|end
+argument_list|()
+operator|.
+name|transacted
 argument_list|()
 operator|.
 name|setBody
@@ -137,9 +137,6 @@ name|from
 argument_list|(
 literal|"direct:fail"
 argument_list|)
-operator|.
-name|transacted
-argument_list|()
 comment|// use local on exception
 operator|.
 name|onException
@@ -160,6 +157,9 @@ literal|"mock:error"
 argument_list|)
 operator|.
 name|end
+argument_list|()
+operator|.
+name|transacted
 argument_list|()
 operator|.
 name|setBody
