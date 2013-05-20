@@ -233,10 +233,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
+name|log
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+literal|"Dump stacktrace to log"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 name|StringWriter
 name|sw
@@ -307,11 +311,9 @@ name|count
 operator|++
 expr_stmt|;
 block|}
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"There is "
 operator|+

@@ -337,7 +337,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Keeping track which route currently is being routed</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing the routing using</li>  *<li>Execute {@link RoutePolicy}</li>  *</ul>  * ... and much more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorTask} task  * by executing the {@link CamelInternalProcessorTask#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorTask#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  */
+comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Keeping track which route currently is being routed</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Execute {@link RoutePolicy}</li>  *</ul>  * ... and much more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorTask} task  * by executing the {@link CamelInternalProcessorTask#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorTask#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  */
 end_comment
 
 begin_class
@@ -602,6 +602,7 @@ literal|true
 return|;
 block|}
 block|}
+comment|// create internal callback which will execute the tasks in reverse order when done
 name|callback
 operator|=
 operator|new
@@ -861,6 +862,8 @@ name|doneSync
 parameter_list|)
 block|{
 comment|// we should call after in reverse order
+try|try
+block|{
 for|for
 control|(
 name|int
@@ -915,7 +918,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -926,9 +929,13 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-break|break;
+comment|// allow all tasks to complete even if there was an exception
 block|}
 block|}
+block|}
+finally|finally
+block|{
+comment|// callback must be called
 name|callback
 operator|.
 name|done
@@ -936,6 +943,7 @@ argument_list|(
 name|doneSync
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|InstrumentationTask
