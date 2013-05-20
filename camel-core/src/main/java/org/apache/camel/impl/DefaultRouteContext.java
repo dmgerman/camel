@@ -256,20 +256,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|UnitOfWorkProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|InterceptStrategy
@@ -940,7 +926,6 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route will be in the same UoW
-comment|//UnitOfWorkProcessor unitOfWorkProcessor = new UnitOfWorkProcessor(this, target);
 name|CamelInternalProcessor
 name|internal
 init|=
