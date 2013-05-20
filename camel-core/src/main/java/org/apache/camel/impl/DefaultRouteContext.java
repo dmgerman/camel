@@ -925,27 +925,44 @@ argument_list|,
 name|eventDrivenProcessors
 argument_list|)
 decl_stmt|;
-comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route will be in the same UoW
-name|UnitOfWorkProcessor
-name|unitOfWorkProcessor
+name|String
+name|routeId
 init|=
-operator|new
-name|UnitOfWorkProcessor
+name|route
+operator|.
+name|idOrCreate
 argument_list|(
-name|this
-argument_list|,
-name|target
+name|getCamelContext
+argument_list|()
+operator|.
+name|getNodeIdFactory
+argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route will be in the same UoW
+comment|//UnitOfWorkProcessor unitOfWorkProcessor = new UnitOfWorkProcessor(this, target);
 name|CamelInternalProcessor
 name|internal
 init|=
 operator|new
 name|CamelInternalProcessor
 argument_list|(
-name|unitOfWorkProcessor
+name|target
 argument_list|)
 decl_stmt|;
+name|internal
+operator|.
+name|addTask
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|UnitOfWorkProcessorTask
+argument_list|(
+name|routeId
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// and then optionally add route policy processor if a custom policy is set
 name|List
 argument_list|<
@@ -1032,20 +1049,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// wrap in route inflight processor to track number of inflight exchanges for the route
-name|String
-name|routeId
-init|=
-name|route
-operator|.
-name|idOrCreate
-argument_list|(
-name|getCamelContext
-argument_list|()
-operator|.
-name|getNodeIdFactory
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|internal
 operator|.
 name|addTask

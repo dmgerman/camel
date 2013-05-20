@@ -698,6 +698,9 @@ name|UNIT_OF_WORK_EXHAUSTED
 init|=
 literal|"CamelUnitOfWorkExhausted"
 decl_stmt|;
+comment|/**      * @deprecated UNIT_OF_WORK_PROCESS_SYNC is not in use and will be removed in future Camel release      */
+annotation|@
+name|Deprecated
 DECL|field|UNIT_OF_WORK_PROCESS_SYNC
 name|String
 name|UNIT_OF_WORK_PROCESS_SYNC

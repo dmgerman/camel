@@ -233,15 +233,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Dump stacktrace to log"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 name|StringWriter
 name|sw
 init|=
@@ -320,6 +311,15 @@ operator|+
 name|count
 operator|+
 literal|" lines in the stacktrace"
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Dump stacktrace to log"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

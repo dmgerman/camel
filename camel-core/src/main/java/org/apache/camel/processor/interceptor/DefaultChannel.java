@@ -1762,6 +1762,7 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+comment|// TODO: This logic can be in internal processor
 if|if
 condition|(
 operator|!
