@@ -843,22 +843,6 @@ operator|new
 name|CamelInternalProcessor
 argument_list|()
 expr_stmt|;
-comment|// TODO: The route context task can likely be only added in DefaultRouteContext once per route
-name|this
-operator|.
-name|internalProcessor
-operator|.
-name|addTask
-argument_list|(
-operator|new
-name|CamelInternalProcessor
-operator|.
-name|RouteContextTask
-argument_list|(
-name|routeContext
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|Processor
 name|target
 init|=

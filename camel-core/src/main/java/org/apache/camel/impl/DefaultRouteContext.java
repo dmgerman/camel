@@ -948,6 +948,20 @@ name|routeId
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// and then in route context so we can keep track which route this is at runtime
+name|internal
+operator|.
+name|addTask
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|RouteContextTask
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// and then optionally add route policy processor if a custom policy is set
 name|List
 argument_list|<
