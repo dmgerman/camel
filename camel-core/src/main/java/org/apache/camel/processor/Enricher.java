@@ -402,12 +402,10 @@ decl_stmt|;
 name|boolean
 name|sync
 init|=
-name|AsyncProcessorHelper
+name|ap
 operator|.
 name|process
 argument_list|(
-name|ap
-argument_list|,
 name|resourceExchange
 argument_list|,
 operator|new

@@ -133,7 +133,7 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-comment|/**      * Calls the async version of the processor's process method.      *<p/>      * This implementation supports transacted {@link Exchange}s which ensure those are run in a synchronous fashion.      * See more details at {@link org.apache.camel.AsyncProcessor}.      *      * @param processor the processor      * @param exchange  the exchange      * @param callback  the callback      * @return<tt>true</tt> to continue execute synchronously,<tt>false</tt> to continue being executed asynchronously      */
+comment|/**      * Calls the async version of the processor's process method.      *<p/>      * This implementation supports transacted {@link Exchange}s which ensure those are run in a synchronous fashion.      * See more details at {@link org.apache.camel.AsyncProcessor}.      *      * @param processor the processor      * @param exchange  the exchange      * @param callback  the callback      * @return<tt>true</tt> to continue execute synchronously,<tt>false</tt> to continue being executed asynchronously      * @deprecated should no longer be needed, instead invoke the process method on the {@link AsyncProcessor} directly,      * instead of using this method.      */
 annotation|@
 name|Deprecated
 DECL|method|process (final AsyncProcessor processor, final Exchange exchange, final AsyncCallback callback)
@@ -155,7 +155,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// TODO: This method is no longer needed, and we can avoid using it
 name|boolean
 name|sync
 decl_stmt|;
@@ -330,7 +329,7 @@ return|return
 name|sync
 return|;
 block|}
-comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning. This can be used by {@link AsyncProcessor}      * objects to implement their sync version of the process method.      *      * @param processor the processor      * @param exchange  the exchange      * @throws Exception can be thrown if waiting is interrupted      */
+comment|/**      * Calls the async version of the processor's process method and waits      * for it to complete before returning. This can be used by {@link AsyncProcessor}      * objects to implement their sync version of the process method.      *<p/>      *<b>Important:</b> This method is discouraged to be used, as its better to invoke the asynchronous      * {@link AsyncProcessor#process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method, whenever possible.      *      * @param processor the processor      * @param exchange  the exchange      * @throws Exception can be thrown if waiting is interrupted      */
 DECL|method|process (final AsyncProcessor processor, final Exchange exchange)
 specifier|public
 specifier|static

@@ -26,6 +26,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -143,6 +155,20 @@ operator|.
 name|exceptionpolicy
 operator|.
 name|ExceptionPolicyStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -896,13 +922,19 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// must invoke the async method with empty callback to have it invoke the
-comment|// super.processErrorHandler
-comment|// we are transacted so we have to route synchronously so don't worry about returned
-comment|// value from the process method
-comment|// and the camel routing engine will detect this is an transacted Exchange and route
-comment|// it fully synchronously so we don't have to wait here if we hit an async endpoint
-comment|// all that is taken care of in the camel-core
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|boolean
+name|sync
+init|=
 name|super
 operator|.
 name|process
@@ -921,11 +953,104 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-comment|// noop
+if|if
+condition|(
+operator|!
+name|doneSync
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Asynchronous callback received for exchangeId: {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Done "
+operator|+
+name|this
+return|;
 block|}
 block|}
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|sync
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Waiting for asynchronous callback before continuing for exchangeId: {} -> {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|latch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Asynchronous callback received, will continue routing exchangeId: {} -> {}"
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Logs the transaction begin      */
 DECL|method|logTransactionBegin (String redelivered, String ids)

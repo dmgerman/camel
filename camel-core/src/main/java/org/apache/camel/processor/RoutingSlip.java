@@ -1348,12 +1348,10 @@ expr_stmt|;
 name|boolean
 name|sync
 init|=
-name|AsyncProcessorHelper
+name|asyncProducer
 operator|.
 name|process
 argument_list|(
-name|asyncProducer
-argument_list|,
 name|exchange
 argument_list|,
 operator|new

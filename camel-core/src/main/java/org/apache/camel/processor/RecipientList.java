@@ -785,12 +785,10 @@ expr_stmt|;
 block|}
 comment|// now let the multicast process the exchange
 return|return
-name|AsyncProcessorHelper
+name|target
 operator|.
 name|process
 argument_list|(
-name|target
-argument_list|,
 name|exchange
 argument_list|,
 name|callback
