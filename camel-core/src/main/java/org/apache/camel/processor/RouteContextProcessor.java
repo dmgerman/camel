@@ -125,10 +125,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|processNext (final Exchange exchange, final AsyncCallback callback)
-specifier|protected
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
+specifier|public
 name|boolean
-name|processNext
+name|process
 parameter_list|(
 specifier|final
 name|Exchange

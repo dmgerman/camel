@@ -493,7 +493,9 @@ expr_stmt|;
 name|boolean
 name|sync
 init|=
-name|processNext
+name|super
+operator|.
+name|process
 argument_list|(
 name|exchange
 argument_list|,

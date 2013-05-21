@@ -125,8 +125,6 @@ comment|/**  * JMX enabled processor that uses the {@link org.apache.camel.manag
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
 DECL|class|InstrumentationProcessor
 specifier|public
 class|class

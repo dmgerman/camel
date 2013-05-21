@@ -375,7 +375,9 @@ name|callback
 parameter_list|)
 block|{
 return|return
-name|processNext
+name|processor
+operator|.
+name|process
 argument_list|(
 name|exchange
 argument_list|,
@@ -383,6 +385,9 @@ name|callback
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated use {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|processNext (Exchange exchange, AsyncCallback callback)
 specifier|protected
 name|boolean
@@ -395,35 +400,13 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-if|if
-condition|(
-name|processor
-operator|==
-literal|null
-condition|)
-block|{
-comment|// no processor then we are done
-name|callback
-operator|.
-name|done
+throw|throw
+operator|new
+name|UnsupportedOperationException
 argument_list|(
-literal|true
+literal|"This method is deprecated, use process(Exchange, AsyncCallback) instead"
 argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
-return|return
-name|processor
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|,
-name|callback
-argument_list|)
-return|;
+throw|;
 block|}
 DECL|method|hasNext ()
 specifier|public

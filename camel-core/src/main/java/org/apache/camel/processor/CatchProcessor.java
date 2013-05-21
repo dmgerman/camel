@@ -499,7 +499,7 @@ name|sync
 init|=
 name|super
 operator|.
-name|processNext
+name|process
 argument_list|(
 name|exchange
 argument_list|,

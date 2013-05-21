@@ -450,9 +450,9 @@ argument_list|(
 name|target
 argument_list|)
 block|{
-specifier|protected
+specifier|public
 name|boolean
-name|processNext
+name|process
 parameter_list|(
 name|Exchange
 name|exchange
@@ -468,7 +468,7 @@ expr_stmt|;
 return|return
 name|super
 operator|.
-name|processNext
+name|process
 argument_list|(
 name|exchange
 argument_list|,

@@ -124,6 +124,18 @@ name|ReduceStacksNeededDuringRoutingTest
 extends|extends
 name|ContextTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|useJmx ()
+specifier|protected
+name|boolean
+name|useJmx
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|testReduceStacksNeeded ()
 specifier|public
 name|void
@@ -184,6 +196,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// context.setTracing(true);
 name|from
 argument_list|(
 literal|"seda:start"
@@ -197,6 +210,11 @@ operator|.
 name|to
 argument_list|(
 literal|"log:bar"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:baz"
 argument_list|)
 operator|.
 name|process

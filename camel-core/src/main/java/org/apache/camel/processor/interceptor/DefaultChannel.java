@@ -1067,15 +1067,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: trace interceptor can be a task on internalProcessor
+name|tracer
+operator|=
+name|getOrCreateTracer
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|tracer
+operator|!=
+literal|null
+condition|)
+block|{
 name|TraceInterceptor
 name|trace
 init|=
 operator|(
 name|TraceInterceptor
 operator|)
-name|getOrCreateTracer
-argument_list|()
+name|tracer
 operator|.
 name|wrapProcessorInInterceptors
 argument_list|(
@@ -1103,6 +1113,7 @@ name|target
 operator|=
 name|trace
 expr_stmt|;
+block|}
 comment|// sort interceptors according to ordered
 name|Collections
 operator|.
@@ -1381,6 +1392,27 @@ name|InterceptStrategy
 name|getOrCreateTracer
 parameter_list|()
 block|{
+comment|// only use tracer if explicit enabled
+if|if
+condition|(
+name|camelContext
+operator|.
+name|isTracing
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|camelContext
+operator|.
+name|isTracing
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|InterceptStrategy
 name|tracer
 init|=
