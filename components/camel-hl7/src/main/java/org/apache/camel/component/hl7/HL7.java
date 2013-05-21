@@ -232,6 +232,9 @@ block|}
 block|}
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #ack(AckCode, String, ErrorCode)}      */
+annotation|@
+name|Deprecated
 DECL|method|ack (AckCode code, String errorMessage, int errorCode)
 specifier|public
 specifier|static
@@ -249,8 +252,7 @@ name|errorCode
 parameter_list|)
 block|{
 return|return
-operator|new
-name|AckExpression
+name|ack
 argument_list|(
 name|code
 argument_list|,
@@ -262,6 +264,34 @@ name|errorCodeFor
 argument_list|(
 name|errorCode
 argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|ack (AckCode code, String errorMessage, ErrorCode errorCode)
+specifier|public
+specifier|static
+name|Expression
+name|ack
+parameter_list|(
+name|AckCode
+name|code
+parameter_list|,
+name|String
+name|errorMessage
+parameter_list|,
+name|ErrorCode
+name|errorCode
+parameter_list|)
+block|{
+return|return
+operator|new
+name|AckExpression
+argument_list|(
+name|code
+argument_list|,
+name|errorMessage
+argument_list|,
+name|errorCode
 argument_list|)
 return|;
 block|}

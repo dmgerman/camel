@@ -812,9 +812,6 @@ argument_list|,
 name|ErrorCode
 operator|.
 name|APPLICATION_INTERNAL_ERROR
-operator|.
-name|getCode
-argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -847,9 +844,6 @@ argument_list|,
 name|ErrorCode
 operator|.
 name|DATA_TYPE_ERROR
-operator|.
-name|getCode
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
