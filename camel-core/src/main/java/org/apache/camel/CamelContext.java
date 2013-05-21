@@ -1499,6 +1499,21 @@ name|InterceptStrategy
 name|backlogTracer
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the default backlog debugger      *      * @return the default backlog debugger      */
+DECL|method|getDefaultBacklogDebugger ()
+name|InterceptStrategy
+name|getDefaultBacklogDebugger
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom backlog debugger to be used as the default backlog debugger.      *<p/>      *<b>Note:</b> This must be set before any routes are created,      * changing the default backlog debugger for existing routes is not supported.      *      * @param backlogDebugger the custom debugger to use as default backlog debugger      */
+DECL|method|setDefaultBacklogDebugger (InterceptStrategy backlogDebugger)
+name|void
+name|setDefaultBacklogDebugger
+parameter_list|(
+name|InterceptStrategy
+name|backlogDebugger
+parameter_list|)
+function_decl|;
 comment|/**      * Disables using JMX as {@link org.apache.camel.spi.ManagementStrategy}.      */
 DECL|method|disableJMX ()
 name|void

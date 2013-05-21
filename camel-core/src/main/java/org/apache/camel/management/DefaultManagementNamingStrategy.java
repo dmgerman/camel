@@ -1498,7 +1498,7 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 block|{
-comment|// use the simple name of the class as the mbean name (eg Tracer, BacklogTracer)
+comment|// use the simple name of the class as the mbean name (eg Tracer, BacklogTracer, BacklogDebugger)
 name|String
 name|name
 init|=
