@@ -374,10 +374,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|processNext (Exchange exchange, AsyncCallback callback)
-specifier|protected
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
 name|boolean
-name|processNext
+name|process
 parameter_list|(
 name|Exchange
 name|exchange
@@ -422,7 +422,7 @@ block|}
 return|return
 name|super
 operator|.
-name|processNext
+name|process
 argument_list|(
 name|exchange
 argument_list|,
