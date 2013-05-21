@@ -172,20 +172,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|management
-operator|.
-name|InstrumentationProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|FromDefinition
@@ -1066,28 +1052,18 @@ name|routeId
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: This should be a task as well
-comment|// and wrap it by a instrumentation processor that is to be used for performance stats
-comment|// for this particular route
-name|InstrumentationProcessor
-name|instrument
-init|=
-operator|new
-name|InstrumentationProcessor
-argument_list|()
-decl_stmt|;
-name|instrument
+comment|// wrap in JMX instrumentation processor that is used for performance stats
+name|internal
 operator|.
-name|setType
+name|addTask
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|InstrumentationTask
 argument_list|(
 literal|"route"
 argument_list|)
-expr_stmt|;
-name|instrument
-operator|.
-name|setProcessor
-argument_list|(
-name|internal
 argument_list|)
 expr_stmt|;
 comment|// and create the route that wraps the UoW
@@ -1102,7 +1078,7 @@ argument_list|,
 name|getEndpoint
 argument_list|()
 argument_list|,
-name|instrument
+name|internal
 argument_list|)
 decl_stmt|;
 name|edcr

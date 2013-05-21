@@ -1070,6 +1070,21 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
+DECL|method|InstrumentationTask (String type)
+specifier|public
+name|InstrumentationTask
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
 DECL|method|setCounter (Object counter)
 specifier|public
 name|void
