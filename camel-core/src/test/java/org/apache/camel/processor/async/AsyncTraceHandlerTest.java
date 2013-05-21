@@ -316,6 +316,13 @@ name|Exception
 block|{
 name|context
 operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
 name|addComponent
 argument_list|(
 literal|"async"

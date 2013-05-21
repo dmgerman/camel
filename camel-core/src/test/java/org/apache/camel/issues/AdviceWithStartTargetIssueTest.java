@@ -393,7 +393,7 @@ operator|+
 name|count
 argument_list|)
 expr_stmt|;
-name|nextTarget
+name|target
 operator|.
 name|process
 argument_list|(

@@ -230,6 +230,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|RouteDefinitionHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|CamelInternalProcessor
@@ -922,6 +936,19 @@ name|outputDefinition
 argument_list|)
 expr_stmt|;
 block|}
+comment|// force the creation of an id
+name|RouteDefinitionHelper
+operator|.
+name|forceAssignIds
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|definition
+argument_list|)
+expr_stmt|;
 comment|// first wrap the output with the managed strategy if any
 name|InterceptStrategy
 name|managed
