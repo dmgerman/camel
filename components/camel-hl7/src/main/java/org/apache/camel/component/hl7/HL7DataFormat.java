@@ -699,12 +699,15 @@ name|isValidate
 parameter_list|()
 block|{
 return|return
+operator|!
+operator|(
 name|parser
 operator|.
 name|getValidationContext
 argument_list|()
 operator|instanceof
 name|NoValidation
+operator|)
 return|;
 block|}
 DECL|method|setValidate (boolean validate)

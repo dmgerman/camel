@@ -26,7 +26,31 @@ name|uhn
 operator|.
 name|hl7v2
 operator|.
+name|DefaultHapiContext
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
 name|HL7Exception
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
+name|HapiContext
 import|;
 end_import
 
@@ -54,7 +78,7 @@ name|hl7v2
 operator|.
 name|parser
 operator|.
-name|Parser
+name|GenericParser
 import|;
 end_import
 
@@ -68,7 +92,7 @@ name|hl7v2
 operator|.
 name|parser
 operator|.
-name|PipeParser
+name|Parser
 import|;
 end_import
 
@@ -261,7 +285,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Failed validation rule"
+literal|"ca.uhn.hl7v2.validation.ValidationException: Validation failed:"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -366,14 +390,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Parser
-name|p
+name|HapiContext
+name|hapiContext
 init|=
 operator|new
-name|PipeParser
+name|DefaultHapiContext
 argument_list|()
 decl_stmt|;
-name|p
+name|hapiContext
 operator|.
 name|setValidationContext
 argument_list|(
@@ -382,6 +406,15 @@ name|NoValidation
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Parser
+name|p
+init|=
+operator|new
+name|GenericParser
+argument_list|(
+name|hapiContext
+argument_list|)
+decl_stmt|;
 name|hl7
 operator|=
 operator|new
