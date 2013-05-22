@@ -298,6 +298,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|EventNotifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|EventNotifierSupport
@@ -315,6 +329,20 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
 import|;
 end_import
 
@@ -368,6 +396,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|debugEventNotifier
+specifier|private
+specifier|final
+name|EventNotifier
+name|debugEventNotifier
+init|=
+operator|new
+name|DebugEventNotifier
+argument_list|()
+decl_stmt|;
 DECL|field|breakpoints
 specifier|private
 specifier|final
@@ -418,6 +456,13 @@ DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|useTracer
+specifier|private
+name|boolean
+name|useTracer
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Holder class for breakpoint and the associated conditions      */
 DECL|class|BreakpointConditions
@@ -550,6 +595,32 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+block|}
+DECL|method|isUseTracer ()
+specifier|public
+name|boolean
+name|isUseTracer
+parameter_list|()
+block|{
+return|return
+name|useTracer
+return|;
+block|}
+DECL|method|setUseTracer (boolean useTracer)
+specifier|public
+name|void
+name|setUseTracer
+parameter_list|(
+name|boolean
+name|useTracer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useTracer
+operator|=
+name|useTracer
 expr_stmt|;
 block|}
 DECL|method|addBreakpoint (Breakpoint breakpoint)
@@ -1847,6 +1918,13 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// register our event notifier
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|debugEventNotifier
+argument_list|)
+expr_stmt|;
 name|camelContext
 operator|.
 name|getManagementStrategy
@@ -1854,11 +1932,15 @@ argument_list|()
 operator|.
 name|addEventNotifier
 argument_list|(
-operator|new
-name|DebugEventNotifier
-argument_list|()
+name|debugEventNotifier
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isUseTracer
+argument_list|()
+condition|)
+block|{
 name|Tracer
 name|tracer
 init|=
@@ -1919,6 +2001,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|stop ()
 specifier|public
 name|void
@@ -1936,6 +2019,13 @@ name|singleSteps
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopServices
+argument_list|(
+name|debugEventNotifier
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

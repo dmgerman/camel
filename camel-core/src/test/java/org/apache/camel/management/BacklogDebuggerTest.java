@@ -153,24 +153,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|from
-argument_list|(
-literal|"timer:foo?period=10s"
-argument_list|)
-operator|.
-name|setBody
-argument_list|()
-operator|.
-name|constant
-argument_list|(
-literal|"Hello World"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"seda:start"
-argument_list|)
-expr_stmt|;
+comment|// from("timer:foo?period=10s").setBody().constant("Hello World").to("seda:start");
 name|from
 argument_list|(
 literal|"seda:start"
@@ -194,6 +177,29 @@ operator|.
 name|id
 argument_list|(
 literal|"bar"
+argument_list|)
+operator|.
+name|transform
+argument_list|()
+operator|.
+name|constant
+argument_list|(
+literal|"Bye World"
+argument_list|)
+operator|.
+name|id
+argument_list|(
+literal|"transform"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:cheese"
+argument_list|)
+operator|.
+name|id
+argument_list|(
+literal|"cheese"
 argument_list|)
 expr_stmt|;
 block|}

@@ -52,22 +52,6 @@ name|api
 operator|.
 name|management
 operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
 name|ManagedResource
 import|;
 end_import
@@ -202,6 +186,36 @@ return|return
 name|backlogDebugger
 return|;
 block|}
+DECL|method|getLoggingLevel ()
+specifier|public
+name|String
+name|getLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|backlogDebugger
+operator|.
+name|getLoggingLevel
+argument_list|()
+return|;
+block|}
+DECL|method|setLoggingLevel (String level)
+specifier|public
+name|void
+name|setLoggingLevel
+parameter_list|(
+name|String
+name|level
+parameter_list|)
+block|{
+name|backlogDebugger
+operator|.
+name|setLoggingLevel
+argument_list|(
+name|level
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|isEnabled ()
 specifier|public
 name|boolean
@@ -299,10 +313,10 @@ name|includeInternal
 argument_list|)
 return|;
 block|}
-DECL|method|continueBreakpoint (String nodeId)
+DECL|method|resumeBreakpoint (String nodeId)
 specifier|public
 name|void
-name|continueBreakpoint
+name|resumeBreakpoint
 parameter_list|(
 name|String
 name|nodeId
@@ -310,10 +324,64 @@ parameter_list|)
 block|{
 name|backlogDebugger
 operator|.
-name|continueBreakpoint
+name|resumeBreakpoint
 argument_list|(
 name|nodeId
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|resumeAll ()
+specifier|public
+name|void
+name|resumeAll
+parameter_list|()
+block|{
+name|backlogDebugger
+operator|.
+name|resumeAll
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|stepBreakpoint (String nodeId)
+specifier|public
+name|void
+name|stepBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+block|{
+name|backlogDebugger
+operator|.
+name|stepBreakpoint
+argument_list|(
+name|nodeId
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isSingleStepMode ()
+specifier|public
+name|boolean
+name|isSingleStepMode
+parameter_list|()
+block|{
+return|return
+name|backlogDebugger
+operator|.
+name|isSingleStepMode
+argument_list|()
+return|;
+block|}
+DECL|method|step ()
+specifier|public
+name|void
+name|step
+parameter_list|()
+block|{
+name|backlogDebugger
+operator|.
+name|step
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getSuspendedBreakpointNodeIds ()

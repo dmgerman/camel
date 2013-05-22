@@ -73,6 +73,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Logging Level"
+argument_list|)
+DECL|method|getLoggingLevel ()
+name|String
+name|getLoggingLevel
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Logging Level"
+argument_list|)
+DECL|method|setLoggingLevel (String level)
+name|void
+name|setLoggingLevel
+parameter_list|(
+name|String
+name|level
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Is debugger enabled"
 argument_list|)
 DECL|method|isEnabled ()
@@ -142,15 +169,66 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Continue debugging the suspended breakpoints at the given node id"
+literal|"Resume running from the suspended breakpoint at the given node id"
 argument_list|)
-DECL|method|continueBreakpoint (String nodeId)
+DECL|method|resumeBreakpoint (String nodeId)
 name|void
-name|continueBreakpoint
+name|resumeBreakpoint
 parameter_list|(
 name|String
 name|nodeId
 parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Resume running any suspended breakpoints, and exits step mode"
+argument_list|)
+DECL|method|resumeAll ()
+name|void
+name|resumeAll
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Starts single step debugging from the suspended breakpoint at the given node id"
+argument_list|)
+DECL|method|stepBreakpoint (String nodeId)
+name|void
+name|stepBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether currently in step mode"
+argument_list|)
+DECL|method|isSingleStepMode ()
+name|boolean
+name|isSingleStepMode
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Steps to next node in step mode"
+argument_list|)
+DECL|method|step ()
+name|void
+name|step
+parameter_list|()
 function_decl|;
 annotation|@
 name|ManagedOperation
