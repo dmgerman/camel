@@ -543,6 +543,41 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**      * Gets the route id the given node belongs to.      *      * @param node the node      * @return the route id, or<tt>null</tt> if not possible to find      */
+DECL|method|getRouteId (ProcessorDefinition<?> node)
+specifier|public
+specifier|static
+name|String
+name|getRouteId
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|node
+parameter_list|)
+block|{
+name|RouteDefinition
+name|route
+init|=
+name|getRoute
+argument_list|(
+name|node
+argument_list|)
+decl_stmt|;
+return|return
+name|route
+operator|!=
+literal|null
+condition|?
+name|route
+operator|.
+name|getId
+argument_list|()
+else|:
+literal|null
+return|;
+block|}
 comment|/**      * Traverses the node, including its children (recursive), and gathers all the node ids.      *      * @param node  the target node      * @param set   set to store ids, if<tt>null</tt> a new set will be created      * @param onlyCustomId  whether to only store custom assigned ids (ie. {@link org.apache.camel.model.OptionalIdentifiedDefinition#hasCustomIdAssigned()}      * @param includeAbstract whether to include abstract nodes (ie. {@link org.apache.camel.model.ProcessorDefinition#isAbstract()}      * @return the set with the found ids.      */
 DECL|method|gatherAllNodeIds (ProcessorDefinition<?> node, Set<String> set, boolean onlyCustomId, boolean includeAbstract)
 specifier|public

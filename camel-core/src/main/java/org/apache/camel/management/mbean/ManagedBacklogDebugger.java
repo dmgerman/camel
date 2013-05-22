@@ -290,6 +290,49 @@ name|getSuspendedBreakpointNodeIds
 argument_list|()
 return|;
 block|}
+DECL|method|dumpTracedMessagesAsXml (String nodeId)
+specifier|public
+name|String
+name|dumpTracedMessagesAsXml
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+block|{
+return|return
+name|backlogDebugger
+operator|.
+name|dumpTracedMessagesAsXml
+argument_list|(
+name|nodeId
+argument_list|)
+return|;
+block|}
+DECL|method|getDebugCounter ()
+specifier|public
+name|long
+name|getDebugCounter
+parameter_list|()
+block|{
+return|return
+name|backlogDebugger
+operator|.
+name|getDebugCounter
+argument_list|()
+return|;
+block|}
+DECL|method|resetDebugCounter ()
+specifier|public
+name|void
+name|resetDebugCounter
+parameter_list|()
+block|{
+name|backlogDebugger
+operator|.
+name|resetDebugCounter
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

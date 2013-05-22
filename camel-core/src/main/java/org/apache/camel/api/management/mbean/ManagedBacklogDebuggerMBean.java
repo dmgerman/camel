@@ -164,6 +164,47 @@ argument_list|>
 name|getSuspendedBreakpointNodeIds
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the messages in xml format from the suspended breakpoint at the given node"
+argument_list|)
+DECL|method|dumpTracedMessagesAsXml (String nodeId)
+name|String
+name|dumpTracedMessagesAsXml
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of total debugged messages"
+argument_list|)
+DECL|method|getDebugCounter ()
+specifier|public
+name|long
+name|getDebugCounter
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Resets the debug counter"
+argument_list|)
+DECL|method|resetDebugCounter ()
+specifier|public
+name|void
+name|resetDebugCounter
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
