@@ -120,13 +120,7 @@ name|enabled
 argument_list|)
 expr_stmt|;
 comment|// TODO: add more to this test
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|999999
-argument_list|)
-expr_stmt|;
+comment|//Thread.sleep(999999);
 block|}
 annotation|@
 name|Override
