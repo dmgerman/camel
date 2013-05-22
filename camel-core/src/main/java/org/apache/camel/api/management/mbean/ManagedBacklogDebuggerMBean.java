@@ -111,12 +111,15 @@ name|description
 operator|=
 literal|"Add a breakpoint at the given node id"
 argument_list|)
-DECL|method|addBreakpoint (String nodeId)
+DECL|method|addBreakpoint (String nodeId, boolean internal)
 name|void
 name|addBreakpoint
 parameter_list|(
 name|String
 name|nodeId
+parameter_list|,
+name|boolean
+name|internal
 parameter_list|)
 function_decl|;
 annotation|@
@@ -154,6 +157,24 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Return the node ids which has breakpoints"
+argument_list|)
+DECL|method|getBreakpoints (boolean includeInternal)
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getBreakpoints
+parameter_list|(
+name|boolean
+name|includeInternal
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Return the node ids which is currently suspended"
 argument_list|)
 DECL|method|getSuspendedBreakpointNodeIds ()
@@ -163,6 +184,38 @@ name|String
 argument_list|>
 name|getSuspendedBreakpointNodeIds
 parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Suspend a breakpoint"
+argument_list|)
+DECL|method|suspendBreakpoint (String nodeId)
+specifier|public
+name|void
+name|suspendBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Activate a breakpoint"
+argument_list|)
+DECL|method|activateBreakpoint (String nodeId)
+specifier|public
+name|void
+name|activateBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
 function_decl|;
 annotation|@
 name|ManagedOperation

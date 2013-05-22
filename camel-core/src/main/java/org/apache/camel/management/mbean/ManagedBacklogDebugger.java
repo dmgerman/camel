@@ -52,6 +52,22 @@ name|api
 operator|.
 name|management
 operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
 name|ManagedResource
 import|;
 end_import
@@ -223,13 +239,16 @@ name|disableDebugger
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|addBreakpoint (String nodeId)
+DECL|method|addBreakpoint (String nodeId, boolean internal)
 specifier|public
 name|void
 name|addBreakpoint
 parameter_list|(
 name|String
 name|nodeId
+parameter_list|,
+name|boolean
+name|internal
 parameter_list|)
 block|{
 name|backlogDebugger
@@ -237,6 +256,8 @@ operator|.
 name|addBreakpoint
 argument_list|(
 name|nodeId
+argument_list|,
+name|internal
 argument_list|)
 expr_stmt|;
 block|}
@@ -256,6 +277,27 @@ argument_list|(
 name|nodeId
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getBreakpoints (boolean includeInternal)
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getBreakpoints
+parameter_list|(
+name|boolean
+name|includeInternal
+parameter_list|)
+block|{
+return|return
+name|backlogDebugger
+operator|.
+name|getBreakpoints
+argument_list|(
+name|includeInternal
+argument_list|)
+return|;
 block|}
 DECL|method|continueBreakpoint (String nodeId)
 specifier|public
@@ -289,6 +331,40 @@ operator|.
 name|getSuspendedBreakpointNodeIds
 argument_list|()
 return|;
+block|}
+DECL|method|suspendBreakpoint (String nodeId)
+specifier|public
+name|void
+name|suspendBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+block|{
+name|backlogDebugger
+operator|.
+name|suspendBreakpoint
+argument_list|(
+name|nodeId
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|activateBreakpoint (String nodeId)
+specifier|public
+name|void
+name|activateBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+block|{
+name|backlogDebugger
+operator|.
+name|activateBreakpoint
+argument_list|(
+name|nodeId
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|dumpTracedMessagesAsXml (String nodeId)
 specifier|public
