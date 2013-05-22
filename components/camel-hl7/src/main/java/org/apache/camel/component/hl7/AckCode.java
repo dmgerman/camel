@@ -18,6 +18,18 @@ name|hl7
 package|;
 end_package
 
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
+name|AcknowledgmentCode
+import|;
+end_import
+
 begin_enum
 DECL|enum|AckCode
 specifier|public
@@ -88,6 +100,27 @@ parameter_list|()
 block|{
 return|return
 name|error
+return|;
+block|}
+DECL|method|asAcknowledgmentCode ()
+specifier|public
+name|AcknowledgmentCode
+name|asAcknowledgmentCode
+parameter_list|()
+block|{
+comment|// we share the same names with the AcknowledgmentCode enum
+return|return
+name|Enum
+operator|.
+name|valueOf
+argument_list|(
+name|AcknowledgmentCode
+operator|.
+name|class
+argument_list|,
+name|name
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

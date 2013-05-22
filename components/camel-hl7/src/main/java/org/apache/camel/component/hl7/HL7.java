@@ -295,7 +295,7 @@ name|errorCode
 argument_list|)
 return|;
 block|}
-DECL|method|messageConformsTo ( ValidationContext validationContext)
+DECL|method|messageConformsTo (ValidationContext validationContext)
 specifier|public
 specifier|static
 name|Predicate
