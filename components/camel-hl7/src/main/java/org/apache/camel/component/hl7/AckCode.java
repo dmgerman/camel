@@ -102,10 +102,10 @@ return|return
 name|error
 return|;
 block|}
-DECL|method|asAcknowledgmentCode ()
+DECL|method|toAcknowledgmentCode ()
 specifier|public
 name|AcknowledgmentCode
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 parameter_list|()
 block|{
 comment|// we share the same names with the AcknowledgmentCode enum

@@ -93,7 +93,7 @@ argument_list|)
 expr_stmt|;
 name|assertSame
 argument_list|(
-literal|"Not the expect 'Application Accept' enum member"
+literal|"Should be the 'Application Accept' enum member"
 argument_list|,
 name|AcknowledgmentCode
 operator|.
@@ -103,13 +103,13 @@ name|AckCode
 operator|.
 name|AA
 operator|.
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertSame
 argument_list|(
-literal|"Not the expect 'Application Error' enum member"
+literal|"Should be the 'Application Error' enum member"
 argument_list|,
 name|AcknowledgmentCode
 operator|.
@@ -119,13 +119,13 @@ name|AckCode
 operator|.
 name|AE
 operator|.
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertSame
 argument_list|(
-literal|"Not the expect 'Application Reject' enum member"
+literal|"Should be the 'Application Reject' enum member"
 argument_list|,
 name|AcknowledgmentCode
 operator|.
@@ -135,13 +135,13 @@ name|AckCode
 operator|.
 name|AR
 operator|.
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertSame
 argument_list|(
-literal|"Not the expect 'Commit Accept' enum member"
+literal|"Should be the 'Commit Accept' enum member"
 argument_list|,
 name|AcknowledgmentCode
 operator|.
@@ -151,13 +151,13 @@ name|AckCode
 operator|.
 name|CA
 operator|.
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertSame
 argument_list|(
-literal|"Not the expect 'Commit Error' enum member"
+literal|"Should be the 'Commit Error' enum member"
 argument_list|,
 name|AcknowledgmentCode
 operator|.
@@ -167,13 +167,13 @@ name|AckCode
 operator|.
 name|CE
 operator|.
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertSame
 argument_list|(
-literal|"Not the expect 'Commit Reject' enum member"
+literal|"Should be the 'Commit Reject' enum member"
 argument_list|,
 name|AcknowledgmentCode
 operator|.
@@ -183,7 +183,7 @@ name|AckCode
 operator|.
 name|CR
 operator|.
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 argument_list|()
 argument_list|)
 expr_stmt|;

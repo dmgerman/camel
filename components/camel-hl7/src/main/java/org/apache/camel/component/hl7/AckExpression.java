@@ -323,7 +323,7 @@ name|AA
 else|:
 name|code
 operator|.
-name|asAcknowledgmentCode
+name|toAcknowledgmentCode
 argument_list|()
 argument_list|,
 name|hl7e
