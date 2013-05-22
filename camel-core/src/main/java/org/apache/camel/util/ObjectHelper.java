@@ -1435,23 +1435,15 @@ name|String
 condition|)
 block|{
 return|return
-literal|"true"
+name|Boolean
 operator|.
-name|equalsIgnoreCase
+name|valueOf
 argument_list|(
+operator|(
+name|String
+operator|)
 name|value
-operator|.
-name|toString
-argument_list|()
 argument_list|)
-condition|?
-name|Boolean
-operator|.
-name|TRUE
-else|:
-name|Boolean
-operator|.
-name|FALSE
 return|;
 block|}
 if|if
@@ -1483,13 +1475,16 @@ literal|null
 return|;
 block|}
 comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param name   the key that resolved the value      * @return the passed {@code value} as is      * @throws IllegalArgumentException is thrown if assertion fails      */
-DECL|method|notNull (Object value, String name)
+DECL|method|notNull (T value, String name)
 specifier|public
 specifier|static
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|notNull
 parameter_list|(
-name|Object
+name|T
 name|value
 parameter_list|,
 name|String
@@ -1518,13 +1513,16 @@ name|value
 return|;
 block|}
 comment|/**      * Asserts whether the value is<b>not</b><tt>null</tt>      *      * @param value  the value to test      * @param on     additional description to indicate where this problem occurred (appended as toString())      * @param name   the key that resolved the value      * @return the passed {@code value} as is      * @throws IllegalArgumentException is thrown if assertion fails      */
-DECL|method|notNull (Object value, String name, Object on)
+DECL|method|notNull (T value, String name, Object on)
 specifier|public
 specifier|static
-name|Object
+parameter_list|<
+name|T
+parameter_list|>
+name|T
 name|notNull
 parameter_list|(
-name|Object
+name|T
 name|value
 parameter_list|,
 name|String
