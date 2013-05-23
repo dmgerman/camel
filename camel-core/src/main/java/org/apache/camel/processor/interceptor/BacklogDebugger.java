@@ -979,7 +979,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addConditionalBreakpoint (String nodeId, String simplePredicate)
+DECL|method|addConditionalBreakpoint (String nodeId, String language, String predicate)
 specifier|public
 name|void
 name|addConditionalBreakpoint
@@ -988,7 +988,10 @@ name|String
 name|nodeId
 parameter_list|,
 name|String
-name|simplePredicate
+name|language
+parameter_list|,
+name|String
+name|predicate
 parameter_list|)
 block|{
 name|Predicate
@@ -998,12 +1001,12 @@ name|camelContext
 operator|.
 name|resolveLanguage
 argument_list|(
-literal|"simple"
+name|language
 argument_list|)
 operator|.
 name|createPredicate
 argument_list|(
-name|simplePredicate
+name|predicate
 argument_list|)
 decl_stmt|;
 name|NodeBreakpoint
@@ -1033,7 +1036,7 @@ name|nodeId
 operator|+
 literal|" ["
 operator|+
-name|simplePredicate
+name|predicate
 operator|+
 literal|"]"
 argument_list|)
@@ -1077,7 +1080,7 @@ name|nodeId
 operator|+
 literal|" ["
 operator|+
-name|simplePredicate
+name|predicate
 operator|+
 literal|"]"
 argument_list|)

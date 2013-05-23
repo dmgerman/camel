@@ -151,9 +151,9 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Add a conditional breakpoint at the given node id (condition is Simple language)"
+literal|"Add a conditional breakpoint at the given node id"
 argument_list|)
-DECL|method|addConditionalBreakpoint (String nodeId, String simplePredicate)
+DECL|method|addConditionalBreakpoint (String nodeId, String language, String predicate)
 name|void
 name|addConditionalBreakpoint
 parameter_list|(
@@ -161,7 +161,10 @@ name|String
 name|nodeId
 parameter_list|,
 name|String
-name|simplePredicate
+name|language
+parameter_list|,
+name|String
+name|predicate
 parameter_list|)
 function_decl|;
 annotation|@

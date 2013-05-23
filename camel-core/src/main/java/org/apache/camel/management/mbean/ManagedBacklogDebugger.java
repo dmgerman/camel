@@ -286,7 +286,7 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addConditionalBreakpoint (String nodeId, String simplePredicate)
+DECL|method|addConditionalBreakpoint (String nodeId, String language, String predicate)
 specifier|public
 name|void
 name|addConditionalBreakpoint
@@ -295,7 +295,10 @@ name|String
 name|nodeId
 parameter_list|,
 name|String
-name|simplePredicate
+name|language
+parameter_list|,
+name|String
+name|predicate
 parameter_list|)
 block|{
 name|backlogDebugger
@@ -304,7 +307,9 @@ name|addConditionalBreakpoint
 argument_list|(
 name|nodeId
 argument_list|,
-name|simplePredicate
+name|language
+argument_list|,
+name|predicate
 argument_list|)
 expr_stmt|;
 block|}
