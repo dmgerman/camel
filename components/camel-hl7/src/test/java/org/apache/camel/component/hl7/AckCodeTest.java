@@ -34,15 +34,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|Assert
 import|;
 end_import
 
@@ -62,7 +56,7 @@ specifier|public
 class|class
 name|AckCodeTest
 extends|extends
-name|CamelTestSupport
+name|Assert
 block|{
 annotation|@
 name|Test
