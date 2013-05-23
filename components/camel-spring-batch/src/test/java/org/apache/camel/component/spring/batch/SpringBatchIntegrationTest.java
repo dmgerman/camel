@@ -106,18 +106,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
 begin_class
 DECL|class|SpringBatchIntegrationTest
 specifier|public
@@ -144,6 +132,19 @@ DECL|field|inputMessages
 name|String
 index|[]
 name|inputMessages
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"foo"
+block|,
+literal|"bar"
+block|,
+literal|"baz"
+block|,
+literal|null
+block|}
 decl_stmt|;
 annotation|@
 name|Before
@@ -212,19 +213,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|inputMessages
-operator|=
-operator|new
-name|String
-index|[]
-block|{
-literal|"foo"
-block|,
-literal|"bar"
-block|,
-literal|"baz"
-block|}
-expr_stmt|;
 for|for
 control|(
 name|String
@@ -243,15 +231,6 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-name|producerTemplate
-operator|.
-name|sendBody
-argument_list|(
-literal|"seda:inputQueue"
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -263,7 +242,17 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-comment|// When
+name|outputEndpoint
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Echo foo"
+argument_list|,
+literal|"Echo bar"
+argument_list|,
+literal|"Echo baz"
+argument_list|)
+expr_stmt|;
 name|producerTemplate
 operator|.
 name|sendBody
@@ -273,48 +262,10 @@ argument_list|,
 literal|"Start batch!"
 argument_list|)
 expr_stmt|;
-comment|// Then
-name|outputEndpoint
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-name|inputMessages
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
 name|outputEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|outputEndpoint
-operator|.
-name|getExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-operator|.
-name|startsWith
-argument_list|(
-literal|"Echo "
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -327,7 +278,13 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-comment|// When
+name|jobExecutionEventsQueueEndpoint
+operator|.
+name|setExpectedMessageCount
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 name|producerTemplate
 operator|.
 name|sendBody
@@ -335,14 +292,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Start batch!"
-argument_list|)
-expr_stmt|;
-comment|// Then
-name|jobExecutionEventsQueueEndpoint
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|2
 argument_list|)
 expr_stmt|;
 name|jobExecutionEventsQueueEndpoint
