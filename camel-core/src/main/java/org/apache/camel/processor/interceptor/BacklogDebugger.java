@@ -96,6 +96,30 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|CountDownLatch
 import|;
 end_import
@@ -500,7 +524,7 @@ decl_stmt|;
 DECL|field|breakpoints
 specifier|private
 specifier|final
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
@@ -509,7 +533,7 @@ argument_list|>
 name|breakpoints
 init|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -520,7 +544,7 @@ decl_stmt|;
 DECL|field|suspendedBreakpoints
 specifier|private
 specifier|final
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
@@ -529,7 +553,7 @@ argument_list|>
 name|suspendedBreakpoints
 init|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -540,7 +564,7 @@ decl_stmt|;
 DECL|field|suspendedBreakpointMessages
 specifier|private
 specifier|final
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|String
 argument_list|,
@@ -549,7 +573,7 @@ argument_list|>
 name|suspendedBreakpointMessages
 init|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -952,6 +976,8 @@ name|debugger
 operator|.
 name|addBreakpoint
 argument_list|(
+name|breakpoint
+argument_list|,
 name|breakpoint
 argument_list|)
 expr_stmt|;
@@ -1773,19 +1799,9 @@ name|long
 name|timeTaken
 parameter_list|)
 block|{
+comment|// noop
 return|return
-name|debugger
-operator|.
-name|afterProcess
-argument_list|(
-name|exchange
-argument_list|,
-name|processor
-argument_list|,
-name|definition
-argument_list|,
-name|timeTaken
-argument_list|)
+literal|false
 return|;
 block|}
 DECL|method|doStart ()
@@ -1923,7 +1939,10 @@ decl_stmt|;
 name|String
 name|toNode
 init|=
-name|nodeId
+name|definition
+operator|.
+name|getId
+argument_list|()
 decl_stmt|;
 name|String
 name|routeId
@@ -2007,21 +2026,13 @@ specifier|final
 name|CountDownLatch
 name|latch
 init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
 name|suspendedBreakpoints
 operator|.
-name|put
+name|get
 argument_list|(
 name|nodeId
-argument_list|,
-name|latch
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// now wait until we should continue
 name|logger
 operator|.
@@ -2029,7 +2040,7 @@ name|log
 argument_list|(
 literal|"NodeBreakpoint at node "
 operator|+
-name|nodeId
+name|toNode
 operator|+
 literal|" is waiting to continue for exchangeId: "
 operator|+
@@ -2053,7 +2064,7 @@ name|log
 argument_list|(
 literal|"NodeBreakpoint at node "
 operator|+
-name|nodeId
+name|toNode
 operator|+
 literal|" is continued exchangeId: "
 operator|+
@@ -2072,17 +2083,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|super
-operator|.
-name|beforeProcess
-argument_list|(
-name|exchange
-argument_list|,
-name|processor
-argument_list|,
-name|definition
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2104,9 +2104,10 @@ argument_list|>
 name|definition
 parameter_list|)
 block|{
-name|boolean
-name|match
-init|=
+comment|// must match node
+if|if
+condition|(
+operator|!
 name|nodeId
 operator|.
 name|equals
@@ -2116,27 +2117,54 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|match
-operator|&&
-name|condition
-operator|!=
-literal|null
 condition|)
 block|{
 return|return
+literal|false
+return|;
+block|}
+comment|// if condition then must match
+if|if
+condition|(
+name|condition
+operator|!=
+literal|null
+operator|&&
+operator|!
 name|condition
 operator|.
 name|matches
 argument_list|(
 name|exchange
 argument_list|)
+condition|)
+block|{
+return|return
+literal|false
 return|;
 block|}
+comment|// we only want to break one exchange at a time, so if there is already a suspended breakpoint then do not match
+name|boolean
+name|existing
+init|=
+name|suspendedBreakpoints
+operator|.
+name|putIfAbsent
+argument_list|(
+name|nodeId
+argument_list|,
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
 return|return
-name|match
+operator|!
+name|existing
 return|;
 block|}
 annotation|@
@@ -2352,17 +2380,6 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|super
-operator|.
-name|beforeProcess
-argument_list|(
-name|exchange
-argument_list|,
-name|processor
-argument_list|,
-name|definition
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
