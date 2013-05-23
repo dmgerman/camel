@@ -130,6 +130,7 @@ name|SpringBatchEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+comment|/**      * @deprecated will be removed in Camel 3.0      * use jobLauncher instead      */
 DECL|field|jobLauncherRef
 specifier|private
 name|String
@@ -437,6 +438,22 @@ operator|.
 name|jobLauncherRef
 operator|=
 name|jobLauncherRef
+expr_stmt|;
+block|}
+DECL|method|setJobLauncher (JobLauncher jobLauncher)
+specifier|public
+name|void
+name|setJobLauncher
+parameter_list|(
+name|JobLauncher
+name|jobLauncher
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jobLauncher
+operator|=
+name|jobLauncher
 expr_stmt|;
 block|}
 block|}

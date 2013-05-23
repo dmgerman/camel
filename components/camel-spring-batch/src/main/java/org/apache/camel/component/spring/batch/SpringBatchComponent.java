@@ -178,7 +178,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-return|return
+name|SpringBatchEndpoint
+name|endpoint
+init|=
 operator|new
 name|SpringBatchEndpoint
 argument_list|(
@@ -194,6 +196,16 @@ name|allResolvedJobLaunchers
 argument_list|,
 name|resolvedJob
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 annotation|@
