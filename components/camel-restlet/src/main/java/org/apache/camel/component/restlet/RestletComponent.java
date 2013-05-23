@@ -683,6 +683,29 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+comment|// if restlet servlet server is created, the offsetPath is set in component context
+comment|// see http://restlet.tigris.org/issues/show_bug.cgi?id=988
+name|String
+name|offsetPath
+init|=
+operator|(
+name|String
+operator|)
+name|this
+operator|.
+name|component
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getAttributes
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"org.restlet.ext.servlet.offsetPath"
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -705,6 +728,8 @@ condition|)
 block|{
 name|attachUriPatternToRestlet
 argument_list|(
+name|offsetPath
+argument_list|,
 name|endpoint
 operator|.
 name|getUriPattern
@@ -742,6 +767,8 @@ control|)
 block|{
 name|attachUriPatternToRestlet
 argument_list|(
+name|offsetPath
+argument_list|,
 name|uriPattern
 argument_list|,
 name|endpoint
@@ -1508,11 +1535,14 @@ name|getPort
 argument_list|()
 return|;
 block|}
-DECL|method|attachUriPatternToRestlet (String uriPattern, RestletEndpoint endpoint, Restlet target)
+DECL|method|attachUriPatternToRestlet (String offsetPath, String uriPattern, RestletEndpoint endpoint, Restlet target)
 specifier|private
 name|void
 name|attachUriPatternToRestlet
 parameter_list|(
+name|String
+name|offsetPath
+parameter_list|,
 name|String
 name|uriPattern
 parameter_list|,
@@ -1761,6 +1791,14 @@ argument_list|()
 operator|.
 name|attach
 argument_list|(
+name|offsetPath
+operator|==
+literal|null
+condition|?
+name|uriPattern
+else|:
+name|offsetPath
+operator|+
 name|uriPattern
 argument_list|,
 name|router
