@@ -138,15 +138,30 @@ name|description
 operator|=
 literal|"Add a breakpoint at the given node id"
 argument_list|)
-DECL|method|addBreakpoint (String nodeId, boolean internal)
+DECL|method|addBreakpoint (String nodeId)
 name|void
 name|addBreakpoint
 parameter_list|(
 name|String
 name|nodeId
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Add a conditional breakpoint at the given node id (condition is Simple language)"
+argument_list|)
+DECL|method|addConditionalBreakpoint (String nodeId, String simplePredicate)
+name|void
+name|addConditionalBreakpoint
+parameter_list|(
+name|String
+name|nodeId
 parameter_list|,
-name|boolean
-name|internal
+name|String
+name|simplePredicate
 parameter_list|)
 function_decl|;
 annotation|@
@@ -237,16 +252,13 @@ name|description
 operator|=
 literal|"Return the node ids which has breakpoints"
 argument_list|)
-DECL|method|getBreakpoints (boolean includeInternal)
+DECL|method|getBreakpoints ()
 name|Set
 argument_list|<
 name|String
 argument_list|>
 name|getBreakpoints
-parameter_list|(
-name|boolean
-name|includeInternal
-parameter_list|)
+parameter_list|()
 function_decl|;
 annotation|@
 name|ManagedOperation

@@ -52,6 +52,22 @@ name|api
 operator|.
 name|management
 operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
 name|ManagedResource
 import|;
 end_import
@@ -253,16 +269,13 @@ name|disableDebugger
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|addBreakpoint (String nodeId, boolean internal)
+DECL|method|addBreakpoint (String nodeId)
 specifier|public
 name|void
 name|addBreakpoint
 parameter_list|(
 name|String
 name|nodeId
-parameter_list|,
-name|boolean
-name|internal
 parameter_list|)
 block|{
 name|backlogDebugger
@@ -270,8 +283,28 @@ operator|.
 name|addBreakpoint
 argument_list|(
 name|nodeId
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|addConditionalBreakpoint (String nodeId, String simplePredicate)
+specifier|public
+name|void
+name|addConditionalBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|,
+name|String
+name|simplePredicate
+parameter_list|)
+block|{
+name|backlogDebugger
+operator|.
+name|addConditionalBreakpoint
+argument_list|(
+name|nodeId
 argument_list|,
-name|internal
+name|simplePredicate
 argument_list|)
 expr_stmt|;
 block|}
@@ -292,25 +325,20 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getBreakpoints (boolean includeInternal)
+DECL|method|getBreakpoints ()
 specifier|public
 name|Set
 argument_list|<
 name|String
 argument_list|>
 name|getBreakpoints
-parameter_list|(
-name|boolean
-name|includeInternal
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 name|backlogDebugger
 operator|.
 name|getBreakpoints
-argument_list|(
-name|includeInternal
-argument_list|)
+argument_list|()
 return|;
 block|}
 DECL|method|resumeBreakpoint (String nodeId)
