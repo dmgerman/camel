@@ -44,16 +44,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -65,16 +55,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -121,6 +101,18 @@ operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -435,7 +427,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.spi.Debugger} that should be used together with the {@link BacklogTracer} to  * offer debugging and tracing functionality.  */
+comment|/**  * A {@link org.apache.camel.spi.Debugger} that has easy debugging functionality which  * can be used from JMX with {@link org.apache.camel.api.management.mbean.ManagedBacklogDebuggerMBean}.  *<p/>  * This implementation allows to set breakpoints (with or without a condition) and inspect the {@link Exchange}  * dumped in XML in {@link BacklogTracerEventMessage} format. There is operations to resume suspended breakpoints  * to continue routing the {@link Exchange}. There is also step functionality so you can single step a given  * {@link Exchange}.  *<p/>  * This implementation will only break the first {@link Exchange} that arrives to a breakpoint. If Camel routes using  * concurrency then sub-sequent {@link Exchange} will continue to be routed, if there breakpoint already holds a  * suspended {@link Exchange}.  */
 end_comment
 
 begin_class
@@ -463,6 +455,13 @@ name|BacklogDebugger
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|fallbackTimeout
+specifier|private
+name|long
+name|fallbackTimeout
+init|=
+literal|300
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -586,6 +585,27 @@ specifier|private
 specifier|volatile
 name|String
 name|singleStepExchangeId
+decl_stmt|;
+DECL|field|bodyMaxChars
+specifier|private
+name|int
+name|bodyMaxChars
+init|=
+literal|128
+operator|*
+literal|1024
+decl_stmt|;
+DECL|field|bodyIncludeStreams
+specifier|private
+name|boolean
+name|bodyIncludeStreams
+decl_stmt|;
+DECL|field|bodyIncludeFiles
+specifier|private
+name|boolean
+name|bodyIncludeFiles
+init|=
+literal|true
 decl_stmt|;
 DECL|method|BacklogDebugger (CamelContext camelContext)
 specifier|public
@@ -1578,10 +1598,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|suspendBreakpoint (String nodeId)
+DECL|method|disableBreakpoint (String nodeId)
 specifier|public
 name|void
-name|suspendBreakpoint
+name|disableBreakpoint
 parameter_list|(
 name|String
 name|nodeId
@@ -1591,7 +1611,7 @@ name|logger
 operator|.
 name|log
 argument_list|(
-literal|"Suspend breakpoint "
+literal|"Disable breakpoint "
 operator|+
 name|nodeId
 argument_list|)
@@ -1620,10 +1640,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|activateBreakpoint (String nodeId)
+DECL|method|enableBreakpoint (String nodeId)
 specifier|public
 name|void
-name|activateBreakpoint
+name|enableBreakpoint
 parameter_list|(
 name|String
 name|nodeId
@@ -1633,7 +1653,7 @@ name|logger
 operator|.
 name|log
 argument_list|(
-literal|"Activate breakpoint "
+literal|"Enable breakpoint "
 operator|+
 name|nodeId
 argument_list|)
@@ -1661,6 +1681,84 @@ name|activate
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|getBodyMaxChars ()
+specifier|public
+name|int
+name|getBodyMaxChars
+parameter_list|()
+block|{
+return|return
+name|bodyMaxChars
+return|;
+block|}
+DECL|method|setBodyMaxChars (int bodyMaxChars)
+specifier|public
+name|void
+name|setBodyMaxChars
+parameter_list|(
+name|int
+name|bodyMaxChars
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bodyMaxChars
+operator|=
+name|bodyMaxChars
+expr_stmt|;
+block|}
+DECL|method|isBodyIncludeStreams ()
+specifier|public
+name|boolean
+name|isBodyIncludeStreams
+parameter_list|()
+block|{
+return|return
+name|bodyIncludeStreams
+return|;
+block|}
+DECL|method|setBodyIncludeStreams (boolean bodyIncludeStreams)
+specifier|public
+name|void
+name|setBodyIncludeStreams
+parameter_list|(
+name|boolean
+name|bodyIncludeStreams
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bodyIncludeStreams
+operator|=
+name|bodyIncludeStreams
+expr_stmt|;
+block|}
+DECL|method|isBodyIncludeFiles ()
+specifier|public
+name|boolean
+name|isBodyIncludeFiles
+parameter_list|()
+block|{
+return|return
+name|bodyIncludeFiles
+return|;
+block|}
+DECL|method|setBodyIncludeFiles (boolean bodyIncludeFiles)
+specifier|public
+name|void
+name|setBodyIncludeFiles
+parameter_list|(
+name|boolean
+name|bodyIncludeFiles
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bodyIncludeFiles
+operator|=
+name|bodyIncludeFiles
+expr_stmt|;
 block|}
 DECL|method|dumpTracedMessagesAsXml (String nodeId)
 specifier|public
@@ -1978,11 +2076,14 @@ literal|true
 argument_list|,
 literal|2
 argument_list|,
-literal|false
+name|isBodyIncludeStreams
+argument_list|()
 argument_list|,
-literal|false
+name|isBodyIncludeFiles
+argument_list|()
 argument_list|,
-literal|1000
+name|getBodyMaxChars
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|long
@@ -2052,12 +2153,49 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|// TODO: have a fallback timeout so we wont wait forever
+name|boolean
+name|hit
+init|=
 name|latch
 operator|.
 name|await
+argument_list|(
+name|fallbackTimeout
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|hit
+condition|)
+block|{
+name|logger
+operator|.
+name|log
+argument_list|(
+literal|"NodeBreakpoint at node "
+operator|+
+name|toNode
+operator|+
+literal|" timed out and is continued exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
 argument_list|()
+argument_list|,
+name|LoggingLevel
+operator|.
+name|WARN
+argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
 name|logger
 operator|.
 name|log
@@ -2074,6 +2212,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2267,11 +2406,14 @@ literal|true
 argument_list|,
 literal|2
 argument_list|,
-literal|false
+name|isBodyIncludeStreams
+argument_list|()
 argument_list|,
-literal|false
+name|isBodyIncludeFiles
+argument_list|()
 argument_list|,
-literal|1000
+name|getBodyMaxChars
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|long
@@ -2349,12 +2491,49 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|// TODO: have a fallback timeout so we wont wait forever
+name|boolean
+name|hit
+init|=
 name|latch
 operator|.
 name|await
+argument_list|(
+name|fallbackTimeout
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|hit
+condition|)
+block|{
+name|logger
+operator|.
+name|log
+argument_list|(
+literal|"StepBreakpoint at node "
+operator|+
+name|toNode
+operator|+
+literal|" timed out and is continued exchangeId: "
+operator|+
+name|exchange
+operator|.
+name|getExchangeId
 argument_list|()
+argument_list|,
+name|LoggingLevel
+operator|.
+name|WARN
+argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
 name|logger
 operator|.
 name|log
@@ -2371,6 +2550,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
