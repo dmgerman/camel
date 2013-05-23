@@ -172,14 +172,9 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|from
-argument_list|(
-literal|"disruptor:foo"
-argument_list|)
-operator|.
 name|whenDone
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 operator|.
 name|create
@@ -201,11 +196,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|notify
-operator|.
-name|create
-argument_list|()
-expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -216,6 +206,11 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|notify
+operator|.
+name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
 comment|// need to sleep a while to wait for the calling of onComplete
