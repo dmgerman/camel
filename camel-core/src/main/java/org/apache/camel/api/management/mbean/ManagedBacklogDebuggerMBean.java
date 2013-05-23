@@ -318,7 +318,6 @@ operator|=
 literal|"Number of total debugged messages"
 argument_list|)
 DECL|method|getDebugCounter ()
-specifier|public
 name|long
 name|getDebugCounter
 parameter_list|()
@@ -331,7 +330,6 @@ operator|=
 literal|"Resets the debug counter"
 argument_list|)
 DECL|method|resetDebugCounter ()
-specifier|public
 name|void
 name|resetDebugCounter
 parameter_list|()
