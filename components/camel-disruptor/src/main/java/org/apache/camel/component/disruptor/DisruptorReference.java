@@ -1923,7 +1923,10 @@ name|exchange
 init|=
 name|event
 operator|.
-name|getExchange
+name|getSynchronizedExchange
+argument_list|()
+operator|.
+name|cancelAndGetOriginalExchange
 argument_list|()
 decl_stmt|;
 if|if
