@@ -52,6 +52,68 @@ specifier|private
 name|StringQuoteHelper
 parameter_list|()
 block|{     }
+comment|/**      * Returns the text wrapped double quotes      */
+DECL|method|doubleQuote (String text)
+specifier|public
+specifier|static
+name|String
+name|doubleQuote
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|quote
+argument_list|(
+name|text
+argument_list|,
+literal|"\""
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the text wrapped single quotes      */
+DECL|method|singleQuote (String text)
+specifier|public
+specifier|static
+name|String
+name|singleQuote
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|quote
+argument_list|(
+name|text
+argument_list|,
+literal|"'"
+argument_list|)
+return|;
+block|}
+comment|/**      * Wraps the text in the given quote text      *      * @param text the text to wrap in quotes      * @param quote the quote text added to the prefix and postfix of the text      *      * @return the text wrapped in the given quotes      */
+DECL|method|quote (String text, String quote)
+specifier|public
+specifier|static
+name|String
+name|quote
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|String
+name|quote
+parameter_list|)
+block|{
+return|return
+name|quote
+operator|+
+name|text
+operator|+
+name|quote
+return|;
+block|}
 comment|/**      * Splits the input safely honoring if values is enclosed in quotes.      *<p/>      * Though this method does not support double quoting values. A quoted value      * must start with the same start and ending quote, which is either a single      * quote or double quote value.      *<p/>      * Will<i>trim</i> each splitted value by default.      *      * @param input    the input      * @param separator the separator char to split the input, for example a comma.      * @return the input splitted, or<tt>null</tt> if the input is null.      */
 DECL|method|splitSafeQuote (String input, char separator)
 specifier|public

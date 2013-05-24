@@ -236,6 +236,12 @@ name|String
 name|completionText
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a<a href="http://json-schema.org/">JSON schema</a> representation of the      * configuration parameters for this endpoint and the types and validation rules.      *      * @return a JSON string which represents the JSON schema for this endpoints configuration parameters.      */
+DECL|method|createParameterJsonSchema ()
+name|String
+name|createParameterJsonSchema
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

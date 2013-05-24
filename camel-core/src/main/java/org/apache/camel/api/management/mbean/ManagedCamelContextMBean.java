@@ -705,6 +705,24 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the JSON schema representation of the endpoint parameters for the given component name      *      * @param componentName the name of the component to lookup      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the JSON schema representation of the endpoint parameters for the given component name"
+argument_list|)
+DECL|method|componentParameterJsonSchema (String componentName)
+name|String
+name|componentParameterJsonSchema
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Resets all the performance counters.      *      * @param includeRoutes  whether to reset all routes as well.      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation
