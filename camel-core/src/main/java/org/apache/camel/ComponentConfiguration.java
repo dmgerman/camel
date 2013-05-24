@@ -30,6 +30,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -213,6 +223,18 @@ name|value
 parameter_list|)
 throws|throws
 name|RuntimeCamelException
+function_decl|;
+comment|/**      * A helper method for tools such as CLIs, IDEs or web tools that provides a completion list for Endpoint Paths      * rather like bash tab completion or Karaf attribute or option completion handers.      *      * So given the current configuration data, return a list of completions given the specified text.      *      * e.g. return the files in a directory, the matching queues in a message broker, the database tables in a database component etc      *      * @param completionText the prefix text used to complete on (usually a matching bit of text)      *      * @return a list of matches      * @return a list of matches      */
+DECL|method|completeEndpointPath (String completionText)
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|completeEndpointPath
+parameter_list|(
+name|String
+name|completionText
+parameter_list|)
 function_decl|;
 block|}
 end_interface

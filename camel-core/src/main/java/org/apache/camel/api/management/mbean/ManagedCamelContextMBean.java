@@ -26,6 +26,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -677,6 +687,24 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Find the names of all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a list with the names of the camel components      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Find all Camel components names available in the classpath"
+argument_list|)
+DECL|method|findComponentNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findComponentNames
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Resets all the performance counters.      *      * @param includeRoutes  whether to reset all routes as well.      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation
@@ -691,6 +719,38 @@ name|reset
 parameter_list|(
 name|boolean
 name|includeRoutes
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Helper method for tooling which returns the completion list of the endpoint path      * from the given endpoint name, properties and current path expression.      *      * For example if using the file endpoint, this should complete a list of files (rather like bash completion)      * or for an ActiveMQ component this should complete the list of queues or topics.      *      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the list of available endpoint paths for the given component name, endpoint properties and completion text"
+argument_list|)
+DECL|method|completeEndpointPath (String componentName, Map<String,Object> endpointParameters, String completionText)
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|completeEndpointPath
+parameter_list|(
+name|String
+name|componentName
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|endpointParameters
+parameter_list|,
+name|String
+name|completionText
 parameter_list|)
 throws|throws
 name|Exception
