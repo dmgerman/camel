@@ -723,7 +723,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Helper method for tooling which returns the completion list of the endpoint path      * from the given endpoint name, properties and current path expression.      *      * For example if using the file endpoint, this should complete a list of files (rather like bash completion)      * or for an ActiveMQ component this should complete the list of queues or topics.      *      */
+comment|/**      * Helper method for tooling which returns the completion list of the endpoint path      * from the given endpoint name, properties and current path expression.      *<p/>      * For example if using the file endpoint, this should complete a list of files (rather like bash completion)      * or for an ActiveMQ component this should complete the list of queues or topics.      *      * @param componentName  the component name      * @param endpointParameters  parameters of the endpoint      * @param completionText  the entered text which we want to have completion suggestions for      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation
 argument_list|(
@@ -731,7 +731,7 @@ name|description
 operator|=
 literal|"Returns the list of available endpoint paths for the given component name, endpoint properties and completion text"
 argument_list|)
-DECL|method|completeEndpointPath (String componentName, Map<String,Object> endpointParameters, String completionText)
+DECL|method|completeEndpointPath (String componentName, Map<String, Object> endpointParameters, String completionText)
 name|List
 argument_list|<
 name|String
