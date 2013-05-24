@@ -202,6 +202,45 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Updates the message body on the suspended breakpoint at the given node id"
+argument_list|)
+DECL|method|setMessageBodyOnBreakpoint (String nodeId, String body)
+name|void
+name|setMessageBodyOnBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|,
+name|String
+name|body
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Updates/adds the message header on the suspended breakpoint at the given node id"
+argument_list|)
+DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, String value)
+name|void
+name|setMessageHeaderOnBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|,
+name|String
+name|headerName
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Resume running any suspended breakpoints, and exits step mode"
 argument_list|)
 DECL|method|resumeAll ()
@@ -286,7 +325,6 @@ operator|=
 literal|"Disables a breakpoint"
 argument_list|)
 DECL|method|disableBreakpoint (String nodeId)
-specifier|public
 name|void
 name|disableBreakpoint
 parameter_list|(
@@ -302,7 +340,6 @@ operator|=
 literal|"Enables a breakpoint which has been disabled"
 argument_list|)
 DECL|method|enableBreakpoint (String nodeId)
-specifier|public
 name|void
 name|enableBreakpoint
 parameter_list|(
