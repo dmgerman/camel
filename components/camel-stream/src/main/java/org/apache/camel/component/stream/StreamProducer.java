@@ -430,6 +430,8 @@ init|(
 name|this
 init|)
 block|{
+try|try
+block|{
 name|openStream
 argument_list|(
 name|exchange
@@ -442,6 +444,9 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|closeStream
 argument_list|(
 name|exchange
@@ -449,6 +454,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|resolveStreamFromUrl ()
@@ -640,7 +646,6 @@ expr_stmt|;
 block|}
 DECL|method|writeToStream (OutputStream outputStream, Exchange exchange)
 specifier|private
-specifier|synchronized
 name|void
 name|writeToStream
 parameter_list|(
@@ -832,7 +837,6 @@ expr_stmt|;
 block|}
 DECL|method|openStream ()
 specifier|private
-specifier|synchronized
 name|void
 name|openStream
 parameter_list|()
@@ -948,7 +952,6 @@ expr_stmt|;
 block|}
 DECL|method|openStream (final Exchange exchange)
 specifier|private
-specifier|synchronized
 name|void
 name|openStream
 parameter_list|(
@@ -1049,7 +1052,6 @@ return|;
 block|}
 DECL|method|closeStream (Exchange exchange, boolean force)
 specifier|private
-specifier|synchronized
 name|void
 name|closeStream
 parameter_list|(
