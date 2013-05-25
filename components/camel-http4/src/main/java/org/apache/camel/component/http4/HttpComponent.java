@@ -586,6 +586,7 @@ throws|throws
 name|Exception
 block|{
 comment|// prefer to use endpoint configured over component configured
+comment|// TODO cmueller: remove the "httpClientConfigurerRef" look up in Camel 3.0
 name|HttpClientConfigurer
 name|configurer
 init|=
@@ -1094,6 +1095,7 @@ argument_list|,
 literal|"httpClient."
 argument_list|)
 expr_stmt|;
+comment|// TODO cmueller: remove the "httpBindingRef" look up in Camel 3.0
 name|HttpBinding
 name|httpBinding
 init|=
@@ -1129,6 +1131,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO cmueller: remove the "httpClientConfigurerRef" look up in Camel 3.0
 name|HttpClientConfigurer
 name|httpClientConfigurer
 init|=
@@ -1164,6 +1167,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO cmueller: remove the "httpContextRef" look up in Camel 3.0
 name|HttpContext
 name|httpContext
 init|=
@@ -1226,6 +1230,7 @@ name|getX509HostnameVerifier
 argument_list|()
 expr_stmt|;
 block|}
+comment|// TODO cmueller: remove the "sslContextParametersRef" look up in Camel 3.0
 name|SSLContextParameters
 name|sslContextParameters
 init|=
@@ -1240,6 +1245,27 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|sslContextParameters
+operator|==
+literal|null
+condition|)
+block|{
+name|sslContextParameters
+operator|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"sslContextParameters"
+argument_list|,
+name|SSLContextParameters
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|sslContextParameters

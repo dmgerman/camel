@@ -314,6 +314,7 @@ name|authMethods
 parameter_list|)
 block|{
 comment|// prefer to use endpoint configured over component configured
+comment|// TODO cmueller: remove the "httpClientConfigurerRef" look up in Camel 3.0
 name|HttpClientConfigurer
 name|configurer
 init|=
@@ -1143,6 +1144,7 @@ name|parameters
 argument_list|)
 decl_stmt|;
 comment|// must extract well known parameters before we create the endpoint
+comment|// TODO cmueller: remove the "httpBindingRef" look up in Camel 3.0
 name|HttpBinding
 name|binding
 init|=
