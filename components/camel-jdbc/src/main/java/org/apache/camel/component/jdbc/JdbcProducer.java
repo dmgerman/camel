@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -1144,6 +1144,28 @@ argument_list|,
 name|data
 operator|.
 name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|JdbcConstants
+operator|.
+name|JDBC_COLUMN_NAMES
+argument_list|,
+name|data
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;

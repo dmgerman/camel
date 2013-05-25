@@ -47,6 +47,15 @@ name|JDBC_ROW_COUNT
 init|=
 literal|"CamelJdbcRowCount"
 decl_stmt|;
+DECL|field|JDBC_COLUMN_NAMES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JDBC_COLUMN_NAMES
+init|=
+literal|"CamelJdbcColumnNames"
+decl_stmt|;
 comment|/**      * Boolean input header.      * Set its value to true to retrieve generated keys, default is false      */
 DECL|field|JDBC_RETRIEVE_GENERATED_KEYS
 specifier|public
