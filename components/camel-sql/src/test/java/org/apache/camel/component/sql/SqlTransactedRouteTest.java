@@ -252,7 +252,7 @@ specifier|private
 name|String
 name|sqlEndpoint
 init|=
-literal|"sql:overriddenByTheHeader?dataSourceRef=testdb"
+literal|"sql:overriddenByTheHeader?dataSource=#testdb"
 decl_stmt|;
 annotation|@
 name|Before

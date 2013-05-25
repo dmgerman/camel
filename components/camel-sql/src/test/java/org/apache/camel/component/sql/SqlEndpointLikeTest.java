@@ -304,7 +304,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sql:select * from projects where license like 'A%25'?dataSourceRef=jdbc/myDataSource"
+literal|"sql:select * from projects where license like 'A%25'?dataSource=#jdbc/myDataSource"
 argument_list|)
 operator|.
 name|split

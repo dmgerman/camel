@@ -399,7 +399,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sql:select * from projects where license = # order by id?dataSourceRef=jdbc/myDataSource"
+literal|"sql:select * from projects where license = # order by id?dataSource=#jdbc/myDataSource"
 argument_list|)
 operator|.
 name|to
