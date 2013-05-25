@@ -216,7 +216,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|UnitOfWorkProcessor
+name|CamelInternalProcessor
 import|;
 end_import
 
@@ -519,15 +519,33 @@ argument_list|,
 name|producer
 argument_list|)
 decl_stmt|;
-comment|// and wrap in UoW, which is needed for error handler as well
-name|target
-operator|=
+comment|// and wrap in unit of work
+name|CamelInternalProcessor
+name|internal
+init|=
 operator|new
-name|UnitOfWorkProcessor
+name|CamelInternalProcessor
+argument_list|(
+name|target
+argument_list|)
+decl_stmt|;
+name|internal
+operator|.
+name|addTask
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|UnitOfWorkProcessorTask
 argument_list|(
 name|routeContext
-argument_list|,
-name|target
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|getId
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|WireTapProcessor
@@ -538,7 +556,7 @@ name|WireTapProcessor
 argument_list|(
 name|endpoint
 argument_list|,
-name|target
+name|internal
 argument_list|,
 name|getPattern
 argument_list|()
