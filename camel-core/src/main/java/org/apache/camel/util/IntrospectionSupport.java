@@ -3111,6 +3111,11 @@ name|name
 operator|+
 literal|" as there isn't a setter method with same type: "
 operator|+
+operator|(
+name|value
+operator|!=
+literal|null
+condition|?
 name|value
 operator|.
 name|getClass
@@ -3118,6 +3123,9 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
+else|:
+literal|"[null]"
+operator|)
 operator|+
 literal|" nor type conversion possible: "
 operator|+
