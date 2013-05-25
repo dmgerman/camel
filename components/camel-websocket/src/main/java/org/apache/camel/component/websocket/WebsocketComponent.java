@@ -1395,6 +1395,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO cmueller: remove the "sslContextParametersRef" look up in Camel 3.0
 name|SSLContextParameters
 name|sslContextParameters
 init|=
@@ -1409,6 +1410,27 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|sslContextParameters
+operator|==
+literal|null
+condition|)
+block|{
+name|sslContextParameters
+operator|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"sslContextParameters"
+argument_list|,
+name|SSLContextParameters
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 name|Boolean
 name|enableJmx
 init|=
