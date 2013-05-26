@@ -466,7 +466,7 @@ operator|=
 literal|true
 expr_stmt|;
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(

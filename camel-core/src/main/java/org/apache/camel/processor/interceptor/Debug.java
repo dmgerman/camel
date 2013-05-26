@@ -238,7 +238,7 @@ name|StopWatch
 argument_list|()
 decl_stmt|;
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(

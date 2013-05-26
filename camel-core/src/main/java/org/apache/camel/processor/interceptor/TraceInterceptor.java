@@ -612,7 +612,7 @@ operator|)
 condition|)
 block|{
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -644,7 +644,7 @@ condition|)
 block|{
 comment|// but we must still process to allow routing of TraceEvents to eg a JPA endpoint
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(

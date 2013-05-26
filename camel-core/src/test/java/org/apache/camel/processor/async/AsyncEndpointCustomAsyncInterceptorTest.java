@@ -484,9 +484,9 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-comment|// invoke super to continue routing the message
+comment|// invoke processor to continue routing the message
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(

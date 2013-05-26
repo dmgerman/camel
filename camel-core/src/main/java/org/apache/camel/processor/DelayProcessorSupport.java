@@ -468,7 +468,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(
