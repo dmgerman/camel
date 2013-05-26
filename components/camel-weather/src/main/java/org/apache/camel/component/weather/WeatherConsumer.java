@@ -150,6 +150,8 @@ name|DEFAULT_CONSUMER_DELAY
 init|=
 literal|60
 operator|*
+literal|60
+operator|*
 literal|1000L
 decl_stmt|;
 DECL|field|endpoint
