@@ -369,7 +369,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorTask} task  * by executing the {@link CamelInternalProcessorTask#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorTask#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  */
+comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorTask} task  * by executing the {@link CamelInternalProcessorTask#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorTask#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  *<p/>  *<b>Debugging tips:</b> Camel end users whom want to debug their Camel applications with the Camel source code, then make sure to  * read the source code of this class about the debugging tips, which you can find in the  * {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method.  */
 end_comment
 
 begin_class
@@ -510,8 +510,19 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// NOTE: if you are debugging Camel routes, then all the code that happens before the processor.process method
-comment|// is internal code only, so you can go straight to the processor (see next NOTE in this method)
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - READ ME FOR DEBUGGING TIPS
+comment|// ----------------------------------------------------------
+comment|// If you want to debug the Camel routing engine, then there is a lot of internal functionality
+comment|// the routing engine executes during routing messages. You can skip debugging this internal
+comment|// functionality and instead debug where the routing engine continues routing to the next node
+comment|// in the routes. The CamelInternalProcessor is a vital part of the routing engine, as its
+comment|// being used in between the nodes. As an end user you can just debug the code in this class
+comment|// in between the:
+comment|//   CAMEL END USER - DEBUG ME HERE +++ START +++
+comment|//   CAMEL END USER - DEBUG ME HERE +++ END +++
+comment|// you can see in the code below.
+comment|// ----------------------------------------------------------
 if|if
 condition|(
 name|processor
@@ -691,6 +702,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ START +++
+comment|// ----------------------------------------------------------
 try|try
 block|{
 name|processor
@@ -715,6 +729,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
+comment|// ----------------------------------------------------------
 name|callback
 operator|.
 name|done
@@ -765,8 +782,9 @@ name|callback
 argument_list|)
 expr_stmt|;
 block|}
-comment|// NOTE: Here we call the next processor in the Camel routes, so you can step into the processor.process call
-comment|// to continue debugging
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ START +++
+comment|// ----------------------------------------------------------
 if|if
 condition|(
 name|LOG
@@ -802,6 +820,9 @@ argument_list|,
 name|async
 argument_list|)
 decl_stmt|;
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
+comment|// ----------------------------------------------------------
 comment|// execute any after processor work (in current thread, not in the callback)
 if|if
 condition|(
@@ -1015,6 +1036,9 @@ block|}
 block|}
 finally|finally
 block|{
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ START +++
+comment|// ----------------------------------------------------------
 comment|// callback must be called
 name|callback
 operator|.
@@ -1023,6 +1047,9 @@ argument_list|(
 name|doneSync
 argument_list|)
 expr_stmt|;
+comment|// ----------------------------------------------------------
+comment|// CAMEL END USER - DEBUG ME HERE +++ END +++
+comment|// ----------------------------------------------------------
 block|}
 block|}
 block|}
