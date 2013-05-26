@@ -116,18 +116,6 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -510,6 +498,35 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createRouteBuilder ()
+specifier|protected
+name|RouteBuilder
+name|createRouteBuilder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|RouteBuilder
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+block|}
 return|;
 block|}
 block|}

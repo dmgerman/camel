@@ -140,8 +140,7 @@ name|callback
 parameter_list|)
 block|{
 return|return
-name|getProcessor
-argument_list|()
+name|processor
 operator|.
 name|process
 argument_list|(

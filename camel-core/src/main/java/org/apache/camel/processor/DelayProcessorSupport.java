@@ -277,7 +277,9 @@ block|}
 comment|// process the exchange now that we woke up
 name|DelayProcessorSupport
 operator|.
-name|super
+name|this
+operator|.
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -525,7 +527,7 @@ argument_list|)
 expr_stmt|;
 comment|// then continue routing
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(
@@ -681,7 +683,7 @@ expr_stmt|;
 block|}
 comment|// then continue routing
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(

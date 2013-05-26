@@ -249,8 +249,7 @@ literal|true
 expr_stmt|;
 block|}
 return|return
-name|getProcessor
-argument_list|()
+name|processor
 operator|.
 name|process
 argument_list|(

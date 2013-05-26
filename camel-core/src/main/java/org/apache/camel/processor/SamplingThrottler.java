@@ -162,6 +162,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|calculationLock
 specifier|private
+specifier|final
 name|Object
 name|calculationLock
 init|=
@@ -520,7 +521,7 @@ condition|)
 block|{
 comment|// continue routing
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(

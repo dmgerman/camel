@@ -980,7 +980,7 @@ block|}
 comment|// process the exchange
 name|sync
 operator|=
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(

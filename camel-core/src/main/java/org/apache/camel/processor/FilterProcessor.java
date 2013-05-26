@@ -243,7 +243,7 @@ name|matches
 condition|)
 block|{
 return|return
-name|super
+name|processor
 operator|.
 name|process
 argument_list|(
