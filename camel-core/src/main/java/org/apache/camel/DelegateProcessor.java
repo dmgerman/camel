@@ -26,7 +26,7 @@ name|DelegateProcessor
 extends|extends
 name|Processor
 block|{
-comment|/**      *       * @return the processor we delegate to      */
+comment|/**      * Gets the delegated {@link Processor}.      *      * @return the processor we delegate to      */
 DECL|method|getProcessor ()
 name|Processor
 name|getProcessor
