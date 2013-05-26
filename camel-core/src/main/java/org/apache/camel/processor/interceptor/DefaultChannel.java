@@ -1325,17 +1325,17 @@ operator|=
 name|bridge
 expr_stmt|;
 block|}
-comment|// ensure target gets wrapped so we can control its lifecycle
 if|if
 condition|(
 operator|!
 operator|(
 name|wrapped
 operator|instanceof
-name|WrapProcessor
+name|Service
 operator|)
 condition|)
 block|{
+comment|// wrap the target so it becomes a service and we can manage its lifecycle
 name|wrapped
 operator|=
 operator|new
