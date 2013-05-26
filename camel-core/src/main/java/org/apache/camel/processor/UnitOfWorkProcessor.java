@@ -159,6 +159,8 @@ comment|/**  * Ensures the {@link Exchange} is routed under the boundaries of an
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|UnitOfWorkProcessor
 specifier|public
 class|class
