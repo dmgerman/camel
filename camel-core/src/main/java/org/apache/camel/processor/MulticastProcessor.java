@@ -4445,7 +4445,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Strategy to create the {@link UnitOfWorkProcessor} to be used for the sub route      *      * @param routeContext the route context      * @param processor    the processor      * @param exchange     the exchange      * @return the unit of work processor      */
+comment|/**      * Strategy to create the unit of work to be used for the sub route      *      * @param routeContext the route context      * @param processor    the processor      * @param exchange     the exchange      * @return the unit of work processor      */
 DECL|method|createUnitOfWorkProcessor (RouteContext routeContext, Processor processor, Exchange exchange)
 specifier|protected
 name|Processor

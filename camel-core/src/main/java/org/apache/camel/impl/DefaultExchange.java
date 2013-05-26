@@ -1690,7 +1690,7 @@ literal|null
 condition|)
 block|{
 comment|// unit of work not yet registered so we store the on completion temporary
-comment|// until the unit of work is assigned to this exchange by the UnitOfWorkProcessor
+comment|// until the unit of work is assigned to this exchange by the unit of work
 if|if
 condition|(
 name|onCompletions

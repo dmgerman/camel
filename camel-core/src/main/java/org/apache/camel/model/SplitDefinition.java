@@ -148,7 +148,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|Splitter
+name|CamelInternalProcessor
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|SubUnitOfWorkProcessor
+name|Splitter
 import|;
 end_import
 
@@ -580,12 +580,28 @@ argument_list|()
 condition|)
 block|{
 comment|// wrap answer in a sub unit of work, since we share the unit of work
-return|return
+name|CamelInternalProcessor
+name|internalProcessor
+init|=
 operator|new
-name|SubUnitOfWorkProcessor
+name|CamelInternalProcessor
 argument_list|(
 name|answer
 argument_list|)
+decl_stmt|;
+name|internalProcessor
+operator|.
+name|addTask
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|SubUnitOfWorkProcessorTask
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|internalProcessor
 return|;
 block|}
 return|return

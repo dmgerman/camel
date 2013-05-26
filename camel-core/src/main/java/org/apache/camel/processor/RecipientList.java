@@ -774,13 +774,29 @@ argument_list|()
 condition|)
 block|{
 comment|// wrap answer in a sub unit of work, since we share the unit of work
-name|target
-operator|=
+name|CamelInternalProcessor
+name|internalProcessor
+init|=
 operator|new
-name|SubUnitOfWorkProcessor
+name|CamelInternalProcessor
 argument_list|(
 name|rlp
 argument_list|)
+decl_stmt|;
+name|internalProcessor
+operator|.
+name|addTask
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|SubUnitOfWorkProcessorTask
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|target
+operator|=
+name|internalProcessor
 expr_stmt|;
 block|}
 comment|// now let the multicast process the exchange

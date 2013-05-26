@@ -4097,9 +4097,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// invoke callback before returning answer
-comment|// as it allows callback to be used without UnitOfWorkProcessor invoking it
+comment|// as it allows callback to be used without unit of work invoking it
 comment|// and thus it works directly from a producer template as well, as opposed
-comment|// to the UnitOfWorkProcessor that is injected in routes
+comment|// to the unit of work that is injected in routes
 if|if
 condition|(
 name|answer
@@ -4218,9 +4218,9 @@ name|exchange
 argument_list|)
 expr_stmt|;
 comment|// invoke callback before returning answer
-comment|// as it allows callback to be used without UnitOfWorkProcessor invoking it
+comment|// as it allows callback to be used without unit of work invoking it
 comment|// and thus it works directly from a producer template as well, as opposed
-comment|// to the UnitOfWorkProcessor that is injected in routes
+comment|// to the unit of work that is injected in routes
 if|if
 condition|(
 name|exchange
@@ -4316,9 +4316,9 @@ name|processor
 argument_list|)
 decl_stmt|;
 comment|// invoke callback before returning answer
-comment|// as it allows callback to be used without UnitOfWorkProcessor invoking it
+comment|// as it allows callback to be used without unit of work invoking it
 comment|// and thus it works directly from a producer template as well, as opposed
-comment|// to the UnitOfWorkProcessor that is injected in routes
+comment|// to the unit of work that is injected in routes
 if|if
 condition|(
 name|answer
