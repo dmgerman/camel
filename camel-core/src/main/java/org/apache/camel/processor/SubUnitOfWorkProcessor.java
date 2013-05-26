@@ -79,10 +79,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A processor that processes the processor in a {@link org.apache.camel.spi.SubUnitOfWork} context.  *<p/>  * This processor ensures the {@link org.apache.camel.spi.UnitOfWork#beginSubUnitOfWork(org.apache.camel.Exchange)}  * and {@link org.apache.camel.spi.UnitOfWork#endSubUnitOfWork(org.apache.camel.Exchange)} is executed.  *  * @see org.apache.camel.spi.SubUnitOfWork  * @see org.apache.camel.spi.SubUnitOfWorkCallback  */
+comment|/**  * A processor that processes the processor in a {@link org.apache.camel.spi.SubUnitOfWork} context.  *<p/>  * This processor ensures the {@link org.apache.camel.spi.UnitOfWork#beginSubUnitOfWork(org.apache.camel.Exchange)}  * and {@link org.apache.camel.spi.UnitOfWork#endSubUnitOfWork(org.apache.camel.Exchange)} is executed.  *  * @see org.apache.camel.spi.SubUnitOfWork  * @see org.apache.camel.spi.SubUnitOfWorkCallback  * @deprecated is to be removed in the future, as replaced by {@link CamelInternalProcessor}  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SubUnitOfWorkProcessor
 specifier|public
 class|class

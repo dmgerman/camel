@@ -639,13 +639,40 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+name|String
+name|routeId
+init|=
+name|MDC
+operator|.
+name|get
+argument_list|(
+name|MDC_ROUTE_ID
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|routeId
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// only need MDC callback if we have a route id
 return|return
 operator|new
 name|MDCCallback
 argument_list|(
 name|callback
+argument_list|,
+name|routeId
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|callback
+return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -938,12 +965,15 @@ specifier|final
 name|String
 name|routeId
 decl_stmt|;
-DECL|method|MDCCallback (AsyncCallback delegate)
+DECL|method|MDCCallback (AsyncCallback delegate, String routeId)
 specifier|private
 name|MDCCallback
 parameter_list|(
 name|AsyncCallback
 name|delegate
+parameter_list|,
+name|String
+name|routeId
 parameter_list|)
 block|{
 name|this
@@ -952,17 +982,11 @@ name|delegate
 operator|=
 name|delegate
 expr_stmt|;
-comment|// we only need to keep track of route id as we may change routes during routing
 name|this
 operator|.
 name|routeId
 operator|=
-name|MDC
-operator|.
-name|get
-argument_list|(
-name|MDC_ROUTE_ID
-argument_list|)
+name|routeId
 expr_stmt|;
 block|}
 DECL|method|done (boolean doneSync)

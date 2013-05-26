@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Ensures the {@link Exchange} is routed under the boundaries of an {@link org.apache.camel.spi.UnitOfWork}.  *<p/>  * Handles calling the {@link org.apache.camel.spi.UnitOfWork#done(org.apache.camel.Exchange)} method  * when processing of an {@link Exchange} is complete.  */
+comment|/**  * Ensures the {@link Exchange} is routed under the boundaries of an {@link org.apache.camel.spi.UnitOfWork}.  *<p/>  * Handles calling the {@link org.apache.camel.spi.UnitOfWork#done(org.apache.camel.Exchange)} method  * when processing of an {@link Exchange} is complete.  *  * @deprecated is to be removed in the future, as replaced by {@link CamelInternalProcessor}  */
 end_comment
 
 begin_class
