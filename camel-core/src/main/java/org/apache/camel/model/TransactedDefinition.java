@@ -152,6 +152,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|WrapProcessor
@@ -592,11 +604,19 @@ argument_list|,
 name|childProcessor
 argument_list|)
 decl_stmt|;
-comment|// TODO: should not be needed as its already a service
+if|if
+condition|(
+operator|!
+operator|(
+name|target
+operator|instanceof
+name|Service
+operator|)
+condition|)
+block|{
 comment|// wrap the target so it becomes a service and we can manage its lifecycle
-name|WrapProcessor
-name|wrap
-init|=
+name|target
+operator|=
 operator|new
 name|WrapProcessor
 argument_list|(
@@ -604,9 +624,10 @@ name|target
 argument_list|,
 name|childProcessor
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 return|return
-name|wrap
+name|target
 return|;
 block|}
 DECL|method|resolvePolicy (RouteContext routeContext)
