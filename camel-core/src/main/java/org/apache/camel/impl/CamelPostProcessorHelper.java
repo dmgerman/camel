@@ -256,7 +256,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|UnitOfWorkProcessor
+name|CamelInternalProcessor
 import|;
 end_import
 
@@ -774,12 +774,30 @@ name|info
 argument_list|)
 decl_stmt|;
 comment|// must ensure the consumer is being executed in an unit of work so synchronization callbacks etc is invoked
-return|return
+name|CamelInternalProcessor
+name|internal
+init|=
 operator|new
-name|UnitOfWorkProcessor
+name|CamelInternalProcessor
 argument_list|(
 name|answer
 argument_list|)
+decl_stmt|;
+name|internal
+operator|.
+name|addTask
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|UnitOfWorkProcessorTask
+argument_list|(
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|internal
 return|;
 block|}
 DECL|method|getEndpointInjection (Object bean, String uri, String name, String propertyName, String injectionPointName, boolean mandatory)

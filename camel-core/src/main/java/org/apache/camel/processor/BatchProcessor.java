@@ -514,11 +514,7 @@ name|this
 operator|.
 name|processor
 operator|=
-operator|new
-name|UnitOfWorkProcessor
-argument_list|(
 name|processor
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -1012,13 +1008,6 @@ name|sender
 operator|.
 name|cancel
 argument_list|()
-expr_stmt|;
-name|ServiceHelper
-operator|.
-name|stopServices
-argument_list|(
-name|sender
-argument_list|)
 expr_stmt|;
 name|ServiceHelper
 operator|.
