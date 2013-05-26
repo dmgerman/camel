@@ -44,7 +44,7 @@ name|java
 operator|.
 name|net
 operator|.
-name|URL
+name|HttpURLConnection
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|java
 operator|.
 name|net
 operator|.
-name|URLConnection
+name|URL
 import|;
 end_import
 
@@ -227,9 +227,12 @@ operator|.
 name|query
 argument_list|)
 decl_stmt|;
-name|URLConnection
+name|HttpURLConnection
 name|urlConnection
 init|=
+operator|(
+name|HttpURLConnection
+operator|)
 name|url
 operator|.
 name|openConnection
@@ -278,6 +281,16 @@ operator|+=
 name|inputLine
 expr_stmt|;
 block|}
+name|in
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|urlConnection
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
