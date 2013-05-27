@@ -1576,6 +1576,57 @@ name|json
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView the  view type for json jackson type      */
+DECL|method|json (Class<?> unmarshalType, Class<?> jsonView)
+specifier|public
+name|T
+name|json
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|unmarshalType
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|jsonView
+parameter_list|)
+block|{
+name|JsonDataFormat
+name|json
+init|=
+operator|new
+name|JsonDataFormat
+argument_list|(
+name|JsonLibrary
+operator|.
+name|Jackson
+argument_list|)
+decl_stmt|;
+name|json
+operator|.
+name|setUnmarshalType
+argument_list|(
+name|unmarshalType
+argument_list|)
+expr_stmt|;
+name|json
+operator|.
+name|setJsonView
+argument_list|(
+name|jsonView
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|json
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the protobuf data format      */
 DECL|method|protobuf ()
 specifier|public

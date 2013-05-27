@@ -28,15 +28,15 @@ specifier|public
 class|class
 name|Views
 block|{
-DECL|class|Weight
-specifier|static
-class|class
-name|Weight
-block|{ }
 DECL|class|Age
 specifier|static
 class|class
 name|Age
+block|{ }
+DECL|class|Weight
+specifier|static
+class|class
+name|Weight
 block|{ }
 block|}
 end_class
