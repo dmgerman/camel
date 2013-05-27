@@ -1331,7 +1331,7 @@ operator|!
 operator|(
 name|wrapped
 operator|instanceof
-name|Service
+name|WrapProcessor
 operator|)
 condition|)
 block|{
