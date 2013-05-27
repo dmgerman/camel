@@ -1576,7 +1576,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView the  view type for json jackson type      */
+comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|T
