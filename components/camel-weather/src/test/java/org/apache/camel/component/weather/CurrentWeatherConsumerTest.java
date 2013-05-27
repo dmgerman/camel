@@ -40,6 +40,8 @@ name|CurrentWeatherConsumerTest
 extends|extends
 name|BaseWeatherConsumerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -53,6 +55,8 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure

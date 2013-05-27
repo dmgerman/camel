@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Weather Endpoint  */
 end_comment
 
 begin_class
@@ -159,6 +159,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer

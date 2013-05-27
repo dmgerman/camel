@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/weather.html">Weather Component</a>.  *<p/>  * Camel uses<a href="http://openweathermap.org/api#weather">Open Weather</a> to get the information.  */
+comment|/**  * A<a href="http://camel.apache.org/weather.html">Weather Component</a>.  *<p/>  * Camel uses<a href="http://openweathermap.org/api#weather">Open Weather</a> to get the information.  */
 end_comment
 
 begin_class
@@ -109,6 +109,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -136,7 +138,9 @@ name|configuration
 init|=
 operator|new
 name|WeatherConfiguration
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 comment|// and then override from parameters
 name|setProperties

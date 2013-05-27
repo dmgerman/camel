@@ -40,6 +40,8 @@ name|Forecast7WeatherMadridConsumerTest
 extends|extends
 name|BaseWeatherConsumerTest
 block|{
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -53,6 +55,8 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
@@ -62,7 +66,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"weather:foo?location=Madrid,Spain&period=7 days"
+literal|"weather:foo?location=Madrid,Spain&period=7 days&units=IMPERIAL"
 argument_list|)
 operator|.
 name|to

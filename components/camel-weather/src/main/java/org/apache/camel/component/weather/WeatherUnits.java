@@ -18,68 +18,23 @@ name|weather
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
+begin_comment
+comment|/**  * The possible units for temperature measurement  */
+end_comment
 
-begin_class
-DECL|class|CurrentWeatherMadridConsumerTest
+begin_enum
+DECL|enum|WeatherUnits
 specifier|public
-class|class
-name|CurrentWeatherMadridConsumerTest
-extends|extends
-name|BaseWeatherConsumerTest
+enum|enum
+name|WeatherUnits
 block|{
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|from
-argument_list|(
-literal|"weather:foo?location=Madrid,Spain"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|;
-block|}
-block|}
-end_class
+DECL|enumConstant|IMPERIAL
+DECL|enumConstant|METRIC
+name|IMPERIAL
+block|,
+name|METRIC
+block|;  }
+end_enum
 
 end_unit
 
