@@ -98,6 +98,7 @@ annotation|@
 name|UriParam
 DECL|field|configuration
 specifier|private
+specifier|final
 name|WeatherConfiguration
 name|configuration
 decl_stmt|;
@@ -190,8 +191,8 @@ name|getQuery
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// ScheduledPollConsumer default delay is 500 millis and that is too often for polling a feed,
-comment|// so we override with a new default value. End user can override this value by providing a consumer.delay parameter
+comment|// ScheduledPollConsumer default delay is 500 millis and that is too often for polling a feed, so we override
+comment|// with a new default value. End user can override this value by providing a consumer.delay parameter
 name|answer
 operator|.
 name|setDelay

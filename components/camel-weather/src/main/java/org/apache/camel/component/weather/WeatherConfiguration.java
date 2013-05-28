@@ -163,6 +163,7 @@ name|METRIC
 decl_stmt|;
 DECL|field|component
 specifier|private
+specifier|final
 name|WeatherComponent
 name|component
 decl_stmt|;
@@ -327,14 +328,12 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|result
+name|answer
 init|=
 literal|"http://api.openweathermap.org/data/2.5/"
 decl_stmt|;
 name|String
 name|location
-init|=
-literal|""
 decl_stmt|;
 if|if
 condition|(
@@ -371,7 +370,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|result
+name|answer
 operator|+=
 literal|"weather?"
 operator|+
@@ -380,7 +379,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|result
+name|answer
 operator|+=
 literal|"forecast/daily?"
 operator|+
@@ -392,7 +391,7 @@ name|getPeriod
 argument_list|()
 expr_stmt|;
 block|}
-name|result
+name|answer
 operator|+=
 literal|"&units="
 operator|+
@@ -405,7 +404,7 @@ name|toLowerCase
 argument_list|()
 expr_stmt|;
 return|return
-name|result
+name|answer
 return|;
 block|}
 DECL|method|getGeoLocation ()
@@ -515,16 +514,10 @@ return|return
 literal|"lat="
 operator|+
 name|latitudeNode
-operator|.
-name|toString
-argument_list|()
 operator|+
 literal|"&lon="
 operator|+
 name|longitudeNode
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 block|}

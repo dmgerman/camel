@@ -182,6 +182,13 @@ name|assertStringContains
 argument_list|(
 name|body
 argument_list|,
+literal|"\"coord\":{"
+argument_list|)
+expr_stmt|;
+name|assertStringContains
+argument_list|(
+name|body
+argument_list|,
 literal|"temp"
 argument_list|)
 expr_stmt|;
