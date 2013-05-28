@@ -387,7 +387,6 @@ end_comment
 begin_class
 DECL|class|CamelInternalProcessor
 specifier|public
-specifier|final
 class|class
 name|CamelInternalProcessor
 extends|extends

@@ -247,6 +247,11 @@ argument_list|(
 literal|"log:foo"
 argument_list|)
 operator|.
+name|id
+argument_list|(
+literal|"to-log"
+argument_list|)
+operator|.
 name|delay
 argument_list|(
 literal|100
@@ -255,6 +260,11 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:result"
+argument_list|)
+operator|.
+name|id
+argument_list|(
+literal|"to-mock"
 argument_list|)
 expr_stmt|;
 block|}
