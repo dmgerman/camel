@@ -1236,11 +1236,13 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange, final AsyncCallback callback)
+comment|/**      * Process the exchange using redelivery error handling.      */
+DECL|method|process (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|boolean
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
@@ -1249,38 +1251,14 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-return|return
-name|processErrorHandler
-argument_list|(
-name|exchange
-argument_list|,
-name|callback
-argument_list|,
-operator|new
-name|RedeliveryData
-argument_list|()
-argument_list|)
-return|;
-block|}
-comment|/**      * Process the exchange using redelivery error handling.      */
-DECL|method|processErrorHandler (final Exchange exchange, final AsyncCallback callback, final RedeliveryData data)
-specifier|protected
-name|boolean
-name|processErrorHandler
-parameter_list|(
-specifier|final
-name|Exchange
-name|exchange
-parameter_list|,
-specifier|final
-name|AsyncCallback
-name|callback
-parameter_list|,
 specifier|final
 name|RedeliveryData
 name|data
-parameter_list|)
-block|{
+init|=
+operator|new
+name|RedeliveryData
+argument_list|()
+decl_stmt|;
 comment|// do a defensive copy of the original Exchange, which is needed for redelivery so we can ensure the
 comment|// original Exchange is being redelivered, and not a mutated Exchange
 name|data
