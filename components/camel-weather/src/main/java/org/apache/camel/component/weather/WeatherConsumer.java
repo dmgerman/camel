@@ -192,7 +192,7 @@ name|query
 argument_list|)
 expr_stmt|;
 name|String
-name|answer
+name|weather
 init|=
 name|getEndpoint
 argument_list|()
@@ -222,7 +222,7 @@ name|debug
 argument_list|(
 literal|"Got back the answer '{}'"
 argument_list|,
-name|answer
+name|weather
 argument_list|)
 expr_stmt|;
 if|if
@@ -231,7 +231,7 @@ name|ObjectHelper
 operator|.
 name|isEmpty
 argument_list|(
-name|answer
+name|weather
 argument_list|)
 condition|)
 block|{
@@ -241,7 +241,7 @@ name|IllegalStateException
 argument_list|(
 literal|"Got the empty string '"
 operator|+
-name|answer
+name|weather
 operator|+
 literal|"' as the result of the query '"
 operator|+
@@ -267,7 +267,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-name|answer
+name|weather
 argument_list|)
 expr_stmt|;
 name|exchange
