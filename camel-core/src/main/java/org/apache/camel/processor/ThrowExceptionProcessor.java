@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AsyncCallback
 import|;
 end_import
 
@@ -36,7 +36,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -76,6 +88,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|AsyncProcessorHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -92,7 +118,7 @@ name|ThrowExceptionProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
-name|Processor
+name|AsyncProcessor
 implements|,
 name|Traceable
 block|{
@@ -128,7 +154,6 @@ operator|=
 name|exception
 expr_stmt|;
 block|}
-comment|/**      * Set the exception in the exchange      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -140,6 +165,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
 name|exchange
 operator|.
 name|setException
@@ -147,6 +194,16 @@ argument_list|(
 name|exception
 argument_list|)
 expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|getTraceLabel ()
 specifier|public

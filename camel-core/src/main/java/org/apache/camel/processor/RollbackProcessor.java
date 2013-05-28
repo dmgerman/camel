@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AsyncCallback
 import|;
 end_import
 
@@ -36,7 +36,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -78,6 +90,20 @@ name|ServiceSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Processor for marking an {@link org.apache.camel.Exchange} to rollback.  *  * @version   */
 end_comment
@@ -90,7 +116,7 @@ name|RollbackProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
-name|Processor
+name|AsyncProcessor
 implements|,
 name|Traceable
 block|{
@@ -140,6 +166,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
 if|if
 condition|(
 name|isMarkRollbackOnlyLast
@@ -187,7 +235,16 @@ name|markRollbackOnlyLast
 condition|)
 block|{
 comment|// do not do anything more as we should only mark the rollback
-return|return;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|// throw exception to rollback
 if|if
@@ -197,7 +254,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-throw|throw
+name|exchange
+operator|.
+name|setException
+argument_list|(
 operator|new
 name|RollbackExchangeException
 argument_list|(
@@ -205,18 +265,33 @@ name|message
 argument_list|,
 name|exchange
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
+name|exchange
+operator|.
+name|setException
+argument_list|(
 operator|new
 name|RollbackExchangeException
 argument_list|(
 name|exchange
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 annotation|@
 name|Override

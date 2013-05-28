@@ -92,18 +92,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|TestSupport
 import|;
 end_import
@@ -262,8 +250,6 @@ name|exchange2
 argument_list|)
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|processor
 operator|.
 name|process
@@ -271,18 +257,19 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|fail
+name|Exception
+name|e
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+name|assertNotNull
 argument_list|(
-literal|"Should have thrown exception"
+name|e
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RuntimeCamelException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"The returned exchange "
@@ -301,7 +288,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testDataFormatReturnsMessage ()
 specifier|public

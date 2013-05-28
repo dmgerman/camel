@@ -72,6 +72,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -96,7 +120,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|support
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -108,9 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|util
 operator|.
-name|ServiceSupport
+name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -174,7 +200,7 @@ name|ThroughputLogger
 extends|extends
 name|ServiceSupport
 implements|implements
-name|Processor
+name|AsyncProcessor
 block|{
 DECL|field|LOG
 specifier|private
@@ -378,8 +404,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -387,6 +411,30 @@ name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 if|if
@@ -447,6 +495,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|getGroupSize ()
 specifier|public

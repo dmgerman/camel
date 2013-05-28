@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AsyncCallback
 import|;
 end_import
 
@@ -36,7 +36,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -54,6 +66,20 @@ name|ServiceSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|AsyncProcessorHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Stops continue processing the route and marks it as complete.  *  * @version   */
 end_comment
@@ -66,7 +92,7 @@ name|StopProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
-name|Processor
+name|AsyncProcessor
 block|{
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -78,6 +104,28 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
 block|{
 comment|// mark the exchange to stop continue routing
 name|exchange
@@ -93,6 +141,16 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 annotation|@
 name|Override

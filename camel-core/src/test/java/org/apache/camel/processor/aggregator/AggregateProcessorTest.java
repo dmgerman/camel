@@ -64,18 +64,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ContextTestSupport
 import|;
 end_import
@@ -2170,8 +2158,6 @@ argument_list|(
 name|e1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|ap
 operator|.
 name|process
@@ -2179,18 +2165,19 @@ argument_list|(
 name|e2
 argument_list|)
 expr_stmt|;
-name|fail
+name|Exception
+name|e
+init|=
+name|e2
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+name|assertNotNull
 argument_list|(
-literal|"Should have thrown an exception"
+name|e
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExchangeException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"Invalid correlation key. Exchange[Message: B]"
@@ -2201,7 +2188,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|ap
 operator|.
 name|process
@@ -2471,8 +2457,6 @@ argument_list|(
 name|e3
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|ap
 operator|.
 name|process
@@ -2480,18 +2464,19 @@ argument_list|(
 name|e4
 argument_list|)
 expr_stmt|;
-name|fail
+name|Exception
+name|e
+init|=
+name|e4
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+name|assertNotNull
 argument_list|(
-literal|"Should have thrown an exception"
+name|e
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExchangeException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"The correlation key [123] has been closed. Exchange[Message: C]"
@@ -2502,7 +2487,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

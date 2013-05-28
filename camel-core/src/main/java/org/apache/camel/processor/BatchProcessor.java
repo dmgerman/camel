@@ -150,6 +150,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -278,6 +302,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|AsyncProcessorHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -330,7 +368,7 @@ name|BatchProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
-name|Processor
+name|AsyncProcessor
 implements|,
 name|Navigate
 argument_list|<
@@ -1022,7 +1060,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Enqueues an exchange for later batch processing.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -1033,6 +1070,31 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+name|AsyncProcessorHelper
+operator|.
+name|process
+argument_list|(
+name|this
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Enqueues an exchange for later batch processing.      */
+DECL|method|process (Exchange exchange, AsyncCallback callback)
+specifier|public
+name|boolean
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|)
+block|{
+try|try
 block|{
 comment|// if batch consumer is enabled then we need to adjust the batch size
 comment|// with the size from the batch consumer
@@ -1105,7 +1167,6 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 else|else
 block|{
@@ -1120,6 +1181,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+else|else
+block|{
 comment|// exchange is valid so enqueue the exchange
 name|sender
 operator|.
@@ -1128,6 +1191,32 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Is the given exchange valid to be used.      *      * @param exchange the given exchange      * @return<tt>true</tt> if valid,<tt>false</tt> otherwise      */
 DECL|method|isValid (Exchange exchange)
