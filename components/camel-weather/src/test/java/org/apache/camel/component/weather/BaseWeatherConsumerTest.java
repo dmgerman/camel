@@ -103,6 +103,26 @@ name|weather
 parameter_list|)
 block|{
 comment|// the default mode is json
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"The weather in {} format is {}{}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|WeatherMode
+operator|.
+name|JSON
+block|,
+name|LS
+block|,
+name|weather
+block|}
+argument_list|)
+expr_stmt|;
 name|assertStringContains
 argument_list|(
 name|weather
