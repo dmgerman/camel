@@ -90,6 +90,24 @@ name|component
 operator|.
 name|weather
 operator|.
+name|WeatherMode
+operator|.
+name|JSON
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|weather
+operator|.
 name|WeatherUnits
 operator|.
 name|METRIC
@@ -151,6 +169,15 @@ name|String
 name|period
 init|=
 literal|""
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|mode
+specifier|private
+name|WeatherMode
+name|mode
+init|=
+name|JSON
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -261,6 +288,37 @@ operator|+
 name|result
 expr_stmt|;
 block|}
+block|}
+DECL|method|getMode ()
+specifier|public
+name|WeatherMode
+name|getMode
+parameter_list|()
+block|{
+return|return
+name|mode
+return|;
+block|}
+DECL|method|setMode (WeatherMode mode)
+specifier|public
+name|void
+name|setMode
+parameter_list|(
+name|WeatherMode
+name|mode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mode
+operator|=
+name|notNull
+argument_list|(
+name|mode
+argument_list|,
+literal|"mode"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getUnits ()
 specifier|public
@@ -391,11 +449,21 @@ name|getPeriod
 argument_list|()
 expr_stmt|;
 block|}
+comment|// append the desired measurement unit if not the default (which is metric)
+if|if
+condition|(
+name|getUnits
+argument_list|()
+operator|!=
+name|METRIC
+condition|)
+block|{
 name|answer
 operator|+=
 literal|"&units="
 operator|+
-name|units
+name|getUnits
+argument_list|()
 operator|.
 name|name
 argument_list|()
@@ -403,6 +471,30 @@ operator|.
 name|toLowerCase
 argument_list|()
 expr_stmt|;
+block|}
+comment|// append the desired output mode if not the default (which is json)
+if|if
+condition|(
+name|getMode
+argument_list|()
+operator|!=
+name|JSON
+condition|)
+block|{
+name|answer
+operator|+=
+literal|"&mode="
+operator|+
+name|getMode
+argument_list|()
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -451,11 +543,11 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Retrieved an unexpected value: '"
+literal|"Got the unexpected value '"
 operator|+
 name|geoLocation
 operator|+
-literal|"' for the geographical location"
+literal|"' for the geolocation"
 argument_list|)
 throw|;
 block|}

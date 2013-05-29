@@ -186,7 +186,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Going to execute the query '{}'"
+literal|"Going to execute the Weather query {}"
 argument_list|,
 name|query
 argument_list|)
@@ -220,7 +220,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Got back the answer '{}'"
+literal|"Got back the Weather information {}"
 argument_list|,
 name|weather
 argument_list|)
@@ -239,7 +239,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Got the empty string '"
+literal|"Got the unexpected value '"
 operator|+
 name|weather
 operator|+

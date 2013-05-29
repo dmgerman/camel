@@ -19,32 +19,25 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * The Weather constants  */
+comment|/**  * The possible output modes of the weather information  */
 end_comment
 
-begin_class
-DECL|class|WeatherConstants
+begin_enum
+DECL|enum|WeatherMode
 specifier|public
-specifier|final
-class|class
-name|WeatherConstants
+enum|enum
+name|WeatherMode
 block|{
-DECL|field|WEATHER_QUERY
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|WEATHER_QUERY
-init|=
-literal|"CamelWeatherQuery"
-decl_stmt|;
-DECL|method|WeatherConstants ()
-specifier|private
-name|WeatherConstants
-parameter_list|()
-block|{     }
-block|}
-end_class
+DECL|enumConstant|HTML
+DECL|enumConstant|JSON
+DECL|enumConstant|XML
+name|HTML
+block|,
+name|JSON
+block|,
+name|XML
+block|;  }
+end_enum
 
 end_unit
 
