@@ -164,9 +164,6 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|streamCaching
-argument_list|()
-operator|.
 name|toF
 argument_list|(
 literal|"sap-netweaver:%s?username=%s&password=%s"
@@ -180,7 +177,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:response?showStreams=true"
+literal|"log:response"
 argument_list|)
 operator|.
 name|to
