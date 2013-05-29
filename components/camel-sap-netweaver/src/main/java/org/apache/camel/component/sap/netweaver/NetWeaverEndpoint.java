@@ -90,6 +90,16 @@ name|NetWeaverEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|json
+specifier|private
+name|boolean
+name|json
+decl_stmt|;
+DECL|field|url
+specifier|private
+name|String
+name|url
+decl_stmt|;
 DECL|field|username
 specifier|private
 name|String
@@ -170,6 +180,32 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getUrl ()
+specifier|public
+name|String
+name|getUrl
+parameter_list|()
+block|{
+return|return
+name|url
+return|;
+block|}
+DECL|method|setUrl (String url)
+specifier|public
+name|void
+name|setUrl
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+name|this
+operator|.
+name|url
+operator|=
+name|url
+expr_stmt|;
+block|}
 DECL|method|getUsername ()
 specifier|public
 name|String
@@ -220,6 +256,32 @@ operator|.
 name|password
 operator|=
 name|password
+expr_stmt|;
+block|}
+DECL|method|isJson ()
+specifier|public
+name|boolean
+name|isJson
+parameter_list|()
+block|{
+return|return
+name|json
+return|;
+block|}
+DECL|method|setJson (boolean json)
+specifier|public
+name|void
+name|setJson
+parameter_list|(
+name|boolean
+name|json
+parameter_list|)
+block|{
+name|this
+operator|.
+name|json
+operator|=
+name|json
 expr_stmt|;
 block|}
 block|}
