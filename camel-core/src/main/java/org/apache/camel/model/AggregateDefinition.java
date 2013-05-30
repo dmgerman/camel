@@ -864,12 +864,12 @@ argument_list|)
 decl_stmt|;
 name|internal
 operator|.
-name|addTask
+name|addAdvice
 argument_list|(
 operator|new
 name|CamelInternalProcessor
 operator|.
-name|UnitOfWorkProcessorTask
+name|UnitOfWorkProcessorAdvice
 argument_list|(
 name|routeId
 argument_list|)

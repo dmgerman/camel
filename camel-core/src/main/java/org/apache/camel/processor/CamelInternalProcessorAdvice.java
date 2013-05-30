@@ -29,14 +29,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A task to execute cross cutting functionality in the Camel routing engine.  *<p/>  * The Camel routing engine will execute the {@link #before(org.apache.camel.Exchange)} and  * {@link #after(org.apache.camel.Exchange, Object)} methods during routing in correct order.  *  * @param<T>  * @see CamelInternalProcessor  */
+comment|/**  * An advice (before and after) to execute cross cutting functionality in the Camel routing engine.  *<p/>  * The Camel routing engine will execute the {@link #before(org.apache.camel.Exchange)} and  * {@link #after(org.apache.camel.Exchange, Object)} methods during routing in correct order.  *  * @param<T>  * @see CamelInternalProcessor  */
 end_comment
 
 begin_interface
-DECL|interface|CamelInternalProcessorTask
+DECL|interface|CamelInternalProcessorAdvice
 specifier|public
 interface|interface
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 parameter_list|<
 name|T
 parameter_list|>

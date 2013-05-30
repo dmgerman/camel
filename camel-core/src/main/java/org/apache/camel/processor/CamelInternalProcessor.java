@@ -381,7 +381,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorTask} task  * by executing the {@link CamelInternalProcessorTask#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorTask#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  *<p/>  *<b>Debugging tips:</b> Camel end users whom want to debug their Camel applications with the Camel source code, then make sure to  * read the source code of this class about the debugging tips, which you can find in the  * {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method.  */
+comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorAdvice} advice (before and after advice)  * by executing the {@link CamelInternalProcessorAdvice#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorAdvice#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  *<p/>  *<b>Debugging tips:</b> Camel end users whom want to debug their Camel applications with the Camel source code, then make sure to  * read the source code of this class about the debugging tips, which you can find in the  * {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method.  */
 end_comment
 
 begin_class
@@ -408,19 +408,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|tasks
+DECL|field|advices
 specifier|private
 specifier|final
 name|List
 argument_list|<
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 argument_list|>
-name|tasks
+name|advices
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -443,30 +443,32 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addTask (CamelInternalProcessorTask task)
+comment|/**      * Adds an {@link CamelInternalProcessorAdvice} advice to the list of advices to execute by this internal processor.      *      * @param advice  the advice to add      */
+DECL|method|addAdvice (CamelInternalProcessorAdvice advice)
 specifier|public
 name|void
-name|addTask
+name|addAdvice
 parameter_list|(
-name|CamelInternalProcessorTask
-name|task
+name|CamelInternalProcessorAdvice
+name|advice
 parameter_list|)
 block|{
-name|tasks
+name|advices
 operator|.
 name|add
 argument_list|(
-name|task
+name|advice
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getTask (Class<T> type)
+comment|/**      * Gets the advice with the given type.      *      * @param type  the type of the advice      * @return the advice if exists, or<tt>null</tt> if no advices has been added with the given type.      */
+DECL|method|getAdvice (Class<T> type)
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|getTask
+name|getAdvice
 parameter_list|(
 name|Class
 argument_list|<
@@ -477,10 +479,10 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 name|task
 range|:
-name|tasks
+name|advices
 control|)
 block|{
 if|if
@@ -572,7 +574,7 @@ argument_list|<
 name|Object
 argument_list|>
 argument_list|(
-name|tasks
+name|advices
 operator|.
 name|size
 argument_list|()
@@ -580,10 +582,10 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 name|task
 range|:
-name|tasks
+name|advices
 control|)
 block|{
 try|try
@@ -631,7 +633,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|// create internal callback which will execute the tasks in reverse order when done
+comment|// create internal callback which will execute the advices in reverse order when done
 name|callback
 operator|=
 operator|new
@@ -925,6 +927,7 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/**      * Internal callback that executes the after advices.      */
 DECL|class|InternalCallback
 specifier|private
 specifier|final
@@ -1011,7 +1014,7 @@ control|(
 name|int
 name|i
 init|=
-name|tasks
+name|advices
 operator|.
 name|size
 argument_list|()
@@ -1026,10 +1029,10 @@ name|i
 operator|--
 control|)
 block|{
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 name|task
 init|=
-name|tasks
+name|advices
 operator|.
 name|get
 argument_list|(
@@ -1071,7 +1074,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-comment|// allow all tasks to complete even if there was an exception
+comment|// allow all advices to complete even if there was an exception
 block|}
 block|}
 block|}
@@ -1222,13 +1225,14 @@ return|return
 literal|true
 return|;
 block|}
-DECL|class|InstrumentationTask
+comment|/**      * Advice for JMX instrumentation of the process being invoked.      *<p/>      * This advice keeps track of JMX metrics for performance statistics.      *<p/>      * The current implementation of this advice is only used for route level statistics. For processor levels      * they are still wrapped in the route processor chains.      */
+DECL|class|InstrumentationAdvice
 specifier|public
 specifier|static
 class|class
-name|InstrumentationTask
+name|InstrumentationAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 argument_list|<
 name|StopWatch
 argument_list|>
@@ -1243,9 +1247,9 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
-DECL|method|InstrumentationTask (String type)
+DECL|method|InstrumentationAdvice (String type)
 specifier|public
-name|InstrumentationTask
+name|InstrumentationAdvice
 parameter_list|(
 name|String
 name|type
@@ -1525,13 +1529,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|class|RouteContextTask
+comment|/**      * Advice to inject the current {@link RouteContext} into the {@link UnitOfWork} on the {@link Exchange}      */
+DECL|class|RouteContextAdvice
 specifier|public
 specifier|static
 class|class
-name|RouteContextTask
+name|RouteContextAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 argument_list|<
 name|UnitOfWork
 argument_list|>
@@ -1542,9 +1547,9 @@ specifier|final
 name|RouteContext
 name|routeContext
 decl_stmt|;
-DECL|method|RouteContextTask (RouteContext routeContext)
+DECL|method|RouteContextAdvice (RouteContext routeContext)
 specifier|public
-name|RouteContextTask
+name|RouteContextAdvice
 parameter_list|(
 name|RouteContext
 name|routeContext
@@ -1630,13 +1635,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|class|RouteInflightRepositoryTask
+comment|/**      * Advice to keep the {@link InflightRepository} up to date.      */
+DECL|class|RouteInflightRepositoryAdvice
 specifier|public
 specifier|static
 class|class
-name|RouteInflightRepositoryTask
+name|RouteInflightRepositoryAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 block|{
 DECL|field|inflightRepository
 specifier|private
@@ -1650,9 +1656,9 @@ specifier|final
 name|String
 name|id
 decl_stmt|;
-DECL|method|RouteInflightRepositoryTask (InflightRepository inflightRepository, String id)
+DECL|method|RouteInflightRepositoryAdvice (InflightRepository inflightRepository, String id)
 specifier|public
-name|RouteInflightRepositoryTask
+name|RouteInflightRepositoryAdvice
 parameter_list|(
 name|InflightRepository
 name|inflightRepository
@@ -1727,13 +1733,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|RoutePolicyTask
+comment|/**      * Advice to execute any {@link RoutePolicy} a route may have been configured with.      */
+DECL|class|RoutePolicyAdvice
 specifier|public
 specifier|static
 class|class
-name|RoutePolicyTask
+name|RoutePolicyAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 block|{
 DECL|field|routePolicies
 specifier|private
@@ -1749,9 +1756,9 @@ specifier|private
 name|Route
 name|route
 decl_stmt|;
-DECL|method|RoutePolicyTask (List<RoutePolicy> routePolicies)
+DECL|method|RoutePolicyAdvice (List<RoutePolicy> routePolicies)
 specifier|public
-name|RoutePolicyTask
+name|RoutePolicyAdvice
 parameter_list|(
 name|List
 argument_list|<
@@ -2011,14 +2018,15 @@ literal|false
 return|;
 block|}
 block|}
-DECL|class|BacklogTracerTask
+comment|/**      * Advice to execute the {@link BacklogTracer} if enabled.      */
+DECL|class|BacklogTracerAdvice
 specifier|public
 specifier|static
 specifier|final
 class|class
-name|BacklogTracerTask
+name|BacklogTracerAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 block|{
 DECL|field|queue
 specifier|private
@@ -2059,9 +2067,9 @@ specifier|final
 name|boolean
 name|first
 decl_stmt|;
-DECL|method|BacklogTracerTask (Queue<DefaultBacklogTracerEventMessage> queue, BacklogTracer backlogTracer, ProcessorDefinition<?> processorDefinition, ProcessorDefinition<?> routeDefinition, boolean first)
+DECL|method|BacklogTracerAdvice (Queue<DefaultBacklogTracerEventMessage> queue, BacklogTracer backlogTracer, ProcessorDefinition<?> processorDefinition, ProcessorDefinition<?> routeDefinition, boolean first)
 specifier|public
-name|BacklogTracerTask
+name|BacklogTracerAdvice
 parameter_list|(
 name|Queue
 argument_list|<
@@ -2366,14 +2374,15 @@ block|{
 comment|// noop
 block|}
 block|}
-DECL|class|BacklogDebuggerTask
+comment|/**      * Advice to execute the {@link org.apache.camel.processor.interceptor.BacklogDebugger} if enabled.      */
+DECL|class|BacklogDebuggerAdvice
 specifier|public
 specifier|static
 specifier|final
 class|class
-name|BacklogDebuggerTask
+name|BacklogDebuggerAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 argument_list|<
 name|StopWatch
 argument_list|>
@@ -2405,9 +2414,9 @@ specifier|final
 name|String
 name|nodeId
 decl_stmt|;
-DECL|method|BacklogDebuggerTask (BacklogDebugger backlogDebugger, Processor target, ProcessorDefinition<?> definition)
+DECL|method|BacklogDebuggerAdvice (BacklogDebugger backlogDebugger, Processor target, ProcessorDefinition<?> definition)
 specifier|public
-name|BacklogDebuggerTask
+name|BacklogDebuggerAdvice
 parameter_list|(
 name|BacklogDebugger
 name|backlogDebugger
@@ -2556,13 +2565,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|class|UnitOfWorkProcessorTask
+comment|/**      * Advice to inject new {@link UnitOfWork} to the {@link Exchange} if needed, and as well to ensure      * the {@link UnitOfWork} is done and stopped.      */
+DECL|class|UnitOfWorkProcessorAdvice
 specifier|public
 specifier|static
 class|class
-name|UnitOfWorkProcessorTask
+name|UnitOfWorkProcessorAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 argument_list|<
 name|UnitOfWork
 argument_list|>
@@ -2573,9 +2583,9 @@ specifier|final
 name|String
 name|routeId
 decl_stmt|;
-DECL|method|UnitOfWorkProcessorTask (String routeId)
+DECL|method|UnitOfWorkProcessorAdvice (String routeId)
 specifier|public
-name|UnitOfWorkProcessorTask
+name|UnitOfWorkProcessorAdvice
 parameter_list|(
 name|String
 name|routeId
@@ -2842,13 +2852,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|ChildUnitOfWorkProcessorTask
+comment|/**      * Advice when an EIP uses the<tt>shareUnitOfWork</tt> functionality.      */
+DECL|class|ChildUnitOfWorkProcessorAdvice
 specifier|public
 specifier|static
 class|class
-name|ChildUnitOfWorkProcessorTask
+name|ChildUnitOfWorkProcessorAdvice
 extends|extends
-name|UnitOfWorkProcessorTask
+name|UnitOfWorkProcessorAdvice
 block|{
 DECL|field|parent
 specifier|private
@@ -2856,9 +2867,9 @@ specifier|final
 name|UnitOfWork
 name|parent
 decl_stmt|;
-DECL|method|ChildUnitOfWorkProcessorTask (String routeId, UnitOfWork parent)
+DECL|method|ChildUnitOfWorkProcessorAdvice (String routeId, UnitOfWork parent)
 specifier|public
-name|ChildUnitOfWorkProcessorTask
+name|ChildUnitOfWorkProcessorAdvice
 parameter_list|(
 name|String
 name|routeId
@@ -2901,13 +2912,14 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|class|SubUnitOfWorkProcessorTask
+comment|/**      * Advice when an EIP uses the<tt>shareUnitOfWork</tt> functionality.      */
+DECL|class|SubUnitOfWorkProcessorAdvice
 specifier|public
 specifier|static
 class|class
-name|SubUnitOfWorkProcessorTask
+name|SubUnitOfWorkProcessorAdvice
 implements|implements
-name|CamelInternalProcessorTask
+name|CamelInternalProcessorAdvice
 argument_list|<
 name|UnitOfWork
 argument_list|>

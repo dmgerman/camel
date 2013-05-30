@@ -591,12 +591,12 @@ argument_list|)
 decl_stmt|;
 name|internalProcessor
 operator|.
-name|addTask
+name|addAdvice
 argument_list|(
 operator|new
 name|CamelInternalProcessor
 operator|.
-name|SubUnitOfWorkProcessorTask
+name|SubUnitOfWorkProcessorAdvice
 argument_list|()
 argument_list|)
 expr_stmt|;

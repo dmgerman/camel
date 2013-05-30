@@ -923,12 +923,12 @@ argument_list|)
 decl_stmt|;
 name|internal
 operator|.
-name|addTask
+name|addAdvice
 argument_list|(
 operator|new
 name|CamelInternalProcessor
 operator|.
-name|UnitOfWorkProcessorTask
+name|UnitOfWorkProcessorAdvice
 argument_list|(
 name|routeId
 argument_list|)
@@ -937,12 +937,12 @@ expr_stmt|;
 comment|// and then in route context so we can keep track which route this is at runtime
 name|internal
 operator|.
-name|addTask
+name|addAdvice
 argument_list|(
 operator|new
 name|CamelInternalProcessor
 operator|.
-name|RouteContextTask
+name|RouteContextAdvice
 argument_list|(
 name|this
 argument_list|)
@@ -1021,12 +1021,12 @@ block|}
 block|}
 name|internal
 operator|.
-name|addTask
+name|addAdvice
 argument_list|(
 operator|new
 name|CamelInternalProcessor
 operator|.
-name|RoutePolicyTask
+name|RoutePolicyAdvice
 argument_list|(
 name|routePolicyList
 argument_list|)
@@ -1036,12 +1036,12 @@ block|}
 comment|// wrap in route inflight processor to track number of inflight exchanges for the route
 name|internal
 operator|.
-name|addTask
+name|addAdvice
 argument_list|(
 operator|new
 name|CamelInternalProcessor
 operator|.
-name|RouteInflightRepositoryTask
+name|RouteInflightRepositoryAdvice
 argument_list|(
 name|camelContext
 operator|.
@@ -1055,12 +1055,12 @@ expr_stmt|;
 comment|// wrap in JMX instrumentation processor that is used for performance stats
 name|internal
 operator|.
-name|addTask
+name|addAdvice
 argument_list|(
 operator|new
 name|CamelInternalProcessor
 operator|.
-name|InstrumentationTask
+name|InstrumentationAdvice
 argument_list|(
 literal|"route"
 argument_list|)
@@ -1148,16 +1148,16 @@ block|}
 comment|// after the route is created then set the route on the policy processor so we get hold of it
 name|CamelInternalProcessor
 operator|.
-name|RoutePolicyTask
+name|RoutePolicyAdvice
 name|task
 init|=
 name|internal
 operator|.
-name|getTask
+name|getAdvice
 argument_list|(
 name|CamelInternalProcessor
 operator|.
-name|RoutePolicyTask
+name|RoutePolicyAdvice
 operator|.
 name|class
 argument_list|)
