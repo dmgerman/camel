@@ -588,7 +588,10 @@ name|isStarted
 argument_list|()
 condition|)
 block|{
-throw|throw
+name|exchange
+operator|.
+name|setException
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
@@ -596,7 +599,18 @@ literal|"SendProcessor has not been started: "
 operator|+
 name|this
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|// we should preserve existing MEP so remember old MEP
 comment|// if you want to permanently to change the MEP then use .setExchangePattern in the DSL
