@@ -405,6 +405,12 @@ specifier|volatile
 name|boolean
 name|shutdownPending
 decl_stmt|;
+DECL|field|forceShutdown
+specifier|private
+specifier|volatile
+name|boolean
+name|forceShutdown
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|SedaEndpoint
@@ -596,6 +602,10 @@ name|shutdownPending
 operator|=
 literal|true
 expr_stmt|;
+name|forceShutdown
+operator|=
+name|forced
+expr_stmt|;
 if|if
 condition|(
 name|latch
@@ -642,6 +652,16 @@ name|boolean
 name|isRunAllowed
 parameter_list|()
 block|{
+comment|// if we force shutdown then do not allow running anymore
+if|if
+condition|(
+name|forceShutdown
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 if|if
 condition|(
 name|isSuspending
@@ -793,6 +813,28 @@ name|isSuspended
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|shutdownPending
+operator|&&
+name|queue
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Consumer is suspended and shutdown is pending, so this consumer thread is breaking out because the task queue is empty."
+argument_list|)
+expr_stmt|;
+comment|// we want to shutdown so break out if there queue is empty
+break|break;
+block|}
+else|else
+block|{
 name|LOG
 operator|.
 name|trace
@@ -839,6 +881,7 @@ argument_list|)
 expr_stmt|;
 block|}
 continue|continue;
+block|}
 block|}
 name|Exchange
 name|exchange
@@ -1343,6 +1386,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|shutdownPending
+operator|=
+literal|false
+expr_stmt|;
+name|forceShutdown
 operator|=
 literal|false
 expr_stmt|;
