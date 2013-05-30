@@ -575,7 +575,22 @@ name|int
 name|getPendingExchangesSize
 parameter_list|()
 block|{
-comment|// number of pending messages on the queue
+comment|// the route is shutting down, so either we should purge the queue,
+comment|// or return how many exchanges are still on the queue
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isPurgeWhenStopping
+argument_list|()
+condition|)
+block|{
+name|endpoint
+operator|.
+name|purgeQueue
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 name|endpoint
 operator|.
@@ -1444,6 +1459,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// ensure queue is purged if we stop the consumer
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isPurgeWhenStopping
+argument_list|()
+condition|)
+block|{
+name|endpoint
+operator|.
+name|purgeQueue
+argument_list|()
+expr_stmt|;
+block|}
 name|endpoint
 operator|.
 name|onStopped

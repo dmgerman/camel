@@ -565,6 +565,11 @@ name|pollTimeout
 init|=
 literal|1000
 decl_stmt|;
+DECL|field|purgeWhenStopping
+specifier|private
+name|boolean
+name|purgeWhenStopping
+decl_stmt|;
 DECL|method|SedaEndpoint ()
 specifier|public
 name|SedaEndpoint
@@ -1387,6 +1392,34 @@ operator|=
 name|pollTimeout
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isPurgeWhenStopping ()
+specifier|public
+name|boolean
+name|isPurgeWhenStopping
+parameter_list|()
+block|{
+return|return
+name|purgeWhenStopping
+return|;
+block|}
+DECL|method|setPurgeWhenStopping (boolean purgeWhenStopping)
+specifier|public
+name|void
+name|setPurgeWhenStopping
+parameter_list|(
+name|boolean
+name|purgeWhenStopping
+parameter_list|)
+block|{
+name|this
+operator|.
+name|purgeWhenStopping
+operator|=
+name|purgeWhenStopping
+expr_stmt|;
+block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -1446,6 +1479,18 @@ name|void
 name|purgeQueue
 parameter_list|()
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Purging queue with {} exchanges"
+argument_list|,
+name|queue
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|queue
 operator|.
 name|clear
