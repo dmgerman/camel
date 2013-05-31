@@ -637,13 +637,12 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//Expecting 2 listeners- one added by us: TestCacheEventListener and
-comment|//one added by ehcache by cfg file.
+comment|//Expecting 1 listener added by us: TestCacheEventListener
 name|assertEquals
 argument_list|(
 literal|"Number of registered listeners"
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|ehcacheEventListners
 operator|.
@@ -763,6 +762,7 @@ block|}
 block|}
 DECL|class|TestLoader
 specifier|public
+specifier|static
 class|class
 name|TestLoader
 implements|implements
@@ -963,6 +963,7 @@ block|}
 comment|//Test event lister that will help us to count put method invocations.
 DECL|class|TestCacheEventListener
 specifier|public
+specifier|static
 class|class
 name|TestCacheEventListener
 implements|implements

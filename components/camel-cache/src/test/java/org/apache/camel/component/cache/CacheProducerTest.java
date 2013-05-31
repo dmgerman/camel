@@ -88,18 +88,6 @@ end_import
 
 begin_import
 import|import
-name|net
-operator|.
-name|sf
-operator|.
-name|ehcache
-operator|.
-name|ElementEvictionData
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -229,6 +217,20 @@ operator|.
 name|util
 operator|.
 name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ReflectionHelper
 import|;
 end_import
 
@@ -3875,7 +3877,8 @@ expr_stmt|;
 name|sendOriginalFile
 argument_list|()
 expr_stmt|;
-comment|// Alter the cache element so it appears "expired" (without having to wait for it to happen)
+comment|// simulate the cache element to appear as "expired" (without having to wait for it to happen)
+comment|// however as there's no public API to do so we're forced to make use of the reflection API here
 name|Cache
 name|testCache
 init|=
@@ -3902,13 +3905,21 @@ argument_list|(
 literal|"Ralph_Waldo_Emerson"
 argument_list|)
 decl_stmt|;
-name|element
+name|ReflectionHelper
 operator|.
-name|getElementEvictionData
-argument_list|()
-operator|.
-name|setCreationTime
+name|setField
 argument_list|(
+name|Element
+operator|.
+name|class
+operator|.
+name|getDeclaredField
+argument_list|(
+literal|"creationTime"
+argument_list|)
+argument_list|,
+name|element
+argument_list|,
 name|System
 operator|.
 name|currentTimeMillis
