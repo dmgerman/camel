@@ -4273,8 +4273,21 @@ operator|==
 name|DataFormat
 operator|.
 name|CXF_MESSAGE
+operator|&&
+name|message
+operator|.
+name|getContent
+argument_list|(
+name|List
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
+comment|// CAMEL-6404 added check point of message content
+comment|// The message content of list could be null if there is a fault message is received
 name|answer
 operator|=
 name|message
