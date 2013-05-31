@@ -1848,6 +1848,15 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
+DECL|field|messageHistory
+specifier|private
+name|Boolean
+name|messageHistory
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 DECL|field|streamCache
 specifier|private
 name|Boolean
@@ -7179,6 +7188,32 @@ block|{
 return|return
 name|trace
 return|;
+block|}
+DECL|method|isMessageHistory ()
+specifier|public
+name|Boolean
+name|isMessageHistory
+parameter_list|()
+block|{
+return|return
+name|messageHistory
+return|;
+block|}
+DECL|method|setMessageHistory (Boolean messageHistory)
+specifier|public
+name|void
+name|setMessageHistory
+parameter_list|(
+name|Boolean
+name|messageHistory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageHistory
+operator|=
+name|messageHistory
+expr_stmt|;
 block|}
 DECL|method|isHandleFault ()
 specifier|public

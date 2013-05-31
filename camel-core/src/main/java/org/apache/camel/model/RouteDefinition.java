@@ -579,6 +579,11 @@ specifier|private
 name|String
 name|trace
 decl_stmt|;
+DECL|field|messageHistory
+specifier|private
+name|String
+name|messageHistory
+decl_stmt|;
 DECL|field|handleFault
 specifier|private
 name|String
@@ -1638,6 +1643,38 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enable message history for this route.      *      * @return the builder      */
+DECL|method|messageHistory ()
+specifier|public
+name|RouteDefinition
+name|messageHistory
+parameter_list|()
+block|{
+name|setMessageHistory
+argument_list|(
+literal|"true"
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Disable message history for this route.      *      * @return the builder      */
+DECL|method|noMessageHistory ()
+specifier|public
+name|RouteDefinition
+name|noMessageHistory
+parameter_list|()
+block|{
+name|setMessageHistory
+argument_list|(
+literal|"false"
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Disable handle fault for this route.      *      * @return the builder      */
 DECL|method|noHandleFault ()
 specifier|public
@@ -2108,6 +2145,32 @@ operator|.
 name|trace
 operator|=
 name|trace
+expr_stmt|;
+block|}
+DECL|method|getMessageHistory ()
+specifier|public
+name|String
+name|getMessageHistory
+parameter_list|()
+block|{
+return|return
+name|messageHistory
+return|;
+block|}
+DECL|method|setMessageHistory (String messageHistory)
+specifier|public
+name|void
+name|setMessageHistory
+parameter_list|(
+name|String
+name|messageHistory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageHistory
+operator|=
+name|messageHistory
 expr_stmt|;
 block|}
 DECL|method|getHandleFault ()
@@ -2678,6 +2741,59 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// tracing is added in the DefaultChannel so we can enable it on the fly
+block|}
+block|}
+block|}
+comment|// configure message history
+if|if
+condition|(
+name|messageHistory
+operator|!=
+literal|null
+condition|)
+block|{
+name|Boolean
+name|isMessageHistory
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|camelContext
+argument_list|,
+name|getMessageHistory
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isMessageHistory
+operator|!=
+literal|null
+condition|)
+block|{
+name|routeContext
+operator|.
+name|setMessageHistory
+argument_list|(
+name|isMessageHistory
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|isMessageHistory
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Message history is enabled on route: {}"
+argument_list|,
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

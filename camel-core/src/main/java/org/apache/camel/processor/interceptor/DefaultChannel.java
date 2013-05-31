@@ -1070,6 +1070,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|routeContext
+operator|.
+name|isMessageHistory
+argument_list|()
+condition|)
+block|{
+comment|// add message history advice
+name|addAdvice
+argument_list|(
+operator|new
+name|MessageHistoryAdvice
+argument_list|(
+name|targetOutputDef
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// the regular tracer is not a task on internalProcessor as this is not really needed
 comment|// end users have to explicit enable the tracer to use it, and then its okay if we wrap
 comment|// the processors (but by default tracer is disabled, and therefore we do not wrap processors)

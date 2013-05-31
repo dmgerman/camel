@@ -54,6 +54,21 @@ name|Boolean
 name|isTracing
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether message history is enabled or not (default is disabled).      *      * @param messageHistory whether message history is enabled      */
+DECL|method|setMessageHistory (Boolean messageHistory)
+name|void
+name|setMessageHistory
+parameter_list|(
+name|Boolean
+name|messageHistory
+parameter_list|)
+function_decl|;
+comment|/**      * Returns whether stream cache is enabled      *      * @return<tt>true</tt> if stream cache is enabled      */
+DECL|method|isMessageHistory ()
+name|Boolean
+name|isMessageHistory
+parameter_list|()
+function_decl|;
 comment|/**      * Sets whether fault handling is enabled or not (default is disabled).      *      * @param handleFault whether to enable fault handling.      */
 DECL|method|setHandleFault (Boolean handleFault)
 name|void

@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliveryDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>asyncDelayedRedelivery = false</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryAttempted = true</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *<li>logHandled = false</li>  *<li>logExhausted = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version   */
+comment|/**  * The policy used to decide how many times to redeliver and the time between  * the redeliveries before being sent to a<a  * href="http://camel.apache.org/dead-letter-channel.html">Dead Letter  * Channel</a>  *<p>  * The default values are:  *<ul>  *<li>maximumRedeliveries = 0</li>  *<li>redeliveryDelay = 1000L (the initial delay)</li>  *<li>maximumRedeliveryDelay = 60 * 1000L</li>  *<li>asyncDelayedRedelivery = false</li>  *<li>backOffMultiplier = 2</li>  *<li>useExponentialBackOff = false</li>  *<li>collisionAvoidanceFactor = 0.15d</li>  *<li>useCollisionAvoidance = false</li>  *<li>retriesExhaustedLogLevel = LoggingLevel.ERROR</li>  *<li>retryAttemptedLogLevel = LoggingLevel.DEBUG</li>  *<li>logRetryAttempted = true</li>  *<li>logRetryStackTrace = false</li>  *<li>logStackTrace = true</li>  *<li>logHandled = false</li>  *<li>logExhausted = true</li>  *<li>logExhaustedMessageHistory = true</li>  *</ul>  *<p/>  * Setting the maximumRedeliveries to a negative value such as -1 will then always redeliver (unlimited).  * Setting the maximumRedeliveries to 0 will disable redelivery.  *<p/>  * This policy can be configured either by one of the following two settings:  *<ul>  *<li>using conventional options, using all the options defined above</li>  *<li>using delay pattern to declare intervals for delays</li>  *</ul>  *<p/>  *<b>Note:</b> If using delay patterns then the following options is not used (delay, backOffMultiplier, useExponentialBackOff, useCollisionAvoidance)  *<p/>  *<b>Using delay pattern</b>:  *<br/>The delay pattern syntax is:<tt>limit:delay;limit 2:delay 2;limit 3:delay 3;...;limit N:delay N</tt>.  *<p/>  * How it works is best illustrate with an example with this pattern:<tt>delayPattern=5:1000;10:5000:20:20000</tt>  *<br/>The delays will be for attempt in range 0..4 = 0 millis, 5..9 = 1000 millis, 10..19 = 5000 millis,>= 20 = 20000 millis.  *<p/>  * If you want to set a starting delay, then use 0 as the first limit, eg:<tt>0:1000;5:5000</tt> will use 1 sec delay  * until attempt number 5 where it will use 5 seconds going forward.  *  * @version   */
 end_comment
 
 begin_class
@@ -247,6 +247,13 @@ name|logExhausted
 init|=
 literal|true
 decl_stmt|;
+DECL|field|logExhaustedMessageHistory
+specifier|protected
+name|boolean
+name|logExhaustedMessageHistory
+init|=
+literal|true
+decl_stmt|;
 DECL|field|logRetryAttempted
 specifier|protected
 name|boolean
@@ -336,6 +343,10 @@ operator|+
 literal|", logExhausted="
 operator|+
 name|logExhausted
+operator|+
+literal|", logExhaustedMessageHistory="
+operator|+
+name|logExhaustedMessageHistory
 operator|+
 literal|", useExponentialBackOff="
 operator|+
@@ -1038,6 +1049,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to log exhausted errors including message history      */
+DECL|method|logExhaustedMessageHistory (boolean logExhaustedMessageHistory)
+specifier|public
+name|RedeliveryPolicy
+name|logExhaustedMessageHistory
+parameter_list|(
+name|boolean
+name|logExhaustedMessageHistory
+parameter_list|)
+block|{
+name|setLogExhaustedMessageHistory
+argument_list|(
+name|logExhaustedMessageHistory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the delay pattern with delay intervals.      */
 DECL|method|delayPattern (String delayPattern)
 specifier|public
@@ -1653,6 +1683,33 @@ operator|.
 name|logExhausted
 operator|=
 name|logExhausted
+expr_stmt|;
+block|}
+DECL|method|isLogExhaustedMessageHistory ()
+specifier|public
+name|boolean
+name|isLogExhaustedMessageHistory
+parameter_list|()
+block|{
+return|return
+name|logExhaustedMessageHistory
+return|;
+block|}
+comment|/**      * Sets whether exhausted exceptions should be logged with message history included.      */
+DECL|method|setLogExhaustedMessageHistory (boolean logExhaustedMessageHistory)
+specifier|public
+name|void
+name|setLogExhaustedMessageHistory
+parameter_list|(
+name|boolean
+name|logExhaustedMessageHistory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhaustedMessageHistory
+operator|=
+name|logExhaustedMessageHistory
 expr_stmt|;
 block|}
 DECL|method|isAsyncDelayedRedelivery ()
