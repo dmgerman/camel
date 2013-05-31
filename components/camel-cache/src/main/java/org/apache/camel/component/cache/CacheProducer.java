@@ -660,7 +660,7 @@ argument_list|(
 name|key
 argument_list|)
 operator|.
-name|getValue
+name|getObjectValue
 argument_list|()
 argument_list|)
 expr_stmt|;
