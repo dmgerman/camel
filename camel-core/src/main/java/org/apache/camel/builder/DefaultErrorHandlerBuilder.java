@@ -890,6 +890,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|logExhaustedMessageHistory (boolean logExhaustedMessageHistory)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|logExhaustedMessageHistory
+parameter_list|(
+name|boolean
+name|logExhaustedMessageHistory
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogExhaustedMessageHistory
+argument_list|(
+name|logExhaustedMessageHistory
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Will allow asynchronous delayed redeliveries.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public
