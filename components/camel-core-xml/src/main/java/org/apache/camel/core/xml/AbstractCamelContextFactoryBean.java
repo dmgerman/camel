@@ -3091,6 +3091,13 @@ name|String
 name|getTrace
 parameter_list|()
 function_decl|;
+DECL|method|getMessageHistory ()
+specifier|public
+specifier|abstract
+name|String
+name|getMessageHistory
+parameter_list|()
+function_decl|;
 DECL|method|getStreamCache ()
 specifier|public
 specifier|abstract
@@ -3315,6 +3322,31 @@ name|getContext
 argument_list|()
 argument_list|,
 name|getTrace
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getMessageHistory
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|ctx
+operator|.
+name|setMessageHistory
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|getMessageHistory
 argument_list|()
 argument_list|)
 argument_list|)

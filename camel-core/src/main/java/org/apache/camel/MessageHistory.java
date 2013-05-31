@@ -14,34 +14,54 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_comment
+comment|/**  * Represents the history of a Camel {@link Message} how it was routed by the Camel routing engine.  */
+end_comment
+
 begin_interface
-DECL|interface|NamedNode
+DECL|interface|MessageHistory
 specifier|public
 interface|interface
-name|NamedNode
+name|MessageHistory
 block|{
-comment|/**      * Gets the value of the id property.      */
-DECL|method|getId ()
+comment|/**      * Gets the route id at the point of this history.      */
+DECL|method|getRouteId ()
 name|String
-name|getId
+name|getRouteId
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a short name for this node which can be useful for ID generation or referring to related resources like images      *      * @return defaults to "node" but derived nodes should overload this to provide a unique name      */
-DECL|method|getShortName ()
-name|String
-name|getShortName
+comment|/**      * Gets the node at the point of this history.      */
+DECL|method|getNode ()
+name|NamedNode
+name|getNode
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a label to describe this node such as the expression if some kind of expression node      */
-DECL|method|getLabel ()
-name|String
-name|getLabel
+comment|/**      * Gets the timestamp at the point of this history.      */
+DECL|method|getTimestamp ()
+name|Date
+name|getTimestamp
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the description text or null if there is no description text associated with this node      */
-DECL|method|getDescriptionText ()
-name|String
-name|getDescriptionText
+comment|/**      * Gets the elapsed time in millis processing the node took      */
+DECL|method|getElapsed ()
+name|long
+name|getElapsed
+parameter_list|()
+function_decl|;
+comment|/**      * Used for signalling that processing of the node is done.      */
+DECL|method|nodeProcessingDone ()
+name|void
+name|nodeProcessingDone
 parameter_list|()
 function_decl|;
 block|}

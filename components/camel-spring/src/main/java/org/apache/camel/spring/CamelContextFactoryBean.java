@@ -789,6 +789,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|messageHistory
+specifier|private
+name|String
+name|messageHistory
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|streamCache
 specifier|private
 name|String
@@ -2717,6 +2729,32 @@ operator|.
 name|trace
 operator|=
 name|trace
+expr_stmt|;
+block|}
+DECL|method|getMessageHistory ()
+specifier|public
+name|String
+name|getMessageHistory
+parameter_list|()
+block|{
+return|return
+name|messageHistory
+return|;
+block|}
+DECL|method|setMessageHistory (String messageHistory)
+specifier|public
+name|void
+name|setMessageHistory
+parameter_list|(
+name|String
+name|messageHistory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageHistory
+operator|=
+name|messageHistory
 expr_stmt|;
 block|}
 DECL|method|getStreamCache ()

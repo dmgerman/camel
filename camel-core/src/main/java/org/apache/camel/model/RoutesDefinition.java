@@ -308,6 +308,19 @@ return|return
 literal|"routes"
 return|;
 block|}
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"Route "
+operator|+
+name|getId
+argument_list|()
+return|;
+block|}
 comment|// Properties
 comment|//-----------------------------------------------------------------------
 DECL|method|getRoutes ()

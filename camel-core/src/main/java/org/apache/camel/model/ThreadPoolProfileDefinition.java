@@ -228,6 +228,21 @@ specifier|public
 name|ThreadPoolProfileDefinition
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+literal|"ThreadPoolProfile "
+operator|+
+name|getId
+argument_list|()
+return|;
+block|}
 DECL|method|poolSize (int poolSize)
 specifier|public
 name|ThreadPoolProfileDefinition

@@ -500,6 +500,12 @@ name|MAXIMUM_ENDPOINT_CACHE_SIZE
 init|=
 literal|"CamelMaximumEndpointCacheSize"
 decl_stmt|;
+DECL|field|MESSAGE_HISTORY
+name|String
+name|MESSAGE_HISTORY
+init|=
+literal|"CamelMessageHistory"
+decl_stmt|;
 DECL|field|MULTICAST_INDEX
 name|String
 name|MULTICAST_INDEX
