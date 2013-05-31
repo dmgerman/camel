@@ -44,26 +44,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_class
 DECL|class|TokenizeLanguageTest
 specifier|public
@@ -72,8 +52,6 @@ name|TokenizeLanguageTest
 extends|extends
 name|ContextTestSupport
 block|{
-annotation|@
-name|Test
 DECL|method|testSendClosedTagMessageToTokenize ()
 specifier|public
 name|void
@@ -107,8 +85,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSendClosedTagWithLineBreaksMessageToTokenize ()
 specifier|public
 name|void
@@ -154,18 +130,15 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-annotation|@
-name|Ignore
-DECL|method|testSendSelfClosingTagMessageToTokenize ()
+DECL|method|xxxTestSendSelfClosingTagMessageToTokenize ()
 specifier|public
 name|void
-name|testSendSelfClosingTagMessageToTokenize
+name|xxxTestSendSelfClosingTagMessageToTokenize
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: ignored test as it does not work, there is a CAMEL ticket about this
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
