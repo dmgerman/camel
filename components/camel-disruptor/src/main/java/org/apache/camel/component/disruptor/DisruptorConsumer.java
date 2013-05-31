@@ -172,6 +172,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Synchronization
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -189,20 +203,6 @@ operator|.
 name|util
 operator|.
 name|AsyncProcessorConverterHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -273,6 +273,31 @@ name|DisruptorConsumer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|NOOP_ASYNC_CALLBACK
+specifier|private
+specifier|static
+specifier|final
+name|AsyncCallback
+name|NOOP_ASYNC_CALLBACK
+init|=
+operator|new
+name|AsyncCallback
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|done
+parameter_list|(
+name|boolean
+name|doneSync
+parameter_list|)
+block|{
+comment|//Noop
+block|}
+block|}
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
@@ -690,22 +715,46 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// use the regular processor and use the asynchronous routing engine to support it
-name|AsyncCallback
-name|callback
-init|=
+comment|// We need to be notified when the exchange processing is complete to synchronize the original exchange
+comment|// This is however the last part of the processing of this exchange and as such can't be done
+comment|// in the AsyncCallback as that is called *AFTER* processing is considered to be done
+comment|// (see org.apache.camel.processor.CamelInternalProcessor.InternalCallback#done).
+comment|// To solve this problem, a new synchronization is set on the exchange that is to be
+comment|// processed
+name|result
+operator|.
+name|addOnCompletion
+argument_list|(
 operator|new
-name|AsyncCallback
+name|Synchronization
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
 name|void
-name|done
+name|onComplete
 parameter_list|(
-name|boolean
-name|doneSync
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|synchronizedExchange
+operator|.
+name|consumed
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|Exchange
+name|exchange
 parameter_list|)
 block|{
 name|synchronizedExchange
@@ -717,16 +766,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-decl_stmt|;
-name|AsyncProcessorHelper
+argument_list|)
+expr_stmt|;
+comment|// As the necessary post-processing of the exchange is done by the registered Synchronization,
+comment|// we can suffice with a no-op AsyncCallback
+name|processor
 operator|.
 name|process
 argument_list|(
-name|processor
-argument_list|,
 name|result
 argument_list|,
-name|callback
+name|NOOP_ASYNC_CALLBACK
 argument_list|)
 expr_stmt|;
 block|}

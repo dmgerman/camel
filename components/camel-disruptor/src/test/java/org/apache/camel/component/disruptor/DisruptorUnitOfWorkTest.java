@@ -213,14 +213,6 @@ operator|.
 name|matchesMockWaitTime
 argument_list|()
 expr_stmt|;
-comment|// need to sleep a while to wait for the calling of onComplete
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"onCompleteA"

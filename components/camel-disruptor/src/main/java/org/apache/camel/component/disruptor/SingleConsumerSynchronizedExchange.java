@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -37,20 +27,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Synchronization
 import|;
 end_import
 
@@ -69,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO: documentation  */
+comment|/**  * Implementation of the {@link SynchronizedExchange} interface optimized for single consumers.  */
 end_comment
 
 begin_class
@@ -80,15 +56,6 @@ name|SingleConsumerSynchronizedExchange
 extends|extends
 name|AbstractSynchronizedExchange
 block|{
-DECL|field|synchronizations
-specifier|private
-specifier|final
-name|List
-argument_list|<
-name|Synchronization
-argument_list|>
-name|synchronizations
-decl_stmt|;
 DECL|method|SingleConsumerSynchronizedExchange (Exchange exchange)
 specifier|public
 name|SingleConsumerSynchronizedExchange
@@ -101,13 +68,6 @@ name|super
 argument_list|(
 name|exchange
 argument_list|)
-expr_stmt|;
-name|synchronizations
-operator|=
-name|exchange
-operator|.
-name|handoverCompletions
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@

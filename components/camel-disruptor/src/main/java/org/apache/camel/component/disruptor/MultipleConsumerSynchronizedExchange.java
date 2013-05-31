@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO: documentation  */
+comment|/**  * Implementation of the {@link SynchronizedExchange} interface that correctly handles all completion  * synchronisation courtesies for multiple consumers.  */
 end_comment
 
 begin_class

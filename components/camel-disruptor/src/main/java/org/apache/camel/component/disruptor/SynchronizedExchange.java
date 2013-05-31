@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO: documentation  */
+comment|/**  * This interface describes an immutable container of an Exchange and provides handles for  * {@link DisruptorConsumer}s to correctly deal with the on completion synchronization, even in multicast  * circumstances.  */
 end_comment
 
 begin_interface
