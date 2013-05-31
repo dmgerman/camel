@@ -2157,6 +2157,8 @@ return|return
 name|messageHistory
 return|;
 block|}
+annotation|@
+name|XmlAttribute
 DECL|method|setMessageHistory (String messageHistory)
 specifier|public
 name|void
