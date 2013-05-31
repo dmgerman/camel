@@ -1855,7 +1855,7 @@ name|messageHistory
 init|=
 name|Boolean
 operator|.
-name|FALSE
+name|TRUE
 decl_stmt|;
 DECL|field|streamCache
 specifier|private

@@ -54,7 +54,7 @@ name|Boolean
 name|isTracing
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether message history is enabled or not (default is disabled).      *      * @param messageHistory whether message history is enabled      */
+comment|/**      * Sets whether message history is enabled or not (default is enabled).      *      * @param messageHistory whether message history is enabled      */
 DECL|method|setMessageHistory (Boolean messageHistory)
 name|void
 name|setMessageHistory
@@ -63,7 +63,7 @@ name|Boolean
 name|messageHistory
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether stream cache is enabled      *      * @return<tt>true</tt> if stream cache is enabled      */
+comment|/**      * Returns whether message history is enabled      *      * @return<tt>true</tt> if message history is enabled      */
 DECL|method|isMessageHistory ()
 name|Boolean
 name|isMessageHistory
