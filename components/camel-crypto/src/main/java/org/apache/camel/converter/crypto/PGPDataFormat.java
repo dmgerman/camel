@@ -1008,13 +1008,6 @@ name|outputStream
 argument_list|)
 expr_stmt|;
 block|}
-name|SecureRandom
-name|random
-init|=
-operator|new
-name|SecureRandom
-argument_list|()
-decl_stmt|;
 name|PGPEncryptedDataGenerator
 name|encGen
 init|=
@@ -1036,7 +1029,9 @@ argument_list|)
 operator|.
 name|setSecureRandom
 argument_list|(
-name|random
+operator|new
+name|SecureRandom
+argument_list|()
 argument_list|)
 operator|.
 name|setProvider

@@ -174,27 +174,27 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|LOG
+name|log
 operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
 literal|"------- Cache Event Notification ---------"
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
 literal|"Received notification for the following activity in cache TestCache1:"
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -203,7 +203,7 @@ argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -212,7 +212,7 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -221,7 +221,7 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(

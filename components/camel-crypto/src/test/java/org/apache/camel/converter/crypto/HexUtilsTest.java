@@ -22,9 +22,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Assert
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|TestSupport
 import|;
 end_import
 
@@ -79,6 +85,8 @@ DECL|class|HexUtilsTest
 specifier|public
 class|class
 name|HexUtilsTest
+extends|extends
+name|TestSupport
 block|{
 DECL|field|array
 name|byte
@@ -137,8 +145,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"0123456789abcdef"
@@ -158,8 +164,6 @@ name|void
 name|roundtripArray
 parameter_list|()
 block|{
-name|Assert
-operator|.
 name|assertArrayEquals
 argument_list|(
 name|array
@@ -291,8 +295,6 @@ literal|0
 condition|)
 block|{
 comment|// add the padded byte if odd
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|hexString
@@ -311,8 +313,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|hexString
