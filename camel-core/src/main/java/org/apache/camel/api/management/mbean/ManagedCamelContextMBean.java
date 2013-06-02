@@ -250,6 +250,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Message History"
+argument_list|)
+DECL|method|getMessageHistory ()
+name|Boolean
+name|getMessageHistory
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Current number of inflight Exchanges"
 argument_list|)
 DECL|method|getInflightExchanges ()

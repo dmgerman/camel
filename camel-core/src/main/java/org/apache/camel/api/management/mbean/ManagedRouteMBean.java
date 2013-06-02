@@ -164,6 +164,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Message History"
+argument_list|)
+DECL|method|getMessageHistory ()
+name|Boolean
+name|getMessageHistory
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Route Policy List"
 argument_list|)
 DECL|method|getRoutePolicyList ()

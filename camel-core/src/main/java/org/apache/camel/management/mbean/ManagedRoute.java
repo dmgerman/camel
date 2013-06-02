@@ -672,6 +672,22 @@ name|tracing
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getMessageHistory ()
+specifier|public
+name|Boolean
+name|getMessageHistory
+parameter_list|()
+block|{
+return|return
+name|route
+operator|.
+name|getRouteContext
+argument_list|()
+operator|.
+name|isMessageHistory
+argument_list|()
+return|;
+block|}
 DECL|method|getRoutePolicyList ()
 specifier|public
 name|String

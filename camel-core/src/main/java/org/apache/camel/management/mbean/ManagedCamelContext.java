@@ -650,6 +650,19 @@ name|tracing
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getMessageHistory ()
+specifier|public
+name|Boolean
+name|getMessageHistory
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isMessageHistory
+argument_list|()
+return|;
+block|}
 DECL|method|getInflightExchanges ()
 specifier|public
 name|Integer
