@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -150,6 +150,27 @@ name|boolean
 name|useJDBC4ColumnNameAndLabelSemantics
 init|=
 literal|true
+decl_stmt|;
+DECL|field|prepareStatementStrategy
+specifier|private
+name|JdbcPrepareStatementStrategy
+name|prepareStatementStrategy
+init|=
+operator|new
+name|DefaultJdbcPrepareStatementStrategy
+argument_list|()
+decl_stmt|;
+DECL|field|allowNamedParameters
+specifier|private
+name|boolean
+name|allowNamedParameters
+init|=
+literal|true
+decl_stmt|;
+DECL|field|useHeadersAsParameters
+specifier|private
+name|boolean
+name|useHeadersAsParameters
 decl_stmt|;
 DECL|method|JdbcEndpoint ()
 specifier|public
@@ -354,7 +375,7 @@ return|return
 name|parameters
 return|;
 block|}
-comment|/**      * Optional parameters to the {@link java.sql.Statement}.      *<p/>      * For example to set maxRows, fetchSize etc.      *       * @param parameters parameters which will be set using reflection      */
+comment|/**      * Optional parameters to the {@link java.sql.Statement}.      *<p/>      * For example to set maxRows, fetchSize etc.      *      * @param parameters parameters which will be set using reflection      */
 DECL|method|setParameters (Map<String, Object> parameters)
 specifier|public
 name|void
@@ -386,7 +407,7 @@ return|return
 name|useJDBC4ColumnNameAndLabelSemantics
 return|;
 block|}
-comment|/**      * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when retrieving column name.      *<p/>      * JDBC 4.0 uses columnLabel to get the column name where as JDBC 3.0 uses both columnName or columnLabel.      * Unfortunately JDBC drivers behave differently so you can use this option to work out issues around your      * JDBC driver if you get problem using this component      *<p/>      * This option is default<tt>true</tt>.      *      * @param useJDBC4ColumnNameAndLabelSemantics<tt>true</tt> to use JDBC 4.0 semantics,<tt>false</tt> to use JDBC 3.0.      */
+comment|/**      * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when retrieving column name.      *<p/>      * JDBC 4.0 uses columnLabel to get the column name where as JDBC 3.0 uses both columnName or columnLabel.      * Unfortunately JDBC drivers behave differently so you can use this option to work out issues around your      * JDBC driver if you get problem using this component      *<p/>      * This option is default<tt>true</tt>.      *      * @param useJDBC4ColumnNameAndLabelSemantics      *<tt>true</tt> to use JDBC 4.0 semantics,<tt>false</tt> to use JDBC 3.0.      */
 DECL|method|setUseJDBC4ColumnNameAndLabelSemantics (boolean useJDBC4ColumnNameAndLabelSemantics)
 specifier|public
 name|void
@@ -401,6 +422,84 @@ operator|.
 name|useJDBC4ColumnNameAndLabelSemantics
 operator|=
 name|useJDBC4ColumnNameAndLabelSemantics
+expr_stmt|;
+block|}
+DECL|method|getPrepareStatementStrategy ()
+specifier|public
+name|JdbcPrepareStatementStrategy
+name|getPrepareStatementStrategy
+parameter_list|()
+block|{
+return|return
+name|prepareStatementStrategy
+return|;
+block|}
+DECL|method|setPrepareStatementStrategy (JdbcPrepareStatementStrategy prepareStatementStrategy)
+specifier|public
+name|void
+name|setPrepareStatementStrategy
+parameter_list|(
+name|JdbcPrepareStatementStrategy
+name|prepareStatementStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prepareStatementStrategy
+operator|=
+name|prepareStatementStrategy
+expr_stmt|;
+block|}
+DECL|method|isAllowNamedParameters ()
+specifier|public
+name|boolean
+name|isAllowNamedParameters
+parameter_list|()
+block|{
+return|return
+name|allowNamedParameters
+return|;
+block|}
+DECL|method|setAllowNamedParameters (boolean allowNamedParameters)
+specifier|public
+name|void
+name|setAllowNamedParameters
+parameter_list|(
+name|boolean
+name|allowNamedParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNamedParameters
+operator|=
+name|allowNamedParameters
+expr_stmt|;
+block|}
+DECL|method|isUseHeadersAsParameters ()
+specifier|public
+name|boolean
+name|isUseHeadersAsParameters
+parameter_list|()
+block|{
+return|return
+name|useHeadersAsParameters
+return|;
+block|}
+DECL|method|setUseHeadersAsParameters (boolean useHeadersAsParameters)
+specifier|public
+name|void
+name|setUseHeadersAsParameters
+parameter_list|(
+name|boolean
+name|useHeadersAsParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useHeadersAsParameters
+operator|=
+name|useHeadersAsParameters
 expr_stmt|;
 block|}
 annotation|@

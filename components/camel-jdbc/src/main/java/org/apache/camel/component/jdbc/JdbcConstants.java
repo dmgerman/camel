@@ -56,6 +56,15 @@ name|JDBC_COLUMN_NAMES
 init|=
 literal|"CamelJdbcColumnNames"
 decl_stmt|;
+DECL|field|JDBC_PARAMETERS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JDBC_PARAMETERS
+init|=
+literal|"CamelJdbcParameters"
+decl_stmt|;
 comment|/**      * Boolean input header.      * Set its value to true to retrieve generated keys, default is false      */
 DECL|field|JDBC_RETRIEVE_GENERATED_KEYS
 specifier|public
@@ -66,7 +75,7 @@ name|JDBC_RETRIEVE_GENERATED_KEYS
 init|=
 literal|"CamelRetrieveGeneratedKeys"
 decl_stmt|;
-comment|/**      *<tt>String[]</tt> or<tt>int[]</tt> input header - optional      * Set it to specify the expected generated columns, see:      * @see<a href="http://docs.oracle.com/javase/6/docs/api/java/sql/Statement.html#execute(java.lang.String, int[])">      *     java.sql.Statement.execute(java.lang.String, int[])</a>      * @see<a href="http://docs.oracle.com/javase/6/docs/api/java/sql/Statement.html#execute(java.lang.String, java.lang.String[])">      *     java.sql.Statement.execute(java.lang.String, java.lang.String[])</a>      */
+comment|/**      *<tt>String[]</tt> or<tt>int[]</tt> input header - optional      * Set it to specify the expected generated columns, see:      *      * @see<a href="http://docs.oracle.com/javase/6/docs/api/java/sql/Statement.html#execute(java.lang.String, int[])">      *      java.sql.Statement.execute(java.lang.String, int[])</a>      * @see<a href="http://docs.oracle.com/javase/6/docs/api/java/sql/Statement.html#execute(java.lang.String, java.lang.String[])">      *      java.sql.Statement.execute(java.lang.String, java.lang.String[])</a>      */
 DECL|field|JDBC_GENERATED_COLUMNS
 specifier|public
 specifier|static
