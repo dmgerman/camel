@@ -358,6 +358,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|deleteLocalWorkFile
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|operations
+operator|.
+name|releaseRetreivedFileResources
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// must release lock last
 if|if
 condition|(
 name|exclusiveReadLockStrategy
@@ -377,18 +390,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|deleteLocalWorkFile
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|operations
-operator|.
-name|releaseRetreivedFileResources
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|commit (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
@@ -419,6 +420,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|deleteLocalWorkFile
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|operations
+operator|.
+name|releaseRetreivedFileResources
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// must release lock last
 if|if
 condition|(
 name|exclusiveReadLockStrategy
@@ -438,18 +452,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|deleteLocalWorkFile
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|operations
-operator|.
-name|releaseRetreivedFileResources
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|rollback (GenericFileOperations<T> operations, GenericFileEndpoint<T> endpoint, Exchange exchange, GenericFile<T> file)
 specifier|public
@@ -480,6 +482,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|deleteLocalWorkFile
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|operations
+operator|.
+name|releaseRetreivedFileResources
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// must release lock last
 if|if
 condition|(
 name|exclusiveReadLockStrategy
@@ -499,18 +514,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|deleteLocalWorkFile
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-name|operations
-operator|.
-name|releaseRetreivedFileResources
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getExclusiveReadLockStrategy ()
 specifier|public
@@ -689,7 +692,7 @@ name|to
 return|;
 block|}
 DECL|method|deleteLocalWorkFile (Exchange exchange)
-specifier|private
+specifier|protected
 name|void
 name|deleteLocalWorkFile
 parameter_list|(
