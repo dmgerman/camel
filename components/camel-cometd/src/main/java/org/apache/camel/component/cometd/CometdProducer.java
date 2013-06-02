@@ -262,6 +262,12 @@ name|getPath
 argument_list|()
 argument_list|,
 name|this
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDisconnectLocalSession
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -373,7 +379,13 @@ specifier|final
 name|CometdBinding
 name|binding
 decl_stmt|;
-DECL|method|ProducerService (BayeuxServer bayeux, CometdBinding cometdBinding, String channel, CometdProducer producer)
+DECL|field|disconnectLocalSession
+specifier|private
+specifier|final
+name|boolean
+name|disconnectLocalSession
+decl_stmt|;
+DECL|method|ProducerService (BayeuxServer bayeux, CometdBinding cometdBinding, String channel, CometdProducer producer, boolean disconnectLocalSession)
 specifier|public
 name|ProducerService
 parameter_list|(
@@ -388,6 +400,9 @@ name|channel
 parameter_list|,
 name|CometdProducer
 name|producer
+parameter_list|,
+name|boolean
+name|disconnectLocalSession
 parameter_list|)
 block|{
 name|super
@@ -408,6 +423,12 @@ operator|.
 name|binding
 operator|=
 name|cometdBinding
+expr_stmt|;
+name|this
+operator|.
+name|disconnectLocalSession
+operator|=
+name|disconnectLocalSession
 expr_stmt|;
 block|}
 DECL|method|process (final Exchange exchange)
@@ -455,6 +476,8 @@ init|=
 name|getServerSession
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|channel
@@ -497,6 +520,35 @@ argument_list|,
 name|mutable
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|disconnectLocalSession
+operator|&&
+name|serverSession
+operator|.
+name|isLocalSession
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Disconnection local session {}"
+argument_list|,
+name|serverSession
+argument_list|)
+expr_stmt|;
+name|serverSession
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|logDelivery (Exchange exchange, ServerChannel channel)

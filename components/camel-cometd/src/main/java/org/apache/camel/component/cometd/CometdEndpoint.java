@@ -199,6 +199,13 @@ specifier|private
 name|String
 name|filterPath
 decl_stmt|;
+DECL|field|disconnectLocalSession
+specifier|private
+name|boolean
+name|disconnectLocalSession
+init|=
+literal|true
+decl_stmt|;
 DECL|method|CometdEndpoint (CometdComponent component, String uri, String remaining, Map<String, Object> parameters)
 specifier|public
 name|CometdEndpoint
@@ -754,6 +761,32 @@ operator|.
 name|filterPath
 operator|=
 name|filterPath
+expr_stmt|;
+block|}
+DECL|method|isDisconnectLocalSession ()
+specifier|public
+name|boolean
+name|isDisconnectLocalSession
+parameter_list|()
+block|{
+return|return
+name|disconnectLocalSession
+return|;
+block|}
+DECL|method|setDisconnectLocalSession (boolean disconnectLocalSession)
+specifier|public
+name|void
+name|setDisconnectLocalSession
+parameter_list|(
+name|boolean
+name|disconnectLocalSession
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disconnectLocalSession
+operator|=
+name|disconnectLocalSession
 expr_stmt|;
 block|}
 block|}
