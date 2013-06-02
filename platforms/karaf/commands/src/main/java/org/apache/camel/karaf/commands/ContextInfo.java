@@ -1430,6 +1430,25 @@ name|StringEscapeUtils
 operator|.
 name|unescapeJava
 argument_list|(
+literal|"\tMessage History: "
+operator|+
+name|camelContext
+operator|.
+name|isMessageHistory
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
 literal|"\tTracing: "
 operator|+
 name|camelContext
