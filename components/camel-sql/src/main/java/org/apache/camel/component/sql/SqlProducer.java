@@ -178,7 +178,12 @@ specifier|private
 name|boolean
 name|alwaysPopulateStatement
 decl_stmt|;
-DECL|method|SqlProducer (SqlEndpoint endpoint, String query, JdbcTemplate jdbcTemplate, boolean batch, boolean alwaysPopulateStatement)
+DECL|field|sqlPrepareStatementStrategy
+specifier|private
+name|SqlPrepareStatementStrategy
+name|sqlPrepareStatementStrategy
+decl_stmt|;
+DECL|method|SqlProducer (SqlEndpoint endpoint, String query, JdbcTemplate jdbcTemplate, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, boolean batch, boolean alwaysPopulateStatement)
 specifier|public
 name|SqlProducer
 parameter_list|(
@@ -190,6 +195,9 @@ name|query
 parameter_list|,
 name|JdbcTemplate
 name|jdbcTemplate
+parameter_list|,
+name|SqlPrepareStatementStrategy
+name|sqlPrepareStatementStrategy
 parameter_list|,
 name|boolean
 name|batch
@@ -208,6 +216,12 @@ operator|.
 name|jdbcTemplate
 operator|=
 name|jdbcTemplate
+expr_stmt|;
+name|this
+operator|.
+name|sqlPrepareStatementStrategy
+operator|=
+name|sqlPrepareStatementStrategy
 expr_stmt|;
 name|this
 operator|.
@@ -293,11 +307,7 @@ specifier|final
 name|String
 name|preparedQuery
 init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|prepareQuery
 argument_list|(
@@ -414,11 +424,7 @@ name|?
 argument_list|>
 name|i
 init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|createPopulateIterator
 argument_list|(
@@ -433,11 +439,7 @@ argument_list|,
 name|value
 argument_list|)
 decl_stmt|;
-name|getEndpoint
-argument_list|()
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|populateStatement
 argument_list|(
@@ -463,11 +465,7 @@ name|?
 argument_list|>
 name|i
 init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|createPopulateIterator
 argument_list|(
@@ -488,11 +486,7 @@ name|getBody
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|getEndpoint
-argument_list|()
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|populateStatement
 argument_list|(

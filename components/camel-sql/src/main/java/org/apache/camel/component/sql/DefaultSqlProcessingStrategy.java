@@ -136,6 +136,27 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|sqlPrepareStatementStrategy
+specifier|private
+specifier|final
+name|SqlPrepareStatementStrategy
+name|sqlPrepareStatementStrategy
+decl_stmt|;
+DECL|method|DefaultSqlProcessingStrategy (SqlPrepareStatementStrategy sqlPrepareStatementStrategy)
+specifier|public
+name|DefaultSqlProcessingStrategy
+parameter_list|(
+name|SqlPrepareStatementStrategy
+name|sqlPrepareStatementStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sqlPrepareStatementStrategy
+operator|=
+name|sqlPrepareStatementStrategy
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|commit (final SqlEndpoint endpoint, final Exchange exchange, final Object data, final JdbcTemplate jdbcTemplate, final String query)
@@ -170,10 +191,7 @@ specifier|final
 name|String
 name|preparedQuery
 init|=
-name|endpoint
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|prepareQuery
 argument_list|(
@@ -226,10 +244,7 @@ name|?
 argument_list|>
 name|iterator
 init|=
-name|endpoint
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|createPopulateIterator
 argument_list|(
@@ -251,10 +266,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|endpoint
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|populateStatement
 argument_list|(
@@ -344,10 +356,7 @@ specifier|final
 name|String
 name|preparedQuery
 init|=
-name|endpoint
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|prepareQuery
 argument_list|(

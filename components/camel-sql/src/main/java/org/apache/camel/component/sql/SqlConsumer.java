@@ -284,6 +284,18 @@ specifier|final
 name|JdbcTemplate
 name|jdbcTemplate
 decl_stmt|;
+DECL|field|sqlPrepareStatementStrategy
+specifier|private
+specifier|final
+name|SqlPrepareStatementStrategy
+name|sqlPrepareStatementStrategy
+decl_stmt|;
+DECL|field|sqlProcessingStrategy
+specifier|private
+specifier|final
+name|SqlProcessingStrategy
+name|sqlProcessingStrategy
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|onConsume
@@ -361,7 +373,7 @@ name|DataHolder
 parameter_list|()
 block|{         }
 block|}
-DECL|method|SqlConsumer (SqlEndpoint endpoint, Processor processor, JdbcTemplate jdbcTemplate, String query)
+DECL|method|SqlConsumer (SqlEndpoint endpoint, Processor processor, JdbcTemplate jdbcTemplate, String query, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, SqlProcessingStrategy sqlProcessingStrategy)
 specifier|public
 name|SqlConsumer
 parameter_list|(
@@ -376,6 +388,12 @@ name|jdbcTemplate
 parameter_list|,
 name|String
 name|query
+parameter_list|,
+name|SqlPrepareStatementStrategy
+name|sqlPrepareStatementStrategy
+parameter_list|,
+name|SqlProcessingStrategy
+name|sqlProcessingStrategy
 parameter_list|)
 block|{
 name|super
@@ -396,6 +414,18 @@ operator|.
 name|query
 operator|=
 name|query
+expr_stmt|;
+name|this
+operator|.
+name|sqlPrepareStatementStrategy
+operator|=
+name|sqlPrepareStatementStrategy
+expr_stmt|;
+name|this
+operator|.
+name|sqlProcessingStrategy
+operator|=
+name|sqlProcessingStrategy
 expr_stmt|;
 block|}
 annotation|@
@@ -439,11 +469,7 @@ specifier|final
 name|String
 name|preparedQuery
 init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getPrepareStatementStrategy
-argument_list|()
+name|sqlPrepareStatementStrategy
 operator|.
 name|prepareQuery
 argument_list|(
@@ -984,11 +1010,7 @@ block|{
 name|int
 name|updateCount
 init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getProcessingStrategy
-argument_list|()
+name|sqlProcessingStrategy
 operator|.
 name|commit
 argument_list|(
@@ -1082,11 +1104,7 @@ block|{
 name|int
 name|updateCount
 init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getProcessingStrategy
-argument_list|()
+name|sqlProcessingStrategy
 operator|.
 name|commitBatchComplete
 argument_list|(
