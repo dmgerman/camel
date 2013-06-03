@@ -521,25 +521,25 @@ specifier|protected
 name|String
 name|dotDir
 decl_stmt|;
-comment|/**      * Allows the DOT file generation to be enabled      *      * @parameter property="false"      */
+comment|/**      * Allows the DOT file generation to be enabled      *      * @parameter property="camel.usdDot"      *            default-value="false"      */
 DECL|field|useDot
 specifier|protected
 name|boolean
 name|useDot
 decl_stmt|;
-comment|/**      * Whether to log the classpath when starting      *      * @parameter property="false"      */
+comment|/**      * Whether to log the classpath when starting      *      * @parameter property="camel.logClasspath"      *            default-value="false"      */
 DECL|field|logClasspath
 specifier|protected
 name|boolean
 name|logClasspath
 decl_stmt|;
-comment|/**      * Whether to use Blueprint when running, instead of Spring      *      * @parameter property="camel.blueprint"      *            default-value="false"      */
+comment|/**      * Whether to use Blueprint when running, instead of Spring      *      * @parameter property="camel.useBlueprint"      *            default-value="false"      */
 DECL|field|useBlueprint
 specifier|protected
 name|boolean
 name|useBlueprint
 decl_stmt|;
-comment|/**      * Whether to use CDI when running, instead of Spring      *      * @parameter property="camel.cdi"      *            default-value="false"      */
+comment|/**      * Whether to use CDI when running, instead of Spring      *      * @parameter property="camel.useCDI"      *            default-value="false"      */
 DECL|field|useCDI
 specifier|protected
 name|boolean
