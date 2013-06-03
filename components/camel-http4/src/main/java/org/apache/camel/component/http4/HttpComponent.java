@@ -154,6 +154,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -540,6 +554,12 @@ name|connectionTimeToLive
 init|=
 operator|-
 literal|1
+decl_stmt|;
+DECL|field|usedSslContextParams
+specifier|private
+specifier|volatile
+name|SSLContextParameters
+name|usedSslContextParams
 decl_stmt|;
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
 DECL|method|connect (HttpConsumer consumer)
@@ -1840,6 +1860,63 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|usedSslContextParams
+operator|==
+literal|null
+condition|)
+block|{
+name|usedSslContextParams
+operator|=
+name|sslContextParams
+expr_stmt|;
+block|}
+comment|// we must use same SSLContextParameters for this component.
+if|if
+condition|(
+name|usedSslContextParams
+operator|!=
+name|sslContextParams
+condition|)
+block|{
+comment|// use identity hashcode in exception message
+name|Object
+name|previous
+init|=
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|usedSslContextParams
+argument_list|)
+decl_stmt|;
+name|Object
+name|next
+init|=
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|sslContextParams
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Only same instance of SSLContextParameters is supported. Cannot use a different instance."
+operator|+
+literal|" Previous instance hashcode: "
+operator|+
+name|previous
+operator|+
+literal|", New instance hashcode: "
+operator|+
+name|next
+argument_list|)
+throw|;
+block|}
 name|SchemeRegistry
 name|registry
 init|=
@@ -2535,6 +2612,10 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|usedSslContextParams
+operator|=
+literal|null
+expr_stmt|;
 name|super
 operator|.
 name|doStop
