@@ -145,6 +145,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|DirectEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|DirectEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
