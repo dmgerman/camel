@@ -44,6 +44,17 @@ specifier|public
 interface|interface
 name|StreamCache
 block|{
+DECL|field|DEFAULT_SPOOL_THRESHOLD
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_SPOOL_THRESHOLD
+init|=
+literal|128
+operator|*
+literal|1024
+decl_stmt|;
 comment|/**      * Resets the StreamCache for a new stream consumption.      */
 DECL|method|reset ()
 name|void

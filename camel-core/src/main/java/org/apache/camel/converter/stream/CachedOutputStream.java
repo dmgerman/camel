@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This output stream will store the content into a File if the stream context size is exceed the  * THRESHOLD which's default value is 64K. The temp file will store in the temp directory, you   * can configure it by setting the TEMP_DIR property. If you don't set the TEMP_DIR property,  * it will choose the directory which is set by the system property of "java.io.tmpdir".  * You can get a cached input stream of this stream. The temp file which is created with this   * output stream will be deleted when you close this output stream or the all cached   * fileInputStream is closed after the exchange is completed.  */
+comment|/**  * This output stream will store the content into a File if the stream context size is exceed the  * THRESHOLD which's default value is {@link StreamCache#DEFAULT_SPOOL_THRESHOLD} bytes .  *<p/>  * The temp file will store in the temp directory, you can configure it by setting the TEMP_DIR property.  * If you don't set the TEMP_DIR property, it will choose the directory which is set by the  * system property of "java.io.tmpdir".  *<p/>  * You can get a cached input stream of this stream. The temp file which is created with this   * output stream will be deleted when you close this output stream or the all cached   * fileInputStream is closed after the exchange is completed.  */
 end_comment
 
 begin_class
@@ -311,9 +311,9 @@ specifier|private
 name|long
 name|threshold
 init|=
-literal|64
-operator|*
-literal|1024
+name|StreamCache
+operator|.
+name|DEFAULT_SPOOL_THRESHOLD
 decl_stmt|;
 DECL|field|bufferSize
 specifier|private
