@@ -172,7 +172,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Remote the breakpoint from the given node id"
+literal|"Remote the breakpoint from the given node id (will resume suspend breakpoint first)"
 argument_list|)
 DECL|method|removeBreakpoint (String nodeId)
 name|void
@@ -181,6 +181,18 @@ parameter_list|(
 name|String
 name|nodeId
 parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Remote all breakpoints (will resume all suspend breakpoints first and exists single step mode)"
+argument_list|)
+DECL|method|removeAllBreakpoints ()
+name|void
+name|removeAllBreakpoints
+parameter_list|()
 function_decl|;
 annotation|@
 name|ManagedOperation
