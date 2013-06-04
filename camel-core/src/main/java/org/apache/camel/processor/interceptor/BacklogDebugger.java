@@ -1733,6 +1733,28 @@ name|String
 name|nodeId
 parameter_list|)
 block|{
+comment|// if we are already in single step mode, then infer stepping
+if|if
+condition|(
+name|isSingleStepMode
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|log
+argument_list|(
+literal|"stepBreakpoint "
+operator|+
+name|nodeId
+operator|+
+literal|" is already in single step mode, so stepping instead."
+argument_list|)
+expr_stmt|;
+name|step
+argument_list|()
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|log
