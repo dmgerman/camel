@@ -104,7 +104,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|ServiceHelper
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ServiceHelper
+name|URISupport
 import|;
 end_import
 
@@ -428,15 +428,29 @@ argument_list|()
 operator|+
 literal|"&authMethod=Basic"
 decl_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isInfoEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|info
 argument_list|(
 literal|"Creating NetWeaverProducer using url: {}"
 argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|url
 argument_list|)
+argument_list|)
 expr_stmt|;
+block|}
 name|http
 operator|=
 name|getEndpoint
