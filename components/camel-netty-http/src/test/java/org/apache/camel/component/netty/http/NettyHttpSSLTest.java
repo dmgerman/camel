@@ -355,7 +355,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"netty-http:http://localhost:{{port}}?ssl=true&passphrase=changeit&keyStoreResource=jsse/localhost.ks&trustStoreResource=jsse/localhost.ks"
+literal|"netty-http:https://localhost:{{port}}?ssl=true&passphrase=changeit&keyStoreResource=jsse/localhost.ks&trustStoreResource=jsse/localhost.ks"
 argument_list|)
 operator|.
 name|to

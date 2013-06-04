@@ -147,8 +147,6 @@ comment|// - urlrewrite
 comment|// TODO: producer
 comment|// - add support for HTTP_URI / HTTP_QUERY overrides
 comment|// - add actual url to state so we know exactly which url we called also for done callback
-comment|// - add support for connection timeout
-comment|// - add support for request timeout
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
