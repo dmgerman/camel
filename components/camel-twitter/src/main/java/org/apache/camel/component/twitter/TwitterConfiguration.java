@@ -50,6 +50,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
 name|twitter4j
 operator|.
 name|Twitter
@@ -107,33 +121,45 @@ class|class
 name|TwitterConfiguration
 block|{
 comment|/**      * OAuth      */
+annotation|@
+name|UriParam
 DECL|field|consumerKey
 specifier|private
 name|String
 name|consumerKey
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|consumerSecret
 specifier|private
 name|String
 name|consumerSecret
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|accessToken
 specifier|private
 name|String
 name|accessToken
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|accessTokenSecret
 specifier|private
 name|String
 name|accessTokenSecret
 decl_stmt|;
 comment|/**      * Defines the Twitter API endpoint.      */
+annotation|@
+name|UriParam
 DECL|field|type
 specifier|private
 name|String
 name|type
 decl_stmt|;
 comment|/**      * Polling delay.      */
+annotation|@
+name|UriParam
 DECL|field|delay
 specifier|private
 name|int
@@ -142,30 +168,40 @@ init|=
 literal|60
 decl_stmt|;
 comment|/**      * Username -- used for searching, etc.      */
+annotation|@
+name|UriParam
 DECL|field|user
 specifier|private
 name|String
 name|user
 decl_stmt|;
 comment|/**      * Keywords used for search and filters.      */
+annotation|@
+name|UriParam
 DECL|field|keywords
 specifier|private
 name|String
 name|keywords
 decl_stmt|;
 comment|/**      * Lon/Lat bounding boxes used for filtering.      */
+annotation|@
+name|UriParam
 DECL|field|locations
 specifier|private
 name|String
 name|locations
 decl_stmt|;
 comment|/**      * List of userIds used for searching, etc.      */
+annotation|@
+name|UriParam
 DECL|field|userIds
 specifier|private
 name|String
 name|userIds
 decl_stmt|;
 comment|/**      * Filter out old tweets that have been previously polled.      */
+annotation|@
+name|UriParam
 DECL|field|filterOld
 specifier|private
 name|boolean
@@ -174,12 +210,16 @@ init|=
 literal|true
 decl_stmt|;
 comment|/**      * Used for time-based endpoints (trends, etc.)      */
+annotation|@
+name|UriParam
 DECL|field|date
 specifier|private
 name|String
 name|date
 decl_stmt|;
 comment|/**      * Used to set the sinceId from pulling      */
+annotation|@
+name|UriParam
 DECL|field|sinceId
 specifier|private
 name|long
@@ -188,31 +228,40 @@ init|=
 literal|1
 decl_stmt|;
 comment|/**      * Used ot set the preferred language on which to search      */
+annotation|@
+name|UriParam
 DECL|field|lang
 specifier|private
 name|String
 name|lang
 decl_stmt|;
 comment|/**      * Used to set the maximum tweets per page (max = 100)      */
+annotation|@
+name|UriParam
 DECL|field|count
 specifier|private
 name|Integer
 name|count
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|parsedDate
 specifier|private
 name|Date
 name|parsedDate
 decl_stmt|;
-DECL|field|sdf
+comment|/**      * Number of page to iterate before stop (default is 1)      */
+annotation|@
+name|UriParam
+DECL|field|numberOfPages
 specifier|private
-name|SimpleDateFormat
-name|sdf
+name|Integer
+name|numberOfPages
 init|=
 operator|new
-name|SimpleDateFormat
+name|Integer
 argument_list|(
-literal|"yyyy-MM-dd"
+literal|1
 argument_list|)
 decl_stmt|;
 comment|/**      * Singleton, on demand instances of Twitter4J's Twitter& TwitterStream.      * This should not be created by an endpoint's doStart(), etc., since      * instances of twitter and/or twitterStream can be supplied by the route      * itself.  Further, as an example, we don't want to initialize twitter      * if we only need twitterStream.      */
@@ -225,18 +274,6 @@ DECL|field|twitterStream
 specifier|private
 name|TwitterStream
 name|twitterStream
-decl_stmt|;
-comment|/**      * Number of page to iterate before stop (default is 1)      */
-DECL|field|numberOfPages
-specifier|private
-name|Integer
-name|numberOfPages
-init|=
-operator|new
-name|Integer
-argument_list|(
-literal|1
-argument_list|)
 decl_stmt|;
 comment|/**      * Ensures required fields are available.      */
 DECL|method|checkComplete ()
@@ -731,6 +768,15 @@ name|date
 expr_stmt|;
 try|try
 block|{
+name|SimpleDateFormat
+name|sdf
+init|=
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"yyyy-MM-dd"
+argument_list|)
+decl_stmt|;
 name|parsedDate
 operator|=
 name|sdf
