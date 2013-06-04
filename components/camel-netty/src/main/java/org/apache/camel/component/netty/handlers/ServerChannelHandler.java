@@ -138,20 +138,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ExchangeHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|IOHelper
 import|;
 end_import
@@ -292,11 +278,13 @@ argument_list|)
 decl_stmt|;
 DECL|field|consumer
 specifier|private
+specifier|final
 name|NettyConsumer
 name|consumer
 decl_stmt|;
 DECL|field|noReplyLogger
 specifier|private
+specifier|final
 name|CamelLogger
 name|noReplyLogger
 decl_stmt|;
@@ -462,9 +450,13 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
-name|LOG
+comment|// let the exception handler deal with it
+name|consumer
 operator|.
-name|warn
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
 argument_list|(
 literal|"Closing channel as an exception was thrown from Netty"
 argument_list|,
