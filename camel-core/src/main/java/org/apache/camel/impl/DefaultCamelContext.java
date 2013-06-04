@@ -1942,6 +1942,16 @@ specifier|private
 name|ErrorHandlerFactory
 name|errorHandlerBuilder
 decl_stmt|;
+DECL|field|errorHandlerExecutorServiceLock
+specifier|private
+specifier|final
+name|Object
+name|errorHandlerExecutorServiceLock
+init|=
+operator|new
+name|Object
+argument_list|()
+decl_stmt|;
 DECL|field|errorHandlerExecutorService
 specifier|private
 name|ScheduledExecutorService
@@ -7462,10 +7472,14 @@ expr_stmt|;
 block|}
 DECL|method|getErrorHandlerExecutorService ()
 specifier|public
-specifier|synchronized
 name|ScheduledExecutorService
 name|getErrorHandlerExecutorService
 parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|errorHandlerExecutorServiceLock
+init|)
 block|{
 if|if
 condition|(
@@ -7487,6 +7501,7 @@ argument_list|,
 literal|"ErrorHandlerRedeliveryTask"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|errorHandlerExecutorService
