@@ -304,6 +304,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Breakpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Condition
 import|;
 end_import
@@ -1338,6 +1352,33 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|method|removeAllBreakpoints ()
+specifier|public
+name|void
+name|removeAllBreakpoints
+parameter_list|()
+block|{
+comment|// stop single stepping
+name|singleStepExchangeId
+operator|=
+literal|null
+expr_stmt|;
+for|for
+control|(
+name|String
+name|nodeId
+range|:
+name|getSuspendedBreakpointNodeIds
+argument_list|()
+control|)
+block|{
+name|removeBreakpoint
+argument_list|(
+name|nodeId
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|getBreakpoints ()
 specifier|public
 name|Set
@@ -1733,6 +1774,28 @@ name|String
 name|nodeId
 parameter_list|)
 block|{
+comment|// if we are already in single step mode, then infer stepping
+if|if
+condition|(
+name|isSingleStepMode
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|log
+argument_list|(
+literal|"stepBreakpoint "
+operator|+
+name|nodeId
+operator|+
+literal|" is already in single step mode, so stepping instead."
+argument_list|)
+expr_stmt|;
+name|step
+argument_list|()
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|log

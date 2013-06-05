@@ -413,6 +413,15 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setExceptionHandler
+argument_list|(
+operator|new
+name|NettyConsumerExceptionHandler
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

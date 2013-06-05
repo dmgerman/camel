@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test Component.  *  * @see org.apache.camel.component.test.TestEndpoint  *  * @version   */
+comment|/**  * Test Component.  *  * @version   */
 end_comment
 
 begin_class
@@ -234,6 +234,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Long
+name|timeout
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"timeout"
+argument_list|,
+name|Long
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|Endpoint
 name|endpoint
 init|=
@@ -247,7 +261,9 @@ argument_list|,
 name|remaining
 argument_list|)
 decl_stmt|;
-return|return
+name|TestEndpoint
+name|answer
+init|=
 operator|new
 name|TestEndpoint
 argument_list|(
@@ -257,6 +273,24 @@ name|this
 argument_list|,
 name|endpoint
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|timeout
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 block|}

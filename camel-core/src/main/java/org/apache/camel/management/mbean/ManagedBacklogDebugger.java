@@ -330,6 +330,18 @@ name|nodeId
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|removeAllBreakpoints ()
+specifier|public
+name|void
+name|removeAllBreakpoints
+parameter_list|()
+block|{
+name|backlogDebugger
+operator|.
+name|removeAllBreakpoints
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|getBreakpoints ()
 specifier|public
 name|Set

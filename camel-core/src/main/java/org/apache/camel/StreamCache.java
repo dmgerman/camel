@@ -45,9 +45,6 @@ interface|interface
 name|StreamCache
 block|{
 DECL|field|DEFAULT_SPOOL_THRESHOLD
-specifier|public
-specifier|static
-specifier|final
 name|long
 name|DEFAULT_SPOOL_THRESHOLD
 init|=
