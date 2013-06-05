@@ -115,6 +115,11 @@ name|BeanEndpoint
 extends|extends
 name|ProcessorEndpoint
 block|{
+DECL|field|beanHolder
+specifier|private
+name|BeanHolder
+name|beanHolder
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|cache
@@ -142,11 +147,6 @@ DECL|field|method
 specifier|private
 name|String
 name|method
-decl_stmt|;
-DECL|field|beanHolder
-specifier|private
-name|BeanHolder
-name|beanHolder
 decl_stmt|;
 DECL|method|BeanEndpoint ()
 specifier|public
