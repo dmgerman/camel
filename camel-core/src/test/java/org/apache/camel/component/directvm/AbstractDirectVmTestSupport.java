@@ -123,6 +123,7 @@ end_comment
 begin_class
 DECL|class|AbstractDirectVmTestSupport
 specifier|public
+specifier|abstract
 class|class
 name|AbstractDirectVmTestSupport
 extends|extends
