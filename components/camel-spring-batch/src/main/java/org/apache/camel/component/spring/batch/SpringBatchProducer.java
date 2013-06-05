@@ -150,6 +150,10 @@ name|JobLauncher
 import|;
 end_import
 
+begin_comment
+comment|/**  * Spring Batch Producer triggering the execution of the jobs.  */
+end_comment
+
 begin_class
 DECL|class|SpringBatchProducer
 specifier|public
@@ -252,6 +256,7 @@ name|jobExecution
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Helper method converting the Camel message headers into the Spring Batch parameters map. Date, Long and Double      * header values are converted to the appropriate types. All the other header values are converted to string      * representation.      *      * @param headers Camel message header to be converted      * @return Camel message headers converted into the Spring Batch parameters map      */
 DECL|method|prepareJobParameters (Map<String, Object> headers)
 specifier|protected
 name|JobParameters
