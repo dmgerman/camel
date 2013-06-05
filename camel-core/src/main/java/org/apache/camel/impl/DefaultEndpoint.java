@@ -178,6 +178,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -279,6 +293,8 @@ specifier|private
 name|Component
 name|component
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|exchangePattern
 specifier|private
 name|ExchangePattern
@@ -290,6 +306,8 @@ name|InOnly
 decl_stmt|;
 comment|// option to allow end user to dictate whether async processing should be
 comment|// used or not (if possible)
+annotation|@
+name|UriParam
 DECL|field|synchronous
 specifier|private
 name|boolean

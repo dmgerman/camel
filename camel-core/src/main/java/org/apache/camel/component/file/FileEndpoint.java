@@ -190,6 +190,7 @@ argument_list|>
 block|{
 DECL|field|operations
 specifier|private
+specifier|final
 name|FileOperations
 name|operations
 init|=
@@ -199,7 +200,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-comment|/**      *      */
 annotation|@
 name|UriPath
 DECL|field|file
