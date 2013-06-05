@@ -68,6 +68,10 @@ name|ItemProcessor
 import|;
 end_import
 
+begin_comment
+comment|/**  * Spring Batch {@link ItemProcessor} sending synchronous request to the given Camel endpoint. The actual processing of  * the item is delegated to the Camel routes.  */
+end_comment
+
 begin_class
 DECL|class|CamelItemProcessor
 specifier|public
