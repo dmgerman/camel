@@ -26,6 +26,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -66,28 +86,8 @@ name|XmlType
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  *<p>Java class for Result complex type.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *   *<pre>  *&lt;complexType name="Result">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="errors" type="{http://www.force.com/2009/06/asyncapi/dataload}ResultError" maxOccurs="unbounded" minOccurs="0"/>  *&lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="success" type="{http://www.w3.org/2001/XMLSchema}boolean"/>  *&lt;element name="created" type="{http://www.w3.org/2001/XMLSchema}boolean"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *   *   */
+comment|/**  *<p>Java class for Result complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="Result">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="errors" type="{http://www.force.com/2009/06/asyncapi/dataload}ResultError" maxOccurs="unbounded" minOccurs="0"/>  *&lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="success" type="{http://www.w3.org/2001/XMLSchema}boolean"/>  *&lt;element name="created" type="{http://www.w3.org/2001/XMLSchema}boolean"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  */
 end_comment
 
 begin_class
@@ -145,7 +145,7 @@ specifier|protected
 name|boolean
 name|created
 decl_stmt|;
-comment|/**      * Gets the value of the errors property.      *       *<p>      * This accessor method returns a reference to the live list,      * not a snapshot. Therefore any modification you make to the      * returned list will be present inside the JAXB object.      * This is why there is not a<CODE>set</CODE> method for the errors property.      *       *<p>      * For example, to add a new item, do as follows:      *<pre>      *    getErrors().add(newItem);      *</pre>      *       *       *<p>      * Objects of the following type(s) are allowed in the list      * {@link ResultError }      *       *       */
+comment|/**      * Gets the value of the errors property.      *<p/>      *<p/>      * This accessor method returns a reference to the live list,      * not a snapshot. Therefore any modification you make to the      * returned list will be present inside the JAXB object.      * This is why there is not a<CODE>set</CODE> method for the errors property.      *<p/>      *<p/>      * For example, to add a new item, do as follows:      *<pre>      *    getErrors().add(newItem);      *</pre>      *<p/>      *<p/>      *<p/>      * Objects of the following type(s) are allowed in the list      * {@link ResultError }      */
 DECL|method|getErrors ()
 specifier|public
 name|List
@@ -178,7 +178,7 @@ operator|.
 name|errors
 return|;
 block|}
-comment|/**      * Gets the value of the id property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the id property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -189,7 +189,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Sets the value of the id property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the id property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setId (String value)
 specifier|public
 name|void
@@ -206,7 +206,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the success property.      *       */
+comment|/**      * Gets the value of the success property.      */
 DECL|method|isSuccess ()
 specifier|public
 name|boolean
@@ -217,7 +217,7 @@ return|return
 name|success
 return|;
 block|}
-comment|/**      * Sets the value of the success property.      *       */
+comment|/**      * Sets the value of the success property.      */
 DECL|method|setSuccess (boolean value)
 specifier|public
 name|void
@@ -234,7 +234,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the created property.      *       */
+comment|/**      * Gets the value of the created property.      */
 DECL|method|isCreated ()
 specifier|public
 name|boolean
@@ -245,7 +245,7 @@ return|return
 name|created
 return|;
 block|}
-comment|/**      * Sets the value of the created property.      *       */
+comment|/**      * Sets the value of the created property.      */
 DECL|method|setCreated (boolean value)
 specifier|public
 name|void

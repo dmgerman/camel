@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for OperationEnum.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *<p>  *<pre>  *&lt;simpleType name="OperationEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="insert"/>  *&lt;enumeration value="upsert"/>  *&lt;enumeration value="update"/>  *&lt;enumeration value="delete"/>  *&lt;enumeration value="hardDelete"/>  *&lt;enumeration value="query"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  *   */
+comment|/**  *<p>Java class for OperationEnum.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;simpleType name="OperationEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="insert"/>  *&lt;enumeration value="upsert"/>  *&lt;enumeration value="update"/>  *&lt;enumeration value="delete"/>  *&lt;enumeration value="hardDelete"/>  *&lt;enumeration value="query"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
 end_comment
 
 begin_enum

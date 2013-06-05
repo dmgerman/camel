@@ -20,15 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|IOException
 import|;
 end_import
 
@@ -40,11 +36,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|builder
 operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
+name|RouteBuilder
 import|;
 end_import
 
@@ -68,11 +62,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 

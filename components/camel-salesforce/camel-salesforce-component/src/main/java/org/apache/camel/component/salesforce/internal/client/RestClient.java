@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,16 +47,6 @@ operator|.
 name|api
 operator|.
 name|SalesforceException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|exception
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * Lists summary information about each API version currently available,      * including the version, label, and a link to each version's root.      *      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Lists summary information about each API version currently available,      * including the version, label, and a link to each version's root.      *      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getVersions (ResponseCallback callback)
 name|void
 name|getVersions
@@ -83,7 +83,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Lists available resources for the specified API version, including resource name and URI.      *      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Lists available resources for the specified API version, including resource name and URI.      *      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getResources (ResponseCallback callback)
 name|void
 name|getResources
@@ -92,7 +92,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Lists the available objects and their metadata for your organization's data.      *      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Lists the available objects and their metadata for your organization's data.      *      * @param callback {@link ResponseCallback} to handle response or exception      */
 DECL|method|getGlobalObjects (ResponseCallback callback)
 name|void
 name|getGlobalObjects
@@ -101,7 +101,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Describes the individual metadata for the specified object.      *      * @param sObjectName specified object name      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Describes the individual metadata for the specified object.      *      * @param sObjectName specified object name      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|getBasicInfo (String sObjectName, ResponseCallback callback)
 name|void
 name|getBasicInfo
@@ -113,7 +113,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Completely describes the individual metadata at all levels for the specified object.      *      * @param sObjectName specified object name      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Completely describes the individual metadata at all levels for the specified object.      *      * @param sObjectName specified object name      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|getDescription (String sObjectName, ResponseCallback callback)
 name|void
 name|getDescription
@@ -125,7 +125,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieves a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Retrieves a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|getSObject (String sObjectName, String id, String[] fields, ResponseCallback callback)
 name|void
 name|getSObject
@@ -144,7 +144,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a record for the specified object.      *      * @param sObjectName specified object name      * @param sObject     request entity      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Creates a record for the specified object.      *      * @param sObjectName specified object name      * @param sObject     request entity      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|createSObject (String sObjectName, InputStream sObject, ResponseCallback callback)
 name|void
 name|createSObject
@@ -159,7 +159,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Updates a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param sObject     request entity      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Updates a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param sObject     request entity      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|updateSObject (String sObjectName, String id, InputStream sObject, ResponseCallback callback)
 name|void
 name|updateSObject
@@ -177,7 +177,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Deletes a record for the specified object ID.      *      * @param sObjectName specified object name      * @param id          object id      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|deleteSObject (String sObjectName, String id, ResponseCallback callback)
 name|void
 name|deleteSObject
@@ -192,7 +192,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieves a record for the specified external ID.      *      * @param sObjectName specified object name      * @param fieldName external field name      * @param fieldValue external field value      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Retrieves a record for the specified external ID.      *      * @param sObjectName specified object name      * @param fieldName   external field name      * @param fieldValue  external field value      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|getSObjectWithId (String sObjectName, String fieldName, String fieldValue, ResponseCallback callback)
 name|void
 name|getSObjectWithId
@@ -210,7 +210,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Creates or updates a record based on the value of a specified external ID field.      *      * @param sObjectName specified object name      * @param fieldName external field name      * @param fieldValue external field value      * @param sObject input object to insert or update      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Creates or updates a record based on the value of a specified external ID field.      *      * @param sObjectName specified object name      * @param fieldName   external field name      * @param fieldValue  external field value      * @param sObject     input object to insert or update      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|upsertSObject (String sObjectName, String fieldName, String fieldValue, InputStream sObject, ResponseCallback callback)
 name|void
 name|upsertSObject
@@ -231,7 +231,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Deletes a record based on the value of a specified external ID field.      *      * @param sObjectName specified object name      * @param fieldName external field name      * @param fieldValue external field value      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Deletes a record based on the value of a specified external ID field.      *      * @param sObjectName specified object name      * @param fieldName   external field name      * @param fieldValue  external field value      * @param callback    {@link ResponseCallback} to handle response or exception      */
 DECL|method|deleteSObjectWithId (String sObjectName, String fieldName, String fieldValue, ResponseCallback callback)
 name|void
 name|deleteSObjectWithId
@@ -249,7 +249,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieves the specified blob field from an individual record.      *      */
+comment|/**      * Retrieves the specified blob field from an individual record.      */
 DECL|method|getBlobField (String sObjectName, String id, String blobFieldName, ResponseCallback callback)
 name|void
 name|getBlobField
@@ -268,7 +268,7 @@ name|callback
 parameter_list|)
 function_decl|;
 comment|/*     TODO     SObject User Password     /vXX.X/sobjects/User/user id/password     /vXX.X/sobjects/SelfServiceUser/self service user id/password      These methods set, reset, or get information about a user password. */
-comment|/**      * Executes the specified SOQL query.      *      * @param soqlQuery SOQL query      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Executes the specified SOQL query.      *      * @param soqlQuery SOQL query      * @param callback  {@link ResponseCallback} to handle response or exception      */
 DECL|method|query (String soqlQuery, ResponseCallback callback)
 name|void
 name|query
@@ -280,7 +280,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Get SOQL query results using nextRecordsUrl.      *      * @param nextRecordsUrl URL for next records to fetch, returned by query()      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Get SOQL query results using nextRecordsUrl.      *      * @param nextRecordsUrl URL for next records to fetch, returned by query()      * @param callback       {@link ResponseCallback} to handle response or exception      */
 DECL|method|queryMore (String nextRecordsUrl, ResponseCallback callback)
 name|void
 name|queryMore
@@ -292,7 +292,7 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Executes the specified SOSL search.      *      * @param soslQuery SOSL query      * @param callback {@link ResponseCallback} to handle response or exception     */
+comment|/**      * Executes the specified SOSL search.      *      * @param soslQuery SOSL query      * @param callback  {@link ResponseCallback} to handle response or exception      */
 DECL|method|search (String soslQuery, ResponseCallback callback)
 name|void
 name|search

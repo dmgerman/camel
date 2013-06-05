@@ -453,7 +453,6 @@ name|from
 argument_list|(
 literal|"salesforce:CamelTestTopic?notifyForFields=ALL&notifyForOperations=ALL&"
 operator|+
-comment|//                    "sObjectClass=org.apache.camel.component.salesforce.dto.Merchandise__c&" +
 literal|"sObjectName=Merchandise__c&"
 operator|+
 literal|"updateTopic=true&sObjectQuery=SELECT Id, Name FROM Merchandise__c"

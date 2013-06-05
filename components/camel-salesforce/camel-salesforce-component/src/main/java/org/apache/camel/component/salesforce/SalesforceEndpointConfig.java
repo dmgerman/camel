@@ -20,13 +20,31 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|RuntimeCamelException
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -34,13 +52,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|eclipse
+name|apache
 operator|.
-name|jetty
+name|camel
 operator|.
-name|client
-operator|.
-name|HttpClient
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -148,31 +164,15 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|eclipse
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|jetty
 operator|.
-name|util
+name|client
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|HttpClient
 import|;
 end_import
 
@@ -186,6 +186,7 @@ name|Cloneable
 block|{
 comment|// default API version
 DECL|field|DEFAULT_VERSION
+specifier|public
 specifier|static
 specifier|final
 name|String

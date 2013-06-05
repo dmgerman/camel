@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for ConcurrencyModeEnum.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *<p>  *<pre>  *&lt;simpleType name="ConcurrencyModeEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Parallel"/>  *&lt;enumeration value="Serial"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  *   */
+comment|/**  *<p>Java class for ConcurrencyModeEnum.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;simpleType name="ConcurrencyModeEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Parallel"/>  *&lt;enumeration value="Serial"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
 end_comment
 
 begin_enum

@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for ContentType.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *<p>  *<pre>  *&lt;simpleType name="ContentType">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="XML"/>  *&lt;enumeration value="CSV"/>  *&lt;enumeration value="ZIP_XML"/>  *&lt;enumeration value="ZIP_CSV"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  *   */
+comment|/**  *<p>Java class for ContentType.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;simpleType name="ContentType">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="XML"/>  *&lt;enumeration value="CSV"/>  *&lt;enumeration value="ZIP_XML"/>  *&lt;enumeration value="ZIP_CSV"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
 end_comment
 
 begin_enum

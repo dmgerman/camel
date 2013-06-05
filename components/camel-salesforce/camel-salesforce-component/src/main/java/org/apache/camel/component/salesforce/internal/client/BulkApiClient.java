@@ -24,6 +24,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -58,27 +78,51 @@ name|dto
 operator|.
 name|bulk
 operator|.
-name|*
+name|BatchInfo
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|InputStream
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
+name|bulk
+operator|.
+name|ContentType
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
+name|bulk
+operator|.
+name|JobInfo
 import|;
 end_import
 
@@ -188,7 +232,7 @@ name|ex
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * Creates a Bulk Job      *      * @param jobInfo {@link JobInfo} with required fields      * @param callback {@link JobInfoResponseCallback} to be invoked on response or error      */
+comment|/**      * Creates a Bulk Job      *      * @param jobInfo  {@link JobInfo} with required fields      * @param callback {@link JobInfoResponseCallback} to be invoked on response or error      */
 DECL|method|createJob (JobInfo jobInfo, JobInfoResponseCallback callback)
 name|void
 name|createJob

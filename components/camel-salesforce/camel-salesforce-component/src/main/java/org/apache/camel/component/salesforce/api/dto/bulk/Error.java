@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for Error complex type.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *   *<pre>  *&lt;complexType name="Error">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="exceptionCode" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="exceptionMessage" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *   *   */
+comment|/**  *<p>Java class for Error complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="Error">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="exceptionCode" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="exceptionMessage" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  */
 end_comment
 
 begin_class
@@ -136,7 +136,7 @@ specifier|protected
 name|String
 name|exceptionMessage
 decl_stmt|;
-comment|/**      * Gets the value of the exceptionCode property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the exceptionCode property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getExceptionCode ()
 specifier|public
 name|String
@@ -147,7 +147,7 @@ return|return
 name|exceptionCode
 return|;
 block|}
-comment|/**      * Sets the value of the exceptionCode property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the exceptionCode property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setExceptionCode (String value)
 specifier|public
 name|void
@@ -164,7 +164,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the exceptionMessage property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the exceptionMessage property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getExceptionMessage ()
 specifier|public
 name|String
@@ -175,7 +175,7 @@ return|return
 name|exceptionMessage
 return|;
 block|}
-comment|/**      * Sets the value of the exceptionMessage property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the exceptionMessage property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setExceptionMessage (String value)
 specifier|public
 name|void

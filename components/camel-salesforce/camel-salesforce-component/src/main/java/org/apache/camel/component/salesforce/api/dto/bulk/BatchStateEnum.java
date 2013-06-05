@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for BatchStateEnum.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *<p>  *<pre>  *&lt;simpleType name="BatchStateEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Queued"/>  *&lt;enumeration value="InProgress"/>  *&lt;enumeration value="Completed"/>  *&lt;enumeration value="Failed"/>  *&lt;enumeration value="NotProcessed"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  *   */
+comment|/**  *<p>Java class for BatchStateEnum.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;simpleType name="BatchStateEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Queued"/>  *&lt;enumeration value="InProgress"/>  *&lt;enumeration value="Completed"/>  *&lt;enumeration value="Failed"/>  *&lt;enumeration value="NotProcessed"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
 end_comment
 
 begin_enum

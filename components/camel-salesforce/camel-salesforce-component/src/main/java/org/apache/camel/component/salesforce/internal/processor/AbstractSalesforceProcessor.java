@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,20 +53,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|client
-operator|.
-name|HttpClient
 import|;
 end_import
 
@@ -150,6 +146,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|client
+operator|.
+name|HttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -163,16 +173,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -353,7 +353,7 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 function_decl|;
-comment|/**      * Gets value for a parameter from header, endpoint config, or exchange body (optional).      *      * @param exchange exchange to inspect      * @param convertInBody converts In body to String value if true      * @param propName name of property      * @param optional if {@code true} returns null, otherwise throws RestException      * @return value of property, or {@code null} for optional parameters if not found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException if the property can't be found.      */
+comment|/**      * Gets value for a parameter from header, endpoint config, or exchange body (optional).      *      * @param exchange      exchange to inspect      * @param convertInBody converts In body to String value if true      * @param propName      name of property      * @param optional      if {@code true} returns null, otherwise throws RestException      * @return value of property, or {@code null} for optional parameters if not found.      * @throws org.apache.camel.component.salesforce.api.SalesforceException      *          if the property can't be found.      */
 DECL|method|getParameter (String propName, Exchange exchange, boolean convertInBody, boolean optional)
 specifier|protected
 specifier|final

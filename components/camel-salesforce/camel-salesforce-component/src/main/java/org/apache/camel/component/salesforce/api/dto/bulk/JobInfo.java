@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for JobInfo complex type.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *   *<pre>  *&lt;complexType name="JobInfo">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="operation" type="{http://www.force.com/2009/06/asyncapi/dataload}OperationEnum" minOccurs="0"/>  *&lt;element name="object" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="createdById" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="createdDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>  *&lt;element name="systemModstamp" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>  *&lt;element name="state" type="{http://www.force.com/2009/06/asyncapi/dataload}JobStateEnum" minOccurs="0"/>  *&lt;element name="externalIdFieldName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="concurrencyMode" type="{http://www.force.com/2009/06/asyncapi/dataload}ConcurrencyModeEnum" minOccurs="0"/>  *&lt;element name="contentType" type="{http://www.force.com/2009/06/asyncapi/dataload}ContentType" minOccurs="0"/>  *&lt;element name="numberBatchesQueued" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesInProgress" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesCompleted" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesFailed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesTotal" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberRecordsProcessed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberRetries" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="apiVersion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="assignmentRuleId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="numberRecordsFailed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="totalProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apiActiveProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apexProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *   *   */
+comment|/**  *<p>Java class for JobInfo complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="JobInfo">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="operation" type="{http://www.force.com/2009/06/asyncapi/dataload}OperationEnum" minOccurs="0"/>  *&lt;element name="object" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="createdById" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="createdDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>  *&lt;element name="systemModstamp" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>  *&lt;element name="state" type="{http://www.force.com/2009/06/asyncapi/dataload}JobStateEnum" minOccurs="0"/>  *&lt;element name="externalIdFieldName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="concurrencyMode" type="{http://www.force.com/2009/06/asyncapi/dataload}ConcurrencyModeEnum" minOccurs="0"/>  *&lt;element name="contentType" type="{http://www.force.com/2009/06/asyncapi/dataload}ContentType" minOccurs="0"/>  *&lt;element name="numberBatchesQueued" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesInProgress" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesCompleted" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesFailed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberBatchesTotal" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberRecordsProcessed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="numberRetries" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="apiVersion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="assignmentRuleId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="numberRecordsFailed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="totalProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apiActiveProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apexProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  */
 end_comment
 
 begin_class
@@ -295,7 +295,7 @@ specifier|protected
 name|Long
 name|apexProcessingTime
 decl_stmt|;
-comment|/**      * Gets the value of the id property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the id property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -306,7 +306,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Sets the value of the id property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the id property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setId (String value)
 specifier|public
 name|void
@@ -323,7 +323,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the operation property.      *       * @return      *     possible object is      *     {@link OperationEnum }      *      */
+comment|/**      * Gets the value of the operation property.      *      * @return possible object is      *         {@link OperationEnum }      */
 DECL|method|getOperation ()
 specifier|public
 name|OperationEnum
@@ -334,7 +334,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Sets the value of the operation property.      *      * @param value      *     allowed object is      *     {@link OperationEnum }      *      */
+comment|/**      * Sets the value of the operation property.      *      * @param value allowed object is      *              {@link OperationEnum }      */
 DECL|method|setOperation (OperationEnum value)
 specifier|public
 name|void
@@ -351,7 +351,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the object property.      *      * @return      *     possible object is      *     {@link String }      *      */
+comment|/**      * Gets the value of the object property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getObject ()
 specifier|public
 name|String
@@ -362,7 +362,7 @@ return|return
 name|object
 return|;
 block|}
-comment|/**      * Sets the value of the object property.      *      * @param value      *     allowed object is      *     {@link String }      *      */
+comment|/**      * Sets the value of the object property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setObject (String value)
 specifier|public
 name|void
@@ -379,7 +379,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the createdById property.      *      * @return      *     possible object is      *     {@link String }      *      */
+comment|/**      * Gets the value of the createdById property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getCreatedById ()
 specifier|public
 name|String
@@ -390,7 +390,7 @@ return|return
 name|createdById
 return|;
 block|}
-comment|/**      * Sets the value of the createdById property.      *      * @param value      *     allowed object is      *     {@link String }      *      */
+comment|/**      * Sets the value of the createdById property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setCreatedById (String value)
 specifier|public
 name|void
@@ -407,7 +407,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the createdDate property.      *      * @return      *     possible object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *      */
+comment|/**      * Gets the value of the createdDate property.      *      * @return possible object is      *         {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|getCreatedDate ()
 specifier|public
 name|XMLGregorianCalendar
@@ -418,7 +418,7 @@ return|return
 name|createdDate
 return|;
 block|}
-comment|/**      * Sets the value of the createdDate property.      *      * @param value      *     allowed object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *      */
+comment|/**      * Sets the value of the createdDate property.      *      * @param value allowed object is      *              {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|setCreatedDate (XMLGregorianCalendar value)
 specifier|public
 name|void
@@ -435,7 +435,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the systemModstamp property.      *      * @return      *     possible object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *      */
+comment|/**      * Gets the value of the systemModstamp property.      *      * @return possible object is      *         {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|getSystemModstamp ()
 specifier|public
 name|XMLGregorianCalendar
@@ -446,7 +446,7 @@ return|return
 name|systemModstamp
 return|;
 block|}
-comment|/**      * Sets the value of the systemModstamp property.      *      * @param value      *     allowed object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *      */
+comment|/**      * Sets the value of the systemModstamp property.      *      * @param value allowed object is      *              {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|setSystemModstamp (XMLGregorianCalendar value)
 specifier|public
 name|void
@@ -463,7 +463,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the state property.      *      * @return      *     possible object is      *     {@link JobStateEnum }      *      */
+comment|/**      * Gets the value of the state property.      *      * @return possible object is      *         {@link JobStateEnum }      */
 DECL|method|getState ()
 specifier|public
 name|JobStateEnum
@@ -474,7 +474,7 @@ return|return
 name|state
 return|;
 block|}
-comment|/**      * Sets the value of the state property.      *      * @param value      *     allowed object is      *     {@link JobStateEnum }      *      */
+comment|/**      * Sets the value of the state property.      *      * @param value allowed object is      *              {@link JobStateEnum }      */
 DECL|method|setState (JobStateEnum value)
 specifier|public
 name|void
@@ -491,7 +491,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the externalIdFieldName property.      *      * @return      *     possible object is      *     {@link String }      *      */
+comment|/**      * Gets the value of the externalIdFieldName property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getExternalIdFieldName ()
 specifier|public
 name|String
@@ -502,7 +502,7 @@ return|return
 name|externalIdFieldName
 return|;
 block|}
-comment|/**      * Sets the value of the externalIdFieldName property.      *      * @param value      *     allowed object is      *     {@link String }      *      */
+comment|/**      * Sets the value of the externalIdFieldName property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setExternalIdFieldName (String value)
 specifier|public
 name|void
@@ -519,7 +519,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the concurrencyMode property.      *      * @return      *     possible object is      *     {@link ConcurrencyModeEnum }      *      */
+comment|/**      * Gets the value of the concurrencyMode property.      *      * @return possible object is      *         {@link ConcurrencyModeEnum }      */
 DECL|method|getConcurrencyMode ()
 specifier|public
 name|ConcurrencyModeEnum
@@ -530,7 +530,7 @@ return|return
 name|concurrencyMode
 return|;
 block|}
-comment|/**      * Sets the value of the concurrencyMode property.      *      * @param value      *     allowed object is      *     {@link ConcurrencyModeEnum }      *      */
+comment|/**      * Sets the value of the concurrencyMode property.      *      * @param value allowed object is      *              {@link ConcurrencyModeEnum }      */
 DECL|method|setConcurrencyMode (ConcurrencyModeEnum value)
 specifier|public
 name|void
@@ -547,7 +547,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the contentType property.      *      * @return      *     possible object is      *     {@link ContentType }      *      */
+comment|/**      * Gets the value of the contentType property.      *      * @return possible object is      *         {@link ContentType }      */
 DECL|method|getContentType ()
 specifier|public
 name|ContentType
@@ -558,7 +558,7 @@ return|return
 name|contentType
 return|;
 block|}
-comment|/**      * Sets the value of the contentType property.      *      * @param value      *     allowed object is      *     {@link ContentType }      *           */
+comment|/**      * Sets the value of the contentType property.      *      * @param value allowed object is      *              {@link ContentType }      */
 DECL|method|setContentType (ContentType value)
 specifier|public
 name|void
@@ -575,7 +575,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberBatchesQueued property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberBatchesQueued property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberBatchesQueued ()
 specifier|public
 name|Integer
@@ -586,7 +586,7 @@ return|return
 name|numberBatchesQueued
 return|;
 block|}
-comment|/**      * Sets the value of the numberBatchesQueued property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberBatchesQueued property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberBatchesQueued (Integer value)
 specifier|public
 name|void
@@ -603,7 +603,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberBatchesInProgress property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberBatchesInProgress property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberBatchesInProgress ()
 specifier|public
 name|Integer
@@ -614,7 +614,7 @@ return|return
 name|numberBatchesInProgress
 return|;
 block|}
-comment|/**      * Sets the value of the numberBatchesInProgress property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberBatchesInProgress property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberBatchesInProgress (Integer value)
 specifier|public
 name|void
@@ -631,7 +631,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberBatchesCompleted property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberBatchesCompleted property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberBatchesCompleted ()
 specifier|public
 name|Integer
@@ -642,7 +642,7 @@ return|return
 name|numberBatchesCompleted
 return|;
 block|}
-comment|/**      * Sets the value of the numberBatchesCompleted property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberBatchesCompleted property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberBatchesCompleted (Integer value)
 specifier|public
 name|void
@@ -659,7 +659,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberBatchesFailed property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberBatchesFailed property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberBatchesFailed ()
 specifier|public
 name|Integer
@@ -670,7 +670,7 @@ return|return
 name|numberBatchesFailed
 return|;
 block|}
-comment|/**      * Sets the value of the numberBatchesFailed property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberBatchesFailed property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberBatchesFailed (Integer value)
 specifier|public
 name|void
@@ -687,7 +687,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberBatchesTotal property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberBatchesTotal property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberBatchesTotal ()
 specifier|public
 name|Integer
@@ -698,7 +698,7 @@ return|return
 name|numberBatchesTotal
 return|;
 block|}
-comment|/**      * Sets the value of the numberBatchesTotal property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberBatchesTotal property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberBatchesTotal (Integer value)
 specifier|public
 name|void
@@ -715,7 +715,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberRecordsProcessed property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberRecordsProcessed property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberRecordsProcessed ()
 specifier|public
 name|Integer
@@ -726,7 +726,7 @@ return|return
 name|numberRecordsProcessed
 return|;
 block|}
-comment|/**      * Sets the value of the numberRecordsProcessed property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberRecordsProcessed property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberRecordsProcessed (Integer value)
 specifier|public
 name|void
@@ -743,7 +743,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberRetries property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberRetries property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberRetries ()
 specifier|public
 name|Integer
@@ -754,7 +754,7 @@ return|return
 name|numberRetries
 return|;
 block|}
-comment|/**      * Sets the value of the numberRetries property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberRetries property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberRetries (Integer value)
 specifier|public
 name|void
@@ -771,7 +771,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the apiVersion property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the apiVersion property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getApiVersion ()
 specifier|public
 name|String
@@ -782,7 +782,7 @@ return|return
 name|apiVersion
 return|;
 block|}
-comment|/**      * Sets the value of the apiVersion property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the apiVersion property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setApiVersion (String value)
 specifier|public
 name|void
@@ -799,7 +799,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the assignmentRuleId property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the assignmentRuleId property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getAssignmentRuleId ()
 specifier|public
 name|String
@@ -810,7 +810,7 @@ return|return
 name|assignmentRuleId
 return|;
 block|}
-comment|/**      * Sets the value of the assignmentRuleId property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the assignmentRuleId property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setAssignmentRuleId (String value)
 specifier|public
 name|void
@@ -827,7 +827,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberRecordsFailed property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberRecordsFailed property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberRecordsFailed ()
 specifier|public
 name|Integer
@@ -838,7 +838,7 @@ return|return
 name|numberRecordsFailed
 return|;
 block|}
-comment|/**      * Sets the value of the numberRecordsFailed property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberRecordsFailed property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberRecordsFailed (Integer value)
 specifier|public
 name|void
@@ -855,7 +855,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the totalProcessingTime property.      *       * @return      *     possible object is      *     {@link Long }      *           */
+comment|/**      * Gets the value of the totalProcessingTime property.      *      * @return possible object is      *         {@link Long }      */
 DECL|method|getTotalProcessingTime ()
 specifier|public
 name|Long
@@ -866,7 +866,7 @@ return|return
 name|totalProcessingTime
 return|;
 block|}
-comment|/**      * Sets the value of the totalProcessingTime property.      *       * @param value      *     allowed object is      *     {@link Long }      *           */
+comment|/**      * Sets the value of the totalProcessingTime property.      *      * @param value allowed object is      *              {@link Long }      */
 DECL|method|setTotalProcessingTime (Long value)
 specifier|public
 name|void
@@ -883,7 +883,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the apiActiveProcessingTime property.      *       * @return      *     possible object is      *     {@link Long }      *           */
+comment|/**      * Gets the value of the apiActiveProcessingTime property.      *      * @return possible object is      *         {@link Long }      */
 DECL|method|getApiActiveProcessingTime ()
 specifier|public
 name|Long
@@ -894,7 +894,7 @@ return|return
 name|apiActiveProcessingTime
 return|;
 block|}
-comment|/**      * Sets the value of the apiActiveProcessingTime property.      *       * @param value      *     allowed object is      *     {@link Long }      *           */
+comment|/**      * Sets the value of the apiActiveProcessingTime property.      *      * @param value allowed object is      *              {@link Long }      */
 DECL|method|setApiActiveProcessingTime (Long value)
 specifier|public
 name|void
@@ -911,7 +911,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the apexProcessingTime property.      *       * @return      *     possible object is      *     {@link Long }      *           */
+comment|/**      * Gets the value of the apexProcessingTime property.      *      * @return possible object is      *         {@link Long }      */
 DECL|method|getApexProcessingTime ()
 specifier|public
 name|Long
@@ -922,7 +922,7 @@ return|return
 name|apexProcessingTime
 return|;
 block|}
-comment|/**      * Sets the value of the apexProcessingTime property.      *       * @param value      *     allowed object is      *     {@link Long }      *           */
+comment|/**      * Sets the value of the apexProcessingTime property.      *      * @param value allowed object is      *              {@link Long }      */
 DECL|method|setApexProcessingTime (Long value)
 specifier|public
 name|void

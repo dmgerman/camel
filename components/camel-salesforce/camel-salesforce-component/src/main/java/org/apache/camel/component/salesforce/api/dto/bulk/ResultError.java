@@ -26,6 +26,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -80,28 +100,8 @@ name|XmlType
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  *<p>Java class for ResultError complex type.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *   *<pre>  *&lt;complexType name="ResultError">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="fields" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>  *&lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="statusCode" type="{http://www.force.com/2009/06/asyncapi/dataload}StatusCode"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *   *   */
+comment|/**  *<p>Java class for ResultError complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="ResultError">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="fields" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>  *&lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="statusCode" type="{http://www.force.com/2009/06/asyncapi/dataload}StatusCode"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  */
 end_comment
 
 begin_class
@@ -173,7 +173,7 @@ specifier|protected
 name|StatusCode
 name|statusCode
 decl_stmt|;
-comment|/**      * Gets the value of the fields property.      *       *<p>      * This accessor method returns a reference to the live list,      * not a snapshot. Therefore any modification you make to the      * returned list will be present inside the JAXB object.      * This is why there is not a<CODE>set</CODE> method for the fields property.      *       *<p>      * For example, to add a new item, do as follows:      *<pre>      *    getFields().add(newItem);      *</pre>      *       *       *<p>      * Objects of the following type(s) are allowed in the list      * {@link String }      *       *       */
+comment|/**      * Gets the value of the fields property.      *<p/>      *<p/>      * This accessor method returns a reference to the live list,      * not a snapshot. Therefore any modification you make to the      * returned list will be present inside the JAXB object.      * This is why there is not a<CODE>set</CODE> method for the fields property.      *<p/>      *<p/>      * For example, to add a new item, do as follows:      *<pre>      *    getFields().add(newItem);      *</pre>      *<p/>      *<p/>      *<p/>      * Objects of the following type(s) are allowed in the list      * {@link String }      */
 DECL|method|getFields ()
 specifier|public
 name|List
@@ -206,7 +206,7 @@ operator|.
 name|fields
 return|;
 block|}
-comment|/**      * Gets the value of the message property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the message property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getMessage ()
 specifier|public
 name|String
@@ -217,7 +217,7 @@ return|return
 name|message
 return|;
 block|}
-comment|/**      * Sets the value of the message property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the message property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setMessage (String value)
 specifier|public
 name|void
@@ -234,7 +234,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the statusCode property.      *       * @return      *     possible object is      *     {@link StatusCode }      *      */
+comment|/**      * Gets the value of the statusCode property.      *      * @return possible object is      *         {@link StatusCode }      */
 DECL|method|getStatusCode ()
 specifier|public
 name|StatusCode
@@ -245,7 +245,7 @@ return|return
 name|statusCode
 return|;
 block|}
-comment|/**      * Sets the value of the statusCode property.      *      * @param value      *     allowed object is      *     {@link StatusCode }      *           */
+comment|/**      * Sets the value of the statusCode property.      *      * @param value allowed object is      *              {@link StatusCode }      */
 DECL|method|setStatusCode (StatusCode value)
 specifier|public
 name|void

@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for JobStateEnum.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *<p>  *<pre>  *&lt;simpleType name="JobStateEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Open"/>  *&lt;enumeration value="Closed"/>  *&lt;enumeration value="Aborted"/>  *&lt;enumeration value="Failed"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  *   */
+comment|/**  *<p>Java class for JobStateEnum.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;simpleType name="JobStateEnum">  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">  *&lt;enumeration value="Open"/>  *&lt;enumeration value="Closed"/>  *&lt;enumeration value="Aborted"/>  *&lt;enumeration value="Failed"/>  *&lt;/restriction>  *&lt;/simpleType>  *</pre>  */
 end_comment
 
 begin_enum

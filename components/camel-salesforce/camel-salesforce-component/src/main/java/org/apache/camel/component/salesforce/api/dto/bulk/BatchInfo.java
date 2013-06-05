@@ -34,7 +34,63 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|*
+name|XmlAccessType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlAccessorType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlSchemaType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlType
 import|;
 end_import
 
@@ -51,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>Java class for BatchInfo complex type.  *   *<p>The following schema fragment specifies the expected content contained within this class.  *   *<pre>  *&lt;complexType name="BatchInfo">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="jobId" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="state" type="{http://www.force.com/2009/06/asyncapi/dataload}BatchStateEnum"/>  *&lt;element name="stateMessage" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="createdDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>  *&lt;element name="systemModstamp" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>  *&lt;element name="numberRecordsProcessed" type="{http://www.w3.org/2001/XMLSchema}int"/>  *&lt;element name="numberRecordsFailed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="totalProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apiActiveProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apexProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  *   *   */
+comment|/**  *<p>Java class for BatchInfo complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="BatchInfo">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="jobId" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="state" type="{http://www.force.com/2009/06/asyncapi/dataload}BatchStateEnum"/>  *&lt;element name="stateMessage" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>  *&lt;element name="createdDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>  *&lt;element name="systemModstamp" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>  *&lt;element name="numberRecordsProcessed" type="{http://www.w3.org/2001/XMLSchema}int"/>  *&lt;element name="numberRecordsFailed" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>  *&lt;element name="totalProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apiActiveProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;element name="apexProcessingTime" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  */
 end_comment
 
 begin_class
@@ -197,7 +253,7 @@ specifier|protected
 name|Long
 name|apexProcessingTime
 decl_stmt|;
-comment|/**      * Gets the value of the id property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the id property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -208,7 +264,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Sets the value of the id property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the id property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setId (String value)
 specifier|public
 name|void
@@ -225,7 +281,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the jobId property.      *       * @return      *     possible object is      *     {@link String }      *           */
+comment|/**      * Gets the value of the jobId property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getJobId ()
 specifier|public
 name|String
@@ -236,7 +292,7 @@ return|return
 name|jobId
 return|;
 block|}
-comment|/**      * Sets the value of the jobId property.      *       * @param value      *     allowed object is      *     {@link String }      *           */
+comment|/**      * Sets the value of the jobId property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setJobId (String value)
 specifier|public
 name|void
@@ -253,7 +309,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the state property.      *       * @return      *     possible object is      *     {@link BatchStateEnum }      *      */
+comment|/**      * Gets the value of the state property.      *      * @return possible object is      *         {@link BatchStateEnum }      */
 DECL|method|getState ()
 specifier|public
 name|BatchStateEnum
@@ -264,7 +320,7 @@ return|return
 name|state
 return|;
 block|}
-comment|/**      * Sets the value of the state property.      *      * @param value      *     allowed object is      *     {@link BatchStateEnum }      *      */
+comment|/**      * Sets the value of the state property.      *      * @param value allowed object is      *              {@link BatchStateEnum }      */
 DECL|method|setState (BatchStateEnum value)
 specifier|public
 name|void
@@ -281,7 +337,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the stateMessage property.      *      * @return      *     possible object is      *     {@link String }      *      */
+comment|/**      * Gets the value of the stateMessage property.      *      * @return possible object is      *         {@link String }      */
 DECL|method|getStateMessage ()
 specifier|public
 name|String
@@ -292,7 +348,7 @@ return|return
 name|stateMessage
 return|;
 block|}
-comment|/**      * Sets the value of the stateMessage property.      *      * @param value      *     allowed object is      *     {@link String }      *      */
+comment|/**      * Sets the value of the stateMessage property.      *      * @param value allowed object is      *              {@link String }      */
 DECL|method|setStateMessage (String value)
 specifier|public
 name|void
@@ -309,7 +365,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the createdDate property.      *      * @return      *     possible object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *      */
+comment|/**      * Gets the value of the createdDate property.      *      * @return possible object is      *         {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|getCreatedDate ()
 specifier|public
 name|XMLGregorianCalendar
@@ -320,7 +376,7 @@ return|return
 name|createdDate
 return|;
 block|}
-comment|/**      * Sets the value of the createdDate property.      *      * @param value      *     allowed object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *      */
+comment|/**      * Sets the value of the createdDate property.      *      * @param value allowed object is      *              {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|setCreatedDate (XMLGregorianCalendar value)
 specifier|public
 name|void
@@ -337,7 +393,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the systemModstamp property.      *      * @return      *     possible object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *      */
+comment|/**      * Gets the value of the systemModstamp property.      *      * @return possible object is      *         {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|getSystemModstamp ()
 specifier|public
 name|XMLGregorianCalendar
@@ -348,7 +404,7 @@ return|return
 name|systemModstamp
 return|;
 block|}
-comment|/**      * Sets the value of the systemModstamp property.      *      * @param value      *     allowed object is      *     {@link javax.xml.datatype.XMLGregorianCalendar }      *           */
+comment|/**      * Sets the value of the systemModstamp property.      *      * @param value allowed object is      *              {@link javax.xml.datatype.XMLGregorianCalendar }      */
 DECL|method|setSystemModstamp (XMLGregorianCalendar value)
 specifier|public
 name|void
@@ -365,7 +421,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberRecordsProcessed property.      *       */
+comment|/**      * Gets the value of the numberRecordsProcessed property.      */
 DECL|method|getNumberRecordsProcessed ()
 specifier|public
 name|int
@@ -376,7 +432,7 @@ return|return
 name|numberRecordsProcessed
 return|;
 block|}
-comment|/**      * Sets the value of the numberRecordsProcessed property.      *       */
+comment|/**      * Sets the value of the numberRecordsProcessed property.      */
 DECL|method|setNumberRecordsProcessed (int value)
 specifier|public
 name|void
@@ -393,7 +449,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the numberRecordsFailed property.      *       * @return      *     possible object is      *     {@link Integer }      *           */
+comment|/**      * Gets the value of the numberRecordsFailed property.      *      * @return possible object is      *         {@link Integer }      */
 DECL|method|getNumberRecordsFailed ()
 specifier|public
 name|Integer
@@ -404,7 +460,7 @@ return|return
 name|numberRecordsFailed
 return|;
 block|}
-comment|/**      * Sets the value of the numberRecordsFailed property.      *       * @param value      *     allowed object is      *     {@link Integer }      *           */
+comment|/**      * Sets the value of the numberRecordsFailed property.      *      * @param value allowed object is      *              {@link Integer }      */
 DECL|method|setNumberRecordsFailed (Integer value)
 specifier|public
 name|void
@@ -421,7 +477,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the totalProcessingTime property.      *       * @return      *     possible object is      *     {@link Long }      *           */
+comment|/**      * Gets the value of the totalProcessingTime property.      *      * @return possible object is      *         {@link Long }      */
 DECL|method|getTotalProcessingTime ()
 specifier|public
 name|Long
@@ -432,7 +488,7 @@ return|return
 name|totalProcessingTime
 return|;
 block|}
-comment|/**      * Sets the value of the totalProcessingTime property.      *       * @param value      *     allowed object is      *     {@link Long }      *           */
+comment|/**      * Sets the value of the totalProcessingTime property.      *      * @param value allowed object is      *              {@link Long }      */
 DECL|method|setTotalProcessingTime (Long value)
 specifier|public
 name|void
@@ -449,7 +505,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the apiActiveProcessingTime property.      *       * @return      *     possible object is      *     {@link Long }      *           */
+comment|/**      * Gets the value of the apiActiveProcessingTime property.      *      * @return possible object is      *         {@link Long }      */
 DECL|method|getApiActiveProcessingTime ()
 specifier|public
 name|Long
@@ -460,7 +516,7 @@ return|return
 name|apiActiveProcessingTime
 return|;
 block|}
-comment|/**      * Sets the value of the apiActiveProcessingTime property.      *       * @param value      *     allowed object is      *     {@link Long }      *           */
+comment|/**      * Sets the value of the apiActiveProcessingTime property.      *      * @param value allowed object is      *              {@link Long }      */
 DECL|method|setApiActiveProcessingTime (Long value)
 specifier|public
 name|void
@@ -477,7 +533,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the apexProcessingTime property.      *       * @return      *     possible object is      *     {@link Long }      *           */
+comment|/**      * Gets the value of the apexProcessingTime property.      *      * @return possible object is      *         {@link Long }      */
 DECL|method|getApexProcessingTime ()
 specifier|public
 name|Long
@@ -488,7 +544,7 @@ return|return
 name|apexProcessingTime
 return|;
 block|}
-comment|/**      * Sets the value of the apexProcessingTime property.      *       * @param value      *     allowed object is      *     {@link Long }      *           */
+comment|/**      * Sets the value of the apexProcessingTime property.      *      * @param value allowed object is      *              {@link Long }      */
 DECL|method|setApexProcessingTime (Long value)
 specifier|public
 name|void
