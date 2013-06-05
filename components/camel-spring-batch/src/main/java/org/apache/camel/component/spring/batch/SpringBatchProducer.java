@@ -397,11 +397,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
+name|JobParameters
+name|jobParameters
+init|=
 name|parametersBuilder
 operator|.
 name|toJobParameters
 argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Prepared parameters for Spring Batch job: {}"
+argument_list|,
+name|jobParameters
+argument_list|)
+expr_stmt|;
+return|return
+name|jobParameters
 return|;
 block|}
 block|}
