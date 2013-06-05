@@ -68,6 +68,20 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  * The direct-vm endpoint.  */
 end_comment
@@ -80,11 +94,15 @@ name|DirectVmEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+annotation|@
+name|UriParam
 DECL|field|block
 specifier|private
 name|boolean
 name|block
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|timeout
 specifier|private
 name|long
