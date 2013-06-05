@@ -218,7 +218,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ReflectiveOperationException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -316,7 +316,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|ReflectiveOperationException
+name|SecurityException
 name|e
 parameter_list|)
 block|{
@@ -328,7 +328,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Exception reading pick list value %s of type %s: %s"
+literal|"Security Exception reading pick list value %s of type %s: %s"
 argument_list|,
 name|value
 argument_list|,
@@ -352,7 +352,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|SecurityException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -364,7 +364,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Security Exception reading pick list value %s of type %s: %s"
+literal|"Exception reading pick list value %s of type %s: %s"
 argument_list|,
 name|value
 argument_list|,
