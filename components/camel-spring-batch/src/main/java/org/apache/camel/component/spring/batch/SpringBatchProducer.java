@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -174,11 +162,11 @@ specifier|final
 name|Job
 name|job
 decl_stmt|;
-DECL|method|SpringBatchProducer (Endpoint endpoint, JobLauncher jobLauncher, Job job)
+DECL|method|SpringBatchProducer (SpringBatchEndpoint endpoint, JobLauncher jobLauncher, Job job)
 specifier|public
 name|SpringBatchProducer
 parameter_list|(
-name|Endpoint
+name|SpringBatchEndpoint
 name|endpoint
 parameter_list|,
 name|JobLauncher
