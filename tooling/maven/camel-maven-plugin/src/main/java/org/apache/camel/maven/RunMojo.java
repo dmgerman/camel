@@ -641,7 +641,7 @@ specifier|private
 name|String
 name|configAdminPid
 decl_stmt|;
-comment|/**      * The configureAdmin persistent file name, it will be used when       * loading the camel context from blueprint.      *       * * @parameter property="camel.configAdminFileName"      */
+comment|/**      * The configureAdmin persistent file name, it will be used when       * loading the camel context from blueprint.      *       * @parameter property="camel.configAdminFileName"      */
 DECL|field|configAdminFileName
 specifier|private
 name|String
