@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  @author Leonid Kof, Leonid.Kof@tngtech.com  *  The list of supported LDAP operations.  *  Currently supported operations are search, bind, and unbind.  *  Modify is currently not supported.  *  */
+comment|/**  * The list of supported LDAP operations. Currently supported operations are  * search, bind, and unbind. Modify is currently not supported.  */
 end_comment
 
 begin_enum

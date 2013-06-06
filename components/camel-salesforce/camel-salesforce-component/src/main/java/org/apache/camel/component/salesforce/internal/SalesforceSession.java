@@ -1553,7 +1553,7 @@ name|logout
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Records status line, and exception from exchange.      *      * @author dbokde      */
+comment|/**      * Records status line, and exception from exchange.      */
 DECL|class|StatusExceptionExchange
 specifier|private
 specifier|static

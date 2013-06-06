@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This defines a {@link Scope} that lasts for a single test run.  *   *<p>  * A test conceptually comes in scope when it starts and goes out of scope when  * it finishes its execution (e.g., on JUnit lingo, roughly at the moment of  * {@link junit.framework.TestCase#setUp()} and  * {@link junit.framework.TestCase#tearDown()}).  *   * @author Luiz-Otavio Zorzella  * @author Danka Karwanska  * @see org.apache.camel.guice.util.CloseableScope for an implementation of this  *      scope  */
+comment|/**  * This defines a {@link Scope} that lasts for a single test run.  *   *<p>  * A test conceptually comes in scope when it starts and goes out of scope when  * it finishes its execution (e.g., on JUnit lingo, roughly at the moment of  * {@link junit.framework.TestCase#setUp()} and  * {@link junit.framework.TestCase#tearDown()}).  *   * @see org.apache.camel.guice.util.CloseableScope for an implementation of this  *      scope  */
 end_comment
 
 begin_annotation_defn

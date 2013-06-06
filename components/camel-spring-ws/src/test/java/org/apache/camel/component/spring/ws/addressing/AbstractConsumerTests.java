@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides abstract test for fault and output params for spring-ws:to: and  * spring-ws:action: endpoints  *   * @author a.zachar  */
+comment|/**  * Provides abstract test for fault and output params for spring-ws:to: and  * spring-ws:action: endpoints  */
 end_comment
 
 begin_class

@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows to register different spring-ws endpoints for camel.  *   * @author azachar  */
+comment|/**  * Allows to register different spring-ws endpoints for camel.  */
 end_comment
 
 begin_interface

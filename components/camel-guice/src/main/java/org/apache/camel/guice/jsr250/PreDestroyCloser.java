@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Supports the {@link javax.annotation.PreDestroy} annotation lifecycle from  * JSR250.  *<p>  * To install this closer you need to register the {@link Jsr250Module} in your  * injector.  *   * @author james.strachan@gmail.com (James Strachan)  * @version  */
+comment|/**  * Supports the {@link javax.annotation.PreDestroy} annotation lifecycle from  * JSR250.  *<p>  * To install this closer you need to register the {@link Jsr250Module} in your  * injector.  *   * @version  */
 end_comment
 
 begin_class

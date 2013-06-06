@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Leonid Kof, Leonid.Kof@tngtech.com  * Creates endpoints for the Spring LDAP component.  *  */
+comment|/**  * Creates endpoints for the Spring LDAP component.  */
 end_comment
 
 begin_class

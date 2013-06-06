@@ -269,7 +269,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides abstract test for WS-Addressing  *   * @author a.zachar  */
+comment|/**  * Provides abstract test for WS-Addressing  */
 end_comment
 
 begin_class
