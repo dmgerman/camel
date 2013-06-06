@@ -238,39 +238,7 @@ name|addressing
 operator|.
 name|server
 operator|.
-name|AbstractAddressingEndpointMappingHacked
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|ws
-operator|.
-name|soap
-operator|.
-name|addressing
-operator|.
-name|server
-operator|.
 name|AnnotationActionEndpointMapping
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|ws
-operator|.
-name|transport
-operator|.
-name|WebServiceConnection
 import|;
 end_import
 
@@ -298,7 +266,7 @@ specifier|public
 class|class
 name|WSACamelEndpointMapping
 extends|extends
-name|AbstractAddressingEndpointMappingHacked
+name|AbstractAddressingEndpointMapping
 implements|implements
 name|CamelSpringWSEndpointMapping
 block|{
@@ -813,10 +781,10 @@ block|}
 comment|/**      * Configure message id strategy for wsa:replyTo The route definition has      * priority over this endpoint.      */
 annotation|@
 name|Override
-DECL|method|getMessageStrategy (Object endpoint)
+DECL|method|getMessageIdStrategy (Object endpoint)
 specifier|protected
 name|MessageIdStrategy
-name|getMessageStrategy
+name|getMessageIdStrategy
 parameter_list|(
 name|Object
 name|endpoint
@@ -856,7 +824,7 @@ block|}
 return|return
 name|super
 operator|.
-name|getMessageStrategy
+name|getMessageIdStrategy
 argument_list|(
 name|endpoint
 argument_list|)
@@ -1055,7 +1023,6 @@ literal|null
 return|;
 block|}
 block|}
-comment|/*      * (non-Javadoc)      * @see      * org.apache.camel.component.spring.ws.bean.CamelSpringWSEndpoint#addConsumer      * (org.apache.camel.component.spring.ws.type.EndpointMappingKey,      * org.springframework.ws.server.endpoint.MessageEndpoint)      */
 DECL|method|addConsumer (EndpointMappingKey key, MessageEndpoint endpoint)
 specifier|public
 name|void
@@ -1078,7 +1045,6 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      * @see org.apache.camel.component.spring.ws.bean.CamelSpringWSEndpoint#      * removeConsumer(java.lang.Object)      */
 DECL|method|removeConsumer (Object key)
 specifier|public
 name|void
@@ -1093,36 +1059,6 @@ operator|.
 name|remove
 argument_list|(
 name|key
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Sets the single message sender used for sending messages.      *<p/>      * This message sender will be used to resolve an URI to a      * {@link WebServiceConnection}.      *       * @see #createConnection(URI)      */
-DECL|method|setMessageSender (WebServiceMessageSender messageSender)
-specifier|public
-name|void
-name|setMessageSender
-parameter_list|(
-name|WebServiceMessageSender
-name|messageSender
-parameter_list|)
-block|{
-name|Assert
-operator|.
-name|notNull
-argument_list|(
-name|messageSender
-argument_list|,
-literal|"'messageSender' must not be null"
-argument_list|)
-expr_stmt|;
-name|setMessageSenders
-argument_list|(
-operator|new
-name|WebServiceMessageSender
-index|[]
-block|{
-name|messageSender
-block|}
 argument_list|)
 expr_stmt|;
 block|}
