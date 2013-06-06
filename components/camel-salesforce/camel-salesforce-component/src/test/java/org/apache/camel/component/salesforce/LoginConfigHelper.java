@@ -20,11 +20,31 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
 operator|.
 name|FileInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileNotFoundException
 import|;
 end_import
 
@@ -58,16 +78,6 @@ name|Properties
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-
 begin_class
 DECL|class|LoginConfigHelper
 specifier|public
@@ -92,8 +102,6 @@ name|SalesforceLoginConfig
 name|getLoginConfig
 parameter_list|()
 throws|throws
-name|IllegalAccessException
-throws|,
 name|IOException
 block|{
 comment|// load test-salesforce-login properties
@@ -107,33 +115,18 @@ decl_stmt|;
 name|InputStream
 name|stream
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|stream
+operator|=
 operator|new
 name|FileInputStream
 argument_list|(
 name|TEST_LOGIN_PROPERTIES
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-literal|null
-operator|==
-name|stream
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Create a properties file named "
-operator|+
-name|TEST_LOGIN_PROPERTIES
-operator|+
-literal|" with clientId, clientSecret, userName, and password"
-operator|+
-literal|" for a Salesforce account with the Merchandise object from Salesforce Guides."
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|properties
 operator|.
 name|load
@@ -255,6 +248,52 @@ expr_stmt|;
 return|return
 name|config
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|FileNotFoundException
+argument_list|(
+literal|"Create a properties file named "
+operator|+
+name|TEST_LOGIN_PROPERTIES
+operator|+
+literal|" with clientId, clientSecret, userName, and password"
+operator|+
+literal|" for a Salesforce account with Merchandise and Invoice objects from Salesforce Guides."
+argument_list|)
+throw|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|stream
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|stream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ignore
+parameter_list|)
+block|{}
+block|}
+block|}
 block|}
 block|}
 end_class
