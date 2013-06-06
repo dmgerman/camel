@@ -248,7 +248,6 @@ block|{
 specifier|private
 specifier|static
 name|final
-specifier|transient
 name|Logger
 name|LOG
 operator|=
