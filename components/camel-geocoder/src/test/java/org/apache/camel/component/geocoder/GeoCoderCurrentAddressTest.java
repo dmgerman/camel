@@ -75,10 +75,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|GeoCoderLatLngComponentTest
+DECL|class|GeoCoderCurrentAddressTest
 specifier|public
 class|class
-name|GeoCoderLatLngComponentTest
+name|GeoCoderCurrentAddressTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -102,34 +102,28 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|1
+literal|"Hello"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedHeaderReceived
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
 argument_list|(
 name|GeoCoderConstants
 operator|.
-name|COUNTRY_SHORT
-argument_list|,
-literal|"US"
+name|LATLNG
 argument_list|)
-expr_stmt|;
-name|mock
 operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|GeoCoderConstants
-operator|.
-name|CITY
-argument_list|,
-literal|"New York"
-argument_list|)
+name|isNotNull
+argument_list|()
 expr_stmt|;
-comment|// the address header overrides the endpoint configuration
 name|template
 operator|.
 name|sendBody
@@ -170,7 +164,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"geocoder:latlng:40.714224,-73.961452"
+literal|"geocoder:address:current?headersOnly=true"
 argument_list|)
 operator|.
 name|to
@@ -180,9 +174,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Location ${header.CamelGeocoderAddress} is at lat/lng: ${header.CamelGeocoderLatlng}"
-operator|+
-literal|" and in city ${header.CamelGeoCoderCity} in country ${header.CamelGeoCoderCountryLong}"
+literal|"You are at ${header.CamelGeoCoderLatlng} in city ${header.CamelGeoCoderCity} in country ${header.CamelGeoCoderCountryLong}"
 argument_list|)
 operator|.
 name|to

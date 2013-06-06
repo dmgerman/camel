@@ -97,6 +97,11 @@ name|language
 init|=
 literal|"en"
 decl_stmt|;
+DECL|field|headersOnly
+specifier|private
+name|boolean
+name|headersOnly
+decl_stmt|;
 DECL|method|GeoCoderEndpoint ()
 specifier|public
 name|GeoCoderEndpoint
@@ -242,6 +247,32 @@ operator|.
 name|latlng
 operator|=
 name|latlng
+expr_stmt|;
+block|}
+DECL|method|isHeadersOnly ()
+specifier|public
+name|boolean
+name|isHeadersOnly
+parameter_list|()
+block|{
+return|return
+name|headersOnly
+return|;
+block|}
+DECL|method|setHeadersOnly (boolean headersOnly)
+specifier|public
+name|void
+name|setHeadersOnly
+parameter_list|(
+name|boolean
+name|headersOnly
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headersOnly
+operator|=
+name|headersOnly
 expr_stmt|;
 block|}
 block|}

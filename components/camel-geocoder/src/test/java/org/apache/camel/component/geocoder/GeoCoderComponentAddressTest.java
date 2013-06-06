@@ -164,7 +164,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Location ${header.CamelGeocoderAddress} is at lat/lng: ${header.CamelGeocoderLatlng}"
+literal|"Location ${header.CamelGeocoderAddress} is at lat/lng: ${header.CamelGeocoderLatlng} in city ${header.CamelGeocoderCity}"
 argument_list|)
 operator|.
 name|to
