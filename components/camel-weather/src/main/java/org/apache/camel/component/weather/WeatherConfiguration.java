@@ -415,11 +415,18 @@ name|isEmpty
 argument_list|(
 name|location
 argument_list|)
+operator|||
+literal|"current"
+operator|.
+name|equals
+argument_list|(
+name|location
+argument_list|)
 condition|)
 block|{
 name|location
 operator|=
-name|getGeoLocation
+name|getCurrentGeoLocation
 argument_list|()
 expr_stmt|;
 block|}
@@ -513,10 +520,10 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|getGeoLocation ()
+DECL|method|getCurrentGeoLocation ()
 specifier|private
 name|String
-name|getGeoLocation
+name|getCurrentGeoLocation
 parameter_list|()
 throws|throws
 name|Exception
