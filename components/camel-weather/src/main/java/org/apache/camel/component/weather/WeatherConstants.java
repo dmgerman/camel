@@ -29,6 +29,15 @@ specifier|final
 class|class
 name|WeatherConstants
 block|{
+DECL|field|WEATHER_LOCATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|WEATHER_LOCATION
+init|=
+literal|"CamelWeatherLocation"
+decl_stmt|;
 DECL|field|WEATHER_QUERY
 specifier|public
 specifier|static

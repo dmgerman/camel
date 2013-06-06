@@ -132,36 +132,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProducer ()
-specifier|public
-name|Producer
-name|createProducer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Making Weather is not implemented - yet."
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -209,6 +179,51 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createProducer ()
+specifier|public
+name|Producer
+name|createProducer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|WeatherProducer
+argument_list|(
+name|this
+argument_list|,
+name|configuration
+operator|.
+name|getQuery
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|WeatherConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
 return|;
 block|}
 block|}
