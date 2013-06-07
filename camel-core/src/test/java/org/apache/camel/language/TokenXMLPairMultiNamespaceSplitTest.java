@@ -149,6 +149,16 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testTokenXMLPair2 ()
+specifier|public
+name|void
+name|testTokenXMLPair2
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|createBody ()
