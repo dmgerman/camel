@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -681,6 +693,19 @@ name|setCheckInterval
 parameter_list|(
 name|long
 name|checkInterval
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
+specifier|public
+name|void
+name|setReadLockLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|readLockLoggingLevel
 parameter_list|)
 block|{
 comment|// noop

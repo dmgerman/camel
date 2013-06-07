@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -71,6 +83,20 @@ operator|.
 name|file
 operator|.
 name|GenericFileOperations
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|CamelLogger
 import|;
 end_import
 
@@ -156,6 +182,17 @@ name|minLength
 init|=
 literal|1
 decl_stmt|;
+DECL|field|readLockLoggingLevel
+specifier|private
+name|LoggingLevel
+name|readLockLoggingLevel
+init|=
+name|LoggingLevel
+operator|.
+name|WARN
+decl_stmt|;
+annotation|@
+name|Override
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
@@ -275,10 +312,14 @@ operator|>
 name|timeout
 condition|)
 block|{
-name|LOG
+name|CamelLogger
 operator|.
-name|warn
+name|log
 argument_list|(
+name|LOG
+argument_list|,
+name|readLockLoggingLevel
+argument_list|,
 literal|"Cannot acquire read lock within "
 operator|+
 name|timeout
@@ -450,6 +491,8 @@ return|return
 name|timeout
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -476,6 +519,8 @@ return|return
 name|checkInterval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCheckInterval (long checkInterval)
 specifier|public
 name|void
@@ -490,6 +535,24 @@ operator|.
 name|checkInterval
 operator|=
 name|checkInterval
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
+specifier|public
+name|void
+name|setReadLockLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|readLockLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockLoggingLevel
+operator|=
+name|readLockLoggingLevel
 expr_stmt|;
 block|}
 DECL|method|getMinLength ()

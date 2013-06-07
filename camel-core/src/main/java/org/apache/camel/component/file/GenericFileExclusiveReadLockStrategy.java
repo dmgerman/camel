@@ -30,6 +30,18 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|LoggingLevel
+import|;
+end_import
+
 begin_comment
 comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is released, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file.</li>  *<li>FileLockExclusiveReadLockStrategy acquiring a RW file lock for the duration of the processing.</li>  *<li>MarkerFileExclusiveReadLockStrategy using a marker file for acquiring read lock.</li>  *<li>FileChangedExclusiveReadLockStrategy using a file changed detection for acquiring read lock.</li>  *</ul>  */
 end_comment
@@ -125,6 +137,15 @@ name|setCheckInterval
 parameter_list|(
 name|long
 name|checkInterval
+parameter_list|)
+function_decl|;
+comment|/**      * Sets logging level used when a read lock could not be acquired.      *<p/>      * Logging level used when a read lock could not be acquired.      *<p/>      * The default logging level is WARN      * @param readLockLoggingLevel LoggingLevel      */
+DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
+name|void
+name|setReadLockLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|readLockLoggingLevel
 parameter_list|)
 function_decl|;
 block|}

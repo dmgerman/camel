@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -202,6 +214,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
 specifier|public
 name|void
@@ -293,6 +307,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|acquireExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|boolean
@@ -376,6 +392,8 @@ return|return
 name|acquired
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|void
@@ -492,6 +510,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -503,6 +523,8 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|setCheckInterval (long checkInterval)
 specifier|public
 name|void
@@ -510,6 +532,19 @@ name|setCheckInterval
 parameter_list|(
 name|long
 name|checkInterval
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
+specifier|public
+name|void
+name|setReadLockLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|readLockLoggingLevel
 parameter_list|)
 block|{
 comment|// noop
