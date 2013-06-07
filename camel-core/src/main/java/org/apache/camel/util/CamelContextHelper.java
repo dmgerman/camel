@@ -1595,6 +1595,10 @@ decl_stmt|;
 while|while
 condition|(
 name|iter
+operator|!=
+literal|null
+operator|&&
+name|iter
 operator|.
 name|hasMoreElements
 argument_list|()
