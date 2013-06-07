@@ -75,6 +75,18 @@ literal|"org/apache/camel/language/SpringTokenXMLPairNamespaceSplitTest.xml"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|testTokenXMLPair2 ()
+specifier|public
+name|void
+name|testTokenXMLPair2
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 
