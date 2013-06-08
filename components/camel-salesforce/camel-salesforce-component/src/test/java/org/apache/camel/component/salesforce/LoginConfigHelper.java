@@ -93,7 +93,7 @@ specifier|final
 name|String
 name|TEST_LOGIN_PROPERTIES
 init|=
-literal|"test-salesforce-login.properties"
+literal|"../test-salesforce-login.properties"
 decl_stmt|;
 DECL|method|getLoginConfig ()
 specifier|public

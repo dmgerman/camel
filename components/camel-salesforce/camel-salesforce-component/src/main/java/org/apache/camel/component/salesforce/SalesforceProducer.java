@@ -252,7 +252,7 @@ name|payloadFormat
 init|=
 name|endpointConfig
 operator|.
-name|getPayloadFormat
+name|getFormat
 argument_list|()
 decl_stmt|;
 comment|// check if its a Bulk Operation
