@@ -20,6 +20,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -30,7 +40,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|*
 import|;
 end_import
 
@@ -40,17 +50,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|Properties
 import|;
 end_import
 
@@ -495,6 +495,20 @@ operator|.
 name|spi
 operator|.
 name|UuidGenerator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LoadPropertiesException
 import|;
 end_import
 
@@ -1704,6 +1718,21 @@ parameter_list|(
 name|Boolean
 name|useBreadcrumb
 parameter_list|)
+function_decl|;
+comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a map with the component name, and value with component details.      * @throws Exception is thrown if error occurred      */
+DECL|method|findComponents ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Properties
+argument_list|>
+name|findComponents
+parameter_list|()
+throws|throws
+name|LoadPropertiesException
+throws|,
+name|IOException
 function_decl|;
 block|}
 end_interface

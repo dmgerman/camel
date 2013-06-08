@@ -1965,12 +1965,10 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|CamelContextHelper
+name|context
 operator|.
 name|findComponents
-argument_list|(
-name|context
-argument_list|)
+argument_list|()
 return|;
 block|}
 DECL|method|findComponentNames ()

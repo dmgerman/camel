@@ -152,6 +152,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -1417,6 +1427,20 @@ operator|.
 name|util
 operator|.
 name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LoadPropertiesException
 import|;
 end_import
 
@@ -6119,6 +6143,30 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|findComponents ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Properties
+argument_list|>
+name|findComponents
+parameter_list|()
+throws|throws
+name|LoadPropertiesException
+throws|,
+name|IOException
+block|{
+return|return
+name|CamelContextHelper
+operator|.
+name|findComponents
+argument_list|(
+name|this
+argument_list|)
+return|;
 block|}
 comment|// Helper methods
 comment|// -----------------------------------------------------------------------
