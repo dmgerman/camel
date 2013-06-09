@@ -1734,6 +1734,17 @@ name|LoadPropertiesException
 throws|,
 name|IOException
 function_decl|;
+comment|/**      * Returns the HTML documentation for the given camel component      */
+DECL|method|getComponentDocumentation (String componentName)
+name|String
+name|getComponentDocumentation
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 block|}
 end_interface
 

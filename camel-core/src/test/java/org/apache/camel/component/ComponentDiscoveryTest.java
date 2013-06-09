@@ -321,6 +321,50 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Test
+DECL|method|testComponentDocumentation ()
+specifier|public
+name|void
+name|testComponentDocumentation
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelContext
+name|context
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+name|String
+name|html
+init|=
+name|context
+operator|.
+name|getComponentDocumentation
+argument_list|(
+literal|"bean"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have found some auto-generated HTML if on Java 7"
+argument_list|,
+name|html
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"HTML: "
+operator|+
+name|html
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

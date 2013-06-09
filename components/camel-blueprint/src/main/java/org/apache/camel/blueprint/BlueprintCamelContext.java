@@ -659,6 +659,32 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponentDocumentation (String componentName)
+specifier|public
+name|String
+name|getComponentDocumentation
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|BundleContextUtils
+operator|.
+name|getComponentDocumentation
+argument_list|(
+name|bundleContext
+argument_list|,
+name|this
+argument_list|,
+name|componentName
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|blueprintEvent (BlueprintEvent event)
 specifier|public
 name|void

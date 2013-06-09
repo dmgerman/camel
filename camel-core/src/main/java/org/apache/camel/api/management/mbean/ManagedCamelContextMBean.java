@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -784,6 +794,24 @@ name|completionText
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Returns the HTML documentation for the given camel component      *      * @param componentName  the component name      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the HTML documentation for the given camel component"
+argument_list|)
+DECL|method|getComponentDocumentation (String componentName)
+name|String
+name|getComponentDocumentation
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface

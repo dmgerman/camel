@@ -270,6 +270,15 @@ name|COMPONENT_DESCRIPTOR
 init|=
 literal|"META-INF/services/org/apache/camel/component.properties"
 decl_stmt|;
+DECL|field|COMPONENT_DOCUMENTATION_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPONENT_DOCUMENTATION_PREFIX
+init|=
+literal|"org/apache/camel/component/"
+decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|CamelContextHelper ()
 specifier|private

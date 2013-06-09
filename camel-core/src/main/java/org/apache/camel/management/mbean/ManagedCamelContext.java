@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -1969,6 +1979,26 @@ name|context
 operator|.
 name|findComponents
 argument_list|()
+return|;
+block|}
+DECL|method|getComponentDocumentation (String componentName)
+specifier|public
+name|String
+name|getComponentDocumentation
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|context
+operator|.
+name|getComponentDocumentation
+argument_list|(
+name|componentName
+argument_list|)
 return|;
 block|}
 DECL|method|findComponentNames ()
