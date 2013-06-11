@@ -2091,7 +2091,7 @@ decl_stmt|;
 return|return
 name|osName
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|platform
 operator|.
@@ -2102,9 +2102,6 @@ operator|.
 name|US
 argument_list|)
 argument_list|)
-operator|>
-operator|-
-literal|1
 return|;
 block|}
 comment|/**      * Is this Java by the given vendor.      *<p/>      * Uses<tt>java.vendor</tt> from the system properties to determine the vendor.      *      * @param vendor such as IBM      * @return<tt>true</tt> if its that vendor.      */
@@ -2138,7 +2135,7 @@ decl_stmt|;
 return|return
 name|javaVendor
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|vendor
 operator|.
@@ -2149,12 +2146,9 @@ operator|.
 name|US
 argument_list|)
 argument_list|)
-operator|>
-operator|-
-literal|1
 return|;
 block|}
-comment|/**      * Is this version the given Java version.      *<p/>      * Uses<tt>java.version</tt> from the system properties to determine the version.      *      * @param vendor such as IBM      * @return<tt>true</tt> if its that vendor.      */
+comment|/**      * Is this version the given Java version.      *<p/>      * Uses<tt>java.version</tt> from the system properties to determine the version.      *      * @param version such as 1.6      * @return<tt>true</tt> if its that vendor.      */
 DECL|method|isJavaVersion (String version)
 specifier|public
 specifier|static
@@ -2178,7 +2172,7 @@ decl_stmt|;
 return|return
 name|javaVersion
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|version
 operator|.
@@ -2189,9 +2183,6 @@ operator|.
 name|US
 argument_list|)
 argument_list|)
-operator|>
-operator|-
-literal|1
 return|;
 block|}
 block|}

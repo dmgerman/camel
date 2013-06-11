@@ -130,6 +130,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TestSupport
+operator|.
+name|isJavaVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -331,6 +345,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// cannot be tested on java 1.6
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.6"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|CamelContext
 name|context
 init|=
