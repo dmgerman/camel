@@ -262,6 +262,9 @@ return|return
 name|defaultConcurrentConsumers
 return|;
 block|}
+comment|/**      * @deprecated use {@link #getOrCreateQueue(String, Integer, Boolean)}      */
+annotation|@
+name|Deprecated
 DECL|method|getOrCreateQueue (String uri, Integer size)
 specifier|public
 specifier|synchronized
@@ -273,6 +276,33 @@ name|uri
 parameter_list|,
 name|Integer
 name|size
+parameter_list|)
+block|{
+return|return
+name|getOrCreateQueue
+argument_list|(
+name|uri
+argument_list|,
+name|size
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+DECL|method|getOrCreateQueue (String uri, Integer size, Boolean multipleConsumers)
+specifier|public
+specifier|synchronized
+name|QueueReference
+name|getOrCreateQueue
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|Integer
+name|size
+parameter_list|,
+name|Boolean
+name|multipleConsumers
 parameter_list|)
 block|{
 name|String
@@ -482,6 +512,8 @@ argument_list|(
 name|queue
 argument_list|,
 name|size
+argument_list|,
+name|multipleConsumers
 argument_list|)
 expr_stmt|;
 name|ref
@@ -516,6 +548,24 @@ parameter_list|()
 block|{
 return|return
 name|queues
+return|;
+block|}
+DECL|method|getQueueReference (String key)
+specifier|public
+name|QueueReference
+name|getQueueReference
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|queues
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -781,7 +831,12 @@ specifier|private
 name|Integer
 name|size
 decl_stmt|;
-DECL|method|QueueReference (BlockingQueue<Exchange> queue, Integer size)
+DECL|field|multipleConsumers
+specifier|private
+name|Boolean
+name|multipleConsumers
+decl_stmt|;
+DECL|method|QueueReference (BlockingQueue<Exchange> queue, Integer size, Boolean multipleConsumers)
 specifier|private
 name|QueueReference
 parameter_list|(
@@ -793,6 +848,9 @@ name|queue
 parameter_list|,
 name|Integer
 name|size
+parameter_list|,
+name|Boolean
+name|multipleConsumers
 parameter_list|)
 block|{
 name|this
@@ -806,6 +864,12 @@ operator|.
 name|size
 operator|=
 name|size
+expr_stmt|;
+name|this
+operator|.
+name|multipleConsumers
+operator|=
+name|multipleConsumers
 expr_stmt|;
 block|}
 DECL|method|addReference ()
@@ -846,6 +910,16 @@ parameter_list|()
 block|{
 return|return
 name|size
+return|;
+block|}
+DECL|method|getMultipleConsumers ()
+specifier|public
+name|Boolean
+name|getMultipleConsumers
+parameter_list|()
+block|{
+return|return
+name|multipleConsumers
 return|;
 block|}
 comment|/**          * Gets the queue          */
