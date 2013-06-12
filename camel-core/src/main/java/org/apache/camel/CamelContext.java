@@ -1719,7 +1719,7 @@ name|Boolean
 name|useBreadcrumb
 parameter_list|)
 function_decl|;
-comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a map with the component name, and value with component details.      * @throws Exception is thrown if error occurred      */
+comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a map with the component name, and value with component details.      * @throws LoadPropertiesException is thrown if error during classpath discovery of the components      * @throws IOException is thrown if error during classpath discovery of the components      */
 DECL|method|findComponents ()
 name|Map
 argument_list|<
