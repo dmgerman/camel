@@ -223,7 +223,7 @@ operator|=
 operator|new
 name|CamelLogProcessor
 operator|.
-name|DefaultExchangeFormatter
+name|ToStringExchangeFormatter
 argument_list|()
 expr_stmt|;
 name|this

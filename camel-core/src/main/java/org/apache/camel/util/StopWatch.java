@@ -16,6 +16,16 @@ name|util
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
 begin_comment
 comment|/**  * A very simple stop watch.  *<p/>  * This implementation is not thread safe and can only time one task at any given time.  *  * @version   */
 end_comment
@@ -47,6 +57,23 @@ name|this
 argument_list|(
 literal|true
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Starts the stop watch from the given timestamp      */
+DECL|method|StopWatch (Date startTimestamp)
+specifier|public
+name|StopWatch
+parameter_list|(
+name|Date
+name|startTimestamp
+parameter_list|)
+block|{
+name|start
+operator|=
+name|startTimestamp
+operator|.
+name|getTime
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Creates the stop watch      *      * @param started whether it should start immediately      */

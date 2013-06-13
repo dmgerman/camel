@@ -102,15 +102,29 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|DefaultExchangeFormatter
+import|;
+end_import
+
 begin_comment
 comment|/**  * Logger formatter test.  */
 end_comment
 
 begin_class
-DECL|class|LogFormatterTest
+DECL|class|DefaultExchangeFormatterTest
 specifier|public
 class|class
-name|LogFormatterTest
+name|DefaultExchangeFormatterTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -892,11 +906,11 @@ name|void
 name|testConfiguration
 parameter_list|()
 block|{
-name|LogFormatter
+name|DefaultExchangeFormatter
 name|formatter
 init|=
 operator|new
-name|LogFormatter
+name|DefaultExchangeFormatter
 argument_list|()
 decl_stmt|;
 name|assertFalse

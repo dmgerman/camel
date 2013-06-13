@@ -173,7 +173,7 @@ operator|.
 name|formatter
 operator|=
 operator|new
-name|DefaultExchangeFormatter
+name|ToStringExchangeFormatter
 argument_list|()
 expr_stmt|;
 name|this
@@ -420,10 +420,11 @@ name|marker
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|DefaultExchangeFormatter
+comment|/**      * {@link ExchangeFormatter} that calls<tt>toString</tt> on the {@link Exchange}.      */
+DECL|class|ToStringExchangeFormatter
 specifier|static
 class|class
-name|DefaultExchangeFormatter
+name|ToStringExchangeFormatter
 implements|implements
 name|ExchangeFormatter
 block|{

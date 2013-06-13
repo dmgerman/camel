@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.log
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|log
+name|processor
 package|;
 end_package
 
@@ -35,6 +33,26 @@ operator|.
 name|io
 operator|.
 name|StringWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
 import|;
 end_import
 
@@ -117,14 +135,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Logger formatter to format the logging output.  */
+comment|/**  * Default {@link ExchangeFormatter} that have fine grained options to configure what to include in the output.  */
 end_comment
 
 begin_class
-DECL|class|LogFormatter
+DECL|class|DefaultExchangeFormatter
 specifier|public
 class|class
-name|LogFormatter
+name|DefaultExchangeFormatter
 implements|implements
 name|ExchangeFormatter
 block|{
@@ -355,10 +373,13 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+name|sortMap
+argument_list|(
 name|exchange
 operator|.
 name|getProperties
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -391,10 +412,13 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+name|sortMap
+argument_list|(
 name|in
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -717,10 +741,13 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+name|sortMap
+argument_list|(
 name|out
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1543,6 +1570,48 @@ literal|10
 argument_list|)
 return|;
 block|}
+return|return
+name|answer
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|sortMap (Map<String, Object> map)
+specifier|private
+specifier|static
+name|Map
+name|sortMap
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+parameter_list|)
+block|{
+name|TreeMap
+name|answer
+init|=
+operator|new
+name|TreeMap
+argument_list|(
+name|String
+operator|.
+name|CASE_INSENSITIVE_ORDER
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|putAll
+argument_list|(
+name|map
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;

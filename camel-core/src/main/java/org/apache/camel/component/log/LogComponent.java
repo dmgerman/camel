@@ -122,6 +122,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|DefaultExchangeFormatter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|ThroughputLogger
 import|;
 end_import
@@ -405,7 +419,7 @@ block|{
 name|localFormatter
 operator|=
 operator|new
-name|LogFormatter
+name|DefaultExchangeFormatter
 argument_list|()
 expr_stmt|;
 name|setProperties
@@ -509,7 +523,7 @@ return|return
 name|exchangeFormatter
 return|;
 block|}
-comment|/**      * Sets a custom {@link ExchangeFormatter} to convert the Exchange to a String suitable for logging.      *<p />      * If not specified, we default to {@link LogFormatter}.      * @param exchangeFormatter      */
+comment|/**      * Sets a custom {@link ExchangeFormatter} to convert the Exchange to a String suitable for logging.      *<p />      * If not specified, we default to {@link DefaultExchangeFormatter}.      * @param exchangeFormatter      */
 DECL|method|setExchangeFormatter (ExchangeFormatter exchangeFormatter)
 specifier|public
 name|void
