@@ -516,6 +516,20 @@ name|getLocalAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|NettyConstants
+operator|.
+name|NETTY_SSL_SESSION
+argument_list|,
+name|getSSLSession
+argument_list|(
+name|ctx
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// honor the character encoding
 name|String
 name|contentType
