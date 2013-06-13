@@ -74,6 +74,15 @@ name|NETTY_LOCAL_ADDRESS
 init|=
 literal|"CamelNettyLocalAddress"
 decl_stmt|;
+DECL|field|NETTY_SSL_SESSION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NETTY_SSL_SESSION
+init|=
+literal|"CamelNettySSLSession"
+decl_stmt|;
 DECL|method|NettyConstants ()
 specifier|private
 name|NettyConstants
