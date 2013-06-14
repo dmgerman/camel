@@ -620,6 +620,14 @@ name|getLocalAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|isSsl
+argument_list|()
+condition|)
+block|{
 comment|// setup the SslSession header
 name|in
 operator|.
@@ -635,6 +643,7 @@ name|ctx
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
