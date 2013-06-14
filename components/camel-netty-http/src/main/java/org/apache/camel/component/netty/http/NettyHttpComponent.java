@@ -144,9 +144,9 @@ comment|// TODO: support on consumer
 comment|// - bridgeEndpoint
 comment|// - matchOnUriPrefix
 comment|// - urlrewrite
+comment|// - various CamelHttpUri headers with details about the url in use
 comment|// TODO: producer
 comment|// - add support for HTTP_URI / HTTP_QUERY overrides
-comment|// - add actual url to state so we know exactly which url we called also for done callback
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding

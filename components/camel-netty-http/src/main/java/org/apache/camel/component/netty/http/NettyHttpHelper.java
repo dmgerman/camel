@@ -504,7 +504,7 @@ name|GET
 return|;
 block|}
 block|}
-DECL|method|populateNettyHttpOperationFailedException (Exchange exchange, HttpResponse response, int responseCode, boolean transferException)
+DECL|method|populateNettyHttpOperationFailedException (Exchange exchange, String url, HttpResponse response, int responseCode, boolean transferException)
 specifier|public
 specifier|static
 name|Exception
@@ -512,6 +512,9 @@ name|populateNettyHttpOperationFailedException
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|String
+name|url
 parameter_list|,
 name|HttpResponse
 name|response
@@ -523,11 +526,10 @@ name|boolean
 name|transferException
 parameter_list|)
 block|{
-comment|// TODO: we need to have the uri of the http server we called
 name|String
 name|uri
 init|=
-literal|"TODO"
+name|url
 decl_stmt|;
 name|String
 name|statusText
