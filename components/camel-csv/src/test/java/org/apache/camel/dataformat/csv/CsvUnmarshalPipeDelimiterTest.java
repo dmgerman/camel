@@ -90,20 +90,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|csv
-operator|.
-name|CSVStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -466,30 +452,13 @@ operator|new
 name|CsvDataFormat
 argument_list|()
 decl_stmt|;
-name|CSVStrategy
-name|strategy
-init|=
-name|CSVStrategy
-operator|.
-name|DEFAULT_STRATEGY
-decl_stmt|;
-name|strategy
+name|csv
 operator|.
 name|setDelimiter
 argument_list|(
-literal|'|'
+literal|"|"
 argument_list|)
 expr_stmt|;
-name|csv
-operator|.
-name|setStrategy
-argument_list|(
-name|strategy
-argument_list|)
-expr_stmt|;
-comment|// also possible
-comment|// CsvDataFormat csv = new CsvDataFormat();
-comment|// csv.setDelimiter("|");
 name|from
 argument_list|(
 literal|"direct:start"
