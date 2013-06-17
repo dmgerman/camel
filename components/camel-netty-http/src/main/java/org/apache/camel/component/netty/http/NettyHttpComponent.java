@@ -144,8 +144,6 @@ comment|// TODO: support on consumer
 comment|// - bridgeEndpoint
 comment|// - matchOnUriPrefix
 comment|// - urlrewrite
-comment|// TODO: producer
-comment|// - add support for HTTP_URI / HTTP_QUERY overrides
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
