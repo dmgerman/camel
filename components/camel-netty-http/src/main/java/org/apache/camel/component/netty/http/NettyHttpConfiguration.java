@@ -132,6 +132,11 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|path
+specifier|private
+name|String
+name|path
+decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public
 name|NettyHttpConfiguration
@@ -403,6 +408,32 @@ operator|.
 name|mapHeaders
 operator|=
 name|mapHeaders
+expr_stmt|;
+block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
+block|}
+DECL|method|setPath (String path)
+specifier|public
+name|void
+name|setPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+name|this
+operator|.
+name|path
+operator|=
+name|path
 expr_stmt|;
 block|}
 block|}

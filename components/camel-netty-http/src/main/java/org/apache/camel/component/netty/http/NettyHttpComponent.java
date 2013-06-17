@@ -144,7 +144,6 @@ comment|// TODO: support on consumer
 comment|// - bridgeEndpoint
 comment|// - matchOnUriPrefix
 comment|// - urlrewrite
-comment|// - various CamelHttpUri headers with details about the url in use
 comment|// TODO: producer
 comment|// - add support for HTTP_URI / HTTP_QUERY overrides
 DECL|field|nettyHttpBinding
@@ -418,6 +417,38 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|configuration
+operator|instanceof
+name|NettyHttpConfiguration
+condition|)
+block|{
+name|URI
+name|uri
+init|=
+operator|new
+name|URI
+argument_list|(
+name|remaining
+argument_list|)
+decl_stmt|;
+operator|(
+operator|(
+name|NettyHttpConfiguration
+operator|)
+name|configuration
+operator|)
+operator|.
+name|setPath
+argument_list|(
+name|uri
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|configuration
 return|;
