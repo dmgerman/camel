@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -44,6 +56,20 @@ name|Channel
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelPipelineFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Factory for setting up Netty {@link org.jboss.netty.bootstrap.ServerBootstrap} and all  * the needed logic for doing that.  *<p/>  * This factory allows for consumers to reuse existing {@link org.jboss.netty.bootstrap.ServerBootstrap} which  * allows to share the same port for multiple consumers.  */
 end_comment
@@ -56,6 +82,21 @@ name|NettyServerBootstrapFactory
 extends|extends
 name|Service
 block|{
+comment|/**      * Initializes this {@link NettyServerBootstrapFactory}.      */
+DECL|method|init (CamelContext camelContext, NettyConfiguration configuration, ChannelPipelineFactory pipelineFactory)
+name|void
+name|init
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|NettyConfiguration
+name|configuration
+parameter_list|,
+name|ChannelPipelineFactory
+name|pipelineFactory
+parameter_list|)
+function_decl|;
 comment|/**      * When a new {@link Channel} is opened.      */
 DECL|method|addChannel (Channel channel)
 name|void

@@ -680,6 +680,13 @@ operator|=
 operator|new
 name|HttpNettyServerBootstrapFactory
 argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|init
+argument_list|(
 name|getCamelContext
 argument_list|()
 argument_list|,
@@ -693,8 +700,6 @@ name|HttpServerPipelineFactory
 argument_list|(
 name|consumer
 argument_list|)
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 name|bootstrapFactories
