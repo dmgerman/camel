@@ -462,14 +462,6 @@ operator|.
 name|getMessage
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|LOG
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
@@ -479,19 +471,6 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"   is keep-alive: {}"
-argument_list|,
-name|isKeepAlive
-argument_list|(
-name|request
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|is100ContinueExpected

@@ -216,7 +216,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|HttpNettyServerBootstrapFactory
+name|HttpServerBootstrapFactory
 argument_list|>
 name|bootstrapFactories
 init|=
@@ -225,7 +225,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|HttpNettyServerBootstrapFactory
+name|HttpServerBootstrapFactory
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -640,7 +640,7 @@ block|}
 DECL|method|getOrCreateHttpNettyServerBootstrapFactory (NettyHttpConsumer consumer)
 specifier|protected
 specifier|synchronized
-name|HttpNettyServerBootstrapFactory
+name|HttpServerBootstrapFactory
 name|getOrCreateHttpNettyServerBootstrapFactory
 parameter_list|(
 name|NettyHttpConsumer
@@ -658,7 +658,7 @@ operator|.
 name|getAddress
 argument_list|()
 decl_stmt|;
-name|HttpNettyServerBootstrapFactory
+name|HttpServerBootstrapFactory
 name|answer
 init|=
 name|bootstrapFactories
@@ -678,7 +678,7 @@ block|{
 name|answer
 operator|=
 operator|new
-name|HttpNettyServerBootstrapFactory
+name|HttpServerBootstrapFactory
 argument_list|(
 name|this
 argument_list|)

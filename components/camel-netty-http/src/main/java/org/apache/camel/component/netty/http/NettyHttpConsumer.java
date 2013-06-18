@@ -172,7 +172,7 @@ argument_list|(
 name|getNettyServerBootstrapFactory
 argument_list|()
 argument_list|,
-literal|"HttpNettyServerBootstrapFactory"
+literal|"HttpServerBootstrapFactory"
 argument_list|,
 name|this
 argument_list|)

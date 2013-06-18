@@ -340,7 +340,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 comment|// reuse pipeline factory for the same address
-name|HttpNettyServerBootstrapFactory
+name|HttpServerBootstrapFactory
 name|factory
 init|=
 name|getComponent
