@@ -607,6 +607,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|beforeProcess
+argument_list|(
+name|exchange
+argument_list|,
+name|messageEvent
+argument_list|)
+expr_stmt|;
 comment|// process accordingly to endpoint configuration
 if|if
 condition|(
@@ -637,6 +644,23 @@ name|messageEvent
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Allows any custom logic before the {@link Exchange} is processed by the routing engine.      *      * @param exchange       the exchange      * @param messageEvent   the Netty message event      */
+DECL|method|beforeProcess (final Exchange exchange, final MessageEvent messageEvent)
+specifier|protected
+name|void
+name|beforeProcess
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
+name|MessageEvent
+name|messageEvent
+parameter_list|)
+block|{
+comment|// noop
 block|}
 DECL|method|processSynchronously (final Exchange exchange, final MessageEvent messageEvent)
 specifier|private

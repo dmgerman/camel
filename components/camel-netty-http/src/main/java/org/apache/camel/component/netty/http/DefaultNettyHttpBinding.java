@@ -2403,6 +2403,71 @@ operator|.
 name|getTypeConverter
 argument_list|()
 decl_stmt|;
+comment|// if we bridge endpoint then we need to skip matching headers with the HTTP_QUERY to avoid sending
+comment|// duplicated headers to the receiver, so use this skipRequestHeaders as the list of headers to skip
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|skipRequestHeaders
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|isBridgeEndpoint
+argument_list|()
+condition|)
+block|{
+name|String
+name|queryString
+init|=
+name|message
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_QUERY
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|queryString
+operator|!=
+literal|null
+condition|)
+block|{
+name|skipRequestHeaders
+operator|=
+name|URISupport
+operator|.
+name|parseQuery
+argument_list|(
+name|queryString
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Need to remove the Host key as it should be not used
+name|message
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+literal|"host"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// append headers
 comment|// must use entrySet to ensure case of keys is preserved
 for|for
@@ -2442,6 +2507,24 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+comment|// we should not add headers for the parameters in the uri if we bridge the endpoint
+comment|// as then we would duplicate headers on both the endpoint uri, and in HTTP headers as well
+if|if
+condition|(
+name|skipRequestHeaders
+operator|!=
+literal|null
+operator|&&
+name|skipRequestHeaders
+operator|.
+name|containsKey
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// use an iterator as there can be multiple values. (must not use a delimiter)
 specifier|final
 name|Iterator

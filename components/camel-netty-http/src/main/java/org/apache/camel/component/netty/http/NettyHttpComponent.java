@@ -170,6 +170,20 @@ name|URISupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Netty HTTP based component.  */
 end_comment
@@ -186,7 +200,6 @@ name|HeaderFilterStrategyAware
 block|{
 comment|// TODO: support on consumer
 comment|// - validate routes on same port cannot have different SSL etc
-comment|// - bridgeEndpoint
 comment|// - urlrewrite
 DECL|field|multiplexChannelHandlers
 specifier|private
@@ -465,15 +478,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// ensure uri is encoded to be valid
+name|String
+name|safe
+init|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|remaining
+argument_list|)
+decl_stmt|;
+name|URI
+name|uri
+init|=
+operator|new
+name|URI
+argument_list|(
+name|safe
+argument_list|)
+decl_stmt|;
 name|configuration
 operator|.
 name|parseURI
 argument_list|(
-operator|new
-name|URI
-argument_list|(
-name|remaining
-argument_list|)
+name|uri
 argument_list|,
 name|parameters
 argument_list|,
@@ -506,15 +535,6 @@ operator|instanceof
 name|NettyHttpConfiguration
 condition|)
 block|{
-name|URI
-name|uri
-init|=
-operator|new
-name|URI
-argument_list|(
-name|remaining
-argument_list|)
-decl_stmt|;
 operator|(
 operator|(
 name|NettyHttpConfiguration

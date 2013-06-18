@@ -137,6 +137,11 @@ specifier|private
 name|boolean
 name|matchOnUriPrefix
 decl_stmt|;
+DECL|field|bridgeEndpoint
+specifier|private
+name|boolean
+name|bridgeEndpoint
+decl_stmt|;
 DECL|field|path
 specifier|private
 name|String
@@ -439,6 +444,32 @@ operator|.
 name|matchOnUriPrefix
 operator|=
 name|matchOnUriPrefix
+expr_stmt|;
+block|}
+DECL|method|isBridgeEndpoint ()
+specifier|public
+name|boolean
+name|isBridgeEndpoint
+parameter_list|()
+block|{
+return|return
+name|bridgeEndpoint
+return|;
+block|}
+DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
+specifier|public
+name|void
+name|setBridgeEndpoint
+parameter_list|(
+name|boolean
+name|bridgeEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bridgeEndpoint
+operator|=
+name|bridgeEndpoint
 expr_stmt|;
 block|}
 DECL|method|getPath ()
