@@ -501,7 +501,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"https://localhost:{{port}}/foo"
+literal|"https://localhost:{{port}}"
 argument_list|,
 literal|"Hello World"
 argument_list|,

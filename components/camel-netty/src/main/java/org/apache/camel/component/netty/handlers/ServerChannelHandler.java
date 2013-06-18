@@ -360,10 +360,10 @@ block|}
 comment|// to keep track of open sockets
 name|consumer
 operator|.
-name|getAllChannels
+name|getNettyServerBootstrapFactory
 argument_list|()
 operator|.
-name|add
+name|addChannel
 argument_list|(
 name|e
 operator|.
@@ -412,10 +412,10 @@ block|}
 comment|// to keep track of open sockets
 name|consumer
 operator|.
-name|getAllChannels
+name|getNettyServerBootstrapFactory
 argument_list|()
 operator|.
-name|remove
+name|removeChannel
 argument_list|(
 name|e
 operator|.

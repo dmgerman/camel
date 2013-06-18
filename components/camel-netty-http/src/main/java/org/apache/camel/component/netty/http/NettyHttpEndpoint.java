@@ -120,22 +120,6 @@ name|component
 operator|.
 name|netty
 operator|.
-name|NettyConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty
-operator|.
 name|NettyEndpoint
 import|;
 end_import
@@ -307,6 +291,24 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponent ()
+specifier|public
+name|NettyHttpComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|NettyHttpComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -318,7 +320,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Consumer
+name|NettyHttpConsumer
 name|answer
 init|=
 operator|new
@@ -335,6 +337,26 @@ decl_stmt|;
 name|configureConsumer
 argument_list|(
 name|answer
+argument_list|)
+expr_stmt|;
+comment|// reuse pipeline factory for the same address
+name|HttpNettyServerBootstrapFactory
+name|factory
+init|=
+name|getComponent
+argument_list|()
+operator|.
+name|getOrCreateHttpNettyServerBootstrapFactory
+argument_list|(
+name|answer
+argument_list|)
+decl_stmt|;
+comment|// force using our server bootstrap factory
+name|answer
+operator|.
+name|setNettyServerBootstrapFactory
+argument_list|(
+name|factory
 argument_list|)
 expr_stmt|;
 return|return
