@@ -410,23 +410,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"BootstrapFactory on port {} has {} active consumers, so cannot stop {} yet."
+literal|"BootstrapFactory on port {} has {} registered consumers, so cannot stop yet."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|port
-block|,
+argument_list|,
 name|consumers
-block|,
-name|HttpServerBootstrapFactory
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}

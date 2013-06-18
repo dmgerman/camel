@@ -223,6 +223,13 @@ name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|nettyServerBootstrapFactory
+operator|==
+literal|null
+condition|)
+block|{
 comment|// setup pipeline factory
 name|ServerPipelineFactory
 name|pipelineFactory
@@ -263,13 +270,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|nettyServerBootstrapFactory
-operator|==
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|isTcp

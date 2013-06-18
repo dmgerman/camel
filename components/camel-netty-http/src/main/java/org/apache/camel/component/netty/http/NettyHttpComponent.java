@@ -187,7 +187,6 @@ block|{
 comment|// TODO: support on consumer
 comment|// - validate routes on same port cannot have different SSL etc
 comment|// - bridgeEndpoint
-comment|// - matchOnUriPrefix
 comment|// - urlrewrite
 DECL|field|multiplexChannelHandlers
 specifier|private

@@ -132,6 +132,11 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|matchOnUriPrefix
+specifier|private
+name|boolean
+name|matchOnUriPrefix
+decl_stmt|;
 DECL|field|path
 specifier|private
 name|String
@@ -408,6 +413,32 @@ operator|.
 name|mapHeaders
 operator|=
 name|mapHeaders
+expr_stmt|;
+block|}
+DECL|method|isMatchOnUriPrefix ()
+specifier|public
+name|boolean
+name|isMatchOnUriPrefix
+parameter_list|()
+block|{
+return|return
+name|matchOnUriPrefix
+return|;
+block|}
+DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
+specifier|public
+name|void
+name|setMatchOnUriPrefix
+parameter_list|(
+name|boolean
+name|matchOnUriPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchOnUriPrefix
+operator|=
+name|matchOnUriPrefix
 expr_stmt|;
 block|}
 DECL|method|getPath ()
