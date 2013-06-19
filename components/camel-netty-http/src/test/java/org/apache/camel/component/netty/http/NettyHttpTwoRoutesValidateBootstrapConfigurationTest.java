@@ -93,7 +93,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/foo"
+literal|"netty-http:http://0.0.0.0:{{port}}/foo?option.child.keepAlive=false"
 argument_list|)
 operator|.
 name|to
@@ -109,10 +109,10 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|// we cannot have a 2nd route on same port with SSL enabled, when the 1st route is NOT
+comment|// we cannot have a 2nd route on same port with different option that the 1st route
 name|from
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/bar?ssl=true"
+literal|"netty-http:http://0.0.0.0:{{port}}/bar?option.child.keepAlive=true"
 argument_list|)
 operator|.
 name|to
