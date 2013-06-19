@@ -438,7 +438,7 @@ argument_list|,
 literal|"CamelContext"
 argument_list|)
 expr_stmt|;
-name|startServerBoostrap
+name|startServerBootstrap
 argument_list|()
 expr_stmt|;
 block|}
@@ -452,14 +452,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|stopServerBoostrap
+name|stopServerBootstrap
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|startServerBoostrap ()
+DECL|method|startServerBootstrap ()
 specifier|protected
 name|void
-name|startServerBoostrap
+name|startServerBootstrap
 parameter_list|()
 block|{
 name|bossExecutor
@@ -721,10 +721,10 @@ name|channel
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|stopServerBoostrap ()
+DECL|method|stopServerBootstrap ()
 specifier|protected
 name|void
-name|stopServerBoostrap
+name|stopServerBootstrap
 parameter_list|()
 block|{
 comment|// close all channels

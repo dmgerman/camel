@@ -168,6 +168,14 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+name|setNettyServerBootstrapFactory
+argument_list|(
+name|configuration
+operator|.
+name|getNettyServerBootstrapFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setExceptionHandler
 argument_list|(
 operator|new
