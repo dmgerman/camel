@@ -40,23 +40,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|NettyHttpSuspendResumeTest
 specifier|public
 class|class
@@ -74,7 +62,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/cool?chunked=false"
+literal|"/cool"
 decl_stmt|;
 annotation|@
 name|Test
@@ -130,7 +118,7 @@ name|context
 operator|.
 name|getRoute
 argument_list|(
-literal|"route1"
+literal|"foo"
 argument_list|)
 operator|.
 name|getConsumer
@@ -264,6 +252,11 @@ block|{
 name|from
 argument_list|(
 name|serverUri
+argument_list|)
+operator|.
+name|routeId
+argument_list|(
+literal|"foo"
 argument_list|)
 operator|.
 name|transform
