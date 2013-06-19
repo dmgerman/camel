@@ -1174,7 +1174,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Will inspect the target for properties.      *<p/>      * Notice a property must have both a getter/setter method to be included.      *      * @param target         the target bean      * @param properties     the map to fill in found properties      * @param optionPrefix   an optional prefix to append the property key      * @return<tt>true</tt> if any properties was found,<tt>false</tt> otherwise.      */
+comment|/**      * Will inspect the target for properties.      *<p/>      * Notice a property must have both a getter/setter method to be included.      * Notice all<tt>null</tt> values will be included.      *      * @param target         the target bean      * @param properties     the map to fill in found properties      * @param optionPrefix   an optional prefix to append the property key      * @return<tt>true</tt> if any properties was found,<tt>false</tt> otherwise.      */
 DECL|method|getProperties (Object target, Map<String, Object> properties, String optionPrefix)
 specifier|public
 specifier|static
@@ -1194,6 +1194,44 @@ name|properties
 parameter_list|,
 name|String
 name|optionPrefix
+parameter_list|)
+block|{
+return|return
+name|getProperties
+argument_list|(
+name|target
+argument_list|,
+name|properties
+argument_list|,
+name|optionPrefix
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Will inspect the target for properties.      *<p/>      * Notice a property must have both a getter/setter method to be included.      *      * @param target         the target bean      * @param properties     the map to fill in found properties      * @param optionPrefix   an optional prefix to append the property key      * @param includeNull    whether to include<tt>null</tt> values      * @return<tt>true</tt> if any properties was found,<tt>false</tt> otherwise.      */
+DECL|method|getProperties (Object target, Map<String, Object> properties, String optionPrefix, boolean includeNull)
+specifier|public
+specifier|static
+name|boolean
+name|getProperties
+parameter_list|(
+name|Object
+name|target
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|,
+name|String
+name|optionPrefix
+parameter_list|,
+name|boolean
+name|includeNull
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -1298,6 +1336,15 @@ argument_list|(
 name|target
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+operator|||
+name|includeNull
+condition|)
+block|{
 name|properties
 operator|.
 name|put
@@ -1313,6 +1360,7 @@ name|rc
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
