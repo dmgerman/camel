@@ -76,6 +76,22 @@ name|component
 operator|.
 name|netty
 operator|.
+name|NettyServerBootstrapConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty
+operator|.
 name|SingleTCPNettyServerBootstrapFactory
 import|;
 end_import
@@ -149,6 +165,11 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
+DECL|field|bootstrapConfiguration
+specifier|private
+name|NettyServerBootstrapConfiguration
+name|bootstrapConfiguration
+decl_stmt|;
 DECL|method|HttpServerBootstrapFactory (NettyHttpComponent component)
 specifier|public
 name|HttpServerBootstrapFactory
@@ -201,15 +222,24 @@ operator|.
 name|getPort
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|bootstrapConfiguration
+operator|=
+name|configuration
+expr_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"BootstrapFactory on port {} is using configuration: {}"
+literal|"BootstrapFactory on port {} is using bootstrap configuration: [{}]"
 argument_list|,
 name|port
 argument_list|,
-name|configuration
+name|bootstrapConfiguration
+operator|.
+name|toStringBootstrapConfiguration
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -222,6 +252,65 @@ name|NettyConsumer
 name|consumer
 parameter_list|)
 block|{
+comment|// when adding additional consumers on the same port (eg to reuse port for multiple routes etc) then the Netty server bootstrap
+comment|// configuration must match, as its the 1st consumer that calls the init method, which configuration is used for the Netty server bootstrap
+comment|// we do this to avoid mis configuration, so people configure SSL and plain configuration on the same port etc.
+comment|// first it may be the same instance, so only check for compatibility of different instance
+if|if
+condition|(
+name|bootstrapConfiguration
+operator|!=
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|&&
+operator|!
+name|bootstrapConfiguration
+operator|.
+name|compatible
+argument_list|(
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Bootstrap configuration must be identical when adding additional consumer: "
+operator|+
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|+
+literal|" on same port: "
+operator|+
+name|port
+operator|+
+literal|".\n  Existing "
+operator|+
+name|bootstrapConfiguration
+operator|.
+name|toStringBootstrapConfiguration
+argument_list|()
+operator|+
+literal|"\n       New "
+operator|+
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|toStringBootstrapConfiguration
+argument_list|()
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|LOG

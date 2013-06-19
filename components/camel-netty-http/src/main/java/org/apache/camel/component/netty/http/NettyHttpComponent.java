@@ -199,7 +199,6 @@ implements|implements
 name|HeaderFilterStrategyAware
 block|{
 comment|// TODO: support on consumer
-comment|// - validate routes on same port cannot have different SSL etc
 comment|// - urlrewrite
 DECL|field|multiplexChannelHandlers
 specifier|private
