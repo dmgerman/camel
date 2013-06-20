@@ -82,6 +82,7 @@ name|BeanMethodWithEmptyParameterAndNoMethodWithNoParameterIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
+comment|// TODO: CAMEL-6455
 annotation|@
 name|Override
 DECL|method|createRegistry ()
@@ -189,7 +190,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"bean:myBean?method=doSomething()"
+literal|"bean:myBean?method=doSomething(*)"
 argument_list|)
 operator|.
 name|to
