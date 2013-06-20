@@ -28,6 +28,22 @@ name|component
 operator|.
 name|salesforce
 operator|.
+name|SalesforceEndpointConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
 name|SalesforceLoginConfig
 import|;
 end_import
@@ -203,6 +219,54 @@ operator|.
 name|plugin
 operator|.
 name|MojoExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|LifecyclePhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Mojo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|maven
+operator|.
+name|plugins
+operator|.
+name|annotations
+operator|.
+name|Parameter
 import|;
 end_import
 
@@ -421,10 +485,23 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Goal which generates POJOs for Salesforce SObjects  *  * @goal generate  * @phase generate-sources  */
+comment|/**  * Goal which generates POJOs for Salesforce SObjects  */
 end_comment
 
 begin_class
+annotation|@
+name|Mojo
+argument_list|(
+name|name
+operator|=
+literal|"generate"
+argument_list|,
+name|defaultPhase
+operator|=
+name|LifecyclePhase
+operator|.
+name|GENERATE_SOURCES
+argument_list|)
 DECL|class|CamelSalesforceMojo
 specifier|public
 class|class
@@ -506,69 +583,166 @@ name|TIMEOUT
 init|=
 literal|60000
 decl_stmt|;
-comment|/**      * Salesforce client id      *      * @parameter property="${clientId}"      * @required      */
+comment|/**      * Salesforce client id      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.clientId"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|clientId
 specifier|protected
 name|String
 name|clientId
 decl_stmt|;
-comment|/**      * Salesforce client secret      *      * @parameter property="${clientSecret}"      * @required      */
+comment|/**      * Salesforce client secret      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.clientSecret"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|clientSecret
 specifier|protected
 name|String
 name|clientSecret
 decl_stmt|;
-comment|/**      * Salesforce user name      *      * @parameter property="${userName}"      * @required      */
+comment|/**      * Salesforce user name      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.userName"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|userName
 specifier|protected
 name|String
 name|userName
 decl_stmt|;
-comment|/**      * Salesforce password      *      * @parameter property="${password}"      * @required      */
+comment|/**      * Salesforce password      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.password"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|password
 specifier|protected
 name|String
 name|password
 decl_stmt|;
-comment|/**      * Salesforce version      *      * @parameter property="${version}" default-value="25.0"      */
+comment|/**      * Salesforce version      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.version"
+argument_list|,
+name|defaultValue
+operator|=
+name|SalesforceEndpointConfig
+operator|.
+name|DEFAULT_VERSION
+argument_list|)
 DECL|field|version
 specifier|protected
 name|String
 name|version
 decl_stmt|;
-comment|/**      * Location of the file.      *      * @parameter property="${outputDirectory}" default-value="${project.build.directory}/generated-sources/camel-salesforce"      * @required      */
+comment|/**      * Location of the file.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.outputDirectory"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"${project.build.directory}/generated-sources/camel-salesforce"
+argument_list|)
 DECL|field|outputDirectory
 specifier|protected
 name|File
 name|outputDirectory
 decl_stmt|;
-comment|/**      * Names of Salesforce SObject for which POJOs must be generated      *      * @parameter      */
+comment|/**      * Names of Salesforce SObject for which POJOs must be generated      */
+annotation|@
+name|Parameter
 DECL|field|includes
 specifier|protected
 name|String
 index|[]
 name|includes
 decl_stmt|;
-comment|/**      * Do NOT generate POJOs for these Salesforce SObjects      *      * @parameter      */
+comment|/**      * Do NOT generate POJOs for these Salesforce SObjects      */
+annotation|@
+name|Parameter
 DECL|field|excludes
 specifier|protected
 name|String
 index|[]
 name|excludes
 decl_stmt|;
-comment|/**      * Include Salesforce SObjects that match pattern      *      * @parameter property="${includePattern}"      */
+comment|/**      * Include Salesforce SObjects that match pattern      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.includePattern"
+argument_list|)
 DECL|field|includePattern
 specifier|protected
 name|String
 name|includePattern
 decl_stmt|;
-comment|/**      * Exclude Salesforce SObjects that match pattern      *      * @parameter property="${excludePattern}"      */
+comment|/**      * Exclude Salesforce SObjects that match pattern      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.excludePattern"
+argument_list|)
 DECL|field|excludePattern
 specifier|protected
 name|String
 name|excludePattern
 decl_stmt|;
-comment|/**      * Java package name for generated POJOs      *      * @parameter property="${packageName}" default-value="org.apache.camel.salesforce.dto"      */
+comment|/**      * Java package name for generated POJOs      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.packageName"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"org.apache.camel.salesforce.dto"
+argument_list|)
 DECL|field|packageName
 specifier|protected
 name|String
@@ -842,8 +1016,6 @@ expr_stmt|;
 comment|// create rest client
 name|RestClient
 name|restClient
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{

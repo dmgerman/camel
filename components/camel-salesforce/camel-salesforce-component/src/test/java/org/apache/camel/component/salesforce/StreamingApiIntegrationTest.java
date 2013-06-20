@@ -353,6 +353,30 @@ literal|"CamelSalesforceClientId"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Missing header CamelSalesforceEventType"
+argument_list|,
+name|in
+operator|.
+name|getHeader
+argument_list|(
+literal|"CamelSalesforceEventType"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Missing header CamelSalesforceCreatedDate"
+argument_list|,
+name|in
+operator|.
+name|getHeader
+argument_list|(
+literal|"CamelSalesforceCreatedDate"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
