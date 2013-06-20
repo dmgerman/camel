@@ -178,10 +178,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testFreemarkerLetter ()
+DECL|method|testMustacheLetter ()
 specifier|public
 name|void
-name|testFreemarkerLetter
+name|testMustacheLetter
 parameter_list|()
 throws|throws
 name|Exception
