@@ -139,6 +139,62 @@ operator|=
 name|pojo
 expr_stmt|;
 block|}
+DECL|method|MethodNotFoundException (Exchange exchange, Object pojo, String methodName, String postfix)
+specifier|public
+name|MethodNotFoundException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Object
+name|pojo
+parameter_list|,
+name|String
+name|methodName
+parameter_list|,
+name|String
+name|postfix
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Method with name: "
+operator|+
+name|methodName
+operator|+
+literal|" "
+operator|+
+name|postfix
+operator|+
+literal|" not found on bean: "
+operator|+
+name|pojo
+operator|+
+literal|" of type: "
+operator|+
+name|ObjectHelper
+operator|.
+name|className
+argument_list|(
+name|pojo
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|methodName
+operator|=
+name|methodName
+expr_stmt|;
+name|this
+operator|.
+name|bean
+operator|=
+name|pojo
+expr_stmt|;
+block|}
 DECL|method|MethodNotFoundException (Exchange exchange, Class<?> type, String methodName, boolean isStaticMethod)
 specifier|public
 name|MethodNotFoundException

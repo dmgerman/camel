@@ -1362,6 +1362,16 @@ literal|"("
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|emptyParameters
+init|=
+name|methodName
+operator|.
+name|endsWith
+argument_list|(
+literal|"()"
+argument_list|)
+decl_stmt|;
 comment|// special for getClass, as we want the user to be able to invoke this method
 comment|// for example to log the class type or the likes
 if|if
@@ -1491,6 +1501,31 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// validate that if we want an explict no-arg method, then that's what we get
+if|if
+condition|(
+name|emptyParameters
+operator|&&
+name|methodInfo
+operator|.
+name|hasParameters
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MethodNotFoundException
+argument_list|(
+name|exchange
+argument_list|,
+name|pojo
+argument_list|,
+name|methodName
+argument_list|,
+literal|"(with no parameters)"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1514,6 +1549,40 @@ argument_list|,
 name|methodName
 argument_list|)
 expr_stmt|;
+comment|// validate that if we want an explicit no-arg method, then that's what we get
+if|if
+condition|(
+name|emptyParameters
+condition|)
+block|{
+if|if
+condition|(
+name|methodInfo
+operator|==
+literal|null
+operator|||
+name|methodInfo
+operator|.
+name|hasParameters
+argument_list|()
+condition|)
+block|{
+comment|// we could not find a no-arg method with that name
+throw|throw
+operator|new
+name|MethodNotFoundException
+argument_list|(
+name|exchange
+argument_list|,
+name|pojo
+argument_list|,
+name|methodName
+argument_list|,
+literal|"(with no parameters)"
+argument_list|)
+throw|;
+block|}
+block|}
 if|if
 condition|(
 name|methodInfo

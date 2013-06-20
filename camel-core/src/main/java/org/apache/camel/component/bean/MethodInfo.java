@@ -2192,6 +2192,20 @@ return|return
 name|hasHandlerAnnotation
 return|;
 block|}
+DECL|method|hasParameters ()
+specifier|public
+name|boolean
+name|hasParameters
+parameter_list|()
+block|{
+return|return
+operator|!
+name|parameters
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 DECL|method|isReturnTypeVoid ()
 specifier|public
 name|boolean
