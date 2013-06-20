@@ -112,10 +112,6 @@ name|NoXmlHeaderValidationException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ValidatorRouteTest
 specifier|public
@@ -569,6 +565,42 @@ name|finallyEndpoint
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testUseNotASharedSchema ()
+specifier|public
+name|void
+name|testUseNotASharedSchema
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|validEndpoint
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:useNotASharedSchema"
+argument_list|,
+literal|"<mail xmlns='http://foo.com/bar'><subject>Hey</subject><body>Hello world!</body></mail>"
+argument_list|)
+expr_stmt|;
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+name|validEndpoint
+argument_list|,
+name|invalidEndpoint
+argument_list|,
+name|finallyEndpoint
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -747,6 +779,21 @@ operator|.
 name|to
 argument_list|(
 literal|"validator:org/apache/camel/component/validator/schema.xsd?headerName=headerToValidate&failOnNullHeader=false"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:valid"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:useNotASharedSchema"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"validator:org/apache/camel/component/validator/schema.xsd?useSharedSchema=false"
 argument_list|)
 operator|.
 name|to

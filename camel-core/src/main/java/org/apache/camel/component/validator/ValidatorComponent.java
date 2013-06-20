@@ -40,29 +40,13 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|stream
-operator|.
-name|StreamSource
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
-name|w3c
+name|apache
 operator|.
-name|dom
+name|camel
 operator|.
-name|ls
-operator|.
-name|LSResourceResolver
+name|Endpoint
 import|;
 end_import
 
@@ -74,7 +58,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|converter
+operator|.
+name|IOConverter
 import|;
 end_import
 
@@ -170,6 +156,20 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|ls
+operator|.
+name|LSResourceResolver
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/validation.html">Validator Component</a>  * for validating XML against some schema  */
 end_comment
@@ -243,15 +243,35 @@ argument_list|,
 name|resourceUri
 argument_list|)
 decl_stmt|;
-name|StreamSource
-name|source
+name|byte
+index|[]
+name|bytes
 init|=
-operator|new
-name|StreamSource
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|bytes
+operator|=
+name|IOConverter
+operator|.
+name|toBytes
 argument_list|(
 name|is
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// and make sure to close the input stream after the schema has been loaded
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
+block|}
 name|ValidatingProcessor
 name|validator
 init|=
@@ -261,11 +281,12 @@ argument_list|()
 decl_stmt|;
 name|validator
 operator|.
-name|setSchemaSource
+name|setSchemaAsByteArray
 argument_list|(
-name|source
+name|bytes
 argument_list|)
 expr_stmt|;
+comment|//validator.setSchemaSource(source);
 name|LOG
 operator|.
 name|debug
@@ -294,14 +315,6 @@ name|validator
 operator|.
 name|loadSchema
 argument_list|()
-expr_stmt|;
-comment|// and make sure to close the input stream after the schema has been loaded
-name|IOHelper
-operator|.
-name|close
-argument_list|(
-name|is
-argument_list|)
 expr_stmt|;
 return|return
 operator|new
