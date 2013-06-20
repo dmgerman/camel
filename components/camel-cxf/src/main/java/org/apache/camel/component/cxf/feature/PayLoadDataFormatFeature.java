@@ -537,6 +537,17 @@ name|getBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Initialized CXF Client: {} in Payload mode with allow streaming: {}"
+argument_list|,
+name|client
+argument_list|,
+name|allowStreaming
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -663,6 +674,17 @@ argument_list|()
 operator|.
 name|getBinding
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Initialized CXF Server: {} in Payload mode with allow streaming: {}"
+argument_list|,
+name|server
+argument_list|,
+name|allowStreaming
 argument_list|)
 expr_stmt|;
 block|}
