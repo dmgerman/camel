@@ -286,7 +286,6 @@ argument_list|(
 name|bytes
 argument_list|)
 expr_stmt|;
-comment|//validator.setSchemaSource(source);
 name|LOG
 operator|.
 name|debug
