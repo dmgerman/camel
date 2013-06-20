@@ -20,42 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|mustachejava
-operator|.
-name|DefaultMustacheFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|mustachejava
-operator|.
-name|Mustache
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|mustachejava
-operator|.
-name|MustacheFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -111,6 +75,42 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|mustachejava
+operator|.
+name|DefaultMustacheFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|mustachejava
+operator|.
+name|Mustache
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|mustachejava
+operator|.
+name|MustacheFactory
 import|;
 end_import
 
@@ -204,7 +204,43 @@ name|mustache
 operator|.
 name|MustacheConstants
 operator|.
-name|*
+name|MUSTACHE_ENDPOINT_URI_PREFIX
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mustache
+operator|.
+name|MustacheConstants
+operator|.
+name|MUSTACHE_RESOURCE_URI
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mustache
+operator|.
+name|MustacheConstants
+operator|.
+name|MUSTACHE_TEMPLATE
 import|;
 end_import
 
@@ -220,31 +256,26 @@ name|MustacheEndpoint
 extends|extends
 name|ResourceEndpoint
 block|{
-comment|/**      * Mustache factory      */
 DECL|field|mustacheFactory
 specifier|private
 name|MustacheFactory
 name|mustacheFactory
 decl_stmt|;
-comment|/**      * Mustache template      */
 DECL|field|mustache
 specifier|private
 name|Mustache
 name|mustache
 decl_stmt|;
-comment|/**      * Encoding      */
 DECL|field|encoding
 specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/**      * Start delimiter, usually {{      */
 DECL|field|startDelimiter
 specifier|private
 name|String
 name|startDelimiter
 decl_stmt|;
-comment|/**      * End delimiter, usually }}      */
 DECL|field|endDelimiter
 specifier|private
 name|String
@@ -565,7 +596,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Read and compile a Mustache template      * @param resourceReader Reader used to get template      * @param resourceUri Template Id      * @return Template      */
+comment|/**      * Read and compile a Mustache template      *      * @param resourceReader Reader used to get template      * @param resourceUri    Template Id      * @return Template      */
 DECL|method|createMustache (Reader resourceReader, String resourceUri)
 specifier|private
 name|Mustache

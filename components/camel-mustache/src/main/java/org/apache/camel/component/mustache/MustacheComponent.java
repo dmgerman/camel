@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|github
@@ -39,16 +49,6 @@ operator|.
 name|mustachejava
 operator|.
 name|MustacheFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -104,7 +104,6 @@ name|MustacheComponent
 extends|extends
 name|DefaultComponent
 block|{
-comment|/**      * Mustache factory      */
 DECL|field|mustacheFactory
 specifier|private
 name|MustacheFactory
