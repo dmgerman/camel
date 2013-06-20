@@ -65,10 +65,10 @@ DECL|field|MAIL_DEFAULT_CONNECTION_TIMEOUT
 specifier|public
 specifier|static
 specifier|final
-name|long
+name|int
 name|MAIL_DEFAULT_CONNECTION_TIMEOUT
 init|=
-literal|30000L
+literal|30000
 decl_stmt|;
 DECL|method|MailConstants ()
 specifier|private

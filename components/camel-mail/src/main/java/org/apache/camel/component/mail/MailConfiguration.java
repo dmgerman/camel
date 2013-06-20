@@ -273,7 +273,7 @@ name|debugMode
 decl_stmt|;
 DECL|field|connectionTimeout
 specifier|private
-name|long
+name|int
 name|connectionTimeout
 init|=
 name|MailConstants
@@ -1778,12 +1778,12 @@ return|return
 name|connectionTimeout
 return|;
 block|}
-DECL|method|setConnectionTimeout (long connectionTimeout)
+DECL|method|setConnectionTimeout (int connectionTimeout)
 specifier|public
 name|void
 name|setConnectionTimeout
 parameter_list|(
-name|long
+name|int
 name|connectionTimeout
 parameter_list|)
 block|{
