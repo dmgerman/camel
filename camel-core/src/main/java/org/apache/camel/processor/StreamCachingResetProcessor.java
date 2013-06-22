@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.interceptor
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|camel
 operator|.
 name|processor
-operator|.
-name|interceptor
 package|;
 end_package
 
@@ -62,60 +60,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|StreamCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|DelegateAsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|MessageHelper
 import|;
 end_import
 
-begin_comment
-comment|/**  * An interceptor that converts streams messages into a re-readable format  * by wrapping the stream into a {@link StreamCache}.  */
-end_comment
-
 begin_class
-annotation|@
-name|Deprecated
-DECL|class|StreamCachingInterceptor
+DECL|class|StreamCachingResetProcessor
 specifier|public
 class|class
-name|StreamCachingInterceptor
+name|StreamCachingResetProcessor
 extends|extends
 name|DelegateAsyncProcessor
 block|{
-DECL|method|StreamCachingInterceptor ()
+DECL|method|StreamCachingResetProcessor (Processor processor)
 specifier|public
-name|StreamCachingInterceptor
-parameter_list|()
-block|{     }
-DECL|method|StreamCachingInterceptor (Processor processor)
-specifier|public
-name|StreamCachingInterceptor
+name|StreamCachingResetProcessor
 parameter_list|(
 name|Processor
 name|processor
@@ -126,22 +87,6 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"StreamCachingInterceptor["
-operator|+
-name|processor
-operator|+
-literal|"]"
-return|;
 block|}
 annotation|@
 name|Override
@@ -157,39 +102,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-name|StreamCache
-name|newBody
-init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|StreamCache
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|newBody
-operator|!=
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|newBody
-argument_list|)
-expr_stmt|;
-block|}
 name|MessageHelper
 operator|.
 name|resetStreamCache
@@ -201,7 +113,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|processor
+name|super
 operator|.
 name|process
 argument_list|(

@@ -85,6 +85,8 @@ comment|/**  * {@link InterceptStrategy} implementation to configure stream cach
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|StreamCaching
 specifier|public
 specifier|final

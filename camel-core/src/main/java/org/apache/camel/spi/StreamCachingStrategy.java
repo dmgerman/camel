@@ -34,7 +34,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StreamCache
 import|;
 end_import
 
@@ -141,6 +165,15 @@ DECL|method|isRemoveSpoolDirectoryWhenStopping ()
 name|boolean
 name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
+function_decl|;
+comment|/**      * Caches the body aas a {@link StreamCache}.      *      * @param exchange the exchange      * @return the body cached as a {@link StreamCache}, or<tt>null</tt> if not possible or no need to cache the body      */
+DECL|method|cache (Exchange exchange)
+name|StreamCache
+name|cache
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 function_decl|;
 block|}
 end_interface
