@@ -394,7 +394,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|TokenXMLPairExpressionIterator
+name|TokenXMLExpressionIterator
 import|;
 end_import
 
@@ -4055,7 +4055,7 @@ name|includeTokens
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an {@link TokenXMLPairExpressionIterator} expression      */
+comment|/**      * Returns an {@link TokenXMLExpressionIterator} expression      */
 DECL|method|tokenizeXMLExpression (String tagName, String inheritNamespaceTagName)
 specifier|public
 specifier|static
@@ -4115,18 +4115,6 @@ operator|+
 literal|">"
 expr_stmt|;
 block|}
-name|String
-name|endToken
-init|=
-literal|"</"
-operator|+
-name|tagName
-operator|.
-name|substring
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|inheritNamespaceTagName
@@ -4173,11 +4161,9 @@ block|}
 block|}
 return|return
 operator|new
-name|TokenXMLPairExpressionIterator
+name|TokenXMLExpressionIterator
 argument_list|(
 name|tagName
-argument_list|,
-name|endToken
 argument_list|,
 name|inheritNamespaceTagName
 argument_list|)

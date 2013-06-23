@@ -130,15 +130,14 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|xxxTestSendSelfClosingTagMessageToTokenize ()
+DECL|method|testSendSelfClosingTagMessageToTokenize ()
 specifier|public
 name|void
-name|xxxTestSendSelfClosingTagMessageToTokenize
+name|testSendSelfClosingTagMessageToTokenize
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: ignored test as it does not work, there is a CAMEL ticket about this
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -158,6 +157,107 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='a' anotherAttr='a' /><child some_attr='b' anotherAttr='b' /></parent>"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testSendMixedClosingTagMessageToTokenize ()
+specifier|public
+name|void
+name|testSendMixedClosingTagMessageToTokenize
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"<child some_attr='a' anotherAttr='a'>ha</child>"
+argument_list|,
+literal|"<child some_attr='b' anotherAttr='b' />"
+argument_list|,
+literal|"<child some_attr='c'></child>"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='a' anotherAttr='a'>ha</child><child some_attr='b' anotherAttr='b' /><child some_attr='c'></child></parent>"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testSendNamespacedChildMessageToTokenize ()
+specifier|public
+name|void
+name|testSendNamespacedChildMessageToTokenize
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"<c:child xmlns:c='urn:c' some_attr='a' anotherAttr='a'></c:child>"
+argument_list|,
+literal|"<c:child xmlns:c='urn:c' some_attr='b' anotherAttr='b' />"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><c:child xmlns:c='urn:c' some_attr='a' anotherAttr='a'></c:child><c:child xmlns:c='urn:c' some_attr='b' anotherAttr='b' /></parent>"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testSendNamespacedParentMessageToTokenize ()
+specifier|public
+name|void
+name|testSendNamespacedParentMessageToTokenize
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"<c:child some_attr='a' anotherAttr='a' xmlns:c='urn:c' xmlns:d=\"urn:d\"></c:child>"
+argument_list|,
+literal|"<c:child some_attr='b' anotherAttr='b' xmlns:c='urn:c' xmlns:d=\"urn:d\"/>"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='a' anotherAttr='a'></c:child><c:child some_attr='b' anotherAttr='b'/></c:parent>"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -193,6 +293,8 @@ operator|.
 name|tokenizeXML
 argument_list|(
 literal|"child"
+argument_list|,
+literal|"parent"
 argument_list|)
 operator|.
 name|to
