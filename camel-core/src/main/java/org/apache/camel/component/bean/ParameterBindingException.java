@@ -66,16 +66,19 @@ name|RuntimeCamelException
 block|{
 DECL|field|method
 specifier|private
+specifier|final
 name|Method
 name|method
 decl_stmt|;
 DECL|field|index
 specifier|private
+specifier|final
 name|int
 name|index
 decl_stmt|;
 DECL|field|parameterType
 specifier|private
+specifier|final
 name|Class
 argument_list|<
 name|?
@@ -84,6 +87,7 @@ name|parameterType
 decl_stmt|;
 DECL|field|parameterValue
 specifier|private
+specifier|final
 name|Object
 name|parameterValue
 decl_stmt|;
