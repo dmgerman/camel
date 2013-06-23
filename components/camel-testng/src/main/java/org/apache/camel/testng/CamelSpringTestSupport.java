@@ -419,6 +419,11 @@ annotation|@
 name|Override
 annotation|@
 name|AfterMethod
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -460,6 +465,11 @@ block|}
 block|}
 annotation|@
 name|AfterClass
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 DECL|method|tearSpringDownAfterClass ()
 specifier|public
 specifier|static

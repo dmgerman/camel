@@ -795,6 +795,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|BeforeMethod
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 DECL|method|setUp ()
 specifier|public
 name|void
@@ -1271,6 +1276,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|AfterMethod
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 DECL|method|tearDown ()
 specifier|public
 name|void
@@ -1374,6 +1384,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|AfterClass
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 DECL|method|tearDownAfterClass ()
 specifier|public
 specifier|static

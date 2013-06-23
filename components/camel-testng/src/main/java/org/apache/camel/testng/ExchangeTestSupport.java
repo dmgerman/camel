@@ -147,6 +147,11 @@ annotation|@
 name|Override
 annotation|@
 name|BeforeTest
+argument_list|(
+name|alwaysRun
+operator|=
+literal|true
+argument_list|)
 DECL|method|setUp ()
 specifier|public
 name|void
