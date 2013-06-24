@@ -349,6 +349,20 @@ operator|=
 name|privateKeyFilePassphrase
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
+DECL|method|getPrivateKeyFilePassphrase ()
+specifier|public
+name|String
+name|getPrivateKeyFilePassphrase
+parameter_list|()
+block|{
+return|return
+name|privateKeyPassphrase
+return|;
+block|}
+annotation|@
+name|Deprecated
 DECL|method|setPrivateKeyFilePassphrase (String privateKeyFilePassphrase)
 specifier|public
 name|void
