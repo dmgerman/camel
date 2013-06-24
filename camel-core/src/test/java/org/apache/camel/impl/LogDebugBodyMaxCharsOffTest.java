@@ -75,10 +75,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|LogDebugBodyMaxCharsTest
+DECL|class|LogDebugBodyMaxCharsOffTest
 specifier|public
 class|class
-name|LogDebugBodyMaxCharsTest
+name|LogDebugBodyMaxCharsOffTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -108,7 +108,7 @@ name|Exchange
 operator|.
 name|LOG_DEBUG_BODY_MAX_CHARS
 argument_list|,
-literal|"20"
+literal|"-1"
 argument_list|)
 expr_stmt|;
 block|}
@@ -193,7 +193,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// should be clipped after 20 chars
+comment|// should be empty body as toString on the message will return an empty body
 name|String
 name|msg
 init|=
@@ -215,98 +215,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Message: 01234567890123456789... [Body clipped after 20 chars, total length is 1000]"
-argument_list|,
-name|msg
-argument_list|)
-expr_stmt|;
-comment|// but body and clipped should not be the same
-name|assertNotSame
-argument_list|(
-literal|"clipped log and real body should not be the same"
-argument_list|,
-name|msg
-argument_list|,
-name|mock
-operator|.
-name|getReceivedExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testNotClipped ()
-specifier|public
-name|void
-name|testNotClipped
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"1234567890"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// should not be clipped as the message is< 20 chars
-name|String
-name|msg
-init|=
-name|mock
-operator|.
-name|getReceivedExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Message: 1234567890"
+literal|"Message: [Body is not logged]"
 argument_list|,
 name|msg
 argument_list|)

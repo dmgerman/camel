@@ -696,7 +696,7 @@ name|maxChars
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *       * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed (currently not in use)      * @param maxChars limit to maximum number of chars. Use 0 or negative value to not limit at all.      * @return the logging message      */
+comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *       * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed (currently not in use)      * @param maxChars limit to maximum number of chars. Use 0 for not limit, and -1 for turning logging message body off.      * @return the logging message      */
 DECL|method|extractBodyForLogging (Message message, String prepend, boolean allowStreams, boolean allowFiles, int maxChars)
 specifier|public
 specifier|static
@@ -719,6 +719,19 @@ name|int
 name|maxChars
 parameter_list|)
 block|{
+if|if
+condition|(
+name|maxChars
+operator|<
+literal|0
+condition|)
+block|{
+return|return
+name|prepend
+operator|+
+literal|"[Body is not logged]"
+return|;
+block|}
 name|Object
 name|obj
 init|=
@@ -843,6 +856,34 @@ literal|"[Body is instance of java.io.Writer]"
 return|;
 block|}
 elseif|else
+if|if
+condition|(
+name|obj
+operator|instanceof
+name|WrappedFile
+operator|||
+name|obj
+operator|instanceof
+name|File
+condition|)
+block|{
+return|return
+name|prepend
+operator|+
+literal|"[Body is file based: "
+operator|+
+name|obj
+operator|+
+literal|"]"
+return|;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|allowFiles
+condition|)
+block|{
 if|if
 condition|(
 name|obj
@@ -1303,12 +1344,18 @@ operator|.
 name|append
 argument_list|(
 literal|"<header key=\""
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"\""
 argument_list|)
 expr_stmt|;
@@ -1324,9 +1371,15 @@ operator|.
 name|append
 argument_list|(
 literal|" type=\""
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|type
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"\""
 argument_list|)
 expr_stmt|;
@@ -1475,9 +1528,15 @@ operator|.
 name|append
 argument_list|(
 literal|" type=\""
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|type
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|"\""
 argument_list|)
 expr_stmt|;
