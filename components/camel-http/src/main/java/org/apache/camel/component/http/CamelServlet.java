@@ -625,6 +625,14 @@ expr_stmt|;
 block|}
 try|try
 block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -637,6 +645,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// process the exchange
 name|consumer
 operator|.
@@ -665,6 +674,15 @@ expr_stmt|;
 block|}
 try|try
 block|{
+comment|// now lets output to the response
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
@@ -677,7 +695,42 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// now lets output to the response
+block|}
+name|Integer
+name|bs
+init|=
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getResponseBufferSize
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|bs
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Using response buffer size: {}"
+argument_list|,
+name|bs
+argument_list|)
+expr_stmt|;
+name|response
+operator|.
+name|setBufferSize
+argument_list|(
+name|bs
+argument_list|)
+expr_stmt|;
+block|}
 name|consumer
 operator|.
 name|getBinding

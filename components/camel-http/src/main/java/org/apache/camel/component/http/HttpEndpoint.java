@@ -362,6 +362,11 @@ specifier|private
 name|UrlRewrite
 name|urlRewrite
 decl_stmt|;
+DECL|field|responseBufferSize
+specifier|private
+name|Integer
+name|responseBufferSize
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1542,6 +1547,32 @@ operator|.
 name|urlRewrite
 operator|=
 name|urlRewrite
+expr_stmt|;
+block|}
+DECL|method|getResponseBufferSize ()
+specifier|public
+name|Integer
+name|getResponseBufferSize
+parameter_list|()
+block|{
+return|return
+name|responseBufferSize
+return|;
+block|}
+DECL|method|setResponseBufferSize (Integer responseBufferSize)
+specifier|public
+name|void
+name|setResponseBufferSize
+parameter_list|(
+name|Integer
+name|responseBufferSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|responseBufferSize
+operator|=
+name|responseBufferSize
 expr_stmt|;
 block|}
 block|}
