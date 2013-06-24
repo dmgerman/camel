@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestResult
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,18 +39,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TestSupport
 import|;
 end_import
 
@@ -105,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -163,14 +131,14 @@ block|{
 comment|// Does not work on Windows
 if|if
 condition|(
-name|TestSupport
-operator|.
 name|isPlatform
 argument_list|(
 literal|"windows"
 argument_list|)
 condition|)
+block|{
 return|return;
+block|}
 name|MockEndpoint
 name|mock
 init|=
