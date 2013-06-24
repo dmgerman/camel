@@ -585,6 +585,24 @@ argument_list|,
 name|tempTarget
 argument_list|)
 expr_stmt|;
+comment|//if we should eager delete target file before deploying temporary file
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|!=
+name|GenericFileExist
+operator|.
+name|TryRename
+operator|&&
+name|endpoint
+operator|.
+name|isEagerDeleteTargetFile
+argument_list|()
+condition|)
+block|{
 comment|// cater for file exists option on the real target as
 comment|// the file operations code will work on the temp file
 comment|// if an existing file already exists what should we do?
@@ -602,6 +620,13 @@ condition|(
 name|targetExists
 condition|)
 block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"EagerDeleteTargetFile, target exists"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -703,6 +728,7 @@ throw|;
 block|}
 block|}
 block|}
+block|}
 comment|// delete any pre existing temp file
 if|if
 condition|(
@@ -769,17 +795,99 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if we should not eager delete the target file then do it now just before renaming
+comment|// if we did not eager delete the target file
 if|if
 condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|!=
+name|GenericFileExist
+operator|.
+name|TryRename
+operator|&&
 operator|!
 name|endpoint
 operator|.
 name|isEagerDeleteTargetFile
 argument_list|()
-operator|&&
+condition|)
+block|{
+comment|// if an existing file already exists what should we do?
 name|targetExists
-operator|&&
+operator|=
+name|operations
+operator|.
+name|existsFile
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|targetExists
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Not using EagerDeleteTargetFile, target exists"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Ignore
+condition|)
+block|{
+comment|// ignore but indicate that the file was written
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"An existing file already exists: {}. Ignore and do not override it."
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+elseif|else
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getFileExist
+argument_list|()
+operator|==
+name|GenericFileExist
+operator|.
+name|Fail
+condition|)
+block|{
+throw|throw
+operator|new
+name|GenericFileOperationFailedException
+argument_list|(
+literal|"File already exist: "
+operator|+
+name|target
+operator|+
+literal|". Cannot write new file."
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
 name|endpoint
 operator|.
 name|getFileExist
@@ -821,6 +929,8 @@ operator|+
 name|target
 argument_list|)
 throw|;
+block|}
+block|}
 block|}
 block|}
 comment|// now we are ready to rename the temp file to the target file

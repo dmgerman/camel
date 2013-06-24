@@ -33,6 +33,7 @@ DECL|enumConstant|Append
 DECL|enumConstant|Fail
 DECL|enumConstant|Ignore
 DECL|enumConstant|Move
+DECL|enumConstant|TryRename
 name|Override
 block|,
 name|Append
@@ -42,6 +43,8 @@ block|,
 name|Ignore
 block|,
 name|Move
+block|,
+name|TryRename
 block|}
 end_enum
 
