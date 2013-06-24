@@ -163,7 +163,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// showStreams is enabled so we cannot re-read the input stream
 name|mock
 operator|.
 name|message
@@ -180,7 +179,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|""
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|InputStream
