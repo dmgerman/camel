@@ -656,6 +656,16 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+DECL|method|getCurrentStream ()
+specifier|public
+name|OutputStream
+name|getCurrentStream
+parameter_list|()
+block|{
+return|return
+name|currentStream
+return|;
+block|}
 DECL|method|toString ()
 specifier|public
 name|String
