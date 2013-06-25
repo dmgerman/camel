@@ -12401,6 +12401,15 @@ name|ManagementStrategy
 name|getManagementStrategy
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|managementStrategyInitialized
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
 synchronized|synchronized
 init|(
 name|managementStrategyInitialized
@@ -12424,10 +12433,11 @@ name|createManagementStrategy
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+block|}
 return|return
 name|managementStrategy
 return|;
-block|}
 block|}
 DECL|method|setManagementStrategy (ManagementStrategy managementStrategy)
 specifier|public
