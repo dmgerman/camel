@@ -118,6 +118,24 @@ name|netty
 operator|.
 name|http
 operator|.
+name|HttpServerConsumerChannelFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty
+operator|.
+name|http
+operator|.
 name|NettyHttpConsumer
 import|;
 end_import
@@ -147,6 +165,20 @@ operator|.
 name|buffer
 operator|.
 name|ChannelBuffers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelHandler
 import|;
 end_import
 
@@ -331,6 +363,8 @@ class|class
 name|HttpServerMultiplexChannelHandler
 extends|extends
 name|SimpleChannelUpstreamHandler
+implements|implements
+name|HttpServerConsumerChannelFactory
 block|{
 comment|// use NettyHttpConsumer as logger to make it easier to read the logs as this is part of the consumer
 DECL|field|LOG
@@ -370,26 +404,43 @@ name|HttpServerChannelHandler
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|port
+specifier|private
+name|int
+name|port
+decl_stmt|;
 DECL|field|token
 specifier|private
-specifier|final
 name|String
 name|token
 decl_stmt|;
 DECL|field|len
 specifier|private
-specifier|final
 name|int
 name|len
 decl_stmt|;
-DECL|method|HttpServerMultiplexChannelHandler (int port)
+DECL|method|HttpServerMultiplexChannelHandler ()
 specifier|public
 name|HttpServerMultiplexChannelHandler
+parameter_list|()
+block|{
+comment|// must have default no-arg constructor to allow IoC containers to manage it
+block|}
+DECL|method|init (int port)
+specifier|public
+name|void
+name|init
 parameter_list|(
 name|int
 name|port
 parameter_list|)
 block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
+expr_stmt|;
 name|this
 operator|.
 name|token
@@ -510,7 +561,6 @@ name|matcher
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Number of active consumers.      */
 DECL|method|consumers ()
 specifier|public
 name|int
@@ -522,6 +572,26 @@ name|consumers
 operator|.
 name|size
 argument_list|()
+return|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|port
+return|;
+block|}
+DECL|method|getChannelHandler ()
+specifier|public
+name|ChannelHandler
+name|getChannelHandler
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 annotation|@

@@ -42,6 +42,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -205,6 +221,11 @@ DECL|field|sslHandler
 specifier|protected
 name|SslHandler
 name|sslHandler
+decl_stmt|;
+DECL|field|sslContextParameters
+specifier|protected
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|field|needClientAuth
 specifier|protected
@@ -663,6 +684,32 @@ operator|.
 name|sslHandler
 operator|=
 name|sslHandler
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|isNeedClientAuth ()
@@ -1324,6 +1371,19 @@ return|;
 block|}
 if|if
 condition|(
+name|sslContextParameters
+operator|!=
+name|other
+operator|.
+name|sslContextParameters
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
 name|needClientAuth
 operator|!=
 name|other
@@ -1554,6 +1614,12 @@ operator|+
 literal|", sslHandler="
 operator|+
 name|sslHandler
+operator|+
+literal|", sslContextParameters='"
+operator|+
+name|sslContextParameters
+operator|+
+literal|'\''
 operator|+
 literal|", needClientAuth="
 operator|+

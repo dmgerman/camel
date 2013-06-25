@@ -154,11 +154,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|component
+DECL|field|channelFactory
 specifier|private
 specifier|final
-name|NettyHttpComponent
-name|component
+name|HttpServerConsumerChannelFactory
+name|channelFactory
 decl_stmt|;
 DECL|field|port
 specifier|private
@@ -170,24 +170,54 @@ specifier|private
 name|NettyServerBootstrapConfiguration
 name|bootstrapConfiguration
 decl_stmt|;
-DECL|method|HttpServerBootstrapFactory (NettyHttpComponent component)
+DECL|field|compatibleCheck
+specifier|private
+name|boolean
+name|compatibleCheck
+decl_stmt|;
+DECL|method|HttpServerBootstrapFactory (HttpServerConsumerChannelFactory channelFactory)
 specifier|public
 name|HttpServerBootstrapFactory
 parameter_list|(
-name|NettyHttpComponent
-name|component
+name|HttpServerConsumerChannelFactory
+name|channelFactory
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|channelFactory
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|HttpServerBootstrapFactory (HttpServerConsumerChannelFactory channelFactory, boolean compatibleCheck)
+specifier|public
+name|HttpServerBootstrapFactory
+parameter_list|(
+name|HttpServerConsumerChannelFactory
+name|channelFactory
+parameter_list|,
+name|boolean
+name|compatibleCheck
 parameter_list|)
 block|{
 name|this
 operator|.
-name|component
+name|channelFactory
 operator|=
-name|component
+name|channelFactory
+expr_stmt|;
+name|this
+operator|.
+name|compatibleCheck
+operator|=
+name|compatibleCheck
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|init (CamelContext camelContext, NettyConfiguration configuration, ChannelPipelineFactory pipelineFactory)
+DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelPipelineFactory pipelineFactory)
 specifier|public
 name|void
 name|init
@@ -195,7 +225,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|NettyConfiguration
+name|NettyServerBootstrapConfiguration
 name|configuration
 parameter_list|,
 name|ChannelPipelineFactory
@@ -251,6 +281,11 @@ parameter_list|(
 name|NettyConsumer
 name|consumer
 parameter_list|)
+block|{
+if|if
+condition|(
+name|compatibleCheck
+condition|)
 block|{
 comment|// when adding additional consumers on the same port (eg to reuse port for multiple routes etc) then the Netty server bootstrap
 comment|// configuration must match, as its the 1st consumer that calls the init method, which configuration is used for the Netty server bootstrap
@@ -311,6 +346,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+block|}
 if|if
 condition|(
 name|LOG
@@ -345,12 +381,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|component
-operator|.
-name|getMultiplexChannelHandler
-argument_list|(
-name|port
-argument_list|)
+name|channelFactory
 operator|.
 name|addConsumer
 argument_list|(
@@ -406,12 +437,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|component
-operator|.
-name|getMultiplexChannelHandler
-argument_list|(
-name|port
-argument_list|)
+name|channelFactory
 operator|.
 name|removeConsumer
 argument_list|(
@@ -461,12 +487,7 @@ comment|// only stop if no more active consumers
 name|int
 name|consumers
 init|=
-name|component
-operator|.
-name|getMultiplexChannelHandler
-argument_list|(
-name|port
-argument_list|)
+name|channelFactory
 operator|.
 name|consumers
 argument_list|()

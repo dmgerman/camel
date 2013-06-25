@@ -228,8 +228,7 @@ name|NettyComponent
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-comment|// TODO: support on consumer
-comment|// - urlrewrite
+comment|// factories which is created by this component and therefore manage their lifecycles
 DECL|field|multiplexChannelHandlers
 specifier|private
 specifier|final
@@ -237,7 +236,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|HttpServerMultiplexChannelHandler
+name|HttpServerConsumerChannelFactory
 argument_list|>
 name|multiplexChannelHandlers
 init|=
@@ -246,7 +245,7 @@ name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|HttpServerMultiplexChannelHandler
+name|HttpServerConsumerChannelFactory
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -711,14 +710,14 @@ block|}
 DECL|method|getMultiplexChannelHandler (int port)
 specifier|public
 specifier|synchronized
-name|HttpServerMultiplexChannelHandler
+name|HttpServerConsumerChannelFactory
 name|getMultiplexChannelHandler
 parameter_list|(
 name|int
 name|port
 parameter_list|)
 block|{
-name|HttpServerMultiplexChannelHandler
+name|HttpServerConsumerChannelFactory
 name|answer
 init|=
 name|multiplexChannelHandlers
@@ -739,6 +738,11 @@ name|answer
 operator|=
 operator|new
 name|HttpServerMultiplexChannelHandler
+argument_list|()
+expr_stmt|;
+name|answer
+operator|.
+name|init
 argument_list|(
 name|port
 argument_list|)
@@ -795,12 +799,26 @@ operator|==
 literal|null
 condition|)
 block|{
+name|HttpServerConsumerChannelFactory
+name|channelFactory
+init|=
+name|getMultiplexChannelHandler
+argument_list|(
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|answer
 operator|=
 operator|new
 name|HttpServerBootstrapFactory
 argument_list|(
-name|this
+name|channelFactory
 argument_list|)
 expr_stmt|;
 name|answer

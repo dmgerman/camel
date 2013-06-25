@@ -82,15 +82,15 @@ name|NettyServerBootstrapFactory
 extends|extends
 name|Service
 block|{
-comment|/**      * Initializes this {@link NettyServerBootstrapFactory}.      */
-DECL|method|init (CamelContext camelContext, NettyConfiguration configuration, ChannelPipelineFactory pipelineFactory)
+comment|/**      * Initializes this {@link NettyServerBootstrapFactory}.      *      * @param camelContext     Use<tt>null</tt> if this factory is to be shared among other Camel applications.      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the pipeline factory      */
+DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelPipelineFactory pipelineFactory)
 name|void
 name|init
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|NettyConfiguration
+name|NettyServerBootstrapConfiguration
 name|configuration
 parameter_list|,
 name|ChannelPipelineFactory
