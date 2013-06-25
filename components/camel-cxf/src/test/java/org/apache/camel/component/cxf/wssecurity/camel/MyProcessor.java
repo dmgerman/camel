@@ -76,6 +76,10 @@ name|Processor
 import|;
 end_import
 
+begin_comment
+comment|/**  * This processor is used to create a new SOAPMessage from the in message stream  * which will be used as output message.  */
+end_comment
+
 begin_class
 DECL|class|MyProcessor
 specifier|public
