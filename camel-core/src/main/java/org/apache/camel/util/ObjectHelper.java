@@ -4758,6 +4758,23 @@ name|clazz
 argument_list|)
 return|;
 block|}
+DECL|method|arrayLength (Object[] pojo)
+specifier|public
+specifier|static
+name|int
+name|arrayLength
+parameter_list|(
+name|Object
+index|[]
+name|pojo
+parameter_list|)
+block|{
+return|return
+name|pojo
+operator|.
+name|length
+return|;
+block|}
 comment|/**      * Converts primitive types such as int to its wrapper type like      * {@link Integer}      */
 DECL|method|convertPrimitiveTypeToWrapperType (Class<?> type)
 specifier|public
