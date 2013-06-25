@@ -342,6 +342,13 @@ specifier|private
 name|boolean
 name|sendEmptyMessageWhenIdle
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|greedy
+specifier|private
+name|boolean
+name|greedy
+decl_stmt|;
 DECL|field|polling
 specifier|private
 specifier|volatile
@@ -829,6 +836,35 @@ argument_list|,
 name|polledMessages
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|polledMessages
+operator|>
+literal|0
+operator|&&
+name|isGreedy
+argument_list|()
+condition|)
+block|{
+name|done
+operator|=
+literal|false
+expr_stmt|;
+name|retryCounter
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Greedy polling after processing {} messages"
+argument_list|,
+name|polledMessages
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1277,6 +1313,33 @@ block|{
 return|return
 name|sendEmptyMessageWhenIdle
 return|;
+block|}
+DECL|method|isGreedy ()
+specifier|public
+name|boolean
+name|isGreedy
+parameter_list|()
+block|{
+return|return
+name|greedy
+return|;
+block|}
+comment|/**      * If greedy then a poll is executed immediate after a previous poll that polled 1 or more messages.      */
+DECL|method|setGreedy (boolean greedy)
+specifier|public
+name|void
+name|setGreedy
+parameter_list|(
+name|boolean
+name|greedy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|greedy
+operator|=
+name|greedy
+expr_stmt|;
 block|}
 DECL|method|getScheduledExecutorService ()
 specifier|public
