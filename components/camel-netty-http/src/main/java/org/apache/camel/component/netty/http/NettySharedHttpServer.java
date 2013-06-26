@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A single interface to easily configure and setup a shared Netty HTTP server  * to be re-used among other Camel applications.  *<p/>  * To use this, just define a {@link NettyServerBootstrapConfiguration} configuration, and  * set this using {@link #setNettyServerBootstrapConfiguration(org.apache.camel.component.netty.NettyServerBootstrapConfiguration)}.  * Then call the {@link #start()} to initialize this shared server.  */
+comment|/**  * A single interface to easily configure and setup a shared Netty HTTP server  * to be re-used among other Camel applications.  *<p/>  * To use this, just define a {@link NettyServerBootstrapConfiguration} configuration, and  * set this using {@link #setNettyServerBootstrapConfiguration(NettySharedHttpServerBootstrapConfiguration)}.  * Then call the {@link #start()} to initialize this shared server.  */
 end_comment
 
 begin_interface
@@ -91,11 +91,11 @@ extends|extends
 name|Service
 block|{
 comment|/**      * Sets the bootstrap configuration to use by this shared Netty HTTP server.      */
-DECL|method|setNettyServerBootstrapConfiguration (NettyServerBootstrapConfiguration configuration)
+DECL|method|setNettyServerBootstrapConfiguration (NettySharedHttpServerBootstrapConfiguration configuration)
 name|void
 name|setNettyServerBootstrapConfiguration
 parameter_list|(
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 parameter_list|)
 function_decl|;

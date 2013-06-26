@@ -305,7 +305,7 @@ decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|channelFactory
@@ -325,11 +325,11 @@ specifier|private
 name|SSLContext
 name|sslContext
 decl_stmt|;
-DECL|method|HttpServerSharedPipelineFactory (NettyServerBootstrapConfiguration configuration, HttpServerConsumerChannelFactory channelFactory, ClassResolver classResolver)
+DECL|method|HttpServerSharedPipelineFactory (NettySharedHttpServerBootstrapConfiguration configuration, HttpServerConsumerChannelFactory channelFactory, ClassResolver classResolver)
 specifier|public
 name|HttpServerSharedPipelineFactory
 parameter_list|(
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 parameter_list|,
 name|HttpServerConsumerChannelFactory
@@ -488,7 +488,9 @@ expr_stmt|;
 comment|// Uncomment the following line if you don't want to handle HttpChunks.
 if|if
 condition|(
-name|supportChunked
+name|configuration
+operator|.
+name|isChunked
 argument_list|()
 condition|)
 block|{
@@ -519,7 +521,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|supportCompressed
+name|configuration
+operator|.
+name|isCompression
 argument_list|()
 condition|)
 block|{
@@ -882,28 +886,6 @@ name|sslEngine
 argument_list|)
 return|;
 block|}
-block|}
-DECL|method|supportChunked ()
-specifier|private
-name|boolean
-name|supportChunked
-parameter_list|()
-block|{
-comment|// TODO: options on bootstrap
-return|return
-literal|true
-return|;
-block|}
-DECL|method|supportCompressed ()
-specifier|private
-name|boolean
-name|supportCompressed
-parameter_list|()
-block|{
-comment|// TODO: options on bootstrap
-return|return
-literal|false
-return|;
 block|}
 block|}
 end_class

@@ -103,11 +103,11 @@ operator|new
 name|DefaultNettySharedHttpServer
 argument_list|()
 expr_stmt|;
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 init|=
 operator|new
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 argument_list|()
 decl_stmt|;
 name|configuration
@@ -135,6 +135,13 @@ expr_stmt|;
 name|configuration
 operator|.
 name|setKeepAlive
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|configuration
+operator|.
+name|setCompression
 argument_list|(
 literal|true
 argument_list|)

@@ -194,7 +194,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|configuration
 specifier|private
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|channelFactory
@@ -212,12 +212,12 @@ specifier|private
 name|ClassResolver
 name|classResolver
 decl_stmt|;
-DECL|method|setNettyServerBootstrapConfiguration (NettyServerBootstrapConfiguration configuration)
+DECL|method|setNettyServerBootstrapConfiguration (NettySharedHttpServerBootstrapConfiguration configuration)
 specifier|public
 name|void
 name|setNettyServerBootstrapConfiguration
 parameter_list|(
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -318,7 +318,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Port must be configured on NettyServerBootstrapConfiguration "
+literal|"Port must be configured on NettySharedHttpServerBootstrapConfiguration "
 operator|+
 name|configuration
 argument_list|)
