@@ -305,7 +305,7 @@ decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|channelFactory
@@ -325,11 +325,11 @@ specifier|private
 name|SSLContext
 name|sslContext
 decl_stmt|;
-DECL|method|HttpServerSharedPipelineFactory (NettyServerBootstrapConfiguration configuration, HttpServerConsumerChannelFactory channelFactory, ClassResolver classResolver)
+DECL|method|HttpServerSharedPipelineFactory (NettySharedHttpServerBootstrapConfiguration configuration, HttpServerConsumerChannelFactory channelFactory, ClassResolver classResolver)
 specifier|public
 name|HttpServerSharedPipelineFactory
 parameter_list|(
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 parameter_list|,
 name|HttpServerConsumerChannelFactory
@@ -485,8 +485,14 @@ name|HttpRequestDecoder
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Uncomment the following line if you don't want to handle HttpChunks.
-comment|//        if (configuration.isChunked()) {
+if|if
+condition|(
+name|configuration
+operator|.
+name|isChunked
+argument_list|()
+condition|)
+block|{
 name|pipeline
 operator|.
 name|addLast
@@ -500,7 +506,7 @@ literal|1048576
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        }
+block|}
 name|pipeline
 operator|.
 name|addLast
@@ -512,9 +518,26 @@ name|HttpResponseEncoder
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        if (configuration.isCompression()) {
-comment|//            pipeline.addLast("deflater", new HttpContentCompressor());
-comment|//        }
+if|if
+condition|(
+name|configuration
+operator|.
+name|isCompression
+argument_list|()
+condition|)
+block|{
+name|pipeline
+operator|.
+name|addLast
+argument_list|(
+literal|"deflater"
+argument_list|,
+operator|new
+name|HttpContentCompressor
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|pipeline
 operator|.
 name|addLast

@@ -32,22 +32,6 @@ name|component
 operator|.
 name|netty
 operator|.
-name|NettyServerBootstrapConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty
-operator|.
 name|NettyServerBootstrapFactory
 import|;
 end_import
@@ -176,6 +160,8 @@ name|ServiceSupport
 implements|implements
 name|NettySharedHttpServer
 block|{
+comment|// TODO: option to enlist in JMX
+comment|// TODO: option to configure thread name pattern for the shared jetty threads
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -194,7 +180,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|configuration
 specifier|private
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|channelFactory
@@ -212,12 +198,19 @@ specifier|private
 name|ClassResolver
 name|classResolver
 decl_stmt|;
-DECL|method|setNettyServerBootstrapConfiguration (NettyServerBootstrapConfiguration configuration)
+DECL|field|startServer
+specifier|private
+name|boolean
+name|startServer
+init|=
+literal|true
+decl_stmt|;
+DECL|method|setNettyServerBootstrapConfiguration (NettySharedHttpServerBootstrapConfiguration configuration)
 specifier|public
 name|void
 name|setNettyServerBootstrapConfiguration
 parameter_list|(
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -284,6 +277,50 @@ return|return
 name|bootstrapFactory
 return|;
 block|}
+DECL|method|getConsumersSize ()
+specifier|public
+name|int
+name|getConsumersSize
+parameter_list|()
+block|{
+if|if
+condition|(
+name|channelFactory
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|channelFactory
+operator|.
+name|consumers
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
+block|}
+DECL|method|setStartServer (boolean startServer)
+specifier|public
+name|void
+name|setStartServer
+parameter_list|(
+name|boolean
+name|startServer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startServer
+operator|=
+name|startServer
+expr_stmt|;
+block|}
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -324,18 +361,37 @@ name|configuration
 argument_list|)
 throw|;
 block|}
+comment|// hostname must be set
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Host must be configured on NettySharedHttpServerBootstrapConfiguration "
+operator|+
+name|configuration
+argument_list|)
+throw|;
+block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Starting NettySharedHttpServer using configuration: {} on port: {}"
+literal|"NettySharedHttpServer using configuration: {}"
 argument_list|,
 name|configuration
-argument_list|,
-name|configuration
-operator|.
-name|getPort
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// force using tcp as the underlying transport
@@ -397,6 +453,43 @@ argument_list|,
 name|pipelineFactory
 argument_list|)
 expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|channelFactory
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|startServer
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting NettySharedHttpServer on {}:{}"
+argument_list|,
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startServices
+argument_list|(
+name|bootstrapFactory
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -412,9 +505,12 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Stopping NettySharedHttpServer using configuration: {} on port: {}"
+literal|"Stopping NettySharedHttpServer on {}:{}"
 argument_list|,
 name|configuration
+operator|.
+name|getHost
+argument_list|()
 argument_list|,
 name|configuration
 operator|.

@@ -302,10 +302,10 @@ specifier|private
 name|DatagramChannelFactory
 name|datagramChannelFactory
 decl_stmt|;
-DECL|field|connectionlessServerBootstrap
+DECL|field|connectionlessBootstrap
 specifier|private
 name|ConnectionlessBootstrap
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 decl_stmt|;
 DECL|field|channel
 specifier|private
@@ -530,7 +530,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|=
 operator|new
 name|ConnectionlessBootstrap
@@ -538,7 +538,7 @@ argument_list|(
 name|datagramChannelFactory
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -550,7 +550,7 @@ name|isKeepAlive
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -562,7 +562,7 @@ name|isTcpNoDelay
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -574,7 +574,7 @@ name|isReuseAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -586,7 +586,7 @@ name|isReuseAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -598,7 +598,7 @@ name|getConnectTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -610,7 +610,7 @@ name|isBroadcast
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -622,7 +622,7 @@ name|getSendBufferSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -645,7 +645,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -672,7 +672,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -717,7 +717,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setOption
 argument_list|(
@@ -736,29 +736,46 @@ block|}
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Created ConnectionlessBootstrap {} with options: {}"
 argument_list|,
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 argument_list|,
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|getOptions
 argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// set the pipeline factory, which creates the pipeline for each newly created channels
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|setPipelineFactory
 argument_list|(
 name|pipelineFactory
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"ConnectionlessBootstrap binding to {}:{}"
+argument_list|,
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|channel
 operator|=
-name|connectionlessServerBootstrap
+name|connectionlessBootstrap
 operator|.
 name|bind
 argument_list|(
@@ -793,6 +810,23 @@ name|stopServerBootstrap
 parameter_list|()
 block|{
 comment|// close all channels
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"ConnectionlessBootstrap unbinding from {}:{}"
+argument_list|,
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|trace

@@ -399,13 +399,16 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Created NettyHttpConsumer: {} using NettySharedHttpServer: {}"
+literal|"NettyHttpConsumer: {} is using NettySharedHttpServer on port: {}"
 argument_list|,
 name|answer
 argument_list|,
 name|nettySharedHttpServer
+operator|.
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -713,7 +713,7 @@ block|}
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Created ServerBootstrap {} with options: {}"
 argument_list|,
@@ -731,6 +731,23 @@ operator|.
 name|setPipelineFactory
 argument_list|(
 name|pipelineFactory
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"ServerBootstrap binding to {}:{}"
+argument_list|,
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|channel
@@ -770,6 +787,23 @@ name|stopServerBootstrap
 parameter_list|()
 block|{
 comment|// close all channels
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"ServerBootstrap unbinding from {}:{}"
+argument_list|,
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|trace

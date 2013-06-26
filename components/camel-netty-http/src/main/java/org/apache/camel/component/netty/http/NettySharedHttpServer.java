@@ -91,11 +91,11 @@ extends|extends
 name|Service
 block|{
 comment|/**      * Sets the bootstrap configuration to use by this shared Netty HTTP server.      */
-DECL|method|setNettyServerBootstrapConfiguration (NettyServerBootstrapConfiguration configuration)
+DECL|method|setNettyServerBootstrapConfiguration (NettySharedHttpServerBootstrapConfiguration configuration)
 name|void
 name|setNettyServerBootstrapConfiguration
 parameter_list|(
-name|NettyServerBootstrapConfiguration
+name|NettySharedHttpServerBootstrapConfiguration
 name|configuration
 parameter_list|)
 function_decl|;
@@ -106,6 +106,15 @@ name|setClassResolver
 parameter_list|(
 name|ClassResolver
 name|classResolver
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to start the Netty HTTP server eager and bind to the port, or wait on first demand      */
+DECL|method|setStartServer (boolean startServer)
+name|void
+name|setStartServer
+parameter_list|(
+name|boolean
+name|startServer
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the port number this Netty HTTP server uses.      */
@@ -124,6 +133,12 @@ comment|/**      * Gets the {@link NettyServerBootstrapFactory} to use.      */
 DECL|method|getServerBootstrapFactory ()
 name|NettyServerBootstrapFactory
 name|getServerBootstrapFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Number of consumers using this shared Netty HTTP server.      */
+DECL|method|getConsumersSize ()
+name|int
+name|getConsumersSize
 parameter_list|()
 function_decl|;
 block|}
