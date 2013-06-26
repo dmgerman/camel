@@ -194,7 +194,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|configuration
 specifier|private
-name|NettySharedHttpServerBootstrapConfiguration
+name|NettyServerBootstrapConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|channelFactory
@@ -212,12 +212,12 @@ specifier|private
 name|ClassResolver
 name|classResolver
 decl_stmt|;
-DECL|method|setNettyServerBootstrapConfiguration (NettySharedHttpServerBootstrapConfiguration configuration)
+DECL|method|setNettyServerBootstrapConfiguration (NettyServerBootstrapConfiguration configuration)
 specifier|public
 name|void
 name|setNettyServerBootstrapConfiguration
 parameter_list|(
-name|NettySharedHttpServerBootstrapConfiguration
+name|NettyServerBootstrapConfiguration
 name|configuration
 parameter_list|)
 block|{

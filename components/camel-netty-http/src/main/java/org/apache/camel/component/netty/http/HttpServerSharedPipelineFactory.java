@@ -305,7 +305,7 @@ decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
-name|NettySharedHttpServerBootstrapConfiguration
+name|NettyServerBootstrapConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|channelFactory
@@ -325,11 +325,11 @@ specifier|private
 name|SSLContext
 name|sslContext
 decl_stmt|;
-DECL|method|HttpServerSharedPipelineFactory (NettySharedHttpServerBootstrapConfiguration configuration, HttpServerConsumerChannelFactory channelFactory, ClassResolver classResolver)
+DECL|method|HttpServerSharedPipelineFactory (NettyServerBootstrapConfiguration configuration, HttpServerConsumerChannelFactory channelFactory, ClassResolver classResolver)
 specifier|public
 name|HttpServerSharedPipelineFactory
 parameter_list|(
-name|NettySharedHttpServerBootstrapConfiguration
+name|NettyServerBootstrapConfiguration
 name|configuration
 parameter_list|,
 name|HttpServerConsumerChannelFactory
@@ -486,14 +486,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Uncomment the following line if you don't want to handle HttpChunks.
-if|if
-condition|(
-name|configuration
-operator|.
-name|isChunked
-argument_list|()
-condition|)
-block|{
+comment|//        if (configuration.isChunked()) {
 name|pipeline
 operator|.
 name|addLast
@@ -507,7 +500,7 @@ literal|1048576
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
+comment|//        }
 name|pipeline
 operator|.
 name|addLast
@@ -519,26 +512,9 @@ name|HttpResponseEncoder
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|configuration
-operator|.
-name|isCompression
-argument_list|()
-condition|)
-block|{
-name|pipeline
-operator|.
-name|addLast
-argument_list|(
-literal|"deflater"
-argument_list|,
-operator|new
-name|HttpContentCompressor
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|//        if (configuration.isCompression()) {
+comment|//            pipeline.addLast("deflater", new HttpContentCompressor());
+comment|//        }
 name|pipeline
 operator|.
 name|addLast

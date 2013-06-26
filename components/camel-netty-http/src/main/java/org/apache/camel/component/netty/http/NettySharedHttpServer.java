@@ -91,11 +91,11 @@ extends|extends
 name|Service
 block|{
 comment|/**      * Sets the bootstrap configuration to use by this shared Netty HTTP server.      */
-DECL|method|setNettyServerBootstrapConfiguration (NettySharedHttpServerBootstrapConfiguration configuration)
+DECL|method|setNettyServerBootstrapConfiguration (NettyServerBootstrapConfiguration configuration)
 name|void
 name|setNettyServerBootstrapConfiguration
 parameter_list|(
-name|NettySharedHttpServerBootstrapConfiguration
+name|NettyServerBootstrapConfiguration
 name|configuration
 parameter_list|)
 function_decl|;
