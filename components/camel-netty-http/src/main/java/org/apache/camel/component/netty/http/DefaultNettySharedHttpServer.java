@@ -142,6 +142,26 @@ name|ChannelPipelineFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default {@link NettySharedHttpServer} to make sharing Netty server in Camel applications easier.  */
 end_comment
@@ -156,6 +176,22 @@ name|ServiceSupport
 implements|implements
 name|NettySharedHttpServer
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DefaultNettySharedHttpServer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|configuration
 specifier|private
 name|NettyServerBootstrapConfiguration
@@ -288,6 +324,20 @@ name|configuration
 argument_list|)
 throw|;
 block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting NettySharedHttpServer using configuration: {} on port: {}"
+argument_list|,
+name|configuration
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// force using tcp as the underlying transport
 name|configuration
 operator|.
@@ -358,6 +408,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopping NettySharedHttpServer using configuration: {} on port: {}"
+argument_list|,
+name|configuration
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ServiceHelper
 operator|.
 name|stopServices
