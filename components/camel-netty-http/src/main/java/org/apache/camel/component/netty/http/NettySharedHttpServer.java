@@ -64,15 +64,29 @@ name|NettyServerBootstrapFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ClassResolver
+import|;
+end_import
+
 begin_comment
 comment|/**  * A single interface to easily configure and setup a shared Netty HTTP server  * to be re-used among other Camel applications.  *<p/>  * To use this, just define a {@link NettyServerBootstrapConfiguration} configuration, and  * set this using {@link #setNettyServerBootstrapConfiguration(org.apache.camel.component.netty.NettyServerBootstrapConfiguration)}.  * Then call the {@link #start()} to initialize this shared server.  */
 end_comment
 
 begin_interface
-DECL|interface|SharedNettyHttpServer
+DECL|interface|NettySharedHttpServer
 specifier|public
 interface|interface
-name|SharedNettyHttpServer
+name|NettySharedHttpServer
 extends|extends
 name|Service
 block|{
@@ -83,6 +97,15 @@ name|setNettyServerBootstrapConfiguration
 parameter_list|(
 name|NettyServerBootstrapConfiguration
 name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * To use a custom {@link ClassResolver} for loading resource on the classpath.      */
+DECL|method|setClassResolver (ClassResolver classResolver)
+name|void
+name|setClassResolver
+parameter_list|(
+name|ClassResolver
+name|classResolver
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the port number this Netty HTTP server uses.      */

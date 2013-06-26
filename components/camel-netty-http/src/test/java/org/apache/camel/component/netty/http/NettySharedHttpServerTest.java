@@ -82,10 +82,10 @@ name|NettySharedHttpServerTest
 extends|extends
 name|BaseNettyTest
 block|{
-DECL|field|sharedNettyHttpServer
+DECL|field|nettySharedHttpServer
 specifier|private
-name|SharedNettyHttpServer
-name|sharedNettyHttpServer
+name|NettySharedHttpServer
+name|nettySharedHttpServer
 decl_stmt|;
 annotation|@
 name|Override
@@ -97,10 +97,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 operator|=
 operator|new
-name|DefaultSharedNettyHttpServer
+name|DefaultNettySharedHttpServer
 argument_list|()
 expr_stmt|;
 name|NettyServerBootstrapConfiguration
@@ -139,14 +139,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 operator|.
 name|setNettyServerBootstrapConfiguration
 argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 operator|.
 name|start
 argument_list|()
@@ -165,7 +165,7 @@ name|bind
 argument_list|(
 literal|"myNettyServer"
 argument_list|,
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 argument_list|)
 expr_stmt|;
 return|return
@@ -182,7 +182,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 operator|.
 name|stop
 argument_list|()
@@ -296,9 +296,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we are using a shared netty http server, so the port number is not needed to be defined in the uri
 name|from
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/foo?sharedNettyHttpServer=#myNettyServer"
+literal|"netty-http:http://localhost/foo?nettySharedHttpServer=#myNettyServer"
 argument_list|)
 operator|.
 name|to
@@ -314,9 +315,10 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
+comment|// we are using a shared netty http server, so the port number is not needed to be defined in the uri
 name|from
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/bar?sharedNettyHttpServer=#myNettyServer"
+literal|"netty-http:http://localhost/bar?nettySharedHttpServer=#myNettyServer"
 argument_list|)
 operator|.
 name|to

@@ -90,11 +90,6 @@ name|NettyHttpConsumer
 extends|extends
 name|NettyConsumer
 block|{
-DECL|field|sharedNettyHttpServer
-specifier|private
-name|SharedNettyHttpServer
-name|sharedNettyHttpServer
-decl_stmt|;
 DECL|method|NettyHttpConsumer (NettyHttpEndpoint nettyEndpoint, Processor processor, NettyConfiguration configuration)
 specifier|public
 name|NettyHttpConsumer
@@ -154,32 +149,6 @@ operator|.
 name|getConfiguration
 argument_list|()
 return|;
-block|}
-DECL|method|getSharedNettyHttpServer ()
-specifier|public
-name|SharedNettyHttpServer
-name|getSharedNettyHttpServer
-parameter_list|()
-block|{
-return|return
-name|sharedNettyHttpServer
-return|;
-block|}
-DECL|method|setSharedNettyHttpServer (SharedNettyHttpServer sharedNettyHttpServer)
-specifier|public
-name|void
-name|setSharedNettyHttpServer
-parameter_list|(
-name|SharedNettyHttpServer
-name|sharedNettyHttpServer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sharedNettyHttpServer
-operator|=
-name|sharedNettyHttpServer
-expr_stmt|;
 block|}
 annotation|@
 name|Override

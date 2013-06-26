@@ -301,10 +301,10 @@ specifier|private
 name|String
 name|httpMethodRestrict
 decl_stmt|;
-DECL|field|sharedNettyHttpServer
+DECL|field|nettySharedHttpServer
 specifier|private
-name|SharedNettyHttpServer
-name|sharedNettyHttpServer
+name|NettySharedHttpServer
+name|nettySharedHttpServer
 decl_stmt|;
 DECL|method|NettyHttpEndpoint (String endpointUri, NettyHttpComponent component, NettyConfiguration configuration)
 specifier|public
@@ -382,23 +382,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 operator|!=
 literal|null
 condition|)
 block|{
 name|answer
 operator|.
-name|setSharedNettyHttpServer
-argument_list|(
-name|sharedNettyHttpServer
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
 name|setNettyServerBootstrapFactory
 argument_list|(
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 operator|.
 name|getServerBootstrapFactory
 argument_list|()
@@ -408,11 +401,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created NettyHttpConsumer: {} using SharedNettyHttpServer: {}"
+literal|"Created NettyHttpConsumer: {} using NettySharedHttpServer: {}"
 argument_list|,
 name|answer
 argument_list|,
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 argument_list|)
 expr_stmt|;
 block|}
@@ -776,30 +769,30 @@ operator|=
 name|uriParameters
 expr_stmt|;
 block|}
-DECL|method|getSharedNettyHttpServer ()
+DECL|method|getNettySharedHttpServer ()
 specifier|public
-name|SharedNettyHttpServer
-name|getSharedNettyHttpServer
+name|NettySharedHttpServer
+name|getNettySharedHttpServer
 parameter_list|()
 block|{
 return|return
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 return|;
 block|}
-DECL|method|setSharedNettyHttpServer (SharedNettyHttpServer sharedNettyHttpServer)
+DECL|method|setNettySharedHttpServer (NettySharedHttpServer nettySharedHttpServer)
 specifier|public
 name|void
-name|setSharedNettyHttpServer
+name|setNettySharedHttpServer
 parameter_list|(
-name|SharedNettyHttpServer
-name|sharedNettyHttpServer
+name|NettySharedHttpServer
+name|nettySharedHttpServer
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 operator|=
-name|sharedNettyHttpServer
+name|nettySharedHttpServer
 expr_stmt|;
 block|}
 annotation|@

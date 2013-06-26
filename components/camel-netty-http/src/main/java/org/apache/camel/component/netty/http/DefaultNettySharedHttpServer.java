@@ -32,22 +32,6 @@ name|component
 operator|.
 name|netty
 operator|.
-name|DefaultServerPipelineFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty
-operator|.
 name|NettyServerBootstrapConfiguration
 import|;
 end_import
@@ -85,6 +69,20 @@ operator|.
 name|handlers
 operator|.
 name|HttpServerMultiplexChannelHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ClassResolver
 import|;
 end_import
 
@@ -145,18 +143,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default {@link SharedNettyHttpServer} to make sharing Netty server in Camel applications easier.  */
+comment|/**  * A default {@link NettySharedHttpServer} to make sharing Netty server in Camel applications easier.  */
 end_comment
 
 begin_class
-DECL|class|DefaultSharedNettyHttpServer
+DECL|class|DefaultNettySharedHttpServer
 specifier|public
 class|class
-name|DefaultSharedNettyHttpServer
+name|DefaultNettySharedHttpServer
 extends|extends
 name|ServiceSupport
 implements|implements
-name|SharedNettyHttpServer
+name|NettySharedHttpServer
 block|{
 DECL|field|configuration
 specifier|private
@@ -173,6 +171,11 @@ specifier|private
 name|HttpServerBootstrapFactory
 name|bootstrapFactory
 decl_stmt|;
+DECL|field|classResolver
+specifier|private
+name|ClassResolver
+name|classResolver
+decl_stmt|;
 DECL|method|setNettyServerBootstrapConfiguration (NettyServerBootstrapConfiguration configuration)
 specifier|public
 name|void
@@ -187,6 +190,22 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|setClassResolver (ClassResolver classResolver)
+specifier|public
+name|void
+name|setClassResolver
+parameter_list|(
+name|ClassResolver
+name|classResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|classResolver
+operator|=
+name|classResolver
 expr_stmt|;
 block|}
 DECL|method|getPort ()
@@ -277,16 +296,6 @@ argument_list|(
 literal|"tcp"
 argument_list|)
 expr_stmt|;
-comment|// TODO: ChannelPipelineFactory should be a shared to handle adding consumers
-name|ChannelPipelineFactory
-name|pipelineFactory
-init|=
-operator|new
-name|HttpServerPipelineFactory
-argument_list|(
-name|configuration
-argument_list|)
-decl_stmt|;
 name|channelFactory
 operator|=
 operator|new
@@ -303,6 +312,19 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ChannelPipelineFactory
+name|pipelineFactory
+init|=
+operator|new
+name|HttpServerSharedPipelineFactory
+argument_list|(
+name|configuration
+argument_list|,
+name|channelFactory
+argument_list|,
+name|classResolver
+argument_list|)
+decl_stmt|;
 comment|// create bootstrap factory and disable compatible check as its shared among the consumers
 name|bootstrapFactory
 operator|=
