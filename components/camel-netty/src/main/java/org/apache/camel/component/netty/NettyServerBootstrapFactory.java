@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -82,13 +94,28 @@ name|NettyServerBootstrapFactory
 extends|extends
 name|Service
 block|{
-comment|/**      * Initializes this {@link NettyServerBootstrapFactory}.      *      * @param camelContext     Use<tt>null</tt> if this factory is to be shared among other Camel applications.      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the pipeline factory      */
+comment|/**      * Initializes this<b>non-shared</b> {@link NettyServerBootstrapFactory}.      *      * @param camelContext     the {@link CamelContext} for non-shared bootstrap factory      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the pipeline factory      */
 DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelPipelineFactory pipelineFactory)
 name|void
 name|init
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|NettyServerBootstrapConfiguration
+name|configuration
+parameter_list|,
+name|ChannelPipelineFactory
+name|pipelineFactory
+parameter_list|)
+function_decl|;
+comment|/**      * Initializes this<b>shared</b> {@link NettyServerBootstrapFactory}.      *      * @param threadFactory    the thread factory to use for shared bootstrap factory      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the pipeline factory      */
+DECL|method|init (ThreadFactory threadFactory, NettyServerBootstrapConfiguration configuration, ChannelPipelineFactory pipelineFactory)
+name|void
+name|init
+parameter_list|(
+name|ThreadFactory
+name|threadFactory
 parameter_list|,
 name|NettyServerBootstrapConfiguration
 name|configuration

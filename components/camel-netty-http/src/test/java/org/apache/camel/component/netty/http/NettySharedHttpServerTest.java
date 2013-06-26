@@ -303,6 +303,11 @@ argument_list|(
 literal|"netty-http:http://localhost/foo?nettySharedHttpServer=#myNettyServer"
 argument_list|)
 operator|.
+name|log
+argument_list|(
+literal|"Foo route using thread ${threadName}"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:foo"
@@ -320,6 +325,11 @@ comment|// we are using a shared netty http server, so the port number is not ne
 name|from
 argument_list|(
 literal|"netty-http:http://localhost/bar?nettySharedHttpServer=#myNettyServer"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Bar route using thread ${threadName}"
 argument_list|)
 operator|.
 name|to

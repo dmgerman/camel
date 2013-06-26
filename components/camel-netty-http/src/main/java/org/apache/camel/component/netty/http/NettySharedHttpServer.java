@@ -117,6 +117,15 @@ name|boolean
 name|startServer
 parameter_list|)
 function_decl|;
+comment|/**      * Sets a custom thread name pattern to be used for naming the Netty HTTP server threads.      */
+DECL|method|setThreadNamePattern (String pattern)
+name|void
+name|setThreadNamePattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the port number this Netty HTTP server uses.      */
 DECL|method|getPort ()
 name|int
