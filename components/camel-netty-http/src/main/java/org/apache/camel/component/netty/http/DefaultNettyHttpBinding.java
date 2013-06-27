@@ -568,6 +568,14 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|configuration
+operator|.
+name|isDisableStreamCache
+argument_list|()
+condition|)
+block|{
 comment|// keep the body as is, and use type converters
 name|answer
 operator|.
@@ -579,6 +587,30 @@ name|getContent
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// turn the body into stream cached
+name|NettyChannelBufferStreamCache
+name|cache
+init|=
+operator|new
+name|NettyChannelBufferStreamCache
+argument_list|(
+name|request
+operator|.
+name|getContent
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setBody
+argument_list|(
+name|cache
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;

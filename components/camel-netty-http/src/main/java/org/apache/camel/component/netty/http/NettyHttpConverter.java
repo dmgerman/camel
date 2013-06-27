@@ -248,11 +248,25 @@ operator|==
 name|value
 condition|)
 block|{
-return|return
+comment|// ensure the http request content is reset so we can read all the content out-of-the-box
+name|HttpRequest
+name|request
+init|=
 name|msg
 operator|.
 name|getHttpRequest
 argument_list|()
+decl_stmt|;
+name|request
+operator|.
+name|getContent
+argument_list|()
+operator|.
+name|resetReaderIndex
+argument_list|()
+expr_stmt|;
+return|return
+name|request
 return|;
 block|}
 block|}

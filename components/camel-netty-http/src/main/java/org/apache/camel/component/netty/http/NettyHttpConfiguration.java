@@ -147,6 +147,11 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
+DECL|field|disableStreamCache
+specifier|private
+name|boolean
+name|disableStreamCache
+decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public
 name|NettyHttpConfiguration
@@ -496,6 +501,32 @@ operator|.
 name|path
 operator|=
 name|path
+expr_stmt|;
+block|}
+DECL|method|isDisableStreamCache ()
+specifier|public
+name|boolean
+name|isDisableStreamCache
+parameter_list|()
+block|{
+return|return
+name|disableStreamCache
+return|;
+block|}
+DECL|method|setDisableStreamCache (boolean disableStreamCache)
+specifier|public
+name|void
+name|setDisableStreamCache
+parameter_list|(
+name|boolean
+name|disableStreamCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableStreamCache
+operator|=
+name|disableStreamCache
 expr_stmt|;
 block|}
 block|}

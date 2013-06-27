@@ -45,10 +45,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpXMLXPathTest
+DECL|class|NettyHttpXMLXPathResponseTest
 specifier|public
 class|class
-name|NettyHttpXMLXPathTest
+name|NettyHttpXMLXPathResponseTest
 extends|extends
 name|BaseNettyTest
 block|{
@@ -80,7 +80,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<quote>Camel rocks</quote>"
+literal|"<name>Claus</name>"
 argument_list|,
 name|out
 argument_list|)
@@ -102,7 +102,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<quote>Camel really rocks</quote>"
+literal|"James"
 argument_list|,
 name|out
 argument_list|)
@@ -124,7 +124,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<quote>Try Camel now</quote>"
+literal|"Dont understand<person><name>Jonathan</name></person>"
 argument_list|,
 name|out
 argument_list|)
@@ -172,9 +172,9 @@ argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|constant
+name|xpath
 argument_list|(
-literal|"<quote>Camel rocks</quote>"
+literal|"/person/name"
 argument_list|)
 argument_list|)
 operator|.
@@ -188,9 +188,9 @@ argument_list|)
 operator|.
 name|transform
 argument_list|(
-name|constant
+name|xpath
 argument_list|(
-literal|"<quote>Camel really rocks</quote>"
+literal|"/person/name/text()"
 argument_list|)
 argument_list|)
 operator|.
@@ -199,9 +199,9 @@ argument_list|()
 operator|.
 name|transform
 argument_list|(
-name|constant
+name|simple
 argument_list|(
-literal|"<quote>Try Camel now</quote>"
+literal|"Dont understand ${body}"
 argument_list|)
 argument_list|)
 expr_stmt|;
