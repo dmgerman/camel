@@ -277,7 +277,6 @@ DECL|field|isOneToMany
 name|boolean
 name|isOneToMany
 decl_stmt|;
-comment|//private Map<Integer, DataField> dataFields = new LinkedHashMap<Integer, DataField>();
 DECL|field|dataFields
 specifier|private
 name|Map
@@ -297,7 +296,6 @@ name|DataField
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//private Map<Integer, Field> annotatedFields = new LinkedHashMap<Integer, Field>();
 DECL|field|annotatedFields
 specifier|private
 name|Map
@@ -371,6 +369,11 @@ DECL|field|recordLength
 specifier|private
 name|int
 name|recordLength
+decl_stmt|;
+DECL|field|ignoreTrailingChars
+specifier|private
+name|boolean
+name|ignoreTrailingChars
 decl_stmt|;
 DECL|method|BindyFixedLengthFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
@@ -1052,6 +1055,43 @@ literal|" cannot be negative"
 argument_list|)
 throw|;
 block|}
+comment|// skip ahead if the expected position is greater than the offset
+if|if
+condition|(
+name|dataField
+operator|.
+name|pos
+argument_list|()
+operator|>
+name|offset
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"skipping ahead ["
+operator|+
+operator|(
+name|dataField
+operator|.
+name|pos
+argument_list|()
+operator|-
+name|offset
+operator|)
+operator|+
+literal|"] chars."
+argument_list|)
+expr_stmt|;
+name|offset
+operator|=
+name|dataField
+operator|.
+name|pos
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|length
@@ -1429,6 +1469,10 @@ name|equals
 argument_list|(
 literal|""
 argument_list|)
+operator|&&
+operator|!
+name|isIgnoreTrailingChars
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -2447,6 +2491,15 @@ operator|.
 name|skipHeader
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skip Header: {}"
+argument_list|,
+name|skipHeader
+argument_list|)
+expr_stmt|;
 comment|// Get hasFooter parameter
 name|hasFooter
 operator|=
@@ -2472,6 +2525,15 @@ operator|.
 name|skipFooter
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skip Footer: {}"
+argument_list|,
+name|skipFooter
+argument_list|)
+expr_stmt|;
 comment|// Get isHeader parameter
 name|isHeader
 operator|=
@@ -2480,6 +2542,15 @@ operator|.
 name|isHeader
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Is Header: {}"
+argument_list|,
+name|isHeader
+argument_list|)
+expr_stmt|;
 comment|// Get isFooter parameter
 name|isFooter
 operator|=
@@ -2487,6 +2558,15 @@ name|record
 operator|.
 name|isFooter
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Is Footer: {}"
+argument_list|,
+name|isFooter
+argument_list|)
 expr_stmt|;
 comment|// Get padding character
 name|paddingChar
@@ -2522,21 +2602,21 @@ argument_list|,
 name|recordLength
 argument_list|)
 expr_stmt|;
-comment|// Get length of the record
-name|recordLength
+comment|// Get flag for ignore trailing characters
+name|ignoreTrailingChars
 operator|=
 name|record
 operator|.
-name|length
+name|ignoreTrailingChars
 argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Length of the record: {}"
+literal|"Ignore trailing chars: {}"
 argument_list|,
-name|recordLength
+name|ignoreTrailingChars
 argument_list|)
 expr_stmt|;
 block|}
@@ -2693,6 +2773,19 @@ parameter_list|()
 block|{
 return|return
 name|recordLength
+return|;
+block|}
+comment|/**      * Flag indicating whether trailing characters beyond the last declared field may be ignored      */
+DECL|method|isIgnoreTrailingChars ()
+specifier|public
+name|boolean
+name|isIgnoreTrailingChars
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|ignoreTrailingChars
 return|;
 block|}
 block|}

@@ -161,6 +161,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Indicates whether trailing characters beyond the last mapped field may be ignored      */
+DECL|method|ignoreTrailingChars ()
+DECL|field|false
+name|boolean
+name|ignoreTrailingChars
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 
