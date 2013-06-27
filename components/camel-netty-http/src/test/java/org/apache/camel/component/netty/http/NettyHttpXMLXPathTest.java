@@ -114,6 +114,50 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+name|out
+operator|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"netty-http:http://localhost:{{port}}/foo"
+argument_list|,
+literal|"<person><name>James</name></person>"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"<quote>Camel really rocks</quote>"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+name|out
+operator|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"netty-http:http://localhost:{{port}}/foo"
+argument_list|,
+literal|"<person><name>Jonathan</name></person>"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"<quote>Try Camel now</quote>"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -143,6 +187,15 @@ name|from
 argument_list|(
 literal|"netty-http:http://0.0.0.0:{{port}}/foo"
 argument_list|)
+comment|// need to convert to byte[] to have the CBR with xpath working
+operator|.
+name|convertBodyTo
+argument_list|(
+name|byte
+index|[]
+operator|.
+expr|class
+argument_list|)
 operator|.
 name|choice
 argument_list|()
@@ -160,6 +213,22 @@ argument_list|(
 name|constant
 argument_list|(
 literal|"<quote>Camel rocks</quote>"
+argument_list|)
+argument_list|)
+operator|.
+name|when
+argument_list|()
+operator|.
+name|xpath
+argument_list|(
+literal|"/person/name = 'James'"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"<quote>Camel really rocks</quote>"
 argument_list|)
 argument_list|)
 operator|.
