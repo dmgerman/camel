@@ -82,6 +82,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|amazonaws
@@ -360,7 +372,7 @@ argument_list|>
 name|changeMessageVisibilityRequests
 init|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|ChangeMessageVisibilityRequest
 argument_list|>

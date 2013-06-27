@@ -82,6 +82,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|amazonaws
@@ -858,7 +870,7 @@ argument_list|>
 name|objects
 init|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|S3Object
 argument_list|>
@@ -872,7 +884,7 @@ argument_list|>
 name|putObjectRequests
 init|=
 operator|new
-name|ArrayList
+name|CopyOnWriteArrayList
 argument_list|<
 name|PutObjectRequest
 argument_list|>
