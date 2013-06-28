@@ -167,6 +167,9 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+comment|// All this is to mock out the bit that is actually hitting the yammer.com
+comment|// rest api. We just return a bit of static json that was retrieved from
+comment|// my own account.
 name|YammerComponent
 name|yc
 init|=
@@ -361,6 +364,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// using dummy keys here since we are mocking out calls to yammer.com with static json; in a real app, please use your own keys!
 name|from
 argument_list|(
 literal|"yammer:messages?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken"
