@@ -765,7 +765,7 @@ name|resLatlng
 argument_list|)
 expr_stmt|;
 name|JsonNode
-name|country_code
+name|countryCode
 init|=
 name|node
 operator|.
@@ -775,7 +775,7 @@ literal|"country_code"
 argument_list|)
 decl_stmt|;
 name|JsonNode
-name|country_name
+name|countryName
 init|=
 name|node
 operator|.
@@ -786,7 +786,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|country_code
+name|countryCode
 operator|!=
 literal|null
 condition|)
@@ -802,7 +802,7 @@ name|GeoCoderConstants
 operator|.
 name|COUNTRY_SHORT
 argument_list|,
-name|country_code
+name|countryCode
 operator|.
 name|asText
 argument_list|()
@@ -811,7 +811,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|country_name
+name|countryName
 operator|!=
 literal|null
 condition|)
@@ -827,7 +827,7 @@ name|GeoCoderConstants
 operator|.
 name|COUNTRY_LONG
 argument_list|,
-name|country_name
+name|countryName
 operator|.
 name|asText
 argument_list|()
@@ -835,7 +835,7 @@ argument_list|)
 expr_stmt|;
 block|}
 name|JsonNode
-name|region_code
+name|regionCode
 init|=
 name|node
 operator|.
@@ -845,7 +845,7 @@ literal|"region_code"
 argument_list|)
 decl_stmt|;
 name|JsonNode
-name|region_name
+name|regionName
 init|=
 name|node
 operator|.
@@ -856,7 +856,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|region_code
+name|regionCode
 operator|!=
 literal|null
 condition|)
@@ -872,7 +872,7 @@ name|GeoCoderConstants
 operator|.
 name|REGION_CODE
 argument_list|,
-name|region_code
+name|regionCode
 operator|.
 name|asText
 argument_list|()
@@ -881,7 +881,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|region_name
+name|regionName
 operator|!=
 literal|null
 condition|)
@@ -897,7 +897,7 @@ name|GeoCoderConstants
 operator|.
 name|REGION_NAME
 argument_list|,
-name|region_name
+name|regionName
 operator|.
 name|asText
 argument_list|()
