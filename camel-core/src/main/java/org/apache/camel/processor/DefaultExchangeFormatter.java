@@ -1520,8 +1520,8 @@ argument_list|,
 name|isShowFiles
 argument_list|()
 argument_list|,
-operator|-
-literal|1
+name|getMaxChars
+argument_list|()
 argument_list|)
 return|;
 block|}
