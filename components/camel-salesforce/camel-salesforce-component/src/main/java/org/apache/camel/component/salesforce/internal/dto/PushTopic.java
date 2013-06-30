@@ -119,20 +119,20 @@ name|PushTopic
 extends|extends
 name|AbstractSObjectBase
 block|{
-DECL|field|Query
+DECL|field|query
 specifier|private
 name|String
-name|Query
+name|query
 decl_stmt|;
-DECL|field|ApiVersion
+DECL|field|apiVersion
 specifier|private
 name|Double
-name|ApiVersion
+name|apiVersion
 decl_stmt|;
-DECL|field|IsActive
+DECL|field|isActive
 specifier|private
 name|Boolean
-name|IsActive
+name|isActive
 decl_stmt|;
 annotation|@
 name|XStreamConverter
@@ -141,10 +141,10 @@ name|PicklistEnumConverter
 operator|.
 name|class
 argument_list|)
-DECL|field|NotifyForFields
+DECL|field|notifyForFields
 specifier|private
 name|NotifyForFieldsEnum
-name|NotifyForFields
+name|notifyForFields
 decl_stmt|;
 annotation|@
 name|XStreamConverter
@@ -153,15 +153,15 @@ name|PicklistEnumConverter
 operator|.
 name|class
 argument_list|)
-DECL|field|NotifyForOperations
+DECL|field|notifyForOperations
 specifier|private
 name|NotifyForOperationsEnum
-name|NotifyForOperations
+name|notifyForOperations
 decl_stmt|;
-DECL|field|Description
+DECL|field|description
 specifier|private
 name|String
-name|Description
+name|description
 decl_stmt|;
 annotation|@
 name|JsonProperty
@@ -177,7 +177,7 @@ block|{
 return|return
 name|this
 operator|.
-name|Query
+name|query
 return|;
 block|}
 annotation|@
@@ -185,20 +185,20 @@ name|JsonProperty
 argument_list|(
 literal|"Query"
 argument_list|)
-DECL|method|setQuery (String Query)
+DECL|method|setQuery (String query)
 specifier|public
 name|void
 name|setQuery
 parameter_list|(
 name|String
-name|Query
+name|query
 parameter_list|)
 block|{
 name|this
 operator|.
-name|Query
+name|query
 operator|=
-name|Query
+name|query
 expr_stmt|;
 block|}
 annotation|@
@@ -215,7 +215,7 @@ block|{
 return|return
 name|this
 operator|.
-name|ApiVersion
+name|apiVersion
 return|;
 block|}
 annotation|@
@@ -223,20 +223,20 @@ name|JsonProperty
 argument_list|(
 literal|"ApiVersion"
 argument_list|)
-DECL|method|setApiVersion (Double ApiVersion)
+DECL|method|setApiVersion (Double apiVersion)
 specifier|public
 name|void
 name|setApiVersion
 parameter_list|(
 name|Double
-name|ApiVersion
+name|apiVersion
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ApiVersion
+name|apiVersion
 operator|=
-name|ApiVersion
+name|apiVersion
 expr_stmt|;
 block|}
 annotation|@
@@ -253,7 +253,7 @@ block|{
 return|return
 name|this
 operator|.
-name|IsActive
+name|isActive
 return|;
 block|}
 annotation|@
@@ -261,20 +261,20 @@ name|JsonProperty
 argument_list|(
 literal|"IsActive"
 argument_list|)
-DECL|method|setIsActive (Boolean IsActive)
+DECL|method|setIsActive (Boolean isActive)
 specifier|public
 name|void
 name|setIsActive
 parameter_list|(
 name|Boolean
-name|IsActive
+name|isActive
 parameter_list|)
 block|{
 name|this
 operator|.
-name|IsActive
+name|isActive
 operator|=
-name|IsActive
+name|isActive
 expr_stmt|;
 block|}
 annotation|@
@@ -291,7 +291,7 @@ block|{
 return|return
 name|this
 operator|.
-name|NotifyForFields
+name|notifyForFields
 return|;
 block|}
 annotation|@
@@ -299,20 +299,20 @@ name|JsonProperty
 argument_list|(
 literal|"NotifyForFields"
 argument_list|)
-DECL|method|setNotifyForFields (NotifyForFieldsEnum NotifyForFields)
+DECL|method|setNotifyForFields (NotifyForFieldsEnum notifyForFields)
 specifier|public
 name|void
 name|setNotifyForFields
 parameter_list|(
 name|NotifyForFieldsEnum
-name|NotifyForFields
+name|notifyForFields
 parameter_list|)
 block|{
 name|this
 operator|.
-name|NotifyForFields
+name|notifyForFields
 operator|=
-name|NotifyForFields
+name|notifyForFields
 expr_stmt|;
 block|}
 annotation|@
@@ -329,7 +329,7 @@ block|{
 return|return
 name|this
 operator|.
-name|NotifyForOperations
+name|notifyForOperations
 return|;
 block|}
 annotation|@
@@ -337,20 +337,20 @@ name|JsonProperty
 argument_list|(
 literal|"NotifyForOperations"
 argument_list|)
-DECL|method|setNotifyForOperations (NotifyForOperationsEnum NotifyForOperations)
+DECL|method|setNotifyForOperations (NotifyForOperationsEnum notifyForOperations)
 specifier|public
 name|void
 name|setNotifyForOperations
 parameter_list|(
 name|NotifyForOperationsEnum
-name|NotifyForOperations
+name|notifyForOperations
 parameter_list|)
 block|{
 name|this
 operator|.
-name|NotifyForOperations
+name|notifyForOperations
 operator|=
-name|NotifyForOperations
+name|notifyForOperations
 expr_stmt|;
 block|}
 annotation|@
@@ -367,7 +367,7 @@ block|{
 return|return
 name|this
 operator|.
-name|Description
+name|description
 return|;
 block|}
 annotation|@
@@ -375,20 +375,20 @@ name|JsonProperty
 argument_list|(
 literal|"Description"
 argument_list|)
-DECL|method|setDescription (String Description)
+DECL|method|setDescription (String description)
 specifier|public
 name|void
 name|setDescription
 parameter_list|(
 name|String
-name|Description
+name|description
 parameter_list|)
 block|{
 name|this
 operator|.
-name|Description
+name|description
 operator|=
-name|Description
+name|description
 expr_stmt|;
 block|}
 block|}

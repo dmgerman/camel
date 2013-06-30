@@ -495,11 +495,6 @@ name|TOKEN_HEADER
 init|=
 literal|"X-SFDC-Session"
 decl_stmt|;
-DECL|field|context
-specifier|private
-name|JAXBContext
-name|context
-decl_stmt|;
 DECL|field|DEFAULT_ACCEPT_TYPE
 specifier|private
 specifier|static
@@ -510,6 +505,11 @@ init|=
 name|ContentType
 operator|.
 name|XML
+decl_stmt|;
+DECL|field|context
+specifier|private
+name|JAXBContext
+name|context
 decl_stmt|;
 DECL|field|objectFactory
 specifier|private
@@ -2276,6 +2276,8 @@ argument_list|,
 literal|'/'
 argument_list|)
 expr_stmt|;
+break|break;
+default|default:
 break|break;
 block|}
 return|return
