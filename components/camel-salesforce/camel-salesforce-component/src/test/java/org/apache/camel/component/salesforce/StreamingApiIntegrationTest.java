@@ -94,6 +94,8 @@ name|salesforce
 operator|.
 name|dto
 operator|.
+name|generated
+operator|.
 name|Merchandise__c
 import|;
 end_import

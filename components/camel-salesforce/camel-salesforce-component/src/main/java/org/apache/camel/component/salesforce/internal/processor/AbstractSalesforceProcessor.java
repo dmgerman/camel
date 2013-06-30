@@ -221,11 +221,11 @@ name|IGNORE_BODY
 init|=
 literal|false
 decl_stmt|;
-DECL|field|LOG
+DECL|field|log
 specifier|protected
 specifier|final
 name|Logger
-name|LOG
+name|log
 init|=
 name|LoggerFactory
 operator|.

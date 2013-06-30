@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -82,6 +92,8 @@ name|salesforce
 operator|.
 name|dto
 operator|.
+name|generated
+operator|.
 name|Document
 import|;
 end_import
@@ -99,6 +111,8 @@ operator|.
 name|salesforce
 operator|.
 name|dto
+operator|.
+name|generated
 operator|.
 name|Line_Item__c
 import|;
@@ -118,6 +132,8 @@ name|salesforce
 operator|.
 name|dto
 operator|.
+name|generated
+operator|.
 name|Merchandise__c
 import|;
 end_import
@@ -135,6 +151,8 @@ operator|.
 name|salesforce
 operator|.
 name|dto
+operator|.
+name|generated
 operator|.
 name|QueryRecordsLine_Item__c
 import|;
@@ -225,16 +243,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|*
 import|;
 end_import
 

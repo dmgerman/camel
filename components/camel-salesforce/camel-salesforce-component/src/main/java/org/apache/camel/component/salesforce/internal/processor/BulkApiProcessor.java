@@ -1307,7 +1307,7 @@ parameter_list|(
 name|IOException
 name|ignore
 parameter_list|)
-block|{                                     }
+block|{                                 }
 block|}
 block|}
 name|processResponse
@@ -1492,7 +1492,7 @@ parameter_list|(
 name|IOException
 name|ignore
 parameter_list|)
-block|{                                     }
+block|{                                 }
 block|}
 block|}
 name|processResponse
@@ -1992,6 +1992,18 @@ block|}
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|SalesforceException
+argument_list|(
+literal|"Unknow operation name: "
+operator|+
+name|operationName
+argument_list|,
+literal|null
+argument_list|)
+throw|;
 block|}
 block|}
 catch|catch

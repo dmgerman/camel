@@ -49,15 +49,15 @@ specifier|private
 name|Attributes
 name|attributes
 decl_stmt|;
-DECL|field|Id
+DECL|field|id
 specifier|private
 name|String
-name|Id
+name|id
 decl_stmt|;
-DECL|field|Name
+DECL|field|name
 specifier|private
 name|String
-name|Name
+name|name
 decl_stmt|;
 DECL|method|getAttributes ()
 specifier|public
@@ -97,7 +97,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-name|Id
+name|id
 return|;
 block|}
 annotation|@
@@ -114,7 +114,9 @@ name|String
 name|id
 parameter_list|)
 block|{
-name|Id
+name|this
+operator|.
+name|id
 operator|=
 name|id
 expr_stmt|;
@@ -131,7 +133,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|Name
+name|name
 return|;
 block|}
 annotation|@
@@ -148,7 +150,9 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|Name
+name|this
+operator|.
+name|name
 operator|=
 name|name
 expr_stmt|;

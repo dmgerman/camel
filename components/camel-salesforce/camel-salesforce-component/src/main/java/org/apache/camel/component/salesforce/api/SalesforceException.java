@@ -90,6 +90,15 @@ name|SalesforceException
 extends|extends
 name|CamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|field|errors
 specifier|private
 name|List

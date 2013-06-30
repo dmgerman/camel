@@ -2180,6 +2180,18 @@ block|}
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|SalesforceException
+argument_list|(
+literal|"Unknow operation name: "
+operator|+
+name|operationName
+argument_list|,
+literal|null
+argument_list|)
+throw|;
 block|}
 block|}
 catch|catch

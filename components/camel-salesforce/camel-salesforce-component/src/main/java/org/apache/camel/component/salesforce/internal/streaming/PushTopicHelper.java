@@ -270,12 +270,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|objectMapper
+DECL|field|OBJECT_MAPPER
 specifier|private
 specifier|static
 specifier|final
 name|ObjectMapper
-name|objectMapper
+name|OBJECT_MAPPER
 init|=
 operator|new
 name|ObjectMapper
@@ -442,7 +442,7 @@ block|}
 name|QueryRecordsPushTopic
 name|records
 init|=
-name|objectMapper
+name|OBJECT_MAPPER
 operator|.
 name|readValue
 argument_list|(
@@ -823,7 +823,7 @@ argument_list|,
 operator|new
 name|ByteArrayInputStream
 argument_list|(
-name|objectMapper
+name|OBJECT_MAPPER
 operator|.
 name|writeValueAsBytes
 argument_list|(
@@ -879,7 +879,7 @@ block|}
 name|CreateSObjectResult
 name|result
 init|=
-name|objectMapper
+name|OBJECT_MAPPER
 operator|.
 name|readValue
 argument_list|(
@@ -1148,7 +1148,7 @@ argument_list|,
 operator|new
 name|ByteArrayInputStream
 argument_list|(
-name|objectMapper
+name|OBJECT_MAPPER
 operator|.
 name|writeValueAsBytes
 argument_list|(

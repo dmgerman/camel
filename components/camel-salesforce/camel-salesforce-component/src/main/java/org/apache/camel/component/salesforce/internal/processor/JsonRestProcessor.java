@@ -366,13 +366,6 @@ name|JsonRestProcessor
 extends|extends
 name|AbstractRestProcessor
 block|{
-comment|// it is ok to use a single thread safe ObjectMapper
-DECL|field|objectMapper
-specifier|private
-specifier|final
-name|ObjectMapper
-name|objectMapper
-decl_stmt|;
 DECL|field|RESPONSE_TYPE
 specifier|private
 specifier|static
@@ -388,6 +381,13 @@ name|getName
 argument_list|()
 operator|+
 literal|".responseType"
+decl_stmt|;
+comment|// it is ok to use a single thread safe ObjectMapper
+DECL|field|objectMapper
+specifier|private
+specifier|final
+name|ObjectMapper
+name|objectMapper
 decl_stmt|;
 DECL|method|JsonRestProcessor (SalesforceEndpoint endpoint)
 specifier|public
@@ -439,6 +439,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|SalesforceException
 block|{
 switch|switch
 condition|(
@@ -464,7 +466,7 @@ name|Version
 argument_list|>
 argument_list|>
 argument_list|()
-block|{                 }
+block|{             }
 argument_list|)
 expr_stmt|;
 break|break;
@@ -583,10 +585,22 @@ name|SearchResult
 argument_list|>
 argument_list|>
 argument_list|()
-block|{                 }
+block|{             }
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+throw|throw
+operator|new
+name|SalesforceException
+argument_list|(
+literal|"Unknow operation name: "
+operator|+
+name|operationName
+argument_list|,
+literal|null
+argument_list|)
+throw|;
 block|}
 block|}
 annotation|@

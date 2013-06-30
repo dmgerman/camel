@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.salesforce.dto
+DECL|package|org.apache.camel.component.salesforce.dto.generated
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|salesforce
 operator|.
 name|dto
+operator|.
+name|generated
 package|;
 end_package
 

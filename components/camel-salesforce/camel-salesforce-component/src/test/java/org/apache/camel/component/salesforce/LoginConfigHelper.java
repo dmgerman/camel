@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -75,6 +65,16 @@ operator|.
 name|util
 operator|.
 name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -291,7 +291,7 @@ parameter_list|(
 name|IOException
 name|ignore
 parameter_list|)
-block|{}
+block|{                 }
 block|}
 block|}
 block|}

@@ -1126,6 +1126,18 @@ argument_list|,
 literal|null
 argument_list|)
 throw|;
+default|default:
+throw|throw
+operator|new
+name|SalesforceException
+argument_list|(
+literal|"Unknow status: "
+operator|+
+name|exchangeState
+argument_list|,
+literal|null
+argument_list|)
+throw|;
 block|}
 block|}
 catch|catch
@@ -1371,6 +1383,18 @@ operator|new
 name|SalesforceException
 argument_list|(
 literal|"Logout request TIMEOUT!"
+argument_list|,
+literal|null
+argument_list|)
+throw|;
+default|default:
+throw|throw
+operator|new
+name|SalesforceException
+argument_list|(
+literal|"Unknow status: "
+operator|+
+name|done
 argument_list|,
 literal|null
 argument_list|)

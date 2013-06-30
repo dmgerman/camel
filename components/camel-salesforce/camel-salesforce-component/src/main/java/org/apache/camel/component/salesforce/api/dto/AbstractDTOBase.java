@@ -94,12 +94,12 @@ specifier|abstract
 class|class
 name|AbstractDTOBase
 block|{
-DECL|field|mapper
+DECL|field|MAPPER
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|ObjectMapper
-name|mapper
+name|MAPPER
 init|=
 operator|new
 name|ObjectMapper
@@ -122,7 +122,7 @@ operator|new
 name|StringWriter
 argument_list|()
 decl_stmt|;
-name|mapper
+name|MAPPER
 operator|.
 name|writeValue
 argument_list|(
