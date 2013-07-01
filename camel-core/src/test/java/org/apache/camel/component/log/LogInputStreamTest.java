@@ -172,10 +172,13 @@ argument_list|)
 operator|.
 name|body
 argument_list|(
-name|String
+name|InputStream
 operator|.
 name|class
 argument_list|)
+operator|.
+name|convertToString
+argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
