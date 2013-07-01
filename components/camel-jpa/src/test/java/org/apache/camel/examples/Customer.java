@@ -62,6 +62,16 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|NamedQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|OneToOne
 import|;
 end_import
@@ -73,6 +83,17 @@ end_comment
 begin_class
 annotation|@
 name|Entity
+annotation|@
+name|NamedQuery
+argument_list|(
+name|name
+operator|=
+literal|"findAllCustomersWithName"
+argument_list|,
+name|query
+operator|=
+literal|"SELECT c FROM Customer c WHERE c.name LIKE :custName "
+argument_list|)
 DECL|class|Customer
 specifier|public
 class|class
