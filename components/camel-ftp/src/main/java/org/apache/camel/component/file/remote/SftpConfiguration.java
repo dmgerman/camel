@@ -30,6 +30,16 @@ name|URI
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|KeyPair
+import|;
+end_import
+
 begin_comment
 comment|/**  * Secure FTP configuration  */
 end_comment
@@ -87,6 +97,11 @@ DECL|field|privateKeyPassphrase
 specifier|private
 name|String
 name|privateKeyPassphrase
+decl_stmt|;
+DECL|field|keyPair
+specifier|private
+name|KeyPair
+name|keyPair
 decl_stmt|;
 DECL|field|strictHostKeyChecking
 specifier|private
@@ -377,6 +392,32 @@ operator|.
 name|privateKeyPassphrase
 operator|=
 name|privateKeyFilePassphrase
+expr_stmt|;
+block|}
+DECL|method|getKeyPair ()
+specifier|public
+name|KeyPair
+name|getKeyPair
+parameter_list|()
+block|{
+return|return
+name|keyPair
+return|;
+block|}
+DECL|method|setKeyPair (KeyPair keyPair)
+specifier|public
+name|void
+name|setKeyPair
+parameter_list|(
+name|KeyPair
+name|keyPair
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyPair
+operator|=
+name|keyPair
 expr_stmt|;
 block|}
 DECL|method|getStrictHostKeyChecking ()
