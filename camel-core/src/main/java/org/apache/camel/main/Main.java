@@ -357,6 +357,17 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|getCamelContexts
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|getCamelContexts
 argument_list|()
 operator|.
@@ -368,6 +379,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|findOrCreateCamelTemplate ()
 specifier|protected
