@@ -50,6 +50,10 @@ comment|// delete operations
 DECL|enumConstant|remove
 name|remove
 block|,
+comment|//aggregat
+DECL|enumConstant|aggregat
+name|aggregat
+block|,
 comment|// others
 DECL|enumConstant|getDbStats
 name|getDbStats
