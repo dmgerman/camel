@@ -529,9 +529,9 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|aggregat
+name|aggregate
 case|:
-name|doAggregat
+name|doAggregate
 argument_list|(
 name|exchange
 argument_list|)
@@ -2007,10 +2007,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**     * All headers except collection and database are non available for this     * operation.     *      * @param exchange     * @throws Exception     */
-DECL|method|doAggregat (Exchange exchange)
+DECL|method|doAggregate (Exchange exchange)
 specifier|protected
 name|void
-name|doAggregat
+name|doAggregate
 parameter_list|(
 name|Exchange
 name|exchange
@@ -2053,7 +2053,7 @@ decl_stmt|;
 try|try
 block|{
 name|AggregationOutput
-name|agregationResult
+name|aggregationResult
 init|=
 literal|null
 decl_stmt|;
@@ -2074,7 +2074,7 @@ name|BasicDBList
 operator|)
 name|query
 decl_stmt|;
-name|agregationResult
+name|aggregationResult
 operator|=
 name|dbCol
 operator|.
@@ -2124,7 +2124,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|agregationResult
+name|aggregationResult
 operator|=
 name|dbCol
 operator|.
@@ -2136,7 +2136,7 @@ expr_stmt|;
 block|}
 name|dbIterator
 operator|=
-name|agregationResult
+name|aggregationResult
 operator|.
 name|results
 argument_list|()
@@ -2150,7 +2150,7 @@ name|exchange
 argument_list|,
 name|MongoDbOperation
 operator|.
-name|aggregat
+name|aggregate
 argument_list|)
 decl_stmt|;
 name|resultMessage

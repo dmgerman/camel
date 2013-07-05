@@ -971,10 +971,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAgregat ()
+DECL|method|testAggregate ()
 specifier|public
 name|void
-name|testAgregat
+name|testAggregate
 parameter_list|()
 throws|throws
 name|Exception
@@ -1001,7 +1001,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"direct:aggregat"
+literal|"direct:aggregate"
 argument_list|,
 literal|"[{ $match : {$or : [{\"scientist\" : \"Darwin\"},{\"scientist\" : \"Einstein\"}]}},{ $group: { _id: \"$scientist\", count: { $sum: 1 }} } ]"
 argument_list|)
@@ -1395,12 +1395,12 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:aggregat"
+literal|"direct:aggregate"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=aggregat&writeConcern=SAFE"
+literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=aggregate&writeConcern=SAFE"
 argument_list|)
 expr_stmt|;
 name|from

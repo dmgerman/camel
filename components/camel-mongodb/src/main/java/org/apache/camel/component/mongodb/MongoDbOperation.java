@@ -51,8 +51,8 @@ DECL|enumConstant|remove
 name|remove
 block|,
 comment|//aggregat
-DECL|enumConstant|aggregat
-name|aggregat
+DECL|enumConstant|aggregate
+name|aggregate
 block|,
 comment|// others
 DECL|enumConstant|getDbStats
