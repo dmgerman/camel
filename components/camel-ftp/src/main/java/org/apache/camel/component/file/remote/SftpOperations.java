@@ -254,6 +254,18 @@ name|jcraft
 operator|.
 name|jsch
 operator|.
+name|Proxy
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|jcraft
+operator|.
+name|jsch
+operator|.
 name|Session
 import|;
 end_import
@@ -566,6 +578,11 @@ argument_list|(
 literal|"/[^/]+"
 argument_list|)
 decl_stmt|;
+DECL|field|proxy
+specifier|private
+name|Proxy
+name|proxy
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|SftpEndpoint
@@ -581,6 +598,26 @@ specifier|private
 name|Session
 name|session
 decl_stmt|;
+DECL|method|SftpOperations ()
+specifier|public
+name|SftpOperations
+parameter_list|()
+block|{     }
+DECL|method|SftpOperations (Proxy proxy)
+specifier|public
+name|SftpOperations
+parameter_list|(
+name|Proxy
+name|proxy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxy
+operator|=
+name|proxy
+expr_stmt|;
+block|}
 comment|/**      * Extended user info which supports interactive keyboard mode, by entering the password.      */
 DECL|interface|ExtendedUserInfo
 specifier|public
@@ -1962,6 +1999,22 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// set proxy if configured
+if|if
+condition|(
+name|proxy
+operator|!=
+literal|null
+condition|)
+block|{
+name|session
+operator|.
+name|setProxy
+argument_list|(
+name|proxy
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|session
 return|;

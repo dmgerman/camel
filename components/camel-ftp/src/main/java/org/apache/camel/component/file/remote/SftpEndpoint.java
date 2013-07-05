@@ -34,6 +34,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|jcraft
+operator|.
+name|jsch
+operator|.
+name|Proxy
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -77,6 +89,10 @@ operator|.
 name|LsEntry
 argument_list|>
 block|{
+DECL|field|proxy
+name|Proxy
+name|proxy
+decl_stmt|;
 DECL|method|SftpEndpoint ()
 specifier|public
 name|SftpEndpoint
@@ -195,7 +211,9 @@ name|operations
 init|=
 operator|new
 name|SftpOperations
-argument_list|()
+argument_list|(
+name|proxy
+argument_list|)
 decl_stmt|;
 name|operations
 operator|.
@@ -219,6 +237,22 @@ block|{
 return|return
 literal|"sftp"
 return|;
+block|}
+DECL|method|setProxy (Proxy proxy)
+specifier|public
+name|void
+name|setProxy
+parameter_list|(
+name|Proxy
+name|proxy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxy
+operator|=
+name|proxy
+expr_stmt|;
 block|}
 block|}
 end_class
