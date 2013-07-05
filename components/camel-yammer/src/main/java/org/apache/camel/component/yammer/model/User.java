@@ -40,7 +40,7 @@ name|jackson
 operator|.
 name|annotate
 operator|.
-name|JsonProperty
+name|JsonIgnoreProperties
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|jackson
 operator|.
 name|annotate
 operator|.
-name|JsonIgnoreProperties
+name|JsonProperty
 import|;
 end_import
 
