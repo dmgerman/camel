@@ -2157,12 +2157,6 @@ name|Customer
 argument_list|>
 name|vips
 init|=
-operator|(
-name|List
-argument_list|<
-name|Customer
-argument_list|>
-operator|)
 name|cl
 operator|.
 name|getCustomers

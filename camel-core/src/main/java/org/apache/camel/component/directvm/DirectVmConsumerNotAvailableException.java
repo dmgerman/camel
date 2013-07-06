@@ -54,6 +54,15 @@ name|DirectVmConsumerNotAvailableException
 extends|extends
 name|CamelExchangeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|DirectVmConsumerNotAvailableException (String message, Exchange exchange)
 specifier|public
 name|DirectVmConsumerNotAvailableException

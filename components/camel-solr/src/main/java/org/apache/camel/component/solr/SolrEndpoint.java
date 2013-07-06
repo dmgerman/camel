@@ -417,9 +417,7 @@ operator|new
 name|SolrComponent
 operator|.
 name|SolrServerReference
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ref
 operator|.

@@ -322,9 +322,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -345,7 +342,7 @@ name|FIELD
 argument_list|,
 literal|"field"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|hashOperations
@@ -648,9 +645,6 @@ argument_list|,
 literal|"value"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -671,7 +665,7 @@ name|VALUES
 argument_list|,
 name|values
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|hashOperations
@@ -852,9 +846,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -881,7 +872,7 @@ name|VALUE
 argument_list|,
 literal|"value"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|hashOperations

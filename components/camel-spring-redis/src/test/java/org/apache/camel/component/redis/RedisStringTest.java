@@ -315,9 +315,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -338,7 +335,7 @@ name|VALUE
 argument_list|,
 literal|"value"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|valueOperations
@@ -362,9 +359,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -385,7 +379,7 @@ name|VALUE
 argument_list|,
 literal|"value"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|valueOperations
@@ -409,9 +403,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -438,7 +429,7 @@ name|VALUE
 argument_list|,
 literal|"value"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|valueOperations
@@ -468,9 +459,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -497,7 +485,7 @@ name|VALUE
 argument_list|,
 literal|"value"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|valueOperations
@@ -607,9 +595,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -636,7 +621,7 @@ name|VALUE
 argument_list|,
 literal|"0"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|redisTemplate
@@ -1345,9 +1330,6 @@ argument_list|,
 literal|"valu1"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1362,7 +1344,7 @@ name|VALUES
 argument_list|,
 name|values
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|valueOperations
@@ -1410,9 +1392,6 @@ argument_list|,
 literal|"valu1"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1427,7 +1406,7 @@ name|VALUES
 argument_list|,
 name|values
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|valueOperations
@@ -1517,34 +1496,6 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-comment|//
-comment|//    @Test
-comment|//        public void shouldExecuteMULTI() throws Exception {
-comment|//            //when(valueOperations.multi()).thenReturn(any(Transaction.class));
-comment|//
-comment|//            Object result = sendHeaders(RedisConstants.COMMAND, "MULTI");
-comment|//
-comment|//            verify(jedis).multi();
-comment|//            assertEquals("OK", result);
-comment|//        }
-comment|//
-comment|//        @Test
-comment|//        public void shouldExecuteInTransaction() throws Exception {
-comment|//            Transaction transaction = mock(Transaction.class);
-comment|//            when(jedis.multi()).thenReturn(transaction);
-comment|//
-comment|//            sendHeaders(RedisConstants.COMMAND, "MULTI");
-comment|//
-comment|//
-comment|//            Object result = sendHeaders(
-comment|//                    RedisConstants.KEY, "key",
-comment|//                    RedisConstants.VALUE, "value");
-comment|//
-comment|//            verify(transaction).set("key", "value");
-comment|//            assertEquals("OK", result);
-comment|//
-comment|//
-comment|//        }
 block|}
 end_class
 

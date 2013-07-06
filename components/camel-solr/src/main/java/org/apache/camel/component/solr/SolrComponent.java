@@ -200,12 +200,6 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|SolrEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|solrServer
 specifier|private
 name|HttpSolrServer
@@ -216,20 +210,6 @@ specifier|private
 name|ConcurrentUpdateSolrServer
 name|updateSolrServer
 decl_stmt|;
-DECL|method|SolrServerReference (SolrEndpoint endpoint)
-name|SolrServerReference
-parameter_list|(
-name|SolrEndpoint
-name|endpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-block|}
 DECL|method|getSolrServer ()
 specifier|public
 name|HttpSolrServer

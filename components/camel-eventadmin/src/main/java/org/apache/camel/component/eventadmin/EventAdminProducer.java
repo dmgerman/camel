@@ -199,6 +199,11 @@ decl_stmt|;
 DECL|field|tracker
 specifier|private
 name|ServiceTracker
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|tracker
 decl_stmt|;
 DECL|method|EventAdminProducer (EventAdminEndpoint endpoint)
@@ -226,6 +231,11 @@ name|tracker
 operator|=
 operator|new
 name|ServiceTracker
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|endpoint
 operator|.

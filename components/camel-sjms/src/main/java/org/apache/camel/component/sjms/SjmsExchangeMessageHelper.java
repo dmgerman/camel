@@ -1998,9 +1998,6 @@ block|{
 comment|// if the value is a String we must normalize it first
 name|headerValue
 operator|=
-operator|(
-name|String
-operator|)
 name|headerValue
 expr_stmt|;
 block|}

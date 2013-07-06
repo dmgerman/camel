@@ -976,9 +976,6 @@ decl_stmt|;
 name|Object
 name|lengthObj
 init|=
-operator|(
-name|Integer
-operator|)
 name|lengthField
 operator|.
 name|get

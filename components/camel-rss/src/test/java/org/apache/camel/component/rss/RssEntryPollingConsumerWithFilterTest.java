@@ -44,16 +44,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|GregorianCalendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|TimeZone
 import|;
 end_import
@@ -246,7 +236,7 @@ comment|// Fri, 31 Oct 2008 12:02:21 -0500
 name|Calendar
 name|cal
 init|=
-name|GregorianCalendar
+name|Calendar
 operator|.
 name|getInstance
 argument_list|(

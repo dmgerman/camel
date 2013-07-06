@@ -625,9 +625,6 @@ argument_list|(
 literal|"key3"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -654,7 +651,7 @@ name|KEYS
 argument_list|,
 name|keys
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|zSetOperations
@@ -1126,9 +1123,6 @@ name|void
 name|shouldExecuteZREMRANGEBYRANK
 parameter_list|()
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1155,7 +1149,7 @@ name|END
 argument_list|,
 literal|2
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|zSetOperations
@@ -1179,9 +1173,6 @@ name|void
 name|shouldExecuteZREMRANGEBYSCORE
 parameter_list|()
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1208,7 +1199,7 @@ name|END
 argument_list|,
 literal|2
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|zSetOperations
@@ -1636,9 +1627,6 @@ argument_list|(
 literal|"key3"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1665,7 +1653,7 @@ name|KEYS
 argument_list|,
 name|keys
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|zSetOperations

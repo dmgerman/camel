@@ -562,7 +562,17 @@ name|Inject
 argument_list|>
 implements|implements
 name|Inject
-block|{ }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|field|camelContextMap
 name|CamelContextMap
 name|camelContextMap

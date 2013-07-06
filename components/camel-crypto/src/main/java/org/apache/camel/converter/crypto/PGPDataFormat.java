@@ -252,6 +252,18 @@ name|org
 operator|.
 name|bouncycastle
 operator|.
+name|bcpg
+operator|.
+name|SymmetricKeyAlgorithmTags
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
 name|jce
 operator|.
 name|provider
@@ -281,18 +293,6 @@ operator|.
 name|openpgp
 operator|.
 name|PGPCompressedDataGenerator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|openpgp
-operator|.
-name|PGPEncryptedData
 import|;
 end_import
 
@@ -1017,7 +1017,7 @@ argument_list|(
 operator|new
 name|JcePGPDataEncryptorBuilder
 argument_list|(
-name|PGPEncryptedData
+name|SymmetricKeyAlgorithmTags
 operator|.
 name|CAST5
 argument_list|)

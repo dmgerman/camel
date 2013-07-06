@@ -220,9 +220,7 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|bus
-operator|.
-name|CXFBusFactory
+name|BusFactory
 import|;
 end_import
 
@@ -554,7 +552,7 @@ name|svrBean
 operator|.
 name|setBus
 argument_list|(
-name|CXFBusFactory
+name|BusFactory
 operator|.
 name|getDefaultBus
 argument_list|()

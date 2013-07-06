@@ -1086,15 +1086,6 @@ name|BLUEPRINT_NS
 init|=
 literal|"http://camel.apache.org/schema/blueprint"
 decl_stmt|;
-DECL|field|PLACEHOLDER_NS
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|PLACEHOLDER_NS
-init|=
-literal|"http://camel.apache.org/schema/placeholder"
-decl_stmt|;
 DECL|field|SPRING_NS
 specifier|private
 specifier|static

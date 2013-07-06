@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|GregorianCalendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -181,7 +171,7 @@ comment|// 2007-11-13T13:35:25.014Z
 name|Calendar
 name|cal
 init|=
-name|GregorianCalendar
+name|Calendar
 operator|.
 name|getInstance
 argument_list|(

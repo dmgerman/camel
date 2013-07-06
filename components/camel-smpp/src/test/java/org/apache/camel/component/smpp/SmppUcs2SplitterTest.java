@@ -105,7 +105,7 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|SmppUcs2Splitter
+name|SmppSplitter
 operator|.
 name|resetCurrentReferenceNumber
 argument_list|()
@@ -481,7 +481,7 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|SmppUcs2Splitter
+name|SmppSplitter
 operator|.
 name|resetCurrentReferenceNumber
 argument_list|()

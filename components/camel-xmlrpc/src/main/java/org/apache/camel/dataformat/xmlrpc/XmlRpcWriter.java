@@ -207,6 +207,14 @@ name|startPrefixMapping
 argument_list|(
 literal|"ex"
 argument_list|,
+name|org
+operator|.
+name|apache
+operator|.
+name|xmlrpc
+operator|.
+name|serializer
+operator|.
 name|XmlRpcWriter
 operator|.
 name|EXTENSIONS_URI

@@ -580,13 +580,6 @@ argument_list|>
 index|[]
 name|NO_PARAMETER_TYPES
 init|=
-operator|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-index|[]
-operator|)
 literal|null
 decl_stmt|;
 end_decl_stmt
@@ -600,10 +593,6 @@ name|Object
 index|[]
 name|NO_PARAMETERS
 init|=
-operator|(
-name|Object
-index|[]
-operator|)
 literal|null
 decl_stmt|;
 end_decl_stmt

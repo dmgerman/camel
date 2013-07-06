@@ -100,11 +100,6 @@ name|ChoiceWithEndTest
 extends|extends
 name|ContextTestSupport
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testRouteIsCorrectAtRuntime ()
 specifier|public
 name|void

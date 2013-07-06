@@ -103,6 +103,9 @@ block|{
 DECL|field|registration
 specifier|private
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 name|registration
 decl_stmt|;
 DECL|method|start (BundleContext bundleContext)

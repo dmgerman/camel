@@ -171,11 +171,7 @@ literal|0
 argument_list|)
 operator|.
 name|body
-argument_list|(
-name|InputStream
-operator|.
-name|class
-argument_list|)
+argument_list|()
 operator|.
 name|convertToString
 argument_list|()

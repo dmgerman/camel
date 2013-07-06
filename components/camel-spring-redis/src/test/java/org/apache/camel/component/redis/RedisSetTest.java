@@ -571,9 +571,6 @@ argument_list|(
 literal|"key3"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -600,7 +597,7 @@ name|DESTINATION
 argument_list|,
 literal|"destination"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|setOperations
@@ -780,9 +777,6 @@ argument_list|(
 literal|"key3"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -809,7 +803,7 @@ name|KEYS
 argument_list|,
 name|keys
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|setOperations
@@ -997,9 +991,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1026,7 +1017,7 @@ name|DESTINATION
 argument_list|,
 literal|"destination"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|setOperations
@@ -1413,9 +1404,6 @@ argument_list|(
 literal|"key4"
 argument_list|)
 expr_stmt|;
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1442,7 +1430,7 @@ name|DESTINATION
 argument_list|,
 literal|"destination"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|setOperations

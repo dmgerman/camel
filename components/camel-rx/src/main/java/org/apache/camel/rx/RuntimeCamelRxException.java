@@ -40,6 +40,15 @@ name|RuntimeCamelRxException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|RuntimeCamelRxException ()
 specifier|public
 name|RuntimeCamelRxException

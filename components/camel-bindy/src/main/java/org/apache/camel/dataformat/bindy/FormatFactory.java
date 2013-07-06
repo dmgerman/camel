@@ -452,7 +452,7 @@ comment|/**      * Retrieves the format to use for the given type      *      * 
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"unchcecked"
+literal|"unchecked"
 argument_list|)
 DECL|method|doGetFormat (Class<?> clazz, String pattern, String locale, int precision, boolean impliedDecimalSeparator)
 specifier|private

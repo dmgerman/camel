@@ -32,6 +32,16 @@ name|javax
 operator|.
 name|naming
 operator|.
+name|Context
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|naming
+operator|.
 name|InitialContext
 import|;
 end_import
@@ -434,7 +444,7 @@ name|env
 operator|.
 name|put
 argument_list|(
-name|InitialContext
+name|Context
 operator|.
 name|PROVIDER_URL
 argument_list|,

@@ -38,6 +38,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -115,11 +125,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testEndpointCompletion ()
 specifier|public
 name|void
@@ -161,7 +166,7 @@ name|componentName
 init|=
 literal|"file"
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -178,12 +183,6 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|completions
-init|=
 name|assertCompletion
 argument_list|(
 name|mbeanServer
@@ -196,9 +195,7 @@ name|properties
 argument_list|,
 literal|""
 argument_list|)
-decl_stmt|;
-name|completions
-operator|=
+expr_stmt|;
 name|assertCompletion
 argument_list|(
 name|mbeanServer
@@ -212,8 +209,6 @@ argument_list|,
 literal|"po"
 argument_list|)
 expr_stmt|;
-name|completions
-operator|=
 name|assertCompletion
 argument_list|(
 name|mbeanServer
@@ -227,8 +222,6 @@ argument_list|,
 literal|"/"
 argument_list|)
 expr_stmt|;
-name|completions
-operator|=
 name|assertCompletion
 argument_list|(
 name|mbeanServer
@@ -242,8 +235,6 @@ argument_list|,
 literal|"/usr/local"
 argument_list|)
 expr_stmt|;
-name|completions
-operator|=
 name|assertCompletion
 argument_list|(
 name|mbeanServer
@@ -257,8 +248,6 @@ argument_list|,
 literal|"/usr/local/"
 argument_list|)
 expr_stmt|;
-name|completions
-operator|=
 name|assertCompletion
 argument_list|(
 name|mbeanServer
@@ -328,7 +317,12 @@ literal|"timer"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertCompletion (MBeanServer mbeanServer, ObjectName on, String componentName, HashMap<String, Object> properties, String completionText)
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|assertCompletion (MBeanServer mbeanServer, ObjectName on, String componentName, Map<String, Object> properties, String completionText)
 specifier|private
 name|List
 argument_list|<
@@ -345,7 +339,7 @@ parameter_list|,
 name|String
 name|componentName
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -384,6 +378,9 @@ literal|"java.lang.String"
 block|}
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|completions
 init|=
 name|assertIsInstanceOf
@@ -424,6 +421,12 @@ name|completions
 argument_list|)
 expr_stmt|;
 return|return
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 name|completions
 return|;
 block|}

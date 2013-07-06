@@ -1317,7 +1317,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|DefaultBacklogTracerEventMessage
+name|BacklogTracerEventMessage
 operator|.
 name|ROOT_TAG
 argument_list|)
@@ -1362,7 +1362,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|DefaultBacklogTracerEventMessage
+name|BacklogTracerEventMessage
 operator|.
 name|ROOT_TAG
 argument_list|)

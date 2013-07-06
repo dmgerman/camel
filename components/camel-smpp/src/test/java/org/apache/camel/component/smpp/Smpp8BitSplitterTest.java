@@ -85,7 +85,7 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Smpp8BitSplitter
+name|SmppSplitter
 operator|.
 name|resetCurrentReferenceNumber
 argument_list|()
@@ -449,7 +449,7 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Smpp8BitSplitter
+name|SmppSplitter
 operator|.
 name|resetCurrentReferenceNumber
 argument_list|()

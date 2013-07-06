@@ -2090,10 +2090,6 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-operator|(
-name|BasicDBObject
-index|[]
-operator|)
 name|queryList
 operator|.
 name|subList

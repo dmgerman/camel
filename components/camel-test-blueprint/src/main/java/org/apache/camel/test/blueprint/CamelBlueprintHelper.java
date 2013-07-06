@@ -214,16 +214,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|jar
 operator|.
 name|JarInputStream
@@ -1358,9 +1348,6 @@ comment|// (org.apache.felix.utils.properties.Properties)
 name|String
 name|value
 init|=
-operator|(
-name|String
-operator|)
 name|cfg
 operator|.
 name|get

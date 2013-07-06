@@ -322,6 +322,18 @@ name|springframework
 operator|.
 name|transaction
 operator|.
+name|TransactionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|transaction
+operator|.
 name|TransactionStatus
 import|;
 end_import
@@ -605,7 +617,7 @@ name|transactionTemplate
 operator|.
 name|setPropagationBehavior
 argument_list|(
-name|TransactionTemplate
+name|TransactionDefinition
 operator|.
 name|PROPAGATION_REQUIRED
 argument_list|)
@@ -622,7 +634,7 @@ name|transactionTemplateReadOnly
 operator|.
 name|setPropagationBehavior
 argument_list|(
-name|TransactionTemplate
+name|TransactionDefinition
 operator|.
 name|PROPAGATION_REQUIRED
 argument_list|)

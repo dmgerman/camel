@@ -437,9 +437,6 @@ expr_stmt|;
 name|TypeConverterLoader
 name|loader
 init|=
-operator|(
-name|TypeConverterLoader
-operator|)
 name|bundleContext
 operator|.
 name|getService

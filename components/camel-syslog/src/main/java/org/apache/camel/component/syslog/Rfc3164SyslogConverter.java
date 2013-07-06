@@ -507,7 +507,7 @@ comment|//SDF isn't going to help much here.
 name|Calendar
 name|cal
 init|=
-name|GregorianCalendar
+name|Calendar
 operator|.
 name|getInstance
 argument_list|()

@@ -134,7 +134,7 @@ name|irc
 operator|.
 name|lib
 operator|.
-name|IRCEventAdapter
+name|IRCConstants
 import|;
 end_import
 
@@ -853,7 +853,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|IRCEventAdapter
+name|IRCConstants
 operator|.
 name|ERR_NICKNAMEINUSE
 operator|==

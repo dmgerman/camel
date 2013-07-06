@@ -104,12 +104,6 @@ name|OgnlExpression
 extends|extends
 name|ExpressionSupport
 block|{
-DECL|field|language
-specifier|private
-specifier|final
-name|OgnlLanguage
-name|language
-decl_stmt|;
 DECL|field|expressionString
 specifier|private
 specifier|final
@@ -147,12 +141,6 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-name|this
-operator|.
-name|language
-operator|=
-name|language
-expr_stmt|;
 name|this
 operator|.
 name|expressionString

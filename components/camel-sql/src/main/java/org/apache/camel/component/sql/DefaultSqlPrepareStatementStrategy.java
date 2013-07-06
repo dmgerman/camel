@@ -897,24 +897,6 @@ literal|1
 argument_list|)
 return|;
 block|}
-DECL|method|replaceAll (String replacement)
-specifier|public
-name|String
-name|replaceAll
-parameter_list|(
-name|String
-name|replacement
-parameter_list|)
-block|{
-return|return
-name|matcher
-operator|.
-name|replaceAll
-argument_list|(
-name|replacement
-argument_list|)
-return|;
-block|}
 block|}
 block|}
 end_class

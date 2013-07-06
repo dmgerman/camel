@@ -82,7 +82,7 @@ name|irc
 operator|.
 name|lib
 operator|.
-name|IRCEventAdapter
+name|IRCConstants
 import|;
 end_import
 
@@ -438,7 +438,7 @@ name|endpoint
 operator|.
 name|handleIrcError
 argument_list|(
-name|IRCEventAdapter
+name|IRCConstants
 operator|.
 name|ERR_NICKNAMEINUSE
 argument_list|,

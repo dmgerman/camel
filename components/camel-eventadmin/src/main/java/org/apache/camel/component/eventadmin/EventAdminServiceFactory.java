@@ -65,8 +65,11 @@ class|class
 name|EventAdminServiceFactory
 implements|implements
 name|ServiceFactory
+argument_list|<
+name|Object
+argument_list|>
 block|{
-DECL|method|getService (Bundle bundle, ServiceRegistration serviceRegistration)
+DECL|method|getService (Bundle bundle, ServiceRegistration<Object> serviceRegistration)
 specifier|public
 name|Object
 name|getService
@@ -75,6 +78,9 @@ name|Bundle
 name|bundle
 parameter_list|,
 name|ServiceRegistration
+argument_list|<
+name|Object
+argument_list|>
 name|serviceRegistration
 parameter_list|)
 block|{
@@ -89,7 +95,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|ungetService (Bundle bundle, ServiceRegistration serviceRegistration, Object o)
+DECL|method|ungetService (Bundle bundle, ServiceRegistration<Object> serviceRegistration, Object o)
 specifier|public
 name|void
 name|ungetService
@@ -98,6 +104,9 @@ name|Bundle
 name|bundle
 parameter_list|,
 name|ServiceRegistration
+argument_list|<
+name|Object
+argument_list|>
 name|serviceRegistration
 parameter_list|,
 name|Object

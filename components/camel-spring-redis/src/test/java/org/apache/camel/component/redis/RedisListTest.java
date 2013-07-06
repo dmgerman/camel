@@ -1330,9 +1330,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1359,7 +1356,7 @@ name|INDEX
 argument_list|,
 literal|"1"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|listOperations
@@ -1385,9 +1382,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Object
-name|result
-init|=
 name|sendHeaders
 argument_list|(
 name|RedisConstants
@@ -1414,7 +1408,7 @@ name|END
 argument_list|,
 literal|"2"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|verify
 argument_list|(
 name|listOperations

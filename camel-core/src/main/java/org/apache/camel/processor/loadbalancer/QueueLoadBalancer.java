@@ -76,20 +76,6 @@ name|Processor
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|AsyncProcessorHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A base class for {@link LoadBalancer} implementations which choose a single  * destination for each exchange (rather like JMS Queues)  *   * @version   */
 end_comment

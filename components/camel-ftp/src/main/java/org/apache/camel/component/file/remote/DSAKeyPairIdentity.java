@@ -693,9 +693,6 @@ block|{
 name|PrivateKey
 name|prvKey
 init|=
-operator|(
-name|PrivateKey
-operator|)
 name|keyPair
 operator|.
 name|getPrivate
