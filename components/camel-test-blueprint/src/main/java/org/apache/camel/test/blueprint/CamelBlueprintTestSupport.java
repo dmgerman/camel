@@ -641,8 +641,6 @@ name|remove
 argument_list|()
 expr_stmt|;
 block|}
-name|CamelTestSupport
-operator|.
 name|tearDownAfterClass
 argument_list|()
 expr_stmt|;

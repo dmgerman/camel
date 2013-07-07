@@ -501,8 +501,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"http://customerservice2.example.com/"
@@ -513,8 +511,6 @@ name|getNamespaceURI
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"getCustomersByName"

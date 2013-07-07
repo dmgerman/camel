@@ -132,8 +132,6 @@ name|SnmpEndpoint
 operator|)
 name|endpoint
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|SnmpActionType
@@ -146,8 +144,6 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"1.3.6.1.2.1.7.5.1"
@@ -166,8 +162,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"udp:0.0.0.0/1662"
@@ -218,8 +212,6 @@ name|SnmpEndpoint
 operator|)
 name|endpoint
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|SnmpActionType
@@ -232,8 +224,6 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"1.3.6.1.2.1.7.5.1"
@@ -252,8 +242,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"udp:0.0.0.0/162"
@@ -304,8 +292,6 @@ name|SnmpEndpoint
 operator|)
 name|endpoint
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|SnmpActionType
@@ -318,8 +304,6 @@ name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"1.3.6.1.2.1.7.5.1"
@@ -338,8 +322,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"udp:127.0.0.1/1662"

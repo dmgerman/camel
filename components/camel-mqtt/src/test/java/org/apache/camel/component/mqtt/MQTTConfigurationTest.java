@@ -50,16 +50,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -117,8 +107,6 @@ name|MQTTEndpoint
 operator|)
 name|endpoint
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|mqttEndpoint
@@ -134,8 +122,6 @@ operator|.
 name|EXACTLY_ONCE
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|mqttEndpoint
@@ -149,8 +135,6 @@ argument_list|,
 name|TEST_TOPIC
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|mqttEndpoint
@@ -164,8 +148,6 @@ argument_list|,
 name|TEST_TOPIC
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|mqttEndpoint

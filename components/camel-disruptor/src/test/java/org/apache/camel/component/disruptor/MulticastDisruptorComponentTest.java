@@ -308,8 +308,8 @@ comment|//
 comment|//        resultEndpoint.await(20, TimeUnit.SECONDS);
 comment|//        resultEndpoint.assertIsSatisfied();
 comment|//
-comment|//        Assert.assertTrue(threadCounter.getThreadIdCount()> 0);
-comment|//        Assert.assertFalse(threadCounter.getThreadIds().contains(currentThreadId));
+comment|//        assertTrue(threadCounter.getThreadIdCount()> 0);
+comment|//        assertFalse(threadCounter.getThreadIds().contains(currentThreadId));
 comment|//    }
 comment|//
 comment|//    @Test
@@ -332,7 +332,7 @@ comment|//
 comment|//        System.out.println("count = " + resultEndpoint.getReceivedCounter());
 comment|//        resultEndpoint.assertIsSatisfied();
 comment|//
-comment|//        Assert.assertEquals(4, threadCounter.getThreadIdCount());
+comment|//        assertEquals(4, threadCounter.getThreadIdCount());
 comment|//    }
 comment|//
 annotation|@

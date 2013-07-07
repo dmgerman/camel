@@ -204,16 +204,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -369,8 +359,6 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|10
@@ -382,8 +370,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// the field is not trimmed
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Pauline"
@@ -394,8 +380,6 @@ name|getFirstName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"M"
@@ -406,8 +390,6 @@ name|getLastName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"XD12345678"

@@ -172,16 +172,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -377,8 +367,6 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|threadCounter
@@ -389,8 +377,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertFalse
 argument_list|(
 name|threadCounter
@@ -482,8 +468,6 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|4

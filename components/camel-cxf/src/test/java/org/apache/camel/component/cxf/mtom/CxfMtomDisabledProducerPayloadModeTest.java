@@ -423,11 +423,6 @@ argument_list|()
 return|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|testProducer ()
 specifier|public
@@ -617,7 +612,7 @@ decl_stmt|;
 comment|// process response - verify response attachments
 name|CxfPayload
 argument_list|<
-name|SoapHeader
+name|?
 argument_list|>
 name|out
 init|=

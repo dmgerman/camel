@@ -60,16 +60,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -266,8 +256,6 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertThat
 argument_list|(
 name|sessionProperties
@@ -288,8 +276,6 @@ literal|"initiator"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertThat
 argument_list|(
 name|sessionProperties
@@ -341,8 +327,6 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|Assert
-operator|.
 name|assertThat
 argument_list|(
 name|engine

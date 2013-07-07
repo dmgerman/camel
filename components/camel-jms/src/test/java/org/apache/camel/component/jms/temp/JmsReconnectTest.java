@@ -280,8 +280,7 @@ literal|"failover://(tcp://localhost:61616)?maxReconnectAttempts=1"
 argument_list|)
 expr_stmt|;
 comment|/**          * When using Tibco EMS the problem can be recreated. As the broker is          * external it has to be stopped and started by hand.          */
-comment|// TibjmsConnectionFactory connectionFactory = new
-comment|// TibjmsConnectionFactory();
+comment|// TibjmsConnectionFactory connectionFactory = new TibjmsConnectionFactory();
 comment|// connectionFactory.setReconnAttemptCount(1);
 name|jmsComponent
 operator|.

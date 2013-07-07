@@ -146,8 +146,6 @@ name|TwitterEndpoint
 operator|)
 name|endpoint
 decl_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 operator|!
@@ -163,8 +161,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 operator|!
@@ -180,8 +176,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 operator|!
@@ -197,8 +191,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 operator|!
@@ -254,8 +246,6 @@ name|TwitterEndpoint
 operator|)
 name|endpoint
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 operator|new
@@ -273,8 +263,6 @@ name|getCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 operator|new
