@@ -50,7 +50,7 @@ comment|// delete operations
 DECL|enumConstant|remove
 name|remove
 block|,
-comment|//aggregat
+comment|// aggregate
 DECL|enumConstant|aggregate
 name|aggregate
 block|,

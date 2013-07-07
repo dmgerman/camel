@@ -104,7 +104,17 @@ name|com
 operator|.
 name|mongodb
 operator|.
-name|MongoURI
+name|MongoClient
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|MongoClientURI
 import|;
 end_import
 
@@ -399,10 +409,10 @@ block|{
 name|mongo
 operator|=
 operator|new
-name|Mongo
+name|MongoClient
 argument_list|(
 operator|new
-name|MongoURI
+name|MongoClientURI
 argument_list|(
 name|properties
 operator|.
