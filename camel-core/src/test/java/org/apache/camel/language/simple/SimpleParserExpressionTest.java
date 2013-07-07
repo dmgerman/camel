@@ -62,10 +62,6 @@ name|Expression
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SimpleParserExpressionTest
 specifier|public
@@ -1183,6 +1179,73 @@ argument_list|(
 name|exchange
 argument_list|,
 name|Object
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// FIXME: see CAMEL-6414
+DECL|method|_testSimpleParser ()
+specifier|public
+name|void
+name|_testSimpleParser
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"JMSMessageID"
+argument_list|,
+literal|"JMSMessageID-123"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"THE MSG ID ${header.JMSMessageID} isA --"
+argument_list|)
+expr_stmt|;
+name|SimpleExpressionParser
+name|parser
+init|=
+operator|new
+name|SimpleExpressionParser
+argument_list|(
+literal|"THE MSG ID ${header.JMSMessageID} isA --"
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|Expression
+name|exp
+init|=
+name|parser
+operator|.
+name|parseExpression
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"THE MSG ID JMSMessageID-123 isA --"
+argument_list|,
+name|exp
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|String
 operator|.
 name|class
 argument_list|)
