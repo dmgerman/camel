@@ -1348,6 +1348,9 @@ comment|// (org.apache.felix.utils.properties.Properties)
 name|String
 name|value
 init|=
+operator|(
+name|String
+operator|)
 name|cfg
 operator|.
 name|get
