@@ -296,7 +296,10 @@ block|{
 return|return
 name|createEndpoint
 argument_list|(
-literal|null
+name|config
+operator|.
+name|getUriString
+argument_list|()
 argument_list|,
 name|config
 argument_list|)

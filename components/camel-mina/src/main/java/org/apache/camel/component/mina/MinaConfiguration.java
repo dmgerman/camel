@@ -823,6 +823,30 @@ operator|=
 name|noReplyLogLevel
 expr_stmt|;
 block|}
+comment|// here we just shows the option setting of host, port, protocol
+DECL|method|getUriString ()
+specifier|public
+name|String
+name|getUriString
+parameter_list|()
+block|{
+return|return
+literal|"mina:"
+operator|+
+name|getProtocol
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|getHost
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|getPort
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
