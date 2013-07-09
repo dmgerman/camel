@@ -136,7 +136,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|3000
+literal|5000
 argument_list|)
 expr_stmt|;
 name|File
@@ -217,12 +217,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
-literal|"/META-INF/spring/camel-context.xml"
-block|}
+literal|"META-INF/spring/camel-context.xml"
 argument_list|)
 return|;
 block|}
