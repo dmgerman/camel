@@ -40,6 +40,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -51,6 +63,42 @@ operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|socket
+operator|.
+name|nio
+operator|.
+name|BossPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|socket
+operator|.
+name|nio
+operator|.
+name|WorkerPool
 import|;
 end_import
 
@@ -116,6 +164,13 @@ DECL|field|receiveBufferSizePredictor
 specifier|protected
 name|int
 name|receiveBufferSizePredictor
+decl_stmt|;
+DECL|field|bossCount
+specifier|protected
+name|int
+name|bossCount
+init|=
+literal|1
 decl_stmt|;
 DECL|field|workerCount
 specifier|protected
@@ -230,6 +285,16 @@ DECL|field|passphrase
 specifier|protected
 name|String
 name|passphrase
+decl_stmt|;
+DECL|field|bossPool
+specifier|protected
+name|BossPool
+name|bossPool
+decl_stmt|;
+DECL|field|workerPool
+specifier|protected
+name|WorkerPool
+name|workerPool
 decl_stmt|;
 DECL|method|getAddress ()
 specifier|public
@@ -466,6 +531,32 @@ operator|.
 name|workerCount
 operator|=
 name|workerCount
+expr_stmt|;
+block|}
+DECL|method|getBossCount ()
+specifier|public
+name|int
+name|getBossCount
+parameter_list|()
+block|{
+return|return
+name|bossCount
+return|;
+block|}
+DECL|method|setBossCount (int bossCount)
+specifier|public
+name|void
+name|setBossCount
+parameter_list|(
+name|int
+name|bossCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bossCount
+operator|=
+name|bossCount
 expr_stmt|;
 block|}
 DECL|method|isKeepAlive ()
@@ -980,6 +1071,58 @@ operator|=
 name|options
 expr_stmt|;
 block|}
+DECL|method|getBossPool ()
+specifier|public
+name|BossPool
+name|getBossPool
+parameter_list|()
+block|{
+return|return
+name|bossPool
+return|;
+block|}
+DECL|method|setBossPool (BossPool bossPool)
+specifier|public
+name|void
+name|setBossPool
+parameter_list|(
+name|BossPool
+name|bossPool
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bossPool
+operator|=
+name|bossPool
+expr_stmt|;
+block|}
+DECL|method|getWorkerPool ()
+specifier|public
+name|WorkerPool
+name|getWorkerPool
+parameter_list|()
+block|{
+return|return
+name|workerPool
+return|;
+block|}
+DECL|method|setWorkerPool (WorkerPool workerPool)
+specifier|public
+name|void
+name|setWorkerPool
+parameter_list|(
+name|WorkerPool
+name|workerPool
+parameter_list|)
+block|{
+name|this
+operator|.
+name|workerPool
+operator|=
+name|workerPool
+expr_stmt|;
+block|}
 comment|/**      * Checks if the other {@link NettyServerBootstrapConfiguration} is compatible      * with this, as a Netty listener bound on port X shares the same common      * {@link NettyServerBootstrapConfiguration}, which must be identical.      */
 DECL|method|compatible (NettyServerBootstrapConfiguration other)
 specifier|public
@@ -1114,6 +1257,21 @@ operator|!=
 name|other
 operator|.
 name|workerCount
+condition|)
+block|{
+name|isCompatible
+operator|=
+literal|false
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|bossCount
+operator|!=
+name|other
+operator|.
+name|bossCount
 condition|)
 block|{
 name|isCompatible
@@ -1571,6 +1729,36 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|bossPool
+operator|!=
+name|other
+operator|.
+name|bossPool
+condition|)
+block|{
+name|isCompatible
+operator|=
+literal|false
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|workerPool
+operator|!=
+name|other
+operator|.
+name|workerPool
+condition|)
+block|{
+name|isCompatible
+operator|=
+literal|false
+expr_stmt|;
+block|}
 return|return
 name|isCompatible
 return|;
@@ -1619,6 +1807,10 @@ operator|+
 literal|", workerCount="
 operator|+
 name|workerCount
+operator|+
+literal|", bossCount="
+operator|+
+name|bossCount
 operator|+
 literal|", keepAlive="
 operator|+
@@ -1707,6 +1899,14 @@ operator|+
 name|passphrase
 operator|+
 literal|'\''
+operator|+
+literal|", bossPool="
+operator|+
+name|bossPool
+operator|+
+literal|", workerPool="
+operator|+
+name|workerPool
 operator|+
 literal|'}'
 return|;
