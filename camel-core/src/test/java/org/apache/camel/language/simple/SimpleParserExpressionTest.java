@@ -1186,10 +1186,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// FIXME: see CAMEL-6414
-DECL|method|_testSimpleParser ()
+DECL|method|xxxTestSimpleParser ()
 specifier|public
 name|void
-name|_testSimpleParser
+name|xxxTestSimpleParser
 parameter_list|()
 throws|throws
 name|Exception
