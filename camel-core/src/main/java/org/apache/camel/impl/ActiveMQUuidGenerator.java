@@ -20,6 +20,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|ServerSocket
@@ -51,20 +61,6 @@ operator|.
 name|spi
 operator|.
 name|UuidGenerator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
 import|;
 end_import
 
@@ -380,13 +376,57 @@ block|}
 block|}
 finally|finally
 block|{
-name|IOHelper
+try|try
+block|{
+comment|// TODO: replace the following line with IOHelper.close(ss) when Java 6 support is dropped
+name|ss
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
 argument_list|(
-name|ss
+literal|"Closing the server socket failed"
+argument_list|,
+name|ioe
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Closing the server socket failed"
+operator|+
+literal|" due "
+operator|+
+name|ioe
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 comment|// fallback to use localhost
