@@ -64,6 +64,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|InetAddressUtil
 import|;
 end_import
@@ -103,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.spi.UuidGenerator} which is a fast implementation based on  * how<a href="http://activemq.apache.org/>Apache ActiveMQ</a> generates its UUID.  *<p/>  * This implementation is not synchronized but it leverages API which may not be accessible  * in the cloud (such as Google App Engine).  */
+comment|/**  * {@link org.apache.camel.spi.UuidGenerator} which is a fast implementation based on  * how<a href="http://activemq.apache.org/>Apache ActiveMQ</a> generates its UUID.  *<p/>  * This implementation is not synchronized but it leverages API which may not be accessible  * in the cloud (such as Google App Engine).  *<p/>  * The JVM system property {@link #PROPERTY_IDGENERATOR_PORT} can be used to set a specific port  * number to be used as part of the initialization process to generate unique UUID.  */
 end_comment
 
 begin_class
@@ -114,6 +128,16 @@ name|ActiveMQUuidGenerator
 implements|implements
 name|UuidGenerator
 block|{
+comment|// use same JVM property name as ActiveMQ
+DECL|field|PROPERTY_IDGENERATOR_PORT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PROPERTY_IDGENERATOR_PORT
+init|=
+literal|"activemq.idgenerator.port"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -225,8 +249,43 @@ condition|(
 name|canAccessSystemProps
 condition|)
 block|{
+name|int
+name|idGeneratorPort
+init|=
+literal|0
+decl_stmt|;
+name|ServerSocket
+name|ss
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
+name|idGeneratorPort
+operator|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|PROPERTY_IDGENERATOR_PORT
+argument_list|,
+literal|"0"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using port {}"
+argument_list|,
+name|idGeneratorPort
+argument_list|)
+expr_stmt|;
 name|hostName
 operator|=
 name|InetAddressUtil
@@ -234,15 +293,14 @@ operator|.
 name|getLocalHostName
 argument_list|()
 expr_stmt|;
-name|ServerSocket
 name|ss
-init|=
+operator|=
 operator|new
 name|ServerSocket
 argument_list|(
-literal|0
+name|idGeneratorPort
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|stub
 operator|=
 literal|"-"
@@ -280,13 +338,53 @@ name|Exception
 name|ioe
 parameter_list|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Cannot generate unique stub by using DNS and binding to local port: "
+operator|+
+name|idGeneratorPort
+argument_list|,
+name|ioe
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not generate unique stub by using DNS and binding to local port, will fallback and use localhost as name"
-argument_list|,
+literal|"Cannot generate unique stub by using DNS and binding to local port: "
+operator|+
+name|idGeneratorPort
+operator|+
+literal|" due "
+operator|+
 name|ioe
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|ss
 argument_list|)
 expr_stmt|;
 block|}
