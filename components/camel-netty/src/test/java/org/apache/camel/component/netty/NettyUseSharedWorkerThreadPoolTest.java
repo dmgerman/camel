@@ -91,10 +91,15 @@ specifier|private
 name|JndiRegistry
 name|jndi
 decl_stmt|;
-DECL|field|shared
+DECL|field|sharedServer
 specifier|private
 name|WorkerPool
-name|shared
+name|sharedServer
+decl_stmt|;
+DECL|field|sharedClient
+specifier|private
+name|WorkerPool
+name|sharedClient
 decl_stmt|;
 DECL|field|port
 specifier|private
@@ -190,7 +195,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true&sync=true"
+literal|"?textline=true&sync=true&workerPool=#sharedClientPool"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -216,7 +221,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"?textline=true&sync=true"
+literal|"?textline=true&sync=true&workerPool=#sharedClientPool"
 argument_list|,
 literal|"Hello Camel"
 argument_list|,
@@ -242,7 +247,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port3
 operator|+
-literal|"?textline=true&sync=true"
+literal|"?textline=true&sync=true&workerPool=#sharedClientPool"
 argument_list|,
 literal|"Hello Claus"
 argument_list|,
@@ -262,7 +267,12 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|shared
+name|sharedServer
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|sharedClient
 operator|.
 name|shutdown
 argument_list|()
@@ -293,7 +303,7 @@ throws|throws
 name|Exception
 block|{
 comment|// we have 3 routes, but lets try to have only 2 threads in the pool
-name|shared
+name|sharedServer
 operator|=
 operator|new
 name|NettyWorkerPoolBuilder
@@ -304,6 +314,11 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
+name|withName
+argument_list|(
+literal|"NettyServer"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 expr_stmt|;
@@ -311,9 +326,37 @@ name|jndi
 operator|.
 name|bind
 argument_list|(
-literal|"sharedPool"
+literal|"sharedServerPool"
 argument_list|,
-name|shared
+name|sharedServer
+argument_list|)
+expr_stmt|;
+name|sharedClient
+operator|=
+operator|new
+name|NettyWorkerPoolBuilder
+argument_list|()
+operator|.
+name|withWorkerCount
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|withName
+argument_list|(
+literal|"NettyClient"
+argument_list|)
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"sharedClientPool"
+argument_list|,
+name|sharedClient
 argument_list|)
 expr_stmt|;
 name|port
@@ -337,7 +380,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerPool=#sharedServerPool&orderedThreadPoolExecutor=false"
 argument_list|)
 operator|.
 name|validate
@@ -382,7 +425,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerPool=#sharedServerPool&orderedThreadPoolExecutor=false"
 argument_list|)
 operator|.
 name|validate
@@ -427,7 +470,7 @@ literal|"netty:tcp://localhost:"
 operator|+
 name|port3
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerPool=#sharedServerPool&orderedThreadPoolExecutor=false"
 argument_list|)
 operator|.
 name|validate

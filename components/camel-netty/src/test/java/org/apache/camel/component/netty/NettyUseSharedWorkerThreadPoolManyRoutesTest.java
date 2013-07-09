@@ -281,7 +281,7 @@ expr_stmt|;
 name|sharedBoos
 operator|=
 operator|new
-name|NettyBossPoolBuilder
+name|NettyServerBossPoolBuilder
 argument_list|()
 operator|.
 name|withBossCount

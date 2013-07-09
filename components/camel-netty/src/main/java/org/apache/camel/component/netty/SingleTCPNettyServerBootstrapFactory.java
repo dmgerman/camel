@@ -563,7 +563,7 @@ comment|// create new pool which we should shutdown when stopping as its not sha
 name|bossPool
 operator|=
 operator|new
-name|NettyBossPoolBuilder
+name|NettyServerBossPoolBuilder
 argument_list|()
 operator|.
 name|withBossCount
@@ -576,7 +576,7 @@ argument_list|)
 operator|.
 name|withName
 argument_list|(
-literal|"NettyTCPBoss"
+literal|"NettyServerTCPBoss"
 argument_list|)
 operator|.
 name|build
@@ -611,7 +611,7 @@ argument_list|)
 operator|.
 name|withName
 argument_list|(
-literal|"NettyTCPWorker"
+literal|"NettyServerTCPWorker"
 argument_list|)
 operator|.
 name|build

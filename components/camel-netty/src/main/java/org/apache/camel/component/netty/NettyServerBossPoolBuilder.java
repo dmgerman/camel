@@ -71,18 +71,18 @@ comment|/**  * A builder to create Netty {@link org.jboss.netty.channel.socket.n
 end_comment
 
 begin_class
-DECL|class|NettyBossPoolBuilder
+DECL|class|NettyServerBossPoolBuilder
 specifier|public
 specifier|final
 class|class
-name|NettyBossPoolBuilder
+name|NettyServerBossPoolBuilder
 block|{
 DECL|field|name
 specifier|private
 name|String
 name|name
 init|=
-literal|"NettyBoss"
+literal|"NettyServerBoss"
 decl_stmt|;
 DECL|field|pattern
 specifier|private
@@ -146,7 +146,7 @@ expr_stmt|;
 block|}
 DECL|method|withName (String name)
 specifier|public
-name|NettyBossPoolBuilder
+name|NettyServerBossPoolBuilder
 name|withName
 parameter_list|(
 name|String
@@ -164,7 +164,7 @@ return|;
 block|}
 DECL|method|withPattern (String pattern)
 specifier|public
-name|NettyBossPoolBuilder
+name|NettyServerBossPoolBuilder
 name|withPattern
 parameter_list|(
 name|String
@@ -182,7 +182,7 @@ return|;
 block|}
 DECL|method|withBossCount (int bossCount)
 specifier|public
-name|NettyBossPoolBuilder
+name|NettyServerBossPoolBuilder
 name|withBossCount
 parameter_list|(
 name|int
