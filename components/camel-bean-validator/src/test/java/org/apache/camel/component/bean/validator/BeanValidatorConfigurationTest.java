@@ -160,7 +160,7 @@ name|internal
 operator|.
 name|engine
 operator|.
-name|ConstraintValidatorFactoryImpl
+name|ValidatorImpl
 import|;
 end_import
 
@@ -176,7 +176,9 @@ name|internal
 operator|.
 name|engine
 operator|.
-name|ValidatorImpl
+name|constraintvalidation
+operator|.
+name|ConstraintValidatorFactoryImpl
 import|;
 end_import
 
@@ -667,6 +669,24 @@ block|{
 return|return
 literal|null
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|releaseInstance (ConstraintValidator<?, ?> arg0)
+specifier|public
+name|void
+name|releaseInstance
+parameter_list|(
+name|ConstraintValidator
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
+name|arg0
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 block|}
