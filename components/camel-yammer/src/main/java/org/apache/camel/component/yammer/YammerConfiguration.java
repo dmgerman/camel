@@ -137,6 +137,13 @@ specifier|private
 name|String
 name|threaded
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|userId
+specifier|private
+name|String
+name|userId
+decl_stmt|;
 DECL|field|requestor
 specifier|private
 name|ApiRequestor
@@ -450,6 +457,32 @@ operator|.
 name|threaded
 operator|=
 name|threaded
+expr_stmt|;
+block|}
+DECL|method|getUserId ()
+specifier|public
+name|String
+name|getUserId
+parameter_list|()
+block|{
+return|return
+name|userId
+return|;
+block|}
+DECL|method|setUserId (String userId)
+specifier|public
+name|void
+name|setUserId
+parameter_list|(
+name|String
+name|userId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|userId
+operator|=
+name|userId
 expr_stmt|;
 block|}
 block|}
