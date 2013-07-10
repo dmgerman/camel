@@ -1984,6 +1984,27 @@ index|[]
 name|echo
 parameter_list|)
 block|{
+comment|// must return an empty array if password is null
+if|if
+condition|(
+name|configuration
+operator|.
+name|getPassword
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|String
+index|[
+literal|0
+index|]
+return|;
+block|}
+else|else
+block|{
 return|return
 operator|new
 name|String
@@ -1995,6 +2016,7 @@ name|getPassword
 argument_list|()
 block|}
 return|;
+block|}
 block|}
 block|}
 argument_list|)
