@@ -84,24 +84,6 @@ name|yammer
 operator|.
 name|model
 operator|.
-name|Messages
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|yammer
-operator|.
-name|model
-operator|.
 name|User
 import|;
 end_import
@@ -124,6 +106,11 @@ name|YammerUserRouteTest
 extends|extends
 name|YammerComponentTestSupport
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testConsumeAllUsers ()
