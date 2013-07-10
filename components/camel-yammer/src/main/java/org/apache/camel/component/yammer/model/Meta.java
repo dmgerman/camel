@@ -128,7 +128,7 @@ DECL|field|ymodules
 specifier|private
 name|List
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|ymodules
 decl_stmt|;
@@ -310,7 +310,7 @@ DECL|method|getYmodules ()
 specifier|public
 name|List
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|getYmodules
 parameter_list|()
@@ -319,14 +319,14 @@ return|return
 name|ymodules
 return|;
 block|}
-DECL|method|setYmodules (List<Object> ymodules)
+DECL|method|setYmodules (List<String> ymodules)
 specifier|public
 name|void
 name|setYmodules
 parameter_list|(
 name|List
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|ymodules
 parameter_list|)

@@ -108,7 +108,7 @@ literal|"streaming_url"
 argument_list|)
 DECL|field|streamingUrl
 specifier|private
-name|Object
+name|String
 name|streamingUrl
 decl_stmt|;
 annotation|@
@@ -118,7 +118,7 @@ literal|"group_id"
 argument_list|)
 DECL|field|groupId
 specifier|private
-name|Object
+name|String
 name|groupId
 decl_stmt|;
 DECL|field|id
@@ -198,7 +198,7 @@ name|height
 decl_stmt|;
 DECL|field|transcoded
 specifier|private
-name|Object
+name|String
 name|transcoded
 decl_stmt|;
 DECL|field|path
@@ -358,7 +358,7 @@ name|webUrl
 decl_stmt|;
 DECL|field|uuid
 specifier|private
-name|Object
+name|String
 name|uuid
 decl_stmt|;
 DECL|method|getLastUploadedAt ()
@@ -493,7 +493,7 @@ expr_stmt|;
 block|}
 DECL|method|getStreamingUrl ()
 specifier|public
-name|Object
+name|String
 name|getStreamingUrl
 parameter_list|()
 block|{
@@ -501,12 +501,12 @@ return|return
 name|streamingUrl
 return|;
 block|}
-DECL|method|setStreamingUrl (Object streamingUrl)
+DECL|method|setStreamingUrl (String streamingUrl)
 specifier|public
 name|void
 name|setStreamingUrl
 parameter_list|(
-name|Object
+name|String
 name|streamingUrl
 parameter_list|)
 block|{
@@ -519,7 +519,7 @@ expr_stmt|;
 block|}
 DECL|method|getGroupId ()
 specifier|public
-name|Object
+name|String
 name|getGroupId
 parameter_list|()
 block|{
@@ -527,12 +527,12 @@ return|return
 name|groupId
 return|;
 block|}
-DECL|method|setGroupId (Object groupId)
+DECL|method|setGroupId (String groupId)
 specifier|public
 name|void
 name|setGroupId
 parameter_list|(
-name|Object
+name|String
 name|groupId
 parameter_list|)
 block|{
@@ -805,7 +805,7 @@ expr_stmt|;
 block|}
 DECL|method|getTranscoded ()
 specifier|public
-name|Object
+name|String
 name|getTranscoded
 parameter_list|()
 block|{
@@ -813,12 +813,12 @@ return|return
 name|transcoded
 return|;
 block|}
-DECL|method|setTranscoded (Object transcoded)
+DECL|method|setTranscoded (String transcoded)
 specifier|public
 name|void
 name|setTranscoded
 parameter_list|(
-name|Object
+name|String
 name|transcoded
 parameter_list|)
 block|{
@@ -1299,7 +1299,7 @@ expr_stmt|;
 block|}
 DECL|method|getUuid ()
 specifier|public
-name|Object
+name|String
 name|getUuid
 parameter_list|()
 block|{
@@ -1307,12 +1307,12 @@ return|return
 name|uuid
 return|;
 block|}
-DECL|method|setUuid (Object uuid)
+DECL|method|setUuid (String uuid)
 specifier|public
 name|void
 name|setUuid
 parameter_list|(
-name|Object
+name|String
 name|uuid
 parameter_list|)
 block|{

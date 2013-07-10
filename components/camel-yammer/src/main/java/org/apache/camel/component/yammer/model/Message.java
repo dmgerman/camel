@@ -78,7 +78,7 @@ literal|"replied_to_id"
 argument_list|)
 DECL|field|repliedToId
 specifier|private
-name|Object
+name|String
 name|repliedToId
 decl_stmt|;
 annotation|@
@@ -128,7 +128,7 @@ literal|"chat_client_sequence"
 argument_list|)
 DECL|field|chatClientSequence
 specifier|private
-name|Object
+name|String
 name|chatClientSequence
 decl_stmt|;
 DECL|field|body
@@ -213,7 +213,7 @@ name|senderId
 decl_stmt|;
 DECL|field|language
 specifier|private
-name|Object
+name|String
 name|language
 decl_stmt|;
 annotation|@
@@ -256,7 +256,7 @@ name|webUrl
 decl_stmt|;
 DECL|method|getRepliedToId ()
 specifier|public
-name|Object
+name|String
 name|getRepliedToId
 parameter_list|()
 block|{
@@ -264,12 +264,12 @@ return|return
 name|repliedToId
 return|;
 block|}
-DECL|method|setRepliedToId (Object repliedToId)
+DECL|method|setRepliedToId (String repliedToId)
 specifier|public
 name|void
 name|setRepliedToId
 parameter_list|(
-name|Object
+name|String
 name|repliedToId
 parameter_list|)
 block|{
@@ -412,7 +412,7 @@ expr_stmt|;
 block|}
 DECL|method|getChatClientSequence ()
 specifier|public
-name|Object
+name|String
 name|getChatClientSequence
 parameter_list|()
 block|{
@@ -420,12 +420,12 @@ return|return
 name|chatClientSequence
 return|;
 block|}
-DECL|method|setChatClientSequence (Object chatClientSequence)
+DECL|method|setChatClientSequence (String chatClientSequence)
 specifier|public
 name|void
 name|setChatClientSequence
 parameter_list|(
-name|Object
+name|String
 name|chatClientSequence
 parameter_list|)
 block|{
@@ -672,7 +672,7 @@ expr_stmt|;
 block|}
 DECL|method|getLanguage ()
 specifier|public
-name|Object
+name|String
 name|getLanguage
 parameter_list|()
 block|{
@@ -680,12 +680,12 @@ return|return
 name|language
 return|;
 block|}
-DECL|method|setLanguage (Object language)
+DECL|method|setLanguage (String language)
 specifier|public
 name|void
 name|setLanguage
 parameter_list|(
-name|Object
+name|String
 name|language
 parameter_list|)
 block|{
