@@ -128,15 +128,17 @@ name|BlobStoreContext
 import|;
 end_import
 
+begin_comment
+comment|// import org.jclouds.blobstore.BlobStoreContextFactory;
+end_comment
+
 begin_import
 import|import
 name|org
 operator|.
-name|jclouds
+name|junit
 operator|.
-name|blobstore
-operator|.
-name|BlobStoreContextFactory
+name|Ignore
 import|;
 end_import
 
@@ -260,6 +262,11 @@ name|JUnit4TestRunner
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"See CAMEL-6536"
+argument_list|)
 DECL|class|BlobStoreRouteTest
 specifier|public
 class|class
@@ -299,51 +306,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|BlobStoreContextFactory
-name|contextFactory
-init|=
-operator|new
-name|BlobStoreContextFactory
-argument_list|()
-decl_stmt|;
-name|BlobStoreContext
-name|blobStoreContext
-init|=
-name|contextFactory
-operator|.
-name|createContext
-argument_list|(
-literal|"transient"
-argument_list|,
-literal|"identity"
-argument_list|,
-literal|"credential"
-argument_list|)
-decl_stmt|;
-name|BlobStore
-name|blobStore
-init|=
-name|blobStoreContext
-operator|.
-name|getBlobStore
-argument_list|()
-decl_stmt|;
-name|blobStore
-operator|.
-name|createContainerInLocation
-argument_list|(
-literal|null
-argument_list|,
-name|TEST_CONTAINER
-argument_list|)
-expr_stmt|;
-name|blobStore
-operator|.
-name|clearContainer
-argument_list|(
-name|TEST_CONTAINER
-argument_list|)
-expr_stmt|;
+comment|/*        BlobStoreContextFactory contextFactory = new BlobStoreContextFactory();         BlobStoreContext blobStoreContext = contextFactory.createContext("transient", "identity", "credential");         BlobStore blobStore = blobStoreContext.getBlobStore();         blobStore.createContainerInLocation(null, TEST_CONTAINER);         blobStore.clearContainer(TEST_CONTAINER); */
 block|}
 annotation|@
 name|Test
