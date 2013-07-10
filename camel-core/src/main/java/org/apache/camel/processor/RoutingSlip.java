@@ -1595,6 +1595,13 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+name|sync
+argument_list|)
+expr_stmt|;
 return|return
 name|sync
 return|;
