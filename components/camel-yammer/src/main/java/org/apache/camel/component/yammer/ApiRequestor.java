@@ -24,10 +24,20 @@ specifier|public
 interface|interface
 name|ApiRequestor
 block|{
-DECL|method|send ()
+DECL|method|get ()
 name|String
-name|send
+name|get
 parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+DECL|method|post (String params)
+name|String
+name|post
+parameter_list|(
+name|String
+name|params
+parameter_list|)
 throws|throws
 name|Exception
 function_decl|;

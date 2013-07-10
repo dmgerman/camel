@@ -362,7 +362,7 @@ argument_list|(
 name|apiUrl
 argument_list|)
 operator|.
-name|send
+name|get
 argument_list|()
 decl_stmt|;
 if|if

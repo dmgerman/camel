@@ -182,13 +182,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-throw|throw
+return|return
 operator|new
-name|UnsupportedOperationException
+name|YammerMessageProducer
 argument_list|(
-literal|"YammerProducer is not implemented"
+name|this
 argument_list|)
-throw|;
+return|;
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
