@@ -2982,7 +2982,7 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|Hashtable
+name|Dictionary
 argument_list|<
 name|String
 argument_list|,

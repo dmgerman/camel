@@ -714,7 +714,7 @@ break|break;
 case|case
 name|Map
 case|:
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2257,7 +2257,7 @@ parameter_list|)
 throws|throws
 name|JMSException
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

@@ -3179,7 +3179,7 @@ name|NodeList
 name|namespaces
 parameter_list|)
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

@@ -3011,7 +3011,7 @@ argument_list|>
 name|getEndpointMap
 parameter_list|()
 block|{
-name|TreeMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

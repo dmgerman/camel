@@ -50,6 +50,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -304,7 +314,7 @@ name|routes
 argument_list|)
 expr_stmt|;
 comment|// Wire a dispatch map to registry
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

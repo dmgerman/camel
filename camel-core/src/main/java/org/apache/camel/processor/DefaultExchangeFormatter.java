@@ -1594,7 +1594,7 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-name|TreeMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

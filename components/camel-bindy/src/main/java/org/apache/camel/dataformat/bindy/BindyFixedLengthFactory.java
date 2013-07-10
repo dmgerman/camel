@@ -1657,7 +1657,7 @@ block|}
 block|}
 block|}
 comment|// Convert Map<Integer, List> into List<List>
-name|TreeMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
