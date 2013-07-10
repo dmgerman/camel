@@ -1345,9 +1345,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|boolean
-name|sync
-init|=
+return|return
 name|asyncProducer
 operator|.
 name|process
@@ -1372,6 +1370,13 @@ condition|(
 name|doneSync
 condition|)
 block|{
+name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 comment|// continue processing the routing slip asynchronously
@@ -1594,16 +1599,6 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-decl_stmt|;
-name|callback
-operator|.
-name|done
-argument_list|(
-name|sync
-argument_list|)
-expr_stmt|;
-return|return
-name|sync
 return|;
 block|}
 block|}
