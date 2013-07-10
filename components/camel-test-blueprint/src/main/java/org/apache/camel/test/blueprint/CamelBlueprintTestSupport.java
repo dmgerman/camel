@@ -457,6 +457,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"skipStartingCamelContext"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"registerBlueprintCamelContextEager"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
 name|String
 name|symbolicName
 init|=
@@ -516,6 +534,24 @@ block|}
 name|super
 operator|.
 name|setUp
+argument_list|()
+expr_stmt|;
+comment|// start context when we are ready
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Staring CamelContext: {}"
+argument_list|,
+name|context
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|start
 argument_list|()
 expr_stmt|;
 comment|// must wait for blueprint container to be published then the namespace parser is complete and we are ready for testing
@@ -582,6 +618,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"skipStartingCamelContext"
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"registerBlueprintCamelContextEager"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|tearDown
@@ -695,7 +745,7 @@ operator|.
 name|BUNDLE_VERSION
 return|;
 block|}
-comment|/**      * Gets the bundle directives.      * Modify this method if you wish to add some directives.      * @return      */
+comment|/**      * Gets the bundle directives.      *<p/>      * Modify this method if you wish to add some directives.      */
 DECL|method|getBundleDirectives ()
 specifier|protected
 name|String
