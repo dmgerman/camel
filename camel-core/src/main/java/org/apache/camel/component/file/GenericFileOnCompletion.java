@@ -525,8 +525,6 @@ name|endpoint
 operator|.
 name|isNoop
 argument_list|()
-operator|&&
-name|complete
 condition|)
 block|{
 comment|// done file must be in same path as the original input file
@@ -551,6 +549,24 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
+comment|// we should delete the dynamic done file
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getDoneFileName
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"{file:name"
+argument_list|)
+operator|>
+literal|0
+operator|||
+name|complete
+condition|)
+block|{
 try|try
 block|{
 comment|// delete done file
@@ -605,6 +621,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 try|try
