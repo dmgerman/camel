@@ -40,18 +40,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorService
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -235,6 +223,11 @@ DECL|field|ssl
 specifier|protected
 name|boolean
 name|ssl
+decl_stmt|;
+DECL|field|sslClientCertHeaders
+specifier|protected
+name|boolean
+name|sslClientCertHeaders
 decl_stmt|;
 DECL|field|sslHandler
 specifier|protected
@@ -713,6 +706,32 @@ operator|.
 name|ssl
 operator|=
 name|ssl
+expr_stmt|;
+block|}
+DECL|method|isSslClientCertHeaders ()
+specifier|public
+name|boolean
+name|isSslClientCertHeaders
+parameter_list|()
+block|{
+return|return
+name|sslClientCertHeaders
+return|;
+block|}
+DECL|method|setSslClientCertHeaders (boolean sslClientCertHeaders)
+specifier|public
+name|void
+name|setSslClientCertHeaders
+parameter_list|(
+name|boolean
+name|sslClientCertHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslClientCertHeaders
+operator|=
+name|sslClientCertHeaders
 expr_stmt|;
 block|}
 DECL|method|getSslHandler ()
