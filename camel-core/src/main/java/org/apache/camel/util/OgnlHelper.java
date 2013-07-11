@@ -282,7 +282,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Tests whether or not the given Camel OGNL expression is using the Elvis operator or not.      *      * @param ognlExpression the Camel OGNL expression      * @return<tt>true</tt> if the Elvis operator is used, otherwise<tt>false</tt>.      */
+comment|/**      * Tests whether or not the given Camel OGNL expression is using the null safe operator or not.      *      * @param ognlExpression the Camel OGNL expression      * @return<tt>true</tt> if the null safe operator is used, otherwise<tt>false</tt>.      */
 DECL|method|isNullSafeOperator (String ognlExpression)
 specifier|public
 specifier|static
