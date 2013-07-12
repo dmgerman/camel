@@ -378,6 +378,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sends events on the given {@link Observable} to the given camel endpoint      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|sendTo (Observable<T> observable, Endpoint endpoint)
 specifier|public
 parameter_list|<
@@ -461,6 +466,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a newly created {@link Observable} given a function which converts      * the {@link Exchange} from the Camel consumer to the required type      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createEndpointObservable (final Endpoint endpoint, final Func1<Exchange, T> converter)
 specifier|protected
 parameter_list|<

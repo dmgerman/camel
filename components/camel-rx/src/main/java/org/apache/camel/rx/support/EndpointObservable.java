@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An {@link Observerable} Camel {@link Endpoint}  */
+comment|/**  * An {@link Observable} Camel {@link Endpoint}  */
 end_comment
 
 begin_class

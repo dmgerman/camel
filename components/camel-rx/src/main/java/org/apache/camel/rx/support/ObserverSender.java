@@ -70,6 +70,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
 name|rx
 operator|.
 name|Observer
@@ -112,12 +126,12 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
-name|this
+name|ServiceHelper
 operator|.
+name|startService
+argument_list|(
 name|producer
-operator|.
-name|start
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|onCompleted ()
@@ -135,10 +149,12 @@ condition|)
 block|{
 try|try
 block|{
-name|producer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopService
+argument_list|(
+name|producer
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

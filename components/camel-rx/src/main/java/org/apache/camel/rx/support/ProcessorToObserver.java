@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link Processor} which invokes an underling {@link Observer} as messages  * arrive using hte given function to convert the {@link Exchange} to the required  * object  */
+comment|/**  * A {@link Processor} which invokes an underling {@link Observer} as messages  * arrive using the given function to convert the {@link Exchange} to the required  * object  */
 end_comment
 
 begin_class

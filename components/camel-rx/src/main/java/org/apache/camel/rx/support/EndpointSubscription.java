@@ -68,6 +68,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
 name|rx
 operator|.
 name|Observer
@@ -193,12 +207,12 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
-name|this
+name|ServiceHelper
 operator|.
+name|startService
+argument_list|(
 name|consumer
-operator|.
-name|start
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -253,10 +267,12 @@ condition|)
 block|{
 try|try
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopServices
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 comment|// TODO should this fire the observer.onComplete()?
 name|observer

@@ -70,6 +70,16 @@ name|rx
 operator|.
 name|subjects
 operator|.
+name|PublishSubject
+import|;
+end_import
+
+begin_import
+import|import
+name|rx
+operator|.
+name|subjects
+operator|.
 name|Subject
 import|;
 end_import
@@ -108,12 +118,9 @@ DECL|field|observable
 specifier|private
 specifier|final
 name|Subject
-argument_list|<
-name|T
-argument_list|>
 name|observable
 init|=
-name|Subject
+name|PublishSubject
 operator|.
 name|create
 argument_list|()
@@ -124,6 +131,11 @@ specifier|final
 name|ProcessorToObserver
 name|processor
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|ObservableProcessor (Func1<Exchange, T> func)
 specifier|protected
 name|ObservableProcessor
@@ -170,6 +182,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the {@link Observable} for this {@link Processor} so that the messages that are received      * can be processed using the<a href="https://github.com/Netflix/RxJava/wiki">RX Java API</a>      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getObservable ()
 specifier|public
 name|Observable
@@ -183,7 +200,7 @@ return|return
 name|observable
 return|;
 block|}
-comment|/**      * Provides the configuration hook so that derived classes can process the observable      * to use whatever RX methods they wish to process the incoming events      * @param observable      */
+comment|/**      * Provides the configuration hook so that derived classes can process the observable      * to use whatever RX methods they wish to process the incoming events      */
 DECL|method|configure (Observable<T> observable)
 specifier|protected
 specifier|abstract
@@ -220,11 +237,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|observable
-operator|.
-name|onCompleted
-argument_list|()
-expr_stmt|;
+comment|// noop
 block|}
 block|}
 end_class
