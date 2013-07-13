@@ -548,8 +548,9 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-continue|continue;
 block|}
+comment|// we should avoid adding the separator
+continue|continue;
 block|}
 name|sb
 operator|.
