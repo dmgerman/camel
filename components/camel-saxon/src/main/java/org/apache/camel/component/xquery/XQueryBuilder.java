@@ -3348,6 +3348,8 @@ operator|.
 name|debug
 argument_list|(
 literal|"Created new Configuration {}"
+argument_list|,
+name|configuration
 argument_list|)
 expr_stmt|;
 block|}
