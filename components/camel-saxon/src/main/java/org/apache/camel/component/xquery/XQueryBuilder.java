@@ -3305,6 +3305,13 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|configuration
+operator|==
+literal|null
+condition|)
+block|{
 name|configuration
 operator|=
 operator|new
@@ -3336,6 +3343,26 @@ operator|.
 name|IGNORABLE
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new Configuration {}"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using existing Configuration {}"
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
 name|staticQueryContext
 operator|=
 name|getConfiguration
