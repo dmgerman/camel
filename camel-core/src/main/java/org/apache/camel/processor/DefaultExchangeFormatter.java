@@ -160,6 +160,20 @@ argument_list|(
 literal|"line.separator"
 argument_list|)
 decl_stmt|;
+DECL|enum|OutputStyle
+DECL|enumConstant|Default
+DECL|enumConstant|Tab
+DECL|enumConstant|Fixed
+specifier|public
+enum|enum
+name|OutputStyle
+block|{
+name|Default
+block|,
+name|Tab
+block|,
+name|Fixed
+block|}
 DECL|field|showExchangeId
 specifier|private
 name|boolean
@@ -248,6 +262,78 @@ name|maxChars
 init|=
 literal|10000
 decl_stmt|;
+DECL|field|style
+specifier|private
+name|OutputStyle
+name|style
+init|=
+name|OutputStyle
+operator|.
+name|Default
+decl_stmt|;
+DECL|method|style (String label)
+specifier|private
+name|String
+name|style
+parameter_list|(
+name|String
+name|label
+parameter_list|)
+block|{
+if|if
+condition|(
+name|style
+operator|==
+name|OutputStyle
+operator|.
+name|Default
+condition|)
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|", %s: "
+argument_list|,
+name|label
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
+name|style
+operator|==
+name|OutputStyle
+operator|.
+name|Tab
+condition|)
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"\t%s: "
+argument_list|,
+name|label
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"\t%-20s"
+argument_list|,
+name|label
+argument_list|)
+return|;
+block|}
+block|}
 DECL|method|format (Exchange exchange)
 specifier|public
 name|String
@@ -296,7 +382,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", Id:"
+name|style
+argument_list|(
+literal|"Id"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -332,7 +421,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", ExchangePattern:"
+name|style
+argument_list|(
+literal|"ExchangePattern"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -368,7 +460,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", Properties:"
+name|style
+argument_list|(
+literal|"Properties"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -407,7 +502,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", Headers:"
+name|style
+argument_list|(
+literal|"Headers"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -446,7 +544,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", BodyType:"
+name|style
+argument_list|(
+literal|"BodyType"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -482,7 +583,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", Body:"
+name|style
+argument_list|(
+literal|"Body"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -580,7 +684,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", CaughtExceptionType:"
+name|style
+argument_list|(
+literal|"CaughtExceptionType"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -598,7 +705,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", CaughtExceptionMessage:"
+name|style
+argument_list|(
+literal|"CaughtExceptionMessage"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -616,7 +726,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", ExceptionType:"
+name|style
+argument_list|(
+literal|"ExceptionType"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -634,7 +747,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", ExceptionMessage:"
+name|style
+argument_list|(
+literal|"ExceptionMessage"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -675,7 +791,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", StackTrace:"
+name|style
+argument_list|(
+literal|"StackTrace"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -736,7 +855,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", OutHeaders:"
+name|style
+argument_list|(
+literal|"OutHeaders"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -775,7 +897,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", OutBodyType:"
+name|style
+argument_list|(
+literal|"OutBodyType"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -811,7 +936,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", OutBody:"
+name|style
+argument_list|(
+literal|"OutBody"
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -843,7 +971,10 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", Out: null"
+name|style
+argument_list|(
+literal|"Out: null"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1463,6 +1594,33 @@ operator|.
 name|showFiles
 operator|=
 name|showFiles
+expr_stmt|;
+block|}
+DECL|method|getStyle ()
+specifier|public
+name|OutputStyle
+name|getStyle
+parameter_list|()
+block|{
+return|return
+name|style
+return|;
+block|}
+comment|/**      * Sets the outputs style to use.      */
+DECL|method|setStyle (OutputStyle style)
+specifier|public
+name|void
+name|setStyle
+parameter_list|(
+name|OutputStyle
+name|style
+parameter_list|)
+block|{
+name|this
+operator|.
+name|style
+operator|=
+name|style
 expr_stmt|;
 block|}
 comment|// Implementation methods

@@ -1001,6 +1001,17 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|formatter
+operator|.
+name|setStyle
+argument_list|(
+name|DefaultExchangeFormatter
+operator|.
+name|OutputStyle
+operator|.
+name|Fixed
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|exchangeFormatter
