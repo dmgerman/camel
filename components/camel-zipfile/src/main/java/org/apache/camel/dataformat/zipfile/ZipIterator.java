@@ -431,7 +431,10 @@ argument_list|()
 expr_stmt|;
 name|answer
 operator|.
-name|setHeaders
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
 argument_list|(
 name|inputMessage
 operator|.
