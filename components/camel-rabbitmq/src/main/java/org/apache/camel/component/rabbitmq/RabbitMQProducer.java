@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.component.rabbitmq
 package|package
@@ -13,6 +17,38 @@ operator|.
 name|rabbitmq
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Executors
+import|;
+end_import
 
 begin_import
 import|import
@@ -75,42 +111,6 @@ operator|.
 name|DefaultProducer
 import|;
 end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Executors
-import|;
-end_import
-
-begin_comment
-comment|/**  * @author Stephen Samuel  */
-end_comment
 
 begin_class
 DECL|class|RabbitMQProducer
@@ -345,6 +345,7 @@ name|contentType
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|contentType
@@ -355,6 +356,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|priority
@@ -377,6 +379,7 @@ name|priority
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|priority
@@ -392,6 +395,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|messageId
@@ -414,6 +418,7 @@ name|messageId
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|messageId
@@ -424,6 +429,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|clusterId
@@ -446,6 +452,7 @@ name|clusterId
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|clusterId
@@ -456,6 +463,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|replyTo
@@ -478,6 +486,7 @@ name|replyTo
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|replyTo
@@ -488,6 +497,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|correlationId
@@ -510,6 +520,7 @@ name|correlationId
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|correlationId
@@ -520,6 +531,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|deliveryMode
@@ -542,6 +554,7 @@ name|deliveryMode
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|deliveryMode
@@ -557,6 +570,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|userId
@@ -579,6 +593,7 @@ name|userId
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|userId
@@ -589,6 +604,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|type
@@ -611,6 +627,7 @@ name|type
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|type
@@ -621,6 +638,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|contentEncoding
@@ -643,6 +661,7 @@ name|contentEncoding
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|contentEncoding
@@ -653,6 +672,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|expiration
@@ -675,6 +695,7 @@ name|expiration
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|expiration
@@ -685,6 +706,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|appId
@@ -707,6 +729,7 @@ name|appId
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|appId
@@ -717,6 +740,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 name|timestamp
@@ -739,6 +763,7 @@ name|timestamp
 operator|!=
 literal|null
 condition|)
+block|{
 name|properties
 operator|.
 name|timestamp
@@ -758,6 +783,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|properties
 return|;
