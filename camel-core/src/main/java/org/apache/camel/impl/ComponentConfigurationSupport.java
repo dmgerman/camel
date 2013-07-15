@@ -977,16 +977,6 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|buffer
-operator|.
-name|append
-argument_list|(
 literal|"\n    "
 argument_list|)
 expr_stmt|;

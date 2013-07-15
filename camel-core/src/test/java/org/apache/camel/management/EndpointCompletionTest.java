@@ -68,6 +68,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ObjectMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -497,6 +511,37 @@ operator|+
 literal|" returned JSON: "
 operator|+
 name|answer
+argument_list|)
+expr_stmt|;
+comment|// now lets validate that the generated JSON parses correctly
+name|ObjectMapper
+name|mapper
+init|=
+operator|new
+name|ObjectMapper
+argument_list|()
+decl_stmt|;
+name|HashMap
+name|data
+init|=
+name|mapper
+operator|.
+name|readValue
+argument_list|(
+name|answer
+argument_list|,
+name|HashMap
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Read JSON: "
+operator|+
+name|data
 argument_list|)
 expr_stmt|;
 return|return
