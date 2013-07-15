@@ -53,9 +53,17 @@ annotation|@
 name|Converter
 DECL|class|MyConverter
 specifier|public
+specifier|final
 class|class
 name|MyConverter
 block|{
+DECL|method|MyConverter ()
+specifier|private
+name|MyConverter
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 annotation|@
 name|Converter
 DECL|method|convertToFoo (String data)
