@@ -306,6 +306,11 @@ specifier|private
 name|NettySharedHttpServer
 name|nettySharedHttpServer
 decl_stmt|;
+DECL|field|nettyHttpSecurityConfiguration
+specifier|private
+name|NettyHttpSecurityConfiguration
+name|nettyHttpSecurityConfiguration
+decl_stmt|;
 DECL|method|NettyHttpEndpoint (String endpointUri, NettyHttpComponent component, NettyConfiguration configuration)
 specifier|public
 name|NettyHttpEndpoint
@@ -827,6 +832,32 @@ operator|.
 name|nettySharedHttpServer
 operator|=
 name|nettySharedHttpServer
+expr_stmt|;
+block|}
+DECL|method|getNettyHttpSecurityConfiguration ()
+specifier|public
+name|NettyHttpSecurityConfiguration
+name|getNettyHttpSecurityConfiguration
+parameter_list|()
+block|{
+return|return
+name|nettyHttpSecurityConfiguration
+return|;
+block|}
+DECL|method|setNettyHttpSecurityConfiguration (NettyHttpSecurityConfiguration nettyHttpSecurityConfiguration)
+specifier|public
+name|void
+name|setNettyHttpSecurityConfiguration
+parameter_list|(
+name|NettyHttpSecurityConfiguration
+name|nettyHttpSecurityConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nettyHttpSecurityConfiguration
+operator|=
+name|nettyHttpSecurityConfiguration
 expr_stmt|;
 block|}
 annotation|@

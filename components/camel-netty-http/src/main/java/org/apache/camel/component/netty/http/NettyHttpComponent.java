@@ -315,6 +315,13 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
+comment|// TODO: make it easy to configure this
+DECL|field|nettyHttpSecurityConfiguration
+specifier|private
+name|NettyHttpSecurityConfiguration
+name|nettyHttpSecurityConfiguration
+decl_stmt|;
+comment|// = new NettyHttpSecurityConfiguration();
 DECL|method|NettyHttpComponent ()
 specifier|public
 name|NettyHttpComponent
@@ -634,6 +641,25 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|answer
+operator|.
+name|getNettyHttpSecurityConfiguration
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setNettyHttpSecurityConfiguration
+argument_list|(
+name|getNettyHttpSecurityConfiguration
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|.
 name|setNettySharedHttpServer
@@ -796,6 +822,32 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|getNettyHttpSecurityConfiguration ()
+specifier|public
+name|NettyHttpSecurityConfiguration
+name|getNettyHttpSecurityConfiguration
+parameter_list|()
+block|{
+return|return
+name|nettyHttpSecurityConfiguration
+return|;
+block|}
+DECL|method|setNettyHttpSecurityConfiguration (NettyHttpSecurityConfiguration nettyHttpSecurityConfiguration)
+specifier|public
+name|void
+name|setNettyHttpSecurityConfiguration
+parameter_list|(
+name|NettyHttpSecurityConfiguration
+name|nettyHttpSecurityConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nettyHttpSecurityConfiguration
+operator|=
+name|nettyHttpSecurityConfiguration
 expr_stmt|;
 block|}
 DECL|method|getMultiplexChannelHandler (int port)
