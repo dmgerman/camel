@@ -24,30 +24,25 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|security
 operator|.
-name|Serializable
+name|Principal
 import|;
 end_import
 
+begin_comment
+comment|/**  * Http {@link Principal}.  */
+end_comment
+
 begin_class
-DECL|class|HttpBasicAuthSubject
+DECL|class|HttpPrincipal
 specifier|public
 specifier|final
 class|class
-name|HttpBasicAuthSubject
+name|HttpPrincipal
 implements|implements
-name|Serializable
+name|Principal
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1L
-decl_stmt|;
 DECL|field|username
 specifier|private
 specifier|final
@@ -60,9 +55,9 @@ specifier|final
 name|String
 name|password
 decl_stmt|;
-DECL|method|HttpBasicAuthSubject (String username, String password)
+DECL|method|HttpPrincipal (String username, String password)
 specifier|public
-name|HttpBasicAuthSubject
+name|HttpPrincipal
 parameter_list|(
 name|String
 name|username
@@ -83,6 +78,18 @@ name|password
 operator|=
 name|password
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
 block|}
 DECL|method|getUsername ()
 specifier|public
@@ -114,7 +121,7 @@ parameter_list|()
 block|{
 comment|// do not display the password
 return|return
-literal|"HttpBasicAuthSubject["
+literal|"HttpPrincipal["
 operator|+
 name|username
 operator|+

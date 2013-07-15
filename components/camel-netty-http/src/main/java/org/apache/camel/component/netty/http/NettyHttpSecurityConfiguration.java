@@ -20,6 +20,10 @@ name|http
 package|;
 end_package
 
+begin_comment
+comment|/**  * Security configuration for the {@link NettyHttpConsumer}.  */
+end_comment
+
 begin_class
 DECL|class|NettyHttpSecurityConfiguration
 specifier|public
@@ -44,13 +48,16 @@ DECL|field|realm
 specifier|private
 name|String
 name|realm
-init|=
-literal|"Camel"
 decl_stmt|;
 DECL|field|contextPathMatcher
 specifier|private
 name|ContextPathMatcher
 name|contextPathMatcher
+decl_stmt|;
+DECL|field|securityAuthenticator
+specifier|private
+name|SecurityAuthenticator
+name|securityAuthenticator
 decl_stmt|;
 DECL|method|isAuthenticate ()
 specifier|public
@@ -154,6 +161,32 @@ operator|.
 name|contextPathMatcher
 operator|=
 name|contextPathMatcher
+expr_stmt|;
+block|}
+DECL|method|getSecurityAuthenticator ()
+specifier|public
+name|SecurityAuthenticator
+name|getSecurityAuthenticator
+parameter_list|()
+block|{
+return|return
+name|securityAuthenticator
+return|;
+block|}
+DECL|method|setSecurityAuthenticator (SecurityAuthenticator securityAuthenticator)
+specifier|public
+name|void
+name|setSecurityAuthenticator
+parameter_list|(
+name|SecurityAuthenticator
+name|securityAuthenticator
+parameter_list|)
+block|{
+name|this
+operator|.
+name|securityAuthenticator
+operator|=
+name|securityAuthenticator
 expr_stmt|;
 block|}
 block|}

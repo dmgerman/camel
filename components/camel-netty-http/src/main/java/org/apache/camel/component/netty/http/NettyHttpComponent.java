@@ -315,13 +315,11 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
-comment|// TODO: make it easy to configure this
 DECL|field|nettyHttpSecurityConfiguration
 specifier|private
 name|NettyHttpSecurityConfiguration
 name|nettyHttpSecurityConfiguration
 decl_stmt|;
-comment|// = new NettyHttpSecurityConfiguration();
 DECL|method|NettyHttpComponent ()
 specifier|public
 name|NettyHttpComponent
@@ -478,6 +476,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// any custom security configuration
+name|NettyHttpSecurityConfiguration
+name|securityConfiguration
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"nettyHttpSecurityConfiguration"
+argument_list|,
+name|NettyHttpSecurityConfiguration
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|config
 operator|=
 name|parseConfiguration
@@ -641,6 +654,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|securityConfiguration
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setNettyHttpSecurityConfiguration
+argument_list|(
+name|securityConfiguration
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|answer

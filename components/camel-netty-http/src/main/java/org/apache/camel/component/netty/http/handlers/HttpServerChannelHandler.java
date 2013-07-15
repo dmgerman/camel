@@ -58,6 +58,32 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|security
+operator|.
+name|auth
+operator|.
+name|Subject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|security
+operator|.
+name|auth
+operator|.
+name|login
+operator|.
+name|LoginException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -132,7 +158,7 @@ name|netty
 operator|.
 name|http
 operator|.
-name|HttpBasicAuthSubject
+name|HttpPrincipal
 import|;
 end_import
 
@@ -169,6 +195,24 @@ operator|.
 name|http
 operator|.
 name|NettyHttpSecurityConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty
+operator|.
+name|http
+operator|.
+name|SecurityAuthenticator
 import|;
 end_import
 
@@ -904,6 +948,11 @@ condition|(
 name|security
 operator|!=
 literal|null
+operator|&&
+name|security
+operator|.
+name|isAuthenticate
+argument_list|()
 condition|)
 block|{
 name|String
@@ -941,8 +990,8 @@ name|restricted
 condition|)
 block|{
 comment|// basic auth subject
-name|HttpBasicAuthSubject
-name|subject
+name|HttpPrincipal
+name|principal
 init|=
 name|extractBasicAuthSubject
 argument_list|(
@@ -952,18 +1001,25 @@ decl_stmt|;
 name|boolean
 name|authenticated
 init|=
-name|subject
+name|principal
 operator|!=
 literal|null
 operator|&&
 name|authenticate
 argument_list|(
-name|subject
+name|security
+operator|.
+name|getSecurityAuthenticator
+argument_list|()
+argument_list|,
+name|principal
 argument_list|)
+operator|!=
+literal|null
 decl_stmt|;
 if|if
 condition|(
-name|subject
+name|principal
 operator|==
 literal|null
 operator|||
@@ -973,7 +1029,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|subject
+name|principal
 operator|==
 literal|null
 condition|)
@@ -996,7 +1052,7 @@ name|debug
 argument_list|(
 literal|"Http Basic Auth not authorized for username: {}"
 argument_list|,
-name|subject
+name|principal
 operator|.
 name|getUsername
 argument_list|()
@@ -1088,7 +1144,7 @@ name|debug
 argument_list|(
 literal|"Http Basic Auth authorized for username: {}"
 argument_list|,
-name|subject
+name|principal
 operator|.
 name|getUsername
 argument_list|()
@@ -1108,34 +1164,11 @@ name|messageEvent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Authenticates the http basic auth subject.      *      * @param subject  the subject      * @return<tt>true</tt> if username and password is valid,<tt>false</tt> if not      */
-DECL|method|authenticate (HttpBasicAuthSubject subject)
-specifier|protected
-name|boolean
-name|authenticate
-parameter_list|(
-name|HttpBasicAuthSubject
-name|subject
-parameter_list|)
-block|{
-comment|// TODO: an api for authentication
-return|return
-name|subject
-operator|.
-name|getPassword
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"secret"
-argument_list|)
-return|;
-comment|//return true;
-block|}
+comment|/**      * Extracts the username and password details from the HTTP basic header Authorization.      *<p/>      * This requires that the<tt>Authorization</tt> HTTP header is provided, and its using Basic.      * Currently Digest is<b>not</b> supported.      *      * @return {@link HttpPrincipal} with username and password details, or<tt>null</tt> if not possible to extract      */
 DECL|method|extractBasicAuthSubject (HttpRequest request)
 specifier|protected
 specifier|static
-name|HttpBasicAuthSubject
+name|HttpPrincipal
 name|extractBasicAuthSubject
 parameter_list|(
 name|HttpRequest
@@ -1171,6 +1204,26 @@ argument_list|,
 literal|" "
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|constraint
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+literal|"Basic"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|constraint
+operator|.
+name|trim
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|String
 name|decoded
 init|=
@@ -1244,23 +1297,58 @@ argument_list|,
 literal|":"
 argument_list|)
 decl_stmt|;
-name|HttpBasicAuthSubject
-name|subject
+name|HttpPrincipal
+name|principal
 init|=
 operator|new
-name|HttpBasicAuthSubject
+name|HttpPrincipal
 argument_list|(
 name|username
 argument_list|,
 name|password
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Extracted Basic Auth principal from HTTP header: {}"
+argument_list|,
+name|principal
+argument_list|)
+expr_stmt|;
 return|return
-name|subject
+name|principal
 return|;
+block|}
+block|}
 block|}
 return|return
 literal|null
+return|;
+block|}
+comment|/**      * Authenticates the http basic auth subject.      *      * @param authenticator      the authenticator      * @param principal          the principal      * @return<tt>true</tt> if username and password is valid,<tt>false</tt> if not      */
+DECL|method|authenticate (SecurityAuthenticator authenticator, HttpPrincipal principal)
+specifier|protected
+name|Subject
+name|authenticate
+parameter_list|(
+name|SecurityAuthenticator
+name|authenticator
+parameter_list|,
+name|HttpPrincipal
+name|principal
+parameter_list|)
+throws|throws
+name|LoginException
+block|{
+return|return
+name|authenticator
+operator|.
+name|login
+argument_list|(
+name|principal
+argument_list|)
 return|;
 block|}
 annotation|@
