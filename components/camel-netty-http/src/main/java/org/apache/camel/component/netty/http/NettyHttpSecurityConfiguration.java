@@ -42,7 +42,7 @@ specifier|private
 name|String
 name|constraint
 init|=
-literal|"BASIC"
+literal|"Basic"
 decl_stmt|;
 DECL|field|realm
 specifier|private
@@ -69,6 +69,7 @@ return|return
 name|authenticate
 return|;
 block|}
+comment|/**      * Whether to enable authentication      *<p/>      * This is by default enabled.      */
 DECL|method|setAuthenticate (boolean authenticate)
 specifier|public
 name|void
@@ -95,6 +96,7 @@ return|return
 name|constraint
 return|;
 block|}
+comment|/**      * The supported constraint.      *<p/>      * Currently only Basic is supported.      */
 DECL|method|setConstraint (String constraint)
 specifier|public
 name|void
@@ -121,6 +123,7 @@ return|return
 name|realm
 return|;
 block|}
+comment|/**      * Sets the name of the realm to use.      */
 DECL|method|setRealm (String realm)
 specifier|public
 name|void
@@ -147,6 +150,7 @@ return|return
 name|contextPathMatcher
 return|;
 block|}
+comment|/**      * Sets a {@link ContextPathMatcher} to use for matching if a url is restricted or not.      *<p/>      * By default this is<tt>null</tt>, which means all resources is restricted.      */
 DECL|method|setContextPathMatcher (ContextPathMatcher contextPathMatcher)
 specifier|public
 name|void
@@ -173,6 +177,7 @@ return|return
 name|securityAuthenticator
 return|;
 block|}
+comment|/**      * Sets the {@link SecurityAuthenticator} to use for authenticating the {@link HttpPrincipal}.      */
 DECL|method|setSecurityAuthenticator (SecurityAuthenticator securityAuthenticator)
 specifier|public
 name|void
