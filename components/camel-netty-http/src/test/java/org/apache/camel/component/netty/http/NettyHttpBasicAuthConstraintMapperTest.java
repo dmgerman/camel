@@ -202,7 +202,7 @@ argument_list|)
 expr_stmt|;
 name|security
 operator|.
-name|setContextPathMatcher
+name|setConstraintMapping
 argument_list|(
 name|matcher
 argument_list|)

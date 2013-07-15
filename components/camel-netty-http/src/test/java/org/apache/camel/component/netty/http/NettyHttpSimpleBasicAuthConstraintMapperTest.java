@@ -50,6 +50,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -57,10 +71,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpSimpleBasicAuthTest
+DECL|class|NettyHttpSimpleBasicAuthConstraintMapperTest
 specifier|public
 class|class
-name|NettyHttpSimpleBasicAuthTest
+name|NettyHttpSimpleBasicAuthConstraintMapperTest
 extends|extends
 name|BaseNettyTest
 block|{
@@ -113,6 +127,58 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|ConstraintMappingContextPathMatcher
+name|matcher
+init|=
+operator|new
+name|ConstraintMappingContextPathMatcher
+argument_list|()
+decl_stmt|;
+name|matcher
+operator|.
+name|addInclusion
+argument_list|(
+literal|"/foo/*"
+argument_list|)
+expr_stmt|;
+name|matcher
+operator|.
+name|addExclusion
+argument_list|(
+literal|"/foo/public/*"
+argument_list|)
+expr_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"myConstraint"
+argument_list|,
+name|matcher
+argument_list|)
+expr_stmt|;
+return|return
+name|jndi
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testBasicAuth ()
 specifier|public
@@ -122,6 +188,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello Public"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+comment|// we dont need auth for the public page
+name|String
+name|out
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"netty-http:http://localhost:{{port}}/foo/public/hello.txt"
+argument_list|,
+literal|"Hello Public"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|template
@@ -175,25 +277,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|getMockEndpoint
-argument_list|(
-literal|"mock:input"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
 comment|// username:password is scott:secret
 name|String
 name|auth
 init|=
 literal|"Basic c2NvdHQ6c2VjcmV0"
 decl_stmt|;
-name|String
 name|out
-init|=
+operator|=
 name|template
 operator|.
 name|requestBodyAndHeader
@@ -210,7 +301,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Bye World"
@@ -248,7 +339,9 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/foo?securityConfiguration.realm=karaf"
+literal|"netty-http:http://0.0.0.0:{{port}}/foo?matchOnUriPrefix=true"
+operator|+
+literal|"&securityConfiguration.realm=karaf&securityConfiguration.constraintMapping=#myConstraint"
 argument_list|)
 operator|.
 name|to

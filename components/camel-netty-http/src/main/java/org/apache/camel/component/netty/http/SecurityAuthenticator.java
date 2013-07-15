@@ -71,7 +71,7 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**      * Attempts to login the {@link java.security.Principal} on this realm.      *<p/>      * The login is a success if no Exception is thrown. The implementation can return      * a {@link Subject} instance, but is not required to do so.      *      * @param principal       the principal      * @return optional subject returned for successful login      * @throws LoginException is thrown if error logging in the {@link java.security.Principal}      */
+comment|/**      * Attempts to login the {@link java.security.Principal} on this realm.      *<p/>      * The login is a success if no Exception is thrown, and a {@link Subject} is returned.      *      * @param principal       the principal      * @return the subject for the logged in principal, must<b>not</b> be<tt>null</tt>      * @throws LoginException is thrown if error logging in the {@link java.security.Principal}      */
 DECL|method|login (HttpPrincipal principal)
 name|Subject
 name|login

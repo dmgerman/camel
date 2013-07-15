@@ -259,7 +259,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|LoginException
+name|IllegalArgumentException
 argument_list|(
 literal|"Realm has not been configured on this SecurityAuthenticator: "
 operator|+

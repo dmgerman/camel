@@ -20,6 +20,18 @@ name|http
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|LoggingLevel
+import|;
+end_import
+
 begin_comment
 comment|/**  * Security configuration for the {@link NettyHttpConsumer}.  */
 end_comment
@@ -49,15 +61,24 @@ specifier|private
 name|String
 name|realm
 decl_stmt|;
-DECL|field|contextPathMatcher
+DECL|field|constraintMapping
 specifier|private
 name|ContextPathMatcher
-name|contextPathMatcher
+name|constraintMapping
 decl_stmt|;
 DECL|field|securityAuthenticator
 specifier|private
 name|SecurityAuthenticator
 name|securityAuthenticator
+decl_stmt|;
+DECL|field|loginDeniedLoggingLevel
+specifier|private
+name|LoggingLevel
+name|loginDeniedLoggingLevel
+init|=
+name|LoggingLevel
+operator|.
+name|DEBUG
 decl_stmt|;
 DECL|method|isAuthenticate ()
 specifier|public
@@ -140,31 +161,31 @@ operator|=
 name|realm
 expr_stmt|;
 block|}
-DECL|method|getContextPathMatcher ()
+DECL|method|getConstraintMapping ()
 specifier|public
 name|ContextPathMatcher
-name|getContextPathMatcher
+name|getConstraintMapping
 parameter_list|()
 block|{
 return|return
-name|contextPathMatcher
+name|constraintMapping
 return|;
 block|}
 comment|/**      * Sets a {@link ContextPathMatcher} to use for matching if a url is restricted or not.      *<p/>      * By default this is<tt>null</tt>, which means all resources is restricted.      */
-DECL|method|setContextPathMatcher (ContextPathMatcher contextPathMatcher)
+DECL|method|setConstraintMapping (ContextPathMatcher constraintMapping)
 specifier|public
 name|void
-name|setContextPathMatcher
+name|setConstraintMapping
 parameter_list|(
 name|ContextPathMatcher
-name|contextPathMatcher
+name|constraintMapping
 parameter_list|)
 block|{
 name|this
 operator|.
-name|contextPathMatcher
+name|constraintMapping
 operator|=
-name|contextPathMatcher
+name|constraintMapping
 expr_stmt|;
 block|}
 DECL|method|getSecurityAuthenticator ()
@@ -192,6 +213,33 @@ operator|.
 name|securityAuthenticator
 operator|=
 name|securityAuthenticator
+expr_stmt|;
+block|}
+DECL|method|getLoginDeniedLoggingLevel ()
+specifier|public
+name|LoggingLevel
+name|getLoginDeniedLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|loginDeniedLoggingLevel
+return|;
+block|}
+comment|/**      * Sets a logging level to use for logging denied login attempts (incl stacktraces)      *<p/>      * This level is by default DEBUG.      */
+DECL|method|setLoginDeniedLoggingLevel (LoggingLevel loginDeniedLoggingLevel)
+specifier|public
+name|void
+name|setLoginDeniedLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|loginDeniedLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loginDeniedLoggingLevel
+operator|=
+name|loginDeniedLoggingLevel
 expr_stmt|;
 block|}
 block|}

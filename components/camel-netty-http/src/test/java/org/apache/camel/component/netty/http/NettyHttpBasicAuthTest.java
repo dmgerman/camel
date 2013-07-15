@@ -303,6 +303,76 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|Test
+DECL|method|testInvalidCredentials ()
+specifier|public
+name|void
+name|testInvalidCredentials
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// username:password is scott:typo
+try|try
+block|{
+comment|// password is invalid so we should get a 401
+name|String
+name|auth
+init|=
+literal|"Basic c2NvdHQ6dHlwbw=="
+decl_stmt|;
+name|template
+operator|.
+name|requestBodyAndHeader
+argument_list|(
+literal|"netty-http:http://localhost:{{port}}/foo"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"Authorization"
+argument_list|,
+name|auth
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+name|NettyHttpOperationFailedException
+name|cause
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|NettyHttpOperationFailedException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|401
+argument_list|,
+name|cause
+operator|.
+name|getStatusCode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
