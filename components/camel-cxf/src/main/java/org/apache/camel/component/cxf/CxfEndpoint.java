@@ -5341,6 +5341,18 @@ name|e
 parameter_list|)
 block|{
 comment|//ignore
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error finding the start element."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 return|return
 name|r
