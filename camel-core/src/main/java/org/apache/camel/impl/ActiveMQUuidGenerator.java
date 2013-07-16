@@ -376,6 +376,14 @@ block|}
 block|}
 finally|finally
 block|{
+comment|// some environments, such as a PaaS may not allow us to create the ServerSocket
+if|if
+condition|(
+name|ss
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 comment|// TODO: replace the following line with IOHelper.close(ss) when Java 6 support is dropped
@@ -425,6 +433,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
