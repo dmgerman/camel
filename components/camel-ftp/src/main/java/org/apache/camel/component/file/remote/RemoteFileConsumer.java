@@ -110,6 +110,11 @@ specifier|protected
 name|boolean
 name|loggedIn
 decl_stmt|;
+DECL|field|loggedInWarning
+specifier|protected
+name|boolean
+name|loggedInWarning
+decl_stmt|;
 DECL|method|RemoteFileConsumer (RemoteFileEndpoint<T> endpoint, Processor processor, RemoteFileOperations<T> operations)
 specifier|public
 name|RemoteFileConsumer
@@ -299,6 +304,12 @@ argument_list|()
 operator|+
 literal|". Will skip this poll."
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|loggedInWarning
+condition|)
+block|{
 name|log
 operator|.
 name|warn
@@ -306,9 +317,22 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+name|loggedInWarning
+operator|=
+literal|true
+expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
+block|}
+else|else
+block|{
+comment|// need to log the failed log again
+name|loggedInWarning
+operator|=
+literal|false
+expr_stmt|;
 block|}
 return|return
 literal|true
