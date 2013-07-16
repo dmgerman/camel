@@ -61,10 +61,10 @@ specifier|private
 name|String
 name|realm
 decl_stmt|;
-DECL|field|constraintMapping
+DECL|field|securityConstraint
 specifier|private
-name|ContextPathMatcher
-name|constraintMapping
+name|SecurityConstraint
+name|securityConstraint
 decl_stmt|;
 DECL|field|securityAuthenticator
 specifier|private
@@ -79,6 +79,11 @@ init|=
 name|LoggingLevel
 operator|.
 name|DEBUG
+decl_stmt|;
+DECL|field|roleClassName
+specifier|private
+name|String
+name|roleClassName
 decl_stmt|;
 DECL|method|isAuthenticate ()
 specifier|public
@@ -117,7 +122,7 @@ return|return
 name|constraint
 return|;
 block|}
-comment|/**      * The supported constraint.      *<p/>      * Currently only Basic is supported.      */
+comment|/**      * The supported restricted.      *<p/>      * Currently only Basic is supported.      */
 DECL|method|setConstraint (String constraint)
 specifier|public
 name|void
@@ -161,31 +166,31 @@ operator|=
 name|realm
 expr_stmt|;
 block|}
-DECL|method|getConstraintMapping ()
+DECL|method|getSecurityConstraint ()
 specifier|public
-name|ContextPathMatcher
-name|getConstraintMapping
+name|SecurityConstraint
+name|getSecurityConstraint
 parameter_list|()
 block|{
 return|return
-name|constraintMapping
+name|securityConstraint
 return|;
 block|}
-comment|/**      * Sets a {@link ContextPathMatcher} to use for matching if a url is restricted or not.      *<p/>      * By default this is<tt>null</tt>, which means all resources is restricted.      */
-DECL|method|setConstraintMapping (ContextPathMatcher constraintMapping)
+comment|/**      * Sets a {@link SecurityConstraint} to use for checking if a web resource is restricted or not      *<p/>      * By default this is<tt>null</tt>, which means all resources is restricted.      */
+DECL|method|setSecurityConstraint (SecurityConstraint securityConstraint)
 specifier|public
 name|void
-name|setConstraintMapping
+name|setSecurityConstraint
 parameter_list|(
-name|ContextPathMatcher
-name|constraintMapping
+name|SecurityConstraint
+name|securityConstraint
 parameter_list|)
 block|{
 name|this
 operator|.
-name|constraintMapping
+name|securityConstraint
 operator|=
-name|constraintMapping
+name|securityConstraint
 expr_stmt|;
 block|}
 DECL|method|getSecurityAuthenticator ()
@@ -240,6 +245,32 @@ operator|.
 name|loginDeniedLoggingLevel
 operator|=
 name|loginDeniedLoggingLevel
+expr_stmt|;
+block|}
+DECL|method|getRoleClassName ()
+specifier|public
+name|String
+name|getRoleClassName
+parameter_list|()
+block|{
+return|return
+name|roleClassName
+return|;
+block|}
+DECL|method|setRoleClassName (String roleClassName)
+specifier|public
+name|void
+name|setRoleClassName
+parameter_list|(
+name|String
+name|roleClassName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|roleClassName
+operator|=
+name|roleClassName
 expr_stmt|;
 block|}
 block|}

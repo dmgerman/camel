@@ -927,7 +927,7 @@ operator|.
 name|getConstraint
 argument_list|()
 argument_list|,
-literal|"constraint"
+literal|"restricted"
 argument_list|,
 name|securityConfiguration
 argument_list|)

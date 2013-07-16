@@ -71,6 +71,14 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+DECL|method|setRoleClassNames (String names)
+name|void
+name|setRoleClassNames
+parameter_list|(
+name|String
+name|names
+parameter_list|)
+function_decl|;
 comment|/**      * Attempts to login the {@link java.security.Principal} on this realm.      *<p/>      * The login is a success if no Exception is thrown, and a {@link Subject} is returned.      *      * @param principal       the principal      * @return the subject for the logged in principal, must<b>not</b> be<tt>null</tt>      * @throws LoginException is thrown if error logging in the {@link java.security.Principal}      */
 DECL|method|login (HttpPrincipal principal)
 name|Subject
@@ -92,6 +100,15 @@ name|subject
 parameter_list|)
 throws|throws
 name|LoginException
+function_decl|;
+comment|/**      * Gets the user roles from the given {@link Subject}      *      * @param subject the subject      * @return<tt>null</tt> if no roles, otherwise a String with roles separated by comma.      */
+DECL|method|getUserRoles (Subject subject)
+name|String
+name|getUserRoles
+parameter_list|(
+name|Subject
+name|subject
+parameter_list|)
 function_decl|;
 block|}
 end_interface

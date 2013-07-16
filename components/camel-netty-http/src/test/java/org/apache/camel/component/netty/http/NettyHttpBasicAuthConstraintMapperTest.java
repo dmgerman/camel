@@ -179,11 +179,11 @@ argument_list|(
 name|auth
 argument_list|)
 expr_stmt|;
-name|ConstraintMappingContextPathMatcher
+name|DefaultSecurityConstraint
 name|matcher
 init|=
 operator|new
-name|ConstraintMappingContextPathMatcher
+name|DefaultSecurityConstraint
 argument_list|()
 decl_stmt|;
 name|matcher
@@ -202,7 +202,7 @@ argument_list|)
 expr_stmt|;
 name|security
 operator|.
-name|setConstraintMapping
+name|setSecurityConstraint
 argument_list|(
 name|matcher
 argument_list|)

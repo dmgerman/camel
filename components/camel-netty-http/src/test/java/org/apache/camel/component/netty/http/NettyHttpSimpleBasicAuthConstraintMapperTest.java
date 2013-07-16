@@ -144,11 +144,11 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
-name|ConstraintMappingContextPathMatcher
+name|DefaultSecurityConstraint
 name|matcher
 init|=
 operator|new
-name|ConstraintMappingContextPathMatcher
+name|DefaultSecurityConstraint
 argument_list|()
 decl_stmt|;
 name|matcher
@@ -341,7 +341,7 @@ name|from
 argument_list|(
 literal|"netty-http:http://0.0.0.0:{{port}}/foo?matchOnUriPrefix=true"
 operator|+
-literal|"&securityConfiguration.realm=karaf&securityConfiguration.constraintMapping=#myConstraint"
+literal|"&securityConfiguration.realm=karaf&securityConfiguration.securityConstraint=#myConstraint"
 argument_list|)
 operator|.
 name|to

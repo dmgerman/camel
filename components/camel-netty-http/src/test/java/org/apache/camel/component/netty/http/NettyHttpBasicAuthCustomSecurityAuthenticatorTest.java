@@ -324,6 +324,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|setRoleClassNames (String names)
+specifier|public
+name|void
+name|setRoleClassNames
+parameter_list|(
+name|String
+name|names
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
 DECL|method|login (HttpPrincipal principal)
 specifier|public
 name|Subject
@@ -378,6 +391,21 @@ throws|throws
 name|LoginException
 block|{
 comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|getUserRoles (Subject subject)
+specifier|public
+name|String
+name|getUserRoles
+parameter_list|(
+name|Subject
+name|subject
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 block|}
