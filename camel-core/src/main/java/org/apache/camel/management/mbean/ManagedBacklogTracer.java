@@ -88,7 +88,7 @@ name|management
 operator|.
 name|mbean
 operator|.
-name|ManagedTracerBacklogMBean
+name|ManagedBacklogTracerMBean
 import|;
 end_import
 
@@ -139,7 +139,7 @@ specifier|public
 class|class
 name|ManagedBacklogTracer
 implements|implements
-name|ManagedTracerBacklogMBean
+name|ManagedBacklogTracerMBean
 block|{
 DECL|field|camelContext
 specifier|private

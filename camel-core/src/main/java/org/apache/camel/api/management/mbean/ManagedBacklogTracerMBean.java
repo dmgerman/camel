@@ -63,10 +63,10 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|ManagedTracerBacklogMBean
+DECL|interface|ManagedBacklogTracerMBean
 specifier|public
 interface|interface
-name|ManagedTracerBacklogMBean
+name|ManagedBacklogTracerMBean
 block|{
 annotation|@
 name|ManagedAttribute
