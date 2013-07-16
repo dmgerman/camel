@@ -322,11 +322,6 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-name|ss
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
