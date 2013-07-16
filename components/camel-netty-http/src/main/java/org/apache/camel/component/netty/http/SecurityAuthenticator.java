@@ -71,6 +71,7 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the role class names (separated by comma)      *<p/>      * By default if no explicit role class names has been configured, then this implementation      * will assume the {@link Subject} {@link java.security.Principal}s is a role if the classname      * contains the word<tt>role</tt> (lower cased).      *      * @param names a list of FQN class names for role {@link java.security.Principal} implementations.      */
 DECL|method|setRoleClassNames (String names)
 name|void
 name|setRoleClassNames

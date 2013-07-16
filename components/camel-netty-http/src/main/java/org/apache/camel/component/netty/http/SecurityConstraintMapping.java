@@ -69,10 +69,10 @@ comment|/**  * A default {@link SecurityConstraint} which can be used to define 
 end_comment
 
 begin_class
-DECL|class|DefaultSecurityConstraint
+DECL|class|SecurityConstraintMapping
 specifier|public
 class|class
-name|DefaultSecurityConstraint
+name|SecurityConstraintMapping
 implements|implements
 name|SecurityConstraint
 block|{
@@ -185,6 +185,11 @@ name|String
 name|url
 parameter_list|)
 block|{
+name|String
+name|candidate
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|inclusions
@@ -221,14 +226,43 @@ name|constraint
 argument_list|)
 condition|)
 block|{
-return|return
-name|constraint
-return|;
-block|}
-block|}
-comment|// not in included so return null as its not restricted
-return|return
+if|if
+condition|(
+name|candidate
+operator|==
 literal|null
+condition|)
+block|{
+name|candidate
+operator|=
+name|constraint
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|constraint
+operator|.
+name|length
+argument_list|()
+operator|>
+name|candidate
+operator|.
+name|length
+argument_list|()
+condition|)
+block|{
+comment|// we want the constraint that has the longest context-path matching as its
+comment|// the most explicit for the target url
+name|candidate
+operator|=
+name|constraint
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|candidate
 return|;
 block|}
 comment|// by default if no included has been configured then everything is restricted
