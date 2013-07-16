@@ -155,14 +155,14 @@ name|matcher
 operator|.
 name|addInclusion
 argument_list|(
-literal|"/foo/*"
+literal|"/*"
 argument_list|)
 expr_stmt|;
 name|matcher
 operator|.
 name|addExclusion
 argument_list|(
-literal|"/foo/public/*"
+literal|"/public/*"
 argument_list|)
 expr_stmt|;
 name|jndi

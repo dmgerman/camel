@@ -265,6 +265,20 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|NettyHttpConstants
+operator|.
+name|HTTP_AUTHENTICATION
+argument_list|,
+literal|"Basic"
+argument_list|)
+expr_stmt|;
 comment|// username:password is scott:secret
 name|String
 name|auth

@@ -58,6 +58,15 @@ name|HTTP_RESPONSE_TEXT
 init|=
 literal|"CamelHttpResponseText"
 decl_stmt|;
+DECL|field|HTTP_AUTHENTICATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HTTP_AUTHENTICATION
+init|=
+literal|"CamelHttpAuthentication"
+decl_stmt|;
 DECL|method|NettyHttpConstants ()
 specifier|private
 name|NettyHttpConstants
