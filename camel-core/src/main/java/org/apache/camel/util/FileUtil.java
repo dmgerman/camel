@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * File utilities  */
+comment|/**  * File utilities.  */
 end_comment
 
 begin_class
@@ -209,6 +209,12 @@ specifier|private
 specifier|static
 name|File
 name|defaultTempDir
+decl_stmt|;
+DECL|field|shutdownHook
+specifier|private
+specifier|static
+name|Thread
+name|shutdownHook
 decl_stmt|;
 DECL|method|FileUtil ()
 specifier|private
@@ -1360,9 +1366,8 @@ operator|=
 name|f
 expr_stmt|;
 comment|// create shutdown hook to remove the temp dir
-name|Thread
-name|hook
-init|=
+name|shutdownHook
+operator|=
 operator|new
 name|Thread
 argument_list|()
@@ -1381,7 +1386,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-decl_stmt|;
+expr_stmt|;
 name|Runtime
 operator|.
 name|getRuntime
@@ -1389,12 +1394,62 @@ argument_list|()
 operator|.
 name|addShutdownHook
 argument_list|(
-name|hook
+name|shutdownHook
 argument_list|)
 expr_stmt|;
 return|return
 name|defaultTempDir
 return|;
+block|}
+comment|/**      * Shutdown and cleanup the temporary directory and removes any shutdown hooks in use.      */
+DECL|method|shutdown ()
+specifier|public
+specifier|static
+specifier|synchronized
+name|void
+name|shutdown
+parameter_list|()
+block|{
+if|if
+condition|(
+name|defaultTempDir
+operator|!=
+literal|null
+operator|&&
+name|defaultTempDir
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+name|removeDir
+argument_list|(
+name|defaultTempDir
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|shutdownHook
+operator|!=
+literal|null
+condition|)
+block|{
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|removeShutdownHook
+argument_list|(
+name|shutdownHook
+argument_list|)
+expr_stmt|;
+name|shutdownHook
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 DECL|method|removeDir (File d)
 specifier|private
