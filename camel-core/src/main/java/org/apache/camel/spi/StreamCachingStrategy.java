@@ -50,6 +50,20 @@ name|StreamCachingStrategy
 extends|extends
 name|Service
 block|{
+comment|/**      * Sets whether the stream caching is enabled.      *<p/>      *<b>Notice:</b> This cannot be changed at runtime.      */
+DECL|method|setEnabled (boolean enabled)
+name|void
+name|setEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+function_decl|;
+DECL|method|isEnabled ()
+name|boolean
+name|isEnabled
+parameter_list|()
+function_decl|;
 comment|/**      * Sets the spool (temporary) directory to use for overflow and spooling to disk.      *<p/>      * If no spool directory has been explicit configured, then a temporary directory      * is created in the<tt>java.io.tmpdir</tt> directory.      */
 DECL|method|setSpoolDirectory (File path)
 name|void

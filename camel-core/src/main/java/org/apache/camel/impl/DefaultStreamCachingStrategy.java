@@ -215,6 +215,11 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|enabled
+specifier|private
+name|boolean
+name|enabled
+decl_stmt|;
 DECL|field|spoolDirectory
 specifier|private
 name|File
@@ -274,6 +279,32 @@ operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+block|}
+DECL|method|isEnabled ()
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+DECL|method|setEnabled (boolean enabled)
+specifier|public
+name|void
+name|setEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enabled
+operator|=
+name|enabled
 expr_stmt|;
 block|}
 DECL|method|setSpoolDirectory (String path)
@@ -436,6 +467,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|enabled
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"StreamCaching is not enabled"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|String
 name|bufferSize
 init|=

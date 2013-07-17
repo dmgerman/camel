@@ -47,6 +47,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether stream caching is enabled"
+argument_list|)
+DECL|method|isEnabled ()
+name|boolean
+name|isEnabled
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Directory used when overflow and spooling to disk"
 argument_list|)
 DECL|method|getSpoolDirectory ()

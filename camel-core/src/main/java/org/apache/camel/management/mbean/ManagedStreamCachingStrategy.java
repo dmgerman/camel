@@ -183,6 +183,19 @@ return|return
 name|streamCachingStrategy
 return|;
 block|}
+DECL|method|isEnabled ()
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|isEnabled
+argument_list|()
+return|;
+block|}
 DECL|method|getSpoolDirectory ()
 specifier|public
 name|String
