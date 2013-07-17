@@ -290,6 +290,11 @@ specifier|private
 name|String
 name|repositoryName
 decl_stmt|;
+DECL|field|sync
+specifier|private
+name|boolean
+name|sync
+decl_stmt|;
 DECL|field|returnOldExchange
 specifier|private
 name|boolean
@@ -1735,6 +1740,32 @@ operator|=
 name|repositoryName
 expr_stmt|;
 block|}
+DECL|method|isSync ()
+specifier|public
+name|boolean
+name|isSync
+parameter_list|()
+block|{
+return|return
+name|sync
+return|;
+block|}
+DECL|method|setSync (boolean sync)
+specifier|public
+name|void
+name|setSync
+parameter_list|(
+name|boolean
+name|sync
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sync
+operator|=
+name|sync
+expr_stmt|;
+block|}
 DECL|method|isReturnOldExchange ()
 specifier|public
 name|boolean
@@ -1942,6 +1973,14 @@ operator|=
 operator|new
 name|LevelDBFile
 argument_list|()
+expr_stmt|;
+name|levelDBFile
+operator|.
+name|setSync
+argument_list|(
+name|isSync
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|levelDBFile
 operator|.
