@@ -480,6 +480,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|StreamCachingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterRegistry
 import|;
 end_import
@@ -1744,6 +1758,21 @@ name|componentName
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|/**      * Gets the {@link StreamCachingStrategy} to use.      */
+DECL|method|getStreamCachingStrategy ()
+name|StreamCachingStrategy
+name|getStreamCachingStrategy
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link StreamCachingStrategy} to use.      */
+DECL|method|setStreamCachingStrategy (StreamCachingStrategy streamCachingStrategy)
+name|void
+name|setStreamCachingStrategy
+parameter_list|(
+name|StreamCachingStrategy
+name|streamCachingStrategy
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -1342,6 +1342,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|StreamCachingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|TypeConverterRegistry
 import|;
 end_import
@@ -2061,6 +2075,15 @@ DECL|field|propertiesComponent
 specifier|private
 name|PropertiesComponent
 name|propertiesComponent
+decl_stmt|;
+DECL|field|streamCachingStrategy
+specifier|private
+name|StreamCachingStrategy
+name|streamCachingStrategy
+init|=
+operator|new
+name|DefaultStreamCachingStrategy
+argument_list|()
 decl_stmt|;
 DECL|field|factories
 specifier|private
@@ -9098,6 +9121,12 @@ operator|/
 literal|1024
 argument_list|)
 expr_stmt|;
+comment|// stream caching is in use so enable the strategy
+name|addService
+argument_list|(
+name|streamCachingStrategy
+argument_list|)
+expr_stmt|;
 block|}
 comment|// start routes
 if|if
@@ -13251,6 +13280,32 @@ operator|.
 name|uuidGenerator
 operator|=
 name|uuidGenerator
+expr_stmt|;
+block|}
+DECL|method|getStreamCachingStrategy ()
+specifier|public
+name|StreamCachingStrategy
+name|getStreamCachingStrategy
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+return|;
+block|}
+DECL|method|setStreamCachingStrategy (StreamCachingStrategy streamCachingStrategy)
+specifier|public
+name|void
+name|setStreamCachingStrategy
+parameter_list|(
+name|StreamCachingStrategy
+name|streamCachingStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingStrategy
+operator|=
+name|streamCachingStrategy
 expr_stmt|;
 block|}
 annotation|@
