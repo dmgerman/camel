@@ -3188,7 +3188,7 @@ name|name
 argument_list|,
 name|loader
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
@@ -3326,6 +3326,18 @@ block|{
 name|LOG
 operator|.
 name|warn
+argument_list|(
+literal|"Cannot find class: "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
 argument_list|(
 literal|"Cannot find class: "
 operator|+
