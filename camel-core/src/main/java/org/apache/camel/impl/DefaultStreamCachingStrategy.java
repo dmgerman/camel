@@ -215,10 +215,10 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|temporaryDirectory
+DECL|field|spoolDirectory
 specifier|private
 name|File
-name|temporaryDirectory
+name|spoolDirectory
 decl_stmt|;
 DECL|field|spoolThreshold
 specifier|private
@@ -243,10 +243,10 @@ name|IOHelper
 operator|.
 name|DEFAULT_BUFFER_SIZE
 decl_stmt|;
-DECL|field|removeTemporaryDirectoryWhenStopping
+DECL|field|removeSpoolDirectoryWhenStopping
 specifier|private
 name|boolean
-name|removeTemporaryDirectoryWhenStopping
+name|removeSpoolDirectoryWhenStopping
 init|=
 literal|true
 decl_stmt|;
@@ -276,10 +276,10 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
-DECL|method|setTemporaryDirectory (String path)
+DECL|method|setSpoolDirectory (String path)
 specifier|public
 name|void
-name|setTemporaryDirectory
+name|setSpoolDirectory
 parameter_list|(
 name|String
 name|path
@@ -287,7 +287,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|temporaryDirectory
+name|spoolDirectory
 operator|=
 operator|new
 name|File
@@ -296,10 +296,10 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setTemporaryDirectory (File path)
+DECL|method|setSpoolDirectory (File path)
 specifier|public
 name|void
-name|setTemporaryDirectory
+name|setSpoolDirectory
 parameter_list|(
 name|File
 name|path
@@ -307,19 +307,19 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|temporaryDirectory
+name|spoolDirectory
 operator|=
 name|path
 expr_stmt|;
 block|}
-DECL|method|getTemporaryDirectory ()
+DECL|method|getSpoolDirectory ()
 specifier|public
 name|File
-name|getTemporaryDirectory
+name|getSpoolDirectory
 parameter_list|()
 block|{
 return|return
-name|temporaryDirectory
+name|spoolDirectory
 return|;
 block|}
 DECL|method|getSpoolThreshold ()
@@ -400,30 +400,30 @@ operator|=
 name|bufferSize
 expr_stmt|;
 block|}
-DECL|method|isRemoveTemporaryDirectoryWhenStopping ()
+DECL|method|isRemoveSpoolDirectoryWhenStopping ()
 specifier|public
 name|boolean
-name|isRemoveTemporaryDirectoryWhenStopping
+name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
 block|{
 return|return
-name|removeTemporaryDirectoryWhenStopping
+name|removeSpoolDirectoryWhenStopping
 return|;
 block|}
-DECL|method|setRemoveTemporaryDirectoryWhenStopping (boolean removeTemporaryDirectoryWhenStopping)
+DECL|method|setRemoveSpoolDirectoryWhenStopping (boolean removeSpoolDirectoryWhenStopping)
 specifier|public
 name|void
-name|setRemoveTemporaryDirectoryWhenStopping
+name|setRemoveSpoolDirectoryWhenStopping
 parameter_list|(
 name|boolean
-name|removeTemporaryDirectoryWhenStopping
+name|removeSpoolDirectoryWhenStopping
 parameter_list|)
 block|{
 name|this
 operator|.
-name|removeTemporaryDirectoryWhenStopping
+name|removeSpoolDirectoryWhenStopping
 operator|=
-name|removeTemporaryDirectoryWhenStopping
+name|removeSpoolDirectoryWhenStopping
 expr_stmt|;
 block|}
 annotation|@
@@ -476,6 +476,11 @@ argument_list|(
 name|TEMP_DIR
 argument_list|)
 decl_stmt|;
+name|boolean
+name|warn
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|bufferSize
@@ -483,6 +488,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|warn
+operator|=
+literal|true
+expr_stmt|;
 name|this
 operator|.
 name|bufferSize
@@ -509,6 +518,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|warn
+operator|=
+literal|true
+expr_stmt|;
 name|this
 operator|.
 name|spoolThreshold
@@ -535,6 +548,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|warn
+operator|=
+literal|true
+expr_stmt|;
 name|this
 operator|.
 name|spoolChiper
@@ -549,9 +566,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|warn
+operator|=
+literal|true
+expr_stmt|;
 name|this
 operator|.
-name|temporaryDirectory
+name|spoolDirectory
 operator|=
 name|camelContext
 operator|.
@@ -565,6 +586,19 @@ operator|.
 name|class
 argument_list|,
 name|dir
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|warn
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Configuring of StreamCaching using CamelContext properties is deprecated - use StreamCachingStrategy instead."
 argument_list|)
 expr_stmt|;
 block|}
@@ -583,12 +617,12 @@ expr_stmt|;
 comment|// create random temporary directory if none has been created
 if|if
 condition|(
-name|temporaryDirectory
+name|spoolDirectory
 operator|==
 literal|null
 condition|)
 block|{
-name|temporaryDirectory
+name|spoolDirectory
 operator|=
 name|FileUtil
 operator|.
@@ -599,9 +633,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Created temporary directory {}"
+literal|"Created temporary spool directory {}"
 argument_list|,
-name|temporaryDirectory
+name|spoolDirectory
 argument_list|)
 expr_stmt|;
 block|}
@@ -610,7 +644,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|temporaryDirectory
+name|spoolDirectory
 operator|.
 name|exists
 argument_list|()
@@ -619,7 +653,7 @@ block|{
 name|boolean
 name|created
 init|=
-name|temporaryDirectory
+name|spoolDirectory
 operator|.
 name|mkdirs
 argument_list|()
@@ -634,9 +668,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot create temporary directory {}"
+literal|"Cannot create spool directory {}"
 argument_list|,
-name|temporaryDirectory
+name|spoolDirectory
 argument_list|)
 expr_stmt|;
 block|}
@@ -646,9 +680,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Created temporary directory {}"
+literal|"Created spool directory {}"
 argument_list|,
-name|temporaryDirectory
+name|spoolDirectory
 argument_list|)
 expr_stmt|;
 block|}
@@ -667,11 +701,11 @@ name|Exception
 block|{
 if|if
 condition|(
-name|temporaryDirectory
+name|spoolDirectory
 operator|!=
 literal|null
 operator|&&
-name|isRemoveTemporaryDirectoryWhenStopping
+name|isRemoveSpoolDirectoryWhenStopping
 argument_list|()
 condition|)
 block|{
@@ -679,16 +713,16 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Removing temporary directory {}"
+literal|"Removing spool directory {}"
 argument_list|,
-name|temporaryDirectory
+name|spoolDirectory
 argument_list|)
 expr_stmt|;
 name|FileUtil
 operator|.
 name|removeDir
 argument_list|(
-name|temporaryDirectory
+name|spoolDirectory
 argument_list|)
 expr_stmt|;
 block|}
@@ -704,9 +738,9 @@ block|{
 return|return
 literal|"DefaultStreamCachingStrategy["
 operator|+
-literal|"temporaryDirectory="
+literal|"spoolDirectory="
 operator|+
-name|temporaryDirectory
+name|spoolDirectory
 operator|+
 literal|", spoolThreshold="
 operator|+

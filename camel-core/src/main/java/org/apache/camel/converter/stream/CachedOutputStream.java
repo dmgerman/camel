@@ -1012,7 +1012,7 @@ literal|".tmp"
 argument_list|,
 name|strategy
 operator|.
-name|getTemporaryDirectory
+name|getSpoolDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;

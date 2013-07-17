@@ -36,23 +36,23 @@ specifier|public
 interface|interface
 name|StreamCachingStrategy
 block|{
-comment|/**      * Sets the temporary directory to use for overflow and spooling to disk.      *<p/>      * If no temporary directory has been explicit configured, then a directory      * is created in the<tt>java.io.tmpdir</tt> directory.      */
-DECL|method|setTemporaryDirectory (File path)
+comment|/**      * Sets the spool (temporary) directory to use for overflow and spooling to disk.      *<p/>      * If no spool directory has been explicit configured, then a temporary directory      * is created in the<tt>java.io.tmpdir</tt> directory.      */
+DECL|method|setSpoolDirectory (File path)
 name|void
-name|setTemporaryDirectory
+name|setSpoolDirectory
 parameter_list|(
 name|File
 name|path
 parameter_list|)
 function_decl|;
-DECL|method|getTemporaryDirectory ()
+DECL|method|getSpoolDirectory ()
 name|File
-name|getTemporaryDirectory
+name|getSpoolDirectory
 parameter_list|()
 function_decl|;
-DECL|method|setTemporaryDirectory (String path)
+DECL|method|setSpoolDirectory (String path)
 name|void
-name|setTemporaryDirectory
+name|setSpoolDirectory
 parameter_list|(
 name|String
 name|path
@@ -101,17 +101,17 @@ name|getSpoolChiper
 parameter_list|()
 function_decl|;
 comment|/**      * Whether to remove the temporary directory when stopping.      *<p/>      * This option is default<tt>true</tt>      */
-DECL|method|setRemoveTemporaryDirectoryWhenStopping (boolean remove)
+DECL|method|setRemoveSpoolDirectoryWhenStopping (boolean remove)
 name|void
-name|setRemoveTemporaryDirectoryWhenStopping
+name|setRemoveSpoolDirectoryWhenStopping
 parameter_list|(
 name|boolean
 name|remove
 parameter_list|)
 function_decl|;
-DECL|method|isRemoveTemporaryDirectoryWhenStopping ()
+DECL|method|isRemoveSpoolDirectoryWhenStopping ()
 name|boolean
-name|isRemoveTemporaryDirectoryWhenStopping
+name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
 function_decl|;
 block|}

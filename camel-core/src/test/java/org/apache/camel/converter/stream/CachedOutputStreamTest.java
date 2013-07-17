@@ -254,7 +254,7 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|setTemporaryDirectory
+name|setSpoolDirectory
 argument_list|(
 literal|"target/cachedir"
 argument_list|)

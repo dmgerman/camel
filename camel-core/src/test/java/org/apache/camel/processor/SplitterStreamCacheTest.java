@@ -98,22 +98,6 @@ name|MockEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|stream
-operator|.
-name|CachedOutputStream
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -221,7 +205,7 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|setTemporaryDirectory
+name|setSpoolDirectory
 argument_list|(
 literal|"target/tmp"
 argument_list|)
