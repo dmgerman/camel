@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.api.management.mbean
 package|package
 name|org
 operator|.
@@ -12,19 +12,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
 package|;
 end_package
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
 
 begin_import
 import|import
@@ -34,45 +28,51 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
 import|;
 end_import
 
-begin_comment
-comment|/**  * Strategy for using<a href="http://camel.apache.org/stream-caching.html">stream caching</a>.  */
-end_comment
-
 begin_interface
-DECL|interface|StreamCachingStrategy
+DECL|interface|ManagedStreamCachingStrategyMBean
 specifier|public
 interface|interface
-name|StreamCachingStrategy
-extends|extends
-name|Service
+name|ManagedStreamCachingStrategyMBean
 block|{
-comment|/**      * Sets the spool (temporary) directory to use for overflow and spooling to disk.      *<p/>      * If no spool directory has been explicit configured, then a temporary directory      * is created in the<tt>java.io.tmpdir</tt> directory.      */
-DECL|method|setSpoolDirectory (File path)
-name|void
-name|setSpoolDirectory
-parameter_list|(
-name|File
-name|path
-parameter_list|)
-function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Directory used when overflow and spooling to disk"
+argument_list|)
 DECL|method|getSpoolDirectory ()
-name|File
+name|String
 name|getSpoolDirectory
 parameter_list|()
 function_decl|;
-DECL|method|setSpoolDirectory (String path)
-name|void
-name|setSpoolDirectory
-parameter_list|(
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Chiper used if writing with encryption"
+argument_list|)
+DECL|method|getSpoolChiper ()
 name|String
-name|path
-parameter_list|)
+name|getSpoolChiper
+parameter_list|()
 function_decl|;
-comment|/**      * Threshold in bytes when overflow to disk is activated.      *<p/>      * The default threshold is {@link org.apache.camel.StreamCache#DEFAULT_SPOOL_THRESHOLD} bytes (eg 128kb).      * Use<tt>-1</tt> to disable overflow to disk.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Threshold in bytes when overflow and spooling to disk instead of keeping in memory"
+argument_list|)
 DECL|method|setSpoolThreshold (long threshold)
 name|void
 name|setSpoolThreshold
@@ -81,12 +81,25 @@ name|long
 name|threshold
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Threshold in bytes when overflow and spooling to disk instead of keeping in memory"
+argument_list|)
 DECL|method|getSpoolThreshold ()
 name|long
 name|getSpoolThreshold
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the buffer size to use when copying between buffers.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Buffer size in bytes to use when coping between buffers"
+argument_list|)
 DECL|method|setBufferSize (int bufferSize)
 name|void
 name|setBufferSize
@@ -95,26 +108,25 @@ name|int
 name|bufferSize
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Buffer size in bytes to use when coping between buffers"
+argument_list|)
 DECL|method|getBufferSize ()
 name|int
 name|getBufferSize
 parameter_list|()
 function_decl|;
-comment|/**      * Sets a chiper name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
-DECL|method|setSpoolChiper (String chiper)
-name|void
-name|setSpoolChiper
-parameter_list|(
-name|String
-name|chiper
-parameter_list|)
-function_decl|;
-DECL|method|getSpoolChiper ()
-name|String
-name|getSpoolChiper
-parameter_list|()
-function_decl|;
-comment|/**      * Whether to remove the temporary directory when stopping.      *<p/>      * This option is default<tt>true</tt>      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to remove spool directory when stopping"
+argument_list|)
 DECL|method|setRemoveSpoolDirectoryWhenStopping (boolean remove)
 name|void
 name|setRemoveSpoolDirectoryWhenStopping
@@ -123,6 +135,13 @@ name|boolean
 name|remove
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to remove spool directory when stopping"
+argument_list|)
 DECL|method|isRemoveSpoolDirectoryWhenStopping ()
 name|boolean
 name|isRemoveSpoolDirectoryWhenStopping
