@@ -148,7 +148,6 @@ name|CamelContextAware
 implements|,
 name|StreamCachingStrategy
 block|{
-comment|// TODO: Add JMX management
 comment|// TODO: Maybe use #syntax# for default temp dir so ppl can easily configure this
 annotation|@
 name|Deprecated
@@ -475,7 +474,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"StreamCaching is not enabled"
 argument_list|)
@@ -648,18 +647,14 @@ literal|"Configuring of StreamCaching using CamelContext properties is deprecate
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"StreamCaching in use with {}"
-argument_list|,
-name|this
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// if we can overflow to disk then make sure directory exists / is created
+if|if
+condition|(
+name|spoolThreshold
+operator|>
+literal|0
+condition|)
+block|{
 comment|// create random temporary directory if none has been created
 if|if
 condition|(
@@ -677,9 +672,36 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Created temporary spool directory {}"
+literal|"Created temporary spool directory: {}"
+argument_list|,
+name|spoolDirectory
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|spoolDirectory
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|spoolDirectory
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using spool directory: {}"
 argument_list|,
 name|spoolDirectory
 argument_list|)
@@ -687,14 +709,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-name|spoolDirectory
+name|LOG
 operator|.
-name|exists
-argument_list|()
-condition|)
+name|warn
+argument_list|(
+literal|"Spool directory: {} is not a directory. This may cause problems spooling to disk for the stream caching!"
+argument_list|,
+name|spoolDirectory
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
 block|{
 name|boolean
 name|created
@@ -714,7 +740,52 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot create spool directory {}"
+literal|"Cannot create spool directory: {}. This may cause problems spooling to disk for the stream caching!"
+argument_list|,
+name|spoolDirectory
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created spool directory: {}"
+argument_list|,
+name|spoolDirectory
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"StreamCaching configuration {}"
+argument_list|,
+name|this
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|spoolThreshold
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"StreamCaching in use and overflow to disk enabled when> {} bytes to directory: {}"
+argument_list|,
+name|spoolThreshold
 argument_list|,
 name|spoolDirectory
 argument_list|)
@@ -726,13 +797,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Created spool directory {}"
-argument_list|,
-name|spoolDirectory
+literal|"StreamCaching in use with no overflow to disk (memory only)"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 annotation|@
@@ -747,6 +814,10 @@ name|Exception
 block|{
 if|if
 condition|(
+name|spoolThreshold
+operator|>
+literal|0
+operator|&
 name|spoolDirectory
 operator|!=
 literal|null
@@ -757,9 +828,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Removing spool directory {}"
+literal|"Removing spool directory: {}"
 argument_list|,
 name|spoolDirectory
 argument_list|)
