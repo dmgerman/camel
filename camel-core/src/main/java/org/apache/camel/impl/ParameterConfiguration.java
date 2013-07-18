@@ -210,7 +210,7 @@ argument_list|(
 name|name
 argument_list|)
 operator|+
-literal|": { \"typeName\": "
+literal|": { \"type\": "
 operator|+
 name|doubleQuote
 argument_list|(
