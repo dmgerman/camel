@@ -1164,8 +1164,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom PackageScanClassResolver: "
-operator|+
+literal|"Using custom PackageScanClassResolver: {}"
+argument_list|,
 name|packageResolver
 argument_list|)
 expr_stmt|;
@@ -1201,7 +1201,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// and enable lazy loading of type converters if applicable
-name|initLazyLoadTypeConverteres
+name|initLazyLoadTypeConverters
 argument_list|()
 expr_stmt|;
 name|setupCustomServices
@@ -1269,8 +1269,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom Tracer: "
-operator|+
+literal|"Using custom Tracer: {}"
+argument_list|,
 name|tracer
 argument_list|)
 expr_stmt|;
@@ -1304,8 +1304,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom BacklogTracer: "
-operator|+
+literal|"Using custom BacklogTracer: {}"
+argument_list|,
 name|backlogTracer
 argument_list|)
 expr_stmt|;
@@ -1339,8 +1339,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom HandleFault: "
-operator|+
+literal|"Using custom HandleFault: {}"
+argument_list|,
 name|handleFault
 argument_list|)
 expr_stmt|;
@@ -1374,8 +1374,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom Delayer: "
-operator|+
+literal|"Using custom Delayer: {}"
+argument_list|,
 name|delayer
 argument_list|)
 expr_stmt|;
@@ -1409,8 +1409,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom InflightRepository: "
-operator|+
+literal|"Using custom InflightRepository: {}"
+argument_list|,
 name|inflightRepository
 argument_list|)
 expr_stmt|;
@@ -1444,8 +1444,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ManagementStrategy: "
-operator|+
+literal|"Using custom ManagementStrategy: {}"
+argument_list|,
 name|managementStrategy
 argument_list|)
 expr_stmt|;
@@ -1479,8 +1479,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ManagementNamingStrategy: "
-operator|+
+literal|"Using custom ManagementNamingStrategy: {}"
+argument_list|,
 name|managementNamingStrategy
 argument_list|)
 expr_stmt|;
@@ -1517,8 +1517,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom EventFactory: "
-operator|+
+literal|"Using custom EventFactory: {}"
+argument_list|,
 name|eventFactory
 argument_list|)
 expr_stmt|;
@@ -1616,15 +1616,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom EventNotifier with id: "
-operator|+
+literal|"Using custom EventNotifier with id: {} and implementation: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" and implementation: "
-operator|+
+argument_list|,
 name|notifier
 argument_list|)
 expr_stmt|;
@@ -1705,15 +1703,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom EndpointStrategy with id: "
-operator|+
+literal|"Using custom EndpointStrategy with id: {} and implementation: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" and implementation: "
-operator|+
+argument_list|,
 name|strategy
 argument_list|)
 expr_stmt|;
@@ -1842,15 +1838,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom InterceptStrategy with id: "
-operator|+
+literal|"Using custom InterceptStrategy with id: {} and implementation: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" and implementation: "
-operator|+
+argument_list|,
 name|strategy
 argument_list|)
 expr_stmt|;
@@ -1944,15 +1938,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom LifecycleStrategy with id: "
-operator|+
+literal|"Using custom LifecycleStrategy with id: {} and implementation: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" and implementation: "
-operator|+
+argument_list|,
 name|strategy
 argument_list|)
 expr_stmt|;
@@ -1987,6 +1979,10 @@ argument_list|(
 name|getContext
 argument_list|()
 argument_list|)
+expr_stmt|;
+comment|// init stream caching strategy
+name|initStreamCachingStrategy
+argument_list|()
 expr_stmt|;
 comment|// must init route refs before we prepare the routes below
 name|initRouteRefs
@@ -2098,10 +2094,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
-DECL|method|initLazyLoadTypeConverteres ()
+DECL|method|initLazyLoadTypeConverters ()
 specifier|protected
 name|void
-name|initLazyLoadTypeConverteres
+name|initLazyLoadTypeConverters
 parameter_list|()
 block|{
 if|if
@@ -2292,8 +2288,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"JMXAgent enabled: "
-operator|+
+literal|"JMXAgent enabled: {}"
+argument_list|,
 name|camelJMXAgent
 argument_list|)
 expr_stmt|;
@@ -2606,6 +2602,205 @@ name|loadStatisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+DECL|method|initStreamCachingStrategy ()
+specifier|protected
+name|void
+name|initStreamCachingStrategy
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelStreamCachingStrategyDefinition
+name|streamCaching
+init|=
+name|getCamelStreamCachingStrategy
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|streamCaching
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+name|Boolean
+name|enabled
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|streamCaching
+operator|.
+name|getEnabled
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|enabled
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|setEnabled
+argument_list|(
+name|enabled
+argument_list|)
+expr_stmt|;
+block|}
+name|String
+name|spoolDirectory
+init|=
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|streamCaching
+operator|.
+name|getSpoolDirectory
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|spoolDirectory
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|setSpoolDirectory
+argument_list|(
+name|spoolDirectory
+argument_list|)
+expr_stmt|;
+block|}
+name|Long
+name|spoolThreshold
+init|=
+name|CamelContextHelper
+operator|.
+name|parseLong
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|streamCaching
+operator|.
+name|getSpoolThreshold
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|spoolThreshold
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|setSpoolThreshold
+argument_list|(
+name|spoolThreshold
+argument_list|)
+expr_stmt|;
+block|}
+name|String
+name|spoolChiper
+init|=
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|streamCaching
+operator|.
+name|getSpoolChiper
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|spoolChiper
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|setSpoolChiper
+argument_list|(
+name|spoolChiper
+argument_list|)
+expr_stmt|;
+block|}
+name|Boolean
+name|remove
+init|=
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|streamCaching
+operator|.
+name|getRemoveSpoolDirectoryWhenStopping
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|remove
+operator|!=
+literal|null
+condition|)
+block|{
+name|getContext
+argument_list|()
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|setRemoveSpoolDirectoryWhenStopping
+argument_list|(
+name|remove
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|initPropertyPlaceholder ()
@@ -3192,6 +3387,13 @@ name|CamelJMXAgentDefinition
 name|getCamelJMXAgent
 parameter_list|()
 function_decl|;
+DECL|method|getCamelStreamCachingStrategy ()
+specifier|public
+specifier|abstract
+name|CamelStreamCachingStrategyDefinition
+name|getCamelStreamCachingStrategy
+parameter_list|()
+function_decl|;
 DECL|method|getBuilderRefs ()
 specifier|public
 specifier|abstract
@@ -3719,15 +3921,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom default ThreadPoolProfile with id: "
-operator|+
+literal|"Using custom default ThreadPoolProfile with id: {} and implementation: {}"
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" and implementation: "
-operator|+
+argument_list|,
 name|profile
 argument_list|)
 expr_stmt|;
@@ -3804,15 +4004,13 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom default ThreadPoolProfile with id: "
-operator|+
+literal|"Using custom default ThreadPoolProfile with id: {} and implementation: {}"
+argument_list|,
 name|definition
 operator|.
 name|getId
 argument_list|()
-operator|+
-literal|" and implementation: "
-operator|+
+argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
@@ -4658,8 +4856,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ClassResolver: "
-operator|+
+literal|"Using custom ClassResolver: {}"
+argument_list|,
 name|classResolver
 argument_list|)
 expr_stmt|;
@@ -4693,8 +4891,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom FactoryFinderResolver: "
-operator|+
+literal|"Using custom FactoryFinderResolver: {}"
+argument_list|,
 name|factoryFinderResolver
 argument_list|)
 expr_stmt|;
@@ -4728,8 +4926,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ExecutorServiceStrategy: "
-operator|+
+literal|"Using custom ExecutorServiceStrategy: {}"
+argument_list|,
 name|executorServiceStrategy
 argument_list|)
 expr_stmt|;
@@ -4763,8 +4961,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ThreadPoolFactory: "
-operator|+
+literal|"Using custom ThreadPoolFactory: {}"
+argument_list|,
 name|threadPoolFactory
 argument_list|)
 expr_stmt|;
@@ -4801,8 +4999,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom ProcessorFactory: "
-operator|+
+literal|"Using custom ProcessorFactory: {}"
+argument_list|,
 name|processorFactory
 argument_list|)
 expr_stmt|;
@@ -4836,8 +5034,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom Debugger: "
-operator|+
+literal|"Using custom Debugger: {}"
+argument_list|,
 name|debugger
 argument_list|)
 expr_stmt|;
@@ -4871,8 +5069,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom UuidGenerator: "
-operator|+
+literal|"Using custom UuidGenerator: {}"
+argument_list|,
 name|uuidGenerator
 argument_list|)
 expr_stmt|;
@@ -4906,8 +5104,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom NodeIdFactory: "
-operator|+
+literal|"Using custom NodeIdFactory: {}"
+argument_list|,
 name|nodeIdFactory
 argument_list|)
 expr_stmt|;
@@ -4941,8 +5139,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Using custom StreamCachingStrategy: "
-operator|+
+literal|"Using custom StreamCachingStrategy: {}"
+argument_list|,
 name|streamCachingStrategy
 argument_list|)
 expr_stmt|;

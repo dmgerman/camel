@@ -129,11 +129,6 @@ block|{
 comment|/**      * Disable JMI (default false)      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|disabled
 specifier|private
 name|String
@@ -144,11 +139,6 @@ decl_stmt|;
 comment|/**      * Only register processor if a custom id was defined for it.      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|onlyRegisterProcessorWithCustomId
 specifier|private
 name|String
@@ -159,11 +149,6 @@ decl_stmt|;
 comment|/**      * RMI connector registry port (default 1099)      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|registryPort
 specifier|private
 name|String
@@ -172,11 +157,6 @@ decl_stmt|;
 comment|/**      * RMI connector server port (default -1 not used)      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|connectorPort
 specifier|private
 name|String
@@ -185,11 +165,6 @@ decl_stmt|;
 comment|/**      * MBean server default domain name (default org.apache.camel)      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|mbeanServerDefaultDomain
 specifier|private
 name|String
@@ -198,11 +173,6 @@ decl_stmt|;
 comment|/**      * MBean object domain name (default org.apache.camel)      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|mbeanObjectDomainName
 specifier|private
 name|String
@@ -211,11 +181,6 @@ decl_stmt|;
 comment|/**      * JMX Service URL path (default /jmxrmi)      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|serviceUrlPath
 specifier|private
 name|String
@@ -224,11 +189,6 @@ decl_stmt|;
 comment|/**      * A flag that indicates whether the agent should be created      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|createConnector
 specifier|private
 name|String
@@ -239,11 +199,6 @@ decl_stmt|;
 comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|usePlatformMBeanServer
 specifier|private
 name|String
@@ -254,11 +209,6 @@ decl_stmt|;
 comment|/**      * A flag that indicates whether to register mbeans always      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|registerAlways
 specifier|private
 name|String
@@ -267,11 +217,6 @@ decl_stmt|;
 comment|/**      * A flag that indicates whether to register mbeans when starting new routes      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|registerNewRoutes
 specifier|private
 name|String
@@ -282,11 +227,6 @@ decl_stmt|;
 comment|/**      * Level of granularity for performance statistics enabled      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|statisticsLevel
 specifier|private
 name|ManagementStatisticsLevel
@@ -299,11 +239,6 @@ decl_stmt|;
 comment|/**      * A flag that indicates whether Load statistics is enabled      */
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|loadStatisticsEnabled
 specifier|private
 name|String
