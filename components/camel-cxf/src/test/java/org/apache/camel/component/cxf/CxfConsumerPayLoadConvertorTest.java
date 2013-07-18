@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -47,32 +37,6 @@ operator|.
 name|transform
 operator|.
 name|Source
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|dom
-operator|.
-name|DOMSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Document
 import|;
 end_import
 
@@ -159,116 +123,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|CxfConsumerPayloadTest
+DECL|class|CxfConsumerPayLoadConvertorTest
 specifier|public
 class|class
-name|CxfConsumerPayloadTest
+name|CxfConsumerPayLoadConvertorTest
 extends|extends
-name|CxfConsumerMessageTest
+name|CxfConsumerPayloadTest
 block|{
-DECL|field|ECHO_RESPONSE
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|ECHO_RESPONSE
-init|=
-literal|"<ns1:echoResponse xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
-operator|+
-literal|"<return xmlns=\"http://cxf.component.camel.apache.org/\">echo Hello World!</return>"
-operator|+
-literal|"</ns1:echoResponse>"
-decl_stmt|;
-DECL|field|ECHO_BOOLEAN_RESPONSE
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|ECHO_BOOLEAN_RESPONSE
-init|=
-literal|"<ns1:echoBooleanResponse xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
-operator|+
-literal|"<return xmlns=\"http://cxf.component.camel.apache.org/\">true</return>"
-operator|+
-literal|"</ns1:echoBooleanResponse>"
-decl_stmt|;
-DECL|field|ECHO_REQUEST
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|ECHO_REQUEST
-init|=
-literal|"<ns1:echo xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
-operator|+
-literal|"<arg0 xmlns=\"http://cxf.component.camel.apache.org/\">Hello World!</arg0></ns1:echo>"
-decl_stmt|;
-DECL|field|ECHO_BOOLEAN_REQUEST
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|ECHO_BOOLEAN_REQUEST
-init|=
-literal|"<ns1:echoBoolean xmlns:ns1=\"http://cxf.component.camel.apache.org/\">"
-operator|+
-literal|"<arg0 xmlns=\"http://cxf.component.camel.apache.org/\">true</arg0></ns1:echoBoolean>"
-decl_stmt|;
-DECL|field|ELEMENT_NAMESPACE
-specifier|protected
-specifier|static
-specifier|final
-name|String
-name|ELEMENT_NAMESPACE
-init|=
-literal|"http://cxf.component.camel.apache.org/"
-decl_stmt|;
-DECL|method|checkRequest (String expect, String request)
-specifier|protected
-name|void
-name|checkRequest
-parameter_list|(
-name|String
-name|expect
-parameter_list|,
-name|String
-name|request
-parameter_list|)
-block|{
-if|if
-condition|(
-name|expect
-operator|.
-name|equals
-argument_list|(
-literal|"ECHO_REQUEST"
-argument_list|)
-condition|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Get a wrong request"
-argument_list|,
-name|ECHO_REQUEST
-argument_list|,
-name|request
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-literal|"Get a wrong request"
-argument_list|,
-name|ECHO_BOOLEAN_REQUEST
-argument_list|,
-name|request
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|// START SNIPPET: payload
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -348,19 +209,6 @@ operator|.
 name|getBodySources
 argument_list|()
 decl_stmt|;
-name|List
-argument_list|<
-name|Source
-argument_list|>
-name|outElements
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Source
-argument_list|>
-argument_list|()
-decl_stmt|;
 comment|// You can use a customer toStringConverter to turn a CxfPayLoad message into String as you want
 name|String
 name|request
@@ -376,13 +224,6 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|XmlConverter
-name|converter
-init|=
-operator|new
-name|XmlConverter
-argument_list|()
 decl_stmt|;
 name|String
 name|documentString
@@ -468,50 +309,7 @@ name|request
 argument_list|)
 expr_stmt|;
 block|}
-name|Document
-name|outDocument
-init|=
-name|converter
-operator|.
-name|toDOMDocument
-argument_list|(
-name|documentString
-argument_list|)
-decl_stmt|;
-name|outElements
-operator|.
-name|add
-argument_list|(
-operator|new
-name|DOMSource
-argument_list|(
-name|outDocument
-operator|.
-name|getDocumentElement
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// set the payload header with null
-name|CxfPayload
-argument_list|<
-name|SoapHeader
-argument_list|>
-name|responsePayload
-init|=
-operator|new
-name|CxfPayload
-argument_list|<
-name|SoapHeader
-argument_list|>
-argument_list|(
-literal|null
-argument_list|,
-name|outElements
-argument_list|,
-literal|null
-argument_list|)
-decl_stmt|;
+comment|// just set the documentString into to the message body
 name|exchange
 operator|.
 name|getOut
@@ -519,7 +317,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-name|responsePayload
+name|documentString
 argument_list|)
 expr_stmt|;
 block|}
@@ -530,7 +328,6 @@ block|}
 block|}
 return|;
 block|}
-comment|// END SNIPPET: payload
 block|}
 end_class
 
