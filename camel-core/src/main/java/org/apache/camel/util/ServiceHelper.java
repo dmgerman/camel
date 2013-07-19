@@ -254,7 +254,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Starts all of the given services      */
+comment|/**      * Start the given service      */
 DECL|method|startService (Service service)
 specifier|public
 specifier|static
@@ -267,11 +267,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|service
+operator|!=
+literal|null
+condition|)
+block|{
 name|service
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Starts all of the given services      */
 DECL|method|startServices (Object... services)
