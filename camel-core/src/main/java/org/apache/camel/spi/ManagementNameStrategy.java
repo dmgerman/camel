@@ -59,6 +59,21 @@ name|boolean
 name|isFixedName
 parameter_list|()
 function_decl|;
+comment|/**      * Creates a new management name with the given pattern.      *      * @param pattern the pattern      * @param name    the name      * @param invalidCheck whether to check for invalid pattern      * @return the management name      * @throws IllegalArgumentException if the pattern or name is invalid or empty      */
+DECL|method|resolveManagementName (String pattern, String name, boolean invalidCheck)
+name|String
+name|resolveManagementName
+parameter_list|(
+name|String
+name|pattern
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|boolean
+name|invalidCheck
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

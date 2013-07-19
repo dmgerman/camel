@@ -284,6 +284,8 @@ name|camelContext
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -342,6 +344,8 @@ name|camelContext
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -384,8 +388,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new management name with the given pattern      *      * @param pattern the pattern      * @param name    the name      * @return the management name      * @throws IllegalArgumentException if the pattern or name is invalid or empty      */
-DECL|method|resolveManagementName (String pattern, String name)
-specifier|protected
+DECL|method|resolveManagementName (String pattern, String name, boolean invalidCheck)
+specifier|public
 name|String
 name|resolveManagementName
 parameter_list|(
@@ -394,6 +398,9 @@ name|pattern
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|boolean
+name|invalidCheck
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -493,6 +500,8 @@ expr_stmt|;
 comment|// are there any #word# combos left, if so they should be considered invalid tokens
 if|if
 condition|(
+name|invalidCheck
+operator|&&
 name|INVALID_PATTERN
 operator|.
 name|matcher

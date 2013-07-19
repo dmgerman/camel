@@ -315,6 +315,19 @@ name|isRemoveSpoolDirectoryWhenStopping
 argument_list|()
 return|;
 block|}
+DECL|method|getCacheCounter ()
+specifier|public
+name|long
+name|getCacheCounter
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getCacheCounter
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

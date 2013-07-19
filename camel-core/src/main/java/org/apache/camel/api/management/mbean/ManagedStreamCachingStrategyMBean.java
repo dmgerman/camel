@@ -159,6 +159,18 @@ name|boolean
 name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of StreamCache created"
+argument_list|)
+DECL|method|getCacheCounter ()
+name|long
+name|getCacheCounter
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

@@ -166,6 +166,12 @@ name|boolean
 name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the counter for number of {@link StreamCache} created.      */
+DECL|method|getCacheCounter ()
+name|long
+name|getCacheCounter
+parameter_list|()
+function_decl|;
 comment|/**      * Caches the body aas a {@link StreamCache}.      *      * @param exchange the exchange      * @return the body cached as a {@link StreamCache}, or<tt>null</tt> if not possible or no need to cache the body      */
 DECL|method|cache (Exchange exchange)
 name|StreamCache

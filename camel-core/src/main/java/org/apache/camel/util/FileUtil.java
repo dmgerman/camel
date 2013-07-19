@@ -325,6 +325,8 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|createTempFile (String prefix, String suffix)
 specifier|public
 specifier|static
@@ -369,6 +371,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: parentDir should be mandatory
 name|File
 name|parent
 init|=
@@ -1230,6 +1233,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getDefaultTempDir ()
 specifier|private
 specifier|static
@@ -1296,8 +1301,10 @@ name|defaultTempDir
 return|;
 block|}
 comment|/**      * Creates a new temporary directory in the<tt>java.io.tmpdir</tt> directory.      */
+annotation|@
+name|Deprecated
 DECL|method|createNewTempDir ()
-specifier|public
+specifier|private
 specifier|static
 name|File
 name|createNewTempDir
@@ -1415,6 +1422,8 @@ name|f
 return|;
 block|}
 comment|/**      * Shutdown and cleanup the temporary directory and removes any shutdown hooks in use.      */
+annotation|@
+name|Deprecated
 DECL|method|shutdown ()
 specifier|public
 specifier|static
