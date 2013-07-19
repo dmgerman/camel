@@ -59,10 +59,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|InputStreamCacheTest
+DECL|class|MarkableInputStreamCacheTest
 specifier|public
 class|class
-name|InputStreamCacheTest
+name|MarkableInputStreamCacheTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -74,11 +74,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|InputStreamCache
+name|MarkableInputStreamCache
 name|cache
 init|=
 operator|new
-name|InputStreamCache
+name|MarkableInputStreamCache
 argument_list|(
 literal|"<foo>bar</foo>"
 operator|.

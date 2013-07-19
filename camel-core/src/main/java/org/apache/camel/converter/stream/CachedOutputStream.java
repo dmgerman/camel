@@ -873,7 +873,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|InputStreamCache
+name|MarkableInputStreamCache
 argument_list|(
 operator|(
 operator|(

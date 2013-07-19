@@ -435,8 +435,9 @@ name|exchange
 argument_list|)
 decl_stmt|;
 comment|//assert re-readability of the cached InputStream
-name|assertNotNull
-argument_list|(
+name|String
+name|data
+init|=
 name|IOConverter
 operator|.
 name|toString
@@ -445,10 +446,15 @@ name|cache
 argument_list|,
 literal|null
 argument_list|)
-argument_list|)
+decl_stmt|;
+name|cache
+operator|.
+name|reset
+argument_list|()
 expr_stmt|;
-name|assertNotNull
-argument_list|(
+name|String
+name|data2
+init|=
 name|IOConverter
 operator|.
 name|toString
@@ -457,6 +463,12 @@ name|cache
 argument_list|,
 literal|null
 argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|data
+argument_list|,
+name|data2
 argument_list|)
 expr_stmt|;
 block|}
