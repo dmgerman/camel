@@ -2873,7 +2873,7 @@ name|path
 argument_list|)
 condition|)
 block|{
-comment|// use relative path
+comment|// extract the path segment relative to the target path and make sure it keeps the preceding '/' for the regex op
 name|String
 name|p
 init|=
@@ -2886,6 +2886,19 @@ name|path
 operator|.
 name|length
 argument_list|()
+operator|-
+operator|(
+name|path
+operator|.
+name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|?
+literal|1
+else|:
+literal|0
+operator|)
 argument_list|)
 decl_stmt|;
 if|if
