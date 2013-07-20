@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.processor.interceptor
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|interceptor
 package|;
 end_package
 
@@ -60,11 +62,29 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|DelegateAsyncProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|MessageHelper
 import|;
 end_import
+
+begin_comment
+comment|/**  * {@link Processor} to reset {@link org.apache.camel.StreamCache} to ensure the stream  * is ready and re-readable for processing.  */
+end_comment
 
 begin_class
 DECL|class|StreamCachingResetProcessor

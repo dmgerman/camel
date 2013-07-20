@@ -1154,7 +1154,7 @@ literal|"Should get the InputStreamCache"
 argument_list|,
 name|cache
 operator|instanceof
-name|MarkableInputStreamCache
+name|InputStreamCache
 argument_list|)
 expr_stmt|;
 name|String
@@ -1278,7 +1278,7 @@ literal|"Should get the InputStreamCache"
 argument_list|,
 name|cache
 operator|instanceof
-name|MarkableInputStreamCache
+name|InputStreamCache
 argument_list|)
 expr_stmt|;
 name|String

@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.StreamCache} implementation for Cache the Reader {@link java.io.Reader}s  */
+comment|/**  * A {@link org.apache.camel.StreamCache} for String {@link java.io.Reader}s  */
 end_comment
 
 begin_class
@@ -113,6 +113,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|data
 specifier|private
+specifier|final
 name|String
 name|data
 decl_stmt|;
@@ -166,15 +167,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot reset cache"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|// ignore
 block|}
 block|}
 DECL|method|writeTo (OutputStream os)

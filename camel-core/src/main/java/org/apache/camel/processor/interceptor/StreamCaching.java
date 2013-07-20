@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link InterceptStrategy} implementation to configure stream caching on a RouteContext  */
+comment|/**  * {@link InterceptStrategy} implementation to configure stream caching on a RouteContext  *  * @deprecated no longer in use, will be removed in next Camel release.  */
 end_comment
 
 begin_class

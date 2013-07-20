@@ -92,7 +92,7 @@ name|converter
 operator|.
 name|stream
 operator|.
-name|MarkableInputStreamCache
+name|InputStreamCache
 import|;
 end_import
 
@@ -291,11 +291,11 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|MarkableInputStreamCache
+name|InputStreamCache
 name|cache
 init|=
 operator|new
-name|MarkableInputStreamCache
+name|InputStreamCache
 argument_list|(
 name|TEST_STRING
 operator|.

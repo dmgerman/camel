@@ -24,6 +24,26 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FilterInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -58,18 +78,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|StringSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|IOHelper
@@ -77,40 +85,30 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.StringSource}s  */
+comment|/**  * A {@link StreamCache} for {@link java.io.ByteArrayInputStream}  */
 end_comment
 
 begin_class
-DECL|class|SourceCache
+DECL|class|ByteArrayInputStreamCache
 specifier|public
-specifier|final
 class|class
-name|SourceCache
+name|ByteArrayInputStreamCache
 extends|extends
-name|StringSource
+name|FilterInputStream
 implements|implements
 name|StreamCache
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1L
-decl_stmt|;
-DECL|method|SourceCache (String data)
+DECL|method|ByteArrayInputStreamCache (ByteArrayInputStream in)
 specifier|public
-name|SourceCache
+name|ByteArrayInputStreamCache
 parameter_list|(
-name|String
-name|data
+name|ByteArrayInputStream
+name|in
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|data
+name|in
 argument_list|)
 expr_stmt|;
 block|}
@@ -120,8 +118,25 @@ name|void
 name|reset
 parameter_list|()
 block|{
-comment|// do nothing here
+try|try
+block|{
+name|super
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|writeTo (OutputStream os)
 specifier|public
 name|void
@@ -135,10 +150,9 @@ name|IOException
 block|{
 name|IOHelper
 operator|.
-name|copy
+name|copyAndCloseInput
 argument_list|(
-name|getInputStream
-argument_list|()
+name|in
 argument_list|,
 name|os
 argument_list|)

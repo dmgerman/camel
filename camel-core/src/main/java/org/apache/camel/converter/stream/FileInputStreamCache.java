@@ -172,9 +172,14 @@ name|IOHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * A {@link StreamCache} for {@link File}s  */
+end_comment
+
 begin_class
 DECL|class|FileInputStreamCache
 specifier|public
+specifier|final
 class|class
 name|FileInputStreamCache
 extends|extends

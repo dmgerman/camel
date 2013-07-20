@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interceptor that converts streams messages into a re-readable format  * by wrapping the stream into a {@link StreamCache}.  */
+comment|/**  * An interceptor that converts streams messages into a re-readable format  * by wrapping the stream into a {@link StreamCache}.  *  * @deprecated no longer in use, will be removed in next Camel release.  */
 end_comment
 
 begin_class

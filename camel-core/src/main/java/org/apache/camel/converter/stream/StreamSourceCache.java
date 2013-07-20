@@ -123,12 +123,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.StreamCache} implementation for Cache the StreamSource {@link javax.xml.transform.stream.StreamSource}s  */
+comment|/**  * A {@link org.apache.camel.StreamCache} for {@link javax.xml.transform.stream.StreamSource}s  */
 end_comment
 
 begin_class
 DECL|class|StreamSourceCache
 specifier|public
+specifier|final
 class|class
 name|StreamSourceCache
 extends|extends

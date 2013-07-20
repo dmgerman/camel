@@ -61,14 +61,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @deprecated  use {@link MarkableInputStreamCache} instead.  */
+comment|/**  * A {@link StreamCache} for caching using an in-memory byte array.  */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
 DECL|class|InputStreamCache
 specifier|public
+specifier|final
 class|class
 name|InputStreamCache
 extends|extends
