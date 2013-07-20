@@ -893,25 +893,7 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-comment|// first wrap with stream caching reset
-if|if
-condition|(
-name|routeContext
-operator|.
-name|isStreamCaching
-argument_list|()
-condition|)
-block|{
-name|target
-operator|=
-operator|new
-name|StreamCachingResetProcessor
-argument_list|(
-name|target
-argument_list|)
-expr_stmt|;
-block|}
-comment|// the wrap the output with the managed strategy if any
+comment|// first wrap the output with the managed strategy if any
 name|InterceptStrategy
 name|managed
 init|=
