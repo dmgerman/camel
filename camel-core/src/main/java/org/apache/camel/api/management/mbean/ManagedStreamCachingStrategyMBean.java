@@ -164,11 +164,23 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of StreamCache created"
+literal|"Number of in-memory StreamCache created"
 argument_list|)
-DECL|method|getCacheCounter ()
+DECL|method|getCacheMemoryCounter ()
 name|long
-name|getCacheCounter
+name|getCacheMemoryCounter
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of spooled (not in-memory) StreamCache created"
+argument_list|)
+DECL|method|getCacheSpoolCounter ()
+name|long
+name|getCacheSpoolCounter
 parameter_list|()
 function_decl|;
 block|}

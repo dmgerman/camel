@@ -144,6 +144,16 @@ name|os
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|inMemory ()
+specifier|public
+name|boolean
+name|inMemory
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 end_class
 

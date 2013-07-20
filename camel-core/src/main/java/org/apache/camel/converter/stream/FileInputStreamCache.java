@@ -442,6 +442,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|inMemory ()
+specifier|public
+name|boolean
+name|inMemory
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|available ()

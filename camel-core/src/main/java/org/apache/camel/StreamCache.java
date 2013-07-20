@@ -69,6 +69,12 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Whether this {@link StreamCache} is in memory only or      * spooled to persistent storage such as files.      */
+DECL|method|inMemory ()
+name|boolean
+name|inMemory
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

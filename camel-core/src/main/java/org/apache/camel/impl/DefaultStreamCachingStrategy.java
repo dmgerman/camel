@@ -184,8 +184,6 @@ name|CamelContextAware
 implements|,
 name|StreamCachingStrategy
 block|{
-comment|// TODO: add JMX counters for in memory vs spooled
-comment|// TODO: Add support for mark
 comment|// TODO: logic for spool to disk in this class so we can control this
 comment|// TODO: add memory based watermarks for spool to disk
 annotation|@
@@ -301,11 +299,17 @@ name|removeSpoolDirectoryWhenStopping
 init|=
 literal|true
 decl_stmt|;
-DECL|field|cacheCounter
+DECL|field|cacheMemoryCounter
 specifier|private
 specifier|volatile
 name|long
-name|cacheCounter
+name|cacheMemoryCounter
+decl_stmt|;
+DECL|field|cacheSpoolCounter
+specifier|private
+specifier|volatile
+name|long
+name|cacheSpoolCounter
 decl_stmt|;
 DECL|method|getCamelContext ()
 specifier|public
@@ -505,14 +509,24 @@ operator|=
 name|removeSpoolDirectoryWhenStopping
 expr_stmt|;
 block|}
-DECL|method|getCacheCounter ()
+DECL|method|getCacheMemoryCounter ()
 specifier|public
 name|long
-name|getCacheCounter
+name|getCacheMemoryCounter
 parameter_list|()
 block|{
 return|return
-name|cacheCounter
+name|cacheMemoryCounter
+return|;
+block|}
+DECL|method|getCacheSpoolCounter ()
+specifier|public
+name|long
+name|getCacheSpoolCounter
+parameter_list|()
+block|{
+return|return
+name|cacheSpoolCounter
 return|;
 block|}
 DECL|method|cache (Exchange exchange)
@@ -546,9 +560,24 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|cacheCounter
+if|if
+condition|(
+name|cache
+operator|.
+name|inMemory
+argument_list|()
+condition|)
+block|{
+name|cacheMemoryCounter
 operator|++
 expr_stmt|;
+block|}
+else|else
+block|{
+name|cacheSpoolCounter
+operator|++
+expr_stmt|;
+block|}
 block|}
 return|return
 name|cache
@@ -1101,7 +1130,11 @@ name|spoolDirectory
 argument_list|)
 expr_stmt|;
 block|}
-name|cacheCounter
+name|cacheMemoryCounter
+operator|=
+literal|0
+expr_stmt|;
+name|cacheSpoolCounter
 operator|=
 literal|0
 expr_stmt|;

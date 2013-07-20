@@ -34,16 +34,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|ByteArrayOutputStream
 import|;
 end_import
@@ -229,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This output stream will store the content into a File if the stream context size is exceed the  * THRESHOLD which's default value is {@link StreamCache#DEFAULT_SPOOL_THRESHOLD} bytes .  *<p/>  * The temp file will store in the temp directory, you can configure it by setting the TEMP_DIR property.  * If you don't set the TEMP_DIR property, it will choose the directory which is set by the  * system property of "java.io.tmpdir".  *<p/>  * You can get a cached input stream of this stream. The temp file which is created with this   * output stream will be deleted when you close this output stream or the all cached   * fileInputStream is closed after the exchange is completed.  */
+comment|/**  * This output stream will store the content into a File if the stream context size is exceed the  * THRESHOLD value. The default THRESHOLD value is {@link StreamCache#DEFAULT_SPOOL_THRESHOLD} bytes .  *<p/>  * The temp file will store in the temp directory, you can configure it by setting the TEMP_DIR property.  * If you don't set the TEMP_DIR property, it will choose the directory which is set by the  * system property of "java.io.tmpdir".  *<p/>  * You can get a cached input stream of this stream. The temp file which is created with this   * output stream will be deleted when you close this output stream or the all cached   * fileInputStream is closed after the exchange is completed.  */
 end_comment
 
 begin_class
@@ -381,7 +371,7 @@ expr_stmt|;
 name|currentStream
 operator|=
 operator|new
-name|ByteArrayOutputStream
+name|CachedByteArrayOutputStream
 argument_list|(
 name|strategy
 operator|.
@@ -742,23 +732,19 @@ if|if
 condition|(
 name|currentStream
 operator|instanceof
-name|ByteArrayOutputStream
+name|CachedByteArrayOutputStream
 condition|)
 block|{
 return|return
-operator|new
-name|ByteArrayInputStream
-argument_list|(
 operator|(
 operator|(
-name|ByteArrayOutputStream
+name|CachedByteArrayOutputStream
 operator|)
 name|currentStream
 operator|)
 operator|.
-name|toByteArray
+name|newInputStreamCache
 argument_list|()
-argument_list|)
 return|;
 block|}
 else|else
@@ -767,7 +753,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"CurrentStream should be an instance of ByteArrayOutputStream but is: "
+literal|"CurrentStream should be an instance of CachedByteArrayOutputStream but is: "
 operator|+
 name|currentStream
 operator|.
@@ -836,7 +822,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// The WrappedInputStream will close the CachedOuputStream when it is closed
+comment|// The WrappedInputStream will close the CachedOutputStream when it is closed
 return|return
 operator|new
 name|WrappedInputStream
@@ -848,10 +834,27 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated  use {@link #newStreamCache()}      */
+annotation|@
+name|Deprecated
 DECL|method|getStreamCache ()
 specifier|public
 name|StreamCache
 name|getStreamCache
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|newStreamCache
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates a new {@link StreamCache} from the data cached in this {@link OutputStream}.      */
+DECL|method|newStreamCache ()
+specifier|public
+name|StreamCache
+name|newStreamCache
 parameter_list|()
 throws|throws
 name|IOException
@@ -868,23 +871,19 @@ if|if
 condition|(
 name|currentStream
 operator|instanceof
-name|ByteArrayOutputStream
+name|CachedByteArrayOutputStream
 condition|)
 block|{
 return|return
-operator|new
-name|InputStreamCache
-argument_list|(
 operator|(
 operator|(
-name|ByteArrayOutputStream
+name|CachedByteArrayOutputStream
 operator|)
 name|currentStream
 operator|)
 operator|.
-name|toByteArray
+name|newInputStreamCache
 argument_list|()
-argument_list|)
 return|;
 block|}
 else|else
@@ -893,7 +892,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"CurrentStream should be an instance of ByteArrayOutputStream but is: "
+literal|"CurrentStream should be an instance of CachedByteArrayOutputStream but is: "
 operator|+
 name|currentStream
 operator|.

@@ -124,7 +124,7 @@ name|long
 name|getSpoolThreshold
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the buffer size to use when copying between buffers.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
+comment|/**      * Sets the buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
 DECL|method|setBufferSize (int bufferSize)
 name|void
 name|setBufferSize
@@ -166,10 +166,16 @@ name|boolean
 name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the counter for number of {@link StreamCache} created.      */
-DECL|method|getCacheCounter ()
+comment|/**      * Gets the counter for number of in-memory {@link StreamCache} created.      */
+DECL|method|getCacheMemoryCounter ()
 name|long
-name|getCacheCounter
+name|getCacheMemoryCounter
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the counter for number of spooled (not in-memory) {@link StreamCache} created.      */
+DECL|method|getCacheSpoolCounter ()
+name|long
+name|getCacheSpoolCounter
 parameter_list|()
 function_decl|;
 comment|/**      * Caches the body aas a {@link StreamCache}.      *      * @param exchange the exchange      * @return the body cached as a {@link StreamCache}, or<tt>null</tt> if not possible or no need to cache the body      */

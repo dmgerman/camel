@@ -361,6 +361,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// transfer the input stream to a cached output stream, and then creates a new stream cache view
+comment|// of the data, which ensures the input stream is cached and re-readable.
 name|CachedOutputStream
 name|cos
 init|=
@@ -382,7 +384,7 @@ expr_stmt|;
 return|return
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 return|;
 block|}
