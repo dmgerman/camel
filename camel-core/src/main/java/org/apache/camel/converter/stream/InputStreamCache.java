@@ -149,6 +149,16 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|length ()
+specifier|public
+name|long
+name|length
+parameter_list|()
+block|{
+return|return
+name|count
+return|;
+block|}
 block|}
 end_class
 

@@ -186,6 +186,7 @@ name|StreamCachingStrategy
 block|{
 comment|// TODO: logic for spool to disk in this class so we can control this
 comment|// TODO: add memory based watermarks for spool to disk
+comment|// TODO: add statistics on|off option and also have avg size stats
 annotation|@
 name|Deprecated
 DECL|field|THRESHOLD
@@ -310,6 +311,18 @@ specifier|private
 specifier|volatile
 name|long
 name|cacheSpoolCounter
+decl_stmt|;
+DECL|field|cacheMemorySize
+specifier|private
+specifier|volatile
+name|long
+name|cacheMemorySize
+decl_stmt|;
+DECL|field|cacheSpoolSize
+specifier|private
+specifier|volatile
+name|long
+name|cacheSpoolSize
 decl_stmt|;
 DECL|method|getCamelContext ()
 specifier|public
@@ -529,6 +542,26 @@ return|return
 name|cacheSpoolCounter
 return|;
 block|}
+DECL|method|getCacheMemorySize ()
+specifier|public
+name|long
+name|getCacheMemorySize
+parameter_list|()
+block|{
+return|return
+name|cacheMemorySize
+return|;
+block|}
+DECL|method|getCacheSpoolSize ()
+specifier|public
+name|long
+name|getCacheSpoolSize
+parameter_list|()
+block|{
+return|return
+name|cacheSpoolSize
+return|;
+block|}
 DECL|method|cache (Exchange exchange)
 specifier|public
 name|StreamCache
@@ -553,6 +586,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|cache
@@ -571,13 +606,44 @@ block|{
 name|cacheMemoryCounter
 operator|++
 expr_stmt|;
+name|cacheMemorySize
+operator|+=
+name|cache
+operator|.
+name|length
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
 name|cacheSpoolCounter
 operator|++
 expr_stmt|;
+name|cacheSpoolSize
+operator|+=
+name|cache
+operator|.
+name|length
+argument_list|()
+expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error updating cache statistics. This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|cache
@@ -1135,6 +1201,14 @@ operator|=
 literal|0
 expr_stmt|;
 name|cacheSpoolCounter
+operator|=
+literal|0
+expr_stmt|;
+name|cacheMemorySize
+operator|=
+literal|0
+expr_stmt|;
+name|cacheSpoolSize
 operator|=
 literal|0
 expr_stmt|;

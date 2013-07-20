@@ -194,13 +194,21 @@ name|stream
 decl_stmt|;
 DECL|field|file
 specifier|private
+specifier|final
 name|File
 name|file
 decl_stmt|;
 DECL|field|ciphers
 specifier|private
+specifier|final
 name|CipherPair
 name|ciphers
+decl_stmt|;
+DECL|field|length
+specifier|private
+specifier|final
+name|long
+name|length
 decl_stmt|;
 DECL|method|FileInputStreamCache (File file)
 specifier|public
@@ -249,6 +257,15 @@ operator|.
 name|ciphers
 operator|=
 name|ciphers
+expr_stmt|;
+name|this
+operator|.
+name|length
+operator|=
+name|file
+operator|.
+name|length
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -450,6 +467,16 @@ parameter_list|()
 block|{
 return|return
 literal|false
+return|;
+block|}
+DECL|method|length ()
+specifier|public
+name|long
+name|length
+parameter_list|()
+block|{
+return|return
+name|length
 return|;
 block|}
 annotation|@

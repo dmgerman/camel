@@ -340,6 +340,33 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|inMemory ()
+specifier|public
+name|boolean
+name|inMemory
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|length ()
+specifier|public
+name|long
+name|length
+parameter_list|()
+block|{
+return|return
+name|buffer
+operator|.
+name|readableBytes
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

@@ -75,6 +75,12 @@ name|boolean
 name|inMemory
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the length of the cached stream.      *<p/>      * The implementation may return<tt>0</tt> in cases where the length      * cannot be computed, or if the implementation does not support this.      *      * @return number of bytes in the cache.      */
+DECL|method|length ()
+name|long
+name|length
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

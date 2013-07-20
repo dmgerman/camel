@@ -183,6 +183,30 @@ name|long
 name|getCacheSpoolCounter
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total accumulated number of bytes which has been stream cached for in-memory StreamCache"
+argument_list|)
+DECL|method|getCacheMemorySize ()
+name|long
+name|getCacheMemorySize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total accumulated number of bytes which has been stream cached for spooled StreamCache"
+argument_list|)
+DECL|method|getCacheSpoolSize ()
+name|long
+name|getCacheSpoolSize
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

@@ -1295,7 +1295,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"\t                       [cacheMemoryCounter=%s, cacheSpoolCounter=%s]"
+literal|"\t                       [cacheMemoryCounter=%s, cacheMemorySize=%s, cacheSpoolCounter=%s, cacheSpoolSize=%s]"
 argument_list|,
 name|camelContext
 operator|.
@@ -1310,7 +1310,23 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
+name|getCacheMemorySize
+argument_list|()
+argument_list|,
+name|camelContext
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
 name|getCacheSpoolCounter
+argument_list|()
+argument_list|,
+name|camelContext
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|getCacheSpoolSize
 argument_list|()
 argument_list|)
 argument_list|)

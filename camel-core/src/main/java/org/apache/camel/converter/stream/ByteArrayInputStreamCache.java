@@ -98,6 +98,12 @@ name|FilterInputStream
 implements|implements
 name|StreamCache
 block|{
+DECL|field|length
+specifier|private
+specifier|final
+name|int
+name|length
+decl_stmt|;
 DECL|method|ByteArrayInputStreamCache (ByteArrayInputStream in)
 specifier|public
 name|ByteArrayInputStreamCache
@@ -110,6 +116,15 @@ name|super
 argument_list|(
 name|in
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|length
+operator|=
+name|in
+operator|.
+name|available
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|reset ()
@@ -164,6 +179,18 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|length ()
+specifier|public
+name|long
+name|length
+parameter_list|()
+block|{
+return|return
+name|length
 return|;
 block|}
 block|}

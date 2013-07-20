@@ -341,6 +341,32 @@ name|getCacheSpoolCounter
 argument_list|()
 return|;
 block|}
+DECL|method|getCacheMemorySize ()
+specifier|public
+name|long
+name|getCacheMemorySize
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getCacheMemorySize
+argument_list|()
+return|;
+block|}
+DECL|method|getCacheSpoolSize ()
+specifier|public
+name|long
+name|getCacheSpoolSize
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getCacheSpoolSize
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

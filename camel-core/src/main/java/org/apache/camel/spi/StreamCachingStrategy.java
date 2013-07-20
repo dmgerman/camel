@@ -178,6 +178,18 @@ name|long
 name|getCacheSpoolCounter
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the total accumulated number of bytes which has been stream cached for in-memory stream caches.      */
+DECL|method|getCacheMemorySize ()
+name|long
+name|getCacheMemorySize
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the total accumulated number of bytes which has been stream cached for spooled stream caches.      */
+DECL|method|getCacheSpoolSize ()
+name|long
+name|getCacheSpoolSize
+parameter_list|()
+function_decl|;
 comment|/**      * Caches the body aas a {@link StreamCache}.      *      * @param exchange the exchange      * @return the body cached as a {@link StreamCache}, or<tt>null</tt> if not possible or no need to cache the body      */
 DECL|method|cache (Exchange exchange)
 name|StreamCache

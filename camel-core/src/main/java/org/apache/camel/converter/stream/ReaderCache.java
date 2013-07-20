@@ -60,26 +60,6 @@ name|StreamCache
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link org.apache.camel.StreamCache} for String {@link java.io.Reader}s  */
 end_comment
@@ -94,23 +74,6 @@ name|StringReader
 implements|implements
 name|StreamCache
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ReaderCache
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|data
 specifier|private
 specifier|final
@@ -200,6 +163,19 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|length ()
+specifier|public
+name|long
+name|length
+parameter_list|()
+block|{
+return|return
+name|data
+operator|.
+name|length
+argument_list|()
 return|;
 block|}
 DECL|method|getData ()
