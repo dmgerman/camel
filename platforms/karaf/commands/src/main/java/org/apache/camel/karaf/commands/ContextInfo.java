@@ -1236,7 +1236,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"\tStreamCachingStrategy: [spoolDirectory=%s, spoolThreshold=%s, spoolChiper=%s, bufferSize=%s, removeSpoolDirectoryWhenStopping=%s]"
+literal|"\tStreamCachingStrategy: [spoolDirectory=%s, spoolThreshold=%s, spoolChiper=%s, bufferSize=%s, removeSpoolDirectoryWhenStopping=%s, statisticsEnabled=%s]"
 argument_list|,
 name|camelContext
 operator|.
@@ -1277,6 +1277,17 @@ argument_list|()
 operator|.
 name|isRemoveSpoolDirectoryWhenStopping
 argument_list|()
+argument_list|,
+name|camelContext
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|isStatisticsEnabled
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1309,7 +1320,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"\t                       [cacheMemoryCounter=%s, cacheMemorySize=%s, cacheSpoolCounter=%s, cacheSpoolSize=%s]"
+literal|"\t                       [cacheMemoryCounter=%s, cacheMemorySize=%s, cacheMemoryAverageSize=%s, cacheSpoolCounter=%s, cacheSpoolSize=%s, cacheSpoolAverageSize=%s]"
 argument_list|,
 name|camelContext
 operator|.
@@ -1341,6 +1352,17 @@ operator|.
 name|getStatistics
 argument_list|()
 operator|.
+name|getCacheMemoryAverageSize
+argument_list|()
+argument_list|,
+name|camelContext
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
 name|getCacheSpoolCounter
 argument_list|()
 argument_list|,
@@ -1353,6 +1375,17 @@ name|getStatistics
 argument_list|()
 operator|.
 name|getCacheSpoolSize
+argument_list|()
+argument_list|,
+name|camelContext
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|getCacheSpoolAverageSize
 argument_list|()
 argument_list|)
 argument_list|)

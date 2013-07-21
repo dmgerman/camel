@@ -1156,6 +1156,32 @@ name|spoolDirectory
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+operator|&&
+name|statistics
+operator|.
+name|isStatisticsEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stopping StreamCachingStrategy with statistics: {}"
+argument_list|,
+name|statistics
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|statistics
 operator|.
 name|reset
@@ -1218,6 +1244,12 @@ specifier|volatile
 name|long
 name|memorySize
 decl_stmt|;
+DECL|field|memoryAverageSize
+specifier|private
+specifier|volatile
+name|long
+name|memoryAverageSize
+decl_stmt|;
 DECL|field|spoolCounter
 specifier|private
 specifier|volatile
@@ -1229,6 +1261,12 @@ specifier|private
 specifier|volatile
 name|long
 name|spoolSize
+decl_stmt|;
+DECL|field|spoolAverageSize
+specifier|private
+specifier|volatile
+name|long
+name|spoolAverageSize
 decl_stmt|;
 DECL|method|updateMemory (long size)
 name|void
@@ -1244,6 +1282,12 @@ expr_stmt|;
 name|memorySize
 operator|+=
 name|size
+expr_stmt|;
+name|memoryAverageSize
+operator|=
+name|memorySize
+operator|/
+name|memoryCounter
 expr_stmt|;
 block|}
 DECL|method|updateSpool (long size)
@@ -1261,6 +1305,12 @@ name|spoolSize
 operator|+=
 name|size
 expr_stmt|;
+name|spoolAverageSize
+operator|=
+name|spoolSize
+operator|/
+name|spoolCounter
+expr_stmt|;
 block|}
 DECL|method|getCacheMemoryCounter ()
 specifier|public
@@ -1270,16 +1320,6 @@ parameter_list|()
 block|{
 return|return
 name|memoryCounter
-return|;
-block|}
-DECL|method|getCacheSpoolCounter ()
-specifier|public
-name|long
-name|getCacheSpoolCounter
-parameter_list|()
-block|{
-return|return
-name|spoolCounter
 return|;
 block|}
 DECL|method|getCacheMemorySize ()
@@ -1292,6 +1332,26 @@ return|return
 name|memorySize
 return|;
 block|}
+DECL|method|getCacheMemoryAverageSize ()
+specifier|public
+name|long
+name|getCacheMemoryAverageSize
+parameter_list|()
+block|{
+return|return
+name|memoryAverageSize
+return|;
+block|}
+DECL|method|getCacheSpoolCounter ()
+specifier|public
+name|long
+name|getCacheSpoolCounter
+parameter_list|()
+block|{
+return|return
+name|spoolCounter
+return|;
+block|}
 DECL|method|getCacheSpoolSize ()
 specifier|public
 name|long
@@ -1300,6 +1360,16 @@ parameter_list|()
 block|{
 return|return
 name|spoolSize
+return|;
+block|}
+DECL|method|getCacheSpoolAverageSize ()
+specifier|public
+name|long
+name|getCacheSpoolAverageSize
+parameter_list|()
+block|{
+return|return
+name|spoolAverageSize
 return|;
 block|}
 DECL|method|reset ()
@@ -1316,11 +1386,19 @@ name|memorySize
 operator|=
 literal|0
 expr_stmt|;
+name|memoryAverageSize
+operator|=
+literal|0
+expr_stmt|;
 name|spoolCounter
 operator|=
 literal|0
 expr_stmt|;
 name|spoolSize
+operator|=
+literal|0
+expr_stmt|;
+name|spoolAverageSize
 operator|=
 literal|0
 expr_stmt|;
@@ -1350,6 +1428,33 @@ name|statisticsEnabled
 operator|=
 name|statisticsEnabled
 expr_stmt|;
+block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"[memoryCounter=%s, memorySize=%s, memoryAverageSize=%s, spoolCounter=%s, spoolSize=%s, spoolAverageSize=%s]"
+argument_list|,
+name|memoryCounter
+argument_list|,
+name|memorySize
+argument_list|,
+name|memoryAverageSize
+argument_list|,
+name|spoolCounter
+argument_list|,
+name|spoolSize
+argument_list|,
+name|spoolAverageSize
+argument_list|)
+return|;
 block|}
 block|}
 block|}

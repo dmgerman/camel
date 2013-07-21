@@ -85,22 +85,34 @@ name|long
 name|getCacheMemoryCounter
 parameter_list|()
 function_decl|;
-comment|/**          * Gets the counter for number of spooled (not in-memory) {@link StreamCache} created.          */
-DECL|method|getCacheSpoolCounter ()
-name|long
-name|getCacheSpoolCounter
-parameter_list|()
-function_decl|;
 comment|/**          * Gets the total accumulated number of bytes which has been stream cached for in-memory stream caches.          */
 DECL|method|getCacheMemorySize ()
 name|long
 name|getCacheMemorySize
 parameter_list|()
 function_decl|;
+comment|/**          * Gets the average number of bytes per cached stream for in-memory stream caches.          */
+DECL|method|getCacheMemoryAverageSize ()
+name|long
+name|getCacheMemoryAverageSize
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the counter for number of spooled (not in-memory) {@link StreamCache} created.          */
+DECL|method|getCacheSpoolCounter ()
+name|long
+name|getCacheSpoolCounter
+parameter_list|()
+function_decl|;
 comment|/**          * Gets the total accumulated number of bytes which has been stream cached for spooled stream caches.          */
 DECL|method|getCacheSpoolSize ()
 name|long
 name|getCacheSpoolSize
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the average number of bytes per cached stream for spooled (not in-memory) stream caches.          */
+DECL|method|getCacheSpoolAverageSize ()
+name|long
+name|getCacheSpoolAverageSize
 parameter_list|()
 function_decl|;
 comment|/**          * Reset the counters          */
