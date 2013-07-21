@@ -506,12 +506,12 @@ operator|.
 name|getClass
 argument_list|()
 operator|.
-name|getSimpleName
+name|getName
 argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"JmsMessage"
+literal|"org.apache.camel.component.jms.JmsMessage"
 argument_list|)
 condition|)
 block|{
