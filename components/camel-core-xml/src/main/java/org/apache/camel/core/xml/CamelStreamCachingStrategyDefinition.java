@@ -156,6 +156,13 @@ specifier|private
 name|String
 name|removeSpoolDirectoryWhenStopping
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|statisticsEnabled
+specifier|private
+name|String
+name|statisticsEnabled
+decl_stmt|;
 DECL|method|getEnabled ()
 specifier|public
 name|String
@@ -310,6 +317,32 @@ operator|.
 name|removeSpoolDirectoryWhenStopping
 operator|=
 name|removeSpoolDirectoryWhenStopping
+expr_stmt|;
+block|}
+DECL|method|getStatisticsEnabled ()
+specifier|public
+name|String
+name|getStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|statisticsEnabled
+return|;
+block|}
+DECL|method|setStatisticsEnabled (String statisticsEnabled)
+specifier|public
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|String
+name|statisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|statisticsEnabled
+operator|=
+name|statisticsEnabled
 expr_stmt|;
 block|}
 block|}

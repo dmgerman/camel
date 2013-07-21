@@ -36,6 +36,22 @@ name|ManagedAttribute
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedStreamCachingStrategyMBean
 specifier|public
@@ -205,6 +221,45 @@ argument_list|)
 DECL|method|getCacheSpoolSize ()
 name|long
 name|getCacheSpoolSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether utilization statistics is enabled"
+argument_list|)
+DECL|method|isStatisticsEnabled ()
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether utilization statistics is enabled"
+argument_list|)
+DECL|method|setStatisticsEnabled (boolean enabled)
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset the utilization statistics"
+argument_list|)
+DECL|method|resetStatistics ()
+name|void
+name|resetStatistics
 parameter_list|()
 function_decl|;
 block|}

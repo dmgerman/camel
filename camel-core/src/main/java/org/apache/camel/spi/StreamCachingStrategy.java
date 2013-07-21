@@ -74,6 +74,57 @@ name|StreamCachingStrategy
 extends|extends
 name|Service
 block|{
+comment|/**      * Utilization statistics of stream caching.      */
+DECL|interface|Statistics
+interface|interface
+name|Statistics
+block|{
+comment|/**          * Gets the counter for number of in-memory {@link StreamCache} created.          */
+DECL|method|getCacheMemoryCounter ()
+name|long
+name|getCacheMemoryCounter
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the counter for number of spooled (not in-memory) {@link StreamCache} created.          */
+DECL|method|getCacheSpoolCounter ()
+name|long
+name|getCacheSpoolCounter
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the total accumulated number of bytes which has been stream cached for in-memory stream caches.          */
+DECL|method|getCacheMemorySize ()
+name|long
+name|getCacheMemorySize
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the total accumulated number of bytes which has been stream cached for spooled stream caches.          */
+DECL|method|getCacheSpoolSize ()
+name|long
+name|getCacheSpoolSize
+parameter_list|()
+function_decl|;
+comment|/**          * Reset the counters          */
+DECL|method|reset ()
+name|void
+name|reset
+parameter_list|()
+function_decl|;
+comment|/**          * Whether statistics is enabled.          */
+DECL|method|isStatisticsEnabled ()
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+function_decl|;
+comment|/**          * Sets whether statistics is enabled.          *          * @param statisticsEnabled<tt>true</tt> to enable          */
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
+function_decl|;
+block|}
 comment|/**      * Sets whether the stream caching is enabled.      *<p/>      *<b>Notice:</b> This cannot be changed at runtime.      */
 DECL|method|setEnabled (boolean enabled)
 name|void
@@ -166,28 +217,10 @@ name|boolean
 name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the counter for number of in-memory {@link StreamCache} created.      */
-DECL|method|getCacheMemoryCounter ()
-name|long
-name|getCacheMemoryCounter
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the counter for number of spooled (not in-memory) {@link StreamCache} created.      */
-DECL|method|getCacheSpoolCounter ()
-name|long
-name|getCacheSpoolCounter
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the total accumulated number of bytes which has been stream cached for in-memory stream caches.      */
-DECL|method|getCacheMemorySize ()
-name|long
-name|getCacheMemorySize
-parameter_list|()
-function_decl|;
-comment|/**      * Gets the total accumulated number of bytes which has been stream cached for spooled stream caches.      */
-DECL|method|getCacheSpoolSize ()
-name|long
-name|getCacheSpoolSize
+comment|/**      * Gets the utilization statistics.      */
+DECL|method|getStatistics ()
+name|Statistics
+name|getStatistics
 parameter_list|()
 function_decl|;
 comment|/**      * Caches the body aas a {@link StreamCache}.      *      * @param exchange the exchange      * @return the body cached as a {@link StreamCache}, or<tt>null</tt> if not possible or no need to cache the body      */
