@@ -184,7 +184,6 @@ name|CamelContextAware
 implements|,
 name|StreamCachingStrategy
 block|{
-comment|// TODO: logic for spool to disk in this class so we can control this
 comment|// TODO: add memory based watermarks for spool to disk
 annotation|@
 name|Deprecated
@@ -517,6 +516,34 @@ return|return
 name|statistics
 return|;
 block|}
+DECL|method|shouldSpoolCache (long length)
+specifier|public
+name|boolean
+name|shouldSpoolCache
+parameter_list|(
+name|long
+name|length
+parameter_list|)
+block|{
+if|if
+condition|(
+name|spoolThreshold
+operator|>
+literal|0
+operator|&&
+name|length
+operator|>=
+name|spoolThreshold
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 DECL|method|cache (Exchange exchange)
 specifier|public
 name|StreamCache
@@ -546,7 +573,37 @@ condition|(
 name|cache
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Cached stream to {} -> {}"
+argument_list|,
+name|cache
+operator|.
+name|inMemory
+argument_list|()
+condition|?
+literal|"memory"
+else|:
+literal|"spool"
+argument_list|,
+name|cache
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|statistics
 operator|.
 name|isStatisticsEnabled
@@ -603,6 +660,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return

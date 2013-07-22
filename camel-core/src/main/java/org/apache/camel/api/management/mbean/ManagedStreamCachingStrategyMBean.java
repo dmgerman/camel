@@ -192,18 +192,6 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of spooled (not in-memory) StreamCache created"
-argument_list|)
-DECL|method|getCacheSpoolCounter ()
-name|long
-name|getCacheSpoolCounter
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
 literal|"Total accumulated number of bytes which has been stream cached for in-memory StreamCache"
 argument_list|)
 DECL|method|getCacheMemorySize ()
@@ -216,11 +204,47 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Average number of bytes per cached stream for in-memory stream caches."
+argument_list|)
+DECL|method|getCacheMemoryAverageSize ()
+name|long
+name|getCacheMemoryAverageSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of spooled (not in-memory) StreamCache created"
+argument_list|)
+DECL|method|getCacheSpoolCounter ()
+name|long
+name|getCacheSpoolCounter
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Total accumulated number of bytes which has been stream cached for spooled StreamCache"
 argument_list|)
 DECL|method|getCacheSpoolSize ()
 name|long
 name|getCacheSpoolSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Average number of bytes per cached stream for spooled (not in-memory) stream caches."
+argument_list|)
+DECL|method|getCacheSpoolAverageSize ()
+name|long
+name|getCacheSpoolAverageSize
 parameter_list|()
 function_decl|;
 annotation|@

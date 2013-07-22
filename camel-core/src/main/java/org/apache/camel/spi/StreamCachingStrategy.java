@@ -235,6 +235,15 @@ name|Statistics
 name|getStatistics
 parameter_list|()
 function_decl|;
+comment|/**      * Determines if the stream should be spooled or not. For example if the stream length is      * over a threshold.      *<p/>      * This allows implementations to use custom strategies to determine if spooling is needed or not.      *      * @param length the length of the stream      * @return<tt>true</tt> to spool the cache, or<tt>false</tt> to keep the cache in-memory      */
+DECL|method|shouldSpoolCache (long length)
+name|boolean
+name|shouldSpoolCache
+parameter_list|(
+name|long
+name|length
+parameter_list|)
+function_decl|;
 comment|/**      * Caches the body aas a {@link StreamCache}.      *      * @param exchange the exchange      * @return the body cached as a {@link StreamCache}, or<tt>null</tt> if not possible or no need to cache the body      */
 DECL|method|cache (Exchange exchange)
 name|StreamCache

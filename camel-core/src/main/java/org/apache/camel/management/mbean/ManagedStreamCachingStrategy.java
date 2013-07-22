@@ -331,22 +331,6 @@ name|getCacheMemoryCounter
 argument_list|()
 return|;
 block|}
-DECL|method|getCacheSpoolCounter ()
-specifier|public
-name|long
-name|getCacheSpoolCounter
-parameter_list|()
-block|{
-return|return
-name|streamCachingStrategy
-operator|.
-name|getStatistics
-argument_list|()
-operator|.
-name|getCacheSpoolCounter
-argument_list|()
-return|;
-block|}
 DECL|method|getCacheMemorySize ()
 specifier|public
 name|long
@@ -363,6 +347,38 @@ name|getCacheMemorySize
 argument_list|()
 return|;
 block|}
+DECL|method|getCacheMemoryAverageSize ()
+specifier|public
+name|long
+name|getCacheMemoryAverageSize
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|getCacheMemoryAverageSize
+argument_list|()
+return|;
+block|}
+DECL|method|getCacheSpoolCounter ()
+specifier|public
+name|long
+name|getCacheSpoolCounter
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|getCacheSpoolCounter
+argument_list|()
+return|;
+block|}
 DECL|method|getCacheSpoolSize ()
 specifier|public
 name|long
@@ -376,6 +392,22 @@ name|getStatistics
 argument_list|()
 operator|.
 name|getCacheSpoolSize
+argument_list|()
+return|;
+block|}
+DECL|method|getCacheSpoolAverageSize ()
+specifier|public
+name|long
+name|getCacheSpoolAverageSize
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|getCacheSpoolAverageSize
 argument_list|()
 return|;
 block|}
