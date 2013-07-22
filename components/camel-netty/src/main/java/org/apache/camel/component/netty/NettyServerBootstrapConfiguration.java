@@ -289,6 +289,11 @@ specifier|protected
 name|WorkerPool
 name|workerPool
 decl_stmt|;
+DECL|field|networkInterface
+specifier|protected
+name|String
+name|networkInterface
+decl_stmt|;
 DECL|method|getAddress ()
 specifier|public
 name|String
@@ -1142,6 +1147,32 @@ operator|=
 name|workerPool
 expr_stmt|;
 block|}
+DECL|method|getNetworkInterface ()
+specifier|public
+name|String
+name|getNetworkInterface
+parameter_list|()
+block|{
+return|return
+name|networkInterface
+return|;
+block|}
+DECL|method|setNetworkInterface (String networkInterface)
+specifier|public
+name|void
+name|setNetworkInterface
+parameter_list|(
+name|String
+name|networkInterface
+parameter_list|)
+block|{
+name|this
+operator|.
+name|networkInterface
+operator|=
+name|networkInterface
+expr_stmt|;
+block|}
 comment|/**      * Checks if the other {@link NettyServerBootstrapConfiguration} is compatible      * with this, as a Netty listener bound on port X shares the same common      * {@link NettyServerBootstrapConfiguration}, which must be identical.      */
 DECL|method|compatible (NettyServerBootstrapConfiguration other)
 specifier|public
@@ -1778,6 +1809,29 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|networkInterface
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|networkInterface
+operator|.
+name|equals
+argument_list|(
+name|other
+operator|.
+name|networkInterface
+argument_list|)
+condition|)
+block|{
+name|isCompatible
+operator|=
+literal|false
+expr_stmt|;
+block|}
 return|return
 name|isCompatible
 return|;
@@ -1926,6 +1980,12 @@ operator|+
 literal|", workerPool="
 operator|+
 name|workerPool
+operator|+
+literal|", networkInterface='"
+operator|+
+name|networkInterface
+operator|+
+literal|'\''
 operator|+
 literal|'}'
 return|;
