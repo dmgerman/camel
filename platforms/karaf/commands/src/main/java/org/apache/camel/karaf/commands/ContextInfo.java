@@ -1236,7 +1236,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"\tStreamCachingStrategy: [spoolDirectory=%s, spoolThreshold=%s, spoolChiper=%s, bufferSize=%s, removeSpoolDirectoryWhenStopping=%s, statisticsEnabled=%s]"
+literal|"\tStreamCachingStrategy: [spoolDirectory=%s, spoolChiper=%s, spoolThreshold=%s, spoolUsedHeapMemoryThreshold=%s, anySpoolRules=%s, bufferSize=%s, removeSpoolDirectoryWhenStopping=%s, statisticsEnabled=%s]"
 argument_list|,
 name|camelContext
 operator|.
@@ -1244,6 +1244,14 @@ name|getStreamCachingStrategy
 argument_list|()
 operator|.
 name|getSpoolDirectory
+argument_list|()
+argument_list|,
+name|camelContext
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|getSpoolChiper
 argument_list|()
 argument_list|,
 name|camelContext
@@ -1259,7 +1267,15 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|getSpoolChiper
+name|getSpoolUsedHeapMemoryThreshold
+argument_list|()
+argument_list|,
+name|camelContext
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|isAnySpoolRules
 argument_list|()
 argument_list|,
 name|camelContext
