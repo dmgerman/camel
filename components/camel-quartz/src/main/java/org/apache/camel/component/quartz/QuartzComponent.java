@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/quartz.html">Quartz Component</a>  *<p/>  * For a brief tutorial on setting cron expression see  *<a href="http://www.opensymphony.com/quartz/wikidocs/CronTriggers%20Tutorial.html">Quartz cron tutorial</a>.  *  * @version   */
+comment|/**  * A<a href="http://camel.apache.org/quartz.html">Quartz Component</a>  *<p/>  * For a brief tutorial on setting cron expression see  *<a href="http://www.opensymphony.com/quartz/wikidocs/CronTriggers%20Tutorial.html">Quartz cron tutorial</a>.  *  * @version  */
 end_comment
 
 begin_class
@@ -1322,7 +1322,22 @@ name|Date
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// replace job, and relate trigger to previous job name, which is needed to reschedule job
+comment|// To ensure trigger uses the same job (the job name might change!) we will remove old trigger then re-add.
+name|scheduler
+operator|.
+name|unscheduleJob
+argument_list|(
+name|trigger
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|trigger
+operator|.
+name|getGroup
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|scheduler
 operator|.
 name|addJob
@@ -1336,26 +1351,26 @@ name|trigger
 operator|.
 name|setJobName
 argument_list|(
-name|existingTrigger
+name|job
 operator|.
-name|getJobName
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|trigger
+operator|.
+name|setJobGroup
+argument_list|(
+name|job
+operator|.
+name|getGroup
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|scheduler
 operator|.
-name|rescheduleJob
+name|scheduleJob
 argument_list|(
-name|trigger
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|trigger
-operator|.
-name|getGroup
-argument_list|()
-argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;
@@ -1396,7 +1411,22 @@ name|Date
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// replace job, and relate trigger to previous job name, which is needed to reschedule job
+comment|// To ensure trigger uses the same job (the job name might change!) we will remove old trigger then re-add.
+name|scheduler
+operator|.
+name|unscheduleJob
+argument_list|(
+name|trigger
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|trigger
+operator|.
+name|getGroup
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|scheduler
 operator|.
 name|addJob
@@ -1410,26 +1440,26 @@ name|trigger
 operator|.
 name|setJobName
 argument_list|(
-name|existingTrigger
+name|job
 operator|.
-name|getJobName
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|trigger
+operator|.
+name|setJobGroup
+argument_list|(
+name|job
+operator|.
+name|getGroup
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|scheduler
 operator|.
-name|rescheduleJob
+name|scheduleJob
 argument_list|(
-name|trigger
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|trigger
-operator|.
-name|getGroup
-argument_list|()
-argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;

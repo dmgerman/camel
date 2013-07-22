@@ -106,6 +106,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|quartz
+operator|.
+name|Trigger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -119,22 +129,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|URISupport
-operator|.
-name|normalizeUri
 import|;
 end_import
 
@@ -176,7 +170,7 @@ specifier|final
 name|long
 name|serialVersionUID
 init|=
-literal|26L
+literal|27L
 decl_stmt|;
 DECL|method|execute (JobExecutionContext context)
 specifier|public
@@ -305,6 +299,14 @@ name|camelContextName
 argument_list|)
 throw|;
 block|}
+name|Trigger
+name|trigger
+init|=
+name|context
+operator|.
+name|getTrigger
+argument_list|()
+decl_stmt|;
 name|QuartzEndpoint
 name|endpoint
 init|=
@@ -313,6 +315,8 @@ argument_list|(
 name|camelContext
 argument_list|,
 name|endpointUri
+argument_list|,
+name|trigger
 argument_list|)
 decl_stmt|;
 if|if
@@ -326,7 +330,7 @@ throw|throw
 operator|new
 name|JobExecutionException
 argument_list|(
-literal|"No QuartzEndpoint could be found with uri: "
+literal|"No QuartzEndpoint could be found with endpointUri: "
 operator|+
 name|endpointUri
 argument_list|)
@@ -340,7 +344,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|lookupQuartzEndpoint (CamelContext camelContext, String endpointUri)
+DECL|method|lookupQuartzEndpoint (CamelContext camelContext, String endpointUri, Trigger trigger)
 specifier|private
 name|QuartzEndpoint
 name|lookupQuartzEndpoint
@@ -350,20 +354,42 @@ name|camelContext
 parameter_list|,
 name|String
 name|endpointUri
+parameter_list|,
+name|Trigger
+name|trigger
 parameter_list|)
 throws|throws
 name|JobExecutionException
 block|{
+name|String
+name|targetTriggerName
+init|=
+name|trigger
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|String
+name|targetTriggerGroup
+init|=
+name|trigger
+operator|.
+name|getGroup
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Looking up existing QuartzEndpoint with trigger {}.{}"
+argument_list|,
+name|targetTriggerName
+argument_list|,
+name|targetTriggerGroup
+argument_list|)
+expr_stmt|;
 try|try
 block|{
-name|String
-name|targetUri
-init|=
-name|normalizeUri
-argument_list|(
-name|endpointUri
-argument_list|)
-decl_stmt|;
 comment|// check all active routes for the quartz endpoint this task matches
 comment|// as we prefer to use the existing endpoint from the routes
 for|for
@@ -387,22 +413,64 @@ operator|instanceof
 name|QuartzEndpoint
 condition|)
 block|{
-if|if
-condition|(
-name|normalizeUri
-argument_list|(
+name|QuartzEndpoint
+name|quartzEndpoint
+init|=
+operator|(
+name|QuartzEndpoint
+operator|)
 name|route
 operator|.
 name|getEndpoint
 argument_list|()
+decl_stmt|;
+name|String
+name|triggerName
+init|=
+name|quartzEndpoint
 operator|.
-name|getEndpointUri
+name|getTrigger
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|String
+name|triggerGroup
+init|=
+name|quartzEndpoint
+operator|.
+name|getTrigger
+argument_list|()
+operator|.
+name|getGroup
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Checking route trigger {}.{}"
+argument_list|,
+name|triggerName
+argument_list|,
+name|triggerGroup
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|triggerName
 operator|.
 name|equals
 argument_list|(
-name|targetUri
+name|targetTriggerName
+argument_list|)
+operator|&&
+name|triggerGroup
+operator|.
+name|equals
+argument_list|(
+name|targetTriggerGroup
 argument_list|)
 condition|)
 block|{
@@ -429,9 +497,9 @@ throw|throw
 operator|new
 name|JobExecutionException
 argument_list|(
-literal|"Error lookup up existing QuartzEndpoint with uri: "
+literal|"Error lookup up existing QuartzEndpoint with trigger: "
 operator|+
-name|endpointUri
+name|trigger
 argument_list|,
 name|e
 argument_list|)
