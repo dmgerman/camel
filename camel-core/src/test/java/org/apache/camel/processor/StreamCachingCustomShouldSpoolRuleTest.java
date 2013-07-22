@@ -121,20 +121,20 @@ import|;
 end_import
 
 begin_class
-DECL|class|StreamCachingCustomShouldSpoolTaskTest
+DECL|class|StreamCachingCustomShouldSpoolRuleTest
 specifier|public
 class|class
-name|StreamCachingCustomShouldSpoolTaskTest
+name|StreamCachingCustomShouldSpoolRuleTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|spoolTask
+DECL|field|spoolRule
 specifier|private
-name|MyCustomShouldSpoolTask
-name|spoolTask
+name|MyCustomSpoolRule
+name|spoolRule
 init|=
 operator|new
-name|MyCustomShouldSpoolTask
+name|MyCustomSpoolRule
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -228,7 +228,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|spoolTask
+name|spoolRule
 operator|.
 name|setSpool
 argument_list|(
@@ -340,9 +340,9 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|addShouldSpoolTask
+name|addSpoolRule
 argument_list|(
-name|spoolTask
+name|spoolRule
 argument_list|)
 expr_stmt|;
 name|context
@@ -350,7 +350,7 @@ operator|.
 name|getStreamCachingStrategy
 argument_list|()
 operator|.
-name|setAnySpoolTasks
+name|setAnySpoolRules
 argument_list|(
 literal|true
 argument_list|)
@@ -430,7 +430,7 @@ block|{
 comment|// check if spool file exists
 if|if
 condition|(
-name|spoolTask
+name|spoolRule
 operator|.
 name|isSpool
 argument_list|()
@@ -469,16 +469,16 @@ block|}
 block|}
 return|;
 block|}
-DECL|class|MyCustomShouldSpoolTask
+DECL|class|MyCustomSpoolRule
 specifier|private
 specifier|static
 specifier|final
 class|class
-name|MyCustomShouldSpoolTask
+name|MyCustomSpoolRule
 implements|implements
 name|StreamCachingStrategy
 operator|.
-name|ShouldSpoolTask
+name|SpoolRule
 block|{
 DECL|field|spool
 specifier|private
@@ -536,7 +536,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"MyCustomShouldSpoolTask"
+literal|"MyCustomSpoolRule"
 return|;
 block|}
 block|}

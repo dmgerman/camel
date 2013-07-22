@@ -255,6 +255,36 @@ name|getSpoolThreshold
 argument_list|()
 return|;
 block|}
+DECL|method|setSpoolUsedHeapMemoryThreshold (int percentage)
+specifier|public
+name|void
+name|setSpoolUsedHeapMemoryThreshold
+parameter_list|(
+name|int
+name|percentage
+parameter_list|)
+block|{
+name|streamCachingStrategy
+operator|.
+name|setSpoolUsedHeapMemoryThreshold
+argument_list|(
+name|percentage
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getSpoolUsedHeapMemoryThreshold ()
+specifier|public
+name|long
+name|getSpoolUsedHeapMemoryThreshold
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getSpoolUsedHeapMemoryThreshold
+argument_list|()
+return|;
+block|}
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void
@@ -315,10 +345,10 @@ name|isRemoveSpoolDirectoryWhenStopping
 argument_list|()
 return|;
 block|}
-DECL|method|setAnySpoolTasks (boolean any)
+DECL|method|setAnySpoolRules (boolean any)
 specifier|public
 name|void
-name|setAnySpoolTasks
+name|setAnySpoolRules
 parameter_list|(
 name|boolean
 name|any
@@ -326,22 +356,22 @@ parameter_list|)
 block|{
 name|streamCachingStrategy
 operator|.
-name|setAnySpoolTasks
+name|setAnySpoolRules
 argument_list|(
 name|any
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|isAnySpoolTasks ()
+DECL|method|isAnySpoolRules ()
 specifier|public
 name|boolean
-name|isAnySpoolTasks
+name|isAnySpoolRules
 parameter_list|()
 block|{
 return|return
 name|streamCachingStrategy
 operator|.
-name|isAnySpoolTasks
+name|isAnySpoolRules
 argument_list|()
 return|;
 block|}

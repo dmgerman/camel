@@ -126,6 +126,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Percentage (1-99) of used heap memory threshold to activate spooling to disk"
+argument_list|)
+DECL|method|setSpoolUsedHeapMemoryThreshold (int percentage)
+name|void
+name|setSpoolUsedHeapMemoryThreshold
+parameter_list|(
+name|int
+name|percentage
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Percentage (1-99) of used heap memory threshold to activate spooling to disk"
+argument_list|)
+DECL|method|getSpoolUsedHeapMemoryThreshold ()
+name|long
+name|getSpoolUsedHeapMemoryThreshold
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Buffer size in bytes to use when coping between buffers"
 argument_list|)
 DECL|method|setBufferSize (int bufferSize)
@@ -180,11 +207,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether any or all should spool tasks determines should spool"
+literal|"Whether any or all spool rules determines whether to spool"
 argument_list|)
-DECL|method|setAnySpoolTasks (boolean any)
+DECL|method|setAnySpoolRules (boolean any)
 name|void
-name|setAnySpoolTasks
+name|setAnySpoolRules
 parameter_list|(
 name|boolean
 name|any
@@ -195,11 +222,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether any or all should spool tasks determines should spool"
+literal|"Whether any or all spool rules determines whether to spool"
 argument_list|)
-DECL|method|isAnySpoolTasks ()
+DECL|method|isAnySpoolRules ()
 name|boolean
-name|isAnySpoolTasks
+name|isAnySpoolRules
 parameter_list|()
 function_decl|;
 annotation|@

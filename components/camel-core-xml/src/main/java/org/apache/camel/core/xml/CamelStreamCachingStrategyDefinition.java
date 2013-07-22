@@ -130,6 +130,13 @@ name|spoolDirectory
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|spoolChiper
+specifier|private
+name|String
+name|spoolChiper
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|spoolThreshold
 specifier|private
 name|String
@@ -137,10 +144,17 @@ name|spoolThreshold
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|spoolChiper
+DECL|field|spoolUsedHeapMemoryThreshold
 specifier|private
 name|String
-name|spoolChiper
+name|spoolUsedHeapMemoryThreshold
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|spoolRules
+specifier|private
+name|String
+name|spoolRules
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -162,6 +176,13 @@ DECL|field|statisticsEnabled
 specifier|private
 name|String
 name|statisticsEnabled
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|anySpoolRules
+specifier|private
+name|String
+name|anySpoolRules
 decl_stmt|;
 DECL|method|getEnabled ()
 specifier|public
@@ -215,6 +236,32 @@ operator|=
 name|spoolDirectory
 expr_stmt|;
 block|}
+DECL|method|getSpoolChiper ()
+specifier|public
+name|String
+name|getSpoolChiper
+parameter_list|()
+block|{
+return|return
+name|spoolChiper
+return|;
+block|}
+DECL|method|setSpoolChiper (String spoolChiper)
+specifier|public
+name|void
+name|setSpoolChiper
+parameter_list|(
+name|String
+name|spoolChiper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|spoolChiper
+operator|=
+name|spoolChiper
+expr_stmt|;
+block|}
 DECL|method|getSpoolThreshold ()
 specifier|public
 name|String
@@ -241,30 +288,56 @@ operator|=
 name|spoolThreshold
 expr_stmt|;
 block|}
-DECL|method|getSpoolChiper ()
+DECL|method|getSpoolUsedHeapMemoryThreshold ()
 specifier|public
 name|String
-name|getSpoolChiper
+name|getSpoolUsedHeapMemoryThreshold
 parameter_list|()
 block|{
 return|return
-name|spoolChiper
+name|spoolUsedHeapMemoryThreshold
 return|;
 block|}
-DECL|method|setSpoolChiper (String spoolChiper)
+DECL|method|setSpoolUsedHeapMemoryThreshold (String spoolUsedHeapMemoryThreshold)
 specifier|public
 name|void
-name|setSpoolChiper
+name|setSpoolUsedHeapMemoryThreshold
 parameter_list|(
 name|String
-name|spoolChiper
+name|spoolUsedHeapMemoryThreshold
 parameter_list|)
 block|{
 name|this
 operator|.
-name|spoolChiper
+name|spoolUsedHeapMemoryThreshold
 operator|=
-name|spoolChiper
+name|spoolUsedHeapMemoryThreshold
+expr_stmt|;
+block|}
+DECL|method|getSpoolRules ()
+specifier|public
+name|String
+name|getSpoolRules
+parameter_list|()
+block|{
+return|return
+name|spoolRules
+return|;
+block|}
+DECL|method|setSpoolRules (String spoolRules)
+specifier|public
+name|void
+name|setSpoolRules
+parameter_list|(
+name|String
+name|spoolRules
+parameter_list|)
+block|{
+name|this
+operator|.
+name|spoolRules
+operator|=
+name|spoolRules
 expr_stmt|;
 block|}
 DECL|method|getBufferSize ()
@@ -343,6 +416,32 @@ operator|.
 name|statisticsEnabled
 operator|=
 name|statisticsEnabled
+expr_stmt|;
+block|}
+DECL|method|getAnySpoolRules ()
+specifier|public
+name|String
+name|getAnySpoolRules
+parameter_list|()
+block|{
+return|return
+name|anySpoolRules
+return|;
+block|}
+DECL|method|setAnySpoolRules (String anySpoolRules)
+specifier|public
+name|void
+name|setAnySpoolRules
+parameter_list|(
+name|String
+name|anySpoolRules
+parameter_list|)
+block|{
+name|this
+operator|.
+name|anySpoolRules
+operator|=
+name|anySpoolRules
 expr_stmt|;
 block|}
 block|}
