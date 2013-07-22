@@ -137,6 +137,21 @@ name|statisticsEnabled
 parameter_list|)
 function_decl|;
 block|}
+comment|/**      * Task for determine if stream caching should be spooled to disk or kept in-memory.      */
+DECL|interface|ShouldSpoolTask
+interface|interface
+name|ShouldSpoolTask
+block|{
+comment|/**          * Determines if the stream should be spooled or not. For example if the stream length is          * over a threshold.          *<p/>          * This allows implementations to use custom strategies to determine if spooling is needed or not.          *          * @param length the length of the stream          * @return<tt>true</tt> to spool the cache, or<tt>false</tt> to keep the cache in-memory          */
+DECL|method|shouldSpoolCache (long length)
+name|boolean
+name|shouldSpoolCache
+parameter_list|(
+name|long
+name|length
+parameter_list|)
+function_decl|;
+block|}
 comment|/**      * Sets whether the stream caching is enabled.      *<p/>      *<b>Notice:</b> This cannot be changed at runtime.      */
 DECL|method|setEnabled (boolean enabled)
 name|void
@@ -187,6 +202,20 @@ name|long
 name|getSpoolThreshold
 parameter_list|()
 function_decl|;
+comment|/**      * Sets a percentage (0-100) of used heap memory threshold to activate spooling to disk.      *      * @param percentage percentage of used heap memory.      */
+DECL|method|setSpoolHeapMemoryWatermarkThreshold (int percentage)
+name|void
+name|setSpoolHeapMemoryWatermarkThreshold
+parameter_list|(
+name|int
+name|percentage
+parameter_list|)
+function_decl|;
+DECL|method|getSpoolHeapMemoryWatermarkThreshold ()
+name|int
+name|getSpoolHeapMemoryWatermarkThreshold
+parameter_list|()
+function_decl|;
 comment|/**      * Sets the buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
 DECL|method|setBufferSize (int bufferSize)
 name|void
@@ -229,11 +258,34 @@ name|boolean
 name|isRemoveSpoolDirectoryWhenStopping
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether if just any of the {@link ShouldSpoolTask}      * returns<tt>true</tt> then {@link #shouldSpoolCache(long)} returns<tt>true</tt>.      * If this option is<tt>false</tt>, then<b>all</b> the {@link ShouldSpoolTask} must      * return<tt>true</tt>.      *<p/>      * The default value is<tt>false</tt>      */
+DECL|method|setAnySpoolTasks (boolean any)
+name|void
+name|setAnySpoolTasks
+parameter_list|(
+name|boolean
+name|any
+parameter_list|)
+function_decl|;
+DECL|method|isAnySpoolTasks ()
+name|boolean
+name|isAnySpoolTasks
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the utilization statistics.      */
 DECL|method|getStatistics ()
 name|Statistics
 name|getStatistics
 parameter_list|()
+function_decl|;
+comment|/**      * Adds the {@link ShouldSpoolTask} to be used.      */
+DECL|method|addShouldSpoolTask (ShouldSpoolTask task)
+name|void
+name|addShouldSpoolTask
+parameter_list|(
+name|ShouldSpoolTask
+name|task
+parameter_list|)
 function_decl|;
 comment|/**      * Determines if the stream should be spooled or not. For example if the stream length is      * over a threshold.      *<p/>      * This allows implementations to use custom strategies to determine if spooling is needed or not.      *      * @param length the length of the stream      * @return<tt>true</tt> to spool the cache, or<tt>false</tt> to keep the cache in-memory      */
 DECL|method|shouldSpoolCache (long length)

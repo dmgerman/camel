@@ -9069,6 +9069,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// log if stream caching is not in use as this can help people to enable it if they use streams
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"StreamCaching is not in use. If using streams then its recommended to enable stream caching."
+operator|+
+literal|" See more details at http://camel.apache.org/stream-caching.html"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// start routes
 if|if
 condition|(

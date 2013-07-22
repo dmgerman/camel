@@ -315,6 +315,36 @@ name|isRemoveSpoolDirectoryWhenStopping
 argument_list|()
 return|;
 block|}
+DECL|method|setAnySpoolTasks (boolean any)
+specifier|public
+name|void
+name|setAnySpoolTasks
+parameter_list|(
+name|boolean
+name|any
+parameter_list|)
+block|{
+name|streamCachingStrategy
+operator|.
+name|setAnySpoolTasks
+argument_list|(
+name|any
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isAnySpoolTasks ()
+specifier|public
+name|boolean
+name|isAnySpoolTasks
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|isAnySpoolTasks
+argument_list|()
+return|;
+block|}
 DECL|method|getCacheMemoryCounter ()
 specifier|public
 name|long

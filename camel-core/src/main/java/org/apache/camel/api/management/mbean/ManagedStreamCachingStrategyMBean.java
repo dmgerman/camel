@@ -180,6 +180,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether any or all should spool tasks determines should spool"
+argument_list|)
+DECL|method|setAnySpoolTasks (boolean any)
+name|void
+name|setAnySpoolTasks
+parameter_list|(
+name|boolean
+name|any
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether any or all should spool tasks determines should spool"
+argument_list|)
+DECL|method|isAnySpoolTasks ()
+name|boolean
+name|isAnySpoolTasks
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Number of in-memory StreamCache created"
 argument_list|)
 DECL|method|getCacheMemoryCounter ()
