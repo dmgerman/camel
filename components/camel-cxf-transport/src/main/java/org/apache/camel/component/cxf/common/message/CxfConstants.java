@@ -313,6 +313,15 @@ name|WSA_HEADERS_OUTBOUND
 init|=
 literal|"javax.xml.ws.addressing.context.outbound"
 decl_stmt|;
+DECL|field|CAMEL_CXF_PROTOCOL_HEADERS_MERGED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CAMEL_CXF_PROTOCOL_HEADERS_MERGED
+init|=
+literal|"CamelCxfProtocolHeadersMerged"
+decl_stmt|;
 DECL|method|CxfConstants ()
 specifier|private
 name|CxfConstants
