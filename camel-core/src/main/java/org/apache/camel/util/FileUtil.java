@@ -1216,6 +1216,13 @@ block|}
 if|if
 condition|(
 name|endsWithSlash
+operator|&&
+name|stack
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|sb
