@@ -200,6 +200,22 @@ name|StringEscapeUtils
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnitUtils
+operator|.
+name|printUnitFromBytes
+import|;
+end_import
+
 begin_comment
 comment|/**  * Command to display detailed information about a Camel context.  */
 end_comment
@@ -1368,6 +1384,8 @@ operator|.
 name|getCacheMemoryCounter
 argument_list|()
 argument_list|,
+name|printUnitFromBytes
+argument_list|(
 name|camelContext
 operator|.
 name|getStreamCachingStrategy
@@ -1378,7 +1396,10 @@ argument_list|()
 operator|.
 name|getCacheMemorySize
 argument_list|()
+argument_list|)
 argument_list|,
+name|printUnitFromBytes
+argument_list|(
 name|camelContext
 operator|.
 name|getStreamCachingStrategy
@@ -1389,6 +1410,7 @@ argument_list|()
 operator|.
 name|getCacheMemoryAverageSize
 argument_list|()
+argument_list|)
 argument_list|,
 name|camelContext
 operator|.
@@ -1401,6 +1423,8 @@ operator|.
 name|getCacheSpoolCounter
 argument_list|()
 argument_list|,
+name|printUnitFromBytes
+argument_list|(
 name|camelContext
 operator|.
 name|getStreamCachingStrategy
@@ -1411,7 +1435,10 @@ argument_list|()
 operator|.
 name|getCacheSpoolSize
 argument_list|()
+argument_list|)
 argument_list|,
+name|printUnitFromBytes
+argument_list|(
 name|camelContext
 operator|.
 name|getStreamCachingStrategy
@@ -1422,6 +1449,7 @@ argument_list|()
 operator|.
 name|getCacheSpoolAverageSize
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
