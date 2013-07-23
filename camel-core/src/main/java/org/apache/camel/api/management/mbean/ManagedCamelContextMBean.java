@@ -189,6 +189,42 @@ argument_list|>
 name|getProperties
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"ClassResolver class name"
+argument_list|)
+DECL|method|getClassResolver ()
+name|String
+name|getClassResolver
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"PackageScanClassResolver class name"
+argument_list|)
+DECL|method|getPackageScanClassResolver ()
+name|String
+name|getPackageScanClassResolver
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"ApplicationContext class name"
+argument_list|)
+DECL|method|getApplicationContextClassName ()
+name|String
+name|getApplicationContextClassName
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the value of a CamelContext property name      *      * @param name the name of the property      * @return String the value of the property      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation
