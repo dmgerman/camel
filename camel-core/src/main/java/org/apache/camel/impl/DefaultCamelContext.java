@@ -8470,6 +8470,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Using ClassResolver {}"
+argument_list|,
+name|getClassResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|isStreamCaching
@@ -8480,8 +8490,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"StreamCaching is enabled on CamelContext: "
-operator|+
+literal|"StreamCaching is enabled on CamelContext: {}"
+argument_list|,
 name|getName
 argument_list|()
 argument_list|)
@@ -8498,8 +8508,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Tracing is enabled on CamelContext: "
-operator|+
+literal|"Tracing is enabled on CamelContext: {}"
+argument_list|,
 name|getName
 argument_list|()
 argument_list|)
@@ -8516,8 +8526,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"MDC logging is enabled on CamelContext: "
-operator|+
+literal|"MDC logging is enabled on CamelContext: {}"
+argument_list|,
 name|getName
 argument_list|()
 argument_list|)
@@ -8546,8 +8556,8 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"HandleFault is enabled on CamelContext: "
-operator|+
+literal|"HandleFault is enabled on CamelContext: {}"
+argument_list|,
 name|getName
 argument_list|()
 argument_list|)
@@ -8597,12 +8607,10 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Delayer is enabled with: "
-operator|+
+literal|"Delayer is enabled with: {} ms. on CamelContext: {}"
+argument_list|,
 name|millis
-operator|+
-literal|" ms. on CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
 argument_list|)
@@ -8631,13 +8639,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Debugger: "
-operator|+
+literal|"Debugger: {} is enabled on CamelContext: {}"
+argument_list|,
 name|getDebugger
 argument_list|()
-operator|+
-literal|" is enabled on CamelContext: "
-operator|+
+argument_list|,
 name|getName
 argument_list|()
 argument_list|)
