@@ -281,6 +281,7 @@ expr_stmt|;
 block|}
 DECL|class|MyInputStream
 specifier|private
+specifier|final
 class|class
 name|MyInputStream
 extends|extends
