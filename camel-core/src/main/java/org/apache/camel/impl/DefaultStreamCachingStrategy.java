@@ -696,6 +696,15 @@ name|all
 operator|=
 literal|false
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|anySpoolRules
+condition|)
+block|{
+comment|// no need to check anymore
+break|break;
+block|}
 block|}
 else|else
 block|{
@@ -713,12 +722,28 @@ break|break;
 block|}
 block|}
 block|}
-return|return
+name|boolean
+name|answer
+init|=
 name|anySpoolRules
 condition|?
 name|any
 else|:
 name|all
+decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Should spool cache {} -> {}"
+argument_list|,
+name|length
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|addSpoolRule (SpoolRule rule)
@@ -1584,7 +1609,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Should spool cache {}> {} -> true"
+literal|"Should spool cache fixed threshold {}> {} -> true"
 argument_list|,
 name|length
 argument_list|,
@@ -1681,7 +1706,8 @@ operator|>
 literal|0
 condition|)
 block|{
-name|long
+comment|// must use double to calculate with decimals for the percentage
+name|double
 name|used
 init|=
 name|heapUsage
@@ -1692,7 +1718,7 @@ operator|.
 name|getUsed
 argument_list|()
 decl_stmt|;
-name|long
+name|double
 name|committed
 init|=
 name|heapUsage
@@ -1703,41 +1729,82 @@ operator|.
 name|getCommitted
 argument_list|()
 decl_stmt|;
-name|long
-name|percentage
+name|double
+name|calc
 init|=
-name|committed
-operator|/
+operator|(
 name|used
+operator|/
+name|committed
+operator|)
 operator|*
 literal|100
+decl_stmt|;
+name|int
+name|percentage
+init|=
+operator|(
+name|int
+operator|)
+name|calc
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|long
+name|u
+init|=
+name|heapUsage
+operator|.
+name|getHeapMemoryUsage
+argument_list|()
+operator|.
+name|getUsed
+argument_list|()
+decl_stmt|;
+name|long
+name|c
+init|=
+name|heapUsage
+operator|.
+name|getHeapMemoryUsage
+argument_list|()
+operator|.
+name|getCommitted
+argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Heap memory: [used=%sK (%sK\\%), committed=%sK]"
+literal|"Heap memory: [used={}M ({}%), committed={}M]"
 argument_list|,
 operator|new
 name|Object
 index|[]
 block|{
-name|used
+name|u
 operator|>>
-literal|10
+literal|20
 block|,
 name|percentage
 block|,
-name|committed
+name|c
 operator|>>
-literal|10
+literal|20
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|percentage
-operator|>=
+operator|>
 name|spoolUsedHeapMemoryThreshold
 condition|)
 block|{
@@ -1745,7 +1812,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Should spool cache {}> {} -> true"
+literal|"Should spool cache heap memory threshold {}> {} -> true"
 argument_list|,
 name|percentage
 argument_list|,
