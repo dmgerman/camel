@@ -40,6 +40,20 @@ name|ContextTestSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+import|;
+end_import
+
 begin_class
 DECL|class|GenericFileMessageTest
 specifier|public
@@ -123,6 +137,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|FileUtil
+operator|.
+name|isWindows
+argument_list|()
+condition|?
+literal|"target\\test.txt"
+else|:
 literal|"target/test.txt"
 argument_list|,
 name|message
