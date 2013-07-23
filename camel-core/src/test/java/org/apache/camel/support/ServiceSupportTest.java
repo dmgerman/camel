@@ -371,6 +371,17 @@ operator|new
 name|ServiceSupportTestExOnStart
 argument_list|()
 decl_stmt|;
+comment|// forced not being stopped at start
+name|assertEquals
+argument_list|(
+literal|false
+argument_list|,
+name|service
+operator|.
+name|isStopped
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|service
@@ -440,6 +451,20 @@ name|ServiceSupportTestExOnStart
 extends|extends
 name|ServiceSupport
 block|{
+DECL|method|ServiceSupportTestExOnStart ()
+specifier|public
+name|ServiceSupportTestExOnStart
+parameter_list|()
+block|{
+comment|// just for testing force it to not be stopped
+name|stopped
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
