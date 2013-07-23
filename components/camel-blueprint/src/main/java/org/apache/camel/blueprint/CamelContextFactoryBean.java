@@ -2149,6 +2149,10 @@ literal|"EventAdmin package is not available, just don't use it"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// ensure routes is setup
+name|setupRoutes
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getDependsOn ()
 specifier|public

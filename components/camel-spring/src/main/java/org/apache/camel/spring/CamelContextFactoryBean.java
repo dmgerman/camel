@@ -2224,6 +2224,35 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we need to defer setting up routes until Spring has done all its dependency injection
+comment|// which is only guaranteed to be done when it emits the ContextRefreshedEvent event.
+if|if
+condition|(
+name|event
+operator|instanceof
+name|ContextRefreshedEvent
+condition|)
+block|{
+try|try
+block|{
+name|setupRoutes
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 comment|// let the spring camel context handle the events
 name|context
 operator|.
@@ -2255,6 +2284,11 @@ comment|// now lets start the CamelContext so that all its possible
 comment|// dependencies are initialized
 try|try
 block|{
+comment|// we need to defer setting up routes until Spring has done all its dependency injection
+comment|// which is only guaranteed to be done when it emits the ContextRefreshedEvent event.
+name|setupRoutes
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|trace

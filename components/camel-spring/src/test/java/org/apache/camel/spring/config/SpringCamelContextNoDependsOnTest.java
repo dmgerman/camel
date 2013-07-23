@@ -118,7 +118,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// in this example CamelContext is created first, then route builder, and then the depends on bean is last
+comment|// in this example the depends on bean is created first, and then the route builder, and CamelContext is started last.
 name|long
 name|time1
 init|=
@@ -161,11 +161,11 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"myDependsOnBean should NOT be created before myRouteBuilder"
+literal|"myDependsOnBean should be created before myRouteBuilder"
 argument_list|,
-name|time1
-operator|>
 name|time2
+operator|>
+name|time1
 argument_list|)
 expr_stmt|;
 block|}

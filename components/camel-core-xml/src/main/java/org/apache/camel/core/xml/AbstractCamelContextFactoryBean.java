@@ -92,6 +92,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -1065,6 +1079,18 @@ specifier|private
 name|ClassLoader
 name|contextClassLoaderOnStart
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|routesSetupDone
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|routesSetupDone
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 DECL|method|AbstractCamelContextFactoryBean ()
 specifier|public
 name|AbstractCamelContextFactoryBean
@@ -1994,6 +2020,35 @@ comment|// init stream caching strategy
 name|initStreamCachingStrategy
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Setup all the routes which must be done prior starting {@link CamelContext}.      */
+DECL|method|setupRoutes ()
+specifier|protected
+name|void
+name|setupRoutes
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|routesSetupDone
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Setting up routes"
+argument_list|)
+expr_stmt|;
 comment|// must init route refs before we prepare the routes below
 name|initRouteRefs
 argument_list|()
@@ -2030,6 +2085,7 @@ expr_stmt|;
 name|installRoutes
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Do special preparation for some concepts such as interceptors and policies      * this is needed as JAXB does not build exactly the same model definition as Spring DSL would do      * using route builders. So we have here a little custom code to fix the JAXB gaps      */
 DECL|method|prepareRoutes ()
@@ -3354,6 +3410,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|routesSetupDone
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|getContext
 argument_list|()
 operator|.

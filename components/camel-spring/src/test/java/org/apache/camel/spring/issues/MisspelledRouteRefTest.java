@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|Main
@@ -143,23 +155,25 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Get a wrong exception name"
-argument_list|,
+name|CamelException
+name|cause
+init|=
+operator|(
+name|CamelException
+operator|)
 name|e
+operator|.
+name|getCause
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Cannot find any routes with this RouteBuilder reference: RouteBuilderRef[xxxroute]"
+argument_list|,
+name|cause
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|indexOf
-argument_list|(
-literal|"nested exception is org.apache.camel.CamelException: "
-operator|+
-literal|"Cannot find any routes with this RouteBuilder reference: RouteBuilderRef[xxxroute]"
-argument_list|)
-operator|>
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

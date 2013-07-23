@@ -137,9 +137,6 @@ name|e
 operator|.
 name|getCause
 argument_list|()
-operator|.
-name|getCause
-argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
