@@ -84,18 +84,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadPoolExecutor
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|rabbitmq
@@ -887,14 +875,11 @@ expr_stmt|;
 block|}
 DECL|method|createExecutor ()
 specifier|public
-name|ThreadPoolExecutor
+name|ExecutorService
 name|createExecutor
 parameter_list|()
 block|{
 return|return
-operator|(
-name|ThreadPoolExecutor
-operator|)
 name|Executors
 operator|.
 name|newFixedThreadPool

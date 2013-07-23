@@ -354,9 +354,6 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-operator|(
-name|ThreadPoolExecutor
-operator|)
 name|Executors
 operator|.
 name|newFixedThreadPool
