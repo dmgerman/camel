@@ -144,7 +144,7 @@ operator|=
 literal|"Percentage (1-99) of used heap memory threshold to activate spooling to disk"
 argument_list|)
 DECL|method|getSpoolUsedHeapMemoryThreshold ()
-name|long
+name|int
 name|getSpoolUsedHeapMemoryThreshold
 parameter_list|()
 function_decl|;

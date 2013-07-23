@@ -274,7 +274,7 @@ expr_stmt|;
 block|}
 DECL|method|getSpoolUsedHeapMemoryThreshold ()
 specifier|public
-name|long
+name|int
 name|getSpoolUsedHeapMemoryThreshold
 parameter_list|()
 block|{
