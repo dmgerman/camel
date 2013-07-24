@@ -46,7 +46,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|StaticService
 import|;
 end_import
 
@@ -72,7 +72,7 @@ specifier|public
 interface|interface
 name|StreamCachingStrategy
 extends|extends
-name|Service
+name|StaticService
 block|{
 comment|/**      * Utilization statistics of stream caching.      */
 DECL|interface|Statistics

@@ -104,6 +104,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StaticService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TimerListener
 import|;
 end_import
@@ -157,6 +169,8 @@ implements|implements
 name|Runnable
 implements|,
 name|CamelContextAware
+implements|,
+name|StaticService
 block|{
 DECL|field|LOG
 specifier|private

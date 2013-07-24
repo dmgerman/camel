@@ -151,6 +151,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether this service is static"
+argument_list|)
+DECL|method|isStaticService ()
+name|boolean
+name|isStaticService
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Whether this service is suspended"
 argument_list|)
 DECL|method|isSuspended ()

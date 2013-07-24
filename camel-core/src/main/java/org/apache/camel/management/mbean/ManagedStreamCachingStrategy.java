@@ -151,12 +151,6 @@ name|streamCachingStrategy
 operator|=
 name|streamCachingStrategy
 expr_stmt|;
-name|this
-operator|.
-name|single
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|init (ManagementStrategy strategy)
 specifier|public

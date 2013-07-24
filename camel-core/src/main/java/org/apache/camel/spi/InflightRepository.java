@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|StaticService
 import|;
 end_import
 
@@ -62,7 +62,7 @@ specifier|public
 interface|interface
 name|InflightRepository
 extends|extends
-name|Service
+name|StaticService
 block|{
 comment|/**      * Adds the exchange to the inflight registry to the total counter      *      * @param exchange  the exchange      */
 DECL|method|add (Exchange exchange)

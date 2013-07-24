@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StaticService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -188,11 +200,6 @@ specifier|private
 name|Route
 name|route
 decl_stmt|;
-DECL|field|single
-specifier|protected
-name|boolean
-name|single
-decl_stmt|;
 DECL|method|ManagedService (CamelContext context, Service service)
 specifier|public
 name|ManagedService
@@ -228,14 +235,16 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
-DECL|method|isSingle ()
+DECL|method|isStaticService ()
 specifier|public
 name|boolean
-name|isSingle
+name|isStaticService
 parameter_list|()
 block|{
 return|return
-name|single
+name|service
+operator|instanceof
+name|StaticService
 return|;
 block|}
 DECL|method|getService ()

@@ -28,6 +28,18 @@ name|ShutdownableService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
 begin_comment
 comment|/**  * A shared {@link org.apache.camel.impl.DefaultProducerServicePool} which is used by  * {@link org.apache.camel.CamelContext} by default.  *  * @version   */
 end_comment
@@ -41,6 +53,8 @@ extends|extends
 name|DefaultProducerServicePool
 implements|implements
 name|ShutdownableService
+implements|,
+name|StaticService
 block|{
 DECL|method|SharedProducerServicePool ()
 specifier|public

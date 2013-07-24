@@ -24,7 +24,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|StaticService
 import|;
 end_import
 
@@ -50,7 +50,7 @@ specifier|public
 interface|interface
 name|TypeConverterRegistry
 extends|extends
-name|Service
+name|StaticService
 block|{
 comment|/**      * Utilization statistics of the this registry.      */
 DECL|interface|Statistics

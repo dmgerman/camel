@@ -58,7 +58,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|StaticService
 import|;
 end_import
 
@@ -121,7 +121,7 @@ argument_list|,
 name|Endpoint
 argument_list|>
 implements|implements
-name|Service
+name|StaticService
 block|{
 DECL|field|serialVersionUID
 specifier|private

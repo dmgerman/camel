@@ -178,6 +178,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StaticService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ThreadPoolRejectedPolicy
 import|;
 end_import
@@ -2670,6 +2682,27 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|source
+operator|instanceof
+name|StaticService
+condition|)
+block|{
+comment|// the source is static service so its name would be unique
+name|id
+operator|=
+name|source
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// fallback and use the simple class name with hashcode for the id so its unique for this given source
 name|id
 operator|=
@@ -2692,6 +2725,7 @@ argument_list|)
 operator|+
 literal|")"
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

@@ -62,6 +62,18 @@ name|ShutdownableService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Strategy to create thread pools.  *<p/>  * This manager is pluggable so you can plugin a custom provider, for example if you want to leverage  * the WorkManager for a JEE server.  *<p/>  * You may want to just implement a custom {@link ThreadPoolFactory} and rely on the  * {@link org.apache.camel.impl.DefaultExecutorServiceManager}, if that is sufficient. The {@link ThreadPoolFactory}  * is always used for creating the actual thread pools. You can implement a custom {@link ThreadPoolFactory}  * to leverage the WorkManager for a JEE server.  *<p/>  * The {@link ThreadPoolFactory} has pure JDK API, where as this {@link ExecutorServiceManager} has Camel API  * concepts such as {@link ThreadPoolProfile}. Therefore it may be easier to only implement a custom  * {@link ThreadPoolFactory}.  *<p/>  * This manager has fine grained methods for creating various thread pools, however custom strategies  * do not have to exactly create those kind of pools. Feel free to return a shared or different kind of pool.  *<p/>  * If you use the<tt>newXXX</tt> methods to create thread pools, then Camel will by default take care of  * shutting down those created pools when {@link org.apache.camel.CamelContext} is shutting down.  *<p/>  * For more information about shutting down thread pools see the {@link #shutdown(java.util.concurrent.ExecutorService)}  * and {@link #shutdownNow(java.util.concurrent.ExecutorService)}, and {@link #getShutdownAwaitTermination()} methods.  * Notice the details about using a graceful shutdown at fist, and then falling back to aggressive shutdown in case  * of await termination timeout occurred.  *  * @see ThreadPoolFactory  */
 end_comment
@@ -73,6 +85,8 @@ interface|interface
 name|ExecutorServiceManager
 extends|extends
 name|ShutdownableService
+extends|,
+name|StaticService
 block|{
 comment|/**      * Gets the {@link ThreadPoolFactory} to use for creating the thread pools.      *      * @return the thread pool factory      */
 DECL|method|getThreadPoolFactory ()

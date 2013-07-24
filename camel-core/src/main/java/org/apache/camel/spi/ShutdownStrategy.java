@@ -62,6 +62,18 @@ name|Service
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Pluggable shutdown strategy executed during shutdown of routes.  *<p/>  * Shutting down routes in a reliable and graceful manner is not a trivial task. Therefore Camel provides a pluggable  * strategy allowing 3rd party to use their own strategy if needed.  *<p/>  * The key problem is to stop the input consumers for the routes such that no new messages is coming into Camel.  * But at the same time still keep the routes running so the existing in flight exchanges can still be run to  * completion. On top of that there are some in memory components (such as SEDA) which may have pending messages  * on its in memory queue which we want to run to completion as well, otherwise they will get lost.  *<p/>  * Camel provides a default strategy which supports all that that can be used as inspiration for your own strategy.  *  * @version   * @see org.apache.camel.spi.ShutdownAware  */
 end_comment
@@ -72,7 +84,7 @@ specifier|public
 interface|interface
 name|ShutdownStrategy
 extends|extends
-name|Service
+name|StaticService
 block|{
 comment|/**      * Shutdown the routes, forcing shutdown being more aggressive, if timeout occurred.      *<p/>      * This operation is used when {@link CamelContext} is shutting down, to ensure Camel will shutdown      * if messages seems to be<i>stuck</i>.      *      * @param context   the camel context      * @param routes    the routes, ordered by the order they was started      * @throws Exception is thrown if error shutting down the consumers, however its preferred to avoid this      */
 DECL|method|shutdownForced (CamelContext context, List<RouteStartupOrder> routes)

@@ -318,19 +318,6 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectNameForSingleService (CamelContext context, Service service)
-name|ObjectName
-name|getObjectNameForSingleService
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|Service
-name|service
-parameter_list|)
-throws|throws
-name|MalformedObjectNameException
-function_decl|;
 DECL|method|getObjectNameForThreadPool (CamelContext context, ThreadPoolExecutor threadPool, String id, String sourceId)
 name|ObjectName
 name|getObjectNameForThreadPool
