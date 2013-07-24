@@ -401,6 +401,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// load from classpath by default
+name|String
+name|resolvedName
+init|=
+name|resolveUriPath
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
 name|InputStream
 name|is
 init|=
@@ -408,7 +416,7 @@ name|classResolver
 operator|.
 name|loadResourceAsStream
 argument_list|(
-name|uri
+name|resolvedName
 argument_list|)
 decl_stmt|;
 if|if
@@ -708,6 +716,29 @@ return|return
 name|uri
 return|;
 block|}
+block|}
+comment|/**      * Helper operation used to remove relative path notation from      * resources.  Most critical for resources on the Classpath      * as resource loaders will not resolve the relative paths correctly.      *      * @param name the name of the resource to load      * @return the modified or unmodified string if there were no changes      */
+DECL|method|resolveUriPath (String name)
+specifier|private
+specifier|static
+name|String
+name|resolveUriPath
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+comment|// compact the path and use / as separator as that's used for loading resources on the classpath
+return|return
+name|FileUtil
+operator|.
+name|compactPath
+argument_list|(
+name|name
+argument_list|,
+literal|'/'
+argument_list|)
+return|;
 block|}
 block|}
 end_class
