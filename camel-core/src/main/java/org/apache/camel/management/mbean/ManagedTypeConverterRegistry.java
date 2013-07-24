@@ -129,6 +129,12 @@ name|registry
 operator|=
 name|registry
 expr_stmt|;
+name|this
+operator|.
+name|single
+operator|=
+literal|true
+expr_stmt|;
 block|}
 DECL|method|getRegistry ()
 specifier|public

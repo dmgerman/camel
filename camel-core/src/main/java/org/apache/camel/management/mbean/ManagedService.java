@@ -188,6 +188,11 @@ specifier|private
 name|Route
 name|route
 decl_stmt|;
+DECL|field|single
+specifier|protected
+name|boolean
+name|single
+decl_stmt|;
 DECL|method|ManagedService (CamelContext context, Service service)
 specifier|public
 name|ManagedService
@@ -222,6 +227,16 @@ name|strategy
 parameter_list|)
 block|{
 comment|// do nothing
+block|}
+DECL|method|isSingle ()
+specifier|public
+name|boolean
+name|isSingle
+parameter_list|()
+block|{
+return|return
+name|single
+return|;
 block|}
 DECL|method|getService ()
 specifier|public
