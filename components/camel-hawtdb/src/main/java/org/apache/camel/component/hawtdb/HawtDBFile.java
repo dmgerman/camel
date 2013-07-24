@@ -511,6 +511,8 @@ argument_list|()
 return|;
 block|}
 block|}
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -581,6 +583,33 @@ argument_list|>
 name|work
 parameter_list|)
 block|{
+return|return
+name|execute
+argument_list|(
+name|work
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+DECL|method|execute (Work<T> work, boolean rollbackOnOptimisticUpdateException)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|execute
+parameter_list|(
+name|Work
+argument_list|<
+name|T
+argument_list|>
+name|work
+parameter_list|,
+name|boolean
+name|rollbackOnOptimisticUpdateException
+parameter_list|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -608,6 +637,8 @@ argument_list|,
 name|tx
 argument_list|,
 name|pageFile
+argument_list|,
+name|rollbackOnOptimisticUpdateException
 argument_list|)
 decl_stmt|;
 name|LOG
@@ -783,7 +814,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|doExecute (Work<T> work, Transaction tx, TxPageFile page)
+DECL|method|doExecute (Work<T> work, Transaction tx, TxPageFile page, boolean handleOptimisticLockingException)
 specifier|private
 specifier|static
 parameter_list|<
@@ -803,6 +834,9 @@ name|tx
 parameter_list|,
 name|TxPageFile
 name|page
+parameter_list|,
+name|boolean
+name|handleOptimisticLockingException
 parameter_list|)
 block|{
 name|T
@@ -899,6 +933,11 @@ name|OptimisticUpdateException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|handleOptimisticLockingException
+condition|)
+block|{
 comment|// retry as we hit an optimistic update error
 name|LOG
 operator|.
@@ -921,6 +960,19 @@ operator|.
 name|rollback
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we must rollback and rethrow
+name|tx
+operator|.
+name|rollback
+argument_list|()
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
