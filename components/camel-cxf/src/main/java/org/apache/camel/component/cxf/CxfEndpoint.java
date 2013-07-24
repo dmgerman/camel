@@ -1268,6 +1268,11 @@ specifier|private
 name|boolean
 name|skipFaultLogging
 decl_stmt|;
+DECL|field|mergeProtocolHeaders
+specifier|private
+name|boolean
+name|mergeProtocolHeaders
+decl_stmt|;
 DECL|field|properties
 specifier|private
 name|Map
@@ -5718,6 +5723,32 @@ operator|.
 name|skipFaultLogging
 operator|=
 name|skipFaultLogging
+expr_stmt|;
+block|}
+DECL|method|getMergeProtocolHeaders ()
+specifier|public
+name|Boolean
+name|getMergeProtocolHeaders
+parameter_list|()
+block|{
+return|return
+name|mergeProtocolHeaders
+return|;
+block|}
+DECL|method|setMergeProtocolHeaders (boolean mergeProtocolHeaders)
+specifier|public
+name|void
+name|setMergeProtocolHeaders
+parameter_list|(
+name|boolean
+name|mergeProtocolHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mergeProtocolHeaders
+operator|=
+name|mergeProtocolHeaders
 expr_stmt|;
 block|}
 DECL|method|setBindingConfig (BindingConfiguration bindingConfig)
