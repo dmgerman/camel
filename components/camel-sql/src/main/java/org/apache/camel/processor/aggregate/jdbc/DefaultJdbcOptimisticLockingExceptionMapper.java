@@ -168,7 +168,7 @@ init|=
 operator|(
 name|SQLException
 operator|)
-name|it
+name|throwable
 decl_stmt|;
 if|if
 condition|(
