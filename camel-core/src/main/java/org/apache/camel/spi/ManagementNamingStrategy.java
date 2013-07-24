@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NamedNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -153,20 +165,6 @@ operator|.
 name|camel
 operator|.
 name|Service
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|ProcessorDefinition
 import|;
 end_import
 
@@ -242,7 +240,7 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
-DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, ProcessorDefinition<?> definition)
+DECL|method|getObjectNameForProcessor (CamelContext context, Processor processor, NamedNode definition)
 name|ObjectName
 name|getObjectNameForProcessor
 parameter_list|(
@@ -252,10 +250,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|NamedNode
 name|definition
 parameter_list|)
 throws|throws
