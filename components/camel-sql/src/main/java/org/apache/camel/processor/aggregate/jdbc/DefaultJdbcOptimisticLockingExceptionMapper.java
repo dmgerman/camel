@@ -146,10 +146,18 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|Throwable
+name|throwable
+init|=
+name|it
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
 comment|// if its a SQL exception
 if|if
 condition|(
-name|it
+name|throwable
 operator|instanceof
 name|SQLException
 condition|)
@@ -177,7 +185,7 @@ block|}
 block|}
 if|if
 condition|(
-name|it
+name|throwable
 operator|instanceof
 name|DataIntegrityViolationException
 condition|)
@@ -190,10 +198,7 @@ comment|// fallback to names
 name|String
 name|name
 init|=
-name|it
-operator|.
-name|next
-argument_list|()
+name|throwable
 operator|.
 name|getClass
 argument_list|()
