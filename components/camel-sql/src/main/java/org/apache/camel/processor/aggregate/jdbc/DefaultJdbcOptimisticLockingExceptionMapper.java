@@ -24,6 +24,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|sql
+operator|.
+name|SQLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Iterator
@@ -64,8 +74,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|dao
+operator|.
+name|DataIntegrityViolationException
+import|;
+end_import
+
 begin_comment
-comment|/**  * A default {@link JdbcOptimisticLockingExceptionMapper} which checks the caused exception (and its nested)  * whether any of them has<tt>ConstraintViolation</tt> in the class name. If there is such a class name  * then {@link #isOptimisticLocking(Exception)} returns<tt>true</tt>.  *<p/>  * In addition you can add FQN classnames using the {@link #addClassName(String)} or {@link #setClassNames(java.util.Set)}  * methods. These class names is also matched. This allows to add vendor specific exception classes.  */
+comment|/**  * A default {@link JdbcOptimisticLockingExceptionMapper} which checks the caused exception (and its nested)  * whether any of them is a constraint violation exception.  *<p/>  * The following check is done:  *<ul>  *<li>If the caused exception is an {@link SQLException}</li> then the SQLState is checked if starts with<tt>23</tt>.  *<li>If the caused exception is a {@link DataIntegrityViolationException}</li>  *<li>If the caused exception class name has<tt>ConstraintViolation</tt></li> in its name.  *<li>optional checking for FQN class name matches if any class names has been configured</li>  *</ul>  * In addition you can add FQN classnames using the {@link #addClassName(String)} or {@link #setClassNames(java.util.Set)}  * methods. These class names is also matched. This allows to add vendor specific exception classes.  */
 end_comment
 
 begin_class
@@ -124,6 +146,47 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+comment|// if its a SQL exception
+if|if
+condition|(
+name|it
+operator|instanceof
+name|SQLException
+condition|)
+block|{
+name|SQLException
+name|se
+init|=
+operator|(
+name|SQLException
+operator|)
+name|it
+decl_stmt|;
+if|if
+condition|(
+name|isConstraintViolation
+argument_list|(
+name|se
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+if|if
+condition|(
+name|it
+operator|instanceof
+name|DataIntegrityViolationException
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// fallback to names
 name|String
 name|name
 init|=
@@ -160,6 +223,28 @@ block|}
 block|}
 return|return
 literal|false
+return|;
+block|}
+DECL|method|isConstraintViolation (SQLException e)
+specifier|public
+specifier|static
+name|boolean
+name|isConstraintViolation
+parameter_list|(
+name|SQLException
+name|e
+parameter_list|)
+block|{
+return|return
+name|e
+operator|.
+name|getSQLState
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"23"
+argument_list|)
 return|;
 block|}
 DECL|method|hasClassName (String name)
