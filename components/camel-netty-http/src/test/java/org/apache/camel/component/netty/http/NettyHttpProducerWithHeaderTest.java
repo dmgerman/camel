@@ -66,10 +66,10 @@ name|BaseNettyTest
 block|{
 annotation|@
 name|Test
-DECL|method|testHttpSimple ()
+DECL|method|testHttpSimpleGet ()
 specifier|public
 name|void
-name|testHttpSimple
+name|testHttpSimpleGet
 parameter_list|()
 throws|throws
 name|Exception
@@ -88,43 +88,6 @@ argument_list|,
 literal|"GET"
 argument_list|)
 expr_stmt|;
-name|String
-name|out
-init|=
-name|template
-operator|.
-name|requestBody
-argument_list|(
-literal|"netty-http:http://localhost:{{port}}/foo"
-argument_list|,
-literal|null
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Bye World"
-argument_list|,
-name|out
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testHttpSimpleHeader ()
-specifier|public
-name|void
-name|testHttpSimpleHeader
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 name|getMockEndpoint
 argument_list|(
 literal|"mock:input"
@@ -132,11 +95,9 @@ argument_list|)
 operator|.
 name|expectedHeaderReceived
 argument_list|(
-name|Exchange
-operator|.
-name|HTTP_METHOD
+literal|"myTraceId"
 argument_list|,
-literal|"GET"
+literal|"mockCorrelationID"
 argument_list|)
 expr_stmt|;
 name|String
@@ -150,11 +111,9 @@ literal|"netty-http:http://localhost:{{port}}/foo"
 argument_list|,
 literal|null
 argument_list|,
-name|Exchange
-operator|.
-name|HTTP_METHOD
+literal|"myTraceId"
 argument_list|,
-literal|"GET"
+literal|"mockCorrelationID"
 argument_list|,
 name|String
 operator|.
@@ -174,15 +133,40 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testHttpSimpleHeaderAndBody ()
+DECL|method|testHttpSimplePost ()
 specifier|public
 name|void
-name|testHttpSimpleHeaderAndBody
+name|testHttpSimplePost
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// even if we have a body we force it to be GET
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_METHOD
+argument_list|,
+literal|"POST"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"myTraceId"
+argument_list|,
+literal|"mockCorrelationID"
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:input"
@@ -193,20 +177,6 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:input"
-argument_list|)
-operator|.
-name|expectedHeaderReceived
-argument_list|(
-name|Exchange
-operator|.
-name|HTTP_METHOD
-argument_list|,
-literal|"GET"
-argument_list|)
-expr_stmt|;
 name|String
 name|out
 init|=
@@ -218,11 +188,9 @@ literal|"netty-http:http://localhost:{{port}}/foo"
 argument_list|,
 literal|"Hello World"
 argument_list|,
-name|Exchange
-operator|.
-name|HTTP_METHOD
+literal|"myTraceId"
 argument_list|,
-literal|"GET"
+literal|"mockCorrelationID"
 argument_list|,
 name|String
 operator|.
