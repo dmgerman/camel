@@ -150,6 +150,26 @@ name|ClassResolver
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper class for loading resources on the classpath or file system.  */
 end_comment
@@ -161,6 +181,23 @@ specifier|final
 class|class
 name|ResourceHelper
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+specifier|transient
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ResourceHelper
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|ResourceHelper ()
 specifier|private
 name|ResourceHelper
@@ -294,6 +331,15 @@ argument_list|,
 literal|"file:"
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading resource: {} from file system"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|FileInputStream
@@ -322,6 +368,15 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading resource: {} from HTTP"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 name|URLConnection
 name|con
 init|=
@@ -409,6 +464,15 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading resource: {} from classpath"
+argument_list|,
+name|resolvedName
+argument_list|)
+expr_stmt|;
 name|InputStream
 name|is
 init|=
@@ -430,7 +494,11 @@ throw|throw
 operator|new
 name|FileNotFoundException
 argument_list|(
-literal|"Cannot find resource in classpath for URI: "
+literal|"Cannot find resource: "
+operator|+
+name|resolvedName
+operator|+
+literal|" in classpath for URI: "
 operator|+
 name|uri
 argument_list|)
@@ -484,6 +552,15 @@ argument_list|,
 literal|"file:"
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading resource: {} from file system"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 name|File
 name|file
 init|=
@@ -533,6 +610,15 @@ literal|"http:"
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading resource: {} from HTTP"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|URL
@@ -565,6 +651,23 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// load from classpath by default
+name|String
+name|resolvedName
+init|=
+name|resolveUriPath
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Loading resource: {} from classpath"
+argument_list|,
+name|resolvedName
+argument_list|)
+expr_stmt|;
 name|URL
 name|url
 init|=
@@ -572,7 +675,7 @@ name|classResolver
 operator|.
 name|loadResourceAsURL
 argument_list|(
-name|uri
+name|resolvedName
 argument_list|)
 decl_stmt|;
 if|if
@@ -586,7 +689,11 @@ throw|throw
 operator|new
 name|FileNotFoundException
 argument_list|(
-literal|"Cannot find resource in classpath for URI: "
+literal|"Cannot find resource: "
+operator|+
+name|resolvedName
+operator|+
+literal|" in classpath for URI: "
 operator|+
 name|uri
 argument_list|)
