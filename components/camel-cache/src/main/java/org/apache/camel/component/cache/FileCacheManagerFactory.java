@@ -103,9 +103,9 @@ block|{
 try|try
 block|{
 return|return
-name|CacheManager
+name|EHCacheUtil
 operator|.
-name|create
+name|createCacheManager
 argument_list|(
 operator|new
 name|FileInputStream

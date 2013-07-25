@@ -47,9 +47,9 @@ name|createCacheManagerInstance
 parameter_list|()
 block|{
 return|return
-name|CacheManager
+name|EHCacheUtil
 operator|.
-name|create
+name|createCacheManager
 argument_list|(
 name|getClass
 argument_list|()
