@@ -435,6 +435,10 @@ literal|"/"
 operator|+
 name|systemId
 expr_stmt|;
+name|relatedURI
+operator|=
+name|resourceURI
+expr_stmt|;
 block|}
 block|}
 return|return
