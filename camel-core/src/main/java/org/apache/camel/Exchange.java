@@ -542,6 +542,12 @@ name|PARENT_UNIT_OF_WORK
 init|=
 literal|"CamelParentUnitOfWork"
 decl_stmt|;
+DECL|field|RECIPIENT_LIST_ENDPOINT
+name|String
+name|RECIPIENT_LIST_ENDPOINT
+init|=
+literal|"CamelRecipientListEndpoint"
+decl_stmt|;
 DECL|field|RECEIVED_TIMESTAMP
 name|String
 name|RECEIVED_TIMESTAMP

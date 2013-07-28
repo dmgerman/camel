@@ -408,7 +408,7 @@ name|void
 name|begin
 parameter_list|()
 block|{
-comment|// we have already acquired and prepare the producer so we
+comment|// we have already acquired and prepare the producer
 name|LOG
 operator|.
 name|trace
@@ -418,6 +418,20 @@ argument_list|,
 name|index
 argument_list|,
 name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|RECIPIENT_LIST_ENDPOINT
+argument_list|,
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
