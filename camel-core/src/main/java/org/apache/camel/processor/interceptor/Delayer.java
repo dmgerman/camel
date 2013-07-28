@@ -81,10 +81,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An interceptor strategy for delaying routes.  */
+comment|/**  * An interceptor strategy for delaying routes.  *  * @deprecated no longer in use, will be removed in next Camel release.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|Delayer
 specifier|public
 class|class

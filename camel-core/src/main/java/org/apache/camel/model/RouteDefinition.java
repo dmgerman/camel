@@ -2939,15 +2939,6 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|addInterceptStrategy
-argument_list|(
-operator|new
-name|Delayer
-argument_list|(
-name|delayer
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{

@@ -66,22 +66,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|interceptor
-operator|.
-name|Delayer
-import|;
-end_import
-
 begin_comment
 comment|/**  * Delay interceptor unit test.  *  * @version   */
 end_comment
@@ -211,21 +195,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// add the delay interceptor to delay each step 200 millis
+comment|// configure delayer for each step 200 millis
 name|getContext
 argument_list|()
 operator|.
-name|addInterceptStrategy
+name|setDelayer
 argument_list|(
-operator|new
-name|Delayer
-argument_list|(
-literal|200
-argument_list|)
+literal|200L
 argument_list|)
 expr_stmt|;
 comment|// regular routes here
-comment|// END SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:start"
