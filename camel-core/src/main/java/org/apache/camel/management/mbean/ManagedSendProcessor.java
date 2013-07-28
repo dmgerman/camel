@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|api
 operator|.
 name|management
@@ -199,24 +187,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|Endpoint
-name|endpoint
-init|=
-name|getContext
-argument_list|()
-operator|.
-name|getEndpoint
-argument_list|(
-name|uri
-argument_list|)
-decl_stmt|;
-name|processor
-operator|.
-name|setDestination
-argument_list|(
-name|endpoint
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 DECL|method|getMessageExchangePattern ()
 specifier|public

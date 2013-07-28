@@ -397,6 +397,9 @@ operator|+
 literal|")"
 return|;
 block|}
+comment|/**      * @deprecated not longer supported.      */
+annotation|@
+name|Deprecated
 DECL|method|setDestination (Endpoint destination)
 specifier|public
 name|void
@@ -405,28 +408,7 @@ parameter_list|(
 name|Endpoint
 name|destination
 parameter_list|)
-block|{
-name|this
-operator|.
-name|destination
-operator|=
-name|destination
-expr_stmt|;
-comment|// destination changed so purge the cache
-if|if
-condition|(
-name|producerCache
-operator|!=
-literal|null
-condition|)
-block|{
-name|producerCache
-operator|.
-name|purge
-argument_list|()
-expr_stmt|;
-block|}
-block|}
+block|{     }
 DECL|method|getTraceLabel ()
 specifier|public
 name|String

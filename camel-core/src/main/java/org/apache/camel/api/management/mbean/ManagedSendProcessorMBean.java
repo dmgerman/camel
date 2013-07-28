@@ -56,6 +56,7 @@ name|String
 name|getDestination
 parameter_list|()
 function_decl|;
+comment|/**      * @deprecated no longer in use. Will be removed in a future Camel release.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -63,6 +64,8 @@ name|description
 operator|=
 literal|"Destination as Endpoint URI"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|setDestination (String uri)
 name|void
 name|setDestination
