@@ -527,7 +527,6 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|// FIXME: another endpoint that works without a Component
 name|setCamelContext
 argument_list|(
 name|camelContext
