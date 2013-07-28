@@ -356,10 +356,6 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
-init|=
-operator|new
-name|JmsHeaderFilterStrategy
-argument_list|()
 decl_stmt|;
 DECL|field|asyncStartStopExecutorService
 specifier|private
@@ -1792,6 +1788,24 @@ name|includeSentJMSMessageID
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setIncludeAllJMSXProperties (boolean includeAllJMSXProperties)
+specifier|public
+name|void
+name|setIncludeAllJMSXProperties
+parameter_list|(
+name|boolean
+name|includeAllJMSXProperties
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setIncludeAllJMSXProperties
+argument_list|(
+name|includeAllJMSXProperties
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setDefaultTaskExecutorType (DefaultTaskExecutorType type)
 specifier|public
 name|void
@@ -1963,6 +1977,37 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|headerFilterStrategy
+operator|==
+literal|null
+condition|)
+block|{
+name|headerFilterStrategy
+operator|=
+operator|new
+name|JmsHeaderFilterStrategy
+argument_list|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|isIncludeAllJMSXProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doShutdown ()

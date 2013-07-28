@@ -574,7 +574,9 @@ name|headerFilterStrategy
 operator|=
 operator|new
 name|JmsHeaderFilterStrategy
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|jmsKeyFormatStrategy
 operator|=
@@ -621,7 +623,12 @@ name|headerFilterStrategy
 operator|=
 operator|new
 name|JmsHeaderFilterStrategy
+argument_list|(
+name|endpoint
+operator|.
+name|isIncludeAllJMSXProperties
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 if|if

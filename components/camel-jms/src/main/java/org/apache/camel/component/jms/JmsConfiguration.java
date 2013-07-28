@@ -1008,6 +1008,13 @@ specifier|private
 name|DefaultTaskExecutorType
 name|defaultTaskExecutorType
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|includeAllJMSXProperties
+specifier|private
+name|boolean
+name|includeAllJMSXProperties
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -5239,6 +5246,33 @@ operator|.
 name|defaultTaskExecutorType
 operator|=
 name|defaultTaskExecutorType
+expr_stmt|;
+block|}
+DECL|method|isIncludeAllJMSXProperties ()
+specifier|public
+name|boolean
+name|isIncludeAllJMSXProperties
+parameter_list|()
+block|{
+return|return
+name|includeAllJMSXProperties
+return|;
+block|}
+comment|/**      * Whether to include all<tt>JMSX</tt> properties as Camel headers when binding from JMS to Camel Message.      *<p/>      * By default a number of properties is excluded accordingly to the table of JMS properties in the JMS 1.1 spec,      * on page 39.      */
+DECL|method|setIncludeAllJMSXProperties (boolean includeAllJMSXProperties)
+specifier|public
+name|void
+name|setIncludeAllJMSXProperties
+parameter_list|(
+name|boolean
+name|includeAllJMSXProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeAllJMSXProperties
+operator|=
+name|includeAllJMSXProperties
 expr_stmt|;
 block|}
 block|}

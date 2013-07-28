@@ -49,9 +49,30 @@ specifier|public
 name|JmsHeaderFilterStrategy
 parameter_list|()
 block|{
+name|this
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|JmsHeaderFilterStrategy (boolean includeAllJMSXProperties)
+specifier|public
+name|JmsHeaderFilterStrategy
+parameter_list|(
+name|boolean
+name|includeAllJMSXProperties
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|includeAllJMSXProperties
+condition|)
+block|{
 name|initialize
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|initialize ()
 specifier|protected
