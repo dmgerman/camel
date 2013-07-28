@@ -661,6 +661,27 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+literal|"CACHE_NONE"
+operator|.
+name|equals
+argument_list|(
+name|endpoint
+operator|.
+name|getReplyToCacheLevelName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ReplyToCacheLevelName cannot be CACHE_NONE when using temporary reply queues. The value must be either CACHE_CONSUMER, or CACHE_SESSION"
+argument_list|)
+throw|;
+block|}
 name|answer
 operator|.
 name|setCacheLevelName
