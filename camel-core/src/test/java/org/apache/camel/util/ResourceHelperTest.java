@@ -479,7 +479,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Cannot find resource in classpath for URI: notfound.txt"
+literal|"Cannot find resource: notfound.txt in classpath for URI: notfound.txt"
 argument_list|,
 name|e
 operator|.
