@@ -453,7 +453,10 @@ name|managementNamingStrategy
 operator|=
 operator|new
 name|DefaultManagementNamingStrategy
+argument_list|(
+name|getManagementAgent
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -925,6 +928,8 @@ argument_list|(
 operator|new
 name|DefaultManagementNamingStrategy
 argument_list|(
+name|managementAgent
+argument_list|,
 name|managementAgent
 operator|.
 name|getMBeanObjectDomainName

@@ -137,6 +137,16 @@ name|REGISTER_NEW_ROUTES
 init|=
 literal|"org.apache.camel.jmx.registerNewRoutes"
 decl_stmt|;
+comment|// Whether to remove detected sensitive information (such as passwords) from MBean names and attributes.
+DECL|field|SANITIZE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SANITIZE
+init|=
+literal|"org.apache.camel.jmx.sanitize"
+decl_stmt|;
 DECL|method|JmxSystemPropertyKeys ()
 specifier|private
 name|JmxSystemPropertyKeys

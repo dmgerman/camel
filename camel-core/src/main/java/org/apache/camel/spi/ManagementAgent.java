@@ -286,6 +286,21 @@ name|Boolean
 name|registerNewRoutes
 parameter_list|)
 function_decl|;
+comment|/**      * Whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      *<p/>      * This option is default<tt>false</tt>.      */
+DECL|method|getSanitize ()
+name|Boolean
+name|getSanitize
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      *<p/>      * This option is default<tt>false</tt>.      */
+DECL|method|setSanitize (Boolean sanitize)
+name|void
+name|setSanitize
+parameter_list|(
+name|Boolean
+name|sanitize
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
