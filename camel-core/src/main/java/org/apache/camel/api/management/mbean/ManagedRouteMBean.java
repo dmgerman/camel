@@ -90,6 +90,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Route Endpoint URI"
+argument_list|,
+name|sanitize
+operator|=
+literal|true
 argument_list|)
 DECL|method|getEndpointUri ()
 name|String

@@ -125,6 +125,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+DECL|method|sanitize ()
+DECL|field|false
+name|boolean
+name|sanitize
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 

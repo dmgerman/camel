@@ -50,6 +50,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Destination as Endpoint URI"
+argument_list|,
+name|sanitize
+operator|=
+literal|true
 argument_list|)
 DECL|method|getDestination ()
 name|String
