@@ -35,8 +35,6 @@ decl_stmt|;
 DECL|field|age
 name|int
 name|age
-init|=
-literal|0
 decl_stmt|;
 DECL|field|testPojo
 name|TestPojo

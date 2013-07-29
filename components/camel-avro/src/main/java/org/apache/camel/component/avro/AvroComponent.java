@@ -694,7 +694,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Registers new responder with uri as key. Registers consumer in responder.      * In case if responder is already registered by this uri then just registers consumer.      *       * @param uri			URI of the endpoint without message name      * @param messageName	message name      * @param consumer		consumer that will be registered in providers` registry      * @throws Exception      */
+comment|/**      * Registers new responder with uri as key. Registers consumer in responder.      * In case if responder is already registered by this uri then just      * registers consumer.      *       * @param uri URI of the endpoint without message name      * @param messageName message name      * @param consumer consumer that will be registered in providers` registry      * @throws Exception      */
 DECL|method|register (String uri, String messageName, AvroConsumer consumer)
 specifier|public
 name|void
@@ -760,7 +760,7 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Calls unregister of consumer by appropriate message name.      * In case if all consumers are unregistered then it removes responder from the registry.      *      * @param uri			URI of the endpoint without message name      * @param messageName	message name      */
+comment|/**      * Calls unregister of consumer by appropriate message name.      * In case if all consumers are unregistered then it removes responder from the registry.      *      * @param uri URI of the endpoint without message name      * @param messageName message name      */
 DECL|method|unregister (String uri, String messageName)
 specifier|public
 name|void
@@ -787,6 +787,7 @@ argument_list|(
 name|messageName
 argument_list|)
 condition|)
+block|{
 name|listenerRegistry
 operator|.
 name|remove
@@ -794,6 +795,7 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getConfiguration ()
 specifier|public

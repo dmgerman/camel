@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.component.avro
 package|package
@@ -13,6 +17,40 @@ operator|.
 name|avro
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentMap
+import|;
+end_import
 
 begin_import
 import|import
@@ -163,40 +201,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|InetSocketAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentMap
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -306,7 +310,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Initializes and starts http or netty server on basis of transport protocol from configuration.      *      *      * @param configuration      * @return			Initialized and started server      * @throws java.io.IOException      */
+comment|/**      * Initializes and starts http or netty server on basis of transport protocol from configuration.      *      *      * @param configuration      * @return Initialized and started server      * @throws java.io.IOException      */
 DECL|method|initAndStartServer (AvroConfiguration configuration)
 specifier|private
 name|Server
@@ -374,6 +378,7 @@ name|getTransport
 argument_list|()
 argument_list|)
 condition|)
+block|{
 name|server
 operator|=
 operator|new
@@ -387,6 +392,7 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -400,6 +406,7 @@ name|getTransport
 argument_list|()
 argument_list|)
 condition|)
+block|{
 name|server
 operator|=
 operator|new
@@ -422,7 +429,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -435,6 +444,7 @@ name|getTransport
 argument_list|()
 argument_list|)
 throw|;
+block|}
 name|server
 operator|.
 name|start
@@ -444,7 +454,7 @@ return|return
 name|server
 return|;
 block|}
-comment|/**      * Registers consumer by appropriate message name as key in registry.      *      * @param messageName	message name      * @param consumer		avro consumer      * @throws AvroComponentException      */
+comment|/**      * Registers consumer by appropriate message name as key in registry.      *      * @param messageName message name      * @param consumer avro consumer      * @throws AvroComponentException      */
 DECL|method|register (String messageName, AvroConsumer consumer)
 specifier|public
 name|void
@@ -474,6 +484,7 @@ name|defaultConsumer
 operator|!=
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|AvroComponentException
@@ -489,6 +500,7 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 throw|;
+block|}
 name|this
 operator|.
 name|defaultConsumer
@@ -566,6 +578,7 @@ argument_list|)
 operator|==
 literal|null
 condition|)
+block|{
 name|Log
 operator|.
 name|warn
@@ -578,11 +591,14 @@ literal|" was already unregistered."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
+block|{
 name|defaultConsumer
 operator|=
 literal|null
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(
@@ -660,6 +676,7 @@ name|getName
 argument_list|()
 argument_list|)
 condition|)
+block|{
 name|consumer
 operator|=
 name|this
@@ -674,12 +691,14 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|consumer
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|AvroComponentException
@@ -692,6 +711,7 @@ name|getName
 argument_list|()
 argument_list|)
 throw|;
+block|}
 name|Object
 name|params
 init|=
@@ -726,7 +746,7 @@ name|params
 argument_list|)
 return|;
 block|}
-comment|/**      * Extracts parameters from RPC call to List or converts to object of appropriate type      * if only one parameter set.      *      * @param	message Avro message      * @param	request Avro request      * @param	singleParameter Indicates that called method has single parameter      * @param	dataResolver Extracts type of parameters in call      * @return	Parameters of RPC method invocation      */
+comment|/**      * Extracts parameters from RPC call to List or converts to object of appropriate type      * if only one parameter set.      *      * @param message Avro message      * @param request Avro request      * @param singleParameter Indicates that called method has single parameter      * @param dataResolver Extracts type of parameters in call      * @return Parameters of RPC method invocation      */
 DECL|method|extractParams (Protocol.Message message, Object request, boolean singleParameter, SpecificData dataResolver)
 specifier|private
 specifier|static
@@ -863,7 +883,7 @@ name|params
 return|;
 block|}
 block|}
-comment|/**      * Creates exchange and processes it.      *      * @param consumer	Holds processor and exception handler      * @param message	Message on which exchange is created      * @param params	Params of exchange      * @return			Response of exchange processing      * @throws Exception      */
+comment|/**      * Creates exchange and processes it.      *      * @param consumer Holds processor and exception handler      * @param message Message on which exchange is created      * @param params Params of exchange      * @return Response of exchange processing      * @throws Exception      */
 DECL|method|processExchange (AvroConsumer consumer, Protocol.Message message, Object params)
 specifier|private
 specifier|static

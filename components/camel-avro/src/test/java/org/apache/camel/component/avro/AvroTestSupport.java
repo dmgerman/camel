@@ -69,7 +69,7 @@ extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|port
-specifier|private
+specifier|protected
 name|int
 name|port
 init|=

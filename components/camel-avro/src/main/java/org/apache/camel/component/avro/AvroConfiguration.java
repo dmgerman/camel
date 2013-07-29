@@ -324,12 +324,15 @@ argument_list|(
 name|AVRO_MESSAGE_NAME_SEPARATOR
 argument_list|)
 condition|)
+block|{
 name|setMessageName
 argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -343,6 +346,7 @@ operator|+
 name|uri
 argument_list|)
 throw|;
+block|}
 block|}
 name|setUriAuthority
 argument_list|(

@@ -235,6 +235,7 @@ operator|.
 name|isReflectionProtocol
 argument_list|()
 condition|)
+block|{
 name|requestor
 operator|=
 operator|new
@@ -248,7 +249,9 @@ argument_list|,
 name|transceiver
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|requestor
 operator|=
 operator|new
@@ -262,6 +265,7 @@ argument_list|,
 name|transceiver
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -317,6 +321,7 @@ name|class
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|messageName
 operator|=
 name|exchange
@@ -335,7 +340,9 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|messageName
 operator|=
 name|configuration
@@ -343,6 +350,7 @@ operator|.
 name|getMessageName
 argument_list|()
 expr_stmt|;
+block|}
 name|requestor
 operator|.
 name|request

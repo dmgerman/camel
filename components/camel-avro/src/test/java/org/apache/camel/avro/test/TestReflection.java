@@ -25,13 +25,11 @@ interface|interface
 name|TestReflection
 block|{
 DECL|method|getName ()
-specifier|public
 name|String
 name|getName
 parameter_list|()
 function_decl|;
 DECL|method|setName (String name)
-specifier|public
 name|void
 name|setName
 parameter_list|(
@@ -40,13 +38,11 @@ name|name
 parameter_list|)
 function_decl|;
 DECL|method|getAge ()
-specifier|public
 name|int
 name|getAge
 parameter_list|()
 function_decl|;
 DECL|method|setAge (int age)
-specifier|public
 name|void
 name|setAge
 parameter_list|(
@@ -55,7 +51,6 @@ name|age
 parameter_list|)
 function_decl|;
 DECL|method|increaseAge (int age)
-specifier|public
 name|int
 name|increaseAge
 parameter_list|(
@@ -64,7 +59,6 @@ name|age
 parameter_list|)
 function_decl|;
 DECL|method|setTestPojo (TestPojo testPojo)
-specifier|public
 name|void
 name|setTestPojo
 parameter_list|(
@@ -73,7 +67,6 @@ name|testPojo
 parameter_list|)
 function_decl|;
 DECL|method|getTestPojo ()
-specifier|public
 name|TestPojo
 name|getTestPojo
 parameter_list|()
