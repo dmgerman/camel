@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.avro
+DECL|package|org.apache.camel.avro.test
 package|package
 name|org
 operator|.
@@ -12,68 +12,74 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|avro
+operator|.
+name|test
 package|;
 end_package
 
-begin_class
-DECL|class|AvroConstants
+begin_interface
+DECL|interface|TestReflection
 specifier|public
-specifier|final
-class|class
-name|AvroConstants
+interface|interface
+name|TestReflection
 block|{
-DECL|field|AVRO_NETTY_TRANSPORT
+DECL|method|getName ()
 specifier|public
-specifier|static
-specifier|final
-specifier|transient
 name|String
-name|AVRO_NETTY_TRANSPORT
-init|=
-literal|"netty"
-decl_stmt|;
-DECL|field|AVRO_HTTP_TRANSPORT
-specifier|public
-specifier|static
-specifier|final
-specifier|transient
-name|String
-name|AVRO_HTTP_TRANSPORT
-init|=
-literal|"http"
-decl_stmt|;
-DECL|field|AVRO_MESSAGE_NAME_SEPARATOR
-specifier|public
-specifier|static
-specifier|final
-specifier|transient
-name|String
-name|AVRO_MESSAGE_NAME_SEPARATOR
-init|=
-literal|"/"
-decl_stmt|;
-DECL|field|AVRO_MESSAGE_NAME
-specifier|public
-specifier|static
-specifier|final
-specifier|transient
-name|String
-name|AVRO_MESSAGE_NAME
-init|=
-literal|"CamelAvroMessageName"
-decl_stmt|;
-DECL|method|AvroConstants ()
-specifier|private
-name|AvroConstants
+name|getName
 parameter_list|()
-block|{
-comment|// Utility class
+function_decl|;
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+DECL|method|getAge ()
+specifier|public
+name|int
+name|getAge
+parameter_list|()
+function_decl|;
+DECL|method|setAge (int age)
+specifier|public
+name|void
+name|setAge
+parameter_list|(
+name|int
+name|age
+parameter_list|)
+function_decl|;
+DECL|method|increaseAge (int age)
+specifier|public
+name|int
+name|increaseAge
+parameter_list|(
+name|int
+name|age
+parameter_list|)
+function_decl|;
+DECL|method|setTestPojo (TestPojo testPojo)
+specifier|public
+name|void
+name|setTestPojo
+parameter_list|(
+name|TestPojo
+name|testPojo
+parameter_list|)
+function_decl|;
+DECL|method|getTestPojo ()
+specifier|public
+name|TestPojo
+name|getTestPojo
+parameter_list|()
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

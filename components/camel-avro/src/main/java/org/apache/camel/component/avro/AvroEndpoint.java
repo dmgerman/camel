@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -75,6 +87,18 @@ operator|.
 name|camel
 operator|.
 name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -231,6 +255,30 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Creates a new<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a> which consumes messages from the endpoint using the      * given processor      *      * @param processor the given processor      * @return a newly created consumer      * @throws Exception can be thrown      */
+annotation|@
+name|Override
+DECL|method|createConsumer (Processor processor)
+specifier|public
+name|Consumer
+name|createConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|AvroConsumer
+argument_list|(
+name|this
+argument_list|,
+name|processor
+argument_list|)
+return|;
+block|}
 DECL|method|getConfiguration ()
 specifier|public
 name|AvroConfiguration
@@ -239,19 +287,6 @@ parameter_list|()
 block|{
 return|return
 name|configuration
-return|;
-block|}
-DECL|method|getProtocol ()
-specifier|public
-name|Protocol
-name|getProtocol
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getProtocol
-argument_list|()
 return|;
 block|}
 block|}

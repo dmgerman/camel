@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|Component
+name|IOException
 import|;
 end_import
 
@@ -36,9 +34,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|avro
 operator|.
-name|Consumer
+name|Protocol
 import|;
 end_import
 
@@ -48,9 +46,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|avro
 operator|.
-name|Processor
+name|ipc
+operator|.
+name|Transceiver
 import|;
 end_import
 
@@ -60,63 +60,44 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|avro
 operator|.
-name|Producer
+name|ipc
+operator|.
+name|specific
+operator|.
+name|SpecificRequestor
 import|;
 end_import
 
 begin_class
-DECL|class|AvroHttpEndpoint
+DECL|class|AvroSpecificRequestor
 specifier|public
 class|class
-name|AvroHttpEndpoint
+name|AvroSpecificRequestor
 extends|extends
-name|AvroEndpoint
+name|SpecificRequestor
 block|{
-comment|/**      * Constructs a fully-initialized DefaultEndpoint instance. This is the      * preferred method of constructing an object from Java code (as opposed to      * Spring beans, etc.).      *      * @param endpointUri the full URI used to create this endpoint      * @param component   the component that created this endpoint      */
-DECL|method|AvroHttpEndpoint (String endpointUri, Component component, AvroConfiguration configuration)
+DECL|method|AvroSpecificRequestor (Protocol protocol, Transceiver transceiver)
 specifier|public
-name|AvroHttpEndpoint
+name|AvroSpecificRequestor
 parameter_list|(
-name|String
-name|endpointUri
+name|Protocol
+name|protocol
 parameter_list|,
-name|Component
-name|component
-parameter_list|,
-name|AvroConfiguration
-name|configuration
+name|Transceiver
+name|transceiver
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
-name|endpointUri
+name|protocol
 argument_list|,
-name|component
-argument_list|,
-name|configuration
+name|transceiver
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Creates a new producer which is used send messages into the endpoint      *      * @return a newly created producer      * @throws Exception can be thrown      */
-annotation|@
-name|Override
-DECL|method|createProducer ()
-specifier|public
-name|Producer
-name|createProducer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|AvroHttpProducer
-argument_list|(
-name|this
-argument_list|)
-return|;
 block|}
 block|}
 end_class
