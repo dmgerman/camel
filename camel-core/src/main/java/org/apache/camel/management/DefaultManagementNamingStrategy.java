@@ -78,6 +78,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Component
 import|;
 end_import
@@ -327,6 +339,8 @@ class|class
 name|DefaultManagementNamingStrategy
 implements|implements
 name|ManagementNamingStrategy
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|VALUE_UNKNOWN
 specifier|public
@@ -484,45 +498,31 @@ name|hostName
 init|=
 literal|"localhost"
 decl_stmt|;
-DECL|field|managementAgent
+DECL|field|camelContext
 specifier|protected
-specifier|final
-name|ManagementAgent
-name|managementAgent
+name|CamelContext
+name|camelContext
 decl_stmt|;
-DECL|method|DefaultManagementNamingStrategy (ManagementAgent managementAgent)
+DECL|method|DefaultManagementNamingStrategy ()
 specifier|public
 name|DefaultManagementNamingStrategy
-parameter_list|(
-name|ManagementAgent
-name|managementAgent
-parameter_list|)
+parameter_list|()
 block|{
 name|this
 argument_list|(
-name|managementAgent
-argument_list|,
 literal|"org.apache.camel"
 argument_list|)
 expr_stmt|;
+comment|// default constructor needed for<bean> style configuration
 block|}
-DECL|method|DefaultManagementNamingStrategy (ManagementAgent managementAgent, String domainName)
+DECL|method|DefaultManagementNamingStrategy (String domainName)
 specifier|public
 name|DefaultManagementNamingStrategy
 parameter_list|(
-name|ManagementAgent
-name|managementAgent
-parameter_list|,
 name|String
 name|domainName
 parameter_list|)
 block|{
-name|this
-operator|.
-name|managementAgent
-operator|=
-name|managementAgent
-expr_stmt|;
 if|if
 condition|(
 name|domainName
@@ -555,6 +555,32 @@ parameter_list|)
 block|{
 comment|// ignore, use the default "localhost"
 block|}
+block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 block|}
 DECL|method|getObjectNameForCamelContext (String managementName, String name)
 specifier|public
@@ -2307,19 +2333,31 @@ argument_list|(
 name|ep
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|managementAgent
-operator|.
-name|getSanitize
-argument_list|()
+name|Boolean
+name|sanitize
+init|=
+name|camelContext
 operator|!=
 literal|null
 operator|&&
-name|managementAgent
+name|camelContext
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
 operator|.
 name|getSanitize
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|sanitize
+operator|!=
+literal|null
+operator|&&
+name|sanitize
 condition|)
 block|{
 comment|// use xxxxxx as replacements as * has to be quoted for MBean names

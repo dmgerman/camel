@@ -453,10 +453,7 @@ name|managementNamingStrategy
 operator|=
 operator|new
 name|DefaultManagementNamingStrategy
-argument_list|(
-name|getManagementAgent
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -929,8 +926,6 @@ operator|new
 name|DefaultManagementNamingStrategy
 argument_list|(
 name|managementAgent
-argument_list|,
-name|managementAgent
 operator|.
 name|getMBeanObjectDomainName
 argument_list|()
@@ -938,6 +933,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|managementNamingStrategy
+operator|instanceof
+name|CamelContextAware
+condition|)
+block|{
+operator|(
+operator|(
+name|CamelContextAware
+operator|)
+name|managementNamingStrategy
+operator|)
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|stop ()

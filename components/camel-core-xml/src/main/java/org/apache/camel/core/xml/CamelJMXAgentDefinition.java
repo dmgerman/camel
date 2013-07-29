@@ -244,6 +244,16 @@ specifier|private
 name|String
 name|loadStatisticsEnabled
 decl_stmt|;
+comment|/**      * A flag that indicates whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      */
+annotation|@
+name|XmlAttribute
+DECL|field|sanitize
+specifier|private
+name|String
+name|sanitize
+init|=
+literal|"false"
+decl_stmt|;
 DECL|method|getDisabled ()
 specifier|public
 name|String
@@ -582,6 +592,32 @@ operator|=
 name|loadStatisticsEnabled
 expr_stmt|;
 block|}
+DECL|method|getSanitize ()
+specifier|public
+name|String
+name|getSanitize
+parameter_list|()
+block|{
+return|return
+name|sanitize
+return|;
+block|}
+DECL|method|setSanitize (String sanitize)
+specifier|public
+name|void
+name|setSanitize
+parameter_list|(
+name|String
+name|sanitize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sanitize
+operator|=
+name|sanitize
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -778,6 +814,26 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|onlyRegisterProcessorWithCustomId
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", onlyRegisterProcessorWithCustomId="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|onlyRegisterProcessorWithCustomId
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|registerAlways
 operator|!=
 literal|null
@@ -813,6 +869,26 @@ operator|.
 name|append
 argument_list|(
 name|registerNewRoutes
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|sanitize
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", sanitize="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|sanitize
 argument_list|)
 expr_stmt|;
 block|}
