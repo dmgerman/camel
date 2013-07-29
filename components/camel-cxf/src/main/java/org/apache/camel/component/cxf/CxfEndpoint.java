@@ -1147,6 +1147,11 @@ specifier|protected
 name|Bus
 name|bus
 decl_stmt|;
+DECL|field|createBus
+specifier|private
+name|boolean
+name|createBus
+decl_stmt|;
 DECL|field|wsdlURL
 specifier|private
 name|String
@@ -4361,6 +4366,12 @@ name|bus
 operator|=
 name|bus
 expr_stmt|;
+name|this
+operator|.
+name|createBus
+operator|=
+literal|false
+expr_stmt|;
 block|}
 DECL|method|getBus ()
 specifier|public
@@ -4384,6 +4395,12 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|createBus
+operator|=
+literal|true
 expr_stmt|;
 name|LOG
 operator|.
@@ -4799,7 +4816,39 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|// we should consider to shutdown the bus if the bus is created by cxfEndpoint
+if|if
+condition|(
+name|createBus
+operator|&&
+name|bus
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"shutdown the bus ... "
+operator|+
+name|bus
+argument_list|)
+expr_stmt|;
+name|getBus
+argument_list|()
+operator|.
+name|shutdown
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// clean up the bus to create a new one if the endpoint is started again
+name|bus
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 DECL|method|setAddress (String address)
 specifier|public
