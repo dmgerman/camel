@@ -56,6 +56,7 @@ end_import
 
 begin_class
 DECL|class|NotificationSenderAdapter
+specifier|public
 specifier|final
 class|class
 name|NotificationSenderAdapter
