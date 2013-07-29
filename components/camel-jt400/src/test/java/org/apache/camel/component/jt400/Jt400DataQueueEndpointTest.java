@@ -183,7 +183,7 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|"Endpoint[jt400://user:******@host/qsys.lib/library.lib/queue.dtaq?ccsid=500&connectionPool=%23mockPool&format=binary&guiAvailable=true]"
+literal|"Endpoint[jt400://user:xxxxxx@host/qsys.lib/library.lib/queue.dtaq?ccsid=500&connectionPool=%23mockPool&format=binary&guiAvailable=true]"
 argument_list|,
 name|endpoint
 operator|.

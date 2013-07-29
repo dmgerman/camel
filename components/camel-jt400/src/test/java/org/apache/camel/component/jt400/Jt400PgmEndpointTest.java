@@ -302,7 +302,7 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|"Endpoint[jt400://USER:******@host/qsys.lib/library.lib/prog.pgm?connectionPool=%23mockPool&fieldsLength=10%2C512%2C255&format=binary&guiAvailable=true&outputFieldsIdx=1%2C2]"
+literal|"Endpoint[jt400://USER:xxxxxx@host/qsys.lib/library.lib/prog.pgm?connectionPool=%23mockPool&fieldsLength=10%2C512%2C255&format=binary&guiAvailable=true&outputFieldsIdx=1%2C2]"
 argument_list|,
 name|endpoint
 operator|.

@@ -8478,11 +8478,6 @@ name|createManagementMBeanAssembler
 argument_list|()
 expr_stmt|;
 block|}
-name|addService
-argument_list|(
-name|managementMBeanAssembler
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -11811,7 +11806,9 @@ block|{
 return|return
 operator|new
 name|DefaultManagementMBeanAssembler
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 comment|/**      * Lazily create a default implementation      */
