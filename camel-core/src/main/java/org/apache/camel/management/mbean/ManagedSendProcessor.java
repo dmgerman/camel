@@ -242,8 +242,6 @@ argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
-argument_list|,
-literal|"xxxxxx"
 argument_list|)
 expr_stmt|;
 block|}

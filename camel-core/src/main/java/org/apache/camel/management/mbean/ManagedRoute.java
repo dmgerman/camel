@@ -582,8 +582,6 @@ operator|.
 name|sanitizeUri
 argument_list|(
 name|uri
-argument_list|,
-literal|"xxxxxx"
 argument_list|)
 expr_stmt|;
 block|}

@@ -247,29 +247,7 @@ name|String
 name|uri
 parameter_list|)
 block|{
-return|return
-name|sanitizeUri
-argument_list|(
-name|uri
-argument_list|,
-literal|"******"
-argument_list|)
-return|;
-block|}
-comment|/**      * Removes detected sensitive information (such as passwords) from the URI and returns the result.      *      * @param uri The uri to sanitize.      * @param replacement the masked replacement      * @see #SECRETS for the matched pattern      *      * @return Returns null if the uri is null, otherwise the URI with the passphrase, password or secretKey sanitized.      */
-DECL|method|sanitizeUri (String uri, String replacement)
-specifier|public
-specifier|static
-name|String
-name|sanitizeUri
-parameter_list|(
-name|String
-name|uri
-parameter_list|,
-name|String
-name|replacement
-parameter_list|)
-block|{
+comment|// use xxxxx as replacement as that works well with JMX also
 name|String
 name|sanitized
 init|=
@@ -293,9 +271,7 @@ argument_list|)
 operator|.
 name|replaceAll
 argument_list|(
-literal|"$1="
-operator|+
-name|replacement
+literal|"$1=xxxxxx"
 argument_list|)
 expr_stmt|;
 name|sanitized
@@ -309,11 +285,7 @@ argument_list|)
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"$1"
-operator|+
-name|replacement
-operator|+
-literal|"$3"
+literal|"$1xxxxxx$3"
 argument_list|)
 expr_stmt|;
 block|}
@@ -355,7 +327,7 @@ argument_list|)
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"$1******$3"
+literal|"$1xxxxxx$3"
 argument_list|)
 expr_stmt|;
 block|}

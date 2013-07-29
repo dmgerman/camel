@@ -1162,7 +1162,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"jt400://GEORGE:******@LIVERPOOL/QSYS.LIB/BEATLES.LIB/PENNYLANE.DTAQ"
+literal|"jt400://GEORGE:xxxxxx@LIVERPOOL/QSYS.LIB/BEATLES.LIB/PENNYLANE.DTAQ"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1191,7 +1191,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"GEORGE:******@LIVERPOOL/QSYS.LIB/BEATLES.LIB/PENNYLANE.PGM"
+literal|"GEORGE:xxxxxx@LIVERPOOL/QSYS.LIB/BEATLES.LIB/PENNYLANE.PGM"
 decl_stmt|;
 name|assertEquals
 argument_list|(

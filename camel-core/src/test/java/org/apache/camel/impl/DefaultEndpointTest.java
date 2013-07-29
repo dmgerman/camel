@@ -104,7 +104,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ftp://host.mysite.com/records?passiveMode=true&user=someuser&password=******"
+literal|"ftp://host.mysite.com/records?passiveMode=true&user=someuser&password=xxxxxx"
 argument_list|,
 name|URISupport
 operator|.
@@ -116,7 +116,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"sftp://host.mysite.com/records?user=someuser&privateKeyFile=key.file&privateKeyFilePassphrase=******&knownHostsFile=hosts.list"
+literal|"sftp://host.mysite.com/records?user=someuser&privateKeyFile=key.file&privateKeyFilePassphrase=xxxxxx&knownHostsFile=hosts.list"
 argument_list|,
 name|URISupport
 operator|.
@@ -128,7 +128,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"aws-sqs://MyQueue?accessKey=1672t4rflhnhli3&secretKey=******"
+literal|"aws-sqs://MyQueue?accessKey=1672t4rflhnhli3&secretKey=xxxxxx"
 argument_list|,
 name|URISupport
 operator|.
