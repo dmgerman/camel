@@ -2353,6 +2353,13 @@ operator|=
 name|createManagementStrategy
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|managementMBeanAssembler
+operator|=
+name|createManagementMBeanAssembler
+argument_list|()
+expr_stmt|;
 name|Container
 operator|.
 name|Instance
@@ -8464,19 +8471,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|managementMBeanAssembler
-operator|==
-literal|null
-condition|)
-block|{
-name|managementMBeanAssembler
-operator|=
-name|createManagementMBeanAssembler
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|log
 operator|.
 name|isDebugEnabled
@@ -12547,6 +12541,12 @@ name|DefaultManagementStrategy
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+comment|// must clear lifecycle strategies as we add DefaultManagementLifecycleStrategy by default for JMX support
+name|lifecycleStrategies
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getInflightRepository ()

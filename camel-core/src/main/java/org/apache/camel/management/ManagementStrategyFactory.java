@@ -143,6 +143,23 @@ name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// must add management lifecycle strategy
+name|context
+operator|.
+name|getLifecycleStrategies
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|,
+operator|new
+name|DefaultManagementLifecycleStrategy
+argument_list|(
+name|context
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
