@@ -4685,6 +4685,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Endpoint Uri"
+argument_list|,
+name|sanitize
+operator|=
+literal|true
 argument_list|)
 annotation|@
 name|Override

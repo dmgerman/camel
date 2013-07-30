@@ -291,6 +291,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Session Password"
+argument_list|,
+name|sanitize
+operator|=
+literal|true
 argument_list|)
 DECL|method|getSessionPassword ()
 specifier|public
