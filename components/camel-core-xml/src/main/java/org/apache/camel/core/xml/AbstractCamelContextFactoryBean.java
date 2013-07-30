@@ -2587,29 +2587,6 @@ argument_list|(
 name|managementStrategy
 argument_list|)
 expr_stmt|;
-comment|// clear the existing lifecycle strategies define by the DefaultCamelContext constructor
-name|getContext
-argument_list|()
-operator|.
-name|getLifecycleStrategies
-argument_list|()
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|getContext
-argument_list|()
-operator|.
-name|addLifecycleStrategy
-argument_list|(
-operator|new
-name|DefaultManagementLifecycleStrategy
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// set additional configuration from camelJMXAgent
 name|boolean
 name|onlyId

@@ -40,7 +40,27 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -1542,11 +1562,13 @@ name|InterceptStrategy
 name|backlogDebugger
 parameter_list|)
 function_decl|;
-comment|/**      * Disables using JMX as {@link org.apache.camel.spi.ManagementStrategy}.      */
+comment|/**      * Disables using JMX as {@link org.apache.camel.spi.ManagementStrategy}.      *<p/>      *<b>Important:</b> This method must be called<b>before</b> the {@link CamelContext} is started.      *      * @throws IllegalStateException is thrown if the {@link CamelContext} is not in stopped state.      */
 DECL|method|disableJMX ()
 name|void
 name|disableJMX
 parameter_list|()
+throws|throws
+name|IllegalStateException
 function_decl|;
 comment|/**      * Gets the inflight repository      *      * @return the repository      */
 DECL|method|getInflightRepository ()

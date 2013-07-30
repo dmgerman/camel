@@ -1275,6 +1275,27 @@ return|return
 name|objectName
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"JMX is enabled"
+argument_list|)
+expr_stmt|;
+name|doStartManagementStrategy
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 
