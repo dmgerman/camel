@@ -227,13 +227,6 @@ name|after
 argument_list|(
 name|updated
 argument_list|)
-operator|||
-name|lastUpdate
-operator|.
-name|equals
-argument_list|(
-name|updated
-argument_list|)
 condition|)
 block|{
 name|LOG
