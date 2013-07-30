@@ -74,6 +74,18 @@ name|management
 operator|.
 name|modelmbean
 operator|.
+name|ModelMBeanInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|modelmbean
+operator|.
 name|RequiredModelMBean
 import|;
 end_import
@@ -169,6 +181,24 @@ throws|,
 name|RuntimeOperationsException
 block|{
 comment|// must have default no-arg constructor
+block|}
+DECL|method|DefaultRequiredModelMBean (ModelMBeanInfo mbi)
+specifier|public
+name|DefaultRequiredModelMBean
+parameter_list|(
+name|ModelMBeanInfo
+name|mbi
+parameter_list|)
+throws|throws
+name|MBeanException
+throws|,
+name|RuntimeOperationsException
+block|{
+name|super
+argument_list|(
+name|mbi
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|isSanitize ()
 specifier|public
