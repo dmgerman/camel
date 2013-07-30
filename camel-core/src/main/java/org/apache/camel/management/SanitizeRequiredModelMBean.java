@@ -143,10 +143,10 @@ comment|/**  * A {@link RequiredModelMBean} which allows us to intercept invokin
 end_comment
 
 begin_class
-DECL|class|DefaultRequiredModelMBean
+DECL|class|SanitizeRequiredModelMBean
 specifier|public
 class|class
-name|DefaultRequiredModelMBean
+name|SanitizeRequiredModelMBean
 extends|extends
 name|RequiredModelMBean
 block|{
@@ -161,7 +161,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DefaultRequiredModelMBean
+name|SanitizeRequiredModelMBean
 operator|.
 name|class
 argument_list|)
@@ -171,9 +171,9 @@ specifier|private
 name|boolean
 name|sanitize
 decl_stmt|;
-DECL|method|DefaultRequiredModelMBean ()
+DECL|method|SanitizeRequiredModelMBean ()
 specifier|public
-name|DefaultRequiredModelMBean
+name|SanitizeRequiredModelMBean
 parameter_list|()
 throws|throws
 name|MBeanException
@@ -182,12 +182,15 @@ name|RuntimeOperationsException
 block|{
 comment|// must have default no-arg constructor
 block|}
-DECL|method|DefaultRequiredModelMBean (ModelMBeanInfo mbi)
+DECL|method|SanitizeRequiredModelMBean (ModelMBeanInfo mbi, boolean sanitize)
 specifier|public
-name|DefaultRequiredModelMBean
+name|SanitizeRequiredModelMBean
 parameter_list|(
 name|ModelMBeanInfo
 name|mbi
+parameter_list|,
+name|boolean
+name|sanitize
 parameter_list|)
 throws|throws
 name|MBeanException
@@ -199,6 +202,12 @@ argument_list|(
 name|mbi
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|sanitize
+operator|=
+name|sanitize
+expr_stmt|;
 block|}
 DECL|method|isSanitize ()
 specifier|public
@@ -209,22 +218,6 @@ block|{
 return|return
 name|sanitize
 return|;
-block|}
-DECL|method|setSanitize (boolean sanitize)
-specifier|public
-name|void
-name|setSanitize
-parameter_list|(
-name|boolean
-name|sanitize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sanitize
-operator|=
-name|sanitize
-expr_stmt|;
 block|}
 annotation|@
 name|Override
