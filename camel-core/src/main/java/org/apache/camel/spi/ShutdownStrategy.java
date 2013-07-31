@@ -215,7 +215,7 @@ name|long
 name|timeout
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the timeout.      *<p/>      * Use 0 or a negative value to disable timeout      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @return the timeout      */
+comment|/**      * Gets the timeout.      *<p/>      * Use positive value to set the timeout      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @return the timeout      */
 DECL|method|getTimeout ()
 name|long
 name|getTimeout
