@@ -310,6 +310,68 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|InputStream
+name|is
+init|=
+name|resolveResourceAsInputStream
+argument_list|(
+name|classResolver
+argument_list|,
+name|uri
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|is
+operator|==
+literal|null
+condition|)
+block|{
+name|String
+name|resolvedName
+init|=
+name|resolveUriPath
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|FileNotFoundException
+argument_list|(
+literal|"Cannot find resource: "
+operator|+
+name|resolvedName
+operator|+
+literal|" in classpath for URI: "
+operator|+
+name|uri
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+return|return
+name|is
+return|;
+block|}
+block|}
+comment|/**      * Resolves the resource.      *<p/>      * If possible recommended to use {@link #resolveMandatoryResourceAsUrl(org.apache.camel.spi.ClassResolver, String)}      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri URI of the resource      * @return the resource as an {@link InputStream}. Remember to close this stream after usage. Or<tt>null</tt> if not found.      * @throws java.io.IOException is thrown if error loading the resource      */
+DECL|method|resolveResourceAsInputStream (ClassResolver classResolver, String uri)
+specifier|public
+specifier|static
+name|InputStream
+name|resolveResourceAsInputStream
+parameter_list|(
+name|ClassResolver
+name|classResolver
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|uri
@@ -473,23 +535,58 @@ argument_list|,
 name|resolvedName
 argument_list|)
 expr_stmt|;
-name|InputStream
-name|is
-init|=
+return|return
 name|classResolver
 operator|.
 name|loadResourceAsStream
 argument_list|(
 name|resolvedName
 argument_list|)
+return|;
+block|}
+comment|/**      * Resolves the mandatory resource.      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri uri of the resource      * @return the resource as an {@link java.net.URL}.      * @throws java.io.FileNotFoundException is thrown if the resource file could not be found      * @throws java.net.MalformedURLException if the URI is malformed      */
+DECL|method|resolveMandatoryResourceAsUrl (ClassResolver classResolver, String uri)
+specifier|public
+specifier|static
+name|URL
+name|resolveMandatoryResourceAsUrl
+parameter_list|(
+name|ClassResolver
+name|classResolver
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|FileNotFoundException
+throws|,
+name|MalformedURLException
+block|{
+name|URL
+name|url
+init|=
+name|resolveResourceAsUrl
+argument_list|(
+name|classResolver
+argument_list|,
+name|uri
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|is
+name|url
 operator|==
 literal|null
 condition|)
 block|{
+name|String
+name|resolvedName
+init|=
+name|resolveUriPath
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
 throw|throw
 operator|new
 name|FileNotFoundException
@@ -507,16 +604,16 @@ block|}
 else|else
 block|{
 return|return
-name|is
+name|url
 return|;
 block|}
 block|}
-comment|/**      * Resolves the mandatory resource.      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri uri of the resource      * @return the resource as an {@link InputStream}.  Remember to close this stream after usage.      * @throws java.io.FileNotFoundException is thrown if the resource file could not be found      * @throws java.net.MalformedURLException if the URI is malformed      */
-DECL|method|resolveMandatoryResourceAsUrl (ClassResolver classResolver, String uri)
+comment|/**      * Resolves the resource.      *      * @param classResolver the class resolver to load the resource from the classpath      * @param uri uri of the resource      * @return the resource as an {@link java.net.URL}. Or<tt>null</tt> if not found.      * @throws java.net.MalformedURLException if the URI is malformed      */
+DECL|method|resolveResourceAsUrl (ClassResolver classResolver, String uri)
 specifier|public
 specifier|static
 name|URL
-name|resolveMandatoryResourceAsUrl
+name|resolveResourceAsUrl
 parameter_list|(
 name|ClassResolver
 name|classResolver
@@ -525,8 +622,6 @@ name|String
 name|uri
 parameter_list|)
 throws|throws
-name|FileNotFoundException
-throws|,
 name|MalformedURLException
 block|{
 if|if
@@ -579,17 +674,9 @@ name|exists
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|FileNotFoundException
-argument_list|(
-literal|"File "
-operator|+
-name|file
-operator|+
-literal|" not found"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 return|return
 operator|new
@@ -668,43 +755,14 @@ argument_list|,
 name|resolvedName
 argument_list|)
 expr_stmt|;
-name|URL
-name|url
-init|=
+return|return
 name|classResolver
 operator|.
 name|loadResourceAsURL
 argument_list|(
 name|resolvedName
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|url
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|FileNotFoundException
-argument_list|(
-literal|"Cannot find resource: "
-operator|+
-name|resolvedName
-operator|+
-literal|" in classpath for URI: "
-operator|+
-name|uri
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-return|return
-name|url
 return|;
-block|}
 block|}
 comment|/**      * Is the given uri a http uri?      *      * @param uri the uri      * @return<tt>true</tt> if the uri starts with<tt>http:</tt> or<tt>https:</tt>      */
 DECL|method|isHttpUri (String uri)
