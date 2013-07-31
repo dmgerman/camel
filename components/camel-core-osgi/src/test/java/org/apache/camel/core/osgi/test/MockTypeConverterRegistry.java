@@ -173,6 +173,29 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|removeTypeConverter (Class<?> toType, Class<?> fromType)
+specifier|public
+name|boolean
+name|removeTypeConverter
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|toType
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|fromType
+parameter_list|)
+block|{
+comment|// noop
+return|return
+literal|true
+return|;
+block|}
 DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 specifier|public
 name|void

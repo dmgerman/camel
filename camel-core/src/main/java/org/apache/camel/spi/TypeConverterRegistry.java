@@ -124,6 +124,24 @@ name|TypeConverter
 name|typeConverter
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the type converter      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @return<tt>true</tt> if removed,<tt>false</tt> if the type converter didn't exist      */
+DECL|method|removeTypeConverter (Class<?> toType, Class<?> fromType)
+name|boolean
+name|removeTypeConverter
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|toType
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|fromType
+parameter_list|)
+function_decl|;
 comment|/**      * Registers a new fallback type converter      *      * @param typeConverter the type converter to use      * @param canPromote  whether or not the fallback type converter can be promoted to a first class type converter      */
 DECL|method|addFallbackTypeConverter (TypeConverter typeConverter, boolean canPromote)
 name|void
