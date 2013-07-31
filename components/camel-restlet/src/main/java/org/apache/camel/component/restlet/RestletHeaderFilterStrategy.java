@@ -44,6 +44,22 @@ name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|restlet
+operator|.
+name|engine
+operator|.
+name|http
+operator|.
+name|header
+operator|.
+name|HeaderConstants
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default header filtering strategy for Restlet  *   * @version   */
 end_comment
@@ -94,6 +110,17 @@ argument_list|(
 name|Exchange
 operator|.
 name|ACCEPT_CONTENT_TYPE
+argument_list|)
+expr_stmt|;
+comment|// Remove the restlet headers from the out message.
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|HeaderConstants
+operator|.
+name|ATTRIBUTE_HEADERS
 argument_list|)
 expr_stmt|;
 block|}
