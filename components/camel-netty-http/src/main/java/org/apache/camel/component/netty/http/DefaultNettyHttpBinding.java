@@ -2096,17 +2096,6 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|body
-operator|!=
-literal|null
-operator|||
-name|cause
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// support bodies as native Netty
 name|ChannelBuffer
 name|buffer
@@ -2333,7 +2322,16 @@ block|{
 comment|// and if byte array fails then try String
 name|String
 name|str
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+condition|)
+block|{
+name|str
+operator|=
 name|message
 operator|.
 name|getMandatoryBody
@@ -2342,7 +2340,15 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|str
+operator|=
+literal|""
+expr_stmt|;
+block|}
 name|buffer
 operator|=
 name|ChannelBuffers
@@ -2403,7 +2409,6 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// set the content type in the response.
 name|String

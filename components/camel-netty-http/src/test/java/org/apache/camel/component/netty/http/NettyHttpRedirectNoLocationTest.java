@@ -88,6 +88,11 @@ name|NettyHttpRedirectNoLocationTest
 extends|extends
 name|BaseNettyTest
 block|{
+DECL|field|nextPort
+specifier|private
+name|int
+name|nextPort
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testHttpRedirectNoLocation ()
@@ -104,7 +109,11 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty-http:http://localhost:{{port}}/test"
+literal|"netty-http:http://localhost:"
+operator|+
+name|nextPort
+operator|+
+literal|"/test"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -206,9 +215,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|nextPort
+operator|=
+name|getNextPort
+argument_list|()
+expr_stmt|;
 name|from
 argument_list|(
-literal|"netty-http:http://localhost:{{port}}/test"
+literal|"netty-http:http://localhost:"
+operator|+
+name|nextPort
+operator|+
+literal|"/test"
 argument_list|)
 operator|.
 name|process
