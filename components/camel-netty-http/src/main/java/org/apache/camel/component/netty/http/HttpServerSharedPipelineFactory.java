@@ -502,7 +502,10 @@ argument_list|,
 operator|new
 name|HttpChunkAggregator
 argument_list|(
-literal|1048576
+name|configuration
+operator|.
+name|getChunkedMaxContentLength
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

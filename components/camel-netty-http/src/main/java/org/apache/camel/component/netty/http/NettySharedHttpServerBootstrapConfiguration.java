@@ -44,6 +44,15 @@ name|NettySharedHttpServerBootstrapConfiguration
 extends|extends
 name|NettyServerBootstrapConfiguration
 block|{
+DECL|field|chunkedMaxContentLength
+specifier|private
+name|int
+name|chunkedMaxContentLength
+init|=
+literal|1024
+operator|*
+literal|1024
+decl_stmt|;
 DECL|field|chunked
 specifier|private
 name|boolean
@@ -80,6 +89,32 @@ operator|.
 name|chunked
 operator|=
 name|chunked
+expr_stmt|;
+block|}
+DECL|method|getChunkedMaxContentLength ()
+specifier|public
+name|int
+name|getChunkedMaxContentLength
+parameter_list|()
+block|{
+return|return
+name|chunkedMaxContentLength
+return|;
+block|}
+DECL|method|setChunkedMaxContentLength (int chunkedMaxContentLength)
+specifier|public
+name|void
+name|setChunkedMaxContentLength
+parameter_list|(
+name|int
+name|chunkedMaxContentLength
+parameter_list|)
+block|{
+name|this
+operator|.
+name|chunkedMaxContentLength
+operator|=
+name|chunkedMaxContentLength
 expr_stmt|;
 block|}
 DECL|method|isCompression ()
