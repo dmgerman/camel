@@ -296,6 +296,20 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|dozer
+operator|.
+name|classmap
+operator|.
+name|MappingDirection
+operator|.
+name|ONE_WAY
+import|;
+end_import
+
 begin_comment
 comment|/**  *<code>DozerTypeConverterLoader</code> provides the mechanism for registering  * a Dozer {@link Mapper} as {@link TypeConverter} for a {@link CamelContext}.  *<p/>  * While a mapper can be explicitly supplied as a parameter the  * {@link CamelContext}'s registry will also be searched for {@link Mapper}  * instances. A {@link DozerTypeConverter} is created to wrap each  * {@link Mapper} instance and the mapper is queried for the types it converts.  * The queried types are used to register the {@link TypeConverter} with the  * context via its {@link TypeConverterRegistry}.  */
 end_comment
@@ -518,15 +532,38 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
 name|DozerBeanMapper
-name|dozer
+argument_list|>
+name|entry
 range|:
 name|mappers
 operator|.
-name|values
+name|entrySet
 argument_list|()
 control|)
 block|{
+name|String
+name|mapperId
+init|=
+name|entry
+operator|.
+name|getKey
+argument_list|()
+decl_stmt|;
+name|DozerBeanMapper
+name|dozer
+init|=
+name|entry
+operator|.
+name|getValue
+argument_list|()
+decl_stmt|;
 name|List
 argument_list|<
 name|ClassMap
@@ -537,12 +574,16 @@ name|loadMappings
 argument_list|(
 name|camelContext
 argument_list|,
+name|mapperId
+argument_list|,
 name|dozer
 argument_list|)
 decl_stmt|;
 name|registerClassMaps
 argument_list|(
 name|registry
+argument_list|,
+name|mapperId
 argument_list|,
 name|dozer
 argument_list|,
@@ -586,13 +627,16 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|registerClassMaps (TypeConverterRegistry registry, DozerBeanMapper dozer, List<ClassMap> all)
+DECL|method|registerClassMaps (TypeConverterRegistry registry, String dozerId, DozerBeanMapper dozer, List<ClassMap> all)
 specifier|protected
 name|void
 name|registerClassMaps
 parameter_list|(
 name|TypeConverterRegistry
 name|registry
+parameter_list|,
+name|String
+name|dozerId
 parameter_list|,
 name|DozerBeanMapper
 name|dozer
@@ -627,10 +671,7 @@ name|registry
 argument_list|,
 name|converter
 argument_list|,
-name|map
-operator|.
-name|getMapId
-argument_list|()
+name|dozerId
 argument_list|,
 name|map
 operator|.
@@ -643,9 +684,40 @@ name|getDestClassToMap
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// if not one way then add the other way around also
+if|if
+condition|(
+name|map
+operator|.
+name|getType
+argument_list|()
+operator|!=
+name|ONE_WAY
+condition|)
+block|{
+name|addDozerTypeConverter
+argument_list|(
+name|registry
+argument_list|,
+name|converter
+argument_list|,
+name|dozerId
+argument_list|,
+name|map
+operator|.
+name|getDestClassToMap
+argument_list|()
+argument_list|,
+name|map
+operator|.
+name|getSrcClassToMap
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
-DECL|method|addDozerTypeConverter (TypeConverterRegistry registry, DozerTypeConverter converter, String mapId, Class<?> to, Class<?> from)
+block|}
+DECL|method|addDozerTypeConverter (TypeConverterRegistry registry, DozerTypeConverter converter, String dozerId, Class<?> to, Class<?> from)
 specifier|protected
 name|void
 name|addDozerTypeConverter
@@ -657,7 +729,7 @@ name|DozerTypeConverter
 name|converter
 parameter_list|,
 name|String
-name|mapId
+name|dozerId
 parameter_list|,
 name|Class
 argument_list|<
@@ -680,17 +752,24 @@ name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|dozerId
+operator|!=
+literal|null
+condition|)
+block|{
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Added Dozer map id {} as Camel type converter {}<-> {}"
+literal|"Added Dozer: {} as Camel type converter: {} -> {}"
 argument_list|,
 operator|new
 name|Object
 index|[]
 block|{
-name|mapId
+name|dozerId
 block|,
 name|from
 block|,
@@ -698,6 +777,26 @@ name|to
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Added Dozer as Camel type converter: {} -> {}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|from
+block|,
+name|to
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|registry
 operator|.
@@ -710,19 +809,8 @@ argument_list|,
 name|converter
 argument_list|)
 expr_stmt|;
-name|registry
-operator|.
-name|addTypeConverter
-argument_list|(
-name|to
-argument_list|,
-name|from
-argument_list|,
-name|converter
-argument_list|)
-expr_stmt|;
 block|}
-DECL|method|loadMappings (CamelContext camelContext, DozerBeanMapper mapper)
+DECL|method|loadMappings (CamelContext camelContext, String mapperId, DozerBeanMapper mapper)
 specifier|private
 name|List
 argument_list|<
@@ -732,6 +820,9 @@ name|loadMappings
 parameter_list|(
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|String
+name|mapperId
 parameter_list|,
 name|DozerBeanMapper
 name|mapper
@@ -927,6 +1018,8 @@ expr_stmt|;
 name|registerClassMaps
 argument_list|(
 name|registry
+argument_list|,
+literal|null
 argument_list|,
 name|mapper
 argument_list|,
