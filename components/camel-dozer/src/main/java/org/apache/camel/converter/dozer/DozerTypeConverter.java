@@ -100,6 +100,7 @@ name|TypeConverter
 block|{
 DECL|field|mapper
 specifier|private
+specifier|final
 name|DozerBeanMapper
 name|mapper
 decl_stmt|;
@@ -117,6 +118,16 @@ name|mapper
 operator|=
 name|mapper
 expr_stmt|;
+block|}
+DECL|method|getMapper ()
+specifier|public
+name|DozerBeanMapper
+name|getMapper
+parameter_list|()
+block|{
+return|return
+name|mapper
+return|;
 block|}
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
