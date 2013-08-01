@@ -326,6 +326,27 @@ argument_list|,
 name|actualUri
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|isBridgeEndpoint
+argument_list|()
+condition|)
+block|{
+comment|// Need to remove the Host key as it should be not used when bridging/proxying
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+literal|"host"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|request
 return|;

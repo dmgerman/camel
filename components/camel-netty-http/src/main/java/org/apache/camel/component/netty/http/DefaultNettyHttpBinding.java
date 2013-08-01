@@ -76,6 +76,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URLDecoder
 import|;
 end_import
@@ -3023,6 +3033,47 @@ name|contentType
 argument_list|)
 expr_stmt|;
 block|}
+comment|// must include HOST header as required by HTTP 1.1
+comment|// use URI as its faster than URL (no DNS lookup)
+name|URI
+name|u
+init|=
+operator|new
+name|URI
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|String
+name|host
+init|=
+name|u
+operator|.
+name|getHost
+argument_list|()
+decl_stmt|;
+name|request
+operator|.
+name|setHeader
+argument_list|(
+name|HttpHeaders
+operator|.
+name|Names
+operator|.
+name|HOST
+argument_list|,
+name|host
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Host: {}"
+argument_list|,
+name|host
+argument_list|)
+expr_stmt|;
 comment|// configure connection to accordingly to keep alive configuration
 comment|// favor using the header from the message
 name|String
