@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.componenet.cmis
+DECL|package|org.apache.camel.component.cmis
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|componenet
+name|component
 operator|.
 name|cmis
 package|;
