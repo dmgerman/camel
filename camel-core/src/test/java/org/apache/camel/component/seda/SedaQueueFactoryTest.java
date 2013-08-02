@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright 2013 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -26,6 +26,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ArrayBlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|BlockingQueue
 import|;
 end_import
@@ -39,30 +51,6 @@ operator|.
 name|concurrent
 operator|.
 name|LinkedBlockingQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ArrayBlockingQueue
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
 import|;
 end_import
 
@@ -99,20 +87,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TestSupport
-operator|.
-name|assertIsInstanceOf
 import|;
 end_import
 
@@ -206,11 +180,6 @@ name|simpleRegistry
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testArrayBlockingQueueFactory ()
 specifier|public
 name|void
@@ -242,12 +211,6 @@ operator|.
 name|getQueue
 argument_list|()
 decl_stmt|;
-name|ArrayBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
-name|blockingQueue
-init|=
 name|assertIsInstanceOf
 argument_list|(
 name|ArrayBlockingQueue
@@ -256,7 +219,7 @@ name|class
 argument_list|,
 name|queue
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
@@ -322,11 +285,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testDefaultBlockingQueueFactory ()
 specifier|public
 name|void
@@ -358,12 +316,6 @@ operator|.
 name|getQueue
 argument_list|()
 decl_stmt|;
-name|LinkedBlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
-name|blockingQueue
-init|=
 name|assertIsInstanceOf
 argument_list|(
 name|LinkedBlockingQueue
@@ -372,7 +324,7 @@ name|class
 argument_list|,
 name|queue
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 block|}
 end_class

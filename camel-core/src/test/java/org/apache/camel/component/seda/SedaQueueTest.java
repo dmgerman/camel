@@ -124,28 +124,6 @@ name|SimpleRegistry
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|matchers
-operator|.
-name|JUnitMatchers
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment

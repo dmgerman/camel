@@ -58,7 +58,7 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-comment|/** 	 * Comparator used to sort exchanges 	 */
+comment|/**      * Comparator used to sort exchanges      */
 DECL|field|comparator
 specifier|private
 name|Comparator
@@ -121,8 +121,8 @@ argument_list|<
 name|E
 argument_list|>
 argument_list|()
-else|:
 comment|// PriorityQueue as a default capacity of 11
+else|:
 operator|new
 name|PriorityBlockingQueue
 argument_list|<

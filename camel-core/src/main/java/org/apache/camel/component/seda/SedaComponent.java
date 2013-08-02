@@ -632,6 +632,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -755,7 +760,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// defer creating queue till endpoint is started, so we pass the queue factory
+comment|// defer creating queue till endpoint is started, so we pass the
+comment|// queue factory
 name|answer
 operator|=
 operator|new

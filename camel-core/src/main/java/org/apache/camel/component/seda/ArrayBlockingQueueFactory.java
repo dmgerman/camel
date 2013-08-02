@@ -48,7 +48,7 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-comment|/** 	 * Capacity used when none provided 	 */
+comment|/**      * Capacity used when none provided      */
 DECL|field|defaultCapacity
 specifier|private
 name|int
@@ -56,13 +56,13 @@ name|defaultCapacity
 init|=
 literal|50
 decl_stmt|;
-comment|/** 	 * Lock fairness. null means default fairness 	 */
+comment|/**      * Lock fairness. null means default fairness      */
 DECL|field|fair
 specifier|private
 name|Boolean
 name|fair
 decl_stmt|;
-comment|/** 	 * @return Default array capacity 	 */
+comment|/**      * @return Default array capacity      */
 DECL|method|getDefaultCapacity ()
 specifier|public
 name|int
@@ -73,7 +73,7 @@ return|return
 name|defaultCapacity
 return|;
 block|}
-comment|/** 	 * @param defaultCapacity Default array capacity 	 */
+comment|/**      * @param defaultCapacity Default array capacity      */
 DECL|method|setDefaultCapacity (int defaultCapacity)
 specifier|public
 name|void
@@ -90,7 +90,7 @@ operator|=
 name|defaultCapacity
 expr_stmt|;
 block|}
-comment|/** 	 * @return Lock fairness 	 */
+comment|/**      * @return Lock fairness      */
 DECL|method|isFair ()
 specifier|public
 name|boolean
@@ -101,7 +101,7 @@ return|return
 name|fair
 return|;
 block|}
-comment|/** 	 * @param fair Lock fairness 	 */
+comment|/**      * @param fair Lock fairness      */
 DECL|method|setFair (boolean fair)
 specifier|public
 name|void
