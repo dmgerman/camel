@@ -72,7 +72,57 @@ name|org
 operator|.
 name|quartz
 operator|.
-name|*
+name|Job
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
+name|JobExecutionContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
+name|JobExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
+name|SchedulerContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
+name|SchedulerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
+name|TriggerKey
 import|;
 end_import
 
@@ -97,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a Quartz Job that is scheduled by QuartzEndpoint's Consumer and will call it to  * produce a QuartzMessage sending to a route.  *  * @author Zemian Deng saltnlight5@gmail.com  */
+comment|/**  * This is a Quartz Job that is scheduled by QuartzEndpoint's Consumer and will call it to  * produce a QuartzMessage sending to a route.  *  */
 end_comment
 
 begin_class
@@ -152,6 +202,7 @@ operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -161,6 +212,7 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+block|}
 name|CamelContext
 name|camelContext
 init|=
@@ -243,6 +295,7 @@ name|exchange
 operator|!=
 literal|null
 condition|)
+block|{
 name|LOG
 operator|.
 name|error
@@ -259,7 +312,9 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|LOG
 operator|.
 name|error
@@ -269,6 +324,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 comment|// and rethrow to let quartz handle it
 if|if
 condition|(
@@ -445,6 +501,7 @@ operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -454,6 +511,7 @@ argument_list|,
 name|triggerKey
 argument_list|)
 expr_stmt|;
+block|}
 comment|// check all active routes for the quartz endpoint this task matches
 comment|// as we prefer to use the existing endpoint from the routes
 for|for
@@ -503,6 +561,7 @@ operator|.
 name|isTraceEnabled
 argument_list|()
 condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -514,6 +573,7 @@ argument_list|,
 name|checkTriggerKey
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|triggerKey
@@ -571,6 +631,7 @@ operator|.
 name|isDebugEnabled
 argument_list|()
 condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -578,6 +639,7 @@ argument_list|(
 literal|"Getting Endpoint from camelContext."
 argument_list|)
 expr_stmt|;
+block|}
 name|result
 operator|=
 name|camelContext
