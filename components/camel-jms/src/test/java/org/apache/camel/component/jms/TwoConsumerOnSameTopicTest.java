@@ -120,53 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// give a bit of time for AMQ to properly setup topic subscribers
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|sendAMessageToOneTopicWithTwoSubscribers
 argument_list|()
 expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testStopOneRoute ()
+DECL|method|testMultipleMessagesOnSameTopic ()
 specifier|public
 name|void
-name|testStopOneRoute
+name|testMultipleMessagesOnSameTopic
 parameter_list|()
 throws|throws
 name|Exception
@@ -186,7 +149,13 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"Hello Camel 1"
+argument_list|,
+literal|"Hello Camel 2"
+argument_list|,
+literal|"Hello Camel 3"
+argument_list|,
+literal|"Hello Camel 4"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -196,7 +165,13 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"Hello Camel 1"
+argument_list|,
+literal|"Hello Camel 2"
+argument_list|,
+literal|"Hello Camel 3"
+argument_list|,
+literal|"Hello Camel 4"
 argument_list|)
 expr_stmt|;
 name|template
@@ -205,42 +180,7 @@ name|sendBody
 argument_list|(
 literal|"activemq:topic:foo"
 argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// now stop route A
-name|context
-operator|.
-name|stopRoute
-argument_list|(
-literal|"a"
-argument_list|)
-expr_stmt|;
-comment|// send new message should go to B only
-name|resetMocks
-argument_list|()
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
+literal|"Hello Camel 1"
 argument_list|)
 expr_stmt|;
 name|template
@@ -249,7 +189,25 @@ name|sendBody
 argument_list|(
 literal|"activemq:topic:foo"
 argument_list|,
-literal|"Bye World"
+literal|"Hello Camel 2"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:topic:foo"
+argument_list|,
+literal|"Hello Camel 3"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:topic:foo"
+argument_list|,
+literal|"Hello Camel 4"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -266,44 +224,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// give a bit of time for AMQ to properly setup topic subscribers
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|sendAMessageToOneTopicWithTwoSubscribers
 argument_list|()
 expr_stmt|;
 comment|// now stop route A
@@ -354,26 +275,6 @@ comment|// send new message should go to both A and B
 name|resetMocks
 argument_list|()
 expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hi Camel"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hi Camel"
-argument_list|)
-expr_stmt|;
 comment|// now start route A
 name|context
 operator|.
@@ -382,16 +283,7 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hi Camel"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|sendAMessageToOneTopicWithTwoSubscribers
 argument_list|()
 expr_stmt|;
 block|}
@@ -405,44 +297,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// give a bit of time for AMQ to properly setup topic subscribers
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|sendAMessageToOneTopicWithTwoSubscribers
 argument_list|()
 expr_stmt|;
 comment|// now stop and remove route A
@@ -491,6 +346,55 @@ argument_list|(
 literal|"activemq:topic:foo"
 argument_list|,
 literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|sendAMessageToOneTopicWithTwoSubscribers ()
+specifier|private
+name|void
+name|sendAMessageToOneTopicWithTwoSubscribers
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// give a bit of time for AMQ to properly setup topic subscribers
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:a"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:b"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:topic:foo"
+argument_list|,
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
