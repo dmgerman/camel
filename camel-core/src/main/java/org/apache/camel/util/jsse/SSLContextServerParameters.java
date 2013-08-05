@@ -374,7 +374,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
 literal|"Configuring client-auth on SSLEngine [{}] to [{}]."
 argument_list|,
@@ -544,7 +544,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
 literal|"Configuring client-auth on SSLServerSocket [{}] to [{}]."
 argument_list|,
