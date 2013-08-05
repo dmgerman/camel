@@ -5015,6 +5015,8 @@ name|CAMEL_CXF_ATTACHMENTS
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Don't try to reset the parameters if the parameter is not CxfPayload instance
+comment|// as the setParameter will be called more than once when using the fail over feature
 if|if
 condition|(
 name|DataFormat
@@ -5029,6 +5031,13 @@ name|DataFormat
 operator|.
 name|class
 argument_list|)
+operator|&&
+name|params
+index|[
+literal|0
+index|]
+operator|instanceof
+name|CxfPayload
 condition|)
 block|{
 name|CxfPayload
