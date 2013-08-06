@@ -603,6 +603,8 @@ init|=
 operator|new
 name|CxfClientCallback
 argument_list|(
+name|client
+argument_list|,
 name|callback
 argument_list|,
 name|camelExchange
