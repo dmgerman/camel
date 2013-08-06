@@ -214,7 +214,7 @@ specifier|final
 name|String
 name|SCAN_BLOCK_TOKEN_REGEX_TEMPLATE
 init|=
-literal|"<{0}(\\s+[^/]*)?/>|<{0}(\\s+[^>]*)?>(?:(?!</{0}).)*</{0}\\s*>"
+literal|"<{0}(\\s+[^/]*)?/>|<{0}(\\s+[^>]*)?>(?:(?!(</{0}\\s*>)).)*</{0}\\s*>"
 decl_stmt|;
 DECL|field|SCAN_PARENT_TOKEN_REGEX_TEMPLATE
 specifier|private
