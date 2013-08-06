@@ -465,6 +465,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// must close on SSL exception
+name|sslHandler
+operator|.
+name|setCloseOnSSLException
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -495,13 +503,6 @@ name|HttpRequestDecoder
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Uncomment the following line if you don't want to handle HttpChunks.
-if|if
-condition|(
-name|supportChunked
-argument_list|()
-condition|)
-block|{
 name|pipeline
 operator|.
 name|addLast
@@ -515,7 +516,6 @@ literal|1048576
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|pipeline
 operator|.
 name|addLast
@@ -941,25 +941,6 @@ name|sslEngine
 argument_list|)
 return|;
 block|}
-block|}
-DECL|method|supportChunked ()
-specifier|private
-name|boolean
-name|supportChunked
-parameter_list|()
-block|{
-return|return
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isChunked
-argument_list|()
-return|;
 block|}
 DECL|method|supportCompressed ()
 specifier|private

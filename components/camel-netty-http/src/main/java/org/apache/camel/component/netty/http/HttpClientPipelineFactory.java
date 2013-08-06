@@ -367,6 +367,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// must close on SSL exception
+name|sslHandler
+operator|.
+name|setCloseOnSSLException
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|debug

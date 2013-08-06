@@ -94,13 +94,6 @@ name|NettyHttpConfiguration
 extends|extends
 name|NettyConfiguration
 block|{
-DECL|field|chunked
-specifier|private
-name|boolean
-name|chunked
-init|=
-literal|true
-decl_stmt|;
 DECL|field|urlDecodeHeaders
 specifier|private
 name|boolean
@@ -268,32 +261,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-DECL|method|isChunked ()
-specifier|public
-name|boolean
-name|isChunked
-parameter_list|()
-block|{
-return|return
-name|chunked
-return|;
-block|}
-DECL|method|setChunked (boolean chunked)
-specifier|public
-name|void
-name|setChunked
-parameter_list|(
-name|boolean
-name|chunked
-parameter_list|)
-block|{
-name|this
-operator|.
-name|chunked
-operator|=
-name|chunked
-expr_stmt|;
 block|}
 DECL|method|isCompression ()
 specifier|public
