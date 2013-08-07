@@ -4024,6 +4024,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|getOutputs
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|outputs
 operator|.
 name|get
@@ -4041,6 +4051,16 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the output could be empty
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 operator|(
