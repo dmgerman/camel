@@ -436,7 +436,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Entry method that selects the appropriate MongoDB operation and executes it      * @param operation      * @param exchange      * @throws Exception      */
+comment|/**      * Entry method that selects the appropriate MongoDB operation and executes      * it      *       * @param operation      * @param exchange      * @throws Exception      */
 DECL|method|invokeOperation (MongoDbOperation operation, Exchange exchange)
 specifier|protected
 name|void
@@ -625,7 +625,8 @@ operator|.
 name|getDbStats
 condition|)
 block|{
-comment|// if it's a DB, also take into account the dynamicity option and the DB that is used
+comment|// if it's a DB, also take into account the dynamicity option and
+comment|// the DB that is used
 name|result
 operator|=
 name|calculateCollection
@@ -747,8 +748,10 @@ operator|.
 name|remove
 argument_list|)
 decl_stmt|;
-comment|// we always return the WriteResult, because whether the getLastError was called or not,
-comment|// the user will have the means to call it or obtain the cached CommandResult
+comment|// we always return the WriteResult, because whether the getLastError
+comment|// was called or not,
+comment|// the user will have the means to call it or obtain the cached
+comment|// CommandResult
 name|processAndTransferWriteResult
 argument_list|(
 name|result
@@ -915,8 +918,10 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// In API 2.7, the default upsert and multi values of update(DBObject, DBObject) are false, false, so we unconditionally invoke the
-comment|// full-signature method update(DBObject, DBObject, boolean, boolean). However, the default behaviour may change in the future,
+comment|// In API 2.7, the default upsert and multi values of update(DBObject,
+comment|// DBObject) are false, false, so we unconditionally invoke the
+comment|// full-signature method update(DBObject, DBObject, boolean, boolean).
+comment|// However, the default behaviour may change in the future,
 comment|// so it's safer to be explicit at this level for full determinism
 if|if
 condition|(
@@ -929,7 +934,9 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// for update with no multi nor upsert but with specific WriteConcern there is no update signature without multi and upsert args,
+comment|// for update with no multi nor upsert but with specific
+comment|// WriteConcern there is no update signature without multi and
+comment|// upsert args,
 comment|// so assume defaults
 name|result
 operator|=
@@ -964,7 +971,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// we calculate the final boolean values so that if any of these parameters is null, it is resolved to false
+comment|// we calculate the final boolean values so that if any of these
+comment|// parameters is null, it is resolved to false
 name|result
 operator|=
 name|wc
@@ -1024,7 +1032,8 @@ operator|.
 name|update
 argument_list|)
 decl_stmt|;
-comment|// we always return the WriteResult, because whether the getLastError was called or not, the user will have the means to call it or
+comment|// we always return the WriteResult, because whether the getLastError
+comment|// was called or not, the user will have the means to call it or
 comment|// obtain the cached CommandResult
 name|processAndTransferWriteResult
 argument_list|(
@@ -1122,7 +1131,8 @@ operator|.
 name|save
 argument_list|)
 expr_stmt|;
-comment|// we always return the WriteResult, because whether the getLastError was called or not, the user will have the means to call it or
+comment|// we always return the WriteResult, because whether the getLastError
+comment|// was called or not, the user will have the means to call it or
 comment|// obtain the cached CommandResult
 name|processAndTransferWriteResult
 argument_list|(
@@ -1300,7 +1310,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// body could not be converted to DBObject, check to see if it's of type List<DBObject>
+comment|// body could not be converted to DBObject, check to see if it's of type
+comment|// List<DBObject>
 if|if
 condition|(
 name|insert
@@ -1322,7 +1333,8 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// if the body of type List was obtained, ensure that all items are of type DBObject and cast the List to List<DBObject>
+comment|// if the body of type List was obtained, ensure that all items are
+comment|// of type DBObject and cast the List to List<DBObject>
 if|if
 condition|(
 name|insert
@@ -1452,7 +1464,8 @@ operator|.
 name|insert
 argument_list|)
 decl_stmt|;
-comment|// we always return the WriteResult, because whether the getLastError was called or not, the user will have the means to call it or
+comment|// we always return the WriteResult, because whether the getLastError
+comment|// was called or not, the user will have the means to call it or
 comment|// obtain the cached CommandResult
 name|processAndTransferWriteResult
 argument_list|(
@@ -1488,13 +1501,15 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// do not use getMandatoryBody, because if the body is empty we want to retrieve all objects in the collection
+comment|// do not use getMandatoryBody, because if the body is empty we want to
+comment|// retrieve all objects in the collection
 name|DBObject
 name|query
 init|=
 literal|null
 decl_stmt|;
-comment|// do not run around looking for a type converter unless there is a need for it
+comment|// do not run around looking for a type converter unless there is a need
+comment|// for it
 if|if
 condition|(
 name|exchange
@@ -2310,6 +2325,14 @@ argument_list|(
 name|dynamicCollection
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -2330,6 +2353,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|dbCol
 return|;
@@ -2457,7 +2481,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// determine where to set the WriteResult: as the OUT body or as an IN message header
+comment|// determine where to set the WriteResult: as the OUT body or as an IN
+comment|// message header
 if|if
 condition|(
 name|endpoint

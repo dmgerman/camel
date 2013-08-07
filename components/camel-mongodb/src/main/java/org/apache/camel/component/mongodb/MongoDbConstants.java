@@ -151,6 +151,15 @@ name|COLLECTION
 init|=
 literal|"CamelMongoDbCollection"
 decl_stmt|;
+DECL|field|COLLECTION_INDEX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COLLECTION_INDEX
+init|=
+literal|"CamelMongoDbCollectionIndex"
+decl_stmt|;
 DECL|field|WRITECONCERN
 specifier|public
 specifier|static
@@ -191,7 +200,7 @@ DECL|method|MongoDbConstants ()
 specifier|private
 name|MongoDbConstants
 parameter_list|()
-block|{ }
+block|{     }
 block|}
 end_class
 

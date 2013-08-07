@@ -20,6 +20,70 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ObjectMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|BasicDBObject
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|mongodb
@@ -225,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a MongoDb endpoint.   * It is responsible for creating {@link MongoDbProducer} and {@link MongoDbTailableCursorConsumer} instances.  * It accepts a number of options to customise the behaviour of consumers and producers.  */
+comment|/**  * Represents a MongoDb endpoint. It is responsible for creating  * {@link MongoDbProducer} and {@link MongoDbTailableCursorConsumer} instances.  * It accepts a number of options to customise the behaviour of consumers and  * producers.  */
 end_comment
 
 begin_class
@@ -266,6 +330,11 @@ DECL|field|collection
 specifier|private
 name|String
 name|collection
+decl_stmt|;
+DECL|field|collectionIndex
+specifier|private
+name|String
+name|collectionIndex
 decl_stmt|;
 DECL|field|operation
 specifier|private
@@ -712,7 +781,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Initialises the MongoDB connection using the Mongo object provided to the endpoint      * @throws CamelMongoDbException      */
+comment|/**      * Initialises the MongoDB connection using the Mongo object provided to the      * endpoint      *      * @throws CamelMongoDbException      */
 DECL|method|initializeConnection ()
 specifier|public
 name|void
@@ -817,9 +886,9 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"MongoDb component initialised and endpoint bound to MongoDB collection with the following paramters. Address list: {}, Db: {}, Collection: {}"
+literal|"MongoDb component initialised and endpoint bound to MongoDB collection with the following parameters. Address list: {}, Db: {}, Collection: {}"
 argument_list|,
 operator|new
 name|Object
@@ -845,8 +914,221 @@ argument_list|()
 block|}
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|collectionIndex
+argument_list|)
+condition|)
+block|{
+name|ensureIndex
+argument_list|(
+name|dbCollection
+argument_list|,
+name|createIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Applies validation logic specific to this endpoint type. If everything succeeds, continues initialization      */
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CamelMongoDbException
+argument_list|(
+literal|"Error creating index"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Add Index      *      * @param collection      */
+DECL|method|ensureIndex (DBCollection collection, List<DBObject> dynamicIndex)
+specifier|public
+name|void
+name|ensureIndex
+parameter_list|(
+name|DBCollection
+name|collection
+parameter_list|,
+name|List
+argument_list|<
+name|DBObject
+argument_list|>
+name|dynamicIndex
+parameter_list|)
+block|{
+name|collection
+operator|.
+name|dropIndexes
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|dynamicIndex
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|dynamicIndex
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|DBObject
+name|index
+range|:
+name|dynamicIndex
+control|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"create BDObject Index {}"
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
+name|collection
+operator|.
+name|ensureIndex
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Create technical list index      *      * @return technical list index      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|createIndex ()
+specifier|public
+name|List
+argument_list|<
+name|DBObject
+argument_list|>
+name|createIndex
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|List
+argument_list|<
+name|DBObject
+argument_list|>
+name|indexList
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|DBObject
+argument_list|>
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|collectionIndex
+argument_list|)
+condition|)
+block|{
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|indexMap
+init|=
+operator|new
+name|ObjectMapper
+argument_list|()
+operator|.
+name|readValue
+argument_list|(
+name|collectionIndex
+argument_list|,
+name|HashMap
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|set
+range|:
+name|indexMap
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+name|DBObject
+name|index
+init|=
+operator|new
+name|BasicDBObject
+argument_list|()
+decl_stmt|;
+name|index
+operator|.
+name|put
+argument_list|(
+name|set
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|set
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|indexList
+operator|.
+name|add
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|indexList
+return|;
+block|}
+comment|/**      * Applies validation logic specific to this endpoint type. If everything      * succeeds, continues initialization      */
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -868,29 +1150,24 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Cannot set both writeConcern and writeConcernRef at the same time. Respective values: {}, {}. "
+name|String
+name|msg
+init|=
+literal|"Cannot set both writeConcern and writeConcernRef at the same time. Respective values: "
 operator|+
-literal|"Aborting initialization."
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|writeConcern
-block|,
+operator|+
+literal|", "
+operator|+
 name|writeConcernRef
-block|}
-argument_list|)
-expr_stmt|;
+operator|+
+literal|". Aborting initialization."
+decl_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot set both writeConcern and writeConcernRef at the same time on MongoDB endpoint"
+name|msg
 argument_list|)
 throw|;
 block|}
@@ -1040,8 +1317,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// ======= Getters and setters ===============================================
-comment|/**      * Sets the name of the MongoDB collection to bind to this endpoint      * @param collection collection name      */
+comment|// ======= Getters and setters
+comment|// ===============================================
+comment|/**      * Sets the name of the MongoDB collection to bind to this endpoint      *      * @param collection collection name      */
 DECL|method|setCollection (String collection)
 specifier|public
 name|void
@@ -1068,7 +1346,34 @@ return|return
 name|collection
 return|;
 block|}
-comment|/**      * Sets the operation this endpoint will execute against MongoDB. For possible values, see {@link MongoDbOperation}.      * @param operation name of the operation as per catalogued values      * @throws CamelMongoDbException      */
+comment|/**      * Sets the collection index (JSON FORMAT : { "field1" : "order", "field2" :      * "order"})      */
+DECL|method|setCollectionIndex (String collectionIndex)
+specifier|public
+name|void
+name|setCollectionIndex
+parameter_list|(
+name|String
+name|collectionIndex
+parameter_list|)
+block|{
+name|this
+operator|.
+name|collectionIndex
+operator|=
+name|collectionIndex
+expr_stmt|;
+block|}
+DECL|method|getCollectionIndex ()
+specifier|public
+name|String
+name|getCollectionIndex
+parameter_list|()
+block|{
+return|return
+name|collectionIndex
+return|;
+block|}
+comment|/**      * Sets the operation this endpoint will execute against MongoDB. For      * possible values, see {@link MongoDbOperation}.      *      * @param operation name of the operation as per catalogued values      * @throws CamelMongoDbException      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -1121,7 +1426,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Sets the name of the MongoDB database to target      * @param database name of the MongoDB database      */
+comment|/**      * Sets the name of the MongoDB database to target      *      * @param database name of the MongoDB database      */
 DECL|method|setDatabase (String database)
 specifier|public
 name|void
@@ -1148,7 +1453,7 @@ return|return
 name|database
 return|;
 block|}
-comment|/**      * Create collection during initialisation if it doesn't exist. Default is true.      * @param createCollection true or false      */
+comment|/**      * Create collection during initialisation if it doesn't exist. Default is      * true.      *      * @param createCollection true or false      */
 DECL|method|setCreateCollection (boolean createCollection)
 specifier|public
 name|void
@@ -1195,7 +1500,7 @@ return|return
 name|dbCollection
 return|;
 block|}
-comment|/**      * Sets the Mongo instance that represents the backing connection      * @param mongoConnection the connection to the database      */
+comment|/**      * Sets the Mongo instance that represents the backing connection      *      * @param mongoConnection the connection to the database      */
 DECL|method|setMongoConnection (Mongo mongoConnection)
 specifier|public
 name|void
@@ -1222,7 +1527,7 @@ return|return
 name|mongoConnection
 return|;
 block|}
-comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB using the standard ones.      * Resolved from the fields of the WriteConcern class by calling the {@link WriteConcern#valueOf(String)} method.      * @param writeConcern the standard name of the WriteConcern      * @see<a href="http://api.mongodb.org/java/current/com/mongodb/WriteConcern.html#valueOf(java.lang.String)">possible options</a>      */
+comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB using the      * standard ones. Resolved from the fields of the WriteConcern class by      * calling the {@link WriteConcern#valueOf(String)} method.      *      * @param writeConcern the standard name of the WriteConcern      * @see<a      *      href="http://api.mongodb.org/java/current/com/mongodb/WriteConcern.html#valueOf(java.lang.String)">possible      *      options</a>      */
 DECL|method|setWriteConcern (String writeConcern)
 specifier|public
 name|void
@@ -1254,7 +1559,7 @@ return|return
 name|writeConcern
 return|;
 block|}
-comment|/**      * Instructs this endpoint to invoke {@link WriteResult#getLastError()} with every operation. By default, MongoDB does not wait      * for the write operation to occur before returning. If set to true, each exchange will only return after the write operation       * has actually occurred in MongoDB.      * @param invokeGetLastError true or false      */
+comment|/**      * Instructs this endpoint to invoke {@link WriteResult#getLastError()} with      * every operation. By default, MongoDB does not wait for the write      * operation to occur before returning. If set to true, each exchange will      * only return after the write operation has actually occurred in MongoDB.      *      * @param invokeGetLastError true or false      */
 DECL|method|setInvokeGetLastError (boolean invokeGetLastError)
 specifier|public
 name|void
@@ -1281,7 +1586,7 @@ return|return
 name|invokeGetLastError
 return|;
 block|}
-comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB, passing in the bean ref to a custom WriteConcern which exists in the Registry.      * You can also use standard WriteConcerns by passing in their key. See the {@link #setWriteConcern(String) setWriteConcern} method.      * @param writeConcernRef the name of the bean in the registry that represents the WriteConcern to use      */
+comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB, passing in the bean ref to a custom WriteConcern which exists in the Registry.      * You can also use standard WriteConcerns by passing in their key. See the {@link #setWriteConcern(String) setWriteConcern} method.      *      * @param writeConcernRef the name of the bean in the registry that represents the WriteConcern to use      */
 DECL|method|setWriteConcernRef (String writeConcernRef)
 specifier|public
 name|void
@@ -1318,22 +1623,22 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
+name|String
+name|msg
+init|=
 literal|"Camel MongoDB component could not find the WriteConcern in the Registry. Verify that the "
 operator|+
-literal|"provided bean name ({}) is correct. Aborting initialization."
-argument_list|,
+literal|"provided bean name ("
+operator|+
 name|writeConcernRef
-argument_list|)
-expr_stmt|;
+operator|+
+literal|")  is correct. Aborting initialization."
+decl_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Camel MongoDB component could not find the WriteConcern in the Registry"
+name|msg
 argument_list|)
 throw|;
 block|}
@@ -1354,7 +1659,7 @@ return|return
 name|writeConcernRef
 return|;
 block|}
-comment|/**       * Sets a MongoDB {@link ReadPreference} on the Mongo connection. Read preferences set directly on the connection will be      * overridden by this setting.      * @param readPreference the bean name of the read preference to set      */
+comment|/**      * Sets a MongoDB {@link ReadPreference} on the Mongo connection. Read      * preferences set directly on the connection will be overridden by this      * setting.      *      * @param readPreference the bean name of the read preference to set      */
 DECL|method|setReadPreference (String readPreference)
 specifier|public
 name|void
@@ -1454,22 +1759,20 @@ block|}
 break|break;
 block|}
 block|}
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Could not resolve specified ReadPreference of type {}. Read preferences are resolved from inner "
+name|String
+name|msg
+init|=
+literal|"Could not resolve specified ReadPreference of type "
 operator|+
-literal|"classes of com.mongodb.ReadPreference."
-argument_list|,
 name|readPreference
-argument_list|)
-expr_stmt|;
+operator|+
+literal|". Read preferences are resolved from inner classes of com.mongodb.ReadPreference."
+decl_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"MongoDB endpoint could not resolve specified ReadPreference"
+name|msg
 argument_list|)
 throw|;
 block|}
@@ -1483,7 +1786,7 @@ return|return
 name|readPreference
 return|;
 block|}
-comment|/**      * Sets whether this endpoint will attempt to dynamically resolve the target database and collection from the incoming Exchange properties.      * Can be used to override at runtime the database and collection specified on the otherwise static endpoint URI.      * It is disabled by default to boost performance. Enabling it will take a minimal performance hit.      * @see MongoDbConstants#DATABASE      * @see MongoDbConstants#COLLECTION      * @param dynamicity true or false indicated whether target database and collection should be calculated dynamically based on Exchange properties.      */
+comment|/**      * Sets whether this endpoint will attempt to dynamically resolve the target      * database and collection from the incoming Exchange properties. Can be      * used to override at runtime the database and collection specified on the      * otherwise static endpoint URI. It is disabled by default to boost      * performance. Enabling it will take a minimal performance hit.      *      * @param dynamicity true or false indicated whether target database and      *                   collection should be calculated dynamically based on Exchange      *                   properties.      * @see MongoDbConstants#DATABASE      * @see MongoDbConstants#COLLECTION      */
 DECL|method|setDynamicity (boolean dynamicity)
 specifier|public
 name|void
@@ -1510,7 +1813,7 @@ return|return
 name|dynamicity
 return|;
 block|}
-comment|/**      * Reserved for future use, when more consumer types are supported.       * @param consumerType key of the consumer type      * @throws CamelMongoDbException      */
+comment|/**      * Reserved for future use, when more consumer types are supported.      *      * @param consumerType key of the consumer type      * @throws CamelMongoDbException      */
 DECL|method|setConsumerType (String consumerType)
 specifier|public
 name|void
@@ -1573,7 +1876,7 @@ return|return
 name|tailTrackDb
 return|;
 block|}
-comment|/**      * Indicates what database the tail tracking mechanism will persist to. If not specified, the current database will       * be picked by default. Dynamicity will not be taken into account even if enabled, i.e. the tail tracking database       * will not vary past endpoint initialisation.      * @param tailTrackDb database name      */
+comment|/**      * Indicates what database the tail tracking mechanism will persist to. If      * not specified, the current database will be picked by default. Dynamicity      * will not be taken into account even if enabled, i.e. the tail tracking      * database will not vary past endpoint initialisation.      *      * @param tailTrackDb database name      */
 DECL|method|setTailTrackDb (String tailTrackDb)
 specifier|public
 name|void
@@ -1600,7 +1903,7 @@ return|return
 name|tailTrackCollection
 return|;
 block|}
-comment|/**      * Collection where tail tracking information will be persisted. If not specified, {@link MongoDbTailTrackingConfig#DEFAULT_COLLECTION}       * will be used by default.      * @param tailTrackCollection collection name      */
+comment|/**      * Collection where tail tracking information will be persisted. If not      * specified, {@link MongoDbTailTrackingConfig#DEFAULT_COLLECTION} will be      * used by default.      *      * @param tailTrackCollection collection name      */
 DECL|method|setTailTrackCollection (String tailTrackCollection)
 specifier|public
 name|void
@@ -1627,7 +1930,7 @@ return|return
 name|tailTrackField
 return|;
 block|}
-comment|/**      * Field where the last tracked value will be placed. If not specified,  {@link MongoDbTailTrackingConfig#DEFAULT_FIELD}       * will be used by default.      * @param tailTrackField field name      */
+comment|/**      * Field where the last tracked value will be placed. If not specified,      * {@link MongoDbTailTrackingConfig#DEFAULT_FIELD} will be used by default.      *      * @param tailTrackField field name      */
 DECL|method|setTailTrackField (String tailTrackField)
 specifier|public
 name|void
@@ -1644,7 +1947,7 @@ operator|=
 name|tailTrackField
 expr_stmt|;
 block|}
-comment|/**      * Enable persistent tail tracking, which is a mechanism to keep track of the last consumed message across system restarts.      * The next time the system is up, the endpoint will recover the cursor from the point where it last stopped slurping records.      * @param persistentTailTracking true or false      */
+comment|/**      * Enable persistent tail tracking, which is a mechanism to keep track of      * the last consumed message across system restarts. The next time the      * system is up, the endpoint will recover the cursor from the point where      * it last stopped slurping records.      *      * @param persistentTailTracking true or false      */
 DECL|method|setPersistentTailTracking (boolean persistentTailTracking)
 specifier|public
 name|void
@@ -1671,7 +1974,7 @@ return|return
 name|persistentTailTracking
 return|;
 block|}
-comment|/**      * Correlation field in the incoming record which is of increasing nature and will be used to position the tailing cursor every       * time it is generated.      * The cursor will be (re)created with a query of type: tailTrackIncreasingField> lastValue (possibly recovered from persistent      * tail tracking).      * Can be of type Integer, Date, String, etc.      * NOTE: No support for dot notation at the current time, so the field should be at the top level of the document.      * @param tailTrackIncreasingField      */
+comment|/**      * Correlation field in the incoming record which is of increasing nature      * and will be used to position the tailing cursor every time it is      * generated. The cursor will be (re)created with a query of type:      * tailTrackIncreasingField> lastValue (possibly recovered from persistent      * tail tracking). Can be of type Integer, Date, String, etc. NOTE: No      * support for dot notation at the current time, so the field should be at      * the top level of the document.      *      * @param tailTrackIncreasingField      */
 DECL|method|setTailTrackIncreasingField (String tailTrackIncreasingField)
 specifier|public
 name|void
@@ -1741,7 +2044,7 @@ return|return
 name|tailTrackingConfig
 return|;
 block|}
-comment|/**      * MongoDB tailable cursors will block until new data arrives. If no new data is inserted, after some time the cursor will be automatically      * freed and closed by the MongoDB server. The client is expected to regenerate the cursor if needed. This value specifies the time to wait      * before attempting to fetch a new cursor, and if the attempt fails, how long before the next attempt is made. Default value is 1000ms.      * @param cursorRegenerationDelay delay specified in milliseconds      */
+comment|/**      * MongoDB tailable cursors will block until new data arrives. If no new      * data is inserted, after some time the cursor will be automatically freed      * and closed by the MongoDB server. The client is expected to regenerate      * the cursor if needed. This value specifies the time to wait before      * attempting to fetch a new cursor, and if the attempt fails, how long      * before the next attempt is made. Default value is 1000ms.      *      * @param cursorRegenerationDelay delay specified in milliseconds      */
 DECL|method|setCursorRegenerationDelay (long cursorRegenerationDelay)
 specifier|public
 name|void
@@ -1768,7 +2071,7 @@ return|return
 name|cursorRegenerationDelay
 return|;
 block|}
-comment|/**      * One tail tracking collection can host many trackers for several tailable consumers.       * To keep them separate, each tracker should have its own unique persistentId.      * @param persistentId the value of the persistent ID to use for this tailable consumer      */
+comment|/**      * One tail tracking collection can host many trackers for several tailable      * consumers. To keep them separate, each tracker should have its own unique      * persistentId.      *      * @param persistentId the value of the persistent ID to use for this      *                     tailable consumer      */
 DECL|method|setPersistentId (String persistentId)
 specifier|public
 name|void
@@ -1805,7 +2108,7 @@ return|return
 name|writeResultAsHeader
 return|;
 block|}
-comment|/**      * In write operations, it determines whether instead of returning {@link WriteResult} as the body of the OUT      * message, we transfer the IN message to the OUT and attach the WriteResult as a header.      * @param writeResultAsHeader flag to indicate if this option is enabled      */
+comment|/**      * In write operations, it determines whether instead of returning      * {@link WriteResult} as the body of the OUT message, we transfer the IN      * message to the OUT and attach the WriteResult as a header.      *      * @param writeResultAsHeader flag to indicate if this option is enabled      */
 DECL|method|setWriteResultAsHeader (boolean writeResultAsHeader)
 specifier|public
 name|void
