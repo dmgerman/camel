@@ -54,6 +54,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -617,6 +627,32 @@ block|}
 block|}
 else|else
 block|{
+comment|// if only 1 parameter and the body is a String then use body as is
+if|if
+condition|(
+name|expectedParams
+operator|==
+literal|1
+operator|&&
+name|value
+operator|instanceof
+name|String
+condition|)
+block|{
+return|return
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|value
+argument_list|)
+operator|.
+name|iterator
+argument_list|()
+return|;
+block|}
+else|else
+block|{
 comment|// is the body a String
 if|if
 condition|(
@@ -685,6 +721,7 @@ argument_list|,
 name|value
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 block|}
