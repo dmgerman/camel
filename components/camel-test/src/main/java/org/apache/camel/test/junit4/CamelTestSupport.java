@@ -985,7 +985,7 @@ name|Exception
 block|{
 comment|// noop
 block|}
-comment|/**      * Strategy to perform any post setup after {@link CamelContext} is createt.      */
+comment|/**      * Strategy to perform any post setup after {@link CamelContext} is created      */
 DECL|method|doPostSetup ()
 specifier|protected
 name|void
@@ -1088,7 +1088,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Cannot setting the Debugger to the starting CamelConetxt, stop the CamelContext now."
+literal|"Cannot setting the Debugger to the starting CamelContext, stop the CamelContext now."
 argument_list|)
 expr_stmt|;
 comment|// we need to stop the context first to setup the debugger

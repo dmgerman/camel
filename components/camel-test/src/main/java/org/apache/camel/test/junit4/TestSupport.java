@@ -707,7 +707,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Endoint uri for: "
+literal|"Endpoint uri for: "
 operator|+
 name|endpoint
 argument_list|,
@@ -1726,6 +1726,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the wrapped Processor.      */
+annotation|@
+name|Deprecated
 DECL|method|unwrap (Processor processor)
 specifier|public
 specifier|static
@@ -1770,6 +1772,8 @@ block|}
 block|}
 block|}
 comment|/**      * If a processor is wrapped with a bunch of DelegateProcessor or DelegateAsyncProcessor objects      * this call will drill through them and return the Channel.      *<p/>      * Returns null if no channel is found.      */
+annotation|@
+name|Deprecated
 DECL|method|unwrapChannel (Processor processor)
 specifier|public
 specifier|static
@@ -2369,7 +2373,7 @@ literal|"1.6"
 argument_list|)
 return|;
 block|}
-comment|/**      * Is this Java 1.7      *      * @return<tt>true</tt> if its Java 1.7,<tt>false</tt> if its not (for example Java 1.8 or better)      */
+comment|/**      * Is this Java 1.7      *      * @return<tt>true</tt> if its Java 1.7,<tt>false</tt> if its not (for example Java 1.6 or older)      */
 DECL|method|isJava17 ()
 specifier|public
 specifier|static
@@ -2400,6 +2404,40 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"1.7"
+argument_list|)
+return|;
+block|}
+comment|/**      * Is this Java 1.8      *      * @return<tt>true</tt> if its Java 1.8,<tt>false</tt> if its not (for example Java 1.7 or older)      */
+DECL|method|isJava18 ()
+specifier|public
+specifier|static
+name|boolean
+name|isJava18
+parameter_list|()
+block|{
+name|String
+name|javaVersion
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+decl_stmt|;
+return|return
+name|javaVersion
+operator|.
+name|startsWith
+argument_list|(
+literal|"1.8"
 argument_list|)
 return|;
 block|}
