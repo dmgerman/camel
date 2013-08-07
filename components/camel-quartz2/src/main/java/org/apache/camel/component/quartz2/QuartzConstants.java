@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Provide some constants used in this component package.  *  * @author Zemian Deng saltnlight5@gmail.com  */
+comment|/**  * Provide some constants used in this component package.  */
 end_comment
 
 begin_class
@@ -36,7 +36,7 @@ specifier|final
 name|String
 name|QUARTZ_CAMEL_JOBS_COUNT
 init|=
-literal|"CamelJobsCount"
+literal|"CamelQuartzJobsCount"
 decl_stmt|;
 DECL|field|QUARTZ_ENDPOINT_URI
 specifier|public

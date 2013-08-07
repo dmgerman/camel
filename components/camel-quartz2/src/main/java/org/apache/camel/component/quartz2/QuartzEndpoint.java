@@ -309,7 +309,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This endpoint represent each job to be created in scheduler. When consumer is started or stopped, it will  * call back into doConsumerStart()/Stop() to pause/resume the scheduler trigger.  *  */
+comment|/**  * This endpoint represent each job to be created in scheduler. When consumer is started or stopped, it will  * call back into doConsumerStart()/Stop() to pause/resume the scheduler trigger.  */
 end_comment
 
 begin_class

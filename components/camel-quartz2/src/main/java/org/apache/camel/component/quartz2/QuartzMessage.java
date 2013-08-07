@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel message to be created upon each scheduled job execution.  *  */
+comment|/**  * A Camel message to be created upon each scheduled job execution.  */
 end_comment
 
 begin_class
