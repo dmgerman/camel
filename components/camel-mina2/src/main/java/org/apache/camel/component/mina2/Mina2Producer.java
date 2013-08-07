@@ -1916,7 +1916,6 @@ argument_list|,
 name|connector
 argument_list|)
 expr_stmt|;
-comment|// set connect timeout to mina in seconds
 name|connector
 operator|.
 name|setConnectTimeoutMillis

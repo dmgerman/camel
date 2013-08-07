@@ -171,7 +171,7 @@ specifier|private
 name|long
 name|timeout
 init|=
-literal|3000
+literal|30000
 decl_stmt|;
 DECL|field|lazySessionCreation
 specifier|private
