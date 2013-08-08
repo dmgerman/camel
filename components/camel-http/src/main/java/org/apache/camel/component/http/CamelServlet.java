@@ -456,6 +456,40 @@ operator|.
 name|InOut
 argument_list|)
 decl_stmt|;
+comment|// we want to handle the UoW
+try|try
+block|{
+name|consumer
+operator|.
+name|createUoW
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error processing request"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|ServletException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|consumer
@@ -788,6 +822,13 @@ throw|;
 block|}
 finally|finally
 block|{
+name|consumer
+operator|.
+name|doneUoW
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|restoreTccl
 argument_list|(
 name|exchange
@@ -1092,7 +1133,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Restore the Thread Context ClassLoader if the Old TCCL is not null.      * @param exchange      * @param oldTccl      */
+comment|/**      * Restore the Thread Context ClassLoader if the old TCCL is not null.      */
 DECL|method|restoreTccl (final Exchange exchange, ClassLoader oldTccl)
 specifier|protected
 name|void

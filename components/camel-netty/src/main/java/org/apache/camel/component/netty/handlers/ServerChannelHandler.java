@@ -549,6 +549,14 @@ argument_list|,
 name|messageEvent
 argument_list|)
 decl_stmt|;
+comment|// we want to handle the UoW
+name|consumer
+operator|.
+name|createUoW
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|consumer
@@ -725,6 +733,16 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|consumer
+operator|.
+name|doneUoW
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|processAsynchronously (final Exchange exchange, final MessageEvent messageEvent)
 specifier|private
@@ -800,6 +818,16 @@ operator|.
 name|handleException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|consumer
+operator|.
+name|doneUoW
+argument_list|(
+name|exchange
 argument_list|)
 expr_stmt|;
 block|}
