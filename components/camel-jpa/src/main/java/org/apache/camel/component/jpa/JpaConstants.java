@@ -29,14 +29,14 @@ specifier|final
 class|class
 name|JpaConstants
 block|{
-DECL|field|JPA_TEMPLATE
+DECL|field|ENTITYMANAGER
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|JPA_TEMPLATE
+name|ENTITYMANAGER
 init|=
-literal|"CamelJpaTemplate"
+literal|"CamelEntityManager"
 decl_stmt|;
 DECL|method|JpaConstants ()
 specifier|private
