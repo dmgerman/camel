@@ -328,13 +328,17 @@ name|component
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createRabbitExchange (Envelope envelope)
+DECL|method|createRabbitExchange (Envelope envelope, byte[] body)
 specifier|public
 name|Exchange
 name|createRabbitExchange
 parameter_list|(
 name|Envelope
 name|envelope
+parameter_list|,
+name|byte
+index|[]
+name|body
 parameter_list|)
 block|{
 name|Exchange
@@ -404,6 +408,13 @@ name|envelope
 operator|.
 name|getDeliveryTag
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|message
+operator|.
+name|setBody
+argument_list|(
+name|body
 argument_list|)
 expr_stmt|;
 return|return
