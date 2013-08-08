@@ -981,7 +981,7 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
-name|createEntityManager
+name|getEntityManager
 argument_list|()
 expr_stmt|;
 block|}
@@ -1024,11 +1024,6 @@ name|template
 argument_list|,
 name|camelContext
 argument_list|)
-expr_stmt|;
-name|entityManager
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

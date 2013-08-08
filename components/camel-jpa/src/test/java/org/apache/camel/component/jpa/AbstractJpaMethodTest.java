@@ -367,11 +367,6 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|entityManager
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1246,7 +1241,7 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
-name|createEntityManager
+name|getEntityManager
 argument_list|()
 expr_stmt|;
 name|transactionTemplate

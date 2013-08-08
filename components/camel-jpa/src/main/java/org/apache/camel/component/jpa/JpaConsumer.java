@@ -413,7 +413,7 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
-name|createEntityManager
+name|getEntityManager
 argument_list|()
 expr_stmt|;
 name|this
@@ -1844,25 +1844,6 @@ expr_stmt|;
 return|return
 name|exchange
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-comment|// TODO: This should probably happen, but hitting an open transaction or flush in progress.
-comment|// Is there a thread holding onto it?
-comment|//        entityManager.close();
 block|}
 block|}
 end_class

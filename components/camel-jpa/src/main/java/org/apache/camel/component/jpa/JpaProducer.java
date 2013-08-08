@@ -206,7 +206,7 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
-name|createEntityManager
+name|getEntityManager
 argument_list|()
 expr_stmt|;
 name|this
@@ -558,27 +558,6 @@ name|JpaConstants
 operator|.
 name|ENTITYMANAGER
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-name|entityManager
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}
