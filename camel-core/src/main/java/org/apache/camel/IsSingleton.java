@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Used for defining if a given class is singleton or not.  If the class is a singleton,   * then a single instance will be shared (and hence should be treated as immutable and  * be used in a thread-safe manner.)  *   * This interface is not implemented as a marker interface (i.e., it's necessary to read    * isSingleton() instead of instanceof(IsSingleton)).  This allows for subclasses to have   * a singleton status different from a parent and for objects to have this value dynamically   * changed.   *  * @version   */
+comment|/**  * Used for defining if a given class is singleton or not.  If the class is a singleton,   * then a single instance will be shared (and hence should be treated as immutable and  * be used in a thread-safe manner).  *<p/>  * This interface is not implemented as a marker interface (i.e., it's necessary to read    * {@link #isSingleton()} instead of<tt>instanceof(IsSingleton))</tt>.  * This allows for subclasses to have a singleton status different from a parent and  * for objects to have this value dynamically changed.  *<p/>  * Camel component is very often singleton based, only a few components is not.  *  * @version   */
 end_comment
 
 begin_interface
@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|IsSingleton
 block|{
-comment|/**      * Whether this class supports being singleton or not.      *        * @return<tt>true</tt> to be a single shared instance,<tt>false</tt> to create new instances.      */
+comment|/**      * Whether this class supports being singleton or not.      *      * @return<tt>true</tt> to be a single shared instance,<tt>false</tt> to create new instances.      */
 DECL|method|isSingleton ()
 name|boolean
 name|isSingleton

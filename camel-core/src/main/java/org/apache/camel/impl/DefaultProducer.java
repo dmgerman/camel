@@ -246,6 +246,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
+comment|/**      * This implementation will delegate to the endpoint {@link org.apache.camel.Endpoint#isSingleton()}      */
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -253,7 +254,10 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|true
+name|endpoint
+operator|.
+name|isSingleton
+argument_list|()
 return|;
 block|}
 DECL|method|doStart ()
