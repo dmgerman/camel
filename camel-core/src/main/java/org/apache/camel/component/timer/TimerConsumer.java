@@ -397,34 +397,6 @@ name|isSuspended
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|doSuspend ()
-specifier|protected
-name|void
-name|doSuspend
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|doStop
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doResume ()
-specifier|protected
-name|void
-name|doResume
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|doStart
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|configureTask (TimerTask task, Timer timer)
 specifier|protected
 name|void
