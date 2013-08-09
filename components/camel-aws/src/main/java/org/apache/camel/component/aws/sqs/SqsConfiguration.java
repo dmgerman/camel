@@ -80,6 +80,11 @@ specifier|private
 name|String
 name|amazonSQSEndpoint
 decl_stmt|;
+DECL|field|queueOwnerAWSAccountId
+specifier|private
+name|String
+name|queueOwnerAWSAccountId
+decl_stmt|;
 comment|// consumer properties
 DECL|field|deleteAfterRead
 specifier|private
@@ -573,6 +578,32 @@ operator|=
 name|waitTimeSeconds
 expr_stmt|;
 block|}
+DECL|method|getQueueOwnerAWSAccountId ()
+specifier|public
+name|String
+name|getQueueOwnerAWSAccountId
+parameter_list|()
+block|{
+return|return
+name|queueOwnerAWSAccountId
+return|;
+block|}
+DECL|method|setQueueOwnerAWSAccountId (String queueOwnerAWSAccountId)
+specifier|public
+name|void
+name|setQueueOwnerAWSAccountId
+parameter_list|(
+name|String
+name|queueOwnerAWSAccountId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queueOwnerAWSAccountId
+operator|=
+name|queueOwnerAWSAccountId
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -639,6 +670,10 @@ operator|+
 literal|", extendMessageVisibility="
 operator|+
 name|extendMessageVisibility
+operator|+
+literal|", queueOwnerAWSAccountId="
+operator|+
+name|queueOwnerAWSAccountId
 operator|+
 literal|"]"
 return|;
