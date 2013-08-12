@@ -20,6 +20,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -511,6 +521,20 @@ operator|.
 name|util
 operator|.
 name|ExchangeHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
 import|;
 end_import
 
@@ -1230,12 +1254,13 @@ operator|new
 name|AtomicExchange
 argument_list|()
 decl_stmt|;
-specifier|final
 name|Iterable
 argument_list|<
 name|ProcessorExchangePair
 argument_list|>
 name|pairs
+init|=
+literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1334,6 +1359,8 @@ name|exchange
 argument_list|,
 literal|null
 argument_list|,
+name|pairs
+argument_list|,
 name|callback
 argument_list|,
 literal|true
@@ -1369,6 +1396,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|subExchange
+argument_list|,
+name|pairs
 argument_list|,
 name|callback
 argument_list|,
@@ -3208,6 +3237,8 @@ name|original
 argument_list|,
 name|subExchange
 argument_list|,
+name|pairs
+argument_list|,
 name|callback
 argument_list|,
 literal|false
@@ -3262,6 +3293,8 @@ argument_list|(
 name|original
 argument_list|,
 name|subExchange
+argument_list|,
+name|pairs
 argument_list|,
 name|callback
 argument_list|,
@@ -3436,6 +3469,8 @@ name|original
 argument_list|,
 name|subExchange
 argument_list|,
+name|pairs
+argument_list|,
 name|callback
 argument_list|,
 literal|false
@@ -3492,6 +3527,8 @@ name|original
 argument_list|,
 name|subExchange
 argument_list|,
+name|pairs
+argument_list|,
 name|callback
 argument_list|,
 literal|false
@@ -3529,6 +3566,8 @@ argument_list|(
 name|original
 argument_list|,
 name|subExchange
+argument_list|,
+name|pairs
 argument_list|,
 name|callback
 argument_list|,
@@ -3774,8 +3813,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original    the original exchange      * @param subExchange the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param callback    the callback      * @param doneSync    the<tt>doneSync</tt> parameter to call on callback      * @param exhaust     whether or not error handling is exhausted      */
-DECL|method|doDone (Exchange original, Exchange subExchange, AsyncCallback callback, boolean doneSync, boolean exhaust)
+comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original    the original exchange      * @param subExchange the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param pairs       the pairs with the exchanges to process      * @param callback    the callback      * @param doneSync    the<tt>doneSync</tt> parameter to call on callback      * @param exhaust     whether or not error handling is exhausted      */
+DECL|method|doDone (Exchange original, Exchange subExchange, final Iterable<ProcessorExchangePair> pairs, AsyncCallback callback, boolean doneSync, boolean exhaust)
 specifier|protected
 name|void
 name|doDone
@@ -3785,6 +3824,13 @@ name|original
 parameter_list|,
 name|Exchange
 name|subExchange
+parameter_list|,
+specifier|final
+name|Iterable
+argument_list|<
+name|ProcessorExchangePair
+argument_list|>
+name|pairs
 parameter_list|,
 name|AsyncCallback
 name|callback
@@ -3796,6 +3842,33 @@ name|boolean
 name|exhaust
 parameter_list|)
 block|{
+comment|// we are done so close the pairs iterator
+if|if
+condition|(
+name|pairs
+operator|!=
+literal|null
+operator|&&
+name|pairs
+operator|instanceof
+name|Closeable
+condition|)
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+operator|(
+name|Closeable
+operator|)
+name|pairs
+argument_list|,
+literal|"pairs"
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+block|}
 comment|// cleanup any per exchange aggregation strategy
 name|removeAggregationStrategyFromExchange
 argument_list|(
