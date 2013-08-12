@@ -889,6 +889,10 @@ decl_stmt|;
 comment|// make sure the "boi" is remained as wrapped in PAYLOAD mode
 if|if
 condition|(
+name|boi
+operator|!=
+literal|null
+operator|&&
 name|dataFormat
 operator|==
 name|DataFormat
