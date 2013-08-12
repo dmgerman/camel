@@ -325,6 +325,11 @@ specifier|private
 name|int
 name|spoolUsedHeapMemoryThreshold
 decl_stmt|;
+DECL|field|spoolUsedHeapMemoryLimit
+specifier|private
+name|SpoolUsedHeapMemoryLimit
+name|spoolUsedHeapMemoryLimit
+decl_stmt|;
 DECL|field|spoolChiper
 specifier|private
 name|String
@@ -505,6 +510,32 @@ operator|.
 name|spoolUsedHeapMemoryThreshold
 operator|=
 name|spoolHeapMemoryWatermarkThreshold
+expr_stmt|;
+block|}
+DECL|method|getSpoolUsedHeapMemoryLimit ()
+specifier|public
+name|SpoolUsedHeapMemoryLimit
+name|getSpoolUsedHeapMemoryLimit
+parameter_list|()
+block|{
+return|return
+name|spoolUsedHeapMemoryLimit
+return|;
+block|}
+DECL|method|setSpoolUsedHeapMemoryLimit (SpoolUsedHeapMemoryLimit spoolUsedHeapMemoryLimit)
+specifier|public
+name|void
+name|setSpoolUsedHeapMemoryLimit
+parameter_list|(
+name|SpoolUsedHeapMemoryLimit
+name|spoolUsedHeapMemoryLimit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|spoolUsedHeapMemoryLimit
+operator|=
+name|spoolUsedHeapMemoryLimit
 expr_stmt|;
 block|}
 DECL|method|setSpoolThreshold (long spoolThreshold)
@@ -1402,13 +1433,30 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|spoolUsedHeapMemoryLimit
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use max by default
+name|spoolUsedHeapMemoryLimit
+operator|=
+name|SpoolUsedHeapMemoryLimit
+operator|.
+name|Max
+expr_stmt|;
+block|}
 name|spoolRules
 operator|.
 name|add
 argument_list|(
 operator|new
 name|UsedHeapMemorySpoolRule
-argument_list|()
+argument_list|(
+name|spoolUsedHeapMemoryLimit
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1675,11 +1723,26 @@ specifier|final
 name|MemoryMXBean
 name|heapUsage
 decl_stmt|;
-DECL|method|UsedHeapMemorySpoolRule ()
+DECL|field|limit
+specifier|private
+specifier|final
+name|SpoolUsedHeapMemoryLimit
+name|limit
+decl_stmt|;
+DECL|method|UsedHeapMemorySpoolRule (SpoolUsedHeapMemoryLimit limit)
 specifier|private
 name|UsedHeapMemorySpoolRule
-parameter_list|()
+parameter_list|(
+name|SpoolUsedHeapMemoryLimit
+name|limit
+parameter_list|)
 block|{
+name|this
+operator|.
+name|limit
+operator|=
+name|limit
+expr_stmt|;
 name|this
 operator|.
 name|heapUsage
@@ -1719,14 +1782,28 @@ name|getUsed
 argument_list|()
 decl_stmt|;
 name|double
-name|committed
+name|upper
 init|=
+name|limit
+operator|==
+name|SpoolUsedHeapMemoryLimit
+operator|.
+name|Committed
+condition|?
 name|heapUsage
 operator|.
 name|getHeapMemoryUsage
 argument_list|()
 operator|.
 name|getCommitted
+argument_list|()
+else|:
+name|heapUsage
+operator|.
+name|getHeapMemoryUsage
+argument_list|()
+operator|.
+name|getMax
 argument_list|()
 decl_stmt|;
 name|double
@@ -1735,7 +1812,7 @@ init|=
 operator|(
 name|used
 operator|/
-name|committed
+name|upper
 operator|)
 operator|*
 literal|100
@@ -1778,11 +1855,22 @@ operator|.
 name|getCommitted
 argument_list|()
 decl_stmt|;
+name|long
+name|m
+init|=
+name|heapUsage
+operator|.
+name|getHeapMemoryUsage
+argument_list|()
+operator|.
+name|getMax
+argument_list|()
+decl_stmt|;
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Heap memory: [used={}M ({}%), committed={}M]"
+literal|"Heap memory: [used={}M ({}%), committed={}M, max={}M]"
 argument_list|,
 operator|new
 name|Object
@@ -1795,6 +1883,10 @@ block|,
 name|percentage
 block|,
 name|c
+operator|>>
+literal|20
+block|,
+name|m
 operator|>>
 literal|20
 block|}
@@ -1839,7 +1931,11 @@ literal|"Spool> "
 operator|+
 name|spoolUsedHeapMemoryThreshold
 operator|+
-literal|"% used heap memory"
+literal|"% used of "
+operator|+
+name|limit
+operator|+
+literal|" heap memory"
 return|;
 block|}
 block|}

@@ -285,6 +285,40 @@ name|getSpoolUsedHeapMemoryThreshold
 argument_list|()
 return|;
 block|}
+DECL|method|setSpoolUsedHeapMemoryLimit (StreamCachingStrategy.SpoolUsedHeapMemoryLimit limit)
+specifier|public
+name|void
+name|setSpoolUsedHeapMemoryLimit
+parameter_list|(
+name|StreamCachingStrategy
+operator|.
+name|SpoolUsedHeapMemoryLimit
+name|limit
+parameter_list|)
+block|{
+name|streamCachingStrategy
+operator|.
+name|setSpoolUsedHeapMemoryLimit
+argument_list|(
+name|limit
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getSpoolUsedHeapMemoryLimit ()
+specifier|public
+name|StreamCachingStrategy
+operator|.
+name|SpoolUsedHeapMemoryLimit
+name|getSpoolUsedHeapMemoryLimit
+parameter_list|()
+block|{
+return|return
+name|streamCachingStrategy
+operator|.
+name|getSpoolUsedHeapMemoryLimit
+argument_list|()
+return|;
+block|}
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void

@@ -52,6 +52,20 @@ name|ManagedOperation
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|StreamCachingStrategy
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedStreamCachingStrategyMBean
 specifier|public
@@ -146,6 +160,37 @@ argument_list|)
 DECL|method|getSpoolUsedHeapMemoryThreshold ()
 name|int
 name|getSpoolUsedHeapMemoryThreshold
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether used heap memory limit is committed or maximum"
+argument_list|)
+DECL|method|setSpoolUsedHeapMemoryLimit (StreamCachingStrategy.SpoolUsedHeapMemoryLimit limit)
+name|void
+name|setSpoolUsedHeapMemoryLimit
+parameter_list|(
+name|StreamCachingStrategy
+operator|.
+name|SpoolUsedHeapMemoryLimit
+name|limit
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether used heap memory limit is committed or maximum"
+argument_list|)
+DECL|method|getSpoolUsedHeapMemoryLimit ()
+name|StreamCachingStrategy
+operator|.
+name|SpoolUsedHeapMemoryLimit
+name|getSpoolUsedHeapMemoryLimit
 parameter_list|()
 function_decl|;
 annotation|@

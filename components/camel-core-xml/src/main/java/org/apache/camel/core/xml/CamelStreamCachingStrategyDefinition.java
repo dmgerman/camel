@@ -151,6 +151,13 @@ name|spoolUsedHeapMemoryThreshold
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|spoolUsedHeapMemoryLimit
+specifier|private
+name|String
+name|spoolUsedHeapMemoryLimit
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|spoolRules
 specifier|private
 name|String
@@ -312,6 +319,32 @@ operator|.
 name|spoolUsedHeapMemoryThreshold
 operator|=
 name|spoolUsedHeapMemoryThreshold
+expr_stmt|;
+block|}
+DECL|method|getSpoolUsedHeapMemoryLimit ()
+specifier|public
+name|String
+name|getSpoolUsedHeapMemoryLimit
+parameter_list|()
+block|{
+return|return
+name|spoolUsedHeapMemoryLimit
+return|;
+block|}
+DECL|method|setSpoolUsedHeapMemoryLimit (String spoolUsedHeapMemoryLimit)
+specifier|public
+name|void
+name|setSpoolUsedHeapMemoryLimit
+parameter_list|(
+name|String
+name|spoolUsedHeapMemoryLimit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|spoolUsedHeapMemoryLimit
+operator|=
+name|spoolUsedHeapMemoryLimit
 expr_stmt|;
 block|}
 DECL|method|getSpoolRules ()

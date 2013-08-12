@@ -137,6 +137,17 @@ name|statisticsEnabled
 parameter_list|)
 function_decl|;
 block|}
+comment|/**      * Used for selecting if the memory limit is<tt>committed</tt> or<tt>maximum</tt> heap memory setting.      */
+DECL|enum|SpoolUsedHeapMemoryLimit
+enum|enum
+name|SpoolUsedHeapMemoryLimit
+block|{
+DECL|enumConstant|Committed
+DECL|enumConstant|Max
+name|Committed
+block|,
+name|Max
+block|}
 comment|/**      * Rule for determine if stream caching should be spooled to disk or kept in-memory.      */
 DECL|interface|SpoolRule
 interface|interface
@@ -214,6 +225,20 @@ function_decl|;
 DECL|method|getSpoolUsedHeapMemoryThreshold ()
 name|int
 name|getSpoolUsedHeapMemoryThreshold
+parameter_list|()
+function_decl|;
+comment|/**      * Sets what the upper bounds should be when {@link #setSpoolUsedHeapMemoryThreshold(int)}      * is in use.      *      * @param bounds the bounds      */
+DECL|method|setSpoolUsedHeapMemoryLimit (SpoolUsedHeapMemoryLimit bounds)
+name|void
+name|setSpoolUsedHeapMemoryLimit
+parameter_list|(
+name|SpoolUsedHeapMemoryLimit
+name|bounds
+parameter_list|)
+function_decl|;
+DECL|method|getSpoolUsedHeapMemoryLimit ()
+name|SpoolUsedHeapMemoryLimit
+name|getSpoolUsedHeapMemoryLimit
 parameter_list|()
 function_decl|;
 comment|/**      * Sets the buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
