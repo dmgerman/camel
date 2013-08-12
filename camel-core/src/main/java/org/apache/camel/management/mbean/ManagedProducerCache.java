@@ -259,6 +259,19 @@ name|purge
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|isEventNotifierEnabled ()
+specifier|public
+name|Boolean
+name|isEventNotifierEnabled
+parameter_list|()
+block|{
+return|return
+name|producerCache
+operator|.
+name|isEventNotifierEnabled
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

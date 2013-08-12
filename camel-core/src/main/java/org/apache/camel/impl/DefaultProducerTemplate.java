@@ -320,6 +320,13 @@ specifier|private
 name|int
 name|maximumCacheSize
 decl_stmt|;
+DECL|field|eventNotifierEnabled
+specifier|private
+name|boolean
+name|eventNotifierEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|method|DefaultProducerTemplate (CamelContext camelContext)
 specifier|public
 name|DefaultProducerTemplate
@@ -466,6 +473,48 @@ operator|.
 name|size
 argument_list|()
 return|;
+block|}
+DECL|method|isEventNotifierEnabled ()
+specifier|public
+name|boolean
+name|isEventNotifierEnabled
+parameter_list|()
+block|{
+return|return
+name|eventNotifierEnabled
+return|;
+block|}
+DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
+specifier|public
+name|void
+name|setEventNotifierEnabled
+parameter_list|(
+name|boolean
+name|eventNotifierEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eventNotifierEnabled
+operator|=
+name|eventNotifierEnabled
+expr_stmt|;
+comment|// if we already created the cache then adjust its setting as well
+if|if
+condition|(
+name|producerCache
+operator|!=
+literal|null
+condition|)
+block|{
+name|producerCache
+operator|.
+name|setEventNotifierEnabled
+argument_list|(
+name|eventNotifierEnabled
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|send (String endpointUri, Exchange exchange)
 specifier|public
@@ -4511,6 +4560,14 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
+name|producerCache
+operator|.
+name|setEventNotifierEnabled
+argument_list|(
+name|isEventNotifierEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.

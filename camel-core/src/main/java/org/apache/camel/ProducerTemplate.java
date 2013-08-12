@@ -151,6 +151,21 @@ name|String
 name|endpointUri
 parameter_list|)
 function_decl|;
+comment|/**      * Sets whether the {@link org.apache.camel.spi.EventNotifier} should be      * used by this {@link ProducerTemplate} to send events about the {@link Exchange}      * being sent.      *<p/>      * By default this is enabled.      *      * @param enabled<tt>true</tt> to enable,<tt>false</tt> to disable.      */
+DECL|method|setEventNotifierEnabled (boolean enabled)
+name|void
+name|setEventNotifierEnabled
+parameter_list|(
+name|boolean
+name|enabled
+parameter_list|)
+function_decl|;
+comment|/**      * Whether the {@link org.apache.camel.spi.EventNotifier} should be      * used by this {@link ProducerTemplate} to send events about the {@link Exchange}      * being sent.      *      * @return<tt>true</tt> if enabled,<tt>false</tt> otherwise      */
+DECL|method|isEventNotifierEnabled ()
+name|boolean
+name|isEventNotifierEnabled
+parameter_list|()
+function_decl|;
 comment|// Synchronous methods
 comment|// -----------------------------------------------------------------------
 comment|/**      * Sends the exchange to the default endpoint      *<br/><br/>      *<b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param exchange the exchange to send      * @return the returned exchange      */

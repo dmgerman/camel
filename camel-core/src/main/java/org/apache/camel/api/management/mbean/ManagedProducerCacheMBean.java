@@ -156,6 +156,18 @@ name|void
 name|purge
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"EventNotifier enabled"
+argument_list|)
+DECL|method|isEventNotifierEnabled ()
+name|Boolean
+name|isEventNotifierEnabled
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

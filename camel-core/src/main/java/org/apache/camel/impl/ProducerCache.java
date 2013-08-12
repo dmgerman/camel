@@ -379,6 +379,13 @@ specifier|final
 name|Object
 name|source
 decl_stmt|;
+DECL|field|eventNotifierEnabled
+specifier|private
+name|boolean
+name|eventNotifierEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|method|ProducerCache (Object source, CamelContext camelContext)
 specifier|public
 name|ProducerCache
@@ -521,6 +528,32 @@ operator|.
 name|producers
 operator|=
 name|cache
+expr_stmt|;
+block|}
+DECL|method|isEventNotifierEnabled ()
+specifier|public
+name|boolean
+name|isEventNotifierEnabled
+parameter_list|()
+block|{
+return|return
+name|eventNotifierEnabled
+return|;
+block|}
+DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
+specifier|public
+name|void
+name|setEventNotifierEnabled
+parameter_list|(
+name|boolean
+name|eventNotifierEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eventNotifierEnabled
+operator|=
+name|eventNotifierEnabled
 expr_stmt|;
 block|}
 comment|/**      * Creates the {@link LRUCache} to be used.      *<p/>      * This implementation returns a {@link LRUCache} instance.       * @param cacheSize the cache size      * @return the cache      */
@@ -842,6 +875,8 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+name|eventNotifierEnabled
+operator|&&
 name|exchange
 operator|!=
 literal|null
@@ -859,6 +894,8 @@ try|try
 block|{
 if|if
 condition|(
+name|eventNotifierEnabled
+operator|&&
 name|exchange
 operator|!=
 literal|null
@@ -920,6 +957,8 @@ finally|finally
 block|{
 if|if
 condition|(
+name|eventNotifierEnabled
+operator|&&
 name|exchange
 operator|!=
 literal|null
@@ -1103,6 +1142,8 @@ specifier|final
 name|StopWatch
 name|watch
 init|=
+name|eventNotifierEnabled
+operator|&&
 name|exchange
 operator|!=
 literal|null
@@ -1117,6 +1158,8 @@ try|try
 block|{
 if|if
 condition|(
+name|eventNotifierEnabled
+operator|&&
 name|exchange
 operator|!=
 literal|null
@@ -1180,6 +1223,8 @@ try|try
 block|{
 if|if
 condition|(
+name|eventNotifierEnabled
+operator|&&
 name|watch
 operator|!=
 literal|null
@@ -1457,12 +1502,21 @@ comment|// send the exchange using the processor
 name|StopWatch
 name|watch
 init|=
-operator|new
-name|StopWatch
-argument_list|()
+literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|eventNotifierEnabled
+condition|)
+block|{
+name|watch
+operator|=
+operator|new
+name|StopWatch
+argument_list|()
+expr_stmt|;
 name|EventHelper
 operator|.
 name|notifyExchangeSending
@@ -1477,6 +1531,7 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
+block|}
 comment|// ensure we run in an unit of work
 name|Producer
 name|target
@@ -1513,6 +1568,15 @@ block|}
 finally|finally
 block|{
 comment|// emit event that the exchange was sent to the endpoint
+if|if
+condition|(
+name|eventNotifierEnabled
+operator|&&
+name|watch
+operator|!=
+literal|null
+condition|)
+block|{
 name|long
 name|timeTaken
 init|=
@@ -1537,6 +1601,7 @@ argument_list|,
 name|timeTaken
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|exchange
