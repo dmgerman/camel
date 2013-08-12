@@ -544,7 +544,7 @@ operator|.
 name|Exchange
 name|camelExchange
 init|=
-name|perpareCamelExchange
+name|prepareCamelExchange
 argument_list|(
 name|cxfExchange
 argument_list|)
@@ -660,6 +660,8 @@ operator|.
 name|getObject
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|setResponseBack
 argument_list|(
 name|cxfExchange
@@ -667,6 +669,19 @@ argument_list|,
 name|camelExchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|CxfConsumer
+operator|.
+name|this
+operator|.
+name|doneUoW
+argument_list|(
+name|camelExchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -766,12 +781,15 @@ operator|.
 name|Exchange
 name|camelExchange
 init|=
-name|perpareCamelExchange
+name|prepareCamelExchange
 argument_list|(
 name|cxfExchange
 argument_list|)
 decl_stmt|;
-comment|// send Camel exchange to the target processor
+try|try
+block|{
+try|try
+block|{
 name|LOG
 operator|.
 name|trace
@@ -779,8 +797,7 @@ argument_list|(
 literal|"Processing +++ START +++"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+comment|// send Camel exchange to the target processor
 name|getProcessor
 argument_list|()
 operator|.
@@ -818,6 +835,15 @@ argument_list|,
 name|camelExchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|doneUoW
+argument_list|(
+name|camelExchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// response should have been set in outMessage's content
 return|return
 literal|null
@@ -831,7 +857,7 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-name|perpareCamelExchange
+name|prepareCamelExchange
 parameter_list|(
 name|Exchange
 name|cxfExchange
@@ -870,6 +896,42 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
+comment|// we want to handle the UoW
+try|try
+block|{
+name|CxfConsumer
+operator|.
+name|this
+operator|.
+name|createUoW
+argument_list|(
+name|camelExchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Error processing request"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|Fault
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 name|DataFormat
 name|dataFormat
 init|=

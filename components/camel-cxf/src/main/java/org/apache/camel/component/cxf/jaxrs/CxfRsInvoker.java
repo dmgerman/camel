@@ -511,6 +511,14 @@ argument_list|(
 name|ep
 argument_list|)
 decl_stmt|;
+comment|// we want to handle the UoW
+name|cxfRsConsumer
+operator|.
+name|createUoW
+argument_list|(
+name|camelExchange
+argument_list|)
+expr_stmt|;
 name|CxfRsBinding
 name|binding
 init|=
@@ -668,6 +676,8 @@ operator|.
 name|getObject
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 return|return
 name|returnResponse
 argument_list|(
@@ -676,6 +686,17 @@ argument_list|,
 name|camelExchange
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|cxfRsConsumer
+operator|.
+name|doneUoW
+argument_list|(
+name|camelExchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -746,6 +767,14 @@ argument_list|(
 name|ep
 argument_list|)
 decl_stmt|;
+comment|// we want to handle the UoW
+name|cxfRsConsumer
+operator|.
+name|createUoW
+argument_list|(
+name|camelExchange
+argument_list|)
+expr_stmt|;
 name|CxfRsBinding
 name|binding
 init|=
@@ -794,6 +823,8 @@ name|exception
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 return|return
 name|returnResponse
 argument_list|(
@@ -802,6 +833,17 @@ argument_list|,
 name|camelExchange
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|cxfRsConsumer
+operator|.
+name|doneUoW
+argument_list|(
+name|camelExchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|returnResponse (Exchange cxfExchange, org.apache.camel.Exchange camelExchange)
 specifier|private
