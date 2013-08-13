@@ -188,7 +188,7 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/file/customer"
+literal|"target/file/custom"
 argument_list|)
 expr_stmt|;
 name|super
