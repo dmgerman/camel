@@ -100,13 +100,43 @@ name|DataFormat
 block|{
 DECL|field|charset
 specifier|private
-specifier|final
 name|String
 name|charset
 decl_stmt|;
+DECL|method|StringDataFormat ()
+specifier|public
+name|StringDataFormat
+parameter_list|()
+block|{     }
 DECL|method|StringDataFormat (String charset)
 specifier|public
 name|StringDataFormat
+parameter_list|(
+name|String
+name|charset
+parameter_list|)
+block|{
+name|this
+operator|.
+name|charset
+operator|=
+name|charset
+expr_stmt|;
+block|}
+DECL|method|getCharset ()
+specifier|public
+name|String
+name|getCharset
+parameter_list|()
+block|{
+return|return
+name|charset
+return|;
+block|}
+DECL|method|setCharset (String charset)
+specifier|public
+name|void
+name|setCharset
 parameter_list|(
 name|String
 name|charset

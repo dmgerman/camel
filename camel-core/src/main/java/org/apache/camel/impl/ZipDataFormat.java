@@ -136,7 +136,6 @@ name|DataFormat
 block|{
 DECL|field|compressionLevel
 specifier|private
-specifier|final
 name|int
 name|compressionLevel
 decl_stmt|;
@@ -157,6 +156,32 @@ block|}
 DECL|method|ZipDataFormat (int compressionLevel)
 specifier|public
 name|ZipDataFormat
+parameter_list|(
+name|int
+name|compressionLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compressionLevel
+operator|=
+name|compressionLevel
+expr_stmt|;
+block|}
+DECL|method|getCompressionLevel ()
+specifier|public
+name|int
+name|getCompressionLevel
+parameter_list|()
+block|{
+return|return
+name|compressionLevel
+return|;
+block|}
+DECL|method|setCompressionLevel (int compressionLevel)
+specifier|public
+name|void
+name|setCompressionLevel
 parameter_list|(
 name|int
 name|compressionLevel
