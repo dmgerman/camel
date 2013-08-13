@@ -95,18 +95,6 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|Override
-DECL|method|getDataFormatName ()
-specifier|public
-name|String
-name|getDataFormatName
-parameter_list|()
-block|{
-return|return
-literal|"serialization"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createDataFormat (RouteContext routeContext)
 specifier|protected
 name|DataFormat
