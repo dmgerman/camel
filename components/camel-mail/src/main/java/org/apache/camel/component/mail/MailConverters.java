@@ -782,7 +782,7 @@ name|s
 init|=
 name|simple
 operator|.
-name|getFromSentDate
+name|getToSentDate
 argument_list|()
 decl_stmt|;
 if|if
@@ -883,7 +883,7 @@ name|s
 init|=
 name|simple
 operator|.
-name|getFromSentDate
+name|getFromReceivedDate
 argument_list|()
 decl_stmt|;
 if|if
@@ -984,7 +984,7 @@ name|s
 init|=
 name|simple
 operator|.
-name|getFromSentDate
+name|getToReceivedDate
 argument_list|()
 decl_stmt|;
 if|if
