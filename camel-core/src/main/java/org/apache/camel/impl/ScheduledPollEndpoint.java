@@ -60,6 +60,20 @@ name|Component
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A base class for {@link org.apache.camel.Endpoint} which creates a {@link ScheduledPollConsumer}  *  * @version   */
 end_comment
@@ -188,6 +202,23 @@ parameter_list|)
 block|{
 comment|// special for scheduled poll consumers as we want to allow end users to configure its options
 comment|// from the URI parameters without the consumer. prefix
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|schedulerProperties
+init|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|options
+argument_list|,
+literal|"scheduler."
+argument_list|)
+decl_stmt|;
 name|Object
 name|startScheduler
 init|=
@@ -365,6 +396,12 @@ condition|(
 name|scheduler
 operator|!=
 literal|null
+operator|||
+operator|!
+name|schedulerProperties
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|setConsumerProperties
@@ -580,6 +617,25 @@ argument_list|(
 literal|"scheduler"
 argument_list|,
 name|scheduler
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|schedulerProperties
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|consumerProperties
+operator|.
+name|put
+argument_list|(
+literal|"schedulerProperties"
+argument_list|,
+name|schedulerProperties
 argument_list|)
 expr_stmt|;
 block|}

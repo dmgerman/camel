@@ -92,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateConsumerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|LoggingLevel
 import|;
 end_import
@@ -117,6 +129,18 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ResolveEndpointFailedException
 import|;
 end_import
 
@@ -371,6 +395,16 @@ specifier|private
 specifier|volatile
 name|boolean
 name|polling
+decl_stmt|;
+DECL|field|schedulerProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|schedulerProperties
 decl_stmt|;
 DECL|method|ScheduledPollConsumer (Endpoint endpoint, Processor processor)
 specifier|public
@@ -1131,7 +1165,7 @@ return|return
 name|scheduler
 return|;
 block|}
-comment|/**      * Sets a cutom scheduler to use for scheduling running this task (poll).      * @param scheduler      */
+comment|/**      * Sets a custom scheduler to use for scheduling running this task (poll).      *      * @param scheduler the custom scheduler      */
 DECL|method|setScheduler (ScheduledPollConsumerScheduler scheduler)
 specifier|public
 name|void
@@ -1146,6 +1180,43 @@ operator|.
 name|scheduler
 operator|=
 name|scheduler
+expr_stmt|;
+block|}
+DECL|method|getSchedulerProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getSchedulerProperties
+parameter_list|()
+block|{
+return|return
+name|schedulerProperties
+return|;
+block|}
+comment|/**      * Additional properties to configure on the custom scheduler.      */
+DECL|method|setSchedulerProperties (Map<String, Object> schedulerProperties)
+specifier|public
+name|void
+name|setSchedulerProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|schedulerProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schedulerProperties
+operator|=
+name|schedulerProperties
 expr_stmt|;
 block|}
 DECL|method|getInitialDelay ()
@@ -1534,6 +1605,94 @@ argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|schedulerProperties
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|schedulerProperties
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// need to use a copy in case the consumer is restarted so we keep the properties
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|copy
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+name|schedulerProperties
+argument_list|)
+decl_stmt|;
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+argument_list|,
+name|scheduler
+argument_list|,
+name|copy
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|copy
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|FailedToCreateConsumerException
+argument_list|(
+name|getEndpoint
+argument_list|()
+argument_list|,
+literal|"There are "
+operator|+
+name|copy
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" scheduler parameters that couldn't be set on the endpoint."
+operator|+
+literal|" Check the uri if the parameters are spelt correctly and that they are properties of the endpoint."
+operator|+
+literal|" Unknown parameters=["
+operator|+
+name|copy
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
 name|ObjectHelper
 operator|.
 name|notNull
