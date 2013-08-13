@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -73,17 +85,20 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// dummy constructor here - we just want to test the run() method, which calls poll()
-DECL|method|MockScheduledPollConsumer (Exception exceptionToThrowOnPoll)
+DECL|method|MockScheduledPollConsumer (Endpoint endpoint, Exception exceptionToThrowOnPoll)
 specifier|public
 name|MockScheduledPollConsumer
 parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
 name|Exception
 name|exceptionToThrowOnPoll
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|null
+name|endpoint
 argument_list|,
 literal|null
 argument_list|,
