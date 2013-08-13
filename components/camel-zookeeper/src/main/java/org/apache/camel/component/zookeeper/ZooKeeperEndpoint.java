@@ -292,7 +292,7 @@ name|description
 operator|=
 literal|"Session Password"
 argument_list|,
-name|sanitize
+name|mask
 operator|=
 literal|true
 argument_list|)

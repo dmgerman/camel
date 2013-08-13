@@ -1263,11 +1263,11 @@ init|=
 literal|null
 decl_stmt|;
 name|boolean
-name|sanitize
+name|mask
 init|=
 name|ma
 operator|.
-name|sanitize
+name|mask
 argument_list|()
 decl_stmt|;
 if|if
@@ -1400,9 +1400,9 @@ expr_stmt|;
 block|}
 name|info
 operator|.
-name|setSanitize
+name|setMask
 argument_list|(
-name|sanitize
+name|mask
 argument_list|)
 expr_stmt|;
 name|attributes
@@ -1453,11 +1453,11 @@ operator|.
 name|method
 decl_stmt|;
 name|boolean
-name|sanitize
+name|mask
 init|=
 name|mo
 operator|.
-name|sanitize
+name|mask
 argument_list|()
 decl_stmt|;
 name|operations
@@ -1471,7 +1471,7 @@ name|desc
 argument_list|,
 name|operation
 argument_list|,
-name|sanitize
+name|mask
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1560,11 +1560,11 @@ name|desc
 operator|.
 name|setField
 argument_list|(
-literal|"sanitize"
+literal|"mask"
 argument_list|,
 name|info
 operator|.
-name|isSanitize
+name|isMask
 argument_list|()
 condition|?
 literal|"true"
@@ -1627,11 +1627,11 @@ name|opDesc
 operator|.
 name|setField
 argument_list|(
-literal|"sanitize"
+literal|"mask"
 argument_list|,
 name|info
 operator|.
-name|isSanitize
+name|isMask
 argument_list|()
 condition|?
 literal|"true"
@@ -1788,11 +1788,11 @@ name|opDesc
 operator|.
 name|setField
 argument_list|(
-literal|"sanitize"
+literal|"mask"
 argument_list|,
 name|info
 operator|.
-name|isSanitize
+name|isMask
 argument_list|()
 condition|?
 literal|"true"
@@ -2002,10 +2002,10 @@ specifier|private
 name|Method
 name|setter
 decl_stmt|;
-DECL|field|sanitize
+DECL|field|mask
 specifier|private
 name|boolean
-name|sanitize
+name|mask
 decl_stmt|;
 DECL|method|ManagedAttributeInfo (String key, String description)
 specifier|private
@@ -2103,30 +2103,30 @@ operator|=
 name|setter
 expr_stmt|;
 block|}
-DECL|method|isSanitize ()
+DECL|method|isMask ()
 specifier|public
 name|boolean
-name|isSanitize
+name|isMask
 parameter_list|()
 block|{
 return|return
-name|sanitize
+name|mask
 return|;
 block|}
-DECL|method|setSanitize (boolean sanitize)
+DECL|method|setMask (boolean mask)
 specifier|public
 name|void
-name|setSanitize
+name|setMask
 parameter_list|(
 name|boolean
-name|sanitize
+name|mask
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sanitize
+name|mask
 operator|=
-name|sanitize
+name|mask
 expr_stmt|;
 block|}
 annotation|@
@@ -2173,13 +2173,13 @@ specifier|final
 name|Method
 name|operation
 decl_stmt|;
-DECL|field|sanitize
+DECL|field|mask
 specifier|private
 specifier|final
 name|boolean
-name|sanitize
+name|mask
 decl_stmt|;
-DECL|method|ManagedOperationInfo (String description, Method operation, boolean sanitize)
+DECL|method|ManagedOperationInfo (String description, Method operation, boolean mask)
 specifier|private
 name|ManagedOperationInfo
 parameter_list|(
@@ -2190,7 +2190,7 @@ name|Method
 name|operation
 parameter_list|,
 name|boolean
-name|sanitize
+name|mask
 parameter_list|)
 block|{
 name|this
@@ -2207,9 +2207,9 @@ name|operation
 expr_stmt|;
 name|this
 operator|.
-name|sanitize
+name|mask
 operator|=
-name|sanitize
+name|mask
 expr_stmt|;
 block|}
 DECL|method|getDescription ()
@@ -2232,14 +2232,14 @@ return|return
 name|operation
 return|;
 block|}
-DECL|method|isSanitize ()
+DECL|method|isMask ()
 specifier|public
 name|boolean
-name|isSanitize
+name|isMask
 parameter_list|()
 block|{
 return|return
-name|sanitize
+name|mask
 return|;
 block|}
 annotation|@

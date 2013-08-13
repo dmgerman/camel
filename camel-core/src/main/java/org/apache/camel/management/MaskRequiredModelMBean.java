@@ -139,14 +139,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RequiredModelMBean} which allows us to intercept invoking operations on the MBean.  *<p/>  * For example if sanitize has been enabled on JMX, then we use this implementation  * to hide sensitive information from the returned JMX attributes / operations.  */
+comment|/**  * A {@link RequiredModelMBean} which allows us to intercept invoking operations on the MBean.  *<p/>  * For example if mask has been enabled on JMX, then we use this implementation  * to hide sensitive information from the returned JMX attributes / operations.  */
 end_comment
 
 begin_class
-DECL|class|SanitizeRequiredModelMBean
+DECL|class|MaskRequiredModelMBean
 specifier|public
 class|class
-name|SanitizeRequiredModelMBean
+name|MaskRequiredModelMBean
 extends|extends
 name|RequiredModelMBean
 block|{
@@ -161,19 +161,19 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|SanitizeRequiredModelMBean
+name|MaskRequiredModelMBean
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|sanitize
+DECL|field|mask
 specifier|private
 name|boolean
-name|sanitize
+name|mask
 decl_stmt|;
-DECL|method|SanitizeRequiredModelMBean ()
+DECL|method|MaskRequiredModelMBean ()
 specifier|public
-name|SanitizeRequiredModelMBean
+name|MaskRequiredModelMBean
 parameter_list|()
 throws|throws
 name|MBeanException
@@ -182,15 +182,15 @@ name|RuntimeOperationsException
 block|{
 comment|// must have default no-arg constructor
 block|}
-DECL|method|SanitizeRequiredModelMBean (ModelMBeanInfo mbi, boolean sanitize)
+DECL|method|MaskRequiredModelMBean (ModelMBeanInfo mbi, boolean mask)
 specifier|public
-name|SanitizeRequiredModelMBean
+name|MaskRequiredModelMBean
 parameter_list|(
 name|ModelMBeanInfo
 name|mbi
 parameter_list|,
 name|boolean
-name|sanitize
+name|mask
 parameter_list|)
 throws|throws
 name|MBeanException
@@ -204,19 +204,19 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|sanitize
+name|mask
 operator|=
-name|sanitize
+name|mask
 expr_stmt|;
 block|}
-DECL|method|isSanitize ()
+DECL|method|isMask ()
 specifier|public
 name|boolean
-name|isSanitize
+name|isMask
 parameter_list|()
 block|{
 return|return
-name|sanitize
+name|mask
 return|;
 block|}
 annotation|@
@@ -256,10 +256,10 @@ argument_list|,
 name|sig
 argument_list|)
 decl_stmt|;
-comment|// sanitize the answer if enabled and it was a String type (we cannot sanitize other types)
+comment|// mask the answer if enabled and it was a String type (we cannot mask other types)
 if|if
 condition|(
-name|sanitize
+name|mask
 operator|&&
 name|answer
 operator|instanceof
@@ -272,7 +272,7 @@ argument_list|(
 name|answer
 argument_list|)
 operator|&&
-name|isSanitizedOperation
+name|isMaskOperation
 argument_list|(
 name|opName
 argument_list|)
@@ -280,7 +280,7 @@ condition|)
 block|{
 name|answer
 operator|=
-name|sanitize
+name|mask
 argument_list|(
 name|opName
 argument_list|,
@@ -295,10 +295,10 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|isSanitizedOperation (String opName)
+DECL|method|isMaskOperation (String opName)
 specifier|protected
 name|boolean
-name|isSanitizedOperation
+name|isMaskOperation
 parameter_list|(
 name|String
 name|opName
@@ -351,7 +351,7 @@ name|desc
 operator|.
 name|getFieldValue
 argument_list|(
-literal|"sanitize"
+literal|"mask"
 argument_list|)
 decl_stmt|;
 return|return
@@ -373,11 +373,11 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Sanitizes the returned value from invoking the operation      *      * @param opName  the operation name invoked      * @param value   the current value      * @return the sanitized value      */
-DECL|method|sanitize (String opName, String value)
+comment|/**      * Masks the returned value from invoking the operation      *      * @param opName  the operation name invoked      * @param value   the current value      * @return the masked value      */
+DECL|method|mask (String opName, String value)
 specifier|protected
 name|String
-name|sanitize
+name|mask
 parameter_list|(
 name|String
 name|opName
@@ -386,6 +386,7 @@ name|String
 name|value
 parameter_list|)
 block|{
+comment|// use sanitize uri which will mask sensitive information
 name|String
 name|answer
 init|=
@@ -408,7 +409,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Sanitizing JMX operation: {}.{} value: {} -> {}"
+literal|"Masking JMX operation: {}.{} value: {} -> {}"
 argument_list|,
 operator|new
 name|Object

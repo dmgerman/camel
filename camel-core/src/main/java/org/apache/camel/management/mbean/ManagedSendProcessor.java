@@ -209,7 +209,7 @@ operator|.
 name|getManagementAgent
 argument_list|()
 operator|.
-name|getSanitize
+name|getMask
 argument_list|()
 operator|!=
 literal|null
@@ -219,7 +219,7 @@ operator|.
 name|getManagementAgent
 argument_list|()
 operator|.
-name|getSanitize
+name|getMask
 argument_list|()
 else|:
 literal|false

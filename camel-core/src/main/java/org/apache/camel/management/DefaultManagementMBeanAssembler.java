@@ -431,7 +431,7 @@ operator|.
 name|getManagementAgent
 argument_list|()
 operator|.
-name|getSanitize
+name|getMask
 argument_list|()
 operator|!=
 literal|null
@@ -444,7 +444,7 @@ operator|.
 name|getManagementAgent
 argument_list|()
 operator|.
-name|getSanitize
+name|getMask
 argument_list|()
 decl_stmt|;
 if|if
@@ -455,7 +455,7 @@ block|{
 name|mbean
 operator|=
 operator|new
-name|SanitizeRequiredModelMBean
+name|MaskRequiredModelMBean
 argument_list|(
 name|mbi
 argument_list|,

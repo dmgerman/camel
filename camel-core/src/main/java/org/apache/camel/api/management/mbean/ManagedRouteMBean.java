@@ -91,7 +91,7 @@ name|description
 operator|=
 literal|"Route Endpoint URI"
 argument_list|,
-name|sanitize
+name|mask
 operator|=
 literal|true
 argument_list|)

@@ -100,7 +100,7 @@ operator|.
 name|getManagementAgent
 argument_list|()
 operator|.
-name|setSanitize
+name|setMask
 argument_list|(
 literal|true
 argument_list|)

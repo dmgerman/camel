@@ -2537,7 +2537,7 @@ argument_list|)
 expr_stmt|;
 name|agent
 operator|.
-name|setSanitize
+name|setMask
 argument_list|(
 name|CamelContextHelper
 operator|.
@@ -2548,7 +2548,7 @@ argument_list|()
 argument_list|,
 name|camelJMXAgent
 operator|.
-name|getSanitize
+name|getMask
 argument_list|()
 argument_list|)
 argument_list|)

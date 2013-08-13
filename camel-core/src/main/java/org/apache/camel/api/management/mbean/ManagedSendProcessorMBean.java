@@ -51,7 +51,7 @@ name|description
 operator|=
 literal|"Destination as Endpoint URI"
 argument_list|,
-name|sanitize
+name|mask
 operator|=
 literal|true
 argument_list|)

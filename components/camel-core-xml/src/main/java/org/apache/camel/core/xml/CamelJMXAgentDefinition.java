@@ -247,10 +247,10 @@ decl_stmt|;
 comment|/**      * A flag that indicates whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      */
 annotation|@
 name|XmlAttribute
-DECL|field|sanitize
+DECL|field|mask
 specifier|private
 name|String
-name|sanitize
+name|mask
 init|=
 literal|"false"
 decl_stmt|;
@@ -592,30 +592,30 @@ operator|=
 name|loadStatisticsEnabled
 expr_stmt|;
 block|}
-DECL|method|getSanitize ()
+DECL|method|getMask ()
 specifier|public
 name|String
-name|getSanitize
+name|getMask
 parameter_list|()
 block|{
 return|return
-name|sanitize
+name|mask
 return|;
 block|}
-DECL|method|setSanitize (String sanitize)
+DECL|method|setMask (String mask)
 specifier|public
 name|void
-name|setSanitize
+name|setMask
 parameter_list|(
 name|String
-name|sanitize
+name|mask
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sanitize
+name|mask
 operator|=
-name|sanitize
+name|mask
 expr_stmt|;
 block|}
 annotation|@
@@ -874,7 +874,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|sanitize
+name|mask
 operator|!=
 literal|null
 condition|)
@@ -883,12 +883,12 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", sanitize="
+literal|", mask="
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|sanitize
+name|mask
 argument_list|)
 expr_stmt|;
 block|}

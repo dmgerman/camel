@@ -109,7 +109,7 @@ name|description
 operator|=
 literal|"Endpoint Uri for the dead letter channel where dead message is move to"
 argument_list|,
-name|sanitize
+name|mask
 operator|=
 literal|true
 argument_list|)

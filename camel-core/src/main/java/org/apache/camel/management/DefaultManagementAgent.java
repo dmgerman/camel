@@ -514,10 +514,10 @@ name|registerNewRoutes
 init|=
 literal|true
 decl_stmt|;
-DECL|field|sanitize
+DECL|field|mask
 specifier|private
 name|Boolean
-name|sanitize
+name|mask
 decl_stmt|;
 DECL|method|DefaultManagementAgent ()
 specifier|public
@@ -776,13 +776,13 @@ name|getProperty
 argument_list|(
 name|JmxSystemPropertyKeys
 operator|.
-name|SANITIZE
+name|MASK
 argument_list|)
 operator|!=
 literal|null
 condition|)
 block|{
-name|sanitize
+name|mask
 operator|=
 name|Boolean
 operator|.
@@ -790,7 +790,7 @@ name|getBoolean
 argument_list|(
 name|JmxSystemPropertyKeys
 operator|.
-name|SANITIZE
+name|MASK
 argument_list|)
 expr_stmt|;
 block|}
@@ -1073,34 +1073,34 @@ operator|=
 name|registerNewRoutes
 expr_stmt|;
 block|}
-DECL|method|getSanitize ()
+DECL|method|getMask ()
 specifier|public
 name|Boolean
-name|getSanitize
+name|getMask
 parameter_list|()
 block|{
 return|return
-name|sanitize
+name|mask
 operator|!=
 literal|null
 operator|&&
-name|sanitize
+name|mask
 return|;
 block|}
-DECL|method|setSanitize (Boolean sanitize)
+DECL|method|setMask (Boolean mask)
 specifier|public
 name|void
-name|setSanitize
+name|setMask
 parameter_list|(
 name|Boolean
-name|sanitize
+name|mask
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sanitize
+name|mask
 operator|=
-name|sanitize
+name|mask
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()

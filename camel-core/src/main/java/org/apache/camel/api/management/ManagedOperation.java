@@ -125,10 +125,10 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-DECL|method|sanitize ()
+DECL|method|mask ()
 DECL|field|false
 name|boolean
-name|sanitize
+name|mask
 parameter_list|()
 default|default
 literal|false
