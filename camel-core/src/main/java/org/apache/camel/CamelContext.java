@@ -547,7 +547,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *<p/>  * The context offers the following methods to control the lifecycle:  *<ul>  *<li>{@link #start()}  - to start</li>  *<li>{@link #stop()} - to shutdown (will stop all routes/components/endpoints etc and clear internal state/cache)</li>  *<li>{@link #suspend()} - to pause routing messages</li>  *<li>{@link #resume()} - to resume after a suspend</li>  *</ul>  *<p/>  *<b>Notice:</b> {@link #stop()} and {@link #suspend()} will gracefully stop/suspend routes ensuring any messages  * in progress will be given time to complete. See more details at {@link org.apache.camel.spi.ShutdownStrategy}.  *<p/>  * If you are doing a hot restart then it's advised to use the suspend/resume methods which ensure a faster  * restart but also allows any internal state to be kept as is.  * The stop/start approach will do a<i>cold</i> restart of Camel, where all internal state is reset.  *<p/>  * End users are advised to use suspend/resume. Using stop is for shutting down Camel and it's not guaranteed that  * when it's being started again using the start method that Camel will operate consistently.  *  * @version   */
+comment|/**  * Interface used to represent the context used to configure routes and the  * policies to use during message exchanges between endpoints.  *<p/>  * The context offers the following methods to control the lifecycle:  *<ul>  *<li>{@link #start()}  - to start (<b>important:</b> the start method is not blocked, see more details  *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>  *<li>{@link #stop()} - to shutdown (will stop all routes/components/endpoints etc and clear internal state/cache)</li>  *<li>{@link #suspend()} - to pause routing messages</li>  *<li>{@link #resume()} - to resume after a suspend</li>  *</ul>  *<p/>  *<b>Notice:</b> {@link #stop()} and {@link #suspend()} will gracefully stop/suspend routes ensuring any messages  * in progress will be given time to complete. See more details at {@link org.apache.camel.spi.ShutdownStrategy}.  *<p/>  * If you are doing a hot restart then it's advised to use the suspend/resume methods which ensure a faster  * restart but also allows any internal state to be kept as is.  * The stop/start approach will do a<i>cold</i> restart of Camel, where all internal state is reset.  *<p/>  * End users are advised to use suspend/resume. Using stop is for shutting down Camel and it's not guaranteed that  * when it's being started again using the start method that Camel will operate consistently.  *  * @version   */
 end_comment
 
 begin_interface
@@ -560,6 +560,22 @@ name|SuspendableService
 extends|,
 name|RuntimeConfiguration
 block|{
+comment|/**      * Starts the {@link CamelContext} (<b>important:</b> the start method is not blocked, see more details      *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>.      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws Exception is thrown if starting failed      */
+DECL|method|start ()
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Stop and shutdown the {@link CamelContext} (will stop all routes/components/endpoints etc and clear internal state/cache).      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws Exception is thrown if stopping failed      */
+DECL|method|stop ()
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Gets the name (id) of the this context.      *      * @return the name      */
 DECL|method|getName ()
 name|String
