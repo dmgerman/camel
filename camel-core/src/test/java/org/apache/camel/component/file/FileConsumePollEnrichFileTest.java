@@ -143,21 +143,6 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/enrichdata"
-argument_list|,
-literal|"Big file"
-argument_list|,
-name|Exchange
-operator|.
-name|FILE_NAME
-argument_list|,
-literal|"AAA.dat"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBodyAndHeader
-argument_list|(
 literal|"file://target/enrich"
 argument_list|,
 literal|"Start"
@@ -169,7 +154,45 @@ argument_list|,
 literal|"AAA.fin"
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Sleeping for 2 sec before writing enrichdata file"
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"file://target/enrichdata"
+argument_list|,
+literal|"Big file"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"AAA.dat"
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"... write done"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// because the on completion is executed async, we should wait a bit to not fail on slow CI servers
@@ -229,7 +252,7 @@ name|pollEnrich
 argument_list|(
 literal|"file://target/enrichdata?move=.done"
 argument_list|,
-literal|5000
+literal|20000
 argument_list|)
 operator|.
 name|to

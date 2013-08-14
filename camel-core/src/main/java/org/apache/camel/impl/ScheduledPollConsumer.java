@@ -1544,17 +1544,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
-name|scheduler
-operator|instanceof
-name|SingleScheduledPollConsumerScheduler
-operator|)
-condition|)
-block|{
-comment|// schedule task if its not the single scheduled
 name|scheduler
 operator|.
 name|scheduleTask
@@ -1562,7 +1551,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 comment|// configure scheduler with options from this consumer
 name|Map
 argument_list|<
@@ -1819,13 +1807,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// use a single scheduler so we do not have it running it periodically when we use
-comment|// this consumer as a EventDrivenPollingConsumer
-name|scheduler
+comment|// make sure the scheduler is starter
+name|startScheduler
 operator|=
-operator|new
-name|SingleScheduledPollConsumerScheduler
-argument_list|()
+literal|true
 expr_stmt|;
 block|}
 annotation|@
@@ -1841,14 +1826,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -1859,16 +1836,27 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-name|scheduler
+comment|// resume or start our self
+if|if
+condition|(
+operator|!
+name|ServiceHelper
 operator|.
-name|scheduleTask
+name|resumeService
+argument_list|(
+name|this
+argument_list|)
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|startService
 argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// ensure at least timeout is as long as one poll delay normally is
-comment|// to give the poll a chance to run once
+block|}
+comment|// ensure at least timeout is as long as one poll delay
 return|return
 name|Math
 operator|.
@@ -1891,14 +1879,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|LOG
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -1909,12 +1889,26 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-name|scheduler
+comment|// suspend or stop our self
+if|if
+condition|(
+operator|!
+name|ServiceHelper
 operator|.
-name|unscheduleTask
-argument_list|()
+name|suspendService
+argument_list|(
+name|this
+argument_list|)
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
