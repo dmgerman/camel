@@ -229,12 +229,15 @@ annotation|@
 name|XmlAttribute
 DECL|field|statisticsLevel
 specifier|private
-name|ManagementStatisticsLevel
+name|String
 name|statisticsLevel
 init|=
 name|ManagementStatisticsLevel
 operator|.
 name|All
+operator|.
+name|name
+argument_list|()
 decl_stmt|;
 comment|/**      * A flag that indicates whether Load statistics is enabled      */
 annotation|@
@@ -490,7 +493,7 @@ expr_stmt|;
 block|}
 DECL|method|getStatisticsLevel ()
 specifier|public
-name|ManagementStatisticsLevel
+name|String
 name|getStatisticsLevel
 parameter_list|()
 block|{
@@ -498,12 +501,12 @@ return|return
 name|statisticsLevel
 return|;
 block|}
-DECL|method|setStatisticsLevel (ManagementStatisticsLevel statisticsLevel)
+DECL|method|setStatisticsLevel (String statisticsLevel)
 specifier|public
 name|void
 name|setStatisticsLevel
 parameter_list|(
-name|ManagementStatisticsLevel
+name|String
 name|statisticsLevel
 parameter_list|)
 block|{
