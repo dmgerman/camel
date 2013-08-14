@@ -1867,8 +1867,18 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// ensure at least timeout is as long as one poll delay normally is
+comment|// to give the poll a chance to run once
 return|return
+name|Math
+operator|.
+name|max
+argument_list|(
 name|timeout
+argument_list|,
+name|getDelay
+argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

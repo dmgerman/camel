@@ -316,7 +316,7 @@ name|defaultAggregationStrategy
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Sets the timeout to use when polling.      *<p/>      * Use 0 or negative to not use timeout and block until data is available.      *      * @param timeout timeout in millis.      */
+comment|/**      * Sets the timeout to use when polling.      *<p/>      * Use 0 to use receiveNoWait,      * Use -1 to use receive with no timeout (which will block until data is available).      *      * @param timeout timeout in millis.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void

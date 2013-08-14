@@ -30,18 +30,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -61,18 +49,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -251,10 +227,13 @@ name|log
 argument_list|(
 literal|"Trigger timer foo"
 argument_list|)
+comment|// use 0 as timeout for no wait
 operator|.
 name|pollEnrich
 argument_list|(
 literal|"file:target/pollenrich?move=done"
+argument_list|,
+literal|0
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -287,43 +266,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:result"
-argument_list|)
-operator|.
-name|process
-argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// force stop route after use to prevent firing timer again
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|stopRoute
-argument_list|(
-literal|"foo"
-argument_list|,
-literal|100
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
