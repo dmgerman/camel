@@ -418,6 +418,30 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|unscheduleTask ()
+specifier|public
+name|void
+name|unscheduleTask
+parameter_list|()
+block|{
+if|if
+condition|(
+name|future
+operator|!=
+literal|null
+condition|)
+block|{
+name|future
+operator|.
+name|cancel
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|startScheduler ()
 specifier|public
 name|void

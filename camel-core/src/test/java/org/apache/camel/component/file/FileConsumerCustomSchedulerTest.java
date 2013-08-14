@@ -386,6 +386,16 @@ block|}
 block|}
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|unscheduleTask ()
+specifier|public
+name|void
+name|unscheduleTask
+parameter_list|()
+block|{
+comment|// noop
+block|}
 DECL|method|getCounter ()
 specifier|public
 name|int

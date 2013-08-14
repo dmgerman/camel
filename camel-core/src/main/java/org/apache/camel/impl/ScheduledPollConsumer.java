@@ -140,18 +140,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ResolveEndpointFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|SuspendableService
 import|;
 end_import
@@ -1549,6 +1537,17 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|scheduler
+operator|instanceof
+name|SingleScheduledPollConsumerScheduler
+operator|)
+condition|)
+block|{
+comment|// schedule task if its not the single scheduled
 name|scheduler
 operator|.
 name|scheduleTask
@@ -1558,6 +1557,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 comment|// configure scheduler with options from this consumer
 name|Map
 argument_list|<
@@ -1814,7 +1814,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|// use a single scheduler so we do not have it running it periodically when we use
+comment|// this consumer as a EventDrivenPollingConsumer
+name|scheduler
+operator|=
+operator|new
+name|SingleScheduledPollConsumerScheduler
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1829,6 +1838,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1839,37 +1856,18 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// resume or start our self
-if|if
-condition|(
-operator|!
-name|ServiceHelper
+block|}
+name|scheduler
 operator|.
-name|resumeService
+name|scheduleTask
 argument_list|(
 name|this
-argument_list|)
-condition|)
-block|{
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
-comment|// ensure at least timeout is as long as one poll delay
 return|return
-name|Math
-operator|.
-name|max
-argument_list|(
 name|timeout
-argument_list|,
-name|getDelay
-argument_list|()
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -1882,6 +1880,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1892,26 +1898,12 @@ name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// suspend or stop our self
-if|if
-condition|(
-operator|!
-name|ServiceHelper
-operator|.
-name|suspendService
-argument_list|(
-name|this
-argument_list|)
-condition|)
-block|{
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 block|}
+name|scheduler
+operator|.
+name|unscheduleTask
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

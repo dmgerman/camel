@@ -78,6 +78,12 @@ name|Runnable
 name|task
 parameter_list|)
 function_decl|;
+comment|/**      * Attempts to unschedules the last task which was scheduled.      *<p/>      * An implementation may not implement this method.      */
+DECL|method|unscheduleTask ()
+name|void
+name|unscheduleTask
+parameter_list|()
+function_decl|;
 comment|/**      * Starts the scheduler.      *<p/>      * If the scheduler is already started, then this is a noop method call.      */
 DECL|method|startScheduler ()
 name|void

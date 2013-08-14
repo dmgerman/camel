@@ -675,9 +675,6 @@ name|onInit
 argument_list|()
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// for regular consumers start it
 name|ServiceHelper
 operator|.
 name|startService
@@ -685,7 +682,6 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
