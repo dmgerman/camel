@@ -66,14 +66,20 @@ name|ShutdownableService
 extends|,
 name|CamelContextAware
 block|{
-comment|/**      * Schedules the task to run.      *      * @param consumer the consumer.      * @param task the task to run.      */
-DECL|method|scheduleTask (Consumer consumer, Runnable task)
+comment|/**      * Initializes this {@link ScheduledPollConsumerScheduler} with the associated {@link Consumer}.      *      * @param consumer the consumer.      */
+DECL|method|onInit (Consumer consumer)
 name|void
-name|scheduleTask
+name|onInit
 parameter_list|(
 name|Consumer
 name|consumer
-parameter_list|,
+parameter_list|)
+function_decl|;
+comment|/**      * Schedules the task to run.      *      * @param task the task to run.      */
+DECL|method|scheduleTask (Runnable task)
+name|void
+name|scheduleTask
+parameter_list|(
 name|Runnable
 name|task
 parameter_list|)

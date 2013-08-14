@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link ScheduledPollConsumerScheduler} which is<b>not</b> scheduled but uses a regular single-threaded {@link ExecutorService}  * to execute the task when {@link #scheduleTask(org.apache.camel.Consumer, Runnable)} is invoked.  *<p/>  * This is used when the {@link org.apache.camel.PollingConsumer} EIP is implemented using the {@link EventDrivenPollingConsumer}  * bridging a {@link ScheduledPollConsumer} implementation. In this case we use this single threaded regular thread pool  * to execute the poll task on-demand, instead of using the usual scheduled thread pool which does not fit well with a  * on-demand poll attempt.  */
+comment|/**  * A {@link ScheduledPollConsumerScheduler} which is<b>not</b> scheduled but uses a regular single-threaded {@link ExecutorService}  * to execute the task when {@link #scheduleTask(Runnable)} is invoked.  *<p/>  * This is used when the {@link org.apache.camel.PollingConsumer} EIP is implemented using the {@link EventDrivenPollingConsumer}  * bridging a {@link ScheduledPollConsumer} implementation. In this case we use this single threaded regular thread pool  * to execute the poll task on-demand, instead of using the usual scheduled thread pool which does not fit well with a  * on-demand poll attempt.  */
 end_comment
 
 begin_class
@@ -102,7 +102,6 @@ name|ScheduledPollConsumerScheduler
 block|{
 DECL|field|consumer
 specifier|private
-specifier|final
 name|Consumer
 name|consumer
 decl_stmt|;
@@ -121,9 +120,12 @@ specifier|private
 name|Future
 name|future
 decl_stmt|;
-DECL|method|SingleScheduledPollConsumerScheduler (Consumer consumer)
+annotation|@
+name|Override
+DECL|method|onInit (Consumer consumer)
 specifier|public
-name|SingleScheduledPollConsumerScheduler
+name|void
+name|onInit
 parameter_list|(
 name|Consumer
 name|consumer
@@ -138,14 +140,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|scheduleTask (Consumer consumer, Runnable task)
+DECL|method|scheduleTask (Runnable task)
 specifier|public
 name|void
 name|scheduleTask
 parameter_list|(
-name|Consumer
-name|consumer
-parameter_list|,
 name|Runnable
 name|task
 parameter_list|)

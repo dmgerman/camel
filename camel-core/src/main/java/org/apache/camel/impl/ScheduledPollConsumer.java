@@ -1537,6 +1537,13 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|scheduler
+operator|.
+name|onInit
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1552,8 +1559,6 @@ name|scheduler
 operator|.
 name|scheduleTask
 argument_list|(
-name|this
-argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
@@ -1820,9 +1825,7 @@ name|scheduler
 operator|=
 operator|new
 name|SingleScheduledPollConsumerScheduler
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -1861,8 +1864,6 @@ name|scheduler
 operator|.
 name|scheduleTask
 argument_list|(
-name|this
-argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

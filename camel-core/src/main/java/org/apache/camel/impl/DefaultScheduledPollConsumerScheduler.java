@@ -391,16 +391,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|scheduleTask (Consumer consumer, Runnable task)
+DECL|method|onInit (Consumer consumer)
 specifier|public
 name|void
-name|scheduleTask
+name|onInit
 parameter_list|(
 name|Consumer
 name|consumer
-parameter_list|,
-name|Runnable
-name|task
 parameter_list|)
 block|{
 name|this
@@ -409,6 +406,18 @@ name|consumer
 operator|=
 name|consumer
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|scheduleTask (Runnable task)
+specifier|public
+name|void
+name|scheduleTask
+parameter_list|(
+name|Runnable
+name|task
+parameter_list|)
+block|{
 name|this
 operator|.
 name|task

@@ -345,15 +345,24 @@ name|foo
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|scheduleTask (final Consumer consumer, final Runnable task)
+DECL|method|onInit (Consumer consumer)
+specifier|public
+name|void
+name|onInit
+parameter_list|(
+name|Consumer
+name|consumer
+parameter_list|)
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|scheduleTask (final Runnable task)
 specifier|public
 name|void
 name|scheduleTask
 parameter_list|(
-specifier|final
-name|Consumer
-name|consumer
-parameter_list|,
 specifier|final
 name|Runnable
 name|task
