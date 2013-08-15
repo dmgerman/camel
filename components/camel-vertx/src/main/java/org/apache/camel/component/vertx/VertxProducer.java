@@ -252,7 +252,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing to: with JsonObject: {}"
+literal|"Publishing to: {} with JsonObject: {}"
 argument_list|,
 name|address
 argument_list|,
@@ -293,7 +293,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing to: with JsonArray: {}"
+literal|"Publishing to: {} with JsonArray: {}"
 argument_list|,
 name|address
 argument_list|,
@@ -335,7 +335,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Publishing to: with String: {}"
+literal|"Publishing to: {} with String: {}"
 argument_list|,
 name|address
 argument_list|,
