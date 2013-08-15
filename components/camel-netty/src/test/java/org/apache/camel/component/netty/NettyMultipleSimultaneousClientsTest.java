@@ -235,7 +235,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// wait until we're permitted to start
+comment|// wait until we're allowed to start
 name|startLatch
 operator|.
 name|await
@@ -253,7 +253,7 @@ argument_list|,
 literal|"World"
 argument_list|)
 decl_stmt|;
-comment|// signal that we're now done
+comment|// signal that we're done now
 name|finishLatch
 operator|.
 name|countDown
@@ -343,7 +343,6 @@ name|SECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// shutdown the thread pool as the finishLatch above has already guaranteed the completion of all the tasks
 name|executorService
 operator|.
 name|shutdown
