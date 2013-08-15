@@ -304,7 +304,6 @@ block|{
 DECL|field|logger
 specifier|protected
 specifier|final
-specifier|transient
 name|Logger
 name|logger
 init|=

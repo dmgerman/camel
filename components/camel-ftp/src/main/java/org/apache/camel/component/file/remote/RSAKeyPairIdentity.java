@@ -166,7 +166,6 @@ decl_stmt|;
 DECL|field|log
 specifier|private
 specifier|final
-specifier|transient
 name|Logger
 name|log
 init|=

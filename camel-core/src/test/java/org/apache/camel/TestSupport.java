@@ -227,7 +227,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|log
 specifier|protected
-specifier|transient
 name|Logger
 name|log
 init|=
