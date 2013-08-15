@@ -84,6 +84,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PredicateToExpressionAdapter
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/simple.html">simple language</a>  * which maps simple property style notations to access headers and bodies.  * Examples of supported expressions are:  *<ul>  *<li>exchangeId to access the exchange id</li>  *<li>id to access the inbound message id</li>  *<li>in.body or body to access the inbound body</li>  *<li>in.body.OGNL or body.OGNL to access the inbound body using an OGNL expression</li>  *<li>mandatoryBodyAs(&lt;classname&gt;) to convert the in body to the given type, will throw exception if not possible to convert</li>  *<li>bodyAs(&lt;classname&gt;) to convert the in body to the given type, will return null if not possible to convert</li>  *<li>headerAs(&lt;key&gt;,&lt;classname&gt;) to convert the in header to the given type, will return null if not possible to convert</li>  *<li>out.body to access the inbound body</li>  *<li>in.header.foo or header.foo to access an inbound header called 'foo'</li>  *<li>in.header.foo[bar] or header.foo[bar] to access an inbound header called 'foo' as a Map and lookup the map with 'bar' as key</li>  *<li>in.header.foo.OGNL or header.OGNL to access an inbound header called 'foo' using an OGNL expression</li>  *<li>out.header.foo to access an outbound header called 'foo'</li>  *<li>property.foo to access the exchange property called 'foo'</li>  *<li>property.foo.OGNL to access the exchange property called 'foo' using an OGNL expression</li>  *<li>sys.foo to access the system property called 'foo'</li>  *<li>sysenv.foo to access the system environment called 'foo'</li>  *<li>exception.messsage to access the exception message</li>  *<li>threadName to access the current thread name</li>  *<li>date:&lt;command&gt;:&lt;pattern&gt; for date formatting using the {@link java.text.SimpleDateFormat} patterns.  *     Supported commands are:<tt>now</tt> for current timestamp,  *<tt>in.header.xxx</tt> or<tt>header.xxx</tt> to use the Date object in the in header.  *<tt>out.header.xxx</tt> to use the Date object in the out header.  *</li>  *<li>bean:&lt;bean expression&gt; to invoke a bean using the  * {@link org.apache.camel.language.bean.BeanLanguage BeanLanguage}</li>  *<li>properties:&lt;[locations]&gt;:&lt;key&gt; for using property placeholders using the  *     {@link org.apache.camel.component.properties.PropertiesComponent}.  *     The locations parameter is optional and you can enter multiple locations separated with comma.  *</li> *</ul>  *<p/>  * The simple language supports OGNL notation when accessing either body or header.  *<p/>  * The simple language now also includes file language out of the box which means the following expression is also  * supported:  *<ul>  *<li><tt>file:name</tt> to access the file name (is relative, see note below))</li>  *<li><tt>file:name.noext</tt> to access the file name with no extension</li>  *<li><tt>file:name.ext</tt> to access the file extension</li>  *<li><tt>file:ext</tt> to access the file extension</li>  *<li><tt>file:onlyname</tt> to access the file name (no paths)</li>  *<li><tt>file:onlyname.noext</tt> to access the file name (no paths) with no extension</li>  *<li><tt>file:parent</tt> to access the parent file name</li>  *<li><tt>file:path</tt> to access the file path name</li>  *<li><tt>file:absolute</tt> is the file regarded as absolute or relative</li>  *<li><tt>file:absolute.path</tt> to access the absolute file path name</li>  *<li><tt>file:length</tt> to access the file length as a Long type</li>  *<li><tt>file:size</tt> to access the file length as a Long type</li>  *<li><tt>file:modified</tt> to access the file last modified as a Date type</li>  *<li><tt>date:&lt;command&gt;:&lt;pattern&gt;</tt> for date formatting using the {@link java.text.SimpleDateFormat} patterns.  *     Additional Supported commands are:<tt>file</tt> for the last modified timestamp of the file.  *     All the commands from {@link SimpleLanguage} is also available.  *</li>  *</ul>  * The<b>relative</b> file is the filename with the starting directory clipped, as opposed to<b>path</b> that will  * return the full path including the starting directory.  *<br/>  * The<b>only</b> file is the filename only with all paths clipped.  *  */
 end_comment
@@ -367,6 +381,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Creates a new {@link Expression}.      *<p/>      *<b>Important:</b> If you need to use a predicate (function to return true|false) then use      * {@link #predicate(String)} instead.      */
 DECL|method|simple (String expression)
 specifier|public
 specifier|static
@@ -378,14 +393,13 @@ name|expression
 parameter_list|)
 block|{
 return|return
-name|SIMPLE
-operator|.
-name|createExpression
+name|expression
 argument_list|(
 name|expression
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new {@link Expression} (or {@link Predicate}      * if the resultType is a<tt>Boolean</tt>, or<tt>boolean</tt> type).      */
 DECL|method|simple (String expression, Class<?> resultType)
 specifier|public
 specifier|static
@@ -416,12 +430,90 @@ argument_list|(
 name|resultType
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|resultType
+operator|==
+name|Boolean
+operator|.
+name|class
+operator|||
+name|resultType
+operator|==
+name|boolean
+operator|.
+name|class
+condition|)
+block|{
+comment|// if its a boolean as result then its a predicate
+name|Predicate
+name|predicate
+init|=
+name|answer
+operator|.
+name|createPredicate
+argument_list|(
+name|expression
+argument_list|)
+decl_stmt|;
+return|return
+name|PredicateToExpressionAdapter
+operator|.
+name|toExpression
+argument_list|(
+name|predicate
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|answer
 operator|.
 name|createExpression
 argument_list|(
 name|expression
+argument_list|)
+return|;
+block|}
+block|}
+comment|/**      * Creates a new {@link Expression}.      *<p/>      *<b>Important:</b> If you need to use a predicate (function to return true|false) then use      * {@link #predicate(String)} instead.      */
+DECL|method|expression (String expression)
+specifier|public
+specifier|static
+name|Expression
+name|expression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+return|return
+name|SIMPLE
+operator|.
+name|createExpression
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new {@link Predicate}.      */
+DECL|method|predicate (String predicate)
+specifier|public
+specifier|static
+name|Predicate
+name|predicate
+parameter_list|(
+name|String
+name|predicate
+parameter_list|)
+block|{
+return|return
+name|SIMPLE
+operator|.
+name|createPredicate
+argument_list|(
+name|predicate
 argument_list|)
 return|;
 block|}
