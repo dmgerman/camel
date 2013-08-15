@@ -267,6 +267,13 @@ name|String
 name|digestAlgorithm
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|mgfAlgorithm
+specifier|private
+name|String
+name|mgfAlgorithm
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|keyOrTrustStoreParameters
 specifier|private
@@ -1564,6 +1571,26 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|mgfAlgorithm
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|dataFormat
+argument_list|,
+literal|"mgfAlgorithm"
+argument_list|,
+name|this
+operator|.
+name|getMgfAlgorithm
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getXmlCipherAlgorithm ()
 specifier|public
@@ -1791,6 +1818,22 @@ operator|.
 name|keyPassword
 return|;
 block|}
+DECL|method|setKeyPassword (String keyPassword)
+specifier|public
+name|void
+name|setKeyPassword
+parameter_list|(
+name|String
+name|keyPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyPassword
+operator|=
+name|keyPassword
+expr_stmt|;
+block|}
 DECL|method|getDigestAlgorithm ()
 specifier|public
 name|String
@@ -1817,20 +1860,30 @@ operator|=
 name|digestAlgorithm
 expr_stmt|;
 block|}
-DECL|method|setKeyPassword (String keyPassword)
+DECL|method|getMgfAlgorithm ()
+specifier|public
+name|String
+name|getMgfAlgorithm
+parameter_list|()
+block|{
+return|return
+name|mgfAlgorithm
+return|;
+block|}
+DECL|method|setMgfAlgorithm (String mgfAlgorithm)
 specifier|public
 name|void
-name|setKeyPassword
+name|setMgfAlgorithm
 parameter_list|(
 name|String
-name|keyPassword
+name|mgfAlgorithm
 parameter_list|)
 block|{
 name|this
 operator|.
-name|keyPassword
+name|mgfAlgorithm
 operator|=
-name|keyPassword
+name|mgfAlgorithm
 expr_stmt|;
 block|}
 annotation|@
