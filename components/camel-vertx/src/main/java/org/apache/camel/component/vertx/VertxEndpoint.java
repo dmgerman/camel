@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -151,12 +151,6 @@ name|VertxEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|component
-specifier|private
-specifier|final
-name|VertxComponent
-name|component
-decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|address
@@ -187,16 +181,28 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|component
+name|address
 operator|=
-name|component
+name|address
 expr_stmt|;
-name|this
+block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|VertxComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|VertxComponent
+operator|)
+name|super
 operator|.
-name|address
-operator|=
-name|address
-expr_stmt|;
+name|getComponent
+argument_list|()
+return|;
 block|}
 DECL|method|createProducer ()
 specifier|public
@@ -236,6 +242,11 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
 name|consumer
 return|;
@@ -271,7 +282,8 @@ name|getVertx
 parameter_list|()
 block|{
 return|return
-name|component
+name|getComponent
+argument_list|()
 operator|.
 name|getVertx
 argument_list|()

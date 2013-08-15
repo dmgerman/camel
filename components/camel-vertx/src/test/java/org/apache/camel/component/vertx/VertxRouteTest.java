@@ -187,7 +187,7 @@ argument_list|)
 expr_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 name|body1
 argument_list|,
