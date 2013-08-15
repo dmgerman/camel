@@ -398,7 +398,6 @@ DECL|field|DEFAULT_STRATEGYFACTORY_CLASS
 specifier|protected
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|DEFAULT_STRATEGYFACTORY_CLASS
 init|=
@@ -408,7 +407,6 @@ DECL|field|DEFAULT_IDEMPOTENT_CACHE_SIZE
 specifier|protected
 specifier|static
 specifier|final
-specifier|transient
 name|int
 name|DEFAULT_IDEMPOTENT_CACHE_SIZE
 init|=

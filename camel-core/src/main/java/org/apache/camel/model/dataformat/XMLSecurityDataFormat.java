@@ -198,7 +198,6 @@ DECL|field|TRIPLEDES
 specifier|private
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|TRIPLEDES
 init|=

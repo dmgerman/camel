@@ -33,7 +33,6 @@ DECL|field|MINA_CLOSE_SESSION_WHEN_COMPLETE
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|MINA_CLOSE_SESSION_WHEN_COMPLETE
 init|=
@@ -44,7 +43,6 @@ DECL|field|MINA_IOSESSION
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|MINA_IOSESSION
 init|=
@@ -55,7 +53,6 @@ DECL|field|MINA_LOCAL_ADDRESS
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|MINA_LOCAL_ADDRESS
 init|=
@@ -66,7 +63,6 @@ DECL|field|MINA_REMOTE_ADDRESS
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|MINA_REMOTE_ADDRESS
 init|=

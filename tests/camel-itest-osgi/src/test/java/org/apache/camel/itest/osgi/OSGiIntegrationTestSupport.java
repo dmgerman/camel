@@ -392,7 +392,6 @@ DECL|field|LOG
 specifier|protected
 specifier|static
 specifier|final
-specifier|transient
 name|Logger
 name|LOG
 init|=

@@ -30,7 +30,6 @@ DECL|field|SYSLOG_LOCAL_ADDRESS
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|SYSLOG_LOCAL_ADDRESS
 init|=
@@ -41,7 +40,6 @@ DECL|field|SYSLOG_REMOTE_ADDRESS
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|SYSLOG_REMOTE_ADDRESS
 init|=
@@ -52,7 +50,6 @@ DECL|field|SYSLOG_FACILITY
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|SYSLOG_FACILITY
 init|=
@@ -63,7 +60,6 @@ DECL|field|SYSLOG_SEVERITY
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|SYSLOG_SEVERITY
 init|=
@@ -74,7 +70,6 @@ DECL|field|SYSLOG_HOSTNAME
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|SYSLOG_HOSTNAME
 init|=
@@ -85,7 +80,6 @@ DECL|field|SYSLOG_TIMESTAMP
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|SYSLOG_TIMESTAMP
 init|=

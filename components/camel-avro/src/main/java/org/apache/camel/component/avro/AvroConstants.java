@@ -29,7 +29,6 @@ DECL|field|AVRO_NETTY_TRANSPORT
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|AVRO_NETTY_TRANSPORT
 init|=
@@ -39,7 +38,6 @@ DECL|field|AVRO_HTTP_TRANSPORT
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|AVRO_HTTP_TRANSPORT
 init|=
@@ -49,7 +47,6 @@ DECL|field|AVRO_MESSAGE_NAME_SEPARATOR
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|AVRO_MESSAGE_NAME_SEPARATOR
 init|=
@@ -59,7 +56,6 @@ DECL|field|AVRO_MESSAGE_NAME
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|AVRO_MESSAGE_NAME
 init|=

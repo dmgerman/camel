@@ -496,7 +496,6 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
-specifier|transient
 name|Logger
 name|LOG
 init|=
@@ -513,7 +512,6 @@ DECL|field|SCHEMA_FACTORY
 specifier|private
 specifier|static
 specifier|final
-specifier|transient
 name|SchemaFactory
 name|SCHEMA_FACTORY
 init|=

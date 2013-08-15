@@ -123,7 +123,6 @@ block|{
 DECL|field|randomNumberGenerator
 specifier|protected
 specifier|static
-specifier|transient
 name|Random
 name|randomNumberGenerator
 decl_stmt|;
@@ -141,7 +140,6 @@ DECL|field|LOG
 specifier|private
 specifier|static
 specifier|final
-specifier|transient
 name|Logger
 name|LOG
 init|=

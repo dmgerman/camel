@@ -239,7 +239,6 @@ DECL|field|HEADER_MINA_IOSESSION
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|HEADER_MINA_IOSESSION
 init|=
@@ -252,7 +251,6 @@ DECL|field|HEADER_LOCAL_ADDRESS
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|HEADER_LOCAL_ADDRESS
 init|=
@@ -265,7 +263,6 @@ DECL|field|HEADER_REMOTE_ADDRESS
 specifier|public
 specifier|static
 specifier|final
-specifier|transient
 name|String
 name|HEADER_REMOTE_ADDRESS
 init|=

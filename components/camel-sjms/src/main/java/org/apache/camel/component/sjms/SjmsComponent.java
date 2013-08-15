@@ -240,7 +240,6 @@ DECL|field|LOGGER
 specifier|private
 specifier|static
 specifier|final
-specifier|transient
 name|Logger
 name|LOGGER
 init|=
