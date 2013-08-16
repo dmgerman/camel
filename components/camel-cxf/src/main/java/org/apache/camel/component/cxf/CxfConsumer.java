@@ -1369,7 +1369,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// This is not a CXF Fault. Build the CXF Fault manuallly.
+comment|// This is not a CXF Fault. Build the CXF Fault manually.
 name|Fault
 name|fault
 init|=
@@ -1389,9 +1389,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// The Fault has no Message. This is the case if t had
-comment|// no message, for
-comment|// example was a NullPointerException.
+comment|// The Fault has no Message. This is the case if it has
+comment|// no message, for example was a NullPointerException.
 name|fault
 operator|.
 name|setMessage
