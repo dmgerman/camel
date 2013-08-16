@@ -315,6 +315,26 @@ name|startScheduler
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getSchedulerClassName ()
+specifier|public
+name|String
+name|getSchedulerClassName
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|getScheduler
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

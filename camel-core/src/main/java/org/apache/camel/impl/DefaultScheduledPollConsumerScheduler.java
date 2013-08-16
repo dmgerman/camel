@@ -678,9 +678,9 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newScheduledThreadPool
+name|newSingleThreadScheduledExecutor
 argument_list|(
-name|this
+name|consumer
 argument_list|,
 name|consumer
 operator|.
@@ -689,8 +689,6 @@ argument_list|()
 operator|.
 name|getEndpointUri
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 comment|// and we should shutdown the thread pool when no longer needed

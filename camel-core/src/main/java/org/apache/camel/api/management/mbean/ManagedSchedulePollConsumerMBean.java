@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -190,6 +200,18 @@ argument_list|)
 DECL|method|startScheduler ()
 name|void
 name|startScheduler
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Scheduler classname"
+argument_list|)
+DECL|method|getSchedulerClassName ()
+name|String
+name|getSchedulerClassName
 parameter_list|()
 function_decl|;
 block|}
