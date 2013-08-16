@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.netty.http
+DECL|package|org.apache.camel.component.netty
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|netty
-operator|.
-name|http
 package|;
 end_package
 
@@ -45,55 +43,45 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpSuspendResumeTest
+DECL|class|NettySuspendResumeTest
 specifier|public
 class|class
-name|NettyHttpSuspendResumeTest
+name|NettySuspendResumeTest
 extends|extends
 name|BaseNettyTest
 block|{
-DECL|field|serverUri
-specifier|private
-name|String
-name|serverUri
-init|=
-literal|"netty-http:http://localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/cool?disconnect=true&send503whenSuspended=false"
-decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testNettySuspendResume ()
+DECL|method|testSuspendResume ()
 specifier|public
 name|void
-name|testNettySuspendResume
+name|testSuspendResume
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|context
-operator|.
-name|getShutdownStrategy
-argument_list|()
-operator|.
-name|setTimeout
+name|getMockEndpoint
 argument_list|(
-literal|50
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Camel"
+argument_list|,
+literal|"Again"
 argument_list|)
 expr_stmt|;
 name|String
-name|reply
+name|out
 init|=
 name|template
 operator|.
 name|requestBody
 argument_list|(
-name|serverUri
+literal|"netty:tcp://localhost:{{port}}?sync=true&disconnect=true"
 argument_list|,
-literal|"World"
+literal|"Camel"
 argument_list|,
 name|String
 operator|.
@@ -102,38 +90,17 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Bye World"
+literal|"Bye Camel"
 argument_list|,
-name|reply
+name|out
 argument_list|)
 expr_stmt|;
-comment|// now suspend netty
-name|NettyHttpConsumer
-name|consumer
-init|=
-operator|(
-name|NettyHttpConsumer
-operator|)
 name|context
 operator|.
-name|getRoute
+name|suspendRoute
 argument_list|(
 literal|"foo"
 argument_list|)
-operator|.
-name|getConsumer
-argument_list|()
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|consumer
-argument_list|)
-expr_stmt|;
-comment|// suspend
-name|consumer
-operator|.
-name|suspend
-argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -141,9 +108,9 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-name|serverUri
+literal|"netty:tcp://localhost:{{port}}?sync=true&disconnect=true"
 argument_list|,
-literal|"Moon"
+literal|"World"
 argument_list|,
 name|String
 operator|.
@@ -152,7 +119,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Should throw exception"
+literal|"Should not allow connecting as its suspended"
 argument_list|)
 expr_stmt|;
 block|}
@@ -162,46 +129,24 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"Cannot connect to localhost"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// expected
 block|}
-comment|// resume
-name|consumer
+name|context
 operator|.
-name|resume
-argument_list|()
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
+name|resumeRoute
 argument_list|(
-literal|2000
+literal|"foo"
 argument_list|)
 expr_stmt|;
-comment|// and send request which should be processed
-name|reply
+name|out
 operator|=
 name|template
 operator|.
 name|requestBody
 argument_list|(
-name|serverUri
+literal|"netty:tcp://localhost:{{port}}?sync=true&disconnect=true"
 argument_list|,
-literal|"Moon"
+literal|"Again"
 argument_list|,
 name|String
 operator|.
@@ -210,10 +155,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Bye Moon"
+literal|"Bye Again"
 argument_list|,
-name|reply
+name|out
 argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -242,12 +190,22 @@ name|Exception
 block|{
 name|from
 argument_list|(
-name|serverUri
+literal|"netty:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|routeId
 argument_list|(
 literal|"foo"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:result"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
 argument_list|)
 operator|.
 name|transform

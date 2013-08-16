@@ -379,6 +379,42 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|suspendService
+argument_list|(
+name|nettyServerBootstrapFactory
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|resumeService
+argument_list|(
+name|nettyServerBootstrapFactory
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getContext ()
 specifier|public
 name|CamelContext

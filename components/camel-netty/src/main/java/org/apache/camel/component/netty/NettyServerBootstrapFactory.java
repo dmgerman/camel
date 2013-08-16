@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|SuspendableService
 import|;
 end_import
 
@@ -92,7 +92,7 @@ specifier|public
 interface|interface
 name|NettyServerBootstrapFactory
 extends|extends
-name|Service
+name|SuspendableService
 block|{
 comment|/**      * Initializes this<b>non-shared</b> {@link NettyServerBootstrapFactory}.      *      * @param camelContext     the {@link CamelContext} for non-shared bootstrap factory      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the pipeline factory      */
 DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelPipelineFactory pipelineFactory)

@@ -428,6 +428,21 @@ specifier|private
 name|ConnectionlessBootstrap
 name|connectionlessBootstrap
 decl_stmt|;
+DECL|field|multicastNetworkInterface
+specifier|private
+name|NetworkInterface
+name|multicastNetworkInterface
+decl_stmt|;
+DECL|field|datagramChannel
+specifier|private
+name|DatagramChannel
+name|datagramChannel
+decl_stmt|;
+DECL|field|channel
+specifier|private
+name|Channel
+name|channel
+decl_stmt|;
 DECL|field|workerPool
 specifier|private
 name|WorkerPool
@@ -626,6 +641,30 @@ block|{
 name|stopServerBootstrap
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 DECL|method|startServerBootstrap ()
 specifier|protected
@@ -943,9 +982,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|DatagramChannel
-name|channel
-init|=
+name|datagramChannel
+operator|=
 operator|(
 name|DatagramChannel
 operator|)
@@ -955,7 +993,7 @@ name|bind
 argument_list|(
 name|hostAddress
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|String
 name|networkInterface
 init|=
@@ -973,16 +1011,15 @@ operator|.
 name|getNetworkInterface
 argument_list|()
 decl_stmt|;
-name|NetworkInterface
 name|multicastNetworkInterface
-init|=
+operator|=
 name|NetworkInterface
 operator|.
 name|getByName
 argument_list|(
 name|networkInterface
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -1010,7 +1047,7 @@ argument_list|()
 block|}
 argument_list|)
 expr_stmt|;
-name|channel
+name|datagramChannel
 operator|.
 name|joinGroup
 argument_list|(
@@ -1023,7 +1060,7 @@ name|allChannels
 operator|.
 name|add
 argument_list|(
-name|channel
+name|datagramChannel
 argument_list|)
 expr_stmt|;
 block|}
@@ -1046,16 +1083,15 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Channel
 name|channel
-init|=
+operator|=
 name|connectionlessBootstrap
 operator|.
 name|bind
 argument_list|(
 name|hostAddress
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|allChannels
 operator|.
 name|add

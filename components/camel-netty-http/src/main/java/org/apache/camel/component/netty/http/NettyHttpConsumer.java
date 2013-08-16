@@ -210,6 +210,68 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|isSend503whenSuspended
+argument_list|()
+condition|)
+block|{
+comment|// noop as the server handler will send back 503 when suspended
+block|}
+else|else
+block|{
+comment|// will unbind the acceptor
+name|super
+operator|.
+name|doSuspend
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|isSend503whenSuspended
+argument_list|()
+condition|)
+block|{
+comment|// noop
+block|}
+else|else
+block|{
+comment|// will resume the acceptor
+name|super
+operator|.
+name|doResume
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 

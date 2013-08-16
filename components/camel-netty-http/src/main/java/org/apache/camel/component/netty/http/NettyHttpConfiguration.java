@@ -145,6 +145,13 @@ specifier|private
 name|boolean
 name|disableStreamCache
 decl_stmt|;
+DECL|field|send503whenSuspended
+specifier|private
+name|boolean
+name|send503whenSuspended
+init|=
+literal|true
+decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public
 name|NettyHttpConfiguration
@@ -494,6 +501,32 @@ operator|.
 name|disableStreamCache
 operator|=
 name|disableStreamCache
+expr_stmt|;
+block|}
+DECL|method|isSend503whenSuspended ()
+specifier|public
+name|boolean
+name|isSend503whenSuspended
+parameter_list|()
+block|{
+return|return
+name|send503whenSuspended
+return|;
+block|}
+DECL|method|setSend503whenSuspended (boolean send503whenSuspended)
+specifier|public
+name|void
+name|setSend503whenSuspended
+parameter_list|(
+name|boolean
+name|send503whenSuspended
+parameter_list|)
+block|{
+name|this
+operator|.
+name|send503whenSuspended
+operator|=
+name|send503whenSuspended
 expr_stmt|;
 block|}
 block|}
