@@ -335,6 +335,62 @@ name|getName
 argument_list|()
 return|;
 block|}
+DECL|method|getBackoffMultiplier ()
+specifier|public
+name|int
+name|getBackoffMultiplier
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|getBackoffMultiplier
+argument_list|()
+return|;
+block|}
+DECL|method|getBackoffIdleThreshold ()
+specifier|public
+name|int
+name|getBackoffIdleThreshold
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|getBackoffIdleThreshold
+argument_list|()
+return|;
+block|}
+DECL|method|getBackoffErrorThreshold ()
+specifier|public
+name|int
+name|getBackoffErrorThreshold
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|getBackoffErrorThreshold
+argument_list|()
+return|;
+block|}
+DECL|method|getBackoffCounter ()
+specifier|public
+name|int
+name|getBackoffCounter
+parameter_list|()
+block|{
+return|return
+name|getConsumer
+argument_list|()
+operator|.
+name|getBackoffCounter
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

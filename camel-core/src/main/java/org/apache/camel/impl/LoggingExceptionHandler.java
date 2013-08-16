@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.processor.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at WARN level.  *  * @version   */
+comment|/**  * A default implementation of {@link ExceptionHandler} which uses a {@link org.apache.camel.util.CamelLogger} to  * log the exception.  *<p/>  * This implementation will by default log the exception with stack trace at WARN level.  *  * @version   */
 end_comment
 
 begin_class

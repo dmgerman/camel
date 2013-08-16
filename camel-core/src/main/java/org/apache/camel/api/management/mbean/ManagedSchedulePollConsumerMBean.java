@@ -62,6 +62,20 @@ name|ManagedOperation
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedSchedulePollConsumerMBean
 specifier|public
@@ -212,6 +226,54 @@ argument_list|)
 DECL|method|getSchedulerClassName ()
 name|String
 name|getSchedulerClassName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Backoff multiplier"
+argument_list|)
+DECL|method|getBackoffMultiplier ()
+name|int
+name|getBackoffMultiplier
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Backoff idle threshold"
+argument_list|)
+DECL|method|getBackoffIdleThreshold ()
+name|int
+name|getBackoffIdleThreshold
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Backoff error threshold"
+argument_list|)
+DECL|method|getBackoffErrorThreshold ()
+name|int
+name|getBackoffErrorThreshold
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Current backoff counter"
+argument_list|)
+DECL|method|getBackoffCounter ()
+name|int
+name|getBackoffCounter
 parameter_list|()
 function_decl|;
 block|}
