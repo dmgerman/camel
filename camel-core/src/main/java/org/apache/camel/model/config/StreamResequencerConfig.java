@@ -171,6 +171,13 @@ name|comparator
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|comparatorRef
+specifier|private
+name|String
+name|comparatorRef
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|rejectOld
 specifier|private
 name|Boolean
@@ -436,6 +443,32 @@ operator|.
 name|comparator
 operator|=
 name|comparator
+expr_stmt|;
+block|}
+DECL|method|getComparatorRef ()
+specifier|public
+name|String
+name|getComparatorRef
+parameter_list|()
+block|{
+return|return
+name|comparatorRef
+return|;
+block|}
+DECL|method|setComparatorRef (String comparatorRef)
+specifier|public
+name|void
+name|setComparatorRef
+parameter_list|(
+name|String
+name|comparatorRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|comparatorRef
+operator|=
+name|comparatorRef
 expr_stmt|;
 block|}
 DECL|method|setRejectOld (boolean value)
