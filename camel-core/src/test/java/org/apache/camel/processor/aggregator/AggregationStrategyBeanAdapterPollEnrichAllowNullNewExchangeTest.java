@@ -149,14 +149,6 @@ argument_list|)
 expr_stmt|;
 name|myStrategy
 operator|.
-name|setCamelContext
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|myStrategy
-operator|.
 name|setAllowNullNewExchange
 argument_list|(
 literal|true

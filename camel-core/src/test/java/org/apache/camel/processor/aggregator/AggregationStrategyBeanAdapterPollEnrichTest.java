@@ -52,11 +52,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|util
 operator|.
-name|aggregate
+name|toolbox
 operator|.
-name|AggregationStrategyBeanAdapter
+name|AggregationStrategies
 import|;
 end_import
 
@@ -76,11 +76,6 @@ init|=
 operator|new
 name|MyBodyAppender
 argument_list|()
-decl_stmt|;
-DECL|field|myStrategy
-specifier|private
-name|AggregationStrategyBeanAdapter
-name|myStrategy
 decl_stmt|;
 DECL|method|testNoData ()
 specifier|public
@@ -177,24 +172,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|myStrategy
-operator|=
-operator|new
-name|AggregationStrategyBeanAdapter
-argument_list|(
-name|appender
-argument_list|,
-literal|"append"
-argument_list|)
-expr_stmt|;
-name|myStrategy
-operator|.
-name|setCamelContext
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
@@ -206,7 +183,12 @@ literal|"seda:foo"
 argument_list|,
 literal|100
 argument_list|,
-name|myStrategy
+name|AggregationStrategies
+operator|.
+name|bean
+argument_list|(
+name|appender
+argument_list|)
 argument_list|)
 operator|.
 name|to
