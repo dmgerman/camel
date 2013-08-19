@@ -168,8 +168,6 @@ block|{
 comment|// TODO: Add parameter bindings for:
 comment|// - @Header / @Property / @XPath etc
 comment|// - CamelContext, Registry, etc.
-comment|// TODO: Add DSL support in Java DSL
-comment|// TODO: Add DSL support in XML DSL
 DECL|field|EXCLUDED_METHODS
 specifier|private
 specifier|static
