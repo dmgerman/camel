@@ -139,6 +139,11 @@ specifier|private
 name|int
 name|compression
 decl_stmt|;
+DECL|field|preferredAuthentications
+specifier|private
+name|String
+name|preferredAuthentications
+decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
 name|SftpConfiguration
@@ -575,6 +580,32 @@ name|compression
 operator|=
 name|compression
 expr_stmt|;
+block|}
+DECL|method|setPreferredAuthentications (String pAuthentications)
+specifier|public
+name|void
+name|setPreferredAuthentications
+parameter_list|(
+name|String
+name|pAuthentications
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preferredAuthentications
+operator|=
+name|pAuthentications
+expr_stmt|;
+block|}
+DECL|method|getPreferredAuthentications ()
+specifier|public
+name|String
+name|getPreferredAuthentications
+parameter_list|()
+block|{
+return|return
+name|preferredAuthentications
+return|;
 block|}
 block|}
 end_class

@@ -1864,6 +1864,42 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set the PreferredAuthentications
+if|if
+condition|(
+name|sftpConfig
+operator|.
+name|getPreferredAuthentications
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using PreferredAuthentications: {}"
+argument_list|,
+name|sftpConfig
+operator|.
+name|getPreferredAuthentications
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|session
+operator|.
+name|setConfig
+argument_list|(
+literal|"PreferredAuthentications"
+argument_list|,
+name|sftpConfig
+operator|.
+name|getPreferredAuthentications
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set user information
 name|session
 operator|.
