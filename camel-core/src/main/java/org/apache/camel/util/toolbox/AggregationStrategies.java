@@ -177,7 +177,7 @@ name|GroupedExchangeAggregationStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregration strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
 DECL|method|bean (Object bean)
 specifier|public
 specifier|static
@@ -196,7 +196,7 @@ name|bean
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregration strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
 DECL|method|bean (Object bean, String methodName)
 specifier|public
 specifier|static
@@ -220,7 +220,50 @@ name|methodName
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregration strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+DECL|method|beanAllowNull (Object bean, String methodName)
+specifier|public
+specifier|static
+name|AggregationStrategy
+name|beanAllowNull
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|methodName
+parameter_list|)
+block|{
+name|AggregationStrategyBeanAdapter
+name|adapter
+init|=
+operator|new
+name|AggregationStrategyBeanAdapter
+argument_list|(
+name|bean
+argument_list|,
+name|methodName
+argument_list|)
+decl_stmt|;
+name|adapter
+operator|.
+name|setAllowNullOldExchange
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|adapter
+operator|.
+name|setAllowNullNewExchange
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|adapter
+return|;
+block|}
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
 DECL|method|bean (Class<?> type)
 specifier|public
 specifier|static
@@ -242,7 +285,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregration strategy.      */
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
 DECL|method|bean (Class<?> type, String methodName)
 specifier|public
 specifier|static
@@ -267,6 +310,52 @@ name|type
 argument_list|,
 name|methodName
 argument_list|)
+return|;
+block|}
+comment|/**      * Creates a {@link AggregationStrategyBeanAdapter} for using a POJO as the aggregation strategy.      */
+DECL|method|beanAllowNull (Class<?> type, String methodName)
+specifier|public
+specifier|static
+name|AggregationStrategy
+name|beanAllowNull
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|String
+name|methodName
+parameter_list|)
+block|{
+name|AggregationStrategyBeanAdapter
+name|adapter
+init|=
+operator|new
+name|AggregationStrategyBeanAdapter
+argument_list|(
+name|type
+argument_list|,
+name|methodName
+argument_list|)
+decl_stmt|;
+name|adapter
+operator|.
+name|setAllowNullOldExchange
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|adapter
+operator|.
+name|setAllowNullNewExchange
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|adapter
 return|;
 block|}
 block|}

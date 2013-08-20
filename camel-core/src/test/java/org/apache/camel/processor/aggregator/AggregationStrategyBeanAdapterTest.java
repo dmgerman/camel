@@ -93,11 +93,6 @@ operator|new
 name|MyBodyAppender
 argument_list|()
 decl_stmt|;
-DECL|field|myStrategy
-specifier|private
-name|AggregationStrategyBeanAdapter
-name|myStrategy
-decl_stmt|;
 DECL|method|testAggregate ()
 specifier|public
 name|void

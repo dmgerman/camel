@@ -165,9 +165,6 @@ name|AggregationStrategy
 implements|,
 name|CamelContextAware
 block|{
-comment|// TODO: Add parameter bindings for:
-comment|// - @Header / @Property / @XPath etc
-comment|// - CamelContext, Registry, etc.
 DECL|field|EXCLUDED_METHODS
 specifier|private
 specifier|static
@@ -923,6 +920,32 @@ operator|.
 name|createMethodInfo
 argument_list|()
 expr_stmt|;
+comment|// in case the POJO is CamelContextAware
+if|if
+condition|(
+name|pojo
+operator|!=
+literal|null
+operator|&&
+name|pojo
+operator|instanceof
+name|CamelContextAware
+condition|)
+block|{
+operator|(
+operator|(
+name|CamelContextAware
+operator|)
+name|pojo
+operator|)
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// in case the pojo is a service
 name|ServiceHelper
 operator|.
