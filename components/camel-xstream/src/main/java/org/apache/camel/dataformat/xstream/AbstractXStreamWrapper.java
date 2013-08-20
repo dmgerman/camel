@@ -518,6 +518,22 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// It can turn the auto-detection mode off
+name|xstream
+operator|.
+name|processAnnotations
+argument_list|(
+name|resolver
+operator|.
+name|resolveMandatoryClass
+argument_list|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
