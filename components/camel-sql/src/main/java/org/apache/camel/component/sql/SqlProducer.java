@@ -165,6 +165,11 @@ specifier|private
 name|SqlPrepareStatementStrategy
 name|sqlPrepareStatementStrategy
 decl_stmt|;
+DECL|field|parametersCount
+specifier|private
+name|int
+name|parametersCount
+decl_stmt|;
 DECL|method|SqlProducer (SqlEndpoint endpoint, String query, JdbcTemplate jdbcTemplate, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, boolean batch, boolean alwaysPopulateStatement)
 specifier|public
 name|SqlProducer
@@ -338,6 +343,12 @@ block|{
 name|int
 name|expected
 init|=
+name|parametersCount
+operator|>
+literal|0
+condition|?
+name|parametersCount
+else|:
 name|ps
 operator|.
 name|getParameterMetaData
@@ -752,6 +763,25 @@ block|)
 function|;
 block|}
 end_class
+
+begin_function
+DECL|method|setParametersCount (int parametersCount)
+specifier|public
+name|void
+name|setParametersCount
+parameter_list|(
+name|int
+name|parametersCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parametersCount
+operator|=
+name|parametersCount
+expr_stmt|;
+block|}
+end_function
 
 unit|}
 end_unit

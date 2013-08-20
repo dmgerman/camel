@@ -385,6 +385,13 @@ specifier|private
 name|String
 name|outputClass
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|parametersCount
+specifier|private
+name|int
+name|parametersCount
+decl_stmt|;
 DECL|method|SqlEndpoint ()
 specifier|public
 name|SqlEndpoint
@@ -551,7 +558,9 @@ argument_list|(
 name|separator
 argument_list|)
 decl_stmt|;
-return|return
+name|SqlProducer
+name|result
+init|=
 operator|new
 name|SqlProducer
 argument_list|(
@@ -567,6 +576,16 @@ name|batch
 argument_list|,
 name|alwaysPopulateStatement
 argument_list|)
+decl_stmt|;
+name|result
+operator|.
+name|setParametersCount
+argument_list|(
+name|parametersCount
+argument_list|)
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 DECL|method|isSingleton ()
@@ -944,6 +963,32 @@ operator|.
 name|outputClass
 operator|=
 name|outputClass
+expr_stmt|;
+block|}
+DECL|method|getParametersCount ()
+specifier|public
+name|int
+name|getParametersCount
+parameter_list|()
+block|{
+return|return
+name|parametersCount
+return|;
+block|}
+DECL|method|setParametersCount (int parametersCount)
+specifier|public
+name|void
+name|setParametersCount
+parameter_list|(
+name|int
+name|parametersCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parametersCount
+operator|=
+name|parametersCount
 expr_stmt|;
 block|}
 annotation|@
