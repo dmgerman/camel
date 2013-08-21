@@ -489,6 +489,12 @@ name|isFlushOnSend
 argument_list|()
 condition|)
 block|{
+comment|// there may be concurrency so need to join tx before flush
+name|entityManager
+operator|.
+name|joinTransaction
+argument_list|()
+expr_stmt|;
 name|entityManager
 operator|.
 name|flush
@@ -499,7 +505,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**                  * save the given entity end return the managed entity                  *                   * @param entity                  * @param entityManager                  * @return the managed entity                  */
+comment|/**                  * save the given entity end return the managed entity                  * @return the managed entity                  */
 specifier|private
 name|Object
 name|save
@@ -512,6 +518,7 @@ name|EntityManager
 name|entityManager
 parameter_list|)
 block|{
+comment|// there may be concurrency so need to join tx before persist/merge
 if|if
 condition|(
 name|endpoint
@@ -520,6 +527,11 @@ name|isUsePersist
 argument_list|()
 condition|)
 block|{
+name|entityManager
+operator|.
+name|joinTransaction
+argument_list|()
+expr_stmt|;
 name|entityManager
 operator|.
 name|persist
@@ -533,6 +545,11 @@ return|;
 block|}
 else|else
 block|{
+name|entityManager
+operator|.
+name|joinTransaction
+argument_list|()
+expr_stmt|;
 return|return
 name|entityManager
 operator|.

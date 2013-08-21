@@ -1290,11 +1290,7 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
-name|entityManager
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+comment|//        entityManager.close();
 block|}
 block|}
 end_class

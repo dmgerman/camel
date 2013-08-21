@@ -90,6 +90,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -354,7 +366,13 @@ argument_list|)
 expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
-argument_list|()
+argument_list|(
+literal|20
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
