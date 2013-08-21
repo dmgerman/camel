@@ -2115,8 +2115,17 @@ operator|.
 name|getComponent
 argument_list|(
 name|componentName
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+condition|)
+block|{
 name|ComponentConfiguration
 name|configuration
 init|=
@@ -2140,6 +2149,18 @@ argument_list|(
 name|completionText
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+return|;
+block|}
 block|}
 DECL|method|componentParameterJsonSchema (String componentName)
 specifier|public

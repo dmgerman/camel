@@ -712,6 +712,18 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
+comment|/**      * Gets a component from the context by name.      *      * @param componentName the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @return the component      */
+DECL|method|getComponent (String name, boolean autoCreateComponents)
+name|Component
+name|getComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|boolean
+name|autoCreateComponents
+parameter_list|)
+function_decl|;
 comment|/**      * Gets a component from the context by name and specifying the expected type of component.      *      * @param name          the name to lookup      * @param componentType the expected type      * @return the component      */
 DECL|method|getComponent (String name, Class<T> componentType)
 parameter_list|<

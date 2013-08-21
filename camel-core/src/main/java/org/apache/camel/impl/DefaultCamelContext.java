@@ -2652,6 +2652,27 @@ name|String
 name|name
 parameter_list|)
 block|{
+return|return
+name|getComponent
+argument_list|(
+name|name
+argument_list|,
+name|autoCreateComponents
+argument_list|)
+return|;
+block|}
+DECL|method|getComponent (String name, boolean autoCreateComponents)
+specifier|public
+name|Component
+name|getComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|boolean
+name|autoCreateComponents
+parameter_list|)
+block|{
 comment|// synchronize the look up and auto create so that 2 threads can't
 comment|// concurrently auto create the same component.
 synchronized|synchronized
