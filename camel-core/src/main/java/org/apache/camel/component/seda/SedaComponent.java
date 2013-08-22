@@ -339,7 +339,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|getOrCreateQueue (SedaEndpoint endpoint, Integer size, Boolean multipleConsumers, BlockingQueueFactory customQueueFactory)
+DECL|method|getOrCreateQueue (SedaEndpoint endpoint, Integer size, Boolean multipleConsumers, BlockingQueueFactory<Exchange> customQueueFactory)
 specifier|public
 specifier|synchronized
 name|QueueReference
@@ -355,6 +355,9 @@ name|Boolean
 name|multipleConsumers
 parameter_list|,
 name|BlockingQueueFactory
+argument_list|<
+name|Exchange
+argument_list|>
 name|customQueueFactory
 parameter_list|)
 block|{
@@ -603,7 +606,7 @@ return|return
 name|ref
 return|;
 block|}
-DECL|method|registerQueue (SedaEndpoint endpoint, BlockingQueue queue)
+DECL|method|registerQueue (SedaEndpoint endpoint, BlockingQueue<Exchange> queue)
 specifier|public
 specifier|synchronized
 name|QueueReference
@@ -613,6 +616,9 @@ name|SedaEndpoint
 name|endpoint
 parameter_list|,
 name|BlockingQueue
+argument_list|<
+name|Exchange
+argument_list|>
 name|queue
 parameter_list|)
 block|{
@@ -993,8 +999,19 @@ condition|(
 name|ref
 operator|!=
 literal|null
+operator|&&
+name|endpoint
+operator|.
+name|getConsumers
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
+comment|// only remove the endpoint when the consumers are removed
 name|ref
 operator|.
 name|removeReference

@@ -159,6 +159,26 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getQueueReference (String key)
+specifier|public
+name|QueueReference
+name|getQueueReference
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|QUEUES
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

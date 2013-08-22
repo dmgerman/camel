@@ -169,6 +169,20 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+comment|// update the multipleConsumers setting if need
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isMultipleConsumers
+argument_list|()
+condition|)
+block|{
+name|multipleConsumers
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|removeReference (SedaEndpoint endpoint)
