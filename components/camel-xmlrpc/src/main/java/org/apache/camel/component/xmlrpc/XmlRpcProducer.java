@@ -255,7 +255,10 @@ operator|.
 name|getOut
 argument_list|()
 operator|.
-name|setHeaders
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
 argument_list|(
 name|exchange
 operator|.
