@@ -985,19 +985,6 @@ name|hasConsumers
 argument_list|()
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No consumers available on endpoint: "
-operator|+
-name|endpoint
-operator|+
-literal|" to process: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|SedaConsumerNotAvailableException

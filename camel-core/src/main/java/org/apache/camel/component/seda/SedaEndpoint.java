@@ -1148,7 +1148,10 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"There was no queue reference for this queue!"
+literal|"There was no queue reference for the endpoint {0}"
+argument_list|,
+name|getEndpointUri
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
