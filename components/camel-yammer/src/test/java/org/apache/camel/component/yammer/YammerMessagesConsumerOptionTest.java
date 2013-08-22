@@ -50,6 +50,15 @@ name|YammerMessagesConsumerOptionTest
 extends|extends
 name|YammerComponentTestSupport
 block|{
+DECL|field|YAMMER_MESSAGES_CONSUMER
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|YAMMER_MESSAGES_CONSUMER
+init|=
+literal|"yammer:messages?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&limit=1&threaded=true&olderThan=130&newerThan=127"
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testOptions ()
@@ -60,12 +69,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|YammerEndpoint
+name|endpoint
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+name|YAMMER_MESSAGES_CONSUMER
+argument_list|,
+name|YammerEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// now check if options got applied
 name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|yammerComponent
+name|endpoint
 operator|.
 name|getConfig
 argument_list|()
@@ -78,7 +101,7 @@ name|assertEquals
 argument_list|(
 literal|"true"
 argument_list|,
-name|yammerComponent
+name|endpoint
 operator|.
 name|getConfig
 argument_list|()
@@ -91,7 +114,7 @@ name|assertEquals
 argument_list|(
 literal|130
 argument_list|,
-name|yammerComponent
+name|endpoint
 operator|.
 name|getConfig
 argument_list|()
@@ -104,7 +127,7 @@ name|assertEquals
 argument_list|(
 literal|127
 argument_list|,
-name|yammerComponent
+name|endpoint
 operator|.
 name|getConfig
 argument_list|()
@@ -113,7 +136,6 @@ name|getNewerThan
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//assertEquals(YammerConstants.YAMMER_BASE_API_URL + "messages.json?limit=1&older_than=130&newer_than=127&threaded=true", yammerComponent.getConfig().getApiUrl());
 block|}
 annotation|@
 name|Override
@@ -137,7 +159,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"yammer:messages?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&limit=1&threaded=true&olderThan=130&newerThan=127"
+name|YAMMER_MESSAGES_CONSUMER
 argument_list|)
 operator|.
 name|to

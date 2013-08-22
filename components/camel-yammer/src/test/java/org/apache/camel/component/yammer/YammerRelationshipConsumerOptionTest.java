@@ -50,6 +50,15 @@ name|YammerRelationshipConsumerOptionTest
 extends|extends
 name|YammerComponentTestSupport
 block|{
+DECL|field|YAMMER_RELATIONSHIPS_CONSUMER
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|YAMMER_RELATIONSHIPS_CONSUMER
+init|=
+literal|"yammer:relationships?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&userId=jcamel"
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testOptions ()
@@ -60,12 +69,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|YammerEndpoint
+name|endpoint
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+name|YAMMER_RELATIONSHIPS_CONSUMER
+argument_list|,
+name|YammerEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// now check if options got applied
 name|assertEquals
 argument_list|(
 literal|"jcamel"
 argument_list|,
-name|yammerComponent
+name|endpoint
 operator|.
 name|getConfig
 argument_list|()
@@ -97,7 +120,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"yammer:relationships?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&userId=jcamel"
+name|YAMMER_RELATIONSHIPS_CONSUMER
 argument_list|)
 operator|.
 name|to
