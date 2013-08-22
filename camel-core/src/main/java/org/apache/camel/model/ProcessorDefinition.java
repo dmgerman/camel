@@ -4633,7 +4633,7 @@ name|ChoiceDefinition
 name|endChoice
 parameter_list|()
 block|{
-comment|// are we already a choice?
+comment|// are we nested choice?
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -4642,6 +4642,30 @@ name|def
 init|=
 name|this
 decl_stmt|;
+if|if
+condition|(
+name|def
+operator|.
+name|getParent
+argument_list|()
+operator|instanceof
+name|WhenDefinition
+condition|)
+block|{
+return|return
+operator|(
+name|ChoiceDefinition
+operator|)
+name|def
+operator|.
+name|getParent
+argument_list|()
+operator|.
+name|getParent
+argument_list|()
+return|;
+block|}
+comment|// are we already a choice?
 if|if
 condition|(
 name|def
