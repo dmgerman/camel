@@ -373,6 +373,19 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isTopLevelOnly ()
+specifier|public
+name|boolean
+name|isTopLevelOnly
+parameter_list|()
+block|{
+comment|// a policy is often top-level but you can have it in lower-levels as well
+return|return
+literal|false
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String

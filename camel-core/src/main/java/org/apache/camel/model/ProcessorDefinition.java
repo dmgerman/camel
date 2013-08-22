@@ -889,6 +889,17 @@ name|boolean
 name|isOutputSupported
 parameter_list|()
 function_decl|;
+comment|/**      * Whether this definition can only be added as top-level directly on the route itself (such as onException,onCompletion,intercept, etc.)      *<p/>      * If trying to add a top-level only definition to a nested output would fail in the {@link #addOutput(ProcessorDefinition)}      * method.      */
+DECL|method|isTopLevelOnly ()
+specifier|public
+name|boolean
+name|isTopLevelOnly
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Whether this model is abstract or not.      *<p/>      * An abstract model is something that is used for configuring cross cutting concerns such as      * error handling, transaction policies, interceptors etc.      *<p/>      * Regular definitions is what is part of the route, such as ToDefinition, WireTapDefinition and the likes.      *<p/>      * Will by default return<tt>false</tt> to indicate regular definition, so all the abstract definitions      * must override this method and return<tt>true</tt> instead.      *<p/>      * This information is used in camel-spring to let Camel work a bit on the model provided by JAXB from the      * Spring XML file. This is needed to handle those cross cutting concerns properly. The Java DSL does not      * have this issue as it can work this out directly using the fluent builder methods.      *      * @return<tt>true</tt> for abstract, otherwise<tt>false</tt> for regular.      */
 DECL|method|isAbstract ()
 specifier|public
@@ -1092,6 +1103,45 @@ name|output
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
+comment|// validate that top-level is only added on the route (eg top level)
+name|boolean
+name|parentIsRoute
+init|=
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|RouteDefinition
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|output
+operator|.
+name|isTopLevelOnly
+argument_list|()
+operator|&&
+operator|!
+name|parentIsRoute
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The output must be added as top-level on the route. Try moving "
+operator|+
+name|output
+operator|+
+literal|" to the top of route."
+argument_list|)
+throw|;
 block|}
 name|output
 operator|.
@@ -7151,24 +7201,6 @@ argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
-comment|// onException can only be added on the route-level and not nested in splitter/policy etc
-comment|// Camel 3.0 will fix this where we will have a RouteScopeDefinition where route scoped
-comment|// configuration must take place, and not from this generic ProcessorDefinition
-if|if
-condition|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|RouteDefinition
-operator|.
-name|class
-argument_list|)
-condition|)
-block|{
 name|OnExceptionDefinition
 name|answer
 init|=
@@ -7194,19 +7226,6 @@ return|return
 name|answer
 return|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"onException can only be added directly to the route. Try moving this onException to the top of the route: "
-operator|+
-name|this
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the exception builder to configure      */
 DECL|method|onException (Class<? extends Throwable>.... exceptions)
 specifier|public
@@ -7222,24 +7241,6 @@ argument_list|>
 modifier|...
 name|exceptions
 parameter_list|)
-block|{
-comment|// onException can only be added on the route-level and not nested in splitter/policy etc
-comment|// Camel 3.0 will fix this where we will have a RouteScopeDefinition where route scoped
-comment|// configuration must take place, and not from this generic ProcessorDefinition
-if|if
-condition|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|RouteDefinition
-operator|.
-name|class
-argument_list|)
-condition|)
 block|{
 name|OnExceptionDefinition
 name|answer
@@ -7270,19 +7271,6 @@ expr_stmt|;
 return|return
 name|answer
 return|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"onException can only be added directly to the route. Try moving this onException to the top of the route: "
-operator|+
-name|this
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Apply a {@link Policy}.      *<p/>      * Policy can be used for transactional policies.      *      * @param policy  the policy to apply      * @return the policy builder to configure      */
 DECL|method|policy (Policy policy)
@@ -7348,26 +7336,17 @@ block|}
 comment|/**      * Marks this route as transacted and uses the default transacted policy found in the registry.      *      * @return the policy builder to configure      */
 DECL|method|transacted ()
 specifier|public
-name|PolicyDefinition
+name|TransactedDefinition
 name|transacted
 parameter_list|()
 block|{
-name|PolicyDefinition
+name|TransactedDefinition
 name|answer
 init|=
 operator|new
-name|PolicyDefinition
+name|TransactedDefinition
 argument_list|()
 decl_stmt|;
-name|answer
-operator|.
-name|setType
-argument_list|(
-name|TransactedPolicy
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|addOutput
 argument_list|(
 name|answer
@@ -7380,29 +7359,20 @@ block|}
 comment|/**      * Marks this route as transacted.      *      * @param ref  reference to lookup a transacted policy in the registry      * @return the policy builder to configure      */
 DECL|method|transacted (String ref)
 specifier|public
-name|PolicyDefinition
+name|TransactedDefinition
 name|transacted
 parameter_list|(
 name|String
 name|ref
 parameter_list|)
 block|{
-name|PolicyDefinition
+name|TransactedDefinition
 name|answer
 init|=
 operator|new
-name|PolicyDefinition
+name|TransactedDefinition
 argument_list|()
 decl_stmt|;
-name|answer
-operator|.
-name|setType
-argument_list|(
-name|TransactedPolicy
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|answer
 operator|.
 name|setRef

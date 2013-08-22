@@ -502,6 +502,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isTopLevelOnly ()
+specifier|public
+name|boolean
+name|isTopLevelOnly
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor

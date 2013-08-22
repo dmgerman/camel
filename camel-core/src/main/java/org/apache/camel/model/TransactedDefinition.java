@@ -468,6 +468,19 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isTopLevelOnly ()
+specifier|public
+name|boolean
+name|isTopLevelOnly
+parameter_list|()
+block|{
+comment|// transacted is top level as we only allow have it configured once per route
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getRef ()
 specifier|public
 name|String
