@@ -376,8 +376,6 @@ literal|0
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|SedaComponent
-operator|.
 name|QueueReference
 argument_list|>
 name|it
