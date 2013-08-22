@@ -7151,6 +7151,24 @@ argument_list|>
 name|exceptionType
 parameter_list|)
 block|{
+comment|// onException can only be added on the route-level and not nested in splitter/policy etc
+comment|// Camel 3.0 will fix this where we will have a RouteScopeDefinition where route scoped
+comment|// configuration must take place, and not from this generic ProcessorDefinition
+if|if
+condition|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|RouteDefinition
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
 name|OnExceptionDefinition
 name|answer
 init|=
@@ -7176,6 +7194,19 @@ return|return
 name|answer
 return|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"onException can only be added directly to the route. Try moving this onException to the top of the route: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
+block|}
 comment|/**      *<a href="http://camel.apache.org/exception-clause.html">Exception clause</a>      * for catching certain exceptions and handling them.      *      * @param exceptions list of exceptions to catch      * @return the exception builder to configure      */
 DECL|method|onException (Class<? extends Throwable>.... exceptions)
 specifier|public
@@ -7191,6 +7222,24 @@ argument_list|>
 modifier|...
 name|exceptions
 parameter_list|)
+block|{
+comment|// onException can only be added on the route-level and not nested in splitter/policy etc
+comment|// Camel 3.0 will fix this where we will have a RouteScopeDefinition where route scoped
+comment|// configuration must take place, and not from this generic ProcessorDefinition
+if|if
+condition|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|RouteDefinition
+operator|.
+name|class
+argument_list|)
+condition|)
 block|{
 name|OnExceptionDefinition
 name|answer
@@ -7221,6 +7270,19 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"onException can only be added directly to the route. Try moving this onException to the top of the route: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Apply a {@link Policy}.      *<p/>      * Policy can be used for transactional policies.      *      * @param policy  the policy to apply      * @return the policy builder to configure      */
 DECL|method|policy (Policy policy)
