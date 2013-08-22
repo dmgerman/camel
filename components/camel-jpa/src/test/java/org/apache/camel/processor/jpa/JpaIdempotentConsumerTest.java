@@ -19,26 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|idempotent
-operator|.
-name|jpa
-operator|.
-name|JpaMessageIdRepository
-operator|.
-name|jpaMessageIdRepository
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -227,6 +207,26 @@ operator|.
 name|support
 operator|.
 name|TransactionCallback
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|idempotent
+operator|.
+name|jpa
+operator|.
+name|JpaMessageIdRepository
+operator|.
+name|jpaMessageIdRepository
 import|;
 end_import
 
