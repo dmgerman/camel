@@ -5395,9 +5395,45 @@ parameter_list|()
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// is not implemented
+if|if
+condition|(
+name|isConnected
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|session
+operator|.
+name|sendIgnore
+argument_list|()
+expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"SFTP session was closed. Ignoring this exception."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+block|}
+return|return
+literal|false
 return|;
 block|}
 DECL|method|sendSiteCommand (String command)

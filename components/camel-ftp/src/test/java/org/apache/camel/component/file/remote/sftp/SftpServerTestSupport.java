@@ -254,11 +254,6 @@ name|boolean
 name|canTest
 decl_stmt|;
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Override
 annotation|@
 name|Before
@@ -280,6 +275,23 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|setUpServer
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|setUpServer ()
+specifier|protected
+name|void
+name|setUpServer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|canTest
 operator|=
 literal|true
@@ -488,6 +500,16 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+name|tearDownServer
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|tearDownServer ()
+specifier|protected
+name|void
+name|tearDownServer
+parameter_list|()
+block|{
 if|if
 condition|(
 name|sshd
