@@ -301,6 +301,12 @@ argument_list|()
 operator|.
 name|isJsonAsMap
 argument_list|()
+operator|&&
+name|getEndpoint
+argument_list|()
+operator|.
+name|isJson
+argument_list|()
 condition|)
 block|{
 comment|// map json string to json map
