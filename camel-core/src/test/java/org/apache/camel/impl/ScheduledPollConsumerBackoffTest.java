@@ -79,16 +79,12 @@ specifier|private
 specifier|static
 name|int
 name|commits
-init|=
-literal|0
 decl_stmt|;
 DECL|field|errors
 specifier|private
 specifier|static
 name|int
 name|errors
-init|=
-literal|0
 decl_stmt|;
 DECL|method|testBackoffIdle ()
 specifier|public

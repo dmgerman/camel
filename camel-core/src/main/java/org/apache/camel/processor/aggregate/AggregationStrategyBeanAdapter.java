@@ -210,15 +210,11 @@ DECL|field|allowNullOldExchange
 specifier|private
 name|boolean
 name|allowNullOldExchange
-init|=
-literal|false
 decl_stmt|;
 DECL|field|allowNullNewExchange
 specifier|private
 name|boolean
 name|allowNullNewExchange
-init|=
-literal|false
 decl_stmt|;
 DECL|field|mi
 specifier|private
