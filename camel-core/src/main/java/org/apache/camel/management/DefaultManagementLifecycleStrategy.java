@@ -4654,19 +4654,25 @@ name|ManagementStatisticsLevel
 operator|.
 name|Off
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Load performance statistics {}"
+argument_list|,
+name|disabled
+condition|?
+literal|"disabled"
+else|:
+literal|"enabled"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
 name|disabled
 condition|)
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Load performance statistics enabled."
-argument_list|)
-expr_stmt|;
 comment|// must use 1 sec interval as the load statistics is based on 1 sec calculations
 name|timerListenerManager
 operator|.
