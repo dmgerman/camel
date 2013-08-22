@@ -146,7 +146,7 @@ specifier|private
 name|String
 name|algorithm
 init|=
-literal|"DSA"
+literal|"SHA1WithDSA"
 decl_stmt|;
 DECL|field|bufferSize
 specifier|private
