@@ -1028,12 +1028,24 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @deprecated  use {@link #getStrategyBufferSize()}      */
 annotation|@
 name|Deprecated
 DECL|method|getBufferSize ()
 specifier|public
 name|int
 name|getBufferSize
+parameter_list|()
+block|{
+return|return
+name|getStrategyBufferSize
+argument_list|()
+return|;
+block|}
+DECL|method|getStrategyBufferSize ()
+specifier|public
+name|int
+name|getStrategyBufferSize
 parameter_list|()
 block|{
 return|return

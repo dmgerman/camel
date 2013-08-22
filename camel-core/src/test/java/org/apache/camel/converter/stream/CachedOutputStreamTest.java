@@ -485,7 +485,7 @@ name|cache
 init|=
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -761,7 +761,7 @@ name|cache
 init|=
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -954,7 +954,7 @@ name|cache
 init|=
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -1145,7 +1145,7 @@ name|cache
 init|=
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -1269,7 +1269,7 @@ name|cache
 init|=
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -1374,7 +1374,7 @@ literal|"we should have a custom buffer size"
 argument_list|,
 name|cos
 operator|.
-name|getBufferSize
+name|getStrategyBufferSize
 argument_list|()
 argument_list|,
 literal|8192
@@ -1430,7 +1430,7 @@ name|cache
 init|=
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 decl_stmt|;
 name|assertTrue
