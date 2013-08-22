@@ -42,10 +42,6 @@ name|Exchange
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author<a href="http://www.christianposta.com/blog">Christian Posta</a>  */
-end_comment
-
 begin_class
 DECL|class|SedaConsumerNotAvailableException
 specifier|public
