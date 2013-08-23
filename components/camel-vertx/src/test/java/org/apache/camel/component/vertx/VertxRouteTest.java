@@ -167,15 +167,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Vertx doesn't support JDK 1.6
-if|if
-condition|(
-name|isJava16
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 name|resultEndpoint
 operator|=
 name|context
@@ -281,15 +272,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Vertx doesn't support JDK 1.6
-if|if
-condition|(
+comment|// camel-vertx cannot be ran with JDK 1.6
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+operator|.
+name|assumeTrue
+argument_list|(
+operator|!
 name|isJava16
 argument_list|()
-condition|)
-block|{
-return|return;
-block|}
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 name|startUri
