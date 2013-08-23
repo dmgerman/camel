@@ -157,11 +157,6 @@ name|body2
 init|=
 literal|"{\"id\":2,\"description\":\"Message Two\"}"
 decl_stmt|;
-DECL|field|sentMessages
-specifier|private
-name|boolean
-name|sentMessages
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testVertxMessages ()
@@ -172,6 +167,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Vertx doesn't support JDK 1.6
+if|if
+condition|(
+name|isJava16
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|resultEndpoint
 operator|=
 name|context
@@ -277,6 +281,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Vertx doesn't support JDK 1.6
+if|if
+condition|(
+name|isJava16
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|from
 argument_list|(
 name|startUri
