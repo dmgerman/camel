@@ -337,7 +337,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs Camel embedded with META-INF/services/*.xml spring files to try create  * DOT files for the routing rules, then converts the DOT files into another  * format such as PNG  *  * @version   * @goal dot  * @requiresDependencyResolution test  * @phase prepare-package  * @execute phase="test-compile"  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
+comment|/**  * Runs Camel embedded with META-INF/services/*.xml spring files to try create  * DOT files for the routing rules, then converts the DOT files into another  * format such as PNG  *  * @version   * @goal dot  * @requiresDependencyResolution compile+runtime  * @phase prepare-package  * @execute phase="test-compile"  * @see<a href="http://www.graphviz.org/">GraphViz</a>  */
 end_comment
 
 begin_class

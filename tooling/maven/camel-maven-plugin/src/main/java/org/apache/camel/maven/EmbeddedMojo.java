@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and<code>camel-*.xml</code>  * and starting up the context; then generating  * the DOT file before closing the context down.  *  * @goal embedded  * @requiresDependencyResolution runtime  * @execute phase="test-compile"  */
+comment|/**  * Runs a CamelContext using any Spring XML configuration files found in  *<code>META-INF/spring/*.xml</code> and<code>camel-*.xml</code>  * and starting up the context; then generating  * the DOT file before closing the context down.  *  * @goal embedded  * @requiresDependencyResolution compile+runtime  * @execute phase="test-compile"  */
 end_comment
 
 begin_class
