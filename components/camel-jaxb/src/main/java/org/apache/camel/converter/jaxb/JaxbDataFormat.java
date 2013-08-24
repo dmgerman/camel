@@ -1300,10 +1300,10 @@ return|return
 name|schemaFactory
 return|;
 block|}
-DECL|method|setSchema (SchemaFactory schemaFactory)
+DECL|method|setSchemaFactory (SchemaFactory schemaFactory)
 specifier|public
 name|void
-name|setSchema
+name|setSchemaFactory
 parameter_list|(
 name|SchemaFactory
 name|schemaFactory
