@@ -3251,7 +3251,7 @@ name|setHeader
 argument_list|(
 name|SmppConstants
 operator|.
-name|OPTIONAL_PARAMETERS
+name|OPTIONAL_PARAMETER
 argument_list|,
 name|optionalParameters
 argument_list|)
