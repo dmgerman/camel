@@ -34,6 +34,18 @@ name|org
 operator|.
 name|apache
 operator|.
+name|activemq
+operator|.
+name|ActiveMQConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|camel
 operator|.
 name|CamelContext
@@ -76,6 +88,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -99,114 +121,24 @@ import|;
 end_import
 
 begin_class
-DECL|class|TwoConsumerOnSameTopicTest
+DECL|class|TwoConsumerOnSameQueueTest
 specifier|public
 class|class
-name|TwoConsumerOnSameTopicTest
+name|TwoConsumerOnSameQueueTest
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testTwoConsumerOnSameTopic ()
+DECL|method|testTwoConsumerOnSameQueue ()
 specifier|public
 name|void
-name|testTwoConsumerOnSameTopic
+name|testTwoConsumerOnSameQueue
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sendAMessageToOneTopicWithTwoSubscribers
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testMultipleMessagesOnSameTopic ()
-specifier|public
-name|void
-name|testMultipleMessagesOnSameTopic
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// give a bit of time for AMQ to properly setup topic subscribers
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello Camel 1"
-argument_list|,
-literal|"Hello Camel 2"
-argument_list|,
-literal|"Hello Camel 3"
-argument_list|,
-literal|"Hello Camel 4"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello Camel 1"
-argument_list|,
-literal|"Hello Camel 2"
-argument_list|,
-literal|"Hello Camel 3"
-argument_list|,
-literal|"Hello Camel 4"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hello Camel 1"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hello Camel 2"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hello Camel 3"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:topic:foo"
-argument_list|,
-literal|"Hello Camel 4"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|sendTwoMessagesWhichShouldReceivedOnBothEndpointsAndAssert
 argument_list|()
 expr_stmt|;
 block|}
@@ -220,7 +152,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sendAMessageToOneTopicWithTwoSubscribers
+name|sendTwoMessagesWhichShouldReceivedOnBothEndpointsAndAssert
 argument_list|()
 expr_stmt|;
 comment|// now stop route A
@@ -253,22 +185,29 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Bye World"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:topic:foo"
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:queue:foo"
 argument_list|,
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// send new message should go to both A and B
-name|resetMocks
 argument_list|()
 expr_stmt|;
 comment|// now start route A
@@ -279,12 +218,18 @@ argument_list|(
 literal|"a"
 argument_list|)
 expr_stmt|;
-name|sendAMessageToOneTopicWithTwoSubscribers
+comment|// send new message should go to both A and B
+name|resetMocks
+argument_list|()
+expr_stmt|;
+name|sendTwoMessagesWhichShouldReceivedOnBothEndpointsAndAssert
 argument_list|()
 expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testRemoveOneRoute ()
 specifier|public
 name|void
@@ -293,7 +238,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|sendAMessageToOneTopicWithTwoSubscribers
+name|sendTwoMessagesWhichShouldReceivedOnBothEndpointsAndAssert
 argument_list|()
 expr_stmt|;
 comment|// now stop and remove route A
@@ -336,13 +281,24 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Bye World"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:topic:foo"
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:queue:foo"
 argument_list|,
 literal|"Bye World"
 argument_list|)
@@ -351,22 +307,14 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|sendAMessageToOneTopicWithTwoSubscribers ()
+DECL|method|sendTwoMessagesWhichShouldReceivedOnBothEndpointsAndAssert ()
 specifier|private
 name|void
-name|sendAMessageToOneTopicWithTwoSubscribers
+name|sendTwoMessagesWhichShouldReceivedOnBothEndpointsAndAssert
 parameter_list|()
 throws|throws
-name|Exception
+name|InterruptedException
 block|{
-comment|// give a bit of time for AMQ to properly setup topic subscribers
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|500
-argument_list|)
-expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -391,7 +339,16 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:topic:foo"
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:queue:foo"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -416,15 +373,16 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|// must be persistent to remember the messages
 name|ConnectionFactory
 name|connectionFactory
 init|=
-name|CamelJmsTestHelper
-operator|.
-name|createPersistentConnectionFactory
-argument_list|()
+operator|new
+name|ActiveMQConnectionFactory
+argument_list|(
+literal|"vm://localhost?broker.persistent=false"
+argument_list|)
 decl_stmt|;
+comment|//CamelJmsTestHelper.createConnectionFactory();
 name|camelContext
 operator|.
 name|addComponent
@@ -467,7 +425,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"activemq:topic:foo"
+literal|"activemq:queue:foo"
 argument_list|)
 operator|.
 name|routeId
@@ -482,7 +440,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"activemq:topic:foo"
+literal|"activemq:queue:foo"
 argument_list|)
 operator|.
 name|routeId
