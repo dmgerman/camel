@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Just a demo bean to show we are ready to process each record polled from  * the database.  */
+comment|/**  * Just a demo bean to show we are ready to process each record polled from the  * database.  */
 end_comment
 
 begin_class
