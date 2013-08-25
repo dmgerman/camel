@@ -106,6 +106,11 @@ name|MyAsyncEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|append
+specifier|private
+name|boolean
+name|append
+decl_stmt|;
 DECL|field|reply
 specifier|private
 name|String
@@ -286,6 +291,32 @@ operator|.
 name|failFirstAttempts
 operator|=
 name|failFirstAttempts
+expr_stmt|;
+block|}
+DECL|method|isAppend ()
+specifier|public
+name|boolean
+name|isAppend
+parameter_list|()
+block|{
+return|return
+name|append
+return|;
+block|}
+DECL|method|setAppend (boolean append)
+specifier|public
+name|void
+name|setAppend
+parameter_list|(
+name|boolean
+name|append
+parameter_list|)
+block|{
+name|this
+operator|.
+name|append
+operator|=
+name|append
 expr_stmt|;
 block|}
 block|}

@@ -305,6 +305,14 @@ return|return
 literal|true
 return|;
 block|}
+comment|// we hold on to the original Exchange in case it's needed for copies
+specifier|final
+name|Exchange
+name|original
+init|=
+name|exchange
+decl_stmt|;
+comment|// per-iteration exchange
 name|Exchange
 name|target
 init|=
@@ -337,6 +345,7 @@ argument_list|()
 condition|)
 block|{
 comment|// and prepare for next iteration
+comment|// if (!copy) target = exchange; else copy of original
 name|target
 operator|=
 name|prepareExchange
@@ -347,6 +356,8 @@ name|index
 operator|.
 name|get
 argument_list|()
+argument_list|,
+name|original
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -361,6 +372,8 @@ argument_list|,
 name|index
 argument_list|,
 name|count
+argument_list|,
+name|original
 argument_list|)
 decl_stmt|;
 if|if
@@ -441,7 +454,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|process (final Exchange exchange, final AsyncCallback callback, final AtomicInteger index, final AtomicInteger count)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback, final AtomicInteger index, final AtomicInteger count, final Exchange original)
 specifier|protected
 name|boolean
 name|process
@@ -461,6 +474,10 @@ parameter_list|,
 specifier|final
 name|AtomicInteger
 name|count
+parameter_list|,
+specifier|final
+name|Exchange
+name|original
 parameter_list|)
 block|{
 comment|// set current index as property
@@ -555,6 +572,8 @@ name|index
 operator|.
 name|get
 argument_list|()
+argument_list|,
+name|original
 argument_list|)
 expr_stmt|;
 comment|// process again
@@ -570,6 +589,8 @@ argument_list|,
 name|index
 argument_list|,
 name|count
+argument_list|,
+name|original
 argument_list|)
 decl_stmt|;
 if|if
@@ -641,7 +662,7 @@ name|sync
 return|;
 block|}
 comment|/**      * Prepares the exchange for the next iteration      *      * @param exchange the exchange      * @param index the index of the next iteration      * @return the exchange to use      */
-DECL|method|prepareExchange (Exchange exchange, int index)
+DECL|method|prepareExchange (Exchange exchange, int index, Exchange original)
 specifier|protected
 name|Exchange
 name|prepareExchange
@@ -651,6 +672,9 @@ name|exchange
 parameter_list|,
 name|int
 name|index
+parameter_list|,
+name|Exchange
+name|original
 parameter_list|)
 block|{
 if|if
@@ -659,12 +683,13 @@ name|copy
 condition|)
 block|{
 comment|// use a copy but let it reuse the same exchange id so it appear as one exchange
+comment|// use the original exchange rather than the looping exchange (esp. with the async routing engine)
 return|return
 name|ExchangeHelper
 operator|.
 name|createCopy
 argument_list|(
-name|exchange
+name|original
 argument_list|,
 literal|true
 argument_list|)
