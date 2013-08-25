@@ -84,10 +84,10 @@ name|RecordProcessor
 implements|implements
 name|Processor
 block|{
-DECL|field|LOG
+DECL|field|log
 specifier|static
 name|Logger
-name|LOG
+name|log
 init|=
 name|LoggerFactory
 operator|.
@@ -107,7 +107,7 @@ name|Exchange
 name|msg
 parameter_list|)
 block|{
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -136,7 +136,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|info
 argument_list|(
