@@ -57,7 +57,9 @@ specifier|final
 name|String
 name|YAMMER_MESSAGES_CONSUMER
 init|=
-literal|"yammer:messages?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&limit=1&threaded=true&olderThan=130&newerThan=127"
+literal|"yammer:messages?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken&limit=1&threaded=true&olderThan=130"
+operator|+
+literal|"&newerThan=127"
 decl_stmt|;
 annotation|@
 name|Test
