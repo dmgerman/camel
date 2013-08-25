@@ -307,6 +307,18 @@ specifier|volatile
 name|boolean
 name|stateful
 decl_stmt|;
+DECL|field|deleteJob
+specifier|private
+name|boolean
+name|deleteJob
+init|=
+literal|true
+decl_stmt|;
+DECL|field|pauseJob
+specifier|private
+name|boolean
+name|pauseJob
+decl_stmt|;
 DECL|method|QuartzEndpoint (final String endpointUri, final QuartzComponent component)
 specifier|public
 name|QuartzEndpoint
@@ -996,6 +1008,58 @@ operator|=
 name|stateful
 expr_stmt|;
 block|}
+DECL|method|isDeleteJob ()
+specifier|public
+name|boolean
+name|isDeleteJob
+parameter_list|()
+block|{
+return|return
+name|deleteJob
+return|;
+block|}
+DECL|method|setDeleteJob (boolean deleteJob)
+specifier|public
+name|void
+name|setDeleteJob
+parameter_list|(
+name|boolean
+name|deleteJob
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deleteJob
+operator|=
+name|deleteJob
+expr_stmt|;
+block|}
+DECL|method|isPauseJob ()
+specifier|public
+name|boolean
+name|isPauseJob
+parameter_list|()
+block|{
+return|return
+name|pauseJob
+return|;
+block|}
+DECL|method|setPauseJob (boolean pauseJob)
+specifier|public
+name|void
+name|setPauseJob
+parameter_list|(
+name|boolean
+name|pauseJob
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pauseJob
+operator|=
+name|pauseJob
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|consumerStarted (final QuartzConsumer consumer)
@@ -1168,6 +1232,23 @@ argument_list|(
 name|loadBalancer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isDeleteJob
+argument_list|()
+operator|&&
+name|isPauseJob
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot have both options deleteJob and pauseJob enabled"
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1206,12 +1287,33 @@ argument_list|,
 literal|"trigger"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isDeleteJob
+argument_list|()
+condition|)
+block|{
 name|deleteTrigger
 argument_list|(
 name|getTrigger
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|isPauseJob
+argument_list|()
+condition|)
+block|{
+name|pauseTrigger
+argument_list|(
+name|getTrigger
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
