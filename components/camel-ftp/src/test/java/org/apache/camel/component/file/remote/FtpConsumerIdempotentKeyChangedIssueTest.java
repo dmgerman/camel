@@ -102,6 +102,11 @@ name|FtpConsumerIdempotentKeyChangedIssueTest
 extends|extends
 name|FtpServerTestSupport
 block|{
+DECL|field|endpoint
+specifier|private
+name|Endpoint
+name|endpoint
+decl_stmt|;
 DECL|method|getFtpUrl ()
 specifier|private
 name|String
@@ -119,11 +124,6 @@ operator|+
 literal|"&idempotentKey=${file:onlyname}-${file:size}-${date:file:yyyyMMddHHmmss}"
 return|;
 block|}
-DECL|field|endpoint
-specifier|private
-name|Endpoint
-name|endpoint
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testIdempotent ()
