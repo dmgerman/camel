@@ -180,12 +180,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|onError (Exception e)
+DECL|method|onError (Throwable e)
 specifier|public
 name|void
 name|onError
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
