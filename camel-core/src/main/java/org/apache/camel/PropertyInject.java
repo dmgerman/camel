@@ -115,6 +115,13 @@ name|String
 name|value
 parameter_list|()
 function_decl|;
+DECL|method|defaultValue ()
+name|String
+name|defaultValue
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 DECL|method|context ()
 name|String
 name|context

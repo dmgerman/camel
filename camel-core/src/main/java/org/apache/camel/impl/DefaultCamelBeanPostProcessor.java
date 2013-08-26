@@ -583,6 +583,11 @@ operator|.
 name|value
 argument_list|()
 argument_list|,
+name|propertyInject
+operator|.
+name|defaultValue
+argument_list|()
+argument_list|,
 name|bean
 argument_list|,
 name|beanName
@@ -764,7 +769,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|injectFieldProperty (Field field, String propertyName, Object bean, String beanName)
+DECL|method|injectFieldProperty (Field field, String propertyName, String propertyDefaultValue, Object bean, String beanName)
 specifier|public
 name|void
 name|injectFieldProperty
@@ -774,6 +779,9 @@ name|field
 parameter_list|,
 name|String
 name|propertyName
+parameter_list|,
+name|String
+name|propertyDefaultValue
 parameter_list|,
 name|Object
 name|bean
@@ -801,6 +809,8 @@ name|getType
 argument_list|()
 argument_list|,
 name|propertyName
+argument_list|,
+name|propertyDefaultValue
 argument_list|,
 name|field
 operator|.
@@ -933,6 +943,11 @@ argument_list|,
 name|propertyInject
 operator|.
 name|value
+argument_list|()
+argument_list|,
+name|propertyInject
+operator|.
+name|defaultValue
 argument_list|()
 argument_list|,
 name|bean
@@ -1166,7 +1181,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|setterPropertyInjection (Method method, String name, Object bean, String beanName)
+DECL|method|setterPropertyInjection (Method method, String propertyValue, String propertyDefaultValue, Object bean, String beanName)
 specifier|public
 name|void
 name|setterPropertyInjection
@@ -1175,7 +1190,10 @@ name|Method
 name|method
 parameter_list|,
 name|String
-name|name
+name|propertyValue
+parameter_list|,
+name|String
+name|propertyDefaultValue
 parameter_list|,
 name|Object
 name|bean
@@ -1247,7 +1265,9 @@ index|[
 literal|0
 index|]
 argument_list|,
-name|name
+name|propertyValue
+argument_list|,
+name|propertyDefaultValue
 argument_list|,
 name|propertyName
 argument_list|,
