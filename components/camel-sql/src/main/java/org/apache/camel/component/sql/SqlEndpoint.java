@@ -392,6 +392,13 @@ specifier|private
 name|int
 name|parametersCount
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|noop
+specifier|private
+name|boolean
+name|noop
+decl_stmt|;
 DECL|method|SqlEndpoint ()
 specifier|public
 name|SqlEndpoint
@@ -989,6 +996,32 @@ operator|.
 name|parametersCount
 operator|=
 name|parametersCount
+expr_stmt|;
+block|}
+DECL|method|isNoop ()
+specifier|public
+name|boolean
+name|isNoop
+parameter_list|()
+block|{
+return|return
+name|noop
+return|;
+block|}
+DECL|method|setNoop (boolean noop)
+specifier|public
+name|void
+name|setNoop
+parameter_list|(
+name|boolean
+name|noop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|noop
+operator|=
+name|noop
 expr_stmt|;
 block|}
 annotation|@
