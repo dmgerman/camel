@@ -188,6 +188,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|SynchronizationAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CastUtils
@@ -1002,7 +1016,7 @@ operator|.
 name|addOnCompletion
 argument_list|(
 operator|new
-name|Synchronization
+name|SynchronizationAdapter
 argument_list|()
 block|{
 specifier|public
@@ -1036,6 +1050,19 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|allowHandover
+parameter_list|()
+block|{
+comment|// do not allow handover as the commit/rollback logic needs to be executed
+comment|// on the same session that polled the messages
+return|return
+literal|false
+return|;
 block|}
 annotation|@
 name|Override
