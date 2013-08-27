@@ -58,7 +58,6 @@ name|RestClient
 block|{
 DECL|interface|ResponseCallback
 specifier|public
-specifier|static
 interface|interface
 name|ResponseCallback
 block|{

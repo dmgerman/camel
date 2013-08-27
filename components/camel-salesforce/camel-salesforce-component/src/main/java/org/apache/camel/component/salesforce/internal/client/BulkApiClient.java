@@ -138,7 +138,6 @@ name|BulkApiClient
 block|{
 DECL|interface|JobInfoResponseCallback
 specifier|public
-specifier|static
 interface|interface
 name|JobInfoResponseCallback
 block|{
@@ -156,7 +155,6 @@ function_decl|;
 block|}
 DECL|interface|BatchInfoResponseCallback
 specifier|public
-specifier|static
 interface|interface
 name|BatchInfoResponseCallback
 block|{
@@ -174,7 +172,6 @@ function_decl|;
 block|}
 DECL|interface|BatchInfoListResponseCallback
 specifier|public
-specifier|static
 interface|interface
 name|BatchInfoListResponseCallback
 block|{
@@ -195,7 +192,6 @@ function_decl|;
 block|}
 DECL|interface|StreamResponseCallback
 specifier|public
-specifier|static
 interface|interface
 name|StreamResponseCallback
 block|{
@@ -213,7 +209,6 @@ function_decl|;
 block|}
 DECL|interface|QueryResultIdsCallback
 specifier|public
-specifier|static
 interface|interface
 name|QueryResultIdsCallback
 block|{
