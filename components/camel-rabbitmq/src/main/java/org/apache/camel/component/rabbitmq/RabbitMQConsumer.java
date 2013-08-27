@@ -290,6 +290,7 @@ argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// need to make sure the queueDeclare is same with the exchange declare
 name|channel
 operator|.
 name|queueDeclare
@@ -299,11 +300,17 @@ operator|.
 name|getQueue
 argument_list|()
 argument_list|,
-literal|true
+name|endpoint
+operator|.
+name|isDurable
+argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-literal|false
+name|endpoint
+operator|.
+name|isAutoDelete
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
