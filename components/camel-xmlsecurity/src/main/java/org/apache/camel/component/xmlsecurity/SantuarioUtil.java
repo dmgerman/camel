@@ -123,6 +123,13 @@ specifier|final
 class|class
 name|SantuarioUtil
 block|{
+DECL|method|SantuarioUtil ()
+specifier|private
+name|SantuarioUtil
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 DECL|method|initializeSantuario ()
 specifier|public
 specifier|static

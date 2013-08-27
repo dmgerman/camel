@@ -158,11 +158,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|w3c
 operator|.
-name|camel
+name|dom
 operator|.
-name|Message
+name|Node
 import|;
 end_import
 
@@ -170,11 +170,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|w3c
+name|apache
 operator|.
-name|dom
+name|camel
 operator|.
-name|Node
+name|Message
 import|;
 end_import
 

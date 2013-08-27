@@ -129,6 +129,7 @@ end_comment
 begin_class
 DECL|class|SameDocumentUriDereferencer
 specifier|public
+specifier|final
 class|class
 name|SameDocumentUriDereferencer
 implements|implements
@@ -145,6 +146,13 @@ operator|new
 name|SameDocumentUriDereferencer
 argument_list|()
 decl_stmt|;
+DECL|method|SameDocumentUriDereferencer ()
+specifier|private
+name|SameDocumentUriDereferencer
+parameter_list|()
+block|{
+comment|// singelton
+block|}
 DECL|method|getInstance ()
 specifier|public
 specifier|static
@@ -155,13 +163,6 @@ block|{
 return|return
 name|INSTANCE
 return|;
-block|}
-DECL|method|SameDocumentUriDereferencer ()
-specifier|private
-name|SameDocumentUriDereferencer
-parameter_list|()
-block|{
-comment|// singelton
 block|}
 DECL|method|dereference (URIReference uriReference, XMLCryptoContext context)
 specifier|public

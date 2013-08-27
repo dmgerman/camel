@@ -20,24 +20,6 @@ name|api
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|xmlsecurity
-operator|.
-name|api
-operator|.
-name|XmlSignatureInvalidException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This exception is thrown if the verification of an XML signature fails  * because the signature value is invalid.  */
 end_comment

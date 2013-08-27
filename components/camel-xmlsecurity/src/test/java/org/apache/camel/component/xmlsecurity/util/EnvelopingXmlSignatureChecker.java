@@ -105,6 +105,7 @@ block|{
 DECL|field|ALLOWED_TRANSFORM_ALGORITHMS
 specifier|private
 specifier|static
+specifier|final
 name|Set
 argument_list|<
 name|String

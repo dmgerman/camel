@@ -86,24 +86,6 @@ name|xmlsecurity
 operator|.
 name|api
 operator|.
-name|KeyAccessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|xmlsecurity
-operator|.
-name|api
-operator|.
 name|DefaultKeyAccessor
 import|;
 end_import
@@ -126,17 +108,38 @@ name|DefaultKeySelector
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|xmlsecurity
+operator|.
+name|api
+operator|.
+name|KeyAccessor
+import|;
+end_import
+
 begin_class
 DECL|class|TestKeystore
 specifier|public
+specifier|final
 class|class
 name|TestKeystore
 block|{
 DECL|method|TestKeystore ()
-specifier|public
+specifier|private
 name|TestKeystore
 parameter_list|()
-block|{      }
+block|{
+comment|// helper class
+block|}
 DECL|method|getKeyAccessor (String alias)
 specifier|public
 specifier|static

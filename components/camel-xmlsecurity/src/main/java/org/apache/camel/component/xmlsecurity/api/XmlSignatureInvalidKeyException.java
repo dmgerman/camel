@@ -20,24 +20,6 @@ name|api
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|xmlsecurity
-operator|.
-name|api
-operator|.
-name|XmlSignatureException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Exception thrown during signing or verifying if the key type does not fit to  * the signature algorithm.  */
 end_comment

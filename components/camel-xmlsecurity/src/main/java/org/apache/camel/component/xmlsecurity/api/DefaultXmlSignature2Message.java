@@ -236,38 +236,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -297,6 +265,38 @@ operator|.
 name|dom
 operator|.
 name|NodeList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -797,7 +797,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Cannot extract root node for the output document from the XML signature document. XPATH %s as specified in the output node search results into a node which has the wrong type."
+literal|"Cannot extract root node for the output document from the XML signature document. "
+operator|+
+literal|"XPATH %s as specified in the output node search results into a node which has the wrong type."
 argument_list|,
 name|xpathFilter
 operator|.
@@ -871,7 +873,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Wrong configuration: Value %s for the output node search %s has wrong format. Value must have the form '{<namespace>}<element local name>' or '<element local name>' if no the element has no namespace."
+literal|"Wrong configuration: Value %s for the output node search %s has wrong format. "
+operator|+
+literal|"Value must have the form '{<namespace>}<element local name>' or '<element local name>' if no the element has no namespace."
 argument_list|,
 name|search
 argument_list|,
@@ -914,7 +918,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Wrong configuration: Value %s for the output node search %s has wrong format. Value must have the form '{<namespace>}<element local name>' or '<element local name>' if no the element has no namespace."
+literal|"Wrong configuration: Value %s for the output node search %s has wrong format. "
+operator|+
+literal|"Value must have the form '{<namespace>}<element local name>' or '<element local name>' if no the element has no namespace."
 argument_list|,
 name|search
 argument_list|,
@@ -1436,7 +1442,6 @@ name|Transform
 name|t
 range|:
 operator|(
-operator|(
 name|List
 argument_list|<
 name|Transform
@@ -1446,7 +1451,6 @@ name|ref
 operator|.
 name|getTransforms
 argument_list|()
-operator|)
 control|)
 block|{
 if|if

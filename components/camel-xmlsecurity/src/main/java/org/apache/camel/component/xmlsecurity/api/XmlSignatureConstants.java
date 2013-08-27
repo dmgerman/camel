@@ -27,13 +27,6 @@ specifier|final
 class|class
 name|XmlSignatureConstants
 block|{
-DECL|method|XmlSignatureConstants ()
-specifier|private
-name|XmlSignatureConstants
-parameter_list|()
-block|{
-comment|// no instance
-block|}
 comment|/**      * Header for indicating that the message body contains non-xml plain text.      * This header is used in the XML signature generator. If the value is set      * to {@link Boolean#TRUE} then the message body is treated as plain text      * Overwrites the configuration parameter      * XmlSignerConfiguration#setPlainText(Boolean)      */
 DECL|field|HEADER_MESSAGE_IS_PLAIN_TEXT
 specifier|public
@@ -82,6 +75,13 @@ name|HEADER_CONTENT_REFERENCE_TYPE
 init|=
 literal|"CamelXmlSignatureContentReferenceType"
 decl_stmt|;
+DECL|method|XmlSignatureConstants ()
+specifier|private
+name|XmlSignatureConstants
+parameter_list|()
+block|{
+comment|// no instance
+block|}
 block|}
 end_class
 

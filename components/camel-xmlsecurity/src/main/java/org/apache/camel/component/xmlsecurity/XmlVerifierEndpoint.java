@@ -56,7 +56,7 @@ name|xmlsecurity
 operator|.
 name|api
 operator|.
-name|XmlSignature2Message
+name|ValidationFailedHandler
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|xmlsecurity
 operator|.
 name|api
 operator|.
-name|ValidationFailedHandler
+name|XmlSignature2Message
 import|;
 end_import
 

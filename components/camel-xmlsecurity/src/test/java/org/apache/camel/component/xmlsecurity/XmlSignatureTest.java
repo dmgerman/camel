@@ -416,6 +416,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -934,18 +946,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-import|;
-end_import
-
 begin_class
 DECL|class|XmlSignatureTest
 specifier|public
@@ -954,18 +954,20 @@ name|XmlSignatureTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|keyPair
-specifier|private
-name|KeyPair
-name|keyPair
-decl_stmt|;
 DECL|field|payload
 specifier|private
 specifier|static
 name|String
 name|payload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><root xmlns=\"http://test/test\"><test>Test Message</test></root>"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
+literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
+decl_stmt|;
+DECL|field|keyPair
+specifier|private
+name|KeyPair
+name|keyPair
 decl_stmt|;
 annotation|@
 name|Override
@@ -1451,7 +1453,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xmlsecurity:sign://signaturedigestalgorithm?keyAccessor=#accessor&signatureAlgorithm=http://www.w3.org/2001/04/xmldsig-more#rsa-sha512&digestAlgorithm=http://www.w3.org/2001/04/xmlenc#sha512"
+literal|"xmlsecurity:sign://signaturedigestalgorithm?keyAccessor=#accessor"
+operator|+
+literal|"&signatureAlgorithm=http://www.w3.org/2001/04/xmldsig-more#rsa-sha512&digestAlgorithm=http://www.w3.org/2001/04/xmlenc#sha512"
 argument_list|,
 literal|"xmlsecurity:verify://signaturedigestalgorithm?keySelector=#selector"
 argument_list|)
@@ -1822,7 +1826,9 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xmlsecurity:verify://outputnodesearchelementname?keySelector=#selectorKeyValue&outputNodeSearchType=ElementName&outputNodeSearch={http://test/test}root&removeSignatureElements=true"
+literal|"xmlsecurity:verify://outputnodesearchelementname?keySelector=#selectorKeyValue"
+operator|+
+literal|"&outputNodeSearchType=ElementName&outputNodeSearch={http://test/test}root&removeSignatureElements=true"
 argument_list|)
 operator|.
 name|to
@@ -3039,7 +3045,9 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmlsecurity:verify://outputnodesearchelementname?keySelector=#selectorKeyValue&outputNodeSearchType=ElementName&outputNodeSearch={http://test/test}root&removeSignatureElements=true"
+literal|"xmlsecurity:verify://outputnodesearchelementname?keySelector=#selectorKeyValue"
+operator|+
+literal|"&outputNodeSearchType=ElementName&outputNodeSearch={http://test/test}root&removeSignatureElements=true"
 argument_list|,
 name|XmlVerifierEndpoint
 operator|.
@@ -3118,7 +3126,9 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmlsecurity:verify://outputnodesearchelementname?keySelector=#selectorKeyValue&outputNodeSearchType=ElementName&outputNodeSearch={http://test/test}root&removeSignatureElements=true"
+literal|"xmlsecurity:verify://outputnodesearchelementname?keySelector=#selectorKeyValue"
+operator|+
+literal|"&outputNodeSearchType=ElementName&outputNodeSearch={http://test/test}root&removeSignatureElements=true"
 argument_list|,
 name|XmlVerifierEndpoint
 operator|.
@@ -3130,9 +3140,7 @@ argument_list|(
 literal|"{wrongformat}"
 argument_list|)
 expr_stmt|;
-comment|// local
-comment|// name
-comment|// missing
+comment|// local name missing
 name|MockEndpoint
 name|mock
 init|=
@@ -5644,8 +5652,8 @@ name|String
 name|algName
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
+operator|(
 name|algName
 operator|.
 name|equalsIgnoreCase
@@ -5661,15 +5669,9 @@ name|SignatureMethod
 operator|.
 name|DSA_SHA1
 argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-elseif|else
-if|if
-condition|(
+operator|)
+operator|||
+operator|(
 name|algName
 operator|.
 name|equalsIgnoreCase
@@ -5685,18 +5687,8 @@ name|SignatureMethod
 operator|.
 name|RSA_SHA1
 argument_list|)
-condition|)
-block|{
-return|return
-literal|true
+operator|)
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 block|}
 end_class

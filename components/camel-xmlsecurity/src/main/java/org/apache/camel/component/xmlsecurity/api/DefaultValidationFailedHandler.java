@@ -54,7 +54,9 @@ name|crypto
 operator|.
 name|dsig
 operator|.
-name|XMLSignatureException
+name|XMLSignature
+operator|.
+name|SignatureValue
 import|;
 end_import
 
@@ -68,9 +70,7 @@ name|crypto
 operator|.
 name|dsig
 operator|.
-name|XMLSignature
-operator|.
-name|SignatureValue
+name|XMLSignatureException
 import|;
 end_import
 

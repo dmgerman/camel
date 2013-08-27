@@ -491,9 +491,17 @@ end_comment
 begin_class
 DECL|class|XmlSignatureHelper
 specifier|public
+specifier|final
 class|class
 name|XmlSignatureHelper
 block|{
+DECL|method|XmlSignatureHelper ()
+specifier|private
+name|XmlSignatureHelper
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 comment|/**      * Returns a configuration for a canonicalization algorithm.      *       * @param algorithm      *            algorithm URI      * @return canonicalization      * @throws IllegalArgumentException      *             if<tt>algorithm</tt> is<code>null</code>      */
 DECL|method|getCanonicalizationMethod (String algorithm)
 specifier|public
