@@ -143,6 +143,7 @@ end_import
 begin_class
 DECL|class|MyCustomCodec
 specifier|public
+specifier|final
 class|class
 name|MyCustomCodec
 block|{
@@ -164,6 +165,13 @@ literal|0
 block|}
 argument_list|)
 decl_stmt|;
+DECL|method|MyCustomCodec ()
+specifier|private
+name|MyCustomCodec
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 DECL|method|createMyCustomDecoder ()
 specifier|public
 specifier|static
