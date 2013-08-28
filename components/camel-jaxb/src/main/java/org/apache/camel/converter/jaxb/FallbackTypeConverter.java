@@ -521,6 +521,16 @@ operator|=
 name|prettyPrint
 expr_stmt|;
 block|}
+DECL|method|allowNull ()
+specifier|public
+name|boolean
+name|allowNull
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|setTypeConverter (TypeConverter parentTypeConverter)
 specifier|public
 name|void

@@ -2034,23 +2034,12 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
-if|if
-condition|(
-name|in
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 operator|new
 name|StreamSource
 argument_list|(
 name|in
 argument_list|)
-return|;
-block|}
-return|return
-literal|null
 return|;
 block|}
 annotation|@
@@ -2066,23 +2055,12 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
-if|if
-condition|(
-name|in
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 operator|new
 name|StreamSource
 argument_list|(
 name|in
 argument_list|)
-return|;
-block|}
-return|return
-literal|null
 return|;
 block|}
 annotation|@
@@ -2098,23 +2076,12 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
-if|if
-condition|(
-name|in
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 operator|new
 name|StreamSource
 argument_list|(
 name|in
 argument_list|)
-return|;
-block|}
-return|return
-literal|null
 return|;
 block|}
 annotation|@
@@ -2134,13 +2101,6 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
-if|if
-condition|(
-name|in
-operator|!=
-literal|null
-condition|)
-block|{
 name|InputStream
 name|is
 init|=
@@ -2169,10 +2129,6 @@ name|StreamSource
 argument_list|(
 name|is
 argument_list|)
-return|;
-block|}
-return|return
-literal|null
 return|;
 block|}
 annotation|@
@@ -2191,13 +2147,6 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
-if|if
-condition|(
-name|in
-operator|!=
-literal|null
-condition|)
-block|{
 name|InputStream
 name|is
 init|=
@@ -2226,10 +2175,6 @@ name|StreamSource
 argument_list|(
 name|is
 argument_list|)
-return|;
-block|}
-return|return
-literal|null
 return|;
 block|}
 comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
@@ -3083,6 +3028,11 @@ block|}
 comment|/**      * Convert a NodeList consisting of just 1 node to a DOM Node.      * @param nl the NodeList      * @return the DOM Node      */
 annotation|@
 name|Converter
+argument_list|(
+name|allowNull
+operator|=
+literal|true
+argument_list|)
 DECL|method|toDOMNodeFromSingleNodeList (NodeList nl)
 specifier|public
 name|Node
@@ -3113,6 +3063,11 @@ block|}
 comment|/**      * Convert a NodeList consisting of just 1 node to a DOM Document.      * Cannot convert NodeList with length> 1 because they require a root node.      * @param nl the NodeList      * @return the DOM Document      */
 annotation|@
 name|Converter
+argument_list|(
+name|allowNull
+operator|=
+literal|true
+argument_list|)
 DECL|method|toDOMDocumentFromSingleNodeList (NodeList nl)
 specifier|public
 name|Document
@@ -3150,6 +3105,11 @@ block|}
 comment|/**      * Converts the given TRaX Source into a W3C DOM node      */
 annotation|@
 name|Converter
+argument_list|(
+name|allowNull
+operator|=
+literal|true
+argument_list|)
 DECL|method|toDOMNode (Source source)
 specifier|public
 name|Node

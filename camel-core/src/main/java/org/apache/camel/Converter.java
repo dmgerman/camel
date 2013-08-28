@@ -105,7 +105,17 @@ DECL|annotation|Converter
 specifier|public
 annotation_defn|@interface
 name|Converter
-block|{ }
+block|{
+comment|/**      * Whether or not returning<tt>null</tt> is a valid response.      */
+DECL|method|allowNull ()
+DECL|field|false
+name|boolean
+name|allowNull
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+block|}
 end_annotation_defn
 
 end_unit

@@ -615,6 +615,20 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+DECL|method|allowNull ()
+specifier|public
+name|boolean
+name|allowNull
+parameter_list|()
+block|{
+return|return
+name|getDelegate
+argument_list|()
+operator|.
+name|allowNull
+argument_list|()
+return|;
+block|}
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<

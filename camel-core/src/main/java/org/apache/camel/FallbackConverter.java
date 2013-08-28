@@ -106,6 +106,15 @@ specifier|public
 annotation_defn|@interface
 name|FallbackConverter
 block|{
+comment|/**      * Whether or not returning<tt>null</tt> is a valid response.      */
+DECL|method|allowNull ()
+DECL|field|false
+name|boolean
+name|allowNull
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 comment|/**      * Whether or not this fallback converter can be promoted to a first class type converter.      */
 DECL|method|canPromote ()
 DECL|field|false

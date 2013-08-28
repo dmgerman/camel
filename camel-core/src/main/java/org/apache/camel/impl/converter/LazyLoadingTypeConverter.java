@@ -182,6 +182,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|allowNull ()
+specifier|public
+name|boolean
+name|allowNull
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doConvertTo (final Class<?> type, final Exchange exchange, final Object value, boolean tryConvert)
 specifier|protected
 name|Object

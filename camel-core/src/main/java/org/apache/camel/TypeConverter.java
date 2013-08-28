@@ -24,6 +24,12 @@ specifier|public
 interface|interface
 name|TypeConverter
 block|{
+comment|/**      * Whether the type converter allows returning null as a valid response.      *<p/>      * By default<tt>null</tt> is not a valid response, returning<tt>false</tt> from this method.      */
+DECL|method|allowNull ()
+name|boolean
+name|allowNull
+parameter_list|()
+function_decl|;
 comment|/**      * Converts the value to the specified type      *      * @param type the requested type      * @param value the value to be converted      * @return the converted value, or<tt>null</tt> if not possible to convert      * @throws TypeConversionException is thrown if error during type conversion      */
 DECL|method|convertTo (Class<T> type, Object value)
 parameter_list|<

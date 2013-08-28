@@ -79,6 +79,18 @@ name|TypeConverter
 block|{
 annotation|@
 name|Override
+DECL|method|allowNull ()
+specifier|public
+name|boolean
+name|allowNull
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|convertTo (Class<T> type, Object value)
 specifier|public
 parameter_list|<

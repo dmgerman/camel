@@ -135,6 +135,14 @@ specifier|final
 name|TypeConverterRegistry
 name|registry
 decl_stmt|;
+DECL|field|allowNull
+specifier|private
+specifier|final
+name|boolean
+name|allowNull
+decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|InstanceMethodFallbackTypeConverter (CachingInjector<?> injector, Method method, TypeConverterRegistry registry)
 specifier|public
 name|InstanceMethodFallbackTypeConverter
@@ -150,6 +158,38 @@ name|method
 parameter_list|,
 name|TypeConverterRegistry
 name|registry
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|injector
+argument_list|,
+name|method
+argument_list|,
+name|registry
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|InstanceMethodFallbackTypeConverter (CachingInjector<?> injector, Method method, TypeConverterRegistry registry, boolean allowNull)
+specifier|public
+name|InstanceMethodFallbackTypeConverter
+parameter_list|(
+name|CachingInjector
+argument_list|<
+name|?
+argument_list|>
+name|injector
+parameter_list|,
+name|Method
+name|method
+parameter_list|,
+name|TypeConverterRegistry
+name|registry
+parameter_list|,
+name|boolean
+name|allowNull
 parameter_list|)
 block|{
 name|this
@@ -183,6 +223,12 @@ name|registry
 operator|=
 name|registry
 expr_stmt|;
+name|this
+operator|.
+name|allowNull
+operator|=
+name|allowNull
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -196,6 +242,18 @@ return|return
 literal|"InstanceMethodFallbackTypeConverter: "
 operator|+
 name|method
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|allowNull ()
+specifier|public
+name|boolean
+name|allowNull
+parameter_list|()
+block|{
+return|return
+name|allowNull
 return|;
 block|}
 annotation|@

@@ -98,6 +98,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|allowNull ()
+specifier|public
+name|boolean
+name|allowNull
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
