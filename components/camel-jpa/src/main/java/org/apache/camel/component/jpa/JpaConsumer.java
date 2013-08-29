@@ -332,6 +332,15 @@ specifier|private
 name|String
 name|nativeQuery
 decl_stmt|;
+DECL|field|lockModeType
+specifier|private
+name|LockModeType
+name|lockModeType
+init|=
+name|LockModeType
+operator|.
+name|WRITE
+decl_stmt|;
 DECL|field|parameters
 specifier|private
 name|Map
@@ -1103,6 +1112,32 @@ operator|=
 name|namedQuery
 expr_stmt|;
 block|}
+DECL|method|getLockModeType ()
+specifier|public
+name|LockModeType
+name|getLockModeType
+parameter_list|()
+block|{
+return|return
+name|lockModeType
+return|;
+block|}
+DECL|method|setLockModeType (LockModeType lockModeType)
+specifier|public
+name|void
+name|setLockModeType
+parameter_list|(
+name|LockModeType
+name|lockModeType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lockModeType
+operator|=
+name|lockModeType
+expr_stmt|;
+block|}
 DECL|method|getNativeQuery ()
 specifier|public
 name|String
@@ -1267,9 +1302,7 @@ name|lock
 argument_list|(
 name|entity
 argument_list|,
-name|LockModeType
-operator|.
-name|WRITE
+name|lockModeType
 argument_list|)
 expr_stmt|;
 return|return
