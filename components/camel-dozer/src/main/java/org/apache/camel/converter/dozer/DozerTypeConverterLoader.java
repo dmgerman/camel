@@ -452,11 +452,20 @@ init|=
 name|lookupDozerBeanMappers
 argument_list|()
 decl_stmt|;
+comment|// only add if we do not already have it
 if|if
 condition|(
 name|mapper
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|mappers
+operator|.
+name|containsValue
+argument_list|(
+name|mapper
+argument_list|)
 condition|)
 block|{
 name|mappers
