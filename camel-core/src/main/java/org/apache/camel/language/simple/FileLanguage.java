@@ -36,41 +36,9 @@ name|FileLanguage
 parameter_list|()
 block|{
 comment|// do not allow escaping, as Windows uses \ as path separator
-name|setAllowEscape
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setAllowEscape (boolean allowEscape)
-specifier|public
-name|void
-name|setAllowEscape
-parameter_list|(
-name|boolean
-name|allowEscape
-parameter_list|)
-block|{
-if|if
-condition|(
-name|allowEscape
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"File language does not allow escape"
-argument_list|)
-throw|;
-block|}
-name|this
-operator|.
 name|allowEscape
 operator|=
-name|allowEscape
+literal|false
 expr_stmt|;
 block|}
 block|}
