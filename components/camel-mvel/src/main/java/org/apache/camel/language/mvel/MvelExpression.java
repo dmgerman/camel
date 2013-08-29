@@ -136,8 +136,41 @@ name|type
 operator|=
 name|type
 expr_stmt|;
+comment|// see http://jira.codehaus.org/browse/MVEL-250
+specifier|final
+name|ClassLoader
+name|tccl
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
+decl_stmt|;
 try|try
 block|{
+comment|// set the TCCL to the MVEL
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|org
+operator|.
+name|mvel2
+operator|.
+name|MVEL
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|compiled
@@ -169,6 +202,20 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+comment|// restore
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|tccl
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|mvel (String expression)
