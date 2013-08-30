@@ -15,10 +15,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Runtime version of the {@link InvalidPayloadException}.  *  * @version   */
+comment|/**  * Runtime version of the {@link InvalidPayloadException}.  *  * @deprecated will be removed in Camel 3.0, use org.apache.camel.util.ObjectHelper#wrapRuntimeCamelException  * @version  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|InvalidPayloadRuntimeException
 specifier|public
 class|class
@@ -26,6 +28,7 @@ name|InvalidPayloadRuntimeException
 extends|extends
 name|RuntimeExchangeException
 block|{
+comment|// TODO: Use org.apache.camel.util.ObjectHelper#wrapRuntimeCamelException to wrap as runtime
 DECL|field|serialVersionUID
 specifier|private
 specifier|static

@@ -28,6 +28,7 @@ name|InvalidPayloadException
 extends|extends
 name|CamelExchangeException
 block|{
+comment|// TODO: We should have NoSuchBodyException to be consistent with NoSuchHeaderException
 comment|// TODO: We should remove this class in Camel 3.0, and just rely on the other exceptions for type conversion issues
 DECL|field|serialVersionUID
 specifier|private
