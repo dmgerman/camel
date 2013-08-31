@@ -858,8 +858,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// defer creating queue till endpoint is started, so we pass the
-comment|// queue factory
+comment|// defer creating queue till endpoint is started, so we pass the queue factory
 name|answer
 operator|=
 operator|new
