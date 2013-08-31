@@ -397,12 +397,16 @@ name|size
 operator|!=
 literal|null
 operator|&&
+operator|!
+name|size
+operator|.
+name|equals
+argument_list|(
 name|ref
 operator|.
 name|getSize
 argument_list|()
-operator|!=
-name|size
+argument_list|)
 condition|)
 block|{
 comment|// there is already a queue, so make sure the size matches
