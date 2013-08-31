@@ -15,12 +15,10 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Is thrown if the payload from the exchange could not be retrieved because of being null, wrong class type etc.  *  * @deprecated will be removed in Camel 3.0  * @version   */
+comment|/**  * Is thrown if the payload from the exchange could not be retrieved because of being null, wrong class type etc.  *  * @version  */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
 DECL|class|InvalidPayloadException
 specifier|public
 class|class
@@ -28,8 +26,6 @@ name|InvalidPayloadException
 extends|extends
 name|CamelExchangeException
 block|{
-comment|// TODO: We should have NoSuchBodyException to be consistent with NoSuchHeaderException
-comment|// TODO: We should remove this class in Camel 3.0, and just rely on the other exceptions for type conversion issues
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
