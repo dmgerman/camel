@@ -112,6 +112,7 @@ name|XStreamAlias
 argument_list|(
 literal|"PushTopic"
 argument_list|)
+comment|//CHECKSTYLE:OFF
 DECL|class|PushTopic
 specifier|public
 class|class
@@ -119,20 +120,23 @@ name|PushTopic
 extends|extends
 name|AbstractSObjectBase
 block|{
-DECL|field|query
+comment|// WARNING: these fields have case sensitive names,
+comment|// the field name MUST match the field name used by Salesforce
+comment|// DO NOT change these field names to camel case!!!
+DECL|field|Query
 specifier|private
 name|String
-name|query
+name|Query
 decl_stmt|;
-DECL|field|apiVersion
+DECL|field|ApiVersion
 specifier|private
 name|Double
-name|apiVersion
+name|ApiVersion
 decl_stmt|;
-DECL|field|isActive
+DECL|field|IsActive
 specifier|private
 name|Boolean
-name|isActive
+name|IsActive
 decl_stmt|;
 annotation|@
 name|XStreamConverter
@@ -141,10 +145,10 @@ name|PicklistEnumConverter
 operator|.
 name|class
 argument_list|)
-DECL|field|notifyForFields
+DECL|field|NotifyForFields
 specifier|private
 name|NotifyForFieldsEnum
-name|notifyForFields
+name|NotifyForFields
 decl_stmt|;
 annotation|@
 name|XStreamConverter
@@ -153,15 +157,15 @@ name|PicklistEnumConverter
 operator|.
 name|class
 argument_list|)
-DECL|field|notifyForOperations
+DECL|field|NotifyForOperations
 specifier|private
 name|NotifyForOperationsEnum
-name|notifyForOperations
+name|NotifyForOperations
 decl_stmt|;
-DECL|field|description
+DECL|field|Description
 specifier|private
 name|String
-name|description
+name|Description
 decl_stmt|;
 annotation|@
 name|JsonProperty
@@ -177,7 +181,7 @@ block|{
 return|return
 name|this
 operator|.
-name|query
+name|Query
 return|;
 block|}
 annotation|@
@@ -196,7 +200,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|query
+name|Query
 operator|=
 name|query
 expr_stmt|;
@@ -215,7 +219,7 @@ block|{
 return|return
 name|this
 operator|.
-name|apiVersion
+name|ApiVersion
 return|;
 block|}
 annotation|@
@@ -234,7 +238,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|apiVersion
+name|ApiVersion
 operator|=
 name|apiVersion
 expr_stmt|;
@@ -253,7 +257,7 @@ block|{
 return|return
 name|this
 operator|.
-name|isActive
+name|IsActive
 return|;
 block|}
 annotation|@
@@ -272,7 +276,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|isActive
+name|IsActive
 operator|=
 name|isActive
 expr_stmt|;
@@ -291,7 +295,7 @@ block|{
 return|return
 name|this
 operator|.
-name|notifyForFields
+name|NotifyForFields
 return|;
 block|}
 annotation|@
@@ -310,7 +314,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|notifyForFields
+name|NotifyForFields
 operator|=
 name|notifyForFields
 expr_stmt|;
@@ -329,7 +333,7 @@ block|{
 return|return
 name|this
 operator|.
-name|notifyForOperations
+name|NotifyForOperations
 return|;
 block|}
 annotation|@
@@ -348,7 +352,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|notifyForOperations
+name|NotifyForOperations
 operator|=
 name|notifyForOperations
 expr_stmt|;
@@ -367,7 +371,7 @@ block|{
 return|return
 name|this
 operator|.
-name|description
+name|Description
 return|;
 block|}
 annotation|@
@@ -386,13 +390,17 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|description
+name|Description
 operator|=
 name|description
 expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 

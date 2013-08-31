@@ -2083,7 +2083,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"salesforce:query?sObjectQuery=SELECT name from Line_Item__c&sObjectClass=org.apache.camel.component.salesforce.dto.QueryRecordsLine_Item__c"
+literal|"salesforce:query?sObjectQuery=SELECT name from Line_Item__c&sObjectClass="
+operator|+
+name|QueryRecordsLine_Item__c
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
@@ -2093,7 +2100,14 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"salesforce:query?format=XML&sObjectQuery=SELECT name from Line_Item__c&sObjectClass=org.apache.camel.component.salesforce.dto.QueryRecordsLine_Item__c"
+literal|"salesforce:query?format=XML&sObjectQuery=SELECT name from Line_Item__c&sObjectClass="
+operator|+
+name|QueryRecordsLine_Item__c
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// testSearch

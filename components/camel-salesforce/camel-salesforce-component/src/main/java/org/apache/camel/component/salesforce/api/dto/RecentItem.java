@@ -36,6 +36,10 @@ name|JsonProperty
 import|;
 end_import
 
+begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
 begin_class
 DECL|class|RecentItem
 specifier|public
@@ -44,20 +48,23 @@ name|RecentItem
 extends|extends
 name|AbstractDTOBase
 block|{
+comment|// WARNING: these fields have case sensitive names,
+comment|// the field name MUST match the field name used by Salesforce
+comment|// DO NOT change these field names to camel case!!!
 DECL|field|attributes
 specifier|private
 name|Attributes
 name|attributes
 decl_stmt|;
-DECL|field|id
+DECL|field|Id
 specifier|private
 name|String
-name|id
+name|Id
 decl_stmt|;
-DECL|field|name
+DECL|field|Name
 specifier|private
 name|String
-name|name
+name|Name
 decl_stmt|;
 DECL|method|getAttributes ()
 specifier|public
@@ -97,7 +104,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-name|id
+name|Id
 return|;
 block|}
 annotation|@
@@ -116,7 +123,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|id
+name|Id
 operator|=
 name|id
 expr_stmt|;
@@ -133,7 +140,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|name
+name|Name
 return|;
 block|}
 annotation|@
@@ -152,13 +159,17 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|name
+name|Name
 operator|=
 name|name
 expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 

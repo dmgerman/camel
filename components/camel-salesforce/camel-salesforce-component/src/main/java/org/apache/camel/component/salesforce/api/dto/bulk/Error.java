@@ -81,6 +81,10 @@ import|;
 end_import
 
 begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
+begin_comment
 comment|/**  *<p>Java class for Error complex type.  *<p/>  *<p>The following schema fragment specifies the expected content contained within this class.  *<p/>  *<pre>  *&lt;complexType name="Error">  *&lt;complexContent>  *&lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">  *&lt;sequence>  *&lt;element name="exceptionCode" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;element name="exceptionMessage" type="{http://www.w3.org/2001/XMLSchema}string"/>  *&lt;/sequence>  *&lt;/restriction>  *&lt;/complexContent>  *&lt;/complexType>  *</pre>  */
 end_comment
 
@@ -194,6 +198,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 

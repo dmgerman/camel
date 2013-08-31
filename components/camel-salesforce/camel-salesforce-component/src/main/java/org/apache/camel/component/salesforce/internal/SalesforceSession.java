@@ -1729,7 +1729,6 @@ block|}
 block|}
 DECL|interface|SalesforceSessionListener
 specifier|public
-specifier|static
 interface|interface
 name|SalesforceSessionListener
 block|{

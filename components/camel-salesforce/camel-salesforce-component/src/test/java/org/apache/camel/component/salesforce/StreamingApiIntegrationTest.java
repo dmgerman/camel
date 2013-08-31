@@ -510,7 +510,14 @@ name|to
 argument_list|(
 literal|"salesforce:query?sObjectQuery=SELECT Id FROM PushTopic WHERE Name = 'CamelTestTopic'&"
 operator|+
-literal|"sObjectClass=org.apache.camel.component.salesforce.internal.dto.QueryRecordsPushTopic"
+literal|"sObjectClass="
+operator|+
+name|QueryRecordsPushTopic
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// route for removing test record
