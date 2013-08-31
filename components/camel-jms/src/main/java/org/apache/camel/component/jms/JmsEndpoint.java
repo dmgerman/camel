@@ -1992,6 +1992,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isPubSubDomain ()
 specifier|public
 name|boolean
