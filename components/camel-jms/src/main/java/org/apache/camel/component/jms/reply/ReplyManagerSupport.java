@@ -1100,6 +1100,13 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|onListenerContainerStarting
+argument_list|(
+name|listenerContainer
+argument_list|)
+expr_stmt|;
 name|listenerContainer
 operator|.
 name|start
@@ -1139,6 +1146,8 @@ argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|listenerContainer
 operator|.
 name|stop
@@ -1149,10 +1158,21 @@ operator|.
 name|destroy
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|endpoint
+operator|.
+name|onListenerConstainerStopped
+argument_list|(
+name|listenerContainer
+argument_list|)
+expr_stmt|;
 name|listenerContainer
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 comment|// must also stop executor service
 if|if

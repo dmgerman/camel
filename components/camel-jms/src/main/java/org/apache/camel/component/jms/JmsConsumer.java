@@ -525,6 +525,14 @@ name|createMessageListenerContainer
 argument_list|()
 expr_stmt|;
 block|}
+name|getEndpoint
+argument_list|()
+operator|.
+name|onListenerContainerStarting
+argument_list|(
+name|listenerContainer
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getEndpoint
@@ -671,6 +679,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|listenerContainer
 operator|.
 name|stop
@@ -681,6 +691,18 @@ operator|.
 name|destroy
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|onListenerConstainerStopped
+argument_list|(
+name|listenerContainer
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// null container and listener so they are fully re created if this consumer is restarted
 comment|// then we will use updated configuration from jms endpoint that may have been managed using JMX
