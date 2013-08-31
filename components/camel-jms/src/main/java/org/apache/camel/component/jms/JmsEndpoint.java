@@ -1988,19 +1988,6 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
-if|if
-condition|(
-name|isPubSubDomain
-argument_list|()
-condition|)
-block|{
-comment|// topic cannot be singleton, as there may be multiple consumers
-comment|// on the same topic
-return|return
-literal|false
-return|;
-block|}
-comment|// but queues can be singleton
 return|return
 literal|true
 return|;
