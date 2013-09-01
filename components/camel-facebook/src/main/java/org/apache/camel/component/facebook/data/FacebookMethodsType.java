@@ -7904,6 +7904,9 @@ DECL|field|resultType
 specifier|private
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 decl_stmt|;
 DECL|field|argNames
@@ -7921,6 +7924,9 @@ specifier|final
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|argTypes
 decl_stmt|;
@@ -7930,11 +7936,14 @@ specifier|final
 name|Method
 name|method
 decl_stmt|;
-DECL|method|FacebookMethodsType (Class resultType, String name, Object... args)
+DECL|method|FacebookMethodsType (Class<?> resultType, String name, Object... args)
 specifier|private
 name|FacebookMethodsType
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|resultType
 parameter_list|,
 name|String
@@ -8010,6 +8019,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|(
 name|nArgs
@@ -8038,6 +8050,9 @@ name|add
 argument_list|(
 operator|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|args
 index|[
@@ -8139,7 +8154,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Find method type by name and argument types.      * @param name method name      * @param args ordered argument types      * @return matching method, null if not found      */
-DECL|method|findMethod (String name, Class... args)
+DECL|method|findMethod (String name, Class<?>... args)
 specifier|public
 specifier|static
 name|FacebookMethodsType
@@ -8149,6 +8164,9 @@ name|String
 name|name
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 modifier|...
 name|args
 parameter_list|)
@@ -8235,6 +8253,9 @@ block|}
 DECL|method|getResultType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultType
 parameter_list|()
 block|{
@@ -8265,6 +8286,9 @@ specifier|public
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getArgTypes
 parameter_list|()

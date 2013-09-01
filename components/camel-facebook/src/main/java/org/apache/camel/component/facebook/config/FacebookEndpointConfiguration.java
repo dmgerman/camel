@@ -553,6 +553,11 @@ name|UriParam
 DECL|field|queries
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|queries
 decl_stmt|;
 annotation|@
@@ -1931,6 +1936,11 @@ block|}
 DECL|method|getQueries ()
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|getQueries
 parameter_list|()
 block|{
@@ -1938,12 +1948,17 @@ return|return
 name|queries
 return|;
 block|}
-DECL|method|setQueries (Map queries)
+DECL|method|setQueries (Map<String, String> queries)
 specifier|public
 name|void
 name|setQueries
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|queries
 parameter_list|)
 block|{

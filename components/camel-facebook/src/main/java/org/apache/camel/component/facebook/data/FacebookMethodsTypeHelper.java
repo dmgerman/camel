@@ -297,6 +297,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|VALID_ARGUMENTS
 init|=
@@ -306,6 +309,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -463,6 +469,9 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|argTypes
 init|=
@@ -506,6 +515,9 @@ index|]
 decl_stmt|;
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|argType
 init|=
 name|argTypes
@@ -542,6 +554,9 @@ block|}
 comment|// also collect argument names for all methods, also detect clashes here
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|previousType
 init|=
 name|VALID_ARGUMENTS
@@ -1310,6 +1325,9 @@ argument_list|<
 name|String
 argument_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|allArguments
 parameter_list|()
@@ -1328,6 +1346,9 @@ DECL|method|getType (String argName)
 specifier|public
 specifier|static
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getType
 parameter_list|(
 name|String
@@ -1338,6 +1359,9 @@ name|IllegalArgumentException
 block|{
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|VALID_ARGUMENTS
@@ -1530,11 +1554,6 @@ name|highest
 return|;
 block|}
 comment|/**      * Invokes given method with argument values from given properties.      *      * @param facebook Facebook4J target object for invoke      * @param method method to invoke      * @param properties Map of arguments      * @return result of method invocation      * @throws RuntimeCamelException on errors      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|invokeMethod (Facebook facebook, FacebookMethodsType method, Map<String, Object> properties)
 specifier|public
 specifier|static
@@ -1602,6 +1621,9 @@ specifier|final
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|argTypes
 init|=
@@ -1612,6 +1634,9 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|types
 init|=
@@ -1669,6 +1694,9 @@ argument_list|()
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 init|=
 name|types
@@ -1685,10 +1713,16 @@ condition|)
 block|{
 comment|// convert collection to array
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|collection
 init|=
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|value
 decl_stmt|;

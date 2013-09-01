@@ -1144,10 +1144,16 @@ block|}
 comment|// must be a Collection
 comment|// TODO add support for Paging using ResponseList
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 name|collection
 init|=
 operator|(
 name|Collection
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|result
 decl_stmt|;
