@@ -2940,6 +2940,19 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// use "null" to indicate the expression returned a null value which is a valid response we need to honor
+if|if
+condition|(
+name|parameterValue
+operator|==
+literal|null
+condition|)
+block|{
+name|parameterValue
+operator|=
+literal|"null"
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2972,13 +2985,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|parameterValue
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// special for explicit null parameter values (as end users can explicit indicate they want null as parameter)
 comment|// see method javadoc for details
 if|if
@@ -3181,7 +3187,6 @@ argument_list|,
 name|parameterValue
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 block|}
