@@ -84,6 +84,14 @@ end_import
 
 begin_import
 import|import
+name|facebook4j
+operator|.
+name|Reading
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -98,14 +106,6 @@ name|FacebookConstants
 import|;
 end_import
 
-begin_import
-import|import
-name|facebook4j
-operator|.
-name|Reading
-import|;
-end_import
-
 begin_comment
 comment|/**  * Builds {@link facebook4j.Reading} instances.  */
 end_comment
@@ -113,9 +113,17 @@ end_comment
 begin_class
 DECL|class|ReadingBuilder
 specifier|public
+specifier|final
 class|class
 name|ReadingBuilder
 block|{
+DECL|method|ReadingBuilder ()
+specifier|private
+name|ReadingBuilder
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 DECL|method|copy (Reading reading, boolean skipSinceUtil)
 specifier|public
 specifier|static
@@ -187,10 +195,20 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|copyMap
 init|=
 operator|new
 name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|copyMap

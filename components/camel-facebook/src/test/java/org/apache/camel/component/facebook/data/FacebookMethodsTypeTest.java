@@ -33,6 +33,24 @@ import|;
 end_import
 
 begin_import
+import|import
+name|facebook4j
+operator|.
+name|Facebook
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -53,24 +71,6 @@ operator|.
 name|Assert
 operator|.
 name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import
-name|facebook4j
-operator|.
-name|Facebook
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -112,6 +112,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 range|:
 name|interfaces
