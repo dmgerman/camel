@@ -110,7 +110,7 @@ name|someObservable
 init|=
 name|Observable
 operator|.
-name|toObservable
+name|from
 argument_list|(
 name|expectedBodies
 argument_list|)
