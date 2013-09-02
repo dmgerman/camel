@@ -688,6 +688,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:zipToFile"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|File
 name|file
 init|=
@@ -719,6 +734,12 @@ name|FILE_NAME
 argument_list|,
 literal|"poem.txt"
 argument_list|)
+expr_stmt|;
+comment|// just make sure the file is created
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
@@ -977,6 +998,11 @@ name|TEST_DIR
 operator|.
 name|getPath
 argument_list|()
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:zipToFile"
 argument_list|)
 expr_stmt|;
 name|from
