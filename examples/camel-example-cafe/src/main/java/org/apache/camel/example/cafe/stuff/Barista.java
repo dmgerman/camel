@@ -77,7 +77,7 @@ specifier|private
 name|long
 name|hotDrinkDelay
 init|=
-literal|500
+literal|300
 decl_stmt|;
 DECL|field|coldDrinkDelay
 specifier|private
