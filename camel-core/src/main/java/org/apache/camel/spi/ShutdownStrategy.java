@@ -236,6 +236,21 @@ name|TimeUnit
 name|getTimeUnit
 parameter_list|()
 function_decl|;
+comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      *<p/>      * By default this is<tt>false</tt>      *<p/>      * Notice the suppress is a<i>best effort</i> as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      *      * @param suppressLoggingOnTimeout<tt>true</tt> to suppress logging, false to log as usual.      */
+DECL|method|setSuppressLoggingOnTimeout (boolean suppressLoggingOnTimeout)
+name|void
+name|setSuppressLoggingOnTimeout
+parameter_list|(
+name|boolean
+name|suppressLoggingOnTimeout
+parameter_list|)
+function_decl|;
+comment|/**      * Whether Camel should try to suppress logging during shutdown and timeout was triggered,      * meaning forced shutdown is happening. And during forced shutdown we want to avoid logging      * errors/warnings et all in the logs as a side-effect of the forced timeout.      *<p/>      * By default this is<tt>false</tt>      *<p/>      * Notice the suppress is a<i>best effort</i> as there may still be some logs coming      * from 3rd party libraries and whatnot, which Camel cannot control.      */
+DECL|method|isSuppressLoggingOnTimeout ()
+name|boolean
+name|isSuppressLoggingOnTimeout
+parameter_list|()
+function_decl|;
 comment|/**      * Sets whether to force shutdown of all consumers when a timeout occurred and thus      * not all consumers was shutdown within that period.      *<p/>      * You should have good reasons to set this option to<tt>false</tt> as it means that the routes      * keep running and is halted abruptly when {@link CamelContext} has been shutdown.      *      * @param shutdownNowOnTimeout<tt>true</tt> to force shutdown,<tt>false</tt> to leave them running      */
 DECL|method|setShutdownNowOnTimeout (boolean shutdownNowOnTimeout)
 name|void
@@ -274,6 +289,12 @@ parameter_list|(
 name|Service
 name|service
 parameter_list|)
+function_decl|;
+comment|/**      * Whether a timeout has occurred during a shutdown.      */
+DECL|method|hasTimeoutOccurred ()
+name|boolean
+name|hasTimeoutOccurred
+parameter_list|()
 function_decl|;
 block|}
 end_interface

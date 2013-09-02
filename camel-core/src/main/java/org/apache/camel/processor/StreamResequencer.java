@@ -466,17 +466,6 @@ name|camelContext
 expr_stmt|;
 name|this
 operator|.
-name|exceptionHandler
-operator|=
-operator|new
-name|LoggingExceptionHandler
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|engine
 operator|=
 operator|new
@@ -502,6 +491,19 @@ operator|.
 name|processor
 operator|=
 name|processor
+expr_stmt|;
+name|this
+operator|.
+name|exceptionHandler
+operator|=
+operator|new
+name|LoggingExceptionHandler
+argument_list|(
+name|camelContext
+argument_list|,
+name|getClass
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns this resequencer's exception handler.      */

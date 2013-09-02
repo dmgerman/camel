@@ -220,6 +220,22 @@ name|absoluteFileName
 operator|=
 name|absoluteFileName
 expr_stmt|;
+name|this
+operator|.
+name|exceptionHandler
+operator|=
+operator|new
+name|LoggingExceptionHandler
+argument_list|(
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|onComplete (Exchange exchange)
 specifier|public
@@ -257,23 +273,6 @@ name|ExceptionHandler
 name|getExceptionHandler
 parameter_list|()
 block|{
-if|if
-condition|(
-name|exceptionHandler
-operator|==
-literal|null
-condition|)
-block|{
-name|exceptionHandler
-operator|=
-operator|new
-name|LoggingExceptionHandler
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|exceptionHandler
 return|;
@@ -617,6 +616,12 @@ parameter_list|)
 block|{
 name|handleException
 argument_list|(
+literal|"Error deleting done file: "
+operator|+
+name|doneFileName
+argument_list|,
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -658,6 +663,10 @@ parameter_list|)
 block|{
 name|handleException
 argument_list|(
+literal|"Error during commit"
+argument_list|,
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -731,16 +740,26 @@ parameter_list|)
 block|{
 name|handleException
 argument_list|(
+literal|"Error during rollback"
+argument_list|,
+name|exchange
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|handleException (Throwable t)
+DECL|method|handleException (String message, Exchange exchange, Throwable t)
 specifier|protected
 name|void
 name|handleException
 parameter_list|(
+name|String
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
 name|Throwable
 name|t
 parameter_list|)
@@ -767,6 +786,10 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
+name|message
+argument_list|,
+name|exchange
+argument_list|,
 name|newt
 argument_list|)
 expr_stmt|;

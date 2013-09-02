@@ -119,6 +119,14 @@ name|LoggingExceptionHandler
 argument_list|(
 name|consumer
 operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|consumer
+operator|.
 name|getClass
 argument_list|()
 argument_list|)
