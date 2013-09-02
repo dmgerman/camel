@@ -726,6 +726,25 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+DECL|method|getValidEndpointProperties ()
+specifier|public
+specifier|static
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getValidEndpointProperties
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
+name|ENDPOINT_CONFIG_FIELDS
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

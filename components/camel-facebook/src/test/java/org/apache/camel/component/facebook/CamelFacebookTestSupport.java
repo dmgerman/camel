@@ -129,24 +129,26 @@ end_import
 begin_class
 DECL|class|CamelFacebookTestSupport
 specifier|public
+specifier|abstract
 class|class
 name|CamelFacebookTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|properties
-specifier|private
+specifier|protected
 specifier|final
 name|Properties
 name|properties
 decl_stmt|;
 DECL|field|configuration
-specifier|private
+specifier|protected
+specifier|final
 name|FacebookConfiguration
 name|configuration
 decl_stmt|;
 DECL|method|CamelFacebookTestSupport ()
-specifier|public
+specifier|protected
 name|CamelFacebookTestSupport
 parameter_list|()
 throws|throws
@@ -301,7 +303,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
-specifier|public
+specifier|protected
 name|FacebookConfiguration
 name|getConfiguration
 parameter_list|()
@@ -311,7 +313,7 @@ name|configuration
 return|;
 block|}
 DECL|method|getOauthParams ()
-specifier|public
+specifier|protected
 name|String
 name|getOauthParams
 parameter_list|()
@@ -358,6 +360,32 @@ operator|)
 else|:
 literal|""
 operator|)
+return|;
+block|}
+DECL|method|getAppOauthParams ()
+specifier|protected
+name|String
+name|getAppOauthParams
+parameter_list|()
+block|{
+return|return
+literal|"oAuthAppId="
+operator|+
+name|properties
+operator|.
+name|get
+argument_list|(
+literal|"oAuthAppId"
+argument_list|)
+operator|+
+literal|"&oAuthAppSecret="
+operator|+
+name|properties
+operator|.
+name|get
+argument_list|(
+literal|"oAuthAppSecret"
+argument_list|)
 return|;
 block|}
 DECL|method|getShortName (String name)

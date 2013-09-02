@@ -874,17 +874,10 @@ specifier|final
 name|String
 name|inBodyProperty
 init|=
-operator|(
-name|String
-operator|)
-name|properties
+name|endpoint
 operator|.
-name|remove
-argument_list|(
-name|FacebookConstants
-operator|.
-name|IN_BODY_PROPERTY
-argument_list|)
+name|getInBody
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -928,7 +921,7 @@ argument_list|(
 name|inBodyProperty
 argument_list|)
 operator|.
-name|getClass
+name|getType
 argument_list|()
 argument_list|,
 name|exchange
@@ -974,6 +967,17 @@ return|return
 literal|false
 return|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Property [{}] has message body value {}"
+argument_list|,
+name|inBodyProperty
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 name|properties
 operator|.
 name|put

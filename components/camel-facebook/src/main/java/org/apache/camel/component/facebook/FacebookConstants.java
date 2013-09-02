@@ -50,13 +50,6 @@ name|FACEBOOK_PROPERTY_PREFIX
 init|=
 literal|"CamelFacebook."
 decl_stmt|;
-comment|// property name for exchange 'in' body
-DECL|field|IN_BODY_PROPERTY
-name|String
-name|IN_BODY_PROPERTY
-init|=
-literal|"inBody"
-decl_stmt|;
 DECL|field|FACEBOOK_THREAD_PROFILE_NAME
 name|String
 name|FACEBOOK_THREAD_PROFILE_NAME

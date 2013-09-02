@@ -24,31 +24,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -170,22 +148,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|facebook
-operator|.
-name|FacebookConstants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|UriParam
@@ -203,20 +165,6 @@ operator|.
 name|spi
 operator|.
 name|UriParams
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
 import|;
 end_import
 
@@ -230,14 +178,6 @@ name|FacebookEndpointConfiguration
 extends|extends
 name|FacebookConfiguration
 block|{
-comment|// property name for Exchange 'In' message body
-annotation|@
-name|UriParam
-DECL|field|inBody
-specifier|private
-name|String
-name|inBody
-decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|achievementURL
@@ -713,90 +653,6 @@ specifier|private
 name|String
 name|videoId
 decl_stmt|;
-DECL|method|getInBody ()
-specifier|public
-name|String
-name|getInBody
-parameter_list|()
-block|{
-return|return
-name|inBody
-return|;
-block|}
-DECL|method|setInBody (String inBody)
-specifier|public
-name|void
-name|setInBody
-parameter_list|(
-name|String
-name|inBody
-parameter_list|)
-block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|inBody
-argument_list|,
-literal|"inBody"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|inBody
-operator|=
-name|inBody
-expr_stmt|;
-comment|// validate name
-specifier|final
-name|List
-argument_list|<
-name|Field
-argument_list|>
-name|fields
-init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|getClass
-argument_list|()
-operator|.
-name|getDeclaredFields
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|fields
-operator|.
-name|remove
-argument_list|(
-name|FacebookConstants
-operator|.
-name|IN_BODY_PROPERTY
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|fields
-operator|.
-name|contains
-argument_list|(
-name|inBody
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Unknown property "
-operator|+
-name|inBody
-argument_list|)
-throw|;
-block|}
-block|}
 DECL|method|getAchievementURL ()
 specifier|public
 name|URL
@@ -901,20 +757,20 @@ operator|=
 name|allowNewOptions
 expr_stmt|;
 block|}
-DECL|method|getoAuthAppId ()
+DECL|method|getAppId ()
 specifier|public
 name|String
-name|getoAuthAppId
+name|getAppId
 parameter_list|()
 block|{
 return|return
 name|appId
 return|;
 block|}
-DECL|method|setoAuthAppId (String appId)
+DECL|method|setAppId (String appId)
 specifier|public
 name|void
-name|setoAuthAppId
+name|setAppId
 parameter_list|(
 name|String
 name|appId
@@ -1777,20 +1633,20 @@ operator|=
 name|permissionName
 expr_stmt|;
 block|}
-DECL|method|getoAuthPermissions ()
+DECL|method|getPermissions ()
 specifier|public
 name|String
-name|getoAuthPermissions
+name|getPermissions
 parameter_list|()
 block|{
 return|return
 name|permissions
 return|;
 block|}
-DECL|method|setoAuthPermissions (String permissions)
+DECL|method|setPermissions (String permissions)
 specifier|public
 name|void
-name|setoAuthPermissions
+name|setPermissions
 parameter_list|(
 name|String
 name|permissions

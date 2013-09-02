@@ -520,12 +520,7 @@ operator|.
 name|method
 operator|=
 name|findMethod
-argument_list|(
-name|endpoint
-operator|.
-name|getCandidates
 argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// get endpoint properties in a map
 specifier|final
@@ -711,17 +706,11 @@ name|properties
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|findMethod (List<FacebookMethodsType> candidates)
+DECL|method|findMethod ()
 specifier|private
 name|FacebookMethodsType
 name|findMethod
-parameter_list|(
-name|List
-argument_list|<
-name|FacebookMethodsType
-argument_list|>
-name|candidates
-parameter_list|)
+parameter_list|()
 block|{
 name|FacebookMethodsType
 name|result
