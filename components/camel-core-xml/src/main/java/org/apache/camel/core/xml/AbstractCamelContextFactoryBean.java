@@ -4648,7 +4648,7 @@ name|RouteBuilder
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// lets add route builders added from references
+comment|// lets add RoutesBuilder's added from references
 if|if
 condition|(
 name|getBuilderRefs
@@ -4666,35 +4666,6 @@ name|getBuilderRefs
 argument_list|()
 control|)
 block|{
-name|RouteBuilder
-name|builder
-init|=
-name|builderRef
-operator|.
-name|createRouteBuilder
-argument_list|(
-name|getContext
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|builder
-operator|!=
-literal|null
-condition|)
-block|{
-name|builders
-operator|.
-name|add
-argument_list|(
-name|builder
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// support to get the route here
 name|RoutesBuilder
 name|routes
 init|=
@@ -4725,7 +4696,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Throw the exception that we can't find any build here
 throw|throw
 operator|new
 name|CamelException
@@ -4735,7 +4705,6 @@ operator|+
 name|builderRef
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 block|}
