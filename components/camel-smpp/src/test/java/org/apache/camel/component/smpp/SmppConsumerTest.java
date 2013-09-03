@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -195,6 +207,11 @@ specifier|private
 name|SMPPSession
 name|session
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -236,6 +253,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// the construction of SmppConsumer will trigger the getCamelContext call
 name|consumer
 operator|=
 operator|new
@@ -269,6 +287,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|resetToNice
+argument_list|(
+name|endpoint
+argument_list|,
+name|session
+argument_list|)
+expr_stmt|;
 name|expect
 argument_list|(
 name|endpoint
@@ -420,6 +445,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|resetToNice
+argument_list|(
+name|endpoint
+argument_list|,
+name|session
+argument_list|)
+expr_stmt|;
 name|expect
 argument_list|(
 name|endpoint
