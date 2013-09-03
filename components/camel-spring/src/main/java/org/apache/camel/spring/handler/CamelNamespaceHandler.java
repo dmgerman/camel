@@ -1116,7 +1116,7 @@ operator|.
 name|class
 decl_stmt|;
 comment|// These code will try to detected if we are in the OSGi environment.
-comment|// If so, camel will use the OSGi version of CamelContenxtFactoryBean to create the camel context.
+comment|// If so, camel will use the OSGi version of CamelContextFactoryBean to create the CamelContext.
 try|try
 block|{
 comment|// Try to load the BundleActivator first
@@ -1188,7 +1188,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// not running with camel-osgi so we fallback to the regular factory bean
+comment|// not running with camel-core-osgi so we fallback to the regular factory bean
 name|LOG
 operator|.
 name|trace
