@@ -876,6 +876,54 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|KeyStoreParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SecureRandomParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -1012,6 +1060,24 @@ name|blueprint
 operator|.
 name|reflect
 operator|.
+name|ComponentMetadata
+operator|.
+name|ACTIVATION_LAZY
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|blueprint
+operator|.
+name|reflect
+operator|.
 name|ServiceReferenceMetadata
 operator|.
 name|AVAILABILITY_MANDATORY
@@ -1035,6 +1101,10 @@ operator|.
 name|AVAILABILITY_OPTIONAL
 import|;
 end_import
+
+begin_comment
+comment|/**  * Camel {@link NamespaceHandler} to parse the Camel related namespaces.  */
+end_comment
 
 begin_class
 DECL|class|CamelNamespaceHandler
@@ -1304,6 +1374,7 @@ argument_list|,
 name|element
 argument_list|)
 expr_stmt|;
+comment|// make sure namespace is blueprint
 name|renameNamespaceRecursive
 argument_list|(
 name|element
@@ -2449,6 +2520,14 @@ argument_list|(
 literal|"getRoutes"
 argument_list|)
 expr_stmt|;
+comment|// must be lazy as we want CamelContext to be activated first
+name|ctx
+operator|.
+name|setActivation
+argument_list|(
+name|ACTIVATION_LAZY
+argument_list|)
+expr_stmt|;
 comment|// lets inject the namespaces into any namespace aware POJOs
 name|injectNamespaces
 argument_list|(
@@ -2700,7 +2779,7 @@ name|ctx
 operator|.
 name|setRuntimeClass
 argument_list|(
-name|List
+name|KeyStoreParameters
 operator|.
 name|class
 argument_list|)
@@ -2717,6 +2796,14 @@ operator|.
 name|setFactoryMethod
 argument_list|(
 literal|"getObject"
+argument_list|)
+expr_stmt|;
+comment|// must be lazy as we want CamelContext to be activated first
+name|ctx
+operator|.
+name|setActivation
+argument_list|(
+name|ACTIVATION_LAZY
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -2960,7 +3047,7 @@ name|ctx
 operator|.
 name|setRuntimeClass
 argument_list|(
-name|List
+name|SecureRandomParameters
 operator|.
 name|class
 argument_list|)
@@ -2977,6 +3064,14 @@ operator|.
 name|setFactoryMethod
 argument_list|(
 literal|"getObject"
+argument_list|)
+expr_stmt|;
+comment|// must be lazy as we want CamelContext to be activated first
+name|ctx
+operator|.
+name|setActivation
+argument_list|(
+name|ACTIVATION_LAZY
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -3220,7 +3315,7 @@ name|ctx
 operator|.
 name|setRuntimeClass
 argument_list|(
-name|List
+name|SSLContextParameters
 operator|.
 name|class
 argument_list|)
@@ -3237,6 +3332,14 @@ operator|.
 name|setFactoryMethod
 argument_list|(
 literal|"getObject"
+argument_list|)
+expr_stmt|;
+comment|// must be lazy as we want CamelContext to be activated first
+name|ctx
+operator|.
+name|setActivation
+argument_list|(
+name|ACTIVATION_LAZY
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -6052,9 +6155,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to add dependencies on to camel components OSGi services.  "
+literal|"Unable to add dependencies to Camel components OSGi services. "
 operator|+
-literal|"The Apache Aries blueprint implementation used it too old and the blueprint bundle can not see the org.apache.camel.spi package."
+literal|"The Apache Aries blueprint implementation used is too old and the blueprint bundle can not see the org.apache.camel.spi package."
 argument_list|)
 expr_stmt|;
 name|components
