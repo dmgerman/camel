@@ -679,6 +679,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|enabled
+operator|||
 name|spoolRules
 operator|.
 name|isEmpty
