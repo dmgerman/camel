@@ -103,6 +103,10 @@ import|;
 end_import
 
 begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
+begin_comment
 comment|/**  * Salesforce DTO for SObject PushTopic  */
 end_comment
 
@@ -112,7 +116,6 @@ name|XStreamAlias
 argument_list|(
 literal|"PushTopic"
 argument_list|)
-comment|//CHECKSTYLE:OFF
 DECL|class|PushTopic
 specifier|public
 class|class
