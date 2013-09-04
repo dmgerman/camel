@@ -1805,7 +1805,7 @@ literal|"UTF-8"
 argument_list|)
 return|;
 block|}
-comment|/**      * Loads the entire stream into memory as a String and returns it.      *      * Warning, don't use for crazy big streams :)      */
+comment|/**      * Loads the entire stream into memory as a String and returns it.      *<p/>      *<b>Notice:</b> This implementation appends a<tt>\n</tt> as line      * terminator at the of the text.      *<p/>      * Warning, don't use for crazy big streams :)      */
 DECL|method|loadText (InputStream in)
 specifier|public
 specifier|static
@@ -1825,6 +1825,15 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|InputStreamReader
+name|isr
+init|=
+operator|new
+name|InputStreamReader
+argument_list|(
+name|in
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|BufferedReader
@@ -1832,11 +1841,7 @@ name|reader
 init|=
 name|buffered
 argument_list|(
-operator|new
-name|InputStreamReader
-argument_list|(
-name|in
-argument_list|)
+name|isr
 argument_list|)
 decl_stmt|;
 while|while
@@ -1890,6 +1895,8 @@ finally|finally
 block|{
 name|close
 argument_list|(
+name|isr
+argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
