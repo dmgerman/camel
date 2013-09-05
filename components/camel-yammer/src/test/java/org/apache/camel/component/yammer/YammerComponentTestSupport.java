@@ -90,6 +90,11 @@ specifier|protected
 name|YammerComponent
 name|yammerComponent
 decl_stmt|;
+DECL|field|messages
+specifier|private
+name|String
+name|messages
+decl_stmt|;
 DECL|method|YammerComponentTestSupport ()
 specifier|public
 name|YammerComponentTestSupport
@@ -128,9 +133,8 @@ name|jsonFile
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|String
-name|messages
-init|=
+name|setMessages
+argument_list|(
 name|context
 operator|.
 name|getTypeConverter
@@ -144,7 +148,8 @@ name|class
 argument_list|,
 name|is
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 name|yammerComponent
 operator|=
 name|context
@@ -199,7 +204,8 @@ argument_list|(
 operator|new
 name|TestApiRequestor
 argument_list|(
-name|messages
+name|getMessages
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -215,6 +221,32 @@ block|{
 return|return
 literal|"/messages.json"
 return|;
+block|}
+DECL|method|getMessages ()
+specifier|protected
+name|String
+name|getMessages
+parameter_list|()
+block|{
+return|return
+name|messages
+return|;
+block|}
+DECL|method|setMessages (String messages)
+specifier|protected
+name|void
+name|setMessages
+parameter_list|(
+name|String
+name|messages
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messages
+operator|=
+name|messages
+expr_stmt|;
 block|}
 block|}
 end_class
