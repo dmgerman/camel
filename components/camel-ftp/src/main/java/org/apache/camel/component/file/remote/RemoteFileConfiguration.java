@@ -88,7 +88,6 @@ name|Windows
 block|,
 name|Auto
 block|}
-empty_stmt|;
 DECL|field|protocol
 specifier|private
 name|String
@@ -173,6 +172,18 @@ DECL|field|streamDownload
 specifier|private
 name|boolean
 name|streamDownload
+decl_stmt|;
+DECL|field|useList
+specifier|private
+name|boolean
+name|useList
+init|=
+literal|true
+decl_stmt|;
+DECL|field|ignoreFileNotFound
+specifier|private
+name|boolean
+name|ignoreFileNotFound
 decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
@@ -759,7 +770,7 @@ return|return
 name|streamDownload
 return|;
 block|}
-comment|/**      * Sets the download method to use when not using a local working directory.  If set to true,      * the remote files are streamed to the route as they are read.  When set to false, the remote files      * are loaded into memory before being sent into the route.      *      * @param streamDownload       */
+comment|/**      * Sets the download method to use when not using a local working directory.  If set to true,      * the remote files are streamed to the route as they are read.  When set to false, the remote files      * are loaded into memory before being sent into the route.      */
 DECL|method|setStreamDownload (boolean streamDownload)
 specifier|public
 name|void
@@ -774,6 +785,60 @@ operator|.
 name|streamDownload
 operator|=
 name|streamDownload
+expr_stmt|;
+block|}
+DECL|method|isUseList ()
+specifier|public
+name|boolean
+name|isUseList
+parameter_list|()
+block|{
+return|return
+name|useList
+return|;
+block|}
+comment|/**      * Whether to allow using LIST command when downloading a file.      *<p/>      * Default is<tt>true</tt>. In some use cases you may want to download      * a specific file and are not allowed to use the LIST command, and therefore      * you can set this option to<tt>false</tt>.      */
+DECL|method|setUseList (boolean useList)
+specifier|public
+name|void
+name|setUseList
+parameter_list|(
+name|boolean
+name|useList
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useList
+operator|=
+name|useList
+expr_stmt|;
+block|}
+DECL|method|isIgnoreFileNotFound ()
+specifier|public
+name|boolean
+name|isIgnoreFileNotFound
+parameter_list|()
+block|{
+return|return
+name|ignoreFileNotFound
+return|;
+block|}
+comment|/**      * Whether to ignore when trying to download a file which does not exist.      *<p/>      * By default when a file does not exists, then an exception is thrown.      * Setting this option to<tt>true</tt> allows to ignore that instead.      */
+DECL|method|setIgnoreFileNotFound (boolean ignoreFileNotFound)
+specifier|public
+name|void
+name|setIgnoreFileNotFound
+parameter_list|(
+name|boolean
+name|ignoreFileNotFound
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreFileNotFound
+operator|=
+name|ignoreFileNotFound
 expr_stmt|;
 block|}
 comment|/**      * Normalizes the given path according to the configured path separator.      *      * @param path  the given path      * @return the normalized path      */

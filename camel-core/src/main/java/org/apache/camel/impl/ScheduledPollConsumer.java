@@ -1012,6 +1012,15 @@ operator|=
 name|poll
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Polled {} messages"
+argument_list|,
+name|polledMessages
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|polledMessages

@@ -806,6 +806,11 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|int
+name|answer
+init|=
+name|total
+decl_stmt|;
 comment|// limit if needed
 if|if
 condition|(
@@ -913,6 +918,9 @@ operator|-
 literal|1
 expr_stmt|;
 comment|// process the current exchange
+name|boolean
+name|started
+decl_stmt|;
 if|if
 condition|(
 name|customProcessor
@@ -921,6 +929,8 @@ literal|null
 condition|)
 block|{
 comment|// use a custom processor
+name|started
+operator|=
 name|customProcessExchange
 argument_list|(
 name|exchange
@@ -932,10 +942,23 @@ block|}
 else|else
 block|{
 comment|// process the exchange regular
+name|started
+operator|=
 name|processExchange
 argument_list|(
 name|exchange
 argument_list|)
+expr_stmt|;
+block|}
+comment|// if we did not start process the file then decremember the counter
+if|if
+condition|(
+operator|!
+name|started
+condition|)
+block|{
+name|answer
+operator|--
 expr_stmt|;
 block|}
 block|}
@@ -963,7 +986,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return
-name|total
+name|answer
 return|;
 block|}
 DECL|method|removeExcessiveInProgressFiles (Deque<Exchange> exchanges, int limit)
@@ -1151,10 +1174,27 @@ operator|=
 name|operations
 expr_stmt|;
 block|}
-comment|/**      * Processes the exchange      *      * @param exchange the exchange      */
+comment|/**      * Whether to ignore if the file cannot be retrieved.      *<p/>      * By default an {@link GenericFileOperationFailedException} is thrown if the file cannot be retrieved.      *<p/>      * This method allows to suppress this and just ignore that.      *      * @param name        the file name      * @param exchange    the exchange      * @return<tt>true</tt> to ignore,<tt>false</tt> is the default.      */
+DECL|method|ignoreCannotRetrieveFile (String name, Exchange exchange)
+specifier|protected
+name|boolean
+name|ignoreCannotRetrieveFile
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Processes the exchange      *      * @param exchange the exchange      * @return<tt>true</tt> if the file was started to be processed,<tt>false</tt> if the file was not started      * to be processed, for some reason (not found, or aborted etc)      */
 DECL|method|processExchange (final Exchange exchange)
 specifier|protected
-name|void
+name|boolean
 name|processExchange
 parameter_list|(
 specifier|final
@@ -1271,7 +1311,9 @@ name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
 catch|catch
@@ -1314,7 +1356,9 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 comment|// must use file from exchange as it can be updated due the
 comment|// preMoveNamePrefix/preMoveNamePostfix options
@@ -1379,6 +1423,42 @@ operator|!
 name|retrieved
 condition|)
 block|{
+if|if
+condition|(
+name|ignoreCannotRetrieveFile
+argument_list|(
+name|name
+argument_list|,
+name|exchange
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Cannot retrieve file {} maybe it does not exists. Ignorning."
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+comment|// remove file from the in progress list as we could not retrieve it, but should ignore
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|absoluteFileName
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+else|else
+block|{
 comment|// throw exception to handle the problem with retrieving the file
 comment|// then if the method return false or throws an exception is handled the same in here
 comment|// as in both cases an exception is being thrown
@@ -1395,6 +1475,7 @@ operator|+
 name|endpoint
 argument_list|)
 throw|;
+block|}
 block|}
 name|log
 operator|.
@@ -1559,6 +1640,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Override if required.  Files are retrieved / returns true by default      *      * @return<tt>true</tt> to retrieve files,<tt>false</tt> to skip retrieval of files.      */
 DECL|method|isRetrieveFile ()
@@ -1574,7 +1658,7 @@ block|}
 comment|/**      * Processes the exchange using a custom processor.      *      * @param exchange the exchange      * @param processor the custom processor      */
 DECL|method|customProcessExchange (final Exchange exchange, final Processor processor)
 specifier|protected
-name|void
+name|boolean
 name|customProcessExchange
 parameter_list|(
 specifier|final
@@ -1686,6 +1770,9 @@ name|absoluteFileName
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|true
+return|;
 block|}
 comment|/**      * Strategy for validating if the given remote file should be included or not      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @param files       files in the directory      * @return<tt>true</tt> to include the file,<tt>false</tt> to skip it      */
 DECL|method|isValidFile (GenericFile<T> file, boolean isDirectory, List<T> files)
@@ -2070,6 +2157,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|fileExpressionResult
+operator|=
 name|evaluateFileExpression
 argument_list|()
 expr_stmt|;
@@ -2240,8 +2329,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|evaluateFileExpression ()
-specifier|private
-name|void
+specifier|protected
+name|String
 name|evaluateFileExpression
 parameter_list|()
 block|{
@@ -2249,6 +2338,13 @@ if|if
 condition|(
 name|fileExpressionResult
 operator|==
+literal|null
+operator|&&
+name|endpoint
+operator|.
+name|getFileName
+argument_list|()
+operator|!=
 literal|null
 condition|)
 block|{
@@ -2278,6 +2374,9 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|fileExpressionResult
+return|;
 block|}
 annotation|@
 name|SuppressWarnings

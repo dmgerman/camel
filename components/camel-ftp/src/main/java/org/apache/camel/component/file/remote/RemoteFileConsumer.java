@@ -399,7 +399,7 @@ annotation|@
 name|Override
 DECL|method|processExchange (Exchange exchange)
 specifier|protected
-name|void
+name|boolean
 name|processExchange
 parameter_list|(
 name|Exchange
@@ -421,13 +421,14 @@ operator|.
 name|TRUE
 argument_list|)
 expr_stmt|;
+return|return
 name|super
 operator|.
 name|processExchange
 argument_list|(
 name|exchange
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
