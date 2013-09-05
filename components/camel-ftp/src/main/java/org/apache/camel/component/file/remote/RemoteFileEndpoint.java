@@ -506,6 +506,29 @@ name|DEFAULT_IDEMPOTENT_CACHE_SIZE
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|getConfiguration
+argument_list|()
+operator|.
+name|isUseList
+argument_list|()
+operator|&&
+name|getFileName
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Endpoint is configured with useList=false, then fileName must be configured also"
+argument_list|)
+throw|;
+block|}
 comment|// set max messages per poll
 name|consumer
 operator|.

@@ -950,7 +950,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we did not start process the file then decremember the counter
+comment|// if we did not start process the file then decrement the counter
 if|if
 condition|(
 operator|!
@@ -989,6 +989,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Drain any in progress files as we are done with this batch      *      * @param exchanges  the exchanges      * @param limit      the limit      */
 DECL|method|removeExcessiveInProgressFiles (Deque<Exchange> exchanges, int limit)
 specifier|protected
 name|void
