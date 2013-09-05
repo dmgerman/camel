@@ -30,6 +30,7 @@ DECL|enumConstant|ALGO
 DECL|enumConstant|FOLLOWING
 DECL|enumConstant|SENT
 DECL|enumConstant|PRIVATE
+DECL|enumConstant|RECEIVED
 name|MESSAGES
 block|,
 name|MY_FEED
@@ -41,6 +42,8 @@ block|,
 name|SENT
 block|,
 name|PRIVATE
+block|,
+name|RECEIVED
 block|,
 DECL|enumConstant|USERS
 DECL|enumConstant|CURRENT
