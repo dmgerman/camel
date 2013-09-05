@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -152,11 +142,8 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|List
-argument_list|<
 name|User
-argument_list|>
-name|users
+name|user
 init|=
 name|exchange
 operator|.
@@ -165,31 +152,16 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|List
+name|User
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|1
-argument_list|,
-name|users
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|"Joe Camel"
 argument_list|,
-name|users
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
+name|user
 operator|.
 name|getFullName
 argument_list|()
@@ -199,12 +171,7 @@ name|assertEquals
 argument_list|(
 literal|"jcamel@redhat.com"
 argument_list|,
-name|users
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
+name|user
 operator|.
 name|getContact
 argument_list|()
@@ -257,7 +224,7 @@ block|{
 comment|// using dummy keys here since we are mocking out calls to yammer.com with static json; in a real app, please use your own keys!
 name|from
 argument_list|(
-literal|"yammer:users?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken"
+literal|"yammer:current?consumerKey=aConsumerKey&consumerSecret=aConsumerSecretKey&accessToken=aAccessToken"
 argument_list|)
 operator|.
 name|to
