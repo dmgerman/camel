@@ -240,7 +240,7 @@ name|jsonFile
 parameter_list|()
 block|{
 return|return
-literal|"/users.json"
+literal|"/user.json"
 return|;
 block|}
 annotation|@
