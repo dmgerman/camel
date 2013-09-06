@@ -40,6 +40,20 @@ name|camel
 operator|.
 name|wsdl_first
 operator|.
+name|JaxwsTestHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|wsdl_first
+operator|.
 name|PersonImpl
 import|;
 end_import
@@ -161,6 +175,53 @@ throws|throws
 name|Exception
 block|{
 comment|// this test does not apply to PAYLOAD mode
+block|}
+DECL|method|verifyJaxwsHandlers (JaxwsTestHandler fromHandler, JaxwsTestHandler toHandler)
+specifier|protected
+name|void
+name|verifyJaxwsHandlers
+parameter_list|(
+name|JaxwsTestHandler
+name|fromHandler
+parameter_list|,
+name|JaxwsTestHandler
+name|toHandler
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|fromHandler
+operator|.
+name|getFaultCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|4
+argument_list|,
+name|fromHandler
+operator|.
+name|getMessageCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// Since CXF 2.2.7 there are some performance improvement to use the stax as much as possible
+comment|// which causes the XML validate doesn't work on the from endpoint
+comment|// So we skip the toHandler messageCount here
+comment|//assertEquals(3, toHandler.getMessageCount());
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|toHandler
+operator|.
+name|getFaultCount
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

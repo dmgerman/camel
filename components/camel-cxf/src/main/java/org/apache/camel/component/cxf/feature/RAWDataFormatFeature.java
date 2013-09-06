@@ -44,6 +44,24 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cxf
+operator|.
+name|interceptors
+operator|.
+name|RawMessageWSDLGetInterceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|Bus
@@ -75,20 +93,6 @@ operator|.
 name|endpoint
 operator|.
 name|Server
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|frontend
-operator|.
-name|WSDLGetInterceptor
 import|;
 end_import
 
@@ -373,20 +377,6 @@ parameter_list|)
 block|{
 comment|// currently we do not filter the bus
 comment|// remove the interceptors
-comment|// keep the WSDLGetInterceptor
-name|getInInterceptorNames
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|WSDLGetInterceptor
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|removeInterceptorWhichIsOutThePhases
 argument_list|(
 name|server
@@ -514,6 +504,22 @@ argument_list|(
 operator|new
 name|RawMessageContentRedirectInterceptor
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// setup the RawMessageWSDLGetInterceptor
+name|server
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|getInInterceptors
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|RawMessageWSDLGetInterceptor
+operator|.
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
