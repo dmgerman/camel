@@ -311,6 +311,8 @@ argument_list|(
 literal|"dummy"
 argument_list|,
 literal|"hello"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|from
@@ -321,6 +323,8 @@ operator|.
 name|beanRef
 argument_list|(
 literal|"dummy"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|from
@@ -333,6 +337,8 @@ argument_list|(
 literal|"dummy"
 argument_list|,
 literal|"bar"
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

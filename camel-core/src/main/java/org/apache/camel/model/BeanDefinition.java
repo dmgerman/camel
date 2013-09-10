@@ -303,6 +303,13 @@ name|String
 name|beanType
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|cache
+specifier|private
+name|Boolean
+name|cache
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|beanClass
 specifier|private
@@ -611,6 +618,32 @@ operator|=
 name|beanType
 expr_stmt|;
 block|}
+DECL|method|getCache ()
+specifier|public
+name|Boolean
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|cache
+return|;
+block|}
+DECL|method|setCache (Boolean cache)
+specifier|public
+name|void
+name|setCache
+parameter_list|(
+name|Boolean
+name|cache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|=
+name|cache
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Sets the ref String on camel bean      *      * @param ref  the bean's id in the registry      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
@@ -700,6 +733,24 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Caches the bean lookup, to avoid lookup up bean on every usage.      *      * @return the builder      */
+annotation|@
+name|Deprecated
+DECL|method|cache ()
+specifier|public
+name|BeanDefinition
+name|cache
+parameter_list|()
+block|{
+name|setCache
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)
@@ -710,6 +761,8 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|BeanProcessor
 name|answer
@@ -744,6 +797,35 @@ name|ref
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|cache
+operator|!=
+literal|null
+operator|&&
+name|cache
+condition|)
+block|{
+comment|// cache the registry lookup which avoids repeat lookup in the registry
+name|beanHolder
+operator|=
+operator|new
+name|RegistryBean
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|ref
+argument_list|)
+operator|.
+name|createCacheHolder
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|beanHolder
 operator|=
 operator|new
@@ -757,6 +839,7 @@ argument_list|,
 name|ref
 argument_list|)
 expr_stmt|;
+block|}
 comment|// bean holder will check if the bean exists
 name|bean
 operator|=
