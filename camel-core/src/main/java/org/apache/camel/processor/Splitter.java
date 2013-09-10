@@ -1406,6 +1406,19 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// we do not want to copy the message history for splitted sub-messages
+name|answer
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|Exchange
+operator|.
+name|MESSAGE_HISTORY
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
