@@ -52,6 +52,7 @@ specifier|public
 interface|interface
 name|BeanHolder
 block|{
+comment|/**      * Gets the bean.      *      * @throws NoSuchBeanException is thrown if the bean cannot be found.      */
 DECL|method|getBean ()
 name|Object
 name|getBean
@@ -59,15 +60,26 @@ parameter_list|()
 throws|throws
 name|NoSuchBeanException
 function_decl|;
+comment|/**      * Gets a {@link Processor} for this bean, if supported.      *      * @return the {@link Processor}, or<tt>null</tt> if not supported.      */
 DECL|method|getProcessor ()
 name|Processor
 name|getProcessor
 parameter_list|()
 function_decl|;
+comment|/**      * Gets bean info for the bean.      */
 DECL|method|getBeanInfo ()
 name|BeanInfo
 name|getBeanInfo
 parameter_list|()
+function_decl|;
+comment|/**      * Gets bean info for the given bean.      *<p/>      * This implementation allows a thread safe usage for {@link BeanHolder} implementations      * such as the {@link RegistryBean}.      *      * @param bean the bean      * @return<tt>null</tt> if not supported, then use {@link #getBeanInfo()} instead.      */
+DECL|method|getBeanInfo (Object bean)
+name|BeanInfo
+name|getBeanInfo
+parameter_list|(
+name|Object
+name|bean
+parameter_list|)
 function_decl|;
 block|}
 end_interface

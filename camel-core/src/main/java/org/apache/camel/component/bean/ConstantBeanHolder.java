@@ -282,6 +282,19 @@ return|return
 name|beanInfo
 return|;
 block|}
+DECL|method|getBeanInfo (Object bean)
+specifier|public
+name|BeanInfo
+name|getBeanInfo
+parameter_list|(
+name|Object
+name|bean
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 

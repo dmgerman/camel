@@ -385,6 +385,24 @@ operator|.
 name|getBean
 argument_list|()
 expr_stmt|;
+comment|// get bean info for this bean instance (to avoid thread issue)
+name|beanInfo
+operator|=
+name|beanHolder
+operator|.
+name|getBeanInfo
+argument_list|(
+name|bean
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|beanInfo
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback and use old way
 name|beanInfo
 operator|=
 name|beanHolder
@@ -392,6 +410,7 @@ operator|.
 name|getBeanInfo
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
