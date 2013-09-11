@@ -482,6 +482,14 @@ argument_list|()
 expr_stmt|;
 name|redisTemplate
 operator|.
+name|setDefaultSerializer
+argument_list|(
+name|getSerializer
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|redisTemplate
+operator|.
 name|setConnectionFactory
 argument_list|(
 name|getConnectionFactory
