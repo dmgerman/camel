@@ -255,22 +255,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//
 comment|// BouncyCastle is required for ECDSA support for JDK 1.6
-comment|//
 if|if
 condition|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.version"
-argument_list|)
-operator|.
-name|startsWith
-argument_list|(
-literal|"1.6"
-argument_list|)
+name|isJava16
+argument_list|()
 operator|&&
 name|Security
 operator|.
@@ -340,21 +329,12 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-comment|//
 comment|// This test fails with the IBM JDK
-comment|//
 if|if
 condition|(
-literal|"IBM Corporation"
-operator|.
-name|equals
+name|isJavaVendor
 argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.vendor"
-argument_list|)
+literal|"IBM"
 argument_list|)
 condition|)
 block|{
