@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|soap
+operator|.
+name|SOAPMessage
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -79,18 +91,6 @@ operator|.
 name|phase
 operator|.
 name|Phase
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|soap
-operator|.
-name|SOAPMessage
 import|;
 end_import
 
