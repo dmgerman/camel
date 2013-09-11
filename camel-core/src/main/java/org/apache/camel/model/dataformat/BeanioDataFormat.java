@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -193,17 +205,22 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureDataFormat (DataFormat dataFormat)
+DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
 specifier|protected
 name|void
 name|configureDataFormat
 parameter_list|(
 name|DataFormat
 name|dataFormat
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"mapping"
@@ -213,6 +230,8 @@ argument_list|)
 expr_stmt|;
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"streamName"
@@ -229,6 +248,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"ignoreUnidentifiedRecords"
@@ -246,6 +267,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"ignoreUnexpectedRecords"
@@ -263,6 +286,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"ignoreInvalidRecords"
@@ -280,6 +305,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"encoding"

@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -111,6 +123,20 @@ operator|.
 name|spi
 operator|.
 name|DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
 import|;
 end_import
 
@@ -229,6 +255,13 @@ DECL|field|namespacePrefixRef
 specifier|private
 name|String
 name|namespacePrefixRef
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|xmlStreamWriterWrapper
+specifier|private
+name|String
+name|xmlStreamWriterWrapper
 decl_stmt|;
 DECL|method|JaxbDataFormat ()
 specifier|public
@@ -518,15 +551,44 @@ operator|=
 name|namespacePrefixRef
 expr_stmt|;
 block|}
+DECL|method|getXmlStreamWriterWrapper ()
+specifier|public
+name|String
+name|getXmlStreamWriterWrapper
+parameter_list|()
+block|{
+return|return
+name|xmlStreamWriterWrapper
+return|;
+block|}
+DECL|method|setXmlStreamWriterWrapper (String xmlStreamWriterWrapperRef)
+specifier|public
+name|void
+name|setXmlStreamWriterWrapper
+parameter_list|(
+name|String
+name|xmlStreamWriterWrapperRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlStreamWriterWrapper
+operator|=
+name|xmlStreamWriterWrapperRef
+expr_stmt|;
+block|}
 annotation|@
 name|Override
-DECL|method|configureDataFormat (DataFormat dataFormat)
+DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
 specifier|protected
 name|void
 name|configureDataFormat
 parameter_list|(
 name|DataFormat
 name|dataFormat
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|Boolean
@@ -552,6 +614,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"prettyPrint"
@@ -567,6 +631,8 @@ block|{
 comment|// the default value is true
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"prettyPrint"
@@ -599,6 +665,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"ignoreJAXBElement"
@@ -614,6 +682,8 @@ block|{
 comment|// the default value is true
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"ignoreJAXBElement"
@@ -645,6 +715,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"filterNonXmlChars"
@@ -660,6 +732,8 @@ block|{
 comment|// the default value is false
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"filterNonXmlChars"
@@ -691,6 +765,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"fragment"
@@ -706,6 +782,8 @@ block|{
 comment|// the default value is false
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"fragment"
@@ -725,6 +803,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"partClass"
@@ -742,6 +822,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"partNamespace"
@@ -764,6 +846,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"encoding"
@@ -781,6 +865,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"namespacePrefixRef"
@@ -791,6 +877,8 @@ expr_stmt|;
 block|}
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"contextPath"
@@ -807,11 +895,32 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"schema"
 argument_list|,
 name|schema
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|xmlStreamWriterWrapper
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"xmlStreamWriterWrapper"
+argument_list|,
+name|xmlStreamWriterWrapper
 argument_list|)
 expr_stmt|;
 block|}

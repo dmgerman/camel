@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -238,13 +250,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureDataFormat (DataFormat dataFormat)
+DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
 specifier|protected
 name|void
 name|configureDataFormat
 parameter_list|(
 name|DataFormat
 name|dataFormat
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if
@@ -258,6 +273,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"instanceClass"
@@ -277,6 +294,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"defaultInstance"

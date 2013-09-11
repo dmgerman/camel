@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -128,8 +140,24 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|EndpointHelper
+operator|.
+name|isReferenceParameter
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents the base XML type for DataFormat.  *  * @version   */
+comment|/**  * Represents the base XML type for DataFormat.  */
 end_comment
 
 begin_class
@@ -349,6 +377,11 @@ block|{
 name|configureDataFormat
 argument_list|(
 name|dataFormat
+argument_list|,
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -414,7 +447,9 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Allows derived classes to customize the data format      */
+comment|/**      * Allows derived classes to customize the data format      *      * @deprecated use {@link #configureDataFormat(org.apache.camel.spi.DataFormat, org.apache.camel.CamelContext)}      */
+annotation|@
+name|Deprecated
 DECL|method|configureDataFormat (DataFormat dataFormat)
 specifier|protected
 name|void
@@ -424,7 +459,22 @@ name|DataFormat
 name|dataFormat
 parameter_list|)
 block|{     }
-comment|/**      * Sets a named property on the data format instance using introspection      */
+comment|/**      * Allows derived classes to customize the data format      */
+DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
+specifier|protected
+name|void
+name|configureDataFormat
+parameter_list|(
+name|DataFormat
+name|dataFormat
+parameter_list|,
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{     }
+comment|/**      * Sets a named property on the data format instance using introspection      *      * @deprecated use {@link #setProperty(org.apache.camel.CamelContext, Object, String, Object)}      */
+annotation|@
+name|Deprecated
 DECL|method|setProperty (Object bean, String name, Object value)
 specifier|protected
 name|void
@@ -440,7 +490,89 @@ name|Object
 name|value
 parameter_list|)
 block|{
+name|setProperty
+argument_list|(
+literal|null
+argument_list|,
+name|bean
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets a named property on the data format instance using introspection      */
+DECL|method|setProperty (CamelContext camelContext, Object bean, String name, Object value)
+specifier|protected
+name|void
+name|setProperty
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|Object
+name|bean
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
 try|try
+block|{
+name|String
+name|ref
+init|=
+name|value
+operator|instanceof
+name|String
+condition|?
+name|value
+operator|.
+name|toString
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|isReferenceParameter
+argument_list|(
+name|ref
+argument_list|)
+operator|&&
+name|camelContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|camelContext
+operator|.
+name|getTypeConverter
+argument_list|()
+argument_list|,
+name|bean
+argument_list|,
+name|name
+argument_list|,
+literal|null
+argument_list|,
+name|ref
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|IntrospectionSupport
 operator|.
@@ -453,6 +585,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

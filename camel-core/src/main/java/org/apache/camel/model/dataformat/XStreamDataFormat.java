@@ -218,6 +218,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -698,6 +710,11 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|this
 argument_list|,
 literal|"dataFormatName"
@@ -729,6 +746,11 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|answer
 argument_list|,
 literal|"xstreamDriver"
@@ -753,13 +775,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureDataFormat (DataFormat dataFormat)
+DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
 specifier|protected
 name|void
 name|configureDataFormat
 parameter_list|(
 name|DataFormat
 name|dataFormat
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if
@@ -771,6 +796,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"encoding"
@@ -790,6 +817,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"converters"
@@ -811,6 +840,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"aliases"
@@ -832,6 +863,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"omitFields"
@@ -853,6 +886,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"implicitCollections"

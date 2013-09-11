@@ -104,6 +104,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -316,6 +328,11 @@ argument_list|)
 decl_stmt|;
 name|setProperty
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|cryptoFormat
 argument_list|,
 literal|"key"
@@ -355,6 +372,11 @@ argument_list|)
 decl_stmt|;
 name|setProperty
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|cryptoFormat
 argument_list|,
 literal|"AlgorithmParameterSpec"
@@ -396,6 +418,11 @@ argument_list|)
 decl_stmt|;
 name|setProperty
 argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|cryptoFormat
 argument_list|,
 literal|"InitializationVector"
@@ -410,13 +437,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|configureDataFormat (DataFormat dataFormat)
+DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
 specifier|protected
 name|void
 name|configureDataFormat
 parameter_list|(
 name|DataFormat
 name|dataFormat
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|Boolean
@@ -441,6 +471,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"shouldAppendHMAC"
@@ -455,6 +487,8 @@ else|else
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"shouldAppendHMAC"
@@ -485,6 +519,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"shouldInlineInitializationVector"
@@ -499,6 +535,8 @@ else|else
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"shouldInlineInitializationVector"
@@ -518,6 +556,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"algorithm"
@@ -535,6 +575,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"cryptoProvider"
@@ -552,6 +594,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"macAlgorithm"
@@ -569,6 +613,8 @@ condition|)
 block|{
 name|setProperty
 argument_list|(
+name|camelContext
+argument_list|,
 name|dataFormat
 argument_list|,
 literal|"buffersize"
