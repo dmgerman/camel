@@ -194,7 +194,8 @@ name|treeBasedConsumer
 init|=
 name|createConsumerFor
 argument_list|(
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|treeBasedConsumer
@@ -321,7 +322,8 @@ name|queryBasedConsumer
 init|=
 name|createConsumerFor
 argument_list|(
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 operator|+
 literal|"?query=SELECT * FROM cmis:document"
 argument_list|)

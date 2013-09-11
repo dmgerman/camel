@@ -860,7 +860,8 @@ name|getEndpoint
 argument_list|(
 literal|"cmis://"
 operator|+
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 operator|+
 literal|"?username=admin&password=admin&repositoryId=NON_EXISTING_ID"
 argument_list|)
@@ -1172,7 +1173,8 @@ name|to
 argument_list|(
 literal|"cmis://"
 operator|+
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

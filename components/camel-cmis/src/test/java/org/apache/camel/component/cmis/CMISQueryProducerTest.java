@@ -180,7 +180,8 @@ name|getEndpoint
 argument_list|(
 literal|"cmis://"
 operator|+
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 operator|+
 literal|"?queryMode=true"
 argument_list|)
@@ -283,7 +284,8 @@ name|getEndpoint
 argument_list|(
 literal|"cmis://"
 operator|+
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 operator|+
 literal|"?queryMode=true"
 argument_list|)
@@ -384,7 +386,8 @@ name|getEndpoint
 argument_list|(
 literal|"cmis://"
 operator|+
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 operator|+
 literal|"?queryMode=true"
 argument_list|)
@@ -485,7 +488,8 @@ name|getEndpoint
 argument_list|(
 literal|"cmis://"
 operator|+
-name|CMIS_ENDPOINT_TEST_SERVER
+name|getUrl
+argument_list|()
 operator|+
 literal|"?queryMode=true"
 argument_list|)
