@@ -440,6 +440,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -1444,12 +1458,25 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
+try|try
+block|{
 return|return
 name|getXslTranform
 argument_list|(
 name|is
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|is
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns a configuration for an XSL transformation.      *       * @param is      *            input stream of the XSL      * @return XSL transform      * @throws IllegalArgumentException      *             if<tt>is</tt> is<code>null</code>      * @throws Exception      *             if an error during the reading of the XSL file occurs      */
 DECL|method|getXslTranform (InputStream is)
