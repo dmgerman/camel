@@ -356,6 +356,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 name|ProcessorEndpoint
 name|endpoint
 init|=
@@ -440,6 +451,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 name|ProcessorEndpoint
 name|endpoint
 init|=

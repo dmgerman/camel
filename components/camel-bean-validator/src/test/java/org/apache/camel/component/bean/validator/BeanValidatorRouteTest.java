@@ -200,6 +200,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 name|Exchange
 name|exchange
 init|=
@@ -258,6 +269,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 name|Exchange
 name|exchange
 init|=
@@ -316,6 +338,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 specifier|final
 name|String
 name|url
@@ -511,6 +544,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 specifier|final
 name|String
 name|url
@@ -706,6 +750,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 specifier|final
 name|String
 name|url
@@ -901,6 +956,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 specifier|final
 name|String
 name|url
@@ -1221,6 +1287,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 specifier|final
 name|String
 name|url
@@ -1292,6 +1369,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+comment|// cannot run on aix
+return|return;
+block|}
 specifier|final
 name|String
 name|url
