@@ -326,6 +326,12 @@ name|FILE_NAME_PRODUCED
 init|=
 literal|"CamelFileNameProduced"
 decl_stmt|;
+DECL|field|FILE_NAME_CONSUMED
+name|String
+name|FILE_NAME_CONSUMED
+init|=
+literal|"CamelFileNameConsumed"
+decl_stmt|;
 DECL|field|FILE_PATH
 name|String
 name|FILE_PATH
