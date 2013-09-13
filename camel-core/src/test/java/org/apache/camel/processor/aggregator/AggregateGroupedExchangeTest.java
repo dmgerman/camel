@@ -194,12 +194,11 @@ name|grouped
 init|=
 name|out
 operator|.
-name|getProperty
-argument_list|(
-name|Exchange
+name|getIn
+argument_list|()
 operator|.
-name|GROUPED_EXCHANGE
-argument_list|,
+name|getBody
+argument_list|(
 name|List
 operator|.
 name|class

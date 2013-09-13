@@ -2912,7 +2912,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined Exchange holding all the aggregated exchanges in a {@link java.util.List} as a exchange      * property with the key {@link org.apache.camel.Exchange#GROUPED_EXCHANGE}.      *      * @return the builder      */
+comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined Exchange holding all the aggregated exchanges in a {@link java.util.List}.      *      * @return the builder      */
 DECL|method|groupExchanges ()
 specifier|public
 name|AggregateDefinition

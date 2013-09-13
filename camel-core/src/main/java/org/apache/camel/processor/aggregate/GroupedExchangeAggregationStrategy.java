@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -31,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregate all exchanges into a single combined Exchange holding all the aggregated exchanges  * in a {@link java.util.List} as a exchange property with the key  * {@link org.apache.camel.Exchange#GROUPED_EXCHANGE}.  *  * @version   */
+comment|/**  * Aggregate all exchanges into a single combined Exchange holding all the aggregated exchanges  * in a {@link java.util.List<Exchange>} as the message body.  *  * @version   */
 end_comment
 
 begin_class
@@ -47,15 +57,108 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|isStoreAsBodyOnCompletion ()
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|onCompletion (Exchange exchange)
 specifier|public
-name|boolean
-name|isStoreAsBodyOnCompletion
-parameter_list|()
+name|void
+name|onCompletion
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 block|{
-comment|// keep the list as a property to be compatible with old behavior
+if|if
+condition|(
+name|isStoreAsBodyOnCompletion
+argument_list|()
+condition|)
+block|{
+comment|// lets be backwards compatible
+comment|// TODO: Remove this method in Camel 3.0
+name|List
+name|list
+init|=
+operator|(
+name|List
+operator|)
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|GROUPED_EXCHANGE
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|list
+operator|!=
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|list
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
+specifier|public
+name|Exchange
+name|aggregate
+parameter_list|(
+name|Exchange
+name|oldExchange
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|)
+block|{
+name|Exchange
+name|answer
+init|=
+name|super
+operator|.
+name|aggregate
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// for the first time we must do a copy as the answer, so the outgoing
+comment|// exchange is not one of the grouped exchanges, as that causes a endless circular reference
+name|answer
+operator|=
+name|answer
+operator|.
+name|copy
+argument_list|()
+expr_stmt|;
+block|}
 return|return
-literal|false
+name|answer
 return|;
 block|}
 annotation|@

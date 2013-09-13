@@ -50,20 +50,6 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
 begin_comment
 comment|/**  * Aggregate all exchanges into a {@link List} of values defined by the {@link #getValue(Exchange)} call.  * The combined Exchange will hold all the aggregated exchanges in a {@link java.util.List}  * as a exchange property with the key {@link org.apache.camel.Exchange#GROUPED_EXCHANGE}.  *<p/>  * The method {@link #isStoreAsBodyOnCompletion()} determines if the aggregated {@link List} should  * be stored on the {@link org.apache.camel.Message#setBody(Object)} or be kept as a property  * on the exchange.  *<br/>  * The default behavior to store as message body, allows to more easily group together a list of values  * and have its result stored as a {@link List} on the completed {@link Exchange}.  *  * @since 2.11  */
 end_comment
@@ -294,10 +280,7 @@ block|{
 name|list
 operator|=
 operator|new
-name|ArrayList
-argument_list|<
-name|V
-argument_list|>
+name|GroupedExchangeList
 argument_list|()
 expr_stmt|;
 name|exchange
@@ -315,6 +298,35 @@ block|}
 return|return
 name|list
 return|;
+block|}
+comment|/**      * A list to contains grouped {@link Exchange}s.      */
+DECL|class|GroupedExchangeList
+specifier|private
+specifier|static
+specifier|final
+class|class
+name|GroupedExchangeList
+extends|extends
+name|ArrayList
+block|{
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+comment|// lets override toString so we don't write data for all the Exchanges by default
+return|return
+literal|"List<Exchange>("
+operator|+
+name|size
+argument_list|()
+operator|+
+literal|" elements)"
+return|;
+block|}
 block|}
 block|}
 end_class
