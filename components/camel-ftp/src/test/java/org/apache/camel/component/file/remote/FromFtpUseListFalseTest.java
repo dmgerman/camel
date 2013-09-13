@@ -132,7 +132,7 @@ argument_list|()
 operator|+
 literal|"/nolist/?password=admin"
 operator|+
-literal|"&stepwise=false&useList=false&ignoreFileNotFound=true&fileName=report.txt&delete=true"
+literal|"&stepwise=false&useList=false&ignoreFileNotFoundOrPermissionError=true&fileName=report.txt&delete=true"
 return|;
 block|}
 annotation|@

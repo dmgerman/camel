@@ -1175,8 +1175,8 @@ operator|=
 name|operations
 expr_stmt|;
 block|}
-comment|/**      * Whether to ignore if the file cannot be retrieved.      *<p/>      * By default an {@link GenericFileOperationFailedException} is thrown if the file cannot be retrieved.      *<p/>      * This method allows to suppress this and just ignore that.      *      * @param name        the file name      * @param exchange    the exchange      * @return<tt>true</tt> to ignore,<tt>false</tt> is the default.      */
-DECL|method|ignoreCannotRetrieveFile (String name, Exchange exchange)
+comment|/**      * Whether to ignore if the file cannot be retrieved.      *<p/>      * By default an {@link GenericFileOperationFailedException} is thrown if the file cannot be retrieved.      *<p/>      * This method allows to suppress this and just ignore that.      *      * @param name        the file name      * @param exchange    the exchange      * @param cause       optional exception occurred during retrieving file      * @return<tt>true</tt> to ignore,<tt>false</tt> is the default.      */
+DECL|method|ignoreCannotRetrieveFile (String name, Exchange exchange, Exception cause)
 specifier|protected
 name|boolean
 name|ignoreCannotRetrieveFile
@@ -1186,6 +1186,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exception
+name|cause
 parameter_list|)
 block|{
 return|return
@@ -1408,7 +1411,16 @@ expr_stmt|;
 comment|// retrieve the file and check it was a success
 name|boolean
 name|retrieved
+decl_stmt|;
+name|Exception
+name|cause
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|retrieved
+operator|=
 name|operations
 operator|.
 name|retrieveFile
@@ -1417,7 +1429,23 @@ name|name
 argument_list|,
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|retrieved
+operator|=
+literal|false
+expr_stmt|;
+name|cause
+operator|=
+name|e
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1431,6 +1459,8 @@ argument_list|(
 name|name
 argument_list|,
 name|exchange
+argument_list|,
+name|cause
 argument_list|)
 condition|)
 block|{
@@ -1438,7 +1468,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot retrieve file {} maybe it does not exists. Ignorning."
+literal|"Cannot retrieve file {} maybe it does not exists. Ignoring."
 argument_list|,
 name|name
 argument_list|)
@@ -1463,6 +1493,23 @@ block|{
 comment|// throw exception to handle the problem with retrieving the file
 comment|// then if the method return false or throws an exception is handled the same in here
 comment|// as in both cases an exception is being thrown
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+operator|&&
+name|cause
+operator|instanceof
+name|GenericFileOperationFailedException
+condition|)
+block|{
+throw|throw
+name|cause
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|GenericFileOperationFailedException
@@ -1474,8 +1521,11 @@ operator|+
 literal|" from: "
 operator|+
 name|endpoint
+argument_list|,
+name|cause
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 name|log

@@ -869,7 +869,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|ignoreCannotRetrieveFile (String name, Exchange exchange)
+DECL|method|ignoreCannotRetrieveFile (String name, Exchange exchange, Exception cause)
 specifier|protected
 name|boolean
 name|ignoreCannotRetrieveFile
@@ -879,6 +879,9 @@ name|name
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|Exception
+name|cause
 parameter_list|)
 block|{
 if|if
@@ -889,7 +892,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isIgnoreFileNotFound
+name|isIgnoreFileNotFoundOrPermissionError
 argument_list|()
 condition|)
 block|{
@@ -935,6 +938,8 @@ argument_list|(
 name|name
 argument_list|,
 name|exchange
+argument_list|,
+name|cause
 argument_list|)
 return|;
 block|}

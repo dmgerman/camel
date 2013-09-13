@@ -180,10 +180,10 @@ name|useList
 init|=
 literal|true
 decl_stmt|;
-DECL|field|ignoreFileNotFound
+DECL|field|ignoreFileNotFoundOrPermissionError
 specifier|private
 name|boolean
-name|ignoreFileNotFound
+name|ignoreFileNotFoundOrPermissionError
 decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
@@ -814,31 +814,31 @@ operator|=
 name|useList
 expr_stmt|;
 block|}
-DECL|method|isIgnoreFileNotFound ()
+DECL|method|isIgnoreFileNotFoundOrPermissionError ()
 specifier|public
 name|boolean
-name|isIgnoreFileNotFound
+name|isIgnoreFileNotFoundOrPermissionError
 parameter_list|()
 block|{
 return|return
-name|ignoreFileNotFound
+name|ignoreFileNotFoundOrPermissionError
 return|;
 block|}
-comment|/**      * Whether to ignore when trying to download a file which does not exist.      *<p/>      * By default when a file does not exists, then an exception is thrown.      * Setting this option to<tt>true</tt> allows to ignore that instead.      */
-DECL|method|setIgnoreFileNotFound (boolean ignoreFileNotFound)
+comment|/**      * Whether to ignore when trying to download a file which does not exist or due to permission error.      *<p/>      * By default when a file does not exists or insufficient permission, then an exception is thrown.      * Setting this option to<tt>true</tt> allows to ignore that instead.      */
+DECL|method|setIgnoreFileNotFoundOrPermissionError (boolean ignoreFileNotFoundOrPermissionError)
 specifier|public
 name|void
-name|setIgnoreFileNotFound
+name|setIgnoreFileNotFoundOrPermissionError
 parameter_list|(
 name|boolean
-name|ignoreFileNotFound
+name|ignoreFileNotFoundOrPermissionError
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreFileNotFound
+name|ignoreFileNotFoundOrPermissionError
 operator|=
-name|ignoreFileNotFound
+name|ignoreFileNotFoundOrPermissionError
 expr_stmt|;
 block|}
 comment|/**      * Normalizes the given path according to the configured path separator.      *      * @param path  the given path      * @return the normalized path      */
