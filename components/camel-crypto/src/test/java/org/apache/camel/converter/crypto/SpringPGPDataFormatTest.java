@@ -95,6 +95,22 @@ literal|"direct:inline"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testEncryptionWithKeyRingByteArray ()
+specifier|public
+name|void
+name|testEncryptionWithKeyRingByteArray
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doRoundTripEncryptionTests
+argument_list|(
+literal|"direct:pgp-key-ring-byte-array"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
