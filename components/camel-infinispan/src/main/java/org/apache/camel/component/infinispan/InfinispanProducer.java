@@ -308,7 +308,7 @@ name|cacheName
 operator|=
 name|configuration
 operator|.
-name|getCasheName
+name|getCacheName
 argument_list|()
 expr_stmt|;
 block|}

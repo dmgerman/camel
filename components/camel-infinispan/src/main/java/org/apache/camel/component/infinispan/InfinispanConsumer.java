@@ -355,7 +355,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|getCasheName
+name|getCacheName
 argument_list|()
 operator|!=
 literal|null
@@ -369,7 +369,7 @@ name|getCache
 argument_list|(
 name|configuration
 operator|.
-name|getCasheName
+name|getCacheName
 argument_list|()
 argument_list|)
 expr_stmt|;

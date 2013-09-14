@@ -69,10 +69,10 @@ specifier|private
 name|BasicCacheContainer
 name|cacheContainer
 decl_stmt|;
-DECL|field|caseName
+DECL|field|cacheName
 specifier|private
 name|String
-name|caseName
+name|cacheName
 decl_stmt|;
 DECL|field|host
 specifier|private
@@ -177,30 +177,30 @@ operator|=
 name|cacheContainer
 expr_stmt|;
 block|}
-DECL|method|getCasheName ()
+DECL|method|getCacheName ()
 specifier|public
 name|String
-name|getCasheName
+name|getCacheName
 parameter_list|()
 block|{
 return|return
-name|caseName
+name|cacheName
 return|;
 block|}
-DECL|method|setCaseName (String caseName)
+DECL|method|setCacheName (String cacheName)
 specifier|public
 name|void
-name|setCaseName
+name|setCacheName
 parameter_list|(
 name|String
-name|caseName
+name|cacheName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|caseName
+name|cacheName
 operator|=
-name|caseName
+name|cacheName
 expr_stmt|;
 block|}
 DECL|method|isSync ()
