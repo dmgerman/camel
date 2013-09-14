@@ -216,6 +216,14 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|exchange
@@ -252,7 +260,6 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getCacheName ()
