@@ -4124,12 +4124,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and store the route id so we know in which route we failed
-if|if
-condition|(
+name|UnitOfWork
+name|uow
+init|=
 name|exchange
 operator|.
 name|getUnitOfWork
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|uow
+operator|!=
+literal|null
+operator|&&
+name|uow
 operator|.
 name|getRouteContext
 argument_list|()
@@ -4145,10 +4154,7 @@ name|Exchange
 operator|.
 name|FAILURE_ROUTE_ID
 argument_list|,
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
+name|uow
 operator|.
 name|getRouteContext
 argument_list|()
