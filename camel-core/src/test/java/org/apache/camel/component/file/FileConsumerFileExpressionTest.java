@@ -86,6 +86,24 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|SimpleLanguage
+operator|.
+name|simple
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for expression option for file consumer.  */
 end_comment
@@ -332,7 +350,10 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
+name|simple
+argument_list|(
 literal|"myfile-${date:now:yyyyMMdd}.txt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|context

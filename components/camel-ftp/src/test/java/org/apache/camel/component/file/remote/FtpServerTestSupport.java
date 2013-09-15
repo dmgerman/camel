@@ -194,6 +194,24 @@ name|Before
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|SimpleLanguage
+operator|.
+name|simple
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for unit testing using a FTPServer  */
 end_comment
@@ -619,7 +637,10 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
+name|simple
+argument_list|(
 name|fileName
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -86,6 +86,24 @@ name|JndiRegistry
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|simple
+operator|.
+name|SimpleLanguage
+operator|.
+name|simple
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for expression option for file producer.  */
 end_comment
@@ -152,13 +170,11 @@ return|return
 name|jndi
 return|;
 block|}
-DECL|method|testProduceBeanByHeader ()
+DECL|method|testProducerFileNameHeaderNotEvaluated ()
 specifier|public
 name|void
-name|testProduceBeanByHeader
+name|testProducerFileNameHeaderNotEvaluated
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|template
 operator|.
@@ -172,12 +188,12 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"${bean:myguidgenerator}.bak"
+literal|"$simple{myfile-${date:now:yyyyMMdd}}.txt"
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/123.bak"
+literal|"target/filelanguage/$simple{myfile-${date:now:yyyyMMdd}}.txt"
 argument_list|)
 expr_stmt|;
 block|}
@@ -224,7 +240,10 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
+name|simple
+argument_list|(
 literal|"myfile-${date:now:yyyyMMdd}.txt"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|String
