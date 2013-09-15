@@ -217,12 +217,12 @@ specifier|public
 class|class
 name|InfinispanSyncEventListener
 block|{
-DECL|field|LOGGER
+DECL|field|logger
 specifier|private
 specifier|final
 specifier|transient
 name|Logger
-name|LOGGER
+name|logger
 init|=
 name|LoggerFactory
 operator|.
@@ -301,7 +301,7 @@ name|CacheEntryEvent
 name|event
 parameter_list|)
 block|{
-name|LOGGER
+name|logger
 operator|.
 name|trace
 argument_list|(
