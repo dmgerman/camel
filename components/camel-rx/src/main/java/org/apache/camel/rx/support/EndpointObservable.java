@@ -38,34 +38,6 @@ name|Observable
 import|;
 end_import
 
-begin_import
-import|import
-name|rx
-operator|.
-name|Observer
-import|;
-end_import
-
-begin_import
-import|import
-name|rx
-operator|.
-name|Subscription
-import|;
-end_import
-
-begin_import
-import|import
-name|rx
-operator|.
-name|util
-operator|.
-name|functions
-operator|.
-name|Func1
-import|;
-end_import
-
 begin_comment
 comment|/**  * An {@link Observable} Camel {@link Endpoint}  */
 end_comment
@@ -90,21 +62,16 @@ specifier|final
 name|Endpoint
 name|endpoint
 decl_stmt|;
-DECL|method|EndpointObservable (Endpoint endpoint, Func1<Observer<T>, Subscription> func)
+DECL|method|EndpointObservable (Endpoint endpoint, OnSubscribeFunc<T> func)
 specifier|public
 name|EndpointObservable
 parameter_list|(
 name|Endpoint
 name|endpoint
 parameter_list|,
-name|Func1
-argument_list|<
-name|Observer
+name|OnSubscribeFunc
 argument_list|<
 name|T
-argument_list|>
-argument_list|,
-name|Subscription
 argument_list|>
 name|func
 parameter_list|)
