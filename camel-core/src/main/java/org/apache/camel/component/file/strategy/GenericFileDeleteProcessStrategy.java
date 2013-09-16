@@ -273,6 +273,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// special for file lock strategy as we must release that lock first before we can delete the file
+name|boolean
+name|releaseEager
+init|=
+name|exclusiveReadLockStrategy
+operator|instanceof
+name|FileLockExclusiveReadLockStrategy
+decl_stmt|;
+if|if
+condition|(
+name|releaseEager
+condition|)
+block|{
+name|exclusiveReadLockStrategy
+operator|.
+name|releaseExclusiveReadLock
+argument_list|(
+name|operations
+argument_list|,
+name|file
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|deleteLocalWorkFile
@@ -399,6 +424,9 @@ block|{
 comment|// must release lock last
 if|if
 condition|(
+operator|!
+name|releaseEager
+operator|&&
 name|exclusiveReadLockStrategy
 operator|!=
 literal|null
