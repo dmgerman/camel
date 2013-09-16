@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|text
+operator|.
+name|DecimalFormatSymbols
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -58,6 +68,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// needed for the locales that have a decimal separator other than comma
+name|char
+name|decimalSeparator
+init|=
+name|DecimalFormatSymbols
+operator|.
+name|getInstance
+argument_list|()
+operator|.
+name|getDecimalSeparator
+argument_list|()
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"999 B"
@@ -70,7 +92,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1.0 kB"
+literal|"1"
+operator|+
+name|decimalSeparator
+operator|+
+literal|"0 kB"
 argument_list|,
 name|printUnitFromBytes
 argument_list|(
@@ -80,7 +106,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1.0 kB"
+literal|"1"
+operator|+
+name|decimalSeparator
+operator|+
+literal|"0 kB"
 argument_list|,
 name|printUnitFromBytes
 argument_list|(
@@ -90,7 +120,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1000.0 kB"
+literal|"1000"
+operator|+
+name|decimalSeparator
+operator|+
+literal|"0 kB"
 argument_list|,
 name|printUnitFromBytes
 argument_list|(
@@ -100,7 +134,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1.0 MB"
+literal|"1"
+operator|+
+name|decimalSeparator
+operator|+
+literal|"0 MB"
 argument_list|,
 name|printUnitFromBytes
 argument_list|(
@@ -110,7 +148,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1.0 MB"
+literal|"1"
+operator|+
+name|decimalSeparator
+operator|+
+literal|"0 MB"
 argument_list|,
 name|printUnitFromBytes
 argument_list|(
@@ -120,7 +162,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1.5 MB"
+literal|"1"
+operator|+
+name|decimalSeparator
+operator|+
+literal|"5 MB"
 argument_list|,
 name|printUnitFromBytes
 argument_list|(
