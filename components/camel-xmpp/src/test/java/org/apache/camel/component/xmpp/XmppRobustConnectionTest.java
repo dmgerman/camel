@@ -96,6 +96,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// does not work well on aix or solaris
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+operator|||
+name|isPlatform
+argument_list|(
+literal|"sunos"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|consumerEndpoint
 init|=
