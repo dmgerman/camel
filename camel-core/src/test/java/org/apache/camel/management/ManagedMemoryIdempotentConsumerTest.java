@@ -192,6 +192,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// JMX tests dont work well on AIX CI servers (hangs them)
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|MBeanServer
 name|mbeanServer
 init|=
@@ -557,6 +568,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// JMX tests dont work well on AIX CI servers (hangs them)
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|MBeanServer
 name|mbeanServer
 init|=

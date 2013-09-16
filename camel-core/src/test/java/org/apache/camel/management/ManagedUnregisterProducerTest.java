@@ -86,6 +86,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// JMX tests dont work well on AIX CI servers (hangs them)
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 comment|// send a message so the managed producer is started
 comment|// do this "manually" to avoid camel managing the direct:start producer as well
 comment|// this makes the unit test easier as we only have 1 managed producer = mock:result
