@@ -197,7 +197,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|configureScheduledPollConsumerProperties (Map<String, Object> options, Map<String, Object> consumerProperties)
-specifier|private
+specifier|protected
 name|void
 name|configureScheduledPollConsumerProperties
 parameter_list|(
