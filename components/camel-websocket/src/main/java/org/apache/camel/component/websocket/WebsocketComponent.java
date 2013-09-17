@@ -104,6 +104,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|DispatcherType
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -239,20 +249,6 @@ operator|.
 name|server
 operator|.
 name|Connector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|server
-operator|.
-name|DispatcherType
 import|;
 end_import
 
