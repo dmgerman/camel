@@ -1378,7 +1378,7 @@ argument_list|,
 name|httpClientParameters
 argument_list|)
 decl_stmt|;
-comment|// create the endpoint
+comment|// create the endpoint and connectionManagerParams already be set
 name|HttpEndpoint
 name|endpoint
 init|=
@@ -1399,16 +1399,6 @@ argument_list|,
 name|configurer
 argument_list|)
 decl_stmt|;
-name|endpoint
-operator|.
-name|getHttpConnectionManager
-argument_list|()
-operator|.
-name|setParams
-argument_list|(
-name|connectionManagerParams
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|headerFilterStrategy
