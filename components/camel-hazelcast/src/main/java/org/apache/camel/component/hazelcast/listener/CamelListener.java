@@ -122,7 +122,7 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
-DECL|method|sendExchange (String operation, String key, Object value)
+DECL|method|sendExchange (String operation, Object key, Object value)
 specifier|protected
 name|void
 name|sendExchange
@@ -130,7 +130,7 @@ parameter_list|(
 name|String
 name|operation
 parameter_list|,
-name|String
+name|Object
 name|key
 parameter_list|,
 name|Object

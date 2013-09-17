@@ -139,7 +139,7 @@ DECL|field|map
 specifier|private
 name|IMap
 argument_list|<
-name|String
+name|Long
 argument_list|,
 name|Object
 argument_list|>
@@ -240,7 +240,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -249,7 +249,7 @@ name|map
 operator|.
 name|containsKey
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -261,7 +261,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -286,7 +286,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -295,7 +295,7 @@ name|map
 operator|.
 name|containsKey
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -307,7 +307,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -323,7 +323,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -334,7 +334,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -351,7 +351,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|,
 literal|"my-foo"
 argument_list|)
@@ -368,7 +368,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|String
@@ -407,7 +407,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|,
 literal|"my-foo"
 argument_list|)
@@ -434,7 +434,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -460,7 +460,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"1"
+literal|1L
 argument_list|,
 operator|new
 name|Dummy
@@ -475,7 +475,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"2"
+literal|2L
 argument_list|,
 operator|new
 name|Dummy
@@ -490,7 +490,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"3"
+literal|3L
 argument_list|,
 operator|new
 name|Dummy

@@ -147,7 +147,7 @@ specifier|private
 specifier|final
 name|IMap
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -222,7 +222,7 @@ name|getHeaders
 argument_list|()
 decl_stmt|;
 comment|// get header parameters
-name|String
+name|Object
 name|oid
 init|=
 literal|null
@@ -252,9 +252,6 @@ condition|)
 block|{
 name|oid
 operator|=
-operator|(
-name|String
-operator|)
 name|headers
 operator|.
 name|get
@@ -508,12 +505,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * update an object in your cache (the whole object will be replaced)      */
-DECL|method|update (String oid, Exchange exchange)
+DECL|method|update (Object oid, Exchange exchange)
 specifier|private
 name|void
 name|update
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|,
 name|Exchange
@@ -562,12 +559,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * remove an object from the cache      */
-DECL|method|delete (String oid)
+DECL|method|delete (Object oid)
 specifier|private
 name|void
 name|delete
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|)
 block|{
@@ -582,12 +579,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * find an object by the given id and give it back      */
-DECL|method|get (String oid, Exchange exchange)
+DECL|method|get (Object oid, Exchange exchange)
 specifier|private
 name|void
 name|get
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|,
 name|Exchange
@@ -613,12 +610,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * put a new object into the cache      */
-DECL|method|put (String oid, Exchange exchange)
+DECL|method|put (Object oid, Exchange exchange)
 specifier|private
 name|void
 name|put
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|,
 name|Exchange

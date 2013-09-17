@@ -90,7 +90,7 @@ name|CamelListener
 implements|implements
 name|EntryListener
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -114,14 +114,14 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|entryAdded (EntryEvent<String, Object> event)
+DECL|method|entryAdded (EntryEvent<Object, Object> event)
 specifier|public
 name|void
 name|entryAdded
 parameter_list|(
 name|EntryEvent
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -148,14 +148,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|entryEvicted (EntryEvent<String, Object> event)
+DECL|method|entryEvicted (EntryEvent<Object, Object> event)
 specifier|public
 name|void
 name|entryEvicted
 parameter_list|(
 name|EntryEvent
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -182,14 +182,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|entryRemoved (EntryEvent<String, Object> event)
+DECL|method|entryRemoved (EntryEvent<Object, Object> event)
 specifier|public
 name|void
 name|entryRemoved
 parameter_list|(
 name|EntryEvent
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -216,14 +216,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|entryUpdated (EntryEvent<String, Object> event)
+DECL|method|entryUpdated (EntryEvent<Object, Object> event)
 specifier|public
 name|void
 name|entryUpdated
 parameter_list|(
 name|EntryEvent
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>

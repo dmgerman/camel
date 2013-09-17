@@ -212,7 +212,7 @@ name|getHeaders
 argument_list|()
 decl_stmt|;
 comment|// get header parameters
-name|String
+name|Object
 name|oid
 init|=
 literal|null
@@ -237,9 +237,6 @@ condition|)
 block|{
 name|oid
 operator|=
-operator|(
-name|String
-operator|)
 name|headers
 operator|.
 name|get
@@ -406,12 +403,12 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|put (String oid, Exchange exchange)
+DECL|method|put (Object oid, Exchange exchange)
 specifier|private
 name|void
 name|put
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|,
 name|Exchange
@@ -441,12 +438,12 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|get (String oid, Exchange exchange)
+DECL|method|get (Object oid, Exchange exchange)
 specifier|private
 name|void
 name|get
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|,
 name|Exchange
@@ -471,12 +468,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|delete (String oid)
+DECL|method|delete (Object oid)
 specifier|private
 name|void
 name|delete
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|)
 block|{
@@ -490,12 +487,12 @@ name|oid
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|removevalue (String oid, Exchange exchange)
+DECL|method|removevalue (Object oid, Exchange exchange)
 specifier|private
 name|void
 name|removevalue
 parameter_list|(
-name|String
+name|Object
 name|oid
 parameter_list|,
 name|Exchange

@@ -140,7 +140,7 @@ argument_list|)
 expr_stmt|;
 name|MultiMap
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>

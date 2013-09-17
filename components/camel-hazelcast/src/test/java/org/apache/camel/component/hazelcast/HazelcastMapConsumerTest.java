@@ -132,7 +132,7 @@ DECL|field|map
 specifier|private
 name|IMap
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -286,7 +286,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"1"
+literal|1
 argument_list|,
 literal|"my-foo-1"
 argument_list|)
@@ -295,7 +295,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"2"
+literal|2
 argument_list|,
 literal|"my-foo-2"
 argument_list|)
@@ -304,7 +304,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"3"
+literal|3
 argument_list|,
 literal|"my-foo-3"
 argument_list|)
@@ -313,7 +313,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4"
+literal|4
 argument_list|,
 literal|"my-foo-4"
 argument_list|)
@@ -322,7 +322,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"5"
+literal|5
 argument_list|,
 literal|"my-foo-5"
 argument_list|)
@@ -331,7 +331,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"6"
+literal|6
 argument_list|,
 literal|"my-foo-6"
 argument_list|)

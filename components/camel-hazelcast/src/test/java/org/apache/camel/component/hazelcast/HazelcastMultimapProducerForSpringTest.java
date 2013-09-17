@@ -140,7 +140,7 @@ DECL|field|map
 specifier|private
 name|MultiMap
 argument_list|<
-name|String
+name|Long
 argument_list|,
 name|Object
 argument_list|>
@@ -251,7 +251,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|template
@@ -266,7 +266,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -275,7 +275,7 @@ name|map
 operator|.
 name|containsKey
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -289,7 +289,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -325,7 +325,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|,
 literal|"my-foo"
 argument_list|)
@@ -334,7 +334,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|,
 literal|"my-bar"
 argument_list|)
@@ -347,7 +347,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 operator|.
 name|size
@@ -366,7 +366,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -377,7 +377,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 operator|.
 name|size
@@ -390,7 +390,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|)
 operator|.
 name|contains
@@ -412,7 +412,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|,
 literal|"my-foo"
 argument_list|)
@@ -429,7 +429,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|Collection
@@ -474,7 +474,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4711"
+literal|4711L
 argument_list|,
 literal|"my-foo"
 argument_list|)
@@ -501,7 +501,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711L
 argument_list|)
 expr_stmt|;
 name|assertEquals

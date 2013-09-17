@@ -125,7 +125,7 @@ DECL|field|map
 specifier|private
 name|IMap
 argument_list|<
-name|String
+name|Object
 argument_list|,
 name|Object
 argument_list|>
@@ -368,7 +368,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-literal|"4711"
+literal|4711
 argument_list|,
 literal|"my-foo"
 argument_list|)
@@ -395,7 +395,7 @@ name|HazelcastConstants
 operator|.
 name|OBJECT_ID
 argument_list|,
-literal|"4711"
+literal|4711
 argument_list|)
 expr_stmt|;
 name|assertEquals
