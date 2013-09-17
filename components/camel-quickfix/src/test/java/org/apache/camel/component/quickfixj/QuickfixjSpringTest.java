@@ -186,6 +186,31 @@ name|CamelSpringTestSupport
 block|{
 annotation|@
 name|Override
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|isJava16
+argument_list|()
+condition|)
+block|{
+comment|// cannot test on java 1.6
+return|return;
+block|}
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractApplicationContext
@@ -210,6 +235,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isJava16
+argument_list|()
+condition|)
+block|{
+comment|// cannot test on java 1.6
+return|return;
+block|}
 name|SessionID
 name|sessionID
 init|=
