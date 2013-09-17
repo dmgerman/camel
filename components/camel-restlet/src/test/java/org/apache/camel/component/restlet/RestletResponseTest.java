@@ -166,8 +166,6 @@ name|restlet
 operator|.
 name|engine
 operator|.
-name|http
-operator|.
 name|header
 operator|.
 name|HeaderConstants
