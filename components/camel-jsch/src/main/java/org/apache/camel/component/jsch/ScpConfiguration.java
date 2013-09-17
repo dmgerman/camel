@@ -95,8 +95,6 @@ DECL|field|strictHostKeyChecking
 specifier|private
 name|String
 name|strictHostKeyChecking
-init|=
-literal|"no"
 decl_stmt|;
 DECL|field|serverAliveInterval
 specifier|private
