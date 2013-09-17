@@ -549,14 +549,6 @@ argument_list|,
 name|messageEvent
 argument_list|)
 decl_stmt|;
-comment|// we want to handle the UoW
-name|consumer
-operator|.
-name|createUoW
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|consumer
@@ -615,6 +607,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we want to handle the UoW
+name|consumer
+operator|.
+name|createUoW
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 name|beforeProcess
 argument_list|(
 name|exchange

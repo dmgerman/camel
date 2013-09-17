@@ -511,14 +511,6 @@ argument_list|(
 name|ep
 argument_list|)
 decl_stmt|;
-comment|// we want to handle the UoW
-name|cxfRsConsumer
-operator|.
-name|createUoW
-argument_list|(
-name|camelExchange
-argument_list|)
-expr_stmt|;
 name|CxfRsBinding
 name|binding
 init|=
@@ -538,6 +530,14 @@ argument_list|,
 name|method
 argument_list|,
 name|paramArray
+argument_list|)
+expr_stmt|;
+comment|// we want to handle the UoW
+name|cxfRsConsumer
+operator|.
+name|createUoW
+argument_list|(
+name|camelExchange
 argument_list|)
 expr_stmt|;
 comment|// Now we don't set up the timeout value
@@ -767,14 +767,6 @@ argument_list|(
 name|ep
 argument_list|)
 decl_stmt|;
-comment|// we want to handle the UoW
-name|cxfRsConsumer
-operator|.
-name|createUoW
-argument_list|(
-name|camelExchange
-argument_list|)
-expr_stmt|;
 name|CxfRsBinding
 name|binding
 init|=
@@ -794,6 +786,14 @@ argument_list|,
 name|method
 argument_list|,
 name|paramArray
+argument_list|)
+expr_stmt|;
+comment|// we want to handle the UoW
+name|cxfRsConsumer
+operator|.
+name|createUoW
+argument_list|(
+name|camelExchange
 argument_list|)
 expr_stmt|;
 try|try
