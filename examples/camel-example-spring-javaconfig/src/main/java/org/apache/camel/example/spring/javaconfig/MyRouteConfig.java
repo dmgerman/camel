@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|osgi
+name|spring
 operator|.
-name|SpringCamelContextFactory
+name|SpringCamelContext
 import|;
 end_import
 
@@ -117,18 +117,6 @@ operator|.
 name|javaconfig
 operator|.
 name|SingleRouteCamelConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|framework
-operator|.
-name|BundleContext
 import|;
 end_import
 
@@ -174,20 +162,6 @@ name|Configuration
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|osgi
-operator|.
-name|context
-operator|.
-name|BundleContextAware
-import|;
-end_import
-
 begin_comment
 comment|//START SNIPPET: RouteConfig
 end_comment
@@ -207,14 +181,7 @@ extends|extends
 name|SingleRouteCamelConfiguration
 implements|implements
 name|InitializingBean
-implements|,
-name|BundleContextAware
 block|{
-DECL|field|bundleContext
-specifier|private
-name|BundleContext
-name|bundleContext
-decl_stmt|;
 comment|/**      * Allow this route to be run as an application      */
 DECL|method|main (String[] args)
 specifier|public
@@ -239,33 +206,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getBundleContext ()
-specifier|public
-name|BundleContext
-name|getBundleContext
-parameter_list|()
-block|{
-return|return
-name|bundleContext
-return|;
-block|}
-DECL|method|setBundleContext (BundleContext bundleContext)
-specifier|public
-name|void
-name|setBundleContext
-parameter_list|(
-name|BundleContext
-name|bundleContext
-parameter_list|)
-block|{
-name|this
-operator|.
-name|bundleContext
-operator|=
-name|bundleContext
-expr_stmt|;
-block|}
-comment|/**      * Returns the CamelContext which support OSGi      */
+comment|/**      * Returns the CamelContext which support Spring      */
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -276,34 +217,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SpringCamelContextFactory
-name|factory
-init|=
+return|return
 operator|new
-name|SpringCamelContextFactory
-argument_list|()
-decl_stmt|;
-name|factory
-operator|.
-name|setApplicationContext
+name|SpringCamelContext
 argument_list|(
 name|getApplicationContext
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|factory
-operator|.
-name|setBundleContext
-argument_list|(
-name|getBundleContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|factory
-operator|.
-name|createContext
-argument_list|()
 return|;
 block|}
 annotation|@
