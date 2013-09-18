@@ -172,6 +172,15 @@ specifier|private
 name|boolean
 name|useHeadersAsParameters
 decl_stmt|;
+DECL|field|outputType
+specifier|private
+name|JdbcOutputType
+name|outputType
+init|=
+name|JdbcOutputType
+operator|.
+name|SelectList
+decl_stmt|;
 DECL|method|JdbcEndpoint ()
 specifier|public
 name|JdbcEndpoint
@@ -500,6 +509,32 @@ operator|.
 name|useHeadersAsParameters
 operator|=
 name|useHeadersAsParameters
+expr_stmt|;
+block|}
+DECL|method|getOutputType ()
+specifier|public
+name|JdbcOutputType
+name|getOutputType
+parameter_list|()
+block|{
+return|return
+name|outputType
+return|;
+block|}
+DECL|method|setOutputType (JdbcOutputType outputType)
+specifier|public
+name|void
+name|setOutputType
+parameter_list|(
+name|JdbcOutputType
+name|outputType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputType
+operator|=
+name|outputType
 expr_stmt|;
 block|}
 annotation|@
