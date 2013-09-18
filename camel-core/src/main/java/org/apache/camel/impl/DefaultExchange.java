@@ -534,6 +534,25 @@ return|return
 literal|null
 return|;
 block|}
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|answer
+init|=
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|(
+name|properties
+argument_list|)
+decl_stmt|;
 comment|// safe copy message history using a defensive copy
 name|List
 argument_list|<
@@ -547,7 +566,7 @@ argument_list|<
 name|MessageHistory
 argument_list|>
 operator|)
-name|properties
+name|answer
 operator|.
 name|remove
 argument_list|(
@@ -563,7 +582,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|properties
+name|answer
 operator|.
 name|put
 argument_list|(
@@ -583,16 +602,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|(
-name|properties
-argument_list|)
+name|answer
 return|;
 block|}
 DECL|method|getContext ()
