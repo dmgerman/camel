@@ -492,13 +492,10 @@ if|if
 condition|(
 name|uri
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 literal|"://"
 argument_list|)
-operator|!=
-operator|-
-literal|1
 condition|)
 block|{
 comment|// try without :// also
