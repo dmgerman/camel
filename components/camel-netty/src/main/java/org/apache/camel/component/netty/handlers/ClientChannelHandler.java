@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -253,22 +243,6 @@ operator|.
 name|channel
 operator|.
 name|SimpleChannelUpstreamHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|timeout
-operator|.
-name|ReadTimeoutHandler
 import|;
 end_import
 
