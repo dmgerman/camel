@@ -84,6 +84,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RouteAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ExceptionHandler
@@ -207,6 +231,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|Consumer
+implements|,
+name|RouteAware
 block|{
 DECL|field|log
 specifier|protected
@@ -244,6 +270,11 @@ DECL|field|exceptionHandler
 specifier|private
 name|ExceptionHandler
 name|exceptionHandler
+decl_stmt|;
+DECL|field|route
+specifier|private
+name|Route
+name|route
 decl_stmt|;
 DECL|method|DefaultConsumer (Endpoint endpoint, Processor processor)
 specifier|public
@@ -309,6 +340,32 @@ operator|+
 literal|"]"
 return|;
 block|}
+DECL|method|getRoute ()
+specifier|public
+name|Route
+name|getRoute
+parameter_list|()
+block|{
+return|return
+name|route
+return|;
+block|}
+DECL|method|setRoute (Route route)
+specifier|public
+name|void
+name|setRoute
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+name|this
+operator|.
+name|route
+operator|=
+name|route
+expr_stmt|;
+block|}
 comment|/**      * If the consumer needs to defer done the {@link org.apache.camel.spi.UnitOfWork} on      * the processed {@link Exchange} then this method should be use to create and start      * the {@link UnitOfWork} on the exchange.      *      * @param exchange the exchange      * @return the created and started unit of work      * @throws Exception is thrown if error starting the unit of work      *      * @see #doneUoW(org.apache.camel.Exchange)      */
 DECL|method|createUoW (Exchange exchange)
 specifier|public
@@ -321,6 +378,33 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// if the exchange doesn't have from route id set, then set it if it originated
+comment|// from this unit of work
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+operator|&&
+name|exchange
+operator|.
+name|getFromRouteId
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setFromRouteId
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|UnitOfWork
 name|uow
 init|=
