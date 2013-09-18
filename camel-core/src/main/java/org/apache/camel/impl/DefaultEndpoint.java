@@ -1310,6 +1310,23 @@ throw|;
 block|}
 block|}
 block|}
+DECL|method|configurePollingConsumer (PollingConsumer consumer)
+specifier|protected
+name|void
+name|configurePollingConsumer
+parameter_list|(
+name|PollingConsumer
+name|consumer
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()

@@ -570,7 +570,7 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|configureConsumer
+name|configurePollingConsumer
 argument_list|(
 name|answer
 argument_list|)

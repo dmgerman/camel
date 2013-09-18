@@ -1614,7 +1614,7 @@ argument_list|,
 name|template
 argument_list|)
 decl_stmt|;
-name|configureConsumer
+name|configurePollingConsumer
 argument_list|(
 name|answer
 argument_list|)
