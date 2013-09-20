@@ -681,6 +681,26 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Is the quartz scheduler clustered?      */
+DECL|method|isClustered ()
+specifier|public
+name|boolean
+name|isClustered
+parameter_list|()
+throws|throws
+name|SchedulerException
+block|{
+return|return
+name|getScheduler
+argument_list|()
+operator|.
+name|getMetaData
+argument_list|()
+operator|.
+name|isJobStoreClustered
+argument_list|()
+return|;
+block|}
 DECL|method|loadProperties ()
 specifier|private
 name|Properties
