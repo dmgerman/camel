@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.quartz
+DECL|package|org.apache.camel.routepolicy.quartz
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|routepolicy
 operator|.
 name|quartz
 package|;
@@ -27,6 +27,46 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|direct
+operator|.
+name|DirectConsumerNotAvailableException
 import|;
 end_import
 
@@ -105,34 +145,49 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|SpringQuartzPersistentStoreRestartAppTest
+DECL|class|SpringQuartzPersistentStoreClusteredAppTest
 specifier|public
 class|class
-name|SpringQuartzPersistentStoreRestartAppTest
+name|SpringQuartzPersistentStoreClusteredAppTest
 extends|extends
 name|TestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testQuartzPersistentStoreRestart ()
+DECL|method|testQuartzPersistentStoreClusteredApp ()
 specifier|public
 name|void
-name|testQuartzPersistentStoreRestart
+name|testQuartzPersistentStoreClusteredApp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// load spring app
+comment|// boot up the first clustered app which also launches an embedded database
 name|AbstractXmlApplicationContext
 name|app
 init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/quartz/SpringQuartzPersistentStoreTest.xml"
+literal|"org/apache/camel/routepolicy/quartz/SpringQuartzClusteredAppOneTest.xml"
 argument_list|)
 decl_stmt|;
 name|app
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+comment|// and now the second one
+name|AbstractXmlApplicationContext
+name|app2
+init|=
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/routepolicy/quartz/SpringQuartzClusteredAppTwoTest.xml"
+argument_list|)
+decl_stmt|;
+name|app2
 operator|.
 name|start
 argument_list|()
@@ -172,61 +227,48 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
-literal|2
+literal|1
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"clustering pings!"
+argument_list|)
+expr_stmt|;
+comment|// wait a bit to make sure the route has been properly started through
+comment|// the given route policy
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+name|app
+operator|.
+name|getBean
+argument_list|(
+literal|"template"
+argument_list|,
+name|ProducerTemplate
+operator|.
+name|class
+argument_list|)
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"clustering"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|app
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Restarting ..."
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Restarting ..."
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Restarting ..."
-argument_list|)
-expr_stmt|;
-comment|// NOTE:
-comment|// To test a restart where the app has crashed, then you can in QuartzEndpoint
-comment|// in the doShutdown method, then remove the following code line
-comment|//  deleteTrigger(getTrigger());
-comment|// then when we restart then there is old stale data which QuartzComponent
-comment|// is supposed to handle and start again
-comment|// load spring app
-name|AbstractXmlApplicationContext
-name|app2
-init|=
-operator|new
-name|ClassPathXmlApplicationContext
-argument_list|(
-literal|"org/apache/camel/component/quartz/SpringQuartzPersistentStoreRestartTest.xml"
-argument_list|)
-decl_stmt|;
-name|app2
-operator|.
-name|start
 argument_list|()
 expr_stmt|;
 name|CamelContext
@@ -262,21 +304,63 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|mock2
+name|mock
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
-literal|2
+literal|0
 argument_list|)
 expr_stmt|;
+comment|// expect no consumer being started as the seconds app is expected to
+comment|// run in standby modus
+try|try
+block|{
+name|app2
+operator|.
+name|getBean
+argument_list|(
+literal|"template"
+argument_list|,
+name|ProducerTemplate
+operator|.
+name|class
+argument_list|)
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"clustering"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|cee
+parameter_list|)
+block|{
+name|assertIsInstanceOf
+argument_list|(
+name|DirectConsumerNotAvailableException
+operator|.
+name|class
+argument_list|,
+name|cee
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|mock2
 operator|.
 name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-name|app2
-operator|.
-name|stop
 argument_list|()
 expr_stmt|;
 comment|// we're done so let's properly close the application contexts, but stop
