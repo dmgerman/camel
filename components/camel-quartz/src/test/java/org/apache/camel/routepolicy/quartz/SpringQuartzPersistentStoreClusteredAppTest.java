@@ -304,7 +304,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|mock
+name|mock2
 operator|.
 name|expectedMessageCount
 argument_list|(
