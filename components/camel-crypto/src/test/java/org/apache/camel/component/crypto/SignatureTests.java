@@ -2202,7 +2202,7 @@ name|class
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/.keystore"
+literal|"/ks.keystore"
 argument_list|)
 decl_stmt|;
 name|keystore
