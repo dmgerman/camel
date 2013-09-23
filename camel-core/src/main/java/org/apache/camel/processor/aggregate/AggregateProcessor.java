@@ -1297,6 +1297,11 @@ condition|(
 name|optimisticLocking
 condition|)
 block|{
+name|Exchange
+name|aggregated
+init|=
+literal|null
+decl_stmt|;
 name|boolean
 name|exhaustedRetries
 init|=
@@ -1328,6 +1333,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|aggregated
+operator|=
 name|doAggregation
 argument_list|(
 name|key
@@ -1415,6 +1422,23 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+elseif|else
+if|if
+condition|(
+name|aggregated
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// we are completed so submit to completion
+name|onSubmitCompletion
+argument_list|(
+name|key
+argument_list|,
+name|aggregated
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1435,6 +1459,11 @@ decl_stmt|;
 comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
 comment|// bound such as JPA etc then concurrent aggregation per correlation key could
 comment|// improve performance as we can run aggregation repository get/add in parallel
+name|Exchange
+name|aggregated
+init|=
+literal|null
+decl_stmt|;
 name|lock
 operator|.
 name|lock
@@ -1442,6 +1471,8 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+name|aggregated
+operator|=
 name|doAggregation
 argument_list|(
 name|key
@@ -1456,6 +1487,22 @@ name|lock
 operator|.
 name|unlock
 argument_list|()
+expr_stmt|;
+block|}
+comment|// we are completed so do that work outside the lock
+if|if
+condition|(
+name|aggregated
+operator|!=
+literal|null
+condition|)
+block|{
+name|onSubmitCompletion
+argument_list|(
+name|key
+argument_list|,
+name|aggregated
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1491,7 +1538,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *      * @param key      the correlation key      * @param newExchange the exchange      * @return the aggregated exchange      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
+comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *<p/>      * The returned {@link Exchange} should be send downstream using the {@link #onSubmitCompletion(String, org.apache.camel.Exchange)}      * method which sends out the aggregated and completed {@link Exchange}.      *      * @param key      the correlation key      * @param newExchange the exchange      * @return the aggregated exchange which is complete, or<tt>null</tt> if not yet complete      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
 DECL|method|doAggregation (String key, Exchange newExchange)
 specifier|private
 name|Exchange
@@ -1748,6 +1795,11 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
+comment|// we are not complete so the answer should be null
+name|answer
+operator|=
+literal|null
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1832,12 +1884,24 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|onSubmitCompletion
+argument_list|(
+name|key
+argument_list|,
+name|batchAnswer
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|batchConsumerCorrelationKeys
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+comment|// we have already submitted to completion, so answer should be null
+name|answer
+operator|=
+literal|null
 expr_stmt|;
 block|}
 else|else
@@ -1854,6 +1918,8 @@ argument_list|,
 name|complete
 argument_list|)
 expr_stmt|;
+name|answer
+operator|=
 name|onCompletion
 argument_list|(
 name|key
@@ -2417,7 +2483,7 @@ return|;
 block|}
 DECL|method|onCompletion (final String key, final Exchange original, final Exchange aggregated, boolean fromTimeout)
 specifier|protected
-name|void
+name|Exchange
 name|onCompletion
 parameter_list|(
 specifier|final
@@ -2569,6 +2635,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|Exchange
+name|answer
+decl_stmt|;
 if|if
 condition|(
 name|fromTimeout
@@ -2616,18 +2685,23 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// the completion was from timeout and we should just discard it
+name|answer
+operator|=
+literal|null
+expr_stmt|;
 block|}
 else|else
 block|{
 comment|// the aggregated exchange should be published (sent out)
-name|onSubmitCompletion
-argument_list|(
-name|key
-argument_list|,
+name|answer
+operator|=
 name|aggregated
-argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 DECL|method|onSubmitCompletion (final String key, final Exchange exchange)
 specifier|private
@@ -3832,6 +3906,8 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|answer
+operator|=
 name|onCompletion
 argument_list|(
 name|key
@@ -3843,6 +3919,21 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+name|onSubmitCompletion
+argument_list|(
+name|key
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -4035,6 +4126,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|Exchange
+name|answer
+init|=
 name|onCompletion
 argument_list|(
 name|key
@@ -4045,7 +4139,22 @@ name|exchange
 argument_list|,
 literal|false
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+name|onSubmitCompletion
+argument_list|(
+name|key
+argument_list|,
+name|answer
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -5587,6 +5696,9 @@ argument_list|,
 literal|"forceCompletion"
 argument_list|)
 expr_stmt|;
+name|Exchange
+name|answer
+init|=
 name|onCompletion
 argument_list|(
 name|key
@@ -5597,7 +5709,22 @@ name|exchange
 argument_list|,
 literal|false
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+name|onSubmitCompletion
+argument_list|(
+name|key
+argument_list|,
+name|answer
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
