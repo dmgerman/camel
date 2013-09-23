@@ -1297,7 +1297,10 @@ condition|(
 name|optimisticLocking
 condition|)
 block|{
+name|List
+argument_list|<
 name|Exchange
+argument_list|>
 name|aggregated
 init|=
 literal|null
@@ -1431,13 +1434,22 @@ literal|null
 condition|)
 block|{
 comment|// we are completed so submit to completion
+for|for
+control|(
+name|Exchange
+name|agg
+range|:
+name|aggregated
+control|)
+block|{
 name|onSubmitCompletion
 argument_list|(
 name|key
 argument_list|,
-name|aggregated
+name|agg
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
@@ -1459,7 +1471,10 @@ decl_stmt|;
 comment|// when memory based then its fast using synchronized, but if the aggregation repository is IO
 comment|// bound such as JPA etc then concurrent aggregation per correlation key could
 comment|// improve performance as we can run aggregation repository get/add in parallel
+name|List
+argument_list|<
 name|Exchange
+argument_list|>
 name|aggregated
 init|=
 literal|null
@@ -1497,13 +1512,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+for|for
+control|(
+name|Exchange
+name|agg
+range|:
+name|aggregated
+control|)
+block|{
 name|onSubmitCompletion
 argument_list|(
 name|key
 argument_list|,
-name|aggregated
+name|agg
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// check for the special header to force completion of all groups (inclusive of the message)
@@ -1538,10 +1562,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *<p/>      * The returned {@link Exchange} should be send downstream using the {@link #onSubmitCompletion(String, org.apache.camel.Exchange)}      * method which sends out the aggregated and completed {@link Exchange}.      *      * @param key      the correlation key      * @param newExchange the exchange      * @return the aggregated exchange which is complete, or<tt>null</tt> if not yet complete      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
+comment|/**      * Aggregates the exchange with the given correlation key      *<p/>      * This method<b>must</b> be run synchronized as we cannot aggregate the same correlation key      * in parallel.      *<p/>      * The returned {@link Exchange} should be send downstream using the {@link #onSubmitCompletion(String, org.apache.camel.Exchange)}      * method which sends out the aggregated and completed {@link Exchange}.      *      * @param key      the correlation key      * @param newExchange the exchange      * @return the aggregated exchange(s) which is complete, or<tt>null</tt> if not yet complete      * @throws org.apache.camel.CamelExchangeException is thrown if error aggregating      */
 DECL|method|doAggregation (String key, Exchange newExchange)
 specifier|private
+name|List
+argument_list|<
 name|Exchange
+argument_list|>
 name|doAggregation
 parameter_list|(
 name|String
@@ -1773,6 +1800,19 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|list
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// only need to update aggregation repository if we are not complete
 if|if
 condition|(
@@ -1884,10 +1924,10 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|onSubmitCompletion
+name|list
+operator|.
+name|add
 argument_list|(
-name|key
-argument_list|,
 name|batchAnswer
 argument_list|)
 expr_stmt|;
@@ -1942,8 +1982,23 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-return|return
+if|if
+condition|(
 name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+name|list
+operator|.
+name|add
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|list
 return|;
 block|}
 DECL|method|doAggregationRepositoryAdd (CamelContext camelContext, String key, Exchange oldExchange, Exchange newExchange)
