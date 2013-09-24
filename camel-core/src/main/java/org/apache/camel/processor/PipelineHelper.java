@@ -424,6 +424,54 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Strategy method to create the next exchange from the previous exchange.      *<p/>      * Remember to copy the original exchange id otherwise correlation of ids in the log is a problem      *      * @param previousExchange the previous exchange      * @return a new exchange      */
+DECL|method|createNextExchange (Exchange previousExchange)
+specifier|public
+specifier|static
+name|Exchange
+name|createNextExchange
+parameter_list|(
+name|Exchange
+name|previousExchange
+parameter_list|)
+block|{
+name|Exchange
+name|answer
+init|=
+name|previousExchange
+decl_stmt|;
+comment|// now lets set the input of the next exchange to the output of the
+comment|// previous message if it is not null
+if|if
+condition|(
+name|answer
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|answer
+operator|.
+name|setIn
+argument_list|(
+name|answer
+operator|.
+name|getOut
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setOut
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
 block|}
 end_class
 

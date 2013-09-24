@@ -733,41 +733,13 @@ name|Exchange
 name|previousExchange
 parameter_list|)
 block|{
-name|Exchange
-name|answer
-init|=
-name|previousExchange
-decl_stmt|;
-comment|// now lets set the input of the next exchange to the output of the
-comment|// previous message if it is not null
-if|if
-condition|(
-name|answer
-operator|.
-name|hasOut
-argument_list|()
-condition|)
-block|{
-name|answer
-operator|.
-name|setIn
-argument_list|(
-name|answer
-operator|.
-name|getOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
-name|setOut
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 return|return
-name|answer
+name|PipelineHelper
+operator|.
+name|createNextExchange
+argument_list|(
+name|previousExchange
+argument_list|)
 return|;
 block|}
 DECL|method|continueRouting (Iterator<Processor> it, Exchange exchange)
