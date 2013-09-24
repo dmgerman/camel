@@ -498,18 +498,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-case|case
-name|UNKNOWN
-case|:
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"unknown producerType"
-argument_list|)
-throw|;
-block|}
 default|default:
 block|{
 throw|throw

@@ -54,7 +54,27 @@ name|com
 operator|.
 name|splunk
 operator|.
+name|JobArgs
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|splunk
+operator|.
 name|JobCollection
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|splunk
+operator|.
+name|JobResultsArgs
 import|;
 end_import
 
@@ -136,7 +156,7 @@ name|mockito
 operator|.
 name|Matchers
 operator|.
-name|anyMap
+name|any
 import|;
 end_import
 
@@ -262,8 +282,12 @@ argument_list|(
 name|anyString
 argument_list|()
 argument_list|,
-name|anyMap
-argument_list|()
+name|any
+argument_list|(
+name|JobArgs
+operator|.
+name|class
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -305,8 +329,12 @@ name|jobMock
 operator|.
 name|getResults
 argument_list|(
-name|anyMap
-argument_list|()
+name|any
+argument_list|(
+name|JobResultsArgs
+operator|.
+name|class
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

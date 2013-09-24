@@ -27,14 +27,11 @@ block|{
 DECL|enumConstant|TCP
 DECL|enumConstant|SUBMIT
 DECL|enumConstant|STREAM
-DECL|enumConstant|UNKNOWN
 name|TCP
 block|,
 name|SUBMIT
 block|,
 name|STREAM
-block|,
-name|UNKNOWN
 block|;
 DECL|method|fromUri (String uri)
 specifier|public
@@ -75,11 +72,15 @@ name|producerType
 return|;
 block|}
 block|}
-return|return
-name|ProducerType
-operator|.
-name|UNKNOWN
-return|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Unable to construct prodcucerType from uri : "
+operator|+
+name|uri
+argument_list|)
+throw|;
 block|}
 block|}
 end_enum

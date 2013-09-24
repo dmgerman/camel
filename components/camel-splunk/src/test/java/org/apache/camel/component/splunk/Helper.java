@@ -109,6 +109,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -260,13 +272,6 @@ name|Socket
 name|socket
 parameter_list|)
 block|{
-name|super
-argument_list|(
-literal|"foo"
-argument_list|,
-literal|"bar"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|service
@@ -281,6 +286,15 @@ name|socket
 expr_stmt|;
 name|mockSplunkWriterApi
 argument_list|()
+expr_stmt|;
+name|setConnectionFactory
+argument_list|(
+operator|new
+name|MockConnectionFactory
+argument_list|(
+name|service
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|mockSplunkWriterApi ()
@@ -456,17 +470,54 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|class|MockConnectionFactory
+class|class
+name|MockConnectionFactory
+extends|extends
+name|SplunkConnectionFactory
+block|{
+DECL|field|service
+specifier|private
+name|Service
+name|service
+decl_stmt|;
+DECL|method|MockConnectionFactory (Service service)
+specifier|public
+name|MockConnectionFactory
+parameter_list|(
+name|Service
+name|service
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|service
+operator|=
+name|service
+expr_stmt|;
+block|}
 annotation|@
 name|Override
-DECL|method|createService ()
+DECL|method|createService (CamelContext camelContext)
 specifier|public
 name|Service
 name|createService
-parameter_list|()
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
 block|{
 return|return
 name|service
 return|;
+block|}
 block|}
 block|}
 end_class

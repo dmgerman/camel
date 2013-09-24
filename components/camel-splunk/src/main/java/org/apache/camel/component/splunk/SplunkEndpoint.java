@@ -421,8 +421,14 @@ name|service
 operator|=
 name|configuration
 operator|.
-name|createService
+name|getConnectionFactory
 argument_list|()
+operator|.
+name|createService
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return

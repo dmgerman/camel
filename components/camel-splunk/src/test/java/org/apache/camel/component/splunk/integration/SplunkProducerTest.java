@@ -416,7 +416,7 @@ literal|"&password="
 operator|+
 name|SPLUNK_PASSWORD
 operator|+
-literal|"&tcpRecieverPort="
+literal|"&tcpReceiverPort="
 operator|+
 name|TCP_RECIEVER_PORT
 operator|+

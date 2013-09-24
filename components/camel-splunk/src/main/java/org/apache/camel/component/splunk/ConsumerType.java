@@ -27,14 +27,11 @@ block|{
 DECL|enumConstant|NORMAL
 DECL|enumConstant|REALTIME
 DECL|enumConstant|SAVEDSEARCH
-DECL|enumConstant|UNKNOWN
 name|NORMAL
 block|,
 name|REALTIME
 block|,
 name|SAVEDSEARCH
-block|,
-name|UNKNOWN
 block|;
 DECL|method|fromUri (String uri)
 specifier|public
@@ -75,11 +72,15 @@ name|consumerType
 return|;
 block|}
 block|}
-return|return
-name|ConsumerType
-operator|.
-name|UNKNOWN
-return|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Unable to construct consumerType from uri : "
+operator|+
+name|uri
+argument_list|)
+throw|;
 block|}
 block|}
 end_enum

@@ -409,7 +409,7 @@ literal|"package"
 decl_stmt|;
 comment|/**      * default key value delimiter      */
 DECL|field|KVDELIM
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -419,7 +419,7 @@ literal|"="
 decl_stmt|;
 comment|/**      * default pair delimiter      */
 DECL|field|PAIRDELIM
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -429,7 +429,7 @@ literal|" "
 decl_stmt|;
 comment|/**      * default quote char      */
 DECL|field|QUOTE
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|char
@@ -439,7 +439,7 @@ literal|'"'
 decl_stmt|;
 comment|/**      * default date format is using internal generated date      */
 DECL|field|DATEFORMATPATTERN
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -449,7 +449,7 @@ literal|"yyyy-MM-dd\tHH:mm:ss:SSSZ"
 decl_stmt|;
 comment|/**      * Date Formatter      */
 DECL|field|DATE_FORMATTER
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|DateTimeFormatter
@@ -464,7 +464,7 @@ argument_list|)
 decl_stmt|;
 comment|/**      * Event prefix fields      */
 DECL|field|PREFIX_NAME
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -473,7 +473,7 @@ init|=
 literal|"name"
 decl_stmt|;
 DECL|field|PREFIX_EVENT_ID
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -483,7 +483,7 @@ literal|"event_id"
 decl_stmt|;
 comment|/**      * Java Throwable type fields      */
 DECL|field|THROWABLE_CLASS
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -492,7 +492,7 @@ init|=
 literal|"throwable_class"
 decl_stmt|;
 DECL|field|THROWABLE_MESSAGE
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -501,7 +501,7 @@ init|=
 literal|"throwable_message"
 decl_stmt|;
 DECL|field|THROWABLE_STACKTRACE_ELEMENTS
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -510,7 +510,7 @@ init|=
 literal|"stacktrace_elements"
 decl_stmt|;
 DECL|field|LINEBREAK
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -520,7 +520,7 @@ literal|"\n"
 decl_stmt|;
 comment|/**      * Whether or not to put quotes around values      */
 DECL|field|quoteValues
-specifier|protected
+specifier|private
 name|boolean
 name|quoteValues
 init|=
@@ -528,7 +528,7 @@ literal|true
 decl_stmt|;
 comment|/**      * Whether or not to add a date to the event string      */
 DECL|field|useInternalDate
-specifier|protected
+specifier|private
 name|boolean
 name|useInternalDate
 init|=
@@ -540,7 +540,7 @@ specifier|private
 name|StringBuffer
 name|eventMessage
 decl_stmt|;
-comment|/**      * A Constructor to load data from a Map      *      * @param data the map      */
+comment|/**      * A Constructor to load data from a Map      *       * @param data the map      */
 DECL|method|SplunkEvent (Map<String, String> data)
 specifier|public
 name|SplunkEvent
@@ -623,7 +623,7 @@ operator|.
 name|useInternalDate
 expr_stmt|;
 block|}
-comment|/**      * Constructor to create a generic event      *      * @param eventName       the event name      * @param eventID         the event id      * @param useInternalDate whether or not to add a date to the event string      * @param quoteValues     whether or not to put quotes around values      */
+comment|/**      * Constructor to create a generic event      *       * @param eventName the event name      * @param eventID the event id      * @param useInternalDate whether or not to add a date to the event string      * @param quoteValues whether or not to put quotes around values      */
 DECL|method|SplunkEvent (String eventName, String eventID, boolean useInternalDate, boolean quoteValues)
 specifier|public
 name|SplunkEvent
@@ -668,6 +668,13 @@ argument_list|,
 name|eventName
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|eventID
+operator|!=
+literal|null
+condition|)
+block|{
 name|addPair
 argument_list|(
 name|PREFIX_EVENT_ID
@@ -676,7 +683,8 @@ name|eventID
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor to create a generic event with the default format      *      * @param eventName the event name      * @param eventID   the event ID      */
+block|}
+comment|/**      * Constructor to create a generic event with the default format      *       * @param eventName the event name      * @param eventID the event ID      */
 DECL|method|SplunkEvent (String eventName, String eventID)
 specifier|public
 name|SplunkEvent
@@ -1032,7 +1040,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Utility method for formatting Throwable,Error,Exception objects in a more      * linear and Splunk friendly manner than printStackTrace      *      * @param throwable the Throwable object to add to the event      */
+comment|/**      * Utility method for formatting Throwable,Error,Exception objects in a more      * linear and Splunk friendly manner than printStackTrace      *       * @param throwable the Throwable object to add to the event      */
 DECL|method|addThrowable (Throwable throwable)
 specifier|public
 name|void
@@ -1051,7 +1059,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Utility method for formatting Throwable,Error,Exception objects in a more      * linear and Splunk friendly manner than printStackTrace      *      * @param throwable       the Throwable object to add to the event      * @param stackTraceDepth maximum number of stacktrace elements to log      */
+comment|/**      * Utility method for formatting Throwable,Error,Exception objects in a more      * linear and Splunk friendly manner than printStackTrace      *       * @param throwable the Throwable object to add to the event      * @param stackTraceDepth maximum number of stacktrace elements to log      */
 DECL|method|addThrowable (Throwable throwable, int stackTraceDepth)
 specifier|public
 name|void
@@ -1072,7 +1080,7 @@ name|stackTraceDepth
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Internal private method for formatting Throwable,Error,Exception objects      * in a more linear and Splunk friendly manner than printStackTrace      *      * @param throwable       the Throwable object to add to the event      * @param stackTraceDepth maximum number of stacktrace elements to log, -1      *                        for all      */
+comment|/**      * Internal private method for formatting Throwable,Error,Exception objects      * in a more linear and Splunk friendly manner than printStackTrace      *       * @param throwable the Throwable object to add to the event      * @param stackTraceDepth maximum number of stacktrace elements to log, -1      *            for all      */
 DECL|method|addThrowableObject (Throwable throwable, int stackTraceDepth)
 specifier|private
 name|void
