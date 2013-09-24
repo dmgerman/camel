@@ -640,7 +640,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Skipping to schedule the job: {} for action: {} on route {} as the job: {} already existing!"
+literal|"Skipping to schedule the job: {} for action: {} on route {} as the job: {} already existing inside the cluster"
 argument_list|,
 operator|new
 name|Object
@@ -666,7 +666,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|// skip scheduling the same job as one is already available for the same route and action
+comment|// skip scheduling the same job again as one is already existing for the same routeId and action
 return|return;
 block|}
 block|}
@@ -988,7 +988,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Scheduled Job: {}.{} is deleted"
+literal|"Scheduled job: {}.{} is deleted"
 argument_list|,
 name|jobDetailGroup
 argument_list|,
