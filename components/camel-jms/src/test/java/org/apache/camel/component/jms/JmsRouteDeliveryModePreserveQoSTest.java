@@ -576,6 +576,192 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testNonJmsDeliveryMode ()
+specifier|public
+name|void
+name|testNonJmsDeliveryMode
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:bar"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Beer is good..."
+argument_list|)
+expr_stmt|;
+comment|// since we're using activemq, we really cannot set a delivery mode to something other
+comment|// than 1 or 2 (NON-PERSISTENT or PERSISTENT, respectively). but this test does try to
+comment|// set the delivery mode to '3'... so ActiveMQ will just test to see whether it's persistent
+comment|// by testing deliverMode == 2 ... but it won't be... so it will evaluate to NON-PERSISTENT..
+comment|// so our test asserts the deliveryMode was changed to 1 (NON-PERSISTENT), as 2 (PERSISTENT) is the default.
+comment|// we would need an in memory broker that does allow non-jms delivery modes to really
+comment|// test this right....
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+literal|"JMSDeliveryMode"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:nonJmsDeliveryMode"
+argument_list|,
+literal|"Beer is good..."
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testNonJmsDeliveryModeDisableExplicityQos ()
+specifier|public
+name|void
+name|testNonJmsDeliveryModeDisableExplicityQos
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:bar"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Beer is good..."
+argument_list|)
+expr_stmt|;
+comment|// in this test, we're using explicitQosEnabled=false so we will not rely on our
+comment|// settings, we will rely on whatever is created in the Message creator, which
+comment|// should default to default message QoS, namely, PERSISTENT deliveryMode
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+literal|"JMSDeliveryMode"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:noExplicitNonJmsDeliveryMode"
+argument_list|,
+literal|"Beer is good..."
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testNonJmsDeliveryModePreserveQos ()
+specifier|public
+name|void
+name|testNonJmsDeliveryModePreserveQos
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:bar"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Beer is good..."
+argument_list|)
+expr_stmt|;
+comment|// in this test, we can only pass if we are "preserving" existing deliveryMode.
+comment|// this means camel expects to have an existing QoS set as a header, or it will pick
+comment|// from the JMS message created by the message creator
+comment|// otherwise, "preserveMessageQos==true" does not allow us to explicity set the deliveryMode
+comment|// on the message
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+literal|"JMSDeliveryMode"
+argument_list|)
+operator|.
+name|isEqualTo
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:preserveQosNonJmsDeliveryMode"
+argument_list|,
+literal|"Beer is good..."
+argument_list|,
+name|JmsConstants
+operator|.
+name|JMS_DELIVERY_MODE
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -658,6 +844,36 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:bar"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:nonJmsDeliveryMode"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"activemq:queue:bar?deliveryMode=3"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:noExplicitNonJmsDeliveryMode"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"activemq:queue:bar?deliveryMode=3&explicitQosEnabled=false"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:preserveQosNonJmsDeliveryMode"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"activemq:queue:bar?preserveMessageQos=true"
 argument_list|)
 expr_stmt|;
 block|}

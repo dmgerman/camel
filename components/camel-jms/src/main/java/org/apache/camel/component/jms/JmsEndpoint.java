@@ -2928,6 +2928,22 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|getDeliveryMode ()
+specifier|public
+name|Integer
+name|getDeliveryMode
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getDeliveryMode
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isDisableReplyTo ()
 specifier|public
 name|boolean
@@ -3389,6 +3405,26 @@ operator|.
 name|setDeliveryPersistent
 argument_list|(
 name|deliveryPersistent
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setDeliveryMode (Integer deliveryMode)
+specifier|public
+name|void
+name|setDeliveryMode
+parameter_list|(
+name|Integer
+name|deliveryMode
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setDeliveryMode
+argument_list|(
+name|deliveryMode
 argument_list|)
 expr_stmt|;
 block|}

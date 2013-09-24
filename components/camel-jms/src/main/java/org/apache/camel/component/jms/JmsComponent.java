@@ -994,6 +994,24 @@ name|deliveryPersistent
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setDeliveryMode (Integer deliveryMode)
+specifier|public
+name|void
+name|setDeliveryMode
+parameter_list|(
+name|Integer
+name|deliveryMode
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setDeliveryMode
+argument_list|(
+name|deliveryMode
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setDurableSubscriptionName (String durableSubscriptionName)
 specifier|public
 name|void
