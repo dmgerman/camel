@@ -372,7 +372,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// and as the last step stop the database itself...
+comment|// and as the last step shutdown the database...
 name|db
 operator|.
 name|close
