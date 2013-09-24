@@ -38,35 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|ProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|direct
-operator|.
-name|DirectConsumerNotAvailableException
 import|;
 end_import
 
@@ -145,10 +117,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|SpringQuartzPersistentStoreClusteredAppTest
+DECL|class|SpringQuartzTwoAppsClusteredFailoverTest
 specifier|public
 class|class
-name|SpringQuartzPersistentStoreClusteredAppTest
+name|SpringQuartzTwoAppsClusteredFailoverTest
 extends|extends
 name|TestSupport
 block|{
@@ -162,7 +134,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// boot up the first clustered app which also launches an embedded database
+comment|// boot up the database the two apps are going to share inside a clustered quartz setup
+name|AbstractXmlApplicationContext
+name|db
+init|=
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzEmbeddedDatabase.xml"
+argument_list|)
+decl_stmt|;
+name|db
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+comment|// now launch the first clustered app
 name|AbstractXmlApplicationContext
 name|app
 init|=
@@ -177,7 +164,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// and now the second one
+comment|// as well as the second one
 name|AbstractXmlApplicationContext
 name|app2
 init|=
@@ -206,11 +193,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|camel
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -236,11 +218,10 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"clustering pings!"
+literal|"clustering PINGS!"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit to make sure the route has been properly started through
-comment|// the given route policy
+comment|// wait a bit to make sure the route has already been properly started through the given route policy
 name|Thread
 operator|.
 name|sleep
@@ -271,6 +252,55 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// now let's simulate a crash of the first app
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"The first app is going to crash NOW!"
+argument_list|)
+expr_stmt|;
+name|app
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Crashed..."
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Crashed..."
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Crashed..."
+argument_list|)
+expr_stmt|;
+comment|// wait long enough until the second app takes it over...
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|20000
+argument_list|)
+expr_stmt|;
+comment|// inside the logs one can then clearly see how the route of the second CamelContext gets started:
+comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
+comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
+comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
+comment|// 2013-09-24 22:51:49,188 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: detected 1 failed or restarted instances.
+comment|// 2013-09-24 22:51:49,188 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: Scanning for instance "app-one"'s failed in-progress jobs.
+comment|// 2013-09-24 22:51:49,211 [eduler_Worker-1] INFO  SpringCamelContext             - Route: myRoute started and consuming from: Endpoint[direct://start]
 name|CamelContext
 name|camel2
 init|=
@@ -278,18 +308,13 @@ name|app2
 operator|.
 name|getBean
 argument_list|(
-literal|"camelContext"
+literal|"camelContext2"
 argument_list|,
 name|CamelContext
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|camel2
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock2
 init|=
@@ -308,13 +333,16 @@ name|mock2
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// expect no consumer being started as the seconds app is expected to
-comment|// run in standby modus
-try|try
-block|{
+name|mock2
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"clustering PONGS!"
+argument_list|)
+expr_stmt|;
 name|app2
 operator|.
 name|getBean
@@ -333,45 +361,19 @@ argument_list|,
 literal|"clustering"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CamelExecutionException
-name|cee
-parameter_list|)
-block|{
-name|assertIsInstanceOf
-argument_list|(
-name|DirectConsumerNotAvailableException
-operator|.
-name|class
-argument_list|,
-name|cee
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|mock2
 operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// we're done so let's properly close the application contexts, but stop
-comment|// the second app before the first one so that the quartz scheduler running
-comment|// inside it can properly be shutdown
+comment|// stop the second app as we're already done
 name|app2
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|app
+comment|// and as the last step stop the database itself...
+name|db
 operator|.
 name|close
 argument_list|()
