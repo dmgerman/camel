@@ -280,6 +280,9 @@ name|countDown
 argument_list|()
 expr_stmt|;
 comment|// block until the other thread counts down as well
+if|if
+condition|(
+operator|!
 name|latch
 operator|.
 name|await
@@ -290,7 +293,16 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Took too long; assume threads are blocked and fail test"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 argument_list|)
