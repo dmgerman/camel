@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.http4
+DECL|package|org.apache.camel.component.ahc
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http4
+name|ahc
 package|;
 end_package
 

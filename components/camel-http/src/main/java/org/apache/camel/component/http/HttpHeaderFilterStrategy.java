@@ -75,6 +75,14 @@ argument_list|(
 literal|"content-type"
 argument_list|)
 expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"host"
+argument_list|)
+expr_stmt|;
 comment|// Add the filter for the Generic Message header
 comment|// http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.5
 name|getOutFilter

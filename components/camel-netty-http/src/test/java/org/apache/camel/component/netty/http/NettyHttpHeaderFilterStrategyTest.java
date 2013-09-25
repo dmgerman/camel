@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.http4
+DECL|package|org.apache.camel.component.netty.http
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http4
+name|netty
+operator|.
+name|http
 package|;
 end_package
 
@@ -62,22 +64,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -94,21 +80,43 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @author<a href="http://www.christianposta.com/blog">Christian Posta</a>  */
 end_comment
 
 begin_class
-DECL|class|HttpHeaderFilterStrategyTest
+DECL|class|NettyHttpHeaderFilterStrategyTest
 specifier|public
 class|class
-name|HttpHeaderFilterStrategyTest
-extends|extends
-name|CamelTestSupport
+name|NettyHttpHeaderFilterStrategyTest
 block|{
 DECL|field|filter
 specifier|private
-name|HttpHeaderFilterStrategy
+name|NettyHttpHeaderFilterStrategy
 name|filter
 decl_stmt|;
 DECL|field|exchange
@@ -127,7 +135,7 @@ block|{
 name|filter
 operator|=
 operator|new
-name|HttpHeaderFilterStrategy
+name|NettyHttpHeaderFilterStrategy
 argument_list|()
 expr_stmt|;
 name|exchange
