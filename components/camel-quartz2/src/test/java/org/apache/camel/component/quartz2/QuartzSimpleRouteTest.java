@@ -100,16 +100,6 @@ name|org
 operator|.
 name|quartz
 operator|.
-name|CronTrigger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|quartz
-operator|.
 name|JobDetail
 import|;
 end_import
