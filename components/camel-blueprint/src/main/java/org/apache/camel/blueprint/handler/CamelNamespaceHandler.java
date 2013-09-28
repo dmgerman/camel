@@ -1114,6 +1114,24 @@ name|CamelNamespaceHandler
 implements|implements
 name|NamespaceHandler
 block|{
+DECL|field|BLUEPRINT_NS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BLUEPRINT_NS
+init|=
+literal|"http://camel.apache.org/schema/blueprint"
+decl_stmt|;
+DECL|field|SPRING_NS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SPRING_NS
+init|=
+literal|"http://camel.apache.org/schema/spring"
+decl_stmt|;
 DECL|field|CAMEL_CONTEXT
 specifier|private
 specifier|static
@@ -1159,24 +1177,6 @@ name|SSL_CONTEXT_PARAMETERS
 init|=
 literal|"sslContextParameters"
 decl_stmt|;
-DECL|field|BLUEPRINT_NS
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|BLUEPRINT_NS
-init|=
-literal|"http://camel.apache.org/schema/blueprint"
-decl_stmt|;
-DECL|field|SPRING_NS
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SPRING_NS
-init|=
-literal|"http://camel.apache.org/schema/spring"
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -1198,7 +1198,7 @@ specifier|private
 name|JAXBContext
 name|jaxbContext
 decl_stmt|;
-DECL|method|renameNamespaceRecursive (Node node)
+DECL|method|renameNamespaceRecursive (Node node, String fromNamespace, String toNamespace)
 specifier|public
 specifier|static
 name|void
@@ -1206,6 +1206,12 @@ name|renameNamespaceRecursive
 parameter_list|(
 name|Node
 name|node
+parameter_list|,
+name|String
+name|fromNamespace
+parameter_list|,
+name|String
+name|toNamespace
 parameter_list|)
 block|{
 if|if
@@ -1237,7 +1243,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|BLUEPRINT_NS
+name|fromNamespace
 argument_list|)
 condition|)
 block|{
@@ -1247,7 +1253,7 @@ name|renameNode
 argument_list|(
 name|node
 argument_list|,
-name|SPRING_NS
+name|toNamespace
 argument_list|,
 name|node
 operator|.
@@ -1291,6 +1297,10 @@ name|item
 argument_list|(
 name|i
 argument_list|)
+argument_list|,
+name|fromNamespace
+argument_list|,
+name|toNamespace
 argument_list|)
 expr_stmt|;
 block|}
@@ -1374,10 +1384,16 @@ argument_list|,
 name|element
 argument_list|)
 expr_stmt|;
-comment|// make sure namespace is blueprint
+try|try
+block|{
+comment|// as the camel-core model namespace is Spring we need to rename from blueprint to spring
 name|renameNamespaceRecursive
 argument_list|(
 name|element
+argument_list|,
+name|BLUEPRINT_NS
+argument_list|,
+name|SPRING_NS
 argument_list|)
 expr_stmt|;
 if|if
@@ -1489,6 +1505,20 @@ argument_list|,
 name|context
 argument_list|)
 return|;
+block|}
+block|}
+finally|finally
+block|{
+comment|// make sure to rename back so we leave the DOM as-is
+name|renameNamespaceRecursive
+argument_list|(
+name|element
+argument_list|,
+name|SPRING_NS
+argument_list|,
+name|BLUEPRINT_NS
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|null

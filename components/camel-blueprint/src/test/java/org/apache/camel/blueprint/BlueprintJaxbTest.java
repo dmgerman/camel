@@ -298,6 +298,14 @@ operator|.
 name|renameNamespaceRecursive
 argument_list|(
 name|elem
+argument_list|,
+name|CamelNamespaceHandler
+operator|.
+name|BLUEPRINT_NS
+argument_list|,
+name|CamelNamespaceHandler
+operator|.
+name|SPRING_NS
 argument_list|)
 expr_stmt|;
 name|JAXBContext
