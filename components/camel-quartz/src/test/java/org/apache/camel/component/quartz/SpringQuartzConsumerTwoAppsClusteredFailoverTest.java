@@ -306,7 +306,7 @@ name|app2
 operator|.
 name|getBean
 argument_list|(
-literal|"camelContext"
+literal|"camelContext2"
 argument_list|,
 name|CamelContext
 operator|.
