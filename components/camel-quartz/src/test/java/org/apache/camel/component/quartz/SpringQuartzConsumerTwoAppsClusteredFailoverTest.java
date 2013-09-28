@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.routepolicy.quartz
+DECL|package|org.apache.camel.component.quartz
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|routepolicy
+name|component
 operator|.
 name|quartz
 package|;
@@ -38,7 +38,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Predicate
 import|;
 end_import
 
@@ -113,14 +125,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through {@link CronScheduledRoutePolicy}.  *   * @version  */
+comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through {@link QuartzConsumer}.  *   * @version  */
 end_comment
 
 begin_class
-DECL|class|SpringQuartzTwoAppsClusteredFailoverTest
+DECL|class|SpringQuartzConsumerTwoAppsClusteredFailoverTest
 specifier|public
 class|class
-name|SpringQuartzTwoAppsClusteredFailoverTest
+name|SpringQuartzConsumerTwoAppsClusteredFailoverTest
 extends|extends
 name|TestSupport
 block|{
@@ -141,7 +153,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/routepolicy/quartz/SpringQuartzClusteredAppDatabase.xml"
+literal|"org/apache/camel/component/quartz/SpringQuartzConsumerClusteredAppDatabase.xml"
 argument_list|)
 decl_stmt|;
 name|db
@@ -156,7 +168,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/routepolicy/quartz/SpringQuartzClusteredAppOne.xml"
+literal|"org/apache/camel/component/quartz/SpringQuartzConsumerClusteredAppOne.xml"
 argument_list|)
 decl_stmt|;
 name|app
@@ -171,7 +183,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/routepolicy/quartz/SpringQuartzClusteredAppTwo.xml"
+literal|"org/apache/camel/component/quartz/SpringQuartzConsumerClusteredAppTwo.xml"
 argument_list|)
 decl_stmt|;
 name|app2
@@ -209,42 +221,28 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedMessagesMatches
 argument_list|(
-literal|"clustering PINGS!"
+operator|new
+name|ClusteringPredicate
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// wait a bit to make sure the route has already been properly started through the given route policy
+comment|// let the route run a bit...
 name|Thread
 operator|.
 name|sleep
 argument_list|(
 literal|5000
-argument_list|)
-expr_stmt|;
-name|app
-operator|.
-name|getBean
-argument_list|(
-literal|"template"
-argument_list|,
-name|ProducerTemplate
-operator|.
-name|class
-argument_list|)
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"clustering"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -295,12 +293,12 @@ literal|20000
 argument_list|)
 expr_stmt|;
 comment|// inside the logs one can then clearly see how the route of the second CamelContext gets started:
-comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
-comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
-comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
-comment|// 2013-09-24 22:51:49,188 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: detected 1 failed or restarted instances.
-comment|// 2013-09-24 22:51:49,188 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: Scanning for instance "app-one"'s failed in-progress jobs.
-comment|// 2013-09-24 22:51:49,211 [eduler_Worker-1] INFO  SpringCamelContext             - Route: myRoute started and consuming from: Endpoint[direct://start]
+comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
+comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
+comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
+comment|// 2013-09-28 19:50:58,892 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: detected 1 failed or restarted instances.
+comment|// 2013-09-28 19:50:58,892 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: Scanning for instance "app-one"'s failed in-progress jobs.
+comment|// 2013-09-28 19:50:58,913 [eduler_Worker-1] INFO  triggered                      - Exchange[ExchangePattern: InOnly, BodyType: String, Body: clustering PONGS!]
 name|CamelContext
 name|camel2
 init|=
@@ -308,7 +306,7 @@ name|app2
 operator|.
 name|getBean
 argument_list|(
-literal|"camelContext2"
+literal|"camelContext"
 argument_list|,
 name|CamelContext
 operator|.
@@ -331,34 +329,20 @@ argument_list|)
 decl_stmt|;
 name|mock2
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|1
+literal|3
 argument_list|)
 expr_stmt|;
 name|mock2
 operator|.
-name|expectedBodiesReceived
+name|expectedMessagesMatches
 argument_list|(
-literal|"clustering PONGS!"
+operator|new
+name|ClusteringPredicate
+argument_list|(
+literal|false
 argument_list|)
-expr_stmt|;
-name|app2
-operator|.
-name|getBean
-argument_list|(
-literal|"template"
-argument_list|,
-name|ProducerTemplate
-operator|.
-name|class
-argument_list|)
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"clustering"
 argument_list|)
 expr_stmt|;
 name|mock2
@@ -378,6 +362,63 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+DECL|class|ClusteringPredicate
+specifier|private
+specifier|static
+class|class
+name|ClusteringPredicate
+implements|implements
+name|Predicate
+block|{
+DECL|field|expectedPayload
+specifier|private
+specifier|final
+name|String
+name|expectedPayload
+decl_stmt|;
+DECL|method|ClusteringPredicate (boolean pings)
+name|ClusteringPredicate
+parameter_list|(
+name|boolean
+name|pings
+parameter_list|)
+block|{
+name|expectedPayload
+operator|=
+name|pings
+condition|?
+literal|"clustering PINGS!"
+else|:
+literal|"clustering PONGS!"
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|matches (Exchange exchange)
+specifier|public
+name|boolean
+name|matches
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|expectedPayload
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 end_class
