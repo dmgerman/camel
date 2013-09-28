@@ -95,7 +95,7 @@ specifier|private
 name|int
 name|size
 init|=
-literal|500
+literal|10
 decl_stmt|;
 annotation|@
 name|Test
