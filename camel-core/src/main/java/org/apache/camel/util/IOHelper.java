@@ -1695,6 +1695,7 @@ literal|null
 return|;
 block|}
 block|}
+comment|/**      * @see #getCharsetName(org.apache.camel.Exchange, boolean)      */
 DECL|method|getCharsetName (Exchange exchange)
 specifier|public
 specifier|static
@@ -1714,7 +1715,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the charset name if set as property or header {@link Exchange#CHARSET_NAME}.      * Notice: The lookup from the property has priority over the header      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
+comment|/**      * Gets the charset name if set as header or property {@link Exchange#CHARSET_NAME}.      *<b>Notice:</b> The lookup from the header has priority over the property.      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
 DECL|method|getCharsetName (Exchange exchange, boolean useDefault)
 specifier|public
 specifier|static
@@ -1735,12 +1736,16 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// header takes precedence
 name|String
 name|charsetName
 init|=
 name|exchange
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|Exchange
 operator|.
@@ -1762,10 +1767,7 @@ name|charsetName
 operator|=
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
+name|getProperty
 argument_list|(
 name|Exchange
 operator|.

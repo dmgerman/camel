@@ -2066,7 +2066,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the charset name if set as property {@link Exchange#CHARSET_NAME}.      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
+comment|/**      * Gets the charset name if set as header or property {@link Exchange#CHARSET_NAME}.      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
 annotation|@
 name|Deprecated
 DECL|method|getCharsetName (Exchange exchange, boolean useDefault)
