@@ -309,7 +309,7 @@ specifier|transient
 name|String
 name|spoolDirectoryName
 init|=
-literal|"${java.io.tmpdir}camel-tmp-#uuid#"
+literal|"${java.io.tmpdir}/camel/camel-tmp-#uuid#"
 decl_stmt|;
 DECL|field|spoolThreshold
 specifier|private
