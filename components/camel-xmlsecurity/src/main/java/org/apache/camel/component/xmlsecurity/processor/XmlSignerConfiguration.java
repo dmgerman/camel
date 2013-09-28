@@ -745,7 +745,7 @@ return|return
 name|signatureAlgorithm
 return|;
 block|}
-comment|/**      * Signature algorithm. Default value is      * "http://www.w3.org/2000/09/xmldsig#rsa-sha1".      *       * @param signatureAlgorithm      *            signature algorithm      */
+comment|/**      * Signature algorithm. Default value is      * "http://www.w3.org/2000/09/xmldsig#rsa-sha1".      *       * @param signatureAlgorithm signature algorithm      */
 DECL|method|setSignatureAlgorithm (String signatureAlgorithm)
 specifier|public
 name|void
@@ -798,7 +798,7 @@ return|return
 name|addKeyInfoReference
 return|;
 block|}
-comment|/**      * In order to protect the KeyInfo element from tampering you can add a      * reference to the signed info element so that it is protected via the      * signature value. The default value is<tt>true</tt>.      *<p>      * Only relevant when a KeyInfo is returned by {@link KeyAccessor}. and      * {@link KeyInfo#getId()} is not<code>null</code>.      *       * @param addKeyInfoReference      *            boolean value      */
+comment|/**      * In order to protect the KeyInfo element from tampering you can add a      * reference to the signed info element so that it is protected via the      * signature value. The default value is<tt>true</tt>.      *<p>      * Only relevant when a KeyInfo is returned by {@link KeyAccessor}. and      * {@link KeyInfo#getId()} is not<code>null</code>.      *       * @param addKeyInfoReference boolean value      */
 DECL|method|setAddKeyInfoReference (Boolean addKeyInfoReference)
 specifier|public
 name|void
@@ -825,7 +825,7 @@ return|return
 name|prefixForXmlSignatureNamespace
 return|;
 block|}
-comment|/**      * Namespace prefix for the XML signature namespace      * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds".      *       * If<code>null</code> or an empty value is set then no prefix is used for      * the XML signature namespace.      *<p>      * See best practice      * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-      * without-namespaces      *       * @param prefixForXmlSignatureNamespace      *            prefix      */
+comment|/**      * Namespace prefix for the XML signature namespace      * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds".      *       * If<code>null</code> or an empty value is set then no prefix is used for      * the XML signature namespace.      *<p>      * See best practice      * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-      * without-namespaces      *       * @param prefixForXmlSignatureNamespace prefix      */
 DECL|method|setPrefixForXmlSignatureNamespace (String prefixForXmlSignatureNamespace)
 specifier|public
 name|void
@@ -851,6 +851,50 @@ block|{
 return|return
 name|parentLocalName
 return|;
+block|}
+comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping XML      * signature.      *       * @param parentLocalName local name      */
+DECL|method|setParentLocalName (String parentLocalName)
+specifier|public
+name|void
+name|setParentLocalName
+parameter_list|(
+name|String
+name|parentLocalName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentLocalName
+operator|=
+name|parentLocalName
+expr_stmt|;
+block|}
+DECL|method|getParentNamespace ()
+specifier|public
+name|String
+name|getParentNamespace
+parameter_list|()
+block|{
+return|return
+name|parentNamespace
+return|;
+block|}
+comment|/**      * Namespace of the parent element to which the XML signature element will      * be added.      */
+DECL|method|setParentNamespace (String parentNamespace)
+specifier|public
+name|void
+name|setParentNamespace
+parameter_list|(
+name|String
+name|parentNamespace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentNamespace
+operator|=
+name|parentNamespace
+expr_stmt|;
 block|}
 DECL|method|getContentObjectId ()
 specifier|public
@@ -882,48 +926,20 @@ return|return
 name|contentObjectId
 return|;
 block|}
-comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping XML      * signature.      *       * @param parentLocalName      *            local name      */
-DECL|method|setParentLocalName (String parentLocalName)
+DECL|method|setContentObjectId (String contentObjectId)
 specifier|public
 name|void
-name|setParentLocalName
+name|setContentObjectId
 parameter_list|(
 name|String
-name|parentLocalName
+name|contentObjectId
 parameter_list|)
 block|{
 name|this
 operator|.
-name|parentLocalName
+name|contentObjectId
 operator|=
-name|parentLocalName
-expr_stmt|;
-block|}
-DECL|method|getParentNamespace ()
-specifier|public
-name|String
-name|getParentNamespace
-parameter_list|()
-block|{
-return|return
-name|parentNamespace
-return|;
-block|}
-comment|/**      * Namespace of the parent element to which the XML signature element will      * be added. See {@link #setEnvelopedParentLocalName(String)}.      *       * @param parentNamespace      */
-DECL|method|setParentNamespace (String parentNamespace)
-specifier|public
-name|void
-name|setParentNamespace
-parameter_list|(
-name|String
-name|parentNamespace
-parameter_list|)
-block|{
-name|this
-operator|.
-name|parentNamespace
-operator|=
-name|parentNamespace
+name|contentObjectId
 expr_stmt|;
 block|}
 DECL|method|getContentReferenceUri ()
@@ -1124,6 +1140,110 @@ operator|=
 name|propertiesName
 expr_stmt|;
 block|}
+block|}
+DECL|method|getKeyAccessorName ()
+specifier|public
+name|String
+name|getKeyAccessorName
+parameter_list|()
+block|{
+return|return
+name|keyAccessorName
+return|;
+block|}
+DECL|method|setKeyAccessorName (String keyAccessorName)
+specifier|public
+name|void
+name|setKeyAccessorName
+parameter_list|(
+name|String
+name|keyAccessorName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyAccessorName
+operator|=
+name|keyAccessorName
+expr_stmt|;
+block|}
+DECL|method|getCanonicalizationMethodName ()
+specifier|public
+name|String
+name|getCanonicalizationMethodName
+parameter_list|()
+block|{
+return|return
+name|canonicalizationMethodName
+return|;
+block|}
+DECL|method|setCanonicalizationMethodName (String canonicalizationMethodName)
+specifier|public
+name|void
+name|setCanonicalizationMethodName
+parameter_list|(
+name|String
+name|canonicalizationMethodName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|canonicalizationMethodName
+operator|=
+name|canonicalizationMethodName
+expr_stmt|;
+block|}
+DECL|method|getTransformMethodsName ()
+specifier|public
+name|String
+name|getTransformMethodsName
+parameter_list|()
+block|{
+return|return
+name|transformMethodsName
+return|;
+block|}
+DECL|method|setTransformMethodsName (String transformMethodsName)
+specifier|public
+name|void
+name|setTransformMethodsName
+parameter_list|(
+name|String
+name|transformMethodsName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transformMethodsName
+operator|=
+name|transformMethodsName
+expr_stmt|;
+block|}
+DECL|method|getPropertiesName ()
+specifier|public
+name|String
+name|getPropertiesName
+parameter_list|()
+block|{
+return|return
+name|propertiesName
+return|;
+block|}
+DECL|method|setPropertiesName (String propertiesName)
+specifier|public
+name|void
+name|setPropertiesName
+parameter_list|(
+name|String
+name|propertiesName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propertiesName
+operator|=
+name|propertiesName
+expr_stmt|;
 block|}
 block|}
 end_class
