@@ -1714,7 +1714,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the charset name if set as property {@link Exchange#CHARSET_NAME}.      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
+comment|/**      * Gets the charset name if set as property or header {@link Exchange#CHARSET_NAME}.      * Notice: The lookup from the property has priority over the header      *      * @param exchange  the exchange      * @param useDefault should we fallback and use JVM default charset if no property existed?      * @return the charset, or<tt>null</tt> if no found      */
 DECL|method|getCharsetName (Exchange exchange, boolean useDefault)
 specifier|public
 specifier|static
@@ -1751,6 +1751,32 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|charsetName
+operator|==
+literal|null
+condition|)
+block|{
+name|charsetName
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|charsetName
