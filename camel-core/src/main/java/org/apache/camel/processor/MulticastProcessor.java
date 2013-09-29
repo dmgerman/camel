@@ -5057,7 +5057,7 @@ block|{
 name|map
 operator|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|Object
 argument_list|,
@@ -5073,7 +5073,7 @@ comment|// we just create a new copy if we need to change the map
 name|map
 operator|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|Object
 argument_list|,
