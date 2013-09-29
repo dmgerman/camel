@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -255,6 +265,20 @@ block|{
 return|return
 literal|null
 return|;
+block|}
+DECL|method|setExpression (List<?> expressions)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|List
+argument_list|<
+name|?
+argument_list|>
+name|expressions
+parameter_list|)
+block|{
+comment|// do nothing
 block|}
 DECL|method|setExpression (Expression expression)
 specifier|public

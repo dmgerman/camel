@@ -2878,8 +2878,6 @@ literal|"#"
 argument_list|,
 literal|""
 argument_list|)
-argument_list|,
-name|parameterType
 argument_list|)
 expr_stmt|;
 if|if
@@ -2889,8 +2887,26 @@ operator|==
 literal|null
 condition|)
 block|{
-continue|continue;
 comment|// try the next method if nothing was found
+continue|continue;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|parameterType
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|ref
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// setter method has not the correct type
+continue|continue;
 block|}
 block|}
 try|try
