@@ -629,16 +629,16 @@ name|type
 argument_list|)
 return|;
 block|}
-DECL|method|bind (String s, Object o)
+DECL|method|bind (String name, Object object)
 specifier|public
 name|void
 name|bind
 parameter_list|(
 name|String
-name|s
+name|name
 parameter_list|,
 name|Object
-name|o
+name|object
 parameter_list|)
 block|{
 try|try
@@ -648,9 +648,9 @@ argument_list|()
 operator|.
 name|bind
 argument_list|(
-name|s
+name|name
 argument_list|,
-name|o
+name|object
 argument_list|)
 expr_stmt|;
 block|}
@@ -677,12 +677,19 @@ parameter_list|()
 throws|throws
 name|NamingException
 block|{
-name|getContext
-argument_list|()
+if|if
+condition|(
+name|context
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|getContext ()
 specifier|public
