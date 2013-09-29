@@ -279,9 +279,9 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// we're done so let's properly close the application contexts, but stop
+comment|// we're done so let's properly close the application contexts, but close
 comment|// the second app before the first one so that the quartz scheduler running
-comment|// inside it can properly be shutdown
+comment|// inside it can be properly shutdown
 name|app2
 operator|.
 name|close

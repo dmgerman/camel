@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being triggered through {@link CronScheduledRoutePolicy}.  *   * @version  */
 end_comment
 
 begin_class
@@ -141,7 +141,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzEmbeddedDatabase.xml"
+literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppDatabase.xml"
 argument_list|)
 decl_stmt|;
 name|db
@@ -156,7 +156,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppOneTest.xml"
+literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppOne.xml"
 argument_list|)
 decl_stmt|;
 name|app
@@ -171,7 +171,7 @@ init|=
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppTwoTest.xml"
+literal|"org/apache/camel/routepolicy/quartz2/SpringQuartzClusteredAppTwo.xml"
 argument_list|)
 decl_stmt|;
 name|app2
@@ -295,12 +295,12 @@ literal|20000
 argument_list|)
 expr_stmt|;
 comment|// inside the logs one can then clearly see how the route of the second CamelContext gets started:
-comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
-comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
-comment|// 2013-09-24 22:51:34,215 [main           ] WARN  ersistentStoreClusteredAppTest - Crashed...
-comment|// 2013-09-24 22:51:49,188 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: detected 1 failed or restarted instances.
-comment|// 2013-09-24 22:51:49,188 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: Scanning for instance "app-one"'s failed in-progress jobs.
-comment|// 2013-09-24 22:51:49,211 [eduler_Worker-1] INFO  SpringCamelContext             - Route: myRoute started and consuming from: Endpoint[direct://start]
+comment|// 2013-09-29 08:15:17,038 [main           ] WARN  tzTwoAppsClusteredFailoverTest:65   - Crashed...
+comment|// 2013-09-29 08:15:17,038 [main           ] WARN  tzTwoAppsClusteredFailoverTest:66   - Crashed...
+comment|// 2013-09-29 08:15:17,038 [main           ] WARN  tzTwoAppsClusteredFailoverTest:67   - Crashed...
+comment|// 2013-09-29 08:15:32,001 [_ClusterManager] INFO  LocalDataSourceJobStore       :3567 - ClusterManager: detected 1 failed or restarted instances.
+comment|// 2013-09-29 08:15:32,001 [_ClusterManager] INFO  LocalDataSourceJobStore       :3426 - ClusterManager: Scanning for instance "app-one"'s failed in-progress jobs.
+comment|// 2013-09-29 08:15:32,024 [eduler_Worker-1] INFO  SpringCamelContext            :2183 - Route: myRoute started and consuming from: Endpoint[direct://start]
 name|CamelContext
 name|camel2
 init|=
