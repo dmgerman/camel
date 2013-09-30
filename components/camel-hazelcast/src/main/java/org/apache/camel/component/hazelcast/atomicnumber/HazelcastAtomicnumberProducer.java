@@ -38,7 +38,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|AtomicNumber
+name|HazelcastInstance
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|hazelcast
 operator|.
 name|core
 operator|.
-name|HazelcastInstance
+name|IAtomicLong
 import|;
 end_import
 
@@ -135,7 +135,7 @@ block|{
 DECL|field|atomicnumber
 specifier|private
 specifier|final
-name|AtomicNumber
+name|IAtomicLong
 name|atomicnumber
 decl_stmt|;
 DECL|field|helper
@@ -173,7 +173,7 @@ name|atomicnumber
 operator|=
 name|hazelcastInstance
 operator|.
-name|getAtomicNumber
+name|getAtomicLong
 argument_list|(
 name|cacheName
 argument_list|)

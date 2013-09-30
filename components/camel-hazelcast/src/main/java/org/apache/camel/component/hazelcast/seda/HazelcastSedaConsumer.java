@@ -62,9 +62,9 @@ name|com
 operator|.
 name|hazelcast
 operator|.
-name|core
+name|transaction
 operator|.
-name|Transaction
+name|TransactionContext
 import|;
 end_import
 
@@ -443,8 +443,8 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
-name|Transaction
-name|transaction
+name|TransactionContext
+name|transactionCtx
 init|=
 literal|null
 decl_stmt|;
@@ -460,30 +460,21 @@ argument_list|()
 condition|)
 block|{
 comment|// Get and begin transaction if exist
-name|transaction
+name|transactionCtx
 operator|=
 name|endpoint
 operator|.
 name|getHazelcastInstance
 argument_list|()
 operator|.
-name|getTransaction
+name|newTransactionContext
 argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|transaction
+name|transactionCtx
 operator|!=
 literal|null
-operator|&&
-name|transaction
-operator|.
-name|getStatus
-argument_list|()
-operator|==
-name|Transaction
-operator|.
-name|TXN_STATUS_NO_TXN
 condition|)
 block|{
 name|log
@@ -492,12 +483,15 @@ name|trace
 argument_list|(
 literal|"Begin transaction: {}"
 argument_list|,
-name|transaction
+name|transactionCtx
+operator|.
+name|getTxnId
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|transaction
+name|transactionCtx
 operator|.
-name|begin
+name|beginTransaction
 argument_list|()
 expr_stmt|;
 block|}
@@ -604,14 +598,14 @@ block|{
 comment|// Rollback
 if|if
 condition|(
-name|transaction
+name|transactionCtx
 operator|!=
 literal|null
 condition|)
 block|{
-name|transaction
+name|transactionCtx
 operator|.
-name|rollback
+name|rollbackTransaction
 argument_list|()
 expr_stmt|;
 block|}
@@ -652,7 +646,7 @@ expr_stmt|;
 comment|// Rollback
 if|if
 condition|(
-name|transaction
+name|transactionCtx
 operator|!=
 literal|null
 condition|)
@@ -663,12 +657,15 @@ name|trace
 argument_list|(
 literal|"Rollback transaction: {}"
 argument_list|,
-name|transaction
+name|transactionCtx
+operator|.
+name|getTxnId
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|transaction
+name|transactionCtx
 operator|.
-name|rollback
+name|rollbackTransaction
 argument_list|()
 expr_stmt|;
 block|}
@@ -684,18 +681,9 @@ argument_list|()
 operator|==
 literal|null
 operator|&&
-name|transaction
+name|transactionCtx
 operator|!=
 literal|null
-operator|&&
-name|transaction
-operator|.
-name|getStatus
-argument_list|()
-operator|==
-name|Transaction
-operator|.
-name|TXN_STATUS_ACTIVE
 condition|)
 block|{
 name|log
@@ -704,12 +692,15 @@ name|trace
 argument_list|(
 literal|"Commit transaction: {}"
 argument_list|,
-name|transaction
+name|transactionCtx
+operator|.
+name|getTxnId
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|transaction
+name|transactionCtx
 operator|.
-name|commit
+name|commitTransaction
 argument_list|()
 expr_stmt|;
 block|}
@@ -751,7 +742,7 @@ block|{
 comment|// Rollback
 if|if
 condition|(
-name|transaction
+name|transactionCtx
 operator|!=
 literal|null
 condition|)
@@ -762,12 +753,15 @@ name|trace
 argument_list|(
 literal|"Rollback transaction: {}"
 argument_list|,
-name|transaction
+name|transactionCtx
+operator|.
+name|getTxnId
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|transaction
+name|transactionCtx
 operator|.
-name|rollback
+name|rollbackTransaction
 argument_list|()
 expr_stmt|;
 block|}
