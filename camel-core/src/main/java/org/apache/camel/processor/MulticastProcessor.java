@@ -3874,6 +3874,11 @@ argument_list|(
 name|original
 argument_list|)
 expr_stmt|;
+name|boolean
+name|stoppedOnException
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|original
@@ -3895,6 +3900,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// there was an exception and we stopped
+name|stoppedOnException
+operator|=
+name|isStopOnException
+argument_list|()
+expr_stmt|;
 comment|// multicast uses error handling on its output processors and they have tried to redeliver
 comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
 comment|// also try to redeliver as we will then do that twice
@@ -3917,7 +3928,26 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// and copy the current result to original so it will contain this result of this eip
+if|if
+condition|(
+name|stoppedOnException
+condition|)
+block|{
+comment|// if we stopped due an exception then only propagte the exception
+name|original
+operator|.
+name|setException
+argument_list|(
+name|subExchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// copy the current result to original so it will contain this result of this eip
 name|ExchangeHelper
 operator|.
 name|copyResults
@@ -3927,6 +3957,7 @@ argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|callback
 operator|.
