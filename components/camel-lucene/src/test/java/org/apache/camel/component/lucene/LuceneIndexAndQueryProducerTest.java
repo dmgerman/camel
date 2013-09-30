@@ -337,7 +337,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_44
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -365,7 +365,7 @@ name|SimpleAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_44
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -393,7 +393,7 @@ name|WhitespaceAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_44
 argument_list|)
 argument_list|)
 expr_stmt|;

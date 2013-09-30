@@ -112,6 +112,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -318,7 +332,7 @@ condition|)
 block|{
 name|indexReader
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -334,7 +348,7 @@ else|else
 block|{
 name|indexReader
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -378,6 +392,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|analyzer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|search (String searchPhrase, int maxNumberOfHits)
 specifier|public
@@ -402,7 +421,7 @@ name|maxNumberOfHits
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_44
 argument_list|)
 return|;
 block|}
