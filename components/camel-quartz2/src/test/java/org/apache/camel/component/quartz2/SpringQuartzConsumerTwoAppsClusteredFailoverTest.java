@@ -92,16 +92,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -139,11 +129,6 @@ comment|/**  * Tests a Quartz based cluster setup of two Camel Apps being trigge
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"CAMEL-6797"
-argument_list|)
 DECL|class|SpringQuartzConsumerTwoAppsClusteredFailoverTest
 specifier|public
 class|class
@@ -308,12 +293,12 @@ literal|20000
 argument_list|)
 expr_stmt|;
 comment|// inside the logs one can then clearly see how the route of the second CamelContext gets started:
-comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
-comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
-comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
-comment|// 2013-09-28 19:50:58,892 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: detected 1 failed or restarted instances.
-comment|// 2013-09-28 19:50:58,892 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: Scanning for instance "app-one"'s failed in-progress jobs.
-comment|// 2013-09-28 19:50:58,913 [eduler_Worker-1] INFO  triggered                      - Exchange[ExchangePattern: InOnly, BodyType: String, Body: clustering PONGS!]
+comment|// 2013-09-30 11:22:20,349 [main           ] WARN  erTwoAppsClusteredFailoverTest - Crashed...
+comment|// 2013-09-30 11:22:20,349 [main           ] WARN  erTwoAppsClusteredFailoverTest - Crashed...
+comment|// 2013-09-30 11:22:20,349 [main           ] WARN  erTwoAppsClusteredFailoverTest - Crashed...
+comment|// 2013-09-30 11:22:35,340 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: detected 1 failed or restarted instances.
+comment|// 2013-09-30 11:22:35,340 [_ClusterManager] INFO  LocalDataSourceJobStore        - ClusterManager: Scanning for instance "app-one"'s failed in-progress jobs.
+comment|// 2013-09-30 11:22:35,369 [eduler_Worker-1] INFO  triggered                      - Exchange[ExchangePattern: InOnly, BodyType: String, Body: clustering PONGS!]
 name|CamelContext
 name|camel2
 init|=
