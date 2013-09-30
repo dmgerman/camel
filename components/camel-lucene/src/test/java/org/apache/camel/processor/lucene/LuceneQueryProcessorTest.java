@@ -128,7 +128,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|SimpleAnalyzer
+name|core
+operator|.
+name|WhitespaceAnalyzer
 import|;
 end_import
 
@@ -598,11 +600,11 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|SimpleAnalyzer
+name|WhitespaceAnalyzer
 name|analyzer
 init|=
 operator|new
-name|SimpleAnalyzer
+name|WhitespaceAnalyzer
 argument_list|(
 name|Version
 operator|.
