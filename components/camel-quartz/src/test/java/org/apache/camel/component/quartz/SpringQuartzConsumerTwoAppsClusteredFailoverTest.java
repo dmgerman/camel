@@ -161,7 +161,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// now launch the first clustered app
+comment|// now launch the first clustered app which will acquire the quartz
+comment|// database lock and become the master
 name|AbstractXmlApplicationContext
 name|app
 init|=
@@ -176,7 +177,8 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// as well as the second one
+comment|// as well as the second one which will run in slave modus as it will
+comment|// not be able to acquire the same lock
 name|AbstractXmlApplicationContext
 name|app2
 init|=
@@ -250,7 +252,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// now let's simulate a crash of the first app
+comment|// now let's simulate a crash of the first app (the quartz instance 'app-one')
 name|log
 operator|.
 name|warn
@@ -292,7 +294,7 @@ argument_list|(
 literal|20000
 argument_list|)
 expr_stmt|;
-comment|// inside the logs one can then clearly see how the route of the second CamelContext gets started:
+comment|// inside the logs one can then clearly see how the route of the second app ('app-two') starts consuming:
 comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
 comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
 comment|// 2013-09-28 19:50:43,900 [main           ] WARN  ntTwoAppsClusteredFailoverTest - Crashed...
@@ -350,7 +352,7 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// stop the second app as we're already done
+comment|// close the second app as we're done now
 name|app2
 operator|.
 name|close
