@@ -296,7 +296,7 @@ name|idx
 init|=
 name|expression
 operator|.
-name|lastIndexOf
+name|indexOf
 argument_list|(
 literal|'.'
 argument_list|)
