@@ -91,6 +91,14 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Message
 name|out
 init|=
@@ -99,11 +107,6 @@ operator|.
 name|getOut
 argument_list|()
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
 name|assertHeaders
 argument_list|(
 name|out
