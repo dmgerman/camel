@@ -855,6 +855,8 @@ operator|.
 name|getCharsetName
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 return|;
@@ -1168,6 +1170,8 @@ operator|.
 name|getCharsetName
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 return|;
