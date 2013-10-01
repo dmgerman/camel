@@ -961,6 +961,8 @@ operator|=
 operator|new
 name|JettySolrRunner
 argument_list|(
+literal|"src/test/resources/solr"
+argument_list|,
 literal|"/solr"
 argument_list|,
 name|SolrComponentTestSupport
