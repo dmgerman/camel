@@ -601,11 +601,21 @@ operator|.
 name|getDeliveryTag
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|consumer
+operator|.
+name|endpoint
+operator|.
+name|isAutoAck
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Acknowleding receipt [delivery_tag={}]"
+literal|"Acknowledging receipt [delivery_tag={}]"
 argument_list|,
 name|deliveryTag
 argument_list|)
@@ -619,6 +629,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
