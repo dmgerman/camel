@@ -261,7 +261,10 @@ init|=
 name|copyComponentProperties
 argument_list|()
 decl_stmt|;
-return|return
+specifier|final
+name|FacebookEndpoint
+name|endpoint
+init|=
 operator|new
 name|FacebookEndpoint
 argument_list|(
@@ -273,6 +276,17 @@ name|remaining
 argument_list|,
 name|config
 argument_list|)
+decl_stmt|;
+comment|// set endpoint property inBody so that it's available in initState()
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 DECL|method|copyComponentProperties ()

@@ -63,6 +63,14 @@ name|FACEBOOK_DATE_FORMAT
 init|=
 literal|"yyyy-MM-dd'T'HH:mm:ssZ"
 decl_stmt|;
+DECL|field|RAW_JSON_HEADER
+name|String
+name|RAW_JSON_HEADER
+init|=
+name|FACEBOOK_PROPERTY_PREFIX
+operator|+
+literal|"rawJSON"
+decl_stmt|;
 block|}
 end_interface
 
