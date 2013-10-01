@@ -1100,6 +1100,9 @@ operator|new
 name|BasicDBObject
 argument_list|()
 decl_stmt|;
+comment|// MongoDB 2.4 upwards is restrictive about the type of the 'single field index' being in use so that
+comment|// we should convert the index value to an Integer, see also:
+comment|// http://docs.mongodb.org/manual/release-notes/2.4/#improved-validation-of-index-types
 name|index
 operator|.
 name|put
@@ -1109,10 +1112,15 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 name|set
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|indexList
