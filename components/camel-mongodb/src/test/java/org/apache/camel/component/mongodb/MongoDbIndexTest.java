@@ -186,7 +186,7 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"{\"_id\": \"testInsertDynamicityEnabledDBAndCollection\", \"a\" : \"1\", \"b\" : \"2\"}"
+literal|"{\"_id\": \"testInsertDynamicityEnabledDBAndCollection\", \"a\" : 1, \"b\" : 2}"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -353,7 +353,7 @@ name|getIndexInfo
 argument_list|()
 decl_stmt|;
 name|BasicDBObject
-name|key
+name|key1
 init|=
 operator|(
 name|BasicDBObject
@@ -362,7 +362,25 @@ name|indexInfos
 operator|.
 name|get
 argument_list|(
-literal|0
+literal|1
+argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|"key"
+argument_list|)
+decl_stmt|;
+name|BasicDBObject
+name|key2
+init|=
+operator|(
+name|BasicDBObject
+operator|)
+name|indexInfos
+operator|.
+name|get
+argument_list|(
+literal|2
 argument_list|)
 operator|.
 name|get
@@ -372,24 +390,48 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The field _id with the expected value not found"
+literal|"No index on the field a"
 argument_list|,
-name|key
+name|key1
 operator|.
 name|containsField
 argument_list|(
-literal|"_id"
+literal|"a"
 argument_list|)
 operator|&&
 literal|"1"
 operator|.
 name|equals
 argument_list|(
-name|key
+name|key1
 operator|.
 name|getString
 argument_list|(
-literal|"_id"
+literal|"a"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"No index on the field b"
+argument_list|,
+name|key2
+operator|.
+name|containsField
+argument_list|(
+literal|"b"
+argument_list|)
+operator|&&
+literal|"-1"
+operator|.
+name|equals
+argument_list|(
+name|key2
+operator|.
+name|getString
+argument_list|(
+literal|"b"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -499,7 +541,7 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"{\"_id\": \"testInsertDynamicityEnabledCollectionAndIndex\", \"a\" : \"1\", \"b\" : \"2\"}"
+literal|"{\"_id\": \"testInsertDynamicityEnabledCollectionAndIndex\", \"a\" : 1, \"b\" : 2}"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -650,7 +692,7 @@ name|getIndexInfo
 argument_list|()
 decl_stmt|;
 name|BasicDBObject
-name|key
+name|key1
 init|=
 operator|(
 name|BasicDBObject
@@ -659,7 +701,25 @@ name|indexInfos
 operator|.
 name|get
 argument_list|(
-literal|0
+literal|1
+argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|"key"
+argument_list|)
+decl_stmt|;
+name|BasicDBObject
+name|key2
+init|=
+operator|(
+name|BasicDBObject
+operator|)
+name|indexInfos
+operator|.
+name|get
+argument_list|(
+literal|2
 argument_list|)
 operator|.
 name|get
@@ -669,24 +729,48 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The field _id with the expected value not found"
+literal|"No index on the field a"
 argument_list|,
-name|key
+name|key1
 operator|.
 name|containsField
 argument_list|(
-literal|"_id"
+literal|"a"
 argument_list|)
 operator|&&
 literal|"1"
 operator|.
 name|equals
 argument_list|(
-name|key
+name|key1
 operator|.
 name|getString
 argument_list|(
-literal|"_id"
+literal|"a"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"No index on the field b"
+argument_list|,
+name|key2
+operator|.
+name|containsField
+argument_list|(
+literal|"b"
+argument_list|)
+operator|&&
+literal|"-1"
+operator|.
+name|equals
+argument_list|(
+name|key2
+operator|.
+name|getString
+argument_list|(
+literal|"b"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -796,7 +880,7 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"{\"_id\": \"testInsertDynamicityEnabledCollectionOnlyAndURIIndex\", \"a\" : \"1\", \"b\" : \"2\"}"
+literal|"{\"_id\": \"testInsertDynamicityEnabledCollectionOnlyAndURIIndex\", \"a\" : 1, \"b\" : 2}"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -876,7 +960,7 @@ name|getIndexInfo
 argument_list|()
 decl_stmt|;
 name|BasicDBObject
-name|key
+name|key1
 init|=
 operator|(
 name|BasicDBObject
@@ -885,7 +969,7 @@ name|indexInfos
 operator|.
 name|get
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 operator|.
 name|get
@@ -893,26 +977,26 @@ argument_list|(
 literal|"key"
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"The field _id with the expected value not found"
+literal|"No index on the field a"
 argument_list|,
-name|key
+name|key1
 operator|.
 name|containsField
 argument_list|(
-literal|"_id"
+literal|"a"
 argument_list|)
 operator|&&
-literal|"1"
+literal|"-1"
 operator|.
 name|equals
 argument_list|(
-name|key
+name|key1
 operator|.
 name|getString
 argument_list|(
-literal|"_id"
+literal|"a"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1001,7 +1085,7 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"{\"_id\": \"testInsertAutoCreateCollectionAndURIIndex\", \"a\" : \"1\", \"b\" : \"2\"}"
+literal|"{\"_id\": \"testInsertAutoCreateCollectionAndURIIndex\", \"a\" : 1, \"b\" : 2}"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -1239,7 +1323,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&collectionIndex={\"a\":\"1\"}&operation=insert&dynamicity=true&writeConcern=SAFE"
+literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&collectionIndex={\"a\":1}&operation=insert&dynamicity=true&writeConcern=SAFE"
 argument_list|)
 expr_stmt|;
 name|from
@@ -1249,7 +1333,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection=otherCollection&collectionIndex={\"a\":\"1\",\"b\":\"-1\"}&operation=insert&dynamicity=false&writeConcern=SAFE"
+literal|"mongodb:myDb?database={{mongodb.testDb}}&collection=otherCollection&collectionIndex={\"a\":1,\"b\":-1}&operation=insert&dynamicity=false&writeConcern=SAFE"
 argument_list|)
 expr_stmt|;
 block|}
