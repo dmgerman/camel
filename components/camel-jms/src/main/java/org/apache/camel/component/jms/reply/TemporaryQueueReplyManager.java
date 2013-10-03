@@ -1061,6 +1061,7 @@ name|queue
 decl_stmt|;
 DECL|field|refreshWanted
 specifier|private
+specifier|final
 name|AtomicBoolean
 name|refreshWanted
 init|=
@@ -1121,18 +1122,27 @@ argument_list|(
 name|queue
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Refreshed Temporary ReplyTo Queue. New queue: "
-operator|+
+literal|"Refreshed Temporary ReplyTo Queue. New queue: {}"
+argument_list|,
 name|queue
 operator|.
 name|getQueueName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|refreshWanted
 operator|.
 name|notifyAll
@@ -1183,7 +1193,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Waiting for new Temp ReplyTo destination to be assigned to continue"
+literal|"Waiting for new Temporary ReplyTo queue to be assigned before we can continue"
 argument_list|)
 expr_stmt|;
 name|refreshWanted
