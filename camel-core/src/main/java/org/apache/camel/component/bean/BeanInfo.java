@@ -3199,6 +3199,11 @@ name|size
 argument_list|()
 operator|==
 literal|1
+operator|&&
+name|localOperationsWithCustomAnnotation
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 comment|// if there is one method with body then use that one
