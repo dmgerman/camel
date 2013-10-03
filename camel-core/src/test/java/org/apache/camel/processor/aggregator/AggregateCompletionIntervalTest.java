@@ -139,7 +139,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|,
 literal|"Message "
 operator|+
@@ -182,7 +182,7 @@ block|{
 comment|// START SNIPPET: e1
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|)
 operator|.
 name|aggregate
