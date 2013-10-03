@@ -166,6 +166,44 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|get (String key)
+specifier|public
+name|ReplyHandler
+name|get
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|ReplyHandler
+name|answer
+init|=
+name|super
+operator|.
+name|get
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Get correlationID: {} -> {}"
+argument_list|,
+name|key
+argument_list|,
+name|answer
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|put (String key, ReplyHandler value, long timeoutMillis)
 specifier|public
 name|void
