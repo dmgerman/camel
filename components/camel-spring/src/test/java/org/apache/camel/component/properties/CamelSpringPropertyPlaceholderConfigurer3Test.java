@@ -204,10 +204,19 @@ argument_list|,
 name|uri
 argument_list|)
 decl_stmt|;
-comment|// add the additional properties we need to provide so that the uri ""{{scheme}}{{separator}}{{authority}}""
-comment|// inside the route can be resolved. please note that in this simple test we just add these properties
-comment|// hard-coded below but of course the mechanism to retrieve these extra properties can be anything else,
-comment|// e.g. through the entries inside a database table etc.
+comment|// define the additional properties we need to provide so that the uri "direct:{{foo}}" by the "from" clause
+comment|// as well as "{{scheme}}{{separator}}{{context-path}}" by the "to" clause can be properly resolved. please
+comment|// note that in this simple test we just add these properties hard-coded below but of course the mechanism to
+comment|// retrieve these extra properties can be anything else, e.g. through the entries inside a database table etc.
+name|answer
+operator|.
+name|put
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|put
@@ -230,7 +239,7 @@ name|answer
 operator|.
 name|put
 argument_list|(
-literal|"authority"
+literal|"context-path"
 argument_list|,
 literal|"result"
 argument_list|)
