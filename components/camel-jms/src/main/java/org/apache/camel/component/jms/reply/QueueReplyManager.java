@@ -422,11 +422,23 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Reply received for unknown correlationID [{}]. The message will be ignored: {}"
+literal|"Reply received for unknown correlationID [{}] on reply destination [{}]. Current correlation map size: {}. The message will be ignored: {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|correlationID
-argument_list|,
+block|,
+name|replyTo
+block|,
+name|correlation
+operator|.
+name|size
+argument_list|()
+block|,
 name|message
+block|}
 argument_list|)
 expr_stmt|;
 block|}
