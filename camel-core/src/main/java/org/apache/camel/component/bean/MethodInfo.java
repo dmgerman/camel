@@ -2244,7 +2244,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns true if this method is covariant with the specified method      * (this method may above or below the specified method in the class hierarchy)      * @param method      * @return      */
+comment|/**      * Returns true if this method is covariant with the specified method      * (this method may above or below the specified method in the class hierarchy)      */
 DECL|method|isCovariantWith (MethodInfo method)
 specifier|public
 name|boolean
@@ -3095,6 +3095,27 @@ operator|.
 name|TYPE
 return|;
 block|}
+comment|// the parameter value may match the expected type, then we use it as-is
+if|if
+condition|(
+name|parameterType
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|parameterValue
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|valid
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// the parameter value was not already valid, but since the simple language have evaluated the expression
 comment|// which may change the parameterValue, so we have to check it again to see if its now valid
 name|exp
@@ -3107,7 +3128,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|String
 operator|.
@@ -3137,6 +3158,7 @@ argument_list|(
 name|exp
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
