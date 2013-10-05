@@ -1243,7 +1243,7 @@ expr_stmt|;
 block|}
 DECL|method|sadd (String key, Object value)
 specifier|public
-name|Boolean
+name|Long
 name|sadd
 parameter_list|(
 name|String
@@ -1543,7 +1543,7 @@ return|;
 block|}
 DECL|method|srem (String key, Object value)
 specifier|public
-name|Boolean
+name|Long
 name|srem
 parameter_list|(
 name|String
@@ -2858,7 +2858,7 @@ return|;
 block|}
 DECL|method|zrem (String key, Object value)
 specifier|public
-name|Boolean
+name|Long
 name|zrem
 parameter_list|(
 name|String

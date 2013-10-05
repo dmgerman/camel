@@ -1068,7 +1068,12 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-literal|true
+name|Long
+operator|.
+name|valueOf
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Object
@@ -1109,7 +1114,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|true
+name|Long
+operator|.
+name|valueOf
+argument_list|(
+literal|1
+argument_list|)
 argument_list|,
 name|result
 argument_list|)

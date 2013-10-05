@@ -334,6 +334,8 @@ name|processorName
 argument_list|,
 name|key
 argument_list|)
+operator|!=
+literal|null
 return|;
 block|}
 annotation|@
@@ -388,6 +390,8 @@ name|processorName
 argument_list|,
 name|key
 argument_list|)
+operator|!=
+literal|null
 return|;
 block|}
 annotation|@
