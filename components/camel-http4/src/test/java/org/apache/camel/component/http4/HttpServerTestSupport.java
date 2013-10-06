@@ -92,20 +92,6 @@ name|apache
 operator|.
 name|http
 operator|.
-name|params
-operator|.
-name|HttpParams
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
 name|protocol
 operator|.
 name|BasicHttpProcessor
@@ -147,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract base class for unit testing using a http server.  * The setUp method starts the server before the camel context is started and  * the tearDown method stops the server after the camel context is stopped.  *  * @version   */
+comment|/**  * Abstract base class for unit testing using a http server.  * The setUp method starts the server before the camel context is started and  * the tearDown method stops the server after the camel context is stopped.  *  * @version  */
 end_comment
 
 begin_class
@@ -193,11 +179,10 @@ argument_list|,
 name|getHttpExpectationVerifier
 argument_list|()
 argument_list|,
-name|getHttpParams
-argument_list|()
-argument_list|,
 name|getSSLContext
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|registerHandler
@@ -285,17 +270,6 @@ DECL|method|getHttpExpectationVerifier ()
 specifier|protected
 name|HttpExpectationVerifier
 name|getHttpExpectationVerifier
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-comment|/**      * Returns the org.apache.http.params.HttpParams which should be used by      * the server.      *      * @return httpParams      */
-DECL|method|getHttpParams ()
-specifier|protected
-name|HttpParams
-name|getHttpParams
 parameter_list|()
 block|{
 return|return

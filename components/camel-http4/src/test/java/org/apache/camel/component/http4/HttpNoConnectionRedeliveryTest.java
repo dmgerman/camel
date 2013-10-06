@@ -80,20 +80,6 @@ name|apache
 operator|.
 name|http
 operator|.
-name|conn
-operator|.
-name|HttpHostConnectException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
 name|localserver
 operator|.
 name|LocalTestServer
@@ -111,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -194,12 +180,12 @@ name|isFailed
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|HttpHostConnectException
+name|ConnectException
 name|cause
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|HttpHostConnectException
+name|ConnectException
 operator|.
 name|class
 argument_list|,
@@ -209,16 +195,17 @@ name|getException
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertIsInstanceOf
+name|assertTrue
 argument_list|(
-name|ConnectException
-operator|.
-name|class
-argument_list|,
 name|cause
 operator|.
-name|getCause
+name|getMessage
 argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"refused"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
