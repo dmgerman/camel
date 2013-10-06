@@ -109,10 +109,8 @@ operator|.
 name|when
 argument_list|()
 operator|.
-name|language
+name|jsonPath
 argument_list|(
-literal|"jsonpath"
-argument_list|,
 literal|"$.store.book[?(@.price< 10)]"
 argument_list|)
 operator|.
@@ -124,10 +122,8 @@ operator|.
 name|when
 argument_list|()
 operator|.
-name|language
+name|jsonPath
 argument_list|(
-literal|"jsonpath"
-argument_list|,
 literal|"$.store.book[?(@.price< 30)]"
 argument_list|)
 operator|.

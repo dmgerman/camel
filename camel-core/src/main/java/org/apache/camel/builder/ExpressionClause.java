@@ -634,6 +634,25 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">JSon Path      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|jsonPath (String text)
+specifier|public
+name|T
+name|jsonPath
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|jsonPath
+argument_list|(
+name|text
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *       * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|jxpath (String text)
 specifier|public
