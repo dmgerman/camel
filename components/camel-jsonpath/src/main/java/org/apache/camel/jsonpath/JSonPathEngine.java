@@ -117,10 +117,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JSonPathEngine
+DECL|class|JsonPathEngine
 specifier|public
 class|class
-name|JSonPathEngine
+name|JsonPathEngine
 block|{
 DECL|field|expression
 specifier|private
@@ -140,9 +140,9 @@ specifier|final
 name|Configuration
 name|configuration
 decl_stmt|;
-DECL|method|JSonPathEngine (String expression)
+DECL|method|JsonPathEngine (String expression)
 specifier|public
-name|JSonPathEngine
+name|JsonPathEngine
 parameter_list|(
 name|String
 name|expression

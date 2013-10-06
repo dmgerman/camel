@@ -125,7 +125,7 @@ name|predicate
 parameter_list|)
 block|{
 specifier|final
-name|JSonPathEngine
+name|JsonPathEngine
 name|engine
 decl_stmt|;
 try|try
@@ -133,7 +133,7 @@ block|{
 name|engine
 operator|=
 operator|new
-name|JSonPathEngine
+name|JsonPathEngine
 argument_list|(
 name|predicate
 argument_list|)
@@ -231,7 +231,7 @@ name|expression
 parameter_list|)
 block|{
 specifier|final
-name|JSonPathEngine
+name|JsonPathEngine
 name|engine
 decl_stmt|;
 try|try
@@ -239,7 +239,7 @@ block|{
 name|engine
 operator|=
 operator|new
-name|JSonPathEngine
+name|JsonPathEngine
 argument_list|(
 name|expression
 argument_list|)
@@ -324,7 +324,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|evaluateJsonPath (Exchange exchange, JSonPathEngine engine)
+DECL|method|evaluateJsonPath (Exchange exchange, JsonPathEngine engine)
 specifier|private
 name|Object
 name|evaluateJsonPath
@@ -332,7 +332,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|JSonPathEngine
+name|JsonPathEngine
 name|engine
 parameter_list|)
 throws|throws
