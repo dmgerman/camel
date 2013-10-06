@@ -1074,11 +1074,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">JSon Path      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
-DECL|method|jsonPath (String text)
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpath (String text)
 specifier|public
 name|T
-name|jsonPath
+name|jsonpath
 parameter_list|(
 name|String
 name|text

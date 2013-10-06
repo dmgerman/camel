@@ -116,7 +116,7 @@ operator|.
 name|transform
 argument_list|()
 operator|.
-name|jsonPath
+name|jsonpath
 argument_list|(
 literal|"$.store.book[*].author"
 argument_list|)

@@ -109,7 +109,7 @@ operator|.
 name|when
 argument_list|()
 operator|.
-name|jsonPath
+name|jsonpath
 argument_list|(
 literal|"$.store.book[?(@.price< 10)]"
 argument_list|)
@@ -122,7 +122,7 @@ operator|.
 name|when
 argument_list|()
 operator|.
-name|jsonPath
+name|jsonpath
 argument_list|(
 literal|"$.store.book[?(@.price< 30)]"
 argument_list|)
