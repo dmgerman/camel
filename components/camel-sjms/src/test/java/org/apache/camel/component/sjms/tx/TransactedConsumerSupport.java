@@ -334,13 +334,12 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Await on our countdown for 10 seconds at most
-comment|// then move on
+comment|// Await on our countdown for 30 seconds at most then move on
 name|latch
 operator|.
 name|await
 argument_list|(
-literal|10
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
@@ -349,7 +348,7 @@ argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|(
-literal|10
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
