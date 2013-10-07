@@ -444,6 +444,25 @@ literal|10
 operator|/
 literal|10
 decl_stmt|;
+name|int
+name|delta
+init|=
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|expected
+operator|-
+name|recovered
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|delta
+operator|==
+literal|0
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 literal|"There should be "
@@ -457,6 +476,25 @@ argument_list|,
 name|recovered
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertTrue
+argument_list|(
+literal|"We expected "
+operator|+
+name|expected
+operator|+
+literal|" recovered but the delta is within accepted range "
+operator|+
+name|delta
+argument_list|,
+name|delta
+operator|<
+literal|3
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
