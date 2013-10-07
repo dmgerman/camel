@@ -2168,8 +2168,10 @@ argument_list|()
 expr_stmt|;
 name|element
 operator|.
-name|setAttribute
+name|setAttributeNS
 argument_list|(
+literal|null
+argument_list|,
 literal|"id"
 argument_list|,
 name|contextId
