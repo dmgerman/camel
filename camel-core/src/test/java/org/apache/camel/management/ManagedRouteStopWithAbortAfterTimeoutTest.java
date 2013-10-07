@@ -108,12 +108,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// JMX tests dont work well on AIX CI servers (hangs them)
+comment|// JMX tests dont work well on AIX or windows CI servers (hangs them)
 if|if
 condition|(
 name|isPlatform
 argument_list|(
 literal|"aix"
+argument_list|)
+operator|||
+name|isPlatform
+argument_list|(
+literal|"windows"
 argument_list|)
 condition|)
 block|{
@@ -340,12 +345,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// JMX tests dont work well on AIX CI servers (hangs them)
+comment|// JMX tests dont work well on AIX or windows CI servers (hangs them)
 if|if
 condition|(
 name|isPlatform
 argument_list|(
 literal|"aix"
+argument_list|)
+operator|||
+name|isPlatform
+argument_list|(
+literal|"windows"
 argument_list|)
 condition|)
 block|{

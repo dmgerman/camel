@@ -176,6 +176,15 @@ name|void
 name|testProducerFileNameHeaderNotEvaluated
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -196,6 +205,7 @@ argument_list|(
 literal|"target/filelanguage/$simple{myfile-${date:now:yyyyMMdd}}.txt"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testProduceBeanByExpression ()
 specifier|public

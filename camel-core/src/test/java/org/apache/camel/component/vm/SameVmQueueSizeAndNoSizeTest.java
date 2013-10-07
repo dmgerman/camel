@@ -153,6 +153,15 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|isJavaVendor
+argument_list|(
+literal|"ibm"
+argument_list|)
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 literal|"Queue full"
@@ -163,6 +172,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testSameQueueDifferentSize ()

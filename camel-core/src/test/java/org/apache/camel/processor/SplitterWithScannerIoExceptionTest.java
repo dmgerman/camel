@@ -64,6 +64,16 @@ name|isJavaVersion
 argument_list|(
 literal|"1.7"
 argument_list|)
+operator|||
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+operator|||
+name|isJavaVendor
+argument_list|(
+literal|"ibm"
+argument_list|)
 condition|)
 block|{
 return|return;
