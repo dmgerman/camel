@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -303,6 +315,12 @@ name|MockEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|(
+literal|20
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|,
 name|mock1
 argument_list|,
 name|mock2
