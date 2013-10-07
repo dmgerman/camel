@@ -891,6 +891,16 @@ specifier|protected
 name|Integer
 name|responseHeaderSize
 decl_stmt|;
+DECL|field|proxyHost
+specifier|protected
+name|String
+name|proxyHost
+decl_stmt|;
+DECL|field|proxyPort
+specifier|private
+name|Integer
+name|proxyPort
+decl_stmt|;
 DECL|class|ConnectorRef
 class|class
 name|ConnectorRef
@@ -1276,6 +1286,9 @@ argument_list|,
 name|String
 operator|.
 name|class
+argument_list|,
+name|getProxyHost
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Integer
@@ -1290,6 +1303,9 @@ argument_list|,
 name|Integer
 operator|.
 name|class
+argument_list|,
+name|getProxyPort
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Integer
@@ -4866,6 +4882,58 @@ operator|.
 name|responseHeaderSize
 operator|=
 name|responseHeaderSize
+expr_stmt|;
+block|}
+DECL|method|getProxyHost ()
+specifier|public
+name|String
+name|getProxyHost
+parameter_list|()
+block|{
+return|return
+name|proxyHost
+return|;
+block|}
+DECL|method|setProxyHost (String proxyHost)
+specifier|public
+name|void
+name|setProxyHost
+parameter_list|(
+name|String
+name|proxyHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyHost
+operator|=
+name|proxyHost
+expr_stmt|;
+block|}
+DECL|method|getProxyPort ()
+specifier|public
+name|Integer
+name|getProxyPort
+parameter_list|()
+block|{
+return|return
+name|proxyPort
+return|;
+block|}
+DECL|method|setProxyPort (Integer proxyPort)
+specifier|public
+name|void
+name|setProxyPort
+parameter_list|(
+name|Integer
+name|proxyPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyPort
+operator|=
+name|proxyPort
 expr_stmt|;
 block|}
 comment|// Implementation methods
