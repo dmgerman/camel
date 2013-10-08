@@ -459,7 +459,7 @@ name|substring
 argument_list|(
 name|HazelcastConstants
 operator|.
-name|INSTANCE_PREFIX
+name|ATOMICNUMBER_PREFIX
 operator|.
 name|length
 argument_list|()
