@@ -315,8 +315,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// CamelBlueprintTestSupport creates the test bundle which includes blueprint configuration files if the value is true
-comment|// You can override the return value to false if you already has the test bundle in your class path
+comment|/**      * Override this method if you don't want CamelBlueprintTestSupport create the test bundle      * @return includeTestBundle      * If the return value is true CamelBlueprintTestSupport creates the test bundle which includes blueprint configuration files      * If the return value is false CamelBlueprintTestSupport won't create the test bundle      *       */
 DECL|method|includeTestBundle ()
 specifier|protected
 name|boolean
