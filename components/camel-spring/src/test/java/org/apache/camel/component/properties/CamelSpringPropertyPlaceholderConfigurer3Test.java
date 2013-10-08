@@ -112,6 +112,61 @@ name|SpringTestSupport
 block|{
 annotation|@
 name|Override
+DECL|method|setUp ()
+specifier|protected
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// inside the used properties file (cheese.properties) we've defined the following key/value mapping:
+comment|// hi2=Guten Tag
+comment|// however as we make use of the PropertyPlaceholderConfigurer.SYSTEM_PROPERTIES_MODE_OVERRIDE mode
+comment|// (which is NOT the default mode) we expect that setting the system property below should override
+comment|// the mapping being defined above. that's we expect the following key/value mapping taking effect:
+comment|// hi2=Gute Nacht
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"hi2"
+argument_list|,
+literal|"Gute Nacht"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// clear the property properly to avoid any side effect by the other tests
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"hi2"
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|createApplicationContext ()
 specifier|protected
 name|AbstractXmlApplicationContext
@@ -141,7 +196,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Guten Tag Camel"
+literal|"Gute Nacht Camel"
 argument_list|)
 expr_stmt|;
 name|template

@@ -4,20 +4,19 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
 package|package
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|processor
-package|;
+name|$
+block|{
+package|package
+block|}
 end_package
 
+begin_expr_stmt
+operator|.
+name|incident
+expr_stmt|;
+end_expr_stmt
+
 begin_import
 import|import
 name|org
@@ -26,7 +25,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
 import|;
 end_import
 
@@ -38,58 +37,60 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|ShutdownNotDeferTest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spring
-operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
+name|Processor
 import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Processor for processing the status.  */
 end_comment
 
 begin_class
-DECL|class|SpringShutdownNotDeferTest
+DECL|class|StatusIncidentProcessor
 specifier|public
 class|class
-name|SpringShutdownNotDeferTest
-extends|extends
-name|ShutdownNotDeferTest
+name|StatusIncidentProcessor
+implements|implements
+name|Processor
 block|{
-DECL|method|createCamelContext ()
-specifier|protected
-name|CamelContext
-name|createCamelContext
-parameter_list|()
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
-name|createSpringCamelContext
+comment|// set reply
+name|OutputStatusIncident
+name|output
+init|=
+operator|new
+name|OutputStatusIncident
+argument_list|()
+decl_stmt|;
+name|output
+operator|.
+name|setStatus
 argument_list|(
-name|this
-argument_list|,
-literal|"org/apache/camel/spring/processor/ShutdownNotDeferTest.xml"
+literal|"IN PROGRESS"
 argument_list|)
-return|;
+expr_stmt|;
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

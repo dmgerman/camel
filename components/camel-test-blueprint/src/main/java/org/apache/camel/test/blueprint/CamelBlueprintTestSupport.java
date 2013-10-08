@@ -315,6 +315,17 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * Override this method if you don't want CamelBlueprintTestSupport create the test bundle      * @return includeTestBundle      * If the return value is true CamelBlueprintTestSupport creates the test bundle which includes blueprint configuration files      * If the return value is false CamelBlueprintTestSupport won't create the test bundle      *       */
+DECL|method|includeTestBundle ()
+specifier|protected
+name|boolean
+name|includeTestBundle
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -353,7 +364,8 @@ argument_list|,
 name|getBlueprintDescriptor
 argument_list|()
 argument_list|,
-literal|true
+name|includeTestBundle
+argument_list|()
 argument_list|,
 name|getBundleFilter
 argument_list|()
