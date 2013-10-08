@@ -161,8 +161,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// now launch the first clustered app which will acquire the quartz
-comment|// database lock and become the master
+comment|// now launch the first clustered app which will acquire the quartz database lock and become the master
 name|AbstractXmlApplicationContext
 name|app
 init|=
@@ -177,8 +176,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// as well as the second one which will run in slave modus as it will
-comment|// not be able to acquire the same lock
+comment|// as well as the second one which will run in slave mode as it will not be able to acquire the same lock
 name|AbstractXmlApplicationContext
 name|app2
 init|=

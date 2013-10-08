@@ -151,7 +151,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// clear the property properly to avoid any side effect by the other tests
+comment|// clear the property to avoid any side effect by the other tests
 name|System
 operator|.
 name|clearProperty
