@@ -543,7 +543,7 @@ name|resultType
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a xpath expression value builder      */
+comment|/**      * Returns a xpath expression value builder      * @param value The XPath expression      * @return A new XPathBuilder object      */
 DECL|method|xpath (String value)
 specifier|public
 name|XPathBuilder
@@ -559,6 +559,34 @@ operator|.
 name|xpath
 argument_list|(
 name|value
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a xpath expression value builder      * @param value The XPath expression      * @param resultType The result type that the XPath expression will return.      * @return A new XPathBuilder object      */
+DECL|method|xpath (String value, Class<?> resultType)
+specifier|public
+specifier|static
+name|XPathBuilder
+name|xpath
+parameter_list|(
+name|String
+name|value
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+return|return
+name|XPathBuilder
+operator|.
+name|xpath
+argument_list|(
+name|value
+argument_list|,
+name|resultType
 argument_list|)
 return|;
 block|}
