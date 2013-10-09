@@ -362,10 +362,10 @@ name|XmlRpcDataFormat
 implements|implements
 name|DataFormat
 block|{
-DECL|field|config
+DECL|field|xmlRpcStreamRequestConfig
 specifier|private
 name|XmlRpcStreamRequestConfig
-name|config
+name|xmlRpcStreamRequestConfig
 init|=
 operator|new
 name|XmlRpcHttpRequestConfigImpl
@@ -517,7 +517,7 @@ init|=
 operator|new
 name|XmlRpcWriter
 argument_list|(
-name|config
+name|xmlRpcStreamRequestConfig
 argument_list|,
 name|control
 argument_list|,
@@ -535,7 +535,7 @@ name|writer
 operator|.
 name|writeRequest
 argument_list|(
-name|config
+name|xmlRpcStreamRequestConfig
 argument_list|,
 operator|(
 name|XmlRpcRequest
@@ -552,7 +552,7 @@ name|writer
 operator|.
 name|write
 argument_list|(
-name|config
+name|xmlRpcStreamRequestConfig
 argument_list|,
 name|graph
 argument_list|)
@@ -667,7 +667,7 @@ operator|=
 operator|new
 name|XmlRpcResponseParser
 argument_list|(
-name|config
+name|xmlRpcStreamRequestConfig
 argument_list|,
 name|typeFactory
 argument_list|)
@@ -860,7 +860,7 @@ operator|=
 operator|new
 name|XmlRpcRequestParser
 argument_list|(
-name|config
+name|xmlRpcStreamRequestConfig
 argument_list|,
 name|typeFactory
 argument_list|)
@@ -978,6 +978,58 @@ name|isRequest
 operator|=
 name|isRequest
 expr_stmt|;
+block|}
+DECL|method|setXmlRpcStreamRequestConfig (XmlRpcStreamRequestConfig config)
+specifier|public
+name|void
+name|setXmlRpcStreamRequestConfig
+parameter_list|(
+name|XmlRpcStreamRequestConfig
+name|config
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRpcStreamRequestConfig
+operator|=
+name|config
+expr_stmt|;
+block|}
+DECL|method|getXmlRpcStreamRequestConfig ()
+specifier|public
+name|XmlRpcStreamRequestConfig
+name|getXmlRpcStreamRequestConfig
+parameter_list|()
+block|{
+return|return
+name|xmlRpcStreamRequestConfig
+return|;
+block|}
+DECL|method|setTypeFactory (TypeFactory typeFactory)
+specifier|public
+name|void
+name|setTypeFactory
+parameter_list|(
+name|TypeFactory
+name|typeFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|typeFactory
+operator|=
+name|typeFactory
+expr_stmt|;
+block|}
+DECL|method|getTypeFactory ()
+specifier|public
+name|TypeFactory
+name|getTypeFactory
+parameter_list|()
+block|{
+return|return
+name|typeFactory
+return|;
 block|}
 block|}
 end_class
