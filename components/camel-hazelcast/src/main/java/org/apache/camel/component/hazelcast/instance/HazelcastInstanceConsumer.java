@@ -267,7 +267,7 @@ expr_stmt|;
 comment|// instance listener header values
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader
@@ -290,7 +290,7 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|setHeader
