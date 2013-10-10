@@ -29,15 +29,12 @@ block|{
 DECL|enumConstant|SIMPLE
 DECL|enumConstant|QUEUE
 DECL|enumConstant|POOL
-DECL|enumConstant|NON_BLOCKING
 name|SIMPLE
 block|,
 name|QUEUE
 block|,
 name|POOL
-block|,
-name|NON_BLOCKING
-block|;  }
+block|}
 end_enum
 
 end_unit

@@ -1059,15 +1059,6 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|NON_BLOCKING
-case|:
-name|builder
-operator|.
-name|asNonBlocking
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
 name|QUEUE
 case|:
 name|builder
