@@ -423,6 +423,16 @@ name|ITEM_LISTENER
 init|=
 literal|"itemlistener"
 decl_stmt|;
+comment|// parameter names
+DECL|field|OPERATION_PARAM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_PARAM
+init|=
+literal|"operation"
+decl_stmt|;
 DECL|method|HazelcastConstants ()
 specifier|private
 name|HazelcastConstants
