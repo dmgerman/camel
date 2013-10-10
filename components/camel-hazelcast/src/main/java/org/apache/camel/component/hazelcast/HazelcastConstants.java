@@ -331,6 +331,9 @@ name|REMOVED
 init|=
 literal|"removed"
 decl_stmt|;
+annotation|@
+name|Deprecated
+comment|/**      * @deprecated should have been 'evicted' not 'envicted'.  Please use new {@link #EVICTED} constant.      */
 DECL|field|ENVICTED
 specifier|public
 specifier|static
@@ -339,6 +342,15 @@ name|String
 name|ENVICTED
 init|=
 literal|"envicted"
+decl_stmt|;
+DECL|field|EVICTED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EVICTED
+init|=
+literal|"evicted"
 decl_stmt|;
 DECL|field|UPDATED
 specifier|public

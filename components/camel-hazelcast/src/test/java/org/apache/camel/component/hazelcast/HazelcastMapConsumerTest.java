@@ -463,10 +463,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|testEnvict ()
+DECL|method|testEnict ()
 specifier|public
 name|void
-name|testEnvict
+name|testEnict
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -478,7 +478,7 @@ name|super
 operator|.
 name|getMockEndpoint
 argument_list|(
-literal|"mock:envicted"
+literal|"mock:evicted"
 argument_list|)
 decl_stmt|;
 name|out
@@ -840,18 +840,18 @@ name|isEqualTo
 argument_list|(
 name|HazelcastConstants
 operator|.
-name|ENVICTED
+name|EVICTED
 argument_list|)
 argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"...envicted"
+literal|"...evicted"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:envicted"
+literal|"mock:evicted"
 argument_list|)
 operator|.
 name|when

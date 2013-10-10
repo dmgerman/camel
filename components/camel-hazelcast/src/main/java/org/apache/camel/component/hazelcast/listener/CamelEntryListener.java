@@ -168,7 +168,7 @@ name|sendExchange
 argument_list|(
 name|HazelcastConstants
 operator|.
-name|ENVICTED
+name|EVICTED
 argument_list|,
 name|event
 operator|.
