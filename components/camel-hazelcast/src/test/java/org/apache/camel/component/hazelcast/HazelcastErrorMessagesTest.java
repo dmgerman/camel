@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|HazelcastErrorMessagesTest
 extends|extends
-name|CamelTestSupport
+name|HazelcastCamelTestSupport
 block|{
 annotation|@
 name|Test
