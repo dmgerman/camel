@@ -7713,6 +7713,114 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSimpleMapBoolean ()
+specifier|public
+name|void
+name|testSimpleMapBoolean
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Map
+name|map
+init|=
+operator|new
+name|HashMap
+argument_list|()
+decl_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|map
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"isCredit"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body[isCredit]} == true"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body[isCredit]} == false"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body['isCredit']} == true"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body['isCredit']} == false"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// wrong case
+name|assertPredicate
+argument_list|(
+literal|"${body['IsCredit']} == true"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"isCredit"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body[isCredit]} == true"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body[isCredit]} == false"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body['isCredit']} == true"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body['isCredit']} == false"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getLanguageName ()
 specifier|protected
 name|String
