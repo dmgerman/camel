@@ -3812,8 +3812,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original    the original exchange      * @param subExchange the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param pairs       the pairs with the exchanges to process      * @param callback    the callback      * @param doneSync    the<tt>doneSync</tt> parameter to call on callback      * @param exhaust     whether or not error handling is exhausted      */
-DECL|method|doDone (Exchange original, Exchange subExchange, final Iterable<ProcessorExchangePair> pairs, AsyncCallback callback, boolean doneSync, boolean exhaust)
+comment|/**      * Common work which must be done when we are done multicasting.      *<p/>      * This logic applies for both running synchronous and asynchronous as there are multiple exist points      * when using the asynchronous routing engine. And therefore we want the logic in one method instead      * of being scattered.      *      * @param original     the original exchange      * @param subExchange  the current sub exchange, can be<tt>null</tt> for the synchronous part      * @param pairs        the pairs with the exchanges to process      * @param callback     the callback      * @param doneSync     the<tt>doneSync</tt> parameter to call on callback      * @param forceExhaust whether or not error handling is exhausted      */
+DECL|method|doDone (Exchange original, Exchange subExchange, final Iterable<ProcessorExchangePair> pairs, AsyncCallback callback, boolean doneSync, boolean forceExhaust)
 specifier|protected
 name|void
 name|doDone
@@ -3838,7 +3838,7 @@ name|boolean
 name|doneSync
 parameter_list|,
 name|boolean
-name|exhaust
+name|forceExhaust
 parameter_list|)
 block|{
 comment|// we are done so close the pairs iterator
@@ -3874,10 +3874,42 @@ argument_list|(
 name|original
 argument_list|)
 expr_stmt|;
+comment|// we need to know if there was an exception, and if the stopOnException option was enabled
+comment|// also we would need to know if any error handler has attempted redelivery and exhausted
 name|boolean
 name|stoppedOnException
 init|=
 literal|false
+decl_stmt|;
+name|boolean
+name|exception
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|exhaust
+init|=
+name|forceExhaust
+operator|||
+name|subExchange
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|subExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+operator|||
+name|ExchangeHelper
+operator|.
+name|isRedeliveryExhausted
+argument_list|(
+name|subExchange
+argument_list|)
+operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -3906,21 +3938,12 @@ operator|=
 name|isStopOnException
 argument_list|()
 expr_stmt|;
-comment|// multicast uses error handling on its output processors and they have tried to redeliver
-comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
-comment|// also try to redeliver as we will then do that twice
-name|original
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|REDELIVERY_EXHAUSTED
-argument_list|,
-name|exhaust
-argument_list|)
+name|exception
+operator|=
+literal|true
 expr_stmt|;
 block|}
+comment|// must copy results at this point
 if|if
 condition|(
 name|subExchange
@@ -3958,6 +3981,29 @@ name|subExchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// .. and then if there was an exception we need to configure the redelivery exhaust
+comment|// for example the noErrorHandler will not cause redelivery exhaust so if this error
+comment|// handled has been in use, then the exhaust would be false (if not forced)
+if|if
+condition|(
+name|exception
+condition|)
+block|{
+comment|// multicast uses error handling on its output processors and they have tried to redeliver
+comment|// so we shall signal back to the other error handlers that we are exhausted and they should not
+comment|// also try to redeliver as we will then do that twice
+name|original
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|REDELIVERY_EXHAUSTED
+argument_list|,
+name|exhaust
+argument_list|)
+expr_stmt|;
 block|}
 name|callback
 operator|.
