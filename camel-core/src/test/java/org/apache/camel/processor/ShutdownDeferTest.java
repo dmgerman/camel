@@ -180,12 +180,12 @@ name|ShutdownDeferTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|consumerSuspended
+DECL|field|CONSUMER_SUSPENDED
 specifier|private
 specifier|static
 specifier|final
 name|AtomicBoolean
-name|consumerSuspended
+name|CONSUMER_SUSPENDED
 init|=
 operator|new
 name|AtomicBoolean
@@ -299,7 +299,7 @@ name|assertFalse
 argument_list|(
 literal|"Should not have been suspended"
 argument_list|,
-name|consumerSuspended
+name|CONSUMER_SUSPENDED
 operator|.
 name|get
 argument_list|()
@@ -468,7 +468,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|consumerSuspended
+name|CONSUMER_SUSPENDED
 operator|.
 name|set
 argument_list|(
