@@ -245,6 +245,20 @@ name|timePeriodMillis
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getThrottledCount ()
+specifier|public
+name|int
+name|getThrottledCount
+parameter_list|()
+block|{
+return|return
+name|getThrottler
+argument_list|()
+operator|.
+name|getDelayedCount
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

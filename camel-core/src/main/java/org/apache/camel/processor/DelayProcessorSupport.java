@@ -54,6 +54,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -191,6 +205,18 @@ name|callerRunsWhenRejected
 init|=
 literal|true
 decl_stmt|;
+DECL|field|delayedCount
+specifier|private
+specifier|final
+name|AtomicInteger
+name|delayedCount
+init|=
+operator|new
+name|AtomicInteger
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 comment|// TODO: Add option to cancel tasks on shutdown so we can stop fast
 DECL|class|ProcessCall
 specifier|private
@@ -242,6 +268,12 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// we are running now so decrement the counter
+name|delayedCount
+operator|.
+name|decrementAndGet
+argument_list|()
+expr_stmt|;
 name|log
 operator|.
 name|trace
@@ -565,6 +597,12 @@ block|}
 else|else
 block|{
 comment|// asynchronous delay so schedule a process call task
+comment|// and increment the counter (we decrement the counter when we run the ProcessCall)
+name|delayedCount
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 name|ProcessCall
 name|call
 init|=
@@ -616,6 +654,12 @@ name|RejectedExecutionException
 name|e
 parameter_list|)
 block|{
+comment|// we were not allowed to run the ProcessCall, so need to decrement the counter here
+name|delayedCount
+operator|.
+name|decrementAndGet
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|isCallerRunsWhenRejected
@@ -779,6 +823,20 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the current number of {@link Exchange}s being delayed (hold back due throttle limit hit)      */
+DECL|method|getDelayedCount ()
+specifier|public
+name|int
+name|getDelayedCount
+parameter_list|()
+block|{
+return|return
+name|delayedCount
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 comment|/**      * Delays the given time before continuing.      *<p/>      * This implementation will block while waiting      *       * @param delay the delay time in millis      * @param exchange the exchange being processed      */
 DECL|method|delay (long delay, Exchange exchange)
 specifier|protected
@@ -817,6 +875,12 @@ else|else
 block|{
 try|try
 block|{
+comment|// keep track on delayer counter while we sleep
+name|delayedCount
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 name|sleep
 argument_list|(
 name|delay
@@ -835,6 +899,14 @@ name|e
 argument_list|,
 name|exchange
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|delayedCount
+operator|.
+name|decrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 block|}

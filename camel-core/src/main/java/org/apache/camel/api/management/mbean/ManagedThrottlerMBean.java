@@ -98,6 +98,18 @@ name|long
 name|timePeriodMillis
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of exchanges currently throttled"
+argument_list|)
+DECL|method|getThrottledCount ()
+name|int
+name|getThrottledCount
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

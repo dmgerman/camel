@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -141,10 +155,14 @@ name|maxRequestsPerPeriodExpression
 decl_stmt|;
 DECL|field|timePeriodMillis
 specifier|private
-name|long
+name|AtomicLong
 name|timePeriodMillis
 init|=
+operator|new
+name|AtomicLong
+argument_list|(
 literal|1000
+argument_list|)
 decl_stmt|;
 DECL|field|slot
 specifier|private
@@ -221,8 +239,11 @@ block|}
 name|this
 operator|.
 name|timePeriodMillis
-operator|=
+operator|.
+name|set
+argument_list|(
 name|timePeriodMillis
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -305,6 +326,9 @@ parameter_list|()
 block|{
 return|return
 name|timePeriodMillis
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 comment|/**      * Gets the current maximum request per period value.      */
@@ -331,8 +355,11 @@ block|{
 name|this
 operator|.
 name|timePeriodMillis
-operator|=
+operator|.
+name|set
+argument_list|(
 name|timePeriodMillis
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -575,6 +602,9 @@ operator|.
 name|this
 operator|.
 name|timePeriodMillis
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 DECL|field|startTime
 specifier|private
