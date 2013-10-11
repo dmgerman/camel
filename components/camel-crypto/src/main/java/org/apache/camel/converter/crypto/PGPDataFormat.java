@@ -162,6 +162,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -610,8 +624,28 @@ name|Streams
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
-comment|/**  *<code>PGPDataFormat</code> uses the<a href="http://www.bouncycastle.org/java.htm">bouncy castle</a>  * libraries to enable encryption and decryption in the PGP format.  */
+comment|/**  *<code>PGPDataFormat</code> uses the<a  * href="http://www.bouncycastle.org/java.htm">bouncy castle</a> libraries to  * enable encryption and decryption in the PGP format.  */
 end_comment
 
 begin_class
@@ -619,6 +653,8 @@ DECL|class|PGPDataFormat
 specifier|public
 class|class
 name|PGPDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 block|{
@@ -694,6 +730,31 @@ name|SIGNATURE_KEY_PASSWORD
 init|=
 literal|"CamelPGPDataFormatSignatureKeyPassword"
 decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|PGPDataFormat
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|field|BC
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|BC
+init|=
+literal|"BC"
+decl_stmt|;
 DECL|field|BUFFER_SIZE
 specifier|private
 specifier|static
@@ -704,6 +765,14 @@ init|=
 literal|16
 operator|*
 literal|1024
+decl_stmt|;
+comment|// Java Cryptography Extension provider, default is Bouncy Castle
+DECL|field|provider
+specifier|private
+name|String
+name|provider
+init|=
+name|BC
 decl_stmt|;
 comment|// encryption / decryption key info (required)
 DECL|field|keyUserid
@@ -744,7 +813,7 @@ specifier|private
 name|String
 name|signatureKeyFileName
 decl_stmt|;
-comment|// alternatively to the sigknature key file name you can specify the signature key ring as byte array
+comment|// alternatively to the signature key file name you can specify the signature key ring as byte array
 DECL|field|signatureKeyRing
 specifier|private
 name|byte
@@ -767,30 +836,7 @@ DECL|method|PGPDataFormat ()
 specifier|public
 name|PGPDataFormat
 parameter_list|()
-block|{
-if|if
-condition|(
-name|Security
-operator|.
-name|getProvider
-argument_list|(
-literal|"BC"
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-name|Security
-operator|.
-name|addProvider
-argument_list|(
-operator|new
-name|BouncyCastleProvider
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+block|{     }
 DECL|method|findKeyFileName (Exchange exchange)
 specifier|protected
 name|String
@@ -1139,7 +1185,8 @@ argument_list|)
 operator|.
 name|setProvider
 argument_list|(
-literal|"BC"
+name|getProvider
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1482,6 +1529,9 @@ argument_list|,
 name|sigKeyRing
 argument_list|,
 name|sigKeyPassword
+argument_list|,
+name|getProvider
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1512,7 +1562,8 @@ argument_list|()
 operator|.
 name|setProvider
 argument_list|(
-literal|"BC"
+name|getProvider
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1584,7 +1635,8 @@ argument_list|)
 operator|.
 name|setProvider
 argument_list|(
-literal|"BC"
+name|getProvider
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1678,6 +1730,9 @@ name|findKeyPassword
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|,
+name|getProvider
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1822,7 +1877,8 @@ argument_list|()
 operator|.
 name|setProvider
 argument_list|(
-literal|"BC"
+name|getProvider
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -2089,7 +2145,8 @@ argument_list|()
 operator|.
 name|setProvider
 argument_list|(
-literal|"BC"
+name|getProvider
+argument_list|()
 argument_list|)
 argument_list|,
 name|sigPublicKey
@@ -2374,6 +2431,105 @@ name|signatureKeyRing
 operator|=
 name|signatureKeyRing
 expr_stmt|;
+block|}
+DECL|method|getProvider ()
+specifier|public
+name|String
+name|getProvider
+parameter_list|()
+block|{
+return|return
+name|provider
+return|;
+block|}
+DECL|method|setProvider (String provider)
+specifier|public
+name|void
+name|setProvider
+parameter_list|(
+name|String
+name|provider
+parameter_list|)
+block|{
+name|this
+operator|.
+name|provider
+operator|=
+name|provider
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|Security
+operator|.
+name|getProvider
+argument_list|(
+name|BC
+argument_list|)
+operator|==
+literal|null
+operator|&&
+name|BC
+operator|.
+name|equals
+argument_list|(
+name|getProvider
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Adding BouncyCastleProvider as security provider"
+argument_list|)
+expr_stmt|;
+name|Security
+operator|.
+name|addProvider
+argument_list|(
+operator|new
+name|BouncyCastleProvider
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using custom provider {} which is expected to be enlisted manually."
+argument_list|,
+name|getProvider
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class

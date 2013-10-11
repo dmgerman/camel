@@ -828,10 +828,12 @@ argument_list|,
 name|encryptedInput
 argument_list|,
 name|passphrase
+argument_list|,
+literal|"BC"
 argument_list|)
 return|;
 block|}
-DECL|method|findPrivateKey (CamelContext context, String keychainFilename, byte[] secKeyRing, InputStream encryptedInput, String passphrase)
+DECL|method|findPrivateKey (CamelContext context, String keychainFilename, byte[] secKeyRing, InputStream encryptedInput, String passphrase, String provider)
 specifier|public
 specifier|static
 name|PGPPrivateKey
@@ -852,6 +854,9 @@ name|encryptedInput
 parameter_list|,
 name|String
 name|passphrase
+parameter_list|,
+name|String
+name|provider
 parameter_list|)
 throws|throws
 name|IOException
@@ -890,6 +895,8 @@ argument_list|,
 name|encryptedInput
 argument_list|,
 name|passphrase
+argument_list|,
+name|provider
 argument_list|)
 expr_stmt|;
 block|}
@@ -907,7 +914,7 @@ return|return
 name|privKey
 return|;
 block|}
-DECL|method|findPrivateKey (InputStream keyringInput, InputStream encryptedInput, String passphrase)
+DECL|method|findPrivateKey (InputStream keyringInput, InputStream encryptedInput, String passphrase, String provider)
 specifier|private
 specifier|static
 name|PGPPrivateKey
@@ -921,6 +928,9 @@ name|encryptedInput
 parameter_list|,
 name|String
 name|passphrase
+parameter_list|,
+name|String
+name|provider
 parameter_list|)
 throws|throws
 name|IOException
@@ -1092,7 +1102,7 @@ argument_list|()
 operator|.
 name|setProvider
 argument_list|(
-literal|"BC"
+name|provider
 argument_list|)
 operator|.
 name|build
@@ -1168,10 +1178,12 @@ argument_list|,
 literal|null
 argument_list|,
 name|passphrase
+argument_list|,
+literal|"BC"
 argument_list|)
 return|;
 block|}
-DECL|method|findSecretKey (CamelContext context, String keychainFilename, byte[] secKeyRing, String passphrase)
+DECL|method|findSecretKey (CamelContext context, String keychainFilename, byte[] secKeyRing, String passphrase, String provider)
 specifier|public
 specifier|static
 name|PGPSecretKey
@@ -1189,6 +1201,9 @@ name|secKeyRing
 parameter_list|,
 name|String
 name|passphrase
+parameter_list|,
+name|String
+name|provider
 parameter_list|)
 throws|throws
 name|IOException
@@ -1225,6 +1240,8 @@ argument_list|(
 name|keyChainInputStream
 argument_list|,
 name|passphrase
+argument_list|,
+name|provider
 argument_list|)
 expr_stmt|;
 block|}
@@ -1242,7 +1259,7 @@ return|return
 name|secKey
 return|;
 block|}
-DECL|method|findSecretKey (InputStream keyringInput, String passphrase)
+DECL|method|findSecretKey (InputStream keyringInput, String passphrase, String provider)
 specifier|private
 specifier|static
 name|PGPSecretKey
@@ -1253,6 +1270,9 @@ name|keyringInput
 parameter_list|,
 name|String
 name|passphrase
+parameter_list|,
+name|String
+name|provider
 parameter_list|)
 throws|throws
 name|IOException
@@ -1348,7 +1368,7 @@ argument_list|()
 operator|.
 name|setProvider
 argument_list|(
-literal|"BC"
+name|provider
 argument_list|)
 operator|.
 name|build
