@@ -95,6 +95,15 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
+DECL|field|deleteIfFiltered
+specifier|private
+name|Boolean
+name|deleteIfFiltered
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
 DECL|field|visibilityTimeout
 specifier|private
 name|Integer
@@ -604,6 +613,32 @@ operator|=
 name|queueOwnerAWSAccountId
 expr_stmt|;
 block|}
+DECL|method|isDeleteIfFiltered ()
+specifier|public
+name|Boolean
+name|isDeleteIfFiltered
+parameter_list|()
+block|{
+return|return
+name|deleteIfFiltered
+return|;
+block|}
+DECL|method|setDeleteIfFiltered (Boolean deleteIfFiltered)
+specifier|public
+name|void
+name|setDeleteIfFiltered
+parameter_list|(
+name|Boolean
+name|deleteIfFiltered
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deleteIfFiltered
+operator|=
+name|deleteIfFiltered
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -630,6 +665,10 @@ operator|+
 literal|", deleteAfterRead="
 operator|+
 name|deleteAfterRead
+operator|+
+literal|", deleteIfFiltered="
+operator|+
+name|deleteIfFiltered
 operator|+
 literal|", visibilityTimeout="
 operator|+
