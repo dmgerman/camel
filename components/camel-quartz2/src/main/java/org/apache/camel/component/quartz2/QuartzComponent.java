@@ -1145,6 +1145,18 @@ argument_list|,
 literal|"/"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|host
+operator|==
+literal|null
+condition|)
+block|{
+name|host
+operator|=
+name|remaining
+expr_stmt|;
+block|}
 block|}
 comment|// Trigger group can be optional, if so set it to this context's unique name
 name|String
