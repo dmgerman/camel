@@ -639,6 +639,18 @@ argument_list|,
 literal|"/"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|host
+operator|==
+literal|null
+condition|)
+block|{
+name|host
+operator|=
+name|remaining
+expr_stmt|;
+block|}
 block|}
 comment|// group can be optional, if so set it to Camel
 name|String
