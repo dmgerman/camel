@@ -1968,7 +1968,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      */
+comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint      *      * If you want to assert that<b>exactly</b> n messages arrives to this mock      * endpoint, then see also the {@link #setAssertPeriod(long)} method for further details.      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      * @see #setAssertPeriod(long)      */
 DECL|method|expectedMessageCount (int expectedCount)
 specifier|public
 name|void
