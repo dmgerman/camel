@@ -147,13 +147,10 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// TODO: don't make use of the id property here as it could potentially end up
+comment|// with a deadlock through the openjpa generated proxy object of this entity
 return|return
-literal|"SendEmail[id: "
-operator|+
-name|getId
-argument_list|()
-operator|+
-literal|" address: "
+literal|"SendEmail[address: "
 operator|+
 name|getAddress
 argument_list|()

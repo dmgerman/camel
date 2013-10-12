@@ -418,9 +418,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Got the managed entity {}"
+literal|"Got the managed entity {} with the id {}"
 argument_list|,
 name|sendMail
+argument_list|,
+name|sendMail
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

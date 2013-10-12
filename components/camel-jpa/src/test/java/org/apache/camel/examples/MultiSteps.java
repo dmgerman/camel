@@ -178,13 +178,10 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// TODO: don't make use of the id property here as it could potentially end up
+comment|// with a deadlock through the openjpa generated proxy object of this entity
 return|return
-literal|"MultiSteps[id: "
-operator|+
-name|getId
-argument_list|()
-operator|+
-literal|" step: "
+literal|"MultiSteps[step: "
 operator|+
 name|getStep
 argument_list|()
