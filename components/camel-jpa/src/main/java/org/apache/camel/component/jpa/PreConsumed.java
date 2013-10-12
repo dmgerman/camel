@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An annotation to mark a method to be invoked when an entity bean has been successfully processed  * by a Camel consumer and when the routing is done; so that it can be updated in some way to remove it from the query set.  *<p/>  * For example a method may be marked to set an active flag to false or to update some status value to the next step in a workflow  *  * @version   */
+comment|/**  * An annotation to mark a method to be invoked<b>before</b> an entity bean is processed and routed; so  * that it can be updated in such a way that the results are available to later nodes in the route.  */
 end_comment
 
 begin_annotation_defn
@@ -101,10 +101,10 @@ operator|.
 name|METHOD
 block|}
 argument_list|)
-DECL|annotation|Consumed
+DECL|annotation|PreConsumed
 specifier|public
 annotation_defn|@interface
-name|Consumed
+name|PreConsumed
 block|{ }
 end_annotation_defn
 
