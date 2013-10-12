@@ -1235,12 +1235,6 @@ parameter_list|)
 throws|throws
 name|SchedulerException
 block|{
-name|incrementJobCounter
-argument_list|(
-name|getScheduler
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|Trigger
 name|existingTrigger
 init|=
@@ -1496,6 +1490,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// only increment job counter if we are successful
+name|incrementJobCounter
+argument_list|(
+name|getScheduler
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|hasTriggerChanged (Trigger oldTrigger, Trigger newTrigger)
 specifier|private
@@ -1579,12 +1580,6 @@ parameter_list|)
 throws|throws
 name|SchedulerException
 block|{
-name|decrementJobCounter
-argument_list|(
-name|getScheduler
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|isClustered
@@ -1662,6 +1657,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only decrement job counter if we are successful
+name|decrementJobCounter
+argument_list|(
+name|getScheduler
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|deleteJob (String name, String group)
 specifier|public
