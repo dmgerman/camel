@@ -453,7 +453,7 @@ name|put
 argument_list|(
 literal|"until"
 argument_list|,
-name|facebookDate
+literal|"arbitrary date, to be validated by Facebook call"
 argument_list|)
 expr_stmt|;
 name|properties

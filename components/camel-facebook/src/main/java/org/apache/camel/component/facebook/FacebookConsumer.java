@@ -640,7 +640,7 @@ name|queryString
 operator|.
 name|contains
 argument_list|(
-literal|"since="
+name|SINCE_PREFIX
 argument_list|)
 condition|)
 block|{
@@ -681,12 +681,15 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// ignore the closing square bracket
 name|endIndex
 operator|=
 name|queryString
 operator|.
 name|length
 argument_list|()
+operator|-
+literal|1
 expr_stmt|;
 block|}
 specifier|final
@@ -794,6 +797,19 @@ argument_list|(
 name|properties
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isGreedy ()
+specifier|public
+name|boolean
+name|isGreedy
+parameter_list|()
+block|{
+comment|// make this consumer not greedy to avoid making too many Facebook calls
+return|return
+literal|false
+return|;
 block|}
 DECL|method|findMethod ()
 specifier|private
@@ -979,12 +995,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Note mark this consumer as not greedy to avoid making too many Facebook calls
-name|setGreedy
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 comment|// invoke the consumer method
 specifier|final
 name|Map
