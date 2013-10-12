@@ -63,6 +63,7 @@ extends|extends
 name|DefaultComponent
 block|{
 DECL|field|configuration
+specifier|private
 name|StompConfiguration
 name|configuration
 init|=
@@ -108,6 +109,24 @@ argument_list|,
 literal|"/"
 argument_list|)
 decl_stmt|;
+comment|// must copy config so we do not have side effects
+name|StompConfiguration
+name|config
+init|=
+name|getConfiguration
+argument_list|()
+operator|.
+name|copy
+argument_list|()
+decl_stmt|;
+comment|// allow to configure configuration from uri parameters
+name|setProperties
+argument_list|(
+name|config
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 name|StompEndpoint
 name|endpoint
 init|=
@@ -118,8 +137,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|getConfiguration
-argument_list|()
+name|config
 argument_list|,
 name|destination
 argument_list|)

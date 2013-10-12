@@ -69,6 +69,16 @@ name|numberOfMessages
 init|=
 literal|100
 decl_stmt|;
+DECL|method|getPort ()
+specifier|protected
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+literal|61613
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -103,7 +113,12 @@ name|brokerService
 operator|.
 name|addConnector
 argument_list|(
-literal|"stomp://localhost:61613?trace=true"
+literal|"stomp://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?trace=true"
 argument_list|)
 expr_stmt|;
 name|brokerService
