@@ -22,18 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutionException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -298,10 +286,6 @@ name|int
 name|expectedVersion
 parameter_list|)
 throws|throws
-name|InterruptedException
-throws|,
-name|ExecutionException
-throws|,
 name|Exception
 block|{
 name|SetDataOperation
