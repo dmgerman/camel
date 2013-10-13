@@ -402,7 +402,7 @@ argument_list|()
 control|)
 block|{
 name|SendEmail
-name|sendMail
+name|sendEmail
 init|=
 name|future
 operator|.
@@ -411,20 +411,23 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|sendMail
+name|sendEmail
 argument_list|)
 expr_stmt|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Got the managed entity {} with the id {}"
+literal|"Persisted the SendEmail entity with the id {} and the address {}"
 argument_list|,
-name|sendMail
-argument_list|,
-name|sendMail
+name|sendEmail
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+name|sendEmail
+operator|.
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;

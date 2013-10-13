@@ -519,6 +519,11 @@ name|entityManager
 parameter_list|)
 block|{
 comment|// there may be concurrency so need to join tx before persist/merge
+name|entityManager
+operator|.
+name|joinTransaction
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -527,11 +532,6 @@ name|isUsePersist
 argument_list|()
 condition|)
 block|{
-name|entityManager
-operator|.
-name|joinTransaction
-argument_list|()
-expr_stmt|;
 name|entityManager
 operator|.
 name|persist
@@ -545,11 +545,6 @@ return|;
 block|}
 else|else
 block|{
-name|entityManager
-operator|.
-name|joinTransaction
-argument_list|()
-expr_stmt|;
 return|return
 name|entityManager
 operator|.
