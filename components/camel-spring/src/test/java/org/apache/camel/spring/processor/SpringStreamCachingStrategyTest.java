@@ -70,6 +70,22 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
+operator|.
+name|normalizePath
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -119,8 +135,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|normalizePath
+argument_list|(
 literal|"target/cachedir"
+argument_list|)
 argument_list|,
+name|normalizePath
+argument_list|(
 name|context
 operator|.
 name|getStreamCachingStrategy
@@ -131,6 +152,7 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
