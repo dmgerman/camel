@@ -183,18 +183,6 @@ extends|extends
 name|StompBaseTest
 block|{
 annotation|@
-name|Override
-DECL|method|getPort ()
-specifier|protected
-name|int
-name|getPort
-parameter_list|()
-block|{
-return|return
-literal|61614
-return|;
-block|}
-annotation|@
 name|Test
 DECL|method|testConsume ()
 specifier|public
@@ -349,7 +337,10 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"stomp:queue:test?brokerURL=tcp://localhost:61614"
+literal|"stomp:queue:test?brokerURL=tcp://localhost:"
+operator|+
+name|getPort
+argument_list|()
 argument_list|)
 operator|.
 name|transform

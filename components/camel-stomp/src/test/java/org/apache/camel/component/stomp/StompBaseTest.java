@@ -42,6 +42,20 @@ name|camel
 operator|.
 name|test
 operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
 name|junit4
 operator|.
 name|CamelTestSupport
@@ -69,6 +83,11 @@ name|numberOfMessages
 init|=
 literal|100
 decl_stmt|;
+DECL|field|port
+specifier|protected
+name|int
+name|port
+decl_stmt|;
 DECL|method|getPort ()
 specifier|protected
 name|int
@@ -76,7 +95,7 @@ name|getPort
 parameter_list|()
 block|{
 return|return
-literal|61613
+name|port
 return|;
 block|}
 annotation|@
@@ -89,6 +108,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|61613
+argument_list|)
+expr_stmt|;
 name|brokerService
 operator|=
 operator|new

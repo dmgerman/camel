@@ -204,7 +204,10 @@ init|=
 operator|new
 name|Stomp
 argument_list|(
-literal|"tcp://localhost:61613"
+literal|"tcp://localhost:"
+operator|+
+name|getPort
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
