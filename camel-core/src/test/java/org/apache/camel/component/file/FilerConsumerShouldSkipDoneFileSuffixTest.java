@@ -248,7 +248,14 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/done?doneFileName=${file:name}.ready&initialDelay=0&delay=10"
+literal|"file:target/done?doneFileName=${file:name}.ready&initialDelay=0"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 operator|.
 name|to
