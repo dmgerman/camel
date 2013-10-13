@@ -74,7 +74,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|)
 operator|.
 name|transform

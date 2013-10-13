@@ -72,7 +72,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"seda:start"
 argument_list|,
 literal|"Camel"
 argument_list|)
