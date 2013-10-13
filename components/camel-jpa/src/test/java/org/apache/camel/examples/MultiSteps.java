@@ -171,30 +171,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-comment|// TODO: don't make use of the id property here as it could potentially end up
-comment|// with a deadlock through the openjpa generated proxy object of this entity
-return|return
-literal|"MultiSteps[step: "
-operator|+
-name|getStep
-argument_list|()
-operator|+
-literal|" address: "
-operator|+
-name|getAddress
-argument_list|()
-operator|+
-literal|"]"
-return|;
-block|}
-annotation|@
 name|Id
 annotation|@
 name|GeneratedValue
@@ -297,8 +273,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Invoked the completion complete method. Now updated the step to: "
-operator|+
+literal|"Invoked the completion complete method. Now updated the step to: {}"
+argument_list|,
 name|getStep
 argument_list|()
 argument_list|)

@@ -140,25 +140,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-comment|// TODO: don't make use of the id property here as it could potentially end up
-comment|// with a deadlock through the openjpa generated proxy object of this entity
-return|return
-literal|"SendEmail[address: "
-operator|+
-name|getAddress
-argument_list|()
-operator|+
-literal|"]"
-return|;
-block|}
-annotation|@
 name|Id
 annotation|@
 name|GeneratedValue
@@ -228,7 +209,8 @@ name|info
 argument_list|(
 literal|"Invoked the pre consumed method with address {}"
 argument_list|,
-name|address
+name|getAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -237,13 +219,15 @@ literal|"dummy"
 operator|.
 name|equals
 argument_list|(
-name|address
+name|getAddress
+argument_list|()
 argument_list|)
 condition|)
 block|{
-name|address
-operator|=
+name|setAddress
+argument_list|(
 literal|"dummy@somewhere.org"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
