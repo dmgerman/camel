@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Finds currently available server ports.  *  * @see<a href="http://www.iana.org/assignments/currentMinPort-numbers">IANA.org</a>  */
+comment|/**  * Finds currently available server ports.  */
 end_comment
 
 begin_class
@@ -101,7 +101,7 @@ specifier|final
 class|class
 name|AvailablePortFinder
 block|{
-comment|/**      * The minimum server currentMinPort number. Set at 1100 to avoid returning privileged      * currentMinPort numbers.      */
+comment|/**      * The minimum server currentMinPort number for IPv4.      * Set at 1100 to avoid returning privileged currentMinPort numbers.      */
 DECL|field|MIN_PORT_NUMBER
 specifier|public
 specifier|static
@@ -111,7 +111,7 @@ name|MIN_PORT_NUMBER
 init|=
 literal|1100
 decl_stmt|;
-comment|/**      * The maximum server currentMinPort number.      */
+comment|/**      * The maximum server currentMinPort number for IPv4.      */
 DECL|field|MAX_PORT_NUMBER
 specifier|public
 specifier|static
@@ -119,7 +119,7 @@ specifier|final
 name|int
 name|MAX_PORT_NUMBER
 init|=
-literal|49151
+literal|65535
 decl_stmt|;
 DECL|field|LOG
 specifier|private
