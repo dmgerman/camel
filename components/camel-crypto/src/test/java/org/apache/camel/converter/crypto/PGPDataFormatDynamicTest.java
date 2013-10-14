@@ -38,6 +38,30 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|bcpg
+operator|.
+name|HashAlgorithmTags
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|bcpg
+operator|.
+name|SymmetricKeyAlgorithmTags
+import|;
+end_import
+
 begin_class
 DECL|class|PGPDataFormatDynamicTest
 specifier|public
@@ -47,6 +71,8 @@ extends|extends
 name|PGPDataFormatTest
 block|{
 comment|// setup a wrong userid
+annotation|@
+name|Override
 DECL|method|getKeyUserId ()
 specifier|protected
 name|String
@@ -58,6 +84,8 @@ literal|"wrong"
 return|;
 block|}
 comment|// setup a wrong password
+annotation|@
+name|Override
 DECL|method|getKeyPassword ()
 specifier|protected
 name|String
@@ -66,6 +94,32 @@ parameter_list|()
 block|{
 return|return
 literal|"wrong"
+return|;
+block|}
+comment|//setup wrong algorithm
+annotation|@
+name|Override
+DECL|method|getAlgorithm ()
+specifier|protected
+name|int
+name|getAlgorithm
+parameter_list|()
+block|{
+return|return
+operator|-
+literal|5
+return|;
+block|}
+comment|//setup wrong hash algorithm
+DECL|method|getHashAlgorithm ()
+specifier|protected
+name|int
+name|getHashAlgorithm
+parameter_list|()
+block|{
+return|return
+operator|-
+literal|5
 return|;
 block|}
 comment|// override wrong userid and password with correct userid and password in the headers
@@ -139,6 +193,32 @@ operator|.
 name|SIGNATURE_KEY_PASSWORD
 argument_list|,
 literal|"sdude"
+argument_list|)
+expr_stmt|;
+name|headers
+operator|.
+name|put
+argument_list|(
+name|PGPDataFormat
+operator|.
+name|ENCRYPTION_ALGORITHM
+argument_list|,
+name|SymmetricKeyAlgorithmTags
+operator|.
+name|AES_128
+argument_list|)
+expr_stmt|;
+name|headers
+operator|.
+name|put
+argument_list|(
+name|PGPDataFormat
+operator|.
+name|SIGNATURE_HASH_ALGORITHM
+argument_list|,
+name|HashAlgorithmTags
+operator|.
+name|SHA512
 argument_list|)
 expr_stmt|;
 return|return
