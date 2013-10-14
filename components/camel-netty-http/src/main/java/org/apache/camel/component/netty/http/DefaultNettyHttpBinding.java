@@ -2368,6 +2368,34 @@ argument_list|(
 name|buffer
 argument_list|)
 expr_stmt|;
+comment|// We just need to reset the readerIndex this time
+if|if
+condition|(
+name|buffer
+operator|.
+name|readerIndex
+argument_list|()
+operator|==
+name|buffer
+operator|.
+name|writerIndex
+argument_list|()
+condition|)
+block|{
+name|buffer
+operator|.
+name|setIndex
+argument_list|(
+literal|0
+argument_list|,
+name|buffer
+operator|.
+name|writerIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO How to enable the chunk transport
 name|int
 name|len
 init|=

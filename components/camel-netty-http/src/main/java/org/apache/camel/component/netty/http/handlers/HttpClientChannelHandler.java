@@ -509,7 +509,7 @@ argument_list|(
 name|copy
 argument_list|)
 expr_stmt|;
-comment|// we the all the content now, so call super to process the received message
+comment|// we get the all the content now, so call super to process the received message
 name|super
 operator|.
 name|messageReceived
