@@ -120,6 +120,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ScheduledFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|TimeUnit
 import|;
 end_import
@@ -199,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of the {@link TimeoutMap}.  *<p/>  * This implementation supports thread safe and non thread safe, in the manner you can enable locking or not.  * By default locking is enabled and thus we are thread safe.  *<p/>  * You must provide a {@link java.util.concurrent.ScheduledExecutorService} in the constructor which is used  * to schedule a background task which check for old entries to purge. This implementation will shutdown the scheduler  * if its being stopped.  *  * @version   */
+comment|/**  * Default implementation of the {@link TimeoutMap}.  *<p/>  * This implementation supports thread safe and non thread safe, in the manner you can enable locking or not.  * By default locking is enabled and thus we are thread safe.  *<p/>  * You must provide a {@link java.util.concurrent.ScheduledExecutorService} in the constructor which is used  * to schedule a background task which check for old entries to purge. This implementation will shutdown the scheduler  * if its being stopped.  * You must also invoke {@link #start()} to startup the timeout map, before its ready to be used.  * And you must invoke {@link #stop()} to stop the map when no longer in use.  *  * @version   */
 end_comment
 
 begin_class
@@ -273,6 +285,12 @@ specifier|private
 specifier|final
 name|ScheduledExecutorService
 name|executor
+decl_stmt|;
+DECL|field|future
+specifier|private
+specifier|volatile
+name|ScheduledFuture
+name|future
 decl_stmt|;
 DECL|field|purgePollTime
 specifier|private
@@ -374,9 +392,6 @@ operator|.
 name|useLock
 operator|=
 name|useLock
-expr_stmt|;
-name|schedulePoll
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|get (K key)
@@ -1140,6 +1155,8 @@ name|void
 name|schedulePoll
 parameter_list|()
 block|{
+name|future
+operator|=
 name|executor
 operator|.
 name|scheduleWithFixedDelay
@@ -1263,6 +1280,9 @@ literal|"The ScheduledExecutorService is shutdown"
 argument_list|)
 throw|;
 block|}
+name|schedulePoll
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1274,6 +1294,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|future
+operator|!=
+literal|null
+condition|)
+block|{
+name|future
+operator|.
+name|cancel
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|future
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|// clear map if we stop
 name|map
 operator|.

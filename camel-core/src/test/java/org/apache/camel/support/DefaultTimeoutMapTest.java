@@ -110,6 +110,8 @@ specifier|public
 name|void
 name|testDefaultTimeoutMap
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|DefaultTimeoutMap
 argument_list|<
@@ -130,6 +132,11 @@ argument_list|(
 name|executor
 argument_list|)
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|map
@@ -149,6 +156,11 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testDefaultTimeoutMapPurge ()
@@ -180,6 +192,11 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|map
@@ -238,6 +255,11 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testDefaultTimeoutMapForcePurge ()
 specifier|public
@@ -268,6 +290,11 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|map
@@ -362,6 +389,11 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|map
@@ -457,6 +489,11 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testDefaultTimeoutMapGetKeys ()
 specifier|public
@@ -487,6 +524,11 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|map
@@ -602,6 +644,11 @@ argument_list|,
 literal|50
 argument_list|)
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|50
@@ -660,6 +707,11 @@ operator|.
 name|getExecutor
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testExpiredInCorrectOrder ()
@@ -752,6 +804,11 @@ return|;
 block|}
 block|}
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|0
@@ -987,6 +1044,11 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testExpiredNotEvicted ()
 specifier|public
@@ -1093,6 +1155,11 @@ return|;
 block|}
 block|}
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|0
@@ -1269,6 +1336,11 @@ literal|"gold"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testDefaultTimeoutMapStopStart ()
 specifier|public
@@ -1299,6 +1371,11 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|map
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|map
 operator|.
 name|put
@@ -1388,6 +1465,11 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
