@@ -90,22 +90,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -122,7 +106,7 @@ specifier|public
 class|class
 name|HL7MLLPCodecPlainStringTest
 extends|extends
-name|CamelTestSupport
+name|HL7TestSupport
 block|{
 DECL|method|createRegistry ()
 specifier|protected
@@ -201,7 +185,12 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?sync=true&codec=#hl7codec"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -242,7 +231,12 @@ block|{
 comment|// START SNIPPET: e2
 name|from
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?sync=true&codec=#hl7codec"
 argument_list|)
 operator|.
 name|process

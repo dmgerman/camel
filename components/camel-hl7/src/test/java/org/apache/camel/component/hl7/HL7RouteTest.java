@@ -220,22 +220,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -252,7 +236,7 @@ specifier|public
 class|class
 name|HL7RouteTest
 extends|extends
-name|CamelTestSupport
+name|HL7TestSupport
 block|{
 DECL|method|createRegistry ()
 specifier|protected
@@ -403,7 +387,12 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?sync=true&codec=#hl7codec"
 argument_list|,
 name|in
 operator|.
@@ -536,7 +525,12 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?sync=true&codec=#hl7codec"
 argument_list|,
 name|in
 operator|.
@@ -663,7 +657,12 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?sync=true&codec=#hl7codec"
 argument_list|,
 name|in
 operator|.
@@ -708,7 +707,12 @@ decl_stmt|;
 comment|// we setup or HL7 listener on port 8888 (using the hl7codec) and in sync mode so we can return a response
 name|from
 argument_list|(
-literal|"mina2:tcp://127.0.0.1:8888?sync=true&codec=#hl7codec"
+literal|"mina2:tcp://127.0.0.1:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?sync=true&codec=#hl7codec"
 argument_list|)
 comment|// we use the HL7 data format to unmarshal from HL7 stream to the HAPI Message model
 comment|// this ensures that the camel message has been enriched with hl7 specific headers to
