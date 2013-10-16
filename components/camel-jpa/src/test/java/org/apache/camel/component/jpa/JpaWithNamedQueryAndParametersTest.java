@@ -84,16 +84,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|persistence
-operator|.
-name|PersistenceException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -274,20 +264,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|orm
-operator|.
-name|jpa
-operator|.
-name|JpaCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|transaction
 operator|.
 name|TransactionStatus
@@ -319,22 +295,6 @@ operator|.
 name|support
 operator|.
 name|TransactionTemplate
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-operator|.
-name|startServices
 import|;
 end_import
 

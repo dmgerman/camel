@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -57,18 +67,6 @@ operator|.
 name|concurrent
 operator|.
 name|Callable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
 import|;
 end_import
 
@@ -318,6 +316,8 @@ argument_list|(
 name|poolSize
 argument_list|)
 decl_stmt|;
+comment|// we access the responses Map below only inside the main thread,
+comment|// so no need for a thread-safe Map implementation
 name|Map
 argument_list|<
 name|Integer
@@ -330,7 +330,7 @@ argument_list|>
 name|responses
 init|=
 operator|new
-name|ConcurrentHashMap
+name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
@@ -485,14 +485,14 @@ expr_stmt|;
 comment|// get all responses
 name|Set
 argument_list|<
-name|Object
+name|String
 argument_list|>
 name|unique
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|Object
+name|String
 argument_list|>
 argument_list|()
 decl_stmt|;

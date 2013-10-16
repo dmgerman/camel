@@ -180,7 +180,7 @@ extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|portNum
-specifier|public
+specifier|protected
 specifier|static
 name|int
 name|portNum

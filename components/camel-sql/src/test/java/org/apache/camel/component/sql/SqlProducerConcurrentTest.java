@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -47,18 +57,6 @@ operator|.
 name|concurrent
 operator|.
 name|Callable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
 import|;
 end_import
 
@@ -330,25 +328,33 @@ argument_list|(
 name|poolSize
 argument_list|)
 decl_stmt|;
+comment|// we access the responses Map below only inside the main thread,
+comment|// so no need for a thread-safe Map implementation
 name|Map
 argument_list|<
 name|Integer
 argument_list|,
 name|Future
 argument_list|<
+name|List
+argument_list|<
 name|?
+argument_list|>
 argument_list|>
 argument_list|>
 name|responses
 init|=
 operator|new
-name|ConcurrentHashMap
+name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
 name|Future
 argument_list|<
+name|List
+argument_list|<
 name|?
+argument_list|>
 argument_list|>
 argument_list|>
 argument_list|()
@@ -376,7 +382,10 @@ name|i
 decl_stmt|;
 name|Future
 argument_list|<
+name|List
+argument_list|<
 name|?
+argument_list|>
 argument_list|>
 name|out
 init|=
@@ -387,12 +396,18 @@ argument_list|(
 operator|new
 name|Callable
 argument_list|<
-name|Object
+name|List
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|Object
+name|List
+argument_list|<
+name|?
+argument_list|>
 name|call
 parameter_list|()
 throws|throws
@@ -419,12 +434,16 @@ argument_list|,
 literal|""
 operator|+
 name|id
+argument_list|,
+name|List
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
 block|}
-argument_list|)
-decl_stmt|;
+block|)
+empty_stmt|;
 name|responses
 operator|.
 name|put
@@ -436,8 +455,8 @@ argument_list|)
 expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
+parameter_list|()
+constructor_decl|;
 name|assertEquals
 argument_list|(
 name|files
@@ -469,12 +488,6 @@ name|?
 argument_list|>
 name|rows
 init|=
-name|assertIsInstanceOf
-argument_list|(
-name|List
-operator|.
-name|class
-argument_list|,
 name|responses
 operator|.
 name|get
@@ -484,7 +497,6 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Map
 argument_list|<
@@ -572,9 +584,12 @@ block|}
 name|executor
 operator|.
 name|shutdownNow
-argument_list|()
-expr_stmt|;
+parameter_list|()
+constructor_decl|;
 block|}
+end_class
+
+begin_function
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -612,6 +627,9 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|After
 DECL|method|tearDown ()
@@ -633,6 +651,9 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -689,8 +710,8 @@ block|}
 block|}
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
