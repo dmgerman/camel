@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.netty.http
+DECL|package|org.apache.camel.component.jetty
 package|package
 name|org
 operator|.
@@ -14,9 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|netty
-operator|.
-name|http
+name|jetty
 package|;
 end_package
 
@@ -69,12 +67,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpContentTypeTest
+DECL|class|JettyHttpContentTypeTest
 specifier|public
 class|class
-name|NettyHttpContentTypeTest
+name|JettyHttpContentTypeTest
 extends|extends
-name|BaseNettyTest
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -180,7 +178,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/foo"
+literal|"jetty:http://0.0.0.0:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
@@ -308,7 +306,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/foo"
+literal|"jetty:http://0.0.0.0:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
@@ -358,7 +356,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/foo"
+literal|"jetty:http://0.0.0.0:{{port}}/foo"
 argument_list|)
 operator|.
 name|to
