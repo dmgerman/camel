@@ -389,22 +389,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
 name|endpoint
 operator|.
-name|reconnectIfPossible
+name|reset
 argument_list|(
 name|e
 argument_list|)
-condition|)
-block|{
-return|return
-literal|0
-return|;
-block|}
-else|else
-block|{
+expr_stmt|;
 name|getExceptionHandler
 argument_list|()
 operator|.
@@ -416,7 +407,6 @@ expr_stmt|;
 return|return
 literal|0
 return|;
-block|}
 block|}
 block|}
 DECL|method|createExchanges (List<SplunkEvent> splunkEvents)

@@ -1359,6 +1359,18 @@ argument_list|,
 name|queryArgs
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Running search : {} with queryArgs : {}"
+argument_list|,
+name|getSearch
+argument_list|()
+argument_list|,
+name|queryArgs
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|realtime
@@ -1383,11 +1395,13 @@ expr_stmt|;
 block|}
 comment|// Besides job.isReady there must be some delay before real time job
 comment|// is ready
+comment|// TODO seems that the realtime stream is not quite isReady to be
+comment|// read
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|4000
 argument_list|)
 expr_stmt|;
 block|}
@@ -1476,7 +1490,13 @@ condition|(
 name|realtime
 condition|)
 block|{
-comment|// total = job.getResultPreviewCount();
+name|total
+operator|=
+name|job
+operator|.
+name|getResultPreviewCount
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{

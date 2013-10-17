@@ -146,16 +146,15 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doWrite (SplunkEvent event, Socket socket)
+annotation|@
+name|Override
+DECL|method|doWrite (SplunkEvent event)
 specifier|protected
 name|void
 name|doWrite
 parameter_list|(
 name|SplunkEvent
 name|event
-parameter_list|,
-name|Socket
-name|socket
 parameter_list|)
 throws|throws
 name|IOException

@@ -376,6 +376,7 @@ expr_stmt|;
 block|}
 DECL|method|createService (CamelContext camelContext)
 specifier|public
+specifier|synchronized
 name|Service
 name|createService
 parameter_list|(

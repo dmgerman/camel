@@ -24,6 +24,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|ConnectException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|SocketException
 import|;
 end_import
@@ -49,16 +59,6 @@ operator|.
 name|ssl
 operator|.
 name|SSLException
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|splunk
-operator|.
-name|HttpException
 import|;
 end_import
 
@@ -513,11 +513,11 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|reconnectIfPossible (Exception e)
+DECL|method|reset (Exception e)
 specifier|public
 specifier|synchronized
 name|boolean
-name|reconnectIfPossible
+name|reset
 parameter_list|(
 name|Exception
 name|e
@@ -530,21 +530,23 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|e
 operator|instanceof
-name|HttpException
+name|RuntimeException
 operator|&&
 operator|(
 operator|(
-name|HttpException
+name|RuntimeException
 operator|)
 name|e
 operator|)
 operator|.
-name|getStatus
+name|getCause
 argument_list|()
-operator|==
-literal|401
+operator|instanceof
+name|ConnectException
+operator|)
 operator|||
 operator|(
 operator|(
@@ -561,12 +563,11 @@ operator|)
 operator|)
 condition|)
 block|{
-comment|// try and reconnect
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Got exception from Splunk. Will try to reconnect"
+literal|"Got exception from Splunk. Service will be reset."
 argument_list|)
 expr_stmt|;
 name|this
@@ -574,9 +575,6 @@ operator|.
 name|service
 operator|=
 literal|null
-expr_stmt|;
-name|getService
-argument_list|()
 expr_stmt|;
 name|answer
 operator|=

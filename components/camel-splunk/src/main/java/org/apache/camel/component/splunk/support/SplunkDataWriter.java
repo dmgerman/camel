@@ -169,11 +169,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|socket
-specifier|protected
-name|Socket
-name|socket
-decl_stmt|;
 DECL|field|endpoint
 specifier|protected
 name|SplunkEndpoint
@@ -183,6 +178,16 @@ DECL|field|args
 specifier|protected
 name|Args
 name|args
+decl_stmt|;
+DECL|field|connected
+specifier|private
+name|boolean
+name|connected
+decl_stmt|;
+DECL|field|socket
+specifier|private
+name|Socket
+name|socket
 decl_stmt|;
 DECL|method|SplunkDataWriter (SplunkEndpoint endpoint, Args args)
 specifier|public
@@ -243,21 +248,16 @@ expr_stmt|;
 name|doWrite
 argument_list|(
 name|event
-argument_list|,
-name|socket
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doWrite (SplunkEvent event, Socket socket)
+DECL|method|doWrite (SplunkEvent event)
 specifier|protected
 name|void
 name|doWrite
 parameter_list|(
 name|SplunkEvent
 name|event
-parameter_list|,
-name|Socket
-name|socket
 parameter_list|)
 throws|throws
 name|IOException
@@ -297,16 +297,6 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getArgs ()
-specifier|public
-name|Args
-name|getArgs
-parameter_list|()
-block|{
-return|return
-name|args
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|start ()
@@ -328,6 +318,10 @@ name|getService
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|connected
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -335,6 +329,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|connected
+operator|=
+literal|false
+expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
@@ -367,6 +365,10 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|connected
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -383,6 +385,16 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|isConnected ()
+specifier|public
+name|boolean
+name|isConnected
+parameter_list|()
+block|{
+return|return
+name|connected
+return|;
 block|}
 block|}
 end_class

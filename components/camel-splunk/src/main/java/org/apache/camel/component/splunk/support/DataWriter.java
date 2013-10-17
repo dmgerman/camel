@@ -64,6 +64,11 @@ name|void
 name|start
 parameter_list|()
 function_decl|;
+DECL|method|isConnected ()
+name|boolean
+name|isConnected
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
