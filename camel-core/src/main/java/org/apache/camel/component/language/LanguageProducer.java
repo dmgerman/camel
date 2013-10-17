@@ -106,6 +106,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Language producer.  *  * @version   */
 end_comment
@@ -374,7 +388,11 @@ argument_list|)
 expr_stmt|;
 name|Object
 name|result
-init|=
+decl_stmt|;
+try|try
+block|{
+name|result
+operator|=
 name|exp
 operator|.
 name|evaluate
@@ -385,7 +403,7 @@ name|Object
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|log
 operator|.
 name|debug
@@ -397,6 +415,40 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|getEndpoint
+argument_list|()
+operator|.
+name|isContentCache
+argument_list|()
+condition|)
+block|{
+comment|// some languages add themselves as a service which we then need to remove if we are not cached
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|exp
+argument_list|)
+expr_stmt|;
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|removeService
+argument_list|(
+name|exp
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// set message body if transform is enabled
 if|if
 condition|(
