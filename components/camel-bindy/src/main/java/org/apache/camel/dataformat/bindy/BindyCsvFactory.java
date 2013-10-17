@@ -402,6 +402,11 @@ specifier|private
 name|int
 name|totalFields
 decl_stmt|;
+DECL|field|maxpos
+specifier|private
+name|int
+name|maxpos
+decl_stmt|;
 DECL|field|separator
 specifier|private
 name|String
@@ -431,6 +436,11 @@ DECL|field|quoting
 specifier|private
 name|boolean
 name|quoting
+decl_stmt|;
+DECL|field|autospanLine
+specifier|private
+name|boolean
+name|autospanLine
 decl_stmt|;
 DECL|method|BindyCsvFactory (PackageScanClassResolver resolver, String... packageNames)
 specifier|public
@@ -486,7 +496,7 @@ name|initCsvModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields and      * retrieve the separator of the CSV record      *       * @throws Exception      */
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data. This process will scan for classes according to the      * package name provided, check the annotated classes and fields and      * retrieve the separator of the CSV record      *      * @throws Exception      */
 DECL|method|initCsvModel ()
 specifier|public
 name|void
@@ -505,17 +515,18 @@ name|initCsvRecordParameters
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initAnnotatedFields ()
 specifier|public
 name|void
 name|initAnnotatedFields
 parameter_list|()
 block|{
-name|int
 name|maxpos
-init|=
+operator|=
 literal|0
-decl_stmt|;
+expr_stmt|;
 for|for
 control|(
 name|Class
@@ -2065,7 +2076,7 @@ return|return
 name|product
 return|;
 block|}
-comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * If the model is Ordered than a key is created combining the annotation @Section and Position of the field      * If a relation @OneToMany is defined, than we iterate recursively through this function      * The result is placed in the Map<Integer, List> results      */
+comment|/**      * Generate a table containing the data formatted and sorted with their position/offset      * If the model is Ordered than a key is created combining the annotation @Section and Position of the field      * If a relation @OneToMany is defined, than we iterate recursively through this function      * The result is placed in the Map<Integer, List> results      */
 DECL|method|generateCsvPositionMap (Class<?> clazz, Object obj, Map<Integer, List<String>> results)
 specifier|private
 name|void
@@ -2547,7 +2558,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Generate for the first line the headers of the columns      *       * @return the headers columns      */
+comment|/**      * Generate for the first line the headers of the columns      *      * @return the headers columns      */
 DECL|method|generateHeader ()
 specifier|public
 name|String
@@ -2910,6 +2921,22 @@ argument_list|,
 name|messageOrdered
 argument_list|)
 expr_stmt|;
+name|autospanLine
+operator|=
+name|record
+operator|.
+name|autospanLine
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Autospan line in last record: {}"
+argument_list|,
+name|autospanLine
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3133,7 +3160,18 @@ return|return
 name|skipFirstLine
 return|;
 block|}
-comment|/**      * Flag indicating if the message must be ordered      *       * @return boolean      */
+comment|/**      * If last record is to span the rest of the line      */
+DECL|method|getAutospanLine ()
+specifier|public
+name|boolean
+name|getAutospanLine
+parameter_list|()
+block|{
+return|return
+name|autospanLine
+return|;
+block|}
+comment|/**      * Flag indicating if the message must be ordered      *      * @return boolean      */
 DECL|method|isMessageOrdered ()
 specifier|public
 name|boolean
@@ -3152,6 +3190,16 @@ parameter_list|()
 block|{
 return|return
 name|quote
+return|;
+block|}
+DECL|method|getMaxpos ()
+specifier|public
+name|int
+name|getMaxpos
+parameter_list|()
+block|{
+return|return
+name|maxpos
 return|;
 block|}
 block|}

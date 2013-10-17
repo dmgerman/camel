@@ -141,6 +141,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Last record spans rest of line (optional)      */
+DECL|method|autospanLine ()
+DECL|field|false
+name|boolean
+name|autospanLine
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 
