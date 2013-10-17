@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for writing  *<a href="http://www.springsource.org/javaconfig">Spring JavaConfig</a>  * configurations for working with Camel  *  * @version   */
+comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations for working with Camel.  */
 end_comment
 
 begin_class

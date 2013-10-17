@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for writing  *<a href="http://www.springsource.org/javaconfig">Spring JavaConfig</a>  * configurations to configure a CamelContext with a single {@link RouteBuilder} instance   * @version   */
+comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations to configure a CamelContext with a single {@link RouteBuilder} instance.  */
 end_comment
 
 begin_class
