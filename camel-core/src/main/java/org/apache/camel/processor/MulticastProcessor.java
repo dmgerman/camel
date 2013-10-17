@@ -4644,6 +4644,7 @@ argument_list|(
 name|processor
 argument_list|)
 decl_stmt|;
+comment|// and wrap it in a unit of work so the UoW is on the top, so the entire route will be in the same UoW
 name|UnitOfWork
 name|parent
 init|=
@@ -4695,6 +4696,28 @@ operator|.
 name|UnitOfWorkProcessorAdvice
 argument_list|(
 name|routeId
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// and then in route context so we can keep track which route this is at runtime
+if|if
+condition|(
+name|routeContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|internal
+operator|.
+name|addAdvice
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|RouteContextAdvice
+argument_list|(
+name|routeContext
 argument_list|)
 argument_list|)
 expr_stmt|;
