@@ -70,6 +70,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -79,6 +89,11 @@ comment|/**  * Tests a routing expression using JavaScript  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"May fail on CI servers"
+argument_list|)
 DECL|class|LanguageJavaScriptNoCacheTest
 specifier|public
 class|class
