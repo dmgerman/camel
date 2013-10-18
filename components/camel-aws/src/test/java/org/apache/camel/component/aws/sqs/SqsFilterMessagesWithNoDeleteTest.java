@@ -102,7 +102,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|JndiRegistry
+name|SimpleRegistry
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|test
 operator|.
 name|junit4
 operator|.
-name|CamelTestSupport
+name|TestSupport
 import|;
 end_import
 
@@ -132,13 +132,31 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+import|;
+end_import
+
 begin_class
 DECL|class|SqsFilterMessagesWithNoDeleteTest
 specifier|public
 class|class
 name|SqsFilterMessagesWithNoDeleteTest
 extends|extends
-name|CamelTestSupport
+name|TestSupport
 block|{
 comment|// put some test messages onto the 'queue'
 DECL|method|populateMessages (AmazonSQSClientMock clientMock)
@@ -233,15 +251,12 @@ argument_list|(
 name|clientMock
 argument_list|)
 expr_stmt|;
-name|JndiRegistry
+name|SimpleRegistry
 name|registry
 init|=
 operator|new
-name|JndiRegistry
-argument_list|(
-name|createJndiContext
+name|SimpleRegistry
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|DefaultCamelContext
 name|ctx
@@ -325,7 +340,7 @@ argument_list|)
 expr_stmt|;
 name|registry
 operator|.
-name|bind
+name|put
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -345,8 +360,6 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// we shouldn't get
-name|result
-operator|.
 name|assertIsSatisfied
 argument_list|(
 literal|1000
@@ -382,6 +395,16 @@ name|response
 argument_list|,
 literal|"Message: hello, world!"
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|clientMock
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -423,15 +446,12 @@ argument_list|(
 name|clientMock
 argument_list|)
 expr_stmt|;
-name|JndiRegistry
+name|SimpleRegistry
 name|registry
 init|=
 operator|new
-name|JndiRegistry
-argument_list|(
-name|createJndiContext
+name|SimpleRegistry
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|DefaultCamelContext
 name|ctx
@@ -506,7 +526,7 @@ argument_list|)
 decl_stmt|;
 name|registry
 operator|.
-name|bind
+name|put
 argument_list|(
 literal|"amazonSQSClient"
 argument_list|,
@@ -545,8 +565,6 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// the message should get through filter and mock should assert this
-name|result
-operator|.
 name|assertIsSatisfied
 argument_list|(
 literal|1000
@@ -580,6 +598,16 @@ name|assertNull
 argument_list|(
 name|response
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|clientMock
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 block|}
