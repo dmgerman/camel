@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ScriptTestHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|test
 operator|.
 name|junit4
@@ -78,17 +66,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-operator|!
-name|ScriptTestHelper
-operator|.
-name|canRunTestOnThisPlatform
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 comment|// the properties are stored in a set so ordering is not known
 name|assertExpression
 argument_list|(
