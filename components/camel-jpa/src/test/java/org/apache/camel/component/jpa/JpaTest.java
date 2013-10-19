@@ -769,7 +769,7 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
-name|getEntityManager
+name|createEntityManager
 argument_list|()
 expr_stmt|;
 block|}

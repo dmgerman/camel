@@ -212,6 +212,14 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// do detach the persisted entity first before modifying it
+name|entityManager
+operator|.
+name|detach
+argument_list|(
+name|customer
+argument_list|)
+expr_stmt|;
 name|customer
 operator|.
 name|setName

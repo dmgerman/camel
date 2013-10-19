@@ -286,11 +286,6 @@ specifier|private
 name|PlatformTransactionManager
 name|transactionManager
 decl_stmt|;
-DECL|field|entityManager
-specifier|private
-name|EntityManager
-name|entityManager
-decl_stmt|;
 DECL|field|persistenceUnit
 specifier|private
 name|String
@@ -1104,30 +1099,18 @@ return|return
 name|tm
 return|;
 block|}
-DECL|method|getEntityManager ()
+DECL|method|createEntityManager ()
 specifier|protected
 name|EntityManager
-name|getEntityManager
+name|createEntityManager
 parameter_list|()
 block|{
-if|if
-condition|(
-name|entityManager
-operator|==
-literal|null
-condition|)
-block|{
-name|entityManager
-operator|=
+return|return
 name|getEntityManagerFactory
 argument_list|()
 operator|.
 name|createEntityManager
 argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|entityManager
 return|;
 block|}
 DECL|method|createTransactionTemplate ()
@@ -1274,23 +1257,6 @@ block|}
 block|}
 block|}
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-comment|//        entityManager.close();
 block|}
 block|}
 end_class

@@ -670,7 +670,27 @@ name|TransactionStatus
 name|status
 parameter_list|)
 block|{
-name|entityManager
+comment|// make use of the EntityManager having the relevant persistence-context
+name|EntityManager
+name|entityManager2
+init|=
+name|receivedExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|JpaConstants
+operator|.
+name|ENTITYMANAGER
+argument_list|,
+name|EntityManager
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|entityManager2
 operator|.
 name|joinTransaction
 argument_list|()
@@ -682,7 +702,7 @@ name|?
 argument_list|>
 name|rows
 init|=
-name|entityManager
+name|entityManager2
 operator|.
 name|createQuery
 argument_list|(
@@ -981,7 +1001,7 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
-name|getEntityManager
+name|createEntityManager
 argument_list|()
 expr_stmt|;
 block|}

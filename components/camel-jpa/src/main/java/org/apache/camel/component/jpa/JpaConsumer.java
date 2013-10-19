@@ -430,7 +430,7 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
-name|getEntityManager
+name|createEntityManager
 argument_list|()
 expr_stmt|;
 name|this
@@ -2128,6 +2128,38 @@ expr_stmt|;
 return|return
 name|exchange
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
+name|entityManager
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"closed the EntityManager {} on {}"
+argument_list|,
+name|entityManager
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
