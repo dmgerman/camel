@@ -48,20 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|infinispan
-operator|.
-name|commons
-operator|.
-name|api
-operator|.
-name|BasicCacheContainer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -103,14 +89,25 @@ argument_list|)
 decl_stmt|;
 DECL|field|cache
 specifier|private
+specifier|final
 name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 decl_stmt|;
-DECL|method|InfinispanOperation (BasicCache cache)
+DECL|method|InfinispanOperation (BasicCache<Object, Object> cache)
 specifier|public
 name|InfinispanOperation
 parameter_list|(
 name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 parameter_list|)
 block|{
@@ -234,6 +231,11 @@ name|void
 name|execute
 parameter_list|(
 name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 parameter_list|,
 name|Exchange
@@ -277,6 +279,11 @@ name|void
 name|execute
 parameter_list|(
 name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 parameter_list|,
 name|Exchange
@@ -315,6 +322,11 @@ name|void
 name|execute
 parameter_list|(
 name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 parameter_list|,
 name|Exchange
@@ -353,6 +365,11 @@ name|void
 name|execute
 parameter_list|(
 name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 parameter_list|,
 name|Exchange
@@ -437,12 +454,17 @@ name|VALUE
 argument_list|)
 return|;
 block|}
-DECL|method|execute (BasicCache cache, Exchange exchange)
+DECL|method|execute (BasicCache<Object, Object> cache, Exchange exchange)
 specifier|abstract
 name|void
 name|execute
 parameter_list|(
 name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|cache
 parameter_list|,
 name|Exchange

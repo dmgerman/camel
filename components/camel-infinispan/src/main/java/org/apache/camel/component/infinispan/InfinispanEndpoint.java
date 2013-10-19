@@ -86,20 +86,6 @@ specifier|public
 name|InfinispanEndpoint
 parameter_list|()
 block|{     }
-DECL|method|InfinispanEndpoint (String endpointUri)
-specifier|public
-name|InfinispanEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|InfinispanEndpoint (String uri, InfinispanComponent component, InfinispanConfiguration configuration)
 specifier|public
 name|InfinispanEndpoint
@@ -128,6 +114,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -146,6 +134,8 @@ name|configuration
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -169,6 +159,8 @@ name|configuration
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSingleton ()
 specifier|public
 name|boolean

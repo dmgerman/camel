@@ -292,12 +292,17 @@ annotation|@
 name|CacheEntryRemoved
 annotation|@
 name|CacheEntryVisited
-DECL|method|processEvent (CacheEntryEvent event)
+DECL|method|processEvent (CacheEntryEvent<Object, Object> event)
 specifier|public
 name|void
 name|processEvent
 parameter_list|(
 name|CacheEntryEvent
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|event
 parameter_list|)
 block|{

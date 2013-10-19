@@ -95,7 +95,9 @@ end_import
 begin_class
 annotation|@
 name|Ignore
-comment|//start local server with: ./bin/startServer.sh -r hotrod
+argument_list|(
+literal|"start a local server with: ./bin/standalone.sh"
+argument_list|)
 DECL|class|InfinispanRemoteProducerTest
 specifier|public
 class|class
@@ -194,6 +196,8 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure

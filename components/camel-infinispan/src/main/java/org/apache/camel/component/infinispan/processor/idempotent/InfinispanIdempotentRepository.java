@@ -290,6 +290,8 @@ argument_list|()
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
@@ -325,6 +327,8 @@ literal|null
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
@@ -350,6 +354,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|ManagedOperation
 argument_list|(
@@ -395,6 +401,8 @@ return|return
 name|cacheName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|confirm (Object key)
 specifier|public
 name|boolean
@@ -408,6 +416,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -418,6 +428,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -428,6 +440,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|doShutdown ()
 specifier|protected
 name|void
