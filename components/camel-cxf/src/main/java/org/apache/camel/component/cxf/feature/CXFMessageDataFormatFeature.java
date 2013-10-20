@@ -511,6 +511,11 @@ name|Bus
 name|bus
 parameter_list|)
 block|{
+name|removeFaultInInterceptorFromClient
+argument_list|(
+name|client
+argument_list|)
+expr_stmt|;
 name|setupEndpoint
 argument_list|(
 name|client
