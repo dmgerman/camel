@@ -426,6 +426,13 @@ operator|new
 name|OutputStreamWriter
 argument_list|(
 name|stream
+argument_list|,
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -471,6 +478,13 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|stream
+argument_list|,
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
