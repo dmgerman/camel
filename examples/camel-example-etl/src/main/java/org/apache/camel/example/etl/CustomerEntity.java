@@ -121,6 +121,11 @@ end_comment
 begin_class
 annotation|@
 name|Entity
+argument_list|(
+name|name
+operator|=
+literal|"customer"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -144,7 +149,7 @@ literal|"findCustomerByUsername"
 argument_list|,
 name|query
 operator|=
-literal|"SELECT c FROM CustomerEntity c WHERE c.userName = :userName"
+literal|"SELECT c FROM customer c WHERE c.userName = :userName"
 argument_list|)
 DECL|class|CustomerEntity
 specifier|public
