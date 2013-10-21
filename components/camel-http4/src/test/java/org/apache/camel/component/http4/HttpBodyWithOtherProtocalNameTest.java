@@ -67,7 +67,7 @@ argument_list|()
 expr_stmt|;
 name|setProtocolString
 argument_list|(
-literal|"newHttp://http://"
+literal|"newHttp://"
 argument_list|)
 expr_stmt|;
 block|}
