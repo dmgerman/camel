@@ -110,17 +110,9 @@ operator|.
 name|ACCEPT_CONTENT_TYPE
 argument_list|)
 expr_stmt|;
-comment|// Remove the restlet headers from the out message.
-name|getOutFilter
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|HeaderConstants
-operator|.
-name|ATTRIBUTE_HEADERS
-argument_list|)
-expr_stmt|;
+comment|// Remove Camel and org.restlet internal headers
+comment|//        setOutFilterPattern("(Camel.*)|(org\\.restlet\\..*)");
+comment|//        setOutFilterPattern("org\\.restlet\\..*");
 block|}
 block|}
 end_class
