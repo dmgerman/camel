@@ -175,6 +175,7 @@ annotation|@
 name|Converter
 DECL|method|toCustomer (PersonDocument doc, Exchange exchange)
 specifier|public
+specifier|static
 name|CustomerEntity
 name|toCustomer
 parameter_list|(
@@ -299,7 +300,8 @@ return|;
 block|}
 comment|/**      * Finds a customer for the given username      */
 DECL|method|findCustomerByName (TransactionTemplate transactionTemplate, final EntityManager entityManager, final String userName)
-specifier|protected
+specifier|private
+specifier|static
 name|CustomerEntity
 name|findCustomerByName
 parameter_list|(
