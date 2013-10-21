@@ -62,14 +62,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// let's boot up the Spring application context for 2 seconds to check that it works OK
+comment|// let's boot up the Spring application context for 5 seconds to check that it works OK
 name|Main
 operator|.
 name|main
 argument_list|(
 literal|"-duration"
 argument_list|,
-literal|"2s"
+literal|"5s"
 argument_list|,
 literal|"-o"
 argument_list|,

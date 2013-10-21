@@ -52,6 +52,16 @@ begin_import
 import|import
 name|javax
 operator|.
+name|persistence
+operator|.
+name|NamedQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
 name|xml
 operator|.
 name|bind
@@ -111,11 +121,6 @@ end_comment
 begin_class
 annotation|@
 name|Entity
-argument_list|(
-name|name
-operator|=
-literal|"customer"
-argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -129,6 +134,17 @@ argument_list|(
 name|XmlAccessType
 operator|.
 name|FIELD
+argument_list|)
+annotation|@
+name|NamedQuery
+argument_list|(
+name|name
+operator|=
+literal|"findCustomerByUsername"
+argument_list|,
+name|query
+operator|=
+literal|"SELECT c FROM CustomerEntity c WHERE c.userName = :userName"
 argument_list|)
 DECL|class|CustomerEntity
 specifier|public
@@ -177,31 +193,6 @@ specifier|private
 name|String
 name|phone
 decl_stmt|;
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"Customer[userName: "
-operator|+
-name|getUserName
-argument_list|()
-operator|+
-literal|" firstName: "
-operator|+
-name|getFirstName
-argument_list|()
-operator|+
-literal|" surname: "
-operator|+
-name|getSurname
-argument_list|()
-operator|+
-literal|"]"
-return|;
-block|}
 annotation|@
 name|Id
 annotation|@
@@ -413,6 +404,31 @@ name|zip
 operator|=
 name|zip
 expr_stmt|;
+block|}
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Customer[userName: "
+operator|+
+name|getUserName
+argument_list|()
+operator|+
+literal|" firstName: "
+operator|+
+name|getFirstName
+argument_list|()
+operator|+
+literal|" surname: "
+operator|+
+name|getSurname
+argument_list|()
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 end_class

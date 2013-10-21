@@ -212,7 +212,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// do detach the persisted entity first before modifying it, as we intend to merge it later on below
+comment|// do detach the persisted entity first before modifying it as we intend to merge it later on below
 name|entityManager
 operator|.
 name|detach
