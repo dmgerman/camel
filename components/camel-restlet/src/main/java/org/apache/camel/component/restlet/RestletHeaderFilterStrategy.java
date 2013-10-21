@@ -44,20 +44,6 @@ name|DefaultHeaderFilterStrategy
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|restlet
-operator|.
-name|engine
-operator|.
-name|header
-operator|.
-name|HeaderConstants
-import|;
-end_import
-
 begin_comment
 comment|/**  * Default header filtering strategy for Restlet  *   * @version   */
 end_comment
@@ -110,9 +96,6 @@ operator|.
 name|ACCEPT_CONTENT_TYPE
 argument_list|)
 expr_stmt|;
-comment|// Remove Camel and org.restlet internal headers
-comment|//        setOutFilterPattern("(Camel.*)|(org\\.restlet\\..*)");
-comment|//        setOutFilterPattern("org\\.restlet\\..*");
 block|}
 block|}
 end_class
