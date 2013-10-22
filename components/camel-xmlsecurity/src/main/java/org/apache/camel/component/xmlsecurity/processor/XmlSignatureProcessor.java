@@ -173,6 +173,8 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
+try|try
+block|{
 name|SantuarioUtil
 operator|.
 name|initializeSantuario
@@ -183,6 +185,24 @@ operator|.
 name|addSantuarioJSR105Provider
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// provider not in classpath, ignore and fall back to jre default
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Cannot add the SantuarioJSR105Provider due to {0}, fall back to JRE default."
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getConfiguration ()
 specifier|public
