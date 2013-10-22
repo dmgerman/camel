@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|concurrent
@@ -65,6 +75,20 @@ operator|.
 name|pool
 operator|.
 name|PooledConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|FileUtil
 import|;
 end_import
 
@@ -264,6 +288,18 @@ literal|"target/activemq-data-"
 operator|+
 name|id
 decl_stmt|;
+comment|// remove dir so its empty on startup
+name|FileUtil
+operator|.
+name|removeDir
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|dir
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|String
 name|url
 init|=

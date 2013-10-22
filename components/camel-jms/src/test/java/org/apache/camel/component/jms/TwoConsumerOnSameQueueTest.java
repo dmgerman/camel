@@ -354,7 +354,7 @@ name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
-name|createConnectionFactory
+name|createPersistentConnectionFactory
 argument_list|()
 decl_stmt|;
 name|camelContext
@@ -409,6 +409,8 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:a"
+argument_list|,
 literal|"mock:a"
 argument_list|)
 expr_stmt|;
@@ -424,6 +426,8 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:b"
+argument_list|,
 literal|"mock:b"
 argument_list|)
 expr_stmt|;
