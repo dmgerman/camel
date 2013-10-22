@@ -609,19 +609,16 @@ return|;
 block|}
 if|if
 condition|(
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
 name|from
-argument_list|)
+operator|==
+literal|null
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"From cannot be empty"
+literal|"from cannot be null"
 argument_list|)
 throw|;
 block|}

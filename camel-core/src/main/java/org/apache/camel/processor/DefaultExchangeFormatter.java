@@ -134,6 +134,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default {@link ExchangeFormatter} that have fine grained options to configure what to include in the output.  */
 end_comment
@@ -610,10 +624,12 @@ condition|)
 block|{
 name|body
 operator|=
-name|body
+name|StringHelper
 operator|.
 name|replaceAll
 argument_list|(
+name|body
+argument_list|,
 name|LS
 argument_list|,
 literal|""
@@ -985,10 +1001,12 @@ condition|)
 block|{
 name|body
 operator|=
-name|body
+name|StringHelper
 operator|.
 name|replaceAll
 argument_list|(
+name|body
+argument_list|,
 name|LS
 argument_list|,
 literal|""
