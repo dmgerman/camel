@@ -118,13 +118,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|openengsb
-operator|.
-name|labs
-operator|.
-name|paxexam
+name|apache
 operator|.
 name|karaf
+operator|.
+name|tooling
+operator|.
+name|exam
 operator|.
 name|options
 operator|.
@@ -136,13 +136,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|openengsb
-operator|.
-name|labs
-operator|.
-name|paxexam
+name|apache
 operator|.
 name|karaf
+operator|.
+name|tooling
+operator|.
+name|exam
 operator|.
 name|options
 operator|.
@@ -260,13 +260,13 @@ begin_import
 import|import static
 name|org
 operator|.
-name|openengsb
-operator|.
-name|labs
-operator|.
-name|paxexam
+name|apache
 operator|.
 name|karaf
+operator|.
+name|tooling
+operator|.
+name|exam
 operator|.
 name|options
 operator|.
@@ -280,13 +280,13 @@ begin_import
 import|import static
 name|org
 operator|.
-name|openengsb
-operator|.
-name|labs
-operator|.
-name|paxexam
+name|apache
 operator|.
 name|karaf
+operator|.
+name|tooling
+operator|.
+name|exam
 operator|.
 name|options
 operator|.
@@ -300,13 +300,13 @@ begin_import
 import|import static
 name|org
 operator|.
-name|openengsb
-operator|.
-name|labs
-operator|.
-name|paxexam
+name|apache
 operator|.
 name|karaf
+operator|.
+name|tooling
+operator|.
+name|exam
 operator|.
 name|options
 operator|.
@@ -923,7 +923,6 @@ operator|.
 name|versionAsInProject
 argument_list|()
 argument_list|)
-comment|// This version is not actual karaf version that we use.
 operator|.
 name|karafVersion
 argument_list|(
