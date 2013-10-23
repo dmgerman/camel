@@ -174,6 +174,42 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|PipelineHelper
+operator|.
+name|continueProcessing
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implements a Choice structure where one or more predicates are used which if  * they are true their processors are used, with a default otherwise clause used  * if none match.  *   * @version   */
 end_comment
@@ -195,6 +231,22 @@ argument_list|>
 implements|,
 name|Traceable
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ChoiceProcessor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|filters
 specifier|private
 specifier|final
@@ -425,6 +477,14 @@ argument_list|,
 name|matches
 argument_list|)
 expr_stmt|;
+comment|// as we have pre evaluated the predicate then use its processor directly when routing
+name|processor
+operator|=
+name|filter
+operator|.
+name|getProcessor
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -439,25 +499,23 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|choiceCallback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
-comment|// as we have pre evaluated the predicate then use its processor directly when routing
-name|processor
-operator|=
-name|filter
-operator|.
-name|getProcessor
-argument_list|()
-expr_stmt|;
+block|}
+comment|// check for error if so we should break out
+if|if
+condition|(
+operator|!
+name|continueProcessing
+argument_list|(
+name|exchange
+argument_list|,
+literal|"so breaking out of choice"
+argument_list|,
+name|LOG
+argument_list|)
+condition|)
+block|{
+break|break;
 block|}
 comment|// if we did not match then continue to next filter
 if|if
