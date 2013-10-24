@@ -151,6 +151,7 @@ annotation|@
 name|Converter
 DECL|class|CustomerTransformer
 specifier|public
+specifier|final
 class|class
 name|CustomerTransformer
 block|{
@@ -170,6 +171,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|CustomerTransformer ()
+specifier|private
+name|CustomerTransformer
+parameter_list|()
+block|{     }
 comment|/**      * A transformation method to convert a person document into a customer      * entity      */
 annotation|@
 name|Converter
