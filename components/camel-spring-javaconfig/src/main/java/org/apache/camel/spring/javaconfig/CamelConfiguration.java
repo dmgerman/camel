@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations for working with Camel.  */
+comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations for working with Camel. Unless {@link #routes()} method is overridden, this configuration  * automagically load all the {@link org.apache.camel.builder.RouteBuilder} instances available in the Spring context.  */
 end_comment
 
 begin_class
