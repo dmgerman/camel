@@ -284,7 +284,7 @@ block|{
 name|String
 name|msg
 init|=
-literal|"Duplicate ServetName detected: "
+literal|"Duplicate ServletName detected: "
 operator|+
 name|name
 operator|+
