@@ -2528,7 +2528,7 @@ block|}
 comment|// load the classes into type converter registry
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Found {} @Converter classes to load"
 argument_list|,
@@ -2722,7 +2722,7 @@ argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"The entry {}'s url is {}"
 argument_list|,
