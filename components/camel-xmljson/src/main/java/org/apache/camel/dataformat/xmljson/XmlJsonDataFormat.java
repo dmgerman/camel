@@ -178,6 +178,20 @@ name|ServiceSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat}) using   *<a href="http://json-lib.sourceforge.net/">json-lib</a> to convert between XML  * and JSON directly.  */
 end_comment
@@ -635,6 +649,8 @@ name|InputStream
 operator|.
 name|class
 argument_list|,
+name|exchange
+argument_list|,
 name|graph
 argument_list|)
 decl_stmt|;
@@ -661,6 +677,8 @@ argument_list|(
 name|String
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 name|graph
 argument_list|)
@@ -714,6 +732,13 @@ operator|new
 name|OutputStreamWriter
 argument_list|(
 name|stream
+argument_list|,
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|json
@@ -795,6 +820,8 @@ argument_list|(
 name|String
 operator|.
 name|class
+argument_list|,
+name|exchange
 argument_list|,
 name|inBody
 argument_list|)
