@@ -169,15 +169,6 @@ name|CONTENT_LANGUAGE
 init|=
 literal|"CamelJcloudsContentLanguage"
 decl_stmt|;
-DECL|field|CONTENT_ENCODING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|CONTENT_ENCODING
-init|=
-literal|"CamelJcloudsContentEncoding"
-decl_stmt|;
 DECL|field|CONTENT_DISPOSITION
 specifier|public
 specifier|static
