@@ -220,15 +220,8 @@ specifier|protected
 name|MockEndpoint
 name|exception
 decl_stmt|;
-comment|// Camel context will never shut down. Regardless of the settings in DefaultShutdownStrategy
-comment|// JmsConsumer does not correctly shut down direct subroutes
 annotation|@
 name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|20000
-argument_list|)
 annotation|@
 name|DirtiesContext
 DECL|method|testJmsConsumerShutdownWithMessageInFlight ()
@@ -300,14 +293,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|// For comparison, SedaConsumer will correctly shut down direct subroutes
+comment|// Just for the sake of comparison test the SedaConsumer as well
 annotation|@
 name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|20000
-argument_list|)
 annotation|@
 name|DirtiesContext
 DECL|method|testSedaConsumerShutdownWithMessageInFlight ()
@@ -368,7 +356,7 @@ name|seda
 operator|.
 name|sendBody
 argument_list|(
-literal|"activemq:start"
+literal|"seda:start"
 argument_list|,
 literal|"Hello"
 argument_list|)

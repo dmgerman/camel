@@ -150,16 +150,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -384,13 +374,21 @@ expr_stmt|;
 comment|// check that there is a message in the database and JMS queue
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|1
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -414,11 +412,6 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"see the TODO below"
-argument_list|)
 annotation|@
 name|Test
 DECL|method|testJmsToJdbcJmsRollbackAtA ()
@@ -450,7 +443,6 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
-comment|// TODO: occasionally we get only 6 instead of 7 expected exchanges which's most probably an issue in ActiveMQ itself
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -536,13 +528,21 @@ expr_stmt|;
 comment|// check that there is a message in the database and JMS queue
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -575,11 +575,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"see the TODO below"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testJmsToJdbcJmsRollbackAtB ()
 specifier|public
@@ -610,7 +605,6 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
-comment|// TODO: occasionally we get only 6 instead of 7 expected exchanges which's most probably an issue in ActiveMQ itself
 name|getMockEndpoint
 argument_list|(
 literal|"mock:a"
@@ -696,13 +690,21 @@ expr_stmt|;
 comment|// check that there is a message in the database and JMS queue
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -843,13 +845,21 @@ expr_stmt|;
 comment|// check that there is two messages in the database and JMS queue
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|2
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1044,13 +1054,21 @@ expr_stmt|;
 comment|// check that there is two messages in the database and JMS queue
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|3
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1106,13 +1124,21 @@ block|{
 comment|// check there are no messages in the database and JMS queue
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from CAMEL_MESSAGEPROCESSED"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
