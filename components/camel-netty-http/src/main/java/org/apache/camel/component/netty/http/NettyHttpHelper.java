@@ -889,7 +889,7 @@ name|answer
 return|;
 block|}
 comment|/**      * Creates the URL to invoke.      *      * @param exchange the exchange      * @param endpoint the endpoint      * @return the URL to invoke      */
-DECL|method|createURL (Exchange exchange, NettyHttpEndpoint endpoint, String uriParameters)
+DECL|method|createURL (Exchange exchange, NettyHttpEndpoint endpoint)
 specifier|public
 specifier|static
 name|String
@@ -900,9 +900,6 @@ name|exchange
 parameter_list|,
 name|NettyHttpEndpoint
 name|endpoint
-parameter_list|,
-name|String
-name|uriParameters
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -915,20 +912,6 @@ operator|.
 name|getEndpointUri
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|uriParameters
-operator|!=
-literal|null
-condition|)
-block|{
-name|uri
-operator|+=
-literal|"?"
-operator|+
-name|uriParameters
-expr_stmt|;
-block|}
 comment|// resolve placeholders in uri
 try|try
 block|{

@@ -276,11 +276,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|uriParameters
-specifier|private
-name|String
-name|uriParameters
-decl_stmt|;
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
@@ -474,9 +469,6 @@ argument_list|(
 name|this
 argument_list|,
 name|getConfiguration
-argument_list|()
-argument_list|,
-name|getUriParameters
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -780,32 +772,6 @@ operator|.
 name|httpMethodRestrict
 operator|=
 name|httpMethodRestrict
-expr_stmt|;
-block|}
-DECL|method|getUriParameters ()
-specifier|public
-name|String
-name|getUriParameters
-parameter_list|()
-block|{
-return|return
-name|uriParameters
-return|;
-block|}
-DECL|method|setUriParameters (String uriParameters)
-specifier|public
-name|void
-name|setUriParameters
-parameter_list|(
-name|String
-name|uriParameters
-parameter_list|)
-block|{
-name|this
-operator|.
-name|uriParameters
-operator|=
-name|uriParameters
 expr_stmt|;
 block|}
 DECL|method|getNettySharedHttpServer ()

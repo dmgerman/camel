@@ -134,13 +134,7 @@ name|NettyHttpProducer
 extends|extends
 name|NettyProducer
 block|{
-DECL|field|uriParameters
-specifier|private
-specifier|final
-name|String
-name|uriParameters
-decl_stmt|;
-DECL|method|NettyHttpProducer (NettyHttpEndpoint nettyEndpoint, NettyConfiguration configuration, String uriParameters)
+DECL|method|NettyHttpProducer (NettyHttpEndpoint nettyEndpoint, NettyConfiguration configuration)
 specifier|public
 name|NettyHttpProducer
 parameter_list|(
@@ -149,9 +143,6 @@ name|nettyEndpoint
 parameter_list|,
 name|NettyConfiguration
 name|configuration
-parameter_list|,
-name|String
-name|uriParameters
 parameter_list|)
 block|{
 name|super
@@ -160,12 +151,6 @@ name|nettyEndpoint
 argument_list|,
 name|configuration
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|uriParameters
-operator|=
-name|uriParameters
 expr_stmt|;
 block|}
 annotation|@
@@ -260,8 +245,6 @@ name|exchange
 argument_list|,
 name|getEndpoint
 argument_list|()
-argument_list|,
-name|uriParameters
 argument_list|)
 decl_stmt|;
 name|URI
