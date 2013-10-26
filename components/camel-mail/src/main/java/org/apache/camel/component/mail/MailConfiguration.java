@@ -323,6 +323,13 @@ name|closeFolder
 init|=
 literal|true
 decl_stmt|;
+DECL|field|peek
+specifier|private
+name|boolean
+name|peek
+init|=
+literal|true
+decl_stmt|;
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
@@ -2026,6 +2033,32 @@ operator|.
 name|copyTo
 operator|=
 name|copyTo
+expr_stmt|;
+block|}
+DECL|method|isPeek ()
+specifier|public
+name|boolean
+name|isPeek
+parameter_list|()
+block|{
+return|return
+name|peek
+return|;
+block|}
+DECL|method|setPeek (boolean peek)
+specifier|public
+name|void
+name|setPeek
+parameter_list|(
+name|boolean
+name|peek
+parameter_list|)
+block|{
+name|this
+operator|.
+name|peek
+operator|=
+name|peek
 expr_stmt|;
 block|}
 block|}
