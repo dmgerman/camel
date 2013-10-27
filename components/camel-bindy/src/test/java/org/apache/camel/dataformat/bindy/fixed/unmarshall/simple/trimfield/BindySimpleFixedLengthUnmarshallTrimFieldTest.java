@@ -471,7 +471,9 @@ init|=
 operator|new
 name|BindyFixedLengthDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.trimfield"
+name|Order
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()

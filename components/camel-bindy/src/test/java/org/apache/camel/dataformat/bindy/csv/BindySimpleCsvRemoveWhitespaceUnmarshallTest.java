@@ -278,7 +278,25 @@ init|=
 operator|new
 name|BindyCsvDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.model.simple.oneclassandremovewhitespace"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|model
+operator|.
+name|simple
+operator|.
+name|oneclassandremovewhitespace
+operator|.
+name|Order
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()

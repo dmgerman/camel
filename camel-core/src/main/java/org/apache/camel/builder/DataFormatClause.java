@@ -952,47 +952,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the Bindy data format      *      * @param type     the type of bindy data format to use      * @param packages packages to scan for Bindy annotated POJO classes      */
-DECL|method|bindy (BindyType type, String... packages)
-specifier|public
-name|T
-name|bindy
-parameter_list|(
-name|BindyType
-name|type
-parameter_list|,
-name|String
-modifier|...
-name|packages
-parameter_list|)
-block|{
-name|BindyDataFormat
-name|bindy
-init|=
-operator|new
-name|BindyDataFormat
-argument_list|()
-decl_stmt|;
-name|bindy
-operator|.
-name|setType
-argument_list|(
-name|type
-argument_list|)
-expr_stmt|;
-name|bindy
-operator|.
-name|setPackages
-argument_list|(
-name|packages
-argument_list|)
-expr_stmt|;
-return|return
-name|dataFormat
-argument_list|(
-name|bindy
-argument_list|)
-return|;
-block|}
+comment|/*     public T bindy(BindyType type, String... packages) {         BindyDataFormat bindy = new BindyDataFormat();         bindy.setType(type);         bindy.setPackages(packages);         return dataFormat(bindy);     }     */
 comment|/**      * Uses the Bindy data format      *      * @param type      the type of bindy data format to use      * @param classType the POJO class type      */
 DECL|method|bindy (BindyType type, Class<?> classType)
 specifier|public

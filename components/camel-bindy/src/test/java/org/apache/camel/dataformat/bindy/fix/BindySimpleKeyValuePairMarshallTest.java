@@ -588,7 +588,25 @@ init|=
 operator|new
 name|BindyKeyValuePairDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.model.fix.simple"
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|model
+operator|.
+name|fix
+operator|.
+name|simple
+operator|.
+name|Order
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()

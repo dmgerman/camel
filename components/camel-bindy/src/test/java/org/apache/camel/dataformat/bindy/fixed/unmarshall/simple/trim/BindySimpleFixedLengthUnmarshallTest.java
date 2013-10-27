@@ -470,7 +470,9 @@ init|=
 operator|new
 name|BindyFixedLengthDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.fixed.unmarshall.simple.trim"
+name|Order
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()

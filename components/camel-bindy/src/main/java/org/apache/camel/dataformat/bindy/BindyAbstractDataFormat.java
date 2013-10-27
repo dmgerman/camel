@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormat
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -48,34 +62,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|PackageScanClassResolver
-import|;
-end_import
-
 begin_class
 DECL|class|BindyAbstractDataFormat
 specifier|public
@@ -85,12 +71,6 @@ name|BindyAbstractDataFormat
 implements|implements
 name|DataFormat
 block|{
-DECL|field|packages
-specifier|private
-name|String
-index|[]
-name|packages
-decl_stmt|;
 DECL|field|locale
 specifier|private
 name|String
@@ -114,22 +94,6 @@ specifier|public
 name|BindyAbstractDataFormat
 parameter_list|()
 block|{     }
-DECL|method|BindyAbstractDataFormat (String... packages)
-specifier|public
-name|BindyAbstractDataFormat
-parameter_list|(
-name|String
-modifier|...
-name|packages
-parameter_list|)
-block|{
-name|this
-operator|.
-name|packages
-operator|=
-name|packages
-expr_stmt|;
-block|}
 DECL|method|BindyAbstractDataFormat (Class<?> classType)
 specifier|protected
 name|BindyAbstractDataFormat
@@ -146,34 +110,6 @@ operator|.
 name|classType
 operator|=
 name|classType
-expr_stmt|;
-block|}
-DECL|method|getPackages ()
-specifier|public
-name|String
-index|[]
-name|getPackages
-parameter_list|()
-block|{
-return|return
-name|packages
-return|;
-block|}
-DECL|method|setPackages (String... packages)
-specifier|public
-name|void
-name|setPackages
-parameter_list|(
-name|String
-modifier|...
-name|packages
-parameter_list|)
-block|{
-name|this
-operator|.
-name|packages
-operator|=
-name|packages
 expr_stmt|;
 block|}
 DECL|method|getClassType ()
@@ -234,14 +170,11 @@ operator|=
 name|locale
 expr_stmt|;
 block|}
-DECL|method|getFactory (PackageScanClassResolver resolver)
+DECL|method|getFactory ()
 specifier|public
 name|BindyAbstractFactory
 name|getFactory
-parameter_list|(
-name|PackageScanClassResolver
-name|resolver
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
@@ -255,9 +188,7 @@ block|{
 name|modelFactory
 operator|=
 name|createModelFactory
-argument_list|(
-name|resolver
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|modelFactory
 operator|.
@@ -287,18 +218,6 @@ operator|=
 name|modelFactory
 expr_stmt|;
 block|}
-DECL|method|createModelFactory (PackageScanClassResolver resolver)
-specifier|protected
-specifier|abstract
-name|BindyAbstractFactory
-name|createModelFactory
-parameter_list|(
-name|PackageScanClassResolver
-name|resolver
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 DECL|method|extractUnmarshalResult (List<Map<String, Object>> models)
 specifier|protected
 name|Object
@@ -415,6 +334,15 @@ name|models
 return|;
 block|}
 block|}
+DECL|method|createModelFactory ()
+specifier|protected
+specifier|abstract
+name|BindyAbstractFactory
+name|createModelFactory
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_class
 

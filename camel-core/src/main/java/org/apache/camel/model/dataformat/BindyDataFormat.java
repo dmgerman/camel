@@ -219,14 +219,8 @@ specifier|private
 name|BindyType
 name|type
 decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|packages
-specifier|private
-name|String
-index|[]
-name|packages
-decl_stmt|;
+comment|//@XmlAttribute
+comment|//private String[] packages;
 annotation|@
 name|XmlAttribute
 DECL|field|classType
@@ -289,18 +283,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-DECL|method|getPackages ()
-specifier|public
-name|String
-index|[]
-name|getPackages
-parameter_list|()
-block|{
-return|return
-name|packages
-return|;
-block|}
-comment|/**      * The java package names to scan for model classes.      */
+comment|/*     public String[] getPackages() {         return packages;     }      /**      * The java package names to scan for model classes.      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -318,11 +301,13 @@ operator|=
 name|packages
 expr_stmt|;
 block|}
+operator|*
+operator|/
 DECL|method|getClassType ()
 specifier|public
 name|String
 name|getClassType
-parameter_list|()
+argument_list|()
 block|{
 return|return
 name|classType
@@ -402,11 +387,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|packages
-operator|==
-literal|null
-operator|&&
-operator|(
 name|classType
 operator|==
 literal|null
@@ -414,7 +394,6 @@ operator|&&
 name|clazz
 operator|==
 literal|null
-operator|)
 condition|)
 block|{
 throw|throw
@@ -422,31 +401,6 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"Either packages or classType must be specified"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|packages
-operator|!=
-literal|null
-operator|&&
-operator|(
-name|classType
-operator|!=
-literal|null
-operator|||
-name|clazz
-operator|!=
-literal|null
-operator|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Only one of packages and classType must be specified"
 argument_list|)
 throw|;
 block|}
@@ -557,17 +511,6 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-name|setProperty
-argument_list|(
-name|camelContext
-argument_list|,
-name|dataFormat
-argument_list|,
-literal|"packages"
-argument_list|,
-name|packages
-argument_list|)
-expr_stmt|;
 name|setProperty
 argument_list|(
 name|camelContext

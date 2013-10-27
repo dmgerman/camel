@@ -368,39 +368,10 @@ specifier|private
 name|boolean
 name|messageOrdered
 decl_stmt|;
-DECL|method|BindyKeyValuePairFactory (PackageScanClassResolver resolver, String... packageNames)
+DECL|method|BindyKeyValuePairFactory (Class<?> type)
 specifier|public
 name|BindyKeyValuePairFactory
 parameter_list|(
-name|PackageScanClassResolver
-name|resolver
-parameter_list|,
-name|String
-modifier|...
-name|packageNames
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|super
-argument_list|(
-name|resolver
-argument_list|,
-name|packageNames
-argument_list|)
-expr_stmt|;
-comment|// Initialize what is specific to Key Value Pair model
-name|initKeyValuePairModel
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|BindyKeyValuePairFactory (PackageScanClassResolver resolver, Class<?> type)
-specifier|public
-name|BindyKeyValuePairFactory
-parameter_list|(
-name|PackageScanClassResolver
-name|resolver
-parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -412,8 +383,6 @@ name|Exception
 block|{
 name|super
 argument_list|(
-name|resolver
-argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
@@ -446,17 +415,15 @@ name|void
 name|initAnnotatedFields
 parameter_list|()
 block|{
-for|for
-control|(
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|cl
-range|:
-name|models
-control|)
-block|{
+init|=
+name|type
+argument_list|()
+decl_stmt|;
 name|List
 argument_list|<
 name|Field
@@ -630,7 +597,6 @@ argument_list|,
 name|linkFields
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
@@ -910,18 +876,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// Iterate over the model
-for|for
-control|(
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|clazz
-range|:
-name|models
-control|)
-block|{
+init|=
+name|type
+argument_list|()
+decl_stmt|;
 name|Object
 name|obj
 init|=
@@ -956,7 +919,6 @@ argument_list|,
 name|lists
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|generateModelFromKeyValueMap (Class<?> clazz, Object obj, Map<Integer, List<String>> results, int line, Map<String, List<Object>> lists)
@@ -2804,17 +2766,15 @@ literal|null
 operator|)
 condition|)
 block|{
-for|for
-control|(
 name|Class
 argument_list|<
 name|?
 argument_list|>
 name|cl
-range|:
-name|models
-control|)
-block|{
+init|=
+name|type
+argument_list|()
+decl_stmt|;
 comment|// Get annotation @Message from the class
 name|Message
 name|message
@@ -2977,7 +2937,6 @@ name|number
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

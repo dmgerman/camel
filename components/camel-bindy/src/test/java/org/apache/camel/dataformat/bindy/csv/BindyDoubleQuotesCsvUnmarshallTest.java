@@ -304,7 +304,9 @@ init|=
 operator|new
 name|BindyCsvDataFormat
 argument_list|(
-literal|"org.apache.camel.dataformat.bindy.csv"
+name|Order
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|method|configure ()
