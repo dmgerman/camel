@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,20 +49,6 @@ operator|.
 name|management
 operator|.
 name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UriParam
 import|;
 end_import
 

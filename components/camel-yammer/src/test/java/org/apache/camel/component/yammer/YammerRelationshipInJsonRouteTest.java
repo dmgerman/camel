@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -67,24 +57,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|yammer
-operator|.
-name|model
-operator|.
-name|Relationships
 import|;
 end_import
 

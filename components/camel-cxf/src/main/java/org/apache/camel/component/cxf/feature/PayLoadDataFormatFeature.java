@@ -22,26 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -187,20 +167,6 @@ operator|.
 name|endpoint
 operator|.
 name|Server
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|interceptor
-operator|.
-name|ClientFaultConverter
 import|;
 end_import
 

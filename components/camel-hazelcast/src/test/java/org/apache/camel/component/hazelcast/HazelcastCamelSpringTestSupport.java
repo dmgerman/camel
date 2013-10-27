@@ -52,25 +52,9 @@ name|camel
 operator|.
 name|test
 operator|.
-name|junit4
+name|spring
 operator|.
 name|CamelSpringTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
 import|;
 end_import
 
