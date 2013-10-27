@@ -127,9 +127,13 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -142,11 +146,10 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: disabled as it can fail for no apparent reason on another box
-DECL|method|xxxtestTransactionRollback ()
+DECL|method|testTransactionRollback ()
 specifier|public
 name|void
-name|xxxtestTransactionRollback
+name|testTransactionRollback
 parameter_list|()
 throws|throws
 name|Exception
@@ -180,9 +183,13 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals

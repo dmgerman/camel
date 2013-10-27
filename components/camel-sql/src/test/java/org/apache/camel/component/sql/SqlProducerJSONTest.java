@@ -316,13 +316,21 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|4
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from projects"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;

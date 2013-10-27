@@ -222,20 +222,32 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|1
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Tiger in Action"
 argument_list|)
@@ -273,21 +285,33 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// we do 2x the book service so we should get 2 tiger books
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|2
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Tiger in Action"
 argument_list|)
@@ -325,20 +349,32 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|1
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Elephant in Action"
 argument_list|)
@@ -376,20 +412,32 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|2
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Tiger in Action"
 argument_list|)
@@ -484,20 +532,32 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Donkey in Action"
 argument_list|)
@@ -592,20 +652,32 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Donkey in Action"
 argument_list|)
@@ -695,20 +767,32 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|1
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Tiger in Action"
 argument_list|)
@@ -716,13 +800,21 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+operator|new
+name|Integer
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books where title = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 literal|"Donkey in Action"
 argument_list|)

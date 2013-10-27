@@ -145,9 +145,13 @@ name|numMatches
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"SELECT count(0) FROM ProcessedPayments where paymentIdentifier = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 name|key
 argument_list|)
@@ -189,7 +193,6 @@ name|String
 name|key
 parameter_list|)
 block|{
-comment|// noop
 return|return
 literal|true
 return|;

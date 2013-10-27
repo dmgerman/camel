@@ -841,7 +841,7 @@ name|present
 init|=
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"SELECT COUNT(*) FROM "
 operator|+
@@ -853,6 +853,10 @@ operator|+
 name|ID
 operator|+
 literal|" = ?"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 name|key
 argument_list|)

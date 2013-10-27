@@ -457,13 +457,21 @@ name|assertEquals
 argument_list|(
 literal|"Should have deleted 2 rows"
 argument_list|,
+operator|new
+name|Integer
+argument_list|(
 literal|1
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from projects"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;

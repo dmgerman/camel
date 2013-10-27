@@ -376,9 +376,13 @@ block|{
 return|return
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 name|queryString
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|,
 name|processorName
 argument_list|,

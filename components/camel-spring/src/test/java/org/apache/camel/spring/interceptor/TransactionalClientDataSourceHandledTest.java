@@ -114,9 +114,13 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from books"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// there should be 2 books as the first insert operation succeeded

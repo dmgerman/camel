@@ -305,9 +305,13 @@ name|rows
 init|=
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from projects"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -324,13 +328,21 @@ name|assertEquals
 argument_list|(
 literal|"Should have deleted all 3 rows"
 argument_list|,
+operator|new
+name|Integer
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|jdbcTemplate
 operator|.
-name|queryForInt
+name|queryForObject
 argument_list|(
 literal|"select count(*) from projects"
+argument_list|,
+name|Integer
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;

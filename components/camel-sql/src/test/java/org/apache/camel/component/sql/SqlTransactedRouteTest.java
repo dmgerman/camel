@@ -545,9 +545,13 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForLong
+name|queryForObject
 argument_list|(
 literal|"select count(*) from customer"
+argument_list|,
+name|Long
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -790,9 +794,13 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForLong
+name|queryForObject
 argument_list|(
 literal|"select count(*) from customer"
+argument_list|,
+name|Long
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -932,9 +940,13 @@ name|count
 init|=
 name|jdbc
 operator|.
-name|queryForLong
+name|queryForObject
 argument_list|(
 literal|"select count(*) from customer"
+argument_list|,
+name|Long
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
