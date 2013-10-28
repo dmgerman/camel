@@ -886,6 +886,52 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Sets the bean properties on the given bean.      *<p/>      * This is the same logical implementation as {@link DefaultComponent#setProperties(Object, java.util.Map)}      *      * @param bean  the bean      * @param parameters  properties to set      */
+DECL|method|setProperties (Object bean, Map<String, Object> parameters)
+specifier|protected
+name|void
+name|setProperties
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// set reference properties first as they use # syntax that fools the regular properties setter
+name|EndpointHelper
+operator|.
+name|setReferenceProperties
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|bean
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|EndpointHelper
+operator|.
+name|setProperties
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|bean
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A factory method to lazily create the endpointUri if none is specified      */
 DECL|method|createEndpointUri ()
 specifier|protected
