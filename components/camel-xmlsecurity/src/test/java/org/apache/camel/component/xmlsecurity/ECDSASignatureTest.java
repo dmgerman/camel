@@ -429,6 +429,13 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
+comment|// This test fails with the IBM JDK
+if|if
+condition|(
+operator|!
+name|ibmJDK
+condition|)
+block|{
 name|registry
 operator|.
 name|bind
@@ -467,6 +474,7 @@ name|getSameDocumentUriDereferencer
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|registry
 return|;
