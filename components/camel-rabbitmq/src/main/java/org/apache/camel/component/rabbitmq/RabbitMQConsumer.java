@@ -564,6 +564,8 @@ name|createRabbitExchange
 argument_list|(
 name|envelope
 argument_list|,
+name|properties
+argument_list|,
 name|body
 argument_list|)
 decl_stmt|;
