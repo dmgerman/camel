@@ -99,8 +99,14 @@ DECL|class|ObserverSender
 specifier|public
 class|class
 name|ObserverSender
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|Observer
+argument_list|<
+name|T
+argument_list|>
 block|{
 DECL|field|producer
 specifier|private
@@ -134,6 +140,8 @@ name|producer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onCompleted ()
 specifier|public
 name|void
@@ -180,6 +188,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onError (Throwable e)
 specifier|public
 name|void
@@ -210,12 +220,14 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onNext (Object o)
+annotation|@
+name|Override
+DECL|method|onNext (T o)
 specifier|public
 name|void
 name|onNext
 parameter_list|(
-name|Object
+name|T
 name|o
 parameter_list|)
 block|{

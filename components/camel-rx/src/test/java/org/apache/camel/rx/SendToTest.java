@@ -134,6 +134,10 @@ name|mockEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
+operator|(
+name|Object
+index|[]
+operator|)
 name|expectedBodies
 argument_list|)
 expr_stmt|;

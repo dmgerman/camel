@@ -93,11 +93,13 @@ specifier|private
 specifier|final
 name|Observer
 argument_list|<
+name|?
+super|super
 name|T
 argument_list|>
 name|observer
 decl_stmt|;
-DECL|method|ProcessorToObserver (Func1<Exchange, T> func, Observer<T> observer)
+DECL|method|ProcessorToObserver (Func1<Exchange, T> func, Observer<? super T> observer)
 specifier|public
 name|ProcessorToObserver
 parameter_list|(
@@ -111,6 +113,8 @@ name|func
 parameter_list|,
 name|Observer
 argument_list|<
+name|?
+super|super
 name|T
 argument_list|>
 name|observer

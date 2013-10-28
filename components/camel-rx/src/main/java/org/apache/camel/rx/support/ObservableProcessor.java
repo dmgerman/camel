@@ -118,6 +118,11 @@ DECL|field|observable
 specifier|private
 specifier|final
 name|Subject
+argument_list|<
+name|T
+argument_list|,
+name|T
+argument_list|>
 name|observable
 init|=
 name|PublishSubject
@@ -129,13 +134,11 @@ DECL|field|processor
 specifier|private
 specifier|final
 name|ProcessorToObserver
+argument_list|<
+name|T
+argument_list|>
 name|processor
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|ObservableProcessor (Func1<Exchange, T> func)
 specifier|protected
 name|ObservableProcessor
@@ -155,6 +158,9 @@ name|processor
 operator|=
 operator|new
 name|ProcessorToObserver
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|func
 argument_list|,
@@ -162,6 +168,8 @@ name|observable
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -182,11 +190,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the {@link Observable} for this {@link Processor} so that the messages that are received      * can be processed using the<a href="https://github.com/Netflix/RxJava/wiki">RX Java API</a>      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getObservable ()
 specifier|public
 name|Observable
@@ -214,6 +217,8 @@ argument_list|>
 name|observable
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -229,6 +234,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

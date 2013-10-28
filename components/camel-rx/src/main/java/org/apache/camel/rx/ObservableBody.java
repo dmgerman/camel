@@ -91,6 +91,9 @@ name|super
 argument_list|(
 operator|new
 name|ExchangeToBodyFunc1
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|bodyType
 argument_list|)
@@ -103,6 +106,8 @@ operator|=
 name|bodyType
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

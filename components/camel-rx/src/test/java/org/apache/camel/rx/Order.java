@@ -28,11 +28,13 @@ name|Order
 block|{
 DECL|field|id
 specifier|private
+specifier|final
 name|String
 name|id
 decl_stmt|;
 DECL|field|amount
 specifier|private
+specifier|final
 name|double
 name|amount
 decl_stmt|;
@@ -60,6 +62,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString ()
 specifier|public
 name|String

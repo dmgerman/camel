@@ -134,6 +134,8 @@ specifier|private
 specifier|final
 name|Observer
 argument_list|<
+name|?
+super|super
 name|T
 argument_list|>
 name|observer
@@ -143,7 +145,7 @@ specifier|private
 name|Consumer
 name|consumer
 decl_stmt|;
-DECL|method|EndpointSubscription (Endpoint endpoint, final Observer<T> observer, final Func1<Exchange, T> func)
+DECL|method|EndpointSubscription (Endpoint endpoint, final Observer<? super T> observer, final Func1<Exchange, T> func)
 specifier|public
 name|EndpointSubscription
 parameter_list|(
@@ -153,6 +155,8 @@ parameter_list|,
 specifier|final
 name|Observer
 argument_list|<
+name|?
+super|super
 name|T
 argument_list|>
 name|observer
@@ -311,6 +315,8 @@ DECL|method|getObserver ()
 specifier|public
 name|Observer
 argument_list|<
+name|?
+super|super
 name|T
 argument_list|>
 name|getObserver

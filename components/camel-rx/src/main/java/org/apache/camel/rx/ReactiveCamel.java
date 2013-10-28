@@ -378,11 +378,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sends events on the given {@link Observable} to the given camel endpoint      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|sendTo (Observable<T> observable, Endpoint endpoint)
 specifier|public
 parameter_list|<
@@ -404,10 +399,16 @@ block|{
 try|try
 block|{
 name|ObserverSender
+argument_list|<
+name|T
+argument_list|>
 name|observer
 init|=
 operator|new
 name|ObserverSender
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|endpoint
 argument_list|)
@@ -466,11 +467,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a newly created {@link Observable} given a function which converts      * the {@link Exchange} from the Camel consumer to the required type      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|createEndpointObservable (final Endpoint endpoint, final Func1<Exchange, T> converter)
 specifier|protected
 parameter_list|<
@@ -500,7 +496,7 @@ name|Observable
 operator|.
 name|OnSubscribeFunc
 argument_list|<
-name|Message
+name|T
 argument_list|>
 name|func
 init|=
@@ -509,7 +505,7 @@ name|Observable
 operator|.
 name|OnSubscribeFunc
 argument_list|<
-name|Message
+name|T
 argument_list|>
 argument_list|()
 block|{
@@ -523,7 +519,7 @@ name|Observer
 argument_list|<
 name|?
 super|super
-name|Message
+name|T
 argument_list|>
 name|observer
 parameter_list|)
@@ -531,6 +527,9 @@ block|{
 return|return
 operator|new
 name|EndpointSubscription
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|endpoint
 argument_list|,
@@ -545,6 +544,9 @@ decl_stmt|;
 return|return
 operator|new
 name|EndpointObservable
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|endpoint
 argument_list|,
