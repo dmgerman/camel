@@ -313,6 +313,48 @@ return|return
 name|cacheStylesheet
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint State"
+argument_list|)
+DECL|method|getState ()
+specifier|public
+name|String
+name|getState
+parameter_list|()
+block|{
+return|return
+name|getStatus
+argument_list|()
+operator|.
+name|name
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel ID"
+argument_list|)
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
 DECL|method|findOrCreateEndpoint (String uri, String newResourceUri)
 specifier|public
 name|XsltEndpoint
@@ -442,7 +484,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 else|else
 block|{
