@@ -281,6 +281,27 @@ operator|.
 name|afterPropertiesSet
 argument_list|()
 expr_stmt|;
+comment|// cater for slow servers
+name|getMockEndpoint
+argument_list|(
+literal|"mock:a"
+argument_list|)
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30000
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:b"
+argument_list|)
+operator|.
+name|setResultWaitTime
+argument_list|(
+literal|30000
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getDatasourceName ()
 specifier|protected
@@ -673,27 +694,6 @@ argument_list|,
 literal|456
 argument_list|)
 expr_stmt|;
-comment|// cater for slow servers
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|30000
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|30000
-argument_list|)
-expr_stmt|;
 comment|// assert mock and wait for the message to be done
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -847,27 +847,6 @@ argument_list|,
 literal|"uid"
 argument_list|,
 literal|111
-argument_list|)
-expr_stmt|;
-comment|// cater for slow servers
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|30000
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|30000
 argument_list|)
 expr_stmt|;
 comment|// assert mock and wait for the message to be done
