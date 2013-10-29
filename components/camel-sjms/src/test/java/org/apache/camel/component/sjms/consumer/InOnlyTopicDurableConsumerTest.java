@@ -342,7 +342,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"sjms:topic:foo?durableSubscriptionId=bar"
+literal|"sjms:topic:foo?durableSubscriptionId=bar1"
 argument_list|)
 operator|.
 name|to
@@ -352,7 +352,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"sjms:topic:foo?durableSubscriptionId=bar"
+literal|"sjms:topic:foo?durableSubscriptionId=bar2"
 argument_list|)
 operator|.
 name|to

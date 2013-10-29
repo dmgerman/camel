@@ -156,24 +156,6 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|jms
-operator|.
-name|SessionPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
 name|producer
 operator|.
 name|InOnlyProducer
@@ -314,11 +296,6 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|)
-decl_stmt|;
-DECL|field|sessions
-specifier|private
-name|SessionPool
-name|sessions
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -558,65 +535,6 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|//
-comment|// TODO since we only need a session pool for one use case, find a
-comment|// better way
-comment|//
-comment|// We only create a session pool when we are not transacted.
-comment|// Transacted listeners or producers need to be paired with the
-comment|// Session that created them.
-if|if
-condition|(
-operator|!
-name|isTransacted
-argument_list|()
-operator|&&
-name|getExchangePattern
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|ExchangePattern
-operator|.
-name|InOnly
-argument_list|)
-condition|)
-block|{
-name|sessions
-operator|=
-operator|new
-name|SessionPool
-argument_list|(
-name|getSessionCount
-argument_list|()
-argument_list|,
-name|getConnectionResource
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// TODO fix the string hack
-name|sessions
-operator|.
-name|setAcknowledgeMode
-argument_list|(
-name|SessionAcknowledgementType
-operator|.
-name|valueOf
-argument_list|(
-name|getAcknowledgementMode
-argument_list|()
-operator|+
-literal|""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|getSessions
-argument_list|()
-operator|.
-name|fillPool
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -628,21 +546,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|getSessions
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|getSessions
-argument_list|()
-operator|.
-name|drainPool
-argument_list|()
-expr_stmt|;
-block|}
 name|super
 operator|.
 name|doStop
@@ -859,34 +762,6 @@ name|getKeyFormatStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a SessionPool if available.      *       * @return the sessions      */
-DECL|method|getSessions ()
-specifier|public
-name|SessionPool
-name|getSessions
-parameter_list|()
-block|{
-return|return
-name|sessions
-return|;
-block|}
-comment|/**      * SessionPool used by endpoints that do not require a dedicated session per      * consumer or producer.      *       * @param sessions default null      */
-DECL|method|setSessions (SessionPool sessions)
-specifier|public
-name|void
-name|setSessions
-parameter_list|(
-name|SessionPool
-name|sessions
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sessions
-operator|=
-name|sessions
-expr_stmt|;
-block|}
 comment|/**      * Use to determine whether or not to process exchanges synchronously.      *       * @return true if endoint is synchronous, otherwise false      */
 DECL|method|isSynchronous ()
 specifier|public
@@ -955,6 +830,8 @@ name|topic
 return|;
 block|}
 comment|/**      * Returns the number of Session instances expected on this endpoint.      *       * @return the sessionCount      */
+annotation|@
+name|Deprecated
 DECL|method|getSessionCount ()
 specifier|public
 name|int
@@ -966,6 +843,8 @@ name|sessionCount
 return|;
 block|}
 comment|/**      * Sets the number of Session instances used for this endpoint. Value is      * ignored for endpoints that require a dedicated session such as a      * transacted or InOut endpoint.      *       * @param sessionCount the number of Session instances, default is 1      */
+annotation|@
+name|Deprecated
 DECL|method|setSessionCount (int sessionCount)
 specifier|public
 name|void
