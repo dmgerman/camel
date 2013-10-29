@@ -717,6 +717,11 @@ block|{
 name|addSingleStepBreakpoint
 argument_list|(
 name|breakpoint
+argument_list|,
+operator|new
+name|Condition
+index|[]
+block|{}
 argument_list|)
 expr_stmt|;
 block|}
