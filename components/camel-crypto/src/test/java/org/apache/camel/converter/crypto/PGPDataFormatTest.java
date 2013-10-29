@@ -463,7 +463,6 @@ argument_list|(
 name|keyFileNameSec
 argument_list|)
 expr_stmt|;
-comment|// pgpDecrypt.setKeyUserid(keyUserid);
 name|pgpDecrypt
 operator|.
 name|setPassword
@@ -763,6 +762,9 @@ argument_list|(
 literal|"direct:key-ring-byte-array"
 argument_list|)
 operator|.
+name|streamCaching
+argument_list|()
+operator|.
 name|marshal
 argument_list|(
 name|pgpEncryptByteArray
@@ -881,6 +883,9 @@ name|from
 argument_list|(
 literal|"direct:sign-key-ring-byte-array"
 argument_list|)
+operator|.
+name|streamCaching
+argument_list|()
 comment|// encryption key ring can also be set as header
 operator|.
 name|setHeader
