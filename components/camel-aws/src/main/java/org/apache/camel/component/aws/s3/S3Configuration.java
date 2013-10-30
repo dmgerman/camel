@@ -66,6 +66,11 @@ specifier|private
 name|String
 name|bucketName
 decl_stmt|;
+DECL|field|fileName
+specifier|private
+name|String
+name|fileName
+decl_stmt|;
 DECL|field|prefix
 specifier|private
 name|String
@@ -257,6 +262,32 @@ operator|.
 name|bucketName
 operator|=
 name|bucketName
+expr_stmt|;
+block|}
+DECL|method|getFileName ()
+specifier|public
+name|String
+name|getFileName
+parameter_list|()
+block|{
+return|return
+name|fileName
+return|;
+block|}
+DECL|method|setFileName (String fileName)
+specifier|public
+name|void
+name|setFileName
+parameter_list|(
+name|String
+name|fileName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileName
+operator|=
+name|fileName
 expr_stmt|;
 block|}
 DECL|method|getRegion ()

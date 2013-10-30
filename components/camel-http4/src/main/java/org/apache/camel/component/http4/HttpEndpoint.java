@@ -414,6 +414,11 @@ specifier|private
 name|boolean
 name|traceEnabled
 decl_stmt|;
+DECL|field|authenticationPreemptive
+specifier|private
+name|boolean
+name|authenticationPreemptive
+decl_stmt|;
 DECL|field|httpMethodRestrict
 specifier|private
 name|String
@@ -1648,6 +1653,32 @@ operator|.
 name|cookieStore
 operator|=
 name|cookieStore
+expr_stmt|;
+block|}
+DECL|method|isAuthenticationPreemptive ()
+specifier|public
+name|boolean
+name|isAuthenticationPreemptive
+parameter_list|()
+block|{
+return|return
+name|authenticationPreemptive
+return|;
+block|}
+DECL|method|setAuthenticationPreemptive (boolean authenticationPreemptive)
+specifier|public
+name|void
+name|setAuthenticationPreemptive
+parameter_list|(
+name|boolean
+name|authenticationPreemptive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|authenticationPreemptive
+operator|=
+name|authenticationPreemptive
 expr_stmt|;
 block|}
 block|}
