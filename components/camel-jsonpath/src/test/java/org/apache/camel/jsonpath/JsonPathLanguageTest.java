@@ -200,6 +200,9 @@ literal|"$.store.book[*].author"
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|authors
 init|=
 name|exp

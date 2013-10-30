@@ -122,12 +122,6 @@ specifier|public
 class|class
 name|JsonPathEngine
 block|{
-DECL|field|expression
-specifier|private
-specifier|final
-name|String
-name|expression
-decl_stmt|;
 DECL|field|path
 specifier|private
 specifier|final
@@ -148,12 +142,6 @@ name|String
 name|expression
 parameter_list|)
 block|{
-name|this
-operator|.
-name|expression
-operator|=
-name|expression
-expr_stmt|;
 name|this
 operator|.
 name|configuration
@@ -211,6 +199,9 @@ operator|=
 operator|(
 operator|(
 name|WrappedFile
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|json
 operator|)

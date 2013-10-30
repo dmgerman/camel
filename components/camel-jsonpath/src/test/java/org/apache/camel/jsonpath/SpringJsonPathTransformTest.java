@@ -151,6 +151,9 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|authors
 init|=
 name|getMockEndpoint
