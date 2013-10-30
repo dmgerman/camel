@@ -467,17 +467,20 @@ decl_stmt|;
 comment|/**      * Holder class for breakpoint and the associated conditions      */
 DECL|class|BreakpointConditions
 specifier|private
+specifier|static
 specifier|final
 class|class
 name|BreakpointConditions
 block|{
 DECL|field|breakpoint
 specifier|private
+specifier|final
 name|Breakpoint
 name|breakpoint
 decl_stmt|;
 DECL|field|conditions
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Condition
@@ -496,7 +499,12 @@ name|this
 argument_list|(
 name|breakpoint
 argument_list|,
-literal|null
+operator|new
+name|ArrayList
+argument_list|<
+name|Condition
+argument_list|>
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -571,6 +579,8 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext
@@ -581,6 +591,8 @@ return|return
 name|camelContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCamelContext (CamelContext camelContext)
 specifier|public
 name|void
@@ -623,6 +635,8 @@ operator|=
 name|useTracer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addBreakpoint (Breakpoint breakpoint)
 specifier|public
 name|void
@@ -644,6 +658,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addBreakpoint (Breakpoint breakpoint, Condition... conditions)
 specifier|public
 name|void
@@ -656,19 +672,6 @@ name|Condition
 modifier|...
 name|conditions
 parameter_list|)
-block|{
-if|if
-condition|(
-name|conditions
-operator|!=
-literal|null
-operator|&&
-name|conditions
-operator|.
-name|length
-operator|>
-literal|0
-condition|)
 block|{
 name|breakpoints
 operator|.
@@ -689,21 +692,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|breakpoints
-operator|.
-name|add
-argument_list|(
-operator|new
-name|BreakpointConditions
-argument_list|(
-name|breakpoint
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+annotation|@
+name|Override
 DECL|method|addSingleStepBreakpoint (final Breakpoint breakpoint)
 specifier|public
 name|void
@@ -725,6 +715,8 @@ block|{}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addSingleStepBreakpoint (final Breakpoint breakpoint, Condition... conditions)
 specifier|public
 name|void
@@ -747,6 +739,8 @@ operator|new
 name|Breakpoint
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|State
 name|getState
@@ -759,6 +753,8 @@ name|getState
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|suspend
@@ -770,6 +766,8 @@ name|suspend
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|activate
@@ -781,6 +779,8 @@ name|activate
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|beforeProcess
@@ -810,6 +810,8 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|afterProcess
@@ -844,6 +846,8 @@ name|timeTaken
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|onEvent
@@ -948,6 +952,8 @@ name|conditions
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeBreakpoint (Breakpoint breakpoint)
 specifier|public
 name|void
@@ -988,6 +994,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|suspendAllBreakpoints ()
 specifier|public
 name|void
@@ -1012,6 +1020,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|activateAllBreakpoints ()
 specifier|public
 name|void
@@ -1036,6 +1046,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getBreakpoints ()
 specifier|public
 name|List
@@ -1091,6 +1103,8 @@ name|answer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|startSingleStepExchange (String exchangeId, Breakpoint breakpoint)
 specifier|public
 name|boolean
@@ -1131,6 +1145,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|stopSingleStepExchange (String exchangeId)
 specifier|public
 name|void
@@ -1148,6 +1164,8 @@ name|exchangeId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|beforeProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition)
 specifier|public
 name|boolean
@@ -1276,6 +1294,8 @@ return|return
 name|match
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|afterProcess (Exchange exchange, Processor processor, ProcessorDefinition<?> definition, long timeTaken)
 specifier|public
 name|boolean
@@ -1411,6 +1431,8 @@ return|return
 name|match
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onEvent (Exchange exchange, EventObject event)
 specifier|public
 name|boolean
@@ -1774,25 +1796,6 @@ name|BreakpointConditions
 name|breakpoint
 parameter_list|)
 block|{
-if|if
-condition|(
-name|breakpoint
-operator|.
-name|getConditions
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-operator|!
-name|breakpoint
-operator|.
-name|getConditions
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
 for|for
 control|(
 name|Condition
@@ -1824,7 +1827,6 @@ literal|false
 return|;
 block|}
 block|}
-block|}
 return|return
 literal|true
 return|;
@@ -1843,25 +1845,6 @@ parameter_list|,
 name|BreakpointConditions
 name|breakpoint
 parameter_list|)
-block|{
-if|if
-condition|(
-name|breakpoint
-operator|.
-name|getConditions
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-operator|!
-name|breakpoint
-operator|.
-name|getConditions
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 block|{
 for|for
 control|(
@@ -1892,11 +1875,12 @@ literal|false
 return|;
 block|}
 block|}
-block|}
 return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start ()
 specifier|public
 name|void
@@ -2001,6 +1985,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void
@@ -2063,6 +2049,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify (EventObject event)
 specifier|public
 name|void
@@ -2117,6 +2105,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled (EventObject event)
 specifier|public
 name|boolean
@@ -2132,6 +2122,8 @@ operator|instanceof
 name|AbstractExchangeEvent
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -2142,6 +2134,8 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
