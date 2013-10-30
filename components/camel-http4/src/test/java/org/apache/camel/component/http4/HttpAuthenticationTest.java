@@ -260,10 +260,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|basicAuthenticationPreemptive ()
+DECL|method|basicAuthenticationPreemptiveShouldSuccess ()
 specifier|public
 name|void
-name|basicAuthenticationPreemptive
+name|basicAuthenticationPreemptiveShouldSuccess
 parameter_list|()
 throws|throws
 name|Exception
@@ -293,7 +293,7 @@ literal|"&authPassword="
 operator|+
 name|password
 operator|+
-literal|"&preemptiveAuth=true"
+literal|"&authenticationPreemptive=true"
 argument_list|,
 operator|new
 name|Processor
@@ -308,7 +308,7 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
-block|{             }
+block|{                 }
 block|}
 argument_list|)
 decl_stmt|;
