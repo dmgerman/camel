@@ -2761,20 +2761,7 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
-name|NettyHelper
-operator|.
-name|close
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
-name|ALL_CHANNELS
-operator|.
-name|remove
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 annotation|@
 name|Override
