@@ -853,7 +853,7 @@ return|return
 name|getScheme
 argument_list|()
 operator|+
-literal|"//"
+literal|"://"
 operator|+
 name|getAddress
 argument_list|()
