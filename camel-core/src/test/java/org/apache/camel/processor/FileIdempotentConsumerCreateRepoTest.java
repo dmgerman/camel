@@ -37,6 +37,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|UUID
+operator|.
+name|randomUUID
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -108,28 +120,15 @@ name|IOException
 block|{
 comment|// Given
 name|File
-name|tmpDir
+name|parentDirectory
 init|=
 operator|new
 name|File
 argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.io.tmpdir"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|File
-name|storeParent
-init|=
-operator|new
-name|File
-argument_list|(
-name|tmpDir
-argument_list|,
-literal|"repositoryParent"
+literal|"target/repositoryParent_"
+operator|+
+name|randomUUID
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|File
@@ -138,9 +137,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|storeParent
+name|parentDirectory
 argument_list|,
-literal|"repository"
+literal|"store"
 argument_list|)
 decl_stmt|;
 name|IdempotentRepository
