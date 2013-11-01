@@ -530,7 +530,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|listChildren
+name|isListChildren
 argument_list|()
 condition|)
 block|{
@@ -580,7 +580,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Initailizing consumption of data on node '%s'"
+literal|"Initializing consumption of data on node '%s'"
 argument_list|,
 name|node
 argument_list|)
@@ -625,7 +625,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Initailizing child listing of node '%s'"
+literal|"Initializing child listing of node '%s'"
 argument_list|,
 name|node
 argument_list|)
@@ -913,11 +913,6 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|backoffAndThenRestart
 argument_list|()
 expr_stmt|;

@@ -287,48 +287,6 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Session Password"
-argument_list|,
-name|mask
-operator|=
-literal|true
-argument_list|)
-DECL|method|getSessionPassword ()
-specifier|public
-name|byte
-index|[]
-name|getSessionPassword
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|getSessionPassword
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-DECL|method|getSessionId ()
-specifier|public
-name|int
-name|getSessionId
-parameter_list|()
-block|{
-return|return
-name|getConfiguration
-argument_list|()
-operator|.
-name|getSessionId
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -479,17 +437,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getListChildren ()
+DECL|method|isListChildren ()
 specifier|public
 name|boolean
-name|getListChildren
+name|isListChildren
 parameter_list|()
 block|{
 return|return
 name|getConfiguration
 argument_list|()
 operator|.
-name|listChildren
+name|isListChildren
 argument_list|()
 return|;
 block|}

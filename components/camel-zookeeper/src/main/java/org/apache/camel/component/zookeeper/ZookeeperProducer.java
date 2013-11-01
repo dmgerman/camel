@@ -546,7 +546,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|listChildren
+name|isListChildren
 argument_list|()
 condition|)
 block|{
@@ -603,7 +603,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|listChildren
+name|isListChildren
 argument_list|()
 condition|)
 block|{

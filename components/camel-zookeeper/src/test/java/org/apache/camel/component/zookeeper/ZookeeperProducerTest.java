@@ -202,10 +202,6 @@ name|ZOOKEEPER_OPERATION
 import|;
 end_import
 
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-
 begin_class
 DECL|class|ZookeeperProducerTest
 specifier|public

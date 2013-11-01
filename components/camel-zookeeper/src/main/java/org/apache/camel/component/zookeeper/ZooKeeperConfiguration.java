@@ -62,6 +62,12 @@ name|ZooKeeperConfiguration
 implements|implements
 name|Cloneable
 block|{
+DECL|field|changed
+specifier|private
+specifier|transient
+name|boolean
+name|changed
+decl_stmt|;
 DECL|field|timeout
 specifier|private
 name|int
@@ -83,22 +89,6 @@ argument_list|<
 name|String
 argument_list|>
 name|servers
-decl_stmt|;
-DECL|field|changed
-specifier|private
-name|boolean
-name|changed
-decl_stmt|;
-DECL|field|sessionId
-specifier|private
-name|int
-name|sessionId
-decl_stmt|;
-DECL|field|password
-specifier|private
-name|byte
-index|[]
-name|password
 decl_stmt|;
 DECL|field|path
 specifier|private
@@ -239,10 +229,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-DECL|method|listChildren ()
+DECL|method|isListChildren ()
 specifier|public
 name|boolean
-name|listChildren
+name|isListChildren
 parameter_list|()
 block|{
 return|return
@@ -337,27 +327,6 @@ name|b
 operator|.
 name|toString
 argument_list|()
-return|;
-block|}
-DECL|method|getSessionPassword ()
-specifier|public
-name|byte
-index|[]
-name|getSessionPassword
-parameter_list|()
-block|{
-return|return
-name|password
-return|;
-block|}
-DECL|method|getSessionId ()
-specifier|public
-name|int
-name|getSessionId
-parameter_list|()
-block|{
-return|return
-name|sessionId
 return|;
 block|}
 DECL|method|setPath (String path)
