@@ -679,6 +679,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{              }
+comment|/**      * Factory method returning {@link CamelContext} used by this configuration.      *      * @return {@link CamelContext} used by this configuration. By default {@link SpringCamelContext} instance is      * created, to fully integrate Spring application context and Camel registry.      */
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
