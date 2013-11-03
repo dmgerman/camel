@@ -90,6 +90,18 @@ name|Target
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RoutesBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Indicates if certain route builder classes should be excluded from discovery.    * Initializes a {@link org.apache.camel.spi.PackageScanClassResolver} to exclude a set of given  * classes from being resolved. Typically this is used at test time to exclude certain routes,  * which might otherwise be noisy, from being discovered and initialized.  */
 end_comment
@@ -125,6 +137,8 @@ DECL|method|value ()
 name|Class
 argument_list|<
 name|?
+extends|extends
+name|RoutesBuilder
 argument_list|>
 index|[]
 name|value
