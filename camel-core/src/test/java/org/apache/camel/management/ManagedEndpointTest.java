@@ -106,7 +106,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"seda://test\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"seda://test\""
 argument_list|)
 decl_stmt|;
 name|mbeanServer
@@ -122,7 +122,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"mock://result\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"mock://result\""
 argument_list|)
 expr_stmt|;
 name|mbeanServer

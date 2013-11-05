@@ -298,7 +298,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"http://0.0.0.0:"
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"http://0.0.0.0:"
 operator|+
 name|getPort
 argument_list|()
@@ -328,7 +328,7 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-literal|"*:context=localhost/camel-1,type=endpoints,*"
+literal|"*:context=camel-1,type=endpoints,*"
 argument_list|)
 argument_list|,
 literal|null

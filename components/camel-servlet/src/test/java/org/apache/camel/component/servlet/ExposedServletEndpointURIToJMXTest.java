@@ -165,7 +165,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=*/camel-1,type=endpoints,name="
+literal|"org.apache.camel:context=camel-1,type=endpoints,name="
 operator|+
 name|servletEndpointURI
 argument_list|)

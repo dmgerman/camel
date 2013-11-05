@@ -179,7 +179,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"seda://start\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"seda://start\""
 argument_list|)
 decl_stmt|;
 name|String

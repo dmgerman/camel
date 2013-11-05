@@ -95,7 +95,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route-a\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route-a\""
 argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
@@ -176,7 +176,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"foo\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"foo\""
 argument_list|)
 decl_stmt|;
 name|completed
@@ -211,7 +211,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"bar\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"bar\""
 argument_list|)
 decl_stmt|;
 name|completed
@@ -246,7 +246,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mock\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mock\""
 argument_list|)
 decl_stmt|;
 name|completed
@@ -280,7 +280,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route-b\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route-b\""
 argument_list|)
 expr_stmt|;
 name|completed

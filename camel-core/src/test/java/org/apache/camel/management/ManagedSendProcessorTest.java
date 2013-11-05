@@ -166,7 +166,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mysend\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mysend\""
 argument_list|)
 decl_stmt|;
 comment|// should be on route1

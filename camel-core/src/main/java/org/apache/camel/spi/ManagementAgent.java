@@ -301,6 +301,21 @@ name|Boolean
 name|sanitize
 parameter_list|)
 function_decl|;
+comment|/**      * Gets whether host name is included in MBean names.      *      * @return<tt>true</tt> if included      */
+DECL|method|getIncludeHostName ()
+name|Boolean
+name|getIncludeHostName
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether to include host name in the {@link ManagementNamingStrategy}.      *<p/>      * By default this is turned off from Camel 2.13 onwards, but this option      * can be set to<tt>true</tt> to include the hostname as Camel 2.12 or      * older releases does.      *      * @param includeHostName<tt>true</tt> to include host name in the MBean names.      */
+DECL|method|setIncludeHostName (Boolean includeHostName)
+name|void
+name|setIncludeHostName
+parameter_list|(
+name|Boolean
+name|includeHostName
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

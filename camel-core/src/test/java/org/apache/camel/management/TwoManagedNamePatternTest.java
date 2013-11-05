@@ -234,7 +234,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/aaa-foo,type=context,name=\"foo\""
+literal|"org.apache.camel:context=aaa-foo,type=context,name=\"foo\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -256,7 +256,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/bbb-bar,type=context,name=\"bar\""
+literal|"org.apache.camel:context=bbb-bar,type=context,name=\"bar\""
 argument_list|)
 decl_stmt|;
 name|assertTrue

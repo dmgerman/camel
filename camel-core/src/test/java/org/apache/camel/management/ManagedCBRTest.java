@@ -95,7 +95,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -120,7 +120,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-a\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"task-a\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -145,7 +145,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"choice\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"choice\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -170,7 +170,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-b\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"task-b\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -195,7 +195,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-c\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"task-c\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -220,7 +220,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-d\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"task-d\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -245,7 +245,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-e\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"task-e\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -270,7 +270,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"task-done\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"task-done\""
 argument_list|)
 expr_stmt|;
 name|assertTrue

@@ -294,7 +294,7 @@ name|getInstance
 argument_list|(
 name|mBeanServerDefaultDomain
 operator|+
-literal|":context=localhost/"
+literal|":context="
 operator|+
 name|managementName
 operator|+
@@ -332,7 +332,7 @@ name|getInstance
 argument_list|(
 name|mBeanServerDefaultDomain
 operator|+
-literal|":context=localhost/"
+literal|":context="
 operator|+
 name|managementName
 operator|+

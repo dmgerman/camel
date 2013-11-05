@@ -226,7 +226,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"direct://a\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"direct://a\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -248,7 +248,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"mock://x\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"mock://x\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -269,7 +269,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"mock://y\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"mock://y\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -290,7 +290,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"mock://z\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"mock://z\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -312,7 +312,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=components,name=\"mock\""
+literal|"org.apache.camel:context=camel-1,type=components,name=\"mock\""
 argument_list|)
 expr_stmt|;
 name|assertTrue

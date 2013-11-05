@@ -383,7 +383,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"foo\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"foo\""
 argument_list|)
 decl_stmt|;
 name|completed
@@ -417,7 +417,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mock\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mock\""
 argument_list|)
 decl_stmt|;
 name|completed

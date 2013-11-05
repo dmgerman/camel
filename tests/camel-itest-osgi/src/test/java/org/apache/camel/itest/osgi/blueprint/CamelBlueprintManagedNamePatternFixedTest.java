@@ -314,7 +314,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/"
+literal|"org.apache.camel:context="
 operator|+
 name|ctx
 operator|.

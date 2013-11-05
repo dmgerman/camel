@@ -271,7 +271,7 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-literal|"*:context=localhost/camel-1,type=components,*"
+literal|"*:context=camel-1,type=components,*"
 argument_list|)
 argument_list|,
 literal|null
@@ -382,7 +382,7 @@ argument_list|(
 operator|new
 name|ObjectName
 argument_list|(
-literal|"*:context=localhost/camel-2,type=components,*"
+literal|"*:context=camel-2,type=components,*"
 argument_list|)
 argument_list|,
 literal|null

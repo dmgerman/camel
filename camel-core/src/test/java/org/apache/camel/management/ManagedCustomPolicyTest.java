@@ -255,7 +255,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"foo\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"foo\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -276,7 +276,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"result\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"result\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -297,7 +297,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"bar\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"bar\""
 argument_list|)
 expr_stmt|;
 name|assertTrue

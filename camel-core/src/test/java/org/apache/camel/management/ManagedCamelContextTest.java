@@ -185,7 +185,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/19-camel-1,type=context,name=\"camel-1\""
+literal|"org.apache.camel:context=19-camel-1,type=context,name=\"camel-1\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -671,7 +671,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/19-camel-1,type=context,name=\"camel-1\""
+literal|"org.apache.camel:context=19-camel-1,type=context,name=\"camel-1\""
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -737,7 +737,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/19-camel-1,type=endpoints,name=\"seda://bar\""
+literal|"org.apache.camel:context=19-camel-1,type=endpoints,name=\"seda://bar\""
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -845,7 +845,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/19-camel-1,type=context,name=\"camel-1\""
+literal|"org.apache.camel:context=19-camel-1,type=context,name=\"camel-1\""
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -911,7 +911,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/19-camel-1,type=endpoints,name=\"seda://bar\""
+literal|"org.apache.camel:context=19-camel-1,type=endpoints,name=\"seda://bar\""
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1089,7 +1089,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/19-camel-1,type=context,name=\"camel-1\""
+literal|"org.apache.camel:context=19-camel-1,type=context,name=\"camel-1\""
 argument_list|)
 decl_stmt|;
 name|assertTrue

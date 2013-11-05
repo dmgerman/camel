@@ -148,7 +148,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=components,name=\"seda\""
+literal|"org.apache.camel:context=camel-1,type=components,name=\"seda\""
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -167,7 +167,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"seda://foo\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"seda://foo\""
 argument_list|)
 expr_stmt|;
 name|assertTrue

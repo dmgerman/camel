@@ -160,7 +160,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"custom\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"custom\""
 argument_list|)
 decl_stmt|;
 name|getMockEndpoint
