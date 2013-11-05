@@ -164,7 +164,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -265,7 +265,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -365,7 +365,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -466,7 +466,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -567,7 +567,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -667,7 +667,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
@@ -768,7 +768,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|2000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|SimpleDateFormat
