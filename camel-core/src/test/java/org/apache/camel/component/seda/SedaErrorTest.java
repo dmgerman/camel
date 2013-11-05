@@ -117,8 +117,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 for|for
 control|(
 name|int
@@ -158,15 +156,6 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{
-comment|// noop
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
