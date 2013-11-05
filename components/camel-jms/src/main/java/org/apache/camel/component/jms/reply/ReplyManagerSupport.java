@@ -1163,7 +1163,7 @@ finally|finally
 block|{
 name|endpoint
 operator|.
-name|onListenerConstainerStopped
+name|onListenerContainerStopped
 argument_list|(
 name|listenerContainer
 argument_list|)

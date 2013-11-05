@@ -2180,10 +2180,10 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|onListenerConstainerStopped (AbstractMessageListenerContainer container)
+DECL|method|onListenerContainerStopped (AbstractMessageListenerContainer container)
 specifier|public
 name|void
-name|onListenerConstainerStopped
+name|onListenerContainerStopped
 parameter_list|(
 name|AbstractMessageListenerContainer
 name|container

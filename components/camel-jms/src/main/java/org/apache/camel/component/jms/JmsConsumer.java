@@ -697,7 +697,7 @@ block|{
 name|getEndpoint
 argument_list|()
 operator|.
-name|onListenerConstainerStopped
+name|onListenerContainerStopped
 argument_list|(
 name|listenerContainer
 argument_list|)
