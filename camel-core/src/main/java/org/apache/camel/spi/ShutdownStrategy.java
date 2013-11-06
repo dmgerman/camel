@@ -206,7 +206,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * Setting a value of 0 or negative will disable timeout and wait until complete      * (potential blocking forever)      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @param timeout timeout      */
+comment|/**      * Set an timeout to wait for the shutdown to complete.      *<p/>      * You must set a positive value. If you want to wait (forever) then use      * a very high value such as {@link Long#MAX_VALUE}      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @throws IllegalArgumentException if the timeout value is 0 or negative      * @param timeout timeout      */
 DECL|method|setTimeout (long timeout)
 name|void
 name|setTimeout
@@ -215,7 +215,7 @@ name|long
 name|timeout
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the timeout.      *<p/>      * Use positive value to set the timeout      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @return the timeout      */
+comment|/**      * Gets the timeout.      *<p/>      * The default timeout unit is<tt>SECONDS</tt>      *      * @return the timeout      */
 DECL|method|getTimeout ()
 name|long
 name|getTimeout
