@@ -113,13 +113,6 @@ argument_list|(
 literal|"localhost"
 argument_list|)
 expr_stmt|;
-name|naming
-operator|.
-name|setDomainName
-argument_list|(
-literal|"org.apache.camel"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|getManagementStrategy
