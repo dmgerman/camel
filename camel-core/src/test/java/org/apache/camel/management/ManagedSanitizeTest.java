@@ -130,7 +130,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"stub://foo\\?password=xxxxxx&username=foo\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"stub://foo\\?password=xxxxxx&username=foo\""
 argument_list|)
 decl_stmt|;
 name|assertTrue

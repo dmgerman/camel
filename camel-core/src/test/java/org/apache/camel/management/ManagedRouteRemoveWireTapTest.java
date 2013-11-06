@@ -116,7 +116,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"foo\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"foo\""
 argument_list|)
 decl_stmt|;
 name|getMockEndpoint

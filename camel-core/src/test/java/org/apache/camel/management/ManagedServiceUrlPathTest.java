@@ -289,7 +289,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"direct://start\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"direct://start\""
 argument_list|)
 decl_stmt|;
 name|String
@@ -320,7 +320,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"log://foo\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"log://foo\""
 argument_list|)
 expr_stmt|;
 name|uri
@@ -350,7 +350,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"mock://result\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"mock://result\""
 argument_list|)
 expr_stmt|;
 name|uri

@@ -2511,6 +2511,9 @@ name|contentType
 init|=
 literal|null
 decl_stmt|;
+comment|//Check the contentType is valid or not, If not it throws an exception.
+comment|//When ContentType.parse parse method parse "multipart/form-data;boundary=---------------------------j2radvtrk",
+comment|//it removes "boundary" from Content-Type; I have to use contentType.create method.
 if|if
 condition|(
 name|contentTypeString
@@ -2522,7 +2525,7 @@ name|contentType
 operator|=
 name|ContentType
 operator|.
-name|parse
+name|create
 argument_list|(
 name|contentTypeString
 argument_list|)

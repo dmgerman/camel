@@ -130,7 +130,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=endpoints,name=\"timer://foo\\?delay=5000&period=8000\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"timer://foo\\?delay=5000&period=8000\""
 argument_list|)
 decl_stmt|;
 name|assertEquals

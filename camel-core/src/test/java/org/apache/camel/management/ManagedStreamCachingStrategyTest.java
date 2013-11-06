@@ -160,7 +160,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/myCamel,type=services,*"
+literal|"org.apache.camel:context=myCamel,type=services,*"
 argument_list|)
 decl_stmt|;
 comment|// number of services

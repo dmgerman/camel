@@ -265,7 +265,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mythrottler\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler\""
 argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
@@ -276,7 +276,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route1\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route1\""
 argument_list|)
 decl_stmt|;
 comment|// reset the counters
@@ -572,7 +572,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mythrottler2\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler2\""
 argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
@@ -583,7 +583,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route2\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route2\""
 argument_list|)
 decl_stmt|;
 comment|// reset the counters
@@ -790,7 +790,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mythrottler3\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler3\""
 argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
@@ -801,7 +801,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route3\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route3\""
 argument_list|)
 decl_stmt|;
 comment|// reset the counters
@@ -1010,7 +1010,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mythrottler4\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler4\""
 argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
@@ -1021,7 +1021,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route4\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route4\""
 argument_list|)
 decl_stmt|;
 comment|// reset the counters
@@ -1240,7 +1240,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mythrottler2\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler2\""
 argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
@@ -1251,7 +1251,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route2\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route2\""
 argument_list|)
 decl_stmt|;
 comment|// reset the counters
@@ -1397,7 +1397,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"mythrottler2\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"mythrottler2\""
 argument_list|)
 decl_stmt|;
 comment|// use route to get the total time
@@ -1408,7 +1408,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route2\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route2\""
 argument_list|)
 decl_stmt|;
 comment|// reset the counters

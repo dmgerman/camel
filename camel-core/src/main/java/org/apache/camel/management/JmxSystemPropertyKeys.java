@@ -147,6 +147,16 @@ name|MASK
 init|=
 literal|"org.apache.camel.jmx.mask"
 decl_stmt|;
+comment|// Whether to include host name in MBean naes
+DECL|field|INCLUDE_HOST_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INCLUDE_HOST_NAME
+init|=
+literal|"org.apache.camel.jmx.includeHostName"
+decl_stmt|;
 DECL|method|JmxSystemPropertyKeys ()
 specifier|private
 name|JmxSystemPropertyKeys

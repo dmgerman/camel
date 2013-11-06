@@ -203,35 +203,6 @@ argument_list|(
 name|notifier
 argument_list|)
 expr_stmt|;
-comment|// Set up the ManagementNamingStrategy
-name|DefaultManagementNamingStrategy
-name|naming
-init|=
-operator|(
-name|DefaultManagementNamingStrategy
-operator|)
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|getManagementNamingStrategy
-argument_list|()
-decl_stmt|;
-name|naming
-operator|.
-name|setHostName
-argument_list|(
-literal|"localhost"
-argument_list|)
-expr_stmt|;
-name|naming
-operator|.
-name|setDomainName
-argument_list|(
-literal|"org.apache.camel"
-argument_list|)
-expr_stmt|;
 comment|// END SNIPPET: e1
 return|return
 name|context
@@ -254,7 +225,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=eventnotifiers,name=JmxEventNotifier"
+literal|"org.apache.camel:context=camel-1,type=eventnotifiers,name=JmxEventNotifier"
 argument_list|)
 decl_stmt|;
 name|MyNotificationListener
@@ -374,7 +345,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=eventnotifiers,name=JmxEventNotifier"
+literal|"org.apache.camel:context=camel-1,type=eventnotifiers,name=JmxEventNotifier"
 argument_list|)
 decl_stmt|;
 name|MyNotificationListener

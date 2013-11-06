@@ -168,7 +168,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=tracer,name=BacklogTracer"
+literal|"org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -496,7 +496,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=tracer,name=BacklogTracer"
+literal|"org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -733,7 +733,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=tracer,name=BacklogTracer"
+literal|"org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1258,7 +1258,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=tracer,name=BacklogTracer"
+literal|"org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1458,7 +1458,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=tracer,name=BacklogTracer"
+literal|"org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1776,7 +1776,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=tracer,name=BacklogTracer"
+literal|"org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2166,7 +2166,7 @@ init|=
 operator|new
 name|ObjectName
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=tracer,name=BacklogTracer"
+literal|"org.apache.camel:context=camel-1,type=tracer,name=BacklogTracer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

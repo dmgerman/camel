@@ -247,6 +247,16 @@ specifier|private
 name|String
 name|loadStatisticsEnabled
 decl_stmt|;
+comment|/**      * A flag that indicates whether to include hostname in JMX MBean names.      */
+annotation|@
+name|XmlAttribute
+DECL|field|includeHostName
+specifier|private
+name|String
+name|includeHostName
+init|=
+literal|"false"
+decl_stmt|;
 comment|/**      * A flag that indicates whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      */
 annotation|@
 name|XmlAttribute
@@ -595,6 +605,32 @@ operator|=
 name|loadStatisticsEnabled
 expr_stmt|;
 block|}
+DECL|method|getIncludeHostName ()
+specifier|public
+name|String
+name|getIncludeHostName
+parameter_list|()
+block|{
+return|return
+name|includeHostName
+return|;
+block|}
+DECL|method|setIncludeHostName (String includeHostName)
+specifier|public
+name|void
+name|setIncludeHostName
+parameter_list|(
+name|String
+name|includeHostName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeHostName
+operator|=
+name|includeHostName
+expr_stmt|;
+block|}
 DECL|method|getMask ()
 specifier|public
 name|String
@@ -872,6 +908,26 @@ operator|.
 name|append
 argument_list|(
 name|registerNewRoutes
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|includeHostName
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", includeHostName="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|includeHostName
 argument_list|)
 expr_stmt|;
 block|}

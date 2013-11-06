@@ -171,7 +171,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=routes,name=\"route1\""
+literal|"org.apache.camel:context=camel-1,type=routes,name=\"route1\""
 argument_list|)
 decl_stmt|;
 name|Long
@@ -253,7 +253,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=localhost/camel-1,type=processors,name=\"myprocessor\""
+literal|"org.apache.camel:context=camel-1,type=processors,name=\"myprocessor\""
 argument_list|)
 expr_stmt|;
 name|num
