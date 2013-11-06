@@ -64,6 +64,30 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|inject
+operator|.
+name|spi
+operator|.
+name|BeanManager
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -221,6 +245,12 @@ specifier|private
 specifier|final
 name|ContextName
 name|startup
+decl_stmt|;
+DECL|field|beanManager
+annotation|@
+name|Inject
+name|BeanManager
+name|beanManager
 decl_stmt|;
 DECL|method|BeanAdapter (ContextName startup)
 specifier|public
@@ -422,6 +452,8 @@ operator|.
 name|getPostProcessor
 argument_list|(
 name|contextName
+argument_list|,
+name|beanManager
 argument_list|)
 decl_stmt|;
 if|if
@@ -498,6 +530,8 @@ operator|.
 name|getPostProcessor
 argument_list|(
 name|contextName
+argument_list|,
+name|beanManager
 argument_list|)
 decl_stmt|;
 if|if
@@ -596,6 +630,8 @@ operator|.
 name|getPostProcessor
 argument_list|(
 name|contextName
+argument_list|,
+name|beanManager
 argument_list|)
 decl_stmt|;
 if|if
@@ -694,6 +730,8 @@ operator|.
 name|getPostProcessor
 argument_list|(
 name|contextName
+argument_list|,
+name|beanManager
 argument_list|)
 decl_stmt|;
 if|if
@@ -785,6 +823,8 @@ operator|.
 name|getPostProcessor
 argument_list|(
 name|contextName
+argument_list|,
+name|beanManager
 argument_list|)
 decl_stmt|;
 if|if
