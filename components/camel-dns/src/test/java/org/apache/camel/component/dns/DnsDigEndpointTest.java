@@ -150,16 +150,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -207,17 +197,19 @@ specifier|final
 name|String
 name|RESPONSE_MONKEY
 init|=
-literal|"\"A monkey is a nonhuman "
+literal|"\"A Macaque, an old world species of "
 operator|+
-literal|"primate mammal with the exception usually of the lemurs and "
+literal|"monkey native to Southeast Asia|thumb]A monkey is a primate of the "
 operator|+
-literal|"tarsiers. More specifically, the term monkey refers to a subset "
+literal|"Haplorrhini suborder and simian infraorder, either an Old World monkey "
 operator|+
-literal|"of monkeys: any of the smaller longer-tailed catarrhine or "
+literal|"or a New World monkey, but excluding apes. There are about 260 known "
 operator|+
-literal|"platyrrhine primates as contrasted with the apes.\" "
+literal|"living specie\" \"s of monkey. Many are arboreal, although there are "
 operator|+
-literal|"\" http://en.wikipedia.org/wiki/Monkey\""
+literal|"species that live primarily on the ground, such as baboons... "
+operator|+
+literal|"http://en.wikipedia.org/wiki/Monkey\""
 decl_stmt|;
 annotation|@
 name|EndpointInject
@@ -282,11 +274,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Testing behind nat produces timeouts"
-argument_list|)
 DECL|method|testDigForMonkey ()
 specifier|public
 name|void
