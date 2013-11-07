@@ -4183,15 +4183,6 @@ name|feature
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|featureString
-argument_list|)
-expr_stmt|;
 name|LOG
 operator|.
 name|info
