@@ -268,7 +268,10 @@ operator|.
 name|getExchangeName
 argument_list|()
 argument_list|,
-literal|"direct"
+name|endpoint
+operator|.
+name|getExchangeType
+argument_list|()
 argument_list|,
 name|endpoint
 operator|.

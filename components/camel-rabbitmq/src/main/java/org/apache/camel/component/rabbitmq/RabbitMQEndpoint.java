@@ -331,6 +331,13 @@ specifier|private
 name|String
 name|exchangeName
 decl_stmt|;
+DECL|field|exchangeType
+specifier|private
+name|String
+name|exchangeType
+init|=
+literal|"direct"
+decl_stmt|;
 DECL|field|routingKey
 specifier|private
 name|String
@@ -1026,6 +1033,32 @@ operator|.
 name|exchangeName
 operator|=
 name|exchangeName
+expr_stmt|;
+block|}
+DECL|method|getExchangeType ()
+specifier|public
+name|String
+name|getExchangeType
+parameter_list|()
+block|{
+return|return
+name|exchangeType
+return|;
+block|}
+DECL|method|setExchangeType (String exchangeType)
+specifier|public
+name|void
+name|setExchangeType
+parameter_list|(
+name|String
+name|exchangeType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchangeType
+operator|=
+name|exchangeType
 expr_stmt|;
 block|}
 DECL|method|getRoutingKey ()
