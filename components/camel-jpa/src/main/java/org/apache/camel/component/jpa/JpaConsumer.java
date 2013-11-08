@@ -286,12 +286,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|JpaEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|entityManager
 specifier|private
 specifier|final
@@ -417,12 +411,6 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -707,7 +695,8 @@ block|}
 argument_list|)
 decl_stmt|;
 return|return
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
@@ -968,7 +957,13 @@ name|getEndpoint
 parameter_list|()
 block|{
 return|return
-name|endpoint
+operator|(
+name|JpaEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
 return|;
 block|}
 DECL|method|getQueryFactory ()
@@ -1511,7 +1506,8 @@ name|?
 argument_list|>
 name|entityType
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getEntityType
 argument_list|()
@@ -2022,7 +2018,8 @@ block|{
 name|int
 name|maxResults
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getMaximumResults
 argument_list|()
@@ -2096,7 +2093,8 @@ block|{
 name|Exchange
 name|exchange
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|createExchange
 argument_list|()

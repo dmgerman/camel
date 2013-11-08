@@ -400,7 +400,7 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Stops all of the given services, throwing the first exception caught      */
+comment|/**      * Stops the given service, throwing the first exception caught      */
 DECL|method|stopService (Object value)
 specifier|public
 specifier|static
@@ -624,7 +624,7 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Stops and shutdowns all of the given services, throwing the first exception caught      */
+comment|/**      * Stops and shutdowns the given service, throwing the first exception caught      */
 DECL|method|stopAndShutdownService (Object value)
 specifier|public
 specifier|static

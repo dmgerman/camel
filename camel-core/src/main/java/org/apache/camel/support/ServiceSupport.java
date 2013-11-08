@@ -1062,7 +1062,9 @@ name|doSuspend
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// noop
+block|}
 comment|/**      * Implementations override this method to support customized suspend/resume.      */
 DECL|method|doResume ()
 specifier|protected
@@ -1071,7 +1073,9 @@ name|doResume
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// noop
+block|}
 comment|/**      * Implementations override this method to perform customized shutdown.      */
 DECL|method|doShutdown ()
 specifier|protected
