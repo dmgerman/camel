@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|enterprise
@@ -70,6 +60,16 @@ name|InjectionTarget
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class for creating delegate implementations of {@link InjectionTarget}  */
 end_comment
@@ -82,17 +82,11 @@ class|class
 name|DelegateInjectionTarget
 implements|implements
 name|InjectionTarget
-argument_list|<
-name|Object
-argument_list|>
 block|{
 DECL|field|delegate
 specifier|private
 specifier|final
 name|InjectionTarget
-argument_list|<
-name|Object
-argument_list|>
 name|delegate
 decl_stmt|;
 DECL|method|DelegateInjectionTarget (InjectionTarget<Object> delegate)
@@ -152,7 +146,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|inject (Object instance, CreationalContext<Object> ctx)
+DECL|method|inject (Object instance, CreationalContext ctx)
 specifier|public
 name|void
 name|inject
@@ -161,9 +155,6 @@ name|Object
 name|instance
 parameter_list|,
 name|CreationalContext
-argument_list|<
-name|Object
-argument_list|>
 name|ctx
 parameter_list|)
 block|{
@@ -217,15 +208,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|produce (CreationalContext<Object> creationalContext)
+DECL|method|produce (CreationalContext creationalContext)
 specifier|public
 name|Object
 name|produce
 parameter_list|(
 name|CreationalContext
-argument_list|<
-name|Object
-argument_list|>
 name|creationalContext
 parameter_list|)
 block|{

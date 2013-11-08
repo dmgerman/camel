@@ -662,7 +662,7 @@ name|context
 return|;
 block|}
 comment|/**      * Process camel context aware bean definitions.      *      * @param process Annotated type.      * @throws Exception In case of exceptions.      */
-DECL|method|contextAwareness (@bserves ProcessAnnotatedType<CamelContextAware> process)
+DECL|method|contextAwareness (@bserves ProcessAnnotatedType<? extends CamelContextAware> process)
 specifier|protected
 name|void
 name|contextAwareness
@@ -671,6 +671,8 @@ annotation|@
 name|Observes
 name|ProcessAnnotatedType
 argument_list|<
+name|?
+extends|extends
 name|CamelContextAware
 argument_list|>
 name|process
@@ -679,43 +681,20 @@ throws|throws
 name|Exception
 block|{
 name|AnnotatedType
-argument_list|<
-name|CamelContextAware
-argument_list|>
-name|annotatedType
+name|at
 init|=
 name|process
 operator|.
 name|getAnnotatedType
 argument_list|()
 decl_stmt|;
-name|Class
-argument_list|<
-name|CamelContextAware
-argument_list|>
-name|javaClass
-init|=
-name|annotatedType
-operator|.
-name|getJavaClass
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|CamelContextAware
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|javaClass
-argument_list|)
-condition|)
-block|{
 name|Method
 name|method
 init|=
-name|javaClass
+name|at
+operator|.
+name|getJavaClass
+argument_list|()
 operator|.
 name|getMethod
 argument_list|(
@@ -727,9 +706,6 @@ name|class
 argument_list|)
 decl_stmt|;
 name|AnnotatedTypeBuilder
-argument_list|<
-name|CamelContextAware
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -741,7 +717,7 @@ argument_list|()
 operator|.
 name|readFromType
 argument_list|(
-name|javaClass
+name|at
 argument_list|)
 operator|.
 name|addToMethod
@@ -764,12 +740,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|detectRouteBuilders (@bserves ProcessAnnotatedType<T> process)
+DECL|method|detectRouteBuilders (@bserves ProcessAnnotatedType<?> process)
 specifier|protected
-parameter_list|<
-name|T
-parameter_list|>
 name|void
 name|detectRouteBuilders
 parameter_list|(
@@ -777,7 +749,7 @@ annotation|@
 name|Observes
 name|ProcessAnnotatedType
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|process
 parameter_list|)
@@ -785,9 +757,6 @@ throws|throws
 name|Exception
 block|{
 name|AnnotatedType
-argument_list|<
-name|T
-argument_list|>
 name|annotatedType
 init|=
 name|process
@@ -808,9 +777,6 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Class
-argument_list|<
-name|T
-argument_list|>
 name|javaClass
 init|=
 name|annotatedType
@@ -1271,7 +1237,7 @@ return|return
 name|config
 return|;
 block|}
-comment|/**      * Lets detect all producer methods createing instances of {@link RouteBuilder} which are annotated with {@link org.apache.camel.cdi.ContextName}      * so they can be auto-registered      */
+comment|/**      * Lets detect all producer methods createing instances of {@link RouteBuilder} which are annotated with {@link org      * .apache.camel.cdi.ContextName}      * so they can be auto-registered      */
 DECL|method|detectProducerRoutes (@bserves ProcessProducerMethod<?, ?> event)
 specifier|public
 name|void
@@ -1460,7 +1426,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Lets perform injection of all beans which use Camel annotations      */
-DECL|method|onInjectionTarget (@bserves ProcessInjectionTarget<Object> event)
+DECL|method|onInjectionTarget (@bserves ProcessInjectionTarget<?> event)
 specifier|public
 name|void
 name|onInjectionTarget
@@ -1469,16 +1435,13 @@ annotation|@
 name|Observes
 name|ProcessInjectionTarget
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|event
 parameter_list|)
 block|{
 specifier|final
 name|InjectionTarget
-argument_list|<
-name|Object
-argument_list|>
 name|injectionTarget
 init|=
 name|event
@@ -1487,9 +1450,6 @@ name|getInjectionTarget
 argument_list|()
 decl_stmt|;
 name|AnnotatedType
-argument_list|<
-name|Object
-argument_list|>
 name|annotatedType
 init|=
 name|event
