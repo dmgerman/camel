@@ -360,10 +360,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testReleaseProducerInvokesStopAndShutdownByNonSingeltonProducers ()
+DECL|method|testReleaseProducerInvokesStopAndShutdownByNonSingletonProducers ()
 specifier|public
 name|void
-name|testReleaseProducerInvokesStopAndShutdownByNonSingeltonProducers
+name|testReleaseProducerInvokesStopAndShutdownByNonSingletonProducers
 parameter_list|()
 throws|throws
 name|Exception
