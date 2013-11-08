@@ -920,6 +920,9 @@ expr_stmt|;
 name|waitUntilCompleted
 argument_list|()
 expr_stmt|;
+name|internalBeforeStop
+argument_list|()
+expr_stmt|;
 name|beforeStop
 argument_list|()
 expr_stmt|;
@@ -995,6 +998,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// noop
+block|}
+DECL|method|internalBeforeStop ()
+specifier|private
+name|void
+name|internalBeforeStop
+parameter_list|()
+block|{
+try|try
+block|{
 if|if
 condition|(
 name|camelTemplate
@@ -1012,6 +1025,30 @@ expr_stmt|;
 name|camelTemplate
 operator|=
 literal|null
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error stopping camelTemplate due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
