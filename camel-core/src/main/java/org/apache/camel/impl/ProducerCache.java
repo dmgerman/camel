@@ -178,18 +178,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ShutdownableService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|UnitOfWorkProducer
@@ -683,33 +671,14 @@ name|isSingleton
 argument_list|()
 condition|)
 block|{
-comment|// stop non singleton producers as we should not leak resources
-name|producer
+comment|// stop and shutdown non-singleton producers as we should not leak resources
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-comment|// shutdown as well in case the producer is shutdownable
-if|if
-condition|(
-name|producer
-operator|instanceof
-name|ShutdownableService
-condition|)
-block|{
-name|ShutdownableService
-operator|.
-name|class
-operator|.
-name|cast
+name|stopAndShutdownService
 argument_list|(
 name|producer
 argument_list|)
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Starts the {@link Producer} to be used for sending to the given endpoint      *<p/>      * This can be used to early start the {@link Producer} to ensure it can be created,      * such as when Camel is started. This allows to fail fast in case the {@link Producer}      * could not be started.      *      * @param endpoint the endpoint to send the exchange to      * @throws Exception is thrown if failed to create or start the {@link Producer}      */
@@ -1050,12 +1019,12 @@ name|isSingleton
 argument_list|()
 condition|)
 block|{
-comment|// stop non singleton producers as we should not leak resources
+comment|// stop and shutdown non-singleton producers as we should not leak resources
 try|try
 block|{
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopAndShutdownService
 argument_list|(
 name|producer
 argument_list|)
@@ -1072,7 +1041,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error stopping producer: "
+literal|"Error stopping/shutdown producer: "
 operator|+
 name|producer
 argument_list|,
@@ -1316,12 +1285,12 @@ name|isSingleton
 argument_list|()
 condition|)
 block|{
-comment|// stop non singleton producers as we should not leak resources
+comment|// stop and shutdown non-singleton producers as we should not leak resources
 try|try
 block|{
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopAndShutdownService
 argument_list|(
 name|producer
 argument_list|)
@@ -1338,7 +1307,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error stopping producer: "
+literal|"Error stopping/shutdown producer: "
 operator|+
 name|producer
 argument_list|,
