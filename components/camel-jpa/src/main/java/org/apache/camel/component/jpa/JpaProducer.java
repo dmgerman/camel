@@ -355,8 +355,6 @@ name|array
 index|[
 name|index
 index|]
-argument_list|,
-name|entityManager
 argument_list|)
 expr_stmt|;
 block|}
@@ -394,8 +392,6 @@ block|{
 name|save
 argument_list|(
 name|entity
-argument_list|,
-name|entityManager
 argument_list|)
 expr_stmt|;
 block|}
@@ -408,8 +404,6 @@ init|=
 name|save
 argument_list|(
 name|values
-argument_list|,
-name|entityManager
 argument_list|)
 decl_stmt|;
 if|if
@@ -467,9 +461,6 @@ parameter_list|(
 specifier|final
 name|Object
 name|entity
-parameter_list|,
-name|EntityManager
-name|entityManager
 parameter_list|)
 block|{
 comment|// there may be concurrency so need to join tx before persist/merge
