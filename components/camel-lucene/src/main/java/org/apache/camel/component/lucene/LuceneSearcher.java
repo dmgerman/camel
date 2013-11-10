@@ -421,7 +421,7 @@ name|maxNumberOfHits
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_45
 argument_list|)
 return|;
 block|}

@@ -311,7 +311,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_45
 argument_list|)
 decl_stmt|;
 name|MockEndpoint
@@ -608,7 +608,7 @@ name|WhitespaceAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_45
 argument_list|)
 decl_stmt|;
 name|MockEndpoint
