@@ -1041,7 +1041,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error stopping/shutdown producer: "
+literal|"Error stopping/shutting down producer: "
 operator|+
 name|producer
 argument_list|,
@@ -1307,7 +1307,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error stopping/shutdown producer: "
+literal|"Error stopping/shutting down producer: "
 operator|+
 name|producer
 argument_list|,

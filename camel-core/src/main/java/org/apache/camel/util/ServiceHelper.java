@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A collection of helper methods for working with {@link Service} objects  *  * @version   */
+comment|/**  * A collection of helper methods for working with {@link Service} objects.  *   * @version  */
 end_comment
 
 begin_class
@@ -203,7 +203,7 @@ specifier|private
 name|ServiceHelper
 parameter_list|()
 block|{     }
-comment|/**      * Starts all of the given services      */
+comment|/**      * Starts the given {@code value} if it's a {@link Service} or a collection of it.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      *       * @see #startService(Service)      * @see #startServices(Collection)      */
 DECL|method|startService (Object value)
 specifier|public
 specifier|static
@@ -253,7 +253,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Start the given service      */
+comment|/**      * Starts the given {@code service}.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @see Service#start()      */
 DECL|method|startService (Service service)
 specifier|public
 specifier|static
@@ -280,7 +280,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Starts all of the given services      */
+comment|/**      * Starts each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *       * @see #startServices(Collection)      */
 DECL|method|startServices (Object... services)
 specifier|public
 specifier|static
@@ -303,22 +303,26 @@ condition|)
 block|{
 return|return;
 block|}
-for|for
-control|(
+name|List
+argument_list|<
 name|Object
-name|value
-range|:
-name|services
-control|)
-block|{
-name|startService
+argument_list|>
+name|list
+init|=
+name|Arrays
+operator|.
+name|asList
 argument_list|(
-name|value
+name|services
+argument_list|)
+decl_stmt|;
+name|startServices
+argument_list|(
+name|list
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Starts all of the given services      */
+comment|/**      * Starts each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *       * @see #startService(Object)      */
 DECL|method|startServices (Collection<?> services)
 specifier|public
 specifier|static
@@ -358,7 +362,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Stops all of the given services, throwing the first exception caught      */
+comment|/**      * Stops each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while stopping the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #stopServices(Collection)      */
 DECL|method|stopServices (Object... services)
 specifier|public
 specifier|static
@@ -400,7 +404,7 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Stops the given service, throwing the first exception caught      */
+comment|/**      * Stops the given {@code value}, rethrowing the first exception caught.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      *       * @see Service#stop()      * @see #stopServices(Collection)      */
 DECL|method|stopService (Object value)
 specifier|public
 specifier|static
@@ -484,7 +488,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Stops all of the given services, throwing the first exception caught      */
+comment|/**      * Stops each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while stopping the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #stopService(Object)      */
 DECL|method|stopServices (Collection<?> services)
 specifier|public
 specifier|static
@@ -582,7 +586,7 @@ name|firstException
 throw|;
 block|}
 block|}
-comment|/**      * Stops and shutdowns all of the given services, throwing the first exception caught      */
+comment|/**      * Stops and shutdowns each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while stopping/shutting down the elements one after      * the other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #stopAndShutdownServices(Collection)      */
 DECL|method|stopAndShutdownServices (Object... services)
 specifier|public
 specifier|static
@@ -624,7 +628,7 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Stops and shutdowns the given service, throwing the first exception caught      */
+comment|/**      * Stops and shutdowns the given {@code service}, rethrowing the first exception caught.      *<p/>      * Calling this method has no effect if {@code value} is {@code null}.      *       * @see #stopService(Object)      * @see ShutdownableService#shutdown()      */
 DECL|method|stopAndShutdownService (Object value)
 specifier|public
 specifier|static
@@ -674,7 +678,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Stops and shutdowns all of the given services, throwing the first exception caught      */
+comment|/**      * Stops and shutdowns each element of the given {@code services} if {@code services}      * itself is not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while stopping/shutting down the elements one after      * the other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #stopService(Object)      * @see ShutdownableService#shutdown()      */
 DECL|method|stopAndShutdownServices (Collection<?> services)
 specifier|public
 specifier|static
@@ -712,6 +716,8 @@ range|:
 name|services
 control|)
 block|{
+try|try
+block|{
 comment|// must stop it first
 name|stopService
 argument_list|(
@@ -734,8 +740,6 @@ name|ShutdownableService
 operator|)
 name|value
 decl_stmt|;
-try|try
-block|{
 name|LOG
 operator|.
 name|trace
@@ -750,6 +754,7 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -771,7 +776,7 @@ name|debug
 argument_list|(
 literal|"Caught exception shutting down service: "
 operator|+
-name|service
+name|value
 argument_list|,
 name|e
 argument_list|)
@@ -791,7 +796,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 if|if
 condition|(
 name|firstException
@@ -804,6 +808,7 @@ name|firstException
 throw|;
 block|}
 block|}
+comment|/**      * Resumes each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while resuming the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #resumeService(Service)      */
 DECL|method|resumeServices (Collection<?> services)
 specifier|public
 specifier|static
@@ -917,7 +922,7 @@ name|firstException
 throw|;
 block|}
 block|}
-comment|/**      * Resumes the given service.      *<p/>      * If the service is a {@link org.apache.camel.SuspendableService} then the<tt>resume</tt>      * operation is<b>only</b> invoked if the service is suspended.      *<p/>      * If the service is a {@link org.apache.camel.support.ServiceSupport} then the<tt>start</tt>      * operation is<b>only</b> invoked if the service is startable.      *<p/>      * Otherwise the service is started.      *      * @param service the service      * @return<tt>true</tt> if either<tt>resume</tt> or<tt>start</tt> was invoked,      *<tt>false</tt> if the service is already in the desired state.      * @throws Exception is thrown if error occurred      */
+comment|/**      * Resumes the given {@code service}.      *<p/>      * If {@code service} is a {@link org.apache.camel.SuspendableService} then      * it's {@link org.apache.camel.SuspendableService#resume()} is called but      *<b>only</b> if {@code service} is already {@link #isSuspended(Object)      * suspended}.      *<p/>      * If {@code service} is<b>not</b> a      * {@link org.apache.camel.SuspendableService} then it's      * {@link org.apache.camel.Service#start()} is called.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @param service the service      * @return<tt>true</tt> if either<tt>resume</tt> method or      *         {@link #startService(Service)} was called,<tt>false</tt>      *         otherwise.      * @throws Exception is thrown if error occurred      * @see #startService(Service)      */
 DECL|method|resumeService (Service service)
 specifier|public
 specifier|static
@@ -990,6 +995,7 @@ literal|true
 return|;
 block|}
 block|}
+comment|/**      * Suspends each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while suspending the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #suspendService(Service)      */
 DECL|method|suspendServices (Collection<?> services)
 specifier|public
 specifier|static
@@ -1103,7 +1109,7 @@ name|firstException
 throw|;
 block|}
 block|}
-comment|/**      * Suspends the given service.      *<p/>      * If the service is a {@link org.apache.camel.SuspendableService} then the<tt>suspend</tt>      * operation is<b>only</b> invoked if the service is<b>not</b> suspended.      *<p/>      * If the service is a {@link org.apache.camel.support.ServiceSupport} then the<tt>stop</tt>      * operation is<b>only</b> invoked if the service is stoppable.      *<p/>      * Otherwise the service is stopped.      *      * @param service the service      * @return<tt>true</tt> if either<tt>suspend</tt> or<tt>stop</tt> was invoked,      *<tt>false</tt> if the service is already in the desired state.      * @throws Exception is thrown if error occurred      */
+comment|/**      * Suspends the given {@code service}.      *<p/>      * If {@code service} is a {@link org.apache.camel.SuspendableService} then      * it's {@link org.apache.camel.SuspendableService#suspend()} is called but      *<b>only</b> if {@code service} is<b>not</b> already      * {@link #isSuspended(Object) suspended}.      *<p/>      * If {@code service} is<b>not</b> a      * {@link org.apache.camel.SuspendableService} then it's      * {@link org.apache.camel.Service#stop()} is called.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @param service the service      * @return<tt>true</tt> if either the<tt>suspend</tt> method or      *         {@link #stopService(Object)} was called,<tt>false</tt>      *         otherwise.      * @throws Exception is thrown if error occurred      * @see #stopService(Object)      */
 DECL|method|suspendService (Service service)
 specifier|public
 specifier|static
@@ -1177,7 +1183,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|/**      * Is the given service stopping or stopped?      *      * @return<tt>true</tt> if already stopped, otherwise<tt>false</tt>      */
+comment|/**      * Is the given service stopping or stopped?      *      * @return<tt>true</tt> if already stopped,<tt>false</tt> otherwise      */
 DECL|method|isStopped (Object value)
 specifier|public
 specifier|static
@@ -1225,7 +1231,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Is the given service starting or started?      *      * @return<tt>true</tt> if already started, otherwise<tt>false</tt>      */
+comment|/**      * Is the given service starting or started?      *      * @return<tt>true</tt> if already started,<tt>false</tt> otherwise      */
 DECL|method|isStarted (Object value)
 specifier|public
 specifier|static
@@ -1273,7 +1279,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Is the given service suspended      *      * @return<tt>true</tt> if already suspended, otherwise<tt>false</tt>      */
+comment|/**      * Is the given service suspended?      *      * @return<tt>true</tt> if already suspended,<tt>false</tt> otherwise      */
 DECL|method|isSuspended (Object value)
 specifier|public
 specifier|static
@@ -1321,7 +1327,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Gather all child services by navigating the service to recursively gather all child services.      *      * @param service the service      * @return the services, including the parent service, and all its children      */
+comment|/**      * Gathers all child services by navigating the service to recursively gather all child services.      *<p/>      * The returned set does<b>not</b> include the childern being error handler.      *      * @param service the service      * @return the services, including the parent service, and all its children      */
 DECL|method|getChildServices (Service service)
 specifier|public
 specifier|static
@@ -1344,7 +1350,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Gather all child services by navigating the service to recursively gather all child services.      *      * @param service the service      * @param includeErrorHandler whether to include error handlers      * @return the services, including the parent service, and all its children      */
+comment|/**      * Gathers all child services by navigating the service to recursively gather all child services.      *      * @param service the service      * @param includeErrorHandler whether to include error handlers      * @return the services, including the parent service, and all its children      */
 DECL|method|getChildServices (Service service, boolean includeErrorHandler)
 specifier|public
 specifier|static
