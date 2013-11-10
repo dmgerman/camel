@@ -535,8 +535,6 @@ expr_stmt|;
 block|}
 name|Properties
 name|answer
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
