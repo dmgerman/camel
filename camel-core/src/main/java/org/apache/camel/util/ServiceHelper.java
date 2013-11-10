@@ -1183,7 +1183,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|/**      * Is the given service stopping or stopped?      *      * @return<tt>true</tt> if already stopped,<tt>false</tt> otherwise      */
+comment|/**      * Is the given service stopping or already stopped?      *      * @return<tt>true</tt> if stopping or already stopped,<tt>false</tt> otherwise      * @see StatefulService#isStopping()      * @see StatefulService#isStopped()      */
 DECL|method|isStopped (Object value)
 specifier|public
 specifier|static
@@ -1231,7 +1231,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Is the given service starting or started?      *      * @return<tt>true</tt> if already started,<tt>false</tt> otherwise      */
+comment|/**      * Is the given service starting or already started?      *      * @return<tt>true</tt> if starting or already started,<tt>false</tt> otherwise      * @see StatefulService#isStarting()      * @see StatefulService#isStarted()      */
 DECL|method|isStarted (Object value)
 specifier|public
 specifier|static
@@ -1279,7 +1279,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Is the given service suspended?      *      * @return<tt>true</tt> if already suspended,<tt>false</tt> otherwise      */
+comment|/**      * Is the given service suspending or already suspended?      *      * @return<tt>true</tt> if suspending or already suspended,<tt>false</tt> otherwise      * @see StatefulService#isSuspending()      * @see StatefulService#isSuspended()      */
 DECL|method|isSuspended (Object value)
 specifier|public
 specifier|static
@@ -1309,12 +1309,12 @@ if|if
 condition|(
 name|service
 operator|.
-name|isSuspended
+name|isSuspending
 argument_list|()
 operator|||
 name|service
 operator|.
-name|isSuspending
+name|isSuspended
 argument_list|()
 condition|)
 block|{
