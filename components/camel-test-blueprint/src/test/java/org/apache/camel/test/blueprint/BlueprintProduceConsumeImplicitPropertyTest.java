@@ -18,10 +18,6 @@ name|blueprint
 package|;
 end_package
 
-begin_comment
-comment|//import org.junit.Ignore;
-end_comment
-
 begin_import
 import|import
 name|org
@@ -58,7 +54,6 @@ return|;
 block|}
 annotation|@
 name|Test
-comment|//@Ignore("Test fails. Fix Me!")
 DECL|method|testImplicit ()
 specifier|public
 name|void
