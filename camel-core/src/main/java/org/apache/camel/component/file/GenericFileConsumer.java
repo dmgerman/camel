@@ -1910,6 +1910,18 @@ return|return
 literal|false
 return|;
 block|}
+name|boolean
+name|answer
+init|=
+literal|true
+decl_stmt|;
+name|String
+name|key
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 comment|// if its a file then check we have the file in the idempotent registry already
 if|if
 condition|(
@@ -1923,14 +1935,13 @@ argument_list|()
 condition|)
 block|{
 comment|// use absolute file path as default key, but evaluate if an expression key was configured
-name|String
 name|key
-init|=
+operator|=
 name|file
 operator|.
 name|getAbsoluteFilePath
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -1994,14 +2005,38 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-return|return
+name|answer
+operator|=
 literal|false
-return|;
+expr_stmt|;
+block|}
+block|}
+block|}
+finally|finally
+block|{
+comment|// ensure to run this in finally block in case of runtime exceptions being thrown
+if|if
+condition|(
+operator|!
+name|answer
+condition|)
+block|{
+comment|// remove file from the in progress list as its no longer in progress
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// file matched
 return|return
-literal|true
+name|answer
 return|;
 block|}
 comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @param files       files in the directory      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
@@ -2366,6 +2401,7 @@ operator|.
 name|getAbsoluteFilePath
 argument_list|()
 decl_stmt|;
+comment|// must use add, to have operation as atomic
 return|return
 operator|!
 name|endpoint
