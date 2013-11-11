@@ -178,7 +178,7 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// should not add 100 endpoints
+comment|// should not add 10 endpoints
 name|getMockEndpoint
 argument_list|(
 literal|"mock:foo"
@@ -186,7 +186,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|100
+literal|10
 argument_list|)
 expr_stmt|;
 for|for
@@ -198,7 +198,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|10
 condition|;
 name|i
 operator|++

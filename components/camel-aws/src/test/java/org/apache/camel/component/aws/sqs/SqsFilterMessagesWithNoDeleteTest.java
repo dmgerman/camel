@@ -362,7 +362,7 @@ expr_stmt|;
 comment|// we shouldn't get
 name|assertIsSatisfied
 argument_list|(
-literal|1000
+literal|2000
 argument_list|,
 name|TimeUnit
 operator|.
@@ -567,7 +567,7 @@ expr_stmt|;
 comment|// the message should get through filter and mock should assert this
 name|assertIsSatisfied
 argument_list|(
-literal|1000
+literal|2000
 argument_list|,
 name|TimeUnit
 operator|.
