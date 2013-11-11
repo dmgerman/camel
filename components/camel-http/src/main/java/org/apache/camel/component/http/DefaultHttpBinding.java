@@ -730,7 +730,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|// store the method and query and other info in headers
+comment|// store the method and query and other info in headers as String types
 name|headers
 operator|.
 name|put
@@ -770,6 +770,9 @@ argument_list|,
 name|request
 operator|.
 name|getRequestURL
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -868,6 +871,9 @@ argument_list|,
 name|request
 operator|.
 name|getRequestURI
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
