@@ -246,7 +246,7 @@ literal|"rabbitmq:localhost:5672/"
 operator|+
 name|EXCHANGE
 operator|+
-literal|"?username=cameltest&password=cameltest"
+literal|"?routingKey=route1&username=cameltest&password=cameltest"
 argument_list|)
 DECL|field|to
 specifier|private
@@ -398,7 +398,7 @@ literal|"sammyq"
 argument_list|,
 name|EXCHANGE
 argument_list|,
-literal|""
+literal|"route1"
 argument_list|)
 expr_stmt|;
 name|channel
