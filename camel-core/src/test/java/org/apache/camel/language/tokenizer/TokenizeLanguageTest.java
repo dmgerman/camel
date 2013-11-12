@@ -198,6 +198,39 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testSendMixedClosingTagInsideMessageToTokenize ()
+specifier|public
+name|void
+name|testSendMixedClosingTagInsideMessageToTokenize
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"<child name='child1'><grandchild name='grandchild1'/><grandchild name='grandchild2'/></child>"
+argument_list|,
+literal|"<child name='child2'><grandchild name='grandchild1'></grandchild><grandchild name='grandchild2'></grandchild></child>"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"<parent><child name='child1'><grandchild name='grandchild1'/><grandchild name='grandchild2'/></child><child name='child2'><grandchild name='grandchild1'></grandchild><grandchild name='grandchild2'></grandchild></child></parent>"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testSendNamespacedChildMessageToTokenize ()
 specifier|public
 name|void
