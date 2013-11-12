@@ -560,6 +560,14 @@ decl_stmt|;
 comment|// will create a new file if missing or append to existing
 name|f
 operator|.
+name|getParentFile
+argument_list|()
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+name|f
+operator|.
 name|createNewFile
 argument_list|()
 expr_stmt|;

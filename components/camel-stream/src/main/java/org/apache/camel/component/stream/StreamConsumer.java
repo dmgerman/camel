@@ -895,6 +895,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// EOL so trigger any
+name|processLine
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 comment|// important: do not close the reader as it will close the standard system.in etc.
 block|}
@@ -911,6 +917,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|boolean
+name|last
+init|=
+name|line
+operator|==
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -922,6 +935,13 @@ literal|0
 condition|)
 block|{
 comment|// remember line
+if|if
+condition|(
+name|line
+operator|!=
+literal|null
+condition|)
+block|{
 name|lines
 operator|.
 name|add
@@ -929,9 +949,17 @@ argument_list|(
 name|line
 argument_list|)
 expr_stmt|;
+block|}
 comment|// should we flush lines?
 if|if
 condition|(
+operator|!
+name|lines
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+operator|(
 name|lines
 operator|.
 name|size
@@ -941,9 +969,12 @@ name|endpoint
 operator|.
 name|getGroupLines
 argument_list|()
+operator|||
+name|last
+operator|)
 condition|)
 block|{
-comment|// spit out lines
+comment|// spit out lines as we hit the size, or it was the last
 name|Exchange
 name|exchange
 init|=
@@ -1013,7 +1044,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|last
+condition|)
 block|{
 comment|// single line
 name|Exchange

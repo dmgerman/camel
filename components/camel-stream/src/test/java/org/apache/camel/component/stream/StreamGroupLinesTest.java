@@ -271,6 +271,13 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|setAssertPeriod
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
