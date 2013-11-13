@@ -3973,6 +3973,24 @@ parameter_list|)
 throws|throws
 name|ClassNotFoundException
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The serviceClass option should not be set with Emptye String."
+argument_list|)
+throw|;
+block|}
 name|serviceClass
 operator|=
 name|ClassLoaderUtils
