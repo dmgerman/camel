@@ -569,6 +569,41 @@ name|StringEscapeUtils
 operator|.
 name|unescapeJava
 argument_list|(
+literal|"\tShutdown timeout: "
+operator|+
+name|camelContext
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|getTimeUnit
+argument_list|()
+operator|.
+name|toSeconds
+argument_list|(
+name|camelContext
+operator|.
+name|getShutdownStrategy
+argument_list|()
+operator|.
+name|getTimeout
+argument_list|()
+argument_list|)
+operator|+
+literal|" sec."
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|StringEscapeUtils
+operator|.
+name|unescapeJava
+argument_list|(
 literal|"\tMessage History: "
 operator|+
 name|camelContext
