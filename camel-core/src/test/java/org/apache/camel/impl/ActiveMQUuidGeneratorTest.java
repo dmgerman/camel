@@ -218,6 +218,40 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSanitizeHostName ()
+specifier|public
+name|void
+name|testSanitizeHostName
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertEquals
+argument_list|(
+literal|"somehost.lan"
+argument_list|,
+name|ActiveMQUuidGenerator
+operator|.
+name|sanitizeHostName
+argument_list|(
+literal|"somehost.lan"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// include a UTF-8 char in the text \u0E08 is a Thai elephant
+name|assertEquals
+argument_list|(
+literal|"otherhost.lan"
+argument_list|,
+name|ActiveMQUuidGenerator
+operator|.
+name|sanitizeHostName
+argument_list|(
+literal|"other\u0E08host.lan"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
