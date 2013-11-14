@@ -73,7 +73,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Finds services in the registry by their type.      *<p/>      *<b>Note:</b> Not all registry implementations support this feature,      * such as the {@link org.apache.camel.impl.JndiRegistry}.      *      * @param type  the type of the registered services      * @return the types found, with their ids as the key. Returns an empty Map if none found.      */
+comment|/**      * Finds services in the registry by their type.      *      * @param type  the type of the registered services      * @return the types found, with their ids as the key. Returns an empty Map if none found.      */
 DECL|method|findByTypeWithName (Class<T> type)
 parameter_list|<
 name|T
@@ -93,7 +93,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Finds services in the registry by their type.      *<p/>      *<b>Note:</b> Not all registry implementations support this feature,      * such as the {@link org.apache.camel.impl.JndiRegistry}.      *      * @param type  the type of the registered services      * @return the types found. Returns an empty Set if none found.      */
+comment|/**      * Finds services in the registry by their type.      *      * @param type  the type of the registered services      * @return the types found. Returns an empty Set if none found.      */
 DECL|method|findByType (Class<T> type)
 parameter_list|<
 name|T
