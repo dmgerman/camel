@@ -52,6 +52,22 @@ name|mina
 operator|.
 name|core
 operator|.
+name|future
+operator|.
+name|WriteFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|mina
+operator|.
+name|core
+operator|.
 name|session
 operator|.
 name|IoSession
@@ -112,7 +128,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Writes the given body to MINA session. Will wait until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
+comment|/**      * Asynchronous writes the given body to MINA session. Will wait at most for      * 10 seconds until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
 DECL|method|writeBody (IoSession session, Object body, Exchange exchange)
 specifier|public
 specifier|static
@@ -130,26 +146,60 @@ name|exchange
 parameter_list|)
 throws|throws
 name|CamelExchangeException
+throws|,
+name|InterruptedException
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"write exchange [{}] with body [{}]"
-argument_list|,
-name|exchange
-argument_list|,
-name|body
-argument_list|)
-expr_stmt|;
-comment|// the write operation is asynchronous
+comment|// the write operation is asynchronous. Use WriteFuture to wait until the session has been written
+name|WriteFuture
+name|future
+init|=
 name|session
 operator|.
 name|write
 argument_list|(
 name|body
 argument_list|)
+decl_stmt|;
+comment|// must use a timeout (we use 10s) as in some very high performance scenarios a write can cause
+comment|// thread hanging forever
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Waiting for write to complete for body: {} using session: {}"
+argument_list|,
+name|body
+argument_list|,
+name|session
+argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|future
+operator|.
+name|awaitUninterruptibly
+argument_list|(
+literal|10000L
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Cannot write body: "
+operator|+
+name|body
+operator|+
+literal|" using session: "
+operator|+
+name|session
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

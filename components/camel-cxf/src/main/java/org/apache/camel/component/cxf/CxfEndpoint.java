@@ -5220,13 +5220,6 @@ name|size
 argument_list|()
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Cannot set right payload parameters. Please check the BindingOperation and PayLoadMessage."
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
