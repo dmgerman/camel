@@ -160,6 +160,12 @@ specifier|public
 class|class
 name|BeanAdapter
 block|{
+annotation|@
+name|Inject
+DECL|field|beanManager
+name|BeanManager
+name|beanManager
+decl_stmt|;
 DECL|field|consumeMethods
 specifier|private
 specifier|final
@@ -245,12 +251,6 @@ specifier|private
 specifier|final
 name|ContextName
 name|startup
-decl_stmt|;
-DECL|field|beanManager
-annotation|@
-name|Inject
-name|BeanManager
-name|beanManager
 decl_stmt|;
 DECL|method|BeanAdapter (ContextName startup)
 specifier|public

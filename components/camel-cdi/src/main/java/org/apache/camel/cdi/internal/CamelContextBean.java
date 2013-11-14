@@ -276,12 +276,12 @@ argument_list|>
 implements|,
 name|PassivationCapable
 block|{
-DECL|field|uniqueId
+DECL|field|UNIQUE_ID
 specifier|private
 specifier|static
 specifier|final
 name|UUID
-name|uniqueId
+name|UNIQUE_ID
 init|=
 name|UUID
 operator|.
@@ -719,16 +719,16 @@ name|beanManager
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getId ()
 annotation|@
 name|Override
+DECL|method|getId ()
 specifier|public
 name|String
 name|getId
 parameter_list|()
 block|{
 return|return
-name|uniqueId
+name|UNIQUE_ID
 operator|.
 name|toString
 argument_list|()
