@@ -56,26 +56,6 @@ name|DefaultAsyncProducer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The direct-vm producer  */
 end_comment
@@ -88,22 +68,6 @@ name|DirectVmProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DirectVmProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 name|DirectVmEndpoint
@@ -163,19 +127,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No consumers available on endpoint: "
-operator|+
-name|endpoint
-operator|+
-literal|" to process: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|DirectVmConsumerNotAvailableException
@@ -237,19 +188,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No consumers available on endpoint: "
-operator|+
-name|endpoint
-operator|+
-literal|" to process: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
 name|exchange
 operator|.
 name|setException

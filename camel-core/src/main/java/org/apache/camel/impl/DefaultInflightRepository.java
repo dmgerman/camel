@@ -416,7 +416,7 @@ literal|"Shutting down while there are still "
 operator|+
 name|count
 operator|+
-literal|" in flight exchanges."
+literal|" inflight exchanges."
 argument_list|)
 expr_stmt|;
 block|}

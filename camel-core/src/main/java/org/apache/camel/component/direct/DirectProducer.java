@@ -56,26 +56,6 @@ name|DefaultAsyncProducer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * The direct producer.  *  * @version   */
 end_comment
@@ -88,22 +68,6 @@ name|DirectProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DirectProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -151,19 +115,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No consumers available on endpoint: "
-operator|+
-name|endpoint
-operator|+
-literal|" to process: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|DirectConsumerNotAvailableException
@@ -215,19 +166,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"No consumers available on endpoint: "
-operator|+
-name|endpoint
-operator|+
-literal|" to process: "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
 comment|// indicate its done synchronously
 name|exchange
 operator|.

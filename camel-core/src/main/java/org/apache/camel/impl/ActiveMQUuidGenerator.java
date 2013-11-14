@@ -417,14 +417,14 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Closing the server socket failed"
-operator|+
-literal|" due "
+literal|"Closing the server socket failed due "
 operator|+
 name|ioe
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception is ignored."
 argument_list|)
 expr_stmt|;
 block|}
