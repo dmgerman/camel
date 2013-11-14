@@ -224,7 +224,9 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<parent><child name='child1'><grandchild name='grandchild1'/><grandchild name='grandchild2'/></child><child name='child2'><grandchild name='grandchild1'></grandchild><grandchild name='grandchild2'></grandchild></child></parent>"
+literal|"<parent><child name='child1'><grandchild name='grandchild1'/><grandchild name='grandchild2'/></child>"
+operator|+
+literal|"<child name='child2'><grandchild name='grandchild1'></grandchild><grandchild name='grandchild2'></grandchild></child></parent>"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
