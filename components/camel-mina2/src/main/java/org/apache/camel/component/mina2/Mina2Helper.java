@@ -146,8 +146,6 @@ name|exchange
 parameter_list|)
 throws|throws
 name|CamelExchangeException
-throws|,
-name|InterruptedException
 block|{
 comment|// the write operation is asynchronous. Use WriteFuture to wait until the session has been written
 name|WriteFuture
