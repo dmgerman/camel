@@ -258,8 +258,6 @@ argument_list|()
 block|{
 name|int
 name|index
-init|=
-literal|0
 decl_stmt|;
 annotation|@
 name|Override
