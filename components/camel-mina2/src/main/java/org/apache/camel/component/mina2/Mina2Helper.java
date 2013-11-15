@@ -128,7 +128,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Asynchronous writes the given body to MINA session. Will wait at most for      * 10 seconds until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
+comment|/**      * Asynchronously writes the given body to MINA session. Will wait at most for      * 10 seconds until the body has been written.      *      * @param session  the MINA session      * @param body     the body to write (send)      * @param exchange the exchange      * @throws CamelExchangeException is thrown if the body could not be written for some reasons      *                                (eg remote connection is closed etc.)      */
 DECL|method|writeBody (IoSession session, Object body, Exchange exchange)
 specifier|public
 specifier|static

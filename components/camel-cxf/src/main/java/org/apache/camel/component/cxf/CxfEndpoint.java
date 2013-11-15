@@ -1470,6 +1470,11 @@ specifier|private
 name|CxfEndpointConfigurer
 name|configurer
 decl_stmt|;
+DECL|method|CxfEndpoint ()
+specifier|public
+name|CxfEndpoint
+parameter_list|()
+block|{     }
 DECL|method|CxfEndpoint (String remaining, CxfComponent cxfComponent)
 specifier|public
 name|CxfEndpoint
@@ -1541,11 +1546,6 @@ name|remaining
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|CxfEndpoint ()
-specifier|public
-name|CxfEndpoint
-parameter_list|()
-block|{     }
 DECL|method|copy ()
 specifier|public
 name|CxfEndpoint
@@ -3987,7 +3987,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"The serviceClass option should not be set with Emptye String."
+literal|"The serviceClass option can neither be null nor an empty String."
 argument_list|)
 throw|;
 block|}
@@ -5715,16 +5715,16 @@ return|return
 name|features
 return|;
 block|}
-DECL|method|setHandlers (@uppressWarningsR) List<Handler> h)
-specifier|public
-name|void
-name|setHandlers
-parameter_list|(
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
+DECL|method|setHandlers (List<Handler> h)
+specifier|public
+name|void
+name|setHandlers
+parameter_list|(
 name|List
 argument_list|<
 name|Handler

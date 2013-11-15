@@ -581,10 +581,16 @@ name|AbstractPhaseInterceptor
 condition|)
 block|{
 name|AbstractPhaseInterceptor
+argument_list|<
+name|?
+argument_list|>
 name|interceptor
 init|=
 operator|(
 name|AbstractPhaseInterceptor
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|inInterceptor
 decl_stmt|;

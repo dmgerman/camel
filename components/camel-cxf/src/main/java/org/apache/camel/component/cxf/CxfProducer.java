@@ -1494,11 +1494,6 @@ block|}
 block|}
 block|}
 comment|/**      * Get the parameters for the web service operation      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|getParams (CxfEndpoint endpoint, Exchange exchange)
 specifier|private
 name|Object
