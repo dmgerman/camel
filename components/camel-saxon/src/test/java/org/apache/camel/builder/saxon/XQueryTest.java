@@ -221,6 +221,31 @@ name|getLocalName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|result
+operator|=
+name|xquery
+argument_list|(
+literal|".//product[@type = 'beer']/*"
+argument_list|)
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong result"
+argument_list|,
+literal|"<stella/>"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
