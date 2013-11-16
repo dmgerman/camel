@@ -82,20 +82,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -225,7 +211,6 @@ operator|.
 name|getBytes
 argument_list|()
 decl_stmt|;
-comment|//DatagramPacket packet = new DatagramPacket(data, data.length, address, getPort());
 name|DatagramPacket
 name|packet
 init|=
@@ -240,7 +225,8 @@ name|length
 argument_list|,
 name|address
 argument_list|,
-literal|10111
+name|getPort
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|socket
@@ -286,7 +272,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"mina2:udp://127.0.0.1:10111?sync=false&minaLogger=true"
+literal|"mina2:udp://127.0.0.1:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"?sync=false&minaLogger=true"
 argument_list|)
 operator|.
 name|to
