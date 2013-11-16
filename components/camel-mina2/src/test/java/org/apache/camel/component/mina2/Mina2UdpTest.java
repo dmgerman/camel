@@ -261,12 +261,10 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|IOHelper
+name|socket
 operator|.
 name|close
-argument_list|(
-name|socket
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}

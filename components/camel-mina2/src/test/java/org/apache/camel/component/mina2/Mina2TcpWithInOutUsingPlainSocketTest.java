@@ -454,9 +454,12 @@ argument_list|(
 name|is
 argument_list|,
 name|os
-argument_list|,
-name|soc
 argument_list|)
+expr_stmt|;
+name|soc
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|// convert the buffer to chars
