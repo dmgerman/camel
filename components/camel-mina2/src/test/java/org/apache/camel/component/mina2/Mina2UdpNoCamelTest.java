@@ -106,6 +106,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|AvailablePortFinder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|mina
 operator|.
 name|core
@@ -350,6 +364,16 @@ DECL|field|server
 name|UDPServer
 name|server
 decl_stmt|;
+DECL|field|port
+specifier|private
+name|int
+name|port
+init|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+decl_stmt|;
 comment|// Create the UDPServer before the test is run
 annotation|@
 name|Before
@@ -368,7 +392,7 @@ name|UDPServer
 argument_list|(
 literal|"127.0.0.1"
 argument_list|,
-literal|1234
+name|port
 argument_list|)
 expr_stmt|;
 name|server
@@ -416,7 +440,7 @@ name|connect
 argument_list|(
 literal|"127.0.0.1"
 argument_list|,
-literal|1234
+name|port
 argument_list|)
 expr_stmt|;
 for|for
@@ -680,7 +704,7 @@ name|UDPClient
 extends|extends
 name|IoHandlerAdapter
 block|{
-comment|/**          * Three optional arguments can be provided (defaults in brackets):          * path, host (localhost) and port (1234).          *          * @param args The command line args.          */
+comment|/**          * Three optional arguments can be provided (defaults in brackets):          * path, host (localhost) and port.          *          * @param args The command line args.          */
 DECL|field|connector
 specifier|private
 specifier|final
@@ -701,8 +725,6 @@ DECL|field|localPort
 specifier|private
 name|int
 name|localPort
-init|=
-literal|1234
 decl_stmt|;
 DECL|field|localHost
 specifier|private

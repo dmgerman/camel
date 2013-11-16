@@ -110,6 +110,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -117,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To test camel-mina component using a TCP client that communicates using TCP socket communication.  *  * @version   */
+comment|/**  * To test camel-mina2 component using a TCP client that communicates using TCP socket communication.  *  * @version   */
 end_comment
 
 begin_class
@@ -385,7 +399,7 @@ operator|.
 name|getOutputStream
 argument_list|()
 expr_stmt|;
-comment|// must append MAC newline at the end to flag end of textline to Camel-Mina
+comment|// must append MAC newline at the end to flag end of textline to camel-mina2
 name|os
 operator|.
 name|write
@@ -433,36 +447,16 @@ block|}
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|is
-operator|!=
-literal|null
-condition|)
-block|{
-name|is
+name|IOHelper
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
+argument_list|(
+name|is
+argument_list|,
 name|os
-operator|!=
-literal|null
-condition|)
-block|{
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
+argument_list|,
 name|soc
-operator|.
-name|close
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|// convert the buffer to chars

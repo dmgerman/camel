@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper class used internally by camel-mina using Apache MINA.  */
+comment|/**  * Helper class used internally by camel-mina2 using Apache MINA.  */
 end_comment
 
 begin_class

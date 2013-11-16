@@ -136,10 +136,9 @@ name|ReverserServer
 block|{
 DECL|field|port
 specifier|protected
+specifier|final
 name|int
 name|port
-init|=
-literal|6321
 decl_stmt|;
 DECL|field|acceptor
 specifier|private
