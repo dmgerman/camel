@@ -489,6 +489,69 @@ operator|==
 literal|null
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel context ID"
+argument_list|)
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel ManagementName"
+argument_list|)
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint service state"
+argument_list|)
+DECL|method|getState ()
+specifier|public
+name|String
+name|getState
+parameter_list|()
+block|{
+return|return
+name|getStatus
+argument_list|()
+operator|.
+name|name
+argument_list|()
+return|;
+block|}
 comment|/**      * Sets whether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
 DECL|method|setContentCache (boolean contentCache)
 specifier|public

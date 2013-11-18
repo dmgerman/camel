@@ -59,6 +59,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Camel ManagementName"
+argument_list|)
+DECL|method|getCamelManagementName ()
+name|String
+name|getCamelManagementName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Endpoint URI"
 argument_list|,
 name|mask

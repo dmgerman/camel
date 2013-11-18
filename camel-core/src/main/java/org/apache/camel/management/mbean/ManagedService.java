@@ -350,6 +350,19 @@ name|getName
 argument_list|()
 return|;
 block|}
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
 DECL|method|getRouteId ()
 specifier|public
 name|String

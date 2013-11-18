@@ -172,6 +172,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ServiceStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|WaitForTaskToComplete
 import|;
 end_import
@@ -189,6 +201,22 @@ operator|.
 name|management
 operator|.
 name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
 import|;
 end_import
 
@@ -231,6 +259,13 @@ comment|/**  * An implementation of the<a href="https://github.com/sirchia/camel
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managed Disruptor Endpoint"
+argument_list|)
 DECL|class|DisruptorEndpoint
 specifier|public
 class|class
@@ -397,6 +432,115 @@ name|blockWhenFull
 operator|=
 name|blockWhenFull
 expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel ID"
+argument_list|)
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel ManagementName"
+argument_list|)
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint Uri"
+argument_list|,
+name|mask
+operator|=
+literal|true
+argument_list|)
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getEndpointUri
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Service State"
+argument_list|)
+DECL|method|getState ()
+specifier|public
+name|String
+name|getState
+parameter_list|()
+block|{
+name|ServiceStatus
+name|status
+init|=
+name|this
+operator|.
+name|getStatus
+argument_list|()
+decl_stmt|;
+comment|// if no status exists then its stopped
+if|if
+condition|(
+name|status
+operator|==
+literal|null
+condition|)
+block|{
+name|status
+operator|=
+name|ServiceStatus
+operator|.
+name|Stopped
+expr_stmt|;
+block|}
+return|return
+name|status
+operator|.
+name|name
+argument_list|()
+return|;
 block|}
 annotation|@
 name|ManagedAttribute
@@ -732,15 +876,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOGGER
-operator|.
-name|debug
-argument_list|(
-literal|"Start enpoint {}"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
 comment|// notify reference we are shutting down this endpoint
 name|disruptorReference
 operator|.
@@ -754,7 +889,6 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|//To change body of overridden methods use File | Settings | File Templates.
 block|}
 annotation|@
 name|Override
@@ -766,15 +900,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOGGER
-operator|.
-name|debug
-argument_list|(
-literal|"Stop enpoint {}"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
 comment|// notify reference we are shutting down this endpoint
 name|disruptorReference
 operator|.
@@ -788,7 +913,6 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
-comment|//To change body of overridden methods use File | Settings | File Templates.
 block|}
 annotation|@
 name|Override

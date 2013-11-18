@@ -197,6 +197,24 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getEndpointUri ()
 specifier|public
 name|String

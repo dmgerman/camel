@@ -266,6 +266,22 @@ name|getName
 argument_list|()
 return|;
 block|}
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|component
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
 DECL|method|getInstance ()
 specifier|public
 name|Object

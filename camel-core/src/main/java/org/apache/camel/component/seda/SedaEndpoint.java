@@ -2151,7 +2151,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel context name"
+literal|"Camel context ID"
 argument_list|)
 DECL|method|getCamelId ()
 specifier|public
@@ -2164,6 +2164,27 @@ name|getCamelContext
 argument_list|()
 operator|.
 name|getName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel ManagementName"
+argument_list|)
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getManagementName
 argument_list|()
 return|;
 block|}

@@ -271,6 +271,22 @@ name|getName
 argument_list|()
 return|;
 block|}
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
 DECL|method|isSupportRedelivery ()
 specifier|public
 name|boolean
