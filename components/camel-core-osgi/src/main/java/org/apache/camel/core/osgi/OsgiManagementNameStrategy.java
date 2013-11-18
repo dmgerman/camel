@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OSGI enhanced {@link org.apache.camel.spi.ManagementNameStrategy}.  *<p/>  * This {@link org.apache.camel.spi.ManagementNameStrategy} supports the default  * tokens (see {@link DefaultManagementNameStrategy}) and the following additional OSGi specific tokens  *<ul>  *<li>#bundleId# - The bundle id</li>  *<li>#version# - The bundle version</li>  *<li>#symbolicName# - The bundle symbolic name</li>  *</ul>  *<p/>  * This implementation will by default use a name pattern as<tt>#bundleId#-#name#</tt> and in case  * of a clash, then the pattern will fallback to be using the counter as<tt>#bundleId#-#name#-#counter#</tt>.  *  * @see DefaultManagementNameStrategy  */
+comment|/**  * OSGi enhanced {@link org.apache.camel.spi.ManagementNameStrategy}.  *<p/>  * This {@link org.apache.camel.spi.ManagementNameStrategy} supports the default  * tokens (see {@link DefaultManagementNameStrategy}) and the following additional OSGi specific tokens  *<ul>  *<li>#bundleId# - The bundle id</li>  *<li>#version# - The bundle version</li>  *<li>#symbolicName# - The bundle symbolic name</li>  *</ul>  *<p/>  * This implementation will by default use a name pattern as<tt>#symbolicName#</tt> and in case  * of a clash (such as multiple versions of the same symbolicName),  * then the pattern will fallback to append an unique counter<tt>#symbolicName#-#counter#</tt>.  *  * @see DefaultManagementNameStrategy  */
 end_comment
 
 begin_class
@@ -101,9 +101,9 @@ name|super
 argument_list|(
 name|camelContext
 argument_list|,
-literal|"#bundleId#-#name#"
+literal|"#symbolicName#"
 argument_list|,
-literal|"#bundleId#-#name#-#counter#"
+literal|"#symbolicName#-#counter#"
 argument_list|)
 expr_stmt|;
 name|this

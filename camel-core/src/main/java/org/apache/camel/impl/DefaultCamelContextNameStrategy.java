@@ -174,6 +174,7 @@ name|int
 name|getNextCounter
 parameter_list|()
 block|{
+comment|// we want to start counting from 1, so increment first
 return|return
 name|CONTEXT_COUNTER
 operator|.
