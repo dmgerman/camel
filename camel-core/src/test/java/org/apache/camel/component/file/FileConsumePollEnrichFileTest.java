@@ -139,6 +139,20 @@ argument_list|(
 literal|"Big file"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/enrich/.done/AAA.fin"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedFileExists
+argument_list|(
+literal|"target/enrichdata/.done/AAA.dat"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -158,14 +172,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sleeping for 2 sec before writing enrichdata file"
+literal|"Sleeping for 1 sec before writing enrichdata file"
 argument_list|)
 expr_stmt|;
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|1000
 argument_list|)
 expr_stmt|;
 name|template
@@ -190,28 +204,8 @@ argument_list|(
 literal|"... write done"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
-expr_stmt|;
-comment|// because the on completion is executed async, we should wait a bit to not fail on slow CI servers
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
-name|assertFileExists
-argument_list|(
-literal|"target/enrich/.done/AAA.fin"
-argument_list|)
-expr_stmt|;
-name|assertFileExists
-argument_list|(
-literal|"target/enrichdata/.done/AAA.dat"
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -252,7 +246,7 @@ name|pollEnrich
 argument_list|(
 literal|"file://target/enrichdata?move=.done"
 argument_list|,
-literal|20000
+literal|10000
 argument_list|)
 operator|.
 name|to
