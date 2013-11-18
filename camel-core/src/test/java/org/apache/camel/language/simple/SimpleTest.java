@@ -788,6 +788,36 @@ literal|"Hello World"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNull ()
+specifier|public
+name|void
+name|testNull
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertEquals
+argument_list|(
+literal|null
+argument_list|,
+name|SimpleLanguage
+operator|.
+name|simple
+argument_list|(
+literal|"${null}"
+argument_list|)
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testEmptyExpression ()
 specifier|public
 name|void
