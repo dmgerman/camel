@@ -1901,7 +1901,7 @@ return|return
 name|entityProviders
 return|;
 block|}
-DECL|method|setProviders (List<? extends Object> providers)
+DECL|method|setProviders (List<?> providers)
 specifier|public
 name|void
 name|setProviders
@@ -1909,8 +1909,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|?
-extends|extends
-name|Object
 argument_list|>
 name|providers
 parameter_list|)
