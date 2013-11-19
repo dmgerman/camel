@@ -24,16 +24,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Arrays
 import|;
 end_import
@@ -4093,7 +4083,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"
+literal|"TLS_RSA_WITH_AES_128_CBC_SHA"
 argument_list|)
 expr_stmt|;
 name|filter
