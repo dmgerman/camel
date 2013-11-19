@@ -243,6 +243,12 @@ name|PaxLoggingEvent
 name|paxLoggingEvent
 parameter_list|)
 block|{
+comment|// in order to "force" the copy of properties (especially the MDC ones) in the local thread
+name|paxLoggingEvent
+operator|.
+name|getProperties
+argument_list|()
+expr_stmt|;
 name|executor
 operator|.
 name|execute
