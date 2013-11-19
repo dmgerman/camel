@@ -91,17 +91,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|GenerateXmFromCamelContextlTest
+DECL|class|GenerateXmFromCamelContextTest
 specifier|public
 class|class
-name|GenerateXmFromCamelContextlTest
+name|GenerateXmFromCamelContextTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testCreateRouteFromCamelCOntext ()
+DECL|method|testCreateRouteFromCamelContext ()
 specifier|public
 name|void
-name|testCreateRouteFromCamelCOntext
+name|testCreateRouteFromCamelContext
 parameter_list|()
 throws|throws
 name|Exception

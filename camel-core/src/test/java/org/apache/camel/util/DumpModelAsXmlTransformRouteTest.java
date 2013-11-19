@@ -113,6 +113,16 @@ literal|"<simple>Hello ${body}</simple>"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|contains
+argument_list|(
+literal|"<to uri=\"mock:result\" customId=\"true\" id=\"myMock\"/>"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -159,6 +169,11 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:result"
+argument_list|)
+operator|.
+name|id
+argument_list|(
+literal|"myMock"
 argument_list|)
 expr_stmt|;
 block|}

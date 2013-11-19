@@ -82,20 +82,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlTransient
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlType
 import|;
 end_import
@@ -166,11 +152,9 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-annotation|@
-name|XmlTransient
 DECL|field|customId
 specifier|private
-name|boolean
+name|Boolean
 name|customId
 decl_stmt|;
 DECL|field|description
@@ -415,6 +399,34 @@ name|getId
 argument_list|()
 return|;
 block|}
+DECL|method|isCustomId ()
+specifier|public
+name|Boolean
+name|isCustomId
+parameter_list|()
+block|{
+return|return
+name|customId
+return|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|setCustomId (Boolean customId)
+specifier|public
+name|void
+name|setCustomId
+parameter_list|(
+name|Boolean
+name|customId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customId
+operator|=
+name|customId
+expr_stmt|;
+block|}
 comment|/**      * Returns whether a custom id has been assigned      */
 DECL|method|hasCustomIdAssigned ()
 specifier|public
@@ -423,6 +435,10 @@ name|hasCustomIdAssigned
 parameter_list|()
 block|{
 return|return
+name|customId
+operator|!=
+literal|null
+operator|&&
 name|customId
 return|;
 block|}
