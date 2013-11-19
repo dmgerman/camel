@@ -120,6 +120,16 @@ end_import
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|AssertionFailedError
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -225,6 +235,44 @@ argument_list|,
 literal|"TLS"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|assertStartsWith
+argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
+literal|null
+argument_list|,
+literal|"TLS"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"We chould got an exception here!"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AssertionFailedError
+name|ex
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Get a wrong message"
+argument_list|,
+literal|"The values should not be null"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testPropertyPlaceholders ()
 specifier|public
@@ -5622,6 +5670,13 @@ name|String
 name|prefix
 parameter_list|)
 block|{
+name|assertNotNull
+argument_list|(
+literal|"The values should not be null"
+argument_list|,
+name|values
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -5632,6 +5687,12 @@ control|)
 block|{
 name|assertTrue
 argument_list|(
+name|value
+operator|+
+literal|" does not start with the prefix "
+operator|+
+name|prefix
+argument_list|,
 name|value
 operator|.
 name|startsWith
@@ -5657,6 +5718,13 @@ name|String
 name|prefix
 parameter_list|)
 block|{
+name|assertNotNull
+argument_list|(
+literal|"The values should not be null"
+argument_list|,
+name|values
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -5667,6 +5735,12 @@ control|)
 block|{
 name|assertTrue
 argument_list|(
+name|value
+operator|+
+literal|" does not start with the prefix "
+operator|+
+name|prefix
+argument_list|,
 name|value
 operator|.
 name|startsWith
