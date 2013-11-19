@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GORA Test Support  *  * @author ipolyzos  */
+comment|/**  * GORA Test Support  *  */
 end_comment
 
 begin_class

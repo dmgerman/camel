@@ -76,6 +76,20 @@ name|apache
 operator|.
 name|gora
 operator|.
+name|persistency
+operator|.
+name|Persistent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|gora
+operator|.
 name|store
 operator|.
 name|DataStore
@@ -136,6 +150,11 @@ DECL|field|dataStore
 specifier|private
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 decl_stmt|;
 comment|/**      * Camel-Gora Endpoint Configuratopn      */
@@ -145,7 +164,7 @@ name|GoraConfiguration
 name|configuration
 decl_stmt|;
 comment|/**      * GORA endpoint default constructor      *      * @param uri           Endpoint URI      * @param goraComponent Reference to the Camel-Gora component      * @param config        Reference to Camel-Gora endpoint configuration      * @param dataStore     Reference to Gora DataStore      */
-DECL|method|GoraEndpoint (final String uri, final GoraComponent goraComponent, final GoraConfiguration config, final DataStore dataStore)
+DECL|method|GoraEndpoint (final String uri, final GoraComponent goraComponent, final GoraConfiguration config, final DataStore<Object, Persistent> dataStore)
 specifier|public
 name|GoraEndpoint
 parameter_list|(
@@ -163,6 +182,11 @@ name|config
 parameter_list|,
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 parameter_list|)
 block|{
@@ -228,7 +252,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//throw new UnsupportedOperationException("Not supported");
 return|return
 operator|new
 name|GoraConsumer

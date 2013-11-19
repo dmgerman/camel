@@ -20,6 +20,30 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|InvocationTargetException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -104,11 +128,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
+name|gora
 operator|.
-name|util
+name|persistency
 operator|.
-name|ObjectHelper
+name|Persistent
 import|;
 end_import
 
@@ -174,42 +198,8 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|InvocationTargetException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorService
-import|;
-end_import
-
 begin_comment
-comment|/**  * Implementation of Camel-Gora {@link Consumer}.  *  * @author ipolyzos  */
+comment|/**  * Implementation of Camel-Gora {@link Consumer}.  *  */
 end_comment
 
 begin_class
@@ -242,6 +232,11 @@ DECL|field|dataStore
 specifier|private
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 decl_stmt|;
 comment|/**      * Camel-Gora endpoint configuration      */
@@ -270,7 +265,7 @@ name|boolean
 name|firstRun
 decl_stmt|;
 comment|/**      * Consumer Constructor      *      * @param endpoint      Reference to the Camel-Gora endpoint      * @param processor     Reference to Consumer Processor      * @param configuration Reference to Camel-Gora endpoint configuration      * @param dataStore     Reference to the datastore      */
-DECL|method|GoraConsumer (final Endpoint endpoint, final Processor processor, final GoraConfiguration configuration, final DataStore dataStore)
+DECL|method|GoraConsumer (final Endpoint endpoint, final Processor processor, final GoraConfiguration configuration, final DataStore<Object, Persistent> dataStore)
 specifier|public
 name|GoraConsumer
 parameter_list|(
@@ -288,6 +283,11 @@ name|configuration
 parameter_list|,
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 parameter_list|)
 throws|throws

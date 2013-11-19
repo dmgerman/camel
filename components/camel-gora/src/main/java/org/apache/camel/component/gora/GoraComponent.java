@@ -20,13 +20,31 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|CamelContext
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
 import|;
 end_import
 
@@ -113,36 +131,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -161,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel-Gora {@link Endpoint}.  *  * @author ipolyzos  */
+comment|/**  * Camel-Gora {@link Endpoint}.  *  */
 end_comment
 
 begin_class
@@ -179,8 +167,6 @@ name|DataStore
 argument_list|<
 name|Object
 argument_list|,
-name|?
-extends|extends
 name|Persistent
 argument_list|>
 name|dataStore
@@ -346,6 +332,11 @@ comment|/**      * Get DataStore      *      * @return DataStore      */
 DECL|method|getDataStore ()
 specifier|public
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|getDataStore
 parameter_list|()
 block|{

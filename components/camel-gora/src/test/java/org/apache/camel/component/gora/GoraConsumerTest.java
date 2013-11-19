@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|InvocationTargetException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -72,24 +84,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|gora
-operator|.
-name|utils
-operator|.
-name|GoraUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|gora
 operator|.
 name|query
@@ -133,18 +127,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|InvocationTargetException
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -169,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GORA Consumer Tests  *  * @author ipolyzos  */
+comment|/**  * GORA Consumer Tests  *  */
 end_comment
 
 begin_class
@@ -215,12 +197,6 @@ DECL|field|mockGoraProcessor
 specifier|private
 name|Processor
 name|mockGoraProcessor
-decl_stmt|;
-comment|/**      * Mock GoraUtils      */
-DECL|field|mockGoraUtils
-specifier|private
-name|GoraUtils
-name|mockGoraUtils
 decl_stmt|;
 annotation|@
 name|Before
@@ -272,15 +248,6 @@ operator|=
 name|mock
 argument_list|(
 name|DataStore
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|mockGoraUtils
-operator|=
-name|mock
-argument_list|(
-name|GoraUtils
 operator|.
 name|class
 argument_list|)

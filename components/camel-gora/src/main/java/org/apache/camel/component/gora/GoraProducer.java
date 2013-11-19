@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -76,6 +86,20 @@ name|apache
 operator|.
 name|gora
 operator|.
+name|persistency
+operator|.
+name|Persistent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|gora
+operator|.
 name|store
 operator|.
 name|DataStore
@@ -103,12 +127,22 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|camel
+operator|.
+name|component
+operator|.
+name|gora
+operator|.
+name|utils
+operator|.
+name|GoraUtils
+operator|.
+name|constractQueryFromPropertiesMap
 import|;
 end_import
 
@@ -128,12 +162,32 @@ name|utils
 operator|.
 name|GoraUtils
 operator|.
-name|*
+name|getKeyFromExchange
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|gora
+operator|.
+name|utils
+operator|.
+name|GoraUtils
+operator|.
+name|getValueFromExchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * Camel-Gora {@link DefaultProducer}.  *  * @author ipolyzos  */
+comment|/**  * Camel-Gora {@link DefaultProducer}.  *  */
 end_comment
 
 begin_class
@@ -175,10 +229,15 @@ DECL|field|dataStore
 specifier|private
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 decl_stmt|;
 comment|/**      * Constructor      *      * @param endpoint      Reference to the Camel-Gora endpoint      * @param configuration Reference to Camel-Gora endpoint configuration      * @param dataStore     Reference to the datastore      */
-DECL|method|GoraProducer (final Endpoint endpoint, final GoraConfiguration configuration, final DataStore dataStore)
+DECL|method|GoraProducer (final Endpoint endpoint, final GoraConfiguration configuration, final DataStore<Object, Persistent> dataStore)
 specifier|public
 name|GoraProducer
 parameter_list|(
@@ -192,6 +251,11 @@ name|configuration
 parameter_list|,
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 parameter_list|)
 block|{

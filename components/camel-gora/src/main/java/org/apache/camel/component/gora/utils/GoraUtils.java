@@ -22,15 +22,23 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|lang
 operator|.
-name|common
+name|reflect
 operator|.
-name|base
+name|InvocationTargetException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|Objects
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -135,70 +143,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|gora
-operator|.
-name|store
-operator|.
-name|DataStoreFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|gora
-operator|.
-name|util
-operator|.
-name|GoraException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|gora
-operator|.
-name|util
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|InvocationTargetException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
 import|import static
 name|com
 operator|.
@@ -210,17 +154,18 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|*
+name|checkNotNull
 import|;
 end_import
 
 begin_comment
-comment|/**  * GoraUtil class contain utility methods for the  * camel component.  *  * @author ipolyzos  */
+comment|/**  * GoraUtil class contain utility methods for the  * camel component.  *  */
 end_comment
 
 begin_class
 DECL|class|GoraUtils
 specifier|public
+specifier|final
 class|class
 name|GoraUtils
 block|{
@@ -233,21 +178,24 @@ block|{
 comment|// utility Class
 block|}
 comment|/**      * Utility method to construct a new query from the exchange      *      *<b>NOTE:</b> values used in order construct the query      * should be stored in the "in" message headers.      *      * @param dataStore      * @param conf      * @return      * @throws ClassNotFoundException      * @throws IllegalAccessException      * @throws NoSuchMethodException      * @throws InvocationTargetException      */
-DECL|method|constractQueryFromConfiguration (final DataStore dataStore, final GoraConfiguration conf)
+DECL|method|constractQueryFromConfiguration (final DataStore<Object, Persistent> dataStore, final GoraConfiguration conf)
 specifier|public
 specifier|static
 name|Query
 argument_list|<
-name|?
+name|Object
 argument_list|,
-name|?
-extends|extends
 name|Persistent
 argument_list|>
 name|constractQueryFromConfiguration
 parameter_list|(
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 parameter_list|,
 specifier|final
@@ -265,6 +213,11 @@ name|InvocationTargetException
 block|{
 specifier|final
 name|Query
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|query
 init|=
 name|dataStore
@@ -529,15 +482,13 @@ name|query
 return|;
 block|}
 comment|/**      * Utility method to construct a new query from the exchange      *      *<b>NOTE:</b> values used in order construct the query      * should be stored in the "in" message headers.      *      * @param propertiesMap      * @param dataStore      * @param conf      * @return      * @throws ClassNotFoundException      */
-DECL|method|constractQueryFromPropertiesMap (final Map<String, ?> propertiesMap, final DataStore dataStore, final GoraConfiguration conf)
+DECL|method|constractQueryFromPropertiesMap (final Map<String, ?> propertiesMap, final DataStore<Object, Persistent> dataStore, final GoraConfiguration conf)
 specifier|public
 specifier|static
 name|Query
 argument_list|<
-name|?
+name|Object
 argument_list|,
-name|?
-extends|extends
 name|Persistent
 argument_list|>
 name|constractQueryFromPropertiesMap
@@ -553,6 +504,11 @@ name|propertiesMap
 parameter_list|,
 specifier|final
 name|DataStore
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|dataStore
 parameter_list|,
 specifier|final
@@ -564,6 +520,11 @@ name|ClassNotFoundException
 block|{
 specifier|final
 name|Query
+argument_list|<
+name|Object
+argument_list|,
+name|Persistent
+argument_list|>
 name|query
 init|=
 name|dataStore
@@ -850,7 +811,6 @@ throws|,
 name|InvocationTargetException
 block|{
 return|return
-operator|(
 name|PropertyUtils
 operator|.
 name|getSimpleProperty
@@ -863,7 +823,6 @@ name|value
 argument_list|)
 operator|!=
 literal|null
-operator|)
 return|;
 block|}
 comment|/**      * Utility method to check if a value exist in the properties map      *      * @param attr      * @param propertiesMap      * @return      */

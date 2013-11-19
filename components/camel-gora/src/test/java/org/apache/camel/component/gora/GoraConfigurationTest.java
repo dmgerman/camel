@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GORA Configuration Tests  *  * @author ipolyzos  */
+comment|/**  * GORA Configuration Tests  *  */
 end_comment
 
 begin_class

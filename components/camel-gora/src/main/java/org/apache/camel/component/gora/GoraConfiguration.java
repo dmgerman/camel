@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gora Configuration.  *  * @author ipolyzos  */
+comment|/**  * Gora Configuration.  *  */
 end_comment
 
 begin_class
