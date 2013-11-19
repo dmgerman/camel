@@ -1979,6 +1979,19 @@ operator|=
 name|schemas
 expr_stmt|;
 block|}
+DECL|method|getSchemaLocations ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getSchemaLocations
+parameter_list|()
+block|{
+return|return
+name|schemaLocations
+return|;
+block|}
 comment|/**      * See documentation of {@link BindingStyle}.      */
 DECL|method|setBindingStyle (BindingStyle bindingStyle)
 specifier|public
