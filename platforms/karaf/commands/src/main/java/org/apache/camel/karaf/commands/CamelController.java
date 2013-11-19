@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -153,6 +165,18 @@ parameter_list|(
 name|String
 name|routeId
 parameter_list|,
+name|String
+name|camelContextName
+parameter_list|)
+function_decl|;
+comment|/**      * Return the endpoints      *      * @param camelContextName the Camel context.      * @return the endpoints      */
+DECL|method|getEndpoints (String camelContextName)
+name|List
+argument_list|<
+name|Endpoint
+argument_list|>
+name|getEndpoints
+parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)

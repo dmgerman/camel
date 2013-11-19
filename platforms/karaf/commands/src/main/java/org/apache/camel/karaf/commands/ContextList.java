@@ -129,14 +129,14 @@ name|ContextList
 extends|extends
 name|OsgiCommandSupport
 block|{
-DECL|field|NAME_COLUMN_LABEL
+DECL|field|CONTEXT_COLUMN_LABEL
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|NAME_COLUMN_LABEL
+name|CONTEXT_COLUMN_LABEL
 init|=
-literal|"Name"
+literal|"Context"
 decl_stmt|;
 DECL|field|STATUS_COLUMN_LABEL
 specifier|private
@@ -326,7 +326,7 @@ name|format
 argument_list|(
 name|headerFormat
 argument_list|,
-name|NAME_COLUMN_LABEL
+name|CONTEXT_COLUMN_LABEL
 argument_list|,
 name|STATUS_COLUMN_LABEL
 argument_list|,
@@ -565,7 +565,7 @@ name|retval
 operator|.
 name|put
 argument_list|(
-name|NAME_COLUMN_LABEL
+name|CONTEXT_COLUMN_LABEL
 argument_list|,
 name|maxNameLen
 argument_list|)
@@ -670,7 +670,7 @@ name|columnWidths
 operator|.
 name|get
 argument_list|(
-name|NAME_COLUMN_LABEL
+name|CONTEXT_COLUMN_LABEL
 argument_list|)
 operator|+
 name|columnWidthIncrement
