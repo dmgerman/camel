@@ -1328,7 +1328,7 @@ throws|throws
 name|Exception
 block|{
 comment|// in this logic we need to calculate the accumulated processing time for the processor in the route
-comment|// and hence why the logic is a bit more complicated to do this, as we need to caculate that from
+comment|// and hence why the logic is a bit more complicated to do this, as we need to calculate that from
 comment|// the bottom -> top of the route but this information is valuable for profiling routes
 name|StringBuilder
 name|sb
