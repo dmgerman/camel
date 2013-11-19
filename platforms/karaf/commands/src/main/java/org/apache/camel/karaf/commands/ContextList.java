@@ -172,7 +172,7 @@ specifier|final
 name|String
 name|DEFAULT_FIELD_PREAMBLE
 init|=
-literal|"[ "
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_FIELD_POSTAMBLE
 specifier|private
@@ -181,7 +181,7 @@ specifier|final
 name|String
 name|DEFAULT_FIELD_POSTAMBLE
 init|=
-literal|" ]"
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_HEADER_PREAMBLE
 specifier|private
@@ -190,7 +190,7 @@ specifier|final
 name|String
 name|DEFAULT_HEADER_PREAMBLE
 init|=
-literal|"  "
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_HEADER_POSTAMBLE
 specifier|private
@@ -199,7 +199,7 @@ specifier|final
 name|String
 name|DEFAULT_HEADER_POSTAMBLE
 init|=
-literal|"  "
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_COLUMN_WIDTH_INCREMENT
 specifier|private
@@ -220,6 +220,15 @@ init|=
 name|Integer
 operator|.
 name|MAX_VALUE
+decl_stmt|;
+DECL|field|MIN_COLUMN_WIDTH
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MIN_COLUMN_WIDTH
+init|=
+literal|12
 decl_stmt|;
 DECL|field|camelController
 specifier|private
@@ -331,6 +340,24 @@ argument_list|,
 name|STATUS_COLUMN_LABEL
 argument_list|,
 name|UPTIME_COLUMN_LABEL
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+name|headerFormat
+argument_list|,
+literal|"-------"
+argument_list|,
+literal|"------"
+argument_list|,
+literal|"------"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -654,9 +681,8 @@ name|columnWidthIncrement
 operator|=
 name|DEFAULT_COLUMN_WIDTH_INCREMENT
 expr_stmt|;
-specifier|final
 name|int
-name|nameLen
+name|contextLen
 init|=
 name|java
 operator|.
@@ -678,7 +704,6 @@ argument_list|,
 name|MAX_COLUMN_WIDTH
 argument_list|)
 decl_stmt|;
-specifier|final
 name|int
 name|statusLen
 init|=
@@ -702,7 +727,6 @@ argument_list|,
 name|MAX_COLUMN_WIDTH
 argument_list|)
 decl_stmt|;
-specifier|final
 name|int
 name|uptimeLen
 init|=
@@ -726,6 +750,29 @@ argument_list|,
 name|MAX_COLUMN_WIDTH
 argument_list|)
 decl_stmt|;
+name|contextLen
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|MIN_COLUMN_WIDTH
+argument_list|,
+name|contextLen
+argument_list|)
+expr_stmt|;
+name|statusLen
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|MIN_COLUMN_WIDTH
+argument_list|,
+name|statusLen
+argument_list|)
+expr_stmt|;
+comment|// last row does not have min width
 specifier|final
 name|StringBuilder
 name|retval
@@ -750,7 +797,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|nameLen
+name|contextLen
 argument_list|)
 operator|.
 name|append
@@ -760,7 +807,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|nameLen
+name|contextLen
 argument_list|)
 operator|.
 name|append

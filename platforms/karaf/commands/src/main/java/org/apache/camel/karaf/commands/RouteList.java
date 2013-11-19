@@ -200,7 +200,7 @@ specifier|final
 name|String
 name|DEFAULT_FIELD_PREAMBLE
 init|=
-literal|"[ "
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_FIELD_POSTAMBLE
 specifier|private
@@ -209,7 +209,7 @@ specifier|final
 name|String
 name|DEFAULT_FIELD_POSTAMBLE
 init|=
-literal|" ]"
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_HEADER_PREAMBLE
 specifier|private
@@ -218,7 +218,7 @@ specifier|final
 name|String
 name|DEFAULT_HEADER_PREAMBLE
 init|=
-literal|"  "
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_HEADER_POSTAMBLE
 specifier|private
@@ -227,7 +227,7 @@ specifier|final
 name|String
 name|DEFAULT_HEADER_POSTAMBLE
 init|=
-literal|"  "
+literal|" "
 decl_stmt|;
 DECL|field|DEFAULT_FORMAT_BUFFER_LENGTH
 specifier|private
@@ -248,6 +248,15 @@ init|=
 name|Integer
 operator|.
 name|MAX_VALUE
+decl_stmt|;
+DECL|field|MIN_COLUMN_WIDTH
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MIN_COLUMN_WIDTH
+init|=
+literal|12
 decl_stmt|;
 annotation|@
 name|Argument
@@ -387,6 +396,24 @@ argument_list|,
 name|ROUTE_COLUMN_LABEL
 argument_list|,
 name|STATUS_COLUMN_LABEL
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+name|headerFormat
+argument_list|,
+literal|"-------"
+argument_list|,
+literal|"-----"
+argument_list|,
+literal|"------"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -752,14 +779,9 @@ name|columnWidthIncrement
 operator|=
 name|DEFAULT_COLUMN_WIDTH_INCREMENT
 expr_stmt|;
-specifier|final
 name|int
 name|contextLen
 init|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Math
 operator|.
 name|min
@@ -776,14 +798,9 @@ argument_list|,
 name|MAX_COLUMN_WIDTH
 argument_list|)
 decl_stmt|;
-specifier|final
 name|int
 name|routeLen
 init|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Math
 operator|.
 name|min
@@ -800,14 +817,9 @@ argument_list|,
 name|MAX_COLUMN_WIDTH
 argument_list|)
 decl_stmt|;
-specifier|final
 name|int
 name|statusLen
 init|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Math
 operator|.
 name|min
@@ -824,6 +836,29 @@ argument_list|,
 name|MAX_COLUMN_WIDTH
 argument_list|)
 decl_stmt|;
+name|contextLen
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|MIN_COLUMN_WIDTH
+argument_list|,
+name|contextLen
+argument_list|)
+expr_stmt|;
+name|routeLen
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|MIN_COLUMN_WIDTH
+argument_list|,
+name|routeLen
+argument_list|)
+expr_stmt|;
+comment|// last row does not have min width
 specifier|final
 name|StringBuilder
 name|retval

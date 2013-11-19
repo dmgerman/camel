@@ -221,7 +221,7 @@ specifier|final
 name|String
 name|OUTPUT_FORMAT
 init|=
-literal|"[%-28s] [%8d] [%10d] [%10d] [%10d] [%10d] [%10d] [%10d] [%10d]"
+literal|"%-30s %10d %12d %12d %12d %12d %12d %12d %12d"
 decl_stmt|;
 DECL|field|previousCamelContextName
 specifier|private
@@ -386,8 +386,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//        System.out.println(StringEscapeUtils.unescapeJava("\u001B[1m\u001B[33mCamel Route " + camelRoute.getId() + "\u001B[0m"));
-comment|//        System.out.println(StringEscapeUtils.unescapeJava("\tEndpoint uri: " + URISupport.sanitizeUri(camelRoute.getEndpoint().getEndpointUri())));
 name|ManagementAgent
 name|agent
 init|=
