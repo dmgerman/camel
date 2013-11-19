@@ -796,10 +796,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertEquals
+name|assertNull
 argument_list|(
-literal|null
-argument_list|,
 name|SimpleLanguage
 operator|.
 name|simple
