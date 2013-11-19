@@ -93,6 +93,16 @@ specifier|private
 name|String
 name|tooling
 decl_stmt|;
+DECL|field|licensing
+specifier|private
+name|String
+name|licensing
+decl_stmt|;
+DECL|field|analytics
+specifier|private
+name|String
+name|analytics
+decl_stmt|;
 DECL|method|getSobjects ()
 specifier|public
 name|String
@@ -299,6 +309,58 @@ operator|.
 name|tooling
 operator|=
 name|tooling
+expr_stmt|;
+block|}
+DECL|method|getLicensing ()
+specifier|public
+name|String
+name|getLicensing
+parameter_list|()
+block|{
+return|return
+name|licensing
+return|;
+block|}
+DECL|method|setLicensing (String licensing)
+specifier|public
+name|void
+name|setLicensing
+parameter_list|(
+name|String
+name|licensing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|licensing
+operator|=
+name|licensing
+expr_stmt|;
+block|}
+DECL|method|getAnalytics ()
+specifier|public
+name|String
+name|getAnalytics
+parameter_list|()
+block|{
+return|return
+name|analytics
+return|;
+block|}
+DECL|method|setAnalytics (String analytics)
+specifier|public
+name|void
+name|setAnalytics
+parameter_list|(
+name|String
+name|analytics
+parameter_list|)
+block|{
+name|this
+operator|.
+name|analytics
+operator|=
+name|analytics
 expr_stmt|;
 block|}
 block|}
