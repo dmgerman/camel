@@ -242,16 +242,10 @@ name|String
 name|getNextName
 parameter_list|()
 block|{
-comment|// generate new candidate
 name|String
 name|candidate
 init|=
-name|prefix
-operator|+
-literal|"-"
-operator|+
-name|getNextCounter
-argument_list|()
+literal|null
 decl_stmt|;
 name|boolean
 name|clash
@@ -265,6 +259,16 @@ block|{
 name|clash
 operator|=
 literal|false
+expr_stmt|;
+comment|// generate new candidate
+name|candidate
+operator|=
+name|prefix
+operator|+
+literal|"-"
+operator|+
+name|getNextCounter
+argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
@@ -405,7 +409,7 @@ argument_list|()
 block|,
 name|clash
 block|,
-name|name
+name|candidate
 block|}
 argument_list|)
 expr_stmt|;
