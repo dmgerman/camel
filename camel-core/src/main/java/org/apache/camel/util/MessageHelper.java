@@ -873,6 +873,12 @@ operator|instanceof
 name|File
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|allowFiles
+condition|)
+block|{
 return|return
 name|prepend
 operator|+
@@ -882,6 +888,7 @@ name|obj
 operator|+
 literal|"]"
 return|;
+block|}
 block|}
 block|}
 if|if
