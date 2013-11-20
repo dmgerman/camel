@@ -114,22 +114,6 @@ name|Command
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|shell
-operator|.
-name|console
-operator|.
-name|OsgiCommandSupport
-import|;
-end_import
-
 begin_comment
 comment|/**  * Command to list all Camel routes.  */
 end_comment
@@ -155,7 +139,7 @@ specifier|public
 class|class
 name|RouteList
 extends|extends
-name|OsgiCommandSupport
+name|CamelCommandSupport
 block|{
 DECL|field|CONTEXT_COLUMN_LABEL
 specifier|private
@@ -285,27 +269,6 @@ DECL|field|name
 name|String
 name|name
 decl_stmt|;
-DECL|field|camelController
-specifier|private
-name|CamelController
-name|camelController
-decl_stmt|;
-DECL|method|setCamelController (CamelController camelController)
-specifier|public
-name|void
-name|setCamelController
-parameter_list|(
-name|CamelController
-name|camelController
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelController
-operator|=
-name|camelController
-expr_stmt|;
-block|}
 DECL|method|doExecute ()
 specifier|protected
 name|Object
