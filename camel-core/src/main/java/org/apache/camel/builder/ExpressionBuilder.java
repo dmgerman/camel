@@ -3146,7 +3146,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns the expression for the current thread name      */
+comment|/**      * Returns the expression for the {@code null} value      */
 DECL|method|nullExpression ()
 specifier|public
 specifier|static
