@@ -1847,6 +1847,14 @@ argument_list|>
 name|files
 parameter_list|)
 block|{
+name|String
+name|absoluteFilePath
+init|=
+name|file
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1873,15 +1881,27 @@ return|return
 literal|false
 return|;
 block|}
-comment|// if its a file then check if its already in progress
+comment|// directory is always valid
 if|if
 condition|(
-operator|!
 name|isDirectory
-operator|&&
-name|isInProgress
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// check if file is already in progress
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|contains
 argument_list|(
-name|file
+name|absoluteFilePath
 argument_list|)
 condition|)
 block|{
@@ -1910,24 +1930,9 @@ return|return
 literal|false
 return|;
 block|}
-name|boolean
-name|answer
-init|=
-literal|true
-decl_stmt|;
-name|String
-name|key
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
 comment|// if its a file then check we have the file in the idempotent registry already
 if|if
 condition|(
-operator|!
-name|isDirectory
-operator|&&
 name|endpoint
 operator|.
 name|isIdempotent
@@ -1935,13 +1940,14 @@ argument_list|()
 condition|)
 block|{
 comment|// use absolute file path as default key, but evaluate if an expression key was configured
+name|String
 name|key
-operator|=
+init|=
 name|file
 operator|.
 name|getAbsoluteFilePath
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -2000,43 +2006,30 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This consumer is idempotent and the file has been consumed before. Will skip this file: {}"
+literal|"This consumer is idempotent and the file has been consumed before matching idempotentKey: {}. Will skip this file: {}"
+argument_list|,
+name|key
 argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
-name|answer
-operator|=
+return|return
 literal|false
-expr_stmt|;
+return|;
 block|}
 block|}
-block|}
-finally|finally
-block|{
-comment|// ensure to run this in finally block in case of runtime exceptions being thrown
-if|if
-condition|(
-operator|!
-name|answer
-condition|)
-block|{
-comment|// remove file from the in progress list as its no longer in progress
+comment|// okay so final step is to be able to add atomic as in-progress, so we are the
+comment|// only thread processing this file
+return|return
 name|endpoint
 operator|.
 name|getInProgressRepository
 argument_list|()
 operator|.
-name|remove
+name|add
 argument_list|(
-name|key
+name|absoluteFilePath
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|// file matched
-return|return
-name|answer
 return|;
 block|}
 comment|/**      * Strategy to perform file matching based on endpoint configuration.      *<p/>      * Will always return<tt>false</tt> for certain files/folders:      *<ul>      *<li>Starting with a dot</li>      *<li>lock files</li>      *</ul>      * And then<tt>true</tt> for directories.      *      * @param file        the file      * @param isDirectory whether the file is a directory or a file      * @param files       files in the directory      * @return<tt>true</tt> if the file is matched,<tt>false</tt> if not      */
@@ -2380,7 +2373,9 @@ argument_list|>
 name|files
 parameter_list|)
 function_decl|;
-comment|/**      * Is the given file already in progress.      *      * @param file the file      * @return<tt>true</tt> if the file is already in progress      */
+comment|/**      * Is the given file already in progress.      *      * @param file the file      * @return<tt>true</tt> if the file is already in progress      * @deprecated no longer in use, use {@link org.apache.camel.component.file.GenericFileEndpoint#getInProgressRepository()} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|isInProgress (GenericFile<T> file)
 specifier|protected
 name|boolean
