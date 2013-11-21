@@ -193,6 +193,40 @@ name|expression
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a constant expression      */
+DECL|method|language (String language, String expression)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|language
+parameter_list|(
+name|String
+name|language
+parameter_list|,
+name|String
+name|expression
+parameter_list|)
+block|{
+name|Expression
+name|exp
+init|=
+name|ExpressionBuilder
+operator|.
+name|languageExpression
+argument_list|(
+name|language
+argument_list|,
+name|expression
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|exp
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a simple expression        */
 DECL|method|simple (String value)
 specifier|public
