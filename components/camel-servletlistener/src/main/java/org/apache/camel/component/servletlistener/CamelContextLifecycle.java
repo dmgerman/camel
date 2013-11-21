@@ -103,6 +103,34 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Callback before adding the routes.      *      * @param camelContext the Camel context      * @param registry     the registry      * @throws Exception is thrown if any error.      */
+DECL|method|beforeAddRoutes (ServletCamelContext camelContext, R registry)
+name|void
+name|beforeAddRoutes
+parameter_list|(
+name|ServletCamelContext
+name|camelContext
+parameter_list|,
+name|R
+name|registry
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Callback after adding the routes.      *      * @param camelContext the Camel context      * @param registry     the registry      * @throws Exception is thrown if any error.      */
+DECL|method|afterAddRoutes (ServletCamelContext camelContext, R registry)
+name|void
+name|afterAddRoutes
+parameter_list|(
+name|ServletCamelContext
+name|camelContext
+parameter_list|,
+name|R
+name|registry
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 

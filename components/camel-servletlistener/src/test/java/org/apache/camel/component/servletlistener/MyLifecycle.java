@@ -157,6 +157,42 @@ literal|"myBean"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|beforeAddRoutes (ServletCamelContext camelContext, SimpleRegistry registry)
+specifier|public
+name|void
+name|beforeAddRoutes
+parameter_list|(
+name|ServletCamelContext
+name|camelContext
+parameter_list|,
+name|SimpleRegistry
+name|registry
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|afterAddRoutes (ServletCamelContext camelContext, SimpleRegistry registry)
+specifier|public
+name|void
+name|afterAddRoutes
+parameter_list|(
+name|ServletCamelContext
+name|camelContext
+parameter_list|,
+name|SimpleRegistry
+name|registry
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 block|}
 end_class
 
