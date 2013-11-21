@@ -377,11 +377,11 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// use content cache to load the script once and cache it (content cache is default enabled)
+comment|// use content cache to load the script once and cache it (content cache and script cache both enabled)
 operator|.
 name|to
 argument_list|(
-literal|"language:simple:file:target/script/myscript.txt?contentCache=true"
+literal|"language:simple:file:target/script/myscript.txt?contentCache=true&cacheScript=true"
 argument_list|)
 operator|.
 name|to

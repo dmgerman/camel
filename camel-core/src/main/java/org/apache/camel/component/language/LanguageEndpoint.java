@@ -138,6 +138,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|ResourceEndpoint
@@ -266,6 +282,13 @@ specifier|private
 name|boolean
 name|contentResolvedFromResource
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|cacheScript
+specifier|private
+name|boolean
+name|cacheScript
+decl_stmt|;
 DECL|method|LanguageEndpoint ()
 specifier|public
 name|LanguageEndpoint
@@ -381,6 +404,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|cacheScript
+operator|&&
 name|expression
 operator|==
 literal|null
@@ -669,6 +694,16 @@ operator|=
 name|script
 expr_stmt|;
 block|}
+DECL|method|getScript ()
+specifier|public
+name|String
+name|getScript
+parameter_list|()
+block|{
+return|return
+name|script
+return|;
+block|}
 DECL|method|isContentResolvedFromResource ()
 specifier|public
 name|boolean
@@ -693,6 +728,54 @@ operator|.
 name|contentResolvedFromResource
 operator|=
 name|contentResolvedFromResource
+expr_stmt|;
+block|}
+DECL|method|isCacheScript ()
+specifier|public
+name|boolean
+name|isCacheScript
+parameter_list|()
+block|{
+return|return
+name|cacheScript
+return|;
+block|}
+comment|/**      * Whether to cache the compiled script and reuse      *<p/>      * Notice reusing the script can cause side effects from processing one Camel      * {@link org.apache.camel.Exchange} to the next {@link org.apache.camel.Exchange}.      */
+DECL|method|setCacheScript (boolean cacheScript)
+specifier|public
+name|void
+name|setCacheScript
+parameter_list|(
+name|boolean
+name|cacheScript
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheScript
+operator|=
+name|cacheScript
+expr_stmt|;
+block|}
+DECL|method|clearContentCache ()
+specifier|public
+name|void
+name|clearContentCache
+parameter_list|()
+block|{
+name|super
+operator|.
+name|clearContentCache
+argument_list|()
+expr_stmt|;
+comment|// must also clear expression and script
+name|expression
+operator|=
+literal|null
+expr_stmt|;
+name|script
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
