@@ -124,7 +124,37 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -673,6 +703,15 @@ name|KEY_USERID
 init|=
 literal|"CamelPGPDataFormatKeyUserid"
 decl_stmt|;
+DECL|field|KEY_USERIDS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KEY_USERIDS
+init|=
+literal|"CamelPGPDataFormatKeyUserids"
+decl_stmt|;
 DECL|field|KEY_PASSWORD
 specifier|public
 specifier|static
@@ -736,6 +775,15 @@ name|SIGNATURE_HASH_ALGORITHM
 init|=
 literal|"CamelPGPDataFormatSignatureHashAlgorithm"
 decl_stmt|;
+DECL|field|COMPRESSION_ALGORITHM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPRESSION_ALGORITHM
+init|=
+literal|"CamelPGPDataFormatCompressionAlgorithm"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -786,11 +834,23 @@ specifier|private
 name|String
 name|keyUserid
 decl_stmt|;
+comment|// only for encryption
+comment|//in addition you can specify further User IDs, in this case the symmetric key is encrypted by several public keys corresponding to the User Ids
+DECL|field|keyUserids
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|keyUserids
+decl_stmt|;
+comment|//only for encryption;
 DECL|field|password
 specifier|private
 name|String
 name|password
 decl_stmt|;
+comment|// only for decryption
 DECL|field|keyFileName
 specifier|private
 name|String
@@ -809,11 +869,13 @@ specifier|private
 name|String
 name|signatureKeyUserid
 decl_stmt|;
+comment|// for encryption
 DECL|field|signaturePassword
 specifier|private
 name|String
 name|signaturePassword
 decl_stmt|;
+comment|// for encryption
 DECL|field|signatureKeyFileName
 specifier|private
 name|String
@@ -831,6 +893,7 @@ specifier|private
 name|boolean
 name|armored
 decl_stmt|;
+comment|// for encryption
 DECL|field|integrity
 specifier|private
 name|boolean
@@ -838,7 +901,7 @@ name|integrity
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Digest algorithm for signing (marshal). Possible values are defined in      * {@link HashAlgorithmTags}. Default value is SHA1.      */
+comment|// for encryption
 DECL|field|hashAlgorithm
 specifier|private
 name|int
@@ -848,7 +911,7 @@ name|HashAlgorithmTags
 operator|.
 name|SHA1
 decl_stmt|;
-comment|/**      * Symmetric key algorithm for encryption (marschal). Possible values are      * defined in {@link SymmetricKeyAlgorithmTags}. Default value is CAST5.      */
+comment|// for encryption
 DECL|field|algorithm
 specifier|private
 name|int
@@ -858,7 +921,17 @@ name|SymmetricKeyAlgorithmTags
 operator|.
 name|CAST5
 decl_stmt|;
-comment|/**      * If no passphrase can be found from the parameter<tt>password</tt> or      *<tt>signaturePassword</tt> or from the header      * {@link #SIGNATURE_KEY_PASSWORD} or {@link #KEY_PASSWORD} then we try to      * get the password from the passphrase accessor. This is especially useful      * in the decrypt case, where we chose the private key according to the key      * Id stored in the encrypted data. So in this case we do not know the user      * Id in advance.      */
+comment|// for encryption
+DECL|field|compressionAlgorithm
+specifier|private
+name|int
+name|compressionAlgorithm
+init|=
+name|CompressionAlgorithmTags
+operator|.
+name|ZIP
+decl_stmt|;
+comment|// for encryption
 DECL|field|passphraseAccessor
 specifier|private
 name|PGPPassphraseAccessor
@@ -955,6 +1028,42 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|findKeyUserids (Exchange exchange)
+specifier|protected
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findKeyUserids
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|KEY_USERIDS
+argument_list|,
+name|getKeyUserids
+argument_list|()
+argument_list|,
+name|List
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|findKeyPassword (Exchange exchange)
 specifier|protected
 name|String
@@ -964,9 +1073,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|String
-name|keyPassword
-init|=
+return|return
 name|exchange
 operator|.
 name|getIn
@@ -983,43 +1090,13 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|keyPassword
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|keyPassword
 return|;
-block|}
-if|if
-condition|(
-name|passphraseAccessor
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|passphraseAccessor
-operator|.
-name|getPassphrase
-argument_list|(
-name|findKeyUserid
-argument_list|(
-name|exchange
-argument_list|)
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
+comment|// the following lines are not needed because the passphrase accessor is taken into account later in the decryption case
+comment|//        if (passphraseAccessor != null) {
+comment|//            return passphraseAccessor.getPassphrase(findKeyUserid(exchange));
+comment|//        } else {
+comment|//            return null;
+comment|//        }
 block|}
 DECL|method|findSignatureKeyFileName (Exchange exchange)
 specifier|protected
@@ -1173,6 +1250,34 @@ literal|null
 return|;
 block|}
 block|}
+DECL|method|findCompressionAlgorithm (Exchange exchange)
+specifier|protected
+name|int
+name|findCompressionAlgorithm
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|COMPRESSION_ALGORITHM
+argument_list|,
+name|getCompressionAlgorithm
+argument_list|()
+argument_list|,
+name|Integer
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|findAlgorithm (Exchange exchange)
 specifier|protected
 name|int
@@ -1246,12 +1351,26 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|userids
+init|=
+name|determineEncryptionUserIds
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
 name|PGPPublicKey
-name|key
+argument_list|>
+name|keys
 init|=
 name|PGPDataFormatUtil
 operator|.
-name|findPublicKey
+name|findPublicKeys
 argument_list|(
 name|exchange
 operator|.
@@ -1268,26 +1387,28 @@ argument_list|(
 name|exchange
 argument_list|)
 argument_list|,
-name|findKeyUserid
-argument_list|(
-name|exchange
-argument_list|)
+name|userids
 argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|key
-operator|==
-literal|null
+name|keys
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Public key is null, cannot proceed"
+literal|"Cannot PGP encrypt message. No public encryption key found for the User Ids "
+operator|+
+name|userids
+operator|+
+literal|" in the public keyring. Either specify other User IDs or add correct public keys to the keyring."
 argument_list|)
 throw|;
 block|}
@@ -1355,6 +1476,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// several keys can be added
+for|for
+control|(
+name|PGPPublicKey
+name|key
+range|:
+name|keys
+control|)
+block|{
 name|encGen
 operator|.
 name|addMethod
@@ -1366,6 +1496,7 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|OutputStream
 name|encOut
 init|=
@@ -1388,9 +1519,10 @@ init|=
 operator|new
 name|PGPCompressedDataGenerator
 argument_list|(
-name|CompressionAlgorithmTags
-operator|.
-name|ZIP
+name|findCompressionAlgorithm
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|OutputStream
@@ -1599,6 +1731,138 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|determineEncryptionUserIds (Exchange exchange)
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|determineEncryptionUserIds
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|String
+name|userid
+init|=
+name|findKeyUserid
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|userids
+init|=
+name|findKeyUserids
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+comment|// merge them together
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|result
+decl_stmt|;
+if|if
+condition|(
+name|userid
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|userids
+operator|==
+literal|null
+operator|||
+name|userids
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|result
+operator|=
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|userid
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|result
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
+name|userids
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|add
+argument_list|(
+name|userid
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|addAll
+argument_list|(
+name|userids
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|userids
+operator|==
+literal|null
+operator|||
+name|userids
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Cannot PGP encrypt message. No User ID of the public key specified."
+argument_list|)
+throw|;
+block|}
+name|result
+operator|=
+name|userids
+expr_stmt|;
+block|}
+return|return
+name|result
+return|;
+block|}
 DECL|method|createSignatureGenerator (Exchange exchange, OutputStream out)
 specifier|protected
 name|PGPSignatureGenerator
@@ -1712,7 +1976,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Signature secret key is null, cannot proceed"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Cannot PGP encrypt message. No secret key found for User ID %s. Either add a key with this User ID to the secret keyring or change the configured User ID."
+argument_list|,
+name|sigKeyUserid
+argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -1749,6 +2020,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// this exception will never happen
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -2554,7 +2826,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets if the encrypted file should be written in ascii visible text      */
+comment|/**      * Sets if the encrypted file should be written in ascii visible text (for      * marshaling).      */
 DECL|method|setArmored (boolean armored)
 specifier|public
 name|void
@@ -2583,7 +2855,7 @@ operator|.
 name|armored
 return|;
 block|}
-comment|/**      * Whether or not to add a integrity check/sign to the encrypted file      */
+comment|/**      * Whether or not to add an integrity check/sign to the encrypted file for      * marshaling.      */
 DECL|method|setIntegrity (boolean integrity)
 specifier|public
 name|void
@@ -2612,7 +2884,7 @@ operator|.
 name|integrity
 return|;
 block|}
-comment|/**      * Userid of the key used to encrypt/decrypt      */
+comment|/**      * Userid of the key used to encrypt. If you want to encrypt with several      * keys then use the method {@link #setKeyUserids(List<String>)}. The User      * ID of this method and the User IDs of the method {@link      * #setKeyUserids(List<String>)} will be merged together and the      * corresponding public keys will be used for the encryption.      */
 DECL|method|setKeyUserid (String keyUserid)
 specifier|public
 name|void
@@ -2639,7 +2911,40 @@ return|return
 name|keyUserid
 return|;
 block|}
-comment|/**      * filename of the keyring that will be used, classpathResource      */
+DECL|method|getKeyUserids ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getKeyUserids
+parameter_list|()
+block|{
+return|return
+name|keyUserids
+return|;
+block|}
+comment|/**      * KeyUserIds used to determine the public keys for encryption. If you just      * have one User ID, then you can also use the method      * {@link #setKeyUserid(String)} or this method. The User ID specified in      * {@link #setKeyUserid(String)} and in this method will be merged together      * and the corresponding public keys will be used for the encryption.      */
+DECL|method|setKeyUserids (List<String> keyUserids)
+specifier|public
+name|void
+name|setKeyUserids
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|keyUserids
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keyUserids
+operator|=
+name|keyUserids
+expr_stmt|;
+block|}
+comment|/**      * Filename of the keyring that will be used for the encryption/decryption,      * classpathResource. Alternatively you can provide the keyring also as byte      * array; see method {@link #setEncryptionKeyRing(byte[])}.      */
 DECL|method|setKeyFileName (String keyFileName)
 specifier|public
 name|void
@@ -2666,7 +2971,7 @@ return|return
 name|keyFileName
 return|;
 block|}
-comment|/**      * Password used to open the private keyring      */
+comment|/**      * Password used to open the private key in secret keyring for decryption      * (unmarshaling). See also      * {@link #setPassphraseAccessor(PGPPassphraseAccessor)}.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -2693,7 +2998,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * Userid of the signature key used to sign/verify      */
+comment|/**      * Userid of the signature key used to sign (marshal).      */
 DECL|method|setSignatureKeyUserid (String signatureKeyUserid)
 specifier|public
 name|void
@@ -2720,7 +3025,7 @@ return|return
 name|signatureKeyUserid
 return|;
 block|}
-comment|/**      * filename of the signature keyring that will be used, classpathResource      */
+comment|/**      * Filename of the signature keyring that will be used, classpathResource.      */
 DECL|method|setSignatureKeyFileName (String signatureKeyFileName)
 specifier|public
 name|void
@@ -2747,7 +3052,7 @@ return|return
 name|signatureKeyFileName
 return|;
 block|}
-comment|/**      * Password used to open the signature private keyring      */
+comment|/**      * Password used to open the signature private key during marshaling.      */
 DECL|method|setSignaturePassword (String signaturePassword)
 specifier|public
 name|void
@@ -2785,6 +3090,7 @@ return|return
 name|encryptionKeyRing
 return|;
 block|}
+comment|/**      * Keyring used for encryption/decryption as byte array. Alternatively you      * can also provide the keyring as a file; see method      * {@link #setKeyFileName(String)}.      */
 DECL|method|setEncryptionKeyRing (byte[] encryptionKeyRing)
 specifier|public
 name|void
@@ -2813,6 +3119,7 @@ return|return
 name|signatureKeyRing
 return|;
 block|}
+comment|/**      * Keyring used for signing/verifying as byte array. Alternatively you can      * also provide the keyring as a file; see method      * {@link #setSignatureKeyFileName(String)}.      */
 DECL|method|setSignatureKeyRing (byte[] signatureKeyRing)
 specifier|public
 name|void
@@ -2840,6 +3147,7 @@ return|return
 name|provider
 return|;
 block|}
+comment|/**      * Java Cryptography Extension (JCE) provider, default is Bouncy Castle      * ("BC"). Alternatively you can use, for example, the IAIK JCE provider; in      * this case the provider must be registered beforehand and the Bouncy      * Castle provider must not be registered beforehand. The Sun JCE provider      * does not work.      */
 DECL|method|setProvider (String provider)
 specifier|public
 name|void
@@ -2856,6 +3164,33 @@ operator|=
 name|provider
 expr_stmt|;
 block|}
+DECL|method|getCompressionAlgorithm ()
+specifier|public
+name|int
+name|getCompressionAlgorithm
+parameter_list|()
+block|{
+return|return
+name|compressionAlgorithm
+return|;
+block|}
+comment|/**      * Compression algorithm used during marshaling. Possible values are defined      * in {@link CompressionAlgorithmTags}. Default value is ZIP.      */
+DECL|method|setCompressionAlgorithm (int compressionAlgorithm)
+specifier|public
+name|void
+name|setCompressionAlgorithm
+parameter_list|(
+name|int
+name|compressionAlgorithm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compressionAlgorithm
+operator|=
+name|compressionAlgorithm
+expr_stmt|;
+block|}
 DECL|method|getHashAlgorithm ()
 specifier|public
 name|int
@@ -2866,6 +3201,7 @@ return|return
 name|hashAlgorithm
 return|;
 block|}
+comment|/**      * Digest algorithm for signing (marshaling). Possible values are defined in      * {@link HashAlgorithmTags}. Default value is SHA1.      */
 DECL|method|setHashAlgorithm (int hashAlgorithm)
 specifier|public
 name|void
@@ -2892,6 +3228,7 @@ return|return
 name|algorithm
 return|;
 block|}
+comment|/**      * Symmetric key algorithm for encryption (marshaling). Possible values are      * defined in {@link SymmetricKeyAlgorithmTags}. Default value is CAST5.      */
 DECL|method|setAlgorithm (int algorithm)
 specifier|public
 name|void
@@ -2918,6 +3255,7 @@ return|return
 name|passphraseAccessor
 return|;
 block|}
+comment|/**      * Alternative way to provide the passphrases. Especially useful for the      * unmarshal (decryption) case . If no passphrase can be found from the      * parameter<tt>password</tt> or<tt>signaturePassword</tt> or from the      * header {@link #SIGNATURE_KEY_PASSWORD} or {@link #KEY_PASSWORD} then we      * try to get the password from the passphrase accessor. This is especially      * useful in the decrypt case, where we chose the private key according to      * the key Id stored in the encrypted data.      */
 DECL|method|setPassphraseAccessor (PGPPassphraseAccessor passphraseAccessor)
 specifier|public
 name|void
