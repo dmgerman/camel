@@ -222,6 +222,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelException
 import|;
 end_import
@@ -260,9 +272,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|support
 operator|.
-name|ObjectHelper
+name|ServiceSupport
 import|;
 end_import
 
@@ -271,9 +283,18 @@ DECL|class|AvroDataFormat
 specifier|public
 class|class
 name|AvroDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
+implements|,
+name|CamelContextAware
 block|{
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|schema
 specifier|private
 name|Schema
@@ -304,9 +325,74 @@ operator|=
 name|schema
 expr_stmt|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|instanceClassName
+operator|!=
+literal|null
+condition|)
+block|{
+name|schema
+operator|=
+name|loadDefaultSchema
+argument_list|(
+name|instanceClassName
+argument_list|,
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
 DECL|method|getSchema (Exchange exchange, Object graph)
 specifier|public
-specifier|synchronized
 name|Schema
 name|getSchema
 parameter_list|(
@@ -326,25 +412,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|instanceClassName
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|loadDefaultSchema
-argument_list|(
-name|instanceClassName
-argument_list|,
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-argument_list|)
-return|;
-block|}
 if|if
 condition|(
 name|graph
@@ -444,19 +511,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|className
-argument_list|,
-literal|"AvroDataFormat messageClass"
-argument_list|)
-expr_stmt|;
 name|instanceClassName
 operator|=
 name|className
 expr_stmt|;
+block|}
+DECL|method|getInstanceClassName ()
+specifier|public
+name|String
+name|getInstanceClassName
+parameter_list|()
+block|{
+return|return
+name|instanceClassName
+return|;
 block|}
 DECL|method|loadDefaultSchema (String className, CamelContext context)
 specifier|protected
@@ -551,12 +619,10 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Can't set the defaultInstance of AvroDataFormat with "
+literal|"Error calling getSchema on "
 operator|+
-name|className
-operator|+
-literal|", caused by "
-operator|+
+name|instanceClass
+argument_list|,
 name|ex
 argument_list|)
 throw|;
@@ -568,11 +634,11 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Can't set the shcema of AvroDataFormat with "
+literal|"Class "
 operator|+
-name|className
+name|instanceClass
 operator|+
-literal|", as the class is not a subClass of SpecificData"
+literal|" must be instanceof org.apache.avro.generic.GenericContainer"
 argument_list|)
 throw|;
 block|}
