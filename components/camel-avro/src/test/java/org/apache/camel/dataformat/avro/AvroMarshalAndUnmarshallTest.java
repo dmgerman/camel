@@ -243,27 +243,7 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-name|assertTrue
-argument_list|(
-literal|"Expect FailedToCreateRouteException"
-argument_list|,
-name|ex
-operator|instanceof
-name|FailedToCreateRouteException
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Get a wrong reason"
-argument_list|,
-name|ex
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
+comment|// expected
 block|}
 block|}
 DECL|method|marshalAndUnmarshal (String inURI, String outURI)
