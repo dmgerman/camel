@@ -182,11 +182,11 @@ name|requestPath
 init|=
 literal|"/path"
 decl_stmt|;
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 name|mapper
 init|=
 operator|new
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 argument_list|()
 decl_stmt|;
 name|Exchange

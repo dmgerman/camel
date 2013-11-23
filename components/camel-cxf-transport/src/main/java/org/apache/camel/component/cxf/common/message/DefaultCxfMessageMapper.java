@@ -121,10 +121,10 @@ comment|/**  *  * @version   */
 end_comment
 
 begin_class
-DECL|class|DefaultCxfMesssageMapper
+DECL|class|DefaultCxfMessageMapper
 specifier|public
 class|class
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 implements|implements
 name|CxfMessageMapper
 block|{
@@ -139,7 +139,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 operator|.
 name|class
 argument_list|)

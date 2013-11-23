@@ -106,7 +106,7 @@ name|common
 operator|.
 name|message
 operator|.
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 import|;
 end_import
 
@@ -318,7 +318,7 @@ name|CxfMessageMapper
 name|cxfBeanBinding
 init|=
 operator|new
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 argument_list|()
 decl_stmt|;
 DECL|field|headerFilterStrategy

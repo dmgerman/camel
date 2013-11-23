@@ -160,7 +160,7 @@ name|common
 operator|.
 name|message
 operator|.
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 import|;
 end_import
 
@@ -953,11 +953,11 @@ argument_list|,
 name|camelExchange
 argument_list|)
 expr_stmt|;
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 name|beanBinding
 init|=
 operator|new
-name|DefaultCxfMesssageMapper
+name|DefaultCxfMessageMapper
 argument_list|()
 decl_stmt|;
 name|org
