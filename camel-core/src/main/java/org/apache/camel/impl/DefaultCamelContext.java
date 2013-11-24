@@ -4113,11 +4113,6 @@ return|return
 name|routeStartupOrder
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|getRoutes ()
 specifier|public
 name|List
@@ -4139,7 +4134,8 @@ block|{
 return|return
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 return|;
 block|}
 else|else

@@ -2984,7 +2984,8 @@ name|executablePomArtifact
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|,
 name|this
 operator|.
@@ -3000,7 +3001,8 @@ literal|null
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|executableDependencies
