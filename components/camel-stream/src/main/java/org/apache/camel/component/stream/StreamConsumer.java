@@ -896,10 +896,10 @@ block|{
 comment|// read ahead if there is more data
 name|line2
 operator|=
+name|readAhead
+argument_list|(
 name|br
-operator|.
-name|readLine
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|boolean
 name|last
@@ -1212,6 +1212,42 @@ name|getPromptMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+DECL|method|readAhead (BufferedReader br)
+specifier|private
+name|String
+name|readAhead
+parameter_list|(
+name|BufferedReader
+name|br
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|uri
+operator|.
+name|equals
+argument_list|(
+literal|"in"
+argument_list|)
+condition|)
+block|{
+comment|// do not read ahead with reading from system in
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
+return|return
+name|br
+operator|.
+name|readLine
+argument_list|()
+return|;
 block|}
 block|}
 DECL|method|resolveStreamFromUrl ()
