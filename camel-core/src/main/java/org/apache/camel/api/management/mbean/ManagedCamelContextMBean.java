@@ -320,6 +320,30 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Total number of routes"
+argument_list|)
+DECL|method|getTotalRoutes ()
+name|Integer
+name|getTotalRoutes
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Current number of started routes"
+argument_list|)
+DECL|method|getStartedRoutes ()
+name|Integer
+name|getStartedRoutes
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Shutdown timeout"
 argument_list|)
 DECL|method|setTimeout (long timeout)

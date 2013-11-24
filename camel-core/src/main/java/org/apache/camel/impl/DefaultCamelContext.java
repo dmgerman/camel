@@ -4113,6 +4113,11 @@ return|return
 name|routeStartupOrder
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getRoutes ()
 specifier|public
 name|List
@@ -4123,6 +4128,22 @@ name|getRoutes
 parameter_list|()
 block|{
 comment|// lets return a copy of the collection as objects are removed later when services are stopped
+if|if
+condition|(
+name|routes
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+name|Collections
+operator|.
+name|EMPTY_LIST
+return|;
+block|}
+else|else
+block|{
 return|return
 operator|new
 name|ArrayList
@@ -4133,6 +4154,7 @@ argument_list|(
 name|routes
 argument_list|)
 return|;
+block|}
 block|}
 DECL|method|getRoute (String id)
 specifier|public
