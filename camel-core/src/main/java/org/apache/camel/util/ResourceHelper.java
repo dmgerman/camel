@@ -402,29 +402,13 @@ argument_list|,
 literal|"file:"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-comment|// try to decode as the uri may contain %20 for spaces etc
 name|uri
 operator|=
-name|URLDecoder
-operator|.
-name|decode
+name|tryDecodeUri
 argument_list|(
 name|uri
-argument_list|,
-literal|"UTF-8"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|LOG
 operator|.
 name|trace
@@ -537,29 +521,6 @@ literal|"classpath:"
 argument_list|)
 condition|)
 block|{
-try|try
-block|{
-comment|// try to decode as the uri may contain %20 for spaces etc
-name|uri
-operator|=
-name|URLDecoder
-operator|.
-name|decode
-argument_list|(
-name|uri
-argument_list|,
-literal|"UTF-8"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|uri
 operator|=
 name|ObjectHelper
@@ -569,6 +530,13 @@ argument_list|(
 name|uri
 argument_list|,
 literal|"classpath:"
+argument_list|)
+expr_stmt|;
+name|uri
+operator|=
+name|tryDecodeUri
+argument_list|(
+name|uri
 argument_list|)
 expr_stmt|;
 block|}
@@ -702,29 +670,13 @@ argument_list|,
 literal|"file:"
 argument_list|)
 decl_stmt|;
-try|try
-block|{
-comment|// try to decode as the uri may contain %20 for spaces etc
 name|uri
 operator|=
-name|URLDecoder
-operator|.
-name|decode
+name|tryDecodeUri
 argument_list|(
 name|uri
-argument_list|,
-literal|"UTF-8"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|LOG
 operator|.
 name|trace
@@ -814,29 +766,13 @@ argument_list|,
 literal|"classpath:"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-comment|// try to decode as the uri may contain %20 for spaces etc
 name|uri
 operator|=
-name|URLDecoder
-operator|.
-name|decode
+name|tryDecodeUri
 argument_list|(
 name|uri
-argument_list|,
-literal|"UTF-8"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 block|}
 comment|// load from classpath by default
 name|String
@@ -1004,6 +940,53 @@ name|name
 argument_list|,
 literal|'/'
 argument_list|)
+return|;
+block|}
+comment|/**      * Tries decoding the uri.      *      * @param uri the uri      * @return the decoded uri, or the original uri      */
+DECL|method|tryDecodeUri (String uri)
+specifier|private
+specifier|static
+name|String
+name|tryDecodeUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+try|try
+block|{
+comment|// try to decode as the uri may contain %20 for spaces etc
+name|uri
+operator|=
+name|URLDecoder
+operator|.
+name|decode
+argument_list|(
+name|uri
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Error URL decoding uri using UTF-8 encoding: {}. This exception is ignored."
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
+comment|// ignore
+block|}
+return|return
+name|uri
 return|;
 block|}
 block|}
