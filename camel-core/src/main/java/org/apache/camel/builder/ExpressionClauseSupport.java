@@ -1095,6 +1095,47 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpath (String text, Class<?> resultType)
+specifier|public
+name|T
+name|jsonpath
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+name|JsonPathExpression
+name|expression
+init|=
+operator|new
+name|JsonPathExpression
+argument_list|(
+name|text
+argument_list|)
+decl_stmt|;
+name|expression
+operator|.
+name|setResultType
+argument_list|(
+name|resultType
+argument_list|)
+expr_stmt|;
+name|setExpressionType
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
 comment|/**      * Evaluates a<a href="http://commons.apache.org/jxpath/">JXPath expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
 DECL|method|jxpath (String text)
 specifier|public
