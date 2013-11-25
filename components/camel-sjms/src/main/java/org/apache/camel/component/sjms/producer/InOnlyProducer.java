@@ -784,7 +784,7 @@ argument_list|(
 operator|new
 name|Exception
 argument_list|(
-literal|"Unable to complet sending the message: "
+literal|"Unable to complete sending the message: "
 operator|+
 name|e
 operator|.
