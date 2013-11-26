@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|DataFormat
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -59,6 +45,20 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormat
 import|;
 end_import
 
@@ -218,6 +218,15 @@ operator|=
 name|modelFactory
 expr_stmt|;
 block|}
+DECL|method|createModelFactory ()
+specifier|protected
+specifier|abstract
+name|BindyAbstractFactory
+name|createModelFactory
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 DECL|method|extractUnmarshalResult (List<Map<String, Object>> models)
 specifier|protected
 name|Object
@@ -334,15 +343,6 @@ name|models
 return|;
 block|}
 block|}
-DECL|method|createModelFactory ()
-specifier|protected
-specifier|abstract
-name|BindyAbstractFactory
-name|createModelFactory
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
 block|}
 end_class
 
