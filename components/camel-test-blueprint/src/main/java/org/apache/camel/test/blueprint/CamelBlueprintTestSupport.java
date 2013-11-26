@@ -841,6 +841,7 @@ comment|// noop
 block|}
 comment|/**      * Creates a holder for the given service, which make it easier to use {@link #addServicesOnStartup(java.util.Map)}      */
 DECL|method|asService (Object service, Dictionary dict)
+specifier|protected
 name|KeyValueHolder
 argument_list|<
 name|Object
@@ -873,6 +874,7 @@ return|;
 block|}
 comment|/**      * Creates a holder for the given service, which make it easier to use {@link #addServicesOnStartup(java.util.Map)}      */
 DECL|method|asService (Object service, String key, String value)
+specifier|protected
 name|KeyValueHolder
 argument_list|<
 name|Object
