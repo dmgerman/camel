@@ -305,6 +305,11 @@ name|durable
 init|=
 literal|true
 decl_stmt|;
+DECL|field|bridgeEndpoint
+specifier|private
+name|boolean
+name|bridgeEndpoint
+decl_stmt|;
 DECL|field|queue
 specifier|private
 name|String
@@ -1086,6 +1091,32 @@ name|routingKey
 operator|=
 name|routingKey
 expr_stmt|;
+block|}
+DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
+specifier|public
+name|void
+name|setBridgeEndpoint
+parameter_list|(
+name|boolean
+name|bridgeEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bridgeEndpoint
+operator|=
+name|bridgeEndpoint
+expr_stmt|;
+block|}
+DECL|method|isBridgeEndpoint ()
+specifier|public
+name|boolean
+name|isBridgeEndpoint
+parameter_list|()
+block|{
+return|return
+name|bridgeEndpoint
+return|;
 block|}
 block|}
 end_class

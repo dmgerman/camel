@@ -439,11 +439,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// If it is BridgeEndpoint we should ignore the message header of EXCHANGE_NAME
 if|if
 condition|(
 name|exchangeName
 operator|==
 literal|null
+operator|||
+name|getEndpoint
+argument_list|()
+operator|.
+name|isBridgeEndpoint
+argument_list|()
 condition|)
 block|{
 name|exchangeName
@@ -469,11 +476,10 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"ExchangeName is not provided in header "
+literal|"ExchangeName is not provided in the endpoint: "
 operator|+
-name|RabbitMQConstants
-operator|.
-name|EXCHANGE_NAME
+name|getEndpoint
+argument_list|()
 argument_list|)
 throw|;
 block|}
