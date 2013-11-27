@@ -20,40 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|activation
-operator|.
-name|DataHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -138,10 +104,10 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testCloudBalance_4computers_12processes ()
+DECL|method|testCloudBalance4computers12processes ()
 specifier|public
 name|void
-name|testCloudBalance_4computers_12processes
+name|testCloudBalance4computers12processes
 parameter_list|()
 throws|throws
 name|Exception
