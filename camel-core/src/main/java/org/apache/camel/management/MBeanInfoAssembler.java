@@ -547,6 +547,10 @@ block|{
 comment|// skip proxy classes
 if|if
 condition|(
+name|defaultManagedBean
+operator|!=
+literal|null
+operator|&&
 name|Proxy
 operator|.
 name|isProxyClass
@@ -645,6 +649,13 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// extract details from default managed bean
+if|if
+condition|(
+name|defaultManagedBean
+operator|!=
+literal|null
+condition|)
+block|{
 name|extractAttributesAndOperations
 argument_list|(
 name|defaultManagedBean
@@ -684,6 +695,7 @@ argument_list|,
 name|mBeanNotifications
 argument_list|)
 expr_stmt|;
+block|}
 comment|// extract details from custom managed bean
 if|if
 condition|(

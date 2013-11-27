@@ -353,7 +353,7 @@ name|assembler
 operator|.
 name|getMBeanInfo
 argument_list|(
-name|obj
+literal|null
 argument_list|,
 name|custom
 argument_list|,
