@@ -1667,6 +1667,13 @@ operator|=
 name|purgeWhenStopping
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Singleton"
+argument_list|)
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -2185,6 +2192,30 @@ name|getCamelContext
 argument_list|()
 operator|.
 name|getManagementName
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Endpoint URI"
+argument_list|,
+name|mask
+operator|=
+literal|true
+argument_list|)
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getEndpointUri
 argument_list|()
 return|;
 block|}

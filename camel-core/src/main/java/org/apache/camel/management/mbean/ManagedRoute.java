@@ -1304,6 +1304,65 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// if the xml does not contain the route-id then we fix this by adding the actual route id
+comment|// this may be needed if the route-id was auto-generated, as the intend is to update this route
+comment|// and not add a new route, adding a new route, use the MBean operation on ManagedCamelContext instead.
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|def
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|def
+operator|.
+name|setId
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|def
+operator|.
+name|getId
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot update route from XML as routeIds does not match. routeId: "
+operator|+
+name|getRouteId
+argument_list|()
+operator|+
+literal|", routeId from XML: "
+operator|+
+name|def
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+throw|;
+block|}
 comment|// add will remove existing route first
 name|context
 operator|.
