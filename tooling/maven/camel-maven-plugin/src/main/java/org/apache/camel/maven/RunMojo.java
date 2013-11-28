@@ -719,6 +719,11 @@ specifier|private
 name|String
 name|extraPluginDependencyArtifactId
 decl_stmt|;
+DECL|field|extendedPluginDependencyArtifactId
+specifier|protected
+name|String
+name|extendedPluginDependencyArtifactId
+decl_stmt|;
 comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
 DECL|method|execute ()
 specifier|public
@@ -1238,6 +1243,7 @@ name|mainClass
 comment|/* name */
 argument_list|)
 decl_stmt|;
+specifier|final
 name|Thread
 name|bootstrapThread
 init|=
@@ -1257,6 +1263,17 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|beforeBootstrapCamel
+argument_list|()
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Starting Camel ..."
+argument_list|)
+expr_stmt|;
 name|Method
 name|main
 init|=
@@ -1524,6 +1541,16 @@ block|}
 name|registerSourceRoots
 argument_list|()
 expr_stmt|;
+block|}
+comment|/**      * Allows plugin extensions to do custom logic before bootstrapping Camel.      */
+DECL|method|beforeBootstrapCamel ()
+name|void
+name|beforeBootstrapCamel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 DECL|class|IsolatedThreadGroup
 class|class
@@ -2522,6 +2549,10 @@ condition|(
 name|extraPluginDependencyArtifactId
 operator|==
 literal|null
+operator|&&
+name|extendedPluginDependencyArtifactId
+operator|==
+literal|null
 condition|)
 block|{
 return|return;
@@ -2564,6 +2595,16 @@ operator|.
 name|equals
 argument_list|(
 name|extraPluginDependencyArtifactId
+argument_list|)
+operator|||
+name|artifact
+operator|.
+name|getArtifactId
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|extendedPluginDependencyArtifactId
 argument_list|)
 condition|)
 block|{
