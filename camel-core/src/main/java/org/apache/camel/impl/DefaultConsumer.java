@@ -408,9 +408,15 @@ block|}
 name|UnitOfWork
 name|uow
 init|=
-name|UnitOfWorkHelper
+name|endpoint
 operator|.
-name|createUoW
+name|getCamelContext
+argument_list|()
+operator|.
+name|getUnitOfWorkFactory
+argument_list|()
+operator|.
+name|createUnitOfWork
 argument_list|(
 name|exchange
 argument_list|)
