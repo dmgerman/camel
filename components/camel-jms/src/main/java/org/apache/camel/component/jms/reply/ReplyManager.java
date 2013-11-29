@@ -177,7 +177,7 @@ parameter_list|)
 throws|throws
 name|JMSException
 function_decl|;
-comment|/**      * Register a reply      *      * @param replyManager    the reply manager being used      * @param exchange        the exchange      * @param callback        the callback      * @param originalCorrelationId  an optional original correlation id      * @param correlationId   the correlation id to expect being used      * @param requestTimeout  an optional timeout      * @return the correlation id used      */
+comment|/**      * Register a reply      *      * @param replyManager    the reply manager being used      * @param exchange        the exchange      * @param callback        the callback      * @param originalCorrelationId  an optional original correlation id      * @param correlationId   the correlation id to expect being used      * @param requestTimeout  the timeout      * @return the correlation id used      */
 DECL|method|registerReply (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
 name|String
 name|registerReply
@@ -201,7 +201,7 @@ name|long
 name|requestTimeout
 parameter_list|)
 function_decl|;
-comment|/**      * Updates the correlation id to the new correlation id.      *<p/>      * This is only used when<tt>useMessageIDasCorrelationID</tt> option is used, which means a      * provisional correlation id is first used, then after the message has been sent, the real      * correlation id is known. This allows us then to update the internal mapping to expect the      * real correlation id.      *      * @param correlationId     the provisional correlation id      * @param newCorrelationId  the real correlation id      * @param requestTimeout    an optional timeout      */
+comment|/**      * Updates the correlation id to the new correlation id.      *<p/>      * This is only used when<tt>useMessageIDasCorrelationID</tt> option is used, which means a      * provisional correlation id is first used, then after the message has been sent, the real      * correlation id is known. This allows us then to update the internal mapping to expect the      * real correlation id.      *      * @param correlationId     the provisional correlation id      * @param newCorrelationId  the real correlation id      * @param requestTimeout    the timeout      */
 DECL|method|updateCorrelationId (String correlationId, String newCorrelationId, long requestTimeout)
 name|void
 name|updateCorrelationId

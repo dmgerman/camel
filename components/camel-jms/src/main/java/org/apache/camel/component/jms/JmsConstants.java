@@ -65,6 +65,15 @@ name|JMS_DELIVERY_MODE
 init|=
 literal|"CamelJmsDeliveryMode"
 decl_stmt|;
+DECL|field|JMS_REQUEST_TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_REQUEST_TIMEOUT
+init|=
+literal|"CamelJmsRequestTimeout"
+decl_stmt|;
 DECL|method|JmsConstants ()
 specifier|private
 name|JmsConstants
