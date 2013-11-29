@@ -61,6 +61,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|beforeBootstrapCamel ()
+specifier|protected
 name|void
 name|beforeBootstrapCamel
 parameter_list|()

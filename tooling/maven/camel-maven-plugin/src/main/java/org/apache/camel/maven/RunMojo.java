@@ -1344,6 +1344,9 @@ name|arguments
 block|}
 argument_list|)
 expr_stmt|;
+name|afterBootstrapCamel
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1544,8 +1547,20 @@ expr_stmt|;
 block|}
 comment|/**      * Allows plugin extensions to do custom logic before bootstrapping Camel.      */
 DECL|method|beforeBootstrapCamel ()
+specifier|protected
 name|void
 name|beforeBootstrapCamel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+comment|/**      * Allows plugin extensions to do custom logic after bootstrapping Camel.      */
+DECL|method|afterBootstrapCamel ()
+specifier|protected
+name|void
+name|afterBootstrapCamel
 parameter_list|()
 throws|throws
 name|Exception
