@@ -90,7 +90,7 @@ name|super
 argument_list|(
 name|protocol
 argument_list|,
-literal|null
+name|listener
 argument_list|)
 expr_stmt|;
 name|this

@@ -2772,9 +2772,15 @@ name|exchange
 parameter_list|)
 block|{
 return|return
-name|UnitOfWorkHelper
+name|exchange
 operator|.
-name|createUoW
+name|getContext
+argument_list|()
+operator|.
+name|getUnitOfWorkFactory
+argument_list|()
+operator|.
+name|createUnitOfWork
 argument_list|(
 name|exchange
 argument_list|)

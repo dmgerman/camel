@@ -118,7 +118,7 @@ specifier|private
 name|String
 name|LastActivityDate
 decl_stmt|;
-comment|/**      * Utility method to clear all {@link AbstractSObjectBase} fields.      *<p>Used when reusing a DTO for a new record.</p>      */
+comment|/**      * Utility method to clear all system {@link AbstractSObjectBase} fields.      *<p>Useful when reusing a DTO for a new record, or for update/upsert.</p>      *<p>This method does not clear {@code Name} to allow updating it, so it must be explicitly set to {@code null} if needed.</p>      */
 DECL|method|clearBaseFields ()
 specifier|public
 specifier|final
@@ -139,10 +139,6 @@ operator|=
 literal|null
 expr_stmt|;
 name|IsDeleted
-operator|=
-literal|null
-expr_stmt|;
-name|Name
 operator|=
 literal|null
 expr_stmt|;

@@ -276,12 +276,6 @@ specifier|final
 name|Server
 name|server
 decl_stmt|;
-DECL|field|configuration
-specifier|private
-specifier|final
-name|AvroConfiguration
-name|configuration
-decl_stmt|;
 DECL|method|AvroListener (AvroEndpoint endpoint)
 specifier|public
 name|AvroListener
@@ -292,13 +286,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|configuration
-operator|=
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-expr_stmt|;
 name|server
 operator|=
 name|initAndStartServer

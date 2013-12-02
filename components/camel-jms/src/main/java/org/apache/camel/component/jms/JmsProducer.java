@@ -1066,6 +1066,32 @@ block|}
 name|initReplyManager
 argument_list|()
 expr_stmt|;
+comment|// the request timeout can be overruled by a header otherwise the endpoint configured value is used
+specifier|final
+name|long
+name|timeout
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|JmsConstants
+operator|.
+name|JMS_REQUEST_TIMEOUT
+argument_list|,
+name|endpoint
+operator|.
+name|getRequestTimeout
+argument_list|()
+argument_list|,
+name|long
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// when using message id as correlation id, we need at first to use a provisional correlation id
 comment|// which we then update to the real JMSMessageID when the message has been sent
 comment|// this is done with the help of the MessageSentCallback
@@ -1114,10 +1140,7 @@ name|replyManager
 argument_list|,
 name|provisionalCorrelationId
 argument_list|,
-name|endpoint
-operator|.
-name|getRequestTimeout
-argument_list|()
+name|timeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -1248,15 +1271,6 @@ name|exchange
 argument_list|)
 throw|;
 block|}
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Using JMSReplyTo destination: {}"
-argument_list|,
-name|replyTo
-argument_list|)
-expr_stmt|;
 name|JmsMessageHelper
 operator|.
 name|setJMSReplyTo
@@ -1299,21 +1313,36 @@ name|originalCorrelationId
 argument_list|,
 name|correlationId
 argument_list|,
-name|endpoint
-operator|.
-name|getRequestTimeout
-argument_list|()
+name|timeout
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Using JMSCorrelationID: {}"
+literal|"Using JMSCorrelationID: {}, JMSReplyTo destination: {}, with request timeout: {} ms."
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|correlationId
+block|,
+name|replyTo
+block|,
+name|timeout
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace

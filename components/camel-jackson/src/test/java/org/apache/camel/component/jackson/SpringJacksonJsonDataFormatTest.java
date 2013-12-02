@@ -471,7 +471,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{\"age\":30,\"height\":190}"
+literal|"{\"height\":190,\"age\":30}"
 argument_list|,
 name|marshalledAsString
 argument_list|)

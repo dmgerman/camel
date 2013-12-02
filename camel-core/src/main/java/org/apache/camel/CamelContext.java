@@ -528,6 +528,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UnitOfWorkFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UuidGenerator
 import|;
 end_import
@@ -1822,6 +1836,21 @@ name|setStreamCachingStrategy
 parameter_list|(
 name|StreamCachingStrategy
 name|streamCachingStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link UnitOfWorkFactory} to use.      */
+DECL|method|getUnitOfWorkFactory ()
+name|UnitOfWorkFactory
+name|getUnitOfWorkFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link UnitOfWorkFactory} to use.      */
+DECL|method|setUnitOfWorkFactory (UnitOfWorkFactory unitOfWorkFactory)
+name|void
+name|setUnitOfWorkFactory
+parameter_list|(
+name|UnitOfWorkFactory
+name|unitOfWorkFactory
 parameter_list|)
 function_decl|;
 block|}
