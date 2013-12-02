@@ -150,7 +150,7 @@ name|EmbeddedMojo
 extends|extends
 name|AbstractExecMojo
 block|{
-comment|/**      * The duration to run the application for which by default is in milliseconds.      * A value<= 0 will run forever.       * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="-1"      * @readonly      */
+comment|/**      * The duration to run the application for which by default is in milliseconds.      * A value<= 0 will run forever.       * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="camel.duration"      *            default-value="-1"      */
 DECL|field|duration
 specifier|protected
 name|String
