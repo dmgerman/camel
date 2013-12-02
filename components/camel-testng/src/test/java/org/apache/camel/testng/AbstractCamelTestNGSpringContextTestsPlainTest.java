@@ -532,6 +532,7 @@ operator|.
 name|getStopWatch
 argument_list|()
 decl_stmt|;
+comment|// some servers is slower
 name|assertNotNull
 argument_list|(
 name|stopWatch
@@ -544,7 +545,7 @@ operator|.
 name|taken
 argument_list|()
 operator|<
-literal|100
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}

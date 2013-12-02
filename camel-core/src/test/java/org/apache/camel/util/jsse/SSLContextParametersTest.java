@@ -4184,6 +4184,16 @@ operator|.
 name|createServerSocket
 argument_list|()
 expr_stmt|;
+comment|// not all platforms/JDKs have these cipher suites
+if|if
+condition|(
+operator|!
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
 name|assertTrue
 argument_list|(
 name|engine
@@ -4250,6 +4260,7 @@ argument_list|,
 literal|"TLS"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testSecureSocketProtocols ()
 specifier|public
@@ -4699,6 +4710,16 @@ operator|.
 name|createServerSocket
 argument_list|()
 expr_stmt|;
+comment|// not all platforms/JDKs have these cipher suites
+if|if
+condition|(
+operator|!
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 literal|1
@@ -4774,6 +4795,7 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testSecureSocketProtocolsFilter ()
 specifier|public
@@ -5286,6 +5308,16 @@ operator|.
 name|createServerSocket
 argument_list|()
 expr_stmt|;
+comment|// not all platforms/JDKs have these cipher suites
+if|if
+condition|(
+operator|!
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
 name|assertTrue
 argument_list|(
 name|engine
@@ -5352,6 +5384,7 @@ argument_list|,
 literal|"TLS"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testSessionTimeout ()
 specifier|public
