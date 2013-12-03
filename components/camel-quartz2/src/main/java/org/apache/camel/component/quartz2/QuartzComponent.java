@@ -721,7 +721,7 @@ name|prop
 operator|.
 name|put
 argument_list|(
-literal|"org.terracotta.quartz.skipUpdateCheck=true"
+literal|"org.terracotta.quartz.skipUpdateCheck"
 argument_list|,
 literal|"true"
 argument_list|)
