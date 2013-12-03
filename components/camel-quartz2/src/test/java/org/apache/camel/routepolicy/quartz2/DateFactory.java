@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.quartz2
+DECL|package|org.apache.camel.routepolicy.quartz2
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|routepolicy
 operator|.
 name|quartz2
 package|;
@@ -20,67 +20,47 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|Date
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|QuartzRouteFireNowTest
+DECL|class|DateFactory
 specifier|public
+specifier|final
 class|class
-name|QuartzRouteFireNowTest
-extends|extends
-name|BaseQuartzTest
+name|DateFactory
 block|{
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
+DECL|method|DateFactory ()
+specifier|private
+name|DateFactory
 parameter_list|()
+block|{     }
+DECL|method|createDate (int future)
+specifier|public
+specifier|static
+name|Date
+name|createDate
+parameter_list|(
+name|int
+name|future
+parameter_list|)
 block|{
 return|return
 operator|new
-name|RouteBuilder
+name|Date
+argument_list|(
+name|System
+operator|.
+name|currentTimeMillis
 argument_list|()
-block|{
-specifier|public
-name|void
-name|configure
-parameter_list|()
-block|{
-comment|// START SNIPPET: example
-name|from
-argument_list|(
-literal|"quartz2://myGroup/myTimerName?fireNow=true&trigger.repeatInterval=2000&trigger.repeatCount=2"
+operator|+
+name|future
 argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"log:quartz"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-comment|// END SNIPPET: example
-block|}
-block|}
 return|;
 block|}
 block|}

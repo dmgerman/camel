@@ -368,6 +368,13 @@ name|autoStartScheduler
 init|=
 literal|true
 decl_stmt|;
+DECL|field|enableJmx
+specifier|private
+name|boolean
+name|enableJmx
+init|=
+literal|true
+decl_stmt|;
 DECL|class|JobToAdd
 specifier|private
 specifier|static
@@ -2152,6 +2159,32 @@ operator|=
 name|autoStartScheduler
 expr_stmt|;
 block|}
+DECL|method|isEnableJmx ()
+specifier|public
+name|boolean
+name|isEnableJmx
+parameter_list|()
+block|{
+return|return
+name|enableJmx
+return|;
+block|}
+DECL|method|setEnableJmx (boolean enableJmx)
+specifier|public
+name|void
+name|setEnableJmx
+parameter_list|(
+name|boolean
+name|enableJmx
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJmx
+operator|=
+name|enableJmx
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|loadProperties ()
@@ -2297,6 +2330,30 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+comment|// enable jmx unless configured to not do so
+if|if
+condition|(
+name|enableJmx
+operator|&&
+operator|!
+name|prop
+operator|.
+name|containsKey
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|)
+condition|)
+block|{
+name|prop
+operator|.
+name|put
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|=
 operator|new
@@ -2442,6 +2499,30 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+comment|// enable jmx unless configured to not do so
+if|if
+condition|(
+name|enableJmx
+operator|&&
+operator|!
+name|prop
+operator|.
+name|containsKey
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|)
+condition|)
+block|{
+name|prop
+operator|.
+name|put
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|=
 operator|new

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.routepolicy.quartz2
+DECL|package|org.apache.camel.routepolicy.quartz
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|routepolicy
 operator|.
-name|quartz2
+name|quartz
 package|;
 end_package
 
@@ -29,51 +29,39 @@ import|;
 end_import
 
 begin_class
-DECL|class|SimpleDate
+DECL|class|DateFactory
 specifier|public
-class|class
-name|SimpleDate
-extends|extends
-name|Date
-block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
 specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1L
-decl_stmt|;
-DECL|method|SimpleDate ()
-specifier|public
-name|SimpleDate
-parameter_list|()
+class|class
+name|DateFactory
 block|{
-name|this
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SimpleDate (long milliseconds)
+DECL|method|DateFactory ()
+specifier|private
+name|DateFactory
+parameter_list|()
+block|{     }
+DECL|method|createDate (int future)
 specifier|public
-name|SimpleDate
+specifier|static
+name|Date
+name|createDate
 parameter_list|(
-name|long
-name|milliseconds
+name|int
+name|future
 parameter_list|)
 block|{
-name|super
+return|return
+operator|new
+name|Date
 argument_list|(
 name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
 operator|+
-name|milliseconds
+name|future
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory for QuartzEndpoint. This component will hold a Quartz Scheduler that will provide scheduled timer based  * endpoint that generate a QuartzMessage to a route. Currently it support Cron and Simple trigger scheduling type.  *  *<p>This component uses Quartz 2.x API and provide all the features from "camel-quartz". It has reused some  * of the code, but mostly has been re-written in attempt to be more easier to maintain, and use Quartz more  * fully.</p>  *  */
+comment|/**  * A factory for QuartzEndpoint. This component will hold a Quartz Scheduler that will provide scheduled timer based  * endpoint that generate a QuartzMessage to a route. Currently it support Cron and Simple trigger scheduling type.  *  *<p>This component uses Quartz 2.x API and provide all the features from "camel-quartz". It has reused some  * of the code, but mostly has been re-written in attempt to be more easier to maintain, and use Quartz more  * fully.</p>  */
 end_comment
 
 begin_class
@@ -308,6 +308,13 @@ DECL|field|prefixJobNameWithEndpointId
 specifier|private
 name|boolean
 name|prefixJobNameWithEndpointId
+decl_stmt|;
+DECL|field|enableJmx
+specifier|private
+name|boolean
+name|enableJmx
+init|=
+literal|true
 decl_stmt|;
 DECL|method|QuartzComponent ()
 specifier|public
@@ -378,6 +385,58 @@ operator|.
 name|autoStartScheduler
 operator|=
 name|autoStartScheduler
+expr_stmt|;
+block|}
+DECL|method|isPrefixJobNameWithEndpointId ()
+specifier|public
+name|boolean
+name|isPrefixJobNameWithEndpointId
+parameter_list|()
+block|{
+return|return
+name|prefixJobNameWithEndpointId
+return|;
+block|}
+DECL|method|setPrefixJobNameWithEndpointId (boolean prefixJobNameWithEndpointId)
+specifier|public
+name|void
+name|setPrefixJobNameWithEndpointId
+parameter_list|(
+name|boolean
+name|prefixJobNameWithEndpointId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefixJobNameWithEndpointId
+operator|=
+name|prefixJobNameWithEndpointId
+expr_stmt|;
+block|}
+DECL|method|isEnableJmx ()
+specifier|public
+name|boolean
+name|isEnableJmx
+parameter_list|()
+block|{
+return|return
+name|enableJmx
+return|;
+block|}
+DECL|method|setEnableJmx (boolean enableJmx)
+specifier|public
+name|void
+name|setEnableJmx
+parameter_list|(
+name|boolean
+name|enableJmx
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJmx
+operator|=
+name|enableJmx
 expr_stmt|;
 block|}
 DECL|method|getProperties ()
@@ -500,6 +559,30 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+comment|// enable jmx unless configured to not do so
+if|if
+condition|(
+name|enableJmx
+operator|&&
+operator|!
+name|prop
+operator|.
+name|containsKey
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|)
+condition|)
+block|{
+name|prop
+operator|.
+name|put
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|=
 operator|new
@@ -654,6 +737,30 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+comment|// enable jmx unless configured to not do so
+if|if
+condition|(
+name|enableJmx
+operator|&&
+operator|!
+name|prop
+operator|.
+name|containsKey
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|)
+condition|)
+block|{
+name|prop
+operator|.
+name|put
+argument_list|(
+literal|"org.quartz.scheduler.jmx.export"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|=
 operator|new
