@@ -582,6 +582,13 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Setting org.quartz.scheduler.jmx.export=true to ensure QuartzScheduler(s) will be enlisted in JMX."
+argument_list|)
+expr_stmt|;
 block|}
 name|answer
 operator|=
@@ -758,6 +765,13 @@ argument_list|(
 literal|"org.quartz.scheduler.jmx.export"
 argument_list|,
 literal|"true"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Setting org.quartz.scheduler.jmx.export=true to ensure QuartzScheduler(s) will be enlisted in JMX."
 argument_list|)
 expr_stmt|;
 block|}
