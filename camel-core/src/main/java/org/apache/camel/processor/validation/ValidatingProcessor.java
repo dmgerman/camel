@@ -816,6 +816,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|//CAMEL-7036 We don't need to set the result if the source is an instance of StreamSource
 if|if
 condition|(
 name|source
@@ -828,25 +829,6 @@ operator|=
 operator|new
 name|DOMResult
 argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|source
-operator|instanceof
-name|StreamSource
-condition|)
-block|{
-name|result
-operator|=
-operator|new
-name|StreamResult
-argument_list|(
-operator|new
-name|StringWriter
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -870,6 +852,10 @@ condition|(
 name|source
 operator|instanceof
 name|StAXSource
+operator|||
+name|source
+operator|instanceof
+name|StreamSource
 condition|)
 block|{
 name|result
