@@ -502,7 +502,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="-1"      *      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="camel.duration"      *            default-value="-1"      */
 DECL|field|duration
 specifier|protected
 name|String
@@ -993,6 +993,41 @@ name|e
 parameter_list|)
 block|{
 comment|// just pass it on
+comment|// let it be printed so end users can see the exception on the console
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"*************************************"
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Error occurred while running main from: "
+operator|+
+name|mainClass
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"*************************************"
+argument_list|)
+expr_stmt|;
 name|Thread
 operator|.
 name|currentThread
@@ -1093,7 +1128,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"Couldn't destroy threadgroup "
+literal|"Couldn't destroy thread group "
 operator|+
 name|threadGroup
 argument_list|,
