@@ -520,6 +520,12 @@ specifier|protected
 name|boolean
 name|dotEnabled
 decl_stmt|;
+comment|/**      * Allows to provide a custom properties file to initialize a      * {@link javax.naming.InitialContext} object with. As an exmaple this      * argument can be be passed when making use of the GuiceyFruit JNDI      * Provider      *       * @parameter property="jndiProperties"      */
+DECL|field|jndiProperties
+specifier|protected
+name|String
+name|jndiProperties
+decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
 specifier|private
@@ -722,6 +728,28 @@ operator|.
 name|add
 argument_list|(
 name|dotDir
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|jndiProperties
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-j"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|jndiProperties
 argument_list|)
 expr_stmt|;
 block|}

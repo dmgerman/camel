@@ -176,6 +176,12 @@ specifier|protected
 name|boolean
 name|dotAggregationEnabled
 decl_stmt|;
+comment|/**      * Allows to provide a custom properties file to initialize a      * {@link javax.naming.InitialContext} object with. As an exmaple this      * argument can be be passed when making use of the GuiceyFruit JNDI      * Provider      *       * @parameter property="jndiProperties"      */
+DECL|field|jndiProperties
+specifier|protected
+name|String
+name|jndiProperties
+decl_stmt|;
 comment|/**      * Project classpath.      *      * @parameter property="project.testClasspathElements"      * @required      * @readonly      */
 DECL|field|classpathElements
 specifier|private
@@ -458,6 +464,32 @@ operator|=
 name|mainClass
 expr_stmt|;
 block|}
+DECL|method|getJndiProperties ()
+specifier|public
+name|String
+name|getJndiProperties
+parameter_list|()
+block|{
+return|return
+name|jndiProperties
+return|;
+block|}
+DECL|method|setJndiProperties (String jndiProperties)
+specifier|public
+name|void
+name|setJndiProperties
+parameter_list|(
+name|String
+name|jndiProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jndiProperties
+operator|=
+name|jndiProperties
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|runCamel (ClassLoader newLoader)
@@ -661,6 +693,30 @@ name|getDuration
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getJndiProperties
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-j"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|getJndiProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|args
 operator|.
