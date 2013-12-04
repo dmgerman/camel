@@ -520,7 +520,7 @@ specifier|protected
 name|boolean
 name|dotEnabled
 decl_stmt|;
-comment|/**      * Allows to provide a custom properties file to initialize a      * {@link javax.naming.InitialContext} object with. As an example this      * argument can be be passed when making use of the GuiceyFruit JNDI      * Provider where the properties file name is something else other than the      * default {@code jndi.properties}      *       * @parameter property="jndiProperties"      */
+comment|/**      * Allows to provide a custom properties file on the classpath to initialize      * a {@link javax.naming.InitialContext} object with. This corresponds to      * the {@link org.apache.camel.guice.Main#setJndiProperties(String)} API      * method      *       * @parameter property="jndiProperties"      */
 DECL|field|jndiProperties
 specifier|protected
 name|String
