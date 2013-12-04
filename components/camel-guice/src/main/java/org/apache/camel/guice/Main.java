@@ -637,12 +637,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
+name|super
 operator|.
-name|info
-argument_list|(
-literal|"Apache Camel stopping"
-argument_list|)
+name|doStop
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -730,7 +728,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No CamelContexts are available so cannot create a ProducerTemplate!"
+literal|"No CamelContext is available so cannot create a ProducerTemplate!"
 argument_list|)
 throw|;
 block|}
