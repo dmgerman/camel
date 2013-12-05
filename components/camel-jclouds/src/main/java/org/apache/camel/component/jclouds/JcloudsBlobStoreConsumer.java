@@ -547,7 +547,7 @@ name|setBody
 argument_list|(
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 argument_list|)
 expr_stmt|;
