@@ -1251,6 +1251,16 @@ operator|.
 name|getToNode
 argument_list|()
 argument_list|)
+operator|||
+name|nodeId
+operator|.
+name|equals
+argument_list|(
+name|message
+operator|.
+name|getRouteId
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|answer
