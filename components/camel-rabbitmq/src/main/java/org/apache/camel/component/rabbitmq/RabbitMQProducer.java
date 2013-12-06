@@ -483,12 +483,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// we just need to make sure RoutingKey option take effect
+comment|// we just need to make sure RoutingKey option take effect if it is not BridgeEndpoint
 if|if
 condition|(
 name|key
 operator|==
 literal|null
+operator|||
+name|getEndpoint
+argument_list|()
+operator|.
+name|isBridgeEndpoint
+argument_list|()
 condition|)
 block|{
 name|key
