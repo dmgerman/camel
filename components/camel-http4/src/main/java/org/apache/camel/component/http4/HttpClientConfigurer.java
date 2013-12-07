@@ -26,9 +26,11 @@ name|apache
 operator|.
 name|http
 operator|.
+name|impl
+operator|.
 name|client
 operator|.
-name|HttpClient
+name|HttpClientBuilder
 import|;
 end_import
 
@@ -43,12 +45,12 @@ interface|interface
 name|HttpClientConfigurer
 block|{
 comment|/**      * Configure the HttpClient such as setting the authentication or proxying details      *      * @param client the client      */
-DECL|method|configureHttpClient (HttpClient client)
+DECL|method|configureHttpClient (HttpClientBuilder clientBuilder)
 name|void
 name|configureHttpClient
 parameter_list|(
-name|HttpClient
-name|client
+name|HttpClientBuilder
+name|clientBuilder
 parameter_list|)
 function_decl|;
 block|}

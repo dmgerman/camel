@@ -825,7 +825,7 @@ expr_stmt|;
 return|return
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 return|;
 block|}

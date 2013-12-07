@@ -120,7 +120,7 @@ specifier|private
 name|String
 name|providerWithParameter
 init|=
-literal|"http4:fakeHTTPADDRESS.com:80?throwExceptionOnFailure=false&httpClient.cookiePolicy=ignoreCookies"
+literal|"http4:fakeHTTPADDRESS.com:80?throwExceptionOnFailure=false&httpClient.cookieSpec=ignoreCookies"
 decl_stmt|;
 DECL|field|messageIntercepted
 specifier|private

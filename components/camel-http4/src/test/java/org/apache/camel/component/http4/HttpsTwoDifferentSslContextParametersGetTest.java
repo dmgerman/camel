@@ -96,11 +96,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Now we support to set sslContextParameters on different endpoints"
+argument_list|)
 DECL|class|HttpsTwoDifferentSslContextParametersGetTest
 specifier|public
 class|class

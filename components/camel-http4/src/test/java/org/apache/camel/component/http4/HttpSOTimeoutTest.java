@@ -123,7 +123,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"?httpClient.soTimeout=5000"
+literal|"?httpClient.SocketTimeout=5000"
 argument_list|,
 operator|new
 name|Processor
@@ -175,7 +175,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"?httpClient.soTimeout=1000"
+literal|"?httpClient.SocketTimeout=1000"
 argument_list|,
 operator|new
 name|Processor
