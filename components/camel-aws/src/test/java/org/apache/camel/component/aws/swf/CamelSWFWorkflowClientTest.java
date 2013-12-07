@@ -447,12 +447,6 @@ name|executionInfo
 operator|.
 name|setTagList
 argument_list|(
-operator|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-operator|)
 name|Collections
 operator|.
 name|EMPTY_LIST
