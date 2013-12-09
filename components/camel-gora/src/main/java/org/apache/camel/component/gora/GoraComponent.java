@@ -183,7 +183,7 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-comment|/**      *      * Initialize class and create DataStore instance      *      * @param config  component configuration      * @throws IOException      */
+comment|/**      *      * Initialize class and create DataStore instance      *      * @param config component configuration      * @throws IOException      */
 DECL|method|init (final GoraConfiguration config)
 specifier|private
 name|void
@@ -196,14 +196,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
-name|configuration
-operator|=
-operator|new
-name|Configuration
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|goraProperties
@@ -343,6 +335,57 @@ block|{
 return|return
 name|dataStore
 return|;
+block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|configuration
+operator|==
+literal|null
+condition|)
+block|{
+name|configuration
+operator|=
+operator|new
+name|Configuration
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|dataStore
+operator|!=
+literal|null
+condition|)
+block|{
+name|dataStore
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
