@@ -42,6 +42,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -161,6 +171,20 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
 import|;
 end_import
 
@@ -660,6 +684,8 @@ name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
+throws|,
+name|UnsupportedEncodingException
 block|{
 return|return
 operator|new
@@ -690,6 +716,8 @@ name|exchange
 parameter_list|)
 throws|throws
 name|TransformerException
+throws|,
+name|UnsupportedEncodingException
 block|{
 name|String
 name|data
@@ -705,7 +733,14 @@ return|return
 name|data
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|append (StringBuilder buffer, NodeList nodeList)
