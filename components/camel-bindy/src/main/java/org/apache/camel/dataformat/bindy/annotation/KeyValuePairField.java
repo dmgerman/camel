@@ -97,6 +97,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * @return String timezone ID      */
+DECL|method|timezone ()
+name|String
+name|timezone
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * Position of the field in the message generated      *       * @return int      */
 DECL|method|position ()
 name|int

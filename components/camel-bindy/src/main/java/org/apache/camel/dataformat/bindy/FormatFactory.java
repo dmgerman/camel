@@ -454,7 +454,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|doGetFormat (Class<?> clazz, String pattern, String locale, int precision, boolean impliedDecimalSeparator)
+DECL|method|doGetFormat (Class<?> clazz, String pattern, String locale, String timezone, int precision, boolean impliedDecimalSeparator)
 specifier|private
 specifier|static
 name|Format
@@ -474,6 +474,9 @@ name|pattern
 parameter_list|,
 name|String
 name|locale
+parameter_list|,
+name|String
+name|timezone
 parameter_list|,
 name|int
 name|precision
@@ -814,6 +817,8 @@ name|DatePatternFormat
 argument_list|(
 name|pattern
 argument_list|,
+name|timezone
+argument_list|,
 name|getLocale
 argument_list|(
 name|locale
@@ -909,6 +914,14 @@ operator|.
 name|pattern
 argument_list|()
 decl_stmt|;
+name|String
+name|timezone
+init|=
+name|data
+operator|.
+name|timezone
+argument_list|()
+decl_stmt|;
 name|int
 name|precision
 init|=
@@ -925,6 +938,8 @@ argument_list|,
 name|pattern
 argument_list|,
 name|locale
+argument_list|,
+name|timezone
 argument_list|,
 name|precision
 argument_list|,
@@ -968,6 +983,14 @@ operator|.
 name|pattern
 argument_list|()
 decl_stmt|;
+name|String
+name|timezone
+init|=
+name|data
+operator|.
+name|timezone
+argument_list|()
+decl_stmt|;
 name|int
 name|precision
 init|=
@@ -984,6 +1007,8 @@ argument_list|,
 name|pattern
 argument_list|,
 name|locale
+argument_list|,
+name|timezone
 argument_list|,
 name|precision
 argument_list|,

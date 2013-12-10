@@ -499,6 +499,9 @@ literal|54=1"
 operator|+
 literal|"
 literal|10=220"
+operator|+
+literal|"
+literal|777=22-06-2013 12:21:11"
 decl_stmt|;
 name|List
 argument_list|<
@@ -591,6 +594,9 @@ literal|54=3"
 operator|+
 literal|"
 literal|10=220"
+operator|+
+literal|"
+literal|777=22-06-2013 12:21:11"
 decl_stmt|;
 name|List
 argument_list|<
@@ -668,6 +674,9 @@ literal|58=this is a camel - bindy test"
 operator|+
 literal|"
 literal|10=220"
+operator|+
+literal|"
+literal|777=22-06-2013 12:21:11"
 decl_stmt|;
 name|List
 argument_list|<

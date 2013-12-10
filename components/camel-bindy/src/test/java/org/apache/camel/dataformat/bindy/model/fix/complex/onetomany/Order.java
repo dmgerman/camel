@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -183,6 +193,27 @@ DECL|field|text
 specifier|private
 name|String
 name|text
+decl_stmt|;
+annotation|@
+name|KeyValuePairField
+argument_list|(
+name|tag
+operator|=
+literal|777
+argument_list|,
+name|pattern
+operator|=
+literal|"dd-MM-yyyy HH:mm:ss"
+argument_list|,
+name|timezone
+operator|=
+literal|"GMT-3"
+argument_list|)
+comment|// created
+DECL|field|created
+specifier|private
+name|Date
+name|created
 decl_stmt|;
 annotation|@
 name|OneToMany
@@ -363,6 +394,32 @@ operator|=
 name|text
 expr_stmt|;
 block|}
+DECL|method|getCreated ()
+specifier|public
+name|Date
+name|getCreated
+parameter_list|()
+block|{
+return|return
+name|created
+return|;
+block|}
+DECL|method|setCreated (Date created)
+specifier|public
+name|void
+name|setCreated
+parameter_list|(
+name|Date
+name|created
+parameter_list|)
+block|{
+name|this
+operator|.
+name|created
+operator|=
+name|created
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -406,6 +463,12 @@ operator|+
 name|this
 operator|.
 name|text
+operator|+
+literal|", 777: "
+operator|+
+name|this
+operator|.
+name|created
 argument_list|)
 expr_stmt|;
 name|temp

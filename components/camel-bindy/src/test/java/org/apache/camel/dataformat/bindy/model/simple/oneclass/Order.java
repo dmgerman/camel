@@ -241,6 +241,26 @@ specifier|private
 name|Date
 name|orderDate
 decl_stmt|;
+annotation|@
+name|DataField
+argument_list|(
+name|pos
+operator|=
+literal|12
+argument_list|,
+name|pattern
+operator|=
+literal|"dd-MM-yyyy HH:mm:ss"
+argument_list|,
+name|timezone
+operator|=
+literal|"GMT+4"
+argument_list|)
+DECL|field|orderDateTime
+specifier|private
+name|Date
+name|orderDateTime
+decl_stmt|;
 DECL|method|getOrderNr ()
 specifier|public
 name|int
@@ -527,6 +547,32 @@ operator|=
 name|orderDate
 expr_stmt|;
 block|}
+DECL|method|getOrderDateTime ()
+specifier|public
+name|Date
+name|getOrderDateTime
+parameter_list|()
+block|{
+return|return
+name|orderDateTime
+return|;
+block|}
+DECL|method|setOrderDateTime (Date orderDateTime)
+specifier|public
+name|void
+name|setOrderDateTime
+parameter_list|(
+name|Date
+name|orderDateTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|orderDateTime
+operator|=
+name|orderDateTime
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -619,6 +665,17 @@ argument_list|(
 name|this
 operator|.
 name|orderDate
+argument_list|)
+operator|+
+literal|", "
+operator|+
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|this
+operator|.
+name|orderDateTime
 argument_list|)
 return|;
 block|}
