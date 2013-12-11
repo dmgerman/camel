@@ -58,6 +58,30 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Matcher
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -966,7 +990,7 @@ literal|"has& parameter separators. Check the uri if its missing a ? marker."
 argument_list|)
 throw|;
 block|}
-comment|// check for uri containing double&& markers
+comment|// check for uri containing double&& markers without include by RAW
 if|if
 condition|(
 name|uri
@@ -975,6 +999,36 @@ name|contains
 argument_list|(
 literal|"&&"
 argument_list|)
+condition|)
+block|{
+name|Pattern
+name|pattern
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"RAW(.*&&.*)"
+argument_list|)
+decl_stmt|;
+name|Matcher
+name|m
+init|=
+name|pattern
+operator|.
+name|matcher
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+comment|// we should skip the RAW part
+if|if
+condition|(
+operator|!
+name|m
+operator|.
+name|find
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -988,6 +1042,7 @@ operator|+
 literal|"Check the uri and remove the duplicate& marker."
 argument_list|)
 throw|;
+block|}
 block|}
 comment|// if we have a trailing& then that is invalid as well
 if|if
