@@ -98,8 +98,6 @@ DECL|field|urlDecodeHeaders
 specifier|private
 name|boolean
 name|urlDecodeHeaders
-init|=
-literal|true
 decl_stmt|;
 DECL|field|mapHeaders
 specifier|private

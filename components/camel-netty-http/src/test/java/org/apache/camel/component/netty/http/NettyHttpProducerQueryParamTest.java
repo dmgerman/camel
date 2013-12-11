@@ -96,7 +96,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/cheese"
+literal|"/cheese?urlDecodeHeaders=true"
 decl_stmt|;
 annotation|@
 name|Test
@@ -117,7 +117,7 @@ name|request
 argument_list|(
 name|url
 operator|+
-literal|"?quote=Camel%20rocks"
+literal|"&quote=Camel%20rocks"
 argument_list|,
 literal|null
 argument_list|)

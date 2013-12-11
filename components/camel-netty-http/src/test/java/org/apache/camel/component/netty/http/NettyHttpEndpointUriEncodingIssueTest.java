@@ -180,7 +180,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty-http:http://localhost:{{port}}/myapp/mytest"
+literal|"netty-http:http://localhost:{{port}}/myapp/mytest?urlDecodeHeaders=true"
 argument_list|)
 operator|.
 name|process
