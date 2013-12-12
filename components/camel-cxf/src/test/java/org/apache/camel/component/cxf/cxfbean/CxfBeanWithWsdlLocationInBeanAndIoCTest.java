@@ -58,20 +58,6 @@ name|http
 operator|.
 name|client
 operator|.
-name|HttpClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|client
-operator|.
 name|methods
 operator|.
 name|HttpPost
@@ -118,7 +104,23 @@ name|impl
 operator|.
 name|client
 operator|.
-name|DefaultHttpClient
+name|CloseableHttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|impl
+operator|.
+name|client
+operator|.
+name|HttpClientBuilder
 import|;
 end_import
 
@@ -187,10 +189,6 @@ operator|.
 name|assertEquals
 import|;
 end_import
-
-begin_comment
-comment|/**  *  * @version   */
-end_comment
 
 begin_class
 annotation|@
@@ -280,11 +278,15 @@ argument_list|(
 name|entity
 argument_list|)
 expr_stmt|;
-name|HttpClient
+name|CloseableHttpClient
 name|httpclient
 init|=
-operator|new
-name|DefaultHttpClient
+name|HttpClientBuilder
+operator|.
+name|create
+argument_list|()
+operator|.
+name|build
 argument_list|()
 decl_stmt|;
 try|try
@@ -348,10 +350,7 @@ finally|finally
 block|{
 name|httpclient
 operator|.
-name|getConnectionManager
-argument_list|()
-operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}

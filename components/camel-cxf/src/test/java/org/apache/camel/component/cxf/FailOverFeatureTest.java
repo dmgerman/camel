@@ -288,11 +288,6 @@ name|init
 parameter_list|()
 block|{
 comment|// publish a web-service
-name|String
-name|addr1
-init|=
-literal|"http://localhost:9001/hello"
-decl_stmt|;
 name|ServerFactoryBean
 name|factory
 init|=
