@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -178,16 +178,22 @@ argument_list|>
 argument_list|>
 argument_list|()
 block|{
+specifier|private
+name|boolean
+name|hasNext
+init|=
+name|dataSet
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
 specifier|public
 name|boolean
 name|hasNext
 parameter_list|()
 block|{
 return|return
-name|dataSet
-operator|.
-name|next
-argument_list|()
+name|hasNext
 return|;
 block|}
 specifier|public
@@ -202,13 +208,30 @@ parameter_list|()
 block|{
 comment|// because of a limitation in split() we need to create an object for the current position
 comment|// otherwise strangeness occurs when the same object is used to represent each row
-return|return
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|result
+init|=
 name|FlatpackConverter
 operator|.
 name|toMap
 argument_list|(
 name|dataSet
 argument_list|)
+decl_stmt|;
+name|hasNext
+operator|=
+name|dataSet
+operator|.
+name|next
+argument_list|()
+expr_stmt|;
+return|return
+name|result
 return|;
 block|}
 specifier|public

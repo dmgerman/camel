@@ -195,10 +195,10 @@ end_comment
 begin_class
 annotation|@
 name|ContextConfiguration
-DECL|class|DelimitedWithNoDescriptorTest
+DECL|class|StreamedSplitTest
 specifier|public
 class|class
-name|DelimitedWithNoDescriptorTest
+name|StreamedSplitTest
 extends|extends
 name|AbstractJUnit4SpringContextTests
 block|{
