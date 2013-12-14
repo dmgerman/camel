@@ -344,13 +344,14 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|CachedOutputStream (Exchange exchange, boolean closedOnCompletion)
+DECL|method|CachedOutputStream (Exchange exchange, final boolean closedOnCompletion)
 specifier|public
 name|CachedOutputStream
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|boolean
 name|closedOnCompletion
 parameter_list|)
@@ -378,11 +379,6 @@ name|getBufferSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|closedOnCompletion
-condition|)
-block|{
 comment|// add on completion so we can cleanup after the exchange is done such as deleting temporary files
 name|exchange
 operator|.
@@ -417,7 +413,35 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|closedOnCompletion
+condition|)
+block|{
 name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error closing streams. This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|cleanUpTempFile
 argument_list|()
 expr_stmt|;
 block|}
@@ -434,6 +458,8 @@ argument_list|(
 literal|"Error deleting temporary cache file: "
 operator|+
 name|tempFile
+operator|+
+literal|". This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -454,7 +480,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|flush ()
 specifier|public
@@ -481,9 +506,6 @@ block|{
 name|currentStream
 operator|.
 name|close
-argument_list|()
-expr_stmt|;
-name|cleanUpTempFile
 argument_list|()
 expr_stmt|;
 block|}
