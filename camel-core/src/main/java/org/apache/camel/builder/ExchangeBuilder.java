@@ -258,7 +258,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the exchange property      * @param pattern exchange pattern      * @return exchange builder      */
+comment|/**      * Set the exchange property      * @param key the key of the exchange property      * @param value the value of the exchange property      * @return exchange builder      */
 DECL|method|withProperty (String key, Object value)
 specifier|public
 name|ExchangeBuilder
