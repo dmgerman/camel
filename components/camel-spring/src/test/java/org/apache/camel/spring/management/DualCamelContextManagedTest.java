@@ -287,7 +287,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should be at least 7 endpoints, was: "
+literal|"Should be at least 4 endpoints, was: "
 operator|+
 name|set
 operator|.
@@ -299,7 +299,7 @@ operator|.
 name|size
 argument_list|()
 operator|>=
-literal|7
+literal|4
 argument_list|)
 expr_stmt|;
 for|for

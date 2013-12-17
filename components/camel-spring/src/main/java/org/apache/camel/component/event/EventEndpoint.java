@@ -481,6 +481,24 @@ operator|=
 name|loadBalancer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|EventComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|EventComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|consumerStarted (EventConsumer consumer)
@@ -493,6 +511,14 @@ name|EventConsumer
 name|consumer
 parameter_list|)
 block|{
+name|getComponent
+argument_list|()
+operator|.
+name|consumerStarted
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|getLoadBalancer
 argument_list|()
 operator|.
@@ -515,6 +541,14 @@ name|EventConsumer
 name|consumer
 parameter_list|)
 block|{
+name|getComponent
+argument_list|()
+operator|.
+name|consumerStopped
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|getLoadBalancer
 argument_list|()
 operator|.
