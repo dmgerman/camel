@@ -444,6 +444,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|fc
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
