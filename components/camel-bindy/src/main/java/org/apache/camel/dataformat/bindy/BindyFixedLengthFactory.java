@@ -346,6 +346,22 @@ specifier|private
 name|boolean
 name|ignoreTrailingChars
 decl_stmt|;
+DECL|field|header
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|header
+decl_stmt|;
+DECL|field|footer
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|footer
+decl_stmt|;
 DECL|method|BindyFixedLengthFactory (Class<?> type)
 specifier|public
 name|BindyFixedLengthFactory
@@ -363,6 +379,18 @@ name|super
 argument_list|(
 name|type
 argument_list|)
+expr_stmt|;
+name|header
+operator|=
+name|void
+operator|.
+name|class
+expr_stmt|;
+name|footer
+operator|=
+name|void
+operator|.
+name|class
 expr_stmt|;
 comment|// initialize specific parameters of the fixed length model
 name|initFixedLengthModel
@@ -387,6 +415,60 @@ comment|// from @FixedLengthrecord annotation
 name|initFixedLengthRecordParameters
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|header
+operator|!=
+name|void
+operator|.
+name|class
+condition|)
+block|{
+name|models
+operator|.
+name|add
+argument_list|(
+name|header
+argument_list|)
+expr_stmt|;
+name|modelClassNames
+operator|.
+name|add
+argument_list|(
+name|header
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|footer
+operator|!=
+name|void
+operator|.
+name|class
+condition|)
+block|{
+name|models
+operator|.
+name|add
+argument_list|(
+name|footer
+argument_list|)
+expr_stmt|;
+name|modelClassNames
+operator|.
+name|add
+argument_list|(
+name|footer
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|initAnnotatedFields ()
 specifier|public
@@ -2341,13 +2423,30 @@ argument_list|,
 name|crlf
 argument_list|)
 expr_stmt|;
-comment|// Get hasHeader parameter
-name|hasHeader
+comment|// Get header parameter
+name|header
 operator|=
 name|record
 operator|.
-name|hasHeader
+name|header
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Header: {}"
+argument_list|,
+name|header
+argument_list|)
+expr_stmt|;
+name|hasHeader
+operator|=
+name|header
+operator|!=
+name|void
+operator|.
+name|class
 expr_stmt|;
 name|LOG
 operator|.
@@ -2375,13 +2474,33 @@ argument_list|,
 name|skipHeader
 argument_list|)
 expr_stmt|;
-comment|// Get hasFooter parameter
+comment|// Get footer parameter
+name|footer
+operator|=
+name|record
+operator|.
+name|footer
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Footer: {}"
+argument_list|,
+name|footer
+argument_list|)
+expr_stmt|;
 name|hasFooter
 operator|=
 name|record
 operator|.
-name|hasFooter
+name|footer
 argument_list|()
+operator|!=
+name|void
+operator|.
+name|class
 expr_stmt|;
 name|LOG
 operator|.
@@ -2412,10 +2531,16 @@ expr_stmt|;
 comment|// Get isHeader parameter
 name|isHeader
 operator|=
-name|record
+name|hasHeader
+condition|?
+name|cl
 operator|.
-name|isHeader
-argument_list|()
+name|equals
+argument_list|(
+name|header
+argument_list|)
+else|:
+literal|false
 expr_stmt|;
 name|LOG
 operator|.
@@ -2429,10 +2554,16 @@ expr_stmt|;
 comment|// Get isFooter parameter
 name|isFooter
 operator|=
-name|record
+name|hasFooter
+condition|?
+name|cl
 operator|.
-name|isFooter
-argument_list|()
+name|equals
+argument_list|(
+name|footer
+argument_list|)
+else|:
+literal|false
 expr_stmt|;
 name|LOG
 operator|.
@@ -2562,6 +2693,20 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      *       * @return      */
+DECL|method|header ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|header
+parameter_list|()
+block|{
+return|return
+name|header
+return|;
+block|}
 comment|/**      * Flag indicating if we have a header      */
 DECL|method|hasHeader ()
 specifier|public
@@ -2571,6 +2716,20 @@ parameter_list|()
 block|{
 return|return
 name|hasHeader
+return|;
+block|}
+comment|/**      *       * @return      */
+DECL|method|footer ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|footer
+parameter_list|()
+block|{
+return|return
+name|footer
 return|;
 block|}
 comment|/**      * Flag indicating if we have a footer      */

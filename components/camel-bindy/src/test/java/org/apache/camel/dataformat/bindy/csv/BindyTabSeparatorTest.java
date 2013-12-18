@@ -22,26 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -122,20 +102,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CastUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -192,7 +158,90 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// TODO: check
-comment|/*         List<Map<?, PurchaseOrder>> rows = CastUtils.cast(mock.getReceivedExchanges().get(0).getIn().getBody(List.class));         PurchaseOrder order = rows.get(0).get(PurchaseOrder.class.getName());          assertEquals(123, order.getId());         assertEquals("Camel in Action", order.getName());         assertEquals(2, order.getAmount());         assertEquals("Please hurry", order.getOrderText());         assertEquals("Jane Doe", order.getSalesRef());         assertEquals("John Doe", order.getCustomerRef());         */
+comment|/*         List<Map<?, PurchaseOrder>> rows = CastUtils.cast(mock.getReceivedExchanges().get(0).getIn().getBody(List.class));         PurchaseOrder order = rows.get(0).get(PurchaseOrder.class.getName());         */
+name|PurchaseOrder
+name|order
+init|=
+name|mock
+operator|.
+name|getReceivedExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|PurchaseOrder
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|123
+argument_list|,
+name|order
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Camel in Action"
+argument_list|,
+name|order
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|order
+operator|.
+name|getAmount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Please hurry"
+argument_list|,
+name|order
+operator|.
+name|getOrderText
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Jane Doe"
+argument_list|,
+name|order
+operator|.
+name|getSalesRef
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"John Doe"
+argument_list|,
+name|order
+operator|.
+name|getCustomerRef
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -326,8 +375,9 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|//TODO: check
-comment|/*         List<Map<?, PurchaseOrder>> rows = CastUtils.cast(mock.getReceivedExchanges().get(0).getIn().getBody(List.class));         PurchaseOrder order = rows.get(0).get(PurchaseOrder.class.getName());          assertEquals(123, order.getId());         assertEquals("Camel in Action", order.getName());         assertEquals(2, order.getAmount());         assertNull(order.getOrderText());         assertNull(order.getSalesRef());         assertNull(order.getCustomerRef());         */
+comment|//List<Map<?, PurchaseOrder>> rows = CastUtils.cast(mock.getReceivedExchanges().get(0).getIn().getBody(List.class));
+comment|//PurchaseOrder order = rows.get(0).get(PurchaseOrder.class.getName());
+comment|/*TODO: cjeck         PurchaseOrder order = mock.getReceivedExchanges().get(0).getIn().getBody(PurchaseOrder.class);                  assertEquals(123, order.getId());         assertEquals("Camel in Action", order.getName());         assertEquals(2, order.getAmount());         assertNull(order.getOrderText());         assertNull(order.getSalesRef());         assertNull(order.getCustomerRef());         */
 block|}
 annotation|@
 name|Test

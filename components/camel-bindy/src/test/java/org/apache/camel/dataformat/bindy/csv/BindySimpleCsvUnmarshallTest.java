@@ -21,12 +21,38 @@ package|;
 end_package
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|junit
 operator|.
-name|List
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
 import|;
 end_import
 
@@ -36,7 +62,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|List
 import|;
 end_import
 
@@ -253,42 +279,6 @@ operator|.
 name|junit4
 operator|.
 name|AbstractJUnit4SpringContextTests
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
 import|;
 end_import
 
@@ -602,24 +592,14 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
 name|Order
-argument_list|>
 argument_list|>
 name|orders
 init|=
 operator|(
 name|List
 argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
 name|Order
-argument_list|>
 argument_list|>
 operator|)
 name|result
@@ -664,16 +644,6 @@ operator|.
 name|get
 argument_list|(
 literal|0
-argument_list|)
-operator|.
-name|get
-argument_list|(
-name|Order
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 operator|.
 name|getFirstName

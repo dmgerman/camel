@@ -71,11 +71,6 @@ end_import
 begin_class
 annotation|@
 name|FixedLengthRecord
-argument_list|(
-name|isHeader
-operator|=
-literal|true
-argument_list|)
 DECL|class|OrderHeader
 specifier|public
 class|class

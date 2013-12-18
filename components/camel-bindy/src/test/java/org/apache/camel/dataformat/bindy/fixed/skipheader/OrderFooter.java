@@ -61,11 +61,6 @@ end_import
 begin_class
 annotation|@
 name|FixedLengthRecord
-argument_list|(
-name|isFooter
-operator|=
-literal|true
-argument_list|)
 DECL|class|OrderFooter
 specifier|public
 class|class

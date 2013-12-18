@@ -231,12 +231,6 @@ specifier|protected
 name|String
 name|crlf
 decl_stmt|;
-DECL|field|packageNames
-specifier|private
-name|String
-index|[]
-name|packageNames
-decl_stmt|;
 DECL|field|locale
 specifier|private
 name|String
