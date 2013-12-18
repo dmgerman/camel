@@ -328,6 +328,12 @@ specifier|private
 name|CipherPair
 name|ciphers
 decl_stmt|;
+DECL|field|closedOnCompletion
+specifier|private
+specifier|final
+name|boolean
+name|closedOnCompletion
+decl_stmt|;
 DECL|method|CachedOutputStream (Exchange exchange)
 specifier|public
 name|CachedOutputStream
@@ -356,6 +362,12 @@ name|boolean
 name|closedOnCompletion
 parameter_list|)
 block|{
+name|this
+operator|.
+name|closedOnCompletion
+operator|=
+name|closedOnCompletion
+expr_stmt|;
 name|this
 operator|.
 name|strategy
@@ -421,24 +433,6 @@ block|{
 name|close
 argument_list|()
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Error closing streams. This exception will be ignored."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 try|try
 block|{
 name|cleanUpTempFile
@@ -460,6 +454,24 @@ operator|+
 name|tempFile
 operator|+
 literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error closing streams. This exception will be ignored."
 argument_list|,
 name|e
 argument_list|)
@@ -508,6 +520,40 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// need to clean up the temp file this time
+if|if
+condition|(
+operator|!
+name|closedOnCompletion
+condition|)
+block|{
+try|try
+block|{
+name|cleanUpTempFile
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error deleting temporary cache file: "
+operator|+
+name|tempFile
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|equals (Object obj)
 specifier|public
