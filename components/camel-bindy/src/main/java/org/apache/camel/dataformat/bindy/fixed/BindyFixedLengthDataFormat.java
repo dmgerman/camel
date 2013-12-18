@@ -1483,7 +1483,9 @@ operator|=
 operator|new
 name|BindyFixedLengthFactory
 argument_list|(
-name|getClassType
+name|factory
+operator|.
+name|header
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1504,7 +1506,9 @@ operator|=
 operator|new
 name|BindyFixedLengthFactory
 argument_list|(
-name|getClassType
+name|factory
+operator|.
+name|footer
 argument_list|()
 argument_list|)
 expr_stmt|;
