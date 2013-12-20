@@ -405,6 +405,11 @@ specifier|private
 name|ZooKeeperConnectionManager
 name|zkm
 decl_stmt|;
+DECL|field|connection
+specifier|private
+name|ZooKeeper
+name|connection
+decl_stmt|;
 DECL|method|ZookeeperProducer (ZooKeeperEndpoint endpoint)
 specifier|public
 name|ZookeeperProducer
@@ -448,14 +453,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ZooKeeper
-name|connection
-init|=
-name|zkm
-operator|.
-name|getConnection
-argument_list|()
-decl_stmt|;
 name|ProductionContext
 name|context
 init|=
@@ -653,6 +650,50 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|connection
+operator|=
+name|zkm
+operator|.
+name|getConnection
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Starting zookeeper producer of '%s'"
+argument_list|,
+name|configuration
+operator|.
+name|getPath
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -692,11 +733,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|zkm
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|asynchronouslyDeleteNode (ZooKeeper connection, ProductionContext context)
 specifier|private
