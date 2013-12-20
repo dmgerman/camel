@@ -1034,7 +1034,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred. Now forcing the routes to be shutdown now."
+literal|"Timeout occurred. Forcing the routes to be shutdown now."
 argument_list|)
 expr_stmt|;
 comment|// force the routes to shutdown now
