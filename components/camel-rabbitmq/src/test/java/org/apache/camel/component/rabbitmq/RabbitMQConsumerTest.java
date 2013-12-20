@@ -208,10 +208,10 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testStoppingConsumerShutsdownExecutor ()
+DECL|method|testStoppingConsumerShutdownExecutor ()
 specifier|public
 name|void
-name|testStoppingConsumerShutsdownExecutor
+name|testStoppingConsumerShutdownExecutor
 parameter_list|()
 throws|throws
 name|Exception
@@ -323,10 +323,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testStoppingConsumerShutsdownConnection ()
+DECL|method|testStoppingConsumerShutdownConnection ()
 specifier|public
 name|void
-name|testStoppingConsumerShutsdownConnection
+name|testStoppingConsumerShutdownConnection
 parameter_list|()
 throws|throws
 name|Exception
@@ -419,7 +419,11 @@ name|conn
 argument_list|)
 operator|.
 name|close
-argument_list|()
+argument_list|(
+literal|30
+operator|*
+literal|1000
+argument_list|)
 expr_stmt|;
 block|}
 block|}
