@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The AWS SQS component configuration properties  *   */
+comment|/**  * The AWS SQS component configuration properties  *  */
 end_comment
 
 begin_class
@@ -84,6 +84,11 @@ DECL|field|queueOwnerAWSAccountId
 specifier|private
 name|String
 name|queueOwnerAWSAccountId
+decl_stmt|;
+DECL|field|region
+specifier|private
+name|String
+name|region
 decl_stmt|;
 comment|// consumer properties
 DECL|field|deleteAfterRead
@@ -639,6 +644,32 @@ operator|=
 name|deleteIfFiltered
 expr_stmt|;
 block|}
+DECL|method|getRegion ()
+specifier|public
+name|String
+name|getRegion
+parameter_list|()
+block|{
+return|return
+name|region
+return|;
+block|}
+DECL|method|setRegion (String region)
+specifier|public
+name|void
+name|setRegion
+parameter_list|(
+name|String
+name|region
+parameter_list|)
+block|{
+name|this
+operator|.
+name|region
+operator|=
+name|region
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -713,6 +744,10 @@ operator|+
 literal|", queueOwnerAWSAccountId="
 operator|+
 name|queueOwnerAWSAccountId
+operator|+
+literal|", region="
+operator|+
+name|region
 operator|+
 literal|"]"
 return|;

@@ -165,7 +165,7 @@ argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|setProperty
+name|setHeader
 argument_list|(
 name|JcrConstants
 operator|.
@@ -177,7 +177,7 @@ literal|"node"
 argument_list|)
 argument_list|)
 operator|.
-name|setProperty
+name|setHeader
 argument_list|(
 literal|"my.contents.property"
 argument_list|,

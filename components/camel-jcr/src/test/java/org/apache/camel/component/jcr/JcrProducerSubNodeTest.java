@@ -158,7 +158,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|withProperty
+name|withHeader
 argument_list|(
 name|JcrConstants
 operator|.
@@ -238,7 +238,7 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
-name|withProperty
+name|withHeader
 argument_list|(
 name|JcrConstants
 operator|.
