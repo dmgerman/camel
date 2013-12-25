@@ -191,6 +191,7 @@ argument_list|(
 name|HDD_CRASH
 argument_list|)
 expr_stmt|;
+comment|// The reader will be closed when there is nothing left
 name|reader
 operator|.
 name|close
@@ -199,6 +200,11 @@ constructor_decl|;
 block|}
 block|}
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"resource"
+argument_list|)
 name|CsvIterator
 name|iterator
 init|=
@@ -317,11 +323,6 @@ parameter_list|)
 block|{
 comment|// okay
 block|}
-name|iterator
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -387,6 +388,7 @@ name|result
 operator|=
 literal|null
 expr_stmt|;
+comment|// The reader will be closed when there is nothing left
 name|reader
 operator|.
 name|close
@@ -395,6 +397,11 @@ constructor_decl|;
 block|}
 block|}
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"resource"
+argument_list|)
 name|CsvIterator
 name|iterator
 init|=
@@ -493,11 +500,6 @@ parameter_list|)
 block|{
 comment|// okay
 block|}
-name|iterator
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class
