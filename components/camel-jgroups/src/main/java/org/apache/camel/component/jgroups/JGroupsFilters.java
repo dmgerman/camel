@@ -48,6 +48,16 @@ name|org
 operator|.
 name|jgroups
 operator|.
+name|Address
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jgroups
+operator|.
 name|View
 import|;
 end_import
@@ -77,11 +87,21 @@ specifier|final
 class|class
 name|JGroupsFilters
 block|{
+DECL|field|COORDINATOR_NODE_INDEX
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|COORDINATOR_NODE_INDEX
+init|=
+literal|0
+decl_stmt|;
 DECL|method|JGroupsFilters ()
 specifier|private
 name|JGroupsFilters
 parameter_list|()
 block|{     }
+comment|/**      * Creates predicate rejecting messages that are instances of {@link org.jgroups.View}, but have not been received      * by the coordinator JGroups node. This filter is useful for keeping only view messages indicating that receiving      * endpoint is a master node.      *      * @return predicate filtering out non-coordinator view messages.      */
 DECL|method|dropNonCoordinatorViews ()
 specifier|public
 specifier|static
@@ -130,7 +150,9 @@ name|View
 operator|)
 name|body
 decl_stmt|;
-return|return
+name|Address
+name|channelAddress
+init|=
 name|exchange
 operator|.
 name|getIn
@@ -139,7 +161,14 @@ operator|.
 name|getHeader
 argument_list|(
 name|HEADER_JGROUPS_CHANNEL_ADDRESS
+argument_list|,
+name|Address
+operator|.
+name|class
 argument_list|)
+decl_stmt|;
+return|return
+name|channelAddress
 operator|.
 name|equals
 argument_list|(
@@ -150,7 +179,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|0
+name|COORDINATOR_NODE_INDEX
 argument_list|)
 argument_list|)
 return|;
