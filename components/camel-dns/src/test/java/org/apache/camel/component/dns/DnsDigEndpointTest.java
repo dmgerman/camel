@@ -150,6 +150,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -183,6 +193,11 @@ comment|/**  * Tests for the dig endpoint.  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Wikipedia service is broken now"
+argument_list|)
 DECL|class|DnsDigEndpointTest
 specifier|public
 class|class
