@@ -1334,7 +1334,7 @@ name|addressUri
 operator|=
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|addressUri
 argument_list|)

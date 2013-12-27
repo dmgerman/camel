@@ -589,7 +589,7 @@ name|URI
 argument_list|(
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|remaining
 argument_list|)
@@ -805,7 +805,7 @@ name|safe
 init|=
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|remaining
 argument_list|)

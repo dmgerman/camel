@@ -978,7 +978,7 @@ block|}
 return|return
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|path
 argument_list|)
