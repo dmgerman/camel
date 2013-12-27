@@ -743,7 +743,7 @@ return|;
 block|}
 finally|finally
 block|{
-comment|// close the stream as we've loaded all the data upfront
+comment|// close the iterator (which would close the stream) as we've loaded all the data upfront
 name|IOHelper
 operator|.
 name|close
