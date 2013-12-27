@@ -44,7 +44,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStreamReader
+name|Reader
 import|;
 end_import
 
@@ -142,11 +142,11 @@ specifier|final
 name|CSVParser
 name|parser
 decl_stmt|;
-DECL|field|in
+DECL|field|reader
 specifier|private
 specifier|final
-name|InputStreamReader
-name|in
+name|Reader
+name|reader
 decl_stmt|;
 DECL|field|line
 specifier|private
@@ -154,15 +154,15 @@ name|String
 index|[]
 name|line
 decl_stmt|;
-DECL|method|CsvIterator (CSVParser parser, InputStreamReader in)
+DECL|method|CsvIterator (CSVParser parser, Reader reader)
 specifier|public
 name|CsvIterator
 parameter_list|(
 name|CSVParser
 name|parser
 parameter_list|,
-name|InputStreamReader
-name|in
+name|Reader
+name|reader
 parameter_list|)
 throws|throws
 name|IOException
@@ -175,9 +175,9 @@ name|parser
 expr_stmt|;
 name|this
 operator|.
-name|in
+name|reader
 operator|=
-name|in
+name|reader
 expr_stmt|;
 name|line
 operator|=
@@ -310,7 +310,7 @@ name|IOHelper
 operator|.
 name|close
 argument_list|(
-name|in
+name|reader
 argument_list|)
 expr_stmt|;
 block|}

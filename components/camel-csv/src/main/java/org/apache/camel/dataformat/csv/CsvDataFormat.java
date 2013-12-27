@@ -64,6 +64,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|Writer
 import|;
 end_import
@@ -579,8 +589,8 @@ name|getDelimiter
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|InputStreamReader
-name|in
+name|Reader
+name|reader
 init|=
 literal|null
 decl_stmt|;
@@ -591,8 +601,12 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-name|in
+name|reader
 operator|=
+name|IOHelper
+operator|.
+name|buffered
+argument_list|(
 operator|new
 name|InputStreamReader
 argument_list|(
@@ -605,6 +619,7 @@ argument_list|(
 name|exchange
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|CSVParser
 name|parser
@@ -612,7 +627,7 @@ init|=
 operator|new
 name|CSVParser
 argument_list|(
-name|in
+name|reader
 argument_list|,
 name|strategy
 argument_list|)
@@ -622,7 +637,7 @@ condition|(
 name|skipFirstLine
 condition|)
 block|{
-comment|// read one line ahead
+comment|// read one line ahead and skip it
 name|parser
 operator|.
 name|getLine
@@ -637,7 +652,7 @@ name|CsvIterator
 argument_list|(
 name|parser
 argument_list|,
-name|in
+name|reader
 argument_list|)
 decl_stmt|;
 return|return
@@ -676,7 +691,7 @@ name|IOHelper
 operator|.
 name|close
 argument_list|(
-name|in
+name|reader
 argument_list|)
 expr_stmt|;
 block|}
@@ -743,7 +758,7 @@ return|;
 block|}
 finally|finally
 block|{
-comment|// close the iterator (which would close the stream) as we've loaded all the data upfront
+comment|// close the iterator (which would also close the reader) as we've loaded all the data upfront
 name|IOHelper
 operator|.
 name|close
