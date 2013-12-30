@@ -252,6 +252,7 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Tests
 annotation|@
 name|Test
 DECL|method|shouldConsumeMulticastedMessage ()
@@ -294,9 +295,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Then
-name|mockEndpoint
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
@@ -354,9 +353,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Then
-name|mockEndpoint
-operator|.
-name|assertIsSatisfied
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
