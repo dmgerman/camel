@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointInject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -109,12 +121,6 @@ name|clusterName
 init|=
 literal|"clusterName"
 decl_stmt|;
-DECL|field|mockEndpoint
-name|String
-name|mockEndpoint
-init|=
-literal|"mock:test"
-decl_stmt|;
 DECL|field|message
 name|String
 name|message
@@ -126,6 +132,17 @@ name|JChannel
 name|channel
 decl_stmt|;
 comment|// Routes fixture
+annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:test"
+argument_list|)
+DECL|field|mockEndpoint
+name|MockEndpoint
+name|mockEndpoint
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -228,22 +245,14 @@ throws|throws
 name|Exception
 block|{
 comment|// Given
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
 name|mockEndpoint
-argument_list|)
-decl_stmt|;
-name|mock
 operator|.
 name|setExpectedMessageCount
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|mock
+name|mockEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -267,7 +276,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Then
-name|mock
+name|mockEndpoint
 operator|.
 name|assertIsSatisfied
 argument_list|()
