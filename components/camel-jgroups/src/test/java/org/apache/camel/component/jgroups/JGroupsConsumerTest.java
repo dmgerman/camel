@@ -106,6 +106,24 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jgroups
+operator|.
+name|JGroupsEndpoint
+operator|.
+name|HEADER_JGROUPS_ORIGINAL_MESSAGE
+import|;
+end_import
+
 begin_class
 DECL|class|JGroupsConsumerTest
 specifier|public
@@ -257,6 +275,66 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 name|message
+argument_list|)
+expr_stmt|;
+comment|// When
+name|channel
+operator|.
+name|send
+argument_list|(
+operator|new
+name|Message
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+name|message
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Then
+name|mockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|shouldKeepOriginalMessage ()
+specifier|public
+name|void
+name|shouldKeepOriginalMessage
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// Given
+name|mockEndpoint
+operator|.
+name|setExpectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|mockEndpoint
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|header
+argument_list|(
+name|HEADER_JGROUPS_ORIGINAL_MESSAGE
+argument_list|)
+operator|.
+name|isInstanceOf
+argument_list|(
+name|Message
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// When
