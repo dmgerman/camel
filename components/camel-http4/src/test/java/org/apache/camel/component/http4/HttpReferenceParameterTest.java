@@ -70,9 +70,11 @@ name|apache
 operator|.
 name|http
 operator|.
+name|impl
+operator|.
 name|client
 operator|.
-name|HttpClient
+name|HttpClientBuilder
 import|;
 end_import
 
@@ -440,13 +442,13 @@ name|TestClientConfigurer
 implements|implements
 name|HttpClientConfigurer
 block|{
-DECL|method|configureHttpClient (HttpClient client)
+DECL|method|configureHttpClient (HttpClientBuilder clientBuilder)
 specifier|public
 name|void
 name|configureHttpClient
 parameter_list|(
-name|HttpClient
-name|client
+name|HttpClientBuilder
+name|clientBuilder
 parameter_list|)
 block|{         }
 block|}

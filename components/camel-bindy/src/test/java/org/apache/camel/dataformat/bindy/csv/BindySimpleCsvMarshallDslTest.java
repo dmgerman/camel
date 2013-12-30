@@ -92,6 +92,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -290,7 +300,7 @@ specifier|private
 name|String
 name|result
 init|=
-literal|"1,B2,Keira,Knightley,ISIN,XX23456789,BUY,Share,450.45,EUR,14-01-2009\r\n"
+literal|"1,B2,Keira,Knightley,ISIN,XX23456789,BUY,Share,450.45,EUR,14-01-2009,17-05-2010 23:21:59\r\n"
 decl_stmt|;
 annotation|@
 name|Produce
@@ -485,6 +495,49 @@ expr_stmt|;
 name|order
 operator|.
 name|setOrderDate
+argument_list|(
+name|calendar
+operator|.
+name|getTime
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|calendar
+operator|=
+name|Calendar
+operator|.
+name|getInstance
+argument_list|(
+name|TimeZone
+operator|.
+name|getTimeZone
+argument_list|(
+literal|"GMT"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// 4 hour shift
+comment|// 17-05-2010 23:21:59 by GMT+4
+name|calendar
+operator|.
+name|set
+argument_list|(
+literal|2010
+argument_list|,
+literal|4
+argument_list|,
+literal|17
+argument_list|,
+literal|19
+argument_list|,
+literal|21
+argument_list|,
+literal|59
+argument_list|)
+expr_stmt|;
+name|order
+operator|.
+name|setOrderDateTime
 argument_list|(
 name|calendar
 operator|.

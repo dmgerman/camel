@@ -238,6 +238,10 @@ DECL|field|targetDir
 name|String
 name|targetDir
 decl_stmt|;
+DECL|field|skip
+name|String
+name|skip
+decl_stmt|;
 DECL|method|ManualGenerator (String[] args)
 specifier|public
 name|ManualGenerator
@@ -280,6 +284,13 @@ operator|=
 name|args
 index|[
 literal|4
+index|]
+expr_stmt|;
+name|skip
+operator|=
+name|args
+index|[
+literal|5
 index|]
 expr_stmt|;
 block|}
@@ -494,6 +505,21 @@ name|MalformedURLException
 throws|,
 name|IOException
 block|{
+if|if
+condition|(
+name|skip
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"true"
+argument_list|)
+condition|)
+block|{
+comment|// we don't want to generate the manual here
+return|return
+literal|false
+return|;
+block|}
 name|URL
 name|url
 init|=

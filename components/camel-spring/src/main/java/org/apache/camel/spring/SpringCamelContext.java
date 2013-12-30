@@ -416,10 +416,10 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|field|eventEndpoint
+DECL|field|eventComponent
 specifier|private
-name|EventEndpoint
-name|eventEndpoint
+name|EventComponent
+name|eventComponent
 decl_stmt|;
 DECL|method|SpringCamelContext ()
 specifier|public
@@ -708,27 +708,15 @@ block|}
 block|}
 if|if
 condition|(
-name|eventEndpoint
+name|eventComponent
 operator|!=
 literal|null
 condition|)
 block|{
-name|eventEndpoint
+name|eventComponent
 operator|.
 name|onApplicationEvent
 argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"No spring-event endpoint enabled to handle event: {}"
-argument_list|,
 name|event
 argument_list|)
 expr_stmt|;
@@ -843,20 +831,26 @@ operator|==
 literal|null
 condition|)
 block|{
-name|addComponent
-argument_list|(
-literal|"spring-event"
-argument_list|,
+name|eventComponent
+operator|=
 operator|new
 name|EventComponent
 argument_list|(
 name|applicationContext
 argument_list|)
+expr_stmt|;
+name|addComponent
+argument_list|(
+literal|"spring-event"
+argument_list|,
+name|eventComponent
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getEventEndpoint ()
 specifier|public
 name|EventEndpoint
@@ -864,9 +858,11 @@ name|getEventEndpoint
 parameter_list|()
 block|{
 return|return
-name|eventEndpoint
+literal|null
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setEventEndpoint (EventEndpoint eventEndpoint)
 specifier|public
 name|void
@@ -876,44 +872,10 @@ name|EventEndpoint
 name|eventEndpoint
 parameter_list|)
 block|{
-name|this
-operator|.
-name|eventEndpoint
-operator|=
-name|eventEndpoint
-expr_stmt|;
+comment|// noop
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|eventEndpoint
-operator|==
-literal|null
-condition|)
-block|{
-name|eventEndpoint
-operator|=
-name|createEventEndpoint
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Override
 DECL|method|createInjector ()

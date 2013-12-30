@@ -502,7 +502,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="-1"      *      */
+comment|/**      * The duration to run the application for which by default is in      * milliseconds. A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="camel.duration"      *            default-value="-1"      */
 DECL|field|duration
 specifier|protected
 name|String
@@ -519,6 +519,12 @@ DECL|field|dotEnabled
 specifier|protected
 name|boolean
 name|dotEnabled
+decl_stmt|;
+comment|/**      * Allows to provide a custom properties file on the classpath to initialize      * a {@link javax.naming.InitialContext} object with. This corresponds to      * the {@link org.apache.camel.guice.Main#setJndiProperties(String)} API      * method      *       * @parameter property="jndiProperties"      */
+DECL|field|jndiProperties
+specifier|protected
+name|String
+name|jndiProperties
 decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
@@ -722,6 +728,28 @@ operator|.
 name|add
 argument_list|(
 name|dotDir
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|jndiProperties
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-j"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|jndiProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -965,47 +993,17 @@ name|getMethod
 argument_list|(
 literal|"main"
 argument_list|,
-operator|new
-name|Class
-index|[]
-block|{
 name|String
 index|[]
 operator|.
 expr|class
-block|}
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|main
-operator|.
-name|isAccessible
-argument_list|()
-condition|)
-block|{
-name|getLog
-argument_list|()
-operator|.
-name|debug
-argument_list|(
-literal|"Setting accessibility to true in order to invoke main()."
-argument_list|)
-expr_stmt|;
-name|main
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 name|main
 operator|.
 name|invoke
 argument_list|(
-name|main
+literal|null
 argument_list|,
 operator|new
 name|Object
@@ -1023,6 +1021,41 @@ name|e
 parameter_list|)
 block|{
 comment|// just pass it on
+comment|// let it be printed so end users can see the exception on the console
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"*************************************"
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"Error occurred while running main from: "
+operator|+
+name|mainClass
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|error
+argument_list|(
+literal|"*************************************"
+argument_list|)
+expr_stmt|;
 name|Thread
 operator|.
 name|currentThread
@@ -1123,7 +1156,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"Couldn't destroy threadgroup "
+literal|"Couldn't destroy thread group "
 operator|+
 name|threadGroup
 argument_list|,

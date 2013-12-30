@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring based integration test for the<code>CsvDataFormat</code> demonstrating the usage of  * the<tt>skipFirstLine</tt> option.  */
+comment|/**  * Spring based test for the<code>CsvDataFormat</code> demonstrating the usage of  * the<tt>skipFirstLine</tt> option.  */
 end_comment
 
 begin_class
@@ -319,8 +319,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// the first line, the same as the second line as well, contains also a data row but as we set
-comment|// skipFirstLine to true the first row gets simply ignored and not unmarshalled
+comment|// the first line contains a data row but as we set skipFirstLine
+comment|// to true the first line gets simply skipped and not unmarshalled
 name|template
 operator|.
 name|sendBody
@@ -421,6 +421,73 @@ name|get
 argument_list|(
 literal|2
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testCsvUnMarshalNoLine ()
+specifier|public
+name|void
+name|testCsvUnMarshalNoLine
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|result
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// the first and last line we intend to skip
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"123|Camel in Action|1\n"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|List
+argument_list|<
+name|?
+argument_list|>
+name|body
+init|=
+name|result
+operator|.
+name|getReceivedExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|List
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|body
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

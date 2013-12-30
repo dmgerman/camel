@@ -1911,6 +1911,31 @@ name|idx
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|u
+operator|.
+name|getScheme
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"http"
+argument_list|)
+condition|)
+block|{
+name|path
+operator|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encodeHttpURI
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|path
 operator|=
 name|UnsafeUriCharactersEncoder
@@ -1920,6 +1945,7 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 comment|// okay if we have user info in the path and they use @ in username or password,
 comment|// then we need to encode them (but leave the last @ sign before the hostname)
 comment|// this is needed as Camel end users may not encode their user info properly, but expect

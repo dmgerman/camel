@@ -52,22 +52,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|CoreMatchers
@@ -125,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test the  CronTrigger as a timer endpoint in a route.  * @version   */
+comment|/**  * This test the  CronTrigger as a timer endpoint in a route.  */
 end_comment
 
 begin_class
@@ -134,7 +118,7 @@ specifier|public
 class|class
 name|QuartzStatefulJobRouteTest
 extends|extends
-name|CamelTestSupport
+name|BaseQuartzTest
 block|{
 annotation|@
 name|Test

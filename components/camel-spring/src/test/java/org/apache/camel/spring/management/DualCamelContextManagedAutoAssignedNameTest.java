@@ -257,7 +257,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Size should be 7 or higher, was: "
+literal|"Size should be 4 or higher, was: "
 operator|+
 name|set
 operator|.
@@ -269,7 +269,7 @@ operator|.
 name|size
 argument_list|()
 operator|>=
-literal|7
+literal|4
 argument_list|)
 expr_stmt|;
 for|for

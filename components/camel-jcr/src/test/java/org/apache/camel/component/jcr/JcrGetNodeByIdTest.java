@@ -256,7 +256,7 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|expectedPropertyReceived
+name|expectedHeaderReceived
 argument_list|(
 literal|"my.contents.property"
 argument_list|,
@@ -265,7 +265,7 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|expectedPropertyReceived
+name|expectedHeaderReceived
 argument_list|(
 literal|"content.approved"
 argument_list|,

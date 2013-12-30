@@ -367,12 +367,20 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-comment|// try to acquire rw lock on the file before we can consume it
 name|FileChannel
 name|channel
 init|=
+literal|null
+decl_stmt|;
+name|RandomAccessFile
+name|randomAccessFile
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|randomAccessFile
+operator|=
 operator|new
 name|RandomAccessFile
 argument_list|(
@@ -380,10 +388,15 @@ name|target
 argument_list|,
 literal|"rw"
 argument_list|)
+expr_stmt|;
+comment|// try to acquire rw lock on the file before we can consume it
+name|channel
+operator|=
+name|randomAccessFile
 operator|.
 name|getChannel
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|boolean
 name|exclusive
 init|=
@@ -573,6 +586,35 @@ literal|false
 return|;
 block|}
 block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|channel
+argument_list|,
+literal|"while acquiring exclusive read lock for file: "
+operator|+
+name|lockFileName
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|randomAccessFile
+argument_list|,
+literal|"while acquiring exclusive read lock for file: "
+operator|+
+name|lockFileName
+argument_list|,
+name|LOG
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -646,7 +688,7 @@ name|close
 argument_list|(
 name|channel
 argument_list|,
-literal|"while acquiring exclusive read lock for file: "
+literal|"while releasing exclusive read lock for file: "
 operator|+
 name|lockFileName
 argument_list|,

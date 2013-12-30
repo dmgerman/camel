@@ -966,7 +966,7 @@ name|getEndpointUrl
 argument_list|(
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|uri
 argument_list|)

@@ -953,7 +953,7 @@ name|uri
 operator|=
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|uri
 argument_list|)
@@ -1038,7 +1038,7 @@ name|queryString
 operator|=
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|queryString
 argument_list|)

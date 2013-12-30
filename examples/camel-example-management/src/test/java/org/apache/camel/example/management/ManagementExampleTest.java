@@ -181,9 +181,10 @@ literal|null
 argument_list|)
 decl_stmt|;
 comment|// now there is no managed endpoint for the dead queue
+comment|// CAMEL-7076 there is no spring-event:default endpoint any more
 name|assertEquals
 argument_list|(
-literal|5
+literal|4
 argument_list|,
 name|set
 operator|.

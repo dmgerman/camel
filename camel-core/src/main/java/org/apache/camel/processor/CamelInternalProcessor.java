@@ -3238,7 +3238,40 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|Object
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+operator|&&
+name|body
+operator|instanceof
+name|StreamCache
+condition|)
+block|{
+comment|// reset so the cache is ready to be reused after processing
+operator|(
+operator|(
+name|StreamCache
+operator|)
+name|body
+operator|)
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Advice for delaying      */

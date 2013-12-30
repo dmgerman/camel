@@ -468,13 +468,6 @@ name|shuttingDown
 operator|=
 literal|true
 expr_stmt|;
-name|connection
-operator|=
-name|connectionManager
-operator|.
-name|getConnection
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -502,11 +495,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|executor
-operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-name|connectionManager
 operator|.
 name|shutdown
 argument_list|()

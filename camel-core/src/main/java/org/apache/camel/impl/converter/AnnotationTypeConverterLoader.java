@@ -886,11 +886,13 @@ try|try
 block|{
 name|clazz
 operator|=
-name|loader
+name|ObjectHelper
 operator|.
 name|loadClass
 argument_list|(
 name|name
+argument_list|,
+name|loader
 argument_list|)
 expr_stmt|;
 name|LOG

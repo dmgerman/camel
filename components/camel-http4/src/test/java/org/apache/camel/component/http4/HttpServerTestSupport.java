@@ -94,7 +94,7 @@ name|http
 operator|.
 name|protocol
 operator|.
-name|BasicHttpProcessor
+name|HttpExpectationVerifier
 import|;
 end_import
 
@@ -108,7 +108,7 @@ name|http
 operator|.
 name|protocol
 operator|.
-name|HttpExpectationVerifier
+name|HttpProcessor
 import|;
 end_import
 
@@ -232,10 +232,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the org.apache.http.protocol.BasicHttpProcessor which should be      * used by the server.      *      * @return basicHttpProcessor      */
+comment|/**      * Returns the org.apache.http.protocol.BasicHttpProcessor which should be      * used by the server.      *      * @return HttpProcessor      */
 DECL|method|getBasicHttpProcessor ()
 specifier|protected
-name|BasicHttpProcessor
+name|HttpProcessor
 name|getBasicHttpProcessor
 parameter_list|()
 block|{

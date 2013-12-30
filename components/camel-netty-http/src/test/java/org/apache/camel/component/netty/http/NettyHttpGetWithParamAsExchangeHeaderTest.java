@@ -100,7 +100,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/myservice"
+literal|"/myservice?urlDecodeHeaders=true"
 decl_stmt|;
 annotation|@
 name|Test
@@ -162,7 +162,7 @@ name|requestBody
 argument_list|(
 name|serverUri
 operator|+
-literal|"?one=einz&two=twei"
+literal|"&one=einz&two=twei"
 argument_list|,
 literal|null
 argument_list|,
@@ -226,7 +226,7 @@ name|requestBody
 argument_list|(
 name|serverUri
 operator|+
-literal|"?message=Keine%20g%C3%BCltige%20GPS-Daten!"
+literal|"&message=Keine%20g%C3%BCltige%20GPS-Daten!"
 argument_list|,
 literal|null
 argument_list|,
@@ -292,7 +292,7 @@ name|requestBody
 argument_list|(
 name|serverUri
 operator|+
-literal|"?message=Keine+g%C6ltige+GPS-Daten%21"
+literal|"&message=Keine+g%C6ltige+GPS-Daten%21"
 argument_list|,
 literal|null
 argument_list|,
@@ -357,7 +357,7 @@ name|requestBody
 argument_list|(
 name|serverUri
 operator|+
-literal|"?message=%2BWorld"
+literal|"&message=%2BWorld"
 argument_list|,
 literal|null
 argument_list|,
@@ -422,7 +422,7 @@ name|requestBody
 argument_list|(
 name|serverUri
 operator|+
-literal|"?message=+World"
+literal|"&message=+World"
 argument_list|,
 literal|null
 argument_list|,

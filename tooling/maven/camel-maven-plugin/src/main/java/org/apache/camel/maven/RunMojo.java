@@ -545,6 +545,11 @@ specifier|protected
 name|boolean
 name|useCDI
 decl_stmt|;
+DECL|field|extendedPluginDependencyArtifactId
+specifier|protected
+name|String
+name|extendedPluginDependencyArtifactId
+decl_stmt|;
 comment|/**      * @component      */
 DECL|field|artifactResolver
 specifier|private
@@ -718,11 +723,6 @@ DECL|field|extraPluginDependencyArtifactId
 specifier|private
 name|String
 name|extraPluginDependencyArtifactId
-decl_stmt|;
-DECL|field|extendedPluginDependencyArtifactId
-specifier|protected
-name|String
-name|extendedPluginDependencyArtifactId
 decl_stmt|;
 comment|/**      * Execute goal.      *      * @throws MojoExecutionException execution of the main class or one of the      *                 threads it generated failed.      * @throws MojoFailureException something bad happened...      */
 DECL|method|execute ()

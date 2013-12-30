@@ -42,7 +42,7 @@ specifier|public
 class|class
 name|QuartzRouteFireNowTest
 extends|extends
-name|QuartzRouteTest
+name|BaseQuartzTest
 block|{
 annotation|@
 name|Override
@@ -65,7 +65,12 @@ block|{
 comment|// START SNIPPET: example
 name|from
 argument_list|(
-literal|"quartz2://myGroup/myTimerName?fireNow=true&trigger.repeatInterval=25000&trigger.repeatCount=2"
+literal|"quartz2://myGroup/myTimerName?fireNow=true&trigger.repeatInterval=2000&trigger.repeatCount=2"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:quartz"
 argument_list|)
 operator|.
 name|to

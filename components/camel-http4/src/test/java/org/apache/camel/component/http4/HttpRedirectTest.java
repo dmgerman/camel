@@ -207,9 +207,9 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/test?httpClient.handleRedirects=false&httpClient.soTimeout=60000&httpClient.connectionTimeout=60000"
+literal|"/test?httpClient.redirectsEnabled=false&httpClient.socketTimeout=60000&httpClient.connectTimeout=60000"
 operator|+
-literal|"&httpClient.staleCheckingEnabled=false"
+literal|"&httpClient.staleConnectionCheckEnabled=false"
 decl_stmt|;
 name|Exchange
 name|out
@@ -352,9 +352,9 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/test?httpClient.soTimeout=60000&httpClient.connectionTimeout=60000"
+literal|"/test?httpClient.socketTimeout=60000&httpClient.connectTimeout=60000"
 operator|+
-literal|"&httpClient.staleCheckingEnabled=false"
+literal|"&httpClient.staleConnectionCheckEnabled=false"
 decl_stmt|;
 name|Exchange
 name|out

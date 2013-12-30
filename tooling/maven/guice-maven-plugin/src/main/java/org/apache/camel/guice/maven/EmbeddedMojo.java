@@ -152,7 +152,7 @@ name|EmbeddedMojo
 extends|extends
 name|AbstractExecMojo
 block|{
-comment|/**      * The duration to run the application for which by default is in milliseconds.      * A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="-1"      * @readonly      */
+comment|/**      * The duration to run the application for which by default is in milliseconds.      * A value<= 0 will run forever.      * Adding a s indicates seconds - eg "5s" means 5 seconds.      *      * @parameter property="camel.duration"      *            default-value="-1"      */
 DECL|field|duration
 specifier|protected
 name|String
@@ -175,6 +175,12 @@ DECL|field|dotAggregationEnabled
 specifier|protected
 name|boolean
 name|dotAggregationEnabled
+decl_stmt|;
+comment|/**      * Allows to provide a custom properties file on the classpath to initialize      * a {@link javax.naming.InitialContext} object with. This corresponds to      * the {@link org.apache.camel.guice.Main#setJndiProperties(String)} API      * method      *       * @parameter property="jndiProperties"      */
+DECL|field|jndiProperties
+specifier|protected
+name|String
+name|jndiProperties
 decl_stmt|;
 comment|/**      * Project classpath.      *      * @parameter property="project.testClasspathElements"      * @required      * @readonly      */
 DECL|field|classpathElements
@@ -458,6 +464,32 @@ operator|=
 name|mainClass
 expr_stmt|;
 block|}
+DECL|method|getJndiProperties ()
+specifier|public
+name|String
+name|getJndiProperties
+parameter_list|()
+block|{
+return|return
+name|jndiProperties
+return|;
+block|}
+DECL|method|setJndiProperties (String jndiProperties)
+specifier|public
+name|void
+name|setJndiProperties
+parameter_list|(
+name|String
+name|jndiProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jndiProperties
+operator|=
+name|jndiProperties
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 DECL|method|runCamel (ClassLoader newLoader)
@@ -661,6 +693,30 @@ name|getDuration
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getJndiProperties
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|args
+operator|.
+name|add
+argument_list|(
+literal|"-j"
+argument_list|)
+expr_stmt|;
+name|args
+operator|.
+name|add
+argument_list|(
+name|getJndiProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|args
 operator|.

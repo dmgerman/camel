@@ -505,6 +505,32 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNormalizeIPv6HttpEndpoint ()
+specifier|public
+name|void
+name|testNormalizeIPv6HttpEndpoint
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|result
+init|=
+name|URISupport
+operator|.
+name|normalizeUri
+argument_list|(
+literal|"http://[2a00:8a00:6000:40::1413]:30300/test"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"http://[2a00:8a00:6000:40::1413]:30300/test"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testNormalizeHttpEndpointUnicodedParameter ()
 specifier|public
 name|void

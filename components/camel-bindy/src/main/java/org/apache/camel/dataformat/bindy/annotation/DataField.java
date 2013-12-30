@@ -105,6 +105,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * @return String timezone ID      */
+DECL|method|timezone ()
+name|String
+name|timezone
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * Length of the data block if the record is set to a fixed length      */
 DECL|method|length ()
 name|int

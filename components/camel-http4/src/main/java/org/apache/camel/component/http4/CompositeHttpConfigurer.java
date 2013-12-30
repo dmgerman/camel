@@ -46,9 +46,11 @@ name|apache
 operator|.
 name|http
 operator|.
+name|impl
+operator|.
 name|client
 operator|.
-name|HttpClient
+name|HttpClientBuilder
 import|;
 end_import
 
@@ -118,13 +120,13 @@ name|configurer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|configureHttpClient (HttpClient client)
+DECL|method|configureHttpClient (HttpClientBuilder clientBuilder)
 specifier|public
 name|void
 name|configureHttpClient
 parameter_list|(
-name|HttpClient
-name|client
+name|HttpClientBuilder
+name|clientBuilder
 parameter_list|)
 block|{
 for|for
@@ -139,7 +141,7 @@ name|configurer
 operator|.
 name|configureHttpClient
 argument_list|(
-name|client
+name|clientBuilder
 argument_list|)
 expr_stmt|;
 block|}

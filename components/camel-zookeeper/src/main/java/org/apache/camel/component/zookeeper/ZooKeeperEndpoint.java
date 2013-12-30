@@ -795,6 +795,31 @@ name|sendEmptyMessageOnDelete
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|connectionManager
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// It releases the zookeeper connection when calling the shutdown method
+name|connectionManager
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 

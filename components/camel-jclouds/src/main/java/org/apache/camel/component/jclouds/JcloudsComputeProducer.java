@@ -625,11 +625,6 @@ throw|;
 block|}
 block|}
 comment|/**      * Runs a script on the target node.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|runScriptOnNode (Exchange exchange)
 specifier|protected
 name|void

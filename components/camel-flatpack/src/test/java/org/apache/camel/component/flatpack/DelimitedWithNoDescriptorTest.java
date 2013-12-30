@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -240,6 +240,10 @@ block|{
 literal|"James"
 block|,
 literal|"Claus"
+block|,
+literal|"Antoine"
+block|,
+literal|"Xavier"
 block|}
 decl_stmt|;
 annotation|@
@@ -256,7 +260,7 @@ name|results
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|4
 argument_list|)
 expr_stmt|;
 name|results

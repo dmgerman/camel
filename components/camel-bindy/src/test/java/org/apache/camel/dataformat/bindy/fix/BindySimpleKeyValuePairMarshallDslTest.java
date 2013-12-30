@@ -36,6 +36,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Calendar
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -57,6 +67,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
 import|;
 end_import
 
@@ -247,9 +267,12 @@ init|=
 literal|"1=BE.CHM.001
 literal|11=CHM0001-01
 literal|22=4
-literal|48=BE0001245678
+literal|48=BE0001245678"
+operator|+
+literal|"
 literal|54=1
 literal|58=this is a camel - bindy test
+literal|777=17-02-2011 23:29:59
 literal|\r\n"
 decl_stmt|;
 annotation|@
@@ -385,6 +408,50 @@ operator|.
 name|setText
 argument_list|(
 literal|"this is a camel - bindy test"
+argument_list|)
+expr_stmt|;
+name|Calendar
+name|calendar
+init|=
+name|Calendar
+operator|.
+name|getInstance
+argument_list|(
+name|TimeZone
+operator|.
+name|getTimeZone
+argument_list|(
+literal|"GMT"
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// 4 hour shift
+comment|// 17-02-2011 23:29:59 by GMT-3
+name|calendar
+operator|.
+name|set
+argument_list|(
+literal|2011
+argument_list|,
+literal|1
+argument_list|,
+literal|18
+argument_list|,
+literal|2
+argument_list|,
+literal|29
+argument_list|,
+literal|59
+argument_list|)
+expr_stmt|;
+name|order
+operator|.
+name|setCreated
+argument_list|(
+name|calendar
+operator|.
+name|getTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|modelObjects

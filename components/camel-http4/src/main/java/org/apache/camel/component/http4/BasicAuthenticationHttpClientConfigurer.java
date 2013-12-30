@@ -82,9 +82,11 @@ name|apache
 operator|.
 name|http
 operator|.
+name|impl
+operator|.
 name|client
 operator|.
-name|HttpClient
+name|BasicCredentialsProvider
 import|;
 end_import
 
@@ -100,7 +102,7 @@ name|impl
 operator|.
 name|client
 operator|.
-name|DefaultHttpClient
+name|HttpClientBuilder
 import|;
 end_import
 
@@ -174,13 +176,13 @@ operator|=
 name|host
 expr_stmt|;
 block|}
-DECL|method|configureHttpClient (HttpClient client)
+DECL|method|configureHttpClient (HttpClientBuilder clientBuilder)
 specifier|public
 name|void
 name|configureHttpClient
 parameter_list|(
-name|HttpClient
-name|client
+name|HttpClientBuilder
+name|clientBuilder
 parameter_list|)
 block|{
 name|Credentials
@@ -221,15 +223,14 @@ name|password
 argument_list|)
 expr_stmt|;
 block|}
-operator|(
-operator|(
-name|DefaultHttpClient
-operator|)
-name|client
-operator|)
-operator|.
-name|getCredentialsProvider
+name|BasicCredentialsProvider
+name|credentialsProvider
+init|=
+operator|new
+name|BasicCredentialsProvider
 argument_list|()
+decl_stmt|;
+name|credentialsProvider
 operator|.
 name|setCredentials
 argument_list|(
@@ -238,6 +239,13 @@ operator|.
 name|ANY
 argument_list|,
 name|defaultcreds
+argument_list|)
+expr_stmt|;
+name|clientBuilder
+operator|.
+name|setDefaultCredentialsProvider
+argument_list|(
+name|credentialsProvider
 argument_list|)
 expr_stmt|;
 block|}

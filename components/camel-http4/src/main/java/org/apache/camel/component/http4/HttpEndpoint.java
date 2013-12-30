@@ -70,18 +70,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|component
 operator|.
 name|http4
@@ -196,9 +184,11 @@ name|apache
 operator|.
 name|http
 operator|.
-name|conn
+name|client
 operator|.
-name|ClientConnectionManager
+name|config
+operator|.
+name|RequestConfig
 import|;
 end_import
 
@@ -212,9 +202,7 @@ name|http
 operator|.
 name|conn
 operator|.
-name|params
-operator|.
-name|ConnRoutePNames
+name|HttpClientConnectionManager
 import|;
 end_import
 
@@ -230,7 +218,7 @@ name|impl
 operator|.
 name|client
 operator|.
-name|DefaultHttpClient
+name|BasicCookieStore
 import|;
 end_import
 
@@ -242,23 +230,11 @@ name|apache
 operator|.
 name|http
 operator|.
-name|params
+name|impl
 operator|.
-name|BasicHttpParams
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|client
 operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|params
-operator|.
-name|HttpParams
+name|HttpClientBuilder
 import|;
 end_import
 
@@ -355,11 +331,6 @@ specifier|private
 name|URI
 name|httpUri
 decl_stmt|;
-DECL|field|clientParams
-specifier|private
-name|HttpParams
-name|clientParams
-decl_stmt|;
 DECL|field|httpClientConfigurer
 specifier|private
 name|HttpClientConfigurer
@@ -367,8 +338,13 @@ name|httpClientConfigurer
 decl_stmt|;
 DECL|field|clientConnectionManager
 specifier|private
-name|ClientConnectionManager
+name|HttpClientConnectionManager
 name|clientConnectionManager
+decl_stmt|;
+DECL|field|clientBuilder
+specifier|private
+name|HttpClientBuilder
+name|clientBuilder
 decl_stmt|;
 DECL|field|httpClient
 specifier|private
@@ -440,6 +416,10 @@ DECL|field|cookieStore
 specifier|private
 name|CookieStore
 name|cookieStore
+init|=
+operator|new
+name|BasicCookieStore
+argument_list|()
 decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
@@ -474,7 +454,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, ClientConnectionManager clientConnectionManager)
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpClientConnectionManager clientConnectionManager)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -487,7 +467,7 @@ parameter_list|,
 name|URI
 name|httpURI
 parameter_list|,
-name|ClientConnectionManager
+name|HttpClientConnectionManager
 name|clientConnectionManager
 parameter_list|)
 throws|throws
@@ -501,8 +481,9 @@ name|component
 argument_list|,
 name|httpURI
 argument_list|,
-operator|new
-name|BasicHttpParams
+name|HttpClientBuilder
+operator|.
+name|create
 argument_list|()
 argument_list|,
 name|clientConnectionManager
@@ -511,7 +492,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, HttpParams clientParams, ClientConnectionManager clientConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, HttpClientBuilder clientBuilder, HttpClientConnectionManager clientConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -521,10 +502,10 @@ parameter_list|,
 name|HttpComponent
 name|component
 parameter_list|,
-name|HttpParams
-name|clientParams
+name|HttpClientBuilder
+name|clientBuilder
 parameter_list|,
-name|ClientConnectionManager
+name|HttpClientConnectionManager
 name|clientConnectionManager
 parameter_list|,
 name|HttpClientConfigurer
@@ -541,7 +522,7 @@ name|component
 argument_list|,
 literal|null
 argument_list|,
-name|clientParams
+name|clientBuilder
 argument_list|,
 name|clientConnectionManager
 argument_list|,
@@ -549,7 +530,7 @@ name|clientConfigurer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpParams clientParams, ClientConnectionManager clientConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|HttpEndpoint (String endPointURI, HttpComponent component, URI httpURI, HttpClientBuilder clientBuilder, HttpClientConnectionManager clientConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
 name|HttpEndpoint
 parameter_list|(
@@ -562,10 +543,10 @@ parameter_list|,
 name|URI
 name|httpURI
 parameter_list|,
-name|HttpParams
-name|clientParams
+name|HttpClientBuilder
+name|clientBuilder
 parameter_list|,
-name|ClientConnectionManager
+name|HttpClientConnectionManager
 name|clientConnectionManager
 parameter_list|,
 name|HttpClientConfigurer
@@ -595,9 +576,9 @@ name|httpURI
 expr_stmt|;
 name|this
 operator|.
-name|clientParams
+name|clientBuilder
 operator|=
-name|clientParams
+name|clientBuilder
 expr_stmt|;
 name|this
 operator|.
@@ -706,9 +687,9 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|clientParams
+name|clientBuilder
 argument_list|,
-literal|"clientParams"
+literal|"httpClientBuilder"
 argument_list|)
 expr_stmt|;
 name|ObjectHelper
@@ -720,33 +701,22 @@ argument_list|,
 literal|"httpConnectionManager"
 argument_list|)
 expr_stmt|;
-name|DefaultHttpClient
-name|answer
-init|=
-operator|new
-name|DefaultHttpClient
-argument_list|(
-name|clientConnectionManager
-argument_list|,
-name|getClientParams
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|cookieStore
-operator|!=
-literal|null
-condition|)
-block|{
-name|answer
+comment|// setup the cookieStore
+name|clientBuilder
 operator|.
-name|setCookieStore
+name|setDefaultCookieStore
 argument_list|(
 name|cookieStore
 argument_list|)
 expr_stmt|;
-block|}
+comment|// setup the httpConnectionManager
+name|clientBuilder
+operator|.
+name|setConnectionManager
+argument_list|(
+name|clientConnectionManager
+argument_list|)
+expr_stmt|;
 comment|// configure http proxy from camelContext
 if|if
 condition|(
@@ -856,47 +826,6 @@ name|scheme
 block|}
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|component
-operator|.
-name|registerPort
-argument_list|(
-name|HttpHelper
-operator|.
-name|isSecureConnection
-argument_list|(
-name|scheme
-argument_list|)
-argument_list|,
-name|component
-operator|.
-name|getX509HostnameVerifier
-argument_list|()
-argument_list|,
-name|port
-argument_list|,
-name|component
-operator|.
-name|getSslContextParameters
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|ex
-argument_list|)
-throw|;
-block|}
 name|HttpHost
 name|proxy
 init|=
@@ -910,18 +839,28 @@ argument_list|,
 name|scheme
 argument_list|)
 decl_stmt|;
-name|answer
+name|clientBuilder
 operator|.
-name|getParams
-argument_list|()
-operator|.
-name|setParameter
+name|setProxy
 argument_list|(
-name|ConnRoutePNames
-operator|.
-name|DEFAULT_PROXY
-argument_list|,
 name|proxy
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isAuthenticationPreemptive
+argument_list|()
+condition|)
+block|{
+comment|// setup the PreemptiveAuthInterceptor here
+name|clientBuilder
+operator|.
+name|addInterceptorFirst
+argument_list|(
+operator|new
+name|PreemptiveAuthInterceptor
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -942,7 +881,7 @@ name|configurer
 operator|.
 name|configureHttpClient
 argument_list|(
-name|answer
+name|clientBuilder
 argument_list|)
 expr_stmt|;
 block|}
@@ -953,9 +892,9 @@ argument_list|()
 condition|)
 block|{
 comment|// need to use noop cookiestore as we do not want to keep cookies in memory
-name|answer
+name|clientBuilder
 operator|.
-name|setCookieStore
+name|setDefaultCookieStore
 argument_list|(
 operator|new
 name|NoopCookieStore
@@ -967,13 +906,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Created HttpClient {}"
+literal|"Setup the HttpClientBuilder {}"
 argument_list|,
-name|answer
+name|clientBuilder
 argument_list|)
 expr_stmt|;
 return|return
-name|answer
+name|clientBuilder
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 DECL|method|connect (HttpConsumer consumer)
@@ -1035,34 +977,66 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+operator|&&
+name|component
+operator|.
+name|getClientConnectionManager
+argument_list|()
+operator|!=
+name|clientConnectionManager
+condition|)
+block|{
+comment|// need to shutdown the ConnectionManager
+name|clientConnectionManager
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-comment|/**      * Provide access to the client parameters used on new {@link HttpClient} instances      * used by producers or consumers of this endpoint.      */
-DECL|method|getClientParams ()
+comment|/**      * Provide access to the http client request parameters used on new {@link RequestConfig} instances      * used by producers or consumers of this endpoint.      */
+DECL|method|getClientBuilder ()
 specifier|public
-name|HttpParams
-name|getClientParams
+name|HttpClientBuilder
+name|getClientBuilder
 parameter_list|()
 block|{
 return|return
-name|clientParams
+name|clientBuilder
 return|;
 block|}
-comment|/**      * Provide access to the client parameters used on new {@link HttpClient} instances      * used by producers or consumers of this endpoint.      */
-DECL|method|setClientParams (HttpParams clientParams)
+comment|/**      * Provide access to the http client request parameters used on new {@link RequestConfig} instances      * used by producers or consumers of this endpoint.      */
+DECL|method|setClientBuilder (HttpClientBuilder clientBuilder)
 specifier|public
 name|void
-name|setClientParams
+name|setClientBuilder
 parameter_list|(
-name|HttpParams
-name|clientParams
+name|HttpClientBuilder
+name|clientBuilder
 parameter_list|)
 block|{
 name|this
 operator|.
-name|clientParams
+name|clientBuilder
 operator|=
-name|clientParams
+name|clientBuilder
 expr_stmt|;
 block|}
 DECL|method|getHttpClientConfigurer ()
@@ -1313,7 +1287,7 @@ expr_stmt|;
 block|}
 DECL|method|getClientConnectionManager ()
 specifier|public
-name|ClientConnectionManager
+name|HttpClientConnectionManager
 name|getClientConnectionManager
 parameter_list|()
 block|{
@@ -1321,12 +1295,12 @@ return|return
 name|clientConnectionManager
 return|;
 block|}
-DECL|method|setClientConnectionManager (ClientConnectionManager clientConnectionManager)
+DECL|method|setClientConnectionManager (HttpClientConnectionManager clientConnectionManager)
 specifier|public
 name|void
 name|setClientConnectionManager
 parameter_list|(
-name|ClientConnectionManager
+name|HttpClientConnectionManager
 name|clientConnectionManager
 parameter_list|)
 block|{

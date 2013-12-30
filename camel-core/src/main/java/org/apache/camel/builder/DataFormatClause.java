@@ -1021,6 +1021,24 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Uses the CSV data format for a huge file.      * Sequential access through an iterator.      */
+DECL|method|csvLazyLoad ()
+specifier|public
+name|T
+name|csvLazyLoad
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|CsvDataFormat
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Uses the custom data format      */
 DECL|method|custom (String ref)
 specifier|public

@@ -144,7 +144,7 @@ literal|"http4://localhost:"
 operator|+
 name|port
 operator|+
-literal|"/test?aa=bb&httpClient.soTimeout=10000&httpClient.connectionTimeout=10000"
+literal|"/test?aa=bb&httpClient.socketTimeout=10000&httpClient.connectTimeout=10000"
 operator|+
 literal|"&bridgeEndpoint=true&throwExceptionOnFailure=false"
 argument_list|,

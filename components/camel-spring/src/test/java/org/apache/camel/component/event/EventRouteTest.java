@@ -126,7 +126,7 @@ specifier|protected
 name|String
 name|uri
 init|=
-literal|"spring-event:default"
+literal|"spring-event:foo"
 decl_stmt|;
 DECL|method|testSendingCamelExchangeToEndpointResultsInValidApplicationEventAfterTheRefreshEvent ()
 specifier|public

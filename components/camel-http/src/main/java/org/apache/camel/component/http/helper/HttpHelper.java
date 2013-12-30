@@ -74,6 +74,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -825,7 +835,7 @@ expr_stmt|;
 return|return
 name|cos
 operator|.
-name|getStreamCache
+name|newStreamCache
 argument_list|()
 return|;
 block|}
@@ -1027,7 +1037,7 @@ name|uri
 operator|=
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|uri
 argument_list|)
@@ -1130,7 +1140,7 @@ name|queryString
 operator|=
 name|UnsafeUriCharactersEncoder
 operator|.
-name|encode
+name|encodeHttpURI
 argument_list|(
 name|queryString
 argument_list|)

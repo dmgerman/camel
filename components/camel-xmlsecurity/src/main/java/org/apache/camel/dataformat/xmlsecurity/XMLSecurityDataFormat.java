@@ -538,6 +538,26 @@ name|XMLUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|XMLSecurityDataFormat
 specifier|public
@@ -619,6 +639,31 @@ name|String
 name|XML_ENC_KEY_STORE_ALIAS
 init|=
 literal|"CamelXmlEncryptionKeyAlias"
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|XMLSecurityDataFormat
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|field|DEFAULT_KEY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_KEY
+init|=
+literal|"Just another 24 Byte key"
 decl_stmt|;
 DECL|field|xmlCipherAlgorithm
 specifier|private
@@ -730,7 +775,7 @@ name|this
 operator|.
 name|passPhrase
 operator|=
-literal|"Just another 24 Byte key"
+name|DEFAULT_KEY
 operator|.
 name|getBytes
 argument_list|()
@@ -3854,6 +3899,29 @@ literal|"AES"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|Arrays
+operator|.
+name|equals
+argument_list|(
+name|passPhrase
+argument_list|,
+name|DEFAULT_KEY
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Using the default encryption key is not secure"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -3886,7 +3954,9 @@ throw|throw
 operator|new
 name|NoSuchAlgorithmException
 argument_list|(
-literal|"NoSuchAlgorithmException while using XMLCipher.TRIPLEDES algorithm: DESede"
+literal|"NoSuchAlgorithmException while using algorithm: "
+operator|+
+name|algorithm
 argument_list|)
 throw|;
 block|}
