@@ -276,6 +276,22 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
+comment|// supports the empty href
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|href
+argument_list|)
+condition|)
+block|{
+name|href
+operator|=
+name|location
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper
