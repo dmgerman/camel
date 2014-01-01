@@ -100,6 +100,10 @@ name|HEADER_JGROUPS_CHANNEL_ADDRESS
 import|;
 end_import
 
+begin_comment
+comment|/**  * JGroups-specific filters factory.  */
+end_comment
+
 begin_class
 DECL|class|JGroupsFilters
 specifier|public
@@ -123,6 +127,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**      * The index of the coordinator node in the {@code org.jgroups.View} instance. Coordinator node is always the first      * one in the members' list of the cluster view.      */
 DECL|field|COORDINATOR_NODE_INDEX
 specifier|private
 specifier|static
@@ -137,7 +142,7 @@ specifier|private
 name|JGroupsFilters
 parameter_list|()
 block|{     }
-comment|/**      * Creates predicate rejecting messages that are instances of {@link org.jgroups.View}, but have not been received      * by the coordinator JGroups node. This filter is useful for keeping only view messages indicating that receiving      * endpoint is a master node.      *      * @return predicate filtering out non-coordinator view messages.      */
+comment|/**      * Creates predicate rejecting messages that are instances of {@code org.jgroups.View}, but have not been received      * by the coordinator JGroups node. This filter is useful for keeping only view messages indicating that receiving      * endpoint is a master node.      *      * @return predicate filtering out non-coordinator view messages.      */
 DECL|method|dropNonCoordinatorViews ()
 specifier|public
 specifier|static
