@@ -80,16 +80,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -104,11 +94,6 @@ name|JcrAuthTestBase
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fails with some error"
-argument_list|)
 DECL|method|testCreateNodeWithAuthentication ()
 specifier|public
 name|void

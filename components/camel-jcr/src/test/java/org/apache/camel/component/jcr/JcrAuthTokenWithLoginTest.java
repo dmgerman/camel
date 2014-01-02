@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jcr
+operator|.
+name|LoginException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -50,16 +60,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -74,11 +74,6 @@ name|JcrAuthTestBase
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fails with some error"
-argument_list|)
 DECL|method|testCreateNodeWithAuthentication ()
 specifier|public
 name|void
@@ -132,6 +127,18 @@ argument_list|(
 literal|"Expected body to be null, found JCR node UUID"
 argument_list|,
 name|uuid
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Wrong exception type"
+argument_list|,
+name|out
+operator|.
+name|getException
+argument_list|()
+operator|instanceof
+name|LoginException
 argument_list|)
 expr_stmt|;
 block|}

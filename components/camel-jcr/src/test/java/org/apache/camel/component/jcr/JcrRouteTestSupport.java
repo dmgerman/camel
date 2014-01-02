@@ -140,6 +140,11 @@ name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
+literal|"target/repository_with_auth"
+argument_list|)
+expr_stmt|;
+name|deleteDirectory
+argument_list|(
 literal|"target/repository"
 argument_list|)
 expr_stmt|;
