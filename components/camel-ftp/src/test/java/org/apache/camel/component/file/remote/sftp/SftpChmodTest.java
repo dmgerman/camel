@@ -97,6 +97,15 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// see https://issues.apache.org/jira/browse/SSHD-267
+if|if
+condition|(
+name|isJava16
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|template
 operator|.
 name|sendBodyAndHeader

@@ -504,14 +504,14 @@ name|operation
 argument_list|)
 throw|;
 block|}
-block|}
-finally|finally
-block|{
 name|session
 operator|.
 name|save
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 name|session
