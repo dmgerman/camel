@@ -1100,15 +1100,11 @@ name|backConduit
 decl_stmt|;
 name|backConduit
 operator|=
-name|destination
-operator|.
 name|getBackChannel
 argument_list|(
+name|destination
+argument_list|,
 name|m
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 comment|// wait for the message to be got from the conduit
@@ -1337,15 +1333,11 @@ name|backConduit
 decl_stmt|;
 name|backConduit
 operator|=
-name|destination
-operator|.
 name|getBackChannel
 argument_list|(
+name|destination
+argument_list|,
 name|m
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 comment|// wait for the message to be got from the conduit
@@ -1459,6 +1451,29 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getBackChannel (CamelDestination destination, Message m)
+specifier|private
+name|Conduit
+name|getBackChannel
+parameter_list|(
+name|CamelDestination
+name|destination
+parameter_list|,
+name|Message
+name|m
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|destination
+operator|.
+name|getInbuiltBackChannel
+argument_list|(
+name|m
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Test
