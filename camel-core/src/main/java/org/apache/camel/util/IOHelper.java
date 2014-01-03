@@ -1430,6 +1430,47 @@ block|}
 block|}
 block|}
 block|}
+comment|/**      * Closes the given resource if it is available and don't catch the exception      *      * @param closeable the object to close      * @throws IOException       */
+DECL|method|closeWithException (Closeable closeable)
+specifier|public
+specifier|static
+name|void
+name|closeWithException
+parameter_list|(
+name|Closeable
+name|closeable
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|closeable
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|closeable
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// don't catch the exception here
+throw|throw
+name|e
+throw|;
+block|}
+block|}
+block|}
 comment|/**      * Closes the given channel if it is available, logging any closing exceptions to the given log.      * The file's channel can optionally be forced to disk.      *      * @param channel the file channel      * @param name the name of the resource      * @param log the log to use when reporting warnings, will use this class's own {@link Logger} if<tt>log == null</tt>      * @param force forces the file channel to disk      */
 DECL|method|close (FileChannel channel, String name, Logger log, boolean force)
 specifier|public
