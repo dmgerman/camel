@@ -128,6 +128,20 @@ name|DOMUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|staxutils
+operator|.
+name|StaxUtils
+import|;
+end_import
+
 begin_comment
 comment|// SET the fault message directly on the out message
 end_comment
@@ -196,9 +210,9 @@ block|{
 name|Element
 name|details
 init|=
-name|DOMUtils
+name|StaxUtils
 operator|.
-name|readXml
+name|read
 argument_list|(
 operator|new
 name|StringReader

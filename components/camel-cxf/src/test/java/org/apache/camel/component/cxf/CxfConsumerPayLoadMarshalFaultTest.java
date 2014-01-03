@@ -148,6 +148,20 @@ name|DOMUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|staxutils
+operator|.
+name|StaxUtils
+import|;
+end_import
+
 begin_class
 DECL|class|CxfConsumerPayLoadMarshalFaultTest
 specifier|public
@@ -240,9 +254,9 @@ decl_stmt|;
 name|Element
 name|details
 init|=
-name|DOMUtils
+name|StaxUtils
 operator|.
-name|readXml
+name|read
 argument_list|(
 operator|new
 name|StringReader

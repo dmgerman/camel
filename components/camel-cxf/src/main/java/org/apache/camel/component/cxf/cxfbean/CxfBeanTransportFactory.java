@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|Bus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|service
 operator|.
 name|model
@@ -142,13 +154,16 @@ name|cxfBeanComponent
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|getDestination (EndpointInfo endpointInfo)
+DECL|method|getDestination (EndpointInfo endpointInfo, Bus b)
 specifier|public
 name|Destination
 name|getDestination
 parameter_list|(
 name|EndpointInfo
 name|endpointInfo
+parameter_list|,
+name|Bus
+name|b
 parameter_list|)
 throws|throws
 name|IOException
@@ -170,8 +185,7 @@ name|CxfBeanDestination
 argument_list|(
 name|cxfBeanComponent
 argument_list|,
-name|getBus
-argument_list|()
+name|b
 argument_list|,
 name|this
 argument_list|,
