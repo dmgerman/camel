@@ -1995,7 +1995,8 @@ operator|instanceof
 name|String
 condition|)
 block|{
-comment|// if the value is a String we must normalize it first
+comment|// if the value is a String we must normalize it first, and must include the prefix
+comment|// as ActiveMQ requires that when converting the String to a javax.jms.Destination type
 name|headerValue
 operator|=
 name|normalizeDestinationName
@@ -2004,6 +2005,8 @@ operator|(
 name|String
 operator|)
 name|headerValue
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
