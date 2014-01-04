@@ -2379,6 +2379,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|optionPrefix
+argument_list|,
+literal|"optionPrefix"
+argument_list|)
+expr_stmt|;
 return|return
 name|setProperties
 argument_list|(
