@@ -371,6 +371,11 @@ specifier|private
 name|boolean
 name|base64
 decl_stmt|;
+DECL|field|allPermissionsRequired
+specifier|private
+name|boolean
+name|allPermissionsRequired
+decl_stmt|;
 DECL|method|ShiroSecurityPolicy ()
 specifier|public
 name|ShiroSecurityPolicy
@@ -893,6 +898,32 @@ operator|.
 name|base64
 operator|=
 name|base64
+expr_stmt|;
+block|}
+DECL|method|isAllPermissionsRequired ()
+specifier|public
+name|boolean
+name|isAllPermissionsRequired
+parameter_list|()
+block|{
+return|return
+name|allPermissionsRequired
+return|;
+block|}
+DECL|method|setAllPermissionsRequired (boolean allPermissionsRequired)
+specifier|public
+name|void
+name|setAllPermissionsRequired
+parameter_list|(
+name|boolean
+name|allPermissionsRequired
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allPermissionsRequired
+operator|=
+name|allPermissionsRequired
 expr_stmt|;
 block|}
 block|}
