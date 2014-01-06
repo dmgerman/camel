@@ -195,6 +195,15 @@ name|DEFAULT_HOST
 init|=
 literal|"localhost"
 decl_stmt|;
+DECL|field|DEFAULT_SOCKETTIMEOUT
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_SOCKETTIMEOUT
+init|=
+literal|30000
+decl_stmt|;
 DECL|field|restletMethod
 specifier|private
 name|Method
@@ -232,6 +241,13 @@ name|int
 name|port
 init|=
 name|DEFAULT_PORT
+decl_stmt|;
+DECL|field|socketTimeout
+specifier|private
+name|int
+name|socketTimeout
+init|=
+name|DEFAULT_SOCKETTIMEOUT
 decl_stmt|;
 DECL|field|uriPattern
 specifier|private
@@ -518,6 +534,32 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+DECL|method|getSocketTimeout ()
+specifier|public
+name|int
+name|getSocketTimeout
+parameter_list|()
+block|{
+return|return
+name|socketTimeout
+return|;
+block|}
+DECL|method|setSocketTimeout (int socketTimeout)
+specifier|public
+name|void
+name|setSocketTimeout
+parameter_list|(
+name|int
+name|socketTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|socketTimeout
+operator|=
+name|socketTimeout
 expr_stmt|;
 block|}
 DECL|method|getUriPattern ()
