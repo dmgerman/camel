@@ -66,6 +66,12 @@ name|TO
 init|=
 literal|"CamelAwsSesTo"
 decl_stmt|;
+DECL|field|HTML_EMAIL
+name|String
+name|HTML_EMAIL
+init|=
+literal|"CamelAwsSesHtmlEmail"
+decl_stmt|;
 block|}
 end_interface
 
