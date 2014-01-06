@@ -416,6 +416,8 @@ name|SesConstants
 operator|.
 name|HTML_EMAIL
 argument_list|,
+literal|false
+argument_list|,
 name|Boolean
 operator|.
 name|class
@@ -438,10 +440,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|isHtmlEmail
-operator|!=
-literal|null
-operator|&&
 name|isHtmlEmail
 condition|)
 block|{
