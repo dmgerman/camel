@@ -319,7 +319,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * A helper method to combine multiple predicates by a logical OR      */
+comment|/**      * A helper method to combine two predicates by a logical OR.      * If you want to combine multiple predicates see {@link #in(Predicate...)}      */
 DECL|method|or (final Predicate left, final Predicate right)
 specifier|public
 specifier|static
@@ -481,6 +481,36 @@ literal|")"
 return|;
 block|}
 block|}
+return|;
+block|}
+comment|/**      * A helper method to return true if any of the predicates matches.      */
+DECL|method|in (List<Predicate> predicates)
+specifier|public
+specifier|static
+name|Predicate
+name|in
+parameter_list|(
+name|List
+argument_list|<
+name|Predicate
+argument_list|>
+name|predicates
+parameter_list|)
+block|{
+return|return
+name|in
+argument_list|(
+name|predicates
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|Predicate
+index|[
+literal|0
+index|]
+argument_list|)
+argument_list|)
 return|;
 block|}
 DECL|method|isEqualTo (final Expression left, final Expression right)
@@ -1943,6 +1973,30 @@ block|}
 block|}
 return|return
 name|answer
+return|;
+block|}
+comment|/**      * Concat the given predicates into a single predicate, which only matches      * if all the predicates matches.      *      * @param predicates predicates      * @return a single predicate containing all the predicates      */
+DECL|method|and (Predicate... predicates)
+specifier|public
+specifier|static
+name|Predicate
+name|and
+parameter_list|(
+name|Predicate
+modifier|...
+name|predicates
+parameter_list|)
+block|{
+return|return
+name|and
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|predicates
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * A constant predicate.      *      * @param answer the constant matches      * @return a predicate that always returns the given answer.      */
