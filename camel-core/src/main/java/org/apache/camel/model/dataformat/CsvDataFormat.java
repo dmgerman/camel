@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a CSV (Comma Separated Values) {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * Represents a CSV (Comma Separated Values) {@link org.apache.camel.spi.DataFormat}  *  * @version  */
 end_comment
 
 begin_class
@@ -223,6 +223,13 @@ DECL|field|lazyLoad
 specifier|private
 name|Boolean
 name|lazyLoad
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|useMaps
+specifier|private
+name|Boolean
+name|useMaps
 decl_stmt|;
 DECL|method|CsvDataFormat ()
 specifier|public
@@ -423,6 +430,32 @@ operator|.
 name|lazyLoad
 operator|=
 name|lazyLoad
+expr_stmt|;
+block|}
+DECL|method|getUseMaps ()
+specifier|public
+name|Boolean
+name|getUseMaps
+parameter_list|()
+block|{
+return|return
+name|useMaps
+return|;
+block|}
+DECL|method|setUseMaps (Boolean useMaps)
+specifier|public
+name|void
+name|setUseMaps
+parameter_list|(
+name|Boolean
+name|useMaps
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useMaps
+operator|=
+name|useMaps
 expr_stmt|;
 block|}
 annotation|@
@@ -650,6 +683,25 @@ argument_list|,
 literal|"lazyLoad"
 argument_list|,
 name|lazyLoad
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|useMaps
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"useMaps"
+argument_list|,
+name|useMaps
 argument_list|)
 expr_stmt|;
 block|}
