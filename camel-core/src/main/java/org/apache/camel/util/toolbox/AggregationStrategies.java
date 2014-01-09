@@ -82,6 +82,22 @@ name|UseLatestAggregationStrategy
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|UseOriginalAggregationStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Toolbox class to create commonly used Aggregation Strategies in a fluent manner.  * For more information about the supported {@link AggregationStrategy}, see links to the Javadocs of the relevant class below.  *   * @since 2.12  */
 end_comment
@@ -149,7 +165,7 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-comment|/**      * Use the latest incoming exchange.      * @see UseLatestAggregationStrategy      */
+comment|/**      * Use the latest incoming exchange.      *      * @see org.apache.camel.processor.aggregate.UseLatestAggregationStrategy      */
 DECL|method|useLatest ()
 specifier|public
 specifier|static
@@ -160,6 +176,20 @@ block|{
 return|return
 operator|new
 name|UseLatestAggregationStrategy
+argument_list|()
+return|;
+block|}
+comment|/**      * Use the original exchange.      *      * @see org.apache.camel.processor.aggregate.UseOriginalAggregationStrategy      */
+DECL|method|useOriginal ()
+specifier|public
+specifier|static
+name|AggregationStrategy
+name|useOriginal
+parameter_list|()
+block|{
+return|return
+operator|new
+name|UseOriginalAggregationStrategy
 argument_list|()
 return|;
 block|}

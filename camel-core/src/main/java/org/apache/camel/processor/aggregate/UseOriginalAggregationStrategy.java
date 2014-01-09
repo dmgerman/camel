@@ -30,20 +30,6 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * An {@link org.apache.camel.processor.aggregate.AggregationStrategy} which just uses the original exchange  * which can be needed when you want to preserve the original Exchange. For example when splitting an {@link Exchange}  * and then you may want to keep routing using the original {@link Exchange}.  *  * @see org.apache.camel.processor.Splitter  * @version   */
 end_comment
@@ -68,6 +54,19 @@ specifier|final
 name|boolean
 name|propagateException
 decl_stmt|;
+DECL|method|UseOriginalAggregationStrategy ()
+specifier|public
+name|UseOriginalAggregationStrategy
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|UseOriginalAggregationStrategy (Exchange original, boolean propagateException)
 specifier|public
 name|UseOriginalAggregationStrategy
@@ -79,15 +78,6 @@ name|boolean
 name|propagateException
 parameter_list|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|original
-argument_list|,
-literal|"Original Exchange"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|original
@@ -146,6 +136,12 @@ block|}
 block|}
 return|return
 name|original
+operator|!=
+literal|null
+condition|?
+name|original
+else|:
+name|oldExchange
 return|;
 block|}
 DECL|method|checkException (Exchange oldExchange, Exchange newExchange)
