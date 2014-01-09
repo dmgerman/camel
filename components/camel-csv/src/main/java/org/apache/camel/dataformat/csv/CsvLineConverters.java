@@ -99,6 +99,13 @@ specifier|final
 class|class
 name|CsvLineConverters
 block|{
+DECL|method|CsvLineConverters ()
+specifier|private
+name|CsvLineConverters
+parameter_list|()
+block|{
+comment|// Prevent instantiation
+block|}
 comment|/**      * Provides an implementation of {@code CsvLineConverter} that converts a line into a {@code List}.      *      * @return List-based {@code CsvLineConverter} implementation      */
 DECL|method|getListConverter ()
 specifier|public
@@ -150,6 +157,7 @@ block|}
 DECL|class|ListLineConverter
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|ListLineConverter
 implements|implements
@@ -200,6 +208,7 @@ block|}
 DECL|class|MapLineConverter
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|MapLineConverter
 implements|implements
@@ -418,13 +427,6 @@ return|return
 name|headers
 return|;
 block|}
-block|}
-DECL|method|CsvLineConverters ()
-specifier|private
-name|CsvLineConverters
-parameter_list|()
-block|{
-comment|// Prevent instantiation
 block|}
 block|}
 end_class

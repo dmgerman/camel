@@ -33,7 +33,6 @@ parameter_list|>
 block|{
 comment|/**      * Converts a single CSV line.      *      * @param line CSV line      * @return Another representation of the CSV line      */
 DECL|method|convertLine (String[] line)
-specifier|public
 name|T
 name|convertLine
 parameter_list|(
