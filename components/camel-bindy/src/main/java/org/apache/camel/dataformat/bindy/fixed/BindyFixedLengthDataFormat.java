@@ -696,7 +696,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|headerRow
+name|footerRow
 operator|!=
 literal|null
 condition|)
