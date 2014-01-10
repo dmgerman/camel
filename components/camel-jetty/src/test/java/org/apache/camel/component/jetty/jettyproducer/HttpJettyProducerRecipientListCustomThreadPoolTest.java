@@ -89,10 +89,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|HttpJettyProducerRecipientListTest
+DECL|class|HttpJettyProducerRecipientListCustomThreadPoolTest
 specifier|public
 class|class
-name|HttpJettyProducerRecipientListTest
+name|HttpJettyProducerRecipientListCustomThreadPoolTest
 extends|extends
 name|BaseJettyTest
 block|{
@@ -162,7 +162,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/myapp?foo=123&bar=cheese"
+literal|"/myapp?foo=123&bar=cheese&httpClientMinThreads=4&httpClientMaxThreads=8"
 argument_list|)
 expr_stmt|;
 block|}

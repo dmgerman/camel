@@ -1470,6 +1470,16 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// start the thread pool
+if|if
+condition|(
+name|client
+operator|.
+name|getThreadPool
+argument_list|()
+operator|instanceof
+name|LifeCycle
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -1482,16 +1492,6 @@ name|getThreadPool
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|client
-operator|.
-name|getThreadPool
-argument_list|()
-operator|instanceof
-name|LifeCycle
-condition|)
-block|{
 operator|(
 operator|(
 name|LifeCycle
@@ -1545,6 +1545,16 @@ name|stop
 argument_list|()
 expr_stmt|;
 comment|// stop thread pool
+if|if
+condition|(
+name|client
+operator|.
+name|getThreadPool
+argument_list|()
+operator|instanceof
+name|LifeCycle
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -1557,16 +1567,6 @@ name|getThreadPool
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|client
-operator|.
-name|getThreadPool
-argument_list|()
-operator|instanceof
-name|LifeCycle
-condition|)
-block|{
 operator|(
 operator|(
 name|LifeCycle
