@@ -4291,6 +4291,44 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|// Disable the external-general-entitites by default
+name|factory
+operator|.
+name|setFeature
+argument_list|(
+literal|"http://xml.org/sax/features/external-general-entities"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParserConfigurationException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"DocumentBuilderFactory doesn't support the feature {} with value {}, due to {}."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+literal|"http://xml.org/sax/features/external-general-entities"
+block|,
+literal|true
+block|,
+name|e
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 comment|// setup the feature from the system property
 name|setupFeatures
 argument_list|(
