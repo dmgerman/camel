@@ -29,6 +29,10 @@ specifier|final
 class|class
 name|XsltConstants
 block|{
+annotation|@
+name|Deprecated
+comment|// XsltComponent don't support this message any more
+comment|// Please create the XsltEndpoint directly from the URI
 DECL|field|XSLT_RESOURCE_URI
 specifier|public
 specifier|static
