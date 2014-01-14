@@ -342,8 +342,6 @@ argument_list|(
 name|config
 argument_list|,
 name|componentProperties
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 return|return

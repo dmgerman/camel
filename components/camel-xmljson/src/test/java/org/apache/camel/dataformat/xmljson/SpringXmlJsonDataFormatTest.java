@@ -162,12 +162,9 @@ init|=
 name|getClass
 argument_list|()
 operator|.
-name|getClassLoader
-argument_list|()
-operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"org/apache/camel/dataformat/xmljson/testMessage1.xml"
+literal|"testMessage1.xml"
 argument_list|)
 decl_stmt|;
 name|String
@@ -345,12 +342,9 @@ init|=
 name|getClass
 argument_list|()
 operator|.
-name|getClassLoader
-argument_list|()
-operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"org/apache/camel/dataformat/xmljson/testMessage1.json"
+literal|"testMessage1.json"
 argument_list|)
 decl_stmt|;
 name|String

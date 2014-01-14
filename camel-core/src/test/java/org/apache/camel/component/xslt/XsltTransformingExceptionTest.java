@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  *   */
 end_comment
 
 begin_class
@@ -164,25 +164,14 @@ operator|.
 name|TransformerException
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|ex
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getCause
-argument_list|()
-operator|instanceof
-name|IllegalArgumentException
-argument_list|)
-expr_stmt|;
 block|}
 comment|// we should not get any message from the result endpoint
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+comment|// As the transformer is turned into security processing mode,
+comment|// This test behavior is changed.
 DECL|method|testXsltWithoutException ()
 specifier|public
 name|void
@@ -203,24 +192,11 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|message
-argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|body
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"Camel"
-argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|template
 operator|.
 name|sendBody
@@ -230,6 +206,35 @@ argument_list|,
 name|GOOD_XML_STRING
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Except a camel Execution exception here"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|ex
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|ex
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerException
+argument_list|)
+expr_stmt|;
+block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;

@@ -4204,6 +4204,14 @@ name|intValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// and we want to use daemon threads
+name|qtp
+operator|.
+name|setDaemon
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// let the thread names indicate they are from the client
 name|qtp
 operator|.
@@ -4221,32 +4229,6 @@ operator|+
 literal|")"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|qtp
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Error starting JettyHttpClient thread pool: "
-operator|+
-name|qtp
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 name|httpClient
 operator|.
 name|setThreadPool

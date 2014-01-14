@@ -136,7 +136,9 @@ name|cxf
 operator|.
 name|bus
 operator|.
-name|CXFBusImpl
+name|extension
+operator|.
+name|ExtensionManagerBus
 import|;
 end_import
 
@@ -356,11 +358,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CXFBusImpl
+name|ExtensionManagerBus
 name|bus
 init|=
 operator|(
-name|CXFBusImpl
+name|ExtensionManagerBus
 operator|)
 name|BusFactory
 operator|.
@@ -384,11 +386,11 @@ argument_list|(
 name|bus
 argument_list|)
 expr_stmt|;
-name|CXFBusImpl
+name|ExtensionManagerBus
 name|newBus
 init|=
 operator|(
-name|CXFBusImpl
+name|ExtensionManagerBus
 operator|)
 name|BusFactory
 operator|.

@@ -666,7 +666,7 @@ if|if
 condition|(
 name|bean
 operator|.
-name|getServiceFactory
+name|getJaxWsServiceFactory
 argument_list|()
 operator|!=
 literal|null
@@ -674,7 +674,7 @@ condition|)
 block|{
 name|bean
 operator|.
-name|getServiceFactory
+name|getJaxWsServiceFactory
 argument_list|()
 operator|.
 name|setPopulateFromClass

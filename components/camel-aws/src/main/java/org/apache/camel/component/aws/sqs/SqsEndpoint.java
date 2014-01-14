@@ -659,7 +659,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|createQueue (AmazonSQS client)
-specifier|private
+specifier|protected
 name|void
 name|createQueue
 parameter_list|(

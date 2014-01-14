@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -258,9 +268,9 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|helpers
+name|staxutils
 operator|.
-name|XMLUtils
+name|StaxUtils
 import|;
 end_import
 
@@ -712,11 +722,15 @@ name|body
 operator|.
 name|add
 argument_list|(
-name|XMLUtils
+name|StaxUtils
 operator|.
-name|parse
+name|read
+argument_list|(
+operator|new
+name|StringReader
 argument_list|(
 name|s
+argument_list|)
 argument_list|)
 operator|.
 name|getDocumentElement

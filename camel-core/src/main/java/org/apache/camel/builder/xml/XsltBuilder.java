@@ -593,6 +593,8 @@ DECL|field|allowStAX
 specifier|private
 name|boolean
 name|allowStAX
+init|=
+literal|true
 decl_stmt|;
 DECL|method|XsltBuilder ()
 specifier|public

@@ -96,11 +96,22 @@ name|JndiRegistry
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"CamelXsltComponent don't support XSLT_RESOURCE_URI header anymore"
+argument_list|)
 DECL|class|XsltFromHeaderOverrideEndpointUriTest
 specifier|public
 class|class

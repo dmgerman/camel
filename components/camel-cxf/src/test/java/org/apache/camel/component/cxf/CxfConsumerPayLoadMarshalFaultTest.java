@@ -142,9 +142,9 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|helpers
+name|staxutils
 operator|.
-name|DOMUtils
+name|StaxUtils
 import|;
 end_import
 
@@ -240,9 +240,9 @@ decl_stmt|;
 name|Element
 name|details
 init|=
-name|DOMUtils
+name|StaxUtils
 operator|.
-name|readXml
+name|read
 argument_list|(
 operator|new
 name|StringReader

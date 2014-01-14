@@ -86,6 +86,10 @@ name|Message
 import|;
 end_import
 
+begin_comment
+comment|/**  * Producer sending messages to the JGroups cluster.  */
+end_comment
+
 begin_class
 DECL|class|JGroupsProducer
 specifier|public
@@ -94,6 +98,7 @@ name|JGroupsProducer
 extends|extends
 name|DefaultProducer
 block|{
+comment|// Producer settings
 DECL|field|channel
 specifier|private
 specifier|final
@@ -106,6 +111,7 @@ specifier|final
 name|String
 name|clusterName
 decl_stmt|;
+comment|// Constructor
 DECL|method|JGroupsProducer (Endpoint endpoint, Channel channel, String clusterName)
 specifier|public
 name|JGroupsProducer
@@ -138,6 +144,7 @@ operator|=
 name|clusterName
 expr_stmt|;
 block|}
+comment|// Life cycle callbacks
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -182,6 +189,7 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Processing logic
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange)

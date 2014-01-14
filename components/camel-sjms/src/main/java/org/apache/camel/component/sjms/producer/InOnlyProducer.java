@@ -36,6 +36,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -100,6 +110,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -117,22 +139,6 @@ operator|.
 name|sjms
 operator|.
 name|BatchMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|SjmsEndpoint
 import|;
 end_import
 
@@ -252,11 +258,12 @@ name|InOnlyProducer
 extends|extends
 name|SjmsProducer
 block|{
-DECL|method|InOnlyProducer (SjmsEndpoint endpoint)
+DECL|method|InOnlyProducer (final Endpoint endpoint)
 specifier|public
 name|InOnlyProducer
 parameter_list|(
-name|SjmsEndpoint
+specifier|final
+name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -304,13 +311,6 @@ literal|null
 decl_stmt|;
 name|Session
 name|session
-init|=
-literal|null
-decl_stmt|;
-name|MessageProducer
-name|messageProducer
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -369,6 +369,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|MessageProducer
+name|messageProducer
+decl_stmt|;
 if|if
 condition|(
 name|isTopic
@@ -470,21 +473,23 @@ block|}
 comment|/*      * @see      * org.apache.camel.component.sjms.SjmsProducer#sendMessage(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)      * @param exchange      * @param callback      * @throws Exception      */
 annotation|@
 name|Override
-DECL|method|sendMessage (Exchange exchange, AsyncCallback callback)
+DECL|method|sendMessage (final Exchange exchange, final AsyncCallback callback)
 specifier|public
 name|void
 name|sendMessage
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|List
+name|Collection
 argument_list|<
 name|Message
 argument_list|>
@@ -495,7 +500,9 @@ name|ArrayList
 argument_list|<
 name|Message
 argument_list|>
-argument_list|()
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 name|MessageProducerResources
 name|producer
@@ -510,8 +517,7 @@ try|try
 block|{
 if|if
 condition|(
-name|getProducers
-argument_list|()
+name|producer
 operator|!=
 literal|null
 condition|)
@@ -542,14 +548,14 @@ operator|instanceof
 name|List
 condition|)
 block|{
-name|List
+name|Iterable
 argument_list|<
 name|?
 argument_list|>
 name|payload
 init|=
 operator|(
-name|List
+name|Iterable
 argument_list|<
 name|?
 argument_list|>
@@ -564,6 +570,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|Object
 name|object
 range|:
@@ -572,8 +579,6 @@ control|)
 block|{
 name|Message
 name|message
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -752,6 +757,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
+specifier|final
 name|Message
 name|message
 range|:
@@ -769,6 +775,20 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|Exception
+argument_list|(
+literal|"Unable to send message: connection not available"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -796,6 +816,13 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|producer
+operator|!=
+literal|null
+condition|)
+block|{
 name|getProducers
 argument_list|()
 operator|.
@@ -804,6 +831,7 @@ argument_list|(
 name|producer
 argument_list|)
 expr_stmt|;
+block|}
 name|callback
 operator|.
 name|done

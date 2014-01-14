@@ -340,7 +340,7 @@ name|cxf
 operator|.
 name|helpers
 operator|.
-name|DOMUtils
+name|IOUtils
 import|;
 end_import
 
@@ -352,9 +352,9 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|helpers
+name|staxutils
 operator|.
-name|IOUtils
+name|StaxUtils
 import|;
 end_import
 
@@ -501,9 +501,9 @@ argument_list|(
 operator|new
 name|DOMSource
 argument_list|(
-name|DOMUtils
+name|StaxUtils
 operator|.
-name|readXml
+name|read
 argument_list|(
 operator|new
 name|StringReader
