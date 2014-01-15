@@ -575,6 +575,11 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+name|EntityManager
+name|entityManager
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 name|LOG
@@ -582,6 +587,16 @@ operator|.
 name|trace
 argument_list|(
 literal|"LoadEntity call"
+argument_list|)
+expr_stmt|;
+name|entityManager
+operator|=
+name|resolveEntityManager
+argument_list|(
+name|template
+operator|.
+name|getEntityManagerFactory
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|T
@@ -641,7 +656,7 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
-name|template
+name|entityManager
 operator|.
 name|persist
 argument_list|(
@@ -661,7 +676,7 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-name|template
+name|entityManager
 operator|.
 name|flush
 argument_list|()
@@ -677,6 +692,11 @@ name|LOCK
 operator|.
 name|unlock
 argument_list|()
+expr_stmt|;
+name|closeNonTransactionalEntityManager
+argument_list|(
+name|entityManager
+argument_list|)
 expr_stmt|;
 block|}
 block|}
