@@ -468,7 +468,6 @@ expr_stmt|;
 name|setOrientation
 argument_list|(
 operator|(
-operator|(
 name|String
 operator|)
 name|printSettings
@@ -477,7 +476,6 @@ name|get
 argument_list|(
 literal|"orientation"
 argument_list|)
-operator|)
 argument_list|)
 expr_stmt|;
 name|setMediaSizeName
@@ -1817,7 +1815,7 @@ return|return
 name|orientation
 return|;
 block|}
-DECL|method|setOrientation ( String orientation )
+DECL|method|setOrientation (String orientation)
 specifier|public
 name|void
 name|setOrientation
