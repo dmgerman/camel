@@ -2779,13 +2779,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
-name|jarCache
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -2795,12 +2789,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
 name|jarCache
-argument_list|)
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}
