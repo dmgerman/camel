@@ -1079,6 +1079,19 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|classMap
+operator|!=
+literal|null
+condition|)
+block|{
+name|classMap
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|getSubscriptionHelper ()
 specifier|public
