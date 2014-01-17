@@ -217,7 +217,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Quartz properties file not found in classpath: doesnotexist.properties"
+literal|"Error loading Quartz properties file: doesnotexist.properties"
 argument_list|,
 name|e
 operator|.
