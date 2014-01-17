@@ -2792,7 +2792,20 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
-comment|// noop
+name|NettyHelper
+operator|.
+name|close
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
+name|ALL_CHANNELS
+operator|.
+name|remove
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
