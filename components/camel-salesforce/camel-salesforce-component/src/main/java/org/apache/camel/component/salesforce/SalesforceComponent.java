@@ -1668,6 +1668,35 @@ operator|=
 name|packages
 expr_stmt|;
 block|}
+DECL|method|setPackages (String packages)
+specifier|public
+name|void
+name|setPackages
+parameter_list|(
+name|String
+name|packages
+parameter_list|)
+block|{
+comment|// split using comma
+if|if
+condition|(
+name|packages
+operator|!=
+literal|null
+condition|)
+block|{
+name|setPackages
+argument_list|(
+name|packages
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|getSession ()
 specifier|public
 name|SalesforceSession
