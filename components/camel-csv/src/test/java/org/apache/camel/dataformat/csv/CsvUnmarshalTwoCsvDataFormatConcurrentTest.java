@@ -101,10 +101,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|CsvUnmarshalTwoCsvDataFormatTest
+DECL|class|CsvUnmarshalTwoCsvDataFormatConcurrentTest
 specifier|public
 class|class
-name|CsvUnmarshalTwoCsvDataFormatTest
+name|CsvUnmarshalTwoCsvDataFormatConcurrentTest
 extends|extends
 name|CamelTestSupport
 block|{
