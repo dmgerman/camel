@@ -721,6 +721,23 @@ name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
 expr_stmt|;
+if|if
+condition|(
+name|getNettyHttpBinding
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getNettyHttpBinding
+argument_list|()
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|headerFilterStrategy
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|isTraceEnabled ()
 specifier|public
