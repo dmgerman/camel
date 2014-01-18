@@ -65,10 +65,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JcrAuthTokenWithLoginTest
+DECL|class|JcrAuthLoginFailureTest
 specifier|public
 class|class
-name|JcrAuthTokenWithLoginTest
+name|JcrAuthLoginFailureTest
 extends|extends
 name|JcrAuthTestBase
 block|{
