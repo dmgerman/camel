@@ -998,14 +998,6 @@ name|getObjects
 parameter_list|()
 block|{
 return|return
-operator|(
-name|List
-argument_list|<
-name|?
-extends|extends
-name|XMLObject
-argument_list|>
-operator|)
 name|signature
 operator|.
 name|getObjects

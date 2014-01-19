@@ -62,16 +62,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URL
@@ -201,20 +191,6 @@ operator|.
 name|stax
 operator|.
 name|StAXSource
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|stream
-operator|.
-name|StreamResult
 import|;
 end_import
 

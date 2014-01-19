@@ -542,13 +542,6 @@ name|this
 operator|.
 name|key
 operator|=
-operator|(
-name|java
-operator|.
-name|lang
-operator|.
-name|CharSequence
-operator|)
 name|data
 argument_list|()
 operator|.
