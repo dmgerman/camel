@@ -408,9 +408,9 @@ operator|==
 name|csvStrategy
 condition|)
 block|{
-comment|// return a safe copy of the declared constant so that we don't cause any side effect
-comment|// by (potentially) other CsvDataFormat objects in use as we change properties of
-comment|// the strategy (e.g. it's set delimiter through the #unmarshal() method below)
+comment|// return a safe copy of the declared static constant so that we don't cause any side effect
+comment|// by (potentially) other CsvDataFormat objects in use, as we change the properties of the
+comment|// strategy itself (e.g. it's set delimiter through the #unmarshal() method below)
 name|LOGGER
 operator|.
 name|debug
@@ -451,7 +451,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// not a declared constant of CSVStrategy, so return it as is
+comment|// not a declared static constant of CSVStrategy so return it as is
 return|return
 name|csvStrategy
 return|;
