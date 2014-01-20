@@ -2421,7 +2421,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Loading Quartz properties file from classpath: {}"
+literal|"Loading Quartz properties file from: {}"
 argument_list|,
 name|getPropertiesFile
 argument_list|()
