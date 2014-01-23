@@ -26,6 +26,10 @@ name|EntityManager
 import|;
 end_import
 
+begin_comment
+comment|/**  * Function operating on the {@code EntityManager} instance. Intended to be executed as a part of the template method  * defined by the {@link org.apache.camel.bam.EntityManagerTemplate#execute(EntityManagerCallback)}.  * {@code EntityManager} should not be closed by the callback, as doing this is the responsibility of the  * {@link org.apache.camel.bam.EntityManagerTemplate}.  *  * @param<T>  */
+end_comment
+
 begin_interface
 DECL|interface|EntityManagerCallback
 specifier|public
