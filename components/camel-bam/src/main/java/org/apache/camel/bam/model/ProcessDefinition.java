@@ -144,20 +144,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|orm
-operator|.
-name|jpa
-operator|.
-name|JpaTemplate
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -233,31 +219,19 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-DECL|method|getRefreshedProcessDefinition (JpaTemplate template, ProcessDefinition definition)
+DECL|method|getRefreshedProcessDefinition (EntityManagerTemplate entityManagerTemplate, ProcessDefinition definition)
 specifier|public
 specifier|static
 name|ProcessDefinition
 name|getRefreshedProcessDefinition
 parameter_list|(
-name|JpaTemplate
-name|template
+name|EntityManagerTemplate
+name|entityManagerTemplate
 parameter_list|,
 name|ProcessDefinition
 name|definition
 parameter_list|)
 block|{
-name|EntityManagerTemplate
-name|entityManagerTemplate
-init|=
-operator|new
-name|EntityManagerTemplate
-argument_list|(
-name|template
-operator|.
-name|getEntityManagerFactory
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// TODO refresh doesn't tend to work - maybe its a spring thing?
 comment|// template.refresh(definition);
 name|ObjectHelper
@@ -295,7 +269,7 @@ expr_stmt|;
 return|return
 name|findOrCreateProcessDefinition
 argument_list|(
-name|template
+name|entityManagerTemplate
 argument_list|,
 name|definition
 operator|.
@@ -343,32 +317,20 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|findOrCreateProcessDefinition (JpaTemplate template, final String processName)
+DECL|method|findOrCreateProcessDefinition (EntityManagerTemplate entityManagerTemplate, final String processName)
 specifier|public
 specifier|static
 name|ProcessDefinition
 name|findOrCreateProcessDefinition
 parameter_list|(
-name|JpaTemplate
-name|template
+name|EntityManagerTemplate
+name|entityManagerTemplate
 parameter_list|,
 specifier|final
 name|String
 name|processName
 parameter_list|)
 block|{
-name|EntityManagerTemplate
-name|entityManagerTemplate
-init|=
-operator|new
-name|EntityManagerTemplate
-argument_list|(
-name|template
-operator|.
-name|getEntityManagerFactory
-argument_list|()
-argument_list|)
-decl_stmt|;
 specifier|final
 name|String
 name|definitionsQuery
@@ -479,7 +441,7 @@ argument_list|(
 name|processName
 argument_list|)
 expr_stmt|;
-name|template
+name|entityManagerTemplate
 operator|.
 name|persist
 argument_list|(

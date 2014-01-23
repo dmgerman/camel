@@ -338,6 +338,11 @@ specifier|private
 name|JpaTemplate
 name|jpaTemplate
 decl_stmt|;
+DECL|field|entityManagerTemplate
+specifier|private
+name|EntityManagerTemplate
+name|entityManagerTemplate
+decl_stmt|;
 DECL|field|transactionTemplate
 specifier|private
 name|TransactionTemplate
@@ -455,6 +460,19 @@ operator|.
 name|processName
 operator|=
 name|processName
+expr_stmt|;
+name|this
+operator|.
+name|entityManagerTemplate
+operator|=
+operator|new
+name|EntityManagerTemplate
+argument_list|(
+name|jpaTemplate
+operator|.
+name|getEntityManagerFactory
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createProcessName ()
@@ -668,6 +686,19 @@ operator|.
 name|jpaTemplate
 operator|=
 name|jpaTemplate
+expr_stmt|;
+name|this
+operator|.
+name|entityManagerTemplate
+operator|=
+operator|new
+name|EntityManagerTemplate
+argument_list|(
+name|jpaTemplate
+operator|.
+name|getEntityManagerFactory
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getTransactionTemplate ()
@@ -1015,13 +1046,13 @@ name|ProcessDefinition
 operator|.
 name|getRefreshedProcessDefinition
 argument_list|(
-name|jpaTemplate
+name|entityManagerTemplate
 argument_list|,
 name|definition
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|jpaTemplate
+name|entityManagerTemplate
 operator|.
 name|persist
 argument_list|(
@@ -1132,7 +1163,7 @@ argument_list|(
 name|processName
 argument_list|)
 expr_stmt|;
-name|jpaTemplate
+name|entityManagerTemplate
 operator|.
 name|persist
 argument_list|(

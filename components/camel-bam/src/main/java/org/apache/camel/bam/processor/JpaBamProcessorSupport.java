@@ -554,6 +554,19 @@ name|template
 operator|=
 name|template
 expr_stmt|;
+name|this
+operator|.
+name|entityManagerTemplate
+operator|=
+operator|new
+name|EntityManagerTemplate
+argument_list|(
+name|template
+operator|.
+name|getEntityManagerFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|isCorrelationKeyIsPrimary ()
 specifier|public
@@ -649,7 +662,7 @@ name|ProcessDefinition
 operator|.
 name|getRefreshedProcessDefinition
 argument_list|(
-name|template
+name|entityManagerTemplate
 argument_list|,
 name|getActivityRules
 argument_list|()
