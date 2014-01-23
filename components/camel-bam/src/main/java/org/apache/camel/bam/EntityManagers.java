@@ -135,6 +135,15 @@ name|EntityManager
 name|entityManager
 parameter_list|)
 block|{
+if|if
+condition|(
+name|entityManager
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|boolean
 name|isTransactional
 init|=
@@ -150,10 +159,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|entityManager
-operator|!=
-literal|null
-operator|&&
 name|isTransactional
 condition|)
 block|{
