@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManagerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -116,20 +126,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|orm
-operator|.
-name|jpa
-operator|.
-name|JpaTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|transaction
 operator|.
 name|support
@@ -169,15 +165,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, JpaTemplate template, Expression correlationKeyExpression, ActivityRules activityRules)
+DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, EntityManagerFactory entityManagerFactory, Expression correlationKeyExpression, ActivityRules activityRules)
 specifier|public
 name|JpaBamProcessor
 parameter_list|(
 name|TransactionTemplate
 name|transactionTemplate
 parameter_list|,
-name|JpaTemplate
-name|template
+name|EntityManagerFactory
+name|entityManagerFactory
 parameter_list|,
 name|Expression
 name|correlationKeyExpression
@@ -190,7 +186,7 @@ name|super
 argument_list|(
 name|transactionTemplate
 argument_list|,
-name|template
+name|entityManagerFactory
 argument_list|,
 name|correlationKeyExpression
 argument_list|,
@@ -198,15 +194,15 @@ name|activityRules
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, JpaTemplate template, Expression correlationKeyExpression, ActivityRules activityRules, Class<ProcessInstance> entitytype)
+DECL|method|JpaBamProcessor (TransactionTemplate transactionTemplate, EntityManagerFactory entityManagerFactory, Expression correlationKeyExpression, ActivityRules activityRules, Class<ProcessInstance> entitytype)
 specifier|public
 name|JpaBamProcessor
 parameter_list|(
 name|TransactionTemplate
 name|transactionTemplate
 parameter_list|,
-name|JpaTemplate
-name|template
+name|EntityManagerFactory
+name|entityManagerFactory
 parameter_list|,
 name|Expression
 name|correlationKeyExpression
@@ -225,7 +221,7 @@ name|super
 argument_list|(
 name|transactionTemplate
 argument_list|,
-name|template
+name|entityManagerFactory
 argument_list|,
 name|correlationKeyExpression
 argument_list|,

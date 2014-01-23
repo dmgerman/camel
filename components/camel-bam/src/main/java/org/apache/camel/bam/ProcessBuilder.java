@@ -58,6 +58,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManagerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -226,35 +236,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CastUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|orm
-operator|.
-name|jpa
-operator|.
-name|JpaTemplate
 import|;
 end_import
 
@@ -333,10 +315,10 @@ specifier|static
 name|int
 name|processCounter
 decl_stmt|;
-DECL|field|jpaTemplate
+DECL|field|entityManagerFactory
 specifier|private
-name|JpaTemplate
-name|jpaTemplate
+name|EntityManagerFactory
+name|entityManagerFactory
 decl_stmt|;
 DECL|field|entityManagerTemplate
 specifier|private
@@ -407,12 +389,12 @@ specifier|protected
 name|ProcessBuilder
 parameter_list|()
 block|{     }
-DECL|method|ProcessBuilder (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate)
+DECL|method|ProcessBuilder (EntityManagerFactory entityManagerFactory, TransactionTemplate transactionTemplate)
 specifier|protected
 name|ProcessBuilder
 parameter_list|(
-name|JpaTemplate
-name|jpaTemplate
+name|EntityManagerFactory
+name|entityManagerFactory
 parameter_list|,
 name|TransactionTemplate
 name|transactionTemplate
@@ -420,7 +402,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|jpaTemplate
+name|entityManagerFactory
 argument_list|,
 name|transactionTemplate
 argument_list|,
@@ -429,12 +411,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ProcessBuilder (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate, String processName)
+DECL|method|ProcessBuilder (EntityManagerFactory entityManagerFactory, TransactionTemplate transactionTemplate, String processName)
 specifier|protected
 name|ProcessBuilder
 parameter_list|(
-name|JpaTemplate
-name|jpaTemplate
+name|EntityManagerFactory
+name|entityManagerFactory
 parameter_list|,
 name|TransactionTemplate
 name|transactionTemplate
@@ -443,36 +425,22 @@ name|String
 name|processName
 parameter_list|)
 block|{
-name|this
-operator|.
-name|jpaTemplate
-operator|=
-name|jpaTemplate
-expr_stmt|;
-name|this
-operator|.
-name|transactionTemplate
-operator|=
-name|transactionTemplate
-expr_stmt|;
-name|this
-operator|.
-name|processName
-operator|=
-name|processName
-expr_stmt|;
-name|this
-operator|.
-name|entityManagerTemplate
-operator|=
-operator|new
-name|EntityManagerTemplate
+name|setEntityManagerFactory
 argument_list|(
-name|jpaTemplate
-operator|.
-name|getEntityManagerFactory
-argument_list|()
+name|entityManagerFactory
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|transactionTemplate
+operator|=
+name|transactionTemplate
+expr_stmt|;
+name|this
+operator|.
+name|processName
+operator|=
+name|processName
 expr_stmt|;
 block|}
 DECL|method|createProcessName ()
@@ -576,9 +544,9 @@ parameter_list|)
 block|{
 name|notNull
 argument_list|(
-name|jpaTemplate
+name|entityManagerFactory
 argument_list|,
-literal|"jpaTemplate"
+literal|"entityManagerFactory"
 argument_list|)
 expr_stmt|;
 name|transactionTemplate
@@ -613,11 +581,9 @@ return|return
 operator|new
 name|JpaBamProcessor
 argument_list|(
-name|getTransactionTemplate
-argument_list|()
+name|transactionTemplate
 argument_list|,
-name|getJpaTemplate
-argument_list|()
+name|entityManagerFactory
 argument_list|,
 name|activityBuilder
 operator|.
@@ -662,30 +628,30 @@ return|return
 name|entityType
 return|;
 block|}
-DECL|method|getJpaTemplate ()
+DECL|method|getEntityManagerFactory ()
 specifier|public
-name|JpaTemplate
-name|getJpaTemplate
+name|EntityManagerFactory
+name|getEntityManagerFactory
 parameter_list|()
 block|{
 return|return
-name|jpaTemplate
+name|entityManagerFactory
 return|;
 block|}
-DECL|method|setJpaTemplate (JpaTemplate jpaTemplate)
+DECL|method|setEntityManagerFactory (EntityManagerFactory entityManagerFactory)
 specifier|public
 name|void
-name|setJpaTemplate
+name|setEntityManagerFactory
 parameter_list|(
-name|JpaTemplate
-name|jpaTemplate
+name|EntityManagerFactory
+name|entityManagerFactory
 parameter_list|)
 block|{
 name|this
 operator|.
-name|jpaTemplate
+name|entityManagerFactory
 operator|=
-name|jpaTemplate
+name|entityManagerFactory
 expr_stmt|;
 name|this
 operator|.
@@ -694,10 +660,7 @@ operator|=
 operator|new
 name|EntityManagerTemplate
 argument_list|(
-name|jpaTemplate
-operator|.
-name|getEntityManagerFactory
-argument_list|()
+name|entityManagerFactory
 argument_list|)
 expr_stmt|;
 block|}
@@ -814,10 +777,9 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|getJpaTemplate
-argument_list|()
+name|entityManagerFactory
 argument_list|,
-literal|"jpaTemplate"
+literal|"entityManagerFactory"
 argument_list|,
 name|this
 argument_list|)
@@ -847,8 +809,7 @@ operator|=
 operator|new
 name|ActivityMonitorEngine
 argument_list|(
-name|getJpaTemplate
-argument_list|()
+name|entityManagerFactory
 argument_list|,
 name|getTransactionTemplate
 argument_list|()
@@ -979,14 +940,14 @@ name|ActivityDefinition
 argument_list|>
 name|list
 init|=
-name|CastUtils
+name|entityManagerTemplate
 operator|.
-name|cast
+name|find
 argument_list|(
-name|jpaTemplate
+name|ActivityDefinition
 operator|.
-name|findByNamedParams
-argument_list|(
+name|class
+argument_list|,
 literal|"select x from "
 operator|+
 name|QueryUtils
@@ -1001,7 +962,6 @@ operator|+
 literal|" x where x.processDefinition = :definition and x.name = :name"
 argument_list|,
 name|params
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -1104,14 +1064,14 @@ name|ProcessDefinition
 argument_list|>
 name|list
 init|=
-name|CastUtils
+name|entityManagerTemplate
 operator|.
-name|cast
+name|find
 argument_list|(
-name|jpaTemplate
+name|ProcessDefinition
 operator|.
-name|findByNamedParams
-argument_list|(
+name|class
+argument_list|,
 literal|"select x from "
 operator|+
 name|QueryUtils
@@ -1126,7 +1086,6 @@ operator|+
 literal|" x where x.name = :name"
 argument_list|,
 name|params
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

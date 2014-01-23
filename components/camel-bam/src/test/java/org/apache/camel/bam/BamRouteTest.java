@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManagerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -109,20 +119,6 @@ operator|.
 name|support
 operator|.
 name|ClassPathXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|orm
-operator|.
-name|jpa
-operator|.
-name|JpaTemplate
 import|;
 end_import
 
@@ -316,16 +312,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JpaTemplate
-name|jpaTemplate
+name|EntityManagerFactory
+name|entityManagerFactory
 init|=
 name|getMandatoryBean
 argument_list|(
-name|JpaTemplate
+name|EntityManagerFactory
 operator|.
 name|class
 argument_list|,
-literal|"jpaTemplate"
+literal|"entityManagerFactory"
 argument_list|)
 decl_stmt|;
 name|TransactionTemplate
@@ -345,7 +341,7 @@ return|return
 operator|new
 name|ProcessBuilder
 argument_list|(
-name|jpaTemplate
+name|entityManagerFactory
 argument_list|,
 name|transactionTemplate
 argument_list|)
