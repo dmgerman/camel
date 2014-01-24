@@ -776,9 +776,6 @@ name|registerDestinationFactory
 argument_list|(
 name|ns
 argument_list|,
-operator|(
-name|DestinationFactory
-operator|)
 name|this
 argument_list|)
 expr_stmt|;
@@ -823,9 +820,6 @@ name|registerConduitInitiator
 argument_list|(
 name|ns
 argument_list|,
-operator|(
-name|ConduitInitiator
-operator|)
 name|this
 argument_list|)
 expr_stmt|;

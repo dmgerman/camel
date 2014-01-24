@@ -108,15 +108,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|ops4j
+name|osgi
 operator|.
-name|pax
-operator|.
-name|swissbox
-operator|.
-name|tinybundles
-operator|.
-name|dp
+name|framework
 operator|.
 name|Constants
 import|;

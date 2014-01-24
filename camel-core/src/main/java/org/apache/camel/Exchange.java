@@ -416,6 +416,12 @@ name|HTTP_QUERY
 init|=
 literal|"CamelHttpQuery"
 decl_stmt|;
+DECL|field|HTTP_RAW_QUERY
+name|String
+name|HTTP_RAW_QUERY
+init|=
+literal|"CamelHttpRawQuery"
+decl_stmt|;
 DECL|field|HTTP_RESPONSE_CODE
 name|String
 name|HTTP_RESPONSE_CODE

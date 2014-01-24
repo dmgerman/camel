@@ -843,6 +843,20 @@ name|getQuery
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|headers
+operator|.
+name|put
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RAW_QUERY
+argument_list|,
+name|uri
+operator|.
+name|getRawQuery
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// strip the starting endpoint path so the path is relative to the endpoint uri
 name|String
 name|path

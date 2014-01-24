@@ -623,9 +623,6 @@ name|session
 operator|.
 name|createConsumer
 argument_list|(
-operator|(
-name|Topic
-operator|)
 name|destination
 argument_list|,
 name|messageSelector
@@ -642,9 +639,6 @@ name|session
 operator|.
 name|createConsumer
 argument_list|(
-operator|(
-name|Topic
-operator|)
 name|destination
 argument_list|)
 expr_stmt|;

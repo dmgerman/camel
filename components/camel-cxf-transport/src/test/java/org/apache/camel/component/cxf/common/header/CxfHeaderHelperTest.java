@@ -1133,12 +1133,6 @@ name|assertEquals
 argument_list|(
 literal|"The value must match"
 argument_list|,
-operator|(
-name|List
-argument_list|<
-name|?
-argument_list|>
-operator|)
 name|value
 argument_list|,
 name|values

@@ -64,6 +64,10 @@ name|TransactionSynchronizationManager
 import|;
 end_import
 
+begin_comment
+comment|/**  * Utility class designed to orchestrate JPA {@link javax.persistence.EntityManager} and Spring transactions.  */
+end_comment
+
 begin_class
 DECL|class|EntityManagers
 specifier|public
@@ -76,6 +80,7 @@ specifier|private
 name|EntityManagers
 parameter_list|()
 block|{     }
+comment|/**      * Fetches {@link javax.persistence.EntityManager} bound to the current Spring transaction or creates new manager.      *      * @param entityManagerFactory {@link javax.persistence.EntityManagerFactory} used either as a key for a Spring      *                             transaction resource lookup or as a factory to create new      *                             {@link javax.persistence.EntityManager}.      * @return {@link javax.persistence.EntityManager} bound to the existing Spring transaction or new manager instance.      */
 DECL|method|resolveEntityManager (EntityManagerFactory entityManagerFactory)
 specifier|public
 specifier|static
@@ -130,6 +135,15 @@ name|EntityManager
 name|entityManager
 parameter_list|)
 block|{
+if|if
+condition|(
+name|entityManager
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|boolean
 name|isTransactional
 init|=
@@ -145,10 +159,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|entityManager
-operator|!=
-literal|null
-operator|&&
 name|isTransactional
 condition|)
 block|{

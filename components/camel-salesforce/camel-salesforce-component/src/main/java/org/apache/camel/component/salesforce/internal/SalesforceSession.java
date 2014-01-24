@@ -689,16 +689,21 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-name|loginPost
-operator|.
-name|setURL
-argument_list|(
+name|String
+name|url
+init|=
 name|config
 operator|.
 name|getLoginUrl
 argument_list|()
 operator|+
 name|OAUTH2_TOKEN_PATH
+decl_stmt|;
+name|loginPost
+operator|.
+name|setURL
+argument_list|(
+name|url
 argument_list|)
 expr_stmt|;
 name|loginPost
@@ -793,6 +798,20 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Logging clientId: {} into Salesforce url: {}"
+argument_list|,
+name|config
+operator|.
+name|getClientId
+argument_list|()
+argument_list|,
+name|url
+argument_list|)
+expr_stmt|;
 comment|// set form content
 name|loginPost
 operator|.

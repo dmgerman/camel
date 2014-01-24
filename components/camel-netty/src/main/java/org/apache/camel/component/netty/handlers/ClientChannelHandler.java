@@ -767,6 +767,16 @@ argument_list|(
 name|ctx
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// we just ignore the received message as the channel is closed
+return|return;
+block|}
 name|AsyncCallback
 name|callback
 init|=

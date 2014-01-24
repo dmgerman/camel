@@ -466,6 +466,16 @@ name|getInternalSides
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|printRequestAttributeSet
+operator|.
+name|add
+argument_list|(
+name|config
+operator|.
+name|getInternalOrientation
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|config

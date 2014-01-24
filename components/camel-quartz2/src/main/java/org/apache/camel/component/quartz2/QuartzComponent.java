@@ -178,6 +178,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|quartz
 operator|.
 name|Scheduler
@@ -944,7 +958,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Loading Quartz properties file from classpath: {}"
+literal|"Loading Quartz properties file from: {}"
 argument_list|,
 name|getPropertiesFile
 argument_list|()
@@ -953,44 +967,32 @@ expr_stmt|;
 name|InputStream
 name|is
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|is
+operator|=
+name|ResourceHelper
+operator|.
+name|resolveMandatoryResourceAsInputStream
+argument_list|(
 name|getCamelContext
 argument_list|()
 operator|.
 name|getClassResolver
 argument_list|()
-operator|.
-name|loadResourceAsStream
-argument_list|(
+argument_list|,
 name|getPropertiesFile
 argument_list|()
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|is
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|SchedulerException
-argument_list|(
-literal|"Quartz properties file not found in classpath: "
-operator|+
-name|getPropertiesFile
-argument_list|()
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 name|answer
 operator|=
 operator|new
 name|Properties
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 name|answer
 operator|.
 name|load
@@ -1009,7 +1011,7 @@ throw|throw
 operator|new
 name|SchedulerException
 argument_list|(
-literal|"Error loading Quartz properties file from classpath: "
+literal|"Error loading Quartz properties file: "
 operator|+
 name|getPropertiesFile
 argument_list|()

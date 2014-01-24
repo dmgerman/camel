@@ -457,9 +457,6 @@ decl_stmt|;
 name|Element
 name|el
 init|=
-operator|(
-name|Element
-operator|)
 name|payload
 operator|.
 name|getBody
