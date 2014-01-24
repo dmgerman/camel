@@ -166,7 +166,10 @@ name|isXalanTransformer
 argument_list|(
 name|xsltBuilder
 operator|.
-name|getTemplate
+name|getConverter
+argument_list|()
+operator|.
+name|getTransformerFactory
 argument_list|()
 operator|.
 name|newTransformer
