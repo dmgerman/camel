@@ -920,7 +920,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|isXalanTransformer (Transformer transformer)
-specifier|private
 name|boolean
 name|isXalanTransformer
 parameter_list|(
@@ -1977,6 +1976,12 @@ condition|)
 block|{
 if|if
 condition|(
+name|isAllowStAX
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|isXalanTransformer
 condition|)
 block|{
@@ -2021,12 +2026,6 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
-if|if
-condition|(
-name|isAllowStAX
-argument_list|()
-condition|)
 block|{
 name|source
 operator|=
