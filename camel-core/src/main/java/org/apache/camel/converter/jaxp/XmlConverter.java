@@ -3247,14 +3247,17 @@ name|ParserConfigurationException
 throws|,
 name|TransformerException
 block|{
-return|return
+if|if
+condition|(
 name|nl
 operator|.
 name|getLength
 argument_list|()
 operator|==
 literal|1
-condition|?
+condition|)
+block|{
+return|return
 name|toDOMDocument
 argument_list|(
 name|nl
@@ -3264,9 +3267,34 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-else|:
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|nl
+operator|instanceof
+name|Node
+condition|)
+block|{
+comment|// as XML parsers may often have nodes that implement both Node and NodeList then the type converter lookup
+comment|// may lookup either a type converter from NodeList or Node. So let's fallback and try with Node
+return|return
+name|toDOMDocument
+argument_list|(
+operator|(
+name|Node
+operator|)
+name|nl
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
 literal|null
 return|;
+block|}
 block|}
 comment|/**      * Converts the given TRaX Source into a W3C DOM node      */
 annotation|@
