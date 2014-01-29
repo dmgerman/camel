@@ -4817,7 +4817,14 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+operator|new
+name|ArrayList
+argument_list|<
+name|Source
+argument_list|>
+argument_list|(
+literal|0
+argument_list|)
 return|;
 block|}
 name|org
