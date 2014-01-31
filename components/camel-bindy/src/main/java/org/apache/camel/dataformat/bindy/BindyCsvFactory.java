@@ -1390,6 +1390,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|obj
+operator|!=
+literal|null
+operator|&&
 name|LOG
 operator|.
 name|isDebugEnabled
