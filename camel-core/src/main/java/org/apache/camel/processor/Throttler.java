@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/throttler.html">Throttler</a>  * will set a limit on the maximum number of message exchanges which can be sent  * to a processor within a specific time period.<p/> This pattern can be  * extremely useful if you have some external system which meters access; such  * as only allowing 100 requests per second; or if huge load can cause a  * particular system to malfunction or to reduce its throughput you might want  * to introduce some throttling.  *   * @version   */
+comment|/**  * A<a href="http://camel.apache.org/throttler.html">Throttler</a>  * will set a limit on the maximum number of message exchanges which can be sent  * to a processor within a specific time period.<p/> This pattern can be  * extremely useful if you have some external system which meters access; such  * as only allowing 100 requests per second; or if huge load can cause a  * particular system to malfunction or to reduce its throughput you might want  * to introduce some throttling.  *  * @version  */
 end_comment
 
 begin_class
@@ -462,6 +462,20 @@ name|longValue
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|maximumRequestsPerPeriod
+operator|>
+name|longValue
+condition|)
+block|{
+name|slot
+operator|.
+name|capacity
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|maximumRequestsPerPeriod
 operator|=
 name|longValue
@@ -552,7 +566,7 @@ operator|||
 operator|!
 name|slot
 operator|.
-name|isActive
+name|isPast
 argument_list|()
 condition|)
 block|{
@@ -680,6 +694,30 @@ operator|.
 name|duration
 argument_list|)
 argument_list|)
+return|;
+block|}
+DECL|method|isPast ()
+specifier|protected
+name|boolean
+name|isPast
+parameter_list|()
+block|{
+name|long
+name|current
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
+return|return
+name|current
+operator|<
+operator|(
+name|startTime
+operator|+
+name|duration
+operator|)
 return|;
 block|}
 DECL|method|isActive ()
