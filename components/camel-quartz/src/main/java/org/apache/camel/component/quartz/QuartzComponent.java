@@ -2899,6 +2899,17 @@ expr_stmt|;
 block|}
 comment|// register current camel context to scheduler so we can look it up when jobs is being triggered
 comment|// must use management name as it should be unique in the same JVM
+name|String
+name|uid
+init|=
+name|QuartzHelper
+operator|.
+name|getQuartzContextName
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|scheduler
 operator|.
 name|getContext
@@ -2912,11 +2923,7 @@ name|QUARTZ_CAMEL_CONTEXT
 operator|+
 literal|"-"
 operator|+
-name|getCamelContext
-argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
+name|uid
 argument_list|,
 name|getCamelContext
 argument_list|()
