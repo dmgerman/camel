@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Bean validator that uses the JSR 303 reference implementation  * (Hibernate Validator).  *  * @version   */
+comment|/**  * Bean validator that uses the JSR 303 reference implementation (Hibernate Validator).  * Throws {@link BeanValidationException} if constrain violations are detected.  */
 end_comment
 
 begin_class
