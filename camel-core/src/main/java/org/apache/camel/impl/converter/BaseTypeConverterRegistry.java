@@ -3032,6 +3032,21 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|typeMappings
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

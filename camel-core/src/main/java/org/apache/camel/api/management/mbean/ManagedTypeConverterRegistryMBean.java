@@ -147,6 +147,36 @@ name|boolean
 name|statisticsEnabled
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of type converters in the registry"
+argument_list|)
+DECL|method|getNumberOfTypeConverters ()
+name|int
+name|getNumberOfTypeConverters
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Checks whether a type converter exists for converting (from -> to)"
+argument_list|)
+DECL|method|hasTypeConverter (String fromType, String toType)
+name|boolean
+name|hasTypeConverter
+parameter_list|(
+name|String
+name|fromType
+parameter_list|,
+name|String
+name|toType
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

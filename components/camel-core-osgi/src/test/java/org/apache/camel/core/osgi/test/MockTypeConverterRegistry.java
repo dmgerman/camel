@@ -269,6 +269,19 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|typeConverters
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void

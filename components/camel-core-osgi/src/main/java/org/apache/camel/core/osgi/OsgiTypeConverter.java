@@ -991,6 +991,20 @@ name|getStatistics
 argument_list|()
 return|;
 block|}
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|getDelegate
+argument_list|()
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 DECL|method|getDelegate ()
 specifier|public
 specifier|synchronized

@@ -193,6 +193,12 @@ name|Statistics
 name|getStatistics
 parameter_list|()
 function_decl|;
+comment|/**      * Number of type converters in the registry.      *      * @return number of type converters in the registry.      */
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
