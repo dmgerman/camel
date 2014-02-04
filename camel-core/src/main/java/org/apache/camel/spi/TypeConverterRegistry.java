@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,6 +57,20 @@ operator|.
 name|camel
 operator|.
 name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|KeyValueHolder
 import|;
 end_import
 
@@ -171,6 +205,16 @@ name|?
 argument_list|>
 name|fromType
 parameter_list|)
+function_decl|;
+comment|/**      * Gets a read-only list of the type converter from / to classes      *      * @return a list containing fromType/toType class names      */
+DECL|method|listAllTypeConvertersFromTo ()
+name|List
+argument_list|<
+name|Class
+index|[]
+argument_list|>
+name|listAllTypeConvertersFromTo
+parameter_list|()
 function_decl|;
 comment|/**      * Sets the injector to be used for creating new instances during type conversions.      *      * @param injector the injector      */
 DECL|method|setInjector (Injector injector)

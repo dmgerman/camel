@@ -34,6 +34,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -943,6 +953,24 @@ name|toType
 argument_list|,
 name|fromType
 argument_list|)
+return|;
+block|}
+DECL|method|listAllTypeConvertersFromTo ()
+specifier|public
+name|List
+argument_list|<
+name|Class
+index|[]
+argument_list|>
+name|listAllTypeConvertersFromTo
+parameter_list|()
+block|{
+return|return
+name|getDelegate
+argument_list|()
+operator|.
+name|listAllTypeConvertersFromTo
+argument_list|()
 return|;
 block|}
 DECL|method|setInjector (Injector injector)
