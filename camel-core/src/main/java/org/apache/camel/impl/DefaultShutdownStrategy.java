@@ -979,10 +979,31 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|TimeoutException
+name|ExecutionException
 name|e
 parameter_list|)
 block|{
+comment|// unwrap execution exception
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// either timeout or interrupted exception was thrown so this is okay
+comment|// as interrupted would mean cancel was called on the currentShutdownTaskFuture to signal a forced timeout
 comment|// we hit a timeout, so set the flag
 name|timeoutOccurred
 operator|.
@@ -1094,25 +1115,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|ExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// unwrap execution exception
-throw|throw
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-throw|;
 block|}
 finally|finally
 block|{
