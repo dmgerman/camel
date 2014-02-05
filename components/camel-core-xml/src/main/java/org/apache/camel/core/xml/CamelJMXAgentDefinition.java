@@ -194,7 +194,7 @@ specifier|private
 name|String
 name|createConnector
 init|=
-literal|"true"
+literal|"false"
 decl_stmt|;
 comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 annotation|@
