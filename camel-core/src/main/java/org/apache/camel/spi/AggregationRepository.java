@@ -60,7 +60,7 @@ specifier|public
 interface|interface
 name|AggregationRepository
 block|{
-comment|/**      * Add the given {@link Exchange} under the correlation key.      *<p/>      * Will replace any existing exchange.      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the aggregated exchange      * @return the old exchange if any existed      */
+comment|/**      * Add the given {@link Exchange} under the correlation key.      *<p/>      * Will replace any existing exchange.      *<p/>      *<b>Important:</b> This method is<b>not</b> invoked if only one exchange was completed, and therefore      * the exchange does not need to be added to a repository, as its completed immediately.      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the aggregated exchange      * @return the old exchange if any existed      */
 DECL|method|add (CamelContext camelContext, String key, Exchange exchange)
 name|Exchange
 name|add
@@ -75,7 +75,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the given exchange with the correlation key      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @return the exchange, or<tt>null</tt> if no exchange was previously added      */
+comment|/**      * Gets the given exchange with the correlation key      *<p/>      * This method is always invoked for any incoming exchange in the aggregator.      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @return the exchange, or<tt>null</tt> if no exchange was previously added      */
 DECL|method|get (CamelContext camelContext, String key)
 name|Exchange
 name|get
@@ -87,7 +87,7 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Removes the exchange with the given correlation key, which should happen      * when an {@link Exchange} is completed      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the exchange to remove      */
+comment|/**      * Removes the exchange with the given correlation key, which should happen      * when an {@link Exchange} is completed      *<p/>      *<b>Important:</b> This method is<b>not</b> invoked if only one exchange was completed, and therefore      * the exchange does not need to be added to a repository, as its completed immediately.      *      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the exchange to remove      */
 DECL|method|remove (CamelContext camelContext, String key, Exchange exchange)
 name|void
 name|remove
@@ -102,7 +102,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Confirms the completion of the {@link Exchange}.      *      * @param camelContext  the current CamelContext      * @param exchangeId    exchange id to confirm      */
+comment|/**      * Confirms the completion of the {@link Exchange}.      *<p/>      * This method is always invoked.      *      * @param camelContext  the current CamelContext      * @param exchangeId    exchange id to confirm      */
 DECL|method|confirm (CamelContext camelContext, String exchangeId)
 name|void
 name|confirm
