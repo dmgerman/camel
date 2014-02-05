@@ -802,7 +802,7 @@ name|ssl
 operator|=
 name|component
 operator|.
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -819,7 +819,7 @@ name|sslHandler
 operator|=
 name|component
 operator|.
-name|resolveAndRemoveReferenceParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -836,7 +836,7 @@ name|passphrase
 operator|=
 name|component
 operator|.
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -853,7 +853,7 @@ name|keyStoreFormat
 operator|=
 name|component
 operator|.
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -876,7 +876,7 @@ name|securityProvider
 operator|=
 name|component
 operator|.
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -899,7 +899,7 @@ name|keyStoreFile
 operator|=
 name|component
 operator|.
-name|resolveAndRemoveReferenceParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -916,7 +916,7 @@ name|trustStoreFile
 operator|=
 name|component
 operator|.
-name|resolveAndRemoveReferenceParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -933,7 +933,7 @@ name|keyStoreResource
 operator|=
 name|component
 operator|.
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -950,7 +950,7 @@ name|trustStoreResource
 operator|=
 name|component
 operator|.
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -967,7 +967,7 @@ name|clientPipelineFactory
 operator|=
 name|component
 operator|.
-name|resolveAndRemoveReferenceParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -984,7 +984,7 @@ name|serverPipelineFactory
 operator|=
 name|component
 operator|.
-name|resolveAndRemoveReferenceParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
