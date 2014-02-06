@@ -70,6 +70,20 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jivesoftware
+operator|.
+name|smack
+operator|.
+name|packet
+operator|.
+name|Packet
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a {@link org.apache.camel.Message} for working with XMPP  *  * @version   */
 end_comment
@@ -82,10 +96,10 @@ name|XmppMessage
 extends|extends
 name|DefaultMessage
 block|{
-DECL|field|xmppMessage
+DECL|field|xmppPacket
 specifier|private
-name|Message
-name|xmppMessage
+name|Packet
+name|xmppPacket
 decl_stmt|;
 DECL|method|XmppMessage ()
 specifier|public
@@ -110,7 +124,22 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|xmppMessage
+name|xmppPacket
+operator|=
+name|jmsMessage
+expr_stmt|;
+block|}
+DECL|method|XmppMessage (Packet jmsMessage)
+specifier|public
+name|XmppMessage
+parameter_list|(
+name|Packet
+name|jmsMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmppPacket
 operator|=
 name|jmsMessage
 expr_stmt|;
@@ -125,7 +154,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|xmppMessage
+name|xmppPacket
 operator|!=
 literal|null
 condition|)
@@ -133,7 +162,7 @@ block|{
 return|return
 literal|"XmppMessage: "
 operator|+
-name|xmppMessage
+name|xmppPacket
 return|;
 block|}
 else|else
@@ -154,7 +183,18 @@ name|getXmppMessage
 parameter_list|()
 block|{
 return|return
-name|xmppMessage
+operator|(
+name|xmppPacket
+operator|instanceof
+name|Message
+operator|)
+condition|?
+operator|(
+name|Message
+operator|)
+name|xmppPacket
+else|:
+literal|null
 return|;
 block|}
 DECL|method|setXmppMessage (Message xmppMessage)
@@ -168,9 +208,36 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|xmppMessage
+name|xmppPacket
 operator|=
 name|xmppMessage
+expr_stmt|;
+block|}
+comment|/**      * Returns the underlying XMPP packet      */
+DECL|method|getXmppPacket ()
+specifier|public
+name|Packet
+name|getXmppPacket
+parameter_list|()
+block|{
+return|return
+name|xmppPacket
+return|;
+block|}
+DECL|method|setXmppPacket (Packet xmppPacket)
+specifier|public
+name|void
+name|setXmppPacket
+parameter_list|(
+name|Packet
+name|xmppPacket
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmppPacket
+operator|=
+name|xmppPacket
 expr_stmt|;
 block|}
 annotation|@
@@ -197,7 +264,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|xmppMessage
+name|xmppPacket
 operator|!=
 literal|null
 condition|)
@@ -225,6 +292,17 @@ literal|null
 condition|)
 block|{
 return|return
+operator|(
+name|getHeader
+argument_list|(
+name|XmppConstants
+operator|.
+name|docHeader
+argument_list|)
+operator|==
+literal|null
+operator|)
+condition|?
 name|binding
 operator|.
 name|extractBodyFromXmpp
@@ -232,7 +310,14 @@ argument_list|(
 name|getExchange
 argument_list|()
 argument_list|,
-name|xmppMessage
+name|xmppPacket
+argument_list|)
+else|:
+name|getHeader
+argument_list|(
+name|XmppConstants
+operator|.
+name|docHeader
 argument_list|)
 return|;
 block|}
@@ -259,7 +344,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|xmppMessage
+name|xmppPacket
 operator|!=
 literal|null
 condition|)
@@ -294,7 +379,7 @@ name|binding
 operator|.
 name|extractHeadersFromXmpp
 argument_list|(
-name|xmppMessage
+name|xmppPacket
 argument_list|,
 name|getExchange
 argument_list|()

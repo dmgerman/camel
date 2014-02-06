@@ -418,6 +418,22 @@ specifier|private
 name|XMPPConnection
 name|connection
 decl_stmt|;
+DECL|field|pubsub
+specifier|private
+name|boolean
+name|pubsub
+init|=
+literal|false
+decl_stmt|;
+comment|//Set a doc header on the IN message containing a Document form of the incoming packet;
+comment|//default is true if pubsub is true, otherwise false
+DECL|field|doc
+specifier|private
+name|boolean
+name|doc
+init|=
+literal|false
+decl_stmt|;
 DECL|field|testConnectionOnStartup
 specifier|private
 name|boolean
@@ -496,6 +512,19 @@ else|else
 block|{
 if|if
 condition|(
+name|isPubsub
+argument_list|()
+operator|==
+literal|true
+condition|)
+block|{
+return|return
+name|createPubSubProducer
+argument_list|()
+return|;
+block|}
+if|if
+condition|(
 name|getParticipant
 argument_list|()
 operator|==
@@ -558,6 +587,22 @@ name|participant
 argument_list|)
 return|;
 block|}
+DECL|method|createPubSubProducer ()
+specifier|public
+name|Producer
+name|createPubSubProducer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|XmppPubSubProducer
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
 name|Consumer
@@ -609,13 +654,13 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange (Message message)
+DECL|method|createExchange (Packet packet)
 specifier|public
 name|Exchange
 name|createExchange
 parameter_list|(
-name|Message
-name|message
+name|Packet
+name|packet
 parameter_list|)
 block|{
 return|return
@@ -624,11 +669,11 @@ argument_list|(
 name|getExchangePattern
 argument_list|()
 argument_list|,
-name|message
+name|packet
 argument_list|)
 return|;
 block|}
-DECL|method|createExchange (ExchangePattern pattern, Message message)
+DECL|method|createExchange (ExchangePattern pattern, Packet packet)
 specifier|private
 name|Exchange
 name|createExchange
@@ -636,8 +681,8 @@ parameter_list|(
 name|ExchangePattern
 name|pattern
 parameter_list|,
-name|Message
-name|message
+name|Packet
+name|packet
 parameter_list|)
 block|{
 name|Exchange
@@ -671,7 +716,7 @@ argument_list|(
 operator|new
 name|XmppMessage
 argument_list|(
-name|message
+name|packet
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1743,6 +1788,71 @@ name|connectionPollDelay
 operator|=
 name|connectionPollDelay
 expr_stmt|;
+block|}
+DECL|method|setPubsub (boolean pubsub)
+specifier|public
+name|void
+name|setPubsub
+parameter_list|(
+name|boolean
+name|pubsub
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pubsub
+operator|=
+name|pubsub
+expr_stmt|;
+if|if
+condition|(
+name|pubsub
+operator|==
+literal|true
+condition|)
+block|{
+name|setDoc
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|isPubsub ()
+specifier|public
+name|boolean
+name|isPubsub
+parameter_list|()
+block|{
+return|return
+name|pubsub
+return|;
+block|}
+DECL|method|setDoc (boolean doc)
+specifier|public
+name|void
+name|setDoc
+parameter_list|(
+name|boolean
+name|doc
+parameter_list|)
+block|{
+name|this
+operator|.
+name|doc
+operator|=
+name|doc
+expr_stmt|;
+block|}
+DECL|method|isDoc ()
+specifier|public
+name|boolean
+name|isDoc
+parameter_list|()
+block|{
+return|return
+name|doc
+return|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------

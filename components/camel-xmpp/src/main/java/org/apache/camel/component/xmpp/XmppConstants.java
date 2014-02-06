@@ -64,6 +64,12 @@ name|TO
 init|=
 literal|"CamelXmppTo"
 decl_stmt|;
+DECL|field|docHeader
+name|String
+name|docHeader
+init|=
+literal|"doc"
+decl_stmt|;
 block|}
 end_interface
 
