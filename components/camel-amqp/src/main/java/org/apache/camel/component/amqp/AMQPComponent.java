@@ -136,20 +136,6 @@ name|AMQConnectionFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|qpid
-operator|.
-name|url
-operator|.
-name|URLSyntaxException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This component supports the AMQP protocol using the Client API of the Apache Qpid project.  *   * @version   */
 end_comment
