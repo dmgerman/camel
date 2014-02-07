@@ -66,6 +66,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -282,15 +296,14 @@ expr_stmt|;
 comment|// we're done so let's properly close the application contexts, but close
 comment|// the second app before the first one so that the quartz scheduler running
 comment|// inside it can be properly shutdown
+name|IOHelper
+operator|.
+name|close
+argument_list|(
 name|app2
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+argument_list|,
 name|app
-operator|.
-name|close
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

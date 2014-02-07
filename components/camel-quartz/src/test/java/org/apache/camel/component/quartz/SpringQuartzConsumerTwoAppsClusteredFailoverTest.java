@@ -90,6 +90,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -258,10 +272,12 @@ argument_list|(
 literal|"The first app is going to crash NOW!"
 argument_list|)
 expr_stmt|;
-name|app
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|app
+argument_list|)
 expr_stmt|;
 name|log
 operator|.
@@ -350,17 +366,15 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// close the second app as we're done now
+comment|// and as the last step shutdown the second app as well as the database
+name|IOHelper
+operator|.
+name|close
+argument_list|(
 name|app2
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-comment|// and as the last step shutdown the database...
+argument_list|,
 name|db
-operator|.
-name|close
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|class|ClusteringPredicate
