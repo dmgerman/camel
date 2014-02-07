@@ -723,11 +723,6 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|class|CamelContextFactoryBean
 specifier|public
 class|class
