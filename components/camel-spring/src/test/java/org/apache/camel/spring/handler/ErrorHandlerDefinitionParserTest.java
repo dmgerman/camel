@@ -128,6 +128,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -176,10 +190,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ctx
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|ctx
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testLoggingErrorHandler ()
