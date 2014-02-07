@@ -30,6 +30,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -108,19 +122,13 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|applicationContext
-operator|!=
-literal|null
-condition|)
-block|{
-name|applicationContext
+name|IOHelper
 operator|.
-name|destroy
-argument_list|()
+name|close
+argument_list|(
+name|applicationContext
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Looks up the mandatory spring bean of the given name and type, failing if      * it is not present or the correct type      */
 DECL|method|getMandatoryBean (Class<T> type, String name)
