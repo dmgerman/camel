@@ -158,6 +158,13 @@ specifier|private
 name|String
 name|address
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|pubSub
+specifier|private
+name|Boolean
+name|pubSub
+decl_stmt|;
 DECL|method|VertxEndpoint (String uri, VertxComponent component, String address)
 specifier|public
 name|VertxEndpoint
@@ -298,6 +305,46 @@ block|{
 return|return
 name|address
 return|;
+block|}
+DECL|method|isPubSub ()
+specifier|public
+name|boolean
+name|isPubSub
+parameter_list|()
+block|{
+return|return
+name|pubSub
+operator|!=
+literal|null
+operator|&&
+name|pubSub
+return|;
+block|}
+DECL|method|getPubSub ()
+specifier|public
+name|Boolean
+name|getPubSub
+parameter_list|()
+block|{
+return|return
+name|pubSub
+return|;
+block|}
+DECL|method|setPubSub (Boolean pubSub)
+specifier|public
+name|void
+name|setPubSub
+parameter_list|(
+name|Boolean
+name|pubSub
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pubSub
+operator|=
+name|pubSub
+expr_stmt|;
 block|}
 comment|/**      * Sets the event bus address used to communicate      */
 DECL|method|setAddress (String address)
