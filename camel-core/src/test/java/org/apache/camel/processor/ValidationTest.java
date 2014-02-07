@@ -394,7 +394,7 @@ name|whenAnyExchangeReceived
 argument_list|(
 name|ProcessorBuilder
 operator|.
-name|setOutBody
+name|setBody
 argument_list|(
 name|Builder
 operator|.
@@ -411,7 +411,7 @@ name|whenAnyExchangeReceived
 argument_list|(
 name|ProcessorBuilder
 operator|.
-name|setOutBody
+name|setBody
 argument_list|(
 name|Builder
 operator|.

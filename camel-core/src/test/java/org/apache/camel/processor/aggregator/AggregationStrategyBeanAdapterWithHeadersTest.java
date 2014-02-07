@@ -62,22 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|AggregationStrategyBeanAdapter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|toolbox
@@ -102,11 +86,6 @@ init|=
 operator|new
 name|MyBodyAppender
 argument_list|()
-decl_stmt|;
-DECL|field|myStrategy
-specifier|private
-name|AggregationStrategyBeanAdapter
-name|myStrategy
 decl_stmt|;
 DECL|method|testAggregate ()
 specifier|public
@@ -248,7 +227,7 @@ specifier|final
 class|class
 name|MyBodyAppender
 block|{
-DECL|method|appendWithHeaders (String existing, Map oldHeaders, String next, Map newHeaders)
+DECL|method|appendWithHeaders (String existing, Map<String, Integer> oldHeaders, String next, Map<String, Integer> newHeaders)
 specifier|public
 name|String
 name|appendWithHeaders
@@ -257,12 +236,22 @@ name|String
 name|existing
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
 name|oldHeaders
 parameter_list|,
 name|String
 name|next
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
 name|newHeaders
 parameter_list|)
 block|{

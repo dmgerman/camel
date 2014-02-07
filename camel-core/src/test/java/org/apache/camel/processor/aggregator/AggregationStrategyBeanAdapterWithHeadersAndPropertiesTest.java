@@ -249,7 +249,7 @@ specifier|final
 class|class
 name|MyBodyAppender
 block|{
-DECL|method|appendWithHeadersAndProperties (String existing, Map oldHeaders, Map oldProperties, String next, Map newHeaders, Map newProperties)
+DECL|method|appendWithHeadersAndProperties (String existing, Map<String, String> oldHeaders, Map<String, Integer> oldProperties, String next, Map<String, String> newHeaders, Map<String, Integer> newProperties)
 specifier|public
 name|String
 name|appendWithHeadersAndProperties
@@ -258,18 +258,38 @@ name|String
 name|existing
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|oldHeaders
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
 name|oldProperties
 parameter_list|,
 name|String
 name|next
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|newHeaders
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
 name|newProperties
 parameter_list|)
 block|{
