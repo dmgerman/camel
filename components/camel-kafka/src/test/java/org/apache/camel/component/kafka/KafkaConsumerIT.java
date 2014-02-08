@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Stephen Samuel  *<p/>  *<p/>  *         The Producer IT tests require a Kafka broker running on 9092 and a zookeeper instance running on 2181.  *         The broker must have a topic called test created.  */
+comment|/**  * The Producer IT tests require a Kafka broker running on 9092 and a zookeeper instance running on 2181.  * The broker must have a topic called test created.  */
 end_comment
 
 begin_class

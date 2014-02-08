@@ -82,10 +82,6 @@ name|assertEquals
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author Stephen Samuel  */
-end_comment
-
 begin_class
 DECL|class|KafkaComponentTest
 specifier|public

@@ -80,6 +80,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelExchangeException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -99,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Stephen Samuel  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -133,12 +145,6 @@ parameter_list|(
 name|KafkaEndpoint
 name|endpoint
 parameter_list|)
-throws|throws
-name|ClassNotFoundException
-throws|,
-name|IllegalAccessException
-throws|,
-name|InstantiationException
 block|{
 name|super
 argument_list|(
@@ -310,9 +316,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CamelException
+name|CamelExchangeException
 argument_list|(
 literal|"No partition key set"
+argument_list|,
+name|exchange
 argument_list|)
 throw|;
 block|}

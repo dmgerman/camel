@@ -36,19 +36,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executors
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadPoolExecutor
+name|ExecutorService
 import|;
 end_import
 
@@ -165,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Stephen Samuel  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -580,18 +568,28 @@ return|;
 block|}
 DECL|method|createExecutor ()
 specifier|public
-name|ThreadPoolExecutor
+name|ExecutorService
 name|createExecutor
 parameter_list|()
 block|{
 return|return
-operator|(
-name|ThreadPoolExecutor
-operator|)
-name|Executors
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
 operator|.
 name|newFixedThreadPool
 argument_list|(
+name|this
+argument_list|,
+literal|"KafkaTopic["
+operator|+
+name|getTopic
+argument_list|()
+operator|+
+literal|"]"
+argument_list|,
 name|getConsumerStreams
 argument_list|()
 argument_list|)

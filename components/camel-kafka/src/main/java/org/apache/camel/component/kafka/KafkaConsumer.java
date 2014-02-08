@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Stephen Samuel  */
+comment|/**  *  */
 end_comment
 
 begin_class
@@ -580,11 +580,45 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|executor
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|executor
 operator|.
-name|shutdown
+name|shutdownNow
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|executor
 operator|=

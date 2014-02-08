@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * @author Stephen Samuel  */
+comment|/**  *  */
 end_comment
 
 begin_class
