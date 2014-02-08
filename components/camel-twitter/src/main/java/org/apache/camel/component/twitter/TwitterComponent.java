@@ -68,7 +68,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -82,7 +82,7 @@ specifier|public
 class|class
 name|TwitterComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|consumerKey
 specifier|private
@@ -104,6 +104,19 @@ specifier|private
 name|String
 name|accessTokenSecret
 decl_stmt|;
+DECL|method|TwitterComponent ()
+specifier|public
+name|TwitterComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|TwitterEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
