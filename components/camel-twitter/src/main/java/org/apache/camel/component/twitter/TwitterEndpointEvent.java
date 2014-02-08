@@ -233,6 +233,22 @@ return|return
 name|properties
 return|;
 block|}
+DECL|method|setProperties (TwitterConfiguration properties)
+specifier|public
+name|void
+name|setProperties
+parameter_list|(
+name|TwitterConfiguration
+name|properties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|properties
+operator|=
+name|properties
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getEndpointType ()

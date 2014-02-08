@@ -64,6 +64,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
 name|twitter4j
 operator|.
 name|Twitter
@@ -115,6 +129,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|TwitterConfiguration
 specifier|public
 class|class
