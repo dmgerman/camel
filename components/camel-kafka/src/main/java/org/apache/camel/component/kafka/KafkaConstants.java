@@ -25,6 +25,7 @@ end_comment
 begin_class
 DECL|class|KafkaConstants
 specifier|public
+specifier|final
 class|class
 name|KafkaConstants
 block|{
@@ -73,6 +74,13 @@ name|TOPIC
 init|=
 literal|"kafka.TOPIC"
 decl_stmt|;
+DECL|method|KafkaConstants ()
+specifier|private
+name|KafkaConstants
+parameter_list|()
+block|{
+comment|// Utility class
+block|}
 block|}
 end_class
 

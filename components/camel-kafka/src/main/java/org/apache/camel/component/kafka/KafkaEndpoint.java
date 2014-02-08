@@ -54,6 +54,16 @@ end_import
 
 begin_import
 import|import
+name|kafka
+operator|.
+name|message
+operator|.
+name|MessageAndMetadata
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -154,16 +164,6 @@ name|DefaultMessage
 import|;
 end_import
 
-begin_import
-import|import
-name|kafka
-operator|.
-name|message
-operator|.
-name|MessageAndMetadata
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Stephen Samuel  */
 end_comment
@@ -213,6 +213,49 @@ specifier|private
 name|String
 name|topic
 decl_stmt|;
+DECL|method|KafkaEndpoint ()
+specifier|public
+name|KafkaEndpoint
+parameter_list|()
+block|{     }
+DECL|method|KafkaEndpoint (String endpointUri, String remaining, KafkaComponent component)
+specifier|public
+name|KafkaEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|,
+name|KafkaComponent
+name|component
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|brokers
+operator|=
+name|remaining
+operator|.
+name|split
+argument_list|(
+literal|"\\?"
+argument_list|)
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
 DECL|method|getZookeeperHost ()
 specifier|public
 name|String
@@ -377,49 +420,6 @@ operator|.
 name|consumerStreams
 operator|=
 name|consumerStreams
-expr_stmt|;
-block|}
-DECL|method|KafkaEndpoint ()
-specifier|public
-name|KafkaEndpoint
-parameter_list|()
-block|{     }
-DECL|method|KafkaEndpoint (String endpointUri, String remaining, KafkaComponent component)
-specifier|public
-name|KafkaEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|String
-name|remaining
-parameter_list|,
-name|KafkaComponent
-name|component
-parameter_list|)
-throws|throws
-name|URISyntaxException
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|brokers
-operator|=
-name|remaining
-operator|.
-name|split
-argument_list|(
-literal|"\\?"
-argument_list|)
-index|[
-literal|0
-index|]
 expr_stmt|;
 block|}
 DECL|method|createKafkaExchange (MessageAndMetadata<byte[], byte[]> mm)

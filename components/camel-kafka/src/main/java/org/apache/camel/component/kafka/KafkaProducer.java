@@ -30,6 +30,38 @@ end_import
 
 begin_import
 import|import
+name|kafka
+operator|.
+name|javaapi
+operator|.
+name|producer
+operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|kafka
+operator|.
+name|producer
+operator|.
+name|KeyedMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|kafka
+operator|.
+name|producer
+operator|.
+name|ProducerConfig
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -66,38 +98,6 @@ name|DefaultProducer
 import|;
 end_import
 
-begin_import
-import|import
-name|kafka
-operator|.
-name|javaapi
-operator|.
-name|producer
-operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|kafka
-operator|.
-name|producer
-operator|.
-name|KeyedMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|kafka
-operator|.
-name|producer
-operator|.
-name|ProducerConfig
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author Stephen Samuel  */
 end_comment
@@ -110,13 +110,8 @@ name|KafkaProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|KafkaEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|producer
+specifier|protected
 name|Producer
 argument_list|<
 name|String
@@ -124,6 +119,12 @@ argument_list|,
 name|String
 argument_list|>
 name|producer
+decl_stmt|;
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|KafkaEndpoint
+name|endpoint
 decl_stmt|;
 DECL|method|KafkaProducer (KafkaEndpoint endpoint)
 specifier|public
@@ -167,11 +168,13 @@ name|producer
 operator|!=
 literal|null
 condition|)
+block|{
 name|producer
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|getProps ()
 name|Properties
@@ -304,6 +307,7 @@ name|partitionKey
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|CamelException
@@ -311,6 +315,7 @@ argument_list|(
 literal|"No partition key set"
 argument_list|)
 throw|;
+block|}
 name|String
 name|msg
 init|=
