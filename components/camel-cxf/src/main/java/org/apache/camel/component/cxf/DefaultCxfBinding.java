@@ -1207,7 +1207,28 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// propagate attachments if the data format is not POJO
+name|boolean
+name|isXop
+init|=
+name|Boolean
+operator|.
+name|valueOf
+argument_list|(
+name|camelExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Message
+operator|.
+name|MTOM_ENABLED
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// propagate attachments if the data format is not POJO with MTOM enabled
 if|if
 condition|(
 name|cxfMessage
@@ -1218,6 +1239,7 @@ operator|!=
 literal|null
 operator|&&
 operator|!
+operator|(
 name|DataFormat
 operator|.
 name|POJO
@@ -1226,6 +1248,10 @@ name|equals
 argument_list|(
 name|dataFormat
 argument_list|)
+operator|&&
+operator|!
+name|isXop
+operator|)
 condition|)
 block|{
 comment|// propagate attachments
