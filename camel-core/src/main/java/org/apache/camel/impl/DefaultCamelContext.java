@@ -6295,6 +6295,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 return|return
 name|IOHelper
 operator|.
@@ -6303,6 +6305,17 @@ argument_list|(
 name|inputStream
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|inputStream
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 literal|null
