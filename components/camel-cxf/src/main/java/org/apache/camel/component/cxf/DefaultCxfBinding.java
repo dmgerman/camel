@@ -1249,7 +1249,6 @@ argument_list|(
 name|dataFormat
 argument_list|)
 operator|&&
-operator|!
 name|isXop
 operator|)
 condition|)
