@@ -6275,6 +6275,10 @@ name|COMPONENT_DOCUMENTATION_PREFIX
 operator|+
 name|componentName
 operator|+
+literal|"/"
+operator|+
+name|componentName
+operator|+
 literal|".html"
 decl_stmt|;
 name|InputStream

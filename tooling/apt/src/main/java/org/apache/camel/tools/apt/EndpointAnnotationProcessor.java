@@ -622,9 +622,35 @@ argument_list|)
 condition|)
 block|{
 name|String
+name|name
+init|=
+name|canonicalClassName
+argument_list|(
+name|classElement
+operator|.
+name|getQualifiedName
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|String
 name|packageName
 init|=
-literal|"org.apache.camel.component"
+name|name
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|name
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|"."
+argument_list|)
+argument_list|)
 decl_stmt|;
 name|String
 name|fileName
@@ -680,6 +706,8 @@ decl_stmt|;
 name|processFile
 argument_list|(
 name|packageName
+argument_list|,
+name|scheme
 argument_list|,
 name|fileName
 argument_list|,
@@ -1835,13 +1863,16 @@ literal|null
 return|;
 block|}
 comment|/**      * Helper method to produce class output text file using the given handler      */
-DECL|method|processFile (String packageName, String fileName, Func1<PrintWriter, Void> handler)
+DECL|method|processFile (String packageName, String scheme, String fileName, Func1<PrintWriter, Void> handler)
 specifier|protected
 name|void
 name|processFile
 parameter_list|(
 name|String
 name|packageName
+parameter_list|,
+name|String
+name|scheme
 parameter_list|,
 name|String
 name|fileName
