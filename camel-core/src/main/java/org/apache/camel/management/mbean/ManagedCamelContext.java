@@ -2332,6 +2332,13 @@ argument_list|(
 name|componentName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+condition|)
+block|{
 name|ComponentConfiguration
 name|configuration
 init|=
@@ -2346,6 +2353,13 @@ operator|.
 name|createParameterJsonSchema
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|reset (boolean includeRoutes)
 specifier|public
