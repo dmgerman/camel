@@ -138,7 +138,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -200,7 +200,7 @@ specifier|public
 class|class
 name|XsltComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|SAXON_TRANSFORMER_FACTORY_CLASS_NAME
 specifier|private
@@ -249,6 +249,19 @@ specifier|private
 name|boolean
 name|saxon
 decl_stmt|;
+DECL|method|XsltComponent ()
+specifier|public
+name|XsltComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|XsltEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getXmlConverter ()
 specifier|public
 name|XmlConverter

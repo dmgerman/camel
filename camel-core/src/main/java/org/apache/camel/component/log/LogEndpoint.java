@@ -78,6 +78,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -101,6 +115,13 @@ comment|/**  * Logger endpoint.  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"log"
+argument_list|)
 DECL|class|LogEndpoint
 specifier|public
 class|class

@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -76,13 +76,26 @@ specifier|public
 class|class
 name|ControlBusComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|executorService
 specifier|private
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|method|ControlBusComponent ()
+specifier|public
+name|ControlBusComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|ControlBusEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
