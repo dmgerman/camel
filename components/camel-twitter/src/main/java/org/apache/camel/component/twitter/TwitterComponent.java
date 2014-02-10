@@ -111,7 +111,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|TwitterEndpoint
+name|TwitterEndpointEvent
 operator|.
 name|class
 argument_list|)
