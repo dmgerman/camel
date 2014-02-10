@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -104,8 +104,21 @@ specifier|public
 class|class
 name|MockComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|MockComponent ()
+specifier|public
+name|MockComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

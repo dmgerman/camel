@@ -54,6 +54,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/browse.html">browse</a> component.  *  * @version   */
 end_comment
@@ -64,8 +78,21 @@ specifier|public
 class|class
 name|BrowseComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|BrowseComponent ()
+specifier|public
+name|BrowseComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|BrowseEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
