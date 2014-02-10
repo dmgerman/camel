@@ -440,6 +440,26 @@ name|Strings
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|util
+operator|.
+name|Strings
+operator|.
+name|canonicalClassName
+import|;
+end_import
+
 begin_comment
 comment|/**  * Processes all Camel endpoints  */
 end_comment
@@ -1673,16 +1693,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|String
+name|superClassName
+init|=
+name|canonicalClassName
+argument_list|(
+name|superclass
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|baseTypeElement
 operator|=
 name|findTypeElement
 argument_list|(
 name|roundEnv
 argument_list|,
-name|superclass
-operator|.
-name|toString
-argument_list|()
+name|superClassName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1774,6 +1802,8 @@ decl_stmt|;
 name|String
 name|aRootName
 init|=
+name|canonicalClassName
+argument_list|(
 name|typeElement
 operator|.
 name|getQualifiedName
@@ -1781,6 +1811,7 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
