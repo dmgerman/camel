@@ -133,6 +133,33 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+operator|(
+operator|(
+name|QuickfixjEndpoint
+operator|)
+name|getEndpoint
+argument_list|()
+operator|)
+operator|.
+name|ensureInitialized
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|onExchange (Exchange exchange)
 specifier|public
 name|void
