@@ -1223,6 +1223,16 @@ argument_list|(
 name|mockOutboundCamelMessage
 argument_list|)
 operator|.
+name|getHeaders
+argument_list|()
+expr_stmt|;
+name|Mockito
+operator|.
+name|verify
+argument_list|(
+name|mockOutboundCamelMessage
+argument_list|)
+operator|.
 name|setBody
 argument_list|(
 name|outboundFixMessage
