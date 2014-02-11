@@ -293,8 +293,6 @@ DECL|field|lazyCreateEngines
 specifier|private
 name|boolean
 name|lazyCreateEngines
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|Override
@@ -443,11 +441,13 @@ name|lazyCreateEngineForEndpoint
 operator|==
 literal|null
 condition|)
+block|{
 name|lazyCreateEngineForEndpoint
 operator|=
 name|isLazyCreateEngines
 argument_list|()
 expr_stmt|;
+block|}
 name|engine
 operator|=
 operator|new

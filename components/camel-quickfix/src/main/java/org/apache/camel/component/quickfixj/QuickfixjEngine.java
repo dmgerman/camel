@@ -614,8 +614,6 @@ DECL|field|lazy
 specifier|private
 name|boolean
 name|lazy
-init|=
-literal|false
 decl_stmt|;
 DECL|enum|ThreadModel
 specifier|public
