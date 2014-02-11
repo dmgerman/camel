@@ -173,6 +173,12 @@ name|Exception
 block|{
 try|try
 block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|ensureInitialized
+argument_list|()
+expr_stmt|;
 name|sendMessage
 argument_list|(
 name|exchange
