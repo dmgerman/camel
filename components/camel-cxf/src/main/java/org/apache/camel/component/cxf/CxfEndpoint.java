@@ -800,6 +800,20 @@ name|cxf
 operator|.
 name|feature
 operator|.
+name|Feature
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|feature
+operator|.
 name|LoggingFeature
 import|;
 end_import
@@ -1430,14 +1444,14 @@ DECL|field|features
 specifier|private
 name|List
 argument_list|<
-name|AbstractFeature
+name|Feature
 argument_list|>
 name|features
 init|=
 operator|new
 name|ModCountCopyOnWriteArrayList
 argument_list|<
-name|AbstractFeature
+name|Feature
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -5994,14 +6008,14 @@ operator|=
 name|interceptors
 expr_stmt|;
 block|}
-DECL|method|setFeatures (List<AbstractFeature> f)
+DECL|method|setFeatures (List<Feature> f)
 specifier|public
 name|void
 name|setFeatures
 parameter_list|(
 name|List
 argument_list|<
-name|AbstractFeature
+name|Feature
 argument_list|>
 name|f
 parameter_list|)
@@ -6015,7 +6029,7 @@ DECL|method|getFeatures ()
 specifier|public
 name|List
 argument_list|<
-name|AbstractFeature
+name|Feature
 argument_list|>
 name|getFeatures
 parameter_list|()
