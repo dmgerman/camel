@@ -2403,7 +2403,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// get all the routes mbeans and sort them accordingly to their index
 name|String
 name|prefix
 init|=
