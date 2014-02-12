@@ -365,6 +365,11 @@ operator|=
 operator|new
 name|LoggingExceptionHandler
 argument_list|(
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|getClass
 argument_list|()
 argument_list|)
