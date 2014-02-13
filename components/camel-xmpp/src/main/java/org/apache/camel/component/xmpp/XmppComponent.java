@@ -426,17 +426,6 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"URI "
-operator|+
-name|uri
-argument_list|)
-expr_stmt|;
 name|URI
 name|u
 init|=
@@ -471,17 +460,6 @@ operator|.
 name|getQuery
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Result "
-operator|+
-name|result
-argument_list|)
-expr_stmt|;
 return|return
 name|result
 return|;
