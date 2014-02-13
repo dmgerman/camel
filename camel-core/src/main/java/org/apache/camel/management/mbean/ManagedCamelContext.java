@@ -965,6 +965,58 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+DECL|method|isUseBreadcrumb ()
+specifier|public
+name|boolean
+name|isUseBreadcrumb
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isUseBreadcrumb
+argument_list|()
+return|;
+block|}
+DECL|method|isAllowUseOriginalMessage ()
+specifier|public
+name|boolean
+name|isAllowUseOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isAllowUseOriginalMessage
+argument_list|()
+return|;
+block|}
+DECL|method|isMessageHistory ()
+specifier|public
+name|boolean
+name|isMessageHistory
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isMessageHistory
+argument_list|()
+return|;
+block|}
+DECL|method|isUseMDCLogging ()
+specifier|public
+name|boolean
+name|isUseMDCLogging
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|isUseMDCLogging
+argument_list|()
+return|;
+block|}
 DECL|method|onTimer ()
 specifier|public
 name|void

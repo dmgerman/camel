@@ -804,6 +804,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|allowUseOriginalMessage
+specifier|private
+name|String
+name|allowUseOriginalMessage
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|managementNamePattern
 specifier|private
 name|String
@@ -2256,6 +2268,32 @@ operator|.
 name|useBreadcrumb
 operator|=
 name|useBreadcrumb
+expr_stmt|;
+block|}
+DECL|method|getAllowUseOriginalMessage ()
+specifier|public
+name|String
+name|getAllowUseOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|allowUseOriginalMessage
+return|;
+block|}
+DECL|method|setAllowUseOriginalMessage (String allowUseOriginalMessage)
+specifier|public
+name|void
+name|setAllowUseOriginalMessage
+parameter_list|(
+name|String
+name|allowUseOriginalMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowUseOriginalMessage
+operator|=
+name|allowUseOriginalMessage
 expr_stmt|;
 block|}
 DECL|method|getManagementNamePattern ()

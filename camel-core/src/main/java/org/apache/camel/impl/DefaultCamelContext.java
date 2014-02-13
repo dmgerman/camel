@@ -1974,6 +1974,15 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
+DECL|field|allowUseOriginalMessage
+specifier|private
+name|Boolean
+name|allowUseOriginalMessage
+init|=
+name|Boolean
+operator|.
+name|TRUE
+decl_stmt|;
 DECL|field|delay
 specifier|private
 name|Long
@@ -9174,6 +9183,22 @@ block|}
 block|}
 if|if
 condition|(
+name|isAllowUseOriginalMessage
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"AllowUseOriginalMessage is enabled. If access to the original message is not needed,"
+operator|+
+literal|" then its recommended to turn this option off as it may improve performance."
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|streamCachingInUse
 condition|)
 block|{
@@ -13193,6 +13218,36 @@ name|shutdownRunningTask
 operator|=
 name|shutdownRunningTask
 expr_stmt|;
+block|}
+DECL|method|setAllowUseOriginalMessage (Boolean allowUseOriginalMessage)
+specifier|public
+name|void
+name|setAllowUseOriginalMessage
+parameter_list|(
+name|Boolean
+name|allowUseOriginalMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowUseOriginalMessage
+operator|=
+name|allowUseOriginalMessage
+expr_stmt|;
+block|}
+DECL|method|isAllowUseOriginalMessage ()
+specifier|public
+name|Boolean
+name|isAllowUseOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|allowUseOriginalMessage
+operator|!=
+literal|null
+operator|&&
+name|allowUseOriginalMessage
+return|;
 block|}
 DECL|method|getExecutorServiceManager ()
 specifier|public

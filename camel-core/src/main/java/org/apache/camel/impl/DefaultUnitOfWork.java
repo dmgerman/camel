@@ -492,6 +492,14 @@ operator|.
 name|getContext
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|context
+operator|.
+name|isAllowUseOriginalMessage
+argument_list|()
+condition|)
+block|{
 comment|// TODO: Camel 3.0: the copy on facade strategy will help us here in the future
 comment|// TODO: optimize to only copy original message if enabled to do so in the route
 comment|// special for JmsMessage as it can cause it to loose headers later.
@@ -571,6 +579,7 @@ operator|.
 name|copy
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|// TODO: Optimize to only copy if useOriginalMessage has been enabled
 comment|// mark the creation time when this Exchange was created

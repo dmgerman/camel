@@ -457,6 +457,54 @@ name|getLoad15
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether breadcrumbs is in use"
+argument_list|)
+DECL|method|isUseBreadcrumb ()
+name|boolean
+name|isUseBreadcrumb
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether allowing access to the original message during routing"
+argument_list|)
+DECL|method|isAllowUseOriginalMessage ()
+name|boolean
+name|isAllowUseOriginalMessage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether message history is enabled"
+argument_list|)
+DECL|method|isMessageHistory ()
+name|boolean
+name|isMessageHistory
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether MDC logging is supported"
+argument_list|)
+DECL|method|isUseMDCLogging ()
+name|boolean
+name|isUseMDCLogging
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
