@@ -345,7 +345,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OSGi Blueprint based {@link CamelContext}.  */
+comment|/**  * OSGi Blueprint based {@link org.apache.camel.CamelContext}.  */
 end_comment
 
 begin_class
