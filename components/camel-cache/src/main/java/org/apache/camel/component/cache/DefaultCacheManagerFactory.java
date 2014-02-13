@@ -108,16 +108,13 @@ operator|==
 literal|null
 condition|)
 block|{
-name|is
-operator|=
-name|getClass
-argument_list|()
+comment|// it will still look for "/ehcache.xml" before defaulting to "/ehcache-failsafe.xml"
+return|return
+name|EHCacheUtil
 operator|.
-name|getResourceAsStream
-argument_list|(
-literal|"/ehcache.xml"
-argument_list|)
-expr_stmt|;
+name|createCacheManager
+argument_list|()
+return|;
 block|}
 return|return
 name|EHCacheUtil

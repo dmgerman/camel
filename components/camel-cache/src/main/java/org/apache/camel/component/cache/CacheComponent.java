@@ -150,8 +150,6 @@ DECL|field|configurationFile
 specifier|private
 name|String
 name|configurationFile
-init|=
-literal|"classpath:ehcache.xml"
 decl_stmt|;
 DECL|method|CacheComponent ()
 specifier|public
