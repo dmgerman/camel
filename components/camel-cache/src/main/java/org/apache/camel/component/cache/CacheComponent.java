@@ -409,6 +409,8 @@ operator|new
 name|DefaultCacheManagerFactory
 argument_list|(
 name|is
+argument_list|,
+name|configurationFile
 argument_list|)
 expr_stmt|;
 block|}
