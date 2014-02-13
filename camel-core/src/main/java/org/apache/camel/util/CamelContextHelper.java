@@ -1657,7 +1657,7 @@ argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Finding all components using class resolver: {} -> {}"
 argument_list|,
@@ -1753,7 +1753,7 @@ argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
 literal|"Finding components in url: {}"
 argument_list|,
