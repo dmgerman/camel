@@ -2136,7 +2136,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// remove component as its not serializable over JMX
+comment|// remove component and com as its not serializable over JMX
 if|if
 condition|(
 name|entry
@@ -2155,6 +2155,17 @@ operator|.
 name|remove
 argument_list|(
 literal|"component"
+argument_list|)
+expr_stmt|;
+comment|// and components which just list all the components in the JAR/bundle and that is verbose and not needed
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+literal|"components"
 argument_list|)
 expr_stmt|;
 block|}
