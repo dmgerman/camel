@@ -241,6 +241,13 @@ name|getConsumerUri
 argument_list|()
 argument_list|)
 operator|.
+name|removeHeader
+argument_list|(
+name|XmppConstants
+operator|.
+name|TO
+argument_list|)
+operator|.
 name|to
 argument_list|(
 name|getConsumerUri

@@ -315,6 +315,62 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|String
+name|participant
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|XmppConstants
+operator|.
+name|TO
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|String
+name|thread
+init|=
+name|endpoint
+operator|.
+name|getChatId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|participant
+operator|==
+literal|null
+condition|)
+block|{
+name|participant
+operator|=
+name|getParticipant
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|thread
+operator|=
+literal|"Chat:"
+operator|+
+name|participant
+operator|+
+literal|":"
+operator|+
+name|endpoint
+operator|.
+name|getUser
+argument_list|()
+expr_stmt|;
+block|}
 name|ChatManager
 name|chatManager
 init|=
@@ -329,6 +385,10 @@ init|=
 name|getOrCreateChat
 argument_list|(
 name|chatManager
+argument_list|,
+name|participant
+argument_list|,
+name|thread
 argument_list|)
 decl_stmt|;
 name|Message
@@ -348,18 +408,14 @@ name|message
 operator|.
 name|setTo
 argument_list|(
-name|getParticipant
-argument_list|()
+name|participant
 argument_list|)
 expr_stmt|;
 name|message
 operator|.
 name|setThread
 argument_list|(
-name|endpoint
-operator|.
-name|getChatId
-argument_list|()
+name|thread
 argument_list|)
 expr_stmt|;
 name|message
@@ -403,10 +459,7 @@ operator|new
 name|Object
 index|[]
 block|{
-name|endpoint
-operator|.
-name|getParticipant
-argument_list|()
+name|participant
 block|,
 name|endpoint
 operator|.
@@ -441,10 +494,7 @@ name|RuntimeExchangeException
 argument_list|(
 literal|"Could not send XMPP message: to "
 operator|+
-name|endpoint
-operator|.
-name|getParticipant
-argument_list|()
+name|participant
 operator|+
 literal|" from "
 operator|+
@@ -484,10 +534,7 @@ name|RuntimeExchangeException
 argument_list|(
 literal|"Could not send XMPP message to "
 operator|+
-name|endpoint
-operator|.
-name|getParticipant
-argument_list|()
+name|participant
 operator|+
 literal|" from "
 operator|+
@@ -516,7 +563,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getOrCreateChat (ChatManager chatManager)
+DECL|method|getOrCreateChat (ChatManager chatManager, final String participant, String thread)
 specifier|private
 specifier|synchronized
 name|Chat
@@ -524,6 +571,13 @@ name|getOrCreateChat
 parameter_list|(
 name|ChatManager
 name|chatManager
+parameter_list|,
+specifier|final
+name|String
+name|participant
+parameter_list|,
+name|String
+name|thread
 parameter_list|)
 block|{
 if|if
@@ -554,10 +608,7 @@ name|chatManager
 operator|.
 name|getThreadChat
 argument_list|(
-name|endpoint
-operator|.
-name|getChatId
-argument_list|()
+name|thread
 argument_list|)
 decl_stmt|;
 if|if
@@ -581,10 +632,7 @@ name|trace
 argument_list|(
 literal|"Creating new chat instance with thread ID {}"
 argument_list|,
-name|endpoint
-operator|.
-name|getChatId
-argument_list|()
+name|thread
 argument_list|)
 expr_stmt|;
 block|}
@@ -594,13 +642,9 @@ name|chatManager
 operator|.
 name|createChat
 argument_list|(
-name|getParticipant
-argument_list|()
+name|participant
 argument_list|,
-name|endpoint
-operator|.
-name|getChatId
-argument_list|()
+name|thread
 argument_list|,
 operator|new
 name|MessageListener
@@ -632,8 +676,7 @@ name|debug
 argument_list|(
 literal|"Received and discarding message from {} : {}"
 argument_list|,
-name|getParticipant
-argument_list|()
+name|participant
 argument_list|,
 name|message
 operator|.
