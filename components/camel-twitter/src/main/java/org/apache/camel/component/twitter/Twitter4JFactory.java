@@ -444,7 +444,7 @@ case|case
 name|SEARCH
 case|:
 name|boolean
-name|hasKeywords
+name|hasNoKeywords
 init|=
 name|te
 operator|.
@@ -472,7 +472,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|hasKeywords
+name|hasNoKeywords
 condition|)
 block|{
 throw|throw
