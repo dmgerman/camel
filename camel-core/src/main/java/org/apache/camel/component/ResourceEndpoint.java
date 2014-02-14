@@ -257,6 +257,8 @@ name|byte
 index|[]
 name|buffer
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|resourceUri
 specifier|private
 name|String

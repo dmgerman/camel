@@ -226,13 +226,25 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Loads the given resources as a URL      *      * @param uri the uri of the resource      * @return the URLs found on the classpath      */
+comment|/**      * Loads the given resources as a URL from the current bundle/classloader      *      * @param uri the uri of the resource      * @return the URLs found on the classpath      */
 DECL|method|loadResourcesAsURL (String uri)
 name|Enumeration
 argument_list|<
 name|URL
 argument_list|>
 name|loadResourcesAsURL
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
+comment|/**      * Loads the given resources as a URL from all bundles/classloaders      *      * @param uri the uri of the resource      * @return the URLs found on the classpath      */
+DECL|method|loadAllResourcesAsURL (String uri)
+name|Enumeration
+argument_list|<
+name|URL
+argument_list|>
+name|loadAllResourcesAsURL
 parameter_list|(
 name|String
 name|uri

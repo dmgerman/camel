@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|openmbean
+operator|.
+name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -146,6 +158,48 @@ parameter_list|(
 name|boolean
 name|statisticsEnabled
 parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of type converters in the registry"
+argument_list|)
+DECL|method|getNumberOfTypeConverters ()
+name|int
+name|getNumberOfTypeConverters
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Checks whether a type converter exists for converting (from -> to)"
+argument_list|)
+DECL|method|hasTypeConverter (String fromType, String toType)
+name|boolean
+name|hasTypeConverter
+parameter_list|(
+name|String
+name|fromType
+parameter_list|,
+name|String
+name|toType
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Lists all the type converters in the registry (from -> to)"
+argument_list|)
+DECL|method|listTypeConverters ()
+name|TabularData
+name|listTypeConverters
+parameter_list|()
 function_decl|;
 block|}
 end_interface

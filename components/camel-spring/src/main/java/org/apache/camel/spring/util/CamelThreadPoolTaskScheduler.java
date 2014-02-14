@@ -92,6 +92,15 @@ name|CamelThreadPoolTaskScheduler
 extends|extends
 name|ThreadPoolTaskScheduler
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 specifier|final

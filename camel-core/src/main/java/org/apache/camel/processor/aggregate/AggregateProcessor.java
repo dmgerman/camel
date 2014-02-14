@@ -2588,6 +2588,15 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
+comment|// only remove if we have previous added (as we could potentially complete with only 1 exchange)
+comment|// (if we have previous added then we have that as the original exchange)
+if|if
+condition|(
+name|original
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// remove from repository as its completed, we do this first as to trigger any OptimisticLockingException's
 name|aggregationRepository
 operator|.
@@ -2603,6 +2612,7 @@ argument_list|,
 name|original
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!

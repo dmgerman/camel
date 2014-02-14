@@ -58,6 +58,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -158,10 +172,12 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|applicationContext
+name|IOHelper
 operator|.
-name|destroy
-argument_list|()
+name|close
+argument_list|(
+name|applicationContext
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createApplicationContext ()

@@ -88,6 +88,54 @@ else|:
 name|defaultValue
 return|;
 block|}
+comment|/**      * Returns the canonical class name by removing any generic type information.      */
+DECL|method|canonicalClassName (String className)
+specifier|public
+specifier|static
+name|String
+name|canonicalClassName
+parameter_list|(
+name|String
+name|className
+parameter_list|)
+block|{
+comment|// remove generics
+name|int
+name|pos
+init|=
+name|className
+operator|.
+name|indexOf
+argument_list|(
+literal|'<'
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pos
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+return|return
+name|className
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|pos
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|className
+return|;
+block|}
+block|}
 block|}
 end_class
 

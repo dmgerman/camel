@@ -459,11 +459,13 @@ name|QuartzConstants
 operator|.
 name|QUARTZ_CAMEL_CONTEXT_NAME
 argument_list|,
+name|QuartzHelper
+operator|.
+name|getQuartzContextName
+argument_list|(
 name|getCamelContext
 argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

@@ -202,11 +202,32 @@ name|BrowsableEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
 begin_comment
 comment|/**  * An endpoint which maintains a {@link List} of {@link Exchange} instances  * which can be useful for tooling, debugging and visualising routes.  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"browse"
+argument_list|)
 DECL|class|BrowseEndpoint
 specifier|public
 class|class
@@ -215,8 +236,6 @@ extends|extends
 name|DefaultEndpoint
 implements|implements
 name|BrowsableEndpoint
-implements|,
-name|Service
 block|{
 DECL|field|exchanges
 specifier|private

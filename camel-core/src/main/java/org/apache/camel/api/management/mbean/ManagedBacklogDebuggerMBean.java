@@ -214,16 +214,16 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Updates the message body on the suspended breakpoint at the given node id"
+literal|"Updates the message body (uses same type as old body) on the suspended breakpoint at the given node id"
 argument_list|)
-DECL|method|setMessageBodyOnBreakpoint (String nodeId, String body)
+DECL|method|setMessageBodyOnBreakpoint (String nodeId, Object body)
 name|void
 name|setMessageBodyOnBreakpoint
 parameter_list|(
 name|String
 name|nodeId
 parameter_list|,
-name|String
+name|Object
 name|body
 parameter_list|)
 function_decl|;
@@ -232,9 +232,45 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Updates/adds the message header on the suspended breakpoint at the given node id"
+literal|"Updates the message body (with a new type) on the suspended breakpoint at the given node id"
 argument_list|)
-DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, String value)
+DECL|method|setMessageBodyOnBreakpoint (String nodeId, Object body, String type)
+name|void
+name|setMessageBodyOnBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|,
+name|Object
+name|body
+parameter_list|,
+name|String
+name|type
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Removes the message body on the suspended breakpoint at the given node id"
+argument_list|)
+DECL|method|removeMessageBodyOnBreakpoint (String nodeId)
+name|void
+name|removeMessageBodyOnBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Updates/adds the message header (uses same type as old header value) on the suspended breakpoint at the given node id"
+argument_list|)
+DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, Object value)
 name|void
 name|setMessageHeaderOnBreakpoint
 parameter_list|(
@@ -244,8 +280,50 @@ parameter_list|,
 name|String
 name|headerName
 parameter_list|,
-name|String
+name|Object
 name|value
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Removes the message header on the suspended breakpoint at the given node id"
+argument_list|)
+DECL|method|removeMessageHeaderOnBreakpoint (String nodeId, String headerName)
+name|void
+name|removeMessageHeaderOnBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|,
+name|String
+name|headerName
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Updates/adds the message header (with a new type) on the suspended breakpoint at the given node id"
+argument_list|)
+DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, Object value, String type)
+name|void
+name|setMessageHeaderOnBreakpoint
+parameter_list|(
+name|String
+name|nodeId
+parameter_list|,
+name|String
+name|headerName
+parameter_list|,
+name|Object
+name|value
+parameter_list|,
+name|String
+name|type
 parameter_list|)
 function_decl|;
 annotation|@

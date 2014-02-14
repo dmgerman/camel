@@ -158,6 +158,9 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|names
 init|=
 name|getMockEndpoint
@@ -287,12 +290,18 @@ specifier|final
 class|class
 name|MyUserAppender
 block|{
-DECL|method|addUsers (List names, User user)
+DECL|method|addUsers (List<String> names, User user)
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|addUsers
 parameter_list|(
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|names
 parameter_list|,
 name|User
@@ -310,6 +319,9 @@ name|names
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}

@@ -279,6 +279,52 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testSplitTokenizerEWithSlash ()
+specifier|public
+name|void
+name|testSplitTokenizerEWithSlash
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:split"
+argument_list|)
+decl_stmt|;
+name|String
+name|xml
+init|=
+literal|"<persons><person attr='/' /></persons>"
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"<person attr='/' />"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:e"
+argument_list|,
+name|xml
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|testSplitTokenizerF ()
 specifier|public
 name|void

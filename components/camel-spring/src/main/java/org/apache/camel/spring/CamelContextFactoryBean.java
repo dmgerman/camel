@@ -723,11 +723,6 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|class|CamelContextFactoryBean
 specifier|public
 class|class
@@ -893,6 +888,18 @@ DECL|field|useBreadcrumb
 specifier|private
 name|String
 name|useBreadcrumb
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|allowUseOriginalMessage
+specifier|private
+name|String
+name|allowUseOriginalMessage
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -3009,6 +3016,32 @@ operator|.
 name|useBreadcrumb
 operator|=
 name|useBreadcrumb
+expr_stmt|;
+block|}
+DECL|method|getAllowUseOriginalMessage ()
+specifier|public
+name|String
+name|getAllowUseOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|allowUseOriginalMessage
+return|;
+block|}
+DECL|method|setAllowUseOriginalMessage (String allowUseOriginalMessage)
+specifier|public
+name|void
+name|setAllowUseOriginalMessage
+parameter_list|(
+name|String
+name|allowUseOriginalMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowUseOriginalMessage
+operator|=
+name|allowUseOriginalMessage
 expr_stmt|;
 block|}
 DECL|method|getManagementNamePattern ()

@@ -122,6 +122,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -276,20 +290,14 @@ operator|.
 name|DISABLED
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|applicationContext
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// we're done so let's properly close the application context
-name|applicationContext
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|applicationContext
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testClassPathRouteLoading ()
 specifier|public

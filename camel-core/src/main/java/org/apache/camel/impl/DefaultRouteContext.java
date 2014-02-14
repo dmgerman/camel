@@ -1620,6 +1620,37 @@ operator|=
 name|shutdownRoute
 expr_stmt|;
 block|}
+DECL|method|setAllowUseOriginalMessage (Boolean allowUseOriginalMessage)
+specifier|public
+name|void
+name|setAllowUseOriginalMessage
+parameter_list|(
+name|Boolean
+name|allowUseOriginalMessage
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"This option can only be configured on CamelContext"
+argument_list|)
+throw|;
+block|}
+DECL|method|isAllowUseOriginalMessage ()
+specifier|public
+name|Boolean
+name|isAllowUseOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|isAllowUseOriginalMessage
+argument_list|()
+return|;
+block|}
 DECL|method|getShutdownRoute ()
 specifier|public
 name|ShutdownRoute

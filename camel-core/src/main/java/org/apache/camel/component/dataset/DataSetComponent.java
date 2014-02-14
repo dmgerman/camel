@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -78,8 +78,21 @@ specifier|public
 class|class
 name|DataSetComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|DataSetComponent ()
+specifier|public
+name|DataSetComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|DataSetEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

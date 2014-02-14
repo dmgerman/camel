@@ -506,8 +506,6 @@ name|uri
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|loadResourcesAsURL (String uri)
 specifier|public
 name|Enumeration
@@ -515,6 +513,27 @@ argument_list|<
 name|URL
 argument_list|>
 name|loadResourcesAsURL
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|loadAllResourcesAsURL
+argument_list|(
+name|uri
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|loadAllResourcesAsURL (String uri)
+specifier|public
+name|Enumeration
+argument_list|<
+name|URL
+argument_list|>
+name|loadAllResourcesAsURL
 parameter_list|(
 name|String
 name|uri

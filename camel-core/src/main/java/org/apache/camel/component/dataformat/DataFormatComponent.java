@@ -48,9 +48,25 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|dataset
+operator|.
+name|DataSetEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -102,8 +118,21 @@ specifier|public
 class|class
 name|DataFormatComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|DataFormatComponent ()
+specifier|public
+name|DataFormatComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|DataSetEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

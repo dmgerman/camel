@@ -439,11 +439,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Searching with "
-operator|+
+literal|"Searching with {} pages."
+argument_list|,
 name|numberOfPages
-operator|+
-literal|" pages."
 argument_list|)
 expr_stmt|;
 name|Twitter

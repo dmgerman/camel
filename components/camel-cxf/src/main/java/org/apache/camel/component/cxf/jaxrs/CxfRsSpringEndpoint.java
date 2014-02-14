@@ -213,49 +213,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|setupJAXRSServerFactoryBean (JAXRSServerFactoryBean sfb)
-specifier|protected
-name|void
-name|setupJAXRSServerFactoryBean
-parameter_list|(
-name|JAXRSServerFactoryBean
-name|sfb
-parameter_list|)
-block|{
-comment|// Do nothing here
-block|}
-annotation|@
-name|Override
-DECL|method|setupJAXRSClientFactoryBean (JAXRSClientFactoryBean cfb, String address)
-specifier|protected
-name|void
-name|setupJAXRSClientFactoryBean
-parameter_list|(
-name|JAXRSClientFactoryBean
-name|cfb
-parameter_list|,
-name|String
-name|address
-parameter_list|)
-block|{
-name|cfb
-operator|.
-name|setAddress
-argument_list|(
-name|address
-argument_list|)
-expr_stmt|;
-comment|// Need to enable the option of ThreadSafe
-name|cfb
-operator|.
-name|setThreadSafe
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|newJAXRSServerFactoryBean ()
 specifier|protected
 name|JAXRSServerFactoryBean

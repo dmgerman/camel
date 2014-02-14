@@ -84,7 +84,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -168,13 +168,26 @@ specifier|public
 class|class
 name|LogComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|exchangeFormatter
 specifier|private
 name|ExchangeFormatter
 name|exchangeFormatter
 decl_stmt|;
+DECL|method|LogComponent ()
+specifier|public
+name|LogComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|LogEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

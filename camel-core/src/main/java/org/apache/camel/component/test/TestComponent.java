@@ -70,7 +70,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -126,8 +126,21 @@ specifier|public
 class|class
 name|TestComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|TestComponent ()
+specifier|public
+name|TestComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|TestEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri)
 specifier|public
 name|Endpoint

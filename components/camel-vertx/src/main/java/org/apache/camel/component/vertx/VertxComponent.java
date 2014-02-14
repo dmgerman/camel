@@ -189,15 +189,11 @@ DECL|field|host
 specifier|private
 name|String
 name|host
-init|=
-literal|"127.0.0.1"
 decl_stmt|;
 DECL|field|port
 specifier|private
 name|int
 name|port
-init|=
-literal|5701
 decl_stmt|;
 DECL|method|VertxComponent ()
 specifier|public
@@ -413,9 +409,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Creating Vertx {}:{}"
+literal|"Creating Clustered Vertx {}:{}"
 argument_list|,
 name|host
 argument_list|,
@@ -434,13 +430,40 @@ name|host
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|host
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Creating Clustered Vertx {}"
+argument_list|,
+name|host
+argument_list|)
+expr_stmt|;
+name|vertx
+operator|=
+name|VertxFactory
+operator|.
+name|newVertx
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Creating Vertx"
+literal|"Creating Non-Clustered Vertx"
 argument_list|)
 expr_stmt|;
 name|vertx
@@ -470,7 +493,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Stopping Vertx {}"
 argument_list|,

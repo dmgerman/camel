@@ -1198,13 +1198,6 @@ name|payload
 operator|.
 name|getBodySources
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|payload
-operator|.
-name|getBodySources
-argument_list|()
 operator|.
 name|size
 argument_list|()

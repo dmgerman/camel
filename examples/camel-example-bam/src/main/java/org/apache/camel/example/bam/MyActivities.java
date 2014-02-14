@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|persistence
+operator|.
+name|EntityManagerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,20 +53,6 @@ operator|.
 name|bam
 operator|.
 name|ProcessBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|orm
-operator|.
-name|jpa
-operator|.
-name|JpaTemplate
 import|;
 end_import
 
@@ -111,12 +107,12 @@ specifier|public
 name|MyActivities
 parameter_list|()
 block|{     }
-DECL|method|MyActivities (JpaTemplate jpaTemplate, TransactionTemplate transactionTemplate)
+DECL|method|MyActivities (EntityManagerFactory entityManagerFactory, TransactionTemplate transactionTemplate)
 specifier|public
 name|MyActivities
 parameter_list|(
-name|JpaTemplate
-name|jpaTemplate
+name|EntityManagerFactory
+name|entityManagerFactory
 parameter_list|,
 name|TransactionTemplate
 name|transactionTemplate
@@ -124,7 +120,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|jpaTemplate
+name|entityManagerFactory
 argument_list|,
 name|transactionTemplate
 argument_list|)

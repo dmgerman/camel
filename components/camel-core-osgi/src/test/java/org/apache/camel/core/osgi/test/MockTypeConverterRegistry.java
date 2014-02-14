@@ -238,6 +238,20 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|listAllTypeConvertersFromTo ()
+specifier|public
+name|List
+argument_list|<
+name|Class
+index|[]
+argument_list|>
+name|listAllTypeConvertersFromTo
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 DECL|method|setInjector (Injector injector)
 specifier|public
 name|void
@@ -267,6 +281,19 @@ parameter_list|()
 block|{
 return|return
 literal|null
+return|;
+block|}
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|typeConverters
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 DECL|method|start ()

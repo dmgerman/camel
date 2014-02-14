@@ -64,6 +64,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
 name|twitter4j
 operator|.
 name|Twitter
@@ -115,6 +129,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|TwitterConfiguration
 specifier|public
 class|class
@@ -258,11 +274,7 @@ specifier|private
 name|Integer
 name|numberOfPages
 init|=
-operator|new
-name|Integer
-argument_list|(
 literal|1
-argument_list|)
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1033,12 +1045,12 @@ return|return
 name|count
 return|;
 block|}
-DECL|method|setCount (int count)
+DECL|method|setCount (Integer count)
 specifier|public
 name|void
 name|setCount
 parameter_list|(
-name|int
+name|Integer
 name|count
 parameter_list|)
 block|{
