@@ -42,6 +42,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URLDecoder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -369,6 +379,20 @@ operator|.
 name|model
 operator|.
 name|RoutesDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
 import|;
 end_import
 
@@ -1466,7 +1490,47 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// convert to model from xml
+comment|// do not decode so we function as before
+name|addOrUpdateRoutesFromXml
+argument_list|(
+name|xml
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|addOrUpdateRoutesFromXml (String xml, boolean urlDecode)
+specifier|public
+name|void
+name|addOrUpdateRoutesFromXml
+parameter_list|(
+name|String
+name|xml
+parameter_list|,
+name|boolean
+name|urlDecode
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// decode String as it may have been encoded, from its xml source
+if|if
+condition|(
+name|urlDecode
+condition|)
+block|{
+name|xml
+operator|=
+name|URLDecoder
+operator|.
+name|decode
+argument_list|(
+name|xml
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
+block|}
 name|InputStream
 name|is
 init|=
