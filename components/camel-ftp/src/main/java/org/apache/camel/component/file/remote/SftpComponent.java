@@ -101,7 +101,18 @@ DECL|method|SftpComponent ()
 specifier|public
 name|SftpComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|setEndpointClass
+argument_list|(
+name|SftpEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SftpComponent (CamelContext context)
 specifier|public
 name|SftpComponent
@@ -113,6 +124,13 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|)
+expr_stmt|;
+name|setEndpointClass
+argument_list|(
+name|SftpEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

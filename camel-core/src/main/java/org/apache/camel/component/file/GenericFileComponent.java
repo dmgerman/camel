@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -178,7 +178,7 @@ parameter_list|<
 name|T
 parameter_list|>
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|log
 specifier|protected
@@ -197,7 +197,15 @@ DECL|method|GenericFileComponent ()
 specifier|public
 name|GenericFileComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|GenericFileEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|GenericFileComponent (CamelContext context)
 specifier|public
 name|GenericFileComponent
@@ -209,6 +217,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|GenericFileEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
