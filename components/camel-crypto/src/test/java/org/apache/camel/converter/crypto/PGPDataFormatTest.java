@@ -1790,7 +1790,7 @@ name|PGPPassphraseAccessor
 name|passphraseAccessorSeveralKeys
 init|=
 operator|new
-name|PGPPassphraseAccessorDefault
+name|DefaultPGPPassphraseAccessor
 argument_list|(
 name|userId2Passphrase
 argument_list|)
@@ -2209,7 +2209,7 @@ name|PGPPublicKeyAccess
 name|publicKeyAccess
 init|=
 operator|new
-name|PGPPublicKeyAccessDefault
+name|DefaultPGPPublicKeyAccess
 argument_list|(
 name|getPublicKeyRing
 argument_list|()
@@ -2220,7 +2220,7 @@ name|PGPSecretKeyAccess
 name|secretKeyAccess
 init|=
 operator|new
-name|PGPSecretKeyAccessDefault
+name|DefaultPGPSecretKeyAccess
 argument_list|(
 name|getSecKeyRing
 argument_list|()
@@ -2459,7 +2459,7 @@ name|PGPPassphraseAccessor
 name|passphraseAccessor
 init|=
 operator|new
-name|PGPPassphraseAccessorDefault
+name|DefaultPGPPassphraseAccessor
 argument_list|(
 name|userId2Passphrase
 argument_list|)

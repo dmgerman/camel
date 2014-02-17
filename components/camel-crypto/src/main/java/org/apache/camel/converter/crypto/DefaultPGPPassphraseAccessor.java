@@ -47,10 +47,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|PGPPassphraseAccessorDefault
+DECL|class|DefaultPGPPassphraseAccessor
 specifier|public
 class|class
-name|PGPPassphraseAccessorDefault
+name|DefaultPGPPassphraseAccessor
 implements|implements
 name|PGPPassphraseAccessor
 block|{
@@ -65,9 +65,9 @@ name|String
 argument_list|>
 name|userId2Passphrase
 decl_stmt|;
-DECL|method|PGPPassphraseAccessorDefault (Map<String, String> userId2Passphrase)
+DECL|method|DefaultPGPPassphraseAccessor (Map<String, String> userId2Passphrase)
 specifier|public
-name|PGPPassphraseAccessorDefault
+name|DefaultPGPPassphraseAccessor
 parameter_list|(
 name|Map
 argument_list|<

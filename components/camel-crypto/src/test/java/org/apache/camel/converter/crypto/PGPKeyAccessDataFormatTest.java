@@ -78,7 +78,7 @@ name|PGPPublicKeyAccess
 name|publicKeyAccess
 init|=
 operator|new
-name|PGPPublicKeyAccessDefault
+name|DefaultPGPPublicKeyAccess
 argument_list|(
 name|PGPDataFormatTest
 operator|.
@@ -90,7 +90,7 @@ name|PGPSecretKeyAccess
 name|secretKeyAccess
 init|=
 operator|new
-name|PGPSecretKeyAccessDefault
+name|DefaultPGPSecretKeyAccess
 argument_list|(
 name|PGPDataFormatTest
 operator|.
