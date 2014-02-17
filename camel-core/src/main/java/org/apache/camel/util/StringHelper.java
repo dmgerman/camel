@@ -532,8 +532,16 @@ return|return
 literal|false
 return|;
 block|}
+comment|// for the simple language the expression start token could be "${"
 if|if
 condition|(
+literal|"simple"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|language
+argument_list|)
+operator|&&
 name|expression
 operator|.
 name|indexOf
