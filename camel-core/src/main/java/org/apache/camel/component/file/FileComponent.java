@@ -155,6 +155,26 @@ argument_list|>
 implements|implements
 name|EndpointCompleter
 block|{
+comment|/**      * GenericFile property on Camel Exchanges.      */
+DECL|field|FILE_EXCHANGE_FILE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FILE_EXCHANGE_FILE
+init|=
+literal|"CamelFileExchangeFile"
+decl_stmt|;
+comment|/**      * Default camel lock filename postfix      */
+DECL|field|DEFAULT_LOCK_FILE_POSTFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_LOCK_FILE_POSTFIX
+init|=
+literal|".camelLock"
+decl_stmt|;
 DECL|method|FileComponent ()
 specifier|public
 name|FileComponent
@@ -192,26 +212,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * GenericFile property on Camel Exchanges.      */
-DECL|field|FILE_EXCHANGE_FILE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|FILE_EXCHANGE_FILE
-init|=
-literal|"CamelFileExchangeFile"
-decl_stmt|;
-comment|/**      * Default camel lock filename postfix      */
-DECL|field|DEFAULT_LOCK_FILE_POSTFIX
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_LOCK_FILE_POSTFIX
-init|=
-literal|".camelLock"
-decl_stmt|;
 DECL|method|buildFileEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|GenericFileEndpoint
