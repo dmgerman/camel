@@ -502,6 +502,11 @@ argument_list|(
 name|bytes
 argument_list|)
 expr_stmt|;
+name|buf
+operator|.
+name|flip
+argument_list|()
+expr_stmt|;
 return|return
 name|buf
 return|;
