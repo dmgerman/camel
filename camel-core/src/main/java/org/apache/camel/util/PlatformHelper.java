@@ -29,6 +29,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Thread
+operator|.
+name|currentThread
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -104,9 +116,13 @@ name|?
 argument_list|>
 name|activatorClass
 init|=
-name|Class
+name|currentThread
+argument_list|()
 operator|.
-name|forName
+name|getContextClassLoader
+argument_list|()
+operator|.
+name|loadClass
 argument_list|(
 literal|"org.apache.camel.osgi.Activator"
 argument_list|)
