@@ -152,6 +152,22 @@ name|ProcessorEndpoint
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|PlatformHelper
+operator|.
+name|isInOsgiEnvironment
+import|;
+end_import
+
 begin_comment
 comment|/**  * Bean Validator Component for validating Java beans against reference implementation of JSR 303 Validator (Hibernate  * Validator).  */
 end_comment
@@ -164,16 +180,6 @@ name|BeanValidatorComponent
 extends|extends
 name|DefaultComponent
 block|{
-comment|/**      * Prefix of the OSGi-aware implementations of {@code org.apache.camel.CamelContext} interface (like      * {@code org.apache.camel.core.osgi.OsgiDefaultCamelContext} or      * {@code org.apache.camel.osgi.OsgiSpringCamelContext} ).      */
-DECL|field|OSGI_CONTEXT_CLASS_PREFIX
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|OSGI_CONTEXT_CLASS_PREFIX
-init|=
-literal|"Osgi"
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -455,7 +461,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Recognizes if component is executed in the OSGi environment. This implementation assumes that component is      * deployed into OSGi environment if it uses implementation of {@code org.apache.camel.CamelContext} with class      * name starting with the "Osgi" prefix.      *      * @return true if component is executed in the OSGi environment. False otherwise.      */
+comment|/**      * Recognizes if component is executed in the OSGi environment.      *      * @return true if component is executed in the OSGi environment. False otherwise.      */
 DECL|method|isOsgiContext ()
 specifier|protected
 name|boolean
@@ -463,19 +469,8 @@ name|isOsgiContext
 parameter_list|()
 block|{
 return|return
-name|getCamelContext
+name|isInOsgiEnvironment
 argument_list|()
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-name|OSGI_CONTEXT_CLASS_PREFIX
-argument_list|)
 return|;
 block|}
 block|}
