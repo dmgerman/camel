@@ -19,6 +19,30 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|UUID
+operator|.
+name|randomUUID
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -126,15 +150,7 @@ name|JGroupsClusterTest
 extends|extends
 name|Assert
 block|{
-comment|// Routing fixtures
-DECL|field|firstCamelContext
-name|DefaultCamelContext
-name|firstCamelContext
-decl_stmt|;
-DECL|field|secondCamelContext
-name|DefaultCamelContext
-name|secondCamelContext
-decl_stmt|;
+comment|// Tested state
 DECL|field|master
 name|String
 name|master
@@ -142,6 +158,27 @@ decl_stmt|;
 DECL|field|nominationCount
 name|int
 name|nominationCount
+decl_stmt|;
+comment|// Routing fixtures
+DECL|field|jgroupsEndpoint
+name|String
+name|jgroupsEndpoint
+init|=
+name|format
+argument_list|(
+literal|"jgroups:%s?enableViewMessages=true"
+argument_list|,
+name|randomUUID
+argument_list|()
+argument_list|)
+decl_stmt|;
+DECL|field|firstCamelContext
+name|DefaultCamelContext
+name|firstCamelContext
+decl_stmt|;
+DECL|field|secondCamelContext
+name|DefaultCamelContext
+name|secondCamelContext
 decl_stmt|;
 DECL|class|Builder
 class|class
@@ -161,7 +198,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jgroups:cluster?enableViewMessages=true"
+name|jgroupsEndpoint
 argument_list|)
 operator|.
 name|filter

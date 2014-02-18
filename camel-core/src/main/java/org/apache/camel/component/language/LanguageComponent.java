@@ -289,6 +289,11 @@ name|resourceUri
 operator|=
 name|resource
 expr_stmt|;
+comment|// then the script should be null
+name|script
+operator|=
+literal|null
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -303,6 +308,11 @@ name|script
 argument_list|,
 literal|"UTF-8"
 argument_list|)
+expr_stmt|;
+comment|// then the resource should be null
+name|resourceUri
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}

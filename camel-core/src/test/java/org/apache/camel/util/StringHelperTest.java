@@ -644,7 +644,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|true
+literal|false
 argument_list|,
 name|StringHelper
 operator|.
@@ -686,7 +686,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|true
+literal|false
 argument_list|,
 name|StringHelper
 operator|.
@@ -700,7 +700,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|true
+literal|false
 argument_list|,
 name|StringHelper
 operator|.
@@ -712,6 +712,7 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// $foo{ is valid because its foo language
 name|assertEquals
 argument_list|(
 literal|true

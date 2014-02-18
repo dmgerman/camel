@@ -191,7 +191,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|endpointClass
 specifier|private
-specifier|final
 name|Class
 argument_list|<
 name|?
@@ -251,6 +250,28 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|endpointClass
+operator|=
+name|endpointClass
+expr_stmt|;
+block|}
+comment|/**      * To use a specific endpoint class, instead of what has been provided by the constructors.      *      * @param endpointClass the endpoint class to use      */
+DECL|method|setEndpointClass (Class<? extends Endpoint> endpointClass)
+specifier|public
+name|void
+name|setEndpointClass
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
 name|this
 operator|.
 name|endpointClass

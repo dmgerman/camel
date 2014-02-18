@@ -746,6 +746,26 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Adds or updates existing routes from XML"
+argument_list|)
+DECL|method|addOrUpdateRoutesFromXml (String xml, boolean urlDecode)
+name|void
+name|addOrUpdateRoutesFromXml
+parameter_list|(
+name|String
+name|xml
+parameter_list|,
+name|boolean
+name|urlDecode
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Dumps the routes stats as XML"
 argument_list|)
 DECL|method|dumpRoutesStatsAsXml (boolean fullStats, boolean includeProcessors)

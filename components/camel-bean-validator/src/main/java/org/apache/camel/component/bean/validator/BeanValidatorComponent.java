@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Bean Validator Component for validating java beans against JSR 303 Validator  *  * @version   */
+comment|/**  * Bean Validator Component for validating Java beans against reference implementation of JSR 303 Validator (Hibernate  * Validator).  */
 end_comment
 
 begin_class
@@ -164,6 +164,16 @@ name|BeanValidatorComponent
 extends|extends
 name|DefaultComponent
 block|{
+comment|/**      * Prefix of the OSGi-aware implementations of {@code org.apache.camel.CamelContext} interface (like      * {@code org.apache.camel.core.osgi.OsgiDefaultCamelContext} or      * {@code org.apache.camel.osgi.OsgiSpringCamelContext} ).      */
+DECL|field|OSGI_CONTEXT_CLASS_PREFIX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|OSGI_CONTEXT_CLASS_PREFIX
+init|=
+literal|"Osgi"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -198,15 +208,9 @@ decl_stmt|;
 name|ValidationProviderResolver
 name|validationProviderResolver
 init|=
-name|resolveAndRemoveReferenceParameter
+name|resolveValidationProviderResolver
 argument_list|(
 name|parameters
-argument_list|,
-literal|"validationProviderResolver"
-argument_list|,
-name|ValidationProviderResolver
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 name|MessageInterpolator
@@ -392,6 +396,85 @@ argument_list|,
 name|this
 argument_list|,
 name|beanValidator
+argument_list|)
+return|;
+block|}
+comment|/**      * Resolves optional custom {@code javax.validation.ValidationProviderResolver} to be used by the component. By      * default component tries to use resolver instance bound to the Camel registry under name      * {@code validationProviderResolver} . If there is no such resolver instance in the registry and component is      * running in the OSGi environment, {@link HibernateValidationProviderResolver} will be used. In all the other      * cases this method will return null.      *      * @param parameters endpoint parameters      * @return {@code javax.validation.ValidationProviderResolver} instance or null if no custom resolver should      * be used by the component      */
+DECL|method|resolveValidationProviderResolver (Map<String, Object> parameters)
+specifier|protected
+name|ValidationProviderResolver
+name|resolveValidationProviderResolver
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+block|{
+name|ValidationProviderResolver
+name|validationProviderResolver
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"validationProviderResolver"
+argument_list|,
+name|ValidationProviderResolver
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|validationProviderResolver
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|validationProviderResolver
+return|;
+block|}
+if|if
+condition|(
+name|isOsgiContext
+argument_list|()
+condition|)
+block|{
+return|return
+operator|new
+name|HibernateValidationProviderResolver
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Recognizes if component is executed in the OSGi environment. This implementation assumes that component is      * deployed into OSGi environment if it uses implementation of {@code org.apache.camel.CamelContext} with class      * name starting with the "Osgi" prefix.      *      * @return true if component is executed in the OSGi environment. False otherwise.      */
+DECL|method|isOsgiContext ()
+specifier|protected
+name|boolean
+name|isOsgiContext
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|OSGI_CONTEXT_CLASS_PREFIX
 argument_list|)
 return|;
 block|}
