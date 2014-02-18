@@ -309,7 +309,9 @@ name|traceState
 parameter_list|)
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// We do nothing here
+block|}
 DECL|method|traceExchangeIn (ProcessorDefinition<?> node, Processor target, TraceInterceptor traceInterceptor, Exchange exchange)
 specifier|public
 name|Object
@@ -333,6 +335,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Just trace the exchange as usual
+name|traceExchange
+argument_list|(
+name|node
+argument_list|,
+name|target
+argument_list|,
+name|traceInterceptor
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
