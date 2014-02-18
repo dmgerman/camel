@@ -1131,7 +1131,13 @@ condition|(
 name|PlatformHelper
 operator|.
 name|isInOsgiEnvironment
+argument_list|(
+name|getClass
 argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
 condition|)
 block|{
 try|try

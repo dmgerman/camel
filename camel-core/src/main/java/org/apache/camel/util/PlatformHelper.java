@@ -92,13 +92,16 @@ specifier|private
 name|PlatformHelper
 parameter_list|()
 block|{     }
-comment|/**      * Determine whether Camel is running in the OSGi environment. Current implementation tries to load Camel activator      * bundle (using reflection API and class loading) to determine if the code is executed in the OSGi environment.      *      * @return true if caller is running in the OSGi environment, false otherwise      */
-DECL|method|isInOsgiEnvironment ()
+comment|/**      * Determine whether Camel is running in the OSGi environment. Current implementation tries to load Camel activator      * bundle (using reflection API and class loading) to determine if the code is executed in the OSGi environment.      *      * @param classLoader caller class loader to be used to load Camel Bundle Activator      * @return true if caller is running in the OSGi environment, false otherwise      */
+DECL|method|isInOsgiEnvironment (ClassLoader classLoader)
 specifier|public
 specifier|static
 name|boolean
 name|isInOsgiEnvironment
-parameter_list|()
+parameter_list|(
+name|ClassLoader
+name|classLoader
+parameter_list|)
 block|{
 try|try
 block|{
@@ -116,11 +119,7 @@ name|?
 argument_list|>
 name|activatorClass
 init|=
-name|currentThread
-argument_list|()
-operator|.
-name|getContextClassLoader
-argument_list|()
+name|classLoader
 operator|.
 name|loadClass
 argument_list|(
@@ -175,6 +174,24 @@ return|return
 literal|false
 return|;
 block|}
+block|}
+DECL|method|isInOsgiEnvironment ()
+specifier|public
+specifier|static
+name|boolean
+name|isInOsgiEnvironment
+parameter_list|()
+block|{
+return|return
+name|isInOsgiEnvironment
+argument_list|(
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
+argument_list|)
+return|;
 block|}
 block|}
 end_class
