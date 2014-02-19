@@ -167,12 +167,12 @@ comment|/**  * Caches a Secret Keyring. Assumes that the password for all privat
 end_comment
 
 begin_class
-DECL|class|DefaultPGPSecretKeyAccess
+DECL|class|DefaultPGPSecretKeyAccessor
 specifier|public
 class|class
-name|DefaultPGPSecretKeyAccess
+name|DefaultPGPSecretKeyAccessor
 implements|implements
-name|PGPSecretKeyAccess
+name|PGPSecretKeyAccessor
 block|{
 DECL|field|userIdPart2SecretKeyList
 specifier|private
@@ -243,9 +243,9 @@ name|String
 name|provider
 decl_stmt|;
 comment|/**      *       * @param secretKeyRing      *            secret key ring as byte array      * @param password      *            password for the private keys, assuming that all private keys      *            have the same password      * @param provider      * @throws PGPException      * @throws IOException      */
-DECL|method|DefaultPGPSecretKeyAccess (byte[] secretKeyRing, String password, String provider)
+DECL|method|DefaultPGPSecretKeyAccessor (byte[] secretKeyRing, String password, String provider)
 specifier|public
-name|DefaultPGPSecretKeyAccess
+name|DefaultPGPSecretKeyAccessor
 parameter_list|(
 name|byte
 index|[]

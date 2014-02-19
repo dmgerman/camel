@@ -615,7 +615,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This PGP Data Format uses the interfaces {@link PGPPublicKeyAccess} and  * {@link PGPSecretKeyAccess} to access the keys for encryption/signing and  * decryption/signature verification. These interfaces allow caching of the keys  * which can improve the performance.  *<p>  * If you want to provide the key access via keyrings in the format of a byte  * array or file, then you should use the class {@link PGPDataFormat}.  *   */
+comment|/**  * This PGP Data Format uses the interfaces {@link PGPPublicKeyAccessor} and  * {@link PGPSecretKeyAccessor} to access the keys for encryption/signing and  * decryption/signature verification. These interfaces allow caching of the keys  * which can improve the performance.  *<p>  * If you want to provide the key access via keyrings in the format of a byte  * array or file, then you should use the class {@link PGPDataFormat}.  *   */
 end_comment
 
 begin_class
@@ -747,13 +747,13 @@ literal|16
 operator|*
 literal|1024
 decl_stmt|;
-DECL|field|publicKeyAccess
-name|PGPPublicKeyAccess
-name|publicKeyAccess
+DECL|field|publicKeyAccessor
+name|PGPPublicKeyAccessor
+name|publicKeyAccessor
 decl_stmt|;
-DECL|field|secretKeyAccess
-name|PGPSecretKeyAccess
-name|secretKeyAccess
+DECL|field|secretKeyAccessor
+name|PGPSecretKeyAccessor
+name|secretKeyAccessor
 decl_stmt|;
 comment|// Java Cryptography Extension provider, default is Bouncy Castle
 DECL|field|provider
@@ -1092,7 +1092,7 @@ name|PGPPublicKey
 argument_list|>
 name|keys
 init|=
-name|publicKeyAccess
+name|publicKeyAccessor
 operator|.
 name|getEncryptionKeys
 argument_list|(
@@ -1783,7 +1783,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|secretKeyAccess
+name|secretKeyAccessor
 operator|==
 literal|null
 condition|)
@@ -1809,7 +1809,7 @@ name|PGPSecretKeyAndPrivateKeyAndUserId
 argument_list|>
 name|sigSecretKeysWithPrivateKeyAndUserId
 init|=
-name|secretKeyAccess
+name|secretKeyAccessor
 operator|.
 name|getSignerKeys
 argument_list|(
@@ -2117,7 +2117,7 @@ argument_list|)
 expr_stmt|;
 name|key
 operator|=
-name|secretKeyAccess
+name|secretKeyAccessor
 operator|.
 name|getPrivateKey
 argument_list|(
@@ -2602,7 +2602,7 @@ comment|// Determine public key from signature keyId
 name|PGPPublicKey
 name|sigPublicKey
 init|=
-name|publicKeyAccess
+name|publicKeyAccessor
 operator|.
 name|getPublicKey
 argument_list|(
@@ -3088,56 +3088,56 @@ operator|=
 name|algorithm
 expr_stmt|;
 block|}
-DECL|method|getPublicKeyAccess ()
+DECL|method|getPublicKeyAccessor ()
 specifier|public
-name|PGPPublicKeyAccess
-name|getPublicKeyAccess
+name|PGPPublicKeyAccessor
+name|getPublicKeyAccessor
 parameter_list|()
 block|{
 return|return
-name|publicKeyAccess
+name|publicKeyAccessor
 return|;
 block|}
-DECL|method|setPublicKeyAccess (PGPPublicKeyAccess publicKeyAccess)
+DECL|method|setPublicKeyAccessor (PGPPublicKeyAccessor publicKeyAccessor)
 specifier|public
 name|void
-name|setPublicKeyAccess
+name|setPublicKeyAccessor
 parameter_list|(
-name|PGPPublicKeyAccess
-name|publicKeyAccess
+name|PGPPublicKeyAccessor
+name|publicKeyAccessor
 parameter_list|)
 block|{
 name|this
 operator|.
-name|publicKeyAccess
+name|publicKeyAccessor
 operator|=
-name|publicKeyAccess
+name|publicKeyAccessor
 expr_stmt|;
 block|}
-DECL|method|getSecretKeyAccess ()
+DECL|method|getSecretKeyAccessor ()
 specifier|public
-name|PGPSecretKeyAccess
-name|getSecretKeyAccess
+name|PGPSecretKeyAccessor
+name|getSecretKeyAccessor
 parameter_list|()
 block|{
 return|return
-name|secretKeyAccess
+name|secretKeyAccessor
 return|;
 block|}
-DECL|method|setSecretKeyAccess (PGPSecretKeyAccess secretKeyAccess)
+DECL|method|setSecretKeyAccessor (PGPSecretKeyAccessor secretKeyAccessor)
 specifier|public
 name|void
-name|setSecretKeyAccess
+name|setSecretKeyAccessor
 parameter_list|(
-name|PGPSecretKeyAccess
-name|secretKeyAccess
+name|PGPSecretKeyAccessor
+name|secretKeyAccessor
 parameter_list|)
 block|{
 name|this
 operator|.
-name|secretKeyAccess
+name|secretKeyAccessor
 operator|=
-name|secretKeyAccess
+name|secretKeyAccessor
 expr_stmt|;
 block|}
 annotation|@

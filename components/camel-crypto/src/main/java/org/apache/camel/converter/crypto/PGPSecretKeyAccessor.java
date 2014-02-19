@@ -48,23 +48,23 @@ name|bouncycastle
 operator|.
 name|openpgp
 operator|.
-name|PGPPublicKey
+name|PGPPrivateKey
 import|;
 end_import
 
 begin_interface
-DECL|interface|PGPPublicKeyAccess
+DECL|interface|PGPSecretKeyAccessor
 specifier|public
 interface|interface
-name|PGPPublicKeyAccess
+name|PGPSecretKeyAccessor
 block|{
-comment|/**      * Returns the encryption keys for the given user ID parts. This method is      * used for encryption.      *       * @param exchange      *            exchange, can be<code>null</code>      * @param useridParts      *            parts of User IDs, must not be<code>null</code>      * @return list of public keys, must not be<code>null</code>      */
-DECL|method|getEncryptionKeys (Exchange exchange, List<String> useridParts)
+comment|/**      * Returns the signer keys for the given user ID parts. This method is used      * for signing.      *       * @param exchange      *            exchange, can be<code>null</code>      * @param useridParts      *            parts of User IDs, can be<code>null</code> or empty, then an      *            empty list must be returned      * @return list of secret keys with their private keys and User Ids which      *         corresponds to one of the useridParts, must not be      *<code>null</code>, can be empty      */
+DECL|method|getSignerKeys (Exchange exchange, List<String> useridParts)
 name|List
 argument_list|<
-name|PGPPublicKey
+name|PGPSecretKeyAndPrivateKeyAndUserId
 argument_list|>
-name|getEncryptionKeys
+name|getSignerKeys
 parameter_list|(
 name|Exchange
 name|exchange
@@ -78,10 +78,10 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Returns the public key with a certain key ID. This method is used for      * verifying the signature.      *       * @param exchange      *            exchange      * @param keyId      *            key ID      * @return public key or<code>null</code> if the key cannot be found      */
-DECL|method|getPublicKey (Exchange exchange, long keyId)
-name|PGPPublicKey
-name|getPublicKey
+comment|/**      * Returns the private key with a certain key ID. This method is used for      * decrypting.      *       * @param exchange      *            exchange, can be<code>null</code>      *       * @param keyId      *            key ID      * @return private key or<code>null</code> if the key cannot be found      */
+DECL|method|getPrivateKey (Exchange exchange, long keyId)
+name|PGPPrivateKey
+name|getPrivateKey
 parameter_list|(
 name|Exchange
 name|exchange
