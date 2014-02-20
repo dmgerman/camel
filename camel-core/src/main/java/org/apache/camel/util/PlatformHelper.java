@@ -123,7 +123,7 @@ name|classLoader
 operator|.
 name|loadClass
 argument_list|(
-literal|"org.apache.camel.osgi.Activator"
+literal|"org.apache.camel.impl.osgi.Activator"
 argument_list|)
 decl_stmt|;
 name|Method
@@ -185,10 +185,11 @@ block|{
 return|return
 name|isInOsgiEnvironment
 argument_list|(
-name|currentThread
-argument_list|()
+name|PlatformHelper
 operator|.
-name|getContextClassLoader
+name|class
+operator|.
+name|getClassLoader
 argument_list|()
 argument_list|)
 return|;
