@@ -55,10 +55,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ManagedRouteLoadStatisticsTest
+DECL|class|ManagedRouteLoadstatisticsTest
 specifier|public
 class|class
-name|ManagedRouteLoadStatisticsTest
+name|ManagedRouteLoadstatisticsTest
 extends|extends
 name|ManagementTestSupport
 block|{
