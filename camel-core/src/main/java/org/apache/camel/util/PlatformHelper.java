@@ -20,11 +20,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|osgi
+name|apache
 operator|.
-name|framework
+name|camel
 operator|.
-name|Bundle
+name|CamelContext
 import|;
 end_import
 
@@ -45,20 +45,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|osgi
-operator|.
-name|framework
-operator|.
-name|FrameworkUtil
-operator|.
-name|getBundle
 import|;
 end_import
 
@@ -94,47 +80,52 @@ specifier|private
 name|PlatformHelper
 parameter_list|()
 block|{     }
-comment|/**      * Determine whether Camel is running in the OSGi environment.      *      * @param classFromBundle class to be tested against being deployed into OSGi      * @return true if caller is running in the OSGi environment, false otherwise      */
-DECL|method|isInOsgiEnvironment (Class classFromBundle)
+comment|/**      * Determine whether Camel is OSGi-aware. Current implementation of the method checks if the name of the      * {@link CamelContext} matches the names of the known OSGi-aware contexts.      *      * @param camelContext context to be tested against OSGi-awareness      * @return true if given context is OSGi-aware, false otherwise      */
+DECL|method|isOsgiContext (CamelContext camelContext)
 specifier|public
 specifier|static
 name|boolean
-name|isInOsgiEnvironment
+name|isOsgiContext
 parameter_list|(
-name|Class
-name|classFromBundle
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
-name|Bundle
-name|bundle
+name|String
+name|contextType
 init|=
-name|getBundle
-argument_list|(
-name|classFromBundle
-argument_list|)
+name|camelContext
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|bundle
-operator|!=
-literal|null
+name|contextType
+operator|.
+name|startsWith
+argument_list|(
+literal|"Osgi"
+argument_list|)
+operator|||
+name|contextType
+operator|.
+name|equals
+argument_list|(
+literal|"BlueprintCamelContext"
+argument_list|)
 condition|)
 block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Found OSGi bundle {} for class {} so assuming running in the OSGi container."
+literal|"{} used - assuming running in the OSGi container."
 argument_list|,
-name|bundle
-operator|.
-name|getSymbolicName
-argument_list|()
-argument_list|,
-name|classFromBundle
-operator|.
-name|getSimpleName
-argument_list|()
+name|contextType
 argument_list|)
 expr_stmt|;
 return|return
@@ -147,34 +138,15 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot find OSGi bundle for class {} so assuming not running in the OSGi container."
+literal|"{} used - assuming running in the OSGi container."
 argument_list|,
-name|classFromBundle
-operator|.
-name|getSimpleName
-argument_list|()
+name|contextType
 argument_list|)
 expr_stmt|;
 return|return
 literal|false
 return|;
 block|}
-block|}
-DECL|method|isInOsgiEnvironment ()
-specifier|public
-specifier|static
-name|boolean
-name|isInOsgiEnvironment
-parameter_list|()
-block|{
-return|return
-name|isInOsgiEnvironment
-argument_list|(
-name|PlatformHelper
-operator|.
-name|class
-argument_list|)
-return|;
 block|}
 block|}
 end_class

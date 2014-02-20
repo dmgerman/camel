@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -163,8 +163,6 @@ operator|.
 name|util
 operator|.
 name|PlatformHelper
-operator|.
-name|isInOsgiEnvironment
 import|;
 end_import
 
@@ -469,8 +467,13 @@ name|isOsgiContext
 parameter_list|()
 block|{
 return|return
-name|isInOsgiEnvironment
+name|PlatformHelper
+operator|.
+name|isOsgiContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -48,7 +62,7 @@ name|util
 operator|.
 name|PlatformHelper
 operator|.
-name|isInOsgiEnvironment
+name|isOsgiContext
 import|;
 end_import
 
@@ -62,19 +76,75 @@ name|Assert
 block|{
 annotation|@
 name|Test
-DECL|method|shouldNotFindOsgiContext ()
+DECL|method|shouldNotMatchDefaultCamelContext ()
 specifier|public
 name|void
-name|shouldNotFindOsgiContext
+name|shouldNotMatchDefaultCamelContext
 parameter_list|()
 block|{
 name|assertFalse
 argument_list|(
-name|isInOsgiEnvironment
+name|isOsgiContext
+argument_list|(
+operator|new
+name|DefaultCamelContext
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|shouldMatchBlueprintCamelContext ()
+specifier|public
+name|void
+name|shouldMatchBlueprintCamelContext
+parameter_list|()
+block|{
+name|assertTrue
+argument_list|(
+name|isOsgiContext
+argument_list|(
+operator|new
+name|BlueprintCamelContext
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|shouldMatchOsgiDefaultCamelContext ()
+specifier|public
+name|void
+name|shouldMatchOsgiDefaultCamelContext
+parameter_list|()
+block|{
+name|assertTrue
+argument_list|(
+name|isOsgiContext
+argument_list|(
+operator|new
+name|OsgiDefaultCamelContext
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|class|BlueprintCamelContext
+specifier|private
+class|class
+name|BlueprintCamelContext
+extends|extends
+name|DefaultCamelContext
+block|{ }
+DECL|class|OsgiDefaultCamelContext
+specifier|private
+class|class
+name|OsgiDefaultCamelContext
+extends|extends
+name|DefaultCamelContext
+block|{ }
 block|}
 end_class
 
