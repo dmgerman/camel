@@ -365,8 +365,6 @@ DECL|field|loadStatisticsEnabled
 specifier|private
 name|boolean
 name|loadStatisticsEnabled
-init|=
-literal|true
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
