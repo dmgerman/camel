@@ -258,10 +258,6 @@ literal|"onServiceAdd"
 argument_list|,
 literal|"onServiceAdd"
 argument_list|,
-literal|"onServiceAdd"
-argument_list|,
-literal|"onThreadPoolAdd"
-argument_list|,
 literal|"onComponentAdd"
 argument_list|,
 literal|"onEndpointAdd"
@@ -269,8 +265,6 @@ argument_list|,
 literal|"onComponentRemove"
 argument_list|,
 literal|"onContextStop"
-argument_list|,
-literal|"onThreadPoolRemove"
 argument_list|)
 decl_stmt|;
 name|assertEquals

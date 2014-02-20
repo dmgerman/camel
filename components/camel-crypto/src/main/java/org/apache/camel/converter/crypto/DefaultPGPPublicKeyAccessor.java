@@ -127,12 +127,12 @@ comment|/**  * Caches a public key ring.  *   */
 end_comment
 
 begin_class
-DECL|class|DefaultPGPPublicKeyAccess
+DECL|class|DefaultPGPPublicKeyAccessor
 specifier|public
 class|class
-name|DefaultPGPPublicKeyAccess
+name|DefaultPGPPublicKeyAccessor
 implements|implements
-name|PGPPublicKeyAccess
+name|PGPPublicKeyAccessor
 block|{
 DECL|field|pgpPublicKeyRing
 specifier|private
@@ -140,9 +140,9 @@ specifier|final
 name|PGPPublicKeyRingCollection
 name|pgpPublicKeyRing
 decl_stmt|;
-DECL|method|DefaultPGPPublicKeyAccess (byte[] publicKeyRing)
+DECL|method|DefaultPGPPublicKeyAccessor (byte[] publicKeyRing)
 specifier|public
-name|DefaultPGPPublicKeyAccess
+name|DefaultPGPPublicKeyAccessor
 parameter_list|(
 name|byte
 index|[]

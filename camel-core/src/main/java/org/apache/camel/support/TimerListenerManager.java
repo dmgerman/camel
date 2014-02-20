@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TimerListener} manager which triggers the  * {@link org.apache.camel.TimerListener} listeners once every second.  *<p/>  * Also ensure when adding and remove listeners, that they are correctly removed to avoid  * leaking memory.  *  * @see TimerListener  */
+comment|/**  * A {@link TimerListener} manager which triggers the  * {@link org.apache.camel.TimerListener} listeners once every second.  *<p/>  * Also ensure when adding and remove listeners, that they are correctly removed to avoid  * leaking memory.  *<p/>  * From Camel 2.13 onwards the {@link TimerListenerManager} is only enabled if  * {@link org.apache.camel.spi.ManagementStrategy#isLoadStatisticsEnabled()} is enabled.  *  * @see TimerListener  */
 end_comment
 
 begin_class

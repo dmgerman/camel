@@ -288,6 +288,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -452,8 +454,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Shutting down solr server: "
-operator|+
+literal|"Shutting down solr server: {}"
+argument_list|,
 name|ref
 operator|.
 name|getSolrServer
@@ -502,8 +504,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Shutting down update solr server: "
-operator|+
+literal|"Shutting down update solr server: {}"
+argument_list|,
 name|ref
 operator|.
 name|getUpdateSolrServer

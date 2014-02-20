@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *  * @version   */
+comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *<p/>  * The repository supports eager (default) and non-eager mode.  *<ul>  *<li>eager: calls<tt>add</tt> and<tt>confirm</tt> if complete, or<tt>remove</tt> if failed</li>  *<li>non-eager: calls<tt>contains</tt> and<tt>add</tt> if complete, or<tt>remove</tt> if failed</li>  *</ul>  * Notice the remove callback, can be configured to be disabled.  *  * @version   */
 end_comment
 
 begin_interface
@@ -43,7 +43,7 @@ parameter_list|>
 extends|extends
 name|Service
 block|{
-comment|/**      * Adds the key to the repository.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if this repository did<b>not</b> already contain the specified element      */
+comment|/**      * Adds the key to the repository.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if this repository did<b>not</b> already contain the specified element      */
 DECL|method|add (E key)
 name|boolean
 name|add
@@ -52,7 +52,7 @@ name|E
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Returns<tt>true</tt> if this repository contains the specified element.      *<p/>      * This operation is used if the option<tt>eager</tt> has been enabled.      *      * @param key the key of the message      * @return<tt>true</tt> if this repository contains the specified element      */
+comment|/**      * Returns<tt>true</tt> if this repository contains the specified element.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message      * @return<tt>true</tt> if this repository contains the specified element      */
 DECL|method|contains (E key)
 name|boolean
 name|contains
@@ -61,7 +61,7 @@ name|E
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Removes the key from the repository.      *<p/>      * Is usually invoked if the exchange failed.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was removed      */
+comment|/**      * Removes the key from the repository.      *<p/>      * Is usually invoked if the exchange failed.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was removed      */
 DECL|method|remove (E key)
 name|boolean
 name|remove
@@ -70,7 +70,7 @@ name|E
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Confirms the key, after the exchange has been processed successfully.      *<p/>      * This operation is used if the option<tt>eager</tt> has been enabled.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was confirmed      */
+comment|/**      * Confirms the key, after the exchange has been processed successfully.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was confirmed      */
 DECL|method|confirm (E key)
 name|boolean
 name|confirm

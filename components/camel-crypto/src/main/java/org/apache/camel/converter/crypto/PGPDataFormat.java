@@ -138,9 +138,9 @@ name|PGPDataFormat
 extends|extends
 name|PGPKeyAccessDataFormat
 implements|implements
-name|PGPPublicKeyAccess
+name|PGPPublicKeyAccessor
 implements|,
-name|PGPSecretKeyAccess
+name|PGPSecretKeyAccessor
 block|{
 DECL|field|KEY_FILE_NAME
 specifier|public
@@ -247,11 +247,11 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|publicKeyAccess
+name|publicKeyAccessor
 operator|=
 name|this
 expr_stmt|;
-name|secretKeyAccess
+name|secretKeyAccessor
 operator|=
 name|this
 expr_stmt|;
@@ -1114,13 +1114,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setPublicKeyAccess (PGPPublicKeyAccess publicKeyAccess)
+DECL|method|setPublicKeyAccessor (PGPPublicKeyAccessor publicKeyAccessor)
 specifier|public
 name|void
-name|setPublicKeyAccess
+name|setPublicKeyAccessor
 parameter_list|(
-name|PGPPublicKeyAccess
-name|publicKeyAccess
+name|PGPPublicKeyAccessor
+name|publicKeyAccessor
 parameter_list|)
 block|{
 throw|throw
@@ -1133,13 +1133,13 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|setSecretKeyAccess (PGPSecretKeyAccess secretKeyAccess)
+DECL|method|setSecretKeyAccessor (PGPSecretKeyAccessor secretKeyAccessor)
 specifier|public
 name|void
-name|setSecretKeyAccess
+name|setSecretKeyAccessor
 parameter_list|(
-name|PGPSecretKeyAccess
-name|secretKeyAccess
+name|PGPSecretKeyAccessor
+name|secretKeyAccessor
 parameter_list|)
 block|{
 throw|throw
