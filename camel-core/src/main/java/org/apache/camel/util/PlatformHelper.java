@@ -18,25 +18,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|lang
+name|osgi
 operator|.
-name|reflect
+name|framework
 operator|.
-name|Method
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|Thread
-operator|.
-name|currentThread
+name|Bundle
 import|;
 end_import
 
@@ -57,6 +45,20 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|FrameworkUtil
+operator|.
+name|getBundle
 import|;
 end_import
 
@@ -92,81 +94,64 @@ specifier|private
 name|PlatformHelper
 parameter_list|()
 block|{     }
-comment|/**      * Determine whether Camel is running in the OSGi environment. Current implementation tries to load Camel activator      * bundle (using reflection API and class loading) to determine if the code is executed in the OSGi environment.      *      * @param classLoader caller class loader to be used to load Camel Bundle Activator      * @return true if caller is running in the OSGi environment, false otherwise      */
-DECL|method|isInOsgiEnvironment (ClassLoader classLoader)
+comment|/**      * Determine whether Camel is running in the OSGi environment.      *      * @param classFromBundle class to be tested against being deployed into OSGi      * @return true if caller is running in the OSGi environment, false otherwise      */
+DECL|method|isInOsgiEnvironment (Class classFromBundle)
 specifier|public
 specifier|static
 name|boolean
 name|isInOsgiEnvironment
 parameter_list|(
-name|ClassLoader
-name|classLoader
+name|Class
+name|classFromBundle
 parameter_list|)
 block|{
-try|try
-block|{
-comment|// Try to load the BundleActivator first
-name|Class
-operator|.
-name|forName
-argument_list|(
-literal|"org.osgi.framework.BundleActivator"
-argument_list|)
-expr_stmt|;
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|activatorClass
-init|=
-name|classLoader
-operator|.
-name|loadClass
-argument_list|(
-literal|"org.apache.camel.impl.osgi.Activator"
-argument_list|)
-decl_stmt|;
-name|Method
-name|getBundleMethod
-init|=
-name|activatorClass
-operator|.
-name|getDeclaredMethod
-argument_list|(
-literal|"getBundle"
-argument_list|)
-decl_stmt|;
-name|Object
+name|Bundle
 name|bundle
 init|=
-name|getBundleMethod
-operator|.
-name|invoke
+name|getBundle
 argument_list|(
-literal|null
+name|classFromBundle
 argument_list|)
 decl_stmt|;
-return|return
+if|if
+condition|(
 name|bundle
 operator|!=
 literal|null
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
+condition|)
 block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Cannot find class so assuming not running in OSGi container: "
-operator|+
-name|t
+literal|"Found OSGi bundle {} for class {} so assuming running in the OSGi container."
+argument_list|,
+name|bundle
 operator|.
-name|getMessage
+name|getSymbolicName
+argument_list|()
+argument_list|,
+name|classFromBundle
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Cannot find OSGi bundle for class {} so assuming not running in the OSGi container."
+argument_list|,
+name|classFromBundle
+operator|.
+name|getSimpleName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -188,9 +173,6 @@ argument_list|(
 name|PlatformHelper
 operator|.
 name|class
-operator|.
-name|getClassLoader
-argument_list|()
 argument_list|)
 return|;
 block|}
