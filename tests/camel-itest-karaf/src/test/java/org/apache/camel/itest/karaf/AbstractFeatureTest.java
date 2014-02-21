@@ -559,7 +559,6 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-continue|continue;
 block|}
 else|else
 block|{
@@ -647,7 +646,6 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-continue|continue;
 block|}
 else|else
 block|{
