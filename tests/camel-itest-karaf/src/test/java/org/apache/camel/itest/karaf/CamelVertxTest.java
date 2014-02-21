@@ -86,6 +86,18 @@ name|JUnit4TestRunner
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+operator|.
+name|assumeTrue
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -125,6 +137,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|//        Vert.x can be deployed only to Java 7 JVM
+name|String
+name|javaVersion
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+decl_stmt|;
+name|assumeTrue
+argument_list|(
+name|javaVersion
+operator|.
+name|startsWith
+argument_list|(
+literal|"1.7"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|testComponent
 argument_list|(
 name|COMPONENT
