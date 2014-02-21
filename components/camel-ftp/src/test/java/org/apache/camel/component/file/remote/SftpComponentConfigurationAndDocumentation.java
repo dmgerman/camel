@@ -226,17 +226,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// cannot be tested on java 1.6
-if|if
-condition|(
-name|CamelTestSupport
-operator|.
-name|isJava16
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 name|CamelContext
 name|context
 init|=
