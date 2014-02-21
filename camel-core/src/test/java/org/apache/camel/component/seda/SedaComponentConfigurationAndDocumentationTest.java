@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.dataset
+DECL|package|org.apache.camel.component.seda
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|dataset
+name|seda
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DataSetComponentConfigurationAndDocumentation
+DECL|class|SedaComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|DataSetComponentConfigurationAndDocumentation
+name|SedaComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DataSetComponent
+name|SedaComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"dataset"
+literal|"seda"
 argument_list|,
-name|DataSetComponent
+name|SedaComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"dataset:foo?minRate=3"
+literal|"seda:foo?blockWhenFull=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"3"
+literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"minRate"
+literal|"blockWhenFull"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"preloadSize\": { \"type\": \"long\" }"
+literal|"\"timeout\": { \"type\": \"long\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"minRate\": { \"type\": \"int\" }"
+literal|"\"blockWhenFull\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"dataset"
+literal|"seda"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

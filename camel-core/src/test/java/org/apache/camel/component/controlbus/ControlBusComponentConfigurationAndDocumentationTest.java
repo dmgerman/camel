@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.log
+DECL|package|org.apache.camel.component.controlbus
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|log
+name|controlbus
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|LogComponentConfigurationAndDocumentation
+DECL|class|ControlBusComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|LogComponentConfigurationAndDocumentation
+name|ControlBusComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LogComponent
+name|ControlBusComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"log"
+literal|"controlbus"
 argument_list|,
-name|LogComponent
+name|ControlBusComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,30 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"log:foo?level=DEBUG"
+literal|"controlbus:route?routeId=bar&action=stop"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"DEBUG"
+literal|"bar"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"level"
+literal|"routeId"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"stop"
+argument_list|,
+name|conf
+operator|.
+name|getParameter
+argument_list|(
+literal|"action"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +195,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"level\": { \"type\": \"java.lang.String\" }"
+literal|"\"action\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +205,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupInterval\": { \"type\": \"java.lang.Long\" }"
+literal|"\"async\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +234,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"log"
+literal|"controlbus"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

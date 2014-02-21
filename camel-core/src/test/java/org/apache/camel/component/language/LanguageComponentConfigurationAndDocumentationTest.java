@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.controlbus
+DECL|package|org.apache.camel.component.language
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|controlbus
+name|language
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ControlBusComponentConfigurationAndDocumentation
+DECL|class|LanguageComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|ControlBusComponentConfigurationAndDocumentation
+name|LanguageComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ControlBusComponent
+name|LanguageComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"controlbus"
+literal|"language"
 argument_list|,
-name|ControlBusComponent
+name|LanguageComponent
 operator|.
 name|class
 argument_list|)
@@ -141,30 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"controlbus:route?routeId=bar&action=stop"
+literal|"language:simple:foo?transform=false"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"bar"
+literal|"false"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"routeId"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"stop"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"action"
+literal|"transform"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -195,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"action\": { \"type\": \"java.lang.String\" }"
+literal|"\"script\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -205,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"async\": { \"type\": \"boolean\" }"
+literal|"\"cacheScript\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -234,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"controlbus"
+literal|"language"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

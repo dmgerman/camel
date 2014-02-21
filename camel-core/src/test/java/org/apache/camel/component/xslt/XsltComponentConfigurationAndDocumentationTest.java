@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.timer
+DECL|package|org.apache.camel.component.xslt
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|timer
+name|xslt
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TimerComponentConfigurationAndDocumentation
+DECL|class|XsltComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|TimerComponentConfigurationAndDocumentation
+name|XsltComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TimerComponent
+name|XsltComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"timer"
+literal|"xslt"
 argument_list|,
-name|TimerComponent
+name|XsltComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"timer:foo?period=2000"
+literal|"xslt:foo?deleteOutputFile=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"2000"
+literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"period"
+literal|"deleteOutputFile"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timerName\": { \"type\": \"java.lang.String\" }"
+literal|"\"resourceUri\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"delay\": { \"type\": \"long\" }"
+literal|"\"synchronous\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"timer"
+literal|"xslt"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

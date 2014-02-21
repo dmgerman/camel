@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.browse
+DECL|package|org.apache.camel.component.mock
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|browse
+name|mock
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|BrowseComponentConfigurationAndDocumentation
+DECL|class|MockComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|BrowseComponentConfigurationAndDocumentation
+name|MockComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|BrowseComponent
+name|MockComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"browse"
+literal|"mock"
 argument_list|,
-name|BrowseComponent
+name|MockComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"browse:seda:foo?synchronous=true"
+literal|"mock:foo?retainFirst=10"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"true"
+literal|"10"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"synchronous"
+literal|"retainFirst"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,17 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"synchronous\": { \"type\": \"boolean\" }"
+literal|"\"expectedCount\": { \"type\": \"int\" }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"retainFirst\": { \"type\": \"int\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -212,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"browse"
+literal|"mock"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.directvm
+DECL|package|org.apache.camel.component.bean
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|directvm
+name|bean
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DirectVmComponentConfigurationAndDocumentation
+DECL|class|BeanComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|DirectVmComponentConfigurationAndDocumentation
+name|BeanComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DirectVmComponent
+name|BeanComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"direct-vm"
+literal|"bean"
 argument_list|,
-name|DirectVmComponent
+name|BeanComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"direct-vm:foo?block=false"
+literal|"bean:foo?method=bar"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"false"
+literal|"bar"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"block"
+literal|"method"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"type\": \"long\" }"
+literal|"\"method\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"block\": { \"type\": \"boolean\" }"
+literal|"\"cache\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"direct-vm"
+literal|"bean"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

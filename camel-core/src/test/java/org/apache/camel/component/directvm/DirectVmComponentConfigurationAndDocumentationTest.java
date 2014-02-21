@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.mock
+DECL|package|org.apache.camel.component.directvm
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|directvm
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MockComponentConfigurationAndDocumentation
+DECL|class|DirectVmComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|MockComponentConfigurationAndDocumentation
+name|DirectVmComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockComponent
+name|DirectVmComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"mock"
+literal|"direct-vm"
 argument_list|,
-name|MockComponent
+name|DirectVmComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"mock:foo?retainFirst=10"
+literal|"direct-vm:foo?block=false"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"10"
+literal|"false"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"retainFirst"
+literal|"block"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"expectedCount\": { \"type\": \"int\" }"
+literal|"\"timeout\": { \"type\": \"long\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"retainFirst\": { \"type\": \"int\" }"
+literal|"\"block\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"mock"
+literal|"direct-vm"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

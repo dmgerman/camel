@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.bean
+DECL|package|org.apache.camel.component.dataformat
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|bean
+name|dataformat
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|BeanComponentConfigurationAndDocumentation
+DECL|class|DataFormatComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|BeanComponentConfigurationAndDocumentation
+name|DataFormatComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|BeanComponent
+name|DataFormatComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"bean"
+literal|"dataformat"
 argument_list|,
-name|BeanComponent
+name|DataFormatComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"bean:foo?method=bar"
+literal|"dataformaat:marshal:string?charset=iso-8859-1"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"bar"
+literal|"iso-8859-1"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"method"
+literal|"charset"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"method\": { \"type\": \"java.lang.String\" }"
+literal|"\"operation\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cache\": { \"type\": \"boolean\" }"
+literal|"\"synchronous\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"bean"
+literal|"dataformat"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

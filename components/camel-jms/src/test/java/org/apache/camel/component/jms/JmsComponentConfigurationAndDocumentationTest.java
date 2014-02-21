@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote
+DECL|package|org.apache.camel.component.jms
 package|package
 name|org
 operator|.
@@ -14,9 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
-operator|.
-name|remote
+name|jms
 package|;
 end_package
 
@@ -97,10 +95,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|FtpComponentConfigurationAndDocumentation
+DECL|class|JmsComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|FtpComponentConfigurationAndDocumentation
+name|JmsComponentConfigurationAndDocumentationTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -126,16 +124,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|FtpComponent
+name|JmsComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"ftp"
+literal|"jms"
 argument_list|,
-name|FtpComponent
+name|JmsComponent
 operator|.
 name|class
 argument_list|)
@@ -147,30 +145,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"ftp:127.0.0.1?username=foo&password=secret"
+literal|"jms:queue:foo?replyTo=bar"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"foo"
+literal|"bar"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"username"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"secret"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"password"
+literal|"replyTo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -201,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"maximumReconnectAttempts\": { \"type\": \"int\" }"
+literal|"\"replyToDestination\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"dataTimeout\": { \"type\": \"int\" }"
+literal|"\"transacted\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -240,7 +226,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"ftp"
+literal|"jms"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

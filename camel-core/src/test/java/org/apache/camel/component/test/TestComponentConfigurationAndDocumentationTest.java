@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.file.remote
+DECL|package|org.apache.camel.component.test
 package|package
 name|org
 operator|.
@@ -14,9 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|file
-operator|.
-name|remote
+name|test
 package|;
 end_package
 
@@ -52,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ContextTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|EndpointConfiguration
 import|;
 end_import
@@ -74,22 +84,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -97,12 +91,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|SftpComponentConfigurationAndDocumentation
+DECL|class|TestComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|SftpComponentConfigurationAndDocumentation
+name|TestComponentConfigurationAndDocumentationTest
 extends|extends
-name|CamelTestSupport
+name|ContextTestSupport
 block|{
 annotation|@
 name|Override
@@ -126,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SftpComponent
+name|TestComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"sftp"
+literal|"test"
 argument_list|,
-name|SftpComponent
+name|TestComponent
 operator|.
 name|class
 argument_list|)
@@ -147,30 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"sftp:127.0.0.1?username=foo&password=secret"
+literal|"test:my:foo?timeout=1000"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"foo"
+literal|"1000"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"username"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"secret"
-argument_list|,
-name|conf
-operator|.
-name|getParameter
-argument_list|(
-literal|"password"
+literal|"timeout"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -201,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"maximumReconnectAttempts\": { \"type\": \"int\" }"
+literal|"\"retainFirst\": { \"type\": \"int\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"download\": { \"type\": \"boolean\" }"
+literal|"\"timeout\": { \"type\": \"long\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -240,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"sftp"
+literal|"test"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

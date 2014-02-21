@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.direct
+DECL|package|org.apache.camel.component.dataset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|direct
+name|dataset
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DirectComponentConfigurationAndDocumentation
+DECL|class|DataSetComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|DirectComponentConfigurationAndDocumentation
+name|DataSetComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DirectComponent
+name|DataSetComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"direct"
+literal|"dataset"
 argument_list|,
-name|DirectComponent
+name|DataSetComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"direct:foo?block=true"
+literal|"dataset:foo?minRate=3"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"true"
+literal|"3"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"block"
+literal|"minRate"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"type\": \"long\" }"
+literal|"\"preloadSize\": { \"type\": \"long\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"block\": { \"type\": \"boolean\" }"
+literal|"\"minRate\": { \"type\": \"int\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"direct"
+literal|"dataset"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

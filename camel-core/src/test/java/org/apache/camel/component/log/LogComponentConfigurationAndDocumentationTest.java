@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.seda
+DECL|package|org.apache.camel.component.log
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|seda
+name|log
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SedaComponentConfigurationAndDocumentation
+DECL|class|LogComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|SedaComponentConfigurationAndDocumentation
+name|LogComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|SedaComponent
+name|LogComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"seda"
+literal|"log"
 argument_list|,
-name|SedaComponent
+name|LogComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"seda:foo?blockWhenFull=true"
+literal|"log:foo?level=DEBUG"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"true"
+literal|"DEBUG"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"blockWhenFull"
+literal|"level"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"type\": \"long\" }"
+literal|"\"level\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"blockWhenFull\": { \"type\": \"boolean\" }"
+literal|"\"groupInterval\": { \"type\": \"java.lang.Long\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"seda"
+literal|"log"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

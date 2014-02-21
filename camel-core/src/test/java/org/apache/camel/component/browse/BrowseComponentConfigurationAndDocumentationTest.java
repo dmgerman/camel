@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jms
+DECL|package|org.apache.camel.component.browse
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jms
+name|browse
 package|;
 end_package
 
@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ContextTestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|EndpointConfiguration
 import|;
 end_import
@@ -72,22 +84,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -95,12 +91,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|JmsComponentConfigurationAndDocumentation
+DECL|class|BrowseComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|JmsComponentConfigurationAndDocumentation
+name|BrowseComponentConfigurationAndDocumentationTest
 extends|extends
-name|CamelTestSupport
+name|ContextTestSupport
 block|{
 annotation|@
 name|Override
@@ -124,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JmsComponent
+name|BrowseComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"jms"
+literal|"browse"
 argument_list|,
-name|JmsComponent
+name|BrowseComponent
 operator|.
 name|class
 argument_list|)
@@ -145,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"jms:queue:foo?replyTo=bar"
+literal|"browse:seda:foo?synchronous=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"bar"
+literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"replyTo"
+literal|"synchronous"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -187,17 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"replyToDestination\": { \"type\": \"java.lang.String\" }"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"transacted\": { \"type\": \"boolean\" }"
+literal|"\"synchronous\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -226,7 +212,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"jms"
+literal|"browse"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

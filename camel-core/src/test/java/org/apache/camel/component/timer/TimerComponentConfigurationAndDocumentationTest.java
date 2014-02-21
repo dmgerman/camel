@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.test
+DECL|package|org.apache.camel.component.timer
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|test
+name|timer
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TestComponentConfigurationAndDocumentation
+DECL|class|TimerComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|TestComponentConfigurationAndDocumentation
+name|TimerComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|TestComponent
+name|TimerComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"test"
+literal|"timer"
 argument_list|,
-name|TestComponent
+name|TimerComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"test:my:foo?timeout=1000"
+literal|"timer:foo?period=2000"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"1000"
+literal|"2000"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"timeout"
+literal|"period"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"retainFirst\": { \"type\": \"int\" }"
+literal|"\"timerName\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"type\": \"long\" }"
+literal|"\"delay\": { \"type\": \"long\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"test"
+literal|"timer"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

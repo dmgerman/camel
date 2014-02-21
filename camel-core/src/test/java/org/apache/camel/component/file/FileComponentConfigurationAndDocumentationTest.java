@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.language
+DECL|package|org.apache.camel.component.file
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|language
+name|file
 package|;
 end_package
 
@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|LanguageComponentConfigurationAndDocumentation
+DECL|class|FileComponentConfigurationAndDocumentationTest
 specifier|public
 class|class
-name|LanguageComponentConfigurationAndDocumentation
+name|FileComponentConfigurationAndDocumentationTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -120,16 +120,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LanguageComponent
+name|FileComponent
 name|comp
 init|=
 name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"language"
+literal|"file"
 argument_list|,
-name|LanguageComponent
+name|FileComponent
 operator|.
 name|class
 argument_list|)
@@ -141,18 +141,18 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"language:simple:foo?transform=false"
+literal|"file:target/foo?delete=true"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"false"
+literal|"true"
 argument_list|,
 name|conf
 operator|.
 name|getParameter
 argument_list|(
-literal|"transform"
+literal|"delete"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"script\": { \"type\": \"java.lang.String\" }"
+literal|"\"exclude\": { \"type\": \"java.lang.String\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cacheScript\": { \"type\": \"boolean\" }"
+literal|"\"delete\": { \"type\": \"boolean\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -222,7 +222,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"language"
+literal|"file"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
