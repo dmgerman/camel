@@ -226,6 +226,26 @@ name|options
 operator|.
 name|KarafDistributionOption
 operator|.
+name|editConfigurationFilePut
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|karaf
+operator|.
+name|tooling
+operator|.
+name|exam
+operator|.
+name|options
+operator|.
+name|KarafDistributionOption
+operator|.
 name|karafDistributionConfiguration
 import|;
 end_import
@@ -829,6 +849,9 @@ name|type
 argument_list|(
 literal|"xml"
 argument_list|)
+operator|.
+name|versionAsInProject
+argument_list|()
 return|;
 block|}
 DECL|method|getKarafFeatureUrl ()
@@ -991,6 +1014,26 @@ name|File
 argument_list|(
 literal|"../../platforms/karaf/features/src/main/resources/config.properties"
 argument_list|)
+argument_list|)
+block|,
+comment|// Add apache-snapshots repository
+name|editConfigurationFilePut
+argument_list|(
+literal|"etc/org.ops4j.pax.url.mvn.cfg"
+argument_list|,
+literal|"org.ops4j.pax.url.mvn.repositories"
+argument_list|,
+literal|"http://repo1.maven.org/maven2@id=central, "
+operator|+
+literal|"http://svn.apache.org/repos/asf/servicemix/m2-repo@id=servicemix, "
+operator|+
+literal|"http://repository.springsource.com/maven/bundles/release@id=springsource.release, "
+operator|+
+literal|"http://repository.springsource.com/maven/bundles/external@id=springsource.external, "
+operator|+
+literal|"http://oss.sonatype.org/content/repositories/releases/@id=sonatype, "
+operator|+
+literal|"http://repository.apache.org/content/groups/snapshots-group@snapshots@noreleases@id=apache"
 argument_list|)
 block|,
 comment|// we need INFO logging otherwise we cannot see what happens
