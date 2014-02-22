@@ -1582,14 +1582,7 @@ name|parameters
 argument_list|)
 expr_stmt|;
 comment|// determine the portnumber (special case: default portnumber)
-name|int
-name|port
-init|=
-name|getPort
-argument_list|(
-name|uriHttpUriAddress
-argument_list|)
-decl_stmt|;
+comment|//int port = getPort(uriHttpUriAddress);
 comment|// we can not change the port of an URI, we must create a new one with an explicit port value
 name|URI
 name|httpUri
@@ -1616,7 +1609,10 @@ operator|.
 name|getHost
 argument_list|()
 argument_list|,
-name|port
+name|uriHttpUriAddress
+operator|.
+name|getPort
+argument_list|()
 argument_list|,
 name|uriHttpUriAddress
 operator|.
