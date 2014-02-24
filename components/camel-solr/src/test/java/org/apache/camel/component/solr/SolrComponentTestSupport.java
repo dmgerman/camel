@@ -434,11 +434,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|solrRunner
+operator|!=
+literal|null
+condition|)
+block|{
 name|solrRunner
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -526,6 +534,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|solrServer
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// Clear the Solr index.
 name|solrServer
 operator|.
@@ -539,6 +554,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
