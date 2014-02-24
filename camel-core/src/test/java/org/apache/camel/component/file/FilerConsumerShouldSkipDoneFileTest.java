@@ -251,6 +251,13 @@ argument_list|(
 literal|"file:target/done?doneFileName=done&initialDelay=0&delay=10"
 argument_list|)
 operator|.
+name|convertBodyTo
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"mock:result"
