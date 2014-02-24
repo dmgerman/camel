@@ -88,6 +88,11 @@ specifier|protected
 name|int
 name|port
 decl_stmt|;
+DECL|field|canTest
+specifier|private
+name|boolean
+name|canTest
+decl_stmt|;
 DECL|method|getPort ()
 specifier|protected
 name|int
@@ -96,6 +101,29 @@ parameter_list|()
 block|{
 return|return
 name|port
+return|;
+block|}
+comment|/**      * Whether we can test on this box, as not all boxes can be used for reliable CI testing.      */
+DECL|method|canTest ()
+specifier|protected
+name|boolean
+name|canTest
+parameter_list|()
+block|{
+return|return
+name|canTest
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 annotation|@
@@ -117,6 +145,8 @@ argument_list|(
 literal|61613
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|brokerService
 operator|=
 operator|new
@@ -164,6 +194,52 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|canTest
+operator|=
+literal|true
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Cannot test due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|" more details in the log"
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot test due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|canTest
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
