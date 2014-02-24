@@ -215,6 +215,15 @@ specifier|static
 name|Thread
 name|shutdownHook
 decl_stmt|;
+DECL|field|windowsOs
+specifier|private
+specifier|static
+name|boolean
+name|windowsOs
+init|=
+name|initWindowsOs
+argument_list|()
+decl_stmt|;
 DECL|method|FileUtil ()
 specifier|private
 name|FileUtil
@@ -288,11 +297,11 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|isWindows ()
-specifier|public
+DECL|method|initWindowsOs ()
+specifier|private
 specifier|static
 name|boolean
-name|isWindows
+name|initWindowsOs
 parameter_list|()
 block|{
 name|String
@@ -322,6 +331,18 @@ argument_list|)
 operator|>
 operator|-
 literal|1
+return|;
+block|}
+comment|/**      * Returns true, if the OS is windows      */
+DECL|method|isWindows ()
+specifier|public
+specifier|static
+name|boolean
+name|isWindows
+parameter_list|()
+block|{
+return|return
+name|windowsOs
 return|;
 block|}
 annotation|@
