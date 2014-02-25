@@ -59,7 +59,7 @@ name|setBody
 argument_list|(
 name|simple
 argument_list|(
-literal|"insert into person(firstName, lastName) values('${header.firstName}','${header.lastName}"
+literal|"insert into person(firstName, lastName) values('${header.firstName}','${header.lastName}')"
 argument_list|)
 argument_list|)
 operator|.
