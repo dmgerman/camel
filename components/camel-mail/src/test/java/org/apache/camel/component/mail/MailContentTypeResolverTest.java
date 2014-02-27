@@ -382,9 +382,7 @@ comment|// content type should match
 name|boolean
 name|match1
 init|=
-operator|(
 literal|"image/jpeg; name=logo.jpeg"
-operator|)
 operator|.
 name|equals
 argument_list|(
@@ -397,9 +395,7 @@ decl_stmt|;
 name|boolean
 name|match2
 init|=
-operator|(
 literal|"application/octet-stream; name=logo.jpeg"
-operator|)
 operator|.
 name|equals
 argument_list|(
