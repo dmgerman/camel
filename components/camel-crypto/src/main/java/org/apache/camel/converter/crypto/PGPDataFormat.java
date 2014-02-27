@@ -126,6 +126,18 @@ name|PGPPublicKey
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|openpgp
+operator|.
+name|PGPPublicKeyRingCollection
+import|;
+end_import
+
 begin_comment
 comment|/**  *<code>PGPDataFormat</code> uses the<a  * href="http://www.bouncycastle.org/java.htm">bouncy castle</a> libraries to  * enable encryption and decryption in the PGP format.  *<p>  * See also {@link PGPKeyAccessDataFormat}.  *   */
 end_comment
@@ -1072,7 +1084,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getPublicKey (Exchange exchange, long keyId)
+DECL|method|getPublicKey (Exchange exchange, long keyId, List<String> userIdParts)
 specifier|public
 name|PGPPublicKey
 name|getPublicKey
@@ -1082,14 +1094,22 @@ name|exchange
 parameter_list|,
 name|long
 name|keyId
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|userIdParts
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|PGPPublicKeyRingCollection
+name|publicKeyringCollection
+init|=
 name|PGPDataFormatUtil
 operator|.
-name|findPublicKeyWithKeyId
+name|getPublicKeyRingCollection
 argument_list|(
 name|exchange
 operator|.
@@ -1106,9 +1126,19 @@ argument_list|(
 name|exchange
 argument_list|)
 argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+return|return
+name|PGPDataFormatUtil
+operator|.
+name|getPublicKeyWithKeyIdAndUserID
+argument_list|(
 name|keyId
 argument_list|,
-literal|false
+name|userIdParts
+argument_list|,
+name|publicKeyringCollection
 argument_list|)
 return|;
 block|}

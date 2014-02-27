@@ -78,8 +78,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Returns the public key with a certain key ID. This method is used for      * verifying the signature.      *       * @param exchange      *            exchange      * @param keyId      *            key ID      * @return public key or<code>null</code> if the key cannot be found      */
-DECL|method|getPublicKey (Exchange exchange, long keyId)
+comment|/**      * Returns the public key with a certain key ID. This method is used for      * verifying the signature. The given User IDs are provided to filter the      * public key, further. If the User ID parts list is empty, then any public      * key can be returned which has the specified key ID. If the User ID parts      * list is not empty then the returned key must have a User ID which      * contains at least one User ID part.      *       * @param exchange      *            exchange      * @param keyId      *            key ID      * @param useridParts      *            parts of User IDs, must not be<code>null</code>, but can be      *            empty      * @return public key or<code>null</code> if the key cannot be found      */
+DECL|method|getPublicKey (Exchange exchange, long keyId, List<String> useridParts)
 name|PGPPublicKey
 name|getPublicKey
 parameter_list|(
@@ -88,6 +88,12 @@ name|exchange
 parameter_list|,
 name|long
 name|keyId
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|useridParts
 parameter_list|)
 throws|throws
 name|Exception
