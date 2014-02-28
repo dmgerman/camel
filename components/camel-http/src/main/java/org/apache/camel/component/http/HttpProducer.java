@@ -1255,6 +1255,22 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|,
+name|IOHelper
+operator|.
+name|getCharsetNameFromContentType
+argument_list|(
+name|value
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// use http helper to extract parameter value as it may contain multiple values
 name|Object
