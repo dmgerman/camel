@@ -6863,6 +6863,7 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+comment|// must add service eager
 name|addService
 argument_list|(
 name|typeConverter
@@ -6905,6 +6906,30 @@ name|typeConverter
 operator|=
 name|typeConverter
 expr_stmt|;
+try|try
+block|{
+comment|// must add service eager
+name|addService
+argument_list|(
+name|typeConverter
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|getTypeConverterRegistry ()
 specifier|public
