@@ -18,7 +18,19 @@ name|cdi
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Singleton
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Singleton
 DECL|class|SomeBean
 specifier|public
 class|class

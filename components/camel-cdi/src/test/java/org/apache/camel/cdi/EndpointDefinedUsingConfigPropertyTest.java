@@ -154,8 +154,6 @@ name|api
 operator|.
 name|config
 operator|.
-name|annotation
-operator|.
 name|ConfigProperty
 import|;
 end_import

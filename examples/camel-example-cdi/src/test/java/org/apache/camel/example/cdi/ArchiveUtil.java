@@ -324,8 +324,6 @@ argument_list|(
 literal|"org.apache.camel:camel-core"
 argument_list|,
 literal|"org.apache.camel:camel-cdi"
-argument_list|,
-literal|"org.apache.activemq:activemq-camel"
 argument_list|)
 operator|.
 name|withTransitivity
