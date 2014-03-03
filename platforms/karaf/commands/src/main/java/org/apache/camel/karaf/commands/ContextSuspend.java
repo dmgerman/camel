@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Command to start a Camel context.  */
+comment|/**  * Command to suspend a Camel context.  */
 end_comment
 
 begin_class
@@ -60,16 +60,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"context-start"
+literal|"context-suspend"
 argument_list|,
 name|description
 operator|=
-literal|"Start a Camel context."
+literal|"Suspends a Camel context."
 argument_list|)
-DECL|class|ContextStart
+DECL|class|ContextSuspend
 specifier|public
 class|class
-name|ContextStart
+name|ContextSuspend
 extends|extends
 name|AbstractContextCommand
 block|{
@@ -88,7 +88,7 @@ name|Exception
 block|{
 name|camelContext
 operator|.
-name|start
+name|suspend
 argument_list|()
 expr_stmt|;
 block|}

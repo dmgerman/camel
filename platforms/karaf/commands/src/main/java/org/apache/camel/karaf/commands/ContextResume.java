@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Command to start a Camel context.  */
+comment|/**  * Command to resume a Camel context.  */
 end_comment
 
 begin_class
@@ -60,16 +60,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"context-start"
+literal|"context-resume"
 argument_list|,
 name|description
 operator|=
-literal|"Start a Camel context."
+literal|"Resumes a Camel context."
 argument_list|)
-DECL|class|ContextStart
+DECL|class|ContextResume
 specifier|public
 class|class
-name|ContextStart
+name|ContextResume
 extends|extends
 name|AbstractContextCommand
 block|{
@@ -88,7 +88,7 @@ name|Exception
 block|{
 name|camelContext
 operator|.
-name|start
+name|resume
 argument_list|()
 expr_stmt|;
 block|}
