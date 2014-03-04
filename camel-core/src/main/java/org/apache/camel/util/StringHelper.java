@@ -16,6 +16,22 @@ name|util
 package|;
 end_package
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringQuoteHelper
+operator|.
+name|doubleQuote
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper methods for working with Strings.   */
 end_comment
@@ -776,6 +792,63 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+comment|/**      * Creates a json tuple with the given name/value pair.      *      * @param name  the name      * @param value the value      * @param isMap whether the tuple should be map      * @return the json      */
+DECL|method|toJson (String name, String value, boolean isMap)
+specifier|public
+specifier|static
+name|String
+name|toJson
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|value
+parameter_list|,
+name|boolean
+name|isMap
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isMap
+condition|)
+block|{
+return|return
+literal|"{ "
+operator|+
+name|doubleQuote
+argument_list|(
+name|name
+argument_list|)
+operator|+
+literal|": "
+operator|+
+name|doubleQuote
+argument_list|(
+name|value
+argument_list|)
+operator|+
+literal|" }"
+return|;
+block|}
+else|else
+block|{
+return|return
+name|doubleQuote
+argument_list|(
+name|name
+argument_list|)
+operator|+
+literal|": "
+operator|+
+name|doubleQuote
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 end_class

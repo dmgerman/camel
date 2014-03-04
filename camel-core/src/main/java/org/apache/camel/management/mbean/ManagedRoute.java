@@ -2085,6 +2085,23 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|createRouteStaticEndpointJson ()
+specifier|public
+name|String
+name|createRouteStaticEndpointJson
+parameter_list|()
+block|{
+return|return
+name|getContext
+argument_list|()
+operator|.
+name|createRouteStaticEndpointJson
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|equals (Object o)

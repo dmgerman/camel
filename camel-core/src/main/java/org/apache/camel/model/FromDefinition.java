@@ -168,6 +168,8 @@ name|OptionalIdentifiedDefinition
 argument_list|<
 name|FromDefinition
 argument_list|>
+implements|implements
+name|EndpointRequiredDefinition
 block|{
 annotation|@
 name|XmlAttribute
@@ -307,6 +309,19 @@ return|return
 name|endpoint
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
+parameter_list|()
+block|{
+return|return
+name|getUri
+argument_list|()
+return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------

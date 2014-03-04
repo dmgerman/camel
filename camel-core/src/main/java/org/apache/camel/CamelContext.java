@@ -726,7 +726,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name.      *      * @param componentName the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @return the component      */
+comment|/**      * Gets a component from the context by name.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @return the component      */
 DECL|method|getComponent (String name, boolean autoCreateComponents)
 name|Component
 name|getComponent
@@ -1822,6 +1822,15 @@ name|componentName
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|/**      * Creates a JSON representation of all the<b>static</b> configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @return a JSON string      */
+DECL|method|createRouteStaticEndpointJson (String routeId)
+name|String
+name|createRouteStaticEndpointJson
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
 function_decl|;
 comment|/**      * Gets the {@link StreamCachingStrategy} to use.      */
 DECL|method|getStreamCachingStrategy ()
