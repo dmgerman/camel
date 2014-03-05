@@ -64,7 +64,7 @@ literal|"context-stop"
 argument_list|,
 name|description
 operator|=
-literal|"Stop a Camel context."
+literal|"Stop a Camel context. It becomes unavailable and can not be started again."
 argument_list|)
 DECL|class|ContextStop
 specifier|public
