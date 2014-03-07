@@ -241,7 +241,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Yammer request url: %s"
+literal|"Yammer request url: {}"
 argument_list|,
 name|request
 operator|.
