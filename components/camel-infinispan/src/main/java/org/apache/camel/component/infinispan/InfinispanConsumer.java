@@ -74,7 +74,7 @@ name|infinispan
 operator|.
 name|manager
 operator|.
-name|DefaultCacheManager
+name|EmbeddedCacheManager
 import|;
 end_import
 
@@ -135,10 +135,10 @@ specifier|final
 name|InfinispanSyncEventListener
 name|listener
 decl_stmt|;
-DECL|field|defaultCacheManager
+DECL|field|cacheManager
 specifier|private
-name|DefaultCacheManager
-name|defaultCacheManager
+name|EmbeddedCacheManager
+name|cacheManager
 decl_stmt|;
 DECL|method|InfinispanConsumer (InfinispanEndpoint endpoint, Processor processor, InfinispanConfiguration configuration)
 specifier|public
@@ -334,13 +334,13 @@ operator|.
 name|getCacheContainer
 argument_list|()
 operator|instanceof
-name|DefaultCacheManager
+name|EmbeddedCacheManager
 condition|)
 block|{
-name|defaultCacheManager
+name|cacheManager
 operator|=
 operator|(
-name|DefaultCacheManager
+name|EmbeddedCacheManager
 operator|)
 name|configuration
 operator|.
@@ -367,7 +367,7 @@ condition|)
 block|{
 name|cache
 operator|=
-name|defaultCacheManager
+name|cacheManager
 operator|.
 name|getCache
 argument_list|(
@@ -382,7 +382,7 @@ else|else
 block|{
 name|cache
 operator|=
-name|defaultCacheManager
+name|cacheManager
 operator|.
 name|getCache
 argument_list|()
@@ -429,12 +429,12 @@ name|Exception
 block|{
 if|if
 condition|(
-name|defaultCacheManager
+name|cacheManager
 operator|!=
 literal|null
 condition|)
 block|{
-name|defaultCacheManager
+name|cacheManager
 operator|.
 name|removeListener
 argument_list|(
