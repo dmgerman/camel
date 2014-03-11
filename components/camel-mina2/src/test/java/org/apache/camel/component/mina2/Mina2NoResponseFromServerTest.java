@@ -288,22 +288,6 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"The OUT message was not received within"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 name|mock
 operator|.
