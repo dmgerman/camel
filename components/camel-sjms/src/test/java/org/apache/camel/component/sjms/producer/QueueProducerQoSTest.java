@@ -169,10 +169,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|QueueProduerQoSTest
+DECL|class|QueueProducerQoSTest
 specifier|public
 class|class
-name|QueueProduerQoSTest
+name|QueueProducerQoSTest
 extends|extends
 name|JmsTestSupport
 block|{
@@ -275,6 +275,8 @@ comment|// so we will not be able to do a real InOut/request-response, but that'
 comment|// we're just interested in the message becoming expired
 block|}
 comment|// we should delay a bit so broker can run its expiration processes...
+name|assertFalse
+argument_list|(
 name|expireMatcher
 operator|.
 name|matches
@@ -284,6 +286,7 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|DestinationViewMBean
@@ -363,6 +366,8 @@ literal|"test message"
 argument_list|)
 expr_stmt|;
 comment|// we should delay a bit so broker can run its expiration processes...
+name|assertFalse
+argument_list|(
 name|expireMatcher
 operator|.
 name|matches
@@ -372,6 +377,7 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|DestinationViewMBean
