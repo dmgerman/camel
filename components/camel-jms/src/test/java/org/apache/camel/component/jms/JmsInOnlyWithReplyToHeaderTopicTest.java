@@ -326,12 +326,24 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:result"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+comment|// we should disable reply to to avoid sending the message back to our self
+comment|// after we have consumed it
 name|from
 argument_list|(
-literal|"activemq:topic:bar"
+literal|"activemq:topic:bar?disableReplyTo=true"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:bar"
 argument_list|)
 operator|.
 name|to
