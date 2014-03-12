@@ -717,6 +717,22 @@ return|return
 name|apnsDelegate
 return|;
 block|}
+DECL|method|setApnsDelegate (ApnsDelegate apnsDelegate)
+specifier|public
+name|void
+name|setApnsDelegate
+parameter_list|(
+name|ApnsDelegate
+name|apnsDelegate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apnsDelegate
+operator|=
+name|apnsDelegate
+expr_stmt|;
+block|}
 DECL|method|getApnsService ()
 specifier|public
 name|ApnsService
