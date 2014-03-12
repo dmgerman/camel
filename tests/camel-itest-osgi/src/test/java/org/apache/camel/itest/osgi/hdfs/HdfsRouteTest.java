@@ -298,6 +298,7 @@ condition|)
 block|{
 return|return;
 block|}
+comment|//        final Path file = new Path("hdfs://localhost:9000/tmp/test/test-hdfs-file");
 specifier|final
 name|Path
 name|file
@@ -338,6 +339,8 @@ operator|.
 name|Configuration
 argument_list|()
 decl_stmt|;
+comment|// now set classes for filesystems. This is normally done using java.util.ServiceLoader which doesn't
+comment|// work inside OSGi.
 name|conf
 operator|.
 name|setClass
@@ -382,22 +385,6 @@ argument_list|,
 name|FileSystem
 operator|.
 name|class
-argument_list|)
-expr_stmt|;
-comment|//conf.setClassLoader(this.getClass().getClassLoader());
-comment|// add the default configure into the resource
-name|conf
-operator|.
-name|addResource
-argument_list|(
-name|HdfsRouteTest
-operator|.
-name|class
-operator|.
-name|getResourceAsStream
-argument_list|(
-literal|"core-default.xml"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|SequenceFile
@@ -502,6 +489,7 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|//                from("hdfs2://localhost:9000/tmp/test/test-hdfs-file?fileSystemType=HDFS&fileType=SEQUENCE_FILE&initialDelay=0").to("mock:result");
 name|from
 argument_list|(
 literal|"hdfs2:///"
