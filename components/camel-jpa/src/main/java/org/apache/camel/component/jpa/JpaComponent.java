@@ -162,6 +162,13 @@ specifier|private
 name|PlatformTransactionManager
 name|transactionManager
 decl_stmt|;
+DECL|field|joinTransaction
+specifier|private
+name|boolean
+name|joinTransaction
+init|=
+literal|true
+decl_stmt|;
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getEntityManagerFactory ()
@@ -253,6 +260,14 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|endpoint
+operator|.
+name|setJoinTransaction
+argument_list|(
+name|isJoinTransaction
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// lets interpret the next string as a class
 if|if
 condition|(
@@ -686,6 +701,32 @@ literal|"No TransactionManager has been configured on this JpaComponent. Each Jp
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|isJoinTransaction ()
+specifier|public
+name|boolean
+name|isJoinTransaction
+parameter_list|()
+block|{
+return|return
+name|joinTransaction
+return|;
+block|}
+DECL|method|setJoinTransaction (boolean joinTransaction)
+specifier|public
+name|void
+name|setJoinTransaction
+parameter_list|(
+name|boolean
+name|joinTransaction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|joinTransaction
+operator|=
+name|joinTransaction
+expr_stmt|;
 block|}
 block|}
 end_class

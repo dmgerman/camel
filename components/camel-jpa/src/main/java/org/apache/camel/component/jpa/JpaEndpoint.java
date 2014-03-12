@@ -355,6 +355,13 @@ specifier|private
 name|boolean
 name|usePersist
 decl_stmt|;
+DECL|field|joinTransaction
+specifier|private
+name|boolean
+name|joinTransaction
+init|=
+literal|true
+decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -1013,6 +1020,32 @@ operator|.
 name|usePersist
 operator|=
 name|usePersist
+expr_stmt|;
+block|}
+DECL|method|isJoinTransaction ()
+specifier|public
+name|boolean
+name|isJoinTransaction
+parameter_list|()
+block|{
+return|return
+name|joinTransaction
+return|;
+block|}
+DECL|method|setJoinTransaction (boolean joinTransaction)
+specifier|public
+name|void
+name|setJoinTransaction
+parameter_list|(
+name|boolean
+name|joinTransaction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|joinTransaction
+operator|=
+name|joinTransaction
 expr_stmt|;
 block|}
 comment|// Implementation methods
