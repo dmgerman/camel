@@ -1208,6 +1208,21 @@ name|Registry
 name|getRegistry
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the registry used to lookup components by name and as the given type      *      * @param type the registry type such as {@link org.apache.camel.impl.JndiRegistry}      * @return the registry, or<tt>null</tt> if the given type was not found as a registry implementation      */
+DECL|method|getRegistry (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|getRegistry
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the injector used to instantiate objects by type      *      * @return the injector      */
 DECL|method|getInjector ()
 name|Injector
