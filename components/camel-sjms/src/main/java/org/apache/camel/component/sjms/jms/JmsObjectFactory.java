@@ -268,8 +268,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
@@ -303,8 +301,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
@@ -338,8 +334,6 @@ argument_list|,
 literal|true
 argument_list|,
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
@@ -418,6 +412,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// noLocal is default false accordingly to JMS spec
 return|return
 name|createMessageConsumer
 argument_list|(
@@ -431,7 +426,7 @@ name|topic
 argument_list|,
 name|durableSubscriptionId
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
