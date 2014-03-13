@@ -88,7 +88,7 @@ name|mock
 operator|.
 name|setMinimumResultWaitTime
 argument_list|(
-literal|1900
+literal|1500
 argument_list|)
 expr_stmt|;
 name|mock
