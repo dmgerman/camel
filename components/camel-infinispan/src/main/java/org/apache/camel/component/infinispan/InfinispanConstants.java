@@ -83,6 +83,12 @@ name|CLEAR
 init|=
 literal|"CamelInfinispanOperationClear"
 decl_stmt|;
+DECL|field|QUERY
+name|String
+name|QUERY
+init|=
+literal|"CamelInfinispanOperationQuery"
+decl_stmt|;
 DECL|field|RESULT
 name|String
 name|RESULT
