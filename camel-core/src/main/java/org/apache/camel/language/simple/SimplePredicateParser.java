@@ -635,6 +635,10 @@ name|logicalOperator
 argument_list|()
 operator|&&
 operator|!
+name|isBooleanValue
+argument_list|()
+operator|&&
+operator|!
 name|token
 operator|.
 name|getType
@@ -2211,6 +2215,7 @@ comment|// --------------------------------------------------------------
 comment|// grammar
 comment|// --------------------------------------------------------------
 comment|// the predicate parser understands a lot more than the expression parser
+comment|// - boolean value = either true or false value (literal)
 comment|// - single quoted = block of nodes enclosed by single quotes
 comment|// - double quoted = block of nodes enclosed by double quotes
 comment|// - single quoted with functions = block of nodes enclosed by single quotes allowing embedded functions
@@ -2222,6 +2227,30 @@ comment|// - null = null value
 comment|// - unary operator = operator attached to the left hand side node
 comment|// - binary operator = operator attached to both the left and right hand side nodes
 comment|// - logical operator = operator attached to both the left and right hand side nodes
+DECL|method|isBooleanValue ()
+specifier|protected
+name|boolean
+name|isBooleanValue
+parameter_list|()
+block|{
+if|if
+condition|(
+name|accept
+argument_list|(
+name|TokenType
+operator|.
+name|booleanValue
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
 DECL|method|singleQuotedLiteralWithFunctionsText ()
 specifier|protected
 name|boolean
