@@ -928,13 +928,15 @@ argument_list|,
 literal|"ask"
 argument_list|)
 expr_stmt|;
+comment|// TODO: by the current jsch (0.1.50) setting "HashKnownHosts" to "no" is a workaround
+comment|// to make the tests run green, see also http://sourceforge.net/p/jsch/bugs/63/
 name|s
 operator|.
 name|setConfig
 argument_list|(
 literal|"HashKnownHosts"
 argument_list|,
-literal|"yes"
+literal|"no"
 argument_list|)
 expr_stmt|;
 name|s

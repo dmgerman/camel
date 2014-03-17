@@ -311,10 +311,14 @@ operator|=
 name|passwordFinder
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|loadKeys ()
 specifier|public
+name|Iterable
+argument_list|<
 name|KeyPair
-index|[]
+argument_list|>
 name|loadKeys
 parameter_list|()
 block|{
@@ -545,18 +549,6 @@ block|}
 block|}
 return|return
 name|keys
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|KeyPair
-index|[
-name|keys
-operator|.
-name|size
-argument_list|()
-index|]
-argument_list|)
 return|;
 block|}
 block|}
