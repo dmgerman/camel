@@ -976,6 +976,17 @@ literal|"src/test/resources/org/apache/camel/itest/karaf/custom.properties"
 argument_list|)
 argument_list|)
 block|,
+name|replaceConfigurationFile
+argument_list|(
+literal|"etc/org.ops4j.pax.url.mvn.cfg"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"src/test/resources/org/apache/camel/itest/karaf/org.ops4j.pax.url.mvn.cfg"
+argument_list|)
+argument_list|)
+block|,
 comment|// we need INFO logging otherwise we cannot see what happens
 name|logLevel
 argument_list|(
