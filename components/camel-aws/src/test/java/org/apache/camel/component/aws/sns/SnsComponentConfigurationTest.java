@@ -270,7 +270,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient"
+literal|"aws-sns://MyTopic?amazonSNSClient=#amazonSNSClient&amazonSNSEndpoint=sns.ap-southeast-2.amazonaws.com"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -330,7 +330,7 @@ name|getSubject
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|endpoint
 operator|.
@@ -367,6 +367,17 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|getTopicArn
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// check the setting of AmazonSNSEndpoint
+name|assertEquals
+argument_list|(
+literal|"sns.ap-southeast-2.amazonaws.com"
+argument_list|,
+name|mock
+operator|.
+name|getEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;

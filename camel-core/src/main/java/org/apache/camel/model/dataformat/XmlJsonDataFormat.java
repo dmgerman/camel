@@ -510,7 +510,7 @@ name|ELEMENT_NAME
 argument_list|)
 condition|)
 block|{
-name|encoding
+name|elementName
 operator|=
 name|options
 operator|.
@@ -530,7 +530,7 @@ name|ARRAY_NAME
 argument_list|)
 condition|)
 block|{
-name|elementName
+name|arrayName
 operator|=
 name|options
 operator|.

@@ -62,14 +62,15 @@ specifier|final
 name|Endpoint
 name|endpoint
 decl_stmt|;
-DECL|method|EndpointObservable (Endpoint endpoint, OnSubscribeFunc<T> func)
+DECL|method|EndpointObservable (Endpoint endpoint, final OnSubscribe<T> func)
 specifier|public
 name|EndpointObservable
 parameter_list|(
 name|Endpoint
 name|endpoint
 parameter_list|,
-name|OnSubscribeFunc
+specifier|final
+name|OnSubscribe
 argument_list|<
 name|T
 argument_list|>

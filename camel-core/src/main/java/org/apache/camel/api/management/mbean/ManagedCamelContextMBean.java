@@ -941,6 +941,18 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the JSON representation of all the static endpoints defined in all the routes"
+argument_list|)
+DECL|method|createRouteStaticEndpointJson ()
+name|String
+name|createRouteStaticEndpointJson
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

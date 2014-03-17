@@ -118,6 +118,7 @@ name|Registry
 block|{
 DECL|field|registryList
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|Registry
@@ -171,6 +172,18 @@ argument_list|(
 name|registry
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getRegistryList ()
+name|List
+argument_list|<
+name|Registry
+argument_list|>
+name|getRegistryList
+parameter_list|()
+block|{
+return|return
+name|registryList
+return|;
 block|}
 DECL|method|lookupByNameAndType (String name, Class<T> type)
 specifier|public

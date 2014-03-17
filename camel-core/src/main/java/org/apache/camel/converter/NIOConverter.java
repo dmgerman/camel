@@ -228,10 +228,10 @@ name|IOConverter
 operator|.
 name|toString
 argument_list|(
+name|toByteArray
+argument_list|(
 name|buffer
-operator|.
-name|array
-argument_list|()
+argument_list|)
 argument_list|,
 name|exchange
 argument_list|)

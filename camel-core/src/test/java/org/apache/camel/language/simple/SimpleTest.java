@@ -1497,6 +1497,67 @@ literal|4321
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testOGNLCallReplace ()
+specifier|public
+name|void
+name|testOGNLCallReplace
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"cool"
+argument_list|,
+literal|"Camel rocks"
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"dude"
+argument_list|,
+literal|"Hey dude"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|map
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headers.cool.replaceAll(\"rocks\", \"is so cool\")}"
+argument_list|,
+literal|"Camel is so cool"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testOGNLBodyListAndMapAndMethod ()
 specifier|public
 name|void

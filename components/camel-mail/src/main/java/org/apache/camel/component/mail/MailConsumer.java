@@ -1126,7 +1126,7 @@ operator|.
 name|getClass
 argument_list|()
 operator|.
-name|getName
+name|getSimpleName
 argument_list|()
 operator|.
 name|startsWith

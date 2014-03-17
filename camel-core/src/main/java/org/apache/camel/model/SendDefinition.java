@@ -194,6 +194,8 @@ name|NoOutputDefinition
 argument_list|<
 name|Type
 argument_list|>
+implements|implements
+name|EndpointRequiredDefinition
 block|{
 annotation|@
 name|XmlAttribute
@@ -303,6 +305,29 @@ return|return
 name|endpoint
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpointUri ()
+specifier|public
+name|String
+name|getEndpointUri
+parameter_list|()
+block|{
+if|if
+condition|(
+name|uri
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|uri
+return|;
+block|}
+return|return
+literal|null
+return|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------

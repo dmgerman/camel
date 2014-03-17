@@ -1243,7 +1243,7 @@ name|timeoutLatch
 operator|.
 name|await
 argument_list|(
-literal|1200
+literal|2500
 argument_list|,
 name|TimeUnit
 operator|.
@@ -1275,7 +1275,7 @@ name|completionLatch
 operator|.
 name|await
 argument_list|(
-literal|1200
+literal|2500
 argument_list|,
 name|TimeUnit
 operator|.

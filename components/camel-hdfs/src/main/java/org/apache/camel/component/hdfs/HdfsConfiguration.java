@@ -310,6 +310,11 @@ name|connectOnStartup
 init|=
 literal|true
 decl_stmt|;
+DECL|field|owner
+specifier|private
+name|String
+name|owner
+decl_stmt|;
 DECL|method|HdfsConfiguration ()
 specifier|public
 name|HdfsConfiguration
@@ -2067,6 +2072,32 @@ operator|.
 name|connectOnStartup
 operator|=
 name|connectOnStartup
+expr_stmt|;
+block|}
+DECL|method|getOwner ()
+specifier|public
+name|String
+name|getOwner
+parameter_list|()
+block|{
+return|return
+name|owner
+return|;
+block|}
+DECL|method|setOwner (String owner)
+specifier|public
+name|void
+name|setOwner
+parameter_list|(
+name|String
+name|owner
+parameter_list|)
+block|{
+name|this
+operator|.
+name|owner
+operator|=
+name|owner
 expr_stmt|;
 block|}
 block|}

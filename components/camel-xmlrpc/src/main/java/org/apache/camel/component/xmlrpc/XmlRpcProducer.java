@@ -228,6 +228,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 comment|//TODO need to use the binding to handle the requests
 name|Object
 name|result
@@ -279,6 +281,30 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Got an exception {0} when invoke the XMLRPC service"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public

@@ -628,10 +628,7 @@ argument_list|()
 operator|.
 name|queryForList
 argument_list|(
-name|ps
-operator|.
-name|getResultSet
-argument_list|()
+name|rs
 argument_list|)
 decl_stmt|;
 comment|// for noop=true we still want to enrich with the row count header
@@ -710,10 +707,7 @@ argument_list|()
 operator|.
 name|queryForObject
 argument_list|(
-name|ps
-operator|.
-name|getResultSet
-argument_list|()
+name|rs
 argument_list|)
 decl_stmt|;
 if|if

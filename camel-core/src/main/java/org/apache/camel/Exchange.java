@@ -710,6 +710,12 @@ name|TRACE_EVENT_EXCHANGE
 init|=
 literal|"CamelTraceEventExchange"
 decl_stmt|;
+DECL|field|TRY_ROUTE_BLOCK
+name|String
+name|TRY_ROUTE_BLOCK
+init|=
+literal|"TryRouteBlock"
+decl_stmt|;
 DECL|field|TRANSFER_ENCODING
 name|String
 name|TRANSFER_ENCODING

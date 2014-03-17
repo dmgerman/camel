@@ -248,6 +248,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|deleteDirectory
+argument_list|(
+literal|"target/activemq-data"
+argument_list|)
+expr_stmt|;
 name|brokerUri
 operator|=
 literal|"tcp://localhost:"

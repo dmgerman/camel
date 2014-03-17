@@ -865,11 +865,13 @@ comment|// camel context name will be a suffix to use one scheduler per context
 name|String
 name|identity
 init|=
+name|QuartzHelper
+operator|.
+name|getQuartzContextName
+argument_list|(
 name|getCamelContext
 argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

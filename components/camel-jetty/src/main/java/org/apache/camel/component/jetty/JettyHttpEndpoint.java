@@ -285,6 +285,13 @@ specifier|private
 name|boolean
 name|enableMultipartFilter
 decl_stmt|;
+DECL|field|sendServerVersion
+specifier|private
+name|boolean
+name|sendServerVersion
+init|=
+literal|true
+decl_stmt|;
 DECL|field|multipartFilter
 specifier|private
 name|Filter
@@ -778,6 +785,32 @@ operator|.
 name|enableJmx
 operator|=
 name|enableJmx
+expr_stmt|;
+block|}
+DECL|method|isSendServerVersion ()
+specifier|public
+name|boolean
+name|isSendServerVersion
+parameter_list|()
+block|{
+return|return
+name|sendServerVersion
+return|;
+block|}
+DECL|method|setSendServerVersion (boolean sendServerVersion)
+specifier|public
+name|void
+name|setSendServerVersion
+parameter_list|(
+name|boolean
+name|sendServerVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendServerVersion
+operator|=
+name|sendServerVersion
 expr_stmt|;
 block|}
 DECL|method|isEnableMultipartFilter ()

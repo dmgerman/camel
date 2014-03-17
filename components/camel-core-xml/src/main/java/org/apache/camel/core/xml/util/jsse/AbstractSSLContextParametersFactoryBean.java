@@ -130,6 +130,13 @@ name|String
 name|secureSocketProtocol
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|certAlias
+specifier|private
+name|String
+name|certAlias
+decl_stmt|;
+annotation|@
 name|Override
 DECL|method|createInstance ()
 specifier|protected
@@ -307,6 +314,13 @@ argument_list|)
 expr_stmt|;
 name|newInstance
 operator|.
+name|setCertAlias
+argument_list|(
+name|certAlias
+argument_list|)
+expr_stmt|;
+name|newInstance
+operator|.
 name|setCamelContext
 argument_list|(
 name|getCamelContext
@@ -386,6 +400,32 @@ operator|.
 name|secureSocketProtocol
 operator|=
 name|secureSocketProtocol
+expr_stmt|;
+block|}
+DECL|method|getCertAlias ()
+specifier|public
+name|String
+name|getCertAlias
+parameter_list|()
+block|{
+return|return
+name|certAlias
+return|;
+block|}
+DECL|method|setCertAlias (String certAlias)
+specifier|public
+name|void
+name|setCertAlias
+parameter_list|(
+name|String
+name|certAlias
+parameter_list|)
+block|{
+name|this
+operator|.
+name|certAlias
+operator|=
+name|certAlias
 expr_stmt|;
 block|}
 DECL|method|getKeyManagers ()

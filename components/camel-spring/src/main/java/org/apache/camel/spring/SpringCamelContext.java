@@ -312,6 +312,20 @@ name|context
 operator|.
 name|event
 operator|.
+name|ContextClosedEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|event
+operator|.
 name|ContextRefreshedEvent
 import|;
 end_import
@@ -420,6 +434,13 @@ DECL|field|eventComponent
 specifier|private
 name|EventComponent
 name|eventComponent
+decl_stmt|;
+DECL|field|shutdownEager
+specifier|private
+name|boolean
+name|shutdownEager
+init|=
+literal|true
 decl_stmt|;
 DECL|method|SpringCamelContext ()
 specifier|public
@@ -683,9 +704,46 @@ if|if
 condition|(
 name|event
 operator|instanceof
+name|ContextClosedEvent
+condition|)
+block|{
+comment|// ContextClosedEvent is emitted when Spring is about to be shutdown
+if|if
+condition|(
+name|isShutdownEager
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|maybeStop
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|event
+operator|instanceof
 name|ContextStoppedEvent
 condition|)
 block|{
+comment|// ContextStoppedEvent is emitted when Spring is end of shutdown
 try|try
 block|{
 name|maybeStop
@@ -873,6 +931,34 @@ name|eventEndpoint
 parameter_list|)
 block|{
 comment|// noop
+block|}
+comment|/**      * Whether to shutdown this {@link org.apache.camel.spring.SpringCamelContext} eager (first)      * when Spring {@link org.springframework.context.ApplicationContext} is being stopped.      *<p/>      *<b>Important:</b> This option is default<tt>true</tt> which ensures we shutdown Camel      * before other beans. Setting this to<tt>false</tt> restores old behavior in earlier      * Camel releases, which can be used for special cases to behave as before.      *      * @return<tt>true</tt> to shutdown eager (first),<tt>false</tt> to shutdown last      */
+DECL|method|isShutdownEager ()
+specifier|public
+name|boolean
+name|isShutdownEager
+parameter_list|()
+block|{
+return|return
+name|shutdownEager
+return|;
+block|}
+comment|/**      * @see #isShutdownEager()      */
+DECL|method|setShutdownEager (boolean shutdownEager)
+specifier|public
+name|void
+name|setShutdownEager
+parameter_list|(
+name|boolean
+name|shutdownEager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shutdownEager
+operator|=
+name|shutdownEager
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -----------------------------------------------------------------------

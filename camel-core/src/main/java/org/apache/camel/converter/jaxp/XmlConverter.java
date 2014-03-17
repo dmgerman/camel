@@ -4274,7 +4274,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"DocumenterBuilderFactory has been set with features {{}}."
+literal|"DocumentBuilderFactory has been set with features {{}}."
 argument_list|,
 name|featureString
 operator|.
@@ -4321,7 +4321,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|// Disable the external-general-entitites by default
+comment|// Disable the external-general-entities by default
 name|factory
 operator|.
 name|setFeature

@@ -310,10 +310,12 @@ literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
 literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
 decl_stmt|;
-DECL|field|ibmJDK
+DECL|field|canTest
 specifier|private
 name|boolean
-name|ibmJDK
+name|canTest
+init|=
+literal|true
 decl_stmt|;
 DECL|method|ECDSASignatureTest ()
 specifier|public
@@ -321,6 +323,8 @@ name|ECDSASignatureTest
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+try|try
 block|{
 comment|// BouncyCastle is required for ECDSA support for JDK 1.6
 if|if
@@ -343,8 +347,6 @@ argument_list|<
 name|?
 argument_list|>
 name|cons
-init|=
-literal|null
 decl_stmt|;
 name|Class
 argument_list|<
@@ -405,9 +407,49 @@ literal|"IBM"
 argument_list|)
 condition|)
 block|{
-name|ibmJDK
+name|canTest
 operator|=
-literal|true
+literal|false
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Cannot test due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot test due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|canTest
+operator|=
+literal|false
 expr_stmt|;
 block|}
 block|}
@@ -432,8 +474,7 @@ decl_stmt|;
 comment|// This test fails with the IBM JDK
 if|if
 condition|(
-operator|!
-name|ibmJDK
+name|canTest
 condition|)
 block|{
 name|registry
@@ -492,7 +533,8 @@ name|Exception
 block|{
 if|if
 condition|(
-name|ibmJDK
+operator|!
+name|canTest
 condition|)
 block|{
 return|return
@@ -565,7 +607,8 @@ name|Exception
 block|{
 if|if
 condition|(
-name|ibmJDK
+operator|!
+name|canTest
 condition|)
 block|{
 return|return;
@@ -647,11 +690,53 @@ block|{
 name|disableJMX
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|super
 operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Cannot test due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot test due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|canTest
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 end_function
 

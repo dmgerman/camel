@@ -2023,6 +2023,17 @@ name|server
 argument_list|)
 expr_stmt|;
 block|}
+comment|// just set if we need sendServerVersion, the default value is true
+name|server
+operator|.
+name|setSendServerVersion
+argument_list|(
+name|endpoint
+operator|.
+name|isSendServerVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|server
 operator|.
 name|addConnector

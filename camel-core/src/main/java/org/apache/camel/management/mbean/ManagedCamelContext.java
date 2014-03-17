@@ -2365,6 +2365,21 @@ name|componentName
 argument_list|)
 return|;
 block|}
+DECL|method|createRouteStaticEndpointJson ()
+specifier|public
+name|String
+name|createRouteStaticEndpointJson
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|createRouteStaticEndpointJson
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
 DECL|method|findComponentNames ()
 specifier|public
 name|List

@@ -145,7 +145,12 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"MyScheduler"
+literal|"MyScheduler-"
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|quartz
 operator|.
@@ -295,7 +300,12 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"MyScheduler"
+literal|"MyScheduler-"
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|quartz
 operator|.

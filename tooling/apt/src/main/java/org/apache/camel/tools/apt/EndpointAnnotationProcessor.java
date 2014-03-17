@@ -770,6 +770,8 @@ name|println
 argument_list|(
 literal|"<title>"
 operator|+
+name|title
+operator|+
 literal|"</title>"
 argument_list|)
 expr_stmt|;
@@ -1984,6 +1986,9 @@ operator|new
 name|File
 argument_list|(
 name|uri
+operator|.
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

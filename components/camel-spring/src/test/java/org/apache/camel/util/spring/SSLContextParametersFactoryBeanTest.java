@@ -212,6 +212,16 @@ name|getSecureSocketProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"alice"
+argument_list|,
+name|scp
+operator|.
+name|getCertAlias
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|validateBaseSSLContextParameters
 argument_list|(
 name|scp

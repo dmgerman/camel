@@ -248,6 +248,21 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|// we need to avoid the NPE issue of loading the class
 name|Class
 argument_list|<
 name|?

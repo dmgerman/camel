@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -145,6 +159,18 @@ specifier|private
 name|Consumer
 name|consumer
 decl_stmt|;
+DECL|field|unsubscribed
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|unsubscribed
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 DECL|method|EndpointSubscription (Endpoint endpoint, final Observer<? super T> observer, final Func1<Exchange, T> func)
 specifier|public
 name|EndpointSubscription
@@ -264,6 +290,18 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|unsubscribed
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|consumer
 operator|!=
 literal|null
@@ -300,6 +338,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|isUnsubscribed ()
+specifier|public
+name|boolean
+name|isUnsubscribed
+parameter_list|()
+block|{
+return|return
+name|unsubscribed
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public

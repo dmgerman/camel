@@ -74,6 +74,22 @@ end_import
 
 begin_import
 import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
+name|validation
+operator|.
+name|impl
+operator|.
+name|NoValidation
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -104,6 +120,33 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
+DECL|method|getParser ()
+specifier|private
+specifier|static
+name|Parser
+name|getParser
+parameter_list|()
+block|{
+name|PipeParser
+name|pipeParser
+init|=
+operator|new
+name|PipeParser
+argument_list|()
+decl_stmt|;
+name|pipeParser
+operator|.
+name|setValidationContext
+argument_list|(
+operator|new
+name|NoValidation
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|pipeParser
+return|;
+block|}
 annotation|@
 name|Converter
 DECL|method|toString (Message message)
@@ -123,8 +166,7 @@ name|encode
 argument_list|(
 name|message
 argument_list|,
-operator|new
-name|PipeParser
+name|getParser
 argument_list|()
 argument_list|)
 return|;
@@ -148,8 +190,7 @@ name|parse
 argument_list|(
 name|body
 argument_list|,
-operator|new
-name|PipeParser
+name|getParser
 argument_list|()
 argument_list|)
 return|;

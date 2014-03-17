@@ -215,12 +215,55 @@ specifier|static
 name|Thread
 name|shutdownHook
 decl_stmt|;
+DECL|field|windowsOs
+specifier|private
+specifier|static
+name|boolean
+name|windowsOs
+init|=
+name|initWindowsOs
+argument_list|()
+decl_stmt|;
 DECL|method|FileUtil ()
 specifier|private
 name|FileUtil
 parameter_list|()
 block|{
 comment|// Utils method
+block|}
+DECL|method|initWindowsOs ()
+specifier|private
+specifier|static
+name|boolean
+name|initWindowsOs
+parameter_list|()
+block|{
+comment|// initialize once as System.getProperty is not fast
+name|String
+name|osName
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"os.name"
+argument_list|)
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+decl_stmt|;
+return|return
+name|osName
+operator|.
+name|contains
+argument_list|(
+literal|"windows"
+argument_list|)
+return|;
 block|}
 DECL|method|getUserDir ()
 specifier|public
@@ -288,6 +331,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**      * Returns true, if the OS is windows      */
 DECL|method|isWindows ()
 specifier|public
 specifier|static
@@ -295,33 +339,8 @@ name|boolean
 name|isWindows
 parameter_list|()
 block|{
-name|String
-name|osName
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"os.name"
-argument_list|)
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|US
-argument_list|)
-decl_stmt|;
 return|return
-name|osName
-operator|.
-name|indexOf
-argument_list|(
-literal|"windows"
-argument_list|)
-operator|>
-operator|-
-literal|1
+name|windowsOs
 return|;
 block|}
 annotation|@

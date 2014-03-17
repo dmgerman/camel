@@ -449,6 +449,11 @@ name|DEFAULT_TOPIC_ARN
 init|=
 literal|"arn:aws:sns:us-east-1:541925086079:MyTopic"
 decl_stmt|;
+DECL|field|endpoint
+specifier|private
+name|String
+name|endpoint
+decl_stmt|;
 DECL|method|AmazonSNSClientMock ()
 specifier|public
 name|AmazonSNSClientMock
@@ -465,6 +470,34 @@ literal|"mySecretKey"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setEndpoint (String endpoint)
+specifier|public
+name|void
+name|setEndpoint
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
+expr_stmt|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|String
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
+return|;
 block|}
 annotation|@
 name|Override

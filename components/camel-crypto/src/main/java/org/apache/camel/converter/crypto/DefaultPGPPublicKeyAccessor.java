@@ -217,7 +217,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getPublicKey (Exchange exchange, long keyId)
+DECL|method|getPublicKey (Exchange exchange, long keyId, List<String> userIdParts)
 specifier|public
 name|PGPPublicKey
 name|getPublicKey
@@ -227,16 +227,26 @@ name|exchange
 parameter_list|,
 name|long
 name|keyId
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|userIdParts
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 return|return
-name|pgpPublicKeyRing
+name|PGPDataFormatUtil
 operator|.
-name|getPublicKey
+name|getPublicKeyWithKeyIdAndUserID
 argument_list|(
 name|keyId
+argument_list|,
+name|userIdParts
+argument_list|,
+name|pgpPublicKeyRing
 argument_list|)
 return|;
 block|}

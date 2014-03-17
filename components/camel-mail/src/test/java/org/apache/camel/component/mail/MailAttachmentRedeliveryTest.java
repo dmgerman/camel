@@ -425,36 +425,6 @@ argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isJava16
-argument_list|()
-condition|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"image/jpeg; name=logo.jpeg"
-argument_list|,
-name|handler
-operator|.
-name|getContentType
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|assertEquals
-argument_list|(
-literal|"application/octet-stream; name=logo.jpeg"
-argument_list|,
-name|handler
-operator|.
-name|getContentType
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 comment|// content type should match
 name|boolean
 name|match1

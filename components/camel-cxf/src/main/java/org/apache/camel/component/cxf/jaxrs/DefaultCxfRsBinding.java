@@ -624,12 +624,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Need to check if the exchange has the exception
 if|if
 condition|(
 name|camelExchange
 operator|.
 name|isFailed
 argument_list|()
+operator|&&
+name|camelExchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 throw|throw

@@ -143,7 +143,42 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"You cannot set both fileExist=Append and tempPrefix options"
+literal|"You cannot set both fileExist=Append and tempPrefix/tempFileName options"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"file://target/tempprefix?fileExist=Append&tempFileName=foo"
+argument_list|)
+operator|.
+name|createProducer
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"You cannot set both fileExist=Append and tempPrefix/tempFileName options"
 argument_list|,
 name|e
 operator|.
