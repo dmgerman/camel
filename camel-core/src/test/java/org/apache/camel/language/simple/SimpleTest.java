@@ -3339,6 +3339,113 @@ name|headers
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testHeaderKeyWithSpace ()
+specifier|public
+name|void
+name|testHeaderKeyWithSpace
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|headers
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+decl_stmt|;
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"some key"
+argument_list|,
+literal|"Some Value"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|headers
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headerAs(foo,String)}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headerAs(some key,String)}"
+argument_list|,
+literal|"Some Value"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headerAs('some key',String)}"
+argument_list|,
+literal|"Some Value"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${header[foo]}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${header[some key]}"
+argument_list|,
+literal|"Some Value"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${header['some key']}"
+argument_list|,
+literal|"Some Value"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headers[foo]}"
+argument_list|,
+literal|"abc"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headers[some key]}"
+argument_list|,
+literal|"Some Value"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${headers['some key']}"
+argument_list|,
+literal|"Some Value"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testHeaderAs ()
 specifier|public
 name|void

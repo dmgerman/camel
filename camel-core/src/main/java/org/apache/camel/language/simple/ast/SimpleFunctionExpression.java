@@ -1436,6 +1436,17 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remove quotes from key
+name|String
+name|key
+init|=
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+name|remainder
+argument_list|)
+decl_stmt|;
 comment|// validate syntax
 name|boolean
 name|invalid
@@ -1444,7 +1455,7 @@ name|OgnlHelper
 operator|.
 name|isInvalidValidOgnlExpression
 argument_list|(
-name|remainder
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -1473,7 +1484,7 @@ name|OgnlHelper
 operator|.
 name|isValidOgnlExpression
 argument_list|(
-name|remainder
+name|key
 argument_list|)
 condition|)
 block|{
@@ -1483,7 +1494,7 @@ name|ExpressionBuilder
 operator|.
 name|headersOgnlExpression
 argument_list|(
-name|remainder
+name|key
 argument_list|)
 return|;
 block|}
@@ -1495,7 +1506,7 @@ name|ExpressionBuilder
 operator|.
 name|headerExpression
 argument_list|(
-name|remainder
+name|key
 argument_list|)
 return|;
 block|}
