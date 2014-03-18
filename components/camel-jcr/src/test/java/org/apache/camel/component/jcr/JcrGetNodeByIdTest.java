@@ -167,11 +167,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|deleteDirectory
-argument_list|(
-literal|"target/repository"
-argument_list|)
-expr_stmt|;
 name|super
 operator|.
 name|setUp
