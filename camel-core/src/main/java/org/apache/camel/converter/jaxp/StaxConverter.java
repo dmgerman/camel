@@ -194,34 +194,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|dom
-operator|.
-name|DOMResult
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|dom
-operator|.
-name|DOMSource
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -301,13 +273,11 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|XmlErrorListener
+name|StaxConverter
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO: do not use a cxf system property
-comment|// TODO: make higher default pool size as 20 is not much in high end systems
 DECL|field|INPUT_FACTORY_POOL
 specifier|private
 specifier|static
@@ -394,6 +364,45 @@ operator|=
 literal|20
 expr_stmt|;
 block|}
+try|try
+block|{
+comment|// if we have more cores than 20, then use that
+name|int
+name|cores
+init|=
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|availableProcessors
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cores
+operator|>
+name|i
+condition|)
+block|{
+name|i
+operator|=
+name|cores
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// ignore
+name|i
+operator|=
+literal|20
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|i
@@ -406,6 +415,15 @@ operator|=
 literal|20
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"StaxConverter pool size: {}"
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
 name|INPUT_FACTORY_POOL
 operator|=
 operator|new
@@ -558,34 +576,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|result
-operator|instanceof
-name|DOMResult
-operator|&&
-operator|!
-name|isWoodstox
-argument_list|(
-name|factory
-argument_list|)
-condition|)
-block|{
-comment|//FIXME - if not woodstox, this will likely not work well
-comment|//likely should copy CXF's W3CDOM stuff
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"DOMResult is known to have issues with {0}. We suggest using Woodstox"
-argument_list|,
-name|factory
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|factory
 operator|.
@@ -723,34 +713,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|result
-operator|instanceof
-name|DOMResult
-operator|&&
-operator|!
-name|isWoodstox
-argument_list|(
-name|factory
-argument_list|)
-condition|)
-block|{
-comment|//FIXME - if not woodstox, this will likely not work well
-comment|//likely should copy CXF's W3CDOM stuff
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"DOMResult is known to have issues with {0}. We suggest using Woodstox"
-argument_list|,
-name|factory
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|factory
 operator|.
@@ -1024,34 +986,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|in
-operator|instanceof
-name|DOMSource
-operator|&&
-operator|!
-name|isWoodstox
-argument_list|(
-name|factory
-argument_list|)
-condition|)
-block|{
-comment|//FIXME - if not woodstox, this will likely not work well
-comment|//likely should copy CXF's W3CDOM stuff
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"DOMSource is known to have issues with {0}. We suggest using Woodstox"
-argument_list|,
-name|factory
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|factory
 operator|.
@@ -1407,33 +1341,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|in
-operator|instanceof
-name|DOMSource
-operator|&&
-operator|!
-name|isWoodstox
-argument_list|(
-name|factory
-argument_list|)
-condition|)
-block|{
-comment|//FIXME - if not woodstox, this will likely not work well
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"DOMSource is known to have issues with {0}. We suggest using Woodstox"
-argument_list|,
-name|factory
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|factory
 operator|.
@@ -1454,6 +1361,7 @@ block|}
 block|}
 DECL|method|isWoodstox (Object factory)
 specifier|private
+specifier|static
 name|boolean
 name|isWoodstox
 parameter_list|(
@@ -1701,6 +1609,40 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isWoodstox
+argument_list|(
+name|factory
+argument_list|)
+condition|)
+block|{
+comment|// just log a debug as we are good then
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created Woodstox XMLInputFactory: {}"
+argument_list|,
+name|factory
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// log a hint that woodstock may be a better factory to use
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Created XMLInputFactory: {}. DOMSource/DOMResult may have issues with {}. We suggest using Woodstox."
+argument_list|,
+name|factory
+argument_list|,
+name|factory
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|factory
 return|;
