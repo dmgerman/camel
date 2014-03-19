@@ -122,6 +122,11 @@ specifier|private
 name|Message
 name|mailMessage
 decl_stmt|;
+DECL|field|mapMailMessage
+specifier|private
+name|boolean
+name|mapMailMessage
+decl_stmt|;
 DECL|method|MailMessage ()
 specifier|public
 name|MailMessage
@@ -136,6 +141,25 @@ name|message
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|message
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|MailMessage (Message message, boolean mapMailMessage)
+specifier|public
+name|MailMessage
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|boolean
+name|mapMailMessage
+parameter_list|)
+block|{
+name|this
 operator|.
 name|originalMailMessage
 operator|=
@@ -144,6 +168,12 @@ operator|.
 name|mailMessage
 operator|=
 name|message
+expr_stmt|;
+name|this
+operator|.
+name|mapMailMessage
+operator|=
+name|mapMailMessage
 expr_stmt|;
 block|}
 annotation|@
@@ -211,12 +241,18 @@ name|mailMessage
 operator|=
 name|mailMessage
 expr_stmt|;
+if|if
+condition|(
+name|mapMailMessage
+condition|)
+block|{
 comment|// force attachments to be created (by getting attachments) to ensure they are always available due Camel error handler
 comment|// makes defensive copies, and we have optimized it to avoid populating initial attachments, when not needed,
 comment|// as all other Camel components do not use attachments
 name|getAttachments
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -556,6 +592,14 @@ operator|=
 name|mailMessage
 operator|.
 name|mailMessage
+expr_stmt|;
+name|this
+operator|.
+name|mapMailMessage
+operator|=
+name|mailMessage
+operator|.
+name|mapMailMessage
 expr_stmt|;
 block|}
 block|}

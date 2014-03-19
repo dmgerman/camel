@@ -544,6 +544,12 @@ operator|new
 name|MailMessage
 argument_list|(
 name|message
+argument_list|,
+name|getConfiguration
+argument_list|()
+operator|.
+name|isMapMailMessage
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
