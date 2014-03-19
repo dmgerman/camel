@@ -234,11 +234,6 @@ specifier|private
 name|boolean
 name|throwException
 decl_stmt|;
-DECL|field|forceSync
-specifier|private
-name|boolean
-name|forceSync
-decl_stmt|;
 DECL|method|RestletProducer (RestletEndpoint endpoint)
 specifier|public
 name|RestletProducer

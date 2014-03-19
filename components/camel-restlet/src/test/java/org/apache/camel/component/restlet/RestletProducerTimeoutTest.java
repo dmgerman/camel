@@ -120,11 +120,6 @@ name|ex
 parameter_list|)
 block|{
 comment|// expected
-name|ex
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 annotation|@
