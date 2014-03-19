@@ -76,19 +76,16 @@ name|RestletTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testRestletProducerGet ()
+DECL|method|testRestletProducerTimeout ()
 specifier|public
 name|void
-name|testRestletProducerGet
+name|testRestletProducerTimeout
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 try|try
 block|{
-name|String
-name|out
-init|=
 name|template
 operator|.
 name|requestBodyAndHeader
@@ -109,14 +106,10 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|assertEquals
+expr_stmt|;
+name|fail
 argument_list|(
-literal|""
-argument_list|,
-literal|null
-argument_list|,
-name|out
+literal|"Should have thrown exception"
 argument_list|)
 expr_stmt|;
 block|}
@@ -126,14 +119,11 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-name|System
+comment|// expected
+name|ex
 operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"get the exception"
-argument_list|)
+name|printStackTrace
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -161,25 +151,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|from
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"restlet:http://localhost:"
-operator|+
-name|portNum
-operator|+
-literal|"/users/123/basic?socketTimeout=100"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"log:reply"
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"restlet:http://localhost:"
@@ -211,7 +182,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|exchange
