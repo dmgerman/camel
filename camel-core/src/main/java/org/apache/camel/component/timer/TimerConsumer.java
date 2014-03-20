@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -95,6 +107,18 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StartupListener
 import|;
 end_import
 
@@ -143,6 +167,8 @@ class|class
 name|TimerConsumer
 extends|extends
 name|DefaultConsumer
+implements|implements
+name|StartupListener
 block|{
 DECL|field|LOG
 specifier|private
@@ -171,6 +197,12 @@ specifier|private
 specifier|volatile
 name|TimerTask
 name|task
+decl_stmt|;
+DECL|field|configured
+specifier|private
+specifier|volatile
+name|boolean
+name|configured
 decl_stmt|;
 DECL|method|TimerConsumer (TimerEndpoint endpoint, Processor processor)
 specifier|public
@@ -238,6 +270,15 @@ argument_list|()
 condition|)
 block|{
 comment|// do not run timer task as it was not allowed
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Run now allowed for timer: {}"
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 try|try
@@ -323,6 +364,25 @@ block|}
 block|}
 block|}
 expr_stmt|;
+comment|// only configure task if CamelContext already started, otherwise the StartupListener
+comment|// is configuring the task later
+if|if
+condition|(
+operator|!
+name|configured
+operator|&&
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStarted
+argument_list|()
+condition|)
+block|{
 name|Timer
 name|timer
 init|=
@@ -338,6 +398,7 @@ argument_list|,
 name|timer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -366,6 +427,53 @@ name|task
 operator|=
 literal|null
 expr_stmt|;
+name|configured
+operator|=
+literal|false
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onCamelContextStarted (CamelContext context, boolean alreadyStarted)
+specifier|public
+name|void
+name|onCamelContextStarted
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|boolean
+name|alreadyStarted
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|task
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|configured
+condition|)
+block|{
+name|Timer
+name|timer
+init|=
+name|endpoint
+operator|.
+name|getTimer
+argument_list|()
+decl_stmt|;
+name|configureTask
+argument_list|(
+name|task
+argument_list|,
+name|timer
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Whether the timer task is allow to run or not      */
 DECL|method|isTaskRunAllowed ()
@@ -568,6 +676,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|configured
+operator|=
+literal|true
+expr_stmt|;
 block|}
 DECL|method|sendTimerExchange (long counter)
 specifier|protected
