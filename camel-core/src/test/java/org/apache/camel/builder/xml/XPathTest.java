@@ -1883,6 +1883,8 @@ name|Exception
 block|{
 name|Object
 name|instance
+init|=
+literal|null
 decl_stmt|;
 comment|// we may not have Xalan on the classpath
 try|try
@@ -1899,6 +1901,23 @@ operator|.
 name|newInstance
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Could not find Xalan on the classpath so ignoring this test case: "
+operator|+
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|instance
@@ -1941,15 +1960,16 @@ name|functionResolver
 argument_list|(
 name|functionResolver
 argument_list|)
+operator|.
+name|stringResult
+argument_list|()
 decl_stmt|;
 name|String
 name|xml
 init|=
 literal|"<header><value>12</value></header>"
 decl_stmt|;
-name|Object
-name|value
-init|=
+comment|// it can throw the exception if we put the xalan into the test class path
 name|assertExpression
 argument_list|(
 name|builder
@@ -1958,45 +1978,24 @@ name|xml
 argument_list|,
 literal|"modified12"
 argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Evaluated xpath: "
-operator|+
-name|builder
-operator|.
-name|getText
-argument_list|()
-operator|+
-literal|" on XML: "
-operator|+
-name|xml
-operator|+
-literal|" result: "
-operator|+
-name|value
-argument_list|)
 expr_stmt|;
 block|}
 block|}
-catch|catch
+DECL|method|func (String message)
+specifier|public
+specifier|static
+name|String
+name|func
 parameter_list|(
-name|Throwable
-name|e
+name|String
+name|message
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Could not find Xalan on the classpath so ignoring this test case: "
+return|return
+literal|"modified"
 operator|+
-name|e
-argument_list|)
-expr_stmt|;
-block|}
+name|message
+return|;
 block|}
 DECL|method|assertExpression (String xpath, String xml, String expected)
 specifier|protected
