@@ -2361,6 +2361,13 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
+name|verifySignature
+argument_list|(
+name|pgpFactory
+argument_list|,
+name|signature
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -2378,13 +2385,6 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
-name|verifySignature
-argument_list|(
-name|pgpFactory
-argument_list|,
-name|signature
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|cos
