@@ -829,6 +829,11 @@ name|isSessionLive
 init|=
 literal|false
 decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 name|JcrConsumer
@@ -869,6 +874,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
