@@ -6752,6 +6752,12 @@ literal|"\n      ]"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|firstRoute
+condition|)
+block|{
 name|buffer
 operator|.
 name|append
@@ -6759,6 +6765,7 @@ argument_list|(
 literal|"\n    }"
 argument_list|)
 expr_stmt|;
+block|}
 name|buffer
 operator|.
 name|append
