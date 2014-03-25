@@ -277,15 +277,19 @@ block|{
 name|String
 name|addressUri
 init|=
+name|createAddressUri
+argument_list|(
+name|uri
+argument_list|,
 name|remaining
+argument_list|)
 decl_stmt|;
 comment|// Do not set the HTTP URI because we still have all of the Camel internal
 comment|// parameters in the URI at this point.
 name|AhcEndpoint
 name|endpoint
 init|=
-operator|new
-name|AhcEndpoint
+name|createAhcEndpoint
 argument_list|(
 name|uri
 argument_list|,
@@ -711,6 +715,49 @@ name|sslContextParameters
 operator|=
 name|sslContextParameters
 expr_stmt|;
+block|}
+DECL|method|createAddressUri (String uri, String remaining)
+specifier|protected
+name|String
+name|createAddressUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|remaining
+parameter_list|)
+block|{
+return|return
+name|remaining
+return|;
+block|}
+DECL|method|createAhcEndpoint (String endpointUri, AhcComponent component, URI httpUri)
+specifier|protected
+name|AhcEndpoint
+name|createAhcEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|AhcComponent
+name|component
+parameter_list|,
+name|URI
+name|httpUri
+parameter_list|)
+block|{
+return|return
+operator|new
+name|AhcEndpoint
+argument_list|(
+name|endpointUri
+argument_list|,
+name|component
+argument_list|,
+name|httpUri
+argument_list|)
+return|;
 block|}
 comment|/**      * Creates a new client configuration builder using {@code clientConfig} as a template for      * the builder.      *      * @param clientConfig the instance to serve as a template for the builder      *      * @return a builder configured with the same options as the supplied config      */
 DECL|method|cloneConfig (AsyncHttpClientConfig clientConfig)
