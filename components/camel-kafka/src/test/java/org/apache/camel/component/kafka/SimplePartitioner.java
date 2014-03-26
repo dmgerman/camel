@@ -45,9 +45,6 @@ class|class
 name|SimplePartitioner
 implements|implements
 name|Partitioner
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|method|SimplePartitioner (VerifiableProperties props)
 specifier|public
@@ -60,12 +57,12 @@ block|{     }
 comment|/**      * Uses the key to calculate a partition bucket id for routing      * the data to the appropriate broker partition      *      * @return an integer between 0 and numPartitions-1      */
 annotation|@
 name|Override
-DECL|method|partition (String key, int numPartitions)
+DECL|method|partition (Object key, int numPartitions)
 specifier|public
 name|int
 name|partition
 parameter_list|(
-name|String
+name|Object
 name|key
 parameter_list|,
 name|int
