@@ -492,6 +492,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|message
+operator|.
+name|setBody
+argument_list|(
+name|mm
+operator|.
+name|message
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|setIn
