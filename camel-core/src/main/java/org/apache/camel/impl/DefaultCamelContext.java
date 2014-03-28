@@ -10166,6 +10166,15 @@ name|startDate
 operator|=
 literal|null
 expr_stmt|;
+name|Container
+operator|.
+name|Instance
+operator|.
+name|unmanage
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Starts or resumes the routes      *      * @param routeServices  the routes to start (will only start a route if its not already started)      * @param checkClash     whether to check for startup ordering clash      * @param startConsumer  whether the route consumer should be started. Can be used to warmup the route without starting the consumer.      * @param resumeConsumer whether the route consumer should be resumed.      * @param addingRoutes   whether we are adding new routes      * @throws Exception is thrown if error starting routes      */
 DECL|method|doStartOrResumeRoutes (Map<String, RouteService> routeServices, boolean checkClash, boolean startConsumer, boolean resumeConsumer, boolean addingRoutes)
