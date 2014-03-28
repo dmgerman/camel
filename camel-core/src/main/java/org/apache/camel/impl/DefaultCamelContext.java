@@ -1302,6 +1302,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RuntimeEndpointRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ServicePool
 import|;
 end_import
@@ -2221,6 +2235,15 @@ name|inflightRepository
 init|=
 operator|new
 name|DefaultInflightRepository
+argument_list|()
+decl_stmt|;
+DECL|field|runtimeEndpointRegistry
+specifier|private
+name|RuntimeEndpointRegistry
+name|runtimeEndpointRegistry
+init|=
+operator|new
+name|DefaultRuntimeEndpointRegistry
 argument_list|()
 decl_stmt|;
 DECL|field|routeStartupOrder
@@ -6439,6 +6462,28 @@ name|String
 name|routeId
 parameter_list|)
 block|{
+comment|// lets include dynamic as well as we want as much data as possible
+return|return
+name|createRouteStaticEndpointJson
+argument_list|(
+name|routeId
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+DECL|method|createRouteStaticEndpointJson (String routeId, boolean includeDynamic)
+specifier|public
+name|String
+name|createRouteStaticEndpointJson
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|boolean
+name|includeDynamic
+parameter_list|)
+block|{
 name|List
 argument_list|<
 name|RouteDefinition
@@ -6574,6 +6619,7 @@ argument_list|(
 literal|"\n      \"inputs\": ["
 argument_list|)
 expr_stmt|;
+comment|// for inputs we do not need to check dynamic as we have the data from the route definition
 name|Set
 argument_list|<
 name|String
@@ -6584,6 +6630,8 @@ name|RouteDefinitionHelper
 operator|.
 name|gatherAllStaticEndpointUris
 argument_list|(
+name|this
+argument_list|,
 name|route
 argument_list|,
 literal|true
@@ -6678,13 +6726,17 @@ name|outputs
 init|=
 name|RouteDefinitionHelper
 operator|.
-name|gatherAllStaticEndpointUris
+name|gatherAllEndpointUris
 argument_list|(
+name|this
+argument_list|,
 name|route
 argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+name|includeDynamic
 argument_list|)
 decl_stmt|;
 name|first
@@ -8365,6 +8417,32 @@ operator|=
 name|unitOfWorkFactory
 expr_stmt|;
 block|}
+DECL|method|getRuntimeEndpointRegistry ()
+specifier|public
+name|RuntimeEndpointRegistry
+name|getRuntimeEndpointRegistry
+parameter_list|()
+block|{
+return|return
+name|runtimeEndpointRegistry
+return|;
+block|}
+DECL|method|setRuntimeEndpointRegistry (RuntimeEndpointRegistry runtimeEndpointRegistry)
+specifier|public
+name|void
+name|setRuntimeEndpointRegistry
+parameter_list|(
+name|RuntimeEndpointRegistry
+name|runtimeEndpointRegistry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|runtimeEndpointRegistry
+operator|=
+name|runtimeEndpointRegistry
+expr_stmt|;
+block|}
 DECL|method|getUptime ()
 specifier|public
 name|String
@@ -9631,6 +9709,38 @@ argument_list|(
 name|packageScanClassResolver
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|runtimeEndpointRegistry
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|runtimeEndpointRegistry
+operator|instanceof
+name|EventNotifier
+condition|)
+block|{
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|addEventNotifier
+argument_list|(
+operator|(
+name|EventNotifier
+operator|)
+name|runtimeEndpointRegistry
+argument_list|)
+expr_stmt|;
+block|}
+name|addService
+argument_list|(
+name|runtimeEndpointRegistry
+argument_list|)
+expr_stmt|;
+block|}
 comment|// eager lookup any configured properties component to avoid subsequent lookup attempts which may impact performance
 comment|// due we use properties component for property placeholder resolution at runtime
 name|Component
@@ -12372,6 +12482,9 @@ name|getTypeConverterRegistry
 argument_list|()
 expr_stmt|;
 name|getTypeConverter
+argument_list|()
+expr_stmt|;
+name|getRuntimeEndpointRegistry
 argument_list|()
 expr_stmt|;
 if|if

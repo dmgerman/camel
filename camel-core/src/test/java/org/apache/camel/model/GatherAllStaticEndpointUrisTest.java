@@ -88,6 +88,8 @@ name|RouteDefinitionHelper
 operator|.
 name|gatherAllStaticEndpointUris
 argument_list|(
+name|context
+argument_list|,
 name|route
 argument_list|,
 literal|true
@@ -130,6 +132,8 @@ name|RouteDefinitionHelper
 operator|.
 name|gatherAllStaticEndpointUris
 argument_list|(
+name|context
+argument_list|,
 name|route2
 argument_list|,
 literal|true
@@ -162,6 +166,8 @@ name|RouteDefinitionHelper
 operator|.
 name|gatherAllStaticEndpointUris
 argument_list|(
+name|context
+argument_list|,
 name|route2
 argument_list|,
 literal|false
@@ -205,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"{ \"uri\": \"direct:foo\" }"
+literal|"{ \"uri\": \"direct://foo\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -215,7 +221,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"{ \"uri\": \"seda:bar\" }"
+literal|"{ \"uri\": \"seda://bar\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

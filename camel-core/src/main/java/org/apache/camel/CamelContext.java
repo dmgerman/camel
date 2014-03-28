@@ -472,6 +472,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RuntimeEndpointRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ServicePool
 import|;
 end_import
@@ -1838,13 +1852,25 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates a JSON representation of all the<b>static</b> configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @return a JSON string      */
+comment|/**      * Creates a JSON representation of all the<b>static</b> and<b>dynamic</b> configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @return a JSON string      */
 DECL|method|createRouteStaticEndpointJson (String routeId)
 name|String
 name|createRouteStaticEndpointJson
 parameter_list|(
 name|String
 name|routeId
+parameter_list|)
+function_decl|;
+comment|/**      * Creates a JSON representation of all the<b>static</b> (and possible<b>dynamic</b>) configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @param includeDynamic whether to include dynamic endpoints      * @return a JSON string      */
+DECL|method|createRouteStaticEndpointJson (String routeId, boolean includeDynamic)
+name|String
+name|createRouteStaticEndpointJson
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|boolean
+name|includeDynamic
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the {@link StreamCachingStrategy} to use.      */
@@ -1875,6 +1901,21 @@ name|setUnitOfWorkFactory
 parameter_list|(
 name|UnitOfWorkFactory
 name|unitOfWorkFactory
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.spi.RuntimeEndpointRegistry} to use, or<tt>null</tt> if none is in use.      */
+DECL|method|getRuntimeEndpointRegistry ()
+name|RuntimeEndpointRegistry
+name|getRuntimeEndpointRegistry
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RuntimeEndpointRegistry} to use.      */
+DECL|method|setRuntimeEndpointRegistry (RuntimeEndpointRegistry runtimeEndpointRegistry)
+name|void
+name|setRuntimeEndpointRegistry
+parameter_list|(
+name|RuntimeEndpointRegistry
+name|runtimeEndpointRegistry
 parameter_list|)
 function_decl|;
 block|}

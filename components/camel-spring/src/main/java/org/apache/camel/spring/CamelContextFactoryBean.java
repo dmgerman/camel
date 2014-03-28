@@ -934,6 +934,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|runtimeEndpointRegistryEnabled
+specifier|private
+name|String
+name|runtimeEndpointRegistryEnabled
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|managementNamePattern
 specifier|private
 name|String
@@ -3149,6 +3161,32 @@ operator|.
 name|allowUseOriginalMessage
 operator|=
 name|allowUseOriginalMessage
+expr_stmt|;
+block|}
+DECL|method|getRuntimeEndpointRegistryEnabled ()
+specifier|public
+name|String
+name|getRuntimeEndpointRegistryEnabled
+parameter_list|()
+block|{
+return|return
+name|runtimeEndpointRegistryEnabled
+return|;
+block|}
+DECL|method|setRuntimeEndpointRegistryEnabled (String runtimeEndpointRegistryEnabled)
+specifier|public
+name|void
+name|setRuntimeEndpointRegistryEnabled
+parameter_list|(
+name|String
+name|runtimeEndpointRegistryEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|runtimeEndpointRegistryEnabled
+operator|=
+name|runtimeEndpointRegistryEnabled
 expr_stmt|;
 block|}
 DECL|method|getManagementNamePattern ()

@@ -2104,6 +2104,30 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|createRouteStaticEndpointJson (boolean includeDynamic)
+specifier|public
+name|String
+name|createRouteStaticEndpointJson
+parameter_list|(
+name|boolean
+name|includeDynamic
+parameter_list|)
+block|{
+return|return
+name|getContext
+argument_list|()
+operator|.
+name|createRouteStaticEndpointJson
+argument_list|(
+name|getRouteId
+argument_list|()
+argument_list|,
+name|includeDynamic
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|equals (Object o)
 specifier|public
 name|boolean

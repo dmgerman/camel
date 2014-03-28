@@ -1363,7 +1363,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"{ \"uri\": \"direct:start\" }"
+literal|"{ \"uri\": \"direct://start\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1373,7 +1373,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"{ \"uri\": \"direct:foo\" }"
+literal|"{ \"uri\": \"direct://foo\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
