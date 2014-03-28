@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel.processor.async
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|processor
+operator|.
+name|async
 package|;
 end_package
 
@@ -62,15 +64,11 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|DynamicRouterTest
+DECL|class|AsyncEndpointDynamicRouterTest
 specifier|public
 class|class
-name|DynamicRouterTest
+name|AsyncEndpointDynamicRouterTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -96,44 +94,14 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|testDynamicRouter ()
+DECL|method|testAsyncEndpoint ()
 specifier|public
 name|void
-name|testDynamicRouter
+name|testAsyncEndpoint
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:a"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:b"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:c"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -144,13 +112,27 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 expr_stmt|;
+name|String
+name|reply
+init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World"
+literal|"Hello Camel"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|reply
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -158,14 +140,14 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
+literal|4
 argument_list|,
 name|invoked
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
+literal|4
 argument_list|,
 name|bodies
 operator|.
@@ -175,7 +157,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|"Hello Camel"
 argument_list|,
 name|bodies
 operator|.
@@ -187,7 +169,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|"Bye Camel"
 argument_list|,
 name|bodies
 operator|.
@@ -199,7 +181,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello World"
+literal|"Bye World"
 argument_list|,
 name|bodies
 operator|.
@@ -218,18 +200,6 @@ operator|.
 name|get
 argument_list|(
 literal|3
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Bye World"
-argument_list|,
-name|bodies
-operator|.
-name|get
-argument_list|(
-literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -258,18 +228,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: e1
+name|context
+operator|.
+name|addComponent
+argument_list|(
+literal|"async"
+argument_list|,
+operator|new
+name|MyAsyncComponent
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// use a bean as the dynamic router
 operator|.
 name|dynamicRouter
 argument_list|(
 name|method
 argument_list|(
-name|DynamicRouterTest
+name|AsyncEndpointDynamicRouterTest
 operator|.
 name|class
 argument_list|,
@@ -277,7 +256,6 @@ literal|"slip"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// END SNIPPET: e1
 name|from
 argument_list|(
 literal|"direct:foo"
@@ -295,7 +273,6 @@ block|}
 block|}
 return|;
 block|}
-comment|// START SNIPPET: e2
 comment|/**      * Use this method to compute dynamic where we should route next.      *      * @param body the message body      * @return endpoints to go, or<tt>null</tt> to indicate the end      */
 DECL|method|slip (String body)
 specifier|public
@@ -324,7 +301,7 @@ literal|1
 condition|)
 block|{
 return|return
-literal|"mock:a"
+literal|"async:bye:camel"
 return|;
 block|}
 elseif|else
@@ -336,7 +313,7 @@ literal|2
 condition|)
 block|{
 return|return
-literal|"mock:b,mock:c"
+literal|"direct:foo"
 return|;
 block|}
 elseif|else
@@ -348,18 +325,6 @@ literal|3
 condition|)
 block|{
 return|return
-literal|"direct:foo"
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|invoked
-operator|==
-literal|4
-condition|)
-block|{
-return|return
 literal|"mock:result"
 return|;
 block|}
@@ -368,7 +333,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// END SNIPPET: e2
 block|}
 end_class
 

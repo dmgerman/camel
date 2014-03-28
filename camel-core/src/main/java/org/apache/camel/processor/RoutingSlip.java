@@ -940,17 +940,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-comment|// prepare and process the routing slip
-name|Exchange
-name|copy
-init|=
-name|prepareExchangeForRoutingSlip
-argument_list|(
-name|current
-argument_list|,
-name|endpoint
-argument_list|)
-decl_stmt|;
+comment|//process and prepare the routing slip
 name|boolean
 name|sync
 init|=
@@ -958,7 +948,7 @@ name|processExchange
 argument_list|(
 name|endpoint
 argument_list|,
-name|copy
+name|current
 argument_list|,
 name|exchange
 argument_list|,
@@ -969,7 +959,12 @@ argument_list|)
 decl_stmt|;
 name|current
 operator|=
-name|copy
+name|prepareExchangeForRoutingSlip
+argument_list|(
+name|current
+argument_list|,
+name|endpoint
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1407,7 +1402,12 @@ comment|// continue processing the routing slip asynchronously
 name|Exchange
 name|current
 init|=
+name|prepareExchangeForRoutingSlip
+argument_list|(
 name|exchange
+argument_list|,
+name|endpoint
+argument_list|)
 decl_stmt|;
 while|while
 condition|(
@@ -1535,16 +1535,6 @@ expr_stmt|;
 break|break;
 block|}
 comment|// prepare and process the routing slip
-name|Exchange
-name|copy
-init|=
-name|prepareExchangeForRoutingSlip
-argument_list|(
-name|current
-argument_list|,
-name|endpoint
-argument_list|)
-decl_stmt|;
 name|boolean
 name|sync
 init|=
@@ -1552,7 +1542,7 @@ name|processExchange
 argument_list|(
 name|endpoint
 argument_list|,
-name|copy
+name|current
 argument_list|,
 name|original
 argument_list|,
@@ -1563,7 +1553,12 @@ argument_list|)
 decl_stmt|;
 name|current
 operator|=
-name|copy
+name|prepareExchangeForRoutingSlip
+argument_list|(
+name|current
+argument_list|,
+name|endpoint
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
