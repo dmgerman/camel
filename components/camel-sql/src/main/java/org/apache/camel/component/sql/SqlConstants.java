@@ -56,6 +56,36 @@ name|SQL_ROW_COUNT
 init|=
 literal|"CamelSqlRowCount"
 decl_stmt|;
+comment|/**      * Boolean input header.      * Set its value to true to retrieve generated keys, default is false      */
+DECL|field|SQL_RETRIEVE_GENERATED_KEYS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SQL_RETRIEVE_GENERATED_KEYS
+init|=
+literal|"CamelSqlRetrieveGeneratedKeys"
+decl_stmt|;
+comment|/**      *<tt>String[]</tt> or<tt>int[]</tt> input header - optional      * Set it to specify the expected generated columns, see:      *      * @see<a href="http://docs.oracle.com/javase/6/docs/api/java/sql/Statement.html#execute(java.lang.String, int[])">      *      java.sql.Statement.execute(java.lang.String, int[])</a>      * @see<a href="http://docs.oracle.com/javase/6/docs/api/java/sql/Statement.html#execute(java.lang.String, java.lang.String[])">      *      java.sql.Statement.execute(java.lang.String, java.lang.String[])</a>      */
+DECL|field|SQL_GENERATED_COLUMNS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SQL_GENERATED_COLUMNS
+init|=
+literal|"CamelGeneratedColumns"
+decl_stmt|;
+comment|/**      *<tt>org.springframework.jdbc.support.KeyHolder</tt> output header containing the generated keys retrieved      *       * @see<a href="http://docs.spring.io/spring/docs/3.2.x/javadoc-api/org/springframework/jdbc/support/KeyHolder.html">      *      org.springframework.jdbc.support.KeyHolder</a>      */
+DECL|field|SQL_GENERATED_KEY_HOLDER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SQL_GENERATED_KEY_HOLDER
+init|=
+literal|"CamelSqlGeneratedKeyHolder"
+decl_stmt|;
 DECL|method|SqlConstants ()
 specifier|private
 name|SqlConstants
