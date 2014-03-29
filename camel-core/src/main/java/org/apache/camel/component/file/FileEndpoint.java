@@ -218,6 +218,13 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|renameUsingCopy
+specifier|private
+name|boolean
+name|renameUsingCopy
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|forceWrites
 specifier|private
 name|boolean
@@ -821,6 +828,32 @@ operator|.
 name|copyAndDeleteOnRenameFail
 operator|=
 name|copyAndDeleteOnRenameFail
+expr_stmt|;
+block|}
+DECL|method|isRenameUsingCopy ()
+specifier|public
+name|boolean
+name|isRenameUsingCopy
+parameter_list|()
+block|{
+return|return
+name|renameUsingCopy
+return|;
+block|}
+DECL|method|setRenameUsingCopy (boolean renameUsingCopy)
+specifier|public
+name|void
+name|setRenameUsingCopy
+parameter_list|(
+name|boolean
+name|renameUsingCopy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|renameUsingCopy
+operator|=
+name|renameUsingCopy
 expr_stmt|;
 block|}
 DECL|method|isForceWrites ()
