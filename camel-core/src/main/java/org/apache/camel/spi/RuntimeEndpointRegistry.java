@@ -86,13 +86,13 @@ name|void
 name|reset
 parameter_list|()
 function_decl|;
-comment|/**      * Number of endpoints in the cache.      */
+comment|/**      * Number of endpoints currently in the cache.      */
 DECL|method|size ()
 name|int
 name|size
 parameter_list|()
 function_decl|;
-comment|/**      * Gets all the endpoint uris captured during runtime that are in-use.      *      * @param includeInputs whether to include route inputs      */
+comment|/**      * Gets all the endpoint uris captured during runtime routing that are in-use of the routes.      *      * @param includeInputs whether to include route inputs      */
 DECL|method|getAllEndpoints (boolean includeInputs)
 name|List
 argument_list|<
@@ -104,7 +104,7 @@ name|boolean
 name|includeInputs
 parameter_list|)
 function_decl|;
-comment|/**      * Gets all the endpoint uris from the given route captured during runtime that are in-use.      *      * @param includeInputs whether to include route inputs      */
+comment|/**      * Gets all the endpoint uris captured from the given route during runtime routing that are in-use of the routes.      *      * @param routeId       the route id      * @param includeInputs whether to include route inputs      */
 DECL|method|getEndpointsPerRoute (String routeId, boolean includeInputs)
 name|List
 argument_list|<

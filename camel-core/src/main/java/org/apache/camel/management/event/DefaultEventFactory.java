@@ -314,6 +314,40 @@ name|route
 argument_list|)
 return|;
 block|}
+DECL|method|createRouteAddedEvent (Route route)
+specifier|public
+name|EventObject
+name|createRouteAddedEvent
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RouteAddedEvent
+argument_list|(
+name|route
+argument_list|)
+return|;
+block|}
+DECL|method|createRouteRemovedEvent (Route route)
+specifier|public
+name|EventObject
+name|createRouteRemovedEvent
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RouteRemovedEvent
+argument_list|(
+name|route
+argument_list|)
+return|;
+block|}
 DECL|method|createExchangeCreatedEvent (Exchange exchange)
 specifier|public
 name|EventObject

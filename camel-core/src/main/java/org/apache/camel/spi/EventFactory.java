@@ -204,6 +204,24 @@ name|Route
 name|route
 parameter_list|)
 function_decl|;
+comment|/**      * Creates an {@link EventObject} for {@link Route} has been added successfully.      *      * @param route the route      * @return the created event      */
+DECL|method|createRouteAddedEvent (Route route)
+name|EventObject
+name|createRouteAddedEvent
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
+comment|/**      * Creates an {@link EventObject} for {@link Route} has been removed successfully.      *      * @param route the route      * @return the created event      */
+DECL|method|createRouteRemovedEvent (Route route)
+name|EventObject
+name|createRouteRemovedEvent
+parameter_list|(
+name|Route
+name|route
+parameter_list|)
+function_decl|;
 comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has been created      *      * @param exchange the exchange      * @return the created event      */
 DECL|method|createExchangeCreatedEvent (Exchange exchange)
 name|EventObject

@@ -849,6 +849,16 @@ argument_list|,
 name|childServices
 argument_list|)
 expr_stmt|;
+comment|// fire event
+name|EventHelper
+operator|.
+name|notifyRouteAdded
+argument_list|(
+name|camelContext
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
 block|}
 comment|// ensure lifecycle strategy is invoked which among others enlist the route in JMX
 for|for
@@ -1373,6 +1383,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// fire event
+name|EventHelper
+operator|.
+name|notifyRouteRemoved
+argument_list|(
+name|camelContext
+argument_list|,
+name|route
+argument_list|)
+expr_stmt|;
 block|}
 comment|// need to call onRoutesRemove when the CamelContext is shutting down or Route is shutdown
 for|for
