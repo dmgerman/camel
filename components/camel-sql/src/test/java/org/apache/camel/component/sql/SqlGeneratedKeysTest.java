@@ -180,20 +180,6 @@ name|EmbeddedDatabaseType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|jdbc
-operator|.
-name|support
-operator|.
-name|KeyHolder
-import|;
-end_import
-
 begin_class
 DECL|class|SqlGeneratedKeysTest
 specifier|public
@@ -375,6 +361,11 @@ return|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testRetrieveGeneratedKey ()
 specifier|public
 name|void
@@ -473,11 +464,19 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|KeyHolder
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|generatedKeys
 init|=
 name|out
@@ -489,16 +488,16 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|,
-name|KeyHolder
+name|List
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"out body could not be converted to a KeyHolder - was: "
+literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
@@ -516,9 +515,6 @@ argument_list|(
 literal|1
 argument_list|,
 name|generatedKeys
-operator|.
-name|getKeyList
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -539,8 +535,10 @@ name|row
 init|=
 name|generatedKeys
 operator|.
-name|getKeys
-argument_list|()
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -569,9 +567,6 @@ literal|1
 argument_list|,
 name|generatedKeys
 operator|.
-name|getKeyList
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -579,6 +574,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testRetrieveGeneratedKeys ()
 specifier|public
 name|void
@@ -696,11 +696,19 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|KeyHolder
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|generatedKeys
 init|=
 name|out
@@ -712,16 +720,16 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|,
-name|KeyHolder
+name|List
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"out body could not be converted to a KeyHolder - was: "
+literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
@@ -739,9 +747,6 @@ argument_list|(
 literal|2
 argument_list|,
 name|generatedKeys
-operator|.
-name|getKeyList
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -762,8 +767,10 @@ name|row
 init|=
 name|generatedKeys
 operator|.
-name|getKeys
-argument_list|()
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -811,9 +818,6 @@ literal|1
 argument_list|,
 name|generatedKeys
 operator|.
-name|getKeyList
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -821,6 +825,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testRetrieveGeneratedKeysForBatch ()
 specifier|public
 name|void
@@ -991,11 +1000,19 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|KeyHolder
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|generatedKeys
 init|=
 name|out
@@ -1007,16 +1024,16 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|,
-name|KeyHolder
+name|List
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"out body could not be converted to a KeyHolder - was: "
+literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
@@ -1035,9 +1052,6 @@ argument_list|(
 literal|4
 argument_list|,
 name|generatedKeys
-operator|.
-name|getKeyList
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1059,9 +1073,6 @@ argument_list|>
 name|row
 range|:
 name|generatedKeys
-operator|.
-name|getKeyList
-argument_list|()
 control|)
 block|{
 name|assertEquals
@@ -1090,6 +1101,11 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testRetrieveGeneratedKeyWithStringGeneratedColumns ()
 specifier|public
 name|void
@@ -1207,11 +1223,19 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|KeyHolder
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|generatedKeys
 init|=
 name|out
@@ -1223,16 +1247,16 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|,
-name|KeyHolder
+name|List
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"out body could not be converted to a KeyHolder - was: "
+literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
@@ -1250,9 +1274,6 @@ argument_list|(
 literal|1
 argument_list|,
 name|generatedKeys
-operator|.
-name|getKeyList
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1273,8 +1294,10 @@ name|row
 init|=
 name|generatedKeys
 operator|.
-name|getKeys
-argument_list|()
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1303,9 +1326,6 @@ literal|1
 argument_list|,
 name|generatedKeys
 operator|.
-name|getKeyList
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -1313,6 +1333,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testRetrieveGeneratedKeyWithIntGeneratedColumns ()
 specifier|public
 name|void
@@ -1422,11 +1447,19 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|KeyHolder
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|generatedKeys
 init|=
 name|out
@@ -1438,16 +1471,16 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|,
-name|KeyHolder
+name|List
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"out body could not be converted to a KeyHolder - was: "
+literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
@@ -1465,9 +1498,6 @@ argument_list|(
 literal|1
 argument_list|,
 name|generatedKeys
-operator|.
-name|getKeyList
-argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1488,8 +1518,10 @@ name|row
 init|=
 name|generatedKeys
 operator|.
-name|getKeys
-argument_list|()
+name|get
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1517,9 +1549,6 @@ argument_list|,
 literal|1
 argument_list|,
 name|generatedKeys
-operator|.
-name|getKeyList
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1628,6 +1657,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testNoKeysForSelect ()
 specifier|public
 name|void
@@ -1683,11 +1717,6 @@ argument_list|,
 name|exchange
 argument_list|)
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|List
 argument_list|<
 name|Map
@@ -1723,8 +1752,16 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|KeyHolder
-name|holder
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
+name|generatedKeys
 init|=
 name|out
 operator|.
@@ -1735,9 +1772,9 @@ name|getHeader
 argument_list|(
 name|SqlConstants
 operator|.
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 argument_list|,
-name|KeyHolder
+name|List
 operator|.
 name|class
 argument_list|)
@@ -1748,10 +1785,7 @@ literal|"We should not get any keys"
 argument_list|,
 literal|0
 argument_list|,
-name|holder
-operator|.
-name|getKeyList
-argument_list|()
+name|generatedKeys
 operator|.
 name|size
 argument_list|()

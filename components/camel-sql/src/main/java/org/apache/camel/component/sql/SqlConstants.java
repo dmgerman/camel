@@ -76,15 +76,15 @@ name|SQL_GENERATED_COLUMNS
 init|=
 literal|"CamelGeneratedColumns"
 decl_stmt|;
-comment|/**      *<tt>org.springframework.jdbc.support.KeyHolder</tt> output header containing the generated keys retrieved      *       * @see<a href="http://docs.spring.io/spring/docs/3.2.x/javadoc-api/org/springframework/jdbc/support/KeyHolder.html">      *      org.springframework.jdbc.support.KeyHolder</a>      */
-DECL|field|SQL_GENERATED_KEY_HOLDER
+comment|/**      *<tt>List<Map<String, Object>></tt> output header containing the generated keys retrieved      */
+DECL|field|SQL_GENERATED_KEYS_DATA
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|SQL_GENERATED_KEY_HOLDER
+name|SQL_GENERATED_KEYS_DATA
 init|=
-literal|"CamelSqlGeneratedKeyHolder"
+literal|"CamelSqlGeneratedKeyRows"
 decl_stmt|;
 DECL|method|SqlConstants ()
 specifier|private
