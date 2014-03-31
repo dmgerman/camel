@@ -546,23 +546,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Thread ID : "
-operator|+
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 argument_list|)
