@@ -65,13 +65,13 @@ name|boolean
 name|enabled
 parameter_list|)
 function_decl|;
-comment|/**      * Maximum number of endpoints to keep in the cache.      *<p/>      * The default value is<tt>1000</tt>      */
+comment|/**      * Maximum number of endpoints to keep in the cache per route.      *<p/>      * The default value is<tt>1000</tt>      */
 DECL|method|getLimit ()
 name|int
 name|getLimit
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the maximum number of endpoints to keep in the cache.      */
+comment|/**      * Sets the maximum number of endpoints to keep in the cache per route.      */
 DECL|method|setLimit (int limit)
 name|void
 name|setLimit
