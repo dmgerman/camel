@@ -133,10 +133,10 @@ comment|/**  * Unit test for CAMEL_6820Test.  This test is to verify the ability
 end_comment
 
 begin_class
-DECL|class|CAMEL_6820Test
+DECL|class|CAMEL6820Test
 specifier|public
 class|class
-name|CAMEL_6820Test
+name|CAMEL6820Test
 extends|extends
 name|JmsTestSupport
 block|{
