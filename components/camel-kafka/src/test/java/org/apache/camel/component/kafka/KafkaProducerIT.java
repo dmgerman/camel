@@ -266,6 +266,26 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Producer IT tests require a Kafka broker running on 9092 and a zookeeper instance running on 2181.  * The broker must have a topic called test created.  */
 end_comment
@@ -295,6 +315,22 @@ name|String
 name|TOPIC_IN_HEADER
 init|=
 literal|"testHeader"
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|KafkaProducerIT
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 annotation|@
 name|EndpointInject
@@ -646,6 +682,13 @@ for|for
 control|(
 specifier|final
 name|KafkaStream
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|stream
 range|:
 name|consumerMap
@@ -674,6 +717,13 @@ for|for
 control|(
 specifier|final
 name|KafkaStream
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|stream
 range|:
 name|consumerMap
@@ -808,6 +858,13 @@ DECL|field|stream
 specifier|private
 specifier|final
 name|KafkaStream
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|stream
 decl_stmt|;
 DECL|field|latch
@@ -816,11 +873,18 @@ specifier|final
 name|CountDownLatch
 name|latch
 decl_stmt|;
-DECL|method|KakfaTopicConsumer (KafkaStream stream, CountDownLatch latch)
+DECL|method|KakfaTopicConsumer (KafkaStream<byte[], byte[]> stream, CountDownLatch latch)
 specifier|public
 name|KakfaTopicConsumer
 parameter_list|(
 name|KafkaStream
+argument_list|<
+name|byte
+index|[]
+argument_list|,
+name|byte
+index|[]
+argument_list|>
 name|stream
 parameter_list|,
 name|CountDownLatch
@@ -886,6 +950,15 @@ name|message
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Get the message"
+operator|+
+name|msg
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|countDown
