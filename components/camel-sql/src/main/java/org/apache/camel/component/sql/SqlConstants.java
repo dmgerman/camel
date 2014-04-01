@@ -74,7 +74,17 @@ specifier|final
 name|String
 name|SQL_GENERATED_COLUMNS
 init|=
-literal|"CamelGeneratedColumns"
+literal|"CamelSqlGeneratedColumns"
+decl_stmt|;
+comment|/**      * int output header giving the number of rows of generated keys      */
+DECL|field|SQL_GENERATED_KEYS_ROW_COUNT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SQL_GENERATED_KEYS_ROW_COUNT
+init|=
+literal|"CamelSqlGeneratedKeysRowCount"
 decl_stmt|;
 comment|/**      *<tt>List<Map<String, Object>></tt> output header containing the generated keys retrieved      */
 DECL|field|SQL_GENERATED_KEYS_DATA

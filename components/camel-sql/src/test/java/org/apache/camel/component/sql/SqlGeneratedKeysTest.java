@@ -304,11 +304,6 @@ name|to
 argument_list|(
 literal|"sql:insert into projects (project, license, description) values (#, #, #)"
 argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -318,11 +313,6 @@ operator|.
 name|to
 argument_list|(
 literal|"sql:insert into projects (project, license, description) values (#, #, #)?batch=true"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
 argument_list|)
 expr_stmt|;
 name|from
@@ -334,11 +324,6 @@ name|to
 argument_list|(
 literal|"sql:select * from projects order by id asc"
 argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
-argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -348,11 +333,6 @@ operator|.
 name|to
 argument_list|(
 literal|"sql:insert into developers (name, position) values (#, #)"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"mock:result"
 argument_list|)
 expr_stmt|;
 block|}
@@ -457,7 +437,7 @@ name|assertNotNull
 argument_list|(
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -481,7 +461,7 @@ name|generatedKeys
 init|=
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -501,7 +481,7 @@ literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -565,10 +545,17 @@ literal|"generated keys row count should be one"
 argument_list|,
 literal|1
 argument_list|,
-name|generatedKeys
+name|out
 operator|.
-name|size
+name|getOut
 argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SqlConstants
+operator|.
+name|SQL_GENERATED_KEYS_ROW_COUNT
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -689,7 +676,7 @@ name|assertNotNull
 argument_list|(
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -713,7 +700,7 @@ name|generatedKeys
 init|=
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -733,7 +720,7 @@ literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -816,10 +803,17 @@ literal|"generated keys row count should be one"
 argument_list|,
 literal|1
 argument_list|,
-name|generatedKeys
+name|out
 operator|.
-name|size
+name|getOut
 argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SqlConstants
+operator|.
+name|SQL_GENERATED_KEYS_ROW_COUNT
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -993,7 +987,7 @@ name|assertNotNull
 argument_list|(
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -1017,7 +1011,7 @@ name|generatedKeys
 init|=
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -1037,7 +1031,7 @@ literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1098,6 +1092,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|assertEquals
+argument_list|(
+literal|"generated keys row count should be four"
+argument_list|,
+literal|4
+argument_list|,
+name|out
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SqlConstants
+operator|.
+name|SQL_GENERATED_KEYS_ROW_COUNT
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1216,7 +1229,7 @@ name|assertNotNull
 argument_list|(
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -1240,7 +1253,7 @@ name|generatedKeys
 init|=
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -1260,7 +1273,7 @@ literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1324,10 +1337,17 @@ literal|"generated keys row count should be one"
 argument_list|,
 literal|1
 argument_list|,
-name|generatedKeys
+name|out
 operator|.
-name|size
+name|getOut
 argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SqlConstants
+operator|.
+name|SQL_GENERATED_KEYS_ROW_COUNT
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1440,7 +1460,7 @@ name|assertNotNull
 argument_list|(
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -1464,7 +1484,7 @@ name|generatedKeys
 init|=
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -1484,7 +1504,7 @@ literal|"out body could not be converted to a List - was: "
 operator|+
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1548,10 +1568,17 @@ literal|"generated keys row count should be one"
 argument_list|,
 literal|1
 argument_list|,
-name|generatedKeys
+name|out
 operator|.
-name|size
+name|getOut
 argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SqlConstants
+operator|.
+name|SQL_GENERATED_KEYS_ROW_COUNT
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1730,7 +1757,7 @@ name|result
 init|=
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1765,7 +1792,7 @@ name|generatedKeys
 init|=
 name|out
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -1789,6 +1816,25 @@ name|generatedKeys
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"We should not get any keys"
+argument_list|,
+literal|0
+argument_list|,
+name|out
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|SqlConstants
+operator|.
+name|SQL_GENERATED_KEYS_ROW_COUNT
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
