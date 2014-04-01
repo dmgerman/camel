@@ -305,7 +305,7 @@ literal|"kafka:localhost:9092?topic="
 operator|+
 name|TOPIC
 operator|+
-literal|"&partitioner=org.apache.camel.component.kafka.SimplePartitioner"
+literal|"&partitioner=org.apache.camel.component.kafka.SimplePartitioner&serializerClass=kafka.serializer.StringEncoder&requestRequiredAcks=1"
 argument_list|)
 DECL|field|to
 specifier|private
