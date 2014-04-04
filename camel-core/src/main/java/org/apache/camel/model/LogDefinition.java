@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -144,6 +154,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|AggregateProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|RouteContext
@@ -212,16 +238,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an XML&lt;log/&gt; element  *  * @version   */
 end_comment
@@ -251,6 +267,24 @@ argument_list|<
 name|LogDefinition
 argument_list|>
 block|{
+annotation|@
+name|XmlTransient
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|LogDefinition
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -505,7 +539,20 @@ literal|1
 condition|)
 block|{
 comment|// we should log about this somewhere...
-comment|//LOG.info("More than one {} instance found in the registry. Falling back to creating logger by name.", Logger.class.getName());
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"More than one {} instance found in the registry. Falling back to create logger by name."
+argument_list|,
+name|Logger
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -537,6 +584,15 @@ argument_list|()
 operator|.
 name|getId
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"The LogName is null. Falling back to create logger by using the route id {}."
+argument_list|,
+name|name
+argument_list|)
 expr_stmt|;
 block|}
 name|logger
