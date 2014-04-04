@@ -290,6 +290,21 @@ name|getLoggingSizeLimit
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got a wrong size of interceptors"
+argument_list|,
+literal|1
+argument_list|,
+name|sfb
+operator|.
+name|getInInterceptors
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -419,6 +434,21 @@ argument_list|,
 name|cfb
 operator|.
 name|getLoggingSizeLimit
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got a wrong size of interceptors"
+argument_list|,
+literal|1
+argument_list|,
+name|cfb
+operator|.
+name|getInInterceptors
+argument_list|()
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
