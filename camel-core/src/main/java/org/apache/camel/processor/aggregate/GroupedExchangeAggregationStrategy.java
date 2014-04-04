@@ -57,11 +57,6 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onCompletion (Exchange exchange)
 specifier|public
 name|void
@@ -80,10 +75,16 @@ block|{
 comment|// lets be backwards compatible
 comment|// TODO: Remove this method in Camel 3.0
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|exchange
 operator|.

@@ -281,6 +281,9 @@ name|list
 operator|=
 operator|new
 name|GroupedExchangeList
+argument_list|<
+name|V
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|exchange
@@ -306,9 +309,24 @@ specifier|static
 specifier|final
 class|class
 name|GroupedExchangeList
+parameter_list|<
+name|E
+parameter_list|>
 extends|extends
 name|ArrayList
+argument_list|<
+name|E
+argument_list|>
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|toString ()
