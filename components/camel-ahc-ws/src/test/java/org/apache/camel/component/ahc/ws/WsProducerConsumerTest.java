@@ -330,15 +330,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"started"
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 name|server
