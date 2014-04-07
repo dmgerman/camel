@@ -499,6 +499,27 @@ name|String
 name|toString
 parameter_list|()
 block|{
+name|String
+name|value
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|value
+operator|=
+name|getEndpointUri
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeException
+name|e
+parameter_list|)
+block|{
+comment|// ignore any exception and use null for building the string value
+block|}
 return|return
 name|String
 operator|.
@@ -510,8 +531,7 @@ name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
-name|getEndpointUri
-argument_list|()
+name|value
 argument_list|)
 argument_list|)
 return|;
