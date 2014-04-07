@@ -328,7 +328,7 @@ name|http
 operator|.
 name|HttpResponseStatus
 operator|.
-name|SERVICE_UNAVAILABLE
+name|NOT_FOUND
 import|;
 end_import
 
@@ -665,7 +665,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// this service is not available, so send empty response back
+comment|// this resource is not found, so send empty response back
 name|HttpResponse
 name|response
 init|=
@@ -674,7 +674,7 @@ name|DefaultHttpResponse
 argument_list|(
 name|HTTP_1_1
 argument_list|,
-name|SERVICE_UNAVAILABLE
+name|NOT_FOUND
 argument_list|)
 decl_stmt|;
 name|response

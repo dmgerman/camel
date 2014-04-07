@@ -173,7 +173,7 @@ argument_list|(
 literal|"Hello Camel"
 argument_list|)
 expr_stmt|;
-comment|// the foo route is stopped so this service is not available
+comment|// the foo route is stopped so this service is no longer there
 try|try
 block|{
 name|template
@@ -218,7 +218,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|503
+literal|404
 argument_list|,
 name|cause
 operator|.
