@@ -314,6 +314,15 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using custom Logger: {}"
+argument_list|,
+name|providedLogger
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
