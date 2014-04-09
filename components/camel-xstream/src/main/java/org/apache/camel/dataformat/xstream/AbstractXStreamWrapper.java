@@ -332,6 +332,7 @@ operator|=
 name|xstream
 expr_stmt|;
 block|}
+comment|/**      * Resolves the XStream instance to be used by this data format. If XStream is not explicitly set, new instance will      * be created and cached.      *      * @param resolver class resolver to be used during a configuration of the XStream instance.      * @return XStream instance used by this data format.      */
 DECL|method|getXStream (ClassResolver resolver)
 specifier|public
 name|XStream
