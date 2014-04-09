@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marhsal tests with List objects.  */
+comment|/**  * Marshal tests with List objects.  */
 end_comment
 
 begin_class
