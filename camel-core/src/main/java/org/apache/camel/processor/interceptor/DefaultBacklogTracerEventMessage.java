@@ -381,6 +381,7 @@ argument_list|(
 literal|"</timestamp>\n"
 argument_list|)
 expr_stmt|;
+comment|// route id is optional and we then use an empty value for no route id
 name|sb
 operator|.
 name|append
@@ -396,6 +397,12 @@ operator|.
 name|append
 argument_list|(
 name|routeId
+operator|!=
+literal|null
+condition|?
+name|routeId
+else|:
+literal|""
 argument_list|)
 operator|.
 name|append

@@ -2316,9 +2316,15 @@ name|String
 name|routeId
 init|=
 name|routeDefinition
+operator|!=
+literal|null
+condition|?
+name|routeDefinition
 operator|.
 name|getId
 argument_list|()
+else|:
+literal|null
 decl_stmt|;
 if|if
 condition|(
