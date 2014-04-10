@@ -230,7 +230,7 @@ DECL|field|PASSWORD
 name|String
 name|PASSWORD
 init|=
-literal|"CamelSmppSystemId"
+literal|"CamelSmppPassword"
 decl_stmt|;
 DECL|field|VALIDITY_PERIOD
 name|String

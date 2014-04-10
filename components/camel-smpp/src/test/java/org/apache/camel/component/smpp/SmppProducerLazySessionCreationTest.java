@@ -581,7 +581,7 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelSmppSystemId"
+literal|"CamelSmppPassword"
 argument_list|,
 name|String
 operator|.
@@ -879,7 +879,7 @@ name|in
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelSmppSystemId"
+literal|"CamelSmppPassword"
 argument_list|,
 name|String
 operator|.
