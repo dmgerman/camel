@@ -1497,6 +1497,39 @@ literal|4321
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testOGNLBodyExpression ()
+specifier|public
+name|void
+name|testOGNLBodyExpression
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"hello world"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body} == 'hello world'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${body.toUpperCase()} == 'HELLO WORLD'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testOGNLCallReplace ()
 specifier|public
 name|void
