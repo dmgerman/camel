@@ -82,10 +82,10 @@ literal|"org/apache/camel/language/SpringSimpleExpressionTest.xml"
 argument_list|)
 return|;
 block|}
-DECL|method|testSimpleEmptyString ()
+DECL|method|testSimpleWhenString ()
 specifier|public
 name|void
-name|testSimpleEmptyString
+name|testSimpleWhenString
 parameter_list|()
 throws|throws
 name|Exception
@@ -97,7 +97,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"False"
+literal|"correct"
 argument_list|)
 expr_stmt|;
 name|template
@@ -107,6 +107,37 @@ argument_list|(
 literal|"direct:start"
 argument_list|,
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testSimpleOtherwiseString ()
+specifier|public
+name|void
+name|testSimpleOtherwiseString
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"incorrect"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
