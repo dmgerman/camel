@@ -1801,17 +1801,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// rethrow the exception
-throw|throw
-name|e
-throw|;
-block|}
 finally|finally
 block|{
 comment|// make sure the cursor is closed
@@ -2050,8 +2039,6 @@ name|dbIterator
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
 name|AggregationOutput
 name|aggregationResult
 init|=
@@ -2156,19 +2143,6 @@ argument_list|(
 name|dbIterator
 argument_list|)
 expr_stmt|;
-comment|// Mongo Driver does not allow to read size and to paginate aggregate result
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// rethrow the exception
-throw|throw
-name|e
-throw|;
-block|}
 block|}
 comment|// --------- Convenience methods -----------------------
 DECL|method|calculateCollection (Exchange exchange)

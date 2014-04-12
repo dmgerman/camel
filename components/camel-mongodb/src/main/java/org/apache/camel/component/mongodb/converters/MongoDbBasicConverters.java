@@ -246,11 +246,12 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// Jackson's ObjectMapper is thread-safe, so no need to create a pool nor synchronize access to it
-DECL|field|objectMapper
+DECL|field|OBJECT_MAPPER
 specifier|private
 specifier|static
+specifier|final
 name|ObjectMapper
-name|objectMapper
+name|OBJECT_MAPPER
 init|=
 operator|new
 name|ObjectMapper
@@ -606,9 +607,7 @@ name|?
 argument_list|>
 name|m
 init|=
-name|MongoDbBasicConverters
-operator|.
-name|objectMapper
+name|OBJECT_MAPPER
 operator|.
 name|convertValue
 argument_list|(

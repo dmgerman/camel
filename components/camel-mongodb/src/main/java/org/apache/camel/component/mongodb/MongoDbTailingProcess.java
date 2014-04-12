@@ -74,9 +74,7 @@ name|com
 operator|.
 name|mongodb
 operator|.
-name|MongoException
-operator|.
-name|CursorNotFound
+name|MongoCursorNotFoundException
 import|;
 end_import
 
@@ -680,7 +678,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|CursorNotFound
+name|MongoCursorNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -701,15 +699,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|e
-parameter_list|)
-block|{
-comment|// The MongoDB Java Driver throws this uncontrolled NPE when the cursor is closed while blocked at DBCursor#hasMore.
-comment|// See https://jira.mongodb.org/browse/JAVA-605
 block|}
 comment|// the loop finished, persist the lastValue just in case we are shutting down
 comment|// TODO: perhaps add a functionality to persist every N records
