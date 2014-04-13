@@ -66,6 +66,22 @@ name|model
 operator|.
 name|loadbalancer
 operator|.
+name|CircuitBreakerLoadBalancerDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|loadbalancer
+operator|.
 name|FailoverLoadBalancerDefinition
 import|;
 end_import
@@ -1358,7 +1374,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The loadBalancer shoud be RoundRobinLoadBalancerDefinition"
+literal|"The loadBalancer should be RoundRobinLoadBalancerDefinition"
 argument_list|,
 name|loadBalance
 operator|.
@@ -1366,6 +1382,125 @@ name|getLoadBalancerType
 argument_list|()
 operator|instanceof
 name|RoundRobinLoadBalancerDefinition
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testParseCircuitBreakerLoadBalance ()
+specifier|public
+name|void
+name|testParseCircuitBreakerLoadBalance
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|RouteDefinition
+name|route
+init|=
+name|assertOneRoute
+argument_list|(
+literal|"routeWithCircuitBreakerLoadBalance.xml"
+argument_list|)
+decl_stmt|;
+name|assertFrom
+argument_list|(
+name|route
+argument_list|,
+literal|"direct:start"
+argument_list|)
+expr_stmt|;
+name|LoadBalanceDefinition
+name|loadBalance
+init|=
+name|assertOneProcessorInstanceOf
+argument_list|(
+name|LoadBalanceDefinition
+operator|.
+name|class
+argument_list|,
+name|route
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should have 1 output"
+argument_list|,
+literal|1
+argument_list|,
+name|loadBalance
+operator|.
+name|getOutputs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"The loadBalancer should be CircuitBreakerLoadBalancerDefinition"
+argument_list|,
+name|loadBalance
+operator|.
+name|getLoadBalancerType
+argument_list|()
+operator|instanceof
+name|CircuitBreakerLoadBalancerDefinition
+argument_list|)
+expr_stmt|;
+name|CircuitBreakerLoadBalancerDefinition
+name|strategy
+init|=
+operator|(
+name|CircuitBreakerLoadBalancerDefinition
+operator|)
+name|loadBalance
+operator|.
+name|getLoadBalancerType
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should have 1 exception"
+argument_list|,
+literal|1
+argument_list|,
+name|strategy
+operator|.
+name|getExceptions
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should have threshold of 2"
+argument_list|,
+literal|2
+argument_list|,
+name|strategy
+operator|.
+name|getThreshold
+argument_list|()
+operator|.
+name|intValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should have HalfOpenAfter timeout of 1000L "
+argument_list|,
+literal|1000L
+argument_list|,
+name|strategy
+operator|.
+name|getHalfOpenAfter
+argument_list|()
+operator|.
+name|longValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1421,7 +1556,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The loadBalancer shoud be StickyLoadBalancerDefinition"
+literal|"The loadBalancer should be StickyLoadBalancerDefinition"
 argument_list|,
 name|loadBalance
 operator|.
@@ -1505,7 +1640,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The loadBalancer shoud be FailoverLoadBalancerDefinition"
+literal|"The loadBalancer should be FailoverLoadBalancerDefinition"
 argument_list|,
 name|loadBalance
 operator|.
@@ -1594,7 +1729,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The loadBalancer shoud be RandomLoadBalancerDefinition"
+literal|"The loadBalancer should be RandomLoadBalancerDefinition"
 argument_list|,
 name|loadBalance
 operator|.
@@ -1657,7 +1792,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The loadBalancer shoud be TopicLoadBalancerDefinition"
+literal|"The loadBalancer should be TopicLoadBalancerDefinition"
 argument_list|,
 name|loadBalance
 operator|.

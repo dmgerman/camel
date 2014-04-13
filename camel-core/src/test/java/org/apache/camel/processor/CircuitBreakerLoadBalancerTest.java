@@ -120,11 +120,11 @@ name|CircuitBreakerLoadBalancerTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|class|MyExceptionProcessor
+DECL|class|MyCustomException
 specifier|private
 specifier|static
 class|class
-name|MyExceptionProcessor
+name|MyCustomException
 extends|extends
 name|RuntimeException
 block|{     }
@@ -186,7 +186,7 @@ literal|2
 argument_list|,
 literal|1000L
 argument_list|,
-name|MyExceptionProcessor
+name|MyCustomException
 operator|.
 name|class
 argument_list|)
@@ -280,7 +280,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|MyExceptionProcessor
+name|MyCustomException
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -328,7 +328,7 @@ operator|.
 name|getException
 argument_list|()
 operator|instanceof
-name|MyExceptionProcessor
+name|MyCustomException
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -338,7 +338,7 @@ operator|.
 name|getException
 argument_list|()
 operator|instanceof
-name|MyExceptionProcessor
+name|MyCustomException
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -392,7 +392,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|MyExceptionProcessor
+name|MyCustomException
 argument_list|()
 argument_list|)
 expr_stmt|;

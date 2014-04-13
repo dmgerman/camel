@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;circuitbreaker/&gt; element  */
+comment|/**  * Represents an XML&lt;circuitBreaker/&gt; element  */
 end_comment
 
 begin_class
@@ -192,7 +192,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"circuitbreaker"
+literal|"circuitBreaker"
 argument_list|)
 annotation|@
 name|XmlAccessorType
