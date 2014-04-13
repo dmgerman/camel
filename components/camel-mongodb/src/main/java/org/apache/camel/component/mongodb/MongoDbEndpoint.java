@@ -1754,9 +1754,19 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+comment|// break the loop as we could successfully set the read preference property
 break|break;
 block|}
 block|}
+comment|// were we able to set the read preference?
+if|if
+condition|(
+name|getReadPreference
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|String
 name|msg
 init|=
@@ -1773,6 +1783,7 @@ argument_list|(
 name|msg
 argument_list|)
 throw|;
+block|}
 block|}
 DECL|method|getReadPreference ()
 specifier|public
