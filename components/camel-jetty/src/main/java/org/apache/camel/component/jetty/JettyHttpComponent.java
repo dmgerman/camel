@@ -2041,6 +2041,16 @@ argument_list|(
 name|connector
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|setSendDateHeader
+argument_list|(
+name|endpoint
+operator|.
+name|isSendDateHeader
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|connectorRef
 operator|=
 operator|new

@@ -292,6 +292,11 @@ name|sendServerVersion
 init|=
 literal|true
 decl_stmt|;
+DECL|field|sendDateHeader
+specifier|private
+name|boolean
+name|sendDateHeader
+decl_stmt|;
 DECL|field|multipartFilter
 specifier|private
 name|Filter
@@ -811,6 +816,32 @@ operator|.
 name|sendServerVersion
 operator|=
 name|sendServerVersion
+expr_stmt|;
+block|}
+DECL|method|isSendDateHeader ()
+specifier|public
+name|boolean
+name|isSendDateHeader
+parameter_list|()
+block|{
+return|return
+name|sendDateHeader
+return|;
+block|}
+DECL|method|setSendDateHeader (boolean sendDateHeader)
+specifier|public
+name|void
+name|setSendDateHeader
+parameter_list|(
+name|boolean
+name|sendDateHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendDateHeader
+operator|=
+name|sendDateHeader
 expr_stmt|;
 block|}
 DECL|method|isEnableMultipartFilter ()
