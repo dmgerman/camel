@@ -88,7 +88,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IllegalArgumentException
 name|iae
 parameter_list|)
 block|{
