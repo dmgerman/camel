@@ -2266,18 +2266,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|initTestCase ()
+DECL|method|doPostSetup ()
 specifier|public
 name|void
-name|initTestCase
+name|doPostSetup
 parameter_list|()
 block|{
 name|super
 operator|.
-name|initTestCase
+name|doPostSetup
 argument_list|()
 expr_stmt|;
-comment|// drop the capped collection and let each test create what they need
+comment|// drop the capped collection and let each test create what it needs
 name|cappedTestCollectionName
 operator|=
 name|properties

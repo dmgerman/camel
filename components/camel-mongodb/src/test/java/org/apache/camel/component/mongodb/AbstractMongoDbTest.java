@@ -244,27 +244,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Assume
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
 import|;
 end_import
 
@@ -463,11 +443,11 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Before
-DECL|method|initTestCase ()
+name|Override
+DECL|method|doPostSetup ()
 specifier|public
 name|void
-name|initTestCase
+name|doPostSetup
 parameter_list|()
 block|{
 comment|// Refresh the test collection - drop it and recreate it. We don't do this for the database because MongoDB would create large
@@ -538,12 +518,14 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|After
-DECL|method|cleanup ()
+name|Override
+DECL|method|tearDown ()
 specifier|public
 name|void
-name|cleanup
+name|tearDown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|testCollection
 operator|.
@@ -553,6 +535,11 @@ expr_stmt|;
 name|dynamicCollection
 operator|.
 name|drop
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
