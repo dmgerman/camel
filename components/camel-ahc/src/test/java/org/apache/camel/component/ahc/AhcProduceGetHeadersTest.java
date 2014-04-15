@@ -249,6 +249,12 @@ argument_list|(
 name|getTestServerEndpointUri
 argument_list|()
 argument_list|)
+comment|// Remove the message header here
+operator|.
+name|removeHeaders
+argument_list|(
+literal|"*"
+argument_list|)
 operator|.
 name|transform
 argument_list|(
