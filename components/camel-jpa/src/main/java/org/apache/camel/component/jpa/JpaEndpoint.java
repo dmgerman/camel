@@ -362,6 +362,13 @@ name|joinTransaction
 init|=
 literal|true
 decl_stmt|;
+DECL|field|usePassedInEntityManager
+specifier|private
+name|boolean
+name|usePassedInEntityManager
+init|=
+literal|false
+decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -1046,6 +1053,34 @@ operator|.
 name|joinTransaction
 operator|=
 name|joinTransaction
+expr_stmt|;
+block|}
+DECL|method|isUsePassedInEntityManager ()
+specifier|public
+name|boolean
+name|isUsePassedInEntityManager
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|usePassedInEntityManager
+return|;
+block|}
+DECL|method|setUsePassedInEntityManager (boolean usePassedIn)
+specifier|public
+name|void
+name|setUsePassedInEntityManager
+parameter_list|(
+name|boolean
+name|usePassedIn
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usePassedInEntityManager
+operator|=
+name|usePassedIn
 expr_stmt|;
 block|}
 comment|// Implementation methods
