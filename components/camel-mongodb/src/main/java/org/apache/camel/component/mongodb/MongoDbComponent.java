@@ -196,6 +196,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|db
 specifier|private
+specifier|volatile
 name|Mongo
 name|db
 decl_stmt|;
@@ -243,6 +244,17 @@ argument_list|,
 name|Mongo
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Resolved the connection with the name {} as {}"
+argument_list|,
+name|remaining
+argument_list|,
+name|db
 argument_list|)
 expr_stmt|;
 block|}
@@ -299,7 +311,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"closing the connection {} on {}"
+literal|"Closing the connection {} on {}"
 argument_list|,
 name|db
 argument_list|,
