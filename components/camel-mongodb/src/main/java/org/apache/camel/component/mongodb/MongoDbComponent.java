@@ -108,6 +108,26 @@ name|CamelContextHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the component that manages {@link MongoDbEndpoint}.  */
 end_comment
@@ -158,6 +178,27 @@ name|remove
 argument_list|)
 argument_list|)
 decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|MongoDbComponent
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+DECL|field|db
+specifier|private
+name|Mongo
+name|db
+decl_stmt|;
 comment|/**      * Should access a singleton of type Mongo      */
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
@@ -181,9 +222,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Mongo
+if|if
+condition|(
 name|db
-init|=
+operator|==
+literal|null
+condition|)
+block|{
+name|db
+operator|=
 name|CamelContextHelper
 operator|.
 name|mandatoryLookup
@@ -197,7 +244,8 @@ name|Mongo
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Endpoint
 name|endpoint
 init|=
@@ -228,6 +276,47 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|db
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// properly close the underlying physical connection to MongoDB
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"closing the connection {} on {}"
+argument_list|,
+name|db
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|db
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|wrapInCamelMongoDbException (Throwable t)
 specifier|public
