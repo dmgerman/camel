@@ -478,6 +478,24 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|testComponent ()
+specifier|protected
+name|void
+name|testComponent
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|testComponent
+argument_list|(
+name|extractName
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testDataFormat (String format)
 specifier|protected
 name|void
@@ -1064,6 +1082,24 @@ block|}
 decl_stmt|;
 return|return
 name|options
+return|;
+block|}
+DECL|method|configureComponent ()
+specifier|protected
+name|Option
+index|[]
+name|configureComponent
+parameter_list|()
+block|{
+return|return
+name|configure
+argument_list|(
+name|extractName
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}
