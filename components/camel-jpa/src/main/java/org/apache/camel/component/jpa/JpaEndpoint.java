@@ -366,8 +366,6 @@ DECL|field|usePassedInEntityManager
 specifier|private
 name|boolean
 name|usePassedInEntityManager
-init|=
-literal|false
 decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
