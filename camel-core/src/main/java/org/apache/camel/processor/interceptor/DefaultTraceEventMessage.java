@@ -392,15 +392,18 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+comment|// We should not turn the message body into String
 name|this
 operator|.
 name|body
 operator|=
 name|MessageHelper
 operator|.
-name|extractBodyAsString
+name|extractBodyForLogging
 argument_list|(
 name|in
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 name|this
