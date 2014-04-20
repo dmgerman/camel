@@ -538,12 +538,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|ALL_CHANNELS
+DECL|field|allChannels
 specifier|private
-specifier|static
 specifier|final
 name|ChannelGroup
-name|ALL_CHANNELS
+name|allChannels
 init|=
 operator|new
 name|DefaultChannelGroup
@@ -1007,7 +1006,7 @@ name|trace
 argument_list|(
 literal|"Closing {} channels"
 argument_list|,
-name|ALL_CHANNELS
+name|allChannels
 operator|.
 name|size
 argument_list|()
@@ -1016,7 +1015,7 @@ expr_stmt|;
 name|ChannelGroupFuture
 name|future
 init|=
-name|ALL_CHANNELS
+name|allChannels
 operator|.
 name|close
 argument_list|()
@@ -2277,7 +2276,7 @@ literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|ALL_CHANNELS
+name|allChannels
 operator|.
 name|add
 argument_list|(
@@ -2522,7 +2521,7 @@ name|getChannel
 argument_list|()
 decl_stmt|;
 comment|// to keep track of all channels in use
-name|ALL_CHANNELS
+name|allChannels
 operator|.
 name|add
 argument_list|(
@@ -2613,7 +2612,7 @@ name|getAllChannels
 parameter_list|()
 block|{
 return|return
-name|ALL_CHANNELS
+name|allChannels
 return|;
 block|}
 comment|/**      * Callback that ensures the channel is returned to the pool when we are done.      */
@@ -2799,7 +2798,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
-name|ALL_CHANNELS
+name|allChannels
 operator|.
 name|remove
 argument_list|(
