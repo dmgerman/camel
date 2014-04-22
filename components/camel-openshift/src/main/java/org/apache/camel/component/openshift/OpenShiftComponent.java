@@ -77,6 +77,11 @@ specifier|private
 name|String
 name|domain
 decl_stmt|;
+DECL|field|server
+specifier|private
+name|String
+name|server
+decl_stmt|;
 DECL|method|OpenShiftComponent ()
 specifier|public
 name|OpenShiftComponent
@@ -246,6 +251,32 @@ operator|.
 name|domain
 operator|=
 name|domain
+expr_stmt|;
+block|}
+DECL|method|getServer ()
+specifier|public
+name|String
+name|getServer
+parameter_list|()
+block|{
+return|return
+name|server
+return|;
+block|}
+DECL|method|setServer (String server)
+specifier|public
+name|void
+name|setServer
+parameter_list|(
+name|String
+name|server
+parameter_list|)
+block|{
+name|this
+operator|.
+name|server
+operator|=
+name|server
 expr_stmt|;
 block|}
 block|}
