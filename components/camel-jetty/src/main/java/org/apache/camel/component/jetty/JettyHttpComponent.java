@@ -2023,6 +2023,7 @@ name|server
 argument_list|)
 expr_stmt|;
 block|}
+comment|// This setting is only work for the first endpoint which create the server
 comment|// just set if we need sendServerVersion, the default value is true
 name|server
 operator|.
