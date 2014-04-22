@@ -611,35 +611,10 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|EverythingIsLostException (String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
-specifier|private
-name|EverythingIsLostException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|,
-name|boolean
-name|enableSuppression
-parameter_list|,
-name|boolean
-name|writableStackTrace
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|,
-name|cause
-argument_list|,
-name|enableSuppression
-argument_list|,
-name|writableStackTrace
-argument_list|)
-expr_stmt|;
-block|}
+comment|// not in jdk6
+comment|//        private EverythingIsLostException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+comment|//            super(message, cause, enableSuppression, writableStackTrace);
+comment|//        }
 block|}
 block|}
 end_class
