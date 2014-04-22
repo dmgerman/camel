@@ -42,14 +42,69 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_class
-DECL|class|JdbcGeneratedKeysTest
+DECL|class|JdbcParameterizedQueryGeneratedKeysTest
 specifier|public
 class|class
-name|JdbcGeneratedKeysTest
+name|JdbcParameterizedQueryGeneratedKeysTest
 extends|extends
 name|AbstractJdbcGeneratedKeysTest
 block|{
+DECL|field|valueMap
+specifier|private
+specifier|static
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|valueMap
+decl_stmt|;
+static|static
+block|{
+name|valueMap
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|valueMap
+operator|.
+name|put
+argument_list|(
+literal|"value"
+argument_list|,
+literal|"testValue"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testRetrieveGeneratedKeys ()
@@ -64,7 +119,9 @@ name|super
 operator|.
 name|testRetrieveGeneratedKeys
 argument_list|(
-literal|"insert into tableWithAutoIncr (content) values ('value2')"
+literal|"insert into tableWithAutoIncr (content) values (:?value)"
+argument_list|,
+name|valueMap
 argument_list|)
 expr_stmt|;
 block|}
@@ -82,7 +139,9 @@ name|super
 operator|.
 name|testRetrieveGeneratedKeysWithStringGeneratedColumns
 argument_list|(
-literal|"insert into tableWithAutoIncr (content) values ('value2')"
+literal|"insert into tableWithAutoIncr (content) values (:?value)"
+argument_list|,
+name|valueMap
 argument_list|)
 expr_stmt|;
 block|}
@@ -100,7 +159,9 @@ name|super
 operator|.
 name|testRetrieveGeneratedKeysWithIntGeneratedColumns
 argument_list|(
-literal|"insert into tableWithAutoIncr (content) values ('value2')"
+literal|"insert into tableWithAutoIncr (content) values (:?value)"
+argument_list|,
+name|valueMap
 argument_list|)
 expr_stmt|;
 block|}
@@ -118,7 +179,9 @@ name|super
 operator|.
 name|testGivenAnInvalidGeneratedColumnsHeaderThenAnExceptionIsThrown
 argument_list|(
-literal|"insert into tableWithAutoIncr (content) values ('value2')"
+literal|"insert into tableWithAutoIncr (content) values (:?value)"
+argument_list|,
+name|valueMap
 argument_list|)
 expr_stmt|;
 block|}
@@ -137,14 +200,10 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
-comment|// START SNIPPET: route
-comment|// lets add simple route
 specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|from
 argument_list|(
@@ -153,11 +212,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jdbc:testdb?readSize=100"
+literal|"jdbc:testdb?useHeadersAsParameters=true&readSize=100"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// END SNIPPET: route
 block|}
 return|;
 block|}
