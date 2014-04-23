@@ -332,6 +332,17 @@ expr_stmt|;
 name|postProcessContext
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|getCamelContexts
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|getCamelContexts
 argument_list|()
 operator|.
@@ -343,6 +354,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -387,6 +399,17 @@ name|ProducerTemplate
 name|findOrCreateCamelTemplate
 parameter_list|()
 block|{
+if|if
+condition|(
+name|getCamelContexts
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 return|return
 name|getCamelContexts
 argument_list|()
@@ -399,6 +422,13 @@ operator|.
 name|createProducerTemplate
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|getCamelContextMap ()
 specifier|protected
