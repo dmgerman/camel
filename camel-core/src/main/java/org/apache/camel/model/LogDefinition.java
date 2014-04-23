@@ -512,7 +512,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Using custom Logger: {}"
 argument_list|,
@@ -534,7 +534,7 @@ block|{
 comment|// we should log about this somewhere...
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"More than one {} instance found in the registry. Falling back to create logger by name."
 argument_list|,
@@ -580,7 +580,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"The LogName is null. Falling back to create logger by using the route id {}."
 argument_list|,
