@@ -45,10 +45,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TokenizeLanguageTest
+DECL|class|TokenizeWrapLanguageTest
 specifier|public
 class|class
-name|TokenizeLanguageTest
+name|TokenizeWrapLanguageTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -67,9 +67,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<child some_attr='a' anotherAttr='a'></child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='a' anotherAttr='a'></child></parent>"
 argument_list|,
-literal|"<child some_attr='b' anotherAttr='b'></child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='b' anotherAttr='b'></child></parent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -100,9 +100,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<child some_attr='a' anotherAttr='a'>\n</child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?>\n<parent>\n<child some_attr='a' anotherAttr='a'>\n</child></parent>"
 argument_list|,
-literal|"<child some_attr='b' anotherAttr='b'>\n</child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?>\n<parent>\n<child some_attr='b' anotherAttr='b'>\n</child></parent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -145,9 +145,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<child some_attr='a' anotherAttr='a' />"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='a' anotherAttr='a' /></parent>"
 argument_list|,
-literal|"<child some_attr='b' anotherAttr='b' />"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='b' anotherAttr='b' /></parent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -178,11 +178,11 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<child some_attr='a' anotherAttr='a'>ha</child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='a' anotherAttr='a'>ha</child></parent>"
 argument_list|,
-literal|"<child some_attr='b' anotherAttr='b' />"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='b' anotherAttr='b' /></parent>"
 argument_list|,
-literal|"<child some_attr='c'></child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><child some_attr='c'></child></parent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -213,9 +213,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<child name='child1'><grandchild name='grandchild1'/><grandchild name='grandchild2'/></child>"
+literal|"<parent><child name='child1'><grandchild name='grandchild1'/><grandchild name='grandchild2'/></child></parent>"
 argument_list|,
-literal|"<child name='child2'><grandchild name='grandchild1'></grandchild><grandchild name='grandchild2'></grandchild></child>"
+literal|"<parent><child name='child2'><grandchild name='grandchild1'></grandchild><grandchild name='grandchild2'></grandchild></child></parent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -248,9 +248,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<c:child xmlns:c='urn:c' some_attr='a' anotherAttr='a'></c:child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><c:child xmlns:c='urn:c' some_attr='a' anotherAttr='a'></c:child></parent>"
 argument_list|,
-literal|"<c:child xmlns:c='urn:c' some_attr='b' anotherAttr='b' />"
+literal|"<?xml version='1.0' encoding='UTF-8'?><parent><c:child xmlns:c='urn:c' some_attr='b' anotherAttr='b' /></parent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -281,9 +281,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<c:child some_attr='a' anotherAttr='a' xmlns:c='urn:c' xmlns:d=\"urn:d\"></c:child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='a' anotherAttr='a'></c:child></c:parent>"
 argument_list|,
-literal|"<c:child some_attr='b' anotherAttr='b' xmlns:c='urn:c' xmlns:d=\"urn:d\"/>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='b' anotherAttr='b'/></c:parent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -314,9 +314,9 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<c:child some_attr='a' anotherAttr='a' xmlns:c='urn:c' xmlns:d=\"urn:d\"></c:child>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgreatparent xmlns:g='urn:g'><greatparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='a' anotherAttr='a'></c:child></c:parent></greatparent></g:greatgreatparent>"
 argument_list|,
-literal|"<c:child some_attr='b' anotherAttr='b' xmlns:c='urn:c' xmlns:d=\"urn:d\"/>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgreatparent xmlns:g='urn:g'><greatparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='b' anotherAttr='b'/></c:parent></greatparent></g:greatgreatparent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -362,7 +362,7 @@ name|tokenizeXML
 argument_list|(
 literal|"child"
 argument_list|,
-literal|"parent"
+literal|"*"
 argument_list|)
 operator|.
 name|to
