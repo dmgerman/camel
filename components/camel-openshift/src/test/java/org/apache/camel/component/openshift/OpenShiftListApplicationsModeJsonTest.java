@@ -59,10 +59,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|OpenShiftConsumerOnChangeWithInitialTest
+DECL|class|OpenShiftListApplicationsModeJsonTest
 specifier|public
 class|class
-name|OpenShiftConsumerOnChangeWithInitialTest
+name|OpenShiftListApplicationsModeJsonTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -103,10 +103,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testConsumer ()
+DECL|method|testListApplications ()
 specifier|public
 name|void
-name|testConsumer
+name|testListApplications
 parameter_list|()
 throws|throws
 name|Exception
@@ -125,9 +125,18 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedMinimumMessageCount
+name|expectedMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -158,18 +167,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|fromF
+name|from
 argument_list|(
-literal|"openshift:myApp?username=%s&password=%s&delay=5s&pollMode=onChangeWithInitial"
+literal|"direct:start"
+argument_list|)
+operator|.
+name|toF
+argument_list|(
+literal|"openshift:myApp?operation=list&mode=json&username=%s&password=%s"
 argument_list|,
 name|username
 argument_list|,
 name|password
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"Event ${header.CamelOpenShiftEventType} for app ${body.name}"
 argument_list|)
 operator|.
 name|to

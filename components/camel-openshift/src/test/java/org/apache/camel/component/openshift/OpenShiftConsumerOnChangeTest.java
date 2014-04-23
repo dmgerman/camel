@@ -160,7 +160,7 @@ name|Exception
 block|{
 name|fromF
 argument_list|(
-literal|"openshift:myApp?username=%s&password=%s&delay=5s&pollMode=onChange"
+literal|"openshift:myApp?username=%s&password=%s&delay=5s"
 argument_list|,
 name|username
 argument_list|,

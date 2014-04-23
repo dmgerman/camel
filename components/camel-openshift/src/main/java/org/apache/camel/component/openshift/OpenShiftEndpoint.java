@@ -232,17 +232,10 @@ name|application
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|pollMode
+DECL|field|mode
 specifier|private
 name|String
-name|pollMode
-init|=
-name|OpenShiftPollMode
-operator|.
-name|all
-operator|.
-name|name
-argument_list|()
+name|mode
 decl_stmt|;
 DECL|method|OpenShiftEndpoint (String endpointUri, Component component)
 specifier|public
@@ -625,49 +618,30 @@ operator|=
 name|application
 expr_stmt|;
 block|}
-DECL|method|getPollMode ()
+DECL|method|getMode ()
 specifier|public
 name|String
-name|getPollMode
+name|getMode
 parameter_list|()
 block|{
 return|return
-name|pollMode
+name|mode
 return|;
 block|}
-DECL|method|setPollMode (String pollMode)
+DECL|method|setMode (String mode)
 specifier|public
 name|void
-name|setPollMode
+name|setMode
 parameter_list|(
 name|String
-name|pollMode
+name|mode
 parameter_list|)
 block|{
 name|this
 operator|.
-name|pollMode
+name|mode
 operator|=
-name|pollMode
-expr_stmt|;
-block|}
-DECL|method|setPollMode (OpenShiftPollMode pollMode)
-specifier|public
-name|void
-name|setPollMode
-parameter_list|(
-name|OpenShiftPollMode
-name|pollMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|pollMode
-operator|=
-name|pollMode
-operator|.
-name|name
-argument_list|()
+name|mode
 expr_stmt|;
 block|}
 block|}
