@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -42,26 +62,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|JdbcParameterizedQueryGeneratedKeysTest
 specifier|public
@@ -70,7 +70,7 @@ name|JdbcParameterizedQueryGeneratedKeysTest
 extends|extends
 name|AbstractJdbcGeneratedKeysTest
 block|{
-DECL|field|valueMap
+DECL|field|VALUE_MAP
 specifier|private
 specifier|static
 specifier|final
@@ -80,11 +80,11 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|valueMap
+name|VALUE_MAP
 decl_stmt|;
 static|static
 block|{
-name|valueMap
+name|VALUE_MAP
 operator|=
 operator|new
 name|HashMap
@@ -95,7 +95,7 @@ name|Object
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|valueMap
+name|VALUE_MAP
 operator|.
 name|put
 argument_list|(
@@ -121,7 +121,7 @@ name|testRetrieveGeneratedKeys
 argument_list|(
 literal|"insert into tableWithAutoIncr (content) values (:?value)"
 argument_list|,
-name|valueMap
+name|VALUE_MAP
 argument_list|)
 expr_stmt|;
 block|}
@@ -141,7 +141,7 @@ name|testRetrieveGeneratedKeysWithStringGeneratedColumns
 argument_list|(
 literal|"insert into tableWithAutoIncr (content) values (:?value)"
 argument_list|,
-name|valueMap
+name|VALUE_MAP
 argument_list|)
 expr_stmt|;
 block|}
@@ -161,7 +161,7 @@ name|testRetrieveGeneratedKeysWithIntGeneratedColumns
 argument_list|(
 literal|"insert into tableWithAutoIncr (content) values (:?value)"
 argument_list|,
-name|valueMap
+name|VALUE_MAP
 argument_list|)
 expr_stmt|;
 block|}
@@ -181,7 +181,7 @@ name|testGivenAnInvalidGeneratedColumnsHeaderThenAnExceptionIsThrown
 argument_list|(
 literal|"insert into tableWithAutoIncr (content) values (:?value)"
 argument_list|,
-name|valueMap
+name|VALUE_MAP
 argument_list|)
 expr_stmt|;
 block|}
