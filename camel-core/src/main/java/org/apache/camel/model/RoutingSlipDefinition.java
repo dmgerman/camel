@@ -217,6 +217,13 @@ specifier|private
 name|Boolean
 name|ignoreInvalidEndpoints
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|cacheSize
+specifier|private
+name|Integer
+name|cacheSize
+decl_stmt|;
 DECL|method|RoutingSlipDefinition ()
 specifier|public
 name|RoutingSlipDefinition
@@ -429,6 +436,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|getCacheSize
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|routingSlip
+operator|.
+name|setCacheSize
+argument_list|(
+name|getCacheSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|routingSlip
 return|;
@@ -506,6 +530,32 @@ return|return
 name|ignoreInvalidEndpoints
 return|;
 block|}
+DECL|method|getCacheSize ()
+specifier|public
+name|Integer
+name|getCacheSize
+parameter_list|()
+block|{
+return|return
+name|cacheSize
+return|;
+block|}
+DECL|method|setCacheSize (Integer cacheSize)
+specifier|public
+name|void
+name|setCacheSize
+parameter_list|(
+name|Integer
+name|cacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheSize
+operator|=
+name|cacheSize
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 annotation|@
@@ -567,6 +617,28 @@ block|{
 name|setUriDelimiter
 argument_list|(
 name|uriDelimiter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ProducerCache} which is used      * to cache and reuse producers when using this recipient list, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+DECL|method|cacheSize (int cacheSize)
+specifier|public
+name|RoutingSlipDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|cacheSize
+parameter_list|(
+name|int
+name|cacheSize
+parameter_list|)
+block|{
+name|setCacheSize
+argument_list|(
+name|cacheSize
 argument_list|)
 expr_stmt|;
 return|return
