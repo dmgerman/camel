@@ -76,7 +76,7 @@ name|netty
 operator|.
 name|util
 operator|.
-name|HashedWheelTimer
+name|Timer
 import|;
 end_import
 
@@ -109,6 +109,11 @@ name|int
 name|bossCount
 init|=
 literal|1
+decl_stmt|;
+DECL|field|timer
+specifier|private
+name|Timer
+name|timer
 decl_stmt|;
 DECL|method|setName (String name)
 specifier|public
@@ -156,6 +161,22 @@ operator|.
 name|bossCount
 operator|=
 name|bossCount
+expr_stmt|;
+block|}
+DECL|method|setTimer (Timer timer)
+specifier|public
+name|void
+name|setTimer
+parameter_list|(
+name|Timer
+name|timer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timer
+operator|=
+name|timer
 expr_stmt|;
 block|}
 DECL|method|withName (String name)
@@ -212,6 +233,24 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|withTimer (Timer timer)
+specifier|public
+name|NettyClientBossPoolBuilder
+name|withTimer
+parameter_list|(
+name|Timer
+name|timer
+parameter_list|)
+block|{
+name|setTimer
+argument_list|(
+name|timer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Creates a new boss pool.      */
 DECL|method|build ()
 name|BossPool
@@ -229,9 +268,7 @@ argument_list|()
 argument_list|,
 name|bossCount
 argument_list|,
-operator|new
-name|HashedWheelTimer
-argument_list|()
+name|timer
 argument_list|,
 operator|new
 name|CamelNettyThreadNameDeterminer

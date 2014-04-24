@@ -1790,6 +1790,15 @@ operator|new
 name|NettyClientBossPoolBuilder
 argument_list|()
 operator|.
+name|withTimer
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getTimer
+argument_list|()
+argument_list|)
+operator|.
 name|withBossCount
 argument_list|(
 name|configuration
