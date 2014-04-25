@@ -1998,6 +1998,15 @@ name|history
 operator|.
 name|getRouteId
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|history
+operator|.
+name|getRouteId
+argument_list|()
+else|:
+literal|""
 expr_stmt|;
 name|id
 operator|=

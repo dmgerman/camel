@@ -84,6 +84,12 @@ specifier|final
 name|NamedNode
 name|node
 decl_stmt|;
+DECL|field|nodeId
+specifier|private
+specifier|final
+name|String
+name|nodeId
+decl_stmt|;
 DECL|field|timestamp
 specifier|private
 specifier|final
@@ -121,6 +127,15 @@ operator|.
 name|node
 operator|=
 name|node
+expr_stmt|;
+name|this
+operator|.
+name|nodeId
+operator|=
+name|node
+operator|.
+name|getId
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -209,10 +224,7 @@ name|routeId
 operator|+
 literal|", node="
 operator|+
-name|node
-operator|.
-name|getId
-argument_list|()
+name|nodeId
 operator|+
 literal|']'
 return|;
