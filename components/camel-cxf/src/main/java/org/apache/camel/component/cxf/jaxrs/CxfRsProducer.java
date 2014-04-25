@@ -1641,6 +1641,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getClientFactoryBeanCache ()
+specifier|protected
+name|ClientFactoryBeanCache
+name|getClientFactoryBeanCache
+parameter_list|()
+block|{
+return|return
+name|clientFactoryBeanCache
+return|;
+block|}
 DECL|method|getQueryParametersFromQueryString (String queryString, String charset)
 specifier|private
 name|Map
@@ -2329,7 +2339,6 @@ return|;
 block|}
 comment|/**      * Cache contains {@link org.apache.cxf.jaxrs.client.JAXRSClientFactoryBean}      */
 DECL|class|ClientFactoryBeanCache
-specifier|private
 class|class
 name|ClientFactoryBeanCache
 block|{
