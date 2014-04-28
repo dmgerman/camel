@@ -190,7 +190,7 @@ name|camelContext
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmlrpc:http://www.example.com?userAgent=myAgent&gzipCompressing=true&connectionTimeout=30"
+literal|"xmlrpc:http://www.example.com?userAgent=myAgent&gzipCompressing=true&connectionTimeout=30&defaultMethodName=echo"
 argument_list|)
 decl_stmt|;
 name|XmlRpcClientConfigImpl
@@ -246,6 +246,18 @@ argument_list|,
 name|endpoint
 operator|.
 name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a worng default method name"
+argument_list|,
+literal|"echo"
+argument_list|,
+name|endpoint
+operator|.
+name|getDefaultMethodName
 argument_list|()
 argument_list|)
 expr_stmt|;

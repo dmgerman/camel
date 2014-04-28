@@ -147,6 +147,11 @@ specifier|private
 name|String
 name|address
 decl_stmt|;
+DECL|field|defaultMethodName
+specifier|private
+name|String
+name|defaultMethodName
+decl_stmt|;
 DECL|field|clientConfigurer
 specifier|private
 name|XmlRpcClientConfigurer
@@ -404,6 +409,32 @@ block|{
 return|return
 name|clientConfig
 return|;
+block|}
+DECL|method|getDefaultMethodName ()
+specifier|public
+name|String
+name|getDefaultMethodName
+parameter_list|()
+block|{
+return|return
+name|defaultMethodName
+return|;
+block|}
+DECL|method|setDefaultMethodName (String defaultMethodName)
+specifier|public
+name|void
+name|setDefaultMethodName
+parameter_list|(
+name|String
+name|defaultMethodName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultMethodName
+operator|=
+name|defaultMethodName
+expr_stmt|;
 block|}
 block|}
 end_class
