@@ -180,6 +180,21 @@ name|SolrUpdateTest
 extends|extends
 name|SolrComponentTestSupport
 block|{
+DECL|method|SolrUpdateTest (Boolean useHttps)
+specifier|public
+name|SolrUpdateTest
+parameter_list|(
+name|Boolean
+name|useHttps
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|useHttps
+argument_list|)
+expr_stmt|;
+comment|// TODO Auto-generated constructor stub
+block|}
 DECL|field|solrEndpoint
 specifier|private
 name|SolrEndpoint
@@ -206,7 +221,8 @@ name|solrEndpoint
 operator|=
 name|getMandatoryEndpoint
 argument_list|(
-name|SOLR_ROUTE_URI
+name|solrRouteUri
+argument_list|()
 argument_list|,
 name|SolrEndpoint
 operator|.

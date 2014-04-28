@@ -46,6 +46,21 @@ name|SolrDeleteTest
 extends|extends
 name|SolrComponentTestSupport
 block|{
+DECL|method|SolrDeleteTest (Boolean useHttps)
+specifier|public
+name|SolrDeleteTest
+parameter_list|(
+name|Boolean
+name|useHttps
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|useHttps
+argument_list|)
+expr_stmt|;
+comment|// TODO Auto-generated constructor stub
+block|}
 annotation|@
 name|Test
 DECL|method|testDeleteById ()
