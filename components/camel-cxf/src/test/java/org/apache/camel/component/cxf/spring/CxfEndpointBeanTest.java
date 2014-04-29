@@ -353,6 +353,18 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Got the wrong continuationTimeout"
+argument_list|,
+literal|60000
+argument_list|,
+name|routerEndpoint
+operator|.
+name|getContinuationTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|CxfEndpoint
 name|myEndpoint
 init|=

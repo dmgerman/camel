@@ -207,11 +207,13 @@ literal|"org.apache.camel.component.cxf.jaxrs.suspend"
 decl_stmt|;
 DECL|field|cxfRsConsumer
 specifier|private
+specifier|final
 name|CxfRsConsumer
 name|cxfRsConsumer
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
+specifier|final
 name|CxfRsEndpoint
 name|endpoint
 decl_stmt|;
@@ -539,13 +541,15 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO Support to set the timeout in case the Camel can't send the response back on time.
 comment|// The continuation could be called before the suspend is called
 name|continuation
 operator|.
 name|suspend
 argument_list|(
-literal|0
+name|endpoint
+operator|.
+name|getContinuationTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|cxfExchange

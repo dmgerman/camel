@@ -305,7 +305,7 @@ name|CTX
 operator|+
 literal|"/templatetest/TID/ranges/start=0;end=1?"
 operator|+
-literal|"httpClientAPI=true&loggingFeatureEnabled=true&loggingSizeLimit=200&q1=11&q2=12"
+literal|"continuationTimeout=80000&httpClientAPI=true&loggingFeatureEnabled=true&loggingSizeLimit=200&q1=11&q2=12"
 decl_stmt|;
 name|CxfRsEndpoint
 name|endpoint
@@ -366,6 +366,18 @@ name|getParameters
 argument_list|()
 operator|.
 name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong continucationTimeout"
+argument_list|,
+literal|80000
+argument_list|,
+name|endpoint
+operator|.
+name|getContinuationTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -464,6 +476,19 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// check the default continuation value
+name|assertEquals
+argument_list|(
+literal|"Get a wrong continucationTimeout"
+argument_list|,
+literal|30000
+argument_list|,
+name|endpoint
+operator|.
+name|getContinuationTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

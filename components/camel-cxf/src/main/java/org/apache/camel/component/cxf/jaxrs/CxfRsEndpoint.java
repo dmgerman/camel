@@ -602,6 +602,14 @@ name|BindingStyle
 operator|.
 name|Default
 decl_stmt|;
+comment|// The continuation timeout value for CXF continuation to use
+DECL|field|continuationTimeout
+specifier|private
+name|long
+name|continuationTimeout
+init|=
+literal|30000
+decl_stmt|;
 DECL|field|isSetDefaultBus
 specifier|private
 name|boolean
@@ -2377,6 +2385,32 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+block|}
+DECL|method|getContinuationTimeout ()
+specifier|public
+name|long
+name|getContinuationTimeout
+parameter_list|()
+block|{
+return|return
+name|continuationTimeout
+return|;
+block|}
+DECL|method|setContinuationTimeout (long continuationTimeout)
+specifier|public
+name|void
+name|setContinuationTimeout
+parameter_list|(
+name|long
+name|continuationTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|continuationTimeout
+operator|=
+name|continuationTimeout
+expr_stmt|;
 block|}
 DECL|class|InterceptorHolder
 specifier|private
