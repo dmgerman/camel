@@ -661,7 +661,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|solrFixtures
+name|SolrFixtures
 operator|.
 name|clearIndex
 argument_list|()
