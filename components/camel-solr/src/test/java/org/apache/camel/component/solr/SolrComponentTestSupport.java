@@ -429,7 +429,7 @@ name|sendBodyAndHeaders
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|null
+literal|""
 argument_list|,
 name|headers
 argument_list|)
@@ -447,7 +447,7 @@ name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|null
+literal|""
 argument_list|,
 name|SolrConstants
 operator|.
