@@ -170,6 +170,12 @@ DECL|field|useHttps
 name|boolean
 name|useHttps
 decl_stmt|;
+DECL|field|cloudFixture
+specifier|private
+specifier|static
+name|SolrCloudFixture
+name|cloudFixture
+decl_stmt|;
 DECL|field|port
 specifier|private
 specifier|static
@@ -343,6 +349,14 @@ name|solrRunner
 operator|.
 name|getBaseUrl
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|cloudFixture
+operator|=
+operator|new
+name|SolrCloudFixture
+argument_list|(
+literal|"src/test/resources/solr"
 argument_list|)
 expr_stmt|;
 block|}
