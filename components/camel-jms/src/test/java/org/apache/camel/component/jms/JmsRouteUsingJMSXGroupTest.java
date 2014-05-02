@@ -134,6 +134,24 @@ name|jmsComponentAutoAcknowledge
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsConstants
+operator|.
+name|JMS_X_GROUP_ID
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -278,7 +296,7 @@ literal|"IBM: "
 operator|+
 name|index
 argument_list|,
-literal|"JMSXGroupID"
+name|JMS_X_GROUP_ID
 argument_list|,
 literal|"IBM"
 argument_list|)
@@ -293,7 +311,7 @@ literal|"SUN: "
 operator|+
 name|index
 argument_list|,
-literal|"JMSXGroupID"
+name|JMS_X_GROUP_ID
 argument_list|,
 literal|"SUN"
 argument_list|)
