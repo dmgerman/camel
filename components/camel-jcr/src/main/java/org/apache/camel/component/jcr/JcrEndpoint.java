@@ -292,7 +292,7 @@ index|[
 literal|1
 index|]
 else|:
-literal|null
+literal|""
 decl_stmt|;
 name|this
 operator|.
