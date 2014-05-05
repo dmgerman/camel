@@ -114,6 +114,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -334,21 +346,17 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|e
+name|exception
 parameter_list|)
 block|{
-name|LOGGER
-operator|.
-name|warn
+comment|//Just wrap the IOException as CamelRuntimeException
+throw|throw
+operator|new
+name|RuntimeCamelException
 argument_list|(
-literal|"Fail hasNext()"
-argument_list|,
-name|e
+name|exception
 argument_list|)
-expr_stmt|;
-return|return
-literal|false
-return|;
+throw|;
 block|}
 block|}
 annotation|@
@@ -511,9 +519,18 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|ignore
+name|exception
 parameter_list|)
-block|{             }
+block|{
+comment|//Just wrap the IOException as CamelRuntimeException
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|exception
+argument_list|)
+throw|;
+block|}
 block|}
 return|return
 name|answer
