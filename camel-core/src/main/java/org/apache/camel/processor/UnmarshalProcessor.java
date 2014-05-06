@@ -28,6 +28,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -297,6 +307,11 @@ name|stream
 init|=
 literal|null
 decl_stmt|;
+name|Object
+name|result
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
 name|stream
@@ -332,9 +347,8 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Object
 name|result
-init|=
+operator|=
 name|dataFormat
 operator|.
 name|unmarshal
@@ -343,7 +357,7 @@ name|exchange
 argument_list|,
 name|stream
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|result
@@ -431,6 +445,17 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// The Iterator will close the stream itself
+if|if
+condition|(
+operator|!
+operator|(
+name|result
+operator|instanceof
+name|Iterator
+operator|)
+condition|)
+block|{
 name|IOHelper
 operator|.
 name|close
@@ -440,6 +465,7 @@ argument_list|,
 literal|"input stream"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|callback
 operator|.
