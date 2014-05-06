@@ -284,6 +284,16 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
+name|getEndpoint
+argument_list|()
+operator|.
+name|declareExchangeAndQueue
+argument_list|(
+name|this
+operator|.
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

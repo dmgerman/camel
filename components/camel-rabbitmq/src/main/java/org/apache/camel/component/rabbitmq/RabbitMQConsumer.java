@@ -298,6 +298,14 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
+name|getEndpoint
+argument_list|()
+operator|.
+name|declareExchangeAndQueue
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * If needed, create Exchange and Queue, then add message listener      */
 DECL|method|addConsumer ()
@@ -308,14 +316,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|getEndpoint
-argument_list|()
-operator|.
-name|declareExchangeAndQueue
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
 name|channel
 operator|.
 name|basicConsume
