@@ -254,6 +254,26 @@ name|URISupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default endpoint useful for implementation inheritance.  *<p/>  * Components which leverages<a  * href="http://camel.apache.org/asynchronous-routing-engine.html">asynchronous  * processing model</a> should check the {@link #isSynchronous()} to determine  * if asynchronous processing is allowed. The<tt>synchronous</tt> option on the  * endpoint allows Camel end users to dictate whether they want the asynchronous  * model or not. The option is default<tt>false</tt> which means asynchronous  * processing is allowed.  *   * @version  */
 end_comment
@@ -273,6 +293,22 @@ name|HasId
 implements|,
 name|CamelContextAware
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DefaultEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|endpointUri
 specifier|private
 name|String
@@ -333,6 +369,20 @@ argument_list|,
 name|Object
 argument_list|>
 name|consumerProperties
+decl_stmt|;
+DECL|field|pollingConsumerQueueSize
+specifier|private
+name|int
+name|pollingConsumerQueueSize
+init|=
+literal|1000
+decl_stmt|;
+DECL|field|pollingConsumerBlockWhenFull
+specifier|private
+name|boolean
+name|pollingConsumerBlockWhenFull
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Constructs a fully-initialized DefaultEndpoint instance. This is the      * preferred method of constructing an object from Java code (as opposed to      * Spring beans, etc.).      *       * @param endpointUri the full URI used to create this endpoint      * @param component the component that created this endpoint      */
 DECL|method|DefaultEndpoint (String endpointUri, Component component)
@@ -741,13 +791,42 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// should not configure consumer
-return|return
+comment|// should not call configurePollingConsumer when its EventDrivenPollingConsumer
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Creating EventDrivenPollingConsumer with queueSize: {} and blockWhenFull: {}"
+argument_list|,
+name|getPollingConsumerQueueSize
+argument_list|()
+argument_list|,
+name|isPollingConsumerBlockWhenFull
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|EventDrivenPollingConsumer
+name|consumer
+init|=
 operator|new
 name|EventDrivenPollingConsumer
 argument_list|(
 name|this
+argument_list|,
+name|getPollingConsumerQueueSize
+argument_list|()
 argument_list|)
+decl_stmt|;
+name|consumer
+operator|.
+name|setBlockWhenFull
+argument_list|(
+name|isPollingConsumerBlockWhenFull
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|createExchange (Exchange exchange)
@@ -853,6 +932,62 @@ operator|.
 name|synchronous
 operator|=
 name|synchronous
+expr_stmt|;
+block|}
+comment|/**      * Gets the {@link org.apache.camel.PollingConsumer} queue size, when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used. Notice some Camel components may have their own implementation of {@link org.apache.camel.PollingConsumer} and      * therefore not using the default {@link org.apache.camel.impl.EventDrivenPollingConsumer} implementation.      *<p/>      * The default value is<tt>1000</tt>      */
+DECL|method|getPollingConsumerQueueSize ()
+specifier|public
+name|int
+name|getPollingConsumerQueueSize
+parameter_list|()
+block|{
+return|return
+name|pollingConsumerQueueSize
+return|;
+block|}
+comment|/**      * Sets the {@link org.apache.camel.PollingConsumer} queue size, when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used. Notice some Camel components may have their own implementation of {@link org.apache.camel.PollingConsumer} and      * therefore not using the default {@link org.apache.camel.impl.EventDrivenPollingConsumer} implementation.      *<p/>      * The default value is<tt>1000</tt>      */
+DECL|method|setPollingConsumerQueueSize (int pollingConsumerQueueSize)
+specifier|public
+name|void
+name|setPollingConsumerQueueSize
+parameter_list|(
+name|int
+name|pollingConsumerQueueSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollingConsumerQueueSize
+operator|=
+name|pollingConsumerQueueSize
+expr_stmt|;
+block|}
+comment|/**      * Whether to block when adding to the internal queue off when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used. Notice some Camel components may have their own implementation of {@link org.apache.camel.PollingConsumer} and      * therefore not using the default {@link org.apache.camel.impl.EventDrivenPollingConsumer} implementation.      *<p/>      * Setting this option to<tt>false</tt>, will result in an {@link java.lang.IllegalStateException} being thrown      * when trying to add to the queue, and its full.      *<p/>      * The default value is<tt>true</tt> which will block the producer queue until the queue has space.      */
+DECL|method|isPollingConsumerBlockWhenFull ()
+specifier|public
+name|boolean
+name|isPollingConsumerBlockWhenFull
+parameter_list|()
+block|{
+return|return
+name|pollingConsumerBlockWhenFull
+return|;
+block|}
+comment|/**      * Set whether to block when adding to the internal queue off when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used. Notice some Camel components may have their own implementation of {@link org.apache.camel.PollingConsumer} and      * therefore not using the default {@link org.apache.camel.impl.EventDrivenPollingConsumer} implementation.      *<p/>      * Setting this option to<tt>false</tt>, will result in an {@link java.lang.IllegalStateException} being thrown      * when trying to add to the queue, and its full.      *<p/>      * The default value is<tt>true</tt> which will block the producer queue until the queue has space.      */
+DECL|method|setPollingConsumerBlockWhenFull (boolean pollingConsumerBlockWhenFull)
+specifier|public
+name|void
+name|setPollingConsumerBlockWhenFull
+parameter_list|(
+name|boolean
+name|pollingConsumerBlockWhenFull
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollingConsumerBlockWhenFull
+operator|=
+name|pollingConsumerBlockWhenFull
 expr_stmt|;
 block|}
 DECL|method|configureProperties (Map<String, Object> options)
