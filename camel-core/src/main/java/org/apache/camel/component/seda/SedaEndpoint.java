@@ -1147,6 +1147,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**      * Get's the {@link QueueReference} for the this endpoint.      * @return the reference, or<tt>null</tt> if no queue reference exists.      */
 DECL|method|getQueueReference ()
 specifier|public
 specifier|synchronized
@@ -1177,24 +1178,6 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|ref
-operator|==
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"There was no queue reference for the endpoint {0}"
-argument_list|,
-name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|ref
 return|;
