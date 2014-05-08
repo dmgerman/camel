@@ -48,7 +48,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|LinkedBlockingDeque
+name|LinkedBlockingQueue
 import|;
 end_import
 
@@ -296,7 +296,7 @@ operator|.
 name|queue
 operator|=
 operator|new
-name|LinkedBlockingDeque
+name|LinkedBlockingQueue
 argument_list|<
 name|Exchange
 argument_list|>
