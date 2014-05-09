@@ -166,18 +166,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|BusFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -211,18 +199,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|ApplicationContext
 import|;
 end_import
 
