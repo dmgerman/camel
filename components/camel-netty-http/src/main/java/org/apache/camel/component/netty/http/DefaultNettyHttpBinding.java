@@ -1382,6 +1382,7 @@ block|}
 block|}
 block|}
 comment|// if body is application/x-www-form-urlencoded then extract the body as query string and append as headers
+comment|// if it is a bridgeEndpoint we need to skip this part of work
 if|if
 condition|(
 name|request
@@ -1423,6 +1424,12 @@ name|NettyHttpConstants
 operator|.
 name|CONTENT_TYPE_WWW_FORM_URLENCODED
 argument_list|)
+operator|&&
+operator|!
+name|configuration
+operator|.
+name|isBridgeEndpoint
+argument_list|()
 condition|)
 block|{
 name|String
