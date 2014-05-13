@@ -216,6 +216,16 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"metrics:histogram:E"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"metrics:histogram:E?value=12000000031"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
