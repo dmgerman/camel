@@ -158,10 +158,14 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
+comment|// -1 means using the default port to access the service
 DECL|field|port
 specifier|private
 name|int
 name|port
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|field|protocol
 specifier|private
