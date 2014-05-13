@@ -747,6 +747,13 @@ operator|.
 name|newService
 argument_list|()
 decl_stmt|;
+name|builder
+operator|=
+name|configureServiceBuilder
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
 name|configureConnectionStrategy
 argument_list|(
 name|builder
@@ -800,6 +807,19 @@ argument_list|()
 decl_stmt|;
 return|return
 name|apnsService
+return|;
+block|}
+DECL|method|configureServiceBuilder (ApnsServiceBuilder serviceBuilder)
+specifier|protected
+name|ApnsServiceBuilder
+name|configureServiceBuilder
+parameter_list|(
+name|ApnsServiceBuilder
+name|serviceBuilder
+parameter_list|)
+block|{
+return|return
+name|serviceBuilder
 return|;
 block|}
 DECL|method|configureApnsCertificate (ApnsServiceBuilder builder)
