@@ -176,8 +176,11 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// .to("metrics")
-comment|// .to("metrics:")
+operator|.
+name|to
+argument_list|(
+literal|"metrics:timer:T?action=start"
+argument_list|)
 operator|.
 name|to
 argument_list|(
@@ -221,7 +224,17 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"metrics:timer:T"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"metrics:histogram:E?value=12000000031"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"metrics:timer:T?action=stop"
 argument_list|)
 operator|.
 name|to
