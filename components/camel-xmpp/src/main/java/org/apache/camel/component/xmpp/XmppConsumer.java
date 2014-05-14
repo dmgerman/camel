@@ -470,6 +470,14 @@ name|e
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getExceptionHandler
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|getExceptionHandler
 argument_list|()
 operator|.
@@ -485,6 +493,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 name|scheduleDelayedStart
 argument_list|()
 expr_stmt|;
