@@ -807,7 +807,7 @@ return|;
 block|}
 block|}
 DECL|method|getOrCreateConnectionFactory ()
-specifier|private
+specifier|protected
 name|ConnectionFactory
 name|getOrCreateConnectionFactory
 parameter_list|()

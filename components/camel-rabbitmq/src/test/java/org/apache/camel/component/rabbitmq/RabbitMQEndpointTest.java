@@ -1147,7 +1147,7 @@ decl_stmt|;
 return|return
 name|endpoint
 operator|.
-name|getConnectionFactory
+name|getOrCreateConnectionFactory
 argument_list|()
 return|;
 block|}
