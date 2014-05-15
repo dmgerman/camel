@@ -276,7 +276,7 @@ name|c
 operator|.
 name|prepareGet
 argument_list|(
-literal|"ws://127.0.0.1:"
+literal|"ws://localhost:"
 operator|+
 name|port
 operator|+
@@ -467,7 +467,7 @@ name|c
 operator|.
 name|prepareGet
 argument_list|(
-literal|"ws://127.0.0.1:"
+literal|"ws://localhost:"
 operator|+
 name|port
 operator|+
