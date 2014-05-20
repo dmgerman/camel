@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.metrics
+DECL|package|org.apache.camel.metrics.counter
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|camel
 operator|.
 name|metrics
+operator|.
+name|counter
 package|;
 end_package
 
@@ -99,6 +101,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|metrics
+operator|.
+name|MetricsComponent
 import|;
 end_import
 
@@ -288,7 +304,7 @@ argument_list|(
 name|classes
 operator|=
 block|{
-name|MetricComponentSpringTest
+name|CounterRouteTest
 operator|.
 name|TestConfig
 operator|.
@@ -303,10 +319,10 @@ name|class
 argument_list|)
 annotation|@
 name|MockEndpoints
-DECL|class|MetricComponentSpringTest
+DECL|class|CounterRouteTest
 specifier|public
 class|class
-name|MetricComponentSpringTest
+name|CounterRouteTest
 block|{
 annotation|@
 name|EndpointInject
@@ -373,7 +389,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"metrics:counter:A?increment=512"
+literal|"metrics:counter:A?increment=5"
 argument_list|)
 operator|.
 name|to
@@ -414,10 +430,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testMetricsRegistryFromCamelRegistry ()
+DECL|method|testOverrideMetricsName ()
 specifier|public
 name|void
-name|testMetricsRegistryFromCamelRegistry
+name|testOverrideMetricsName
 parameter_list|()
 throws|throws
 name|Exception
@@ -475,7 +491,7 @@ name|mockRegistry
 operator|.
 name|counter
 argument_list|(
-literal|"A"
+literal|"B"
 argument_list|)
 argument_list|)
 operator|.
@@ -493,11 +509,17 @@ argument_list|)
 expr_stmt|;
 name|producer
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 operator|new
 name|Object
 argument_list|()
+argument_list|,
+name|MetricsComponent
+operator|.
+name|HEADER_METRIC_NAME
+argument_list|,
+literal|"B"
 argument_list|)
 expr_stmt|;
 name|endpoint
@@ -519,7 +541,7 @@ argument_list|)
 operator|.
 name|counter
 argument_list|(
-literal|"A"
+literal|"B"
 argument_list|)
 expr_stmt|;
 name|inOrder
@@ -536,7 +558,7 @@ argument_list|)
 operator|.
 name|inc
 argument_list|(
-literal|512L
+literal|5L
 argument_list|)
 expr_stmt|;
 name|inOrder

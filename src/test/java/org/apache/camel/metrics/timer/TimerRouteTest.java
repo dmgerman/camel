@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.metrics
+DECL|package|org.apache.camel.metrics.timer
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|camel
 operator|.
 name|metrics
+operator|.
+name|timer
 package|;
 end_package
 
@@ -99,6 +101,20 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|metrics
+operator|.
+name|MetricsComponent
 import|;
 end_import
 
@@ -258,7 +274,7 @@ name|codahale
 operator|.
 name|metrics
 operator|.
-name|Counter
+name|MetricRegistry
 import|;
 end_import
 
@@ -270,7 +286,7 @@ name|codahale
 operator|.
 name|metrics
 operator|.
-name|MetricRegistry
+name|Timer
 import|;
 end_import
 
@@ -288,7 +304,7 @@ argument_list|(
 name|classes
 operator|=
 block|{
-name|MetricComponentSpringTest
+name|TimerRouteTest
 operator|.
 name|TestConfig
 operator|.
@@ -303,10 +319,10 @@ name|class
 argument_list|)
 annotation|@
 name|MockEndpoints
-DECL|class|MetricComponentSpringTest
+DECL|class|TimerRouteTest
 specifier|public
 class|class
-name|MetricComponentSpringTest
+name|TimerRouteTest
 block|{
 annotation|@
 name|EndpointInject
@@ -373,7 +389,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"metrics:counter:A?increment=512"
+literal|"metrics:timer:A?action=start"
 argument_list|)
 operator|.
 name|to
@@ -414,10 +430,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testMetricsRegistryFromCamelRegistry ()
+DECL|method|testOverrideMetricsName ()
 specifier|public
 name|void
-name|testMetricsRegistryFromCamelRegistry
+name|testOverrideMetricsName
 parameter_list|()
 throws|throws
 name|Exception
@@ -445,14 +461,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|Counter
-name|mockCounter
+name|Timer
+name|mockTimer
 init|=
 name|Mockito
 operator|.
 name|mock
 argument_list|(
-name|Counter
+name|Timer
 operator|.
 name|class
 argument_list|)
@@ -466,22 +482,22 @@ name|inOrder
 argument_list|(
 name|mockRegistry
 argument_list|,
-name|mockCounter
+name|mockTimer
 argument_list|)
 decl_stmt|;
 name|when
 argument_list|(
 name|mockRegistry
 operator|.
-name|counter
+name|timer
 argument_list|(
-literal|"A"
+literal|"B"
 argument_list|)
 argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|mockCounter
+name|mockTimer
 argument_list|)
 expr_stmt|;
 name|endpoint
@@ -493,11 +509,17 @@ argument_list|)
 expr_stmt|;
 name|producer
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 operator|new
 name|Object
 argument_list|()
+argument_list|,
+name|MetricsComponent
+operator|.
+name|HEADER_METRIC_NAME
+argument_list|,
+literal|"B"
 argument_list|)
 expr_stmt|;
 name|endpoint
@@ -517,16 +539,16 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|counter
+name|timer
 argument_list|(
-literal|"A"
+literal|"B"
 argument_list|)
 expr_stmt|;
 name|inOrder
 operator|.
 name|verify
 argument_list|(
-name|mockCounter
+name|mockTimer
 argument_list|,
 name|times
 argument_list|(
@@ -534,10 +556,8 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|inc
-argument_list|(
-literal|512L
-argument_list|)
+name|time
+argument_list|()
 expr_stmt|;
 name|inOrder
 operator|.

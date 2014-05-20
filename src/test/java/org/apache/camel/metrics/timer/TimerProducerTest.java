@@ -353,7 +353,9 @@ argument_list|(
 name|endpoint
 operator|.
 name|getMetricsName
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 operator|.
 name|thenReturn
@@ -511,7 +513,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|getMetricsName
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|inOrder
 operator|.
@@ -689,7 +693,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|getMetricsName
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|inOrder
 operator|.
@@ -825,7 +831,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|getMetricsName
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 expr_stmt|;
 name|inOrder
 operator|.

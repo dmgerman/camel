@@ -249,6 +249,15 @@ name|DEFAULT_REPORTING_INTERVAL_SECONDS
 init|=
 literal|60L
 decl_stmt|;
+DECL|field|HEADER_METRIC_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_METRIC_NAME
+init|=
+literal|"org.apache.camel.metrics.metricName"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static

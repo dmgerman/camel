@@ -188,7 +188,9 @@ init|=
 name|endpoint
 operator|.
 name|getMetricsName
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|TimerAction
 name|action
