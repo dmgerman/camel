@@ -1160,10 +1160,12 @@ name|put
 argument_list|(
 name|JMS_X_GROUP_ID
 argument_list|,
-name|jmsMessage
+name|JmsMessageHelper
 operator|.
 name|getStringProperty
 argument_list|(
+name|jmsMessage
+argument_list|,
 name|JMS_X_GROUP_ID
 argument_list|)
 argument_list|)
@@ -1174,10 +1176,12 @@ name|put
 argument_list|(
 literal|"JMSXUserID"
 argument_list|,
-name|jmsMessage
+name|JmsMessageHelper
 operator|.
 name|getStringProperty
 argument_list|(
+name|jmsMessage
+argument_list|,
 literal|"JMSXUserID"
 argument_list|)
 argument_list|)
