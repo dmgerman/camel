@@ -522,7 +522,7 @@ decl_stmt|;
 if|if
 condition|(
 name|i
-operator|<
+operator|<=
 name|uri
 operator|.
 name|length

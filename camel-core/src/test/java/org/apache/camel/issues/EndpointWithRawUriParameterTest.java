@@ -446,7 +446,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"password"
 argument_list|,
-literal|"++%%w?rd"
+literal|"++%%w?rd)"
 argument_list|)
 expr_stmt|;
 name|template
@@ -504,7 +504,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mycomponent:foo?password=RAW(++%%w?rd)&username=scott"
+literal|"mycomponent:foo?username=scott&password=RAW(++%%w?rd))"
 argument_list|)
 operator|.
 name|to
