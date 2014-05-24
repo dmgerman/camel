@@ -460,14 +460,20 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|parse ()
+DECL|method|processResults (List<ApiMethodModel> parseResult)
 specifier|public
 name|List
 argument_list|<
 name|ApiMethodModel
 argument_list|>
-name|parse
-parameter_list|()
+name|processResults
+parameter_list|(
+name|List
+argument_list|<
+name|ApiMethodModel
+argument_list|>
+name|parseResult
+parameter_list|)
 block|{
 specifier|final
 name|List
@@ -488,10 +494,7 @@ control|(
 name|ApiMethodModel
 name|model
 range|:
-name|super
-operator|.
-name|parse
-argument_list|()
+name|parseResult
 control|)
 block|{
 comment|// look for method name matches

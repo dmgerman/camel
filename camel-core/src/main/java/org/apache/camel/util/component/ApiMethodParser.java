@@ -475,6 +475,7 @@ block|}
 comment|/**      * Parses the method signatures from {@code getSignatures()}.      * @return list of Api methods as {@link ApiMethodModel}      */
 DECL|method|parse ()
 specifier|public
+specifier|final
 name|List
 argument_list|<
 name|ApiMethodModel
@@ -762,6 +763,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|result
+operator|=
+name|processResults
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 name|Collections
 operator|.
 name|sort
@@ -1049,6 +1057,25 @@ operator|=
 name|uniqueName
 expr_stmt|;
 block|}
+return|return
+name|result
+return|;
+block|}
+DECL|method|processResults (List<ApiMethodModel> result)
+specifier|protected
+name|List
+argument_list|<
+name|ApiMethodModel
+argument_list|>
+name|processResults
+parameter_list|(
+name|List
+argument_list|<
+name|ApiMethodModel
+argument_list|>
+name|result
+parameter_list|)
+block|{
 return|return
 name|result
 return|;
