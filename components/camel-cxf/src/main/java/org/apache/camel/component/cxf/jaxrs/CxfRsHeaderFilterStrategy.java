@@ -176,7 +176,7 @@ expr_stmt|;
 comment|// filter headers begin with "Camel" or "org.apache.camel"
 name|setOutFilterPattern
 argument_list|(
-literal|"((Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]|(?i)Content-Type)*"
+literal|"((Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*)|(?i)Content-Type"
 argument_list|)
 expr_stmt|;
 block|}
