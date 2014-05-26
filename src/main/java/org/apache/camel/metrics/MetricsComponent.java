@@ -276,6 +276,15 @@ name|HEADER_COUNTER_DECREMENT
 init|=
 literal|"CamelMetricsCounterDecrement"
 decl_stmt|;
+DECL|field|HEADER_HISTOGRAM_VALUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_HISTOGRAM_VALUE
+init|=
+literal|"CamelMetricsHistogramValue"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static

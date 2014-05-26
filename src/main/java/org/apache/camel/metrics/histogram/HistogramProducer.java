@@ -15,6 +15,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|metrics
+operator|.
+name|MetricsComponent
+operator|.
+name|HEADER_HISTOGRAM_VALUE
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -192,9 +208,23 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+name|Long
+name|finalValue
+init|=
+name|endpoint
+operator|.
+name|getLongHeader
+argument_list|(
+name|exchange
+argument_list|,
+name|HEADER_HISTOGRAM_VALUE
+argument_list|,
+name|value
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|value
+name|finalValue
 operator|!=
 literal|null
 condition|)
@@ -203,7 +233,7 @@ name|histogram
 operator|.
 name|update
 argument_list|(
-name|value
+name|finalValue
 argument_list|)
 expr_stmt|;
 block|}
