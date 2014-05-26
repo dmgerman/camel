@@ -832,6 +832,12 @@ condition|(
 name|fields
 operator|!=
 literal|null
+operator|&&
+name|fields
+operator|.
+name|length
+operator|>
+literal|0
 condition|)
 block|{
 name|fieldS
