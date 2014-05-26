@@ -74,6 +74,8 @@ literal|"\\."
 argument_list|,
 literal|"/"
 argument_list|)
+operator|+
+literal|"/"
 decl_stmt|;
 DECL|method|assertExists (File outFile)
 specifier|protected

@@ -186,8 +186,6 @@ name|OUT_DIR
 argument_list|,
 name|PACKAGE_PATH
 operator|+
-literal|"/"
-operator|+
 name|COMPONENT_NAME
 operator|+
 literal|"ApiCollection.java"

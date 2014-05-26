@@ -186,7 +186,7 @@ name|OUT_DIR
 argument_list|,
 name|PACKAGE_PATH
 operator|+
-literal|"/TestProxyApiMethod.java"
+literal|"TestProxyApiMethod.java"
 argument_list|)
 decl_stmt|;
 if|if
