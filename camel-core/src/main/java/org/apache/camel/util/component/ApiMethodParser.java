@@ -1092,6 +1092,8 @@ name|String
 name|className
 parameter_list|)
 block|{
+try|try
+block|{
 return|return
 name|forName
 argument_list|(
@@ -1100,6 +1102,23 @@ argument_list|,
 name|classLoader
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|ClassNotFoundException
+name|e1
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error loading class "
+operator|+
+name|className
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|forName (String className, ClassLoader classLoader)
 specifier|public
@@ -1116,6 +1135,8 @@ parameter_list|,
 name|ClassLoader
 name|classLoader
 parameter_list|)
+throws|throws
+name|ClassNotFoundException
 block|{
 name|Class
 argument_list|<
@@ -1230,8 +1251,6 @@ name|getClass
 argument_list|()
 return|;
 block|}
-try|try
-block|{
 comment|// try loading from default Java package java.lang
 name|result
 operator|=
@@ -1248,23 +1267,6 @@ argument_list|,
 name|classLoader
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ClassNotFoundException
-name|e1
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error loading class "
-operator|+
-name|className
-argument_list|)
-throw|;
-block|}
 block|}
 return|return
 name|result
