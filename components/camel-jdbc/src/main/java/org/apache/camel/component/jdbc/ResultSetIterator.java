@@ -808,7 +808,6 @@ block|}
 block|}
 DECL|interface|Column
 specifier|private
-specifier|static
 interface|interface
 name|Column
 block|{
