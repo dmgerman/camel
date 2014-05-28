@@ -842,7 +842,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ExceptionInInitializerError
+name|IllegalArgumentException
 argument_list|(
 name|String
 operator|.
@@ -1894,7 +1894,23 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// convert derived array to super array
+comment|// convert derived array to super array if needed
+if|if
+condition|(
+name|type
+operator|.
+name|getComponentType
+argument_list|()
+operator|!=
+name|value
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getComponentType
+argument_list|()
+condition|)
+block|{
 specifier|final
 name|int
 name|size
@@ -1959,6 +1975,7 @@ name|value
 operator|=
 name|array
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
