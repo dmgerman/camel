@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *   */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -98,13 +98,11 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|junit
 operator|.
-name|xml
+name|framework
 operator|.
-name|stream
-operator|.
-name|XMLStreamException
+name|TestCase
 import|;
 end_import
 
@@ -145,16 +143,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
 import|;
 end_import
 
@@ -544,10 +532,10 @@ name|RESULTS_CHILD
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testExtractChildWithAncestorGGP_GP ()
+DECL|method|testExtractChildWithAncestorGGPdGP ()
 specifier|public
 name|void
-name|testExtractChildWithAncestorGGP_GP
+name|testExtractChildWithAncestorGGPdGP
 parameter_list|()
 throws|throws
 name|Exception
@@ -568,10 +556,10 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testExtractChildWithAncestorGGP_P ()
+DECL|method|testExtractChildWithAncestorGGPdP ()
 specifier|public
 name|void
-name|testExtractChildWithAncestorGGP_P
+name|testExtractChildWithAncestorGGPdP
 parameter_list|()
 throws|throws
 name|Exception
@@ -592,10 +580,10 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testExtractChildWithAncestorGP__P ()
+DECL|method|testExtractChildWithAncestorGPddP ()
 specifier|public
 name|void
-name|testExtractChildWithAncestorGP__P
+name|testExtractChildWithAncestorGPddP
 parameter_list|()
 throws|throws
 name|Exception
@@ -616,10 +604,10 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testExtractChildWithAncestorGP_P ()
+DECL|method|testExtractChildWithAncestorGPdP ()
 specifier|public
 name|void
-name|testExtractChildWithAncestorGP_P
+name|testExtractChildWithAncestorGPdP
 parameter_list|()
 throws|throws
 name|Exception
@@ -664,10 +652,10 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testExtractChildWithAncestorGGP_GP_P ()
+DECL|method|testExtractChildWithAncestorGGPdGPdP ()
 specifier|public
 name|void
-name|testExtractChildWithAncestorGGP_GP_P
+name|testExtractChildWithAncestorGGPdGPdP
 parameter_list|()
 throws|throws
 name|Exception

@@ -207,7 +207,9 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c'><c:child some_attr='a' anotherAttr='a'>ha</c:child><c:child some_attr='b' anotherAttr='b' /><c:child some_attr='c'></c:child></c:parent>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c'><c:child some_attr='a' anotherAttr='a'>ha</c:child>"
+operator|+
+literal|"<c:child some_attr='b' anotherAttr='b' /><c:child some_attr='c'></c:child></c:parent>"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -275,7 +277,9 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c'><c:child xmlns:c='urn:c' some_attr='a' anotherAttr='a'></c:child><c:child xmlns:c='urn:c' some_attr='b' anotherAttr='b' /></c:parent>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c'><c:child xmlns:c='urn:c' some_attr='a' anotherAttr='a'></c:child>"
+operator|+
+literal|"<c:child xmlns:c='urn:c' some_attr='b' anotherAttr='b' /></c:parent>"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -308,7 +312,9 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='a' anotherAttr='a'></c:child><c:child some_attr='b' anotherAttr='b'/></c:parent>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='a' anotherAttr='a'></c:child>"
+operator|+
+literal|"<c:child some_attr='b' anotherAttr='b'/></c:parent>"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
