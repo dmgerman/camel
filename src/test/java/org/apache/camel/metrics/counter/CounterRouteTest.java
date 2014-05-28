@@ -82,42 +82,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|mockito
 operator|.
 name|Mockito
@@ -179,18 +143,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelExecutionException
 import|;
 end_import
 
@@ -1196,11 +1148,9 @@ name|endpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|producer1
 operator|.
 name|sendBodyAndHeader
@@ -1214,31 +1164,6 @@ argument_list|,
 literal|"this is not a valid long value"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Exception expected"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|e
-argument_list|,
-name|instanceOf
-argument_list|(
-name|CamelExecutionException
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 name|endpoint
 operator|.
 name|assertIsSatisfied
