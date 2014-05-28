@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Header variables for the barcode data format.  * @author claus.straube  */
+comment|/**  * Header variables for the barcode data format.  */
 end_comment
 
 begin_interface

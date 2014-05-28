@@ -371,7 +371,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link DataFormat} to create (encode) and   * read (decode) barcodes. For more info about  * the available barcodes have a look at:<br/><br/>  *   * https://github.com/zxing/zxing  *   * @author claus.straube  */
+comment|/**  * {@link DataFormat} to create (encode) and   * read (decode) barcodes. For more info about  * the available barcodes have a look at:<br/><br/>  *   * https://github.com/zxing/zxing  *   */
 end_comment
 
 begin_class

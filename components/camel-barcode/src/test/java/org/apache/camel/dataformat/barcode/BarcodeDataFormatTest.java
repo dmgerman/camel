@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class tests all Camel independend test cases   * for {@link BarcodeDataFormat}.  * @author claus.straube  */
+comment|/**  * This class tests all Camel independend test cases   * for {@link BarcodeDataFormat}.  */
 end_comment
 
 begin_class

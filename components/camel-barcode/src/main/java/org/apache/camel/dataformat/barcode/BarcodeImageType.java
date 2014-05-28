@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Endings for the supported image types.  *   * @author claus  */
+comment|/**  * Endings for the supported image types.  *  */
 end_comment
 
 begin_enum
