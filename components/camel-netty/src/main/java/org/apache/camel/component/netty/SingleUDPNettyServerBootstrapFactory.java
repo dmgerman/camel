@@ -42,26 +42,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|SocketException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|UnknownHostException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -686,9 +666,7 @@ name|void
 name|startServerBootstrap
 parameter_list|()
 throws|throws
-name|UnknownHostException
-throws|,
-name|SocketException
+name|Exception
 block|{
 comment|// create non-shared worker pool
 name|int
@@ -1082,6 +1060,9 @@ name|hostAddress
 argument_list|,
 name|multicastNetworkInterface
 argument_list|)
+operator|.
+name|syncUninterruptibly
+argument_list|()
 expr_stmt|;
 name|allChannels
 operator|.

@@ -88,15 +88,44 @@ name|org
 operator|.
 name|junit
 operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
+begin_comment
+comment|/**  * To run this test manually through Maven first remove the {@link Ignore}  * annotation below, then make sure you've got a Network interface with the name  *<code>en0</code> as given by the route below. If this is not the case run  * your OS specific command to find out which Network interfaces you've got  * supporting IPv4. For example on OS-X you can use the following command for  * this:  *   *<pre>  *<code>$> ifconfig -a</code>  *</pre>  *   * Then replace the<code>en0</code> Network interface name below with your own  * one. Now running the test manually should succeed (<b>only</b> when using  * Java7+):  *   *<pre>  *<code>mvn test -Djava.net.preferIPv4Stack=true -Dtest=NettyUDPMulticastAsyncTest</code>  *</pre>  *   * Note that the usage of JUnit {@link BeforeClass} annotation to achieve the  * same effect would not work in this case as at that stage it would be too late  * to use {@link System#setProperty(String, String) the Java API} to reach the  * same effect. Also setting such a system property through the surefire-plugin  * would cause side effect by the other tests of this component.  */
+end_comment
+
 begin_class
-DECL|class|NettyUDPAsyncTest
+annotation|@
+name|Ignore
+argument_list|(
+literal|"See the Javadoc"
+argument_list|)
+DECL|class|NettyUDPMulticastAsyncTest
 specifier|public
 class|class
-name|NettyUDPAsyncTest
+name|NettyUDPMulticastAsyncTest
 extends|extends
 name|BaseNettyTest
 block|{
@@ -228,7 +257,7 @@ argument_list|)
 expr_stmt|;
 name|sendFile
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?sync=false"
+literal|"netty:udp://224.1.2.3:{{port}}?sync=false"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -263,7 +292,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?sync=false"
+literal|"netty:udp://224.1.2.3:{{port}}?sync=false&networkInterface=en0"
 argument_list|)
 operator|.
 name|to
