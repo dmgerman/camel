@@ -284,6 +284,18 @@ name|TEST_MESSAGE
 init|=
 literal|"Hello World!"
 decl_stmt|;
+DECL|field|PORT
+specifier|protected
+specifier|static
+specifier|final
+name|int
+name|PORT
+init|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|()
+decl_stmt|;
 DECL|field|camelContext
 specifier|protected
 name|CamelContext
@@ -298,16 +310,6 @@ DECL|field|server
 specifier|protected
 name|Server
 name|server
-decl_stmt|;
-DECL|field|PORT
-specifier|protected
-name|int
-name|PORT
-init|=
-name|AvailablePortFinder
-operator|.
-name|getNextAvailable
-argument_list|()
 decl_stmt|;
 DECL|field|messages
 specifier|protected
