@@ -214,10 +214,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testUDPInOnlyWithNettyConsumer ()
+DECL|method|testUDPInOnlyMulticastWithNettyConsumer ()
 specifier|public
 name|void
-name|testUDPInOnlyWithNettyConsumer
+name|testUDPInOnlyMulticastWithNettyConsumer
 parameter_list|()
 throws|throws
 name|Exception
@@ -255,6 +255,7 @@ name|getBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// any IP in the range of 224.0.0.0 through 239.255.255.255 does the job
 name|sendFile
 argument_list|(
 literal|"netty:udp://224.1.2.3:{{port}}?sync=false"
