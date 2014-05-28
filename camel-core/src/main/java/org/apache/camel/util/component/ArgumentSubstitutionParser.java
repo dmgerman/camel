@@ -663,14 +663,11 @@ operator|||
 name|adapter
 operator|.
 name|type
-operator|.
-name|isAssignableFrom
-argument_list|(
+operator|==
 name|argument
 operator|.
 name|getType
 argument_list|()
-argument_list|)
 condition|)
 block|{
 name|argument
