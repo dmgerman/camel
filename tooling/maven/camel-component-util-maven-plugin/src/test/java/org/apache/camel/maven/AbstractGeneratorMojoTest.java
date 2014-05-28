@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * User: dbokde  * Date: 5/26/14  * Time: 4:49 AM  */
+comment|/**  * Base class for Generator MOJO tests.  */
 end_comment
 
 begin_class
