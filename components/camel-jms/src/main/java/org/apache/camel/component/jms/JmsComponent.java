@@ -362,11 +362,6 @@ specifier|private
 name|ExecutorService
 name|asyncStartStopExecutorService
 decl_stmt|;
-DECL|field|messageListenerContainerFactory
-specifier|private
-name|MessageListenerContainerFactory
-name|messageListenerContainerFactory
-decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
 name|JmsComponent
@@ -2621,8 +2616,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|MessageListenerContainerFactory
 name|messageListenerContainerFactory
-operator|=
+init|=
 name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
@@ -2633,7 +2629,7 @@ name|MessageListenerContainerFactory
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|messageListenerContainerFactory
