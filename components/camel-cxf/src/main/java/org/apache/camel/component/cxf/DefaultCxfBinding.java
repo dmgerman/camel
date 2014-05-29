@@ -957,6 +957,37 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|DataFormat
+name|dataFormat
+init|=
+name|camelExchange
+operator|.
+name|getProperty
+argument_list|(
+name|CxfConstants
+operator|.
+name|DATA_FORMAT_PROPERTY
+argument_list|,
+name|DataFormat
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// we should avoid adding the attachments if the data format is CXFMESSAGE, as the message stream
+comment|// already has the attachment information
+if|if
+condition|(
+operator|!
+name|DataFormat
+operator|.
+name|CXF_MESSAGE
+operator|.
+name|equals
+argument_list|(
+name|dataFormat
+argument_list|)
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -1029,6 +1060,7 @@ argument_list|(
 name|attachment
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
