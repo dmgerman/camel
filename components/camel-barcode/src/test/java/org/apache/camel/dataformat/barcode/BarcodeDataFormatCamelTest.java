@@ -643,7 +643,7 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"direct:marshall"
+literal|"direct:unmarshall"
 argument_list|,
 literal|"mock:image"
 argument_list|)
@@ -651,7 +651,7 @@ expr_stmt|;
 comment|// get the message from code
 name|from
 argument_list|(
-literal|"direct:marshall"
+literal|"direct:unmarshall"
 argument_list|)
 operator|.
 name|unmarshal
