@@ -167,10 +167,6 @@ name|HEIGHT
 argument_list|,
 name|BarcodeParameters
 operator|.
-name|ENCODING
-argument_list|,
-name|BarcodeParameters
-operator|.
 name|FORMAT
 argument_list|,
 name|barcodeDataFormat
@@ -217,10 +213,6 @@ name|BarcodeParameters
 operator|.
 name|HEIGHT
 argument_list|,
-name|BarcodeParameters
-operator|.
-name|ENCODING
-argument_list|,
 name|BarcodeFormat
 operator|.
 name|AZTEC
@@ -264,10 +256,6 @@ argument_list|,
 literal|200
 argument_list|,
 literal|250
-argument_list|,
-name|BarcodeParameters
-operator|.
-name|ENCODING
 argument_list|,
 name|BarcodeParameters
 operator|.
@@ -316,10 +304,6 @@ argument_list|,
 name|BarcodeParameters
 operator|.
 name|HEIGHT
-argument_list|,
-name|BarcodeParameters
-operator|.
-name|ENCODING
 argument_list|,
 name|BarcodeParameters
 operator|.
@@ -372,10 +356,6 @@ argument_list|,
 literal|200
 argument_list|,
 literal|250
-argument_list|,
-name|BarcodeParameters
-operator|.
-name|ENCODING
 argument_list|,
 name|BarcodeFormat
 operator|.
@@ -837,7 +817,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Helper to check the saved parameters.      *       * @param imageType      * @param width      * @param height      * @param encoding      * @param format      * @param params       */
-DECL|method|checkParams (BarcodeImageType imageType, int width, int height , String encoding, BarcodeFormat format, BarcodeParameters params)
+DECL|method|checkParams (BarcodeImageType imageType, int width, int height , BarcodeFormat format, BarcodeParameters params)
 specifier|private
 name|void
 name|checkParams
@@ -850,9 +830,6 @@ name|width
 parameter_list|,
 name|int
 name|height
-parameter_list|,
-name|String
-name|encoding
 parameter_list|,
 name|BarcodeFormat
 name|format
@@ -889,16 +866,6 @@ name|getHeight
 argument_list|()
 operator|==
 name|height
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-name|params
-operator|.
-name|getEncoding
-argument_list|()
-argument_list|,
-name|encoding
 argument_list|)
 expr_stmt|;
 name|assertEquals

@@ -875,17 +875,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-specifier|final
-name|String
-name|encoding
-init|=
-name|this
-operator|.
-name|params
-operator|.
-name|getEncoding
-argument_list|()
-decl_stmt|;
 comment|// create code image
 specifier|final
 name|BitMatrix
@@ -895,18 +884,7 @@ name|writer
 operator|.
 name|encode
 argument_list|(
-operator|new
-name|String
-argument_list|(
 name|payload
-operator|.
-name|getBytes
-argument_list|(
-name|encoding
-argument_list|)
-argument_list|,
-name|encoding
-argument_list|)
 argument_list|,
 name|this
 operator|.

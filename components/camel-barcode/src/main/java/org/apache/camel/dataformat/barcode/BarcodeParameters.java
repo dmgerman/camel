@@ -72,16 +72,6 @@ name|HEIGHT
 init|=
 literal|100
 decl_stmt|;
-comment|/**      * Default encoding: UTF-8      */
-DECL|field|ENCODING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|ENCODING
-init|=
-literal|"UTF-8"
-decl_stmt|;
 comment|/**      * Default barcode format: QR-CODE      */
 DECL|field|FORMAT
 specifier|public
@@ -118,14 +108,6 @@ name|height
 init|=
 name|HEIGHT
 decl_stmt|;
-comment|/**      * The message encoding.      */
-DECL|field|encoding
-specifier|private
-name|String
-name|encoding
-init|=
-name|ENCODING
-decl_stmt|;
 comment|/**      * The barcode format (e.g. QR-Code, DataMatrix,...).      */
 DECL|field|format
 specifier|private
@@ -134,14 +116,14 @@ name|format
 init|=
 name|FORMAT
 decl_stmt|;
-comment|/**      * Default Constructor (creates a bean with default parameters).      *       *<ul>      *<li>image type: PNG</li>      *<li>image width: 100px</li>      *<li>image heigth: 100px</li>      *<li>encoding: UTF-8</li>      *<li>format: QR-Code</li>      *</ul>      */
+comment|/**      * Default Constructor (creates a bean with default parameters).      *       *<ul>      *<li>image type: PNG</li>      *<li>image width: 100px</li>      *<li>image heigth: 100px</li>      *<li>format: QR-Code</li>      *</ul>      */
 DECL|method|BarcodeParameters ()
 specifier|public
 name|BarcodeParameters
 parameter_list|()
 block|{              }
-comment|/**      * Constructor with parameters.      * @param type      * @param width      * @param height      * @param encoding      * @param format      */
-DECL|method|BarcodeParameters (final BarcodeImageType type, final int width, final int height, final String encoding, final BarcodeFormat format)
+comment|/**      * Constructor with parameters.      * @param type      * @param width      * @param height      * @param format      */
+DECL|method|BarcodeParameters (final BarcodeImageType type, final int width, final int height, final BarcodeFormat format)
 specifier|public
 name|BarcodeParameters
 parameter_list|(
@@ -158,20 +140,10 @@ name|int
 name|height
 parameter_list|,
 specifier|final
-name|String
-name|encoding
-parameter_list|,
-specifier|final
 name|BarcodeFormat
 name|format
 parameter_list|)
 block|{
-name|this
-operator|.
-name|encoding
-operator|=
-name|encoding
-expr_stmt|;
 name|this
 operator|.
 name|height
@@ -273,32 +245,6 @@ operator|.
 name|height
 operator|=
 name|height
-expr_stmt|;
-block|}
-DECL|method|getEncoding ()
-specifier|public
-name|String
-name|getEncoding
-parameter_list|()
-block|{
-return|return
-name|encoding
-return|;
-block|}
-DECL|method|setEncoding (String encoding)
-specifier|public
-name|void
-name|setEncoding
-parameter_list|(
-name|String
-name|encoding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|encoding
-operator|=
-name|encoding
 expr_stmt|;
 block|}
 DECL|method|getFormat ()
