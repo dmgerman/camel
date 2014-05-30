@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Date
+name|Calendar
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|logMessage
 decl_stmt|;
 DECL|field|timestamp
 specifier|private
-name|Date
+name|Calendar
 name|timestamp
 decl_stmt|;
 DECL|method|getLogMessage ()
@@ -149,7 +149,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimestamp ()
 specifier|public
-name|Date
+name|Calendar
 name|getTimestamp
 parameter_list|()
 block|{
@@ -157,12 +157,12 @@ return|return
 name|timestamp
 return|;
 block|}
-DECL|method|setTimestamp (Date timestamp)
+DECL|method|setTimestamp (Calendar timestamp)
 specifier|public
 name|void
 name|setTimestamp
 parameter_list|(
-name|Date
+name|Calendar
 name|timestamp
 parameter_list|)
 block|{

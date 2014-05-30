@@ -79,13 +79,15 @@ import|;
 end_import
 
 begin_class
-DECL|class|Rfc3164SyslogDataFormat
+DECL|class|SyslogDataFormat
 specifier|public
 class|class
-name|Rfc3164SyslogDataFormat
+name|SyslogDataFormat
 implements|implements
 name|DataFormat
 block|{
+annotation|@
+name|Override
 DECL|method|marshal (Exchange exchange, Object body, OutputStream stream)
 specifier|public
 name|void
@@ -123,7 +125,7 @@ name|stream
 operator|.
 name|write
 argument_list|(
-name|Rfc3164SyslogConverter
+name|SyslogConverter
 operator|.
 name|toString
 argument_list|(
@@ -135,6 +137,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object
@@ -168,7 +172,7 @@ decl_stmt|;
 name|SyslogMessage
 name|message
 init|=
-name|Rfc3164SyslogConverter
+name|SyslogConverter
 operator|.
 name|parseMessage
 argument_list|(
@@ -246,8 +250,8 @@ name|getTimestamp
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//Since we are behind the fact of being in an Endpoint...
-comment|//We need to pull in the remote/local via either Mina or Netty.
+comment|// Since we are behind the fact of being in an Endpoint...
+comment|// We need to pull in the remote/local via either Mina or Netty.
 if|if
 condition|(
 name|exchange

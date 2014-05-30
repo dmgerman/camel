@@ -1,0 +1,177 @@
+begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  *   */
+end_comment
+
+begin_package
+DECL|package|org.apache.camel.component.syslog
+package|package
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|syslog
+package|;
+end_package
+
+begin_comment
+comment|/**  * @author svenrienstra  *   */
+end_comment
+
+begin_class
+DECL|class|Rfc5424SyslogMessage
+specifier|public
+class|class
+name|Rfc5424SyslogMessage
+extends|extends
+name|SyslogMessage
+block|{
+DECL|field|appName
+specifier|private
+name|String
+name|appName
+init|=
+literal|"-"
+decl_stmt|;
+DECL|field|procId
+specifier|private
+name|String
+name|procId
+init|=
+literal|"-"
+decl_stmt|;
+DECL|field|msgId
+specifier|private
+name|String
+name|msgId
+init|=
+literal|"-"
+decl_stmt|;
+DECL|field|structuredData
+specifier|private
+name|String
+name|structuredData
+init|=
+literal|"-"
+decl_stmt|;
+comment|/**      * @return the appName      */
+DECL|method|getAppName ()
+specifier|public
+name|String
+name|getAppName
+parameter_list|()
+block|{
+return|return
+name|appName
+return|;
+block|}
+comment|/**      * @param appName      *            the appName to set      */
+DECL|method|setAppName (String appName)
+specifier|public
+name|void
+name|setAppName
+parameter_list|(
+name|String
+name|appName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|appName
+operator|=
+name|appName
+expr_stmt|;
+block|}
+comment|/**      * @return the procId      */
+DECL|method|getProcId ()
+specifier|public
+name|String
+name|getProcId
+parameter_list|()
+block|{
+return|return
+name|procId
+return|;
+block|}
+comment|/**      * @param procId      *            the procId to set      */
+DECL|method|setProcId (String procId)
+specifier|public
+name|void
+name|setProcId
+parameter_list|(
+name|String
+name|procId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|procId
+operator|=
+name|procId
+expr_stmt|;
+block|}
+comment|/**      * @return the msgId      */
+DECL|method|getMsgId ()
+specifier|public
+name|String
+name|getMsgId
+parameter_list|()
+block|{
+return|return
+name|msgId
+return|;
+block|}
+comment|/**      * @param msgId      *            the msgId to set      */
+DECL|method|setMsgId (String msgId)
+specifier|public
+name|void
+name|setMsgId
+parameter_list|(
+name|String
+name|msgId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|msgId
+operator|=
+name|msgId
+expr_stmt|;
+block|}
+comment|/**      * @return the structuredData      */
+DECL|method|getStructuredData ()
+specifier|public
+name|String
+name|getStructuredData
+parameter_list|()
+block|{
+return|return
+name|structuredData
+return|;
+block|}
+comment|/**      * @param structuredData      *            the structuredData to set      */
+DECL|method|setStructuredData (String structuredData)
+specifier|public
+name|void
+name|setStructuredData
+parameter_list|(
+name|String
+name|structuredData
+parameter_list|)
+block|{
+name|this
+operator|.
+name|structuredData
+operator|=
+name|structuredData
+expr_stmt|;
+block|}
+block|}
+end_class
+
+end_unit
+
