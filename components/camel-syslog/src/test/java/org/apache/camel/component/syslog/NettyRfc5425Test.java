@@ -201,10 +201,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyRfc5426LongMessageTest
+DECL|class|NettyRfc5425Test
 specifier|public
 class|class
-name|NettyRfc5426LongMessageTest
+name|NettyRfc5425Test
 extends|extends
 name|CamelTestSupport
 block|{
@@ -220,13 +220,25 @@ specifier|static
 name|int
 name|serverPort
 decl_stmt|;
-DECL|field|message
+DECL|field|rfc3164Message
 specifier|private
 specifier|final
 name|String
-name|message
+name|rfc3164Message
 init|=
-literal|"<34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - Lorem ipsum dolor sit amet, tempor democritum vix ad, est partiendo laboramus ei. Munere laudem commune vis ad, et qui altera singulis. Ut assum deleniti sit, vix constituto assueverit appellantur at, et meis voluptua usu. Quem imperdiet in ius, mei ex dictas mandamus, ut pri tation appetere oportere. Et est harum dictas. \n Omnis quaestio mel te, ex duo autem molestie. Ei sed dico minim, nominavi facilisis evertitur quo an, te adipiscing contentiones his. Cum partem deseruisse at, ne iuvaret mediocritatem pro. Ex prima utinam convenire usu, volumus legendos nec et, natum putant quo ne. Invidunt necessitatibus at ius, ne eum wisi dicat mediocrem. \n Cu usu odio labores sententiae. Ex eos duis singulis necessitatibus, dico omittam vix at. Sit iudico option detracto an, sit no modus exerci oportere. Vix dicta munere at, no vis feugiat omnesque convenire. Duo at quod illum dolor, nec amet tantas iisque no, mei quod graece volutpat ea.\n Ornatus legendos theophrastus id mei. Cum alia assum abhorreant et, nam indoctum intellegebat ei. Unum constituto quo cu. Vero tritani sit ei, ea commodo menandri usu, ponderum hendrerit voluptatibus sed te. \n Semper aliquid fabulas ei mel. Vix ei nullam malorum bonorum, movet nemore scaevola cu vel. Quo ut esse dictas incorrupte, ex denique splendide nec, mei dicit doming omnium no. Nulla putent nec id, vis vide ignota eligendi in."
+literal|"<165>Aug  4 05:34:00 mymachine myproc[10]: %% It's\n         time to make the do-nuts.  %%  Ingredients: Mix=OK, Jelly=OK #\n"
+operator|+
+literal|"         Devices: Mixer=OK, Jelly_Injector=OK, Frier=OK # Transport:\n"
+operator|+
+literal|"         Conveyer1=OK, Conveyer2=OK # %%"
+decl_stmt|;
+DECL|field|rfc5424Message
+specifier|private
+specifier|final
+name|String
+name|rfc5424Message
+init|=
+literal|"<34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8"
 decl_stmt|;
 annotation|@
 name|BeforeClass
@@ -327,21 +339,23 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock2
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|mock2
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-name|message
+name|rfc3164Message
+argument_list|,
+name|rfc5424Message
 argument_list|)
 expr_stmt|;
 name|template
@@ -353,7 +367,25 @@ argument_list|,
 operator|new
 name|BigEndianHeapChannelBuffer
 argument_list|(
-name|message
+name|rfc3164Message
+operator|.
+name|getBytes
+argument_list|(
+literal|"UTF8"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+name|uri
+argument_list|,
+operator|new
+name|BigEndianHeapChannelBuffer
+argument_list|(
+name|rfc5424Message
 operator|.
 name|getBytes
 argument_list|(
