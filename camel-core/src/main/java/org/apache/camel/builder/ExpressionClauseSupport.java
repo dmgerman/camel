@@ -1798,16 +1798,17 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|tokenizeXML (String path, boolean wrap, Namespaces namespaces, int group)
+comment|/**      * Evaluates an XML token expression on the message body with XML content      *       * @param path the xpath like path notation specifying the child nodes to tokenize      * @param mode one of 'i', 'w', or 'u' to inject the namespaces to the token, to      *        wrap the token with its ancestor contet, or to unwrap to its element child      * @param namespaces the namespace map to the namespace bindings       * @param group to group by the given number      * @return      */
+DECL|method|xtokenize (String path, char mode, Namespaces namespaces, int group)
 specifier|public
 name|T
-name|tokenizeXML
+name|xtokenize
 parameter_list|(
 name|String
 name|path
 parameter_list|,
-name|boolean
-name|wrap
+name|char
+name|mode
 parameter_list|,
 name|Namespaces
 name|namespaces
@@ -1827,9 +1828,14 @@ argument_list|)
 decl_stmt|;
 name|expression
 operator|.
-name|setWrap
+name|setMode
 argument_list|(
-name|wrap
+name|Character
+operator|.
+name|toString
+argument_list|(
+name|mode
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|expression

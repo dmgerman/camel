@@ -504,6 +504,20 @@ block|,
 literal|"<aunt xmlns:g=\"urn:g\"/>"
 block|}
 decl_stmt|;
+DECL|field|RESULTS_AUNT_UNWRAPPED
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_AUNT_UNWRAPPED
+init|=
+block|{
+literal|"emma"
+block|,
+literal|""
+block|}
+decl_stmt|;
 DECL|field|RESULTS_NULL
 specifier|private
 specifier|static
@@ -595,7 +609,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -619,7 +633,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//C:child"
 argument_list|,
-literal|false
+literal|'i'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -643,7 +657,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//*:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -667,7 +681,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//*:child"
 argument_list|,
-literal|false
+literal|'i'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -691,7 +705,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//*:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -715,7 +729,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//C:c*d"
 argument_list|,
-literal|false
+literal|'i'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -739,7 +753,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -763,7 +777,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"/G:greatgrandparent/grandparent//C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -787,7 +801,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"/G:greatgrandparent//C:parent/C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -811,7 +825,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//grandparent//C:parent/C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -835,7 +849,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//grandparent/C:parent/C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -859,7 +873,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//C:parent/C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -883,7 +897,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"/G:greatgrandparent/grandparent/C:parent/C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -895,10 +909,10 @@ name|RESULTS_CHILD_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|textExtractParent ()
+DECL|method|testExtractParent ()
 specifier|public
 name|void
-name|textExtractParent
+name|testExtractParent
 parameter_list|()
 throws|throws
 name|Exception
@@ -907,7 +921,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//C:parent"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -919,10 +933,10 @@ name|RESULTS_PARENT_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|textExtractParentInjected ()
+DECL|method|testExtractParentInjected ()
 specifier|public
 name|void
-name|textExtractParentInjected
+name|testExtractParentInjected
 parameter_list|()
 throws|throws
 name|Exception
@@ -931,7 +945,7 @@ name|invokeAndVerify
 argument_list|(
 literal|"//C:parent"
 argument_list|,
-literal|false
+literal|'i'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -943,19 +957,19 @@ name|RESULTS_PARENT
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|textExtractAunt ()
+DECL|method|testExtractAuntWC1 ()
 specifier|public
 name|void
-name|textExtractAunt
+name|testExtractAuntWC1
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|invokeAndVerify
 argument_list|(
-literal|"//aunt"
+literal|"//a*t"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -967,10 +981,34 @@ name|RESULTS_AUNT_WRAPPED
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|textExtractAuntInjected ()
+DECL|method|testExtractAuntWC2 ()
 specifier|public
 name|void
-name|textExtractAuntInjected
+name|testExtractAuntWC2
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|invokeAndVerify
+argument_list|(
+literal|"//au?t"
+argument_list|,
+literal|'w'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY
+argument_list|)
+argument_list|,
+name|RESULTS_AUNT_WRAPPED
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExtractAunt ()
+specifier|public
+name|void
+name|testExtractAunt
 parameter_list|()
 throws|throws
 name|Exception
@@ -979,7 +1017,31 @@ name|invokeAndVerify
 argument_list|(
 literal|"//aunt"
 argument_list|,
-literal|false
+literal|'w'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY
+argument_list|)
+argument_list|,
+name|RESULTS_AUNT_WRAPPED
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExtractAuntInjected ()
+specifier|public
+name|void
+name|testExtractAuntInjected
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|invokeAndVerify
+argument_list|(
+literal|"//aunt"
+argument_list|,
+literal|'i'
 argument_list|,
 operator|new
 name|ByteArrayInputStream
@@ -991,7 +1053,31 @@ name|RESULTS_AUNT
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|invokeAndVerify (String path, boolean wrap, InputStream in, String[] expected)
+DECL|method|testExtractAuntUnwrapped ()
+specifier|public
+name|void
+name|testExtractAuntUnwrapped
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|invokeAndVerify
+argument_list|(
+literal|"//aunt"
+argument_list|,
+literal|'u'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY
+argument_list|)
+argument_list|,
+name|RESULTS_AUNT_UNWRAPPED
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|invokeAndVerify (String path, char mode, InputStream in, String[] expected)
 specifier|private
 name|void
 name|invokeAndVerify
@@ -999,8 +1085,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|,
-name|boolean
-name|wrap
+name|char
+name|mode
 parameter_list|,
 name|InputStream
 name|in
@@ -1020,7 +1106,7 @@ name|XMLTokenExpressionIterator
 argument_list|(
 name|path
 argument_list|,
-name|wrap
+name|mode
 argument_list|)
 decl_stmt|;
 name|xtei

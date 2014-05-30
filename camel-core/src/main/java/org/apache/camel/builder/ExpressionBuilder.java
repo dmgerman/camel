@@ -112,16 +112,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Scanner
 import|;
 end_import
@@ -4399,7 +4389,7 @@ name|inheritNamespaceTagName
 argument_list|)
 return|;
 block|}
-DECL|method|tokenizeXMLAwareExpression (String path, boolean wrap)
+DECL|method|tokenizeXMLAwareExpression (String path, char mode)
 specifier|public
 specifier|static
 name|Expression
@@ -4408,8 +4398,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|,
-name|boolean
-name|wrap
+name|char
+name|mode
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -4427,7 +4417,7 @@ name|XMLTokenExpressionIterator
 argument_list|(
 name|path
 argument_list|,
-name|wrap
+name|mode
 argument_list|)
 return|;
 block|}

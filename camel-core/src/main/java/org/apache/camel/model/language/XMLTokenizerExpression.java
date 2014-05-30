@@ -126,20 +126,6 @@ name|XMLTokenizeLanguage
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ExpressionToPredicateAdapter
-import|;
-end_import
-
 begin_comment
 comment|/**  * For expressions and predicates using a body or header tokenizer.  *  * @see XMLTokenizeLanguage  */
 end_comment
@@ -150,7 +136,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"xmlTokenize"
+literal|"xtokenize"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -175,10 +161,10 @@ name|headerName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|wrap
+DECL|field|mode
 specifier|private
-name|Boolean
-name|wrap
+name|String
+name|mode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -244,30 +230,30 @@ operator|=
 name|headerName
 expr_stmt|;
 block|}
-DECL|method|setWrap (boolean wrap)
+DECL|method|setMode (String mode)
 specifier|public
 name|void
-name|setWrap
+name|setMode
 parameter_list|(
-name|boolean
-name|wrap
+name|String
+name|mode
 parameter_list|)
 block|{
 name|this
 operator|.
-name|wrap
+name|mode
 operator|=
-name|wrap
+name|mode
 expr_stmt|;
 block|}
-DECL|method|getWrap ()
+DECL|method|getMode ()
 specifier|public
-name|Boolean
-name|getWrap
+name|String
+name|getMode
 parameter_list|()
 block|{
 return|return
-name|wrap
+name|mode
 return|;
 block|}
 DECL|method|getGroup ()
@@ -321,7 +307,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|wrap
+name|mode
 operator|!=
 literal|null
 condition|)
@@ -330,9 +316,9 @@ name|setProperty
 argument_list|(
 name|expression
 argument_list|,
-literal|"wrap"
+literal|"mode"
 argument_list|,
-name|wrap
+name|mode
 argument_list|)
 expr_stmt|;
 block|}
@@ -362,7 +348,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|wrap
+name|mode
 operator|!=
 literal|null
 condition|)
@@ -371,9 +357,9 @@ name|setProperty
 argument_list|(
 name|predicate
 argument_list|,
-literal|"wrap"
+literal|"mode"
 argument_list|,
-name|wrap
+name|mode
 argument_list|)
 expr_stmt|;
 block|}

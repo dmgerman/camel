@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -109,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A language for tokenizer expressions.  *<p/>  * This xmltokenizer language can operate in the following modes:  *<ul>  *<li>wrap - wrapping the extracted token in its ancestor context</li>  *<li>injected - injecting the contextual namespace bindings into the extracted token</li>  *</ul>  */
+comment|/**  * A language for tokenizer expressions.  *<p/>  * This xmltokenizer language can operate in the following modes:  *<ul>  *<li>inject - injecting the contextual namespace bindings into the extracted token</li>  *<li>wrap - wrapping the extracted token in its ancestor context</li>  *<li>unwrap - unwrapping the extracted token to its child content</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -130,46 +120,46 @@ specifier|private
 name|String
 name|headerName
 decl_stmt|;
-DECL|field|wrap
+DECL|field|mode
 specifier|private
-name|boolean
-name|wrap
+name|char
+name|mode
 decl_stmt|;
 DECL|field|group
 specifier|private
 name|int
 name|group
 decl_stmt|;
-DECL|method|tokenize (String token)
+DECL|method|tokenize (String path)
 specifier|public
 specifier|static
 name|Expression
 name|tokenize
 parameter_list|(
 name|String
-name|token
+name|path
 parameter_list|)
 block|{
 return|return
 name|tokenize
 argument_list|(
-name|token
+name|path
 argument_list|,
-literal|false
+literal|'i'
 argument_list|)
 return|;
 block|}
-DECL|method|tokenize (String token, boolean wrap)
+DECL|method|tokenize (String path, char mode)
 specifier|public
 specifier|static
 name|Expression
 name|tokenize
 parameter_list|(
 name|String
-name|token
+name|path
 parameter_list|,
-name|boolean
-name|wrap
+name|char
+name|mode
 parameter_list|)
 block|{
 name|XMLTokenizeLanguage
@@ -183,14 +173,14 @@ name|language
 operator|.
 name|setPath
 argument_list|(
-name|token
+name|path
 argument_list|)
 expr_stmt|;
 name|language
 operator|.
-name|setWrap
+name|setMode
 argument_list|(
-name|wrap
+name|mode
 argument_list|)
 expr_stmt|;
 return|return
@@ -202,7 +192,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|tokenize (String headerName, String token)
+DECL|method|tokenize (String headerName, String path)
 specifier|public
 specifier|static
 name|Expression
@@ -212,7 +202,7 @@ name|String
 name|headerName
 parameter_list|,
 name|String
-name|token
+name|path
 parameter_list|)
 block|{
 return|return
@@ -220,13 +210,13 @@ name|tokenize
 argument_list|(
 name|headerName
 argument_list|,
-name|token
+name|path
 argument_list|,
-literal|false
+literal|'i'
 argument_list|)
 return|;
 block|}
-DECL|method|tokenize (String headerName, String token, boolean wrap)
+DECL|method|tokenize (String headerName, String path, char mode)
 specifier|public
 specifier|static
 name|Expression
@@ -236,10 +226,10 @@ name|String
 name|headerName
 parameter_list|,
 name|String
-name|token
+name|path
 parameter_list|,
-name|boolean
-name|wrap
+name|char
+name|mode
 parameter_list|)
 block|{
 name|XMLTokenizeLanguage
@@ -260,14 +250,14 @@ name|language
 operator|.
 name|setPath
 argument_list|(
-name|token
+name|path
 argument_list|)
 expr_stmt|;
 name|language
 operator|.
-name|setWrap
+name|setMode
 argument_list|(
-name|wrap
+name|mode
 argument_list|)
 expr_stmt|;
 return|return
@@ -325,7 +315,7 @@ name|tokenizeXMLAwareExpression
 argument_list|(
 name|path
 argument_list|,
-name|wrap
+name|mode
 argument_list|)
 decl_stmt|;
 comment|// if group then wrap answer in group expression
@@ -438,30 +428,30 @@ operator|=
 name|headerName
 expr_stmt|;
 block|}
-DECL|method|isWrap ()
+DECL|method|getMode ()
 specifier|public
-name|boolean
-name|isWrap
+name|char
+name|getMode
 parameter_list|()
 block|{
 return|return
-name|wrap
+name|mode
 return|;
 block|}
-DECL|method|setWrap (boolean wrap)
+DECL|method|setMode (char mode)
 specifier|public
 name|void
-name|setWrap
+name|setMode
 parameter_list|(
-name|boolean
-name|wrap
+name|char
+name|mode
 parameter_list|)
 block|{
 name|this
 operator|.
-name|wrap
+name|mode
 operator|=
-name|wrap
+name|mode
 expr_stmt|;
 block|}
 DECL|method|getGroup ()

@@ -395,11 +395,11 @@ operator|.
 name|split
 argument_list|()
 operator|.
-name|tokenizeXML
+name|xtokenize
 argument_list|(
 literal|"//C:child"
 argument_list|,
-literal|true
+literal|'w'
 argument_list|,
 name|ns
 argument_list|)
