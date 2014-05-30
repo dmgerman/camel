@@ -512,7 +512,7 @@ name|signature
 operator|.
 name|replaceAll
 argument_list|(
-literal|"<[^>]*>|public|final"
+literal|"<[^>]*>|\\s*(public|final|synchronized|native)\\s*"
 argument_list|,
 literal|""
 argument_list|)
