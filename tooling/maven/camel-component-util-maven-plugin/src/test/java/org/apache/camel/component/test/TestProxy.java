@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.maven
+DECL|package|org.apache.camel.component.test
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|maven
+name|component
+operator|.
+name|test
 package|;
 end_package
 
@@ -50,6 +52,23 @@ parameter_list|()
 block|{
 return|return
 literal|"Hello!"
+return|;
+block|}
+DECL|method|sayHi (boolean hello)
+specifier|public
+name|String
+name|sayHi
+parameter_list|(
+name|boolean
+name|hello
+parameter_list|)
+block|{
+return|return
+name|hello
+condition|?
+literal|"Hello!"
+else|:
+literal|"Hi!"
 return|;
 block|}
 DECL|method|sayHi (final String name)

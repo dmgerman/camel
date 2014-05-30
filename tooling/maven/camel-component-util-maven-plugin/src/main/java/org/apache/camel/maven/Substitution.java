@@ -46,6 +46,11 @@ specifier|private
 name|String
 name|replacement
 decl_stmt|;
+DECL|method|Substitution ()
+specifier|public
+name|Substitution
+parameter_list|()
+block|{     }
 DECL|method|Substitution (String method, String argName, String argType, String replacement)
 specifier|public
 name|Substitution

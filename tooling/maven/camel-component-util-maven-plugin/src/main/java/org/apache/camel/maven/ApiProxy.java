@@ -70,6 +70,35 @@ name|Collections
 operator|.
 name|EMPTY_MAP
 decl_stmt|;
+DECL|method|ApiProxy ()
+specifier|public
+name|ApiProxy
+parameter_list|()
+block|{     }
+DECL|method|ApiProxy (String apiName, String proxyClass)
+specifier|public
+name|ApiProxy
+parameter_list|(
+name|String
+name|apiName
+parameter_list|,
+name|String
+name|proxyClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiName
+operator|=
+name|apiName
+expr_stmt|;
+name|this
+operator|.
+name|proxyClass
+operator|=
+name|proxyClass
+expr_stmt|;
+block|}
 DECL|method|getApiName ()
 specifier|public
 name|String
