@@ -318,6 +318,20 @@ name|ResolutionScope
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|plexus
+operator|.
+name|util
+operator|.
+name|IOUtil
+import|;
+end_import
+
 begin_comment
 comment|/**  * Parses ApiMethod signatures from Javadoc.  */
 end_comment
@@ -334,7 +348,7 @@ name|requiresDependencyResolution
 operator|=
 name|ResolutionScope
 operator|.
-name|COMPILE_PLUS_RUNTIME
+name|TEST
 argument_list|,
 name|requiresProject
 operator|=
@@ -425,16 +439,20 @@ parameter_list|()
 throws|throws
 name|MojoExecutionException
 block|{
-comment|// get signatures as a list of Strings
-name|List
+comment|// signatures as map from signature with no arg names to arg names from JavadocParser
+name|Map
 argument_list|<
+name|String
+argument_list|,
 name|String
 argument_list|>
 name|result
 init|=
 operator|new
-name|ArrayList
+name|HashMap
 argument_list|<
+name|String
+argument_list|,
 name|String
 argument_list|>
 argument_list|()
@@ -481,6 +499,10 @@ init|=
 name|getProxyType
 argument_list|()
 init|;
+name|aClass
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|packages
 operator|.
@@ -545,12 +567,15 @@ operator|+
 literal|".html"
 decl_stmt|;
 comment|// read javadoc html text for class
-try|try
-block|{
-specifier|final
 name|InputStream
 name|inputStream
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|inputStream
+operator|=
 name|getProjectClassLoader
 argument_list|()
 operator|.
@@ -558,7 +583,7 @@ name|getResourceAsStream
 argument_list|(
 name|javaDocPath
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|inputStream
@@ -566,18 +591,19 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|MojoExecutionException
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"JavaDoc not found using classpath for "
+literal|"JavaDoc not found on classpath for "
 operator|+
 name|aClass
 operator|.
 name|getName
 argument_list|()
 argument_list|)
-throw|;
+expr_stmt|;
+break|break;
 block|}
 comment|// transform the HTML to get method summary as text
 comment|// dummy DTD
@@ -642,6 +668,17 @@ operator|.
 name|getMethods
 argument_list|()
 control|)
+block|{
+if|if
+condition|(
+operator|!
+name|result
+operator|.
+name|containsKey
+argument_list|(
+name|method
+argument_list|)
+condition|)
 block|{
 specifier|final
 name|int
@@ -774,14 +811,17 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|add
+name|put
 argument_list|(
+name|method
+argument_list|,
 name|signature
 operator|.
 name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -804,9 +844,47 @@ name|e
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+name|IOUtil
+operator|.
+name|close
+argument_list|(
+name|inputStream
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|result
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"No public non-static methods found, "
+operator|+
+literal|"make sure Javadoc is available as project test dependency"
+argument_list|)
+throw|;
 block|}
 return|return
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
 name|result
+operator|.
+name|values
+argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|method|getResultType (Class<?> aClass, String name, String[] types)
