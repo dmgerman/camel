@@ -129,10 +129,10 @@ comment|/**  * @author svenrienstra  */
 end_comment
 
 begin_class
-DECL|class|Rfc5426FrameDecoder
+DECL|class|Rfc5425FrameDecoder
 specifier|public
 class|class
-name|Rfc5426FrameDecoder
+name|Rfc5425FrameDecoder
 extends|extends
 name|FrameDecoder
 implements|implements
@@ -465,7 +465,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|Rfc5426FrameDecoder
+name|Rfc5425FrameDecoder
 argument_list|()
 return|;
 block|}

@@ -131,10 +131,10 @@ end_comment
 begin_class
 annotation|@
 name|Sharable
-DECL|class|Rfc5426Encoder
+DECL|class|Rfc5425Encoder
 specifier|public
 class|class
-name|Rfc5426Encoder
+name|Rfc5425Encoder
 extends|extends
 name|OneToOneEncoder
 block|{

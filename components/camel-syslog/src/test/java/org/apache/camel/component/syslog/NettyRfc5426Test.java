@@ -86,7 +86,7 @@ name|syslog
 operator|.
 name|netty
 operator|.
-name|Rfc5426Encoder
+name|Rfc5425Encoder
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|syslog
 operator|.
 name|netty
 operator|.
-name|Rfc5426FrameDecoder
+name|Rfc5425FrameDecoder
 import|;
 end_import
 
@@ -290,7 +290,7 @@ argument_list|(
 literal|"decoder"
 argument_list|,
 operator|new
-name|Rfc5426FrameDecoder
+name|Rfc5425FrameDecoder
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -301,7 +301,7 @@ argument_list|(
 literal|"encoder"
 argument_list|,
 operator|new
-name|Rfc5426Encoder
+name|Rfc5425Encoder
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -423,7 +423,7 @@ argument_list|(
 literal|"rfc5426FrameDecoder"
 argument_list|,
 operator|new
-name|Rfc5426FrameDecoder
+name|Rfc5425FrameDecoder
 argument_list|()
 argument_list|)
 expr_stmt|;
