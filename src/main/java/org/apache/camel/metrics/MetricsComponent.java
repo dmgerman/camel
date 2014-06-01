@@ -302,6 +302,17 @@ name|HEADER_PERFIX
 operator|+
 literal|"HistogramValue"
 decl_stmt|;
+DECL|field|HEADER_METER_MARK
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_METER_MARK
+init|=
+name|HEADER_PERFIX
+operator|+
+literal|"MeterMark"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
