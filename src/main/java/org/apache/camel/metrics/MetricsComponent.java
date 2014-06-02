@@ -313,6 +313,17 @@ name|HEADER_PERFIX
 operator|+
 literal|"MeterMark"
 decl_stmt|;
+DECL|field|HEADER_TIMER_ACTION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_TIMER_ACTION
+init|=
+name|HEADER_PERFIX
+operator|+
+literal|"TimerAction"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
