@@ -19,14 +19,14 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Dummy component config.  */
+comment|/**  * Dummy component configuration.  */
 end_comment
 
 begin_class
-DECL|class|TestConfig
+DECL|class|TestConfiguration
 specifier|public
 class|class
-name|TestConfig
+name|TestConfiguration
 block|{ }
 end_class
 

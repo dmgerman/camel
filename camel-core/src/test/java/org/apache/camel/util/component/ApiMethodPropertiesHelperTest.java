@@ -93,7 +93,7 @@ specifier|final
 name|String
 name|TEST_PREFIX
 init|=
-literal|"TestComponent."
+literal|"CamelTest."
 decl_stmt|;
 DECL|field|PROPERTY_1
 specifier|private
@@ -190,6 +190,7 @@ name|class
 argument_list|,
 name|TEST_PREFIX
 argument_list|)
+block|{}
 decl_stmt|;
 annotation|@
 name|Test

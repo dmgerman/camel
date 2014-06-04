@@ -127,13 +127,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper class to work with ApiMethod arguments.  */
+comment|/**  * Helper class to work with ApiMethod arguments to be extended by components.  */
 end_comment
 
 begin_class
 DECL|class|ApiMethodPropertiesHelper
 specifier|public
-specifier|final
+specifier|abstract
 class|class
 name|ApiMethodPropertiesHelper
 parameter_list|<
@@ -141,8 +141,7 @@ name|C
 parameter_list|>
 block|{
 DECL|field|LOG
-specifier|private
-specifier|final
+specifier|protected
 name|Logger
 name|LOG
 init|=
@@ -157,7 +156,7 @@ argument_list|)
 decl_stmt|;
 comment|// set of field names which are specific to the api, to be excluded from method argument considerations
 DECL|field|COMPONENT_CONFIG_FIELDS
-specifier|private
+specifier|protected
 specifier|final
 name|Set
 argument_list|<
@@ -173,7 +172,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|componentConfigClass
-specifier|private
+specifier|protected
 specifier|final
 name|Class
 argument_list|<
@@ -182,13 +181,13 @@ argument_list|>
 name|componentConfigClass
 decl_stmt|;
 DECL|field|propertyPrefix
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|propertyPrefix
 decl_stmt|;
 DECL|method|ApiMethodPropertiesHelper (Class<C> componentConfiguration, String propertyPrefix)
-specifier|public
+specifier|protected
 name|ApiMethodPropertiesHelper
 parameter_list|(
 name|Class
