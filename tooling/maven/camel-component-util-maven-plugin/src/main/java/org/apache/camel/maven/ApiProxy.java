@@ -32,7 +32,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|List
 import|;
 end_import
 
@@ -58,17 +58,15 @@ name|proxyClass
 decl_stmt|;
 DECL|field|aliases
 specifier|private
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
-name|String
+name|ApiMethodAlias
 argument_list|>
 name|aliases
 init|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|EMPTY_LIST
 decl_stmt|;
 DECL|method|ApiProxy ()
 specifier|public
@@ -97,6 +95,37 @@ operator|.
 name|proxyClass
 operator|=
 name|proxyClass
+expr_stmt|;
+block|}
+DECL|method|ApiProxy (String apiName, String proxyClass, List<ApiMethodAlias> aliases)
+specifier|public
+name|ApiProxy
+parameter_list|(
+name|String
+name|apiName
+parameter_list|,
+name|String
+name|proxyClass
+parameter_list|,
+name|List
+argument_list|<
+name|ApiMethodAlias
+argument_list|>
+name|aliases
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|apiName
+argument_list|,
+name|proxyClass
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|aliases
+operator|=
+name|aliases
 expr_stmt|;
 block|}
 DECL|method|getApiName ()
@@ -153,11 +182,9 @@ expr_stmt|;
 block|}
 DECL|method|getAliases ()
 specifier|public
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
-name|String
+name|ApiMethodAlias
 argument_list|>
 name|getAliases
 parameter_list|()
@@ -166,16 +193,14 @@ return|return
 name|aliases
 return|;
 block|}
-DECL|method|setAliases (Map<String, String> aliases)
+DECL|method|setAliases (List<ApiMethodAlias> aliases)
 specifier|public
 name|void
 name|setAliases
 parameter_list|(
-name|Map
+name|List
 argument_list|<
-name|String
-argument_list|,
-name|String
+name|ApiMethodAlias
 argument_list|>
 name|aliases
 parameter_list|)

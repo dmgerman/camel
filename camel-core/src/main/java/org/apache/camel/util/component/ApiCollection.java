@@ -89,6 +89,8 @@ extends|extends
 name|Enum
 operator|&
 name|ApiName
+parameter_list|,
+name|C
 parameter_list|>
 block|{
 DECL|field|apis
@@ -111,6 +113,7 @@ name|ApiMethodHelper
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * Returns a {@link ApiMethodHelper} for a particular API.      * @param apiName name of the API      * @return helper class to work with {@link ApiMethod}      */
 DECL|method|getHelper (T apiName)
 specifier|public
 specifier|final
@@ -130,6 +133,7 @@ name|apiName
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a list of API name strings.      * @return list of API names.      */
 DECL|method|getApiNames ()
 specifier|public
 specifier|final
@@ -185,6 +189,17 @@ name|result
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates an endpoint configuration for a particular API      * @param apiName name of the API.      * @return Endpoint configuration object for the API.      */
+DECL|method|getEndpointConfiguration (T apiName)
+specifier|public
+specifier|abstract
+name|C
+name|getEndpointConfiguration
+parameter_list|(
+name|T
+name|apiName
+parameter_list|)
+function_decl|;
 block|}
 end_class
 

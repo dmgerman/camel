@@ -1278,13 +1278,16 @@ operator|.
 name|TYPE
 return|;
 block|}
-DECL|method|getPropertyPrefix ()
+DECL|method|getExchangePropertyPrefix ()
 specifier|public
 name|String
-name|getPropertyPrefix
+name|getExchangePropertyPrefix
 parameter_list|()
 block|{
+comment|// exchange property prefix
 return|return
+literal|"Camel"
+operator|+
 name|componentName
 operator|+
 literal|"."
@@ -1492,11 +1495,11 @@ literal|"null"
 return|;
 block|}
 block|}
-DECL|method|getPropertySuffix (String parameter)
+DECL|method|getBeanPropertySuffix (String parameter)
 specifier|public
 specifier|static
 name|String
-name|getPropertySuffix
+name|getBeanPropertySuffix
 parameter_list|(
 name|String
 name|parameter

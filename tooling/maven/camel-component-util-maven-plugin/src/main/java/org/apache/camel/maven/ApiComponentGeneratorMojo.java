@@ -263,9 +263,9 @@ name|context
 operator|.
 name|put
 argument_list|(
-literal|"packageName"
+literal|"componentPackage"
 argument_list|,
-name|outPackage
+name|componentPackage
 argument_list|)
 expr_stmt|;
 name|context
@@ -480,6 +480,34 @@ literal|1
 argument_list|)
 operator|+
 literal|"ApiMethod"
+return|;
+block|}
+DECL|method|getEndpointConfig (String proxyClass)
+specifier|public
+specifier|static
+name|String
+name|getEndpointConfig
+parameter_list|(
+name|String
+name|proxyClass
+parameter_list|)
+block|{
+return|return
+name|proxyClass
+operator|.
+name|substring
+argument_list|(
+name|proxyClass
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'.'
+argument_list|)
+operator|+
+literal|1
+argument_list|)
+operator|+
+literal|"EndpointConfiguration"
 return|;
 block|}
 DECL|method|getEnumConstant (String enumValue)
