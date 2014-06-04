@@ -486,36 +486,28 @@ specifier|private
 name|Boolean
 name|topologyRecoveryEnabled
 decl_stmt|;
-comment|//Define will be used basicOqs
+comment|//If it is true, prefetchSize, prefetchCount, prefetchGlobal will be used for basicOqs before starting RabbitMQConsumer
 DECL|field|prefetchEnabled
 specifier|private
 name|boolean
 name|prefetchEnabled
-init|=
-literal|false
 decl_stmt|;
 comment|//Default in RabbitMq is 0.
 DECL|field|prefetchSize
 specifier|private
-name|Integer
+name|int
 name|prefetchSize
-init|=
-literal|0
 decl_stmt|;
 DECL|field|prefetchCount
 specifier|private
-name|Integer
+name|int
 name|prefetchCount
-init|=
-literal|0
 decl_stmt|;
-comment|//Default vaule in RabbitMQ is false.
+comment|//Default value in RabbitMQ is false.
 DECL|field|prefetchGlobal
 specifier|private
 name|boolean
 name|prefetchGlobal
-init|=
-literal|false
 decl_stmt|;
 DECL|method|RabbitMQEndpoint ()
 specifier|public
@@ -1912,12 +1904,12 @@ operator|=
 name|prefetchEnabled
 expr_stmt|;
 block|}
-DECL|method|setPrefetchSize (Integer prefetchSize)
+DECL|method|setPrefetchSize (int prefetchSize)
 specifier|public
 name|void
 name|setPrefetchSize
 parameter_list|(
-name|Integer
+name|int
 name|prefetchSize
 parameter_list|)
 block|{
@@ -1930,7 +1922,7 @@ expr_stmt|;
 block|}
 DECL|method|getPrefetchSize ()
 specifier|public
-name|Integer
+name|int
 name|getPrefetchSize
 parameter_list|()
 block|{
@@ -1938,12 +1930,12 @@ return|return
 name|prefetchSize
 return|;
 block|}
-DECL|method|setPrefetchCount (Integer prefetchCount)
+DECL|method|setPrefetchCount (int prefetchCount)
 specifier|public
 name|void
 name|setPrefetchCount
 parameter_list|(
-name|Integer
+name|int
 name|prefetchCount
 parameter_list|)
 block|{
@@ -1956,7 +1948,7 @@ expr_stmt|;
 block|}
 DECL|method|getPrefetchCount ()
 specifier|public
-name|Integer
+name|int
 name|getPrefetchCount
 parameter_list|()
 block|{
