@@ -405,19 +405,17 @@ block|{
 name|name
 block|}
 name|Component
-argument_list|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
-argument_list|)
+argument_list|()
 block|{
 name|super
 argument_list|(
-name|endpointClass
+name|$
+block|{
+name|name
+block|}
+name|Endpoint
+operator|.
+name|class
 argument_list|)
 block|;     }
 specifier|public
@@ -429,21 +427,19 @@ name|Component
 argument_list|(
 name|CamelContext
 name|context
-argument_list|,
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Endpoint
-argument_list|>
-name|endpointClass
 argument_list|)
 block|{
 name|super
 argument_list|(
 name|context
 argument_list|,
-name|endpointClass
+name|$
+block|{
+name|name
+block|}
+name|Endpoint
+operator|.
+name|class
 argument_list|)
 block|;     }
 specifier|protected
@@ -654,6 +650,20 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 
+begin_comment
+comment|// configure endpoint properties and initialize state
+end_comment
+
+begin_expr_stmt
+name|endpoint
+operator|.
+name|configureProperties
+argument_list|(
+name|parameters
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
 begin_return
 return|return
 name|endpoint
@@ -699,7 +709,14 @@ argument_list|()
 expr_stmt|;
 end_expr_stmt
 
-begin_expr_stmt
+begin_if
+if|if
+condition|(
+name|configuration
+operator|!=
+literal|null
+condition|)
+block|{
 name|IntrospectionSupport
 operator|.
 name|getProperties
@@ -713,7 +730,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_if
 
 begin_comment
 comment|// create endpoint configuration with component properties
