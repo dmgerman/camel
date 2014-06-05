@@ -359,6 +359,18 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|buf
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 DECL|class|TrimmableByteArrayOutputStream
 specifier|private
 specifier|static
