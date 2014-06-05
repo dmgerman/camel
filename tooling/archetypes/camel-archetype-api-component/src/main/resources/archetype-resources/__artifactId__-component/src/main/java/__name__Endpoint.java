@@ -697,14 +697,14 @@ name|name
 block|}
 name|ApiName
 operator|.
-name|HELLO1
+name|HELLO_FILE
 argument_list|,
 operator|new
 name|$
 block|{
 name|name
 block|}
-name|FileSigApi
+name|FileHello
 argument_list|()
 argument_list|)
 block|;
@@ -718,14 +718,14 @@ name|name
 block|}
 name|ApiName
 operator|.
-name|HELLO2
+name|HELLO_JAVADOC
 argument_list|,
 operator|new
 name|$
 block|{
 name|name
 block|}
-name|JavadocSigApi
+name|JavadocHello
 argument_list|()
 argument_list|)
 block|;     }

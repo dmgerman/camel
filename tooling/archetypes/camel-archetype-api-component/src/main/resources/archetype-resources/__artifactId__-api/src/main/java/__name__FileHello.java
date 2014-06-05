@@ -180,7 +180,7 @@ empty_stmt|;
 end_empty_stmt
 
 begin_comment
-comment|/**  * Sample API used by ${name} Component whose method signatures are read from Javadoc.  */
+comment|/**  * Sample API used by ${name} Component whose method signatures are read from File.  */
 end_comment
 
 begin_class
@@ -195,7 +195,7 @@ end_class
 
 begin_expr_stmt
 DECL|class|$
-name|JavadocSigApi
+name|FileHello
 block|{
 specifier|public
 name|String
