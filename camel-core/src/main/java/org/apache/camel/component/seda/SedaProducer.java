@@ -144,26 +144,6 @@ name|ExchangeHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -176,23 +156,6 @@ name|SedaProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SedaProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * @deprecated Better make use of the {@link SedaEndpoint#getQueue()} API which delivers the accurate reference to the queue currently being used.      */
 annotation|@
 name|Deprecated
