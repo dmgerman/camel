@@ -580,9 +580,9 @@ throw|throw
 operator|new
 name|CamelException
 argument_list|(
-literal|"Invalid URI path ["
+literal|"Invalid URI path prefix ["
 operator|+
-name|apiNameStr
+name|remaining
 operator|+
 literal|"], must be one of "
 operator|+
