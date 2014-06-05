@@ -367,6 +367,19 @@ name|JavadocApiMethodGeneratorMojo
 extends|extends
 name|AbstractApiMethodGeneratorMojo
 block|{
+static|static
+block|{
+comment|// set Java AWT to headless before using Swing HTML parser
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"java.awt.headless"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|field|DEFAULT_EXCLUDE_PACKAGES
 specifier|protected
 specifier|static
