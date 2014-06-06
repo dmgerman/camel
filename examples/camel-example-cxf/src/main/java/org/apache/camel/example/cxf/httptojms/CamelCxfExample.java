@@ -203,15 +203,6 @@ name|SOAP_OVER_HTTP_ROUTER
 init|=
 literal|"portName={http://apache.org/hello_world_soap_http}SoapOverHttpRouter"
 decl_stmt|;
-DECL|field|SOAP_OVER_JMS
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SOAP_OVER_JMS
-init|=
-literal|"portName={http://apache.org/hello_world_soap_http}SoapOverJms"
-decl_stmt|;
 DECL|field|ROUTER_ENDPOINT_URI
 specifier|private
 specifier|static
