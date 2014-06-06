@@ -78,8 +78,6 @@ begin_import
 import|import
 name|rx
 operator|.
-name|util
-operator|.
 name|functions
 operator|.
 name|Func1
