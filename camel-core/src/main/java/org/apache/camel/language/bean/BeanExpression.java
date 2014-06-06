@@ -1499,17 +1499,6 @@ name|beanToCall
 operator|=
 name|result
 expr_stmt|;
-comment|// we need to set the result to the exchange for further processing
-name|resultExchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|lookupResult (Exchange exchange, String key, Object result, boolean nullSafe, String ognlPath, Object bean)

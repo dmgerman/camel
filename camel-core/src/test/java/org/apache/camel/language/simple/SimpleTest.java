@@ -1056,7 +1056,7 @@ name|SimpleLanguage
 operator|.
 name|simple
 argument_list|(
-literal|"body.getMyArray"
+literal|"body.myArray"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1094,7 +1094,7 @@ name|SimpleLanguage
 operator|.
 name|simple
 argument_list|(
-literal|"body.getMyArray.length"
+literal|"body.myArray.length"
 argument_list|)
 expr_stmt|;
 name|assertNotNull

@@ -1581,6 +1581,17 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// Need to update the message body to be pojo for the invocation
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|pojo
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
