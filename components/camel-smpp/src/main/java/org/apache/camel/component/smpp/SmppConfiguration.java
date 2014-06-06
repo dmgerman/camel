@@ -649,7 +649,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|alphabet
+name|dataCoding
 operator|=
 name|dataCoding
 expr_stmt|;
