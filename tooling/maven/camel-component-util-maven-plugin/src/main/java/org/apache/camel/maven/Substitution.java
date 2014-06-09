@@ -46,12 +46,17 @@ specifier|private
 name|String
 name|replacement
 decl_stmt|;
+DECL|field|replaceWithType
+specifier|private
+name|boolean
+name|replaceWithType
+decl_stmt|;
 DECL|method|Substitution ()
 specifier|public
 name|Substitution
 parameter_list|()
 block|{     }
-DECL|method|Substitution (String method, String argName, String argType, String replacement)
+DECL|method|Substitution (String method, String argName, String argType, String replacement, boolean replaceWithType)
 specifier|public
 name|Substitution
 parameter_list|(
@@ -66,6 +71,9 @@ name|argType
 parameter_list|,
 name|String
 name|replacement
+parameter_list|,
+name|boolean
+name|replaceWithType
 parameter_list|)
 block|{
 name|this
@@ -91,6 +99,12 @@ operator|.
 name|replacement
 operator|=
 name|replacement
+expr_stmt|;
+name|this
+operator|.
+name|replaceWithType
+operator|=
+name|replaceWithType
 expr_stmt|;
 block|}
 DECL|method|getMethod ()
@@ -195,6 +209,32 @@ operator|.
 name|replacement
 operator|=
 name|replacement
+expr_stmt|;
+block|}
+DECL|method|isReplaceWithType ()
+specifier|public
+name|boolean
+name|isReplaceWithType
+parameter_list|()
+block|{
+return|return
+name|replaceWithType
+return|;
+block|}
+DECL|method|setReplaceWithType (boolean replaceWithType)
+specifier|public
+name|void
+name|setReplaceWithType
+parameter_list|(
+name|boolean
+name|replaceWithType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replaceWithType
+operator|=
+name|replaceWithType
 expr_stmt|;
 block|}
 block|}
