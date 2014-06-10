@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This component supports the AMQP protocol using the Client API of the Apache Qpid project.  *   * @version   */
+comment|/**  * This component supports the AMQP protocol using the Client API of the Apache Qpid project.  */
 end_comment
 
 begin_class
