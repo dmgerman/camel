@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -70,7 +82,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -154,7 +166,7 @@ specifier|public
 class|class
 name|MyBatisComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|sqlSessionFactory
 specifier|private
@@ -168,6 +180,19 @@ name|configurationUri
 init|=
 literal|"SqlMapConfig.xml"
 decl_stmt|;
+DECL|method|MyBatisComponent ()
+specifier|public
+name|MyBatisComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|MyBatisEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
