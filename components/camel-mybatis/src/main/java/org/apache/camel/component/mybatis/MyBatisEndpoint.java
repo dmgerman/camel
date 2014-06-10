@@ -189,6 +189,10 @@ DECL|field|processingStrategy
 specifier|private
 name|MyBatisProcessingStrategy
 name|processingStrategy
+init|=
+operator|new
+name|DefaultMyBatisProcessingStrategy
+argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -483,25 +487,10 @@ expr_stmt|;
 block|}
 DECL|method|getProcessingStrategy ()
 specifier|public
-specifier|synchronized
 name|MyBatisProcessingStrategy
 name|getProcessingStrategy
 parameter_list|()
 block|{
-if|if
-condition|(
-name|processingStrategy
-operator|==
-literal|null
-condition|)
-block|{
-name|processingStrategy
-operator|=
-operator|new
-name|DefaultMyBatisProcessingStrategy
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|processingStrategy
 return|;
