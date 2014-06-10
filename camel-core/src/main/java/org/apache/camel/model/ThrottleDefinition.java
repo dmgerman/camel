@@ -257,6 +257,13 @@ specifier|private
 name|Boolean
 name|callerRunsWhenRejected
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|rejectExecution
+specifier|private
+name|Boolean
+name|rejectExecution
+decl_stmt|;
 DECL|method|ThrottleDefinition ()
 specifier|public
 name|ThrottleDefinition
@@ -462,6 +469,9 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|shutdownThreadPool
+argument_list|,
+name|isRejectExecution
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -652,6 +662,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether or not throttler throws the RejectExceutionException when the exchange exceeds the request limit      *<p/>      * Is by default<tt>false</tt>      *      * @param throw the RejectExecutionException if the exchange exceeds the request limit       * @return the builder      */
+DECL|method|rejectExecution (boolean rejectExecution)
+specifier|public
+name|ThrottleDefinition
+name|rejectExecution
+parameter_list|(
+name|boolean
+name|rejectExecution
+parameter_list|)
+block|{
+name|setRejectExecution
+argument_list|(
+name|rejectExecution
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ThrottleDefinition
@@ -832,6 +861,38 @@ operator|.
 name|executorServiceRef
 operator|=
 name|executorServiceRef
+expr_stmt|;
+block|}
+DECL|method|isRejectExecution ()
+specifier|public
+name|boolean
+name|isRejectExecution
+parameter_list|()
+block|{
+return|return
+name|rejectExecution
+operator|!=
+literal|null
+condition|?
+name|rejectExecution
+else|:
+literal|false
+return|;
+block|}
+DECL|method|setRejectExecution (Boolean rejectExecution)
+specifier|public
+name|void
+name|setRejectExecution
+parameter_list|(
+name|Boolean
+name|rejectExecution
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rejectExecution
+operator|=
+name|rejectExecution
 expr_stmt|;
 block|}
 block|}
