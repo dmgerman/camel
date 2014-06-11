@@ -121,6 +121,7 @@ end_comment
 begin_class
 DECL|class|AbstractGeneratorMojoTest
 specifier|public
+specifier|abstract
 class|class
 name|AbstractGeneratorMojoTest
 block|{

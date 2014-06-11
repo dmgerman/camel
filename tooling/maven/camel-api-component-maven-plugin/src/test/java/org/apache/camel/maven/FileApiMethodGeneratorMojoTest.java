@@ -243,6 +243,19 @@ argument_list|(
 literal|"src/test/resources/test-proxy-signatures.txt"
 argument_list|)
 expr_stmt|;
+comment|// exclude name2, and int times
+name|mojo
+operator|.
+name|excludeConfigNames
+operator|=
+literal|"name2"
+expr_stmt|;
+name|mojo
+operator|.
+name|excludeConfigTypes
+operator|=
+literal|"int"
+expr_stmt|;
 name|mojo
 operator|.
 name|execute

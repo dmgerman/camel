@@ -394,7 +394,9 @@ name|Parameter
 argument_list|(
 name|property
 operator|=
-literal|"camel.component.util.excludePackages"
+name|PREFIX
+operator|+
+literal|"excludePackages"
 argument_list|,
 name|defaultValue
 operator|=
@@ -410,7 +412,9 @@ name|Parameter
 argument_list|(
 name|property
 operator|=
-literal|"camel.component.util.excludeClasses"
+name|PREFIX
+operator|+
+literal|"excludeClasses"
 argument_list|)
 DECL|field|excludeClasses
 specifier|protected
@@ -422,7 +426,9 @@ name|Parameter
 argument_list|(
 name|property
 operator|=
-literal|"camel.component.util.excludeMethods"
+name|PREFIX
+operator|+
+literal|"excludeMethods"
 argument_list|)
 DECL|field|excludeMethods
 specifier|protected
