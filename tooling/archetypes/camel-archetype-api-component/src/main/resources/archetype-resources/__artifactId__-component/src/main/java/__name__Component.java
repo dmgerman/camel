@@ -538,7 +538,7 @@ operator|.
 name|getApiNames
 argument_list|()
 operator|+
-literal|"/<operation-apiName>"
+literal|"/<operation-name>"
 argument_list|)
 throw|;
 block|}

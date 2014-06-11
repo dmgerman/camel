@@ -222,6 +222,30 @@ return|;
 block|}
 end_expr_stmt
 
+begin_function
+specifier|public
+name|String
+name|greetUs
+parameter_list|(
+name|String
+name|name1
+parameter_list|,
+name|String
+name|name2
+parameter_list|)
+block|{
+return|return
+literal|"Hello "
+operator|+
+name|name1
+operator|+
+literal|", "
+operator|+
+name|name2
+return|;
+block|}
+end_function
+
 unit|}
 end_unit
 
