@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|JpaComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -169,6 +169,19 @@ name|joinTransaction
 init|=
 literal|true
 decl_stmt|;
+DECL|method|JpaComponent ()
+specifier|public
+name|JpaComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|JpaEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getEntityManagerFactory ()
