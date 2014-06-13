@@ -553,6 +553,11 @@ name|result
 return|;
 block|}
 comment|/**      * Intercept argument names used to find consumer method.      * Used to add any custom/hidden method arguments, which MUST be provided in getMethodArguments() override.      * @param argNames argument names.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|method|interceptArgumentNames (Set<String> argNames)
 specifier|protected
 name|void
@@ -822,6 +827,11 @@ block|}
 block|}
 block|}
 comment|/**      * Derived classes can do additional result exchange processing, for example, adding custom headers.      * @param resultExchange result as a Camel exchange.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|method|doProcessResult (Exchange resultExchange)
 specifier|protected
 name|void
@@ -889,7 +899,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Return method arguments to use in doInvokeMethod().      * Derived classes can override it to add custom arguments.      * Overriding method MUST first call super.getMethodArguments() to get endpoint properties.      * @return      */
+comment|/**      * Return method arguments to use in doInvokeMethod().      * Derived classes can override it to add custom arguments.      * Overriding method MUST first call super.getMethodArguments() to get endpoint properties.      * @return argument names mapped to argument values      */
 DECL|method|getMethodArguments ()
 specifier|protected
 name|Map

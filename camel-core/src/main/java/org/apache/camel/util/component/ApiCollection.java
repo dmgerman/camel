@@ -116,7 +116,7 @@ decl_stmt|;
 DECL|field|apiMethods
 specifier|protected
 specifier|final
-name|Map
+name|HashMap
 argument_list|<
 name|Class
 argument_list|<
@@ -143,6 +143,53 @@ name|T
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|getApiHelpers ()
+specifier|public
+specifier|final
+name|Map
+argument_list|<
+name|T
+argument_list|,
+name|ApiMethodHelper
+argument_list|>
+name|getApiHelpers
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|apis
+argument_list|)
+return|;
+block|}
+DECL|method|getApiMethods ()
+specifier|public
+specifier|final
+name|Map
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
+argument_list|,
+name|T
+argument_list|>
+name|getApiMethods
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|apiMethods
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a {@link ApiMethodHelper} for a particular API.      * @param apiName name of the API      * @return helper class to work with {@link ApiMethod}      */
 DECL|method|getHelper (T apiName)
 specifier|public

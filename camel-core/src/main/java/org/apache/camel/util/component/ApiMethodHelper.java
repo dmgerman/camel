@@ -1575,6 +1575,30 @@ return|return
 name|missingArgs
 return|;
 block|}
+comment|/**      * Returns alias map.      * @return alias names mapped to method names.      */
+DECL|method|getAliases ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|getAliases
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|ALIASES
+argument_list|)
+return|;
+block|}
 comment|/**      * Get argument types and names used by all methods.      * @return map with argument names as keys, and types as values      */
 DECL|method|allArguments ()
 specifier|public

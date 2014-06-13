@@ -582,7 +582,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Intercept initial endpoint arguments to add custom/hidden arguments for method calls, etc.      * @param arguments      */
+comment|/**      * Intercept initial endpoint arguments to add custom/hidden arguments for method calls, etc.      * @param arguments argument names      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -602,7 +602,7 @@ parameter_list|)
 block|{
 comment|// do nothing by default
 block|}
-comment|/**      * Returns endpoint configuration object.      * One of the generated *EndpointConfiguration classes that extends component configuration class.      * @return      */
+comment|/**      * Returns endpoint configuration object.      * One of the generated *EndpointConfiguration classes that extends component configuration class.      * @return endpoint configuration object      */
 DECL|method|getConfiguration ()
 specifier|public
 specifier|abstract

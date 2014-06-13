@@ -598,6 +598,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Do additional result processing, for example, add custom headers, etc.      * @param resultExchange API method result as exchange.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|method|doProcessResult (Exchange resultExchange)
 specifier|protected
 name|void
