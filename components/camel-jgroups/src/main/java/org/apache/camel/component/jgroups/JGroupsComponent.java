@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -74,7 +74,7 @@ specifier|public
 class|class
 name|JGroupsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|channel
 specifier|private
@@ -91,6 +91,19 @@ specifier|private
 name|Boolean
 name|enableViewMessages
 decl_stmt|;
+DECL|method|JGroupsComponent ()
+specifier|public
+name|JGroupsComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|JGroupsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String clusterName, Map<String, Object> parameters)
