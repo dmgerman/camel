@@ -163,7 +163,7 @@ specifier|public
 class|class
 name|ApiComponentGeneratorMojo
 extends|extends
-name|AbstractGeneratorMojo
+name|AbstractSourceGeneratorMojo
 block|{
 annotation|@
 name|Parameter

@@ -217,7 +217,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|configureMojo
+name|configureSourceGeneratorMojo
 argument_list|(
 name|mojo
 argument_list|)
@@ -262,19 +262,9 @@ name|execute
 argument_list|()
 expr_stmt|;
 comment|// check target file was generated
-name|assertTrue
+name|assertExists
 argument_list|(
-literal|"Generated file not found "
-operator|+
 name|outFile
-operator|.
-name|getPath
-argument_list|()
-argument_list|,
-name|outFile
-operator|.
-name|exists
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -149,7 +149,7 @@ operator|new
 name|JavadocApiMethodGeneratorMojo
 argument_list|()
 decl_stmt|;
-name|configureMojo
+name|configureSourceGeneratorMojo
 argument_list|(
 name|mojo
 argument_list|)

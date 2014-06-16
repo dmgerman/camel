@@ -601,7 +601,7 @@ name|getSuperclass
 argument_list|()
 control|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -656,7 +656,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
