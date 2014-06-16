@@ -106,7 +106,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -190,7 +190,7 @@ specifier|public
 class|class
 name|NettyComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 comment|// use a shared timer for Netty (see javadoc for HashedWheelTimer)
 DECL|field|timer
@@ -214,7 +214,15 @@ DECL|method|NettyComponent ()
 specifier|public
 name|NettyComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|NettyEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|NettyComponent (CamelContext context)
 specifier|public
 name|NettyComponent
@@ -226,6 +234,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|NettyEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
