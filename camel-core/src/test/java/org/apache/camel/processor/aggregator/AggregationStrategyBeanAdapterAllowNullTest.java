@@ -40,6 +40,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -340,6 +354,14 @@ name|names
 return|;
 block|}
 block|}
+comment|/**      * We support annotations on the types.      */
+annotation|@
+name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"user"
+argument_list|)
 DECL|class|User
 specifier|public
 specifier|static
