@@ -226,7 +226,7 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// maps method name to ApiMethod
-DECL|field|METHOD_MAP
+DECL|field|methodMap
 specifier|private
 specifier|final
 name|Map
@@ -238,7 +238,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|>
-name|METHOD_MAP
+name|methodMap
 init|=
 operator|new
 name|HashMap
@@ -253,7 +253,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// maps method name to method arguments of the form Class type1, String name1, Class type2, String name2,...
-DECL|field|ARGUMENTS_MAP
+DECL|field|argumentsMap
 specifier|private
 specifier|final
 name|Map
@@ -265,7 +265,7 @@ argument_list|<
 name|Object
 argument_list|>
 argument_list|>
-name|ARGUMENTS_MAP
+name|argumentsMap
 init|=
 operator|new
 name|HashMap
@@ -280,7 +280,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// maps argument name to argument type
-DECL|field|VALID_ARGUMENTS
+DECL|field|validArguments
 specifier|private
 specifier|final
 name|Map
@@ -292,7 +292,7 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|VALID_ARGUMENTS
+name|validArguments
 init|=
 operator|new
 name|HashMap
@@ -307,7 +307,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// maps aliases to actual method names
-DECL|field|ALIASES
+DECL|field|aliases
 specifier|private
 specifier|final
 name|HashMap
@@ -319,7 +319,7 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|ALIASES
+name|aliases
 init|=
 operator|new
 name|HashMap
@@ -621,7 +621,9 @@ name|String
 argument_list|>
 name|names
 init|=
-name|ALIASES
+name|this
+operator|.
+name|aliases
 operator|.
 name|get
 argument_list|(
@@ -644,7 +646,9 @@ name|String
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|ALIASES
+name|this
+operator|.
+name|aliases
 operator|.
 name|put
 argument_list|(
@@ -670,7 +674,7 @@ name|T
 argument_list|>
 name|overloads
 init|=
-name|METHOD_MAP
+name|methodMap
 operator|.
 name|get
 argument_list|(
@@ -693,7 +697,7 @@ name|T
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|METHOD_MAP
+name|methodMap
 operator|.
 name|put
 argument_list|(
@@ -720,7 +724,7 @@ name|Object
 argument_list|>
 name|arguments
 init|=
-name|ARGUMENTS_MAP
+name|argumentsMap
 operator|.
 name|get
 argument_list|(
@@ -743,7 +747,7 @@ name|Object
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|ARGUMENTS_MAP
+name|argumentsMap
 operator|.
 name|put
 argument_list|(
@@ -877,7 +881,7 @@ name|?
 argument_list|>
 name|previousType
 init|=
-name|VALID_ARGUMENTS
+name|validArguments
 operator|.
 name|get
 argument_list|(
@@ -922,7 +926,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|VALID_ARGUMENTS
+name|validArguments
 operator|.
 name|put
 argument_list|(
@@ -940,7 +944,7 @@ name|debug
 argument_list|(
 literal|"Found {} unique method names in {} methods"
 argument_list|,
-name|METHOD_MAP
+name|methodMap
 operator|.
 name|size
 argument_list|()
@@ -951,12 +955,12 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gets methods that match the given name and arguments.<p/>      * Note that the args list is a required subset of arguments for returned methods.      * @param name case sensitive method name or alias to lookup      * @param argNames unordered required argument names      * @return non-null unmodifiable list of methods that take all of the given arguments, empty if there is no match      */
+comment|/**      * Gets methods that match the given name and arguments.<p/>      * Note that the args list is a required subset of arguments for returned methods.      *      * @param name case sensitive method name or alias to lookup      * @param argNames unordered required argument names      * @return non-null unmodifiable list of methods that take all of the given arguments, empty if there is no match      */
 DECL|method|getCandidateMethods (String name, String... argNames)
 specifier|public
 name|List
 argument_list|<
-name|T
+name|ApiMethod
 argument_list|>
 name|getCandidateMethods
 parameter_list|(
@@ -974,7 +978,7 @@ name|T
 argument_list|>
 name|methods
 init|=
-name|METHOD_MAP
+name|methodMap
 operator|.
 name|get
 argument_list|(
@@ -990,7 +994,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ALIASES
+name|aliases
 operator|.
 name|containsKey
 argument_list|(
@@ -1012,7 +1016,7 @@ control|(
 name|String
 name|method
 range|:
-name|ALIASES
+name|aliases
 operator|.
 name|get
 argument_list|(
@@ -1024,7 +1028,7 @@ name|methods
 operator|.
 name|addAll
 argument_list|(
-name|METHOD_MAP
+name|methodMap
 operator|.
 name|get
 argument_list|(
@@ -1095,6 +1099,9 @@ expr_stmt|;
 return|return
 name|Collections
 operator|.
+expr|<
+name|ApiMethod
+operator|>
 name|unmodifiableList
 argument_list|(
 name|methods
@@ -1106,7 +1113,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|T
+name|ApiMethod
 argument_list|>
 name|filteredSet
 init|=
@@ -1171,17 +1178,20 @@ return|;
 block|}
 block|}
 comment|/**      * Filters a list of methods to those that take the given set of arguments.      *      * @param methods list of methods to filter      * @param matchType whether the arguments are an exact match, a subset or a super set of method args      * @param argNames argument names to filter the list      * @return methods with arguments that satisfy the match type.<p/>      * For SUPER_SET match, if methods with exact match are found, methods that take a subset are ignored      */
-DECL|method|filterMethods (List<T> methods, MatchType matchType, String... argNames)
+DECL|method|filterMethods (List<? extends ApiMethod> methods, MatchType matchType, String... argNames)
 specifier|public
+specifier|static
 name|List
 argument_list|<
-name|T
+name|ApiMethod
 argument_list|>
 name|filterMethods
 parameter_list|(
 name|List
 argument_list|<
-name|T
+name|?
+extends|extends
+name|ApiMethod
 argument_list|>
 name|methods
 parameter_list|,
@@ -1210,34 +1220,34 @@ comment|// list of methods that have all args in the given names
 specifier|final
 name|List
 argument_list|<
-name|T
+name|ApiMethod
 argument_list|>
 name|result
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|T
+name|ApiMethod
 argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|T
+name|ApiMethod
 argument_list|>
 name|extraArgs
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|T
+name|ApiMethod
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|T
+name|ApiMethod
 name|method
 range|:
 name|methods
@@ -1400,7 +1410,7 @@ name|Object
 argument_list|>
 name|arguments
 init|=
-name|ARGUMENTS_MAP
+name|argumentsMap
 operator|.
 name|get
 argument_list|(
@@ -1416,7 +1426,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ALIASES
+name|aliases
 operator|.
 name|containsKey
 argument_list|(
@@ -1438,7 +1448,7 @@ control|(
 name|String
 name|method
 range|:
-name|ALIASES
+name|aliases
 operator|.
 name|get
 argument_list|(
@@ -1450,7 +1460,7 @@ name|arguments
 operator|.
 name|addAll
 argument_list|(
-name|ARGUMENTS_MAP
+name|argumentsMap
 operator|.
 name|get
 argument_list|(
@@ -1607,7 +1617,7 @@ name|Collections
 operator|.
 name|unmodifiableMap
 argument_list|(
-name|ALIASES
+name|aliases
 argument_list|)
 return|;
 block|}
@@ -1631,7 +1641,7 @@ name|Collections
 operator|.
 name|unmodifiableMap
 argument_list|(
-name|VALID_ARGUMENTS
+name|validArguments
 argument_list|)
 return|;
 block|}
@@ -1657,7 +1667,7 @@ name|?
 argument_list|>
 name|type
 init|=
-name|VALID_ARGUMENTS
+name|validArguments
 operator|.
 name|get
 argument_list|(
@@ -1683,26 +1693,36 @@ return|return
 name|type
 return|;
 block|}
-DECL|method|getHighestPriorityMethod (List<T> filteredMethods)
+comment|// this method is always called with Enum value lists, so the cast inside is safe
+comment|// the alternative of trying to convert ApiMethod and associated classes to generic classes would a bear!!!
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|getHighestPriorityMethod (List<? extends ApiMethod> filteredMethods)
 specifier|public
-name|T
+specifier|static
+name|ApiMethod
 name|getHighestPriorityMethod
 parameter_list|(
 name|List
 argument_list|<
-name|T
+name|?
+extends|extends
+name|ApiMethod
 argument_list|>
 name|filteredMethods
 parameter_list|)
 block|{
-name|T
+name|ApiMethod
 name|highest
 init|=
 literal|null
 decl_stmt|;
 for|for
 control|(
-name|T
+name|ApiMethod
 name|method
 range|:
 name|filteredMethods
@@ -1714,10 +1734,18 @@ name|highest
 operator|==
 literal|null
 operator|||
+operator|(
+operator|(
+name|Enum
+operator|)
 name|method
+operator|)
 operator|.
 name|compareTo
 argument_list|(
+operator|(
+name|Enum
+operator|)
 name|highest
 argument_list|)
 operator|>
@@ -1735,15 +1763,16 @@ name|highest
 return|;
 block|}
 comment|/**      * Invokes given method with argument values from given properties.      *      * @param proxy Proxy object for invoke      * @param method method to invoke      * @param properties Map of arguments      * @return result of method invocation      * @throws org.apache.camel.RuntimeCamelException on errors      */
-DECL|method|invokeMethod (Object proxy, T method, Map<String, Object> properties)
+DECL|method|invokeMethod (Object proxy, ApiMethod method, Map<String, Object> properties)
 specifier|public
+specifier|static
 name|Object
 name|invokeMethod
 parameter_list|(
 name|Object
 name|proxy
 parameter_list|,
-name|T
+name|ApiMethod
 name|method
 parameter_list|,
 name|Map

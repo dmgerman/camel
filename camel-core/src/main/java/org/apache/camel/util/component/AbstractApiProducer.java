@@ -204,6 +204,18 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractApiProducer
+parameter_list|<
+name|E
+extends|extends
+name|Enum
+parameter_list|<
+name|E
+parameter_list|>
+operator|&
+name|ApiName
+parameter_list|,
+name|T
+parameter_list|>
 extends|extends
 name|DefaultAsyncProducer
 block|{
@@ -219,6 +231,11 @@ DECL|field|endpoint
 specifier|protected
 specifier|final
 name|AbstractApiEndpoint
+argument_list|<
+name|E
+argument_list|,
+name|T
+argument_list|>
 name|endpoint
 decl_stmt|;
 comment|// properties helper
@@ -233,6 +250,9 @@ DECL|field|methodHelper
 specifier|protected
 specifier|final
 name|ApiMethodHelper
+argument_list|<
+name|?
+argument_list|>
 name|methodHelper
 decl_stmt|;
 comment|// logger
@@ -251,11 +271,16 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|method|AbstractApiProducer (AbstractApiEndpoint endpoint, ApiMethodPropertiesHelper propertiesHelper)
+DECL|method|AbstractApiProducer (AbstractApiEndpoint<E, T> endpoint, ApiMethodPropertiesHelper propertiesHelper)
 specifier|public
 name|AbstractApiProducer
 parameter_list|(
 name|AbstractApiEndpoint
+argument_list|<
+name|E
+argument_list|,
+name|T
+argument_list|>
 name|endpoint
 parameter_list|,
 name|ApiMethodPropertiesHelper
@@ -352,12 +377,7 @@ argument_list|)
 expr_stmt|;
 comment|// decide which method to invoke
 specifier|final
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 name|method
 init|=
 name|findMethod
@@ -418,12 +438,7 @@ name|debug
 argument_list|(
 literal|"Invoking operation {} with {}"
 argument_list|,
-operator|(
-operator|(
-name|ApiMethod
-operator|)
 name|method
-operator|)
 operator|.
 name|getName
 argument_list|()
@@ -552,22 +567,12 @@ block|{
 comment|// do nothing by default
 block|}
 comment|/**      * Invoke the API method. Derived classes can override, but MUST call super.doInvokeMethod().      * @param method API method to invoke.      * @param properties method arguments from endpoint properties and exchange In headers.      * @return API method invocation result.      * @throws RuntimeCamelException on error. Exceptions thrown by API method are wrapped.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|doInvokeMethod (Enum<? extends ApiMethod> method, Map<String, Object> properties)
+DECL|method|doInvokeMethod (ApiMethod method, Map<String, Object> properties)
 specifier|protected
 name|Object
 name|doInvokeMethod
 parameter_list|(
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 name|method
 parameter_list|,
 name|Map
@@ -582,7 +587,7 @@ throws|throws
 name|RuntimeCamelException
 block|{
 return|return
-name|methodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -614,19 +619,9 @@ parameter_list|)
 block|{
 comment|// do nothing by default
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findMethod (Exchange exchange, Map<String, Object> properties)
 specifier|private
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 name|findMethod
 parameter_list|(
 name|Exchange
@@ -641,12 +636,7 @@ argument_list|>
 name|properties
 parameter_list|)
 block|{
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 name|method
 init|=
 literal|null
@@ -654,12 +644,7 @@ decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 argument_list|>
 name|candidates
 init|=
@@ -694,16 +679,11 @@ decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 argument_list|>
 name|filteredMethods
 init|=
-name|methodHelper
+name|ApiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -804,7 +784,7 @@ else|else
 block|{
 name|method
 operator|=
-name|methodHelper
+name|ApiMethodHelper
 operator|.
 name|getHighestPriorityMethod
 argument_list|(

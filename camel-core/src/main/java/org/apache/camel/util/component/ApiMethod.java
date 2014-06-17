@@ -50,13 +50,13 @@ specifier|public
 interface|interface
 name|ApiMethod
 block|{
-comment|/**      * Returns method name.      * @return      */
+comment|/**      * Returns method name.      * @return name      */
 DECL|method|getName ()
 name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**      * Returns method result type.      * @return      */
+comment|/**      * Returns method result type.      * @return result type      */
 DECL|method|getResultType ()
 name|Class
 argument_list|<
@@ -65,7 +65,7 @@ argument_list|>
 name|getResultType
 parameter_list|()
 function_decl|;
-comment|/**      * Returns method argument names.      * @return      */
+comment|/**      * Returns method argument names.      * @return argument names      */
 DECL|method|getArgNames ()
 name|List
 argument_list|<
@@ -74,7 +74,7 @@ argument_list|>
 name|getArgNames
 parameter_list|()
 function_decl|;
-comment|/**      * Return method argument types.      * @return      */
+comment|/**      * Return method argument types.      * @return argument types      */
 DECL|method|getArgTypes ()
 name|List
 argument_list|<
@@ -86,7 +86,7 @@ argument_list|>
 name|getArgTypes
 parameter_list|()
 function_decl|;
-comment|/**      * Returns {@link Method} in proxy type.      * @return      */
+comment|/**      * Returns {@link Method} in proxy type.      * @return method      */
 DECL|method|getMethod ()
 name|Method
 name|getMethod

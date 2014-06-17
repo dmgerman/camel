@@ -183,6 +183,9 @@ name|propertiesHelper
 init|=
 operator|new
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|TestComponentConfiguration
+argument_list|>
 argument_list|(
 name|TestComponentConfiguration
 operator|.
@@ -470,6 +473,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|TestComponentConfiguration
 specifier|private
 specifier|static
@@ -539,6 +547,11 @@ name|property2
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|TestEndpointConfiguration
 specifier|private
 specifier|static

@@ -21,6 +21,11 @@ comment|/**  * Represents method alias  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|ApiMethodAlias
 specifier|public
 class|class

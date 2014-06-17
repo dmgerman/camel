@@ -41,6 +41,11 @@ comment|/**  * Represents an API to use for generating Camel Component.  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|class|ApiProxy
 specifier|public
 class|class
@@ -66,7 +71,8 @@ name|aliases
 init|=
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 decl_stmt|;
 DECL|method|ApiProxy ()
 specifier|public

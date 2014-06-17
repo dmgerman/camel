@@ -192,7 +192,7 @@ parameter_list|()
 block|{
 name|List
 argument_list|<
-name|TestMethod
+name|ApiMethod
 argument_list|>
 name|methods
 init|=
@@ -314,11 +314,11 @@ parameter_list|()
 block|{
 name|List
 argument_list|<
-name|TestMethod
+name|ApiMethod
 argument_list|>
 name|methods
 init|=
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -366,7 +366,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -398,7 +398,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -448,7 +448,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -498,7 +498,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -803,7 +803,7 @@ name|TestMethod
 operator|.
 name|SAYHI_1
 argument_list|,
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|getHighestPriorityMethod
 argument_list|(
@@ -840,7 +840,7 @@ literal|"sayHi()"
 argument_list|,
 literal|"Hello!"
 argument_list|,
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -852,7 +852,13 @@ name|SAYHI
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+argument_list|,
+name|Object
+operator|>
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -889,7 +895,7 @@ literal|"sayHi(name)"
 argument_list|,
 literal|"Hello Dave"
 argument_list|,
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -909,7 +915,7 @@ literal|"greetMe(name)"
 argument_list|,
 literal|"Greetings Dave"
 argument_list|,
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -952,7 +958,7 @@ literal|"greetUs(name1, name2)"
 argument_list|,
 literal|"Greetings Dave, Frank"
 argument_list|,
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -993,7 +999,7 @@ literal|"greetAll(names)"
 argument_list|,
 literal|"Greetings Dave, Frank"
 argument_list|,
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(
@@ -1052,7 +1058,7 @@ literal|"Derived sayHi(name)"
 argument_list|,
 literal|"Howdy Dave"
 argument_list|,
-name|apiMethodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(

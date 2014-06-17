@@ -176,6 +176,13 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractApiEndpoint
+parameter_list|<
+name|E
+extends|extends
+name|ApiName
+parameter_list|,
+name|T
+parameter_list|>
 extends|extends
 name|DefaultEndpoint
 block|{
@@ -198,7 +205,7 @@ comment|// API name
 DECL|field|apiName
 specifier|protected
 specifier|final
-name|ApiName
+name|E
 name|apiName
 decl_stmt|;
 comment|// API method name
@@ -213,7 +220,21 @@ DECL|field|methodHelper
 specifier|protected
 specifier|final
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 name|methodHelper
+decl_stmt|;
+comment|// endpoint configuration
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|protected
+specifier|final
+name|T
+name|configuration
 decl_stmt|;
 comment|// property name for Exchange 'In' message body
 annotation|@
@@ -228,16 +249,11 @@ DECL|field|candidates
 specifier|private
 name|List
 argument_list|<
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 argument_list|>
 name|candidates
 decl_stmt|;
-DECL|method|AbstractApiEndpoint (String endpointUri, Component component, ApiName apiName, String methodName, ApiMethodHelper methodHelper)
+DECL|method|AbstractApiEndpoint (String endpointUri, Component component, E apiName, String methodName, ApiMethodHelper<? extends ApiMethod> methodHelper, T endpointConfiguration)
 specifier|public
 name|AbstractApiEndpoint
 parameter_list|(
@@ -247,14 +263,22 @@ parameter_list|,
 name|Component
 name|component
 parameter_list|,
-name|ApiName
+name|E
 name|apiName
 parameter_list|,
 name|String
 name|methodName
 parameter_list|,
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 name|methodHelper
+parameter_list|,
+name|T
+name|endpointConfiguration
 parameter_list|)
 block|{
 name|super
@@ -282,6 +306,12 @@ name|methodHelper
 operator|=
 name|methodHelper
 expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|endpointConfiguration
+expr_stmt|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
@@ -298,6 +328,9 @@ DECL|method|getPropertiesHelper ()
 specifier|protected
 specifier|abstract
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|T
+argument_list|>
 name|getPropertiesHelper
 parameter_list|()
 function_decl|;
@@ -327,7 +360,7 @@ expr_stmt|;
 comment|// set configuration properties first
 try|try
 block|{
-name|Object
+name|T
 name|configuration
 init|=
 name|getConfiguration
@@ -369,11 +402,6 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}
@@ -394,11 +422,6 @@ name|afterConfigureProperties
 parameter_list|()
 function_decl|;
 comment|/**      * Initialize endpoint state, including endpoint arguments, find candidate methods, etc.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|initState ()
 specifier|protected
 name|void
@@ -480,12 +503,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -602,18 +620,21 @@ parameter_list|)
 block|{
 comment|// do nothing by default
 block|}
-comment|/**      * Returns endpoint configuration object.      * One of the generated *EndpointConfiguration classes that extends component configuration class.      * @return endpoint configuration object      */
+comment|/**      * Returns endpoint configuration object.      * One of the generated *EndpointConfiguration classes that extends component configuration class.      *      * @return endpoint configuration object      */
 DECL|method|getConfiguration ()
 specifier|public
-specifier|abstract
-name|Object
+name|T
 name|getConfiguration
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|configuration
+return|;
+block|}
 comment|/**      * Returns API name.      * @return apiName property.      */
 DECL|method|getApiName ()
 specifier|public
-name|ApiName
+name|E
 name|getApiName
 parameter_list|()
 block|{
@@ -636,6 +657,11 @@ comment|/**      * Returns method helper.      * @return methodHelper property. 
 DECL|method|getMethodHelper ()
 specifier|public
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 name|getMethodHelper
 parameter_list|()
 block|{
@@ -648,12 +674,7 @@ DECL|method|getCandidates ()
 specifier|public
 name|List
 argument_list|<
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 argument_list|>
 name|getCandidates
 parameter_list|()

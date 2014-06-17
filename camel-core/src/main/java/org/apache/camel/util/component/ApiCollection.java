@@ -84,13 +84,16 @@ specifier|abstract
 class|class
 name|ApiCollection
 parameter_list|<
-name|T
+name|E
 extends|extends
 name|Enum
+parameter_list|<
+name|E
+parameter_list|>
 operator|&
 name|ApiName
 parameter_list|,
-name|C
+name|T
 parameter_list|>
 block|{
 DECL|field|apis
@@ -98,18 +101,28 @@ specifier|protected
 specifier|final
 name|Map
 argument_list|<
-name|T
+name|E
 argument_list|,
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 argument_list|>
 name|apis
 init|=
 operator|new
 name|HashMap
 argument_list|<
-name|T
+name|E
 argument_list|,
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -125,7 +138,7 @@ extends|extends
 name|ApiMethod
 argument_list|>
 argument_list|,
-name|T
+name|E
 argument_list|>
 name|apiMethods
 init|=
@@ -139,7 +152,7 @@ extends|extends
 name|ApiMethod
 argument_list|>
 argument_list|,
-name|T
+name|E
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -148,9 +161,14 @@ specifier|public
 specifier|final
 name|Map
 argument_list|<
-name|T
+name|E
 argument_list|,
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 argument_list|>
 name|getApiHelpers
 parameter_list|()
@@ -176,7 +194,7 @@ extends|extends
 name|ApiMethod
 argument_list|>
 argument_list|,
-name|T
+name|E
 argument_list|>
 name|getApiMethods
 parameter_list|()
@@ -191,13 +209,18 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a {@link ApiMethodHelper} for a particular API.      * @param apiName name of the API      * @return helper class to work with {@link ApiMethod}      */
-DECL|method|getHelper (T apiName)
+DECL|method|getHelper (E apiName)
 specifier|public
 specifier|final
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 name|getHelper
 parameter_list|(
-name|T
+name|E
 name|apiName
 parameter_list|)
 block|{
@@ -237,7 +260,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|T
+name|E
 name|api
 range|:
 name|apis
@@ -269,7 +292,7 @@ block|}
 DECL|method|getApiName (Class<? extends ApiMethod> apiMethod)
 specifier|public
 specifier|final
-name|T
+name|E
 name|getApiName
 parameter_list|(
 name|Class
@@ -291,13 +314,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an endpoint configuration for a particular API      * @param apiName name of the API.      * @return Endpoint configuration object for the API.      */
-DECL|method|getEndpointConfiguration (T apiName)
+DECL|method|getEndpointConfiguration (E apiName)
 specifier|public
 specifier|abstract
-name|C
+name|T
 name|getEndpointConfiguration
 parameter_list|(
-name|T
+name|E
 name|apiName
 parameter_list|)
 function_decl|;

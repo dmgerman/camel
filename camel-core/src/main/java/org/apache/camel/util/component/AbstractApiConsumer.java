@@ -182,6 +182,18 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractApiConsumer
+parameter_list|<
+name|E
+extends|extends
+name|Enum
+parameter_list|<
+name|E
+parameter_list|>
+operator|&
+name|ApiName
+parameter_list|,
+name|T
+parameter_list|>
 extends|extends
 name|ScheduledPollConsumer
 block|{
@@ -205,6 +217,11 @@ DECL|field|endpoint
 specifier|protected
 specifier|final
 name|AbstractApiEndpoint
+argument_list|<
+name|E
+argument_list|,
+name|T
+argument_list|>
 name|endpoint
 decl_stmt|;
 comment|// helpers
@@ -212,24 +229,27 @@ DECL|field|propertiesHelper
 specifier|protected
 specifier|final
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|T
+argument_list|>
 name|propertiesHelper
 decl_stmt|;
 DECL|field|methodHelper
 specifier|protected
 specifier|final
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 name|methodHelper
 decl_stmt|;
 comment|// API method to invoke
 DECL|field|method
 specifier|protected
 specifier|final
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 name|method
 decl_stmt|;
 comment|// properties used to invoke
@@ -244,11 +264,16 @@ name|Object
 argument_list|>
 name|endpointProperties
 decl_stmt|;
-DECL|method|AbstractApiConsumer (AbstractApiEndpoint endpoint, Processor processor)
+DECL|method|AbstractApiConsumer (AbstractApiEndpoint<E, T> endpoint, Processor processor)
 specifier|public
 name|AbstractApiConsumer
 parameter_list|(
 name|AbstractApiEndpoint
+argument_list|<
+name|E
+argument_list|,
+name|T
+argument_list|>
 name|endpoint
 parameter_list|,
 name|Processor
@@ -350,28 +375,13 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findMethod ()
 specifier|private
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 name|findMethod
 parameter_list|()
 block|{
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 name|result
 decl_stmt|;
 comment|// find one that takes the largest subset of endpoint parameters
@@ -430,16 +440,11 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Enum
-argument_list|<
-name|?
-extends|extends
 name|ApiMethod
-argument_list|>
 argument_list|>
 name|filteredMethods
 init|=
-name|methodHelper
+name|ApiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -529,7 +534,7 @@ else|else
 block|{
 name|result
 operator|=
-name|methodHelper
+name|ApiMethodHelper
 operator|.
 name|getHighestPriorityMethod
 argument_list|(
@@ -710,11 +715,6 @@ throw|;
 block|}
 block|}
 comment|/**      * Invoke the API method.      * This method can be overridden, for example to synchronize API calls for thread-unsafe proxies.      * Derived class MUST call super.doInvokeMethod() to invoke the API method.      * @param args method arguments from endpoint parameters.      * @return method invocation result.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|doInvokeMethod (Map<String, Object> args)
 specifier|protected
 name|Object
@@ -730,7 +730,7 @@ name|args
 parameter_list|)
 block|{
 return|return
-name|methodHelper
+name|ApiMethodHelper
 operator|.
 name|invokeMethod
 argument_list|(

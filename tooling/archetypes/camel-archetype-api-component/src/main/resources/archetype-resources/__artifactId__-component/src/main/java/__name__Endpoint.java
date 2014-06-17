@@ -237,20 +237,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|component
@@ -375,17 +361,20 @@ DECL|class|$
 name|Endpoint
 expr|extends
 name|AbstractApiEndpoint
-block|{      @
-name|UriParam
-specifier|protected
-name|final
+operator|<
+name|$
+block|{
+name|name
+block|}
+name|ApiName
+operator|,
 name|$
 block|{
 name|name
 block|}
 name|Configuration
-name|configuration
-block|;
+operator|>
+block|{
 comment|// TODO create and manage API proxy
 specifier|private
 name|Object
@@ -449,14 +438,10 @@ name|getHelper
 argument_list|(
 name|apiName
 argument_list|)
-argument_list|)
-block|;
-name|this
-operator|.
-name|configuration
-operator|=
+argument_list|,
 name|endpointConfiguration
-block|;     }
+argument_list|)
+block|;      }
 specifier|public
 name|Producer
 name|createProducer
@@ -537,13 +522,23 @@ return|;
 block|}
 end_function
 
-begin_function
+begin_annotation
 annotation|@
 name|Override
+end_annotation
+
+begin_expr_stmt
 specifier|protected
 name|ApiMethodPropertiesHelper
+operator|<
+name|$
+block|{
+name|name
+block|}
+name|Configuration
+operator|>
 name|getPropertiesHelper
-parameter_list|()
+argument_list|()
 block|{
 return|return
 name|$
@@ -556,7 +551,7 @@ name|getHelper
 argument_list|()
 return|;
 block|}
-end_function
+end_expr_stmt
 
 begin_function
 annotation|@
@@ -609,32 +604,22 @@ block|}
 name|JavadocHello
 argument_list|()
 expr_stmt|;
+break|break;
+default|default:
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid API name "
+operator|+
+name|apiName
+argument_list|)
+throw|;
 block|}
 end_block
 
-begin_decl_stmt
+begin_function
 unit|}      @
-name|Override
-specifier|public
-name|$
-block|{
-name|name
-block|}
-end_decl_stmt
-
-begin_function
-name|Configuration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-name|configuration
-return|;
-block|}
-end_function
-
-begin_function
-annotation|@
 name|Override
 specifier|public
 name|Object

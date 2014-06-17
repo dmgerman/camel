@@ -207,6 +207,26 @@ name|AbstractApiConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|$
+block|{
+package|package
+block|}
+end_import
+
+begin_expr_stmt
+operator|.
+name|internal
+operator|.
+name|$
+block|{
+name|name
+block|}
+name|ApiName
+expr_stmt|;
+end_expr_stmt
+
 begin_comment
 comment|/**  * The ${name} consumer.  */
 end_comment
@@ -226,6 +246,19 @@ DECL|class|$
 name|Consumer
 expr|extends
 name|AbstractApiConsumer
+operator|<
+name|$
+block|{
+name|name
+block|}
+name|ApiName
+operator|,
+name|$
+block|{
+name|name
+block|}
+name|Configuration
+operator|>
 block|{
 specifier|public
 name|$
