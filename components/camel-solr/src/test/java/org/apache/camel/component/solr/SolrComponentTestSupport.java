@@ -234,6 +234,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|runner
 operator|.
 name|RunWith
@@ -276,6 +286,7 @@ name|class
 argument_list|)
 DECL|class|SolrComponentTestSupport
 specifier|public
+specifier|abstract
 class|class
 name|SolrComponentTestSupport
 extends|extends

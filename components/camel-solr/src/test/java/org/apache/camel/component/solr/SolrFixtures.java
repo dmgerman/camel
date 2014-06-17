@@ -351,7 +351,14 @@ name|getBaseUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//cloudFixture = new SolrCloudFixture("src/test/resources/solr");
+name|cloudFixture
+operator|=
+operator|new
+name|SolrCloudFixture
+argument_list|(
+literal|"src/test/resources/solr"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|teardownSolrFixtures ()
 specifier|public
