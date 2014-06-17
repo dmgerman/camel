@@ -175,9 +175,11 @@ package|package
 block|}
 end_for
 
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+begin_expr_stmt
+operator|.
+name|api
+expr_stmt|;
+end_expr_stmt
 
 begin_comment
 comment|/**  * Sample API used by ${name} Component whose method signatures are read from File.  */
