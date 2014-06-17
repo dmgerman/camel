@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|HdfsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -153,6 +153,13 @@ specifier|public
 name|HdfsComponent
 parameter_list|()
 block|{
+name|super
+argument_list|(
+name|HdfsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|initHdfs
 argument_list|()
 expr_stmt|;
@@ -168,6 +175,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|HdfsEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|initHdfs
