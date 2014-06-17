@@ -142,6 +142,8 @@ parameter_list|>
 block|{
 DECL|field|LOG
 specifier|protected
+specifier|static
+specifier|final
 name|Logger
 name|LOG
 init|=
@@ -155,14 +157,14 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// set of field names which are specific to the api, to be excluded from method argument considerations
-DECL|field|COMPONENT_CONFIG_FIELDS
+DECL|field|componentConfigFields
 specifier|protected
 specifier|final
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|COMPONENT_CONFIG_FIELDS
+name|componentConfigFields
 init|=
 operator|new
 name|HashSet
@@ -223,7 +225,7 @@ name|getDeclaredFields
 argument_list|()
 control|)
 block|{
-name|COMPONENT_CONFIG_FIELDS
+name|componentConfigFields
 operator|.
 name|add
 argument_list|(
@@ -397,7 +399,7 @@ name|names
 operator|.
 name|removeAll
 argument_list|(
-name|COMPONENT_CONFIG_FIELDS
+name|componentConfigFields
 argument_list|)
 expr_stmt|;
 block|}

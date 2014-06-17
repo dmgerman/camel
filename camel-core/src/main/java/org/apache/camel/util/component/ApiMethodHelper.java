@@ -307,7 +307,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// maps aliases to actual method names
-DECL|field|aliases
+DECL|field|aliasesMap
 specifier|private
 specifier|final
 name|HashMap
@@ -319,7 +319,7 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|aliases
+name|aliasesMap
 init|=
 operator|new
 name|HashMap
@@ -621,9 +621,7 @@ name|String
 argument_list|>
 name|names
 init|=
-name|this
-operator|.
-name|aliases
+name|aliasesMap
 operator|.
 name|get
 argument_list|(
@@ -646,9 +644,7 @@ name|String
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
-name|aliases
+name|aliasesMap
 operator|.
 name|put
 argument_list|(
@@ -994,7 +990,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|aliases
+name|aliasesMap
 operator|.
 name|containsKey
 argument_list|(
@@ -1016,7 +1012,7 @@ control|(
 name|String
 name|method
 range|:
-name|aliases
+name|aliasesMap
 operator|.
 name|get
 argument_list|(
@@ -1426,7 +1422,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|aliases
+name|aliasesMap
 operator|.
 name|containsKey
 argument_list|(
@@ -1448,7 +1444,7 @@ control|(
 name|String
 name|method
 range|:
-name|aliases
+name|aliasesMap
 operator|.
 name|get
 argument_list|(
@@ -1617,7 +1613,7 @@ name|Collections
 operator|.
 name|unmodifiableMap
 argument_list|(
-name|aliases
+name|aliasesMap
 argument_list|)
 return|;
 block|}
