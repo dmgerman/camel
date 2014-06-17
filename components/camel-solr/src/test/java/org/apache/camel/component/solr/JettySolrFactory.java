@@ -300,6 +300,14 @@ name|mockedSslClient
 init|=
 literal|false
 decl_stmt|;
+DECL|field|data_dir_no
+specifier|private
+specifier|static
+name|int
+name|data_dir_no
+init|=
+literal|0
+decl_stmt|;
 DECL|field|TEST_KEYSTORE_PATH
 specifier|private
 specifier|static
@@ -577,6 +585,11 @@ argument_list|(
 literal|"solr.data.dir"
 argument_list|,
 literal|"target/test-classes/solr/data"
+operator|+
+operator|(
+name|data_dir_no
+operator|++
+operator|)
 argument_list|)
 expr_stmt|;
 comment|// Instruct Solr to keep the index in memory, for faster testing.

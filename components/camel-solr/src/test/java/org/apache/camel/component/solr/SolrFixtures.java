@@ -311,6 +311,7 @@ argument_list|(
 literal|60000
 argument_list|)
 expr_stmt|;
+comment|// solrHttpsServer.deleteByQuery("*:*");
 name|solrRunner
 operator|=
 name|JettySolrFactory
@@ -351,14 +352,7 @@ name|getBaseUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cloudFixture
-operator|=
-operator|new
-name|SolrCloudFixture
-argument_list|(
-literal|"src/test/resources/solr"
-argument_list|)
-expr_stmt|;
+comment|//cloudFixture = new SolrCloudFixture("src/test/resources/solr");
 block|}
 DECL|method|teardownSolrFixtures ()
 specifier|public
