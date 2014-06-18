@@ -179,6 +179,9 @@ DECL|field|propertiesHelper
 specifier|private
 specifier|static
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|TestComponentConfiguration
+argument_list|>
 name|propertiesHelper
 init|=
 operator|new
