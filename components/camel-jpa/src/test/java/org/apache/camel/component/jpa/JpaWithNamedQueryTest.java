@@ -826,6 +826,20 @@ name|getStep
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Not the expected row: "
+operator|+
+name|row
+argument_list|,
+literal|"cheese"
+argument_list|,
+name|row
+operator|.
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|return

@@ -280,6 +280,36 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+comment|// OpenJPA warns about fields being accessed directly in methods if NOT using the corresponding getters:
+comment|// 115  camel  WARN   [main] openjpa.Enhance - Detected the following possible violations of the restrictions placed on property access persistent types:
+comment|// "org.apache.camel.examples.MultiSteps" uses property access, but its field "step" is accessed directly in method "toString" defined in "org.apache.camel.examples.MultiSteps".
+return|return
+literal|"MultiSteps[id: "
+operator|+
+name|getId
+argument_list|()
+operator|+
+literal|", address: "
+operator|+
+name|getAddress
+argument_list|()
+operator|+
+literal|", step: "
+operator|+
+name|getStep
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 
