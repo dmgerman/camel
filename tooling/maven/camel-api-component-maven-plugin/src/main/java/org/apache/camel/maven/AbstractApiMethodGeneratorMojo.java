@@ -470,7 +470,6 @@ argument_list|,
 name|getArgumentSubstitutions
 argument_list|()
 argument_list|)
-block|{}
 return|;
 block|}
 DECL|method|getSignatureList ()
