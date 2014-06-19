@@ -1111,7 +1111,14 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|parseProperty
+argument_list|(
+name|key
+argument_list|,
 name|value
+argument_list|,
+name|properties
+argument_list|)
 return|;
 block|}
 block|}
