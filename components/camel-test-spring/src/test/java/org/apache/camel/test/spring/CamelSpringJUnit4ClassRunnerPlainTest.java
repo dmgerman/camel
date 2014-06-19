@@ -465,6 +465,13 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+name|MockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|(
+name|camelContext2
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
