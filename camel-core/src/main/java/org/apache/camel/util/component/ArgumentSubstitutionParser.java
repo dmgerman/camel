@@ -615,6 +615,15 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|String
+name|typeArgs
+init|=
+name|argument
+operator|.
+name|getTypeArgs
+argument_list|()
+decl_stmt|;
+specifier|final
+name|String
 name|argTypeName
 init|=
 name|argType
@@ -723,6 +732,8 @@ argument_list|(
 name|newName
 argument_list|,
 name|argType
+argument_list|,
+name|typeArgs
 argument_list|)
 expr_stmt|;
 block|}
@@ -782,6 +793,8 @@ argument_list|(
 name|newName
 argument_list|,
 name|argType
+argument_list|,
+name|typeArgs
 argument_list|)
 expr_stmt|;
 block|}
@@ -812,6 +825,8 @@ argument_list|(
 name|newName
 argument_list|,
 name|argType
+argument_list|,
+name|typeArgs
 argument_list|)
 expr_stmt|;
 block|}
