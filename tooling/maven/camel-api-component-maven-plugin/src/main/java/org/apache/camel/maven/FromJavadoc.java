@@ -45,6 +45,11 @@ specifier|protected
 name|String
 name|excludeMethods
 decl_stmt|;
+DECL|field|includeStaticMethods
+specifier|protected
+name|Boolean
+name|includeStaticMethods
+decl_stmt|;
 DECL|method|getExcludePackages ()
 specifier|public
 name|String
@@ -121,6 +126,32 @@ operator|.
 name|excludeMethods
 operator|=
 name|excludeMethods
+expr_stmt|;
+block|}
+DECL|method|getIncludeStaticMethods ()
+specifier|public
+name|Boolean
+name|getIncludeStaticMethods
+parameter_list|()
+block|{
+return|return
+name|includeStaticMethods
+return|;
+block|}
+DECL|method|setIncludeStaticMethods (Boolean includeStaticMethods)
+specifier|public
+name|void
+name|setIncludeStaticMethods
+parameter_list|(
+name|Boolean
+name|includeStaticMethods
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeStaticMethods
+operator|=
+name|includeStaticMethods
 expr_stmt|;
 block|}
 block|}

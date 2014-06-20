@@ -474,6 +474,9 @@ function_decl|;
 DECL|method|getProxyType ()
 specifier|public
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getProxyType
 parameter_list|()
 throws|throws
@@ -1754,6 +1757,7 @@ argument_list|(
 literal|'<'
 argument_list|)
 expr_stmt|;
+comment|// Note: its ok to split, since we don't support parsing nested type arguments
 name|String
 index|[]
 name|argTypes
