@@ -147,6 +147,10 @@ argument_list|,
 literal|"hi"
 argument_list|,
 literal|"hola"
+argument_list|,
+literal|"another_chiau"
+argument_list|,
+literal|"another_hi"
 argument_list|)
 expr_stmt|;
 name|splitResult
@@ -158,6 +162,10 @@ argument_list|,
 literal|"hi.txt"
 argument_list|,
 literal|"hola.txt"
+argument_list|,
+literal|"directoryOne/another_chiau.txt"
+argument_list|,
+literal|"directoryOne/another_hi.txt"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
