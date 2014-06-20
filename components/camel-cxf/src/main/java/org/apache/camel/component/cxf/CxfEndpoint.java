@@ -46,16 +46,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|security
-operator|.
-name|Provider
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -229,6 +219,18 @@ operator|.
 name|stream
 operator|.
 name|StreamSource
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|ws
+operator|.
+name|Provider
 import|;
 end_import
 
