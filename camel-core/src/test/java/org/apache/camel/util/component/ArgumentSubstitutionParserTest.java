@@ -39,16 +39,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -62,7 +52,7 @@ name|component
 operator|.
 name|ArgumentSubstitutionParser
 operator|.
-name|*
+name|Substitution
 import|;
 end_import
 
@@ -75,6 +65,16 @@ operator|.
 name|Assert
 operator|.
 name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -260,6 +260,13 @@ name|signatures
 operator|.
 name|add
 argument_list|(
+literal|"public final java.util.Map<String, String> greetAll(java.util.Map<String> nameMap);"
+argument_list|)
+expr_stmt|;
+name|signatures
+operator|.
+name|add
+argument_list|(
 literal|"public final String[] greetTimes(String name, int times);"
 argument_list|)
 expr_stmt|;
@@ -286,7 +293,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|7
+literal|8
 argument_list|,
 name|methodModels
 operator|.
@@ -304,7 +311,7 @@ name|methodModels
 operator|.
 name|get
 argument_list|(
-literal|6
+literal|7
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -345,7 +352,7 @@ name|methodModels
 operator|.
 name|get
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -376,7 +383,7 @@ name|methodModels
 operator|.
 name|get
 argument_list|(
-literal|4
+literal|5
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -430,7 +437,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"personsList"
+literal|"personMap"
 argument_list|,
 name|greetAll
 operator|.
@@ -461,9 +468,40 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"stringArray"
+literal|"personsList"
 argument_list|,
 name|greetAll1
+operator|.
+name|getArguments
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+specifier|final
+name|ApiMethodParser
+operator|.
+name|ApiMethodModel
+name|greetAll2
+init|=
+name|methodModels
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"stringArray"
+argument_list|,
+name|greetAll2
 operator|.
 name|getArguments
 argument_list|()
