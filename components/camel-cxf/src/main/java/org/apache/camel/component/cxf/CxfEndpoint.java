@@ -2556,6 +2556,7 @@ condition|)
 block|{
 try|try
 block|{
+comment|// Set Object class as the service class of WSDLServiceFactoryBean
 name|ReflectionUtil
 operator|.
 name|setAccessible
@@ -2569,7 +2570,11 @@ name|cf
 argument_list|,
 operator|new
 name|WSDLServiceFactoryBean
-argument_list|()
+argument_list|(
+name|Object
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -250,6 +250,23 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|WSDLServiceFactoryBean (Class<?> serviceClass)
+specifier|public
+name|WSDLServiceFactoryBean
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|serviceClass
+parameter_list|)
+block|{
+name|setServiceClass
+argument_list|(
+name|serviceClass
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setServiceClass (Class<?> serviceClass)
 specifier|public
 name|void
