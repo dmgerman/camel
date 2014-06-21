@@ -40,6 +40,11 @@ specifier|protected
 name|String
 name|excludeClasses
 decl_stmt|;
+DECL|field|includeMethods
+specifier|protected
+name|String
+name|includeMethods
+decl_stmt|;
 DECL|field|excludeMethods
 specifier|protected
 name|String
@@ -100,6 +105,32 @@ operator|.
 name|excludeClasses
 operator|=
 name|excludeClasses
+expr_stmt|;
+block|}
+DECL|method|getIncludeMethods ()
+specifier|public
+name|String
+name|getIncludeMethods
+parameter_list|()
+block|{
+return|return
+name|includeMethods
+return|;
+block|}
+DECL|method|setIncludeMethods (String includeMethods)
+specifier|public
+name|void
+name|setIncludeMethods
+parameter_list|(
+name|String
+name|includeMethods
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeMethods
+operator|=
+name|includeMethods
 expr_stmt|;
 block|}
 DECL|method|getExcludeMethods ()

@@ -204,6 +204,12 @@ name|DEFAULT_EXCLUDE_PACKAGES
 expr_stmt|;
 name|mojo
 operator|.
+name|includeMethods
+operator|=
+literal|".+"
+expr_stmt|;
+name|mojo
+operator|.
 name|excludeMethods
 operator|=
 literal|"clone|Current|internal|icache"

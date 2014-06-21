@@ -230,32 +230,6 @@ specifier|private
 name|Pattern
 name|propertyTypePattern
 decl_stmt|;
-DECL|method|getProxyClass ()
-specifier|public
-name|String
-name|getProxyClass
-parameter_list|()
-block|{
-return|return
-name|proxyClass
-return|;
-block|}
-DECL|method|setProxyClass (String proxyClass)
-specifier|public
-name|void
-name|setProxyClass
-parameter_list|(
-name|String
-name|proxyClass
-parameter_list|)
-block|{
-name|this
-operator|.
-name|proxyClass
-operator|=
-name|proxyClass
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|execute ()

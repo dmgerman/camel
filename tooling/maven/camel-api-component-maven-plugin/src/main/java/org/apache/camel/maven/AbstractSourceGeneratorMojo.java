@@ -79,58 +79,6 @@ specifier|protected
 name|File
 name|generatedTestDir
 decl_stmt|;
-DECL|method|getGeneratedSrcDir ()
-specifier|public
-name|File
-name|getGeneratedSrcDir
-parameter_list|()
-block|{
-return|return
-name|generatedSrcDir
-return|;
-block|}
-DECL|method|setGeneratedSrcDir (File generatedSrcDir)
-specifier|public
-name|void
-name|setGeneratedSrcDir
-parameter_list|(
-name|File
-name|generatedSrcDir
-parameter_list|)
-block|{
-name|this
-operator|.
-name|generatedSrcDir
-operator|=
-name|generatedSrcDir
-expr_stmt|;
-block|}
-DECL|method|getGeneratedTestDir ()
-specifier|public
-name|File
-name|getGeneratedTestDir
-parameter_list|()
-block|{
-return|return
-name|generatedTestDir
-return|;
-block|}
-DECL|method|setGeneratedTestDir (File generatedTestDir)
-specifier|public
-name|void
-name|setGeneratedTestDir
-parameter_list|(
-name|File
-name|generatedTestDir
-parameter_list|)
-block|{
-name|this
-operator|.
-name|generatedTestDir
-operator|=
-name|generatedTestDir
-expr_stmt|;
-block|}
 block|}
 end_class
 
