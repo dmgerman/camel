@@ -370,6 +370,14 @@ argument_list|,
 name|properties
 argument_list|)
 expr_stmt|;
+comment|// let the endpoint and the Producer intercept properties
+name|endpoint
+operator|.
+name|interceptProperties
+argument_list|(
+name|properties
+argument_list|)
+expr_stmt|;
 name|interceptProperties
 argument_list|(
 name|properties
@@ -544,7 +552,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Intercept method invocation arguments used to find and invoke API method.      * Can be overridden to add custom method properties.      * @param properties method invocation arguments.      */
+comment|/**      * Intercept method invocation arguments used to find and invoke API method.      * Can be overridden to add custom/hidden method arguments.      * @param properties method invocation arguments.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -594,7 +602,11 @@ argument_list|(
 name|endpoint
 operator|.
 name|getApiProxy
-argument_list|()
+argument_list|(
+name|method
+argument_list|,
+name|properties
+argument_list|)
 argument_list|,
 name|method
 argument_list|,
@@ -857,8 +869,7 @@ try|try
 block|{
 name|value
 operator|=
-name|getEndpoint
-argument_list|()
+name|endpoint
 operator|.
 name|getCamelContext
 argument_list|()

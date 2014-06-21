@@ -457,7 +457,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|interceptEndpointArguments
+name|interceptPropertyNames
 argument_list|(
 name|arguments
 argument_list|)
@@ -600,22 +600,44 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Intercept initial endpoint arguments to add custom/hidden arguments for method calls, etc.      * @param arguments argument names      */
+comment|/**      * Intercept property names used to find Consumer and Producer methods.      * Used to add any custom/hidden method arguments, which MUST be provided in interceptProperties() override      * either in Endpoint, or Consumer and Producer.      * @param propertyNames argument names.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unused"
 argument_list|)
-DECL|method|interceptEndpointArguments (Set<String> arguments)
+DECL|method|interceptPropertyNames (Set<String> propertyNames)
 specifier|protected
 name|void
-name|interceptEndpointArguments
+name|interceptPropertyNames
 parameter_list|(
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|arguments
+name|propertyNames
+parameter_list|)
+block|{
+comment|// do nothing by default
+block|}
+comment|/**      * Intercept method invocation arguments used to find and invoke API method. Called by Consumer and Producer.      * Must be overridden if also overriding interceptPropertyName() to add custom/hidden method properties.      * @param properties method invocation arguments.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+DECL|method|interceptProperties (Map<String, Object> properties)
+specifier|protected
+name|void
+name|interceptProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
 parameter_list|)
 block|{
 comment|// do nothing by default
@@ -756,13 +778,24 @@ operator|=
 name|inBody
 expr_stmt|;
 block|}
-comment|/**      * Returns an instance of an API Proxy based on apiName.      * Called by {@link AbstractApiConsumer} or {@link AbstractApiProducer}.      * @return a Java object that implements the method to be invoked.      * @see AbstractApiProducer      * @see AbstractApiConsumer      */
-DECL|method|getApiProxy ()
+comment|/**      * Returns an instance of an API Proxy based on apiName, method and args.      * Called by {@link AbstractApiConsumer} or {@link AbstractApiProducer}.      *      * @param method method about to be invoked      * @param args method arguments      * @return a Java object that implements the method to be invoked.      * @see AbstractApiProducer      * @see AbstractApiConsumer      */
+DECL|method|getApiProxy (ApiMethod method, Map<String, Object> args)
 specifier|public
 specifier|abstract
 name|Object
 name|getApiProxy
-parameter_list|()
+parameter_list|(
+name|ApiMethod
+name|method
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|args
+parameter_list|)
 function_decl|;
 block|}
 end_class

@@ -414,7 +414,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|interceptArgumentNames
+name|interceptPropertyNames
 argument_list|(
 name|argNames
 argument_list|)
@@ -557,26 +557,6 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Intercept argument names used to find consumer method.      * Used to add any custom/hidden method arguments, which MUST be provided in getMethodArguments() override.      * @param argNames argument names.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
-DECL|method|interceptArgumentNames (Set<String> argNames)
-specifier|protected
-name|void
-name|interceptArgumentNames
-parameter_list|(
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|argNames
-parameter_list|)
-block|{
-comment|// do nothing by default
-block|}
 annotation|@
 name|Override
 DECL|method|poll ()
@@ -597,9 +577,35 @@ name|Object
 argument_list|>
 name|args
 init|=
-name|getMethodArguments
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
+name|args
+operator|.
+name|putAll
+argument_list|(
+name|endpointProperties
+argument_list|)
+expr_stmt|;
+comment|// let the endpoint and the Consumer intercept properties
+name|endpoint
+operator|.
+name|interceptProperties
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
+name|interceptProperties
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Object
@@ -714,6 +720,48 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Intercept property names used to find Consumer method.      * Used to add any custom/hidden method arguments, which MUST be provided in interceptProperties() override.      * @param propertyNames argument names.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+DECL|method|interceptPropertyNames (Set<String> propertyNames)
+specifier|protected
+name|void
+name|interceptPropertyNames
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|propertyNames
+parameter_list|)
+block|{
+comment|// do nothing by default
+block|}
+comment|/**      * Intercept method invocation arguments used to find and invoke API method.      * Can be overridden to add custom/hidden method arguments.      * @param properties method invocation arguments.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+DECL|method|interceptProperties (Map<String, Object> properties)
+specifier|protected
+name|void
+name|interceptProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|)
+block|{
+comment|// do nothing by default
+block|}
 comment|/**      * Invoke the API method.      * This method can be overridden, for example to synchronize API calls for thread-unsafe proxies.      * Derived class MUST call super.doInvokeMethod() to invoke the API method.      * @param args method arguments from endpoint parameters.      * @return method invocation result.      */
 DECL|method|doInvokeMethod (Map<String, Object> args)
 specifier|protected
@@ -737,7 +785,11 @@ argument_list|(
 name|endpoint
 operator|.
 name|getApiProxy
-argument_list|()
+argument_list|(
+name|method
+argument_list|,
+name|args
+argument_list|)
 argument_list|,
 name|method
 argument_list|,
@@ -775,7 +827,7 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
-name|doProcessResult
+name|interceptResult
 argument_list|(
 name|exchange
 argument_list|)
@@ -832,10 +884,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"unused"
 argument_list|)
-DECL|method|doProcessResult (Exchange resultExchange)
+DECL|method|interceptResult (Exchange resultExchange)
 specifier|protected
 name|void
-name|doProcessResult
+name|interceptResult
 parameter_list|(
 name|Exchange
 name|resultExchange
@@ -897,46 +949,6 @@ name|size
 argument_list|()
 index|]
 argument_list|)
-return|;
-block|}
-comment|/**      * Return method arguments to use in doInvokeMethod().      * Derived classes can override it to add custom arguments.      * Overriding method MUST first call super.getMethodArguments() to get endpoint properties.      * @return argument names mapped to argument values      */
-DECL|method|getMethodArguments ()
-specifier|protected
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getMethodArguments
-parameter_list|()
-block|{
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|arguments
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|()
-decl_stmt|;
-name|arguments
-operator|.
-name|putAll
-argument_list|(
-name|endpointProperties
-argument_list|)
-expr_stmt|;
-return|return
-name|arguments
 return|;
 block|}
 block|}
