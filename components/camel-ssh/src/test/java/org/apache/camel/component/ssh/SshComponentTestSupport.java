@@ -60,6 +60,22 @@ name|SshServer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|sshd
+operator|.
+name|common
+operator|.
+name|keyprovider
+operator|.
+name|FileKeyPairProvider
+import|;
+end_import
+
 begin_class
 DECL|class|SshComponentTestSupport
 specifier|public
