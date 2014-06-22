@@ -265,9 +265,6 @@ block|{
 name|Integer
 name|count
 init|=
-operator|(
-name|Integer
-operator|)
 name|oldHeaders
 operator|.
 name|get
@@ -275,9 +272,6 @@ argument_list|(
 literal|"count"
 argument_list|)
 operator|+
-operator|(
-name|Integer
-operator|)
 name|newHeaders
 operator|.
 name|get

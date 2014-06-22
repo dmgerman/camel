@@ -174,15 +174,6 @@ argument_list|(
 literal|"Executing operation sayHi"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Executing operation sayHi\n"
-argument_list|)
-expr_stmt|;
 return|return
 literal|"Bonjour"
 return|;

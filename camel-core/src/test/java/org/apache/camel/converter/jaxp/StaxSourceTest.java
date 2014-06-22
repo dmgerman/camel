@@ -354,7 +354,21 @@ argument_list|(
 name|templateSource
 argument_list|)
 decl_stmt|;
-comment|//System.out.println("Used transformer: " + transformer.getClass().getName());
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Used transformer: {}"
+argument_list|,
+name|transformer
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|transformer
 operator|.
 name|setOutputProperty

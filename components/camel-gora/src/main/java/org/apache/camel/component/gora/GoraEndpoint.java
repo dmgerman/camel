@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gora endpoint  *  * @author ipolyzos  */
+comment|/**  * Gora endpoint  */
 end_comment
 
 begin_class

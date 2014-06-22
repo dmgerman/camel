@@ -360,11 +360,7 @@ DECL|method|XmlSignerConfiguration ()
 specifier|public
 name|XmlSignerConfiguration
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|copy ()
 specifier|public
 name|XmlSignerConfiguration

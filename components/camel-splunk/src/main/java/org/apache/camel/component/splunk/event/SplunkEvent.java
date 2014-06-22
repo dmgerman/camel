@@ -89,11 +89,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 DECL|class|SplunkEvent
 specifier|public
 class|class
@@ -104,6 +99,15 @@ block|{
 comment|// ----------------------------------
 comment|// Common event fields
 comment|// ----------------------------------
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 comment|/**      * A device-specific classification provided as part of the event.      */
 DECL|field|COMMON_CATEGORY
 specifier|public

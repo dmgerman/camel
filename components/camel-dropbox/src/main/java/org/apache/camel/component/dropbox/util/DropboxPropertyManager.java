@@ -127,9 +127,6 @@ name|key
 parameter_list|)
 block|{
 return|return
-operator|(
-name|String
-operator|)
 name|properties
 operator|.
 name|getProperty

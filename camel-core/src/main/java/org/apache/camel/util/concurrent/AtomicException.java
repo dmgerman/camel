@@ -37,11 +37,6 @@ comment|/**  * Convenience class for holding an {@link Exception} in a thread-sa
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 DECL|class|AtomicException
 specifier|public
 class|class
@@ -51,7 +46,17 @@ name|AtomicReference
 argument_list|<
 name|Exception
 argument_list|>
-block|{  }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 end_class
 
 end_unit

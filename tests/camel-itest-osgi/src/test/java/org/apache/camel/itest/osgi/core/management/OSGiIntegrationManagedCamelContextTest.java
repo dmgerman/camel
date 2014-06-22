@@ -157,24 +157,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|swissbox
-operator|.
-name|tinybundles
-operator|.
-name|dp
-operator|.
-name|Constants
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -566,6 +548,12 @@ argument_list|)
 operator|.
 name|set
 argument_list|(
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
 name|Constants
 operator|.
 name|BUNDLE_SYMBOLICNAME
@@ -575,6 +563,12 @@ argument_list|)
 operator|.
 name|set
 argument_list|(
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
 name|Constants
 operator|.
 name|BUNDLE_NAME

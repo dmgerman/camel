@@ -354,19 +354,10 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|String
+name|file
+range|:
 name|files
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 try|try
@@ -383,10 +374,7 @@ argument_list|(
 operator|new
 name|FileInputStream
 argument_list|(
-name|files
-index|[
-name|i
-index|]
+name|file
 argument_list|)
 argument_list|)
 argument_list|)
@@ -537,10 +525,7 @@ name|warn
 argument_list|(
 literal|"Unable to read key {}: {}"
 argument_list|,
-name|files
-index|[
-name|i
-index|]
+name|file
 argument_list|,
 name|e
 argument_list|)

@@ -303,9 +303,6 @@ block|{
 name|Integer
 name|count
 init|=
-operator|(
-name|Integer
-operator|)
 name|oldProperties
 operator|.
 name|get
@@ -313,9 +310,6 @@ argument_list|(
 literal|"count"
 argument_list|)
 operator|+
-operator|(
-name|Integer
-operator|)
 name|newProperties
 operator|.
 name|get
@@ -342,9 +336,6 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|+
-operator|(
-name|String
-operator|)
 name|newHeaders
 operator|.
 name|get

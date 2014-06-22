@@ -1170,7 +1170,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|,
@@ -1182,7 +1182,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|KEY_USERID
 argument_list|,
@@ -1308,7 +1308,7 @@ name|inMess
 operator|.
 name|getHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|NUMBER_OF_ENCRYPTION_KEYS
 argument_list|)
@@ -1322,7 +1322,7 @@ name|inMess
 operator|.
 name|getHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|NUMBER_OF_SIGNING_KEYS
 argument_list|)
@@ -1887,7 +1887,7 @@ operator|.
 name|getAlgorithm
 argument_list|()
 argument_list|,
-name|PGPUtil
+name|HashAlgorithmTags
 operator|.
 name|SHA1
 argument_list|)
@@ -2449,7 +2449,7 @@ name|decryptor
 operator|.
 name|setSignatureVerificationOption
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_VERIFICATION_OPTION_NO_SIGNATURE_ALLOWED
 argument_list|)
@@ -2517,7 +2517,7 @@ name|decryptor
 operator|.
 name|setSignatureVerificationOption
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_VERIFICATION_OPTION_REQUIRED
 argument_list|)
@@ -2578,7 +2578,7 @@ name|decryptor
 operator|.
 name|setSignatureVerificationOption
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_VERIFICATION_OPTION_IGNORE
 argument_list|)
@@ -2817,7 +2817,7 @@ name|pgpDecrypt
 operator|.
 name|setSignatureVerificationOption
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_VERIFICATION_OPTION_NO_SIGNATURE_ALLOWED
 argument_list|)
@@ -3065,7 +3065,7 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERIDS
 argument_list|)
@@ -3089,7 +3089,7 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|)
@@ -3334,7 +3334,7 @@ name|pgpVerifyAndDecryptByteArray
 operator|.
 name|setSignatureVerificationOption
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_VERIFICATION_OPTION_REQUIRED
 argument_list|)
@@ -3710,7 +3710,7 @@ comment|// there are two keys which have a User ID which contains the string "ec
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|KEY_USERID
 argument_list|)
@@ -3722,7 +3722,7 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|)
@@ -3740,14 +3740,14 @@ comment|// it is recommended to remove the header immediately when it is no long
 operator|.
 name|removeHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|KEY_USERID
 argument_list|)
 operator|.
 name|removeHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|)
@@ -3760,7 +3760,7 @@ comment|// only specify one expected signature key, to check the first signature
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|)
@@ -3779,7 +3779,7 @@ comment|// there are two keys which have a User ID which contains the string "ec
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|KEY_USERID
 argument_list|)
@@ -3791,7 +3791,7 @@ argument_list|)
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|)
@@ -3809,14 +3809,14 @@ comment|// it is recommended to remove the header immediately when it is no long
 operator|.
 name|removeHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|KEY_USERID
 argument_list|)
 operator|.
 name|removeHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|)
@@ -3824,7 +3824,7 @@ comment|// only specify one expected signature key, to check the second signatur
 operator|.
 name|setHeader
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|)

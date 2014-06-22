@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Camel-Gora attributes  *  * @author ipolyzos  */
+comment|/**  * Camel-Gora attributes  */
 end_comment
 
 begin_enum

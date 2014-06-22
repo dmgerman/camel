@@ -68,10 +68,6 @@ name|JaxbXmlStreamWriterWrapper
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author<a href="http://christianposta.com/blog">Christian Posta</a>  */
-end_comment
-
 begin_class
 DECL|class|TestXmlStreamWriter
 specifier|public

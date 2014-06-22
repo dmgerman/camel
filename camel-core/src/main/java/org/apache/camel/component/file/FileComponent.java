@@ -180,9 +180,6 @@ specifier|public
 name|FileComponent
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setEndpointClass
 argument_list|(
 name|FileEndpoint

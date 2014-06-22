@@ -255,18 +255,14 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"received message "
-operator|+
+literal|"received message {} of class {}"
+argument_list|,
 name|body
-operator|+
-literal|" of class "
-operator|+
+argument_list|,
 name|body
 operator|.
 name|getClass

@@ -39,11 +39,7 @@ DECL|method|AvroComponentException ()
 specifier|public
 name|AvroComponentException
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|AvroComponentException (String message, Throwable cause)
 specifier|public
 name|AvroComponentException

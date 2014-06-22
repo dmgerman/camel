@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Camel Gora component constants  *  * @author ipolyzos  */
+comment|/**  * Camel Gora component constants  */
 end_comment
 
 begin_class

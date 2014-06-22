@@ -664,9 +664,6 @@ block|{
 name|String
 name|filterString
 init|=
-operator|(
-name|String
-operator|)
 name|it
 operator|.
 name|next
