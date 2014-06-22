@@ -340,6 +340,24 @@ name|PREFIX
 operator|+
 literal|"component"
 decl_stmt|;
+DECL|field|engine
+specifier|private
+specifier|static
+name|VelocityEngine
+name|engine
+decl_stmt|;
+DECL|field|projectClassLoader
+specifier|private
+specifier|static
+name|ClassLoader
+name|projectClassLoader
+decl_stmt|;
+DECL|field|sharedProjectState
+specifier|private
+specifier|static
+name|boolean
+name|sharedProjectState
+decl_stmt|;
 comment|// used for velocity logging, to avoid creating velocity.log
 DECL|field|log
 specifier|protected
@@ -441,24 +459,15 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-DECL|field|engine
-specifier|private
-specifier|static
-name|VelocityEngine
-name|engine
-decl_stmt|;
-DECL|field|projectClassLoader
-specifier|private
-specifier|static
-name|ClassLoader
-name|projectClassLoader
-decl_stmt|;
-DECL|field|sharedProjectState
-specifier|private
-specifier|static
-name|boolean
-name|sharedProjectState
-decl_stmt|;
+DECL|method|AbstractGeneratorMojo ()
+specifier|protected
+name|AbstractGeneratorMojo
+parameter_list|()
+block|{
+name|clearSharedProjectState
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|setSharedProjectState (boolean sharedProjectState)
 specifier|public
 specifier|static
@@ -494,15 +503,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-block|}
-DECL|method|AbstractGeneratorMojo ()
-specifier|protected
-name|AbstractGeneratorMojo
-parameter_list|()
-block|{
-name|clearSharedProjectState
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|getEngine ()
 specifier|protected

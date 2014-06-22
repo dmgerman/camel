@@ -135,7 +135,7 @@ init|=
 literal|"target/generated-test-sources/camel-component"
 decl_stmt|;
 DECL|field|COMPONENT_PACKAGE
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
@@ -144,7 +144,7 @@ init|=
 literal|"org.apache.camel.component.test"
 decl_stmt|;
 DECL|field|OUT_PACKAGE
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
