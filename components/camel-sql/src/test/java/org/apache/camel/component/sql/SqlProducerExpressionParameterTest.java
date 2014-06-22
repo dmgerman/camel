@@ -186,11 +186,6 @@ name|SqlProducerExpressionParameterTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|db
-specifier|private
-name|EmbeddedDatabase
-name|db
-decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -201,6 +196,11 @@ argument_list|)
 DECL|field|result
 name|MockEndpoint
 name|result
+decl_stmt|;
+DECL|field|db
+specifier|private
+name|EmbeddedDatabase
+name|db
 decl_stmt|;
 annotation|@
 name|Before
