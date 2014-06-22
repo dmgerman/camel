@@ -99,15 +99,6 @@ block|{
 comment|// ----------------------------------
 comment|// Common event fields
 comment|// ----------------------------------
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1L
-decl_stmt|;
 comment|/**      * A device-specific classification provided as part of the event.      */
 DECL|field|COMMON_CATEGORY
 specifier|public
@@ -521,6 +512,15 @@ name|String
 name|LINEBREAK
 init|=
 literal|"\n"
+decl_stmt|;
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
 decl_stmt|;
 comment|/**      * Whether or not to put quotes around values      */
 DECL|field|quoteValues
