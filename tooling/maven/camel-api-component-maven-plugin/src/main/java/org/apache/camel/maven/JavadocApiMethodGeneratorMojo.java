@@ -2080,6 +2080,7 @@ argument_list|(
 name|names
 index|[
 name|i
+operator|++
 index|]
 argument_list|)
 operator|.
