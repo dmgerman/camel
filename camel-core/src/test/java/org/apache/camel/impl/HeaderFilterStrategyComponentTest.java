@@ -132,6 +132,25 @@ name|MyComponent
 extends|extends
 name|HeaderFilterStrategyComponent
 block|{
+DECL|method|MyComponent (Class<? extends Endpoint> endpointClass)
+specifier|public
+name|MyComponent
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -249,7 +268,11 @@ name|comp
 init|=
 operator|new
 name|MyComponent
-argument_list|()
+argument_list|(
+name|MyEndpoint
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|assertNull
 argument_list|(
@@ -295,7 +318,11 @@ name|comp
 init|=
 operator|new
 name|MyComponent
-argument_list|()
+argument_list|(
+name|MyEndpoint
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|assertNull
 argument_list|(

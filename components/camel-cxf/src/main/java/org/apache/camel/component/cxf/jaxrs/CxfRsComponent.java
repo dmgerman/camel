@@ -198,7 +198,15 @@ DECL|method|CxfRsComponent ()
 specifier|public
 name|CxfRsComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|CxfRsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|CxfRsComponent (CamelContext context)
 specifier|public
 name|CxfRsComponent
@@ -210,6 +218,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|CxfRsEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
