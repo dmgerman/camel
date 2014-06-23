@@ -421,7 +421,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// if set, merge common aliases with proxy's aliases
+comment|// set common aliases if needed
 if|if
 condition|(
 operator|!
@@ -429,23 +429,11 @@ name|aliases
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
-specifier|final
-name|List
-argument_list|<
-name|ApiMethodAlias
-argument_list|>
-name|apiAliases
-init|=
+operator|&&
 name|api
 operator|.
 name|getAliases
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|apiAliases
 operator|.
 name|isEmpty
 argument_list|()
@@ -458,17 +446,6 @@ argument_list|(
 name|aliases
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|apiAliases
-operator|.
-name|addAll
-argument_list|(
-name|aliases
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// generate ApiCollection
