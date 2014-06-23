@@ -593,6 +593,7 @@ operator|)
 operator|!=
 literal|null
 condition|)
+block|{
 if|if
 condition|(
 operator|!
@@ -601,9 +602,12 @@ operator|.
 name|isDirectory
 argument_list|()
 condition|)
+block|{
 return|return
 name|entry
 return|;
+block|}
+block|}
 return|return
 literal|null
 return|;
