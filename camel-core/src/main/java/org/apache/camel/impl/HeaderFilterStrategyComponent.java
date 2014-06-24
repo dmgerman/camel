@@ -75,7 +75,7 @@ specifier|abstract
 class|class
 name|HeaderFilterStrategyComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
@@ -84,22 +84,46 @@ specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
-DECL|method|HeaderFilterStrategyComponent ()
+DECL|method|HeaderFilterStrategyComponent (Class<? extends Endpoint> endpointClass)
 specifier|public
 name|HeaderFilterStrategyComponent
-parameter_list|()
-block|{     }
-DECL|method|HeaderFilterStrategyComponent (CamelContext context)
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|HeaderFilterStrategyComponent (CamelContext context, Class<? extends Endpoint> endpointClass)
 specifier|public
 name|HeaderFilterStrategyComponent
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|endpointClass
 argument_list|)
 expr_stmt|;
 block|}
