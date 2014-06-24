@@ -1903,7 +1903,7 @@ name|String
 name|typeArgs
 decl_stmt|;
 DECL|method|Argument (String name, Class<?> type, String typeArgs)
-specifier|protected
+specifier|public
 name|Argument
 parameter_list|(
 name|String

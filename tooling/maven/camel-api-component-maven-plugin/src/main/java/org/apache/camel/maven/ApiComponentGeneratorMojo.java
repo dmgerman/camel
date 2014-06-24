@@ -599,6 +599,24 @@ argument_list|()
 else|:
 name|excludeConfigTypes
 expr_stmt|;
+name|mojo
+operator|.
+name|extraOptions
+operator|=
+name|apiProxy
+operator|.
+name|getExtraOptions
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|apiProxy
+operator|.
+name|getExtraOptions
+argument_list|()
+else|:
+name|extraOptions
+expr_stmt|;
 comment|// set AbstractAPIMethodGeneratorMojo properties
 name|mojo
 operator|.

@@ -94,6 +94,14 @@ specifier|protected
 name|String
 name|excludeConfigTypes
 decl_stmt|;
+annotation|@
+name|Parameter
+DECL|field|extraOptions
+specifier|protected
+name|ExtraOption
+index|[]
+name|extraOptions
+decl_stmt|;
 block|}
 end_class
 

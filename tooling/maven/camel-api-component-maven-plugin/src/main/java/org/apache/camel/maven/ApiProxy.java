@@ -117,6 +117,12 @@ specifier|private
 name|String
 name|excludeConfigTypes
 decl_stmt|;
+DECL|field|extraOptions
+specifier|private
+name|ExtraOption
+index|[]
+name|extraOptions
+decl_stmt|;
 DECL|field|aliases
 specifier|private
 name|List
@@ -312,6 +318,34 @@ operator|.
 name|excludeConfigTypes
 operator|=
 name|excludeConfigTypes
+expr_stmt|;
+block|}
+DECL|method|getExtraOptions ()
+specifier|public
+name|ExtraOption
+index|[]
+name|getExtraOptions
+parameter_list|()
+block|{
+return|return
+name|extraOptions
+return|;
+block|}
+DECL|method|setExtraOptions (ExtraOption[] extraOptions)
+specifier|public
+name|void
+name|setExtraOptions
+parameter_list|(
+name|ExtraOption
+index|[]
+name|extraOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|extraOptions
+operator|=
+name|extraOptions
 expr_stmt|;
 block|}
 DECL|method|getAliases ()
