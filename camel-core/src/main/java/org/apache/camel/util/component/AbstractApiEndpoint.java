@@ -457,11 +457,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|interceptPropertyNames
-argument_list|(
-name|arguments
-argument_list|)
-expr_stmt|;
 comment|// add inBody argument for producers
 if|if
 condition|(
@@ -478,6 +473,11 @@ name|inBody
 argument_list|)
 expr_stmt|;
 block|}
+name|interceptPropertyNames
+argument_list|(
+name|arguments
+argument_list|)
+expr_stmt|;
 specifier|final
 name|String
 index|[]
