@@ -47,6 +47,15 @@ name|VELOCITY_TEMPLATE
 init|=
 literal|"CamelVelocityTemplate"
 decl_stmt|;
+DECL|field|VELOCITY_CONTEXT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|VELOCITY_CONTEXT
+init|=
+literal|"CamelVelocityContext"
+decl_stmt|;
 DECL|method|VelocityConstants ()
 specifier|private
 name|VelocityConstants
