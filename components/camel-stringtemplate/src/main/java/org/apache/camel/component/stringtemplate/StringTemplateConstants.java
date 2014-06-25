@@ -38,6 +38,15 @@ name|STRINGTEMPLATE_RESOURCE_URI
 init|=
 literal|"CamelStringTemplateResourceUri"
 decl_stmt|;
+DECL|field|STRINGTEMPLATE_VARIABLE_MAP
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|STRINGTEMPLATE_VARIABLE_MAP
+init|=
+literal|"CamelStringTemplateVariableMap"
+decl_stmt|;
 DECL|method|StringTemplateConstants ()
 specifier|private
 name|StringTemplateConstants
