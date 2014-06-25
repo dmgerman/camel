@@ -76,6 +76,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -135,6 +149,13 @@ comment|/**  * OptaPlanner endpoint for Camel  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"optaplanner"
+argument_list|)
 DECL|class|OptaPlannerEndpoint
 specifier|public
 class|class
