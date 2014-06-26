@@ -325,6 +325,15 @@ name|String
 name|key
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|contains
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
 return|return
 name|setOperations
 operator|.
@@ -337,6 +346,13 @@ argument_list|)
 operator|!=
 literal|null
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 annotation|@
 name|ManagedOperation
@@ -381,6 +397,17 @@ name|String
 name|key
 parameter_list|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Remove the key"
+operator|+
+name|key
+argument_list|)
+expr_stmt|;
 return|return
 name|setOperations
 operator|.
