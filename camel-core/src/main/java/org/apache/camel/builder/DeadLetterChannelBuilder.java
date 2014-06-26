@@ -182,6 +182,10 @@ name|DeadLetterChannelBuilder
 extends|extends
 name|DefaultErrorHandlerBuilder
 block|{
+DECL|field|checkException
+name|boolean
+name|checkException
+decl_stmt|;
 DECL|method|DeadLetterChannelBuilder ()
 specifier|public
 name|DeadLetterChannelBuilder
@@ -216,6 +220,20 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|checkException ()
+specifier|public
+name|DeadLetterChannelBuilder
+name|checkException
+parameter_list|()
+block|{
+name|checkException
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
@@ -351,6 +369,8 @@ literal|null
 condition|)
 block|{
 comment|// force MEP to be InOnly so when sending to DLQ we would not expect a reply if the MEP was InOut
+comment|// If the checkException is true, sendProcessor will checkException
+comment|// and mark the exchange ERRORHANDLER_HANDLED property to false
 name|failureProcessor
 operator|=
 operator|new
@@ -361,6 +381,8 @@ argument_list|,
 name|ExchangePattern
 operator|.
 name|InOnly
+argument_list|,
+name|checkException
 argument_list|)
 expr_stmt|;
 block|}
