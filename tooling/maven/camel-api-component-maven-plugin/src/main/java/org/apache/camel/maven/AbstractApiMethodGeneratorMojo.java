@@ -684,6 +684,15 @@ name|context
 operator|.
 name|put
 argument_list|(
+literal|"componentPackage"
+argument_list|,
+name|componentPackage
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|put
+argument_list|(
 literal|"componentName"
 argument_list|,
 name|componentName
@@ -723,7 +732,7 @@ name|fileName
 operator|.
 name|append
 argument_list|(
-name|outPackage
+name|componentPackage
 operator|.
 name|replaceAll
 argument_list|(
