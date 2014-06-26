@@ -496,6 +496,16 @@ throws|throws
 name|InvalidSyntaxException
 block|{
 comment|// avoid registering the same service again
+comment|// we must include unique camel management name so the symbolic name becomes unique,
+comment|// in case the bundle has more than one CamelContext
+name|String
+name|name
+init|=
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 name|String
 name|symbolicName
 init|=
@@ -506,6 +516,10 @@ argument_list|()
 operator|.
 name|getSymbolicName
 argument_list|()
+operator|+
+literal|"-"
+operator|+
+name|name
 decl_stmt|;
 name|Version
 name|bundleVersion
@@ -600,10 +614,7 @@ name|put
 argument_list|(
 name|CONTEXT_NAME_PROPERTY
 argument_list|,
-name|camelContext
-operator|.
-name|getName
-argument_list|()
+name|name
 argument_list|)
 expr_stmt|;
 if|if
