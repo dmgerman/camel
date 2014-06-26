@@ -397,17 +397,6 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Remove the key"
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
 return|return
 name|setOperations
 operator|.
