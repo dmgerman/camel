@@ -398,7 +398,7 @@ name|setHeader
 argument_list|(
 name|FreemarkerConstants
 operator|.
-name|FREEMARKER_DATA_MODLE
+name|FREEMARKER_DATA_MODEL
 argument_list|,
 name|variableMap
 argument_list|)

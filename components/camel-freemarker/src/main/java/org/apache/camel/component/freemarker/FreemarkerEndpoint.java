@@ -529,7 +529,7 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Object
-name|dataModle
+name|dataModel
 init|=
 name|exchange
 operator|.
@@ -540,7 +540,7 @@ name|getHeader
 argument_list|(
 name|FreemarkerConstants
 operator|.
-name|FREEMARKER_DATA_MODLE
+name|FREEMARKER_DATA_MODEL
 argument_list|,
 name|Object
 operator|.
@@ -549,12 +549,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|dataModle
+name|dataModel
 operator|==
 literal|null
 condition|)
 block|{
-name|dataModle
+name|dataModel
 operator|=
 name|ExchangeHelper
 operator|.
@@ -585,7 +585,7 @@ name|FreemarkerConstants
 operator|.
 name|FREEMARKER_TEMPLATE
 argument_list|,
-name|dataModle
+name|dataModel
 argument_list|)
 expr_stmt|;
 name|template
@@ -613,7 +613,7 @@ literal|"Freemarker is evaluating {} using context: {}"
 argument_list|,
 name|path
 argument_list|,
-name|dataModle
+name|dataModel
 argument_list|)
 expr_stmt|;
 if|if
@@ -661,7 +661,7 @@ name|template
 operator|.
 name|process
 argument_list|(
-name|dataModle
+name|dataModel
 argument_list|,
 name|buffer
 argument_list|)
