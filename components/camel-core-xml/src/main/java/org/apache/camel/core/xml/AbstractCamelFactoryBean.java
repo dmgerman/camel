@@ -161,6 +161,13 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|customId
+specifier|private
+name|Boolean
+name|customId
+decl_stmt|;
 DECL|method|getObject ()
 specifier|public
 specifier|abstract
@@ -325,6 +332,32 @@ operator|.
 name|camelContextId
 operator|=
 name|camelContextId
+expr_stmt|;
+block|}
+DECL|method|getCustomId ()
+specifier|public
+name|Boolean
+name|getCustomId
+parameter_list|()
+block|{
+return|return
+name|customId
+return|;
+block|}
+DECL|method|setCustomId (Boolean customId)
+specifier|public
+name|void
+name|setCustomId
+parameter_list|(
+name|Boolean
+name|customId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customId
+operator|=
+name|customId
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
