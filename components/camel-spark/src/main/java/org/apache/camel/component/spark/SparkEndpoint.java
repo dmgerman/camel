@@ -131,6 +131,19 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriParam
+DECL|field|sparkConfiguration
+name|SparkConfiguration
+name|sparkConfiguration
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|sparkBinding
+specifier|private
+name|SparkBinding
+name|sparkBinding
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|verb
 specifier|private
 name|String
@@ -142,6 +155,13 @@ DECL|field|path
 specifier|private
 name|String
 name|path
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|acceptType
+specifier|private
+name|String
+name|acceptType
 decl_stmt|;
 DECL|method|SparkEndpoint (String endpointUri, Component component)
 specifier|public
@@ -160,6 +180,58 @@ name|endpointUri
 argument_list|,
 name|component
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getSparkConfiguration ()
+specifier|public
+name|SparkConfiguration
+name|getSparkConfiguration
+parameter_list|()
+block|{
+return|return
+name|sparkConfiguration
+return|;
+block|}
+DECL|method|setSparkConfiguration (SparkConfiguration sparkConfiguration)
+specifier|public
+name|void
+name|setSparkConfiguration
+parameter_list|(
+name|SparkConfiguration
+name|sparkConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sparkConfiguration
+operator|=
+name|sparkConfiguration
+expr_stmt|;
+block|}
+DECL|method|getSparkBinding ()
+specifier|public
+name|SparkBinding
+name|getSparkBinding
+parameter_list|()
+block|{
+return|return
+name|sparkBinding
+return|;
+block|}
+DECL|method|setSparkBinding (SparkBinding sparkBinding)
+specifier|public
+name|void
+name|setSparkBinding
+parameter_list|(
+name|SparkBinding
+name|sparkBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sparkBinding
+operator|=
+name|sparkBinding
 expr_stmt|;
 block|}
 DECL|method|getVerb ()
@@ -212,6 +284,32 @@ operator|.
 name|path
 operator|=
 name|path
+expr_stmt|;
+block|}
+DECL|method|getAcceptType ()
+specifier|public
+name|String
+name|getAcceptType
+parameter_list|()
+block|{
+return|return
+name|acceptType
+return|;
+block|}
+DECL|method|setAcceptType (String acceptType)
+specifier|public
+name|void
+name|setAcceptType
+parameter_list|(
+name|String
+name|acceptType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acceptType
+operator|=
+name|acceptType
 expr_stmt|;
 block|}
 annotation|@
