@@ -670,6 +670,15 @@ argument_list|,
 literal|"CamelBlueprintTestBundle19"
 argument_list|)
 operator|.
+name|set
+argument_list|(
+name|Constants
+operator|.
+name|DYNAMICIMPORT_PACKAGE
+argument_list|,
+literal|"*"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|)
