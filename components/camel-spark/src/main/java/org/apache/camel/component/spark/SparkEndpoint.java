@@ -158,10 +158,10 @@ name|path
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|acceptType
+DECL|field|accept
 specifier|private
 name|String
-name|acceptType
+name|accept
 decl_stmt|;
 DECL|method|SparkEndpoint (String endpointUri, Component component)
 specifier|public
@@ -286,30 +286,30 @@ operator|=
 name|path
 expr_stmt|;
 block|}
-DECL|method|getAcceptType ()
+DECL|method|getAccept ()
 specifier|public
 name|String
-name|getAcceptType
+name|getAccept
 parameter_list|()
 block|{
 return|return
-name|acceptType
+name|accept
 return|;
 block|}
-DECL|method|setAcceptType (String acceptType)
+DECL|method|setAccept (String accept)
 specifier|public
 name|void
-name|setAcceptType
+name|setAccept
 parameter_list|(
 name|String
-name|acceptType
+name|accept
 parameter_list|)
 block|{
 name|this
 operator|.
-name|acceptType
+name|accept
 operator|=
-name|acceptType
+name|accept
 expr_stmt|;
 block|}
 annotation|@

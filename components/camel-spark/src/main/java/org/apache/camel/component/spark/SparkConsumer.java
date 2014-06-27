@@ -158,14 +158,15 @@ name|getVerb
 argument_list|()
 decl_stmt|;
 name|String
-name|acceptType
+name|accept
 init|=
 name|getEndpoint
 argument_list|()
 operator|.
-name|getAcceptType
+name|getAccept
 argument_list|()
 decl_stmt|;
+comment|// TODO: reuse our spark route builder DSL instead of this code
 if|if
 condition|(
 literal|"get"
@@ -187,7 +188,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|acceptType
+name|accept
 operator|!=
 literal|null
 condition|)
@@ -198,7 +199,7 @@ name|get
 argument_list|(
 name|path
 argument_list|,
-name|acceptType
+name|accept
 argument_list|,
 name|route
 argument_list|)
