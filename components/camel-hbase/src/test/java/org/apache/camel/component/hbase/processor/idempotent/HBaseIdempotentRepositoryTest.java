@@ -392,6 +392,17 @@ name|key02
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// try to add the first key again
+name|assertFalse
+argument_list|(
+name|repository
+operator|.
+name|add
+argument_list|(
+name|key01
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -499,6 +510,34 @@ operator|.
 name|remove
 argument_list|(
 name|key02
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Test
+DECL|method|testConfirm ()
+specifier|public
+name|void
+name|testConfirm
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|systemReady
+condition|)
+block|{
+comment|// it always return true
+name|assertTrue
+argument_list|(
+name|repository
+operator|.
+name|confirm
+argument_list|(
+name|key01
 argument_list|)
 argument_list|)
 expr_stmt|;
