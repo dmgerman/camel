@@ -83,6 +83,14 @@ argument_list|(
 literal|"host"
 argument_list|)
 expr_stmt|;
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"user-agent"
+argument_list|)
+expr_stmt|;
 comment|// Add the filter for the Generic Message header
 comment|// http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.5
 name|getOutFilter
@@ -167,6 +175,17 @@ comment|// must ignore case for Http based transports
 name|setOutFilterPattern
 argument_list|(
 literal|"(?i)(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"
+argument_list|)
+expr_stmt|;
+comment|// filter out splat as its an internal header
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|SparkConstants
+operator|.
+name|SPLAT
 argument_list|)
 expr_stmt|;
 block|}
