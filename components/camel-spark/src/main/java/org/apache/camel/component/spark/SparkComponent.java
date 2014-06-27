@@ -62,6 +62,14 @@ name|Spark
 import|;
 end_import
 
+begin_import
+import|import
+name|spark
+operator|.
+name|SparkBase
+import|;
+end_import
+
 begin_class
 DECL|class|SparkComponent
 specifier|public
@@ -70,6 +78,15 @@ name|SparkComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+DECL|field|port
+specifier|private
+name|int
+name|port
+init|=
+name|SparkBase
+operator|.
+name|SPARK_DEFAULT_PORT
+decl_stmt|;
 DECL|method|SparkComponent ()
 specifier|public
 name|SparkComponent
@@ -81,6 +98,32 @@ name|SparkEndpoint
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|port
+return|;
+block|}
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
 expr_stmt|;
 block|}
 annotation|@
@@ -176,6 +219,30 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+name|Spark
+operator|.
+name|setPort
+argument_list|(
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
