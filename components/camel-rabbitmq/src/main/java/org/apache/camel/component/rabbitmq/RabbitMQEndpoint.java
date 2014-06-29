@@ -531,6 +531,14 @@ specifier|private
 name|boolean
 name|prefetchGlobal
 decl_stmt|;
+comment|/** 	 * Number of concurrent consumer threads 	 */
+DECL|field|concurrentConsumers
+specifier|private
+name|int
+name|concurrentConsumers
+init|=
+literal|1
+decl_stmt|;
 DECL|method|RabbitMQEndpoint ()
 specifier|public
 name|RabbitMQEndpoint
@@ -2091,6 +2099,32 @@ block|{
 return|return
 name|prefetchGlobal
 return|;
+block|}
+DECL|method|getConcurrentConsumers ()
+specifier|public
+name|int
+name|getConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|concurrentConsumers
+return|;
+block|}
+DECL|method|setConcurrentConsumers (int concurrentConsumers)
+specifier|public
+name|void
+name|setConcurrentConsumers
+parameter_list|(
+name|int
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|concurrentConsumers
+operator|=
+name|concurrentConsumers
+expr_stmt|;
 block|}
 block|}
 end_class
