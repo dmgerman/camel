@@ -221,7 +221,7 @@ specifier|private
 name|StartConsumerCallable
 name|startConsumerCallable
 decl_stmt|;
-comment|/** 	 * Running consumers 	 */
+comment|/**      * Running consumers      */
 DECL|field|consumers
 specifier|private
 specifier|final
@@ -319,7 +319,7 @@ name|conn
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Open channel 	 */
+comment|/**      * Open channel      */
 DECL|method|openChannel ()
 specifier|private
 name|Channel
@@ -386,7 +386,7 @@ return|return
 name|channel
 return|;
 block|}
-comment|/** 	 * Add a consummer thread for given channel 	 */
+comment|/**      * Add a consummer thread for given channel      */
 DECL|method|startConsumers ()
 specifier|private
 name|void
@@ -1244,7 +1244,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 		 * Bind consumer to channel 		 */
+comment|/**          * Bind consumer to channel          */
 DECL|method|start ()
 specifier|public
 name|void
@@ -1273,7 +1273,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 		 * Unbind consumer from channel 		 */
+comment|/**          * Unbind consumer from channel          */
 DECL|method|stop ()
 specifier|public
 name|void

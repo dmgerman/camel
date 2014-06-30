@@ -531,7 +531,7 @@ specifier|private
 name|boolean
 name|prefetchGlobal
 decl_stmt|;
-comment|/** 	 * Number of concurrent consumer threads 	 */
+comment|/**      * Number of concurrent consumer threads      */
 DECL|field|concurrentConsumers
 specifier|private
 name|int
