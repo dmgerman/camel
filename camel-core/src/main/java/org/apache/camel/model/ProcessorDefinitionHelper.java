@@ -806,27 +806,6 @@ range|:
 name|outputs
 control|)
 block|{
-if|if
-condition|(
-name|type
-operator|.
-name|isInstance
-argument_list|(
-name|out
-argument_list|)
-condition|)
-block|{
-name|found
-operator|.
-name|add
-argument_list|(
-operator|(
-name|T
-operator|)
-name|out
-argument_list|)
-expr_stmt|;
-block|}
 comment|// send is much common
 if|if
 condition|(
@@ -956,6 +935,8 @@ name|found
 argument_list|)
 expr_stmt|;
 block|}
+comment|// do not check children as we already did that
+continue|continue;
 block|}
 comment|// special for try ... catch ... finally
 if|if
@@ -1098,6 +1079,27 @@ argument_list|)
 expr_stmt|;
 comment|// do not check children as we already did that
 continue|continue;
+block|}
+if|if
+condition|(
+name|type
+operator|.
+name|isInstance
+argument_list|(
+name|out
+argument_list|)
+condition|)
+block|{
+name|found
+operator|.
+name|add
+argument_list|(
+operator|(
+name|T
+operator|)
+name|out
+argument_list|)
+expr_stmt|;
 block|}
 comment|// try children as well
 name|List
