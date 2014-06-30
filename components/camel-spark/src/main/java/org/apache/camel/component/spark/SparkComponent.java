@@ -344,6 +344,16 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|getPort
+argument_list|()
+operator|!=
+name|SparkBase
+operator|.
+name|SPARK_DEFAULT_PORT
+condition|)
+block|{
 name|Spark
 operator|.
 name|setPort
@@ -352,6 +362,7 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
