@@ -1057,6 +1057,48 @@ block|}
 comment|// do not check children as we already did that
 continue|continue;
 block|}
+comment|// special for some types which has special outputs
+if|if
+condition|(
+name|out
+operator|instanceof
+name|OutputDefinition
+condition|)
+block|{
+name|OutputDefinition
+name|outDef
+init|=
+operator|(
+name|OutputDefinition
+operator|)
+name|out
+decl_stmt|;
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|outDefOut
+init|=
+name|outDef
+operator|.
+name|getOutputs
+argument_list|()
+decl_stmt|;
+name|doFindType
+argument_list|(
+name|outDefOut
+argument_list|,
+name|type
+argument_list|,
+name|found
+argument_list|)
+expr_stmt|;
+comment|// do not check children as we already did that
+continue|continue;
+block|}
 comment|// try children as well
 name|List
 argument_list|<
