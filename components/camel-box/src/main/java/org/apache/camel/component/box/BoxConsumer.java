@@ -383,8 +383,6 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|this
-argument_list|,
-name|log
 argument_list|)
 expr_stmt|;
 name|properties
