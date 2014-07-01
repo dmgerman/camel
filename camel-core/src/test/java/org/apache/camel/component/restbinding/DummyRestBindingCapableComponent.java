@@ -132,6 +132,23 @@ name|DefaultComponent
 implements|implements
 name|RestBindingCapable
 block|{
+DECL|method|enlist ()
+specifier|public
+name|void
+name|enlist
+parameter_list|()
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|addComponent
+argument_list|(
+literal|"dummy-rest"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
