@@ -1344,37 +1344,6 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -----------------------------------------------------------------------
-comment|/**      * Creates an REST input to the route      *      * @return the builder      */
-DECL|method|fromRest (String verb, String path)
-specifier|public
-name|RouteDefinition
-name|fromRest
-parameter_list|(
-name|String
-name|verb
-parameter_list|,
-name|String
-name|path
-parameter_list|)
-block|{
-name|getInputs
-argument_list|()
-operator|.
-name|add
-argument_list|(
-operator|new
-name|FromRestDefinition
-argument_list|(
-name|verb
-argument_list|,
-name|path
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Creates an input to the route      *      * @param uri the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public

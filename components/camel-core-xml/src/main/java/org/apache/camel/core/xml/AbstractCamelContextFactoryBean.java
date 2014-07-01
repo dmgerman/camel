@@ -600,6 +600,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|interceptor
@@ -1068,6 +1100,8 @@ extends|extends
 name|IdentifiedType
 implements|implements
 name|RouteContainer
+implements|,
+name|RestContainer
 block|{
 comment|/**      * JVM system property to control lazy loading of type converters.      */
 DECL|field|LAZY_LOAD_TYPE_CONVERTERS
@@ -3690,6 +3724,16 @@ argument_list|<
 name|RouteDefinition
 argument_list|>
 name|getRoutes
+parameter_list|()
+function_decl|;
+DECL|method|getRests ()
+specifier|public
+specifier|abstract
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRests
 parameter_list|()
 function_decl|;
 DECL|method|getEndpoints ()

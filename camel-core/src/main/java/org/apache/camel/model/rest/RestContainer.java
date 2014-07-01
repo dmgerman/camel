@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model
+DECL|package|org.apache.camel.model.rest
 package|package
 name|org
 operator|.
@@ -13,59 +13,70 @@ operator|.
 name|camel
 operator|.
 name|model
+operator|.
+name|rest
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementRef
+import|;
+end_import
+
 begin_comment
-comment|/**  * Various constants.  *  * @version   */
+comment|/**  * Container to hold {@link RestDefinition Rest}.  */
 end_comment
 
-begin_class
-DECL|class|Constants
+begin_interface
+DECL|interface|RestContainer
 specifier|public
-specifier|final
-class|class
-name|Constants
+interface|interface
+name|RestContainer
 block|{
-DECL|field|JAXB_CONTEXT_PACKAGES
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JAXB_CONTEXT_PACKAGES
-init|=
-literal|""
-operator|+
-literal|"org.apache.camel:"
-operator|+
-literal|"org.apache.camel.model:"
-operator|+
-literal|"org.apache.camel.model.config:"
-operator|+
-literal|"org.apache.camel.model.dataformat:"
-operator|+
-literal|"org.apache.camel.model.language:"
-operator|+
-literal|"org.apache.camel.model.loadbalancer:"
-operator|+
-literal|"org.apache.camel.model.rest"
-decl_stmt|;
-DECL|field|PLACEHOLDER_QNAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PLACEHOLDER_QNAME
-init|=
-literal|"http://camel.apache.org/schema/placeholder"
-decl_stmt|;
-DECL|method|Constants ()
-specifier|private
-name|Constants
+comment|/**      * Returns the RESTs      *      * @return the RESTs      */
+annotation|@
+name|XmlElementRef
+DECL|method|getRests ()
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRests
 parameter_list|()
-block|{     }
+function_decl|;
+comment|/**      * Sets the RESTs to use      *      * @param rests the RESTs      */
+DECL|method|setRests (List<RestDefinition> rests)
+name|void
+name|setRests
+parameter_list|(
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|rests
+parameter_list|)
+function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 

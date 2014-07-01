@@ -589,41 +589,6 @@ name|route
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new REST route      *      * @return the builder      */
-DECL|method|fromRest (String verb, String path)
-specifier|public
-name|RouteDefinition
-name|fromRest
-parameter_list|(
-name|String
-name|verb
-parameter_list|,
-name|String
-name|path
-parameter_list|)
-block|{
-name|RouteDefinition
-name|route
-init|=
-name|createRoute
-argument_list|()
-decl_stmt|;
-name|route
-operator|.
-name|fromRest
-argument_list|(
-name|verb
-argument_list|,
-name|path
-argument_list|)
-expr_stmt|;
-return|return
-name|route
-argument_list|(
-name|route
-argument_list|)
-return|;
-block|}
 comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
