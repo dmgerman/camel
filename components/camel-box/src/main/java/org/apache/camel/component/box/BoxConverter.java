@@ -203,7 +203,7 @@ throws|,
 name|BoxJSONException
 block|{
 name|String
-name|parentId
+name|folderId
 init|=
 literal|"0"
 decl_stmt|;
@@ -214,7 +214,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parentId
+name|folderId
 operator|=
 name|exchange
 operator|.
@@ -224,7 +224,7 @@ name|BoxConstants
 operator|.
 name|PROPERTY_PREFIX
 operator|+
-literal|"parentId"
+literal|"folderId"
 argument_list|,
 literal|"0"
 argument_list|,
@@ -261,7 +261,7 @@ name|BoxFileUploadRequestObject
 operator|.
 name|uploadFileRequestObject
 argument_list|(
-name|parentId
+name|folderId
 argument_list|,
 name|file
 operator|.
@@ -322,7 +322,7 @@ name|BoxFileUploadRequestObject
 operator|.
 name|uploadFileRequestObject
 argument_list|(
-name|parentId
+name|folderId
 argument_list|,
 name|file
 operator|.
