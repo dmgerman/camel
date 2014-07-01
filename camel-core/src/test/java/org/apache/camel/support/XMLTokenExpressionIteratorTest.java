@@ -207,6 +207,7 @@ operator|.
 name|getBytes
 argument_list|()
 decl_stmt|;
+comment|// mixing a default namespace with an explicit namespace for child
 DECL|field|TEST_BODY_NS_MIXED
 specifier|private
 specifier|static
@@ -231,6 +232,44 @@ operator|+
 literal|"<c:parent some_attr='2' xmlns:c='urn:c'>"
 operator|+
 literal|"<child some_attr='c' anotherAttr='c' xmlns='urn:c'></child>"
+operator|+
+literal|"<c:child some_attr='d' anotherAttr='d'/>"
+operator|+
+literal|"</c:parent>"
+operator|+
+literal|"</grandparent>"
+operator|+
+literal|"</g:greatgrandparent>"
+operator|)
+operator|.
+name|getBytes
+argument_list|()
+decl_stmt|;
+comment|// mixing a no namespace with an explicit namespace for child
+DECL|field|TEST_BODY_NO_NS_MIXED
+specifier|private
+specifier|static
+specifier|final
+name|byte
+index|[]
+name|TEST_BODY_NO_NS_MIXED
+init|=
+operator|(
+literal|"<?xml version='1.0' encoding='UTF-8'?>"
+operator|+
+literal|"<g:greatgrandparent xmlns:g='urn:g'><grandparent>"
+operator|+
+literal|"<parent some_attr='1' xmlns:c='urn:c' xmlns=\"urn:c\">"
+operator|+
+literal|"<child some_attr='a' anotherAttr='a' xmlns=''></child>"
+operator|+
+literal|"<x:child xmlns:x='urn:c' some_attr='b' anotherAttr='b'/>"
+operator|+
+literal|"</parent>"
+operator|+
+literal|"<c:parent some_attr='2' xmlns:c='urn:c'>"
+operator|+
+literal|"<child some_attr='c' anotherAttr='c'></child>"
 operator|+
 literal|"<c:child some_attr='d' anotherAttr='d'/>"
 operator|+
@@ -387,6 +426,42 @@ literal|"<c:child some_attr='e' anotherAttr='e' xmlns:g=\"urn:g\" xmlns:d=\"urn:
 block|,
 literal|"<c:child some_attr='f' anotherAttr='f' xmlns:g=\"urn:g\" xmlns:d=\"urn:d\" xmlns:c=\"urn:c\"/>"
 block|}
+decl_stmt|;
+DECL|field|RESULTS_CHILD_NO_NS_MIXED
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_NO_NS_MIXED
+init|=
+block|{
+literal|"<child some_attr='a' anotherAttr='a' xmlns='' xmlns:g='urn:g' xmlns:c='urn:c'></child>"
+block|,
+literal|"<child some_attr='c' anotherAttr='c' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"></child>"
+block|,     }
+decl_stmt|;
+DECL|field|RESULTS_CHILD_NO_NS_MIXED_WRAPPED
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_NO_NS_MIXED_WRAPPED
+init|=
+block|{
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent>"
+operator|+
+literal|"<parent some_attr='1' xmlns:c='urn:c' xmlns=\"urn:c\">"
+operator|+
+literal|"<child some_attr='a' anotherAttr='a' xmlns=''></child></parent></grandparent></g:greatgrandparent>"
+block|,
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent>"
+operator|+
+literal|"<c:parent some_attr='2' xmlns:c='urn:c'>"
+operator|+
+literal|"<child some_attr='c' anotherAttr='c'></child></c:parent></grandparent></g:greatgrandparent>"
+block|,     }
 decl_stmt|;
 DECL|field|RESULTS_PARENT_WRAPPED
 specifier|private
@@ -776,6 +851,54 @@ name|TEST_BODY
 argument_list|)
 argument_list|,
 name|RESULTS_NULL
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExtractSomeUnqualifiedChild ()
+specifier|public
+name|void
+name|testExtractSomeUnqualifiedChild
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|invokeAndVerify
+argument_list|(
+literal|"//child"
+argument_list|,
+literal|'w'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY_NO_NS_MIXED
+argument_list|)
+argument_list|,
+name|RESULTS_CHILD_NO_NS_MIXED_WRAPPED
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExtractSomeUnqualifiedChildInjected ()
+specifier|public
+name|void
+name|testExtractSomeUnqualifiedChildInjected
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|invokeAndVerify
+argument_list|(
+literal|"//child"
+argument_list|,
+literal|'i'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY_NO_NS_MIXED
+argument_list|)
+argument_list|,
+name|RESULTS_CHILD_NO_NS_MIXED
 argument_list|)
 expr_stmt|;
 block|}

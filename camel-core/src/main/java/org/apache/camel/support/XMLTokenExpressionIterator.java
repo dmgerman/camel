@@ -676,7 +676,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"xmlns(:\\w+|)\\s*=\\s*('[^']+'|\"[^\"]+\")"
+literal|"xmlns(:\\w+|)\\s*=\\s*('[^']*'|\"[^\"]*\")"
 argument_list|)
 decl_stmt|;
 DECL|field|splitpath
