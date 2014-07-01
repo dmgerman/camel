@@ -310,6 +310,15 @@ name|CAMEL_TEST_TAG
 init|=
 literal|"camel_was_here"
 decl_stmt|;
+DECL|field|CAMEL_TEST_FILE
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|CAMEL_TEST_FILE
+init|=
+literal|"CamelTestFile"
+decl_stmt|;
 DECL|field|LINE_SEPARATOR
 specifier|private
 specifier|static

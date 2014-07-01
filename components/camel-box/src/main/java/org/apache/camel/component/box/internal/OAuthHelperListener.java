@@ -200,6 +200,20 @@ name|newAuthData
 argument_list|)
 expr_stmt|;
 block|}
+comment|// update cached refresh token
+name|refreshToken
+operator|=
+name|newAuthData
+operator|!=
+literal|null
+condition|?
+name|newAuthData
+operator|.
+name|getRefreshToken
+argument_list|()
+else|:
+literal|null
+expr_stmt|;
 block|}
 block|}
 end_class

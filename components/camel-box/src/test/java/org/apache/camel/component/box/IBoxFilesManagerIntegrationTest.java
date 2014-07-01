@@ -370,15 +370,6 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-DECL|field|CAMEL_TEST_FILE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|CAMEL_TEST_FILE
-init|=
-literal|"CamelTestFile"
-decl_stmt|;
 DECL|field|BOX_IMAGE_REQUEST_OBJECT
 specifier|private
 specifier|static

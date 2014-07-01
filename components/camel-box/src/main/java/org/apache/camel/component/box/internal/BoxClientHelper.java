@@ -1176,28 +1176,6 @@ argument_list|,
 name|cachedBoxClient
 argument_list|)
 expr_stmt|;
-comment|// notify the OAuthListener of revoked token
-name|cachedBoxClient
-operator|.
-name|getListener
-argument_list|()
-operator|.
-name|onRefresh
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-comment|// mark auth data revoked
-name|boxClient
-operator|.
-name|getOAuthDataController
-argument_list|()
-operator|.
-name|setOAuthData
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 comment|// revoke OAuth token
 name|boxClient
 operator|.
@@ -1223,6 +1201,28 @@ name|configuration
 operator|.
 name|getClientSecret
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// notify the OAuthListener of revoked token
+name|cachedBoxClient
+operator|.
+name|getListener
+argument_list|()
+operator|.
+name|onRefresh
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// mark auth data revoked
+name|boxClient
+operator|.
+name|getOAuthDataController
+argument_list|()
+operator|.
+name|setOAuthData
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

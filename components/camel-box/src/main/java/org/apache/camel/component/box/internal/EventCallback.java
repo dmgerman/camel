@@ -20,46 +20,48 @@ name|internal
 package|;
 end_package
 
+begin_import
+import|import
+name|com
+operator|.
+name|box
+operator|.
+name|boxjavalibv2
+operator|.
+name|dao
+operator|.
+name|BoxEventCollection
+import|;
+end_import
+
 begin_comment
-comment|/**  * Constants for Box component.  */
+comment|/**  * Callback interface to handle BoxEvents received from long polling.  */
 end_comment
 
 begin_interface
-DECL|interface|BoxConstants
+DECL|interface|EventCallback
 specifier|public
 interface|interface
-name|BoxConstants
+name|EventCallback
 block|{
-comment|// suffix for parameters when passed as exchange header properties
-DECL|field|PROPERTY_PREFIX
-name|String
-name|PROPERTY_PREFIX
-init|=
-literal|"CamelBox."
-decl_stmt|;
-DECL|field|NEXT_STREAM_POSITION_PROPERTY
-name|String
-name|NEXT_STREAM_POSITION_PROPERTY
-init|=
-name|PROPERTY_PREFIX
-operator|+
-literal|"nextStreamPosition"
-decl_stmt|;
-DECL|field|CHUNK_SIZE_PROPERTY
-name|String
-name|CHUNK_SIZE_PROPERTY
-init|=
-name|PROPERTY_PREFIX
-operator|+
-literal|"chunkSize"
-decl_stmt|;
-comment|// thread profile name for this component
-DECL|field|THREAD_PROFILE_NAME
-name|String
-name|THREAD_PROFILE_NAME
-init|=
-literal|"CamelBox"
-decl_stmt|;
+DECL|method|onEvent (BoxEventCollection events)
+name|void
+name|onEvent
+parameter_list|(
+name|BoxEventCollection
+name|events
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+DECL|method|onException (Exception e)
+name|void
+name|onException
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

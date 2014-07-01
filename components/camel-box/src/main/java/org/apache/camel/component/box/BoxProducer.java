@@ -124,18 +124,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getThreadProfileName ()
-specifier|protected
-name|String
-name|getThreadProfileName
-parameter_list|()
-block|{
-return|return
-name|BoxConstants
-operator|.
-name|THREAD_PROFILE_NAME
-return|;
-block|}
 block|}
 end_class
 
