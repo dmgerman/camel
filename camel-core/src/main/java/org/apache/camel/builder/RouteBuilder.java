@@ -311,6 +311,50 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Creates a new REST route      */
+DECL|method|fromRest (String verb, String path)
+specifier|public
+name|RouteDefinition
+name|fromRest
+parameter_list|(
+name|String
+name|verb
+parameter_list|,
+name|String
+name|path
+parameter_list|)
+block|{
+name|getRouteCollection
+argument_list|()
+operator|.
+name|setCamelContext
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|RouteDefinition
+name|answer
+init|=
+name|getRouteCollection
+argument_list|()
+operator|.
+name|fromRest
+argument_list|(
+name|verb
+argument_list|,
+name|path
+argument_list|)
+decl_stmt|;
+name|configureRoute
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public

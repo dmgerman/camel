@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.restbinding
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|restbinding
+name|spi
 package|;
 end_package
 
@@ -26,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -38,23 +48,24 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|component
 operator|.
-name|DefaultConsumer
+name|restbinding
+operator|.
+name|RestBindingEndpoint
 import|;
 end_import
 
-begin_class
-DECL|class|RestBindingConsumer
+begin_interface
+DECL|interface|RestBindingCapable
 specifier|public
-class|class
-name|RestBindingConsumer
-extends|extends
-name|DefaultConsumer
+interface|interface
+name|RestBindingCapable
 block|{
-DECL|method|RestBindingConsumer (RestBindingEndpoint endpoint, Processor processor)
-specifier|public
-name|RestBindingConsumer
+comment|/**      * Creates a new REST<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a>, using the details from the {@link org.apache.camel.component.restbinding.RestBindingEndpoint},      * which consumes messages from the endpoint using the given processor      *      * @param endpoint  the binding endpoint      * @param processor the processor      * @return a newly created REST consumer      * @throws Exception can be thrown      */
+DECL|method|createConsumer (RestBindingEndpoint endpoint, Processor processor)
+name|Consumer
+name|createConsumer
 parameter_list|(
 name|RestBindingEndpoint
 name|endpoint
@@ -62,18 +73,11 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpoint
-argument_list|,
-name|processor
-argument_list|)
-expr_stmt|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-comment|// TODO: lookup which components support rest binding and create an endpoint and create the delegate consumer
-block|}
-end_class
+end_interface
 
 end_unit
 

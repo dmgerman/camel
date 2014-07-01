@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Component
+name|Map
 import|;
 end_import
 
@@ -90,6 +88,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestBindingCapable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -114,13 +126,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"rest"
-argument_list|,
-name|consumerClass
-operator|=
-name|RestBindingConsumer
-operator|.
-name|class
+literal|"rest-binding"
 argument_list|)
 DECL|class|RestBindingEndpoint
 specifier|public
@@ -150,14 +156,24 @@ specifier|private
 name|String
 name|accept
 decl_stmt|;
-DECL|method|RestBindingEndpoint (String endpointUri, Component component)
+DECL|field|parameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+decl_stmt|;
+DECL|method|RestBindingEndpoint (String endpointUri, RestBindingComponent component)
 specifier|public
 name|RestBindingEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|Component
+name|RestBindingComponent
 name|component
 parameter_list|)
 block|{
@@ -168,6 +184,24 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|RestBindingComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|RestBindingComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
 block|}
 DECL|method|getVerb ()
 specifier|public
@@ -247,6 +281,42 @@ operator|=
 name|accept
 expr_stmt|;
 block|}
+DECL|method|getParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getParameters
+parameter_list|()
+block|{
+return|return
+name|parameters
+return|;
+block|}
+DECL|method|setParameters (Map<String, Object> parameters)
+specifier|public
+name|void
+name|setParameters
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parameters
+operator|=
+name|parameters
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -278,11 +348,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// create the consumer directly from the component that supports rest binding
+comment|// TODO: should we have a RestBindingConsumer class that delegates to the actual consumer?
+comment|// TODO: what if there is 2+ RestBindingCapable components in the registry?
+name|RestBindingCapable
+name|component
+init|=
+name|getComponent
+argument_list|()
+operator|.
+name|lookupRestBindingCapableComponent
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|component
+operator|!=
+literal|null
+condition|)
+block|{
 name|Consumer
 name|consumer
 init|=
-operator|new
-name|RestBindingConsumer
+name|component
+operator|.
+name|createConsumer
 argument_list|(
 name|this
 argument_list|,
@@ -297,6 +387,17 @@ expr_stmt|;
 return|return
 name|consumer
 return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"There are no registered components in CamelContext that is RestBindingCapable"
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
