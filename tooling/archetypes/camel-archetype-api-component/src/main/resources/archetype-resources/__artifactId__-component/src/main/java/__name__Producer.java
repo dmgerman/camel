@@ -231,26 +231,6 @@ name|$
 block|{
 name|name
 block|}
-name|Constants
-expr_stmt|;
-end_expr_stmt
-
-begin_import
-import|import
-name|$
-block|{
-package|package
-block|}
-end_import
-
-begin_expr_stmt
-operator|.
-name|internal
-operator|.
-name|$
-block|{
-name|name
-block|}
 name|PropertiesHelper
 expr_stmt|;
 end_expr_stmt
@@ -317,23 +297,8 @@ name|getHelper
 argument_list|()
 argument_list|)
 block|;     }
-specifier|protected
-name|String
-name|getThreadProfileName
-argument_list|()
-block|{
-return|return
-name|$
-block|{
-name|name
-block|}
-name|Constants
-operator|.
-name|THREAD_PROFILE_NAME
-return|;
 block|}
 end_expr_stmt
 
-unit|}
 end_unit
 
