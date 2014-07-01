@@ -431,7 +431,7 @@ expr_stmt|;
 comment|// if set, use configured connection manager builder
 specifier|final
 name|BoxConnectionManagerBuilder
-name|configBuilder
+name|connectionManagerBuilder
 init|=
 name|configuration
 operator|.
@@ -442,11 +442,11 @@ specifier|final
 name|BoxConnectionManagerBuilder
 name|connectionManager
 init|=
-name|configBuilder
+name|connectionManagerBuilder
 operator|!=
 literal|null
 condition|?
-name|configBuilder
+name|connectionManagerBuilder
 else|:
 operator|new
 name|BoxConnectionManagerBuilder
