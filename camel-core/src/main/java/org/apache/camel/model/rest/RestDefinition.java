@@ -424,11 +424,11 @@ operator|.
 name|getOutputs
 argument_list|()
 operator|.
-name|add
+name|addAll
 argument_list|(
 name|verb
 operator|.
-name|getTo
+name|getOutputs
 argument_list|()
 argument_list|)
 expr_stmt|;

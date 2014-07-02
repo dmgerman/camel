@@ -1080,7 +1080,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|configureChild (ProcessorDefinition<?> output)
-specifier|protected
+specifier|public
 name|void
 name|configureChild
 parameter_list|(

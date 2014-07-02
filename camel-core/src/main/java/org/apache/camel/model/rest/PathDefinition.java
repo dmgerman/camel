@@ -384,7 +384,7 @@ argument_list|)
 decl_stmt|;
 name|verb
 operator|.
-name|setTo
+name|addOutput
 argument_list|(
 operator|new
 name|ToDefinition

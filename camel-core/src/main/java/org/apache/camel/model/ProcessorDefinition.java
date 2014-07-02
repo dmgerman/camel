@@ -3119,7 +3119,7 @@ comment|// noop
 block|}
 comment|/**      * Strategy for children to do any custom configuration      *      * @param output the child to be added as output to this      */
 DECL|method|configureChild (ProcessorDefinition<?> output)
-specifier|protected
+specifier|public
 name|void
 name|configureChild
 parameter_list|(
