@@ -122,7 +122,13 @@ specifier|public
 class|class
 name|VerbDefinition
 block|{
-comment|// TODO: we would ideally want this to be abstract and not in the XML DSL
+annotation|@
+name|XmlAttribute
+DECL|field|method
+specifier|private
+name|String
+name|method
+decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|uri
@@ -132,16 +138,37 @@ name|uri
 decl_stmt|;
 annotation|@
 name|XmlElementRef
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
 DECL|field|to
 specifier|private
 name|ToDefinition
 name|to
 decl_stmt|;
+DECL|method|getMethod ()
+specifier|public
+name|String
+name|getMethod
+parameter_list|()
+block|{
+return|return
+name|method
+return|;
+block|}
+DECL|method|setMethod (String method)
+specifier|public
+name|void
+name|setMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|)
+block|{
+name|this
+operator|.
+name|method
+operator|=
+name|method
+expr_stmt|;
+block|}
 DECL|method|getUri ()
 specifier|public
 name|String

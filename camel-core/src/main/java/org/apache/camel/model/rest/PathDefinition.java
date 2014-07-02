@@ -135,22 +135,18 @@ name|XmlAccessorType
 argument_list|(
 name|XmlAccessType
 operator|.
-name|FIELD
+name|PROPERTY
 argument_list|)
 DECL|class|PathDefinition
 specifier|public
 class|class
 name|PathDefinition
 block|{
-annotation|@
-name|XmlAttribute
 DECL|field|uri
 specifier|private
 name|String
 name|uri
 decl_stmt|;
-annotation|@
-name|XmlElementRef
 DECL|field|verbs
 specifier|private
 name|List
@@ -176,6 +172,8 @@ return|return
 name|uri
 return|;
 block|}
+annotation|@
+name|XmlAttribute
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -205,6 +203,8 @@ return|return
 name|verbs
 return|;
 block|}
+annotation|@
+name|XmlElementRef
 DECL|method|setVerbs (List<VerbDefinition> verbs)
 specifier|public
 name|void

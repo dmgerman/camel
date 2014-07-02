@@ -81,7 +81,19 @@ class|class
 name|PostVerbDefinition
 extends|extends
 name|VerbDefinition
-block|{  }
+block|{
+DECL|method|PostVerbDefinition ()
+specifier|public
+name|PostVerbDefinition
+parameter_list|()
+block|{
+name|setMethod
+argument_list|(
+literal|"post"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 end_class
 
 end_unit

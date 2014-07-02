@@ -2229,6 +2229,16 @@ expr_stmt|;
 name|installRoutes
 argument_list|()
 expr_stmt|;
+comment|// and add the rests
+name|getContext
+argument_list|()
+operator|.
+name|addRestDefinitions
+argument_list|(
+name|getRests
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Do special preparation for some concepts such as interceptors and policies      * this is needed as JAXB does not build exactly the same model definition as Spring DSL would do      * using route builders. So we have here a little custom code to fix the JAXB gaps      */
