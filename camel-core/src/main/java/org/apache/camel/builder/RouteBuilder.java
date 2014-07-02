@@ -196,6 +196,38 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestsDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -250,6 +282,15 @@ name|AtomicBoolean
 argument_list|(
 literal|false
 argument_list|)
+decl_stmt|;
+DECL|field|restCollection
+specifier|private
+name|RestsDefinition
+name|restCollection
+init|=
+operator|new
+name|RestsDefinition
+argument_list|()
 decl_stmt|;
 DECL|field|routeCollection
 specifier|private
@@ -311,6 +352,40 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Creates a new REST service      *      * @return the builder      */
+DECL|method|rest ()
+specifier|public
+name|RestDefinition
+name|rest
+parameter_list|()
+block|{
+name|getRestCollection
+argument_list|()
+operator|.
+name|setCamelContext
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|RestDefinition
+name|answer
+init|=
+name|getRestCollection
+argument_list|()
+operator|.
+name|rest
+argument_list|()
+decl_stmt|;
+name|configureRest
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      * Creates a new route from the given URI input      *      * @param uri  the from uri      * @return the builder      */
 DECL|method|from (String uri)
 specifier|public
@@ -1253,6 +1328,32 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getRestCollection ()
+specifier|public
+name|RestsDefinition
+name|getRestCollection
+parameter_list|()
+block|{
+return|return
+name|restCollection
+return|;
+block|}
+DECL|method|setRestCollection (RestsDefinition restCollection)
+specifier|public
+name|void
+name|setRestCollection
+parameter_list|(
+name|RestsDefinition
+name|restCollection
+parameter_list|)
+block|{
+name|this
+operator|.
+name|restCollection
+operator|=
+name|restCollection
+expr_stmt|;
+block|}
 DECL|method|setRouteCollection (RoutesDefinition routeCollection)
 specifier|public
 name|void
@@ -1293,6 +1394,17 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 return|;
+block|}
+DECL|method|configureRest (RestDefinition rest)
+specifier|protected
+name|void
+name|configureRest
+parameter_list|(
+name|RestDefinition
+name|rest
+parameter_list|)
+block|{
+comment|// noop
 block|}
 DECL|method|configureRoute (RouteDefinition route)
 specifier|protected

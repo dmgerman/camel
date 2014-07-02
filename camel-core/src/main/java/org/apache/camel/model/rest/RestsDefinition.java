@@ -297,6 +297,65 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+DECL|method|rest ()
+specifier|public
+name|RestDefinition
+name|rest
+parameter_list|()
+block|{
+name|RestDefinition
+name|rest
+init|=
+name|createRest
+argument_list|()
+decl_stmt|;
+return|return
+name|rest
+argument_list|(
+name|rest
+argument_list|)
+return|;
+block|}
+DECL|method|rest (RestDefinition rest)
+specifier|public
+name|RestDefinition
+name|rest
+parameter_list|(
+name|RestDefinition
+name|rest
+parameter_list|)
+block|{
+name|getRests
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|rest
+argument_list|)
+expr_stmt|;
+return|return
+name|rest
+return|;
+block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
+DECL|method|createRest ()
+specifier|protected
+name|RestDefinition
+name|createRest
+parameter_list|()
+block|{
+name|RestDefinition
+name|rest
+init|=
+operator|new
+name|RestDefinition
+argument_list|()
+decl_stmt|;
+return|return
+name|rest
+return|;
+block|}
 block|}
 end_class
 
