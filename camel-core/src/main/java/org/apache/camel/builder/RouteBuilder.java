@@ -1049,6 +1049,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// must configure routes before rests
 name|configureRoutes
 argument_list|(
 operator|(
@@ -1057,11 +1058,6 @@ operator|)
 name|context
 argument_list|)
 expr_stmt|;
-comment|// add routes to Camel by populating them
-name|populateRoutes
-argument_list|()
-expr_stmt|;
-comment|// after routes then configure and populate rests
 name|configureRests
 argument_list|(
 operator|(
@@ -1070,8 +1066,11 @@ operator|)
 name|context
 argument_list|)
 expr_stmt|;
-comment|// add rests to Camel by populating them
+comment|// but populate rests before routes, as we want to turn rests into routes
 name|populateRests
+argument_list|()
+expr_stmt|;
+name|populateRoutes
 argument_list|()
 expr_stmt|;
 block|}

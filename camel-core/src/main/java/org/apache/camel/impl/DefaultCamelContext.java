@@ -8057,10 +8057,46 @@ argument_list|(
 name|restDefinitions
 argument_list|)
 expr_stmt|;
-comment|// TODO: should we support not starting rest?
-comment|//if (shouldStartRoutes()) {
-comment|//    startRouteDefinitions(routeDefinitions);
-comment|//}
+comment|// convert rests into routes so we reuse routes for runtime
+name|List
+argument_list|<
+name|RouteDefinition
+argument_list|>
+name|routes
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RouteDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|RestDefinition
+name|rest
+range|:
+name|restDefinitions
+control|)
+block|{
+name|routes
+operator|.
+name|addAll
+argument_list|(
+name|rest
+operator|.
+name|asRouteDefinition
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|addRouteDefinitions
+argument_list|(
+name|routes
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getInterceptStrategies ()
 specifier|public

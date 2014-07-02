@@ -139,6 +139,8 @@ block|{
 name|assertEquals
 argument_list|(
 literal|2
+operator|+
+literal|3
 argument_list|,
 name|context
 operator|.
