@@ -914,6 +914,12 @@ condition|?
 literal|"*"
 else|:
 name|nsmap
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|nsmap
 operator|.
 name|get
 argument_list|(

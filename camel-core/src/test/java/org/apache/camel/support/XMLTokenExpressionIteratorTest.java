@@ -441,6 +441,7 @@ block|,
 literal|"<child some_attr='c' anotherAttr='c' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"></child>"
 block|,     }
 decl_stmt|;
+comment|// note that there is no preceding sibling to the extracted child
 DECL|field|RESULTS_CHILD_NO_NS_MIXED_WRAPPED
 specifier|private
 specifier|static
@@ -462,6 +463,47 @@ literal|"<c:parent some_attr='2' xmlns:c='urn:c'>"
 operator|+
 literal|"<child some_attr='c' anotherAttr='c'></child></c:parent></grandparent></g:greatgrandparent>"
 block|,     }
+decl_stmt|;
+DECL|field|RESULTS_CHILD_NS_MIXED
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_NS_MIXED
+init|=
+block|{
+literal|"<x:child xmlns:x='urn:c' some_attr='b' anotherAttr='b' xmlns='urn:c' xmlns:g='urn:g' xmlns:c='urn:c'/>"
+block|,
+literal|"<c:child some_attr='d' anotherAttr='d' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"/>"
+block|}
+decl_stmt|;
+comment|// note that there is a preceding sibling to the extracted child
+DECL|field|RESULTS_CHILD_NS_MIXED_WRAPPED
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_NS_MIXED_WRAPPED
+init|=
+block|{
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent>"
+operator|+
+literal|"<parent some_attr='1' xmlns:c='urn:c' xmlns=\"urn:c\">"
+operator|+
+literal|"<child some_attr='a' anotherAttr='a' xmlns=''></child>"
+operator|+
+literal|"<x:child xmlns:x='urn:c' some_attr='b' anotherAttr='b'/></parent></grandparent></g:greatgrandparent>"
+block|,
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent>"
+operator|+
+literal|"<c:parent some_attr='2' xmlns:c='urn:c'>"
+operator|+
+literal|"<child some_attr='c' anotherAttr='c'></child>"
+operator|+
+literal|"<c:child some_attr='d' anotherAttr='d'/></c:parent></grandparent></g:greatgrandparent>"
+block|}
 decl_stmt|;
 DECL|field|RESULTS_PARENT_WRAPPED
 specifier|private
@@ -886,6 +928,100 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|invokeAndVerify
+argument_list|(
+literal|"//child"
+argument_list|,
+literal|'i'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY_NO_NS_MIXED
+argument_list|)
+argument_list|,
+name|RESULTS_CHILD_NO_NS_MIXED
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExtractSomeQualifiedChild ()
+specifier|public
+name|void
+name|testExtractSomeQualifiedChild
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|nsmap
+operator|.
+name|put
+argument_list|(
+literal|""
+argument_list|,
+literal|"urn:c"
+argument_list|)
+expr_stmt|;
+name|invokeAndVerify
+argument_list|(
+literal|"//child"
+argument_list|,
+literal|'w'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY_NO_NS_MIXED
+argument_list|)
+argument_list|,
+name|RESULTS_CHILD_NS_MIXED_WRAPPED
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExtractSomeQualifiedChildInjected ()
+specifier|public
+name|void
+name|testExtractSomeQualifiedChildInjected
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|nsmap
+operator|.
+name|put
+argument_list|(
+literal|""
+argument_list|,
+literal|"urn:c"
+argument_list|)
+expr_stmt|;
+name|invokeAndVerify
+argument_list|(
+literal|"//child"
+argument_list|,
+literal|'i'
+argument_list|,
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|TEST_BODY_NO_NS_MIXED
+argument_list|)
+argument_list|,
+name|RESULTS_CHILD_NS_MIXED
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testExtractWithNullNamespaceMap ()
+specifier|public
+name|void
+name|testExtractWithNullNamespaceMap
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|nsmap
+operator|=
+literal|null
+expr_stmt|;
 name|invokeAndVerify
 argument_list|(
 literal|"//child"
