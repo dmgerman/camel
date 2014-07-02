@@ -1504,17 +1504,7 @@ name|RouteDefinition
 name|route
 parameter_list|)
 block|{
-name|route
-operator|.
-name|setGroup
-argument_list|(
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 comment|/**      * Adds a collection of routes to this context      *      * @param routes the routes      * @throws Exception if the routes could not be created for whatever reason      * @deprecated will be removed in Camel 3.0. Instead use {@link #includeRoutes(org.apache.camel.RoutesBuilder) includeRoutes} instead.      */
 annotation|@

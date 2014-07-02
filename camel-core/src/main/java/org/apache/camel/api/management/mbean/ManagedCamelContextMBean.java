@@ -715,6 +715,20 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Dumps the rests as XML"
+argument_list|)
+DECL|method|dumpRestsAsXml ()
+name|String
+name|dumpRestsAsXml
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Dumps the routes as XML"
 argument_list|)
 DECL|method|dumpRoutesAsXml ()

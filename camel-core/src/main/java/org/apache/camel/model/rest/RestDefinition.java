@@ -403,10 +403,15 @@ name|route
 init|=
 operator|new
 name|RouteDefinition
+argument_list|()
+decl_stmt|;
+name|route
+operator|.
+name|fromRest
 argument_list|(
 name|from
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|answer
 operator|.
 name|add
