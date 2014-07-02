@@ -249,13 +249,13 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-DECL|method|path (String url)
+DECL|method|path (String uri)
 specifier|public
 name|PathDefinition
 name|path
 parameter_list|(
 name|String
-name|url
+name|uri
 parameter_list|)
 block|{
 name|PathDefinition
@@ -275,9 +275,9 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setUrl
+name|setUri
 argument_list|(
-name|url
+name|uri
 argument_list|)
 expr_stmt|;
 return|return

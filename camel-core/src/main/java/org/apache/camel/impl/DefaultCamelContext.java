@@ -810,6 +810,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|interceptor
@@ -1865,6 +1881,22 @@ operator|new
 name|ArrayList
 argument_list|<
 name|RouteDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|restDefinitions
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|restDefinitions
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RestDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -7987,6 +8019,48 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+DECL|method|getRestDefinitions ()
+specifier|public
+specifier|synchronized
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRestDefinitions
+parameter_list|()
+block|{
+return|return
+name|restDefinitions
+return|;
+block|}
+DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions)
+specifier|public
+name|void
+name|addRestDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|restDefinitions
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|this
+operator|.
+name|restDefinitions
+operator|.
+name|addAll
+argument_list|(
+name|restDefinitions
+argument_list|)
+expr_stmt|;
+comment|// TODO: should we support not starting rest?
+comment|//if (shouldStartRoutes()) {
+comment|//    startRouteDefinitions(routeDefinitions);
+comment|//}
 block|}
 DECL|method|getInterceptStrategies ()
 specifier|public

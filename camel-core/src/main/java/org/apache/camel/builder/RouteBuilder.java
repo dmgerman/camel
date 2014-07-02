@@ -1061,6 +1061,19 @@ comment|// add routes to Camel by populating them
 name|populateRoutes
 argument_list|()
 expr_stmt|;
+comment|// after routes then configure and populate rests
+name|configureRests
+argument_list|(
+operator|(
+name|ModelCamelContext
+operator|)
+name|context
+argument_list|)
+expr_stmt|;
+comment|// add rests to Camel by populating them
+name|populateRests
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Configures the routes      *      * @param context the Camel context      * @return the routes configured      * @throws Exception can be thrown during configuration      */
 DECL|method|configureRoutes (ModelCamelContext context)
@@ -1091,6 +1104,34 @@ argument_list|)
 expr_stmt|;
 return|return
 name|routeCollection
+return|;
+block|}
+comment|/**      * Configures the rests      *      * @param context the Camel context      * @return the rests configured      * @throws Exception can be thrown during configuration      */
+DECL|method|configureRests (ModelCamelContext context)
+specifier|public
+name|RestsDefinition
+name|configureRests
+parameter_list|(
+name|ModelCamelContext
+name|context
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|setContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|restCollection
+operator|.
+name|setCamelContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+return|return
+name|restCollection
 return|;
 block|}
 comment|/**      * Includes the routes from the build to this builder.      *<p/>      * This allows you to use other builds as route templates.      * @param routes other builder with routes to include      *      * @throws Exception can be thrown during configuration      */
@@ -1324,6 +1365,55 @@ name|getRouteCollection
 argument_list|()
 operator|.
 name|getRoutes
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|populateRests ()
+specifier|protected
+name|void
+name|populateRests
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ModelCamelContext
+name|camelContext
+init|=
+name|getContext
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|camelContext
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"CamelContext has not been injected!"
+argument_list|)
+throw|;
+block|}
+name|getRestCollection
+argument_list|()
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+name|camelContext
+operator|.
+name|addRestDefinitions
+argument_list|(
+name|getRestCollection
+argument_list|()
+operator|.
+name|getRests
 argument_list|()
 argument_list|)
 expr_stmt|;

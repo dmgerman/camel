@@ -144,10 +144,10 @@ name|PathDefinition
 block|{
 annotation|@
 name|XmlAttribute
-DECL|field|url
+DECL|field|uri
 specifier|private
 name|String
-name|url
+name|uri
 decl_stmt|;
 annotation|@
 name|XmlElementRef
@@ -166,30 +166,30 @@ name|VerbDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|getUrl ()
+DECL|method|getUri ()
 specifier|public
 name|String
-name|getUrl
+name|getUri
 parameter_list|()
 block|{
 return|return
-name|url
+name|uri
 return|;
 block|}
-DECL|method|setUrl (String url)
+DECL|method|setUri (String uri)
 specifier|public
 name|void
-name|setUrl
+name|setUri
 parameter_list|(
 name|String
-name|url
+name|uri
 parameter_list|)
 block|{
 name|this
 operator|.
-name|url
+name|uri
 operator|=
-name|url
+name|uri
 expr_stmt|;
 block|}
 DECL|method|getVerbs ()

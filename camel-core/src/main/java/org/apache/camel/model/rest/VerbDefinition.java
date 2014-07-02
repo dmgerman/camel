@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlRootElement
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -90,6 +104,13 @@ end_import
 
 begin_class
 annotation|@
+name|XmlRootElement
+argument_list|(
+name|name
+operator|=
+literal|"verb"
+argument_list|)
+annotation|@
 name|XmlAccessorType
 argument_list|(
 name|XmlAccessType
@@ -98,10 +119,10 @@ name|FIELD
 argument_list|)
 DECL|class|VerbDefinition
 specifier|public
-specifier|abstract
 class|class
 name|VerbDefinition
 block|{
+comment|// TODO: we would ideally want this to be abstract and not in the XML DSL
 annotation|@
 name|XmlAttribute
 DECL|field|uri

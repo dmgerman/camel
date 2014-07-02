@@ -162,6 +162,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|CamelContextNameStrategy
@@ -910,6 +926,33 @@ parameter_list|(
 name|String
 name|id
 parameter_list|)
+function_decl|;
+comment|/**      * Returns a list of the current REST definitions      *      * @return list of the current REST definitions      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getRestDefinitions()}      */
+annotation|@
+name|Deprecated
+DECL|method|getRestDefinitions ()
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRestDefinitions
+parameter_list|()
+function_decl|;
+comment|/**      * Adds a collection of rest definitions to the context      *      * @param restDefinitions the rest(s) definition to add      * @throws Exception if the rest definitions could not be created for whatever reason      */
+annotation|@
+name|Deprecated
+DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions)
+name|void
+name|addRestDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|restDefinitions
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */
 DECL|method|getRouteStartupOrder ()
