@@ -138,6 +138,11 @@ name|uri
 decl_stmt|;
 annotation|@
 name|XmlElementRef
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|to
 specifier|private
 name|ToDefinition

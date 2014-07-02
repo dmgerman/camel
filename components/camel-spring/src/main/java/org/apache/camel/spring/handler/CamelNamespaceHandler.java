@@ -1503,6 +1503,7 @@ argument_list|>
 name|getJaxbPackages
 parameter_list|()
 block|{
+comment|// we nedd to have a class from each different package with jaxb models
 name|Set
 argument_list|<
 name|Class
@@ -1652,6 +1653,25 @@ operator|.
 name|loadbalancer
 operator|.
 name|RoundRobinLoadBalancerDefinition
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|classes
+operator|.
+name|add
+argument_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
 operator|.
 name|class
 argument_list|)
