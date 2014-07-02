@@ -256,6 +256,19 @@ specifier|private
 name|HttpRegistry
 name|httpRegistry
 decl_stmt|;
+DECL|method|ServletComponent ()
+specifier|public
+name|ServletComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|ServletEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
