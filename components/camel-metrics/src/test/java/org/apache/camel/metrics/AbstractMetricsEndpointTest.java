@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.metrics
 package|package
@@ -13,38 +17,14 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
+import|import
+name|com
 operator|.
-name|hamcrest
+name|codahale
 operator|.
-name|CoreMatchers
+name|metrics
 operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Mockito
-operator|.
-name|when
+name|MetricRegistry
 import|;
 end_import
 
@@ -193,14 +173,38 @@ import|;
 end_import
 
 begin_import
-import|import
-name|com
+import|import static
+name|org
 operator|.
-name|codahale
+name|hamcrest
 operator|.
-name|metrics
+name|CoreMatchers
 operator|.
-name|MetricRegistry
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 
@@ -225,55 +229,6 @@ name|String
 name|METRICS_NAME
 init|=
 literal|"metrics.name"
-decl_stmt|;
-DECL|field|HEADER
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|HEADER
-init|=
-literal|"header"
-decl_stmt|;
-DECL|field|STRING_VALUE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|STRING_VALUE
-init|=
-literal|"string-value"
-decl_stmt|;
-DECL|field|DEFAULT_STRING_VALUE
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_STRING_VALUE
-init|=
-literal|"default-value"
-decl_stmt|;
-DECL|field|LONG_VALUE
-specifier|private
-specifier|static
-specifier|final
-name|Long
-name|LONG_VALUE
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-DECL|field|DEFAULT_LONG_VALUE
-specifier|private
-specifier|static
-specifier|final
-name|Long
-name|DEFAULT_LONG_VALUE
-init|=
-operator|-
-literal|10101L
 decl_stmt|;
 annotation|@
 name|Mock
