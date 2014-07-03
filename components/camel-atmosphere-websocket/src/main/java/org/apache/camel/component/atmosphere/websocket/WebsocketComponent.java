@@ -152,6 +152,13 @@ name|WebsocketComponent
 parameter_list|()
 block|{
 comment|// override the default servlet name of ServletComponent
+name|super
+argument_list|(
+name|WebsocketEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|setServletName
 argument_list|(
 literal|"CamelWsServlet"
