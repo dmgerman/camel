@@ -221,6 +221,32 @@ name|isEnabled
 argument_list|()
 return|;
 block|}
+DECL|method|getCamelId ()
+specifier|public
+name|String
+name|getCamelId
+parameter_list|()
+block|{
+return|return
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+DECL|method|getCamelManagementName ()
+specifier|public
+name|String
+name|getCamelManagementName
+parameter_list|()
+block|{
+return|return
+name|camelContext
+operator|.
+name|getManagementName
+argument_list|()
+return|;
+block|}
 DECL|method|setEnabled (boolean enabled)
 specifier|public
 name|void

@@ -129,7 +129,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel Management Name"
+literal|"Camel ManagementName"
 argument_list|)
 DECL|method|getManagementName ()
 name|String

@@ -47,6 +47,30 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Camel ID"
+argument_list|)
+DECL|method|getCamelId ()
+name|String
+name|getCamelId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel ManagementName"
+argument_list|)
+DECL|method|getCamelManagementName ()
+name|String
+name|getCamelManagementName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Tracer enabled"
 argument_list|)
 DECL|method|getEnabled ()

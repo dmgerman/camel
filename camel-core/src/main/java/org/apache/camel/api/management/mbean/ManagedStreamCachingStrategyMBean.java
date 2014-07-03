@@ -71,6 +71,8 @@ DECL|interface|ManagedStreamCachingStrategyMBean
 specifier|public
 interface|interface
 name|ManagedStreamCachingStrategyMBean
+extends|extends
+name|ManagedServiceMBean
 block|{
 annotation|@
 name|ManagedAttribute
