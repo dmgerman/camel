@@ -86,7 +86,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"metrics:timer"
+literal|"metrics"
 argument_list|)
 DECL|class|TimerEndpoint
 specifier|public

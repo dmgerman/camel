@@ -270,18 +270,23 @@ name|warn
 argument_list|(
 literal|"Failed to produce metrics for {} in {} - {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|finalMetricsName
-argument_list|,
+block|,
 name|getClass
 argument_list|()
 operator|.
 name|getSimpleName
 argument_list|()
-argument_list|,
+block|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
 block|}

@@ -86,7 +86,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"metrics:meter"
+literal|"metrics"
 argument_list|)
 DECL|class|MeterEndpoint
 specifier|public

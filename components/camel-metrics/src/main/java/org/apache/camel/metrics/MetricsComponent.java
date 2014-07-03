@@ -631,7 +631,7 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Unknow metrics type \""
+literal|"Unknown metrics type \""
 operator|+
 name|name
 operator|+
