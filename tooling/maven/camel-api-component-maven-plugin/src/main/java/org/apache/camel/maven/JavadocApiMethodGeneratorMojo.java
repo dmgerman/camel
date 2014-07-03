@@ -590,6 +590,13 @@ literal|"\\."
 argument_list|,
 literal|"/"
 argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|'$'
+argument_list|,
+literal|'.'
+argument_list|)
 operator|+
 literal|".html"
 decl_stmt|;
@@ -1189,7 +1196,7 @@ operator|.
 name|getReturnType
 argument_list|()
 operator|.
-name|getCanonicalName
+name|getName
 argument_list|()
 expr_stmt|;
 block|}
