@@ -744,6 +744,15 @@ literal|10000
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|readLockMarkerFile
+specifier|protected
+name|boolean
+name|readLockMarkerFile
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|readLockLoggingLevel
 specifier|protected
 name|LoggingLevel
@@ -2570,6 +2579,32 @@ operator|=
 name|readLockTimeout
 expr_stmt|;
 block|}
+DECL|method|isReadLockMarkerFile ()
+specifier|public
+name|boolean
+name|isReadLockMarkerFile
+parameter_list|()
+block|{
+return|return
+name|readLockMarkerFile
+return|;
+block|}
+DECL|method|setReadLockMarkerFile (boolean readLockMarkerFile)
+specifier|public
+name|void
+name|setReadLockMarkerFile
+parameter_list|(
+name|boolean
+name|readLockMarkerFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockMarkerFile
+operator|=
+name|readLockMarkerFile
+expr_stmt|;
+block|}
 DECL|method|getReadLockLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -3480,6 +3515,15 @@ name|readLockTimeout
 argument_list|)
 expr_stmt|;
 block|}
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"readLockMarkerFile"
+argument_list|,
+name|readLockMarkerFile
+argument_list|)
+expr_stmt|;
 name|params
 operator|.
 name|put

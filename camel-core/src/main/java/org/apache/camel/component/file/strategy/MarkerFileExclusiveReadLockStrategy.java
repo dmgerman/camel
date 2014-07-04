@@ -213,6 +213,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|markerFile
+specifier|private
+name|boolean
+name|markerFile
+init|=
+literal|true
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
@@ -331,6 +338,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|markerFile
+condition|)
+block|{
+comment|// if not using marker file then we assume acquired
+return|return
+literal|true
+return|;
+block|}
 name|String
 name|lockFileName
 init|=
@@ -416,6 +434,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|markerFile
+condition|)
+block|{
+comment|// if not using marker file then nothing to release
+return|return;
+block|}
 name|String
 name|lockFileName
 init|=
@@ -547,6 +574,24 @@ name|readLockLoggingLevel
 parameter_list|)
 block|{
 comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|setMarkerFiler (boolean markerFile)
+specifier|public
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|markerFile
+operator|=
+name|markerFile
+expr_stmt|;
 block|}
 DECL|method|deleteLockFiles (File dir, boolean recursive)
 specifier|private

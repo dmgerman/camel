@@ -148,6 +148,15 @@ name|LoggingLevel
 name|readLockLoggingLevel
 parameter_list|)
 function_decl|;
+comment|/**      * Sets whether marker file should be used or not.      *      * @param markerFile<tt>true</tt> to use marker files.      */
+DECL|method|setMarkerFiler (boolean markerFile)
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFile
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
