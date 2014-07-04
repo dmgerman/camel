@@ -1103,6 +1103,16 @@ argument_list|)
 expr_stmt|;
 name|recipientList
 operator|.
+name|setParallelAggregate
+argument_list|(
+name|recipientListAnnotation
+operator|.
+name|parallelAggregate
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|recipientList
+operator|.
 name|setStreaming
 argument_list|(
 name|recipientListAnnotation

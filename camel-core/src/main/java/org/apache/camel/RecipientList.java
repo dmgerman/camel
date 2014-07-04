@@ -132,6 +132,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+DECL|method|parallelAggregate ()
+DECL|field|false
+name|boolean
+name|parallelAggregate
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 DECL|method|stopOnException ()
 DECL|field|false
 name|boolean
