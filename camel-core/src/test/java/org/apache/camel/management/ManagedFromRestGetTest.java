@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|restbinding
+name|rest
 operator|.
 name|DummyRestConsumerFactory
 import|;

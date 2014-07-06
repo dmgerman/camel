@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.restbinding
+DECL|package|org.apache.camel.component.rest
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|restbinding
+name|rest
 package|;
 end_package
 
@@ -148,12 +148,12 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"rest-binding"
+literal|"rest"
 argument_list|)
-DECL|class|RestBindingEndpoint
+DECL|class|RestEndpoint
 specifier|public
 class|class
-name|RestBindingEndpoint
+name|RestEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
@@ -195,14 +195,14 @@ name|Object
 argument_list|>
 name|parameters
 decl_stmt|;
-DECL|method|RestBindingEndpoint (String endpointUri, RestBindingComponent component)
+DECL|method|RestEndpoint (String endpointUri, RestComponent component)
 specifier|public
-name|RestBindingEndpoint
+name|RestEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|RestBindingComponent
+name|RestComponent
 name|component
 parameter_list|)
 block|{
@@ -218,13 +218,13 @@ annotation|@
 name|Override
 DECL|method|getComponent ()
 specifier|public
-name|RestBindingComponent
+name|RestComponent
 name|getComponent
 parameter_list|()
 block|{
 return|return
 operator|(
-name|RestBindingComponent
+name|RestComponent
 operator|)
 name|super
 operator|.

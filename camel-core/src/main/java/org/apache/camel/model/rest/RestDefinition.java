@@ -371,7 +371,7 @@ block|{
 name|String
 name|from
 init|=
-literal|"rest-binding:"
+literal|"rest:"
 operator|+
 name|verb
 operator|.
