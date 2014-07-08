@@ -41,10 +41,10 @@ comment|/**  *   */
 end_comment
 
 begin_class
-DECL|class|RecordableInputStreamTest
+DECL|class|RecordableReaderTest
 specifier|public
 class|class
-name|RecordableInputStreamTest
+name|RecordableReaderTest
 extends|extends
 name|TestCase
 block|{
