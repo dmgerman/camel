@@ -727,15 +727,7 @@ name|testFileId
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|InputStream
 name|result
 init|=
@@ -850,15 +842,7 @@ name|fileTransferListener
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|requestBodyAndHeaders
 argument_list|(
 literal|"direct://DOWNLOADFILE_1"
@@ -1018,15 +1002,7 @@ name|fileTransferListener
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|requestBodyAndHeaders
 argument_list|(
 literal|"direct://DOWNLOADFILE_2"
@@ -1186,16 +1162,7 @@ name|testFileId
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
-comment|//        BoxFile result = requestBodyAndHeaders("direct://GETFILE", null, headers);
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|BoxFile
 name|result
 init|=
@@ -1264,15 +1231,7 @@ name|testFileId
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|com
 operator|.
 name|box
@@ -1349,15 +1308,7 @@ name|testFileId
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|java
 operator|.
 name|util

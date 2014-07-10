@@ -211,15 +211,7 @@ literal|"Test"
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|com
 operator|.
 name|box

@@ -668,18 +668,8 @@ block|{
 comment|// TODO create API proxy, set connection properties, etc.
 switch|switch
 condition|(
-operator|(
-name|$
-block|{
-name|name
-block|}
-name|ApiName
-block|)
-function|apiName
-end_function
-
-begin_block
-unit|)
+name|apiName
+condition|)
 block|{
 case|case
 name|HELLO_FILE
@@ -720,10 +710,11 @@ name|apiName
 argument_list|)
 throw|;
 block|}
-end_block
+block|}
+end_function
 
 begin_function
-unit|}      @
+annotation|@
 name|Override
 specifier|public
 name|Object

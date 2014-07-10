@@ -229,7 +229,9 @@ name|ApiMethod
 argument_list|>
 name|filteredMethods
 init|=
-name|ApiMethodHelper
+name|endpoint
+operator|.
+name|methodHelper
 operator|.
 name|filterMethods
 argument_list|(

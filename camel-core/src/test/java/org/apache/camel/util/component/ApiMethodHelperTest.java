@@ -91,16 +91,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -133,6 +123,16 @@ operator|.
 name|Assert
 operator|.
 name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -213,6 +213,13 @@ operator|.
 name|class
 argument_list|,
 name|aliases
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"names"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -375,7 +382,7 @@ name|ApiMethod
 argument_list|>
 name|methods
 init|=
-name|ApiMethodHelper
+name|apiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -423,7 +430,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|ApiMethodHelper
+name|apiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -455,7 +462,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|ApiMethodHelper
+name|apiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -505,7 +512,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|ApiMethodHelper
+name|apiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -555,7 +562,7 @@ argument_list|)
 expr_stmt|;
 name|methods
 operator|=
-name|ApiMethodHelper
+name|apiMethodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -583,6 +590,49 @@ argument_list|(
 literal|"Super set match failed for sayHi(name)"
 argument_list|,
 literal|2
+argument_list|,
+name|methods
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// test nullable names
+name|methods
+operator|=
+name|apiMethodHelper
+operator|.
+name|filterMethods
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|TestMethod
+operator|.
+name|GREETALL
+argument_list|,
+name|TestMethod
+operator|.
+name|GREETALL_1
+argument_list|,
+name|TestMethod
+operator|.
+name|GREETALL_2
+argument_list|)
+argument_list|,
+name|ApiMethodHelper
+operator|.
+name|MatchType
+operator|.
+name|SUPER_SET
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Super set match with null args failed for greetAll(names)"
+argument_list|,
+literal|1
 argument_list|,
 name|methods
 operator|.

@@ -351,17 +351,6 @@ name|REFRESH_TOKEN_PROPERTY
 init|=
 literal|"refreshToken"
 decl_stmt|;
-DECL|field|BOX_DEFAULT_REQUEST_OBJECT
-specifier|protected
-specifier|static
-specifier|final
-name|BoxDefaultRequestObject
-name|BOX_DEFAULT_REQUEST_OBJECT
-init|=
-operator|new
-name|BoxDefaultRequestObject
-argument_list|()
-decl_stmt|;
 DECL|field|BOX_PAGING_REQUEST_OBJECT
 specifier|protected
 specifier|static
