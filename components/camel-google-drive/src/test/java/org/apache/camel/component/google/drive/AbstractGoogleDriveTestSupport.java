@@ -36,26 +36,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileOutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -87,16 +67,6 @@ operator|.
 name|io
 operator|.
 name|StringReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
 import|;
 end_import
 
@@ -433,43 +403,13 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// cache test properties
-name|refreshToken
-operator|=
-name|properties
-operator|.
-name|getProperty
-argument_list|(
-name|REFRESH_TOKEN_PROPERTY
-argument_list|)
-expr_stmt|;
-name|testFolderId
-operator|=
-name|properties
-operator|.
-name|getProperty
-argument_list|(
-literal|"testFolderId"
-argument_list|)
-expr_stmt|;
-name|testFileId
-operator|=
-name|properties
-operator|.
-name|getProperty
-argument_list|(
-literal|"testFileId"
-argument_list|)
-expr_stmt|;
-name|testUserId
-operator|=
-name|properties
-operator|.
-name|getProperty
-argument_list|(
-literal|"testUserId"
-argument_list|)
-expr_stmt|;
+comment|//
+comment|//        // cache test properties
+comment|//        refreshToken = properties.getProperty(REFRESH_TOKEN_PROPERTY);
+comment|//        testFolderId = properties.getProperty("testFolderId");
+comment|//        testFileId = properties.getProperty("testFileId");
+comment|//        testUserId = properties.getProperty("testUserId");
+comment|//
 name|Map
 argument_list|<
 name|String
@@ -572,7 +512,7 @@ name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"box"
+literal|"google-drive"
 argument_list|,
 name|component
 argument_list|)
