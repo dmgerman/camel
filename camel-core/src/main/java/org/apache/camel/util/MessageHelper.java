@@ -2018,8 +2018,13 @@ operator|.
 name|getId
 argument_list|()
 expr_stmt|;
+comment|// we need to avoid leak the sensibale information here
 name|label
 operator|=
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|history
 operator|.
 name|getNode
@@ -2027,6 +2032,7 @@ argument_list|()
 operator|.
 name|getLabel
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|elapsed
 operator|=
