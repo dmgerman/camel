@@ -326,6 +326,13 @@ name|NettyHttpComponent
 parameter_list|()
 block|{
 comment|// use the http configuration and filter strategy
+name|super
+argument_list|(
+name|NettyHttpEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|setConfiguration
 argument_list|(
 operator|new
