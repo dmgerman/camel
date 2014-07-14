@@ -267,7 +267,7 @@ name|USE_CLOUD
 condition|)
 block|{
 name|String
-name|zkHostStr
+name|zkAddrStr
 init|=
 name|cloudFixture
 operator|.
@@ -276,7 +276,7 @@ operator|.
 name|getZkServer
 argument_list|()
 operator|.
-name|getZkHost
+name|getZkAddress
 argument_list|()
 decl_stmt|;
 return|return
@@ -286,7 +286,7 @@ name|httpsPort
 operator|+
 literal|"/solr?zkHost="
 operator|+
-name|zkHostStr
+name|zkAddrStr
 operator|+
 literal|"&collection=collection1"
 return|;
