@@ -355,12 +355,14 @@ block|}
 argument_list|)
 return|;
 block|}
-DECL|method|SolrComponentTestSupport (Boolean useHttps)
+DECL|method|SolrComponentTestSupport (SolrFixtures.TestServerType serverToTest)
 specifier|public
 name|SolrComponentTestSupport
 parameter_list|(
-name|Boolean
-name|useHttps
+name|SolrFixtures
+operator|.
+name|TestServerType
+name|serverToTest
 parameter_list|)
 block|{
 name|this
@@ -370,7 +372,7 @@ operator|=
 operator|new
 name|SolrFixtures
 argument_list|(
-name|useHttps
+name|serverToTest
 argument_list|)
 expr_stmt|;
 block|}
@@ -645,11 +647,27 @@ name|serverTypes
 init|=
 block|{
 block|{
-literal|true
+name|SolrFixtures
+operator|.
+name|TestServerType
+operator|.
+name|USE_CLOUD
 block|}
 block|,
 block|{
-literal|false
+name|SolrFixtures
+operator|.
+name|TestServerType
+operator|.
+name|USE_HTTPS
+block|}
+block|,
+block|{
+name|SolrFixtures
+operator|.
+name|TestServerType
+operator|.
+name|USE_HTTP
 block|}
 block|}
 decl_stmt|;

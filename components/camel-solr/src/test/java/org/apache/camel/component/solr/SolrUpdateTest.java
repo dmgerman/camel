@@ -196,17 +196,19 @@ name|SolrUpdateTest
 extends|extends
 name|SolrComponentTestSupport
 block|{
-DECL|method|SolrUpdateTest (Boolean useHttps)
+DECL|method|SolrUpdateTest (SolrFixtures.TestServerType serverToTest)
 specifier|public
 name|SolrUpdateTest
 parameter_list|(
-name|Boolean
-name|useHttps
+name|SolrFixtures
+operator|.
+name|TestServerType
+name|serverToTest
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|useHttps
+name|serverToTest
 argument_list|)
 expr_stmt|;
 comment|// TODO Auto-generated constructor stub

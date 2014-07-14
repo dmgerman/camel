@@ -54,17 +54,19 @@ name|SolrAddBeanTest
 extends|extends
 name|SolrComponentTestSupport
 block|{
-DECL|method|SolrAddBeanTest (Boolean useHttps)
+DECL|method|SolrAddBeanTest (SolrFixtures.TestServerType serverToTest)
 specifier|public
 name|SolrAddBeanTest
 parameter_list|(
-name|Boolean
-name|useHttps
+name|SolrFixtures
+operator|.
+name|TestServerType
+name|serverToTest
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|useHttps
+name|serverToTest
 argument_list|)
 expr_stmt|;
 block|}

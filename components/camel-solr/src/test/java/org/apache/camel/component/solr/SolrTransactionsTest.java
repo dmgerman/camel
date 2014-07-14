@@ -36,17 +36,19 @@ name|SolrTransactionsTest
 extends|extends
 name|SolrComponentTestSupport
 block|{
-DECL|method|SolrTransactionsTest (Boolean useHttps)
+DECL|method|SolrTransactionsTest (SolrFixtures.TestServerType serverToTest)
 specifier|public
 name|SolrTransactionsTest
 parameter_list|(
-name|Boolean
-name|useHttps
+name|SolrFixtures
+operator|.
+name|TestServerType
+name|serverToTest
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|useHttps
+name|serverToTest
 argument_list|)
 expr_stmt|;
 comment|// TODO Auto-generated constructor stub
