@@ -21,11 +21,6 @@ package|;
 end_package
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 DECL|class|GAuthException
 specifier|public
 class|class
@@ -33,6 +28,15 @@ name|GAuthException
 extends|extends
 name|RuntimeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|GAuthException ()
 specifier|public
 name|GAuthException

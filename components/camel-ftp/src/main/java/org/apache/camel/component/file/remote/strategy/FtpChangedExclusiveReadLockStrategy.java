@@ -489,6 +489,23 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|newLength
+operator|=
+name|f
+operator|.
+name|getSize
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|f
+operator|.
+name|getTimestamp
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|newLastModified
 operator|=
 name|f
@@ -499,13 +516,7 @@ operator|.
 name|getTimeInMillis
 argument_list|()
 expr_stmt|;
-name|newLength
-operator|=
-name|f
-operator|.
-name|getSize
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 name|LOG
@@ -744,6 +755,19 @@ name|readLockLoggingLevel
 operator|=
 name|readLockLoggingLevel
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setMarkerFiler (boolean markerFiler)
+specifier|public
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFiler
+parameter_list|)
+block|{
+comment|// noop - not supported by ftp
 block|}
 DECL|method|getMinLength ()
 specifier|public

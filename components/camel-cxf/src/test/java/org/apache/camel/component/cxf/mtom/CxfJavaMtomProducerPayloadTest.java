@@ -94,6 +94,8 @@ init|=
 name|MTOM_ENDPOINT_URI
 operator|+
 literal|"&properties.mtom-enabled=true"
+operator|+
+literal|"&defaultOperationName=Detail"
 decl_stmt|;
 annotation|@
 name|SuppressWarnings

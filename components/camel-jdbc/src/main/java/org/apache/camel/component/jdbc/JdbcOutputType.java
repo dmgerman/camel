@@ -26,9 +26,12 @@ name|JdbcOutputType
 block|{
 DECL|enumConstant|SelectOne
 DECL|enumConstant|SelectList
+DECL|enumConstant|StreamList
 name|SelectOne
 block|,
 name|SelectList
+block|,
+name|StreamList
 block|}
 end_enum
 

@@ -47,6 +47,15 @@ name|FREEMARKER_TEMPLATE
 init|=
 literal|"CamelFreemarkerTemplate"
 decl_stmt|;
+DECL|field|FREEMARKER_DATA_MODEL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FREEMARKER_DATA_MODEL
+init|=
+literal|"CamelFreemarkerDataModel"
+decl_stmt|;
 DECL|method|FreemarkerConstants ()
 specifier|private
 name|FreemarkerConstants

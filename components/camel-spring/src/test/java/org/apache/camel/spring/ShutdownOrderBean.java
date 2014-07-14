@@ -45,19 +45,31 @@ block|{
 DECL|field|start
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|start
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|shutdown
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|shutdown
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|start (String name)
@@ -97,6 +109,9 @@ block|}
 DECL|method|getStart ()
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getStart
 parameter_list|()
 block|{
@@ -107,6 +122,9 @@ block|}
 DECL|method|getShutdown ()
 specifier|public
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getShutdown
 parameter_list|()
 block|{

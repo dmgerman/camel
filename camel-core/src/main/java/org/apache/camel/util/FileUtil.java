@@ -1797,6 +1797,8 @@ argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
+name|renamed
+operator|=
 name|renameFileUsingCopy
 argument_list|(
 name|from
@@ -1872,11 +1874,6 @@ return|return
 literal|false
 return|;
 block|}
-name|boolean
-name|renamed
-init|=
-literal|false
-decl_stmt|;
 name|LOG
 operator|.
 name|debug
@@ -1924,15 +1921,8 @@ literal|"' after copy succeeded"
 argument_list|)
 throw|;
 block|}
-else|else
-block|{
-name|renamed
-operator|=
-literal|true
-expr_stmt|;
-block|}
 return|return
-name|renamed
+literal|true
 return|;
 block|}
 DECL|method|copyFile (File from, File to)

@@ -68,6 +68,16 @@ begin_import
 import|import
 name|rx
 operator|.
+name|functions
+operator|.
+name|Func1
+import|;
+end_import
+
+begin_import
+import|import
+name|rx
+operator|.
 name|subjects
 operator|.
 name|PublishSubject
@@ -81,18 +91,6 @@ operator|.
 name|subjects
 operator|.
 name|Subject
-import|;
-end_import
-
-begin_import
-import|import
-name|rx
-operator|.
-name|util
-operator|.
-name|functions
-operator|.
-name|Func1
 import|;
 end_import
 

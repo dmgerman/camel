@@ -326,6 +326,13 @@ name|NettyHttpComponent
 parameter_list|()
 block|{
 comment|// use the http configuration and filter strategy
+name|super
+argument_list|(
+name|NettyHttpEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|setConfiguration
 argument_list|(
 operator|new
@@ -404,6 +411,20 @@ name|NettyHttpConfiguration
 argument_list|()
 expr_stmt|;
 block|}
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"headerFilterStrategy"
+argument_list|,
+name|HeaderFilterStrategy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// merge any custom bootstrap configuration on the config
 name|NettyServerBootstrapConfiguration
 name|bootstrapConfiguration
@@ -664,6 +685,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|headerFilterStrategy
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|headerFilterStrategy
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|answer

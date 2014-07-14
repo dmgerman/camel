@@ -305,7 +305,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|KEY_USERID
 argument_list|,
@@ -316,7 +316,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|KEY_USERIDS
 argument_list|,
@@ -332,7 +332,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERID
 argument_list|,
@@ -365,7 +365,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|ENCRYPTION_ALGORITHM
 argument_list|,
@@ -378,7 +378,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_HASH_ALGORITHM
 argument_list|,
@@ -391,7 +391,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|COMPRESSION_ALGORITHM
 argument_list|,
@@ -404,7 +404,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|PGPDataFormat
+name|PGPKeyAccessDataFormat
 operator|.
 name|SIGNATURE_KEY_USERIDS
 argument_list|,

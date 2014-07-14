@@ -80,6 +80,30 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -228,6 +252,38 @@ name|osgi
 operator|.
 name|service
 operator|.
+name|blueprint
+operator|.
+name|container
+operator|.
+name|BlueprintEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|blueprint
+operator|.
+name|container
+operator|.
+name|BlueprintListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
 name|cm
 operator|.
 name|Configuration
@@ -245,6 +301,34 @@ operator|.
 name|cm
 operator|.
 name|ConfigurationAdmin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|cm
+operator|.
+name|ConfigurationEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|service
+operator|.
+name|cm
+operator|.
+name|ConfigurationListener
 import|;
 end_import
 
@@ -343,6 +427,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|String
 name|symbolicName
 init|=
@@ -352,6 +437,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 decl_stmt|;
+specifier|final
 name|BundleContext
 name|answer
 init|=
@@ -618,6 +704,140 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we will update the configuration now. As OSGi is highly asynchronous, we need to make the tests as repeatable as possible
+comment|// the problem is when blueprint container defines cm:property-placeholder with update-strategy="reload"
+comment|// updating the configuration leads to (felix framework + aries blueprint):
+comment|// 1. schedule org.apache.felix.cm.impl.ConfigurationManager.UpdateConfiguration object to run in config admin thread
+comment|// 2. this thread calls org.apache.felix.cm.impl.ConfigurationImpl#tryBindLocation()
+comment|// 3. org.osgi.service.cm.ConfigurationEvent#CM_LOCATION_CHANGED is send
+comment|// 4. org.apache.aries.blueprint.compendium.cm.ManagedObjectManager.ConfigurationWatcher#updated() is invoked
+comment|// 5. new Thread().start() is called
+comment|// 6. org.apache.aries.blueprint.compendium.cm.ManagedObject#updated() is called
+comment|// 7. org.apache.aries.blueprint.compendium.cm.CmPropertyPlaceholder#updated() is called
+comment|// 8. new Thread().start() is called
+comment|// 9. org.apache.aries.blueprint.services.ExtendedBlueprintContainer#reload() is called which destroys everything in BP container
+comment|// 10. finally reload of BP container is scheduled (in yet another thread)
+comment|//
+comment|// if we start/use camel context between point 9 and 10 we may get many different errors described in https://issues.apache.org/jira/browse/ARIES-961
+comment|// to synchronize this (main) thread of execution with the asynchronous series of events, we can register the following listener.
+comment|// this way be sure that we got to point 3
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|2
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|registerService
+argument_list|(
+name|ConfigurationListener
+operator|.
+name|class
+argument_list|,
+operator|new
+name|ConfigurationListener
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configurationEvent
+parameter_list|(
+name|ConfigurationEvent
+name|event
+parameter_list|)
+block|{
+if|if
+condition|(
+name|event
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|ConfigurationEvent
+operator|.
+name|CM_LOCATION_CHANGED
+condition|)
+block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
+comment|// when we update the configuration, BP container will be reloaded as well
+comment|// hoping that we get the event after *second* restart, let's register the listener
+name|answer
+operator|.
+name|registerService
+argument_list|(
+name|BlueprintListener
+operator|.
+name|class
+argument_list|,
+operator|new
+name|BlueprintListener
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|blueprintEvent
+parameter_list|(
+name|BlueprintEvent
+name|event
+parameter_list|)
+block|{
+if|if
+condition|(
+name|event
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|BlueprintEvent
+operator|.
+name|CREATED
+operator|&&
+name|event
+operator|.
+name|getBundle
+argument_list|()
+operator|.
+name|getSymbolicName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|symbolicName
+argument_list|)
+condition|)
+block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|ConfigurationAdmin
 name|configAdmin
 init|=
@@ -632,6 +852,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// passing null as second argument ties the configuration to correct bundle.
+comment|// using single-arg method causes:
+comment|// *ERROR* Cannot use configuration xxx.properties for [org.osgi.service.cm.ManagedService, id=N, bundle=N/jar:file:xyz.jar!/]: No visibility to configuration bound to file:pojosr
 name|Configuration
 name|config
 init|=
@@ -640,6 +863,8 @@ operator|.
 name|getConfiguration
 argument_list|(
 name|pid
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -677,6 +902,19 @@ operator|.
 name|update
 argument_list|(
 name|props
+argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|await
+argument_list|(
+name|CamelBlueprintHelper
+operator|.
+name|DEFAULT_TIMEOUT
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}

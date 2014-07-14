@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|GAuthComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|consumerKey
 specifier|private
@@ -136,9 +136,11 @@ specifier|public
 name|GAuthComponent
 parameter_list|()
 block|{
-name|this
+name|super
 argument_list|(
-literal|null
+name|GAuthEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -153,6 +155,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|GAuthEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

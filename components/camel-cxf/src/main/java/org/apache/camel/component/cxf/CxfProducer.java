@@ -1905,6 +1905,17 @@ operator|==
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"CxfProducer cannot find the {} from message header, try to use the defaultOperationName"
+argument_list|,
+name|CxfConstants
+operator|.
+name|OPERATION_NAME
+argument_list|)
+expr_stmt|;
 name|lp
 operator|=
 name|endpoint
@@ -1922,9 +1933,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Try to find a default operation. You should set '{}' in header."
+literal|"CxfProducer cannot find the {} from message header and there is no DefaultOperationName setting, CxfProducer will pick up the first available operation."
 argument_list|,
 name|CxfConstants
 operator|.

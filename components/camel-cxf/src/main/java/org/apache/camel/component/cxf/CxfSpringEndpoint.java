@@ -20,11 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|security
+name|xml
 operator|.
-name|Provider
+name|namespace
+operator|.
+name|QName
 import|;
 end_import
 
@@ -34,9 +36,9 @@ name|javax
 operator|.
 name|xml
 operator|.
-name|namespace
+name|ws
 operator|.
-name|QName
+name|Provider
 import|;
 end_import
 

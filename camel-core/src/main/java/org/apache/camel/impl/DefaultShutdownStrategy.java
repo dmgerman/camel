@@ -142,18 +142,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeoutException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -1040,7 +1028,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred. Aborting the shutdown now."
+literal|"Timeout occurred. Aborting the shutdown now.  Some resources may still be running."
 argument_list|)
 expr_stmt|;
 return|return
@@ -1060,7 +1048,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred. Forcing the routes to be shutdown now."
+literal|"Timeout occurred. Forcing the routes to be shutdown now.  Some resources may still be running."
 argument_list|)
 expr_stmt|;
 comment|// force the routes to shutdown now
@@ -1110,7 +1098,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred. Will ignore shutting down the remainder routes."
+literal|"Timeout occurred. Will ignore shutting down the remainder routes. Some resources may still be running."
 argument_list|)
 expr_stmt|;
 block|}

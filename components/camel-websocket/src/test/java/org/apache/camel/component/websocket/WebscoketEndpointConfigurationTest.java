@@ -250,7 +250,7 @@ comment|// just check the servlet initial parameters
 name|ConnectorRef
 name|conector
 init|=
-name|component
+name|WebsocketComponent
 operator|.
 name|getConnectors
 argument_list|()

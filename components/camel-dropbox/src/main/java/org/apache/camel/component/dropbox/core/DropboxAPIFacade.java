@@ -429,7 +429,7 @@ operator|new
 name|DropboxAPIFacade
 argument_list|()
 expr_stmt|;
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|=
@@ -497,7 +497,7 @@ try|try
 block|{
 name|entry
 operator|=
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.
@@ -1028,7 +1028,7 @@ expr_stmt|;
 block|}
 name|uploadedFile
 operator|=
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.
@@ -1106,7 +1106,7 @@ try|try
 block|{
 name|listing
 operator|=
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.
@@ -1165,7 +1165,7 @@ try|try
 block|{
 name|entries
 operator|=
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.
@@ -1224,7 +1224,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.
@@ -1289,7 +1289,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.
@@ -1425,7 +1425,7 @@ try|try
 block|{
 name|listing
 operator|=
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.
@@ -1576,7 +1576,7 @@ try|try
 block|{
 name|downloadedFile
 operator|=
-name|instance
+name|DropboxAPIFacade
 operator|.
 name|client
 operator|.

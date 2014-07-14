@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|LinkedHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -131,7 +121,8 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// must be linked so we can dictate the order
+comment|// The linkedHashMap values has different order in JDK7 and JDK8
+comment|// so I had to reduce the parameters size
 name|Map
 argument_list|<
 name|String
@@ -141,7 +132,7 @@ argument_list|>
 name|jdbcParams
 init|=
 operator|new
-name|LinkedHashMap
+name|HashMap
 argument_list|<
 name|String
 argument_list|,
@@ -149,15 +140,6 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|jdbcParams
-operator|.
-name|put
-argument_list|(
-literal|"id"
-argument_list|,
-literal|"cust1"
-argument_list|)
-expr_stmt|;
 name|jdbcParams
 operator|.
 name|put
@@ -173,7 +155,7 @@ name|sendBodyAndHeaders
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"select * from customer where id = ? and name = ? order by ID"
+literal|"select * from customer where id = 'cust1' and name = ? order by ID"
 argument_list|,
 name|jdbcParams
 argument_list|)
@@ -301,18 +283,18 @@ name|jdbcParams
 operator|.
 name|put
 argument_list|(
-literal|"id"
+literal|"name"
 argument_list|,
-literal|"cust1"
+literal|"jstrachan"
 argument_list|)
 expr_stmt|;
 name|jdbcParams
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"id"
 argument_list|,
-literal|"jstrachan"
+literal|"cust1"
 argument_list|)
 expr_stmt|;
 name|template

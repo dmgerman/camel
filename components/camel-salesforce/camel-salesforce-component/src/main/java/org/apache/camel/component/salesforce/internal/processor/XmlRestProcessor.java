@@ -1209,7 +1209,14 @@ parameter_list|(
 name|CannotResolveClassException
 name|ignore
 parameter_list|)
-block|{                         }
+block|{
+comment|// recent XStream versions add a ClassNotFoundException to cache
+name|mapper
+operator|.
+name|flushCache
+argument_list|()
+expr_stmt|;
+block|}
 name|localXStream
 operator|.
 name|alias

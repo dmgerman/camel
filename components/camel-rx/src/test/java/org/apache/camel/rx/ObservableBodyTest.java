@@ -120,8 +120,6 @@ begin_import
 import|import
 name|rx
 operator|.
-name|util
-operator|.
 name|functions
 operator|.
 name|Action1
@@ -131,8 +129,6 @@ end_import
 begin_import
 import|import
 name|rx
-operator|.
-name|util
 operator|.
 name|functions
 operator|.

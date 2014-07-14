@@ -69,7 +69,11 @@ decl_stmt|;
 name|String
 name|address
 init|=
-literal|"http://cxf.apache.org/transports/jms"
+literal|"jms:jndi:dynamicQueues/test.soap.jmstransport.queue?jndiInitialContextFactory="
+operator|+
+literal|"org.apache.activemq.jndi.ActiveMQInitialContextFactory&jndiConnectionFactoryName="
+operator|+
+literal|"ConnectionFactory&jndiURL=vm://localhost"
 decl_stmt|;
 name|endpoint
 operator|=

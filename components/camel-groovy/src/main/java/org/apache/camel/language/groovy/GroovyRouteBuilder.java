@@ -63,11 +63,7 @@ DECL|method|GroovyRouteBuilder ()
 specifier|public
 name|GroovyRouteBuilder
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|GroovyRouteBuilder (CamelContext context)
 specifier|public
 name|GroovyRouteBuilder

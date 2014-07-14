@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -114,16 +114,18 @@ specifier|public
 class|class
 name|GLoginComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|GLoginComponent ()
 specifier|public
 name|GLoginComponent
 parameter_list|()
 block|{
-name|this
+name|super
 argument_list|(
-literal|null
+name|GLoginEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -138,6 +140,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|GLoginEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

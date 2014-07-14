@@ -61,9 +61,6 @@ specifier|public
 name|GaeDefaultCamelContext
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 comment|// disable JMX and use the simple registry as JNDI is not allowed
 name|disableJMX
 argument_list|()

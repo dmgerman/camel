@@ -1183,6 +1183,43 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Gets the String Properties from the message.      *      * @param message  the message      * @return the type, can be<tt>null</tt>      */
+DECL|method|getStringProperty (Message message, String propertyName)
+specifier|public
+specifier|static
+name|String
+name|getStringProperty
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|String
+name|propertyName
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+name|message
+operator|.
+name|getStringProperty
+argument_list|(
+name|propertyName
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore due some broker client does not support accessing StringProperty
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Gets the JMSRedelivered from the message.      *      * @param message  the message      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,<tt>null</tt> if not able to determine      */
 DECL|method|getJMSRedelivered (Message message)
 specifier|public

@@ -127,7 +127,17 @@ class|class
 name|MyCustomException
 extends|extends
 name|RuntimeException
-block|{     }
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+block|}
 DECL|field|result
 specifier|private
 name|MockEndpoint

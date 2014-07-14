@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acquires exclusive read lock to the given file by checking whether the file is being  * changed by scanning the file at different intervals (to detect changes).  */
+comment|/**  * Acquires exclusive read lock to the given file by checking whether the file is being  * changed by scanning the file at different intervals (to detect changes).  *<p/>  * Setting the option {@link #setMarkerFiler(boolean)} to<tt>false</tt> allows to turn off using marker files.  */
 end_comment
 
 begin_class

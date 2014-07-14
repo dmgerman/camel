@@ -40,6 +40,20 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultExchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Aggregate all exchanges into a single combined Exchange holding all the aggregated exchanges  * in a {@link java.util.List<Exchange>} as the message body.  *  * @version   */
 end_comment
@@ -129,9 +143,25 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
-name|Exchange
-name|answer
-init|=
+if|if
+condition|(
+name|oldExchange
+operator|==
+literal|null
+condition|)
+block|{
+comment|// for the first time we must create a new empty exchange as the holder, as the outgoing exchange
+comment|// must not be one of the grouped exchanges, as that causes a endless circular reference
+name|oldExchange
+operator|=
+operator|new
+name|DefaultExchange
+argument_list|(
+name|newExchange
+argument_list|)
+expr_stmt|;
+block|}
+return|return
 name|super
 operator|.
 name|aggregate
@@ -140,26 +170,6 @@ name|oldExchange
 argument_list|,
 name|newExchange
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|oldExchange
-operator|==
-literal|null
-condition|)
-block|{
-comment|// for the first time we must do a copy as the answer, so the outgoing
-comment|// exchange is not one of the grouped exchanges, as that causes a endless circular reference
-name|answer
-operator|=
-name|answer
-operator|.
-name|copy
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|answer
 return|;
 block|}
 annotation|@

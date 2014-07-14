@@ -814,6 +814,19 @@ operator|=
 name|fastExistsCheck
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setMarkerFiler (boolean markerFiler)
+specifier|public
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFiler
+parameter_list|)
+block|{
+comment|// noop - not supported by ftp
+block|}
 block|}
 end_class
 

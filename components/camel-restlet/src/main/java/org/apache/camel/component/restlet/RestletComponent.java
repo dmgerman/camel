@@ -429,6 +429,13 @@ parameter_list|)
 block|{
 comment|// Allow the Component to be injected, so that the RestletServlet may be
 comment|// configured within a webapp
+name|super
+argument_list|(
+name|RestletEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|component

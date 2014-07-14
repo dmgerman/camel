@@ -194,14 +194,22 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// OpenJPA warns about fields being accessed directly in methods if NOT using the corresponding getters.
 return|return
-literal|"VersionedItem [id="
+literal|"VersionedItem[id: "
 operator|+
-name|id
+name|getId
+argument_list|()
 operator|+
-literal|", name="
+literal|", name: "
 operator|+
-name|name
+name|getName
+argument_list|()
+operator|+
+literal|", version: "
+operator|+
+name|getVersion
+argument_list|()
 operator|+
 literal|"]"
 return|;

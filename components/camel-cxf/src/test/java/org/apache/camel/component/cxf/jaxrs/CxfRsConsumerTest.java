@@ -634,14 +634,14 @@ argument_list|(
 literal|"HTTP.REQUEST"
 argument_list|)
 decl_stmt|;
-name|String
-name|remoteAddress
-init|=
+comment|// Just make sure the request object is not null
+name|assertNotNull
+argument_list|(
+literal|"The request object should not be null"
+argument_list|,
 name|request
-operator|.
-name|getRemoteAddr
-argument_list|()
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 name|Response
 name|r
 init|=
@@ -654,9 +654,7 @@ argument_list|)
 operator|.
 name|entity
 argument_list|(
-literal|"The remoteAddress is "
-operator|+
-name|remoteAddress
+literal|"The remoteAddress is 127.0.0.1"
 argument_list|)
 operator|.
 name|build

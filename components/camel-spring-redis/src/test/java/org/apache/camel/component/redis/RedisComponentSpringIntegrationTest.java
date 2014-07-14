@@ -135,6 +135,9 @@ end_import
 begin_class
 annotation|@
 name|Ignore
+argument_list|(
+literal|"IntegrationTest"
+argument_list|)
 DECL|class|RedisComponentSpringIntegrationTest
 specifier|public
 class|class

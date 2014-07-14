@@ -1049,13 +1049,7 @@ init|=
 operator|new
 name|byte
 index|[
-operator|(
-operator|(
-name|byte
-index|[]
-operator|)
 name|req
-operator|)
 operator|.
 name|length
 operator|+
@@ -1095,13 +1089,7 @@ name|RESPONSE_GREETING_BYTES
 operator|.
 name|length
 argument_list|,
-operator|(
-operator|(
-name|byte
-index|[]
-operator|)
 name|req
-operator|)
 operator|.
 name|length
 argument_list|)

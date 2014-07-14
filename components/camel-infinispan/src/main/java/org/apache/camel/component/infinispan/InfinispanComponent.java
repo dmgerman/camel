@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -60,8 +60,21 @@ specifier|public
 class|class
 name|InfinispanComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|InfinispanComponent ()
+specifier|public
+name|InfinispanComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|InfinispanEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

@@ -200,7 +200,9 @@ operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
-argument_list|()
+argument_list|(
+literal|4000
+argument_list|)
 expr_stmt|;
 name|System
 operator|.
@@ -300,7 +302,7 @@ name|InetAddress
 operator|.
 name|getByName
 argument_list|(
-literal|"127.0.0.1"
+literal|"localhost"
 argument_list|)
 decl_stmt|;
 for|for

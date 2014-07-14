@@ -76,6 +76,11 @@ comment|/**      * Generates a new order structured as a {@link Map}      */
 DECL|method|generateOrder ()
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|generateOrder
 parameter_list|()
 block|{
@@ -161,12 +166,17 @@ name|answer
 return|;
 block|}
 comment|/**      * Processes the order      *      * @param data  the order as a {@link Map}      * @return the transformed order      */
-DECL|method|processOrder (Map data)
+DECL|method|processOrder (Map<String, Object> data)
 specifier|public
 name|String
 name|processOrder
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|data
 parameter_list|)
 block|{

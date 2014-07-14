@@ -392,6 +392,11 @@ name|getIdentifier
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|session
+operator|.
+name|save
+argument_list|()
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -504,11 +509,6 @@ name|operation
 argument_list|)
 throw|;
 block|}
-name|session
-operator|.
-name|save
-argument_list|()
-expr_stmt|;
 block|}
 finally|finally
 block|{

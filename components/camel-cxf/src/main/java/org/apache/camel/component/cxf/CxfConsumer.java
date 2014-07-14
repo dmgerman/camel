@@ -387,6 +387,11 @@ specifier|private
 name|Server
 name|server
 decl_stmt|;
+DECL|field|cxfEndpoint
+specifier|private
+name|CxfEndpoint
+name|cxfEndpoint
+decl_stmt|;
 DECL|method|CxfConsumer (final CxfEndpoint endpoint, Processor processor)
 specifier|public
 name|CxfConsumer
@@ -407,6 +412,10 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
+expr_stmt|;
+name|cxfEndpoint
+operator|=
+name|endpoint
 expr_stmt|;
 comment|// create server
 name|ServerFactoryBean
@@ -562,13 +571,15 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO Support to set the timeout in case the Camel can't send the response back on time.
 comment|// The continuation could be called before the suspend is called
 name|continuation
 operator|.
 name|suspend
 argument_list|(
-literal|0
+name|cxfEndpoint
+operator|.
+name|getContinuationTimeout
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// use the asynchronous API to process the exchange

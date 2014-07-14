@@ -452,6 +452,30 @@ name|getRemoteAddr
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Could verify the HttpRequest
+name|String
+name|contentType
+init|=
+name|in
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should get the contentType."
+argument_list|,
+name|contentType
+argument_list|)
+expr_stmt|;
 comment|// Get the parameter list
 name|List
 argument_list|<
@@ -771,11 +795,17 @@ name|response
 init|=
 name|template
 operator|.
-name|requestBody
+name|requestBodyAndHeader
 argument_list|(
 name|SIMPLE_ENDPOINT_ADDRESS
 argument_list|,
 name|ECHO_REQUEST
+argument_list|,
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"text/xml; charset=UTF-8"
 argument_list|,
 name|String
 operator|.

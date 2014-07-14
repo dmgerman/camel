@@ -149,6 +149,16 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+DECL|field|foo
+specifier|protected
+name|Object
+name|foo
+decl_stmt|;
+DECL|field|baz
+specifier|protected
+name|Object
+name|baz
+decl_stmt|;
 DECL|method|testSuccess ()
 specifier|public
 name|void
@@ -188,6 +198,22 @@ argument_list|(
 literal|"Should have received completed notification"
 argument_list|,
 name|completed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should have propagated the header inside the Synchronization.onComplete() callback"
+argument_list|,
+literal|"bar"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"The Synchronization.onFailure() callback should have not been invoked"
+argument_list|,
+name|baz
 argument_list|)
 expr_stmt|;
 name|log
@@ -241,6 +267,22 @@ argument_list|,
 name|failed
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should have propagated the header inside the Synchronization.onFailure() callback"
+argument_list|,
+literal|"bat"
+argument_list|,
+name|baz
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"The Synchronization.onComplete() callback should have not been invoked"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|info
@@ -292,6 +334,22 @@ argument_list|,
 name|failed
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Should have propagated the header inside the Synchronization.onFailure() callback"
+argument_list|,
+literal|"bat"
+argument_list|,
+name|baz
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"The Synchronization.onComplete() callback should have not been invoked"
+argument_list|,
+name|foo
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|info
@@ -330,6 +388,18 @@ name|completed
 operator|=
 name|exchange
 expr_stmt|;
+name|foo
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"foo"
+argument_list|)
+expr_stmt|;
 name|doneLatch
 operator|.
 name|countDown
@@ -347,6 +417,18 @@ block|{
 name|failed
 operator|=
 name|exchange
+expr_stmt|;
+name|baz
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"baz"
+argument_list|)
 expr_stmt|;
 name|doneLatch
 operator|.
@@ -390,6 +472,30 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"baz"
+argument_list|,
+literal|"bat"
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getIn

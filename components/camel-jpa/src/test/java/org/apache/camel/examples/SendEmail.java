@@ -231,6 +231,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+comment|// OpenJPA warns about fields being accessed directly in methods if NOT using the corresponding getters.
+return|return
+literal|"SendEmail[id: "
+operator|+
+name|getId
+argument_list|()
+operator|+
+literal|", address: "
+operator|+
+name|getAddress
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

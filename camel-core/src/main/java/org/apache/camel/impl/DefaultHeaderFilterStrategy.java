@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Locale
 import|;
 end_import
@@ -131,6 +141,11 @@ DECL|field|allowNullValues
 specifier|private
 name|boolean
 name|allowNullValues
+decl_stmt|;
+DECL|field|caseInsensitive
+specifier|private
+name|boolean
+name|caseInsensitive
 decl_stmt|;
 DECL|method|applyFilterToCamelHeaders (String headerName, Object headerValue, Exchange exchange)
 specifier|public
@@ -400,7 +415,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the isLowercase property which is a boolean to determine      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
+comment|/**      * Gets the isLowercase property which is a boolean to determine      * whether header names should be converted to lower case before      * checking it with the filter Set.  It does not affect filtering using      * regular expression pattern.      */
 DECL|method|isLowerCase ()
 specifier|public
 name|boolean
@@ -411,7 +426,7 @@ return|return
 name|lowerCase
 return|;
 block|}
-comment|/**      * Sets the isLowercase property which is a boolean to determine      * whether header names should be converted to lowercase before      * checking it the filter Set.  It does not affect filtering using      * regular expression pattern.      */
+comment|/**      * Sets the isLowercase property which is a boolean to determine      * whether header names should be converted to lower case before      * checking it with the filter Set.  It does not affect filtering using      * regular expression pattern.      */
 DECL|method|setLowerCase (boolean value)
 specifier|public
 name|void
@@ -424,6 +439,34 @@ block|{
 name|lowerCase
 operator|=
 name|value
+expr_stmt|;
+block|}
+comment|/**      * Gets the caseInsensitive property which is a boolean to determine      * whether header names should be case insensitive when checking it       * with the filter set.      * It does not affect filtering using regular expression pattern.      *       * @return<tt>true</tt> if header names is case insensitive.       */
+DECL|method|isCaseInsensitive ()
+specifier|public
+name|boolean
+name|isCaseInsensitive
+parameter_list|()
+block|{
+return|return
+name|caseInsensitive
+return|;
+block|}
+comment|/**      * Sets the caseInsensitive property which is a boolean to determine      * whether header names should be case insensitive when checking it       * with the filter set.      * It does not affect filtering using regular expression pattern,      *       * @param caseInsensitive<tt>true</tt> if header names is case insensitive.      */
+DECL|method|setCaseInsensitive (boolean caseInsensitive)
+specifier|public
+name|void
+name|setCaseInsensitive
+parameter_list|(
+name|boolean
+name|caseInsensitive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|caseInsensitive
+operator|=
+name|caseInsensitive
 expr_stmt|;
 block|}
 DECL|method|isAllowNullValues ()
@@ -593,6 +636,56 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|isCaseInsensitive
+argument_list|()
+condition|)
+block|{
+name|Iterator
+argument_list|<
+name|String
+argument_list|>
+name|it
+init|=
+name|filter
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|String
+name|filterString
+init|=
+name|it
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|filterString
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|headerName
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|isLowerCase

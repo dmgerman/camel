@@ -109,6 +109,10 @@ argument_list|,
 literal|"hi"
 argument_list|,
 literal|"hola"
+argument_list|,
+literal|"another_chiau"
+argument_list|,
+literal|"another_hi"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

@@ -314,9 +314,13 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='a' anotherAttr='a'></c:child></c:parent></grandparent></g:greatgrandparent>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\">"
+operator|+
+literal|"<c:child some_attr='a' anotherAttr='a'></c:child></c:parent></grandparent></g:greatgrandparent>"
 argument_list|,
-literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='b' anotherAttr='b'/></c:parent></grandparent></g:greatgrandparent>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\">"
+operator|+
+literal|"<c:child some_attr='b' anotherAttr='b'/></c:parent></grandparent></g:greatgrandparent>"
 argument_list|)
 expr_stmt|;
 name|template
@@ -325,7 +329,9 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\"><c:child some_attr='a' anotherAttr='a'></c:child><c:child some_attr='b' anotherAttr='b'/></c:parent></grandparent></g:greatgrandparent>"
+literal|"<?xml version='1.0' encoding='UTF-8'?><g:greatgrandparent xmlns:g='urn:g'><grandparent><uncle/><aunt>emma</aunt><c:parent xmlns:c='urn:c' xmlns:d=\"urn:d\">"
+operator|+
+literal|"<c:child some_attr='a' anotherAttr='a'></c:child><c:child some_attr='b' anotherAttr='b'/></c:parent></grandparent></g:greatgrandparent>"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

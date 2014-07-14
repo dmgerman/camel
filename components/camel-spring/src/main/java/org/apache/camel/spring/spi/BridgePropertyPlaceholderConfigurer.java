@@ -232,6 +232,11 @@ name|systemPropertiesMode
 init|=
 name|SYSTEM_PROPERTIES_MODE_FALLBACK
 decl_stmt|;
+DECL|field|ignoreResourceNotFound
+specifier|private
+name|Boolean
+name|ignoreResourceNotFound
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|processProperties (ConfigurableListableBeanFactory beanFactoryToProcess, Properties props)
@@ -503,6 +508,31 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|setIgnoreResourceNotFound (boolean ignoreResourceNotFound)
+specifier|public
+name|void
+name|setIgnoreResourceNotFound
+parameter_list|(
+name|boolean
+name|ignoreResourceNotFound
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setIgnoreResourceNotFound
+argument_list|(
+name|ignoreResourceNotFound
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|ignoreResourceNotFound
+operator|=
+name|ignoreResourceNotFound
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|resolveProperties (CamelContext context, boolean ignoreMissingLocation, String... uri)
 specifier|public
 name|Properties
@@ -570,6 +600,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|boolean
+name|flag
+init|=
+name|ignoreMissingLocation
+decl_stmt|;
+comment|// Override the setting by using ignoreResourceNotFound
+if|if
+condition|(
+name|ignoreResourceNotFound
+operator|!=
+literal|null
+condition|)
+block|{
+name|flag
+operator|=
+name|ignoreResourceNotFound
+expr_stmt|;
+block|}
 name|Properties
 name|p
 init|=
@@ -579,7 +627,7 @@ name|resolveProperties
 argument_list|(
 name|context
 argument_list|,
-name|ignoreMissingLocation
+name|flag
 argument_list|,
 name|u
 argument_list|)

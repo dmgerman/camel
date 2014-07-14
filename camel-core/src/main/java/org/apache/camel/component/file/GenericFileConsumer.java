@@ -520,7 +520,11 @@ argument_list|()
 decl_stmt|;
 name|boolean
 name|limitHit
-init|=
+decl_stmt|;
+try|try
+block|{
+name|limitHit
+operator|=
 operator|!
 name|pollDirectory
 argument_list|(
@@ -530,7 +534,50 @@ name|files
 argument_list|,
 literal|0
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// during poll directory we add files to the in progress repository, in case of any exception thrown after this work
+comment|// we must then drain the in progress files before rethrowing the exception
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Error occurred during poll directory: "
+operator|+
+name|name
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". Removing "
+operator|+
+name|files
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" files marked as in-progress."
+argument_list|)
+expr_stmt|;
+name|removeExcessiveInProgressFiles
+argument_list|(
+name|files
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 name|long
 name|delta
 init|=
@@ -1044,6 +1091,50 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|String
+name|key
+init|=
+name|file
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+decl_stmt|;
+name|endpoint
+operator|.
+name|getInProgressRepository
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Drain any in progress files as we are done with the files      *      * @param files  the files      */
+DECL|method|removeExcessiveInProgressFiles (List<GenericFile<T>> files)
+specifier|protected
+name|void
+name|removeExcessiveInProgressFiles
+parameter_list|(
+name|List
+argument_list|<
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+argument_list|>
+name|files
+parameter_list|)
+block|{
+for|for
+control|(
+name|GenericFile
+name|file
+range|:
+name|files
+control|)
+block|{
 name|String
 name|key
 init|=

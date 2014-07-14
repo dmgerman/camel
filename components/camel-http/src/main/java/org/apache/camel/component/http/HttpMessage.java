@@ -166,6 +166,46 @@ argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
+comment|// Check the setting of exchange
+name|Boolean
+name|flag
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SKIP_WWW_FORM_URLENCODED
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|flag
+operator|!=
+literal|null
+operator|&&
+name|flag
+condition|)
+block|{
+name|this
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|SKIP_WWW_FORM_URLENCODED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
 comment|// use binding to read the request allowing end users to use their
 comment|// implementation of the binding
 name|getEndpoint

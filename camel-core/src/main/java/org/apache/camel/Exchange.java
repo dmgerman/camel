@@ -626,6 +626,12 @@ name|SKIP_GZIP_ENCODING
 init|=
 literal|"CamelSkipGzipEncoding"
 decl_stmt|;
+DECL|field|SKIP_WWW_FORM_URLENCODED
+name|String
+name|SKIP_WWW_FORM_URLENCODED
+init|=
+literal|"CamelSkipWwwFormUrlEncoding"
+decl_stmt|;
 DECL|field|SLIP_ENDPOINT
 name|String
 name|SLIP_ENDPOINT

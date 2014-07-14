@@ -83,11 +83,7 @@ DECL|method|RestError ()
 specifier|public
 name|RestError
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|RestError (String errorCode, String message, List<String> fields)
 specifier|public
 name|RestError

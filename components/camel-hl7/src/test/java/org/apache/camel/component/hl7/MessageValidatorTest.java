@@ -298,11 +298,6 @@ operator|new
 name|DefaultValidation
 argument_list|()
 expr_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 name|MessageRule
 name|rule
 init|=
@@ -310,6 +305,14 @@ operator|new
 name|MessageRule
 argument_list|()
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public

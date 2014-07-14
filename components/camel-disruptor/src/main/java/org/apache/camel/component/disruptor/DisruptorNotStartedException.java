@@ -43,11 +43,7 @@ DECL|method|DisruptorNotStartedException ()
 specifier|public
 name|DisruptorNotStartedException
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|DisruptorNotStartedException (String message)
 specifier|public
 name|DisruptorNotStartedException

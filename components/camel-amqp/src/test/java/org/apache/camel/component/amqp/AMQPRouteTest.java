@@ -398,7 +398,7 @@ literal|"amqp1-0"
 argument_list|,
 name|amqpComponent
 argument_list|(
-literal|"amqp://guest:guest@/test?brokerlist='tcp://localhost:5672'"
+literal|"amqp://guest:guest@localhost:5672?remote-host=test"
 argument_list|,
 literal|false
 argument_list|)

@@ -155,6 +155,34 @@ operator|=
 name|addressLine2
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+comment|// OpenJPA warns about fields being accessed directly in methods if NOT using the corresponding getters.
+return|return
+literal|"Address[id: "
+operator|+
+name|getId
+argument_list|()
+operator|+
+literal|", addressLine1: "
+operator|+
+name|getAddressLine1
+argument_list|()
+operator|+
+literal|", addressLine2: "
+operator|+
+name|getAddressLine2
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
 block|}
 end_class
 

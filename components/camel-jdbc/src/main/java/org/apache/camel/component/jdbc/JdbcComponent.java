@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|JdbcComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|ds
 specifier|private
@@ -125,7 +125,15 @@ DECL|method|JdbcComponent ()
 specifier|public
 name|JdbcComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|JdbcEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JdbcComponent (CamelContext context)
 specifier|public
 name|JdbcComponent
@@ -137,6 +145,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|JdbcEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

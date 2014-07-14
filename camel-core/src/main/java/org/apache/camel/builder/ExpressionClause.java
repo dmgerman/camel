@@ -442,7 +442,7 @@ return|;
 block|}
 comment|// Languages
 comment|// -------------------------------------------------------------------------
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html">bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @return the builder to continue processing the DSL      */
 DECL|method|method (String bean)
 specifier|public
 name|T
@@ -461,7 +461,7 @@ name|bean
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html">bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (Object instance)
 specifier|public
 name|T
@@ -480,7 +480,7 @@ name|instance
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html">bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @return the builder to continue processing the DSL      */
 DECL|method|method (Class<?> beanType)
 specifier|public
 name|T
@@ -502,7 +502,7 @@ name|beanType
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html">bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param bean the name of the bean looked up the registry      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (String bean, String method)
 specifier|public
 name|T
@@ -526,7 +526,7 @@ name|method
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html">bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *      * @param instance the instance of the bean      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (Object instance, String method)
 specifier|public
 name|T
@@ -550,7 +550,7 @@ name|method
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html>bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an expression using the<a      * href="http://camel.apache.org/bean-language.html">bean language</a>      * which basically means the bean is invoked to determine the expression      * value.      *       * @param beanType the Class of the bean which we want to invoke      * @param method the name of the method to invoke on the bean      * @return the builder to continue processing the DSL      */
 DECL|method|method (Class<?> beanType, String method)
 specifier|public
 name|T
@@ -1212,6 +1212,90 @@ argument_list|(
 name|tagName
 argument_list|,
 name|inheritNamespaceTagName
+argument_list|,
+name|group
+argument_list|)
+return|;
+block|}
+DECL|method|xtokenize (String path, Namespaces namespaces)
+specifier|public
+name|T
+name|xtokenize
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|Namespaces
+name|namespaces
+parameter_list|)
+block|{
+return|return
+name|xtokenize
+argument_list|(
+name|path
+argument_list|,
+literal|'i'
+argument_list|,
+name|namespaces
+argument_list|)
+return|;
+block|}
+DECL|method|xtokenize (String path, char mode, Namespaces namespaces)
+specifier|public
+name|T
+name|xtokenize
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|char
+name|mode
+parameter_list|,
+name|Namespaces
+name|namespaces
+parameter_list|)
+block|{
+return|return
+name|xtokenize
+argument_list|(
+name|path
+argument_list|,
+name|mode
+argument_list|,
+name|namespaces
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
+DECL|method|xtokenize (String path, char mode, Namespaces namespaces, int group)
+specifier|public
+name|T
+name|xtokenize
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|char
+name|mode
+parameter_list|,
+name|Namespaces
+name|namespaces
+parameter_list|,
+name|int
+name|group
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|xtokenize
+argument_list|(
+name|path
+argument_list|,
+name|mode
+argument_list|,
+name|namespaces
 argument_list|,
 name|group
 argument_list|)

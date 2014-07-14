@@ -256,9 +256,6 @@ specifier|public
 name|PGPDataFormat
 parameter_list|()
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|publicKeyAccessor
 operator|=
 name|this

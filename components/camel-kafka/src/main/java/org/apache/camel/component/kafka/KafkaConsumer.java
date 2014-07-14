@@ -636,9 +636,6 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
-operator|(
-name|Boolean
-operator|)
 name|it
 operator|.
 name|hasNext

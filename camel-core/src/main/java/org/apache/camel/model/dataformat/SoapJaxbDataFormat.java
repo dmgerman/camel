@@ -197,6 +197,13 @@ specifier|private
 name|String
 name|namespacePrefixRef
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|schema
+specifier|private
+name|String
+name|schema
+decl_stmt|;
 DECL|method|SoapJaxbDataFormat ()
 specifier|public
 name|SoapJaxbDataFormat
@@ -431,6 +438,32 @@ operator|=
 name|namespacePrefixRef
 expr_stmt|;
 block|}
+DECL|method|getSchema ()
+specifier|public
+name|String
+name|getSchema
+parameter_list|()
+block|{
+return|return
+name|schema
+return|;
+block|}
+DECL|method|setSchema (String schema)
+specifier|public
+name|void
+name|setSchema
+parameter_list|(
+name|String
+name|schema
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schema
+operator|=
+name|schema
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configureDataFormat (DataFormat dataFormat, CamelContext camelContext)
@@ -537,6 +570,25 @@ argument_list|,
 literal|"namespacePrefixRef"
 argument_list|,
 name|namespacePrefixRef
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|schema
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"schema"
+argument_list|,
+name|schema
 argument_list|)
 expr_stmt|;
 block|}

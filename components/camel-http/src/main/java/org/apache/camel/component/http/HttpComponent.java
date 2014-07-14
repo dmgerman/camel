@@ -282,6 +282,38 @@ specifier|protected
 name|HttpConfiguration
 name|httpConfiguration
 decl_stmt|;
+DECL|method|HttpComponent ()
+specifier|public
+name|HttpComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|HttpEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|HttpComponent (Class<? extends HttpEndpoint> endpointClass)
+specifier|public
+name|HttpComponent
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|HttpEndpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
 DECL|method|connect (HttpConsumer consumer)
 specifier|public

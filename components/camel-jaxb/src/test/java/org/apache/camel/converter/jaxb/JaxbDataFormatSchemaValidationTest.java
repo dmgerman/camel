@@ -467,7 +467,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Invalid content was found"
+literal|"cvc-complex-type.2.4.a"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -715,7 +715,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"The content of element 'person' is not complete"
+literal|"cvc-complex-type.2.4.b"
 argument_list|)
 argument_list|)
 expr_stmt|;

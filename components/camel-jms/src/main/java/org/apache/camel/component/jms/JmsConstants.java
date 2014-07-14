@@ -47,6 +47,15 @@ name|JMS_DESTINATION_NAME
 init|=
 literal|"CamelJmsDestinationName"
 decl_stmt|;
+DECL|field|JMS_X_GROUP_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_X_GROUP_ID
+init|=
+literal|"JMSXGroupID"
+decl_stmt|;
 DECL|field|JMS_MESSAGE_TYPE
 specifier|public
 specifier|static

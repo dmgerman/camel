@@ -70,11 +70,6 @@ end_import
 
 begin_class
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
-annotation|@
 name|CsvRecord
 argument_list|(
 name|separator
@@ -92,6 +87,15 @@ name|MyCsvRecord
 implements|implements
 name|Serializable
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 annotation|@
 name|DataField
 argument_list|(
@@ -204,11 +208,7 @@ DECL|method|MyCsvRecord ()
 specifier|public
 name|MyCsvRecord
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|getAttention ()
 specifier|public
 name|String

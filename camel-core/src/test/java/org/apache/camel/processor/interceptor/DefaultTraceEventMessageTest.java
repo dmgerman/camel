@@ -519,7 +519,13 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong body string"
 argument_list|,
-literal|"[Body is file based: target/test]"
+literal|"[Body is file based: target"
+operator|+
+name|File
+operator|.
+name|separator
+operator|+
+literal|"test]"
 argument_list|,
 name|em
 operator|.

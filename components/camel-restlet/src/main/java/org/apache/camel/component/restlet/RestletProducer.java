@@ -156,16 +156,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|restlet
-operator|.
-name|Uniform
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger

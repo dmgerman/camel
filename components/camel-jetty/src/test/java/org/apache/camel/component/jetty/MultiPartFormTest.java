@@ -130,6 +130,22 @@ name|httpclient
 operator|.
 name|methods
 operator|.
+name|RequestEntity
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|methods
+operator|.
 name|multipart
 operator|.
 name|FilePart
@@ -194,6 +210,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|httpclient
+operator|.
+name|params
+operator|.
+name|HttpMethodParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -208,23 +240,14 @@ name|MultiPartFormTest
 extends|extends
 name|BaseJettyTest
 block|{
-annotation|@
-name|Test
-DECL|method|testSendMultiPartForm ()
-specifier|public
-name|void
-name|testSendMultiPartForm
+DECL|method|createMultipartRequestEntity ()
+specifier|private
+name|RequestEntity
+name|createMultipartRequestEntity
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|HttpClient
-name|httpclient
-init|=
-operator|new
-name|HttpClient
-argument_list|()
-decl_stmt|;
 name|File
 name|file
 init|=
@@ -232,20 +255,6 @@ operator|new
 name|File
 argument_list|(
 literal|"src/main/resources/META-INF/NOTICE.txt"
-argument_list|)
-decl_stmt|;
-name|PostMethod
-name|httppost
-init|=
-operator|new
-name|PostMethod
-argument_list|(
-literal|"http://localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/test"
 argument_list|)
 decl_stmt|;
 name|Part
@@ -273,25 +282,55 @@ name|file
 argument_list|)
 block|}
 decl_stmt|;
-name|MultipartRequestEntity
-name|reqEntity
-init|=
+return|return
 operator|new
 name|MultipartRequestEntity
 argument_list|(
 name|parts
 argument_list|,
-name|httppost
-operator|.
-name|getParams
+operator|new
+name|HttpMethodParams
 argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Test
+DECL|method|testSendMultiPartForm ()
+specifier|public
+name|void
+name|testSendMultiPartForm
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|HttpClient
+name|httpclient
+init|=
+operator|new
+name|HttpClient
+argument_list|()
+decl_stmt|;
+name|PostMethod
+name|httppost
+init|=
+operator|new
+name|PostMethod
+argument_list|(
+literal|"http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/test"
 argument_list|)
 decl_stmt|;
 name|httppost
 operator|.
 name|setRequestEntity
 argument_list|(
-name|reqEntity
+name|createMultipartRequestEntity
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|int
@@ -331,6 +370,48 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testSendMultiPartFormFromCamelHttpComponnent ()
+specifier|public
+name|void
+name|testSendMultiPartFormFromCamelHttpComponnent
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|result
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"http://localhost:"
+operator|+
+name|getPort
+argument_list|()
+operator|+
+literal|"/test"
+argument_list|,
+name|createMultipartRequestEntity
+argument_list|()
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong result"
+argument_list|,
+literal|"A binary file of some kind"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -352,8 +433,10 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// Set the jetty temp directory which store the file for multi part form
-comment|// camel-jetty will clean up the file after it handled the request.
+comment|// Set the jetty temp directory which store the file for multi
+comment|// part form
+comment|// camel-jetty will clean up the file after it handled the
+comment|// request.
 comment|// The option works rightly from Camel 2.4.0
 name|getContext
 argument_list|()
@@ -430,10 +513,14 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-comment|// This assert is wrong, but the correct content-type (application/octet-stream)
-comment|// will not be returned until Jetty makes it available - currently the content-type
-comment|// returned is just the default for FileDataHandler (for the implentation being used)
-comment|//assertEquals("Get a wrong content type", "text/plain", data.getContentType());
+comment|// This assert is wrong, but the correct content-type
+comment|// (application/octet-stream)
+comment|// will not be returned until Jetty makes it available -
+comment|// currently the content-type
+comment|// returned is just the default for FileDataHandler (for
+comment|// the implentation being used)
+comment|// assertEquals("Get a wrong content type",
+comment|// "text/plain", data.getContentType());
 name|assertEquals
 argument_list|(
 literal|"Got the wrong name"
@@ -464,7 +551,8 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// The other form date can be get from the message header
+comment|// The other form date can be get from the message
+comment|// header
 name|exchange
 operator|.
 name|getOut

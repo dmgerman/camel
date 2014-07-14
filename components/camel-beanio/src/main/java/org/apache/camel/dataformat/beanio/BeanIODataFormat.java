@@ -122,6 +122,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Properties
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -404,6 +414,11 @@ operator|.
 name|defaultCharset
 argument_list|()
 decl_stmt|;
+DECL|field|properties
+specifier|private
+name|Properties
+name|properties
+decl_stmt|;
 DECL|method|BeanIODataFormat ()
 specifier|public
 name|BeanIODataFormat
@@ -486,6 +501,25 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|properties
+operator|!=
+literal|null
+condition|)
+block|{
+name|factory
+operator|.
+name|load
+argument_list|(
+name|is
+argument_list|,
+name|properties
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|factory
 operator|.
 name|load
@@ -493,6 +527,7 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -1285,6 +1320,32 @@ operator|.
 name|streamName
 operator|=
 name|streamName
+expr_stmt|;
+block|}
+DECL|method|getProperties ()
+specifier|public
+name|Properties
+name|getProperties
+parameter_list|()
+block|{
+return|return
+name|properties
+return|;
+block|}
+DECL|method|setProperties (Properties properties)
+specifier|public
+name|void
+name|setProperties
+parameter_list|(
+name|Properties
+name|properties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|properties
+operator|=
+name|properties
 expr_stmt|;
 block|}
 block|}

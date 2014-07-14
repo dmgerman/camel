@@ -99,11 +99,7 @@ DECL|method|YammerComponentTestSupport ()
 specifier|public
 name|YammerComponentTestSupport
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 annotation|@

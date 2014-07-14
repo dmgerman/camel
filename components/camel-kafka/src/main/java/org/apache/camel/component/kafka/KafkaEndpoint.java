@@ -432,6 +432,16 @@ name|topic
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|mm
+operator|.
+name|key
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 operator|.
 name|setHeader
@@ -450,6 +460,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|message
 operator|.
 name|setBody

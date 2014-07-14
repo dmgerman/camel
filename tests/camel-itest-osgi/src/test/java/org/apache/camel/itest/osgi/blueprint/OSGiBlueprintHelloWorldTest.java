@@ -207,10 +207,12 @@ name|OSGiBlueprintHelloWorldTest
 extends|extends
 name|OSGiBlueprintTestSupport
 block|{
-DECL|field|name
+DECL|field|NAME
 specifier|private
+specifier|static
+specifier|final
 name|String
-name|name
+name|NAME
 init|=
 name|OSGiBlueprintHelloWorldTest
 operator|.
@@ -253,7 +255,7 @@ block|{
 comment|// start bundle
 name|getInstalledBundle
 argument_list|(
-name|name
+name|NAME
 argument_list|)
 operator|.
 name|start
@@ -269,8 +271,11 @@ name|CamelContext
 operator|.
 name|class
 argument_list|,
-comment|//"(camel.context.symbolicname=" + name + ")"
-literal|"camel.context.name=camel1"
+literal|"(camel.context.symbolicname="
+operator|+
+name|NAME
+operator|+
+literal|")"
 argument_list|,
 literal|10000
 argument_list|)
@@ -382,12 +387,7 @@ name|Constants
 operator|.
 name|BUNDLE_SYMBOLICNAME
 argument_list|,
-name|OSGiBlueprintHelloWorldTest
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+name|NAME
 argument_list|)
 operator|.
 name|build

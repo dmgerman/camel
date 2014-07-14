@@ -220,20 +220,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|CamelContextHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ExchangeHelper
 import|;
 end_import
@@ -367,6 +353,11 @@ DECL|field|parallelProcessing
 specifier|private
 name|boolean
 name|parallelProcessing
+decl_stmt|;
+DECL|field|parallelAggregate
+specifier|private
+name|boolean
+name|parallelAggregate
 decl_stmt|;
 DECL|field|stopOnException
 specifier|private
@@ -791,6 +782,9 @@ argument_list|()
 argument_list|,
 name|isShareUnitOfWork
 argument_list|()
+argument_list|,
+name|isParallelAggregate
+argument_list|()
 argument_list|)
 block|{
 annotation|@
@@ -1203,6 +1197,32 @@ operator|.
 name|parallelProcessing
 operator|=
 name|parallelProcessing
+expr_stmt|;
+block|}
+DECL|method|isParallelAggregate ()
+specifier|public
+name|boolean
+name|isParallelAggregate
+parameter_list|()
+block|{
+return|return
+name|parallelAggregate
+return|;
+block|}
+DECL|method|setParallelAggregate (boolean parallelAggregate)
+specifier|public
+name|void
+name|setParallelAggregate
+parameter_list|(
+name|boolean
+name|parallelAggregate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parallelAggregate
+operator|=
+name|parallelAggregate
 expr_stmt|;
 block|}
 DECL|method|isStopOnException ()

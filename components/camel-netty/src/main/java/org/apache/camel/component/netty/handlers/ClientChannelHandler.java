@@ -612,6 +612,11 @@ operator|!
 name|exceptionHandled
 condition|)
 block|{
+comment|// To avoid call the callback.done twice
+name|exceptionHandled
+operator|=
+literal|true
+expr_stmt|;
 comment|// session was closed but no message received. This could be because the remote server had an internal error
 comment|// and could not return a response. We should count down to stop waiting for a response
 if|if

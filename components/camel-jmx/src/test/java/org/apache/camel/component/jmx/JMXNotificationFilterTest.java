@@ -300,11 +300,6 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
-annotation|@
 name|Override
 DECL|method|initRegistry ()
 specifier|protected
@@ -329,6 +324,14 @@ operator|new
 name|NotificationFilter
 argument_list|()
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 specifier|public
 name|boolean
 name|isNotificationEnabled

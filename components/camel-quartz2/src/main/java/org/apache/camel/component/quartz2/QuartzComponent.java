@@ -128,7 +128,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -280,7 +280,7 @@ specifier|public
 class|class
 name|QuartzComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 implements|implements
 name|StartupListener
 block|{
@@ -348,7 +348,15 @@ DECL|method|QuartzComponent ()
 specifier|public
 name|QuartzComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|QuartzEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|QuartzComponent (CamelContext camelContext)
 specifier|public
 name|QuartzComponent
@@ -360,6 +368,10 @@ block|{
 name|super
 argument_list|(
 name|camelContext
+argument_list|,
+name|QuartzEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
