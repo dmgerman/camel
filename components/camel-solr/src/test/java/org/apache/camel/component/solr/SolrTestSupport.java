@@ -73,6 +73,12 @@ specifier|static
 name|int
 name|port
 decl_stmt|;
+DECL|field|httpsPort
+specifier|private
+specifier|static
+name|int
+name|httpsPort
+decl_stmt|;
 annotation|@
 name|BeforeClass
 DECL|method|initPort ()
@@ -93,6 +99,15 @@ argument_list|(
 literal|8999
 argument_list|)
 expr_stmt|;
+name|httpsPort
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|8999
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|protected
@@ -103,6 +118,17 @@ parameter_list|()
 block|{
 return|return
 name|port
+return|;
+block|}
+DECL|method|getHttpsPort ()
+specifier|protected
+specifier|static
+name|int
+name|getHttpsPort
+parameter_list|()
+block|{
+return|return
+name|httpsPort
 return|;
 block|}
 block|}

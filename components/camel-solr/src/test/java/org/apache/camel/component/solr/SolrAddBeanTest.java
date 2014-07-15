@@ -54,6 +54,22 @@ name|SolrAddBeanTest
 extends|extends
 name|SolrComponentTestSupport
 block|{
+DECL|method|SolrAddBeanTest (SolrFixtures.TestServerType serverToTest)
+specifier|public
+name|SolrAddBeanTest
+parameter_list|(
+name|SolrFixtures
+operator|.
+name|TestServerType
+name|serverToTest
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|serverToTest
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testAddBean ()

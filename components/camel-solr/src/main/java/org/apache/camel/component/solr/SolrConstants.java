@@ -151,6 +151,15 @@ name|DEFUALT_STREAMING_QUEUE_SIZE
 init|=
 literal|10
 decl_stmt|;
+DECL|field|DEFAULT_SHOULD_HTTPS
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_SHOULD_HTTPS
+init|=
+literal|false
+decl_stmt|;
 DECL|field|DEFAULT_STREAMING_THREAD_COUNT
 specifier|public
 specifier|static
