@@ -254,15 +254,11 @@ DECL|field|zkHost
 specifier|private
 name|String
 name|zkHost
-init|=
-literal|null
 decl_stmt|;
 DECL|field|collection
 specifier|private
 name|String
 name|collection
-init|=
-literal|null
 decl_stmt|;
 DECL|method|SolrEndpoint (String endpointUri, SolrComponent component, String address)
 specifier|public
