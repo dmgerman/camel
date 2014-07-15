@@ -32,23 +32,19 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
 name|buffer
 operator|.
-name|ChannelBuffer
+name|ByteBuf
 import|;
 end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -60,17 +56,25 @@ end_import
 
 begin_import
 import|import
-name|org
+name|io
 operator|.
-name|jboss
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelHandlerContext
+import|;
+end_import
+
+begin_import
+import|import
+name|io
 operator|.
 name|netty
 operator|.
 name|handler
 operator|.
 name|codec
-operator|.
-name|frame
 operator|.
 name|DelimiterBasedFrameDecoder
 import|;
@@ -78,9 +82,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -88,17 +90,13 @@ name|handler
 operator|.
 name|codec
 operator|.
-name|frame
-operator|.
 name|LengthFieldBasedFrameDecoder
 import|;
 end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -114,9 +112,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -132,9 +128,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -150,9 +144,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -168,9 +160,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -276,6 +266,51 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handlerAdded
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handlerRemoved
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|exceptionCaught
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
 block|}
 return|;
 block|}
@@ -296,7 +331,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|newDelimiterBasedFrameDecoder (final int maxFrameLength, final ChannelBuffer[] delimiters)
+DECL|method|newDelimiterBasedFrameDecoder (final int maxFrameLength, final ByteBuf[] delimiters)
 specifier|public
 specifier|static
 name|ChannelHandlerFactory
@@ -307,7 +342,7 @@ name|int
 name|maxFrameLength
 parameter_list|,
 specifier|final
-name|ChannelBuffer
+name|ByteBuf
 index|[]
 name|delimiters
 parameter_list|)
@@ -335,6 +370,51 @@ argument_list|,
 name|delimiters
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handlerAdded
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handlerRemoved
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|exceptionCaught
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
 block|}
 block|}
 return|;
@@ -393,6 +473,51 @@ argument_list|,
 name|initialBytesToStrip
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handlerAdded
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handlerRemoved
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|exceptionCaught
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
 block|}
 block|}
 return|;

@@ -32,9 +32,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -50,9 +48,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -67,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to create Netty {@link org.jboss.netty.channel.socket.nio.BossPool} which can be used for sharing boss pools  * with multiple Netty {@link org.apache.camel.component.netty4.NettyServerBootstrapFactory} server bootstrap configurations.  */
+comment|/**  * A builder to create Netty {@link EventLoopGroup } which can be used for sharing boss pools  * with multiple Netty {@link org.apache.camel.component.netty4.NettyServerBootstrapFactory} server bootstrap configurations.  */
 end_comment
 
 begin_class

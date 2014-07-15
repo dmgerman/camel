@@ -104,9 +104,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -118,9 +116,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -151,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.jboss.netty.channel.ChannelFutureListener} that performs the disconnect logic when  * sending the response is complete.  */
+comment|/**  * A {@link io.netty.channel.ChannelFutureListener} that performs the disconnect logic when  * sending the response is complete.  */
 end_comment
 
 begin_class

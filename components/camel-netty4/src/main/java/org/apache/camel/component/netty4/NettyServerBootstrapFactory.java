@@ -56,9 +56,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -70,9 +68,7 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|jboss
+name|io
 operator|.
 name|netty
 operator|.
@@ -83,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory for setting up Netty {@link org.jboss.netty.bootstrap.ServerBootstrap} and all  * the needed logic for doing that.  *<p/>  * This factory allows for consumers to reuse existing {@link org.jboss.netty.bootstrap.ServerBootstrap} which  * allows to share the same port for multiple consumers.  */
+comment|/**  * Factory for setting up Netty {@link io.netty.bootstrap.ServerBootstrap} and all  * the needed logic for doing that.  *<p/>  * This factory allows for consumers to reuse existing {@link io.netty.bootstrap.ServerBootstrap} which  * allows to share the same port for multiple consumers.  */
 end_comment
 
 begin_interface
