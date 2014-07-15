@@ -164,6 +164,13 @@ name|String
 name|uri
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|accept
+specifier|private
+name|String
+name|accept
+decl_stmt|;
+annotation|@
 name|XmlElementRef
 DECL|field|outputs
 specifier|private
@@ -262,6 +269,32 @@ operator|.
 name|uri
 operator|=
 name|uri
+expr_stmt|;
+block|}
+DECL|method|getAccept ()
+specifier|public
+name|String
+name|getAccept
+parameter_list|()
+block|{
+return|return
+name|accept
+return|;
+block|}
+DECL|method|setAccept (String accept)
+specifier|public
+name|void
+name|setAccept
+parameter_list|(
+name|String
+name|accept
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accept
+operator|=
+name|accept
 expr_stmt|;
 block|}
 DECL|method|getOutputs ()
