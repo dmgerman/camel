@@ -144,6 +144,13 @@ name|VerbDefinition
 block|{
 annotation|@
 name|XmlAttribute
+DECL|field|routeId
+specifier|private
+name|String
+name|routeId
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|method
 specifier|private
 name|String
@@ -179,6 +186,32 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
+return|;
+block|}
+DECL|method|setRouteId (String routeId)
+specifier|public
+name|void
+name|setRouteId
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
+expr_stmt|;
+block|}
 DECL|method|getMethod ()
 specifier|public
 name|String

@@ -447,7 +447,13 @@ operator|)
 name|comp
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|comp
+operator|!=
+literal|null
+condition|)
 block|{
 throw|throw
 operator|new

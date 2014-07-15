@@ -165,11 +165,6 @@ specifier|private
 name|String
 name|component
 decl_stmt|;
-DECL|field|routeId
-specifier|private
-name|String
-name|routeId
-decl_stmt|;
 DECL|field|paths
 specifier|private
 name|List
@@ -213,34 +208,6 @@ operator|=
 name|component
 expr_stmt|;
 block|}
-DECL|method|getRouteId ()
-specifier|public
-name|String
-name|getRouteId
-parameter_list|()
-block|{
-return|return
-name|routeId
-return|;
-block|}
-annotation|@
-name|XmlAttribute
-DECL|method|setRouteId (String routeId)
-specifier|public
-name|void
-name|setRouteId
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|routeId
-operator|=
-name|routeId
-expr_stmt|;
-block|}
 DECL|method|getPaths ()
 specifier|public
 name|List
@@ -277,6 +244,26 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * To use a specific Camel rest component      */
+DECL|method|component (String componentId)
+specifier|public
+name|RestDefinition
+name|component
+parameter_list|(
+name|String
+name|componentId
+parameter_list|)
+block|{
+name|setComponent
+argument_list|(
+name|componentId
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Defines the rest path to use      */
 DECL|method|path (String uri)
 specifier|public
 name|PathDefinition
@@ -397,6 +384,20 @@ argument_list|()
 else|:
 literal|""
 operator|)
+operator|+
+operator|(
+name|getComponent
+argument_list|()
+operator|!=
+literal|null
+condition|?
+literal|"?componentName="
+operator|+
+name|getComponent
+argument_list|()
+else|:
+literal|""
+operator|)
 decl_stmt|;
 name|RouteDefinition
 name|route
@@ -412,6 +413,27 @@ argument_list|(
 name|from
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|verb
+operator|.
+name|getRouteId
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|route
+operator|.
+name|setId
+argument_list|(
+name|verb
+operator|.
+name|getRouteId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|answer
 operator|.
 name|add

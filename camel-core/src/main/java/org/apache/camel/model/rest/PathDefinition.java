@@ -226,6 +226,56 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+DECL|method|routeId (String routeId)
+specifier|public
+name|PathDefinition
+name|routeId
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+comment|// set on last verb
+if|if
+condition|(
+name|verbs
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|verbs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|VerbDefinition
+name|last
+init|=
+name|verbs
+operator|.
+name|get
+argument_list|(
+name|verbs
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+name|last
+operator|.
+name|setRouteId
+argument_list|(
+name|routeId
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|this
+return|;
+block|}
 DECL|method|get ()
 specifier|public
 name|PathDefinition

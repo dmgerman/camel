@@ -137,6 +137,27 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we should have a hello and bye route
+name|assertNotNull
+argument_list|(
+name|context
+operator|.
+name|getRouteDefinition
+argument_list|(
+literal|"hello"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|context
+operator|.
+name|getRouteDefinition
+argument_list|(
+literal|"bye"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|RestDefinition
 name|rest
 init|=
