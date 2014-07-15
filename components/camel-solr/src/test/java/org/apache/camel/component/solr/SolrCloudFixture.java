@@ -370,10 +370,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// String testHome = SolrTestCaseJ4.TEST_HOME();
-comment|// miniCluster = new MiniSolrCloudCluster(NUM_SERVERS, null, new
-comment|// File(testHome, "solr-no-core.xml"),
-comment|// null, null);
 name|miniCluster
 operator|=
 operator|new
@@ -463,11 +459,9 @@ name|isRunning
 argument_list|()
 condition|)
 block|{
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|warn
 argument_list|(
 literal|"JETTY NOT RUNNING!"
 argument_list|)
@@ -475,38 +469,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// jetty.stop();
-comment|// jetty.start();
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"JETTY RUNNING"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"AT:  "
+literal|"JETTY RUNNING AT "
 operator|+
 name|jetty
 operator|.
 name|getBaseUrl
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"PORTT"
+operator|+
+literal|" PORT "
 operator|+
 name|jetty
 operator|.
