@@ -305,6 +305,13 @@ operator|new
 name|GetVerbDefinition
 argument_list|()
 decl_stmt|;
+name|answer
+operator|.
+name|setPath
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|getVerbs
 argument_list|()
 operator|.
@@ -361,6 +368,13 @@ operator|new
 name|PostVerbDefinition
 argument_list|()
 decl_stmt|;
+name|answer
+operator|.
+name|setPath
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|getVerbs
 argument_list|()
 operator|.
@@ -445,7 +459,7 @@ return|;
 block|}
 DECL|method|to (String url)
 specifier|public
-name|PathDefinition
+name|VerbDefinition
 name|to
 parameter_list|(
 name|String
@@ -499,7 +513,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|this
+name|verb
 return|;
 block|}
 block|}

@@ -105,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|FromRestGetTest
+DECL|class|FromRestGetEmbeddedRouteTest
 specifier|public
 class|class
-name|FromRestGetTest
+name|FromRestGetEmbeddedRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -152,8 +152,6 @@ name|getExpectedNumberOfRoutes
 parameter_list|()
 block|{
 return|return
-literal|2
-operator|+
 literal|3
 return|;
 block|}
@@ -294,7 +292,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct:hello"
+literal|"mock:hello"
 argument_list|,
 name|to
 operator|.
@@ -367,7 +365,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"direct:bye"
+literal|"mock:bye"
 argument_list|,
 name|to
 operator|.
@@ -507,11 +505,16 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:hello"
+literal|"mock:hello"
 argument_list|)
 operator|.
-name|endPath
-argument_list|()
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"Hello World"
+argument_list|)
+argument_list|)
 operator|.
 name|get
 argument_list|(
@@ -530,11 +533,16 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"direct:bye"
+literal|"mock:bye"
 argument_list|)
 operator|.
-name|endPath
-argument_list|()
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"Bye World"
+argument_list|)
+argument_list|)
 operator|.
 name|post
 argument_list|()
@@ -542,32 +550,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:update"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:hello"
-argument_list|)
-operator|.
-name|transform
-argument_list|()
-operator|.
-name|constant
-argument_list|(
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:bye"
-argument_list|)
-operator|.
-name|transform
-argument_list|()
-operator|.
-name|constant
-argument_list|(
-literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
