@@ -145,7 +145,7 @@ name|component
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"optaplanner:/org/apache/camel/component/optaplanner/solverConfig.xml?"
+literal|"optaplanner:org/apache/camel/component/optaplanner/solverConfig.xml?"
 operator|+
 literal|"synchronous=false&contentCache=true"
 argument_list|)
