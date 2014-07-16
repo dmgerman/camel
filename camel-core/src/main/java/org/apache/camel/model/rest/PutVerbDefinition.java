@@ -81,19 +81,7 @@ class|class
 name|PutVerbDefinition
 extends|extends
 name|VerbDefinition
-block|{
-DECL|method|PutVerbDefinition ()
-specifier|public
-name|PutVerbDefinition
-parameter_list|()
-block|{
-name|setMethod
-argument_list|(
-literal|"put"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+block|{  }
 end_class
 
 end_unit

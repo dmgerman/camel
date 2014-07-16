@@ -81,19 +81,7 @@ class|class
 name|HeadVerbDefinition
 extends|extends
 name|VerbDefinition
-block|{
-DECL|method|HeadVerbDefinition ()
-specifier|public
-name|HeadVerbDefinition
-parameter_list|()
-block|{
-name|setMethod
-argument_list|(
-literal|"head"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+block|{  }
 end_class
 
 end_unit

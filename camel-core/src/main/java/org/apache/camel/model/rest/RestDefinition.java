@@ -153,18 +153,22 @@ name|XmlAccessorType
 argument_list|(
 name|XmlAccessType
 operator|.
-name|PROPERTY
+name|FIELD
 argument_list|)
 DECL|class|RestDefinition
 specifier|public
 class|class
 name|RestDefinition
 block|{
+annotation|@
+name|XmlAttribute
 DECL|field|component
 specifier|private
 name|String
 name|component
 decl_stmt|;
+annotation|@
+name|XmlElementRef
 DECL|field|paths
 specifier|private
 name|List
@@ -190,8 +194,6 @@ return|return
 name|component
 return|;
 block|}
-annotation|@
-name|XmlAttribute
 DECL|method|setComponent (String component)
 specifier|public
 name|void
@@ -221,8 +223,6 @@ return|return
 name|paths
 return|;
 block|}
-annotation|@
-name|XmlElementRef
 DECL|method|setPaths (List<PathDefinition> paths)
 specifier|public
 name|void
@@ -369,7 +369,7 @@ literal|"rest:"
 operator|+
 name|verb
 operator|.
-name|getMethod
+name|asVerb
 argument_list|()
 operator|+
 literal|":"

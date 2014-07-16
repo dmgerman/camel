@@ -81,19 +81,7 @@ class|class
 name|DeleteVerbDefinition
 extends|extends
 name|VerbDefinition
-block|{
-DECL|method|DeleteVerbDefinition ()
-specifier|public
-name|DeleteVerbDefinition
-parameter_list|()
-block|{
-name|setMethod
-argument_list|(
-literal|"delete"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+block|{  }
 end_class
 
 end_unit

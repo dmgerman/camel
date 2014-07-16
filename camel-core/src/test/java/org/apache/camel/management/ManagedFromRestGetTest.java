@@ -242,7 +242,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<path uri=\"/say\">"
+literal|"<path uri=\"/say/hello\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -252,7 +252,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<get method=\"get\" uri=\"/hello\">"
+literal|"<path uri=\"/say/bye\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -262,7 +262,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<get method=\"get\" uri=\"/bye\">"
+literal|"<get>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -272,7 +272,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<post method=\"post\">"
+literal|"<post>"
 argument_list|)
 argument_list|)
 expr_stmt|;

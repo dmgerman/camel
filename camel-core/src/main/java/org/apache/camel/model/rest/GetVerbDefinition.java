@@ -81,19 +81,7 @@ class|class
 name|GetVerbDefinition
 extends|extends
 name|VerbDefinition
-block|{
-DECL|method|GetVerbDefinition ()
-specifier|public
-name|GetVerbDefinition
-parameter_list|()
-block|{
-name|setMethod
-argument_list|(
-literal|"get"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+block|{  }
 end_class
 
 end_unit

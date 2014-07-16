@@ -263,7 +263,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:hello"
+literal|"direct:hello"
 argument_list|,
 name|to
 operator|.
@@ -304,7 +304,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 operator|.
 name|getAccept
@@ -326,7 +326,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 operator|.
 name|getOutputs
@@ -340,7 +340,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"mock:bye"
+literal|"direct:bye"
 argument_list|,
 name|to
 operator|.
@@ -363,7 +363,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:post-say"
+literal|"seda:post-say-bye"
 argument_list|,
 literal|"I was here"
 argument_list|)

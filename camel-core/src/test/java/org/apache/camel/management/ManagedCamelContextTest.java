@@ -1209,7 +1209,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|22
+literal|23
 argument_list|,
 name|info
 operator|.
