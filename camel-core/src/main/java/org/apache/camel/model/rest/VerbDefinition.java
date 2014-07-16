@@ -129,24 +129,10 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
-DECL|field|routeId
-specifier|private
-name|String
-name|routeId
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|method
 specifier|private
 name|String
 name|method
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|uri
-specifier|private
-name|String
-name|uri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -188,32 +174,6 @@ operator|=
 name|path
 expr_stmt|;
 block|}
-DECL|method|getRouteId ()
-specifier|public
-name|String
-name|getRouteId
-parameter_list|()
-block|{
-return|return
-name|routeId
-return|;
-block|}
-DECL|method|setRouteId (String routeId)
-specifier|public
-name|void
-name|setRouteId
-parameter_list|(
-name|String
-name|routeId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|routeId
-operator|=
-name|routeId
-expr_stmt|;
-block|}
 DECL|method|getMethod ()
 specifier|public
 name|String
@@ -238,32 +198,6 @@ operator|.
 name|method
 operator|=
 name|method
-expr_stmt|;
-block|}
-DECL|method|getUri ()
-specifier|public
-name|String
-name|getUri
-parameter_list|()
-block|{
-return|return
-name|uri
-return|;
-block|}
-DECL|method|setUri (String uri)
-specifier|public
-name|void
-name|setUri
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|uri
-operator|=
-name|uri
 expr_stmt|;
 block|}
 DECL|method|getAccept ()
@@ -294,6 +228,30 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+DECL|method|path (String uri)
+specifier|public
+name|PathDefinition
+name|path
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|PathDefinition
+name|parent
+init|=
+name|endPath
+argument_list|()
+decl_stmt|;
+return|return
+name|parent
+operator|.
+name|path
+argument_list|(
+name|uri
+argument_list|)
+return|;
+block|}
 DECL|method|get ()
 specifier|public
 name|PathDefinition
@@ -305,24 +263,6 @@ name|path
 operator|.
 name|get
 argument_list|()
-return|;
-block|}
-DECL|method|get (String url)
-specifier|public
-name|PathDefinition
-name|get
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-return|return
-name|path
-operator|.
-name|get
-argument_list|(
-name|url
-argument_list|)
 return|;
 block|}
 DECL|method|post ()
@@ -338,24 +278,6 @@ name|post
 argument_list|()
 return|;
 block|}
-DECL|method|post (String url)
-specifier|public
-name|PathDefinition
-name|post
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-return|return
-name|path
-operator|.
-name|post
-argument_list|(
-name|url
-argument_list|)
-return|;
-block|}
 DECL|method|put ()
 specifier|public
 name|PathDefinition
@@ -367,24 +289,6 @@ name|path
 operator|.
 name|put
 argument_list|()
-return|;
-block|}
-DECL|method|put (String url)
-specifier|public
-name|PathDefinition
-name|put
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-return|return
-name|path
-operator|.
-name|put
-argument_list|(
-name|url
-argument_list|)
 return|;
 block|}
 DECL|method|delete ()
@@ -400,24 +304,6 @@ name|delete
 argument_list|()
 return|;
 block|}
-DECL|method|delete (String url)
-specifier|public
-name|PathDefinition
-name|delete
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-return|return
-name|path
-operator|.
-name|delete
-argument_list|(
-name|url
-argument_list|)
-return|;
-block|}
 DECL|method|head ()
 specifier|public
 name|PathDefinition
@@ -429,24 +315,6 @@ name|path
 operator|.
 name|head
 argument_list|()
-return|;
-block|}
-DECL|method|head (String url)
-specifier|public
-name|PathDefinition
-name|head
-parameter_list|(
-name|String
-name|url
-parameter_list|)
-block|{
-return|return
-name|path
-operator|.
-name|head
-argument_list|(
-name|url
-argument_list|)
 return|;
 block|}
 DECL|method|verb (String verb)
@@ -464,29 +332,6 @@ operator|.
 name|verb
 argument_list|(
 name|verb
-argument_list|)
-return|;
-block|}
-DECL|method|verb (String verb, String url)
-specifier|public
-name|PathDefinition
-name|verb
-parameter_list|(
-name|String
-name|verb
-parameter_list|,
-name|String
-name|url
-parameter_list|)
-block|{
-return|return
-name|path
-operator|.
-name|verb
-argument_list|(
-name|verb
-argument_list|,
-name|url
 argument_list|)
 return|;
 block|}

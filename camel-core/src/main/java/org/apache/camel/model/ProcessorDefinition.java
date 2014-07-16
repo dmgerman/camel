@@ -4749,7 +4749,7 @@ name|def
 return|;
 block|}
 block|}
-comment|/**      * Ends the current block and returns back to the {@link ChoiceDefinition choice()} DSL.      *      * @return the builder      */
+comment|/**      * Ends the current block and returns back to the {@link PathDefinition path()} DSL.      *      * @return the builder      */
 DECL|method|endPath ()
 specifier|public
 name|PathDefinition
