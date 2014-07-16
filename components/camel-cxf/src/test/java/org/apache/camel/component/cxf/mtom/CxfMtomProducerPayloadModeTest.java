@@ -46,6 +46,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -918,7 +928,10 @@ argument_list|()
 operator|.
 name|getAttachment
 argument_list|(
+name|decodingReference
+argument_list|(
 name|photoId
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Assert
@@ -961,7 +974,10 @@ argument_list|()
 operator|.
 name|getAttachment
 argument_list|(
+name|decodingReference
+argument_list|(
 name|imageId
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Assert
@@ -1014,6 +1030,33 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: producer
+block|}
+comment|// CXF encoding the XOP reference since 3.0.1
+DECL|method|decodingReference (String reference)
+specifier|private
+name|String
+name|decodingReference
+parameter_list|(
+name|String
+name|reference
+parameter_list|)
+throws|throws
+name|UnsupportedEncodingException
+block|{
+return|return
+name|java
+operator|.
+name|net
+operator|.
+name|URLDecoder
+operator|.
+name|decode
+argument_list|(
+name|reference
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+return|;
 block|}
 DECL|method|isMtomEnabled ()
 specifier|protected
