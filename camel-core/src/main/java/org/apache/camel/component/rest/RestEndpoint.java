@@ -173,10 +173,10 @@ name|path
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|accept
+DECL|field|consumes
 specifier|private
 name|String
-name|accept
+name|consumes
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -284,30 +284,30 @@ operator|=
 name|path
 expr_stmt|;
 block|}
-DECL|method|getAccept ()
+DECL|method|getConsumes ()
 specifier|public
 name|String
-name|getAccept
+name|getConsumes
 parameter_list|()
 block|{
 return|return
-name|accept
+name|consumes
 return|;
 block|}
-DECL|method|setAccept (String accept)
+DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
-name|setAccept
+name|setConsumes
 parameter_list|(
 name|String
-name|accept
+name|consumes
 parameter_list|)
 block|{
 name|this
 operator|.
-name|accept
+name|consumes
 operator|=
-name|accept
+name|consumes
 expr_stmt|;
 block|}
 DECL|method|getComponentName ()
@@ -600,7 +600,7 @@ argument_list|,
 name|getPath
 argument_list|()
 argument_list|,
-name|getAccept
+name|getConsumes
 argument_list|()
 argument_list|,
 name|getParameters

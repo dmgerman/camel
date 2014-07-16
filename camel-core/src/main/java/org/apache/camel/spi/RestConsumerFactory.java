@@ -68,8 +68,8 @@ specifier|public
 interface|interface
 name|RestConsumerFactory
 block|{
-comment|/**      * Creates a new REST<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a>, which consumes messages from the endpoint using the given processor      *      * @param camelContext the camel context      * @param processor    the processor      * @param verb         HTTP verb such as GET, POST      * @param path         HTTP context-path      * @param accept       accept-type, is<tt>null</tt> to accept anything      * @param parameters   additional parameters      * @return a newly created REST consumer      * @throws Exception can be thrown      */
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String path, String accept, Map<String, Object> parameters)
+comment|/**      * Creates a new REST<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a>, which consumes messages from the endpoint using the given processor      *      * @param camelContext the camel context      * @param processor    the processor      * @param verb         HTTP verb such as GET, POST      * @param path         HTTP context-path      * @param consumes     accept-type, is<tt>null</tt> to accept anything      * @param parameters   additional parameters      * @return a newly created REST consumer      * @throws Exception can be thrown      */
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String path, String consumes, Map<String, Object> parameters)
 name|Consumer
 name|createConsumer
 parameter_list|(
@@ -86,7 +86,7 @@ name|String
 name|path
 parameter_list|,
 name|String
-name|accept
+name|consumes
 parameter_list|,
 name|Map
 argument_list|<

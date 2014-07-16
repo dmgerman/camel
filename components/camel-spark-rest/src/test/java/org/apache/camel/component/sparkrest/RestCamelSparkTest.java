@@ -157,7 +157,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/spark"
+literal|"/spark/bye"
 argument_list|,
 literal|"I did this"
 argument_list|,
@@ -202,6 +202,9 @@ name|path
 argument_list|(
 literal|"/spark/hello"
 argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|to
 argument_list|(

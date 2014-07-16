@@ -278,7 +278,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getAccept
+name|getConsumes
 argument_list|()
 argument_list|)
 expr_stmt|;

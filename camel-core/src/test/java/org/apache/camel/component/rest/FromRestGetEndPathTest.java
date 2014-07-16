@@ -91,7 +91,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|accept
+name|consumes
 argument_list|(
 literal|"application/json"
 argument_list|)

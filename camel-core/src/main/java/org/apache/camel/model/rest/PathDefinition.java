@@ -390,10 +390,10 @@ literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|accept (String accept)
+DECL|method|consumes (String accept)
 specifier|public
 name|PathDefinition
-name|accept
+name|consumes
 parameter_list|(
 name|String
 name|accept
@@ -436,7 +436,7 @@ argument_list|)
 decl_stmt|;
 name|verb
 operator|.
-name|setAccept
+name|setConsumes
 argument_list|(
 name|accept
 argument_list|)

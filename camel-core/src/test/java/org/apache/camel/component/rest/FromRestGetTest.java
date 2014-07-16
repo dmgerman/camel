@@ -307,7 +307,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getAccept
+name|getConsumes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -466,7 +466,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|accept
+name|consumes
 argument_list|(
 literal|"application/json"
 argument_list|)
