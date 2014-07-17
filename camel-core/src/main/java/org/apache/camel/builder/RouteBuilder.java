@@ -352,12 +352,15 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new REST service      *      * @return the builder      */
-DECL|method|rest ()
+comment|/**      * Creates a new REST service      *      * @param uri  the path      * @return the builder      */
+DECL|method|rest (String uri)
 specifier|public
 name|RestDefinition
 name|rest
-parameter_list|()
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
 block|{
 name|getRestCollection
 argument_list|()
@@ -375,7 +378,9 @@ name|getRestCollection
 argument_list|()
 operator|.
 name|rest
-argument_list|()
+argument_list|(
+name|uri
+argument_list|)
 decl_stmt|;
 name|configureRest
 argument_list|(

@@ -66,16 +66,13 @@ name|Exception
 block|{
 comment|// explicit configure that we want to use spark-rest component
 name|rest
-argument_list|()
+argument_list|(
+literal|"/spark/hello"
+argument_list|)
 operator|.
 name|component
 argument_list|(
 literal|"spark-rest"
-argument_list|)
-operator|.
-name|path
-argument_list|(
-literal|"/spark/hello"
 argument_list|)
 operator|.
 name|get
@@ -85,10 +82,15 @@ name|to
 argument_list|(
 literal|"direct:hello"
 argument_list|)
-operator|.
-name|path
+expr_stmt|;
+name|rest
 argument_list|(
 literal|"/spark/bye"
+argument_list|)
+operator|.
+name|component
+argument_list|(
+literal|"spark-rest"
 argument_list|)
 operator|.
 name|get

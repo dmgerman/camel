@@ -143,35 +143,35 @@ name|consumes
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|path
+DECL|field|rest
 specifier|private
-name|PathDefinition
-name|path
+name|RestDefinition
+name|rest
 decl_stmt|;
-DECL|method|getPath ()
+DECL|method|getRest ()
 specifier|public
-name|PathDefinition
-name|getPath
+name|RestDefinition
+name|getRest
 parameter_list|()
 block|{
 return|return
-name|path
+name|rest
 return|;
 block|}
-DECL|method|setPath (PathDefinition path)
+DECL|method|setRest (RestDefinition rest)
 specifier|public
 name|void
-name|setPath
+name|setRest
 parameter_list|(
-name|PathDefinition
-name|path
+name|RestDefinition
+name|rest
 parameter_list|)
 block|{
 name|this
 operator|.
-name|path
+name|rest
 operator|=
-name|path
+name|rest
 expr_stmt|;
 block|}
 DECL|method|getMethod ()
@@ -228,38 +228,14 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-DECL|method|path (String uri)
-specifier|public
-name|PathDefinition
-name|path
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-name|PathDefinition
-name|parent
-init|=
-name|endPath
-argument_list|()
-decl_stmt|;
-return|return
-name|parent
-operator|.
-name|path
-argument_list|(
-name|uri
-argument_list|)
-return|;
-block|}
 DECL|method|get ()
 specifier|public
-name|PathDefinition
+name|RestDefinition
 name|get
 parameter_list|()
 block|{
 return|return
-name|path
+name|rest
 operator|.
 name|get
 argument_list|()
@@ -267,12 +243,12 @@ return|;
 block|}
 DECL|method|post ()
 specifier|public
-name|PathDefinition
+name|RestDefinition
 name|post
 parameter_list|()
 block|{
 return|return
-name|path
+name|rest
 operator|.
 name|post
 argument_list|()
@@ -280,12 +256,12 @@ return|;
 block|}
 DECL|method|put ()
 specifier|public
-name|PathDefinition
+name|RestDefinition
 name|put
 parameter_list|()
 block|{
 return|return
-name|path
+name|rest
 operator|.
 name|put
 argument_list|()
@@ -293,12 +269,12 @@ return|;
 block|}
 DECL|method|delete ()
 specifier|public
-name|PathDefinition
+name|RestDefinition
 name|delete
 parameter_list|()
 block|{
 return|return
-name|path
+name|rest
 operator|.
 name|delete
 argument_list|()
@@ -306,12 +282,12 @@ return|;
 block|}
 DECL|method|head ()
 specifier|public
-name|PathDefinition
+name|RestDefinition
 name|head
 parameter_list|()
 block|{
 return|return
-name|path
+name|rest
 operator|.
 name|head
 argument_list|()
@@ -319,7 +295,7 @@ return|;
 block|}
 DECL|method|verb (String verb)
 specifier|public
-name|PathDefinition
+name|RestDefinition
 name|verb
 parameter_list|(
 name|String
@@ -327,7 +303,7 @@ name|verb
 parameter_list|)
 block|{
 return|return
-name|path
+name|rest
 operator|.
 name|verb
 argument_list|(

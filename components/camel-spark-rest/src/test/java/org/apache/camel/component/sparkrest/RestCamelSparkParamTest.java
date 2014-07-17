@@ -75,9 +75,6 @@ throws|throws
 name|Exception
 block|{
 name|rest
-argument_list|()
-operator|.
-name|path
 argument_list|(
 literal|"/hello/{name}"
 argument_list|)

@@ -462,7 +462,7 @@ name|model
 operator|.
 name|rest
 operator|.
-name|PathDefinition
+name|RestDefinition
 import|;
 end_import
 
@@ -4749,11 +4749,11 @@ name|def
 return|;
 block|}
 block|}
-comment|/**      * Ends the current block and returns back to the {@link PathDefinition path()} DSL.      *      * @return the builder      */
-DECL|method|endPath ()
+comment|/**      * Ends the current block and returns back to the {@link org.apache.camel.model.rest.RestDefinition rest()} DSL.      *      * @return the builder      */
+DECL|method|endRest ()
 specifier|public
-name|PathDefinition
-name|endPath
+name|RestDefinition
+name|endRest
 parameter_list|()
 block|{
 name|ProcessorDefinition
@@ -4785,7 +4785,7 @@ name|getParent
 argument_list|()
 operator|)
 operator|.
-name|getPath
+name|getRest
 argument_list|()
 return|;
 block|}
@@ -4805,7 +4805,7 @@ operator|)
 name|def
 operator|)
 operator|.
-name|getPath
+name|getRest
 argument_list|()
 return|;
 block|}
@@ -4836,7 +4836,7 @@ name|getParent
 argument_list|()
 operator|)
 operator|.
-name|getPath
+name|getRest
 argument_list|()
 return|;
 block|}
@@ -4856,7 +4856,7 @@ operator|)
 name|def
 operator|)
 operator|.
-name|getPath
+name|getRest
 argument_list|()
 return|;
 block|}
@@ -4864,7 +4864,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot find VerbDefinition to allow endPath"
+literal|"Cannot find VerbDefinition to allow endRest"
 argument_list|)
 throw|;
 block|}

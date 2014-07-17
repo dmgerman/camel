@@ -297,11 +297,14 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-DECL|method|rest ()
+DECL|method|rest (String uri)
 specifier|public
 name|RestDefinition
 name|rest
-parameter_list|()
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
 block|{
 name|RestDefinition
 name|rest
@@ -309,6 +312,13 @@ init|=
 name|createRest
 argument_list|()
 decl_stmt|;
+name|rest
+operator|.
+name|setUri
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
 return|return
 name|rest
 argument_list|(

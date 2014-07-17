@@ -56,16 +56,13 @@ name|Exception
 block|{
 comment|// we only have a GET service, but we have PUT, POST, and all the other REST verbs we can use
 name|rest
-argument_list|()
+argument_list|(
+literal|"hello/:me"
+argument_list|)
 operator|.
 name|component
 argument_list|(
 literal|"spark-rest"
-argument_list|)
-operator|.
-name|path
-argument_list|(
-literal|"hello/:me"
 argument_list|)
 operator|.
 name|get
@@ -89,13 +86,8 @@ argument_list|(
 literal|"Hello ${header.me}"
 argument_list|)
 operator|.
-name|endPath
+name|endRest
 argument_list|()
-operator|.
-name|path
-argument_list|(
-literal|"hello/:me"
-argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -118,13 +110,8 @@ argument_list|(
 literal|"{ \"message\": \"Hello ${header.me}\" }"
 argument_list|)
 operator|.
-name|endPath
+name|endRest
 argument_list|()
-operator|.
-name|path
-argument_list|(
-literal|"hello/:me"
-argument_list|)
 operator|.
 name|get
 argument_list|()

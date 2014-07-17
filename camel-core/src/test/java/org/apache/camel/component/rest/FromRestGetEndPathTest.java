@@ -65,9 +65,6 @@ throws|throws
 name|Exception
 block|{
 name|rest
-argument_list|()
-operator|.
-name|path
 argument_list|(
 literal|"/say/hello"
 argument_list|)
@@ -79,11 +76,8 @@ name|to
 argument_list|(
 literal|"direct:hello"
 argument_list|)
-operator|.
-name|endPath
-argument_list|()
-operator|.
-name|path
+expr_stmt|;
+name|rest
 argument_list|(
 literal|"/say/bye"
 argument_list|)
@@ -101,7 +95,7 @@ argument_list|(
 literal|"direct:bye"
 argument_list|)
 operator|.
-name|endPath
+name|endRest
 argument_list|()
 operator|.
 name|post

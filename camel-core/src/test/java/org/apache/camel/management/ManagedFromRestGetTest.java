@@ -222,7 +222,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"rests"
+literal|"<rests"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -232,7 +232,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"rest"
+literal|"<rest uri=\"/say/hello\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -242,7 +242,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<path uri=\"/say/hello\">"
+literal|"<rest uri=\"/say/bye\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -252,7 +252,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<path uri=\"/say/bye\">"
+literal|"</rest>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -273,6 +273,26 @@ operator|.
 name|contains
 argument_list|(
 literal|"<post>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|contains
+argument_list|(
+literal|"application/json"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|xml
+operator|.
+name|contains
+argument_list|(
+literal|"</rests>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -339,9 +359,6 @@ throws|throws
 name|Exception
 block|{
 name|rest
-argument_list|()
-operator|.
-name|path
 argument_list|(
 literal|"/say/hello"
 argument_list|)
@@ -353,8 +370,8 @@ name|to
 argument_list|(
 literal|"direct:hello"
 argument_list|)
-operator|.
-name|path
+expr_stmt|;
+name|rest
 argument_list|(
 literal|"/say/bye"
 argument_list|)

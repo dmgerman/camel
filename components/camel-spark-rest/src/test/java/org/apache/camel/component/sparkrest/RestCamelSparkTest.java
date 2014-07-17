@@ -196,9 +196,6 @@ name|Exception
 block|{
 comment|// will automatic find the spark component to use, as we setup that component in the BaseSparkTest
 name|rest
-argument_list|()
-operator|.
-name|path
 argument_list|(
 literal|"/spark/hello"
 argument_list|)
@@ -210,8 +207,8 @@ name|to
 argument_list|(
 literal|"direct:hello"
 argument_list|)
-operator|.
-name|path
+expr_stmt|;
+name|rest
 argument_list|(
 literal|"/spark/bye"
 argument_list|)
@@ -222,11 +219,6 @@ operator|.
 name|to
 argument_list|(
 literal|"direct:bye"
-argument_list|)
-operator|.
-name|path
-argument_list|(
-literal|"/spark/bye"
 argument_list|)
 operator|.
 name|post
