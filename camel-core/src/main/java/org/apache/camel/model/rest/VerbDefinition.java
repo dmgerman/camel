@@ -136,6 +136,13 @@ name|method
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|uri
+specifier|private
+name|String
+name|uri
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|consumes
 specifier|private
 name|String
@@ -200,6 +207,32 @@ operator|=
 name|method
 expr_stmt|;
 block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+block|}
 DECL|method|getConsumes ()
 specifier|public
 name|String
@@ -241,6 +274,24 @@ name|get
 argument_list|()
 return|;
 block|}
+DECL|method|get (String uri)
+specifier|public
+name|RestDefinition
+name|get
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|rest
+operator|.
+name|get
+argument_list|(
+name|uri
+argument_list|)
+return|;
+block|}
 DECL|method|post ()
 specifier|public
 name|RestDefinition
@@ -252,6 +303,24 @@ name|rest
 operator|.
 name|post
 argument_list|()
+return|;
+block|}
+DECL|method|post (String uri)
+specifier|public
+name|RestDefinition
+name|post
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|rest
+operator|.
+name|post
+argument_list|(
+name|uri
+argument_list|)
 return|;
 block|}
 DECL|method|put ()
@@ -267,6 +336,24 @@ name|put
 argument_list|()
 return|;
 block|}
+DECL|method|put (String uri)
+specifier|public
+name|RestDefinition
+name|put
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|rest
+operator|.
+name|put
+argument_list|(
+name|uri
+argument_list|)
+return|;
+block|}
 DECL|method|delete ()
 specifier|public
 name|RestDefinition
@@ -280,6 +367,24 @@ name|delete
 argument_list|()
 return|;
 block|}
+DECL|method|delete (String uri)
+specifier|public
+name|RestDefinition
+name|delete
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|rest
+operator|.
+name|delete
+argument_list|(
+name|uri
+argument_list|)
+return|;
+block|}
 DECL|method|head ()
 specifier|public
 name|RestDefinition
@@ -291,6 +396,24 @@ name|rest
 operator|.
 name|head
 argument_list|()
+return|;
+block|}
+DECL|method|head (String uri)
+specifier|public
+name|RestDefinition
+name|head
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|rest
+operator|.
+name|head
+argument_list|(
+name|uri
+argument_list|)
 return|;
 block|}
 DECL|method|verb (String verb)
@@ -308,6 +431,29 @@ operator|.
 name|verb
 argument_list|(
 name|verb
+argument_list|)
+return|;
+block|}
+DECL|method|verb (String verb, String uri)
+specifier|public
+name|RestDefinition
+name|verb
+parameter_list|(
+name|String
+name|verb
+parameter_list|,
+name|String
+name|uri
+parameter_list|)
+block|{
+return|return
+name|rest
+operator|.
+name|verb
+argument_list|(
+name|verb
+argument_list|,
+name|uri
 argument_list|)
 return|;
 block|}

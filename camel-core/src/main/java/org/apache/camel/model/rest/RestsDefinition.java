@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a collection of RESTs  */
+comment|/**  * Represents a collection of {@link org.apache.camel.model.rest.RestDefinition REST's}  */
 end_comment
 
 begin_class
@@ -297,6 +297,27 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
+comment|/**      * Creates a rest DSL      */
+DECL|method|rest ()
+specifier|public
+name|RestDefinition
+name|rest
+parameter_list|()
+block|{
+name|RestDefinition
+name|rest
+init|=
+name|createRest
+argument_list|()
+decl_stmt|;
+return|return
+name|rest
+argument_list|(
+name|rest
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a rest DSL      *      * @param uri the rest path      */
 DECL|method|rest (String uri)
 specifier|public
 name|RestDefinition
@@ -326,6 +347,7 @@ name|rest
 argument_list|)
 return|;
 block|}
+comment|/**      * Adds the {@link org.apache.camel.model.rest.RestsDefinition}      */
 DECL|method|rest (RestDefinition rest)
 specifier|public
 name|RestDefinition
