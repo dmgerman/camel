@@ -136,6 +136,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|ModelCamelContext
@@ -230,13 +242,6 @@ name|String
 name|uri
 decl_stmt|;
 annotation|@
-name|XmlAttribute
-DECL|field|component
-specifier|private
-name|String
-name|component
-decl_stmt|;
-annotation|@
 name|XmlElementRef
 DECL|field|verbs
 specifier|private
@@ -277,32 +282,6 @@ operator|.
 name|uri
 operator|=
 name|uri
-expr_stmt|;
-block|}
-DECL|method|getComponent ()
-specifier|public
-name|String
-name|getComponent
-parameter_list|()
-block|{
-return|return
-name|component
-return|;
-block|}
-DECL|method|setComponent (String component)
-specifier|public
-name|void
-name|setComponent
-parameter_list|(
-name|String
-name|component
-parameter_list|)
-block|{
-name|this
-operator|.
-name|component
-operator|=
-name|component
 expr_stmt|;
 block|}
 DECL|method|getVerbs ()
@@ -352,25 +331,6 @@ block|{
 name|setUri
 argument_list|(
 name|uri
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * To use a specific Camel rest component      */
-DECL|method|component (String componentId)
-specifier|public
-name|RestDefinition
-name|component
-parameter_list|(
-name|String
-name|componentId
-parameter_list|)
-block|{
-name|setComponent
-argument_list|(
-name|componentId
 argument_list|)
 expr_stmt|;
 return|return
@@ -846,7 +806,7 @@ name|this
 return|;
 block|}
 comment|/**      * Transforms this REST definition into a list of {@link org.apache.camel.model.RouteDefinition} which      * Camel routing engine can add and run. This allows us to define REST services using this      * REST DSL and turn those into regular Camel routes.      */
-DECL|method|asRouteDefinition (ModelCamelContext camelContext)
+DECL|method|asRouteDefinition (CamelContext camelContext, RestConfigurationDefinition configuration)
 specifier|public
 name|List
 argument_list|<
@@ -854,8 +814,11 @@ name|RouteDefinition
 argument_list|>
 name|asRouteDefinition
 parameter_list|(
-name|ModelCamelContext
+name|CamelContext
 name|camelContext
+parameter_list|,
+name|RestConfigurationDefinition
+name|configuration
 parameter_list|)
 throws|throws
 name|Exception
@@ -919,6 +882,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|configuration
+operator|.
 name|getComponent
 argument_list|()
 operator|!=
@@ -931,6 +896,8 @@ name|put
 argument_list|(
 literal|"componentName"
 argument_list|,
+name|configuration
+operator|.
 name|getComponent
 argument_list|()
 argument_list|)
@@ -959,6 +926,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: add more options here
 if|if
 condition|(
 operator|!

@@ -54,14 +54,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// we only have a GET service, but we have PUT, POST, and all the other REST verbs we can use
-name|rest
+comment|// configure we want to use spark-rest as the component for the rest DSL
+name|restConfiguration
 argument_list|()
 operator|.
 name|component
 argument_list|(
 literal|"spark-rest"
 argument_list|)
+expr_stmt|;
+comment|// use the rest DSL to define rest services
+name|rest
+argument_list|()
 operator|.
 name|uri
 argument_list|(

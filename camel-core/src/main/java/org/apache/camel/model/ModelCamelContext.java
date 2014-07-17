@@ -80,6 +80,22 @@ name|model
 operator|.
 name|rest
 operator|.
+name|RestConfigurationDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
 name|RestDefinition
 import|;
 end_import
@@ -182,6 +198,21 @@ argument_list|<
 name|RestDefinition
 argument_list|>
 name|getRestDefinitions
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the REST configuration      */
+DECL|method|setRestConfigurationDefinition (RestConfigurationDefinition restConfigurationDefinition)
+name|void
+name|setRestConfigurationDefinition
+parameter_list|(
+name|RestConfigurationDefinition
+name|restConfigurationDefinition
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the REST configuration      */
+DECL|method|getRestConfigurationDefinition ()
+name|RestConfigurationDefinition
+name|getRestConfigurationDefinition
 parameter_list|()
 function_decl|;
 comment|/**      * Adds a collection of rest definitions to the context      *      * @param restDefinitions the rest(s) definition to add      * @throws Exception if the rest definitions could not be created for whatever reason      */
