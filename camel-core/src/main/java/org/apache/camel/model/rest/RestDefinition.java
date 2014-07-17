@@ -150,20 +150,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ModelCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|RouteDefinition
 import|;
 end_import
@@ -806,7 +792,7 @@ name|this
 return|;
 block|}
 comment|/**      * Transforms this REST definition into a list of {@link org.apache.camel.model.RouteDefinition} which      * Camel routing engine can add and run. This allows us to define REST services using this      * REST DSL and turn those into regular Camel routes.      */
-DECL|method|asRouteDefinition (CamelContext camelContext, RestConfigurationDefinition configuration)
+DECL|method|asRouteDefinition (CamelContext camelContext)
 specifier|public
 name|List
 argument_list|<
@@ -816,9 +802,6 @@ name|asRouteDefinition
 parameter_list|(
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|RestConfigurationDefinition
-name|configuration
 parameter_list|)
 throws|throws
 name|Exception
@@ -882,29 +865,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|configuration
-operator|.
-name|getComponent
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|options
-operator|.
-name|put
-argument_list|(
-literal|"componentName"
-argument_list|,
-name|configuration
-operator|.
-name|getComponent
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|verb
 operator|.
 name|getConsumes
@@ -926,7 +886,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: add more options here
 if|if
 condition|(
 operator|!

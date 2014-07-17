@@ -2722,10 +2722,10 @@ return|return
 name|restConfiguration
 return|;
 block|}
-DECL|method|setRestConfigurationDefinition (RestConfigurationDefinition restConfiguration)
+DECL|method|setRestConfiguration (RestConfigurationDefinition restConfiguration)
 specifier|public
 name|void
-name|setRestConfigurationDefinition
+name|setRestConfiguration
 parameter_list|(
 name|RestConfigurationDefinition
 name|restConfiguration

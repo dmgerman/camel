@@ -244,6 +244,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -308,6 +322,11 @@ operator|new
 name|RestsDefinition
 argument_list|()
 decl_stmt|;
+DECL|field|restConfiguration
+specifier|private
+name|RestConfigurationDefinition
+name|restConfiguration
+decl_stmt|;
 DECL|field|routeCollection
 specifier|private
 name|RoutesDefinition
@@ -368,7 +387,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Creates a new REST service      *      * @return the builder      */
+comment|/**      * Configures the REST services      *      * @return the builder      */
 DECL|method|restConfiguration ()
 specifier|public
 name|RestConfigurationDefinition
@@ -377,37 +396,20 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|getContext
-argument_list|()
-operator|.
-name|getRestConfigurationDefinition
-argument_list|()
+name|restConfiguration
 operator|==
 literal|null
 condition|)
 block|{
-name|RestConfigurationDefinition
-name|config
-init|=
+name|restConfiguration
+operator|=
 operator|new
 name|RestConfigurationDefinition
 argument_list|()
-decl_stmt|;
-name|getContext
-argument_list|()
-operator|.
-name|setRestConfigurationDefinition
-argument_list|(
-name|config
-argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|getContext
-argument_list|()
-operator|.
-name|getRestConfigurationDefinition
-argument_list|()
+name|restConfiguration
 return|;
 block|}
 comment|/**      * Creates a new REST service      *      * @return the builder      */
@@ -1502,6 +1504,35 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+comment|// setup rest configuration before adding the rests
+if|if
+condition|(
+name|getRestConfiguration
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|RestConfiguration
+name|config
+init|=
+name|getRestConfiguration
+argument_list|()
+operator|.
+name|asRestConfiguration
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|camelContext
+operator|.
+name|setRestConfiguration
+argument_list|(
+name|config
+argument_list|)
+expr_stmt|;
+block|}
 name|camelContext
 operator|.
 name|addRestDefinitions
@@ -1522,6 +1553,16 @@ parameter_list|()
 block|{
 return|return
 name|restCollection
+return|;
+block|}
+DECL|method|getRestConfiguration ()
+specifier|public
+name|RestConfigurationDefinition
+name|getRestConfiguration
+parameter_list|()
+block|{
+return|return
+name|restConfiguration
 return|;
 block|}
 DECL|method|setRestCollection (RestsDefinition restCollection)

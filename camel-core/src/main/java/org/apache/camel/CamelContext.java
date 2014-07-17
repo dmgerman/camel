@@ -474,6 +474,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteStartupOrder
 import|;
 end_import
@@ -953,6 +967,21 @@ name|restDefinitions
 parameter_list|)
 throws|throws
 name|Exception
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
+DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
+name|void
+name|setRestConfiguration
+parameter_list|(
+name|RestConfiguration
+name|restConfiguration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current REST configuration      *      * @return the configuration, or<tt>null</tt> if none has been configured.      */
+DECL|method|getRestConfiguration ()
+name|RestConfiguration
+name|getRestConfiguration
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */
 DECL|method|getRouteStartupOrder ()
