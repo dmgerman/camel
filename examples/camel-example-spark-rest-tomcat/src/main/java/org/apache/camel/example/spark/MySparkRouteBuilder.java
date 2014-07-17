@@ -26,16 +26,14 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|builder
 operator|.
-name|sparkrest
-operator|.
-name|SparkRouteBuilder
+name|RouteBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * Define REST services using {@link SparkRouteBuilder}.  */
+comment|/**  * Define REST services using the Camel REST DSL  */
 end_comment
 
 begin_class
@@ -44,7 +42,7 @@ specifier|public
 class|class
 name|MySparkRouteBuilder
 extends|extends
-name|SparkRouteBuilder
+name|RouteBuilder
 block|{
 annotation|@
 name|Override
@@ -56,15 +54,31 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// this is a very simple Camel route, but we can do more routing
-comment|// as SparkRouteBuilder extends the regular RouteBuilder from camel-core
-comment|// which means we can do any kind of Camel Java DSL routing here
 comment|// we only have a GET service, but we have PUT, POST, and all the other REST verbs we can use
-name|get
+name|rest
+argument_list|()
+operator|.
+name|component
+argument_list|(
+literal|"spark-rest"
+argument_list|)
+operator|.
+name|path
 argument_list|(
 literal|"hello/:me"
-argument_list|,
+argument_list|)
+operator|.
+name|get
+argument_list|()
+operator|.
+name|consumes
+argument_list|(
 literal|"text/plain"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:input"
 argument_list|)
 operator|.
 name|transform
@@ -74,12 +88,26 @@ name|simple
 argument_list|(
 literal|"Hello ${header.me}"
 argument_list|)
-expr_stmt|;
-name|get
+operator|.
+name|endPath
+argument_list|()
+operator|.
+name|path
 argument_list|(
 literal|"hello/:me"
-argument_list|,
+argument_list|)
+operator|.
+name|get
+argument_list|()
+operator|.
+name|consumes
+argument_list|(
 literal|"application/json"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:input"
 argument_list|)
 operator|.
 name|transform
@@ -89,12 +117,26 @@ name|simple
 argument_list|(
 literal|"{ \"message\": \"Hello ${header.me}\" }"
 argument_list|)
-expr_stmt|;
-name|get
+operator|.
+name|endPath
+argument_list|()
+operator|.
+name|path
 argument_list|(
 literal|"hello/:me"
-argument_list|,
+argument_list|)
+operator|.
+name|get
+argument_list|()
+operator|.
+name|consumes
+argument_list|(
 literal|"text/xml"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:input"
 argument_list|)
 operator|.
 name|transform
