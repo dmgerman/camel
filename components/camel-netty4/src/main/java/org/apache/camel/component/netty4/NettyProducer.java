@@ -1493,7 +1493,7 @@ name|setException
 argument_list|(
 name|channelFuture
 operator|.
-name|getCause
+name|cause
 argument_list|()
 argument_list|)
 expr_stmt|;

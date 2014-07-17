@@ -26,7 +26,7 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelPipeline
+name|Channel
 import|;
 end_import
 
@@ -38,12 +38,24 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelPipelineFactory
+name|ChannelInitializer
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelPipeline
 import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create {@link ChannelPipeline} for clients, eg {@link NettyConsumer}.  *<p/>  * Implementators must support creating a new instance of this factory which is associated  * to the given {@link NettyConsumer} using the {@link #createPipelineFactory(NettyConsumer)}  * method.  *  * @see ChannelPipelineFactory  */
+comment|/**  * Factory to create {@link ChannelPipeline} for servers, eg {@link NettyConsumer}.  *<p/>  * Implementators must support creating a new instance of this factory which is associated  * to the given {@link NettyConsumer} using the {@link #createPipelineFactory(NettyConsumer)}  * method.  *  * @see ChannelPipelineFactory  */
 end_comment
 
 begin_class
@@ -52,8 +64,11 @@ specifier|public
 specifier|abstract
 class|class
 name|ServerPipelineFactory
-implements|implements
-name|ChannelPipelineFactory
+extends|extends
+name|ChannelInitializer
+argument_list|<
+name|Channel
+argument_list|>
 block|{
 comment|/**      * Creates a new {@link ClientPipelineFactory} using the given {@link NettyConsumer}      *      * @param consumer the associated consumer      * @return the {@link ClientPipelineFactory} associated to ghe given consumer.      */
 DECL|method|createPipelineFactory (NettyConsumer consumer)

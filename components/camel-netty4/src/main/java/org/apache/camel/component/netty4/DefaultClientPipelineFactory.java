@@ -535,11 +535,6 @@ init|=
 operator|new
 name|ReadTimeoutHandler
 argument_list|(
-name|NettyComponent
-operator|.
-name|getTimer
-argument_list|()
-argument_list|,
 name|producer
 operator|.
 name|getConfiguration

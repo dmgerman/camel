@@ -30,30 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|netty
@@ -85,6 +61,30 @@ operator|.
 name|channel
 operator|.
 name|ChannelFutureListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|NoTypeConversionAvailableException
 import|;
 end_import
 
@@ -345,6 +345,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|//TODO need to check if we don't need to set the remoteAddress for the UDP channel
+comment|//future = channel.write(body, remoteAddress);
 name|future
 operator|=
 name|channel
@@ -352,8 +354,6 @@ operator|.
 name|write
 argument_list|(
 name|body
-argument_list|,
-name|remoteAddress
 argument_list|)
 expr_stmt|;
 block|}

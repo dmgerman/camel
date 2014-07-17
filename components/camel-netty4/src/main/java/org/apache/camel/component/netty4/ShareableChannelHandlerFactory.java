@@ -30,6 +30,18 @@ name|ChannelHandler
 import|;
 end_import
 
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelHandlerContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link ChannelHandlerFactory} returning a shareable {@link ChannelHandler}.  */
 end_comment
@@ -74,6 +86,54 @@ block|{
 return|return
 name|channelHandler
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|handlerAdded (ChannelHandlerContext ctx)
+specifier|public
+name|void
+name|handlerAdded
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+DECL|method|handlerRemoved (ChannelHandlerContext ctx)
+specifier|public
+name|void
+name|handlerRemoved
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+DECL|method|exceptionCaught (ChannelHandlerContext ctx, Throwable cause)
+specifier|public
+name|void
+name|exceptionCaught
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// TODO Auto-generated method stub
 block|}
 block|}
 end_class

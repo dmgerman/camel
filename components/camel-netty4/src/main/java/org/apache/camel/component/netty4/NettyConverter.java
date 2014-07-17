@@ -138,6 +138,42 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|ByteBuf
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|ByteBufAllocator
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|ByteBufInputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -157,42 +193,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|buffer
-operator|.
-name|ChannelBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|buffer
-operator|.
-name|ChannelBufferInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|buffer
-operator|.
-name|ChannelBuffers
 import|;
 end_import
 
@@ -218,14 +218,14 @@ comment|//Utility Class
 block|}
 annotation|@
 name|Converter
-DECL|method|toByteArray (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toByteArray (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|byte
 index|[]
 name|toByteArray
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -241,13 +241,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toString (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toString (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|String
 name|toString
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -308,13 +308,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toInputStream (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toInputStream (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|InputStream
 name|toInputStream
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -323,7 +323,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ChannelBufferInputStream
+name|ByteBufInputStream
 argument_list|(
 name|buffer
 argument_list|)
@@ -331,13 +331,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toObjectInput (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toObjectInput (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|ObjectInput
 name|toObjectInput
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -369,7 +369,7 @@ name|Converter
 DECL|method|toByteBuffer (byte[] bytes, Exchange exchange)
 specifier|public
 specifier|static
-name|ChannelBuffer
+name|ByteBuf
 name|toByteBuffer
 parameter_list|(
 name|byte
@@ -380,12 +380,14 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|ChannelBuffer
+name|ByteBuf
 name|buf
 init|=
-name|ChannelBuffers
+name|ByteBufAllocator
 operator|.
-name|dynamicBuffer
+name|DEFAULT
+operator|.
+name|buffer
 argument_list|(
 name|bytes
 operator|.
@@ -408,7 +410,7 @@ name|Converter
 DECL|method|toByteBuffer (String s, Exchange exchange)
 specifier|public
 specifier|static
-name|ChannelBuffer
+name|ByteBuf
 name|toByteBuffer
 parameter_list|(
 name|String
@@ -474,13 +476,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toDocument (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toDocument (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|Document
 name|toDocument
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -520,13 +522,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toDOMSource (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toDOMSource (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|DOMSource
 name|toDOMSource
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -566,13 +568,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toSAXSource (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toSAXSource (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|SAXSource
 name|toSAXSource
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -612,13 +614,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toStreamSource (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toStreamSource (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|StreamSource
 name|toStreamSource
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange
@@ -658,13 +660,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toStAXSource (ChannelBuffer buffer, Exchange exchange)
+DECL|method|toStAXSource (ByteBuf buffer, Exchange exchange)
 specifier|public
 specifier|static
 name|StAXSource
 name|toStAXSource
 parameter_list|(
-name|ChannelBuffer
+name|ByteBuf
 name|buffer
 parameter_list|,
 name|Exchange

@@ -32,6 +32,42 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelFutureListener
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelHandlerContext
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|SimpleChannelInboundHandler
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -144,78 +180,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelFutureListener
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelHandlerContext
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelStateEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ExceptionEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|MessageEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|SimpleChannelUpstreamHandler
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|slf4j
@@ -244,7 +208,10 @@ specifier|public
 class|class
 name|ServerChannelHandler
 extends|extends
-name|SimpleChannelUpstreamHandler
+name|SimpleChannelInboundHandler
+argument_list|<
+name|Object
+argument_list|>
 block|{
 comment|// use NettyConsumer as logger to make it easier to read the logs as this is part of the consumer
 DECL|field|LOG
@@ -310,19 +277,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|channelOpen (ChannelHandlerContext ctx, ChannelStateEvent e)
+DECL|method|channelActive (ChannelHandlerContext ctx)
 specifier|public
 name|void
-name|channelOpen
+name|channelActive
 parameter_list|(
 name|ChannelHandlerContext
 name|ctx
-parameter_list|,
-name|ChannelStateEvent
-name|e
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -338,9 +300,9 @@ name|trace
 argument_list|(
 literal|"Channel open: {}"
 argument_list|,
-name|e
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -353,28 +315,23 @@ argument_list|()
 operator|.
 name|addChannel
 argument_list|(
-name|e
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|channelClosed (ChannelHandlerContext ctx, ChannelStateEvent e)
+DECL|method|channelInactive (ChannelHandlerContext ctx)
 specifier|public
 name|void
-name|channelClosed
+name|channelInactive
 parameter_list|(
 name|ChannelHandlerContext
 name|ctx
-parameter_list|,
-name|ChannelStateEvent
-name|e
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -390,9 +347,9 @@ name|trace
 argument_list|(
 literal|"Channel closed: {}"
 argument_list|,
-name|e
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -405,16 +362,16 @@ argument_list|()
 operator|.
 name|removeChannel
 argument_list|(
-name|e
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|exceptionCaught (ChannelHandlerContext ctx, ExceptionEvent exceptionEvent)
+DECL|method|exceptionCaught (ChannelHandlerContext ctx, Throwable cause)
 specifier|public
 name|void
 name|exceptionCaught
@@ -422,8 +379,8 @@ parameter_list|(
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
-name|ExceptionEvent
-name|exceptionEvent
+name|Throwable
+name|cause
 parameter_list|)
 throws|throws
 name|Exception
@@ -447,10 +404,7 @@ name|handleException
 argument_list|(
 literal|"Closing channel as an exception was thrown from Netty"
 argument_list|,
-name|exceptionEvent
-operator|.
-name|getCause
-argument_list|()
+name|cause
 argument_list|)
 expr_stmt|;
 comment|// close channel in case an exception was thrown
@@ -458,9 +412,9 @@ name|NettyHelper
 operator|.
 name|close
 argument_list|(
-name|exceptionEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -468,18 +422,16 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|messageReceived (final ChannelHandlerContext ctx, final MessageEvent messageEvent)
-specifier|public
+DECL|method|channelRead0 (ChannelHandlerContext ctx, Object msg)
+specifier|protected
 name|void
-name|messageReceived
+name|channelRead0
 parameter_list|(
-specifier|final
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
-specifier|final
-name|MessageEvent
-name|messageEvent
+name|Object
+name|msg
 parameter_list|)
 throws|throws
 name|Exception
@@ -487,10 +439,7 @@ block|{
 name|Object
 name|in
 init|=
-name|messageEvent
-operator|.
-name|getMessage
-argument_list|()
+name|msg
 decl_stmt|;
 if|if
 condition|(
@@ -510,9 +459,9 @@ operator|new
 name|Object
 index|[]
 block|{
-name|messageEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 block|,
 name|in
@@ -534,7 +483,7 @@ name|createExchange
 argument_list|(
 name|ctx
 argument_list|,
-name|messageEvent
+name|msg
 argument_list|)
 decl_stmt|;
 if|if
@@ -626,7 +575,9 @@ name|processSynchronously
 argument_list|(
 name|exchange
 argument_list|,
-name|messageEvent
+name|ctx
+argument_list|,
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
@@ -636,13 +587,15 @@ name|processAsynchronously
 argument_list|(
 name|exchange
 argument_list|,
-name|messageEvent
+name|ctx
+argument_list|,
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Allows any custom logic before the {@link Exchange} is processed by the routing engine.      *      * @param exchange       the exchange      * @param messageEvent   the Netty message event      */
-DECL|method|beforeProcess (final Exchange exchange, final MessageEvent messageEvent)
+comment|/**      * Allows any custom logic before the {@link Exchange} is processed by the routing engine.      *      * @param exchange       the exchange      * @param ctx            the channel handler context      * @param message        the message which needs to be sent      */
+DECL|method|beforeProcess (final Exchange exchange, final ChannelHandlerContext ctx, final Object message)
 specifier|protected
 name|void
 name|beforeProcess
@@ -652,13 +605,17 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
-name|MessageEvent
-name|messageEvent
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+specifier|final
+name|Object
+name|message
 parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|processSynchronously (final Exchange exchange, final MessageEvent messageEvent)
+DECL|method|processSynchronously (final Exchange exchange, final ChannelHandlerContext ctx, final Object message)
 specifier|private
 name|void
 name|processSynchronously
@@ -668,8 +625,12 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
-name|MessageEvent
-name|messageEvent
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+specifier|final
+name|Object
+name|message
 parameter_list|)
 block|{
 try|try
@@ -697,7 +658,9 @@ condition|)
 block|{
 name|sendResponse
 argument_list|(
-name|messageEvent
+name|message
+argument_list|,
+name|ctx
 argument_list|,
 name|exchange
 argument_list|)
@@ -732,7 +695,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|processAsynchronously (final Exchange exchange, final MessageEvent messageEvent)
+DECL|method|processAsynchronously (final Exchange exchange, final ChannelHandlerContext ctx, final Object message)
 specifier|private
 name|void
 name|processAsynchronously
@@ -742,8 +705,12 @@ name|Exchange
 name|exchange
 parameter_list|,
 specifier|final
-name|MessageEvent
-name|messageEvent
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+specifier|final
+name|Object
+name|message
 parameter_list|)
 block|{
 name|consumer
@@ -785,7 +752,9 @@ condition|)
 block|{
 name|sendResponse
 argument_list|(
-name|messageEvent
+name|message
+argument_list|,
+name|ctx
 argument_list|,
 name|exchange
 argument_list|)
@@ -824,13 +793,16 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sendResponse (MessageEvent messageEvent, Exchange exchange)
+DECL|method|sendResponse (Object message, ChannelHandlerContext ctx, Exchange exchange)
 specifier|private
 name|void
 name|sendResponse
 parameter_list|(
-name|MessageEvent
-name|messageEvent
+name|Object
+name|message
+parameter_list|,
+name|ChannelHandlerContext
+name|ctx
 parameter_list|,
 name|Exchange
 name|exchange
@@ -889,9 +861,12 @@ name|trace
 argument_list|(
 literal|"Closing channel as no payload to send as reply at address: {}"
 argument_list|,
-name|messageEvent
+name|ctx
 operator|.
-name|getRemoteAddress
+name|channel
+argument_list|()
+operator|.
+name|remoteAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -900,9 +875,9 @@ name|NettyHelper
 operator|.
 name|close
 argument_list|(
-name|messageEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -960,9 +935,12 @@ name|consumer
 argument_list|,
 name|exchange
 argument_list|,
-name|messageEvent
+name|ctx
 operator|.
-name|getRemoteAddress
+name|channel
+argument_list|()
+operator|.
+name|remoteAddress
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -983,9 +961,9 @@ name|writeBodyAsync
 argument_list|(
 name|LOG
 argument_list|,
-name|messageEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|,
 literal|null
@@ -1006,14 +984,17 @@ name|writeBodyAsync
 argument_list|(
 name|LOG
 argument_list|,
-name|messageEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|,
-name|messageEvent
+name|ctx
 operator|.
-name|getRemoteAddress
+name|channel
+argument_list|()
+operator|.
+name|remoteAddress
 argument_list|()
 argument_list|,
 name|body

@@ -22,6 +22,30 @@ end_package
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|ChannelHandlerContext
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|SimpleChannelInboundHandler
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -164,78 +188,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelHandlerContext
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelStateEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ExceptionEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|MessageEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|SimpleChannelUpstreamHandler
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|slf4j
@@ -264,7 +216,10 @@ specifier|public
 class|class
 name|ClientChannelHandler
 extends|extends
-name|SimpleChannelUpstreamHandler
+name|SimpleChannelInboundHandler
+argument_list|<
+name|Object
+argument_list|>
 block|{
 comment|// use NettyProducer as logger to make it easier to read the logs as this is part of the producer
 DECL|field|LOG
@@ -318,19 +273,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|channelOpen (ChannelHandlerContext ctx, ChannelStateEvent channelStateEvent)
+DECL|method|channelActive (ChannelHandlerContext ctx)
 specifier|public
 name|void
-name|channelOpen
+name|channelActive
 parameter_list|(
 name|ChannelHandlerContext
 name|ctx
-parameter_list|,
-name|ChannelStateEvent
-name|channelStateEvent
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -348,7 +298,7 @@ literal|"Channel open: {}"
 argument_list|,
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -361,16 +311,16 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|channelStateEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|exceptionCaught (ChannelHandlerContext ctx, ExceptionEvent exceptionEvent)
+DECL|method|exceptionCaught (ChannelHandlerContext ctx, Throwable cause)
 specifier|public
 name|void
 name|exceptionCaught
@@ -378,8 +328,8 @@ parameter_list|(
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
-name|ExceptionEvent
-name|exceptionEvent
+name|Throwable
+name|cause
 parameter_list|)
 throws|throws
 name|Exception
@@ -400,13 +350,10 @@ literal|"Exception caught at Channel: "
 operator|+
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|,
-name|exceptionEvent
-operator|.
-name|getCause
-argument_list|()
+name|cause
 argument_list|)
 expr_stmt|;
 block|}
@@ -422,14 +369,6 @@ name|exceptionHandled
 operator|=
 literal|true
 expr_stmt|;
-name|Throwable
-name|cause
-init|=
-name|exceptionEvent
-operator|.
-name|getCause
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -489,9 +428,9 @@ name|NettyHelper
 operator|.
 name|close
 argument_list|(
-name|exceptionEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -507,19 +446,14 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|channelClosed (ChannelHandlerContext ctx, ChannelStateEvent e)
+DECL|method|channelInactive (ChannelHandlerContext ctx)
 specifier|public
 name|void
-name|channelClosed
+name|channelInactive
 parameter_list|(
 name|ChannelHandlerContext
 name|ctx
-parameter_list|,
-name|ChannelStateEvent
-name|e
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -537,7 +471,7 @@ literal|"Channel closed: {}"
 argument_list|,
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -565,7 +499,7 @@ name|removeState
 argument_list|(
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -579,7 +513,7 @@ name|remove
 argument_list|(
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -664,20 +598,21 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|messageReceived (ChannelHandlerContext ctx, MessageEvent messageEvent)
-specifier|public
+DECL|method|channelRead0 (ChannelHandlerContext ctx, Object msg)
+specifier|protected
 name|void
-name|messageReceived
+name|channelRead0
 parameter_list|(
 name|ChannelHandlerContext
 name|ctx
 parameter_list|,
-name|MessageEvent
-name|messageEvent
+name|Object
+name|msg
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO Auto-generated method stub
 name|messageReceived
 operator|=
 literal|true
@@ -789,7 +724,9 @@ name|getResponseMessage
 argument_list|(
 name|exchange
 argument_list|,
-name|messageEvent
+name|ctx
+argument_list|,
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
@@ -983,7 +920,7 @@ name|close
 argument_list|(
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1001,8 +938,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the Camel {@link Message} to use as the message to be set on the current {@link Exchange} when      * we have received a reply message.      *<p/>      *      * @param exchange      the current exchange      * @param messageEvent  the incoming event which has the response message from Netty.      * @return the Camel {@link Message} to set on the current {@link Exchange} as the response message.      * @throws Exception is thrown if error getting the response message      */
-DECL|method|getResponseMessage (Exchange exchange, MessageEvent messageEvent)
+comment|/**      * Gets the Camel {@link Message} to use as the message to be set on the current {@link Exchange} when      * we have received a reply message.      *<p/>      *      * @param exchange      the current exchange      * @param ctx       the channel handler context      * @param message  the incoming event which has the response message from Netty.      * @return the Camel {@link Message} to set on the current {@link Exchange} as the response message.      * @throws Exception is thrown if error getting the response message      */
+DECL|method|getResponseMessage (Exchange exchange, ChannelHandlerContext ctx, Object message)
 specifier|protected
 name|Message
 name|getResponseMessage
@@ -1010,8 +947,11 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|MessageEvent
-name|messageEvent
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|Object
+name|message
 parameter_list|)
 throws|throws
 name|Exception
@@ -1019,10 +959,7 @@ block|{
 name|Object
 name|body
 init|=
-name|messageEvent
-operator|.
-name|getMessage
-argument_list|()
+name|message
 decl_stmt|;
 if|if
 condition|(
@@ -1042,9 +979,9 @@ operator|new
 name|Object
 index|[]
 block|{
-name|messageEvent
+name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 block|,
 name|body
@@ -1082,7 +1019,7 @@ name|class
 argument_list|,
 name|exchange
 argument_list|,
-name|body
+name|message
 argument_list|)
 expr_stmt|;
 block|}
@@ -1150,7 +1087,7 @@ name|getState
 argument_list|(
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1185,7 +1122,7 @@ name|getState
 argument_list|(
 name|ctx
 operator|.
-name|getChannel
+name|channel
 argument_list|()
 argument_list|)
 decl_stmt|;
