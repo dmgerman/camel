@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|timeout
+operator|.
+name|ReadTimeoutException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -65,20 +79,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|timeout
-operator|.
-name|ReadTimeoutException
 import|;
 end_import
 

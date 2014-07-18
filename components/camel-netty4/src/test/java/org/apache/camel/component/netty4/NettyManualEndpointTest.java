@@ -40,20 +40,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|netty
@@ -74,8 +60,6 @@ name|handler
 operator|.
 name|codec
 operator|.
-name|frame
-operator|.
 name|Delimiters
 import|;
 end_import
@@ -89,6 +73,20 @@ operator|.
 name|util
 operator|.
 name|CharsetUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|RouteBuilder
 import|;
 end_import
 
