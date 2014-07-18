@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to create Netty {@link org.jboss.netty.channel.socket.nio.BossPool} which can be used for sharing boos pools  * with multiple Netty {@link NettyServerBootstrapFactory} server bootstrap configurations.  */
+comment|/**  * A builder to create Netty {@link org.jboss.netty.channel.socket.nio.BossPool} which can be used for sharing boss pools  * with multiple Netty {@link NettyServerBootstrapFactory} server bootstrap configurations.  */
 end_comment
 
 begin_class
