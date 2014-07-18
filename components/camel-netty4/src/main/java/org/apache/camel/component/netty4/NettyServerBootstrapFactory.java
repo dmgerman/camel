@@ -32,30 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|SuspendableService
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|netty
@@ -74,7 +50,31 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelPipelineFactory
+name|ChannelInitializer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|SuspendableService
 import|;
 end_import
 
@@ -90,8 +90,8 @@ name|NettyServerBootstrapFactory
 extends|extends
 name|SuspendableService
 block|{
-comment|/**      * Initializes this<b>non-shared</b> {@link NettyServerBootstrapFactory}.      *      * @param camelContext     the {@link CamelContext} for non-shared bootstrap factory      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the pipeline factory      */
-DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelPipelineFactory pipelineFactory)
+comment|/**      * Initializes this<b>non-shared</b> {@link NettyServerBootstrapFactory}.      *      * @param camelContext     the {@link CamelContext} for non-shared bootstrap factory      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the channel initializer which set up the channel handler pipeline      */
+DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelInitializer<Channel> pipelineFactory)
 name|void
 name|init
 parameter_list|(
@@ -101,12 +101,15 @@ parameter_list|,
 name|NettyServerBootstrapConfiguration
 name|configuration
 parameter_list|,
-name|ChannelPipelineFactory
+name|ChannelInitializer
+argument_list|<
+name|Channel
+argument_list|>
 name|pipelineFactory
 parameter_list|)
 function_decl|;
-comment|/**      * Initializes this<b>shared</b> {@link NettyServerBootstrapFactory}.      *      * @param threadFactory    the thread factory to use for shared bootstrap factory      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the pipeline factory      */
-DECL|method|init (ThreadFactory threadFactory, NettyServerBootstrapConfiguration configuration, ChannelPipelineFactory pipelineFactory)
+comment|/**      * Initializes this<b>shared</b> {@link NettyServerBootstrapFactory}.      *      * @param threadFactory    the thread factory to use for shared bootstrap factory      * @param configuration    the bootstrap configuration      * @param pipelineFactory  the channel initializer which set up the channel handler pipeline      */
+DECL|method|init (ThreadFactory threadFactory, NettyServerBootstrapConfiguration configuration, ChannelInitializer<Channel> pipelineFactory)
 name|void
 name|init
 parameter_list|(
@@ -116,7 +119,10 @@ parameter_list|,
 name|NettyServerBootstrapConfiguration
 name|configuration
 parameter_list|,
-name|ChannelPipelineFactory
+name|ChannelInitializer
+argument_list|<
+name|Channel
+argument_list|>
 name|pipelineFactory
 parameter_list|)
 function_decl|;

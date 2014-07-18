@@ -40,49 +40,13 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|netty
 operator|.
 name|channel
 operator|.
-name|socket
-operator|.
-name|nio
-operator|.
-name|BossPool
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|socket
-operator|.
-name|nio
-operator|.
-name|WorkerPool
+name|EventLoopGroup
 import|;
 end_import
 
@@ -97,6 +61,22 @@ operator|.
 name|ssl
 operator|.
 name|SslHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -182,7 +162,7 @@ literal|true
 decl_stmt|;
 DECL|field|connectTimeout
 specifier|protected
-name|long
+name|int
 name|connectTimeout
 init|=
 literal|10000
@@ -273,15 +253,15 @@ specifier|protected
 name|String
 name|passphrase
 decl_stmt|;
-DECL|field|bossPool
+DECL|field|bossGroup
 specifier|protected
-name|BossPool
-name|bossPool
+name|EventLoopGroup
+name|bossGroup
 decl_stmt|;
-DECL|field|workerPool
+DECL|field|workerGroup
 specifier|protected
-name|WorkerPool
-name|workerPool
+name|EventLoopGroup
+name|workerGroup
 decl_stmt|;
 DECL|field|networkInterface
 specifier|protected
@@ -631,7 +611,7 @@ expr_stmt|;
 block|}
 DECL|method|getConnectTimeout ()
 specifier|public
-name|long
+name|int
 name|getConnectTimeout
 parameter_list|()
 block|{
@@ -639,12 +619,12 @@ return|return
 name|connectTimeout
 return|;
 block|}
-DECL|method|setConnectTimeout (long connectTimeout)
+DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
 name|setConnectTimeout
 parameter_list|(
-name|long
+name|int
 name|connectTimeout
 parameter_list|)
 block|{
@@ -1089,56 +1069,56 @@ operator|=
 name|options
 expr_stmt|;
 block|}
-DECL|method|getBossPool ()
+DECL|method|getBossGroup ()
 specifier|public
-name|BossPool
-name|getBossPool
+name|EventLoopGroup
+name|getBossGroup
 parameter_list|()
 block|{
 return|return
-name|bossPool
+name|bossGroup
 return|;
 block|}
-DECL|method|setBossPool (BossPool bossPool)
+DECL|method|setBossPool (EventLoopGroup bossGroup)
 specifier|public
 name|void
 name|setBossPool
 parameter_list|(
-name|BossPool
-name|bossPool
+name|EventLoopGroup
+name|bossGroup
 parameter_list|)
 block|{
 name|this
 operator|.
-name|bossPool
+name|bossGroup
 operator|=
-name|bossPool
+name|bossGroup
 expr_stmt|;
 block|}
-DECL|method|getWorkerPool ()
+DECL|method|getWorkerGroup ()
 specifier|public
-name|WorkerPool
-name|getWorkerPool
+name|EventLoopGroup
+name|getWorkerGroup
 parameter_list|()
 block|{
 return|return
-name|workerPool
+name|workerGroup
 return|;
 block|}
-DECL|method|setWorkerPool (WorkerPool workerPool)
+DECL|method|setWorkerPool (EventLoopGroup workerGroup)
 specifier|public
 name|void
 name|setWorkerPool
 parameter_list|(
-name|WorkerPool
-name|workerPool
+name|EventLoopGroup
+name|workerGroup
 parameter_list|)
 block|{
 name|this
 operator|.
-name|workerPool
+name|workerGroup
 operator|=
-name|workerPool
+name|workerGroup
 expr_stmt|;
 block|}
 DECL|method|getNetworkInterface ()
@@ -1776,11 +1756,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|bossPool
+name|bossGroup
 operator|!=
 name|other
 operator|.
-name|bossPool
+name|bossGroup
 condition|)
 block|{
 name|isCompatible
@@ -1791,11 +1771,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|workerPool
+name|workerGroup
 operator|!=
 name|other
 operator|.
-name|workerPool
+name|workerGroup
 condition|)
 block|{
 name|isCompatible
@@ -1967,13 +1947,13 @@ name|passphrase
 operator|+
 literal|'\''
 operator|+
-literal|", bossPool="
+literal|", bossGroup="
 operator|+
-name|bossPool
+name|bossGroup
 operator|+
-literal|", workerPool="
+literal|", workerGroup="
 operator|+
-name|workerPool
+name|workerGroup
 operator|+
 literal|", networkInterface='"
 operator|+

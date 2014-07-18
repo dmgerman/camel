@@ -20,50 +20,48 @@ end_package
 
 begin_import
 import|import
-name|java
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|EventLoopGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|nio
+operator|.
+name|NioEventLoopGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|util
 operator|.
 name|concurrent
 operator|.
-name|Executors
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|socket
-operator|.
-name|nio
-operator|.
-name|NioWorkerPool
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|socket
-operator|.
-name|nio
-operator|.
-name|WorkerPool
+name|CamelThreadFactory
 import|;
 end_import
 
 begin_comment
-comment|/**  * A builder to create Netty {@link WorkerPool} which can be used for sharing worker pools  * with multiple Netty {@link NettyServerBootstrapFactory} server bootstrap configurations.  */
+comment|/**  * A builder to create Netty {@link io.netty.channel.EventLoopGroup} which can be used for sharing worker pools  * with multiple Netty {@link NettyServerBootstrapFactory} server bootstrap configurations.  */
 end_comment
 
 begin_class
@@ -93,7 +91,7 @@ decl_stmt|;
 DECL|field|workerPool
 specifier|private
 specifier|volatile
-name|WorkerPool
+name|EventLoopGroup
 name|workerPool
 decl_stmt|;
 DECL|method|setName (String name)
@@ -201,7 +199,7 @@ block|}
 comment|/**      * Creates a new worker pool.      */
 DECL|method|build ()
 specifier|public
-name|WorkerPool
+name|EventLoopGroup
 name|build
 parameter_list|()
 block|{
@@ -221,21 +219,18 @@ decl_stmt|;
 name|workerPool
 operator|=
 operator|new
-name|NioWorkerPool
+name|NioEventLoopGroup
 argument_list|(
-name|Executors
-operator|.
-name|newCachedThreadPool
-argument_list|()
-argument_list|,
 name|count
 argument_list|,
 operator|new
-name|CamelNettyThreadNameDeterminer
+name|CamelThreadFactory
 argument_list|(
 name|pattern
 argument_list|,
 name|name
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -259,7 +254,7 @@ condition|)
 block|{
 name|workerPool
 operator|.
-name|shutdown
+name|shutdownGracefully
 argument_list|()
 expr_stmt|;
 name|workerPool

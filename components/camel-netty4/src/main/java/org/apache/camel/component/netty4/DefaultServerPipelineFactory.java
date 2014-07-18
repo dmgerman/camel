@@ -142,6 +142,20 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|EventExecutorGroup
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -591,16 +605,10 @@ name|isOrderedThreadPoolExecutor
 argument_list|()
 condition|)
 block|{
-comment|// this must be added just before the ServerChannelHandler
-comment|// use ordered thread pool, to ensure we process the events in order, and can send back
-comment|// replies in the expected order. eg this is required by TCP.
-comment|// and use a Camel thread factory so we have consistent thread namings
-name|ExecutionHandler
-name|executionHandler
+comment|// Just use EventExecutorGroup from the Netty Component
+name|EventExecutorGroup
+name|applicationExecutor
 init|=
-operator|new
-name|ExecutionHandler
-argument_list|(
 name|consumer
 operator|.
 name|getEndpoint
@@ -611,34 +619,26 @@ argument_list|()
 operator|.
 name|getExecutorService
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|addToPipeline
 argument_list|(
-literal|"executionHandler"
+literal|"handler"
 argument_list|,
 name|channelPipeline
 argument_list|,
-name|executionHandler
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Using OrderedMemoryAwareThreadPoolExecutor with core pool size: {}"
+name|applicationExecutor
 argument_list|,
+operator|new
+name|ServerChannelHandler
+argument_list|(
 name|consumer
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getMaximumPoolSize
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// our handler must be added last
+else|else
+block|{
+comment|// still use the worker event loop group here
 name|addToPipeline
 argument_list|(
 literal|"handler"
@@ -652,6 +652,7 @@ name|consumer
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -681,6 +682,36 @@ name|pipeline
 operator|.
 name|addLast
 argument_list|(
+name|name
+argument_list|,
+name|handler
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|addToPipeline (String name, ChannelPipeline pipeline, EventExecutorGroup executor, ChannelHandler handler)
+specifier|private
+name|void
+name|addToPipeline
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|ChannelPipeline
+name|pipeline
+parameter_list|,
+name|EventExecutorGroup
+name|executor
+parameter_list|,
+name|ChannelHandler
+name|handler
+parameter_list|)
+block|{
+name|pipeline
+operator|.
+name|addLast
+argument_list|(
+name|executor
+argument_list|,
 name|name
 argument_list|,
 name|handler

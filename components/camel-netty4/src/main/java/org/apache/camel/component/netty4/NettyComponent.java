@@ -62,13 +62,53 @@ end_import
 
 begin_import
 import|import
-name|java
+name|io
+operator|.
+name|netty
+operator|.
+name|util
+operator|.
+name|HashedWheelTimer
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|util
+operator|.
+name|Timer
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
 operator|.
 name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
+name|DefaultEventExecutorGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|EventExecutorGroup
 import|;
 end_import
 
@@ -140,44 +180,6 @@ name|CamelThreadFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|execution
-operator|.
-name|OrderedMemoryAwareThreadPoolExecutor
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|HashedWheelTimer
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|Timer
-import|;
-end_import
-
 begin_class
 DECL|class|NettyComponent
 specifier|public
@@ -201,7 +203,8 @@ name|configuration
 decl_stmt|;
 DECL|field|executorService
 specifier|private
-name|OrderedMemoryAwareThreadPoolExecutor
+specifier|volatile
+name|EventExecutorGroup
 name|executorService
 decl_stmt|;
 DECL|method|NettyComponent ()
@@ -515,7 +518,7 @@ block|}
 DECL|method|getExecutorService ()
 specifier|public
 specifier|synchronized
-name|OrderedMemoryAwareThreadPoolExecutor
+name|EventExecutorGroup
 name|getExecutorService
 parameter_list|()
 block|{
@@ -596,12 +599,11 @@ expr_stmt|;
 block|}
 DECL|method|createExecutorService ()
 specifier|protected
-name|OrderedMemoryAwareThreadPoolExecutor
+name|EventExecutorGroup
 name|createExecutorService
 parameter_list|()
 block|{
-comment|// use ordered thread pool, to ensure we process the events in order, and can send back
-comment|// replies in the expected order. eg this is required by TCP.
+comment|// Provide the executor service for the application
 comment|// and use a Camel thread factory so we have consistent thread namings
 comment|// we should use a shared thread pool as recommended by Netty
 name|String
@@ -624,29 +626,19 @@ name|CamelThreadFactory
 argument_list|(
 name|pattern
 argument_list|,
-literal|"NettyOrderedWorker"
+literal|"NettyEventExecutorGroup"
 argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|OrderedMemoryAwareThreadPoolExecutor
+name|DefaultEventExecutorGroup
 argument_list|(
 name|configuration
 operator|.
 name|getMaximumPoolSize
 argument_list|()
-argument_list|,
-literal|0L
-argument_list|,
-literal|0L
-argument_list|,
-literal|30
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
 argument_list|,
 name|factory
 argument_list|)

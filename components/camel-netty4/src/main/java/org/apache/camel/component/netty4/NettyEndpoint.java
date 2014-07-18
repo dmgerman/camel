@@ -578,7 +578,7 @@ name|sslHandler
 init|=
 name|ctx
 operator|.
-name|getPipeline
+name|pipeline
 argument_list|()
 operator|.
 name|get
@@ -604,7 +604,7 @@ name|sslSession
 operator|=
 name|sslHandler
 operator|.
-name|getEngine
+name|engine
 argument_list|()
 operator|.
 name|getSession
