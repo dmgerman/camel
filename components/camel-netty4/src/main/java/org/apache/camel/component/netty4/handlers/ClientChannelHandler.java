@@ -28,6 +28,18 @@ name|netty
 operator|.
 name|channel
 operator|.
+name|ChannelHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
 name|ChannelHandlerContext
 import|;
 end_import
@@ -631,7 +643,7 @@ name|trace
 argument_list|(
 literal|"Message received: {}"
 argument_list|,
-name|messageEvent
+name|msg
 argument_list|)
 expr_stmt|;
 block|}
@@ -653,7 +665,7 @@ name|handler
 init|=
 name|ctx
 operator|.
-name|getPipeline
+name|pipeline
 argument_list|()
 operator|.
 name|get
@@ -677,7 +689,7 @@ argument_list|)
 expr_stmt|;
 name|ctx
 operator|.
-name|getPipeline
+name|pipeline
 argument_list|()
 operator|.
 name|remove

@@ -556,7 +556,9 @@ name|beforeProcess
 argument_list|(
 name|exchange
 argument_list|,
-name|messageEvent
+name|ctx
+argument_list|,
+name|msg
 argument_list|)
 expr_stmt|;
 comment|// process accordingly to endpoint configuration

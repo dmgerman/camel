@@ -614,7 +614,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
-name|channel
+name|future
 operator|=
 name|serverBootstrap
 operator|.
@@ -634,6 +634,18 @@ name|getPort
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|future
+operator|.
+name|awaitUninterruptibly
+argument_list|()
+expr_stmt|;
+name|channel
+operator|=
+name|future
+operator|.
+name|channel
+argument_list|()
 expr_stmt|;
 name|allChannels
 operator|.
@@ -679,12 +691,13 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//TODO need to check if it's good way to unbinding the channel
 name|ChannelFuture
 name|future
 init|=
 name|channel
 operator|.
-name|unbind
+name|close
 argument_list|()
 decl_stmt|;
 name|future
