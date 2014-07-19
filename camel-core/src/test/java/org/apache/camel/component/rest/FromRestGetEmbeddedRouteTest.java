@@ -234,6 +234,9 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
+name|getRoute
+argument_list|()
+operator|.
 name|getOutputs
 argument_list|()
 operator|.
@@ -328,6 +331,9 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|getRoute
+argument_list|()
 operator|.
 name|getOutputs
 argument_list|()
@@ -450,6 +456,9 @@ operator|.
 name|get
 argument_list|()
 operator|.
+name|route
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:hello"
@@ -476,6 +485,9 @@ argument_list|(
 literal|"application/json"
 argument_list|)
 operator|.
+name|route
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:bye"
@@ -488,6 +500,9 @@ argument_list|(
 literal|"Bye World"
 argument_list|)
 argument_list|)
+operator|.
+name|endRest
+argument_list|()
 operator|.
 name|post
 argument_list|()

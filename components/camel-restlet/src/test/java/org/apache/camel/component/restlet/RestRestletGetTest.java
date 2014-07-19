@@ -170,6 +170,9 @@ argument_list|(
 literal|"{id}/basic"
 argument_list|)
 operator|.
+name|route
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:input"

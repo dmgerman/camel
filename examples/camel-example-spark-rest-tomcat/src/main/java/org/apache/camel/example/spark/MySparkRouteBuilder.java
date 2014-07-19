@@ -63,7 +63,7 @@ argument_list|(
 literal|"spark-rest"
 argument_list|)
 expr_stmt|;
-comment|// use the rest DSL to define rest services
+comment|// use the rest DSL to define rest services, and use embedded routes
 name|rest
 argument_list|()
 operator|.
@@ -79,6 +79,9 @@ name|consumes
 argument_list|(
 literal|"text/plain"
 argument_list|)
+operator|.
+name|route
+argument_list|()
 operator|.
 name|to
 argument_list|(
@@ -104,6 +107,9 @@ argument_list|(
 literal|"application/json"
 argument_list|)
 operator|.
+name|route
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"log:input"
@@ -127,6 +133,9 @@ name|consumes
 argument_list|(
 literal|"text/xml"
 argument_list|)
+operator|.
+name|route
+argument_list|()
 operator|.
 name|to
 argument_list|(

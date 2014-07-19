@@ -77,6 +77,9 @@ argument_list|(
 literal|"application/json"
 argument_list|)
 operator|.
+name|route
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:foo"

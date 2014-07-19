@@ -205,6 +205,9 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
+name|getRoute
+argument_list|()
+operator|.
 name|getOutputs
 argument_list|()
 operator|.
@@ -299,6 +302,9 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|getRoute
+argument_list|()
 operator|.
 name|getOutputs
 argument_list|()

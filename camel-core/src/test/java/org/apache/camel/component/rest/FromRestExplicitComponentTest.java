@@ -109,9 +109,6 @@ argument_list|(
 literal|"direct:bye"
 argument_list|)
 operator|.
-name|endRest
-argument_list|()
-operator|.
 name|post
 argument_list|()
 operator|.

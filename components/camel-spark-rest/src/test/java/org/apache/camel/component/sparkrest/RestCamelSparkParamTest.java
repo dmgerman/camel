@@ -82,6 +82,9 @@ operator|.
 name|get
 argument_list|()
 operator|.
+name|route
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:foo"
