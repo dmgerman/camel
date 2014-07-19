@@ -93,6 +93,11 @@ specifier|final
 class|class
 name|SparkConverter
 block|{
+DECL|method|SparkConverter ()
+specifier|private
+name|SparkConverter
+parameter_list|()
+block|{     }
 comment|/**      * A fallback converter that allows us to easily call Java beans and use the raw Spark {@link Request} as parameter types.      */
 annotation|@
 name|FallbackConverter
