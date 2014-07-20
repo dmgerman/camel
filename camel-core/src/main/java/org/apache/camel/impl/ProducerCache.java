@@ -1680,6 +1680,34 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|isStartingRoutes
+argument_list|()
+operator|&&
+name|answer
+operator|.
+name|isSingleton
+argument_list|()
+condition|)
+block|{
+comment|// if we are currently starting a route, then add as service and enlist in JMX
+comment|// - but do not enlist non-singletons in JMX
+comment|// - note addService will also start the service
+name|getCamelContext
+argument_list|()
+operator|.
+name|addService
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// must then start service so producer is ready to be used
 name|ServiceHelper
 operator|.
@@ -1688,6 +1716,7 @@ argument_list|(
 name|answer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1815,6 +1844,8 @@ argument_list|(
 name|pool
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|ServiceHelper
 operator|.
 name|stopAndShutdownServices
@@ -1825,6 +1856,31 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// ensure producers are removed, and also from JMX
+for|for
+control|(
+name|Producer
+name|producer
+range|:
+name|producers
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|removeService
+argument_list|(
+name|producer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|producers
 operator|.
 name|clear

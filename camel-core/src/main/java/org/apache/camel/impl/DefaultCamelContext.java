@@ -10592,6 +10592,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|isStartingRoutes
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 comment|// filter out already started routes
 name|Map
 argument_list|<
@@ -10773,6 +10782,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we are finished starting routes, so remove flag before we emit the startup listeners below
+name|isStartingRoutes
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
 comment|// now notify any startup aware listeners as all the routes etc has been started,
 comment|// allowing the listeners to do custom work after routes has been started
 for|for
@@ -10792,6 +10807,15 @@ argument_list|,
 name|isStarted
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|isStartingRoutes
+operator|.
+name|remove
+argument_list|()
 expr_stmt|;
 block|}
 block|}
