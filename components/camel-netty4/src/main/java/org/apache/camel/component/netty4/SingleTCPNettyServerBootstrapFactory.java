@@ -34,31 +34,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|ThreadFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|bootstrap
-operator|.
-name|ChannelFactory
 import|;
 end_import
 
@@ -976,7 +954,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// TODO how can we make sure the server is bind rightly
+name|channelFutrue
+operator|.
+name|awaitUninterruptibly
+argument_list|()
+expr_stmt|;
 name|channel
 operator|=
 name|channelFutrue

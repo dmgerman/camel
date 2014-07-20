@@ -110,14 +110,14 @@ name|broadcast
 decl_stmt|;
 DECL|field|sendBufferSize
 specifier|protected
-name|long
+name|int
 name|sendBufferSize
 init|=
 literal|65536
 decl_stmt|;
 DECL|field|receiveBufferSize
 specifier|protected
-name|long
+name|int
 name|receiveBufferSize
 init|=
 literal|65536
@@ -403,7 +403,7 @@ expr_stmt|;
 block|}
 DECL|method|getSendBufferSize ()
 specifier|public
-name|long
+name|int
 name|getSendBufferSize
 parameter_list|()
 block|{
@@ -411,12 +411,12 @@ return|return
 name|sendBufferSize
 return|;
 block|}
-DECL|method|setSendBufferSize (long sendBufferSize)
+DECL|method|setSendBufferSize (int sendBufferSize)
 specifier|public
 name|void
 name|setSendBufferSize
 parameter_list|(
-name|long
+name|int
 name|sendBufferSize
 parameter_list|)
 block|{
@@ -429,7 +429,7 @@ expr_stmt|;
 block|}
 DECL|method|getReceiveBufferSize ()
 specifier|public
-name|long
+name|int
 name|getReceiveBufferSize
 parameter_list|()
 block|{
@@ -437,12 +437,12 @@ return|return
 name|receiveBufferSize
 return|;
 block|}
-DECL|method|setReceiveBufferSize (long receiveBufferSize)
+DECL|method|setReceiveBufferSize (int receiveBufferSize)
 specifier|public
 name|void
 name|setReceiveBufferSize
 parameter_list|(
-name|long
+name|int
 name|receiveBufferSize
 parameter_list|)
 block|{
