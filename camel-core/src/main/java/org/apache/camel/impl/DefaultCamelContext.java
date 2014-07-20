@@ -7137,7 +7137,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// no language resolved
 return|return
 name|answer
 return|;

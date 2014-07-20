@@ -581,6 +581,24 @@ name|void
 name|resetDebugCounter
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Used for validating if a given predicate is valid or not"
+argument_list|)
+DECL|method|validateConditionalBreakpoint (String language, String predicate)
+name|String
+name|validateConditionalBreakpoint
+parameter_list|(
+name|String
+name|language
+parameter_list|,
+name|String
+name|predicate
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
