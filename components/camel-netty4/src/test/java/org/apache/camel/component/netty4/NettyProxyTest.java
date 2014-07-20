@@ -111,7 +111,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port1
 operator|+
@@ -167,7 +167,7 @@ argument_list|()
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"netty:tcp://localhost:%s?sync=true&textline=true"
+literal|"netty4:tcp://localhost:%s?sync=true&textline=true"
 argument_list|,
 name|port1
 argument_list|)
@@ -191,7 +191,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"netty:tcp://localhost:%s?sync=true&textline=true"
+literal|"netty4:tcp://localhost:%s?sync=true&textline=true"
 argument_list|,
 name|port2
 argument_list|)

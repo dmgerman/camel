@@ -295,7 +295,7 @@ argument_list|)
 expr_stmt|;
 name|sendFile
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=false"
+literal|"netty4:tcp://localhost:{{port}}?sync=false"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -330,7 +330,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=false"
+literal|"netty4:tcp://localhost:{{port}}?sync=false"
 argument_list|)
 operator|.
 name|to

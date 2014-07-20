@@ -83,7 +83,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}"
+literal|"netty4:tcp://localhost:{{port}}"
 argument_list|,
 literal|"Copenhagen"
 argument_list|)
@@ -112,7 +112,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}"
+literal|"netty4:tcp://localhost:{{port}}"
 argument_list|,
 literal|"London"
 argument_list|)
@@ -171,7 +171,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}"
+literal|"netty4:tcp://localhost:{{port}}"
 argument_list|)
 operator|.
 name|choice

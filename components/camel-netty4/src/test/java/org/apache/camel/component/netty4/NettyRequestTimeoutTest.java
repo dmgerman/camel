@@ -121,7 +121,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=5000"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=5000"
 argument_list|,
 literal|"Hello Camel"
 argument_list|,
@@ -154,7 +154,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=1000"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=1000"
 argument_list|,
 literal|"Hello Camel"
 argument_list|,
@@ -213,7 +213,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=1000"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=1000"
 argument_list|,
 literal|"Hello Camel"
 argument_list|,
@@ -263,7 +263,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=1000"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true&requestTimeout=1000"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -306,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true"
 argument_list|)
 operator|.
 name|process

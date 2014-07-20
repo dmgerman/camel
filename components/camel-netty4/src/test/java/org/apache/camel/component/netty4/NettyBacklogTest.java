@@ -90,7 +90,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true&backlog=500"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&backlog=500"
 argument_list|)
 operator|.
 name|process

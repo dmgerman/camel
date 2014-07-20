@@ -44,6 +44,18 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|PooledByteBufAllocator
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -138,7 +150,7 @@ argument_list|()
 decl_stmt|;
 name|buf
 operator|=
-name|ByteBufAllocator
+name|PooledByteBufAllocator
 operator|.
 name|DEFAULT
 operator|.

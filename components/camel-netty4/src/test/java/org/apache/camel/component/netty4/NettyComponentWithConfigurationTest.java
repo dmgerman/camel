@@ -73,7 +73,7 @@ name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"netty"
+literal|"netty4"
 argument_list|,
 name|NettyComponent
 operator|.
@@ -114,7 +114,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"netty://tcp://localhost:4455"
+literal|"netty4://tcp://localhost:4455"
 argument_list|)
 decl_stmt|;
 name|NettyEndpoint
@@ -127,7 +127,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"netty://tcp://localhost:5566?sync=false&needClientAuth=true"
+literal|"netty4://tcp://localhost:5566?sync=false&needClientAuth=true"
 argument_list|)
 decl_stmt|;
 comment|// should not be same

@@ -78,7 +78,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&delimiter=NULL&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&delimiter=NULL&sync=false"
 argument_list|,
 literal|"Hello World\u0000"
 argument_list|)
@@ -113,7 +113,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&delimiter=NULL&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&delimiter=NULL&sync=false"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.

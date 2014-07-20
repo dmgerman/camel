@@ -122,12 +122,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty:tcp://localhost:8080?requestTimeout=5000"
+literal|"netty4:tcp://localhost:8080?requestTimeout=5000"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:8080"
+literal|"netty4:tcp://localhost:8080"
 argument_list|)
 operator|.
 name|to

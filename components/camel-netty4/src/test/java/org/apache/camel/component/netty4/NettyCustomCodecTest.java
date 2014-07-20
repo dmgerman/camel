@@ -83,7 +83,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"netty:tcp://localhost:{{port}}?disconnect=true&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?disconnect=true&sync=false"
 operator|+
 literal|"&allowDefaultCodec=false&decoders=#myCustomDecoder,#myCustomDecoder2&encoder=#myCustomEncoder"
 decl_stmt|;

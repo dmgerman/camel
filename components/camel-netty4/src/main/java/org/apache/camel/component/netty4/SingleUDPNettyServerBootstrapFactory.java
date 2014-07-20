@@ -620,25 +620,6 @@ throws|throws
 name|Exception
 block|{
 comment|// create non-shared worker pool
-name|int
-name|count
-init|=
-name|configuration
-operator|.
-name|getWorkerCount
-argument_list|()
-operator|>
-literal|0
-condition|?
-name|configuration
-operator|.
-name|getWorkerCount
-argument_list|()
-else|:
-name|NettyHelper
-operator|.
-name|DEFAULT_IO_THREADS
-decl_stmt|;
 name|EventLoopGroup
 name|wg
 init|=

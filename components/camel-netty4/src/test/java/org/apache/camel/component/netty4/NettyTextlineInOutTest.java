@@ -81,7 +81,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -127,7 +127,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.

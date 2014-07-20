@@ -90,7 +90,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true&option.child.keepAlive=false"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&option.child.keepAlive=false"
 argument_list|)
 operator|.
 name|process

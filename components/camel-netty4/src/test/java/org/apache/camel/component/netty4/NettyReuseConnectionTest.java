@@ -59,7 +59,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"netty:tcp://localhost:{{port}}?sync=true&disconnect=false"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&disconnect=false"
 decl_stmt|;
 annotation|@
 name|Test

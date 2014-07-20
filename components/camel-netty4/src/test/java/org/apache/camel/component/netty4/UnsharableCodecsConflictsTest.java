@@ -494,7 +494,7 @@ argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port1
 operator|+
@@ -508,7 +508,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port2
 operator|+

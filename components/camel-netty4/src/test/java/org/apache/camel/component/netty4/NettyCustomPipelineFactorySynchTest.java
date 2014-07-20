@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|channels
-operator|.
-name|Channels
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|netty
@@ -318,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?serverPipelineFactory=#spf&sync=true&textline=true"
+literal|"netty4:tcp://localhost:{{port}}?serverPipelineFactory=#spf&sync=true&textline=true"
 argument_list|)
 operator|.
 name|process
@@ -375,7 +363,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?clientPipelineFactory=#cpf&sync=true&textline=true"
+literal|"netty4:tcp://localhost:{{port}}?clientPipelineFactory=#cpf&sync=true&textline=true"
 argument_list|,
 literal|"Forest Gump describing Vietnam..."
 argument_list|)

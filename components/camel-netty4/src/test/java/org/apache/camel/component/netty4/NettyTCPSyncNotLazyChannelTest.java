@@ -91,7 +91,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true&lazyChannelCreation=false"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&lazyChannelCreation=false"
 argument_list|,
 literal|"Epitaph in Kohima, India marking the WWII Battle of Kohima and Imphal, Burma Campaign - Attributed to John Maxwell Edmonds"
 argument_list|,
@@ -135,7 +135,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true&lazyChannelCreation=false"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&lazyChannelCreation=false"
 argument_list|,
 name|poetry
 argument_list|)
@@ -177,7 +177,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process

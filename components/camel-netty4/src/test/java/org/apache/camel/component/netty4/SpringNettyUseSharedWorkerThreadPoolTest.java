@@ -126,7 +126,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5021?textline=true&sync=true"
+literal|"netty4:tcp://localhost:5021?textline=true&sync=true"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -148,7 +148,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5022?textline=true&sync=true"
+literal|"netty4:tcp://localhost:5022?textline=true&sync=true"
 argument_list|,
 literal|"Hello Camel"
 argument_list|,
@@ -170,7 +170,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:5023?textline=true&sync=true"
+literal|"netty4:tcp://localhost:5023?textline=true&sync=true"
 argument_list|,
 literal|"Hello Claus"
 argument_list|,

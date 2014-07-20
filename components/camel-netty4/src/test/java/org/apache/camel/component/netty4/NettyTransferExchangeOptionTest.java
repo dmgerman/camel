@@ -208,7 +208,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?transferExchange=true"
+literal|"netty4:tcp://localhost:{{port}}?transferExchange=true"
 argument_list|)
 decl_stmt|;
 name|Exchange
@@ -493,7 +493,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?transferExchange=true"
+literal|"netty4:tcp://localhost:{{port}}?transferExchange=true"
 argument_list|)
 operator|.
 name|process

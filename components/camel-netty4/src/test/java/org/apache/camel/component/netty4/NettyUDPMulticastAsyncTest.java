@@ -258,7 +258,7 @@ expr_stmt|;
 comment|// any IP in the range of 224.0.0.0 through 239.255.255.255 does the job
 name|sendFile
 argument_list|(
-literal|"netty:udp://224.1.2.3:{{port}}?sync=false"
+literal|"netty4:udp://224.1.2.3:{{port}}?sync=false"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -293,7 +293,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:udp://224.1.2.3:{{port}}?sync=false&networkInterface=en0"
+literal|"netty4:udp://224.1.2.3:{{port}}?sync=false&networkInterface=en0"
 argument_list|)
 operator|.
 name|to

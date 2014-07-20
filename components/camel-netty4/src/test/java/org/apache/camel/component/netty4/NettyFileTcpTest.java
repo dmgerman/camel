@@ -133,7 +133,7 @@ block|{
 comment|// lets setup a server
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=false&textline=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=false&textline=true"
 argument_list|)
 operator|.
 name|to

@@ -141,7 +141,7 @@ specifier|private
 name|String
 name|uri
 init|=
-literal|"netty:tcp://localhost:{{port}}?sync=true&reuseAddress=true&synchronous=false"
+literal|"netty4:tcp://localhost:{{port}}?sync=true&reuseAddress=true&synchronous=false"
 decl_stmt|;
 DECL|field|clientCount
 specifier|private

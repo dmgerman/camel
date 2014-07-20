@@ -152,7 +152,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|getPort
 argument_list|()
@@ -313,7 +313,7 @@ argument_list|()
 operator|.
 name|addComponent
 argument_list|(
-literal|"netty"
+literal|"netty4"
 argument_list|,
 name|component
 argument_list|)

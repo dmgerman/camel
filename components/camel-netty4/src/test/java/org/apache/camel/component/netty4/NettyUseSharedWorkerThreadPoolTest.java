@@ -185,7 +185,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port
 operator|+
@@ -211,7 +211,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port2
 operator|+
@@ -237,7 +237,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port3
 operator|+
@@ -382,7 +382,7 @@ argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port
 operator|+
@@ -427,7 +427,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port2
 operator|+
@@ -472,7 +472,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|port3
 operator|+

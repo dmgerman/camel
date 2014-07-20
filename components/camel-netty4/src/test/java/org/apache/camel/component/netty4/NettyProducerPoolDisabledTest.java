@@ -139,12 +139,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&producerPoolEnabled=false"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true&producerPoolEnabled=false"
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.

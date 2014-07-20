@@ -80,7 +80,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=false"
 argument_list|,
 literal|"Hello World\nhow are you?\n"
 argument_list|)
@@ -113,7 +113,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=false"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -146,7 +146,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=false"
 argument_list|,
 literal|"Hello World\n"
 argument_list|)
@@ -181,7 +181,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=false"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=false"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.

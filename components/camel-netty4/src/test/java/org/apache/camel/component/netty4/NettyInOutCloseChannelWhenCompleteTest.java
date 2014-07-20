@@ -95,7 +95,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=true"
 argument_list|,
 literal|"Claus"
 argument_list|)
@@ -132,7 +132,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process

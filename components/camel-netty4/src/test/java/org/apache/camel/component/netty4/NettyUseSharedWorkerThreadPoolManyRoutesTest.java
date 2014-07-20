@@ -306,7 +306,7 @@ control|)
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|getNextPort
 argument_list|()

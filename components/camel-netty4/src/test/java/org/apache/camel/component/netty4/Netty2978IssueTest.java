@@ -525,7 +525,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process
@@ -613,7 +613,7 @@ name|camelContext
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=true"
 argument_list|)
 expr_stmt|;
 name|this

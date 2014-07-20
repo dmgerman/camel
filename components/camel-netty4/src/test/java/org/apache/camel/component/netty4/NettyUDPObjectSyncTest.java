@@ -98,7 +98,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?sync=true"
+literal|"netty4:udp://localhost:{{port}}?sync=true"
 argument_list|,
 name|poetry
 argument_list|,
@@ -144,7 +144,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?sync=true"
+literal|"netty4:udp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process

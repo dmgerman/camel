@@ -106,7 +106,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?sync=true"
+literal|"netty4:udp://localhost:{{port}}?sync=true"
 argument_list|,
 literal|"After the Battle of Thermopylae in 480 BC - Simonides of Ceos (c. 556 BC-468 BC), Greek lyric poet wrote ?"
 argument_list|,
@@ -150,7 +150,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?sync=true"
+literal|"netty4:udp://localhost:{{port}}?sync=true"
 argument_list|)
 operator|.
 name|process

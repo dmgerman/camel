@@ -149,7 +149,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?sync=false"
+literal|"netty4:udp://localhost:{{port}}?sync=false"
 argument_list|,
 name|message
 argument_list|)
@@ -232,7 +232,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty:udp://localhost:{{port}}?receiveBufferSizePredictor=2048&sync=false"
+literal|"netty4:udp://localhost:{{port}}?receiveBufferSizePredictor=2048&sync=false"
 argument_list|)
 operator|.
 name|to

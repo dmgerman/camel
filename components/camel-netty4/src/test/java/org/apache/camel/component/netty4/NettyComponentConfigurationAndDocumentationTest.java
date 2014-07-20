@@ -131,7 +131,7 @@ name|context
 operator|.
 name|getComponent
 argument_list|(
-literal|"netty"
+literal|"netty4"
 argument_list|,
 name|NettyComponent
 operator|.
@@ -145,7 +145,7 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"netty:tcp://localhost:5150?sync=true"
+literal|"netty4:tcp://localhost:5150?sync=true"
 operator|+
 literal|"&maximumPoolSize=32&ssl=true&passphrase=#password"
 argument_list|)
@@ -240,7 +240,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"netty"
+literal|"netty4"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

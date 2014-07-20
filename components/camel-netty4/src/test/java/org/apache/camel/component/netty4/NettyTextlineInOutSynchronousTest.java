@@ -215,7 +215,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&synchronous=true"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true&synchronous=true"
 argument_list|)
 operator|.
 name|process
@@ -260,7 +260,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?textline=true&sync=true&synchronous=true"
+literal|"netty4:tcp://localhost:{{port}}?textline=true&sync=true&synchronous=true"
 argument_list|)
 comment|// body should be a String when using textline codec
 operator|.

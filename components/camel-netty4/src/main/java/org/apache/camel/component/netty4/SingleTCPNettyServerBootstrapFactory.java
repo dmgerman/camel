@@ -901,7 +901,7 @@ comment|/*if (configuration.getOptions() != null) {             for (Map.Entry<S
 comment|// set the pipeline factory, which creates the pipeline for each newly created channels
 name|serverBootstrap
 operator|.
-name|handler
+name|childHandler
 argument_list|(
 name|pipelineFactory
 argument_list|)

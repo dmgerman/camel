@@ -341,7 +341,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"netty:udp://127.0.0.1:{{port}}?textline=true&sync=true"
+literal|"netty4:udp://127.0.0.1:{{port}}?textline=true&sync=true"
 argument_list|)
 operator|.
 name|process
