@@ -56,7 +56,7 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
-DECL|field|properties
+DECL|field|componentProperties
 specifier|private
 name|Map
 argument_list|<
@@ -64,7 +64,27 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|properties
+name|componentProperties
+decl_stmt|;
+DECL|field|endpointProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|endpointProperties
+decl_stmt|;
+DECL|field|consumerProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|consumerProperties
 decl_stmt|;
 comment|/**      * Gets the name of the Camel component to use as the REST consumer      *      * @return the component name, or<tt>null</tt> to let Camel search the {@link Registry} to find suitable implementation      */
 DECL|method|getComponent ()
@@ -178,8 +198,8 @@ operator|=
 name|port
 expr_stmt|;
 block|}
-comment|/**      * Gets additional options to use to configure the REST consumer      *      * @return additional options      */
-DECL|method|getProperties ()
+comment|/**      * Gets additional options on component level      *      * @return additional options      */
+DECL|method|getComponentProperties ()
 specifier|public
 name|Map
 argument_list|<
@@ -187,18 +207,18 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getProperties
+name|getComponentProperties
 parameter_list|()
 block|{
 return|return
-name|properties
+name|componentProperties
 return|;
 block|}
-comment|/**      * Sets additional options to use to configure the REST consumer      *      * @param properties the options      */
-DECL|method|setProperties (Map<String, Object> properties)
+comment|/**      * Sets additional options on component level      *      * @param componentProperties the options      */
+DECL|method|setComponentProperties (Map<String, Object> componentProperties)
 specifier|public
 name|void
-name|setProperties
+name|setComponentProperties
 parameter_list|(
 name|Map
 argument_list|<
@@ -206,14 +226,90 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|properties
+name|componentProperties
 parameter_list|)
 block|{
 name|this
 operator|.
-name|properties
+name|componentProperties
 operator|=
-name|properties
+name|componentProperties
+expr_stmt|;
+block|}
+comment|/**      * Gets additional options on endpoint level      *      * @return additional options      */
+DECL|method|getEndpointProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getEndpointProperties
+parameter_list|()
+block|{
+return|return
+name|endpointProperties
+return|;
+block|}
+comment|/**      * Sets additional options on endpoint level      *      * @param endpointProperties the options      */
+DECL|method|setEndpointProperties (Map<String, Object> endpointProperties)
+specifier|public
+name|void
+name|setEndpointProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|endpointProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointProperties
+operator|=
+name|endpointProperties
+expr_stmt|;
+block|}
+comment|/**      * Gets additional options on consumer level      *      * @return additional options      */
+DECL|method|getConsumerProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getConsumerProperties
+parameter_list|()
+block|{
+return|return
+name|consumerProperties
+return|;
+block|}
+comment|/**      * Sets additional options on consumer level      *      * @param consumerProperties the options      */
+DECL|method|setConsumerProperties (Map<String, Object> consumerProperties)
+specifier|public
+name|void
+name|setConsumerProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|consumerProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerProperties
+operator|=
+name|consumerProperties
 expr_stmt|;
 block|}
 block|}
