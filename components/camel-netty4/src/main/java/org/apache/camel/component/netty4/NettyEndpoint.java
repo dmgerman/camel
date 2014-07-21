@@ -518,7 +518,7 @@ literal|"configuration"
 argument_list|)
 expr_stmt|;
 return|return
-literal|"netty:"
+literal|"netty4:"
 operator|+
 name|getConfiguration
 argument_list|()

@@ -179,7 +179,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"netty:tcp://localhost:%s?sync=true&textline=true"
+literal|"netty4:tcp://localhost:%s?sync=true&textline=true"
 argument_list|,
 name|port2
 argument_list|)

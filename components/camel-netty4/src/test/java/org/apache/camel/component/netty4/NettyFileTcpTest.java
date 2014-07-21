@@ -148,7 +148,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty:tcp://localhost:{{port}}?sync=false&textline=true"
+literal|"netty4:tcp://localhost:{{port}}?sync=false&textline=true"
 argument_list|)
 expr_stmt|;
 block|}

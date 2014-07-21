@@ -66,6 +66,20 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
+name|socket
+operator|.
+name|DatagramPacket
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -345,13 +359,24 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|//TODO need to check if we don't need to set the remoteAddress for the UDP channel
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"The remote address is "
+operator|+
+name|remoteAddress
+argument_list|)
+expr_stmt|;
+comment|// TODO Do we need to setup the remoteAddress this time
 comment|//future = channel.write(body, remoteAddress);
 name|future
 operator|=
 name|channel
 operator|.
-name|write
+name|writeAndFlush
 argument_list|(
 name|body
 argument_list|)
@@ -384,11 +409,12 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// In netty4 we need to call channel flush to send out the message
 name|future
 operator|=
 name|channel
 operator|.
-name|write
+name|writeAndFlush
 argument_list|(
 name|body
 argument_list|)

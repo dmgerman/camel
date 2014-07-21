@@ -201,10 +201,7 @@ operator|.
 name|shutdownGracefully
 argument_list|()
 operator|.
-name|sync
-argument_list|()
-operator|.
-name|await
+name|awaitUninterruptibly
 argument_list|()
 expr_stmt|;
 name|sharedWorkerGroup
@@ -212,10 +209,7 @@ operator|.
 name|shutdownGracefully
 argument_list|()
 operator|.
-name|sync
-argument_list|()
-operator|.
-name|await
+name|awaitUninterruptibly
 argument_list|()
 expr_stmt|;
 block|}
