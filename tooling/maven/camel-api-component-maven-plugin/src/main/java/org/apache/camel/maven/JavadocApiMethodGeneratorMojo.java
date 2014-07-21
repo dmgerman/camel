@@ -50,6 +50,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|lang
 operator|.
 name|reflect
@@ -67,6 +77,16 @@ operator|.
 name|reflect
 operator|.
 name|Modifier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URLDecoder
 import|;
 end_import
 
@@ -1713,7 +1733,9 @@ name|String
 name|htmlString
 parameter_list|)
 block|{
-return|return
+name|String
+name|result
+init|=
 name|StringEscapeUtils
 operator|.
 name|unescapeHtml
@@ -1727,6 +1749,29 @@ name|NON_BREAKING_SPACE
 argument_list|,
 literal|" "
 argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|result
+operator|=
+name|URLDecoder
+operator|.
+name|decode
+argument_list|(
+name|result
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|ignored
+parameter_list|)
+block|{              }
+return|return
+name|result
 return|;
 block|}
 annotation|@
