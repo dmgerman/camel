@@ -65,11 +65,8 @@ argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define rest services, and use embedded routes
 name|rest
-argument_list|()
-operator|.
-name|uri
 argument_list|(
-literal|"hello/:me"
+literal|"/hello/{me}"
 argument_list|)
 operator|.
 name|get
