@@ -201,6 +201,13 @@ name|component
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|scheme
+specifier|private
+name|String
+name|scheme
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|host
 specifier|private
 name|String
@@ -254,6 +261,32 @@ operator|.
 name|component
 operator|=
 name|component
+expr_stmt|;
+block|}
+DECL|method|getScheme ()
+specifier|public
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+name|scheme
+return|;
+block|}
+DECL|method|setScheme (String scheme)
+specifier|public
+name|void
+name|setScheme
+parameter_list|(
+name|String
+name|scheme
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scheme
+operator|=
+name|scheme
 expr_stmt|;
 block|}
 DECL|method|getHost ()
@@ -361,6 +394,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To use a specific scheme such as http/https      */
+DECL|method|scheme (String scheme)
+specifier|public
+name|RestConfigurationDefinition
+name|scheme
+parameter_list|(
+name|String
+name|scheme
+parameter_list|)
+block|{
+name|setScheme
+argument_list|(
+name|scheme
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To define the host to use, such as 0.0.0.0 or localhost      */
 DECL|method|host (String host)
 specifier|public
 name|RestConfigurationDefinition
@@ -379,6 +432,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To specify the port number to use for the REST service      */
 DECL|method|port (int port)
 specifier|public
 name|RestConfigurationDefinition
@@ -399,6 +453,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To specify the port number to use for the REST service      */
 DECL|method|port (String port)
 specifier|public
 name|RestConfigurationDefinition
@@ -417,6 +472,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * For additional configuration options      */
 DECL|method|property (String key, String value)
 specifier|public
 name|RestConfigurationDefinition
@@ -501,6 +557,28 @@ argument_list|(
 name|context
 argument_list|,
 name|component
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|scheme
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setScheme
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|context
+argument_list|,
+name|scheme
 argument_list|)
 argument_list|)
 expr_stmt|;

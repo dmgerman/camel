@@ -41,6 +41,11 @@ specifier|private
 name|String
 name|component
 decl_stmt|;
+DECL|field|scheme
+specifier|private
+name|String
+name|scheme
+decl_stmt|;
 DECL|field|host
 specifier|private
 name|String
@@ -115,6 +120,34 @@ operator|.
 name|host
 operator|=
 name|host
+expr_stmt|;
+block|}
+comment|/**      * Gets the scheme to use by the REST consumer      *      * @return the scheme, or<tt>null</tt> to use default scheme      */
+DECL|method|getScheme ()
+specifier|public
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+name|scheme
+return|;
+block|}
+comment|/**      * Sets the scheme to use by the REST consumer      *      * @param scheme the scheme      */
+DECL|method|setScheme (String scheme)
+specifier|public
+name|void
+name|setScheme
+parameter_list|(
+name|String
+name|scheme
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scheme
+operator|=
+name|scheme
 expr_stmt|;
 block|}
 comment|/**      * Gets the port to use by the REST consumer      *      * @return the port, or<tt>0</tt> or<tt>-1</tt> to use default port      */
