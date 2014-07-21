@@ -1680,43 +1680,18 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|getCamelContext
-argument_list|()
-operator|.
-name|isStartingRoutes
-argument_list|()
-operator|&&
-name|answer
-operator|.
-name|isSingleton
-argument_list|()
-condition|)
-block|{
-comment|// if we are currently starting a route, then add as service and enlist in JMX
-comment|// - but do not enlist non-singletons in JMX
-comment|// - note addService will also start the service
+comment|// add as service which will also start the service
+comment|// (false => we and handling the lifecycle of the producer in this cache)
 name|getCamelContext
 argument_list|()
 operator|.
 name|addService
 argument_list|(
 name|answer
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// must then start service so producer is ready to be used
-name|ServiceHelper
-operator|.
-name|startService
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

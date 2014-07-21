@@ -707,6 +707,20 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param closeOnShutdown whether to close the service when this CamelContext shutdown.      * @throws Exception can be thrown when starting the service      */
+DECL|method|addService (Object object, boolean closeOnShutdown)
+name|void
+name|addService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|closeOnShutdown
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Removes a service from this context.      *<p/>      * The service is assumed to have been previously added using {@link #addService(Object)} method.      * This method will<b>not</b> change the service lifecycle.      *      * @param object the service      * @throws Exception can be thrown if error removing the service      * @return<tt>true</tt> if the service was removed,<tt>false</tt> if no service existed      */
 DECL|method|removeService (Object object)
 name|boolean
