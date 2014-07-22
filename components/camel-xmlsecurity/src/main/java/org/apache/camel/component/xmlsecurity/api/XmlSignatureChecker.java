@@ -106,6 +106,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Element
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -115,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This interface gives the application the possibility to check whether the  * expected parts are signed.  *<p>  * Only relevant for the XML signature verifier.  *<p>  * See http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed  */
+comment|/**  * This interface gives the application the possibility to check whether the  * expected parts are signed.  *<p>  * Only relevant for the XML signature verifier.  *<p>  * See http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed  *<p>  * The checker is called for each XML signature contained in the XM document.  * You can get the total and current count of the XML signatures via the methods  * {@link Input#getTotalCountOfSignatures()} and  * {@link Input#getCurrentCountOfSignatures()}.  *   */
 end_comment
 
 begin_interface
@@ -179,6 +191,30 @@ comment|/** Message. */
 DECL|method|getMessage ()
 name|Message
 name|getMessage
+parameter_list|()
+function_decl|;
+comment|/**          * Returns true if a XML schema validation was executed during the          * parsing of the XML document.          *           */
+DECL|method|isXmlSchemaValidationExecuted ()
+name|boolean
+name|isXmlSchemaValidationExecuted
+parameter_list|()
+function_decl|;
+comment|/**          * Returns the total count of XML signatures contained in the document.          *           */
+DECL|method|getTotalCountOfSignatures ()
+name|int
+name|getTotalCountOfSignatures
+parameter_list|()
+function_decl|;
+comment|/**          * Returns the current count of XML signatures starting from 1.          *           */
+DECL|method|getCurrentCountOfSignatures ()
+name|int
+name|getCurrentCountOfSignatures
+parameter_list|()
+function_decl|;
+comment|/** Current signature element. */
+DECL|method|getCurrentSignatureElement ()
+name|Element
+name|getCurrentSignatureElement
 parameter_list|()
 function_decl|;
 block|}

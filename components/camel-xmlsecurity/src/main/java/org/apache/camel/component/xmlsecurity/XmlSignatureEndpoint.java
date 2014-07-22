@@ -386,6 +386,38 @@ name|omitXmlDeclaration
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getSchemaResourceUri ()
+specifier|public
+name|String
+name|getSchemaResourceUri
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSchemaResourceUri
+argument_list|()
+return|;
+block|}
+DECL|method|setSchemaResourceUri (String schemaResourceUri)
+specifier|public
+name|void
+name|setSchemaResourceUri
+parameter_list|(
+name|String
+name|schemaResourceUri
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSchemaResourceUri
+argument_list|(
+name|schemaResourceUri
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

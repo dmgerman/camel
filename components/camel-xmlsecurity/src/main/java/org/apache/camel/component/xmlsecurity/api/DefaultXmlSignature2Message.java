@@ -124,7 +124,7 @@ name|crypto
 operator|.
 name|dsig
 operator|.
-name|Transform
+name|XMLObject
 import|;
 end_import
 
@@ -138,7 +138,7 @@ name|crypto
 operator|.
 name|dsig
 operator|.
-name|XMLObject
+name|XMLSignature
 import|;
 end_import
 
@@ -252,6 +252,18 @@ name|w3c
 operator|.
 name|dom
 operator|.
+name|Element
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
 name|Node
 import|;
 end_import
@@ -301,7 +313,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Maps the XML signature to a camel message. A output node is determined from  * the XML signature document via a node search and then serialized and set to  * the output message body.  *<p>  * There are three output node search types supported: "Default", "ElementName",  * and "XPath". All these search types support enveloped XML signature or  * enveloping XML signature.  *<p>  *<ul>  *<li>The "ElementName" search uses the local name and namespace specified in  * the search value to determine the output element from the XML signature  * document. With the input parameter 'RemoveSignatureElements", you can specify  * whether the signature elements should be removed from the resulting output  * document. This flag shall be used for enveloped XML signatures.  *<li>The "XPath" search uses an XPath expression to evaluate the output node.  * In this case the output node can be of type Element, TextNode, or Document.  * With the input parameter 'RemoveSignatureElements", you can specify whether  * the signature elements should be removed from the resulting output document.  * This flag shall be used for enveloped XML signatures.  *<li>The "Default" search is explained in more detail below.  *</ul>  *<p>  * Default Output Node Search:  *<ul>  * In the enveloped XML signature case, the XML document without the signature  * part is returned in the message body.  *<p>  * In the enveloping XML signature case, the message body is determined from a  * referenced Object element in the following way:  *<ul>  *<li>Only same document references are taken into account (URI must start with  * '#').  *<li>Also indirect same document references to an object via manifest are  * taken into account.  *<li>The resulting number of object references must be 1.  *<li>The referenced object must contain exactly 1 {@link DOMStructure}.  *<li>The node of the DOMStructure is serialized to a byte array and added as  * body to the message.  *</ul>  * This does mean that the enveloping XML signature must have either the  * structure  *   *<pre>  *     {@code  *<Signature>  *<SignedInfo>  *<Reference URI="#object"/>         *<!-- further references possible but they must not point to an Object or Manifest containing an object reference -->  *            ...  *</SignedInfo>  *       *<Object Id="object">  *<!-- contains the DOM node which should be extracted to the message body -->  *<Object>  *<!-- further object elements possible which are not referenced-->  *         ...  *         (<KeyInfo>)?  *</Signature>  *     }  *</pre>  *   * or the structure  *   *<pre>  *     {@code  *<Signature>  *<SignedInfo>  *<Reference URI="#manifest"/>         *<!-- further references  are possible but they must not point to an Object or other manifest containing an object reference -->  *            ...  *</SignedInfo>  *       *<Object>  *<Manifest Id="manifest">  *<Reference URI=#object/>  *</Manifest>  *</Objet>  *<Object Id="object">  *<!-- contains the DOM node which should be extracted to the message body -->  *</Object>  *<!-- further object elements possible which are not referenced -->  *         ...  *         (<KeyInfo>)?  *</Signature>  *     }  *</pre>  *</ul>  */
+comment|/**  * Maps the XML signature to a camel message. A output node is determined from  * the XML signature document via a node search and then serialized and set to  * the output message body.  *<p>  * There are three output node search types supported: "Default", "ElementName",  * and "XPath". All these search types support enveloped XML signature or  * enveloping XML signature.  *<p>  *<ul>  *<li>The "ElementName" search uses the local name and namespace specified in  * the search value to determine the output element from the XML signature  * document. With the input parameter 'RemoveSignatureElements", you can specify  * whether the signature elements should be removed from the resulting output  * document. This flag shall be used for enveloped XML signatures.  *<li>The "XPath" search uses an XPath expression to evaluate the output node.  * In this case the output node can be of type Element, TextNode, or Document.  * With the input parameter 'RemoveSignatureElements", you can specify whether  * the signature elements should be removed from the resulting output document.  * This flag shall be used for enveloped XML signatures.  *<li>The "Default" search is explained in more detail below.  *</ul>  *<p>  * Default Output Node Search:  *<ul>  * In the enveloped XML signature case, the XML document without the signature  * part is returned in the message body.  *<p>  * In the enveloping XML signature case, the message body is determined from a  * referenced Object element in the following way:  *<ul>  *<li>Only same document references are taken into account (URI must start with  * '#').  *<li>Also indirect same document references to an object via manifest are  * taken into account.  *<li>The resulting number of object references must be 1.  *<li>The referenced object must contain exactly 1 {@link DOMStructure}.  *<li>The node of the DOMStructure is serialized to a byte array and added as  * body to the message.  *</ul>  * This does mean that the enveloping XML signature must have either the  * structure  *   *<pre>  *     {@code  *<Signature>  *<SignedInfo>  *<Reference URI="#object"/>         *<!-- further references possible but they must not point to an Object or Manifest containing an object reference -->  *            ...  *</SignedInfo>  *       *<Object Id="object">  *<!-- contains the DOM node which should be extracted to the message body -->  *<Object>  *<!-- further object elements possible which are not referenced-->  *         ...  *         (<KeyInfo>)?  *</Signature>  *     }  *</pre>  *   * or the structure  *   *<pre>  *     {@code  *<Signature>  *<SignedInfo>  *<Reference URI="#manifest"/>         *<!-- further references  are possible but they must not point to an Object or other manifest containing an object reference -->  *            ...  *</SignedInfo>  *       *<Object>  *<Manifest Id="manifest">  *<Reference URI=#object/>  *</Manifest>  *</Objet>  *<Object Id="object">  *<!-- contains the DOM node which should be extracted to the message body -->  *</Object>  *<!-- further object elements possible which are not referenced -->  *         ...  *         (<KeyInfo>)?  *</Signature>  *     }  *</pre>  *   *</ul>  */
 end_comment
 
 begin_class
@@ -405,13 +417,23 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isEnveloped
+name|isEnveloping
 argument_list|(
 name|input
 argument_list|)
 condition|)
 block|{
-comment|// enveloped XML signature --> remove signature element
+name|node
+operator|=
+name|getNodeForMessageBodyInEnvelopingCase
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// enveloped or detached XML signature  --> remove signature element
 name|node
 operator|=
 name|input
@@ -425,16 +447,6 @@ expr_stmt|;
 name|removeSignatureElements
 operator|=
 literal|true
-expr_stmt|;
-block|}
-else|else
-block|{
-name|node
-operator|=
-name|getNodeForMessageBodyInNonEnvelopedCase
-argument_list|(
-name|input
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1251,10 +1263,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getNodeForMessageBodyInNonEnvelopedCase (Input input)
+DECL|method|getNodeForMessageBodyInEnvelopingCase (Input input)
 specifier|protected
 name|Node
-name|getNodeForMessageBodyInNonEnvelopedCase
+name|getNodeForMessageBodyInEnvelopingCase
 parameter_list|(
 name|Input
 name|input
@@ -1336,9 +1348,29 @@ name|doc
 operator|.
 name|getElementsByTagNameNS
 argument_list|(
-literal|"http://www.w3.org/2000/09/xmldsig#"
+name|XMLSignature
+operator|.
+name|XMLNS
 argument_list|,
 literal|"Signature"
+argument_list|)
+decl_stmt|;
+name|List
+argument_list|<
+name|Node
+argument_list|>
+name|nodesToBeRemoved
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Node
+argument_list|>
+argument_list|(
+name|nl
+operator|.
+name|getLength
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for
@@ -1359,16 +1391,28 @@ name|i
 operator|++
 control|)
 block|{
-name|Node
-name|n
-init|=
+comment|// you cannot remove the nodes within this loop, because nl list would change
+name|nodesToBeRemoved
+operator|.
+name|add
+argument_list|(
 name|nl
 operator|.
 name|item
 argument_list|(
 name|i
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|Node
+name|n
+range|:
+name|nodesToBeRemoved
+control|)
+block|{
 name|Node
 name|parent
 init|=
@@ -1394,16 +1438,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns the enveloped data in case of an enveloped XML signature.      *       * @param input      *            references of signed info and objects      * @return<code>true</code> if there exists a reference with URI = "" and      *         with {@link Transform#ENVELOPED} transform; otherwise      *<code>false</code>      * @throws Exception      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|isEnveloped (Input input)
+comment|/**      * Checks whether the XML document has as root element the signature      * element.      *       * @param input      *            XML signature input      * @return<code>true</code> if the root element of the xml signature      *         document is the signature element; otherwise<code>false</code>      * @throws Exception      */
+DECL|method|isEnveloping (Input input)
 specifier|protected
 name|boolean
-name|isEnveloped
+name|isEnveloping
 parameter_list|(
 name|Input
 name|input
@@ -1412,58 +1451,38 @@ throws|throws
 name|Exception
 block|{
 comment|//NOPMD
-for|for
-control|(
-name|Reference
-name|ref
-range|:
+name|Element
+name|el
+init|=
 name|input
 operator|.
-name|getReferences
+name|getMessageBodyDocument
 argument_list|()
-control|)
-block|{
+operator|.
+name|getDocumentElement
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
-literal|""
+literal|"Signature"
 operator|.
 name|equals
 argument_list|(
-name|ref
+name|el
 operator|.
-name|getURI
+name|getLocalName
 argument_list|()
 argument_list|)
-condition|)
-block|{
-for|for
-control|(
-name|Transform
-name|t
-range|:
-operator|(
-name|List
-argument_list|<
-name|Transform
-argument_list|>
-operator|)
-name|ref
+operator|&&
+name|XMLSignature
 operator|.
-name|getTransforms
-argument_list|()
-control|)
-block|{
-if|if
-condition|(
-name|Transform
-operator|.
-name|ENVELOPED
+name|XMLNS
 operator|.
 name|equals
 argument_list|(
-name|t
+name|el
 operator|.
-name|getAlgorithm
+name|getNamespaceURI
 argument_list|()
 argument_list|)
 condition|)
@@ -1471,9 +1490,6 @@ block|{
 return|return
 literal|true
 return|;
-block|}
-block|}
-block|}
 block|}
 return|return
 literal|false
@@ -1637,7 +1653,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Unsupported XML signature document: Content object not found in the XML signature. Detached or enveloped signatures are not supported."
+literal|"Unsupported XML signature document: Content object not found in the enveloping XML signature."
 argument_list|)
 argument_list|)
 throw|;
