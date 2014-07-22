@@ -66,6 +66,20 @@ name|fasterxml
 operator|.
 name|jackson
 operator|.
+name|annotation
+operator|.
+name|JsonInclude
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
 name|databind
 operator|.
 name|ObjectMapper
@@ -114,6 +128,20 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat})  * using<a href="http://jackson.codehaus.org/">Jackson</a> to marshal to and from JSON.  */
 end_comment
@@ -123,6 +151,8 @@ DECL|class|JacksonDataFormat
 specifier|public
 class|class
 name|JacksonDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 block|{
@@ -147,6 +177,11 @@ argument_list|<
 name|?
 argument_list|>
 name|jsonView
+decl_stmt|;
+DECL|field|include
+specifier|private
+name|String
+name|include
 decl_stmt|;
 comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Map}      */
 DECL|method|JacksonDataFormat ()
@@ -445,6 +480,84 @@ name|this
 operator|.
 name|objectMapper
 return|;
+block|}
+DECL|method|getInclude ()
+specifier|public
+name|String
+name|getInclude
+parameter_list|()
+block|{
+return|return
+name|include
+return|;
+block|}
+DECL|method|setInclude (String include)
+specifier|public
+name|void
+name|setInclude
+parameter_list|(
+name|String
+name|include
+parameter_list|)
+block|{
+name|this
+operator|.
+name|include
+operator|=
+name|include
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|include
+operator|!=
+literal|null
+condition|)
+block|{
+name|JsonInclude
+operator|.
+name|Include
+name|inc
+init|=
+name|JsonInclude
+operator|.
+name|Include
+operator|.
+name|valueOf
+argument_list|(
+name|include
+argument_list|)
+decl_stmt|;
+name|objectMapper
+operator|.
+name|setSerializationInclusion
+argument_list|(
+name|inc
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
