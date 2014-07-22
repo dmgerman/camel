@@ -2160,7 +2160,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Gets the outputs from the given parent.      *<p/>      * This implementation deals with that outputs can be abstract and retrieves the correct non-nested output.      *      * @param parent the parent      * @return<tt>null</tt> if no parent      */
+comment|/**      * Gets the outputs from the given parent.      *<p/>      * This implementation deals with that outputs can be abstract and retrieves the<i>correct</i> parent output.      *      * @param parent the parent      * @return<tt>null</tt> if no parent      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2207,14 +2207,9 @@ name|outputs
 operator|.
 name|size
 argument_list|()
-operator|>=
+operator|==
 literal|1
-condition|)
-block|{
-comment|// if the 1st output is abstract, then its onException,transacted,intercept etc so we should
-comment|// get the 'actual' outputs from that
-if|if
-condition|(
+operator|&&
 name|outputs
 operator|.
 name|get
@@ -2226,6 +2221,7 @@ name|isAbstract
 argument_list|()
 condition|)
 block|{
+comment|// if the output is abstract then get its output, as
 name|outputs
 operator|=
 name|outputs
@@ -2238,7 +2234,6 @@ operator|.
 name|getOutputs
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 return|return
 name|outputs
