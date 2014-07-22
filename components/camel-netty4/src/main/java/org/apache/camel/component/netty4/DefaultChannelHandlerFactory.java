@@ -26,52 +26,66 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelHandler
+name|ChannelHandlerContext
 import|;
 end_import
 
-begin_comment
-comment|/**  * A {@link ChannelHandlerFactory} returning a shareable {@link ChannelHandler}.  */
-end_comment
-
 begin_class
-DECL|class|ShareableChannelHandlerFactory
+DECL|class|DefaultChannelHandlerFactory
 specifier|public
+specifier|abstract
 class|class
-name|ShareableChannelHandlerFactory
-extends|extends
 name|DefaultChannelHandlerFactory
+implements|implements
+name|ChannelHandlerFactory
 block|{
-DECL|field|channelHandler
-specifier|private
-specifier|final
-name|ChannelHandler
-name|channelHandler
-decl_stmt|;
-DECL|method|ShareableChannelHandlerFactory (ChannelHandler channelHandler)
+annotation|@
+name|Override
+DECL|method|handlerAdded (ChannelHandlerContext ctx)
 specifier|public
-name|ShareableChannelHandlerFactory
+name|void
+name|handlerAdded
 parameter_list|(
-name|ChannelHandler
-name|channelHandler
+name|ChannelHandlerContext
+name|ctx
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|this
-operator|.
-name|channelHandler
-operator|=
-name|channelHandler
-expr_stmt|;
+comment|//Do nothing here
 block|}
-DECL|method|newChannelHandler ()
+annotation|@
+name|Override
+DECL|method|handlerRemoved (ChannelHandlerContext ctx)
 specifier|public
-name|ChannelHandler
-name|newChannelHandler
-parameter_list|()
+name|void
+name|handlerRemoved
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
-name|channelHandler
-return|;
+comment|//Do nothing here
+block|}
+annotation|@
+name|Override
+DECL|method|exceptionCaught (ChannelHandlerContext ctx, Throwable cause)
+specifier|public
+name|void
+name|exceptionCaught
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|,
+name|Throwable
+name|cause
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|//Do nothing here
 block|}
 block|}
 end_class
