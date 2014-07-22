@@ -248,7 +248,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"netty"
+literal|"netty4"
 argument_list|,
 name|consumerClass
 operator|=
