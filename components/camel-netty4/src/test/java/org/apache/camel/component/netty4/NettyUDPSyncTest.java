@@ -74,6 +74,24 @@ name|NettyUDPSyncTest
 extends|extends
 name|BaseNettyTest
 block|{
+DECL|field|RESPONSE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|RESPONSE
+init|=
+literal|"Go tell the Spartans, thou that passest by, That faithful to their precepts here we lie."
+decl_stmt|;
+DECL|field|REQUEST
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|REQUEST
+init|=
+literal|"After the Battle of Thermopylae in 480 BC - Simonides of Ceos (c. 556 BC-468 BC), Greek lyric poet wrote "
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testUDPStringInOutWithNettyConsumer ()
@@ -108,7 +126,7 @@ name|requestBody
 argument_list|(
 literal|"netty4:udp://localhost:{{port}}?sync=true"
 argument_list|,
-literal|"After the Battle of Thermopylae in 480 BC - Simonides of Ceos (c. 556 BC-468 BC), Greek lyric poet wrote ?"
+name|REQUEST
 argument_list|,
 name|String
 operator|.
@@ -117,7 +135,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Go tell the Spartans, thou that passest by, That faithful to their precepts here we lie."
+name|RESPONSE
 argument_list|,
 name|response
 argument_list|)
@@ -176,7 +194,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-literal|"Go tell the Spartans, thou that passest by, That faithful to their precepts here we lie."
+name|RESPONSE
 argument_list|)
 expr_stmt|;
 block|}
