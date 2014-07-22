@@ -236,7 +236,7 @@ argument_list|(
 literal|"new"
 argument_list|)
 operator|.
-name|as
+name|type
 argument_list|(
 name|UserJaxbPojo
 operator|.

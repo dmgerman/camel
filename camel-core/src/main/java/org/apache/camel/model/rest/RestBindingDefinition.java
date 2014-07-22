@@ -196,6 +196,20 @@ name|IntrospectionSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 annotation|@
 name|XmlRootElement
@@ -234,20 +248,20 @@ name|xmlDataFormat
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|classType
+DECL|field|type
 specifier|private
 name|String
-name|classType
+name|type
 decl_stmt|;
 annotation|@
 name|XmlTransient
-DECL|field|resolvedClassType
+DECL|field|classType
 specifier|private
 name|Class
 argument_list|<
 name|?
 argument_list|>
-name|resolvedClassType
+name|classType
 decl_stmt|;
 annotation|@
 name|Override
@@ -273,7 +287,7 @@ return|return
 literal|"rest"
 return|;
 block|}
-comment|// TODO: allow to configure if json/jaxb is mandatory, or optional
+comment|// TODO: allow to configure if json/xml only or auto detect (now)
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)
@@ -287,6 +301,34 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// type must be set
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|type
+argument_list|)
+operator|&&
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|classType
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Type must be configured on "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 name|CamelContext
 name|context
 init|=
@@ -344,16 +386,16 @@ throw|;
 block|}
 if|if
 condition|(
-name|resolvedClassType
+name|classType
 operator|==
 literal|null
 operator|&&
-name|classType
+name|type
 operator|!=
 literal|null
 condition|)
 block|{
-name|resolvedClassType
+name|classType
 operator|=
 name|context
 operator|.
@@ -362,13 +404,13 @@ argument_list|()
 operator|.
 name|resolveMandatoryClass
 argument_list|(
-name|classType
+name|type
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|resolvedClassType
+name|classType
 operator|!=
 literal|null
 condition|)
@@ -386,7 +428,7 @@ name|json
 argument_list|,
 literal|"unmarshalType"
 argument_list|,
-name|resolvedClassType
+name|classType
 argument_list|)
 expr_stmt|;
 block|}
@@ -445,16 +487,16 @@ throw|;
 block|}
 if|if
 condition|(
-name|resolvedClassType
+name|classType
 operator|==
 literal|null
 operator|&&
-name|classType
+name|type
 operator|!=
 literal|null
 condition|)
 block|{
-name|resolvedClassType
+name|classType
 operator|=
 name|context
 operator|.
@@ -463,13 +505,13 @@ argument_list|()
 operator|.
 name|resolveMandatoryClass
 argument_list|(
-name|classType
+name|type
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|resolvedClassType
+name|classType
 operator|!=
 literal|null
 condition|)
@@ -481,7 +523,7 @@ name|JAXBContext
 operator|.
 name|newInstance
 argument_list|(
-name|resolvedClassType
+name|classType
 argument_list|)
 decl_stmt|;
 name|IntrospectionSupport
@@ -518,9 +560,38 @@ name|jaxb
 argument_list|)
 return|;
 block|}
-DECL|method|getClassType ()
+DECL|method|getType ()
 specifier|public
 name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+DECL|method|setType (String type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|getClassType ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getClassType
 parameter_list|()
 block|{
@@ -528,12 +599,15 @@ return|return
 name|classType
 return|;
 block|}
-DECL|method|setClassType (String classType)
+DECL|method|setClassType (Class<?> classType)
 specifier|public
 name|void
 name|setClassType
 parameter_list|(
-name|String
+name|Class
+argument_list|<
+name|?
+argument_list|>
 name|classType
 parameter_list|)
 block|{
@@ -542,38 +616,6 @@ operator|.
 name|classType
 operator|=
 name|classType
-expr_stmt|;
-block|}
-DECL|method|getResolvedClassType ()
-specifier|public
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|getResolvedClassType
-parameter_list|()
-block|{
-return|return
-name|resolvedClassType
-return|;
-block|}
-DECL|method|setResolvedClassType (Class<?> resolvedClassType)
-specifier|public
-name|void
-name|setResolvedClassType
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|resolvedClassType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|resolvedClassType
-operator|=
-name|resolvedClassType
 expr_stmt|;
 block|}
 block|}

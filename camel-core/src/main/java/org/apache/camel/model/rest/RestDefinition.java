@@ -582,10 +582,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|as (String classType)
+DECL|method|type (String classType)
 specifier|public
 name|RestDefinition
-name|as
+name|type
 parameter_list|(
 name|String
 name|classType
@@ -628,7 +628,7 @@ argument_list|)
 decl_stmt|;
 name|verb
 operator|.
-name|setClassType
+name|setType
 argument_list|(
 name|classType
 argument_list|)
@@ -637,10 +637,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|as (Class<?> classType)
+DECL|method|type (Class<?> classType)
 specifier|public
 name|RestDefinition
-name|as
+name|type
 parameter_list|(
 name|Class
 argument_list|<
@@ -686,9 +686,19 @@ argument_list|)
 decl_stmt|;
 name|verb
 operator|.
-name|setResolvedClassType
+name|setClassType
 argument_list|(
 name|classType
+argument_list|)
+expr_stmt|;
+name|verb
+operator|.
+name|setType
+argument_list|(
+name|classType
+operator|.
+name|getCanonicalName
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1141,14 +1151,14 @@ if|if
 condition|(
 name|verb
 operator|.
-name|getClassType
+name|getType
 argument_list|()
 operator|!=
 literal|null
 operator|||
 name|verb
 operator|.
-name|getResolvedClassType
+name|getClassType
 argument_list|()
 operator|!=
 literal|null
@@ -1163,21 +1173,21 @@ argument_list|()
 decl_stmt|;
 name|binding
 operator|.
-name|setClassType
+name|setType
 argument_list|(
 name|verb
 operator|.
-name|getClassType
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|binding
 operator|.
-name|setResolvedClassType
+name|setClassType
 argument_list|(
 name|verb
 operator|.
-name|getResolvedClassType
+name|getClassType
 argument_list|()
 argument_list|)
 expr_stmt|;
