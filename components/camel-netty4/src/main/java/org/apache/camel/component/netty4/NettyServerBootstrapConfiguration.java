@@ -1079,10 +1079,10 @@ return|return
 name|bossGroup
 return|;
 block|}
-DECL|method|setBossPool (EventLoopGroup bossGroup)
+DECL|method|setBossGroup (EventLoopGroup bossGroup)
 specifier|public
 name|void
-name|setBossPool
+name|setBossGroup
 parameter_list|(
 name|EventLoopGroup
 name|bossGroup
@@ -1105,10 +1105,10 @@ return|return
 name|workerGroup
 return|;
 block|}
-DECL|method|setWorkerPool (EventLoopGroup workerGroup)
+DECL|method|setWorkerGroup (EventLoopGroup workerGroup)
 specifier|public
 name|void
-name|setWorkerPool
+name|setWorkerGroup
 parameter_list|(
 name|EventLoopGroup
 name|workerGroup

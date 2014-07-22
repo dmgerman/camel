@@ -189,7 +189,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedClientPool"
+literal|"?textline=true&sync=true&workerGroup=#sharedClientPool"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -215,7 +215,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedClientPool"
+literal|"?textline=true&sync=true&workerGroup=#sharedClientPool"
 argument_list|,
 literal|"Hello Camel"
 argument_list|,
@@ -241,7 +241,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port3
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedClientPool"
+literal|"?textline=true&sync=true&workerGroup=#sharedClientPool"
 argument_list|,
 literal|"Hello Claus"
 argument_list|,
@@ -386,7 +386,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedServerPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&orderedThreadPoolExecutor=false"
 argument_list|)
 operator|.
 name|validate
@@ -431,7 +431,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedServerPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&orderedThreadPoolExecutor=false"
 argument_list|)
 operator|.
 name|validate
@@ -476,7 +476,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port3
 operator|+
-literal|"?textline=true&sync=true&workerPool=#sharedServerPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&orderedThreadPoolExecutor=false"
 argument_list|)
 operator|.
 name|validate

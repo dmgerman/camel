@@ -307,7 +307,7 @@ argument_list|()
 operator|+
 literal|"?textline=true&sync=true&orderedThreadPoolExecutor=false"
 operator|+
-literal|"&bossPool=#sharedBoss&workerPool=#sharedWorker"
+literal|"&bossGroup=#sharedBoss&workerGroup=#sharedWorker"
 argument_list|)
 operator|.
 name|validate
