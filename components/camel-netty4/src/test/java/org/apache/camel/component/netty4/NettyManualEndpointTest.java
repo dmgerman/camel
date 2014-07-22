@@ -236,6 +236,8 @@ argument_list|(
 name|CharsetUtil
 operator|.
 name|UTF_8
+argument_list|,
+literal|"tcp"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -266,6 +268,8 @@ name|Delimiters
 operator|.
 name|lineDelimiter
 argument_list|()
+argument_list|,
+literal|"tcp"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -280,6 +284,8 @@ argument_list|(
 name|CharsetUtil
 operator|.
 name|UTF_8
+argument_list|,
+literal|"tcp"
 argument_list|)
 argument_list|)
 expr_stmt|;

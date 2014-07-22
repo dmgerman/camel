@@ -1376,6 +1376,36 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// here we need to setup the remote address information here
+name|InetSocketAddress
+name|remoteAddress
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|isTcp
+argument_list|()
+condition|)
+block|{
+name|remoteAddress
+operator|=
+operator|new
+name|InetSocketAddress
+argument_list|(
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// write body
 name|NettyHelper
 operator|.
@@ -1385,7 +1415,7 @@ name|LOG
 argument_list|,
 name|channel
 argument_list|,
-literal|null
+name|remoteAddress
 argument_list|,
 name|body
 argument_list|,

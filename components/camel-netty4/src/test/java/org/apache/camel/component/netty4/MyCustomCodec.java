@@ -176,6 +176,8 @@ argument_list|(
 literal|4096
 argument_list|,
 name|delimiters
+argument_list|,
+literal|"tcp"
 argument_list|)
 return|;
 block|}

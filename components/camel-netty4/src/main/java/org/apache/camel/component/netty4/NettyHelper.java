@@ -24,6 +24,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|SocketAddress
 import|;
 end_import
@@ -72,9 +82,7 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|socket
-operator|.
-name|DatagramPacket
+name|DefaultAddressedEnvelope
 import|;
 end_import
 
@@ -359,26 +367,38 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
+comment|// Need to create AddressedEnvelope to setup the address information here
+name|DefaultAddressedEnvelope
+argument_list|<
+name|Object
+argument_list|,
+name|InetSocketAddress
+argument_list|>
+name|ae
+init|=
+operator|new
+name|DefaultAddressedEnvelope
+argument_list|<
+name|Object
+argument_list|,
+name|InetSocketAddress
+argument_list|>
 argument_list|(
-literal|"The remote address is "
-operator|+
+name|body
+argument_list|,
+operator|(
+name|InetSocketAddress
+operator|)
 name|remoteAddress
 argument_list|)
-expr_stmt|;
-comment|// TODO Do we need to setup the remoteAddress this time
-comment|//future = channel.write(body, remoteAddress);
+decl_stmt|;
 name|future
 operator|=
 name|channel
 operator|.
 name|writeAndFlush
 argument_list|(
-name|body
+name|ae
 argument_list|)
 expr_stmt|;
 block|}
