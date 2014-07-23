@@ -693,7 +693,7 @@ argument_list|)
 expr_stmt|;
 name|verb
 operator|.
-name|setTypeList
+name|setType
 argument_list|(
 name|classType
 operator|.
@@ -751,7 +751,7 @@ argument_list|)
 decl_stmt|;
 name|verb
 operator|.
-name|setType
+name|setTypeList
 argument_list|(
 name|classType
 argument_list|)
