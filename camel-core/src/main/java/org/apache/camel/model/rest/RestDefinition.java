@@ -527,13 +527,13 @@ name|uri
 argument_list|)
 return|;
 block|}
-DECL|method|consumes (String accept)
+DECL|method|consumes (String mediaType)
 specifier|public
 name|RestDefinition
 name|consumes
 parameter_list|(
 name|String
-name|accept
+name|mediaType
 parameter_list|)
 block|{
 comment|// add to last verb
@@ -575,7 +575,62 @@ name|verb
 operator|.
 name|setConsumes
 argument_list|(
-name|accept
+name|mediaType
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|produces (String mediaType)
+specifier|public
+name|RestDefinition
+name|produces
+parameter_list|(
+name|String
+name|mediaType
+parameter_list|)
+block|{
+comment|// add to last verb
+if|if
+condition|(
+name|getVerbs
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Must add verb first, such as get/post/delete"
+argument_list|)
+throw|;
+block|}
+name|VerbDefinition
+name|verb
+init|=
+name|getVerbs
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|getVerbs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+name|verb
+operator|.
+name|setProduces
+argument_list|(
+name|mediaType
 argument_list|)
 expr_stmt|;
 return|return

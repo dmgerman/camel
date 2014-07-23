@@ -201,6 +201,13 @@ name|consumes
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|produces
+specifier|private
+name|String
+name|produces
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|type
 specifier|private
 name|String
@@ -376,6 +383,32 @@ operator|.
 name|consumes
 operator|=
 name|consumes
+expr_stmt|;
+block|}
+DECL|method|getProduces ()
+specifier|public
+name|String
+name|getProduces
+parameter_list|()
+block|{
+return|return
+name|produces
+return|;
+block|}
+DECL|method|setProduces (String produces)
+specifier|public
+name|void
+name|setProduces
+parameter_list|(
+name|String
+name|produces
+parameter_list|)
+block|{
+name|this
+operator|.
+name|produces
+operator|=
+name|produces
 expr_stmt|;
 block|}
 DECL|method|getType ()
