@@ -19,11 +19,11 @@ package|;
 end_package
 
 begin_class
-DECL|class|JackconConstants
+DECL|class|JacksonConstants
 specifier|public
 specifier|final
 class|class
-name|JackconConstants
+name|JacksonConstants
 block|{
 DECL|field|UNMARSHAL_TYPE
 specifier|public
@@ -34,9 +34,9 @@ name|UNMARSHAL_TYPE
 init|=
 literal|"CamelJacksonUnmarshalType"
 decl_stmt|;
-DECL|method|JackconConstants ()
+DECL|method|JacksonConstants ()
 specifier|private
-name|JackconConstants
+name|JacksonConstants
 parameter_list|()
 block|{     }
 block|}
