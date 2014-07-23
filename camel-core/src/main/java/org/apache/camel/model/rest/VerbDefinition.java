@@ -207,6 +207,13 @@ name|String
 name|type
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|typeList
+specifier|private
+name|String
+name|typeList
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|classType
 specifier|private
@@ -215,6 +222,13 @@ argument_list|<
 name|?
 argument_list|>
 name|classType
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|useList
+specifier|private
+name|boolean
+name|useList
 decl_stmt|;
 comment|// used by XML DSL to either select a<to> or<route>
 comment|// so we need to use the common type OptionalIdentifiedDefinition
@@ -389,6 +403,44 @@ name|type
 operator|=
 name|type
 expr_stmt|;
+name|this
+operator|.
+name|useList
+operator|=
+literal|false
+expr_stmt|;
+block|}
+DECL|method|getTypeList ()
+specifier|public
+name|String
+name|getTypeList
+parameter_list|()
+block|{
+return|return
+name|typeList
+return|;
+block|}
+DECL|method|setTypeList (String typeList)
+specifier|public
+name|void
+name|setTypeList
+parameter_list|(
+name|String
+name|typeList
+parameter_list|)
+block|{
+name|this
+operator|.
+name|typeList
+operator|=
+name|typeList
+expr_stmt|;
+name|this
+operator|.
+name|useList
+operator|=
+literal|true
+expr_stmt|;
 block|}
 DECL|method|getClassType ()
 specifier|public
@@ -421,6 +473,47 @@ name|classType
 operator|=
 name|classType
 expr_stmt|;
+name|this
+operator|.
+name|useList
+operator|=
+literal|false
+expr_stmt|;
+block|}
+DECL|method|setListClassType (Class<?> classType)
+specifier|public
+name|void
+name|setListClassType
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|classType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|classType
+operator|=
+name|classType
+expr_stmt|;
+name|this
+operator|.
+name|useList
+operator|=
+literal|true
+expr_stmt|;
+block|}
+DECL|method|isUseList ()
+specifier|public
+name|boolean
+name|isUseList
+parameter_list|()
+block|{
+return|return
+name|useList
+return|;
 block|}
 DECL|method|getRest ()
 specifier|public
