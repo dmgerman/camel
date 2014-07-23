@@ -146,6 +146,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|binding
@@ -232,6 +246,27 @@ name|RestBindingDefinition
 extends|extends
 name|NoOutputDefinition
 block|{
+annotation|@
+name|XmlAttribute
+DECL|field|consumes
+specifier|private
+name|String
+name|consumes
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|produces
+specifier|private
+name|String
+name|produces
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|bindingMode
+specifier|private
+name|RestBindingMode
+name|bindingMode
+decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|jsonDataFormat
@@ -351,6 +386,37 @@ operator|.
 name|getCamelContext
 argument_list|()
 decl_stmt|;
+comment|// the default binding mode can be overriden per rest verb
+name|String
+name|mode
+init|=
+name|context
+operator|.
+name|getRestConfiguration
+argument_list|()
+operator|.
+name|getBindingMode
+argument_list|()
+operator|.
+name|name
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|bindingMode
+operator|!=
+literal|null
+condition|)
+block|{
+name|mode
+operator|=
+name|bindingMode
+operator|.
+name|name
+argument_list|()
+expr_stmt|;
+block|}
+comment|// auto, off, json, xml, json_xml
 comment|// setup json data format
 name|String
 name|name
@@ -379,8 +445,16 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// is json binding required?
 if|if
 condition|(
+name|mode
+operator|.
+name|contains
+argument_list|(
+literal|"json"
+argument_list|)
+operator|&&
 name|json
 operator|==
 literal|null
@@ -390,7 +464,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"DataFormat "
+literal|"JSon DataFormat "
 operator|+
 name|name
 operator|+
@@ -520,8 +594,16 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// is xml binding required?
 if|if
 condition|(
+name|mode
+operator|.
+name|contains
+argument_list|(
+literal|"xml"
+argument_list|)
+operator|&&
 name|jaxb
 operator|==
 literal|null
@@ -531,7 +613,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"DataFormat "
+literal|"XML DataFormat "
 operator|+
 name|name
 operator|+
@@ -635,8 +717,144 @@ argument_list|(
 name|json
 argument_list|,
 name|jaxb
+argument_list|,
+name|consumes
+argument_list|,
+name|produces
+argument_list|,
+name|mode
 argument_list|)
 return|;
+block|}
+DECL|method|getConsumes ()
+specifier|public
+name|String
+name|getConsumes
+parameter_list|()
+block|{
+return|return
+name|consumes
+return|;
+block|}
+DECL|method|setConsumes (String consumes)
+specifier|public
+name|void
+name|setConsumes
+parameter_list|(
+name|String
+name|consumes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumes
+operator|=
+name|consumes
+expr_stmt|;
+block|}
+DECL|method|getProduces ()
+specifier|public
+name|String
+name|getProduces
+parameter_list|()
+block|{
+return|return
+name|produces
+return|;
+block|}
+DECL|method|setProduces (String produces)
+specifier|public
+name|void
+name|setProduces
+parameter_list|(
+name|String
+name|produces
+parameter_list|)
+block|{
+name|this
+operator|.
+name|produces
+operator|=
+name|produces
+expr_stmt|;
+block|}
+DECL|method|getBindingMode ()
+specifier|public
+name|RestBindingMode
+name|getBindingMode
+parameter_list|()
+block|{
+return|return
+name|bindingMode
+return|;
+block|}
+DECL|method|setBindingMode (RestBindingMode bindingMode)
+specifier|public
+name|void
+name|setBindingMode
+parameter_list|(
+name|RestBindingMode
+name|bindingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindingMode
+operator|=
+name|bindingMode
+expr_stmt|;
+block|}
+DECL|method|getJsonDataFormat ()
+specifier|public
+name|String
+name|getJsonDataFormat
+parameter_list|()
+block|{
+return|return
+name|jsonDataFormat
+return|;
+block|}
+DECL|method|setJsonDataFormat (String jsonDataFormat)
+specifier|public
+name|void
+name|setJsonDataFormat
+parameter_list|(
+name|String
+name|jsonDataFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jsonDataFormat
+operator|=
+name|jsonDataFormat
+expr_stmt|;
+block|}
+DECL|method|getXmlDataFormat ()
+specifier|public
+name|String
+name|getXmlDataFormat
+parameter_list|()
+block|{
+return|return
+name|xmlDataFormat
+return|;
+block|}
+DECL|method|setXmlDataFormat (String xmlDataFormat)
+specifier|public
+name|void
+name|setXmlDataFormat
+parameter_list|(
+name|String
+name|xmlDataFormat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlDataFormat
+operator|=
+name|xmlDataFormat
+expr_stmt|;
 block|}
 DECL|method|getType ()
 specifier|public

@@ -208,6 +208,13 @@ name|produces
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|bindingMode
+specifier|private
+name|RestBindingMode
+name|bindingMode
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|type
 specifier|private
 name|String
@@ -409,6 +416,32 @@ operator|.
 name|produces
 operator|=
 name|produces
+expr_stmt|;
+block|}
+DECL|method|getBindingMode ()
+specifier|public
+name|RestBindingMode
+name|getBindingMode
+parameter_list|()
+block|{
+return|return
+name|bindingMode
+return|;
+block|}
+DECL|method|setBindingMode (RestBindingMode bindingMode)
+specifier|public
+name|void
+name|setBindingMode
+parameter_list|(
+name|RestBindingMode
+name|bindingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindingMode
+operator|=
+name|bindingMode
 expr_stmt|;
 block|}
 DECL|method|getType ()

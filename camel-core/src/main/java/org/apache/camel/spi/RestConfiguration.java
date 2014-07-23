@@ -36,6 +36,26 @@ specifier|public
 class|class
 name|RestConfiguration
 block|{
+DECL|enum|RestBindingMode
+specifier|public
+enum|enum
+name|RestBindingMode
+block|{
+DECL|enumConstant|auto
+DECL|enumConstant|off
+DECL|enumConstant|json
+DECL|enumConstant|xml
+DECL|enumConstant|json_xml
+name|auto
+block|,
+name|off
+block|,
+name|json
+block|,
+name|xml
+block|,
+name|json_xml
+block|}
 DECL|field|component
 specifier|private
 name|String
@@ -55,6 +75,15 @@ DECL|field|port
 specifier|private
 name|int
 name|port
+decl_stmt|;
+DECL|field|bindingMode
+specifier|private
+name|RestBindingMode
+name|bindingMode
+init|=
+name|RestBindingMode
+operator|.
+name|auto
 decl_stmt|;
 DECL|field|componentProperties
 specifier|private
@@ -181,7 +210,7 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * Gets the port to use by the REST consumer      *      * @param port the port number      */
+comment|/**      * Sets the port to use by the REST consumer      *      * @param port the port number      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -196,6 +225,56 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+comment|/**      * Gets the binding mode used by the REST consumer      *      * @return the binding mode      */
+DECL|method|getBindingMode ()
+specifier|public
+name|RestBindingMode
+name|getBindingMode
+parameter_list|()
+block|{
+return|return
+name|bindingMode
+return|;
+block|}
+comment|/**      * Sets the binding mode to be used by the REST consumer      *      * @param bindingMode the binding mode      */
+DECL|method|setBindingMode (RestBindingMode bindingMode)
+specifier|public
+name|void
+name|setBindingMode
+parameter_list|(
+name|RestBindingMode
+name|bindingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindingMode
+operator|=
+name|bindingMode
+expr_stmt|;
+block|}
+comment|/**      * Sets the binding mode to be used by the REST consumer      *      * @param bindingMode the binding mode      */
+DECL|method|setBindingMode (String bindingMode)
+specifier|public
+name|void
+name|setBindingMode
+parameter_list|(
+name|String
+name|bindingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindingMode
+operator|=
+name|RestBindingMode
+operator|.
+name|valueOf
+argument_list|(
+name|bindingMode
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Gets additional options on component level      *      * @return additional options      */

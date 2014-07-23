@@ -221,6 +221,13 @@ name|String
 name|port
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|bindingMode
+specifier|private
+name|RestBindingMode
+name|bindingMode
+decl_stmt|;
+annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -388,6 +395,32 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+DECL|method|getBindingMode ()
+specifier|public
+name|RestBindingMode
+name|getBindingMode
+parameter_list|()
+block|{
+return|return
+name|bindingMode
+return|;
+block|}
+DECL|method|setBindingMode (RestBindingMode bindingMode)
+specifier|public
+name|void
+name|setBindingMode
+parameter_list|(
+name|RestBindingMode
+name|bindingMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindingMode
+operator|=
+name|bindingMode
 expr_stmt|;
 block|}
 DECL|method|getComponentProperties ()
@@ -579,6 +612,25 @@ block|{
 name|setPort
 argument_list|(
 name|port
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To specify the binding mode      */
+DECL|method|bindingMode (RestBindingMode bindingMode)
+specifier|public
+name|RestConfigurationDefinition
+name|bindingMode
+parameter_list|(
+name|RestBindingMode
+name|bindingMode
+parameter_list|)
+block|{
+name|setBindingMode
+argument_list|(
+name|bindingMode
 argument_list|)
 expr_stmt|;
 return|return
@@ -829,6 +881,24 @@ name|context
 argument_list|,
 name|port
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|bindingMode
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setBindingMode
+argument_list|(
+name|bindingMode
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
