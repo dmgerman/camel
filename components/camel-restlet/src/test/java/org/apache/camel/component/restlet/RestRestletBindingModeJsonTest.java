@@ -199,6 +199,70 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Test
+DECL|method|testBindingModeWrong ()
+specifier|public
+name|void
+name|testBindingModeWrong
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// we bind to json, but send in xml, which is not possible
+name|String
+name|body
+init|=
+literal|"<user name=\"Donald Duck\" id=\"123\"></user>"
+decl_stmt|;
+try|try
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"http://localhost:"
+operator|+
+name|portNum
+operator|+
+literal|"/users/new"
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
