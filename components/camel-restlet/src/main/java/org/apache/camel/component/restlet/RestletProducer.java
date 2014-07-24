@@ -156,6 +156,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|restlet
+operator|.
+name|Uniform
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -454,8 +464,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|// TODO: due to https://github.com/restlet/restlet-framework-java/issues/871
-comment|// we force sync behavior until that is fixed, then we can switch back to async support
+comment|// process the request asynchronously
 name|LOG
 operator|.
 name|debug
@@ -470,16 +479,29 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Response
-name|response
-init|=
 name|client
 operator|.
 name|handle
 argument_list|(
 name|request
-argument_list|)
-decl_stmt|;
+argument_list|,
+operator|new
+name|Uniform
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handle
+parameter_list|(
+name|Request
+name|request
+parameter_list|,
+name|Response
+name|response
+parameter_list|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -566,18 +588,24 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|callback
 operator|.
 name|done
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+comment|// we continue routing async
 return|return
-literal|true
+literal|false
 return|;
-comment|// process the request asynchronously
-comment|/*         LOG.debug("Sending request: {} for exchangeId: {}", request, exchange.getExchangeId());         client.handle(request, new Uniform() {             @Override             public void handle(Request request, Response response) {                 LOG.debug("Received response: {} for exchangeId: {}", response, exchange.getExchangeId());                 try {                     if (response != null) {                         Integer respCode = response.getStatus().getCode();                         if (respCode> 207&& throwException) {                             exchange.setException(populateRestletProducerException(exchange, response, respCode));                         } else {                             binding.populateExchangeFromRestletResponse(exchange, response);                         }                     }                 } catch (Exception e) {                     exchange.setException(e);                 } finally {                     callback.done(false);                 }             }         });          // we continue routing async         return false;*/
 block|}
 DECL|method|buildUri (RestletEndpoint endpoint, Exchange exchange)
 specifier|private

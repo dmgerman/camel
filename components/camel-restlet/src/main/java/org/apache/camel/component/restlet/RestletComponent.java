@@ -486,6 +486,11 @@ specifier|private
 name|Boolean
 name|reuseAddress
 decl_stmt|;
+DECL|field|disableStreamCache
+specifier|private
+name|boolean
+name|disableStreamCache
+decl_stmt|;
 DECL|method|RestletComponent ()
 specifier|public
 name|RestletComponent
@@ -558,6 +563,14 @@ argument_list|,
 name|remaining
 argument_list|)
 decl_stmt|;
+name|result
+operator|.
+name|setDisableStreamCache
+argument_list|(
+name|isDisableStreamCache
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setEndpointHeaderFilterStrategy
 argument_list|(
 name|result
@@ -2570,6 +2583,32 @@ operator|.
 name|maxQueued
 operator|=
 name|maxQueued
+expr_stmt|;
+block|}
+DECL|method|isDisableStreamCache ()
+specifier|public
+name|boolean
+name|isDisableStreamCache
+parameter_list|()
+block|{
+return|return
+name|disableStreamCache
+return|;
+block|}
+DECL|method|setDisableStreamCache (boolean disableStreamCache)
+specifier|public
+name|void
+name|setDisableStreamCache
+parameter_list|(
+name|boolean
+name|disableStreamCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableStreamCache
+operator|=
+name|disableStreamCache
 expr_stmt|;
 block|}
 annotation|@

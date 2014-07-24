@@ -54,6 +54,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -491,12 +501,9 @@ argument_list|,
 literal|"application/JSON"
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Get a wrong http header"
-argument_list|,
-literal|"Cache-Control: max-age=20"
-argument_list|,
+name|String
+name|s
+init|=
 name|response
 operator|.
 name|getFirstHeader
@@ -508,6 +515,21 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong http header"
+argument_list|,
+literal|"cache-control: max-age=20"
+argument_list|,
+name|s
 argument_list|)
 expr_stmt|;
 block|}

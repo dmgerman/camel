@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ExchangePattern
 import|;
 end_import
@@ -307,6 +319,11 @@ name|throwExceptionOnFailure
 init|=
 literal|true
 decl_stmt|;
+DECL|field|disableStreamCache
+specifier|private
+name|boolean
+name|disableStreamCache
+decl_stmt|;
 DECL|method|RestletEndpoint (RestletComponent component, String remaining)
 specifier|public
 name|RestletEndpoint
@@ -349,6 +366,46 @@ block|{
 comment|// true to allow dynamic URI options to be configured and passed to external system.
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createExchange ()
+specifier|public
+name|Exchange
+name|createExchange
+parameter_list|()
+block|{
+name|Exchange
+name|exchange
+init|=
+name|super
+operator|.
+name|createExchange
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isDisableStreamCache
+argument_list|()
+condition|)
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|DISABLE_HTTP_STREAM_CACHE
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|exchange
 return|;
 block|}
 DECL|method|createConsumer (Processor processor)
@@ -837,6 +894,32 @@ operator|.
 name|throwExceptionOnFailure
 operator|=
 name|throwExceptionOnFailure
+expr_stmt|;
+block|}
+DECL|method|isDisableStreamCache ()
+specifier|public
+name|boolean
+name|isDisableStreamCache
+parameter_list|()
+block|{
+return|return
+name|disableStreamCache
+return|;
+block|}
+DECL|method|setDisableStreamCache (boolean disableStreamCache)
+specifier|public
+name|void
+name|setDisableStreamCache
+parameter_list|(
+name|boolean
+name|disableStreamCache
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableStreamCache
+operator|=
+name|disableStreamCache
 expr_stmt|;
 block|}
 comment|// Update the endpointUri with the restlet method information
