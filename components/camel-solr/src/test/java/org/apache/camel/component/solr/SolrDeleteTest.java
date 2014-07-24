@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Arrays
 import|;
 end_import
 
@@ -46,6 +46,22 @@ name|SolrDeleteTest
 extends|extends
 name|SolrComponentTestSupport
 block|{
+DECL|method|SolrDeleteTest (SolrFixtures.TestServerType serverToTest)
+specifier|public
+name|SolrDeleteTest
+parameter_list|(
+name|SolrFixtures
+operator|.
+name|TestServerType
+name|serverToTest
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|serverToTest
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testDeleteById ()

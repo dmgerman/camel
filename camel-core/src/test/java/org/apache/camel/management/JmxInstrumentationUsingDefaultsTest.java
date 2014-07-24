@@ -414,11 +414,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Could not find 2 producers: "
+literal|"Could not find 1 producers: "
 operator|+
 name|s
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|s
 operator|.

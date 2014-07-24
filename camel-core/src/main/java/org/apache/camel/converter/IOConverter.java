@@ -625,8 +625,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|FileNotFoundException
 block|{
 return|return
 operator|new

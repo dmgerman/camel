@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -76,13 +76,21 @@ specifier|public
 class|class
 name|ElasticsearchComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|ElasticsearchComponent ()
 specifier|public
 name|ElasticsearchComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|ElasticsearchEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|ElasticsearchComponent (CamelContext context)
 specifier|public
 name|ElasticsearchComponent
@@ -94,6 +102,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|ElasticsearchEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

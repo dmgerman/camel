@@ -122,6 +122,14 @@ name|String
 argument_list|>
 name|attributeNames
 decl_stmt|;
+DECL|field|messageAttributeNames
+specifier|private
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|messageAttributeNames
+decl_stmt|;
 DECL|field|waitTimeSeconds
 specifier|private
 name|Integer
@@ -380,6 +388,38 @@ operator|.
 name|attributeNames
 operator|=
 name|attributeNames
+expr_stmt|;
+block|}
+DECL|method|getMessageAttributeNames ()
+specifier|public
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|getMessageAttributeNames
+parameter_list|()
+block|{
+return|return
+name|messageAttributeNames
+return|;
+block|}
+DECL|method|setMessageAttributeNames (Collection<String> messageAttributeNames)
+specifier|public
+name|void
+name|setMessageAttributeNames
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|messageAttributeNames
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageAttributeNames
+operator|=
+name|messageAttributeNames
 expr_stmt|;
 block|}
 DECL|method|getDefaultVisibilityTimeout ()
@@ -708,6 +748,10 @@ operator|+
 literal|", attributeNames="
 operator|+
 name|attributeNames
+operator|+
+literal|", messageAttributeNames="
+operator|+
+name|messageAttributeNames
 operator|+
 literal|", waitTimeSeconds="
 operator|+

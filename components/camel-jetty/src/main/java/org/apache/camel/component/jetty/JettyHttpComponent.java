@@ -901,6 +901,19 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+DECL|method|JettyHttpComponent ()
+specifier|public
+name|JettyHttpComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|JettyHttpEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|class|ConnectorRef
 class|class
 name|ConnectorRef

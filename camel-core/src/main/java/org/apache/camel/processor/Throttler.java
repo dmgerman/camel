@@ -24,18 +24,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|RejectedExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -868,7 +856,7 @@ operator|.
 name|setException
 argument_list|(
 operator|new
-name|RejectedExecutionException
+name|ThrottlerRejectedExecutionException
 argument_list|(
 literal|"Exceed the max request limit!"
 argument_list|)

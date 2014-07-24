@@ -129,7 +129,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel Management Name"
+literal|"Camel ManagementName"
 argument_list|)
 DECL|method|getManagementName ()
 name|String
@@ -290,18 +290,6 @@ parameter_list|(
 name|Boolean
 name|tracing
 parameter_list|)
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Message History"
-argument_list|)
-DECL|method|getMessageHistory ()
-name|Boolean
-name|getMessageHistory
-parameter_list|()
 function_decl|;
 annotation|@
 name|ManagedAttribute
@@ -707,6 +695,20 @@ name|Object
 argument_list|>
 name|headers
 parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the rests as XML"
+argument_list|)
+DECL|method|dumpRestsAsXml ()
+name|String
+name|dumpRestsAsXml
+parameter_list|()
 throws|throws
 name|Exception
 function_decl|;

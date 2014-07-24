@@ -123,6 +123,12 @@ name|ExtraOption
 index|[]
 name|extraOptions
 decl_stmt|;
+DECL|field|nullableOptions
+specifier|private
+name|String
+index|[]
+name|nullableOptions
+decl_stmt|;
 DECL|field|aliases
 specifier|private
 name|List
@@ -346,6 +352,34 @@ operator|.
 name|extraOptions
 operator|=
 name|extraOptions
+expr_stmt|;
+block|}
+DECL|method|getNullableOptions ()
+specifier|public
+name|String
+index|[]
+name|getNullableOptions
+parameter_list|()
+block|{
+return|return
+name|nullableOptions
+return|;
+block|}
+DECL|method|setNullableOptions (String[] nullableOptions)
+specifier|public
+name|void
+name|setNullableOptions
+parameter_list|(
+name|String
+index|[]
+name|nullableOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nullableOptions
+operator|=
+name|nullableOptions
 expr_stmt|;
 block|}
 DECL|method|getAliases ()

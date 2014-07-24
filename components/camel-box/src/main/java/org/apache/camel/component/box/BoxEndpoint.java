@@ -158,6 +158,24 @@ name|box
 operator|.
 name|internal
 operator|.
+name|BoxConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|box
+operator|.
+name|internal
+operator|.
 name|BoxPropertiesHelper
 import|;
 end_import
@@ -388,6 +406,32 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// validate producer APIs
+if|if
+condition|(
+name|getApiName
+argument_list|()
+operator|==
+name|BoxApiName
+operator|.
+name|POLL_EVENTS
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Producer endpoints do not support endpoint prefix "
+operator|+
+name|BoxApiName
+operator|.
+name|POLL_EVENTS
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|BoxProducer
@@ -420,6 +464,32 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"Option inBody is not supported for consumer endpoint"
+argument_list|)
+throw|;
+block|}
+comment|// validate consumer APIs
+if|if
+condition|(
+name|getApiName
+argument_list|()
+operator|!=
+name|BoxApiName
+operator|.
+name|POLL_EVENTS
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Consumer endpoint only supports endpoint prefix "
+operator|+
+name|BoxApiName
+operator|.
+name|POLL_EVENTS
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -461,6 +531,18 @@ name|BoxPropertiesHelper
 operator|.
 name|getHelper
 argument_list|()
+return|;
+block|}
+DECL|method|getThreadProfileName ()
+specifier|protected
+name|String
+name|getThreadProfileName
+parameter_list|()
+block|{
+return|return
+name|BoxConstants
+operator|.
+name|THREAD_PROFILE_NAME
 return|;
 block|}
 annotation|@
@@ -613,7 +695,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|interceptProperties (Map<String, Object> properties)
-specifier|protected
+specifier|public
 name|void
 name|interceptProperties
 parameter_list|(
@@ -1067,6 +1149,16 @@ name|doShutdown
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|getBoxClient ()
+specifier|public
+name|CachedBoxClient
+name|getBoxClient
+parameter_list|()
+block|{
+return|return
+name|cachedBoxClient
+return|;
 block|}
 block|}
 end_class

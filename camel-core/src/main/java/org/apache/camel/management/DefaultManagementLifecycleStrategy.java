@@ -4424,10 +4424,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|timerListenerManager
-operator|!=
-literal|null
-operator|&&
 name|me
 operator|instanceof
 name|TimerListener
@@ -4464,10 +4460,6 @@ name|Exception
 block|{
 if|if
 condition|(
-name|timerListenerManager
-operator|!=
-literal|null
-operator|&&
 name|me
 operator|instanceof
 name|TimerListener

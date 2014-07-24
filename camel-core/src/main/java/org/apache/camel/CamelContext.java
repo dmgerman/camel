@@ -162,6 +162,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|CamelContextNameStrategy
@@ -458,6 +474,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteStartupOrder
 import|;
 end_import
@@ -673,6 +703,20 @@ name|addService
 parameter_list|(
 name|Object
 name|object
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param closeOnShutdown whether to close the service when this CamelContext shutdown.      * @throws Exception can be thrown when starting the service      */
+DECL|method|addService (Object object, boolean closeOnShutdown)
+name|void
+name|addService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|closeOnShutdown
 parameter_list|)
 throws|throws
 name|Exception
@@ -910,6 +954,48 @@ parameter_list|(
 name|String
 name|id
 parameter_list|)
+function_decl|;
+comment|/**      * Returns a list of the current REST definitions      *      * @return list of the current REST definitions      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getRestDefinitions()}      */
+annotation|@
+name|Deprecated
+DECL|method|getRestDefinitions ()
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRestDefinitions
+parameter_list|()
+function_decl|;
+comment|/**      * Adds a collection of rest definitions to the context      *      * @param restDefinitions the rest(s) definition to add      * @throws Exception if the rest definitions could not be created for whatever reason      */
+annotation|@
+name|Deprecated
+DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions)
+name|void
+name|addRestDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|restDefinitions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
+DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
+name|void
+name|setRestConfiguration
+parameter_list|(
+name|RestConfiguration
+name|restConfiguration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current REST configuration      *      * @return the configuration, or<tt>null</tt> if none has been configured.      */
+DECL|method|getRestConfiguration ()
+name|RestConfiguration
+name|getRestConfiguration
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */
 DECL|method|getRouteStartupOrder ()

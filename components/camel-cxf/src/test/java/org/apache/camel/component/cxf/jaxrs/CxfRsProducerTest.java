@@ -562,6 +562,18 @@ argument_list|,
 literal|"value"
 argument_list|)
 expr_stmt|;
+comment|// setup the accept content type
+name|inMessage
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|ACCEPT_CONTENT_TYPE
+argument_list|,
+literal|"application/json"
+argument_list|)
+expr_stmt|;
 comment|// set the parameters , if you just have one parameter
 comment|// camel will put this object into an Object[] itself
 name|inMessage

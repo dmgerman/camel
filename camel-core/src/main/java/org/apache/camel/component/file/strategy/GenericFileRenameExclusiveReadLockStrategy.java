@@ -573,6 +573,19 @@ operator|=
 name|readLockLoggingLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setMarkerFiler (boolean markerFile)
+specifier|public
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFile
+parameter_list|)
+block|{
+comment|// noop - we do not use marker file with the rename strategy
+block|}
 block|}
 end_class
 

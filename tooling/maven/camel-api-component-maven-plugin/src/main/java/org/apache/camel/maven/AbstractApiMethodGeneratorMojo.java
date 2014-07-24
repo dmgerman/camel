@@ -1922,6 +1922,7 @@ literal|'<'
 argument_list|)
 expr_stmt|;
 comment|// Note: its ok to split, since we don't support parsing nested type arguments
+specifier|final
 name|String
 index|[]
 name|argTypes
@@ -1937,6 +1938,19 @@ name|boolean
 name|ignore
 init|=
 literal|false
+decl_stmt|;
+specifier|final
+name|int
+name|nTypes
+init|=
+name|argTypes
+operator|.
+name|length
+decl_stmt|;
+name|int
+name|i
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -2026,7 +2040,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ignoring type parameters< "
+literal|"Ignoring type parameters<"
 operator|+
 name|typeArgs
 operator|+
@@ -2058,7 +2072,14 @@ block|{
 comment|// give up
 break|break;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|++
+name|i
+operator|<
+name|nTypes
+condition|)
 block|{
 name|parameterizedType
 operator|.
@@ -2075,19 +2096,6 @@ operator|!
 name|ignore
 condition|)
 block|{
-comment|// replace the last ',' with '>'
-name|parameterizedType
-operator|.
-name|deleteCharAt
-argument_list|(
-name|parameterizedType
-operator|.
-name|length
-argument_list|()
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
 name|parameterizedType
 operator|.
 name|append

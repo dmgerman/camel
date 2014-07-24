@@ -458,6 +458,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|InterceptEndpointProcessor
@@ -3119,7 +3135,7 @@ comment|// noop
 block|}
 comment|/**      * Strategy for children to do any custom configuration      *      * @param output the child to be added as output to this      */
 DECL|method|configureChild (ProcessorDefinition<?> output)
-specifier|protected
+specifier|public
 name|void
 name|configureChild
 parameter_list|(
@@ -4716,6 +4732,53 @@ operator|)
 name|def
 return|;
 block|}
+block|}
+comment|/**      * Ends the current block and returns back to the {@link org.apache.camel.model.rest.RestDefinition rest()} DSL.      *      * @return the builder      */
+DECL|method|endRest ()
+specifier|public
+name|RestDefinition
+name|endRest
+parameter_list|()
+block|{
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|def
+init|=
+name|this
+decl_stmt|;
+name|RouteDefinition
+name|route
+init|=
+name|ProcessorDefinitionHelper
+operator|.
+name|getRoute
+argument_list|(
+name|def
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|route
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|route
+operator|.
+name|getRestDefinition
+argument_list|()
+return|;
+block|}
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot find RouteDefinition to allow endRest"
+argument_list|)
+throw|;
 block|}
 comment|/**      * Ends the current block and returns back to the {@link TryDefinition doTry()} DSL.      *      * @return the builder      */
 DECL|method|endDoTry ()

@@ -42,18 +42,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|RejectedExecutionException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1222,7 +1210,7 @@ parameter_list|()
 block|{
 name|onException
 argument_list|(
-name|RejectedExecutionException
+name|ThrottlerRejectedExecutionException
 operator|.
 name|class
 argument_list|)

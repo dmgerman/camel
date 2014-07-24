@@ -133,6 +133,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|//NOPMD
 DECL|interface|Input
 specifier|public
 interface|interface
@@ -150,7 +151,7 @@ name|Node
 name|getMessageBodyNode
 parameter_list|()
 function_decl|;
-comment|/**          * Returns the parent node of the signature element in the case of          * enveloped XML signature.<code>null</code> is returned in the case of          * enveloping XML signature.          *           * @return parent node or<code>null</code>          */
+comment|/**          * Returns the parent node of the signature element in the case of          * enveloped or detached XML signature.<code>null</code> is returned in          * the case of enveloping XML signature.          *           * @return parent node or<code>null</code>          */
 DECL|method|getParent ()
 name|Node
 name|getParent
@@ -180,10 +181,22 @@ name|String
 name|getContentDigestAlgorithm
 parameter_list|()
 function_decl|;
-comment|/** Signature Id. Can be<code>null</code>. */
+comment|/**          * Signature Id. Can be<code>null</code>, then no signature Id          * attribute is generated.          */
 DECL|method|getSignatureId ()
 name|String
 name|getSignatureId
+parameter_list|()
+function_decl|;
+comment|/**          * Reference URI which points to the content of the original XML          * document to be signed. For enveloped signature it is typically the          * empty string. For detached signature, it is an ID attribute value          * preceded by '#'. For enveloping signature, it is<code>null</code>.          */
+DECL|method|getContentReferenceUri ()
+name|String
+name|getContentReferenceUri
+parameter_list|()
+function_decl|;
+comment|/**          * Retruns the signature type.          *           * @return signature type          */
+DECL|method|getSignatureType ()
+name|SignatureType
+name|getSignatureType
 parameter_list|()
 function_decl|;
 block|}

@@ -204,6 +204,7 @@ return|;
 block|}
 comment|/**      * Creates a new worker pool.      */
 DECL|method|build ()
+specifier|public
 name|WorkerPool
 name|build
 parameter_list|()

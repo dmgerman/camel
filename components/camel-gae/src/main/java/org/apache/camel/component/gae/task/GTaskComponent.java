@@ -250,6 +250,19 @@ name|GTaskComponent
 extends|extends
 name|ServletComponent
 block|{
+DECL|method|GTaskComponent ()
+specifier|public
+name|GTaskComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|GTaskEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 annotation|@

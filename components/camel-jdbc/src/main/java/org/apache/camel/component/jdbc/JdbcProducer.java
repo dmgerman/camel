@@ -361,26 +361,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// populate headers
-name|exchange
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-operator|.
-name|putAll
-argument_list|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|processingSqlBySettingAutoCommit (Exchange exchange)
 specifier|private
@@ -967,6 +947,27 @@ operator|.
 name|getUpdateCount
 argument_list|()
 decl_stmt|;
+comment|// preserve headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and then set the new header
 name|exchange
 operator|.
 name|getOut
@@ -1628,6 +1629,26 @@ name|isUseJDBC4ColumnNameAndLabelSemantics
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// preserve headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|JdbcOutputType
 name|outputType
 init|=

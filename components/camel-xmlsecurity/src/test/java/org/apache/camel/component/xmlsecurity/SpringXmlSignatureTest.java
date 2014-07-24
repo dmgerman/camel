@@ -269,6 +269,34 @@ index|[]
 block|{}
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getDetachedSignerEndpoint ()
+name|XmlSignerEndpoint
+name|getDetachedSignerEndpoint
+parameter_list|()
+block|{
+name|XmlSignerEndpoint
+name|endpoint
+init|=
+operator|(
+name|XmlSignerEndpoint
+operator|)
+name|context
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"xmlsecurity:sign://detached?keyAccessor=#accessorRsa&xpathsToIdAttributes=#xpathsToIdAttributes&"
+comment|//
+operator|+
+literal|"schemaResourceUri=org/apache/camel/component/xmlsecurity/Test.xsd&signatureId=&clearHeaders=false"
+argument_list|)
+decl_stmt|;
+return|return
+name|endpoint
+return|;
+block|}
 block|}
 end_class
 

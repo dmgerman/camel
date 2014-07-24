@@ -475,6 +475,19 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
+DECL|method|setMarkerFiler (boolean markerFile)
+specifier|public
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFile
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|getCounter ()
 specifier|public
 name|int

@@ -180,7 +180,7 @@ name|requestBody
 argument_list|(
 literal|"direct://GETSHAREDITEM"
 argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull

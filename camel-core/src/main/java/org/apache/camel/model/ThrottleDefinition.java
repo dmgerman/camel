@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether or not throttler throws the RejectExceutionException when the exchange exceeds the request limit      *<p/>      * Is by default<tt>false</tt>      *      * @param throw the RejectExecutionException if the exchange exceeds the request limit       * @return the builder      */
+comment|/**      * Whether or not throttler throws the ThrottlerRejectedExecutionException when the exchange exceeds the request limit      *<p/>      * Is by default<tt>false</tt>      *      * @param throw the RejectExecutionException if the exchange exceeds the request limit       * @return the builder      */
 DECL|method|rejectExecution (boolean rejectExecution)
 specifier|public
 name|ThrottleDefinition

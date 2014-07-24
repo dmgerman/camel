@@ -383,6 +383,26 @@ name|$
 block|{
 name|name
 block|}
+name|Constants
+expr_stmt|;
+end_expr_stmt
+
+begin_import
+import|import
+name|$
+block|{
+package|package
+block|}
+end_import
+
+begin_expr_stmt
+operator|.
+name|internal
+operator|.
+name|$
+block|{
+name|name
+block|}
 name|PropertiesHelper
 expr_stmt|;
 end_expr_stmt
@@ -620,6 +640,24 @@ block|}
 end_expr_stmt
 
 begin_function
+specifier|protected
+name|String
+name|getThreadProfileName
+parameter_list|()
+block|{
+return|return
+name|$
+block|{
+name|name
+block|}
+name|Constants
+operator|.
+name|THREAD_PROFILE_NAME
+return|;
+block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 specifier|protected
@@ -630,18 +668,8 @@ block|{
 comment|// TODO create API proxy, set connection properties, etc.
 switch|switch
 condition|(
-operator|(
-name|$
-block|{
-name|name
-block|}
-name|ApiName
-block|)
-function|apiName
-end_function
-
-begin_block
-unit|)
+name|apiName
+condition|)
 block|{
 case|case
 name|HELLO_FILE
@@ -682,10 +710,11 @@ name|apiName
 argument_list|)
 throw|;
 block|}
-end_block
+block|}
+end_function
 
 begin_function
-unit|}      @
+annotation|@
 name|Override
 specifier|public
 name|Object

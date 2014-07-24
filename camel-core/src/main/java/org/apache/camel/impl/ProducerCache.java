@@ -1680,12 +1680,16 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
-comment|// must then start service so producer is ready to be used
-name|ServiceHelper
+comment|// add as service which will also start the service
+comment|// (false => we and handling the lifecycle of the producer in this cache)
+name|getCamelContext
+argument_list|()
 operator|.
-name|startService
+name|addService
 argument_list|(
 name|answer
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1815,6 +1819,8 @@ argument_list|(
 name|pool
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|ServiceHelper
 operator|.
 name|stopAndShutdownServices
@@ -1825,6 +1831,31 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// ensure producers are removed, and also from JMX
+for|for
+control|(
+name|Producer
+name|producer
+range|:
+name|producers
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|removeService
+argument_list|(
+name|producer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|producers
 operator|.
 name|clear

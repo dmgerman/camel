@@ -304,15 +304,6 @@ specifier|private
 name|Integer
 name|httpProxyPort
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|useSSL
-specifier|private
-name|boolean
-name|useSSL
-init|=
-literal|true
-decl_stmt|;
 comment|/**      * Singleton, on demand instances of Twitter4J's Twitter& TwitterStream.      * This should not be created by an endpoint's doStart(), etc., since      * instances of twitter and/or twitterStream can be supplied by the route      * itself.  Further, as an example, we don't want to initialize twitter      * if we only need twitterStream.      */
 DECL|field|twitter
 specifier|private
@@ -416,13 +407,6 @@ operator|.
 name|setOAuthAccessTokenSecret
 argument_list|(
 name|accessTokenSecret
-argument_list|)
-expr_stmt|;
-name|confBuilder
-operator|.
-name|setUseSSL
-argument_list|(
-name|useSSL
 argument_list|)
 expr_stmt|;
 if|if
@@ -600,32 +584,6 @@ operator|.
 name|accessTokenSecret
 operator|=
 name|accessTokenSecret
-expr_stmt|;
-block|}
-DECL|method|getUseSSL ()
-specifier|public
-name|boolean
-name|getUseSSL
-parameter_list|()
-block|{
-return|return
-name|useSSL
-return|;
-block|}
-DECL|method|setUseSSL (boolean useSSL)
-specifier|public
-name|void
-name|setUseSSL
-parameter_list|(
-name|boolean
-name|useSSL
-parameter_list|)
-block|{
-name|this
-operator|.
-name|useSSL
-operator|=
-name|useSSL
 expr_stmt|;
 block|}
 DECL|method|getUser ()

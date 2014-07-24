@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is released, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  *<p/>  * This implementation is only supported by the File component, that leverages the {@link MarkerFileExclusiveReadLockStrategy}  * as well, to ensure only acquiring locks on files, which is not already in progress by another process,  * that have marked this using the marker file.  */
+comment|/**  * Acquires exclusive read lock to the given file. Will wait until the lock is granted.  * After granting the read lock it is released, we just want to make sure that when we start  * consuming the file its not currently in progress of being written by third party.  *<p/>  * This implementation is only supported by the File component, that leverages the {@link MarkerFileExclusiveReadLockStrategy}  * as well, to ensure only acquiring locks on files, which is not already in progress by another process,  * that have marked this using the marker file.  *<p/>  * Setting the option {@link #setMarkerFiler(boolean)} to<tt>false</tt> allows to turn off using marker files.  */
 end_comment
 
 begin_class
@@ -97,6 +97,13 @@ init|=
 operator|new
 name|MarkerFileExclusiveReadLockStrategy
 argument_list|()
+decl_stmt|;
+DECL|field|markerFile
+specifier|private
+name|boolean
+name|markerFile
+init|=
+literal|true
 decl_stmt|;
 annotation|@
 name|Override
@@ -126,6 +133,8 @@ block|{
 comment|// must call marker first
 if|if
 condition|(
+name|markerFile
+operator|&&
 operator|!
 name|marker
 operator|.
@@ -184,6 +193,11 @@ block|{
 comment|// must call marker first
 try|try
 block|{
+if|if
+condition|(
+name|markerFile
+condition|)
+block|{
 name|marker
 operator|.
 name|releaseExclusiveReadLock
@@ -195,6 +209,7 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -210,6 +225,24 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|setMarkerFiler (boolean markerFile)
+specifier|public
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|markerFile
+operator|=
+name|markerFile
+expr_stmt|;
 block|}
 block|}
 end_class

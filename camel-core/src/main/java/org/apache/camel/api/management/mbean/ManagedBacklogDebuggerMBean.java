@@ -73,6 +73,30 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Camel ID"
+argument_list|)
+DECL|method|getCamelId ()
+name|String
+name|getCamelId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Camel ManagementName"
+argument_list|)
+DECL|method|getCamelManagementName ()
+name|String
+name|getCamelManagementName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Logging Level"
 argument_list|)
 DECL|method|getLoggingLevel ()
@@ -556,6 +580,24 @@ DECL|method|resetDebugCounter ()
 name|void
 name|resetDebugCounter
 parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Used for validating if a given predicate is valid or not"
+argument_list|)
+DECL|method|validateConditionalBreakpoint (String language, String predicate)
+name|String
+name|validateConditionalBreakpoint
+parameter_list|(
+name|String
+name|language
+parameter_list|,
+name|String
+name|predicate
+parameter_list|)
 function_decl|;
 block|}
 end_interface

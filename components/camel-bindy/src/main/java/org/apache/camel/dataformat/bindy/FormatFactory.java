@@ -448,7 +448,7 @@ specifier|private
 name|FormatFactory
 parameter_list|()
 block|{     }
-comment|/**      * Retrieves the format to use for the given type      *      * @param clazz represents the type of the format (String, Integer, Byte)      * @param pattern is the pattern to be used during the formatting of the data      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @param precision optional scale for BigDecimal parsing.      * @param impliedDecimalSeparator optional flag for floatign-point values      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      */
+comment|/**      * Retrieves the format to use for the given type      *      * @param clazz represents the type of the format (String, Integer, Byte)      * @param pattern is the pattern to be used during the formatting of the data      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @param precision optional scale for BigDecimal parsing.      * @param impliedDecimalSeparator optional flag for floating-point values      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1029,6 +1029,23 @@ name|String
 name|locale
 parameter_list|)
 block|{
+if|if
+condition|(
+literal|"default"
+operator|.
+name|equals
+argument_list|(
+name|locale
+argument_list|)
+condition|)
+block|{
+return|return
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+return|;
+block|}
 name|Locale
 name|answer
 init|=
@@ -1036,19 +1053,12 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|locale
-operator|!=
-literal|null
-operator|&&
-operator|!
-operator|(
-name|locale
+name|ObjectHelper
 operator|.
-name|length
-argument_list|()
-operator|==
-literal|0
-operator|)
+name|isNotEmpty
+argument_list|(
+name|locale
+argument_list|)
 condition|)
 block|{
 name|String

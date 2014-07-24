@@ -683,6 +683,8 @@ name|isDefault
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|String
 name|candidate
 init|=
@@ -733,6 +735,15 @@ operator|=
 name|candidate
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+comment|// Here we just catch the exception and try to use other candidate
 block|}
 block|}
 name|log
@@ -787,7 +798,39 @@ name|answer
 operator|=
 name|delegateAnswer
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"delegate property parser parsed the property key:{} as value: {}"
+argument_list|,
+name|key
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|answer
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot parser the property key: "
+operator|+
+name|key
+operator|+
+literal|" with value: "
+operator|+
+name|value
+argument_list|)
+throw|;
 block|}
 name|log
 operator|.

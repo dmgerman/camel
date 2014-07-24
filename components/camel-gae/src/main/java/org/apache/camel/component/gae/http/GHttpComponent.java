@@ -234,6 +234,19 @@ name|GHttpComponent
 extends|extends
 name|ServletComponent
 block|{
+DECL|method|GHttpComponent ()
+specifier|public
+name|GHttpComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|GHttpEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 annotation|@

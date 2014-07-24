@@ -366,6 +366,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|interceptor
@@ -614,6 +630,16 @@ name|contextScopedErrorHandler
 init|=
 literal|true
 decl_stmt|;
+DECL|field|rest
+specifier|private
+name|Boolean
+name|rest
+decl_stmt|;
+DECL|field|restDefinition
+specifier|private
+name|RestDefinition
+name|restDefinition
+decl_stmt|;
 DECL|method|RouteDefinition ()
 specifier|public
 name|RouteDefinition
@@ -645,6 +671,26 @@ name|from
 argument_list|(
 name|endpoint
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * This route is created from the REST DSL.      */
+DECL|method|fromRest (String uri)
+specifier|public
+name|void
+name|fromRest
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|from
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+name|rest
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|/**      * Prepares the route definition to be ready to be added to {@link CamelContext}      *      * @param context the camel context      */
@@ -2515,6 +2561,46 @@ operator|.
 name|errorHandlerBuilder
 operator|=
 name|errorHandlerBuilder
+expr_stmt|;
+block|}
+annotation|@
+name|XmlAttribute
+DECL|method|isRest ()
+specifier|public
+name|Boolean
+name|isRest
+parameter_list|()
+block|{
+return|return
+name|rest
+return|;
+block|}
+DECL|method|getRestDefinition ()
+specifier|public
+name|RestDefinition
+name|getRestDefinition
+parameter_list|()
+block|{
+return|return
+name|restDefinition
+return|;
+block|}
+annotation|@
+name|XmlTransient
+DECL|method|setRestDefinition (RestDefinition restDefinition)
+specifier|public
+name|void
+name|setRestDefinition
+parameter_list|(
+name|RestDefinition
+name|restDefinition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|restDefinition
+operator|=
+name|restDefinition
 expr_stmt|;
 block|}
 annotation|@

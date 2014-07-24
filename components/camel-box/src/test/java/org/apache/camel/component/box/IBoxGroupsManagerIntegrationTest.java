@@ -298,10 +298,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCreateGroup_1 ()
+DECL|method|testCreateGroup1 ()
 specifier|public
 name|void
-name|testCreateGroup_1
+name|testCreateGroup1
 parameter_list|()
 throws|throws
 name|Exception
@@ -394,10 +394,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCreateMembership_1 ()
+DECL|method|testCreateMembership1 ()
 specifier|public
 name|void
-name|testCreateMembership_1
+name|testCreateMembership1
 parameter_list|()
 throws|throws
 name|Exception
@@ -545,15 +545,7 @@ name|groupId
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|requestBodyAndHeaders
 argument_list|(
 literal|"direct://DELETEGROUP"
@@ -627,15 +619,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//            headers.put("CamelBox.defaultRequest", null);
 name|requestBodyAndHeaders
 argument_list|(
 literal|"direct://DELETEMEMBERSHIP"
@@ -709,15 +693,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//            headers.put("CamelBox.defaultRequest", null);
 name|BoxCollection
 name|result
 init|=
@@ -777,7 +753,7 @@ name|requestBody
 argument_list|(
 literal|"direct://GETALLGROUPS"
 argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -860,15 +836,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//            headers.put("CamelBox.defaultRequest", null);
 name|BoxGroupMembership
 name|result
 init|=
@@ -1253,10 +1221,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testUpdateMembership_1 ()
+DECL|method|testUpdateMembership1 ()
 specifier|public
 name|void
-name|testUpdateMembership_1
+name|testUpdateMembership1
 parameter_list|()
 throws|throws
 name|Exception

@@ -360,6 +360,13 @@ specifier|private
 name|Boolean
 name|shareUnitOfWork
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|parallelAggregate
+specifier|private
+name|Boolean
+name|parallelAggregate
+decl_stmt|;
 DECL|method|SplitDefinition ()
 specifier|public
 name|SplitDefinition
@@ -612,6 +619,9 @@ argument_list|,
 name|onPrepare
 argument_list|,
 name|isShareUnitOfWork
+argument_list|()
+argument_list|,
+name|isParallelAggregate
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -890,6 +900,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Doing the aggregate work in parallel      *<p/>      * Notice that if enabled, then the {@link org.apache.camel.processor.aggregate.AggregationStrategy} in use      * must be implemented as thread safe, as concurrent threads can call the<tt>aggregate</tt> methods at the same time.      *      * @return the builder      */
+DECL|method|parallelAggregate ()
+specifier|public
+name|SplitDefinition
+name|parallelAggregate
+parameter_list|()
+block|{
+name|setParallelAggregate
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Enables streaming.       * See {@link org.apache.camel.model.SplitDefinition#isStreaming()} for more information      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
@@ -1139,6 +1165,47 @@ literal|null
 operator|&&
 name|streaming
 return|;
+block|}
+DECL|method|getParallelAggregate ()
+specifier|public
+name|Boolean
+name|getParallelAggregate
+parameter_list|()
+block|{
+return|return
+name|parallelAggregate
+return|;
+block|}
+comment|/**      * Whether to aggregate using a sequential single thread, or allow parallel aggregation.      *<p/>      * Notice that if enabled, then the {@link org.apache.camel.processor.aggregate.AggregationStrategy} in use      * must be implemented as thread safe, as concurrent threads can call the<tt>aggregate</tt> methods at the same time.      */
+DECL|method|isParallelAggregate ()
+specifier|public
+name|boolean
+name|isParallelAggregate
+parameter_list|()
+block|{
+return|return
+name|parallelAggregate
+operator|!=
+literal|null
+operator|&&
+name|parallelAggregate
+return|;
+block|}
+DECL|method|setParallelAggregate (Boolean parallelAggregate)
+specifier|public
+name|void
+name|setParallelAggregate
+parameter_list|(
+name|Boolean
+name|parallelAggregate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parallelAggregate
+operator|=
+name|parallelAggregate
+expr_stmt|;
 block|}
 DECL|method|getStopOnException ()
 specifier|public

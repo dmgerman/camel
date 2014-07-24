@@ -46,7 +46,9 @@ literal|"org.apache.camel.model.dataformat:"
 operator|+
 literal|"org.apache.camel.model.language:"
 operator|+
-literal|"org.apache.camel.model.loadbalancer"
+literal|"org.apache.camel.model.loadbalancer:"
+operator|+
+literal|"org.apache.camel.model.rest"
 decl_stmt|;
 DECL|field|PLACEHOLDER_QNAME
 specifier|public

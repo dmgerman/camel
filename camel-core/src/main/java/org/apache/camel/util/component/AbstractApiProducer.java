@@ -90,18 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -129,34 +117,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultAsyncProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ExecutorServiceManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ThreadPoolProfile
 import|;
 end_import
 
@@ -218,14 +178,11 @@ name|T
 parameter_list|>
 extends|extends
 name|DefaultAsyncProducer
+implements|implements
+name|PropertiesInterceptor
+implements|,
+name|ResultInterceptor
 block|{
-comment|// thread pool executor
-DECL|field|executorService
-specifier|protected
-specifier|static
-name|ExecutorService
-name|executorService
-decl_stmt|;
 comment|// API Endpoint
 DECL|field|endpoint
 specifier|protected
@@ -270,6 +227,12 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// cached Endpoint executor service
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
 decl_stmt|;
 DECL|method|AbstractApiProducer (AbstractApiEndpoint<E, T> endpoint, ApiMethodPropertiesHelper propertiesHelper)
 specifier|public
@@ -349,16 +312,14 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|propertiesHelper
+name|properties
 operator|.
-name|getEndpointProperties
+name|putAll
 argument_list|(
 name|endpoint
 operator|.
-name|getConfiguration
+name|getEndpointProperties
 argument_list|()
-argument_list|,
-name|properties
 argument_list|)
 expr_stmt|;
 name|propertiesHelper
@@ -496,8 +457,10 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|doProcessResult
+name|interceptResult
 argument_list|(
+name|result
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -534,14 +497,10 @@ block|}
 block|}
 block|}
 decl_stmt|;
-name|getExecutorService
-argument_list|(
-name|getEndpoint
-argument_list|()
+name|endpoint
 operator|.
-name|getCamelContext
+name|getExecutorService
 argument_list|()
-argument_list|)
 operator|.
 name|submit
 argument_list|(
@@ -552,14 +511,15 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Intercept method invocation arguments used to find and invoke API method.      * Can be overridden to add custom/hidden method arguments.      * @param properties method invocation arguments.      */
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unused"
 argument_list|)
 DECL|method|interceptProperties (Map<String, Object> properties)
-specifier|protected
+specifier|public
 name|void
 name|interceptProperties
 parameter_list|(
@@ -614,17 +574,38 @@ name|properties
 argument_list|)
 return|;
 block|}
-comment|/**      * Do additional result processing, for example, add custom headers, etc.      * @param resultExchange API method result as exchange.      */
+annotation|@
+name|Override
+DECL|method|splitResult (Object result)
+specifier|public
+specifier|final
+name|Object
+name|splitResult
+parameter_list|(
+name|Object
+name|result
+parameter_list|)
+block|{
+comment|// producer never splits results
+return|return
+name|result
+return|;
+block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unused"
 argument_list|)
-DECL|method|doProcessResult (Exchange resultExchange)
-specifier|protected
+DECL|method|interceptResult (Object methodResult, Exchange resultExchange)
+specifier|public
 name|void
-name|doProcessResult
+name|interceptResult
 parameter_list|(
+name|Object
+name|methodResult
+parameter_list|,
 name|Exchange
 name|resultExchange
 parameter_list|)
@@ -695,7 +676,7 @@ name|ApiMethod
 argument_list|>
 name|filteredMethods
 init|=
-name|ApiMethodHelper
+name|methodHelper
 operator|.
 name|filterMethods
 argument_list|(
@@ -865,6 +846,13 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|value
@@ -938,6 +926,40 @@ return|return
 literal|false
 return|;
 block|}
+block|}
+else|else
+block|{
+comment|// allow null values for inBody only if its a nullable option
+if|if
+condition|(
+operator|!
+name|methodHelper
+operator|.
+name|getNullableArguments
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|inBodyProperty
+argument_list|)
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|NullPointerException
+argument_list|(
+name|inBodyProperty
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+block|}
 name|log
 operator|.
 name|debug
@@ -963,107 +985,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|getExecutorService (CamelContext context)
-specifier|private
-specifier|synchronized
-name|ExecutorService
-name|getExecutorService
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-comment|// CamelContext will shutdown thread pool when it shutdown so we can
-comment|// lazy create it on demand
-comment|// but in case of hot-deploy or the likes we need to be able to
-comment|// re-create it (its a shared static instance)
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-operator|||
-name|executorService
-operator|.
-name|isTerminated
-argument_list|()
-operator|||
-name|executorService
-operator|.
-name|isShutdown
-argument_list|()
-condition|)
-block|{
-specifier|final
-name|ExecutorServiceManager
-name|manager
-init|=
-name|context
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-decl_stmt|;
-comment|// try to lookup a pool first based on profile
-specifier|final
-name|String
-name|threadProfileName
-init|=
-name|getThreadProfileName
-argument_list|()
-decl_stmt|;
-name|ThreadPoolProfile
-name|poolProfile
-init|=
-name|manager
-operator|.
-name|getThreadPoolProfile
-argument_list|(
-name|threadProfileName
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|poolProfile
-operator|==
-literal|null
-condition|)
-block|{
-name|poolProfile
-operator|=
-name|manager
-operator|.
-name|getDefaultThreadPoolProfile
-argument_list|()
-expr_stmt|;
-block|}
-comment|// create a new pool using the custom or default profile
-name|executorService
-operator|=
-name|manager
-operator|.
-name|newScheduledThreadPool
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|,
-name|threadProfileName
-argument_list|,
-name|poolProfile
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|executorService
-return|;
-block|}
-comment|/**      * Returns Thread profile name. Generated as a constant THREAD_PROFILE_NAME in *Constants.      * @return thread profile name to use.      */
-DECL|method|getThreadProfileName ()
-specifier|protected
-specifier|abstract
-name|String
-name|getThreadProfileName
-parameter_list|()
-function_decl|;
 block|}
 end_class
 

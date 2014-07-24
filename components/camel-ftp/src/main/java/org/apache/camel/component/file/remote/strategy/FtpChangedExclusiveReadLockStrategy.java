@@ -756,6 +756,19 @@ operator|=
 name|readLockLoggingLevel
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setMarkerFiler (boolean markerFiler)
+specifier|public
+name|void
+name|setMarkerFiler
+parameter_list|(
+name|boolean
+name|markerFiler
+parameter_list|)
+block|{
+comment|// noop - not supported by ftp
+block|}
 DECL|method|getMinLength ()
 specifier|public
 name|long

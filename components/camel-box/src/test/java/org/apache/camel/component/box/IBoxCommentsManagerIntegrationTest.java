@@ -245,10 +245,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAddComment_1 ()
+DECL|method|testAddComment1 ()
 specifier|public
 name|void
-name|testAddComment_1
+name|testAddComment1
 parameter_list|()
 throws|throws
 name|Exception
@@ -380,15 +380,7 @@ name|commentId
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//        headers.put("CamelBox.defaultRequest", null);
 name|requestBodyAndHeaders
 argument_list|(
 literal|"direct://DELETECOMMENT"
@@ -450,15 +442,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.box.restclientv2.requestsbase.BoxDefaultRequestObject
-name|headers
-operator|.
-name|put
-argument_list|(
-literal|"CamelBox.defaultRequest"
-argument_list|,
-name|BOX_DEFAULT_REQUEST_OBJECT
-argument_list|)
-expr_stmt|;
+comment|//            headers.put("CamelBox.defaultRequest", null);
 name|BoxComment
 name|result
 init|=

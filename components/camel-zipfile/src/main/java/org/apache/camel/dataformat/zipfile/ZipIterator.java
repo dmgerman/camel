@@ -34,6 +34,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -172,6 +182,7 @@ end_comment
 
 begin_class
 DECL|class|ZipIterator
+specifier|public
 class|class
 name|ZipIterator
 implements|implements
@@ -179,6 +190,8 @@ name|Iterator
 argument_list|<
 name|Message
 argument_list|>
+implements|,
+name|Closeable
 block|{
 DECL|field|LOGGER
 specifier|static
@@ -577,8 +590,6 @@ name|IOException
 block|{
 name|ZipEntry
 name|entry
-init|=
-literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -625,6 +636,30 @@ operator|new
 name|UnsupportedOperationException
 argument_list|()
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|close ()
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|zipInputStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|zipInputStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

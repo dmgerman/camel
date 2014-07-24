@@ -1927,6 +1927,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// As the script could have multiple statement, we need to look up the result from the engine value set
+if|if
+condition|(
+name|result
+operator|==
+literal|null
+condition|)
+block|{
+name|result
+operator|=
+name|engine
+operator|.
+name|get
+argument_list|(
+literal|"result"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|result
 return|;

@@ -37,6 +37,22 @@ name|PROPERTY_PREFIX
 init|=
 literal|"CamelBox."
 decl_stmt|;
+DECL|field|NEXT_STREAM_POSITION_PROPERTY
+name|String
+name|NEXT_STREAM_POSITION_PROPERTY
+init|=
+name|PROPERTY_PREFIX
+operator|+
+literal|"nextStreamPosition"
+decl_stmt|;
+DECL|field|CHUNK_SIZE_PROPERTY
+name|String
+name|CHUNK_SIZE_PROPERTY
+init|=
+name|PROPERTY_PREFIX
+operator|+
+literal|"chunkSize"
+decl_stmt|;
 comment|// thread profile name for this component
 DECL|field|THREAD_PROFILE_NAME
 name|String

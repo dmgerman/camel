@@ -34,6 +34,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|Callable
@@ -168,10 +188,6 @@ DECL|field|conn
 name|Connection
 name|conn
 decl_stmt|;
-DECL|field|channel
-name|Channel
-name|channel
-decl_stmt|;
 DECL|field|closeTimeout
 specifier|private
 name|int
@@ -192,6 +208,23 @@ DECL|field|startConsumerCallable
 specifier|private
 name|StartConsumerCallable
 name|startConsumerCallable
+decl_stmt|;
+comment|/**      * Running consumers      */
+DECL|field|consumers
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|RabbitConsumer
+argument_list|>
+name|consumers
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RabbitConsumer
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|RabbitMQConsumer (RabbitMQEndpoint endpoint, Processor processor)
 specifier|public
@@ -236,11 +269,11 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
-comment|/**      * Open connection and channel      */
-DECL|method|openConnectionAndChannel ()
+comment|/**      * Open connection      */
+DECL|method|openConnection ()
 specifier|private
 name|void
-name|openConnectionAndChannel
+name|openConnection
 parameter_list|()
 throws|throws
 name|IOException
@@ -273,6 +306,16 @@ argument_list|,
 name|conn
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Open channel      */
+DECL|method|openChannel ()
+specifier|private
+name|Channel
+name|openChannel
+parameter_list|()
+throws|throws
+name|IOException
+block|{
 name|log
 operator|.
 name|trace
@@ -280,15 +323,14 @@ argument_list|(
 literal|"Creating channel..."
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
+name|Channel
 name|channel
-operator|=
+init|=
 name|conn
 operator|.
 name|createChannel
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|log
 operator|.
 name|debug
@@ -328,38 +370,84 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|getEndpoint
+return|return
+name|channel
+return|;
+block|}
+comment|/**      * Add a consummer thread for given channel      */
+DECL|method|startConsumers ()
+specifier|private
+name|void
+name|startConsumers
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// First channel used to declare Exchange and Queue
+name|Channel
+name|channel
+init|=
+name|openChannel
 argument_list|()
+decl_stmt|;
+name|endpoint
 operator|.
 name|declareExchangeAndQueue
 argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+name|startConsumer
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
+comment|// Other channels
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|1
+init|;
+name|i
+operator|<
+name|endpoint
+operator|.
+name|getConcurrentConsumers
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|channel
+operator|=
+name|openChannel
+argument_list|()
+expr_stmt|;
+name|startConsumer
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * If needed, create Exchange and Queue, then add message listener      */
-DECL|method|addConsumer ()
+block|}
+comment|/**      * Add a consummer thread for given channel      */
+DECL|method|startConsumer (Channel channel)
 specifier|private
 name|void
-name|addConsumer
-parameter_list|()
+name|startConsumer
+parameter_list|(
+name|Channel
+name|channel
+parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|channel
-operator|.
-name|basicConsume
-argument_list|(
-name|endpoint
-operator|.
-name|getQueue
-argument_list|()
-argument_list|,
-name|endpoint
-operator|.
-name|isAutoAck
-argument_list|()
-argument_list|,
+name|RabbitConsumer
+name|consumer
+init|=
 operator|new
 name|RabbitConsumer
 argument_list|(
@@ -367,6 +455,19 @@ name|this
 argument_list|,
 name|channel
 argument_list|)
+decl_stmt|;
+name|consumer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|consumers
+operator|.
+name|add
+argument_list|(
+name|consumer
 argument_list|)
 expr_stmt|;
 block|}
@@ -398,10 +499,10 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|openConnectionAndChannel
+name|openConnection
 argument_list|()
 expr_stmt|;
-name|addConsumer
+name|startConsumers
 argument_list|()
 expr_stmt|;
 block|}
@@ -454,7 +555,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * If needed, close Connection and Channel      */
+comment|/**      * If needed, close Connection and Channels      */
 DECL|method|closeConnectionAndChannel ()
 specifier|private
 name|void
@@ -476,32 +577,29 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|channel
-operator|!=
-literal|null
-condition|)
+for|for
+control|(
+name|RabbitConsumer
+name|consumer
+range|:
+name|this
+operator|.
+name|consumers
+control|)
 block|{
-name|log
+name|consumer
 operator|.
-name|debug
-argument_list|(
-literal|"Closing channel: {}"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
-name|channel
-operator|.
-name|close
+name|stop
 argument_list|()
 expr_stmt|;
-name|channel
-operator|=
-literal|null
-expr_stmt|;
 block|}
+name|this
+operator|.
+name|consumers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|conn
@@ -618,6 +716,11 @@ specifier|private
 specifier|final
 name|Channel
 name|channel
+decl_stmt|;
+DECL|field|tag
+specifier|private
+name|String
+name|tag
 decl_stmt|;
 comment|/**          * Constructs a new instance and records its association to the          * passed-in channel.          *          * @param channel the channel to which this consumer is attached          */
 DECL|method|RabbitConsumer (RabbitMQConsumer consumer, Channel channel)
@@ -1129,6 +1232,65 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**          * Bind consumer to channel          */
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|tag
+operator|=
+name|channel
+operator|.
+name|basicConsume
+argument_list|(
+name|endpoint
+operator|.
+name|getQueue
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|isAutoAck
+argument_list|()
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**          * Unbind consumer from channel          */
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|tag
+operator|!=
+literal|null
+condition|)
+block|{
+name|channel
+operator|.
+name|basicCancel
+argument_list|(
+name|tag
+argument_list|)
+expr_stmt|;
+block|}
+name|channel
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Task in charge of opening connection and adding listener when consumer is started      * and broker is not available.      */
 DECL|class|StartConsumerCallable
@@ -1224,7 +1386,7 @@ condition|)
 block|{
 try|try
 block|{
-name|openConnectionAndChannel
+name|openConnection
 argument_list|()
 expr_stmt|;
 name|connectionFailed
@@ -1266,7 +1428,7 @@ operator|!
 name|connectionFailed
 condition|)
 block|{
-name|addConsumer
+name|startConsumers
 argument_list|()
 expr_stmt|;
 block|}

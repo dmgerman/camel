@@ -104,6 +104,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|client
@@ -205,6 +233,13 @@ comment|/**  * Represents an Elasticsearch endpoint.  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"elasticsearch"
+argument_list|)
 DECL|class|ElasticsearchEndpoint
 specifier|public
 class|class
@@ -238,10 +273,12 @@ specifier|private
 name|Client
 name|client
 decl_stmt|;
-DECL|field|config
+annotation|@
+name|UriParam
+DECL|field|configuration
 specifier|private
 name|ElasticsearchConfiguration
-name|config
+name|configuration
 decl_stmt|;
 DECL|method|ElasticsearchEndpoint (String uri, ElasticsearchComponent component, Map<String, Object> parameters)
 specifier|public
@@ -273,7 +310,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|config
+name|configuration
 operator|=
 operator|new
 name|ElasticsearchConfiguration
@@ -353,7 +390,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|config
+name|configuration
 operator|.
 name|isLocal
 argument_list|()
@@ -375,7 +412,7 @@ name|info
 argument_list|(
 literal|"Joining ElasticSearch cluster "
 operator|+
-name|config
+name|configuration
 operator|.
 name|getClusterName
 argument_list|()
@@ -384,7 +421,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|config
+name|configuration
 operator|.
 name|getIp
 argument_list|()
@@ -398,7 +435,7 @@ name|info
 argument_list|(
 literal|"REMOTE ELASTICSEARCH: {}"
 argument_list|,
-name|config
+name|configuration
 operator|.
 name|getIp
 argument_list|()
@@ -416,7 +453,7 @@ name|put
 argument_list|(
 literal|"cluster.name"
 argument_list|,
-name|config
+name|configuration
 operator|.
 name|getClusterName
 argument_list|()
@@ -460,12 +497,12 @@ argument_list|(
 operator|new
 name|InetSocketTransportAddress
 argument_list|(
-name|config
+name|configuration
 operator|.
 name|getIp
 argument_list|()
 argument_list|,
-name|config
+name|configuration
 operator|.
 name|getPort
 argument_list|()
@@ -483,7 +520,7 @@ else|else
 block|{
 name|node
 operator|=
-name|config
+name|configuration
 operator|.
 name|buildNode
 argument_list|()
@@ -509,7 +546,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|config
+name|configuration
 operator|.
 name|isLocal
 argument_list|()
@@ -531,7 +568,7 @@ name|info
 argument_list|(
 literal|"Leaving ElasticSearch cluster "
 operator|+
-name|config
+name|configuration
 operator|.
 name|getClusterName
 argument_list|()
@@ -571,7 +608,7 @@ name|getConfig
 parameter_list|()
 block|{
 return|return
-name|config
+name|configuration
 return|;
 block|}
 DECL|method|setOperation (String operation)
@@ -583,7 +620,7 @@ name|String
 name|operation
 parameter_list|)
 block|{
-name|config
+name|configuration
 operator|.
 name|setOperation
 argument_list|(
