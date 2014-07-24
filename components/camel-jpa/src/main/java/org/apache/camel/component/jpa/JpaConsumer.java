@@ -767,6 +767,12 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+comment|// must clear after flush
+name|entityManager
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 return|return
 name|messagePolled
 return|;
