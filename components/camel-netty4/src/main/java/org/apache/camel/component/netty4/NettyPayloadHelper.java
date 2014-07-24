@@ -244,6 +244,35 @@ argument_list|>
 operator|)
 name|payload
 decl_stmt|;
+comment|// need to check if the content is ExchangeHolder
+if|if
+condition|(
+name|dp
+operator|.
+name|content
+argument_list|()
+operator|instanceof
+name|DefaultExchangeHolder
+condition|)
+block|{
+name|DefaultExchangeHolder
+operator|.
+name|unmarshal
+argument_list|(
+name|exchange
+argument_list|,
+operator|(
+name|DefaultExchangeHolder
+operator|)
+name|dp
+operator|.
+name|content
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// need to take out the payload here
 name|exchange
 operator|.
@@ -258,6 +287,7 @@ name|content
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// setup the sender address here for sending the response message back
 name|exchange
 operator|.
@@ -353,6 +383,35 @@ argument_list|>
 operator|)
 name|payload
 decl_stmt|;
+comment|// need to check if the content is ExchangeHolder
+if|if
+condition|(
+name|dp
+operator|.
+name|content
+argument_list|()
+operator|instanceof
+name|DefaultExchangeHolder
+condition|)
+block|{
+name|DefaultExchangeHolder
+operator|.
+name|unmarshal
+argument_list|(
+name|exchange
+argument_list|,
+operator|(
+name|DefaultExchangeHolder
+operator|)
+name|dp
+operator|.
+name|content
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// need to take out the payload here
 name|exchange
 operator|.
@@ -367,6 +426,7 @@ name|content
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// setup the sender address here for sending the response message back
 name|exchange
 operator|.
