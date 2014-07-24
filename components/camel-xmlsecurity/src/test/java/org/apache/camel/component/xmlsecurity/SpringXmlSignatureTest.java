@@ -290,7 +290,7 @@ argument_list|(
 literal|"xmlsecurity:sign://detached?keyAccessor=#accessorRsa&xpathsToIdAttributes=#xpathsToIdAttributes&"
 comment|//
 operator|+
-literal|"schemaResourceUri=org/apache/camel/component/xmlsecurity/Test.xsd&clearHeaders=false"
+literal|"schemaResourceUri=org/apache/camel/component/xmlsecurity/Test.xsd&signatureId=&clearHeaders=false"
 argument_list|)
 decl_stmt|;
 return|return

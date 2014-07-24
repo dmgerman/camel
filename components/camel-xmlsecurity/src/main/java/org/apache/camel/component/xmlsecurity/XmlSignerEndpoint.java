@@ -709,20 +709,20 @@ name|contentObjectId
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getXpathToIdAttributes ()
+DECL|method|getXpathsToIdAttributes ()
 specifier|public
 name|List
 argument_list|<
 name|XPathFilterParameterSpec
 argument_list|>
-name|getXpathToIdAttributes
+name|getXpathsToIdAttributes
 parameter_list|()
 block|{
 return|return
 name|getConfiguration
 argument_list|()
 operator|.
-name|getXpathToIdAttributes
+name|getXpathsToIdAttributes
 argument_list|()
 return|;
 block|}
@@ -744,6 +744,38 @@ operator|.
 name|setXpathsToIdAttributes
 argument_list|(
 name|xpathsToIdAttributes
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getSignatureId ()
+specifier|public
+name|String
+name|getSignatureId
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSignatureId
+argument_list|()
+return|;
+block|}
+DECL|method|setSignatureId (String signatureId)
+specifier|public
+name|void
+name|setSignatureId
+parameter_list|(
+name|String
+name|signatureId
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSignatureId
+argument_list|(
+name|signatureId
 argument_list|)
 expr_stmt|;
 block|}

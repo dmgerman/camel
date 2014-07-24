@@ -306,6 +306,12 @@ specifier|private
 name|String
 name|contentObjectId
 decl_stmt|;
+comment|// default value is null so that a unique ID is generated.
+DECL|field|signatureId
+specifier|private
+name|String
+name|signatureId
+decl_stmt|;
 comment|/**      * The URI of the content reference. This value can be overwritten by the      * header {@link XmlSignatureConstants#HEADER_CONTENT_REFERENCE_URI}. Can      * only be used in connection with the enveloped case when you specify a      * schema (see {@link #setSchemaResourceUri(String)}. Will be ignored in the      * enveloping and detached case.      */
 DECL|field|contentReferenceUri
 specifier|private
@@ -969,6 +975,33 @@ operator|=
 name|contentObjectId
 expr_stmt|;
 block|}
+DECL|method|getSignatureId ()
+specifier|public
+name|String
+name|getSignatureId
+parameter_list|()
+block|{
+return|return
+name|signatureId
+return|;
+block|}
+comment|/**      * Sets the signature Id. If this parameter is not set (null value) then a      * unique ID is generated for the signature ID (default). If this parameter      * is set to "" (empty string) then no Id attribute is created in the      * signature element.      *       * @param signatureId      */
+DECL|method|setSignatureId (String signatureId)
+specifier|public
+name|void
+name|setSignatureId
+parameter_list|(
+name|String
+name|signatureId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|signatureId
+operator|=
+name|signatureId
+expr_stmt|;
+block|}
 DECL|method|getContentReferenceUri ()
 specifier|public
 name|String
@@ -1273,13 +1306,13 @@ operator|=
 name|propertiesName
 expr_stmt|;
 block|}
-DECL|method|getXpathToIdAttributes ()
+DECL|method|getXpathsToIdAttributes ()
 specifier|public
 name|List
 argument_list|<
 name|XPathFilterParameterSpec
 argument_list|>
-name|getXpathToIdAttributes
+name|getXpathsToIdAttributes
 parameter_list|()
 block|{
 return|return

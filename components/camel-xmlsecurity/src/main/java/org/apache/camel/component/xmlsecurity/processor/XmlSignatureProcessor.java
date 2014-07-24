@@ -346,6 +346,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|//NOPMD
 comment|// provider not in classpath, ignore and fall back to jre default
 name|LOG
 operator|.
@@ -648,6 +649,11 @@ condition|(
 name|schemaResourceUri
 operator|==
 literal|null
+operator|||
+name|schemaResourceUri
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 return|return

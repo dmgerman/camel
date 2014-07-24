@@ -1213,6 +1213,21 @@ decl_stmt|;
 name|String
 name|signatureId
 init|=
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSignatureId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|signatureId
+operator|==
+literal|null
+condition|)
+block|{
+name|signatureId
+operator|=
 literal|"_"
 operator|+
 name|UUID
@@ -1222,7 +1237,23 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|signatureId
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// indicator that no signature Id attribute shall be generated
+name|signatureId
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|// parent only relevant for enveloping or detached signature
 name|Node
 name|parent
@@ -1665,7 +1696,7 @@ operator|=
 name|getConfiguration
 argument_list|()
 operator|.
-name|getXpathToIdAttributes
+name|getXpathsToIdAttributes
 argument_list|()
 expr_stmt|;
 block|}

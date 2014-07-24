@@ -786,6 +786,25 @@ return|return
 name|params
 return|;
 block|}
+DECL|method|getXpathFilter (String xpath)
+specifier|public
+specifier|static
+name|XPathFilterParameterSpec
+name|getXpathFilter
+parameter_list|(
+name|String
+name|xpath
+parameter_list|)
+block|{
+return|return
+name|getXpathFilter
+argument_list|(
+name|xpath
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(

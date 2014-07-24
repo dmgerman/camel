@@ -133,6 +133,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|//NOPMD
 DECL|interface|Input
 specifier|public
 interface|interface
@@ -180,7 +181,7 @@ name|String
 name|getContentDigestAlgorithm
 parameter_list|()
 function_decl|;
-comment|/** Signature Id. Can be<code>null</code>. */
+comment|/**          * Signature Id. Can be<code>null</code>, then no signature Id          * attribute is generated.          */
 DECL|method|getSignatureId ()
 name|String
 name|getSignatureId
