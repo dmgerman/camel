@@ -291,7 +291,6 @@ return|return
 literal|"rest"
 return|;
 block|}
-comment|// TODO: allow to configure if json/xml only or auto detect (now)
 annotation|@
 name|Override
 DECL|method|createProcessor (RouteContext routeContext)
@@ -342,6 +341,41 @@ operator|.
 name|name
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|mode
+operator|==
+literal|null
+operator|||
+literal|"off"
+operator|.
+name|equals
+argument_list|(
+name|mode
+argument_list|)
+condition|)
+block|{
+comment|// binding mode is off, so create a off mode binding processor
+return|return
+operator|new
+name|RestBindingProcessor
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+name|consumes
+argument_list|,
+name|produces
+argument_list|,
+name|mode
+argument_list|)
+return|;
 block|}
 comment|// setup json data format
 name|String

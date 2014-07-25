@@ -83,7 +83,7 @@ name|bindingMode
 init|=
 name|RestBindingMode
 operator|.
-name|auto
+name|off
 decl_stmt|;
 DECL|field|componentProperties
 specifier|private
