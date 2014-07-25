@@ -49,7 +49,6 @@ interface|interface
 name|SplunkResultProcessor
 block|{
 DECL|method|process (SplunkEvent splunkData)
-specifier|public
 name|void
 name|process
 parameter_list|(
