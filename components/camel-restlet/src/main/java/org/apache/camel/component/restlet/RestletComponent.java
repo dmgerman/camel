@@ -491,6 +491,11 @@ specifier|private
 name|boolean
 name|disableStreamCache
 decl_stmt|;
+DECL|field|port
+specifier|private
+name|int
+name|port
+decl_stmt|;
 DECL|method|RestletComponent ()
 specifier|public
 name|RestletComponent
@@ -668,6 +673,15 @@ name|u
 operator|.
 name|getPort
 argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|port
+operator|=
+name|this
+operator|.
+name|port
 expr_stmt|;
 block|}
 name|result
@@ -2609,6 +2623,32 @@ operator|.
 name|disableStreamCache
 operator|=
 name|disableStreamCache
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|port
+return|;
+block|}
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
 expr_stmt|;
 block|}
 annotation|@
