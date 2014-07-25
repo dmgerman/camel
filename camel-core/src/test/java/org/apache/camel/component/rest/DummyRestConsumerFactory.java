@@ -118,7 +118,7 @@ name|RestConsumerFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String path, String consumes, Map<String, Object> parameters)
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String path, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Consumer
 name|createConsumer
@@ -137,6 +137,9 @@ name|path
 parameter_list|,
 name|String
 name|consumes
+parameter_list|,
+name|String
+name|produces
 parameter_list|,
 name|Map
 argument_list|<
