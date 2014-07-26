@@ -327,9 +327,15 @@ comment|// is there a consumer registered for the request.
 name|HttpConsumer
 name|consumer
 init|=
+name|getServletResolveConsumerStrategy
+argument_list|()
+operator|.
 name|resolve
 argument_list|(
 name|request
+argument_list|,
+name|getConsumers
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
