@@ -96,6 +96,8 @@ name|JettyRestFilter
 implements|implements
 name|Filter
 block|{
+comment|// TODO: we may want to use a filter so we can reuse this for camel-servlet
+comment|// to have it match the request with list of accepted paths
 annotation|@
 name|Override
 DECL|method|init (FilterConfig filterConfig)
@@ -132,15 +134,6 @@ name|IOException
 throws|,
 name|ServletException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Doing my filter here"
-argument_list|)
-expr_stmt|;
 name|filterChain
 operator|.
 name|doFilter

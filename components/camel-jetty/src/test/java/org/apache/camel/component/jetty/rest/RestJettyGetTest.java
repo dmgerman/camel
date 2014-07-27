@@ -80,23 +80,11 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|RestJettyGetTest
 specifier|public
 class|class
@@ -167,7 +155,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure to use restlet on localhost with the given port
+comment|// configure to use jetty on localhost with the given port
 name|restConfiguration
 argument_list|()
 operator|.

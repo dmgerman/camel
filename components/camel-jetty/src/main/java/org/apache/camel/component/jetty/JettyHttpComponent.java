@@ -2540,7 +2540,6 @@ name|filter
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//                context.getServletHandler().addFilter(filterHolder);
 name|addFilter
 argument_list|(
 name|context
@@ -5513,58 +5512,28 @@ name|parameters
 argument_list|)
 expr_stmt|;
 comment|// add our filter
-name|List
-argument_list|<
-name|Filter
-argument_list|>
-name|list
-init|=
-name|endpoint
-operator|.
-name|getFilters
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|list
-operator|==
-literal|null
-condition|)
-block|{
-name|list
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Filter
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
-name|list
-operator|.
-name|add
-argument_list|(
-literal|0
-argument_list|,
-operator|new
-name|JettyRestFilter
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|setFilters
-argument_list|(
-name|list
-argument_list|)
-expr_stmt|;
+comment|//List<Filter> list = endpoint.getFilters();
+comment|//if (list == null) {
+comment|//    list = new ArrayList<Filter>();
+comment|//}
+comment|//list.add(0, new JettyRestFilter());
+comment|//endpoint.setFilters(list);
 comment|// disable this filter as we want to use ours
 name|endpoint
 operator|.
 name|setEnableMultipartFilter
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+comment|// use the rest binding
+name|endpoint
+operator|.
+name|setBinding
+argument_list|(
+operator|new
+name|JettyRestHttpBinding
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// configure consumer properties
@@ -5819,6 +5788,16 @@ argument_list|(
 name|holder
 argument_list|,
 literal|"/*"
+argument_list|)
+expr_stmt|;
+comment|// use rest enabled resolver in case we use rest
+name|camelServlet
+operator|.
+name|setServletResolveConsumerStrategy
+argument_list|(
+operator|new
+name|JettyRestServletResolveConsumerStrategy
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
