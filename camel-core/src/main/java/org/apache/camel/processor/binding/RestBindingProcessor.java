@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|MarshalProcessor
@@ -784,6 +796,11 @@ argument_list|(
 operator|new
 name|RestBindingMarshalOnCompletion
 argument_list|(
+name|exchange
+operator|.
+name|getFromRouteId
+argument_list|()
+argument_list|,
 name|jsonMmarshal
 argument_list|,
 name|xmlMmarshal
@@ -843,6 +860,11 @@ argument_list|(
 operator|new
 name|RestBindingMarshalOnCompletion
 argument_list|(
+name|exchange
+operator|.
+name|getFromRouteId
+argument_list|()
+argument_list|,
 name|jsonMmarshal
 argument_list|,
 name|xmlMmarshal
@@ -1018,10 +1040,19 @@ specifier|final
 name|AsyncProcessor
 name|xmlMmarshal
 decl_stmt|;
-DECL|method|RestBindingMarshalOnCompletion (AsyncProcessor jsonMmarshal, AsyncProcessor xmlMmarshal)
+DECL|field|routeId
+specifier|private
+specifier|final
+name|String
+name|routeId
+decl_stmt|;
+DECL|method|RestBindingMarshalOnCompletion (String routeId, AsyncProcessor jsonMmarshal, AsyncProcessor xmlMmarshal)
 specifier|private
 name|RestBindingMarshalOnCompletion
 parameter_list|(
+name|String
+name|routeId
+parameter_list|,
 name|AsyncProcessor
 name|jsonMmarshal
 parameter_list|,
@@ -1029,6 +1060,12 @@ name|AsyncProcessor
 name|xmlMmarshal
 parameter_list|)
 block|{
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
+expr_stmt|;
 name|this
 operator|.
 name|jsonMmarshal
@@ -1044,16 +1081,50 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onComplete (Exchange exchange)
+DECL|method|onAfterRoute (Route route, Exchange exchange)
 specifier|public
 name|void
-name|onComplete
+name|onAfterRoute
 parameter_list|(
+name|Route
+name|route
+parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// only marshal if we succeeded (= onComplete)
+comment|// we use the onAfterRoute callback, to ensure the data has been marshalled before
+comment|// the consumer writes the response back
+comment|// only trigger when it was the 1st route that was done
+if|if
+condition|(
+operator|!
+name|routeId
+operator|.
+name|equals
+argument_list|(
+name|route
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+comment|// only marshal if there was no exception
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 if|if
 condition|(
 name|bindingMode

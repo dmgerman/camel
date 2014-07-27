@@ -48,9 +48,35 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Synchronization
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|SynchronizationRouteAware
 import|;
 end_import
 
@@ -81,6 +107,8 @@ implements|implements
 name|SynchronizationVetoable
 implements|,
 name|Ordered
+implements|,
+name|SynchronizationRouteAware
 block|{
 DECL|method|onComplete (Exchange exchange)
 specifier|public
@@ -144,6 +172,34 @@ comment|// no particular order by default
 return|return
 literal|0
 return|;
+block|}
+DECL|method|onBeforeRoute (Route route, Exchange exchange)
+specifier|public
+name|void
+name|onBeforeRoute
+parameter_list|(
+name|Route
+name|route
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// noop
+block|}
+DECL|method|onAfterRoute (Route route, Exchange exchange)
+specifier|public
+name|void
+name|onAfterRoute
+parameter_list|(
+name|Route
+name|route
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 end_class
