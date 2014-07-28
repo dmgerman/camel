@@ -376,7 +376,10 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.

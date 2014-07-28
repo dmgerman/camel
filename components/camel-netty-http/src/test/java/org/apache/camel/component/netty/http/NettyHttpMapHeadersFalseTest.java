@@ -326,7 +326,10 @@ operator|.
 name|getHttpRequest
 argument_list|()
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 literal|"clientHeader"
 argument_list|)
@@ -348,7 +351,10 @@ operator|.
 name|getHttpRequest
 argument_list|()
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 literal|"OTHER"
 argument_list|)
@@ -370,7 +376,10 @@ operator|.
 name|getHttpRequest
 argument_list|()
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 literal|"beer"
 argument_list|)

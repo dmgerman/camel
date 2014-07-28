@@ -679,7 +679,10 @@ argument_list|)
 decl_stmt|;
 name|response
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|Exchange
 operator|.
@@ -690,7 +693,10 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|Exchange
 operator|.

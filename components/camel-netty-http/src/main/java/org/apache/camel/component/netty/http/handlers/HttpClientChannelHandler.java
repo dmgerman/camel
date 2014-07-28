@@ -241,7 +241,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Netty HTTP {@link org.apache.camel.component.netty.handlers.ClientChannelHandler} that handles the response combing  * back from thhe HTTP server, called by this client.  *  */
+comment|/**  * Netty HTTP {@link org.apache.camel.component.netty.handlers.ClientChannelHandler} that handles the response combing  * back from the HTTP server, called by this client.  *  */
 end_comment
 
 begin_class
@@ -399,7 +399,7 @@ name|entry
 range|:
 name|trailer
 operator|.
-name|getHeaders
+name|trailingHeaders
 argument_list|()
 control|)
 block|{
@@ -431,7 +431,10 @@ expr_stmt|;
 block|}
 name|response
 operator|.
-name|addHeader
+name|headers
+argument_list|()
+operator|.
+name|add
 argument_list|(
 name|entry
 operator|.
