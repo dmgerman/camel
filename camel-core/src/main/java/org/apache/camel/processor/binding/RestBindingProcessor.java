@@ -537,31 +537,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|// is the body empty
-if|if
-condition|(
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getBody
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
 name|boolean
 name|isXml
 init|=
@@ -751,13 +726,26 @@ literal|"json"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// okay we have a binding mode, so need to check for empty body as that can cause the marshaller to fail
-comment|// as they assume a non-empty body
 name|String
 name|body
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// okay we have a binding mode, so need to check for empty body as that can cause the marshaller to fail
+comment|// as they assume a non-empty body
 if|if
 condition|(
 name|isXml
@@ -818,6 +806,7 @@ operator|=
 operator|!
 name|isXml
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -964,6 +953,26 @@ argument_list|)
 condition|)
 block|{
 comment|// okay for auto we do not mind if we could not bind
+name|exchange
+operator|.
+name|addOnCompletion
+argument_list|(
+operator|new
+name|RestBindingMarshalOnCompletion
+argument_list|(
+name|exchange
+operator|.
+name|getFromRouteId
+argument_list|()
+argument_list|,
+name|jsonMarshal
+argument_list|,
+name|xmlMarshal
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done
@@ -1219,6 +1228,7 @@ block|}
 comment|// is the body empty
 if|if
 condition|(
+operator|(
 name|exchange
 operator|.
 name|hasOut
@@ -1233,7 +1243,15 @@ name|getBody
 argument_list|()
 operator|==
 literal|null
+operator|)
 operator|||
+operator|(
+operator|!
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+operator|&&
 name|exchange
 operator|.
 name|getIn
@@ -1243,6 +1261,7 @@ name|getBody
 argument_list|()
 operator|==
 literal|null
+operator|)
 condition|)
 block|{
 return|return;
