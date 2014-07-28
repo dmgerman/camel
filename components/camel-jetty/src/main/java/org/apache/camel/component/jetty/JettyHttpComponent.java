@@ -2514,44 +2514,6 @@ range|:
 name|filters
 control|)
 block|{
-if|if
-condition|(
-name|filter
-operator|instanceof
-name|JettyRestFilter
-condition|)
-block|{
-comment|// special for rest filter
-name|FilterHolder
-name|filterHolder
-init|=
-operator|new
-name|FilterHolder
-argument_list|()
-decl_stmt|;
-name|filterHolder
-operator|.
-name|setFilter
-argument_list|(
-operator|new
-name|CamelFilterWrapper
-argument_list|(
-name|filter
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|addFilter
-argument_list|(
-name|context
-argument_list|,
-name|filterHolder
-argument_list|,
-literal|"*"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|FilterHolder
 name|filterHolder
 init|=
@@ -2632,7 +2594,6 @@ argument_list|,
 name|pathSpec
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|addFilter (ServletContextHandler context, FilterHolder filterHolder, String pathSpec)
@@ -5511,13 +5472,6 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// add our filter
-comment|//List<Filter> list = endpoint.getFilters();
-comment|//if (list == null) {
-comment|//    list = new ArrayList<Filter>();
-comment|//}
-comment|//list.add(0, new JettyRestFilter());
-comment|//endpoint.setFilters(list);
 comment|// disable this filter as we want to use ours
 name|endpoint
 operator|.
