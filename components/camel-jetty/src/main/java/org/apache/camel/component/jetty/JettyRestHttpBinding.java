@@ -70,7 +70,6 @@ name|JettyRestHttpBinding
 extends|extends
 name|DefaultHttpBinding
 block|{
-comment|// TODO: a better and faster rest pattern matcher, without the .split as they may be slower
 annotation|@
 name|Override
 DECL|method|populateRequestParameters (HttpServletRequest request, HttpMessage message)
@@ -137,6 +136,15 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|useRestMatching
+argument_list|(
+name|consumerPath
+argument_list|)
+condition|)
+block|{
+comment|// split using single char / is optimized in the jdk
 name|String
 index|[]
 name|paths
@@ -256,6 +264,29 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+block|}
+DECL|method|useRestMatching (String path)
+specifier|private
+name|boolean
+name|useRestMatching
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+comment|// only need to do rest matching if using { } placeholders
+return|return
+name|path
+operator|.
+name|indexOf
+argument_list|(
+literal|'{'
+argument_list|)
+operator|>
+operator|-
+literal|1
+return|;
 block|}
 block|}
 end_class
