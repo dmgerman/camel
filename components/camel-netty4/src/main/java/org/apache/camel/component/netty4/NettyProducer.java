@@ -80,18 +80,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executors
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|RejectedExecutionException
 import|;
 end_import
@@ -117,18 +105,6 @@ operator|.
 name|bootstrap
 operator|.
 name|Bootstrap
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|bootstrap
-operator|.
-name|ChannelFactory
 import|;
 end_import
 
