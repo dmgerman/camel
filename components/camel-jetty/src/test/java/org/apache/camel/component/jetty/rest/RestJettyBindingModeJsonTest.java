@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.restlet
+DECL|package|org.apache.camel.component.jetty.rest
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|restlet
+name|jetty
+operator|.
+name|rest
 package|;
 end_package
 
@@ -29,6 +31,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jetty
+operator|.
+name|BaseJettyTest
 import|;
 end_import
 
@@ -74,17 +92,13 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|RestRestletBindingModeJsonTest
+DECL|class|RestJettyBindingModeJsonTest
 specifier|public
 class|class
-name|RestRestletBindingModeJsonTest
+name|RestJettyBindingModeJsonTest
 extends|extends
-name|RestletTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -139,7 +153,8 @@ name|sendBody
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|portNum
+name|getPort
+argument_list|()
 operator|+
 literal|"/users/new"
 argument_list|,
@@ -237,7 +252,8 @@ name|sendBody
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|portNum
+name|getPort
+argument_list|()
 operator|+
 literal|"/users/new"
 argument_list|,
@@ -291,7 +307,7 @@ argument_list|()
 operator|.
 name|component
 argument_list|(
-literal|"restlet"
+literal|"jetty"
 argument_list|)
 operator|.
 name|host
@@ -301,7 +317,8 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-name|portNum
+name|getPort
+argument_list|()
 argument_list|)
 operator|.
 name|bindingMode

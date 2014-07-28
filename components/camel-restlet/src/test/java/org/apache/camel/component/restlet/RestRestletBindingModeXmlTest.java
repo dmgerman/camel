@@ -286,7 +286,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// binding mode is json only
 name|restConfiguration
 argument_list|()
 operator|.

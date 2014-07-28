@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.restlet
+DECL|package|org.apache.camel.component.jetty.rest
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|restlet
+name|jetty
+operator|.
+name|rest
 package|;
 end_package
 
@@ -29,6 +31,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jetty
+operator|.
+name|BaseJettyTest
 import|;
 end_import
 
@@ -74,17 +92,13 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|RestRestletBindingModeJsonTest
+DECL|class|RestJettyBindingModeAutoWithJsonTest
 specifier|public
 class|class
-name|RestRestletBindingModeJsonTest
+name|RestJettyBindingModeAutoWithJsonTest
 extends|extends
-name|RestletTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -123,7 +137,7 @@ argument_list|()
 operator|.
 name|isInstanceOf
 argument_list|(
-name|UserJaxbPojo
+name|UserPojo
 operator|.
 name|class
 argument_list|)
@@ -139,7 +153,8 @@ name|sendBody
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|portNum
+name|getPort
+argument_list|()
 operator|+
 literal|"/users/new"
 argument_list|,
@@ -149,7 +164,7 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|UserJaxbPojo
+name|UserPojo
 name|user
 init|=
 name|mock
@@ -167,7 +182,7 @@ argument_list|()
 operator|.
 name|getBody
 argument_list|(
-name|UserJaxbPojo
+name|UserPojo
 operator|.
 name|class
 argument_list|)
@@ -199,70 +214,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Test
-DECL|method|testBindingModeWrong ()
-specifier|public
-name|void
-name|testBindingModeWrong
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|MockEndpoint
-name|mock
-init|=
-name|getMockEndpoint
-argument_list|(
-literal|"mock:input"
-argument_list|)
-decl_stmt|;
-name|mock
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// we bind to json, but send in xml, which is not possible
-name|String
-name|body
-init|=
-literal|"<user name=\"Donald Duck\" id=\"123\"></user>"
-decl_stmt|;
-try|try
-block|{
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"http://localhost:"
-operator|+
-name|portNum
-operator|+
-literal|"/users/new"
-argument_list|,
-name|body
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -291,7 +242,7 @@ argument_list|()
 operator|.
 name|component
 argument_list|(
-literal|"restlet"
+literal|"jetty"
 argument_list|)
 operator|.
 name|host
@@ -301,14 +252,15 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-name|portNum
+name|getPort
+argument_list|()
 argument_list|)
 operator|.
 name|bindingMode
 argument_list|(
 name|RestBindingMode
 operator|.
-name|json
+name|auto
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services
@@ -322,9 +274,14 @@ argument_list|(
 literal|"new"
 argument_list|)
 operator|.
+name|consumes
+argument_list|(
+literal|"application/json"
+argument_list|)
+operator|.
 name|type
 argument_list|(
-name|UserJaxbPojo
+name|UserPojo
 operator|.
 name|class
 argument_list|)

@@ -157,7 +157,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure to use restlet on localhost with the given port
+comment|// configure to use jetty on localhost with the given port
 comment|// and enable auto binding mode
 name|restConfiguration
 argument_list|()

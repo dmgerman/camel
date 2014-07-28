@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.restlet
+DECL|package|org.apache.camel.component.jetty.rest
 package|package
 name|org
 operator|.
@@ -14,9 +14,23 @@ name|camel
 operator|.
 name|component
 operator|.
-name|restlet
+name|jetty
+operator|.
+name|rest
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
 
 begin_import
 import|import
@@ -29,6 +43,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jetty
+operator|.
+name|BaseJettyTest
 import|;
 end_import
 
@@ -74,24 +104,20 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|RestRestletBindingModeJsonTest
+DECL|class|RestJettyPostXmlJaxbPojoTest
 specifier|public
 class|class
-name|RestRestletBindingModeJsonTest
+name|RestJettyPostXmlJaxbPojoTest
 extends|extends
-name|RestletTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
-DECL|method|testBindingMode ()
+DECL|method|testPostJaxbPojo ()
 specifier|public
 name|void
-name|testBindingMode
+name|testPostJaxbPojo
 parameter_list|()
 throws|throws
 name|Exception
@@ -131,19 +157,26 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"{\"id\": 123, \"name\": \"Donald Duck\"}"
+literal|"<user name=\"Donald Duck\" id=\"123\"></user>"
 decl_stmt|;
 name|template
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|portNum
+name|getPort
+argument_list|()
 operator|+
 literal|"/users/new"
 argument_list|,
 name|body
+argument_list|,
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"text/xml"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -200,10 +233,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testBindingModeWrong ()
+DECL|method|testPostJaxbPojoNoContentType ()
 specifier|public
 name|void
-name|testBindingModeWrong
+name|testPostJaxbPojoNoContentType
 parameter_list|()
 throws|throws
 name|Exception
@@ -220,46 +253,95 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// we bind to json, but send in xml, which is not possible
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|isInstanceOf
+argument_list|(
+name|UserJaxbPojo
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|String
 name|body
 init|=
-literal|"<user name=\"Donald Duck\" id=\"123\"></user>"
+literal|"<user name=\"Donald Duck\" id=\"456\"></user>"
 decl_stmt|;
-try|try
-block|{
 name|template
 operator|.
 name|sendBody
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|portNum
+name|getPort
+argument_list|()
 operator|+
 literal|"/users/new"
 argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+name|UserJaxbPojo
+name|user
+init|=
+name|mock
+operator|.
+name|getReceivedExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|UserJaxbPojo
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|user
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|456
+argument_list|,
+name|user
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Donald Duck"
+argument_list|,
+name|user
+operator|.
+name|getName
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -286,12 +368,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// configure to use jetty on localhost with the given port
+comment|// and enable auto binding mode
 name|restConfiguration
 argument_list|()
 operator|.
 name|component
 argument_list|(
-literal|"restlet"
+literal|"jetty"
 argument_list|)
 operator|.
 name|host
@@ -301,14 +385,15 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-name|portNum
+name|getPort
+argument_list|()
 argument_list|)
 operator|.
 name|bindingMode
 argument_list|(
 name|RestBindingMode
 operator|.
-name|json
+name|auto
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services

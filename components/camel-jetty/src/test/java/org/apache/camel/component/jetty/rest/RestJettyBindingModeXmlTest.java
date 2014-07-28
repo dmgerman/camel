@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.restlet
+DECL|package|org.apache.camel.component.jetty.rest
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|restlet
+name|jetty
+operator|.
+name|rest
 package|;
 end_package
 
@@ -29,6 +31,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jetty
+operator|.
+name|BaseJettyTest
 import|;
 end_import
 
@@ -74,17 +92,13 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|RestRestletBindingModeJsonTest
+DECL|class|RestJettyBindingModeXmlTest
 specifier|public
 class|class
-name|RestRestletBindingModeJsonTest
+name|RestJettyBindingModeXmlTest
 extends|extends
-name|RestletTestSupport
+name|BaseJettyTest
 block|{
 annotation|@
 name|Test
@@ -131,7 +145,7 @@ expr_stmt|;
 name|String
 name|body
 init|=
-literal|"{\"id\": 123, \"name\": \"Donald Duck\"}"
+literal|"<user name=\"Donald Duck\" id=\"123\"></user>"
 decl_stmt|;
 name|template
 operator|.
@@ -139,7 +153,8 @@ name|sendBody
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|portNum
+name|getPort
+argument_list|()
 operator|+
 literal|"/users/new"
 argument_list|,
@@ -223,11 +238,11 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// we bind to json, but send in xml, which is not possible
+comment|// we bind to xml, but send in json, which is not possible
 name|String
 name|body
 init|=
-literal|"<user name=\"Donald Duck\" id=\"123\"></user>"
+literal|"{\"id\": 123, \"name\": \"Donald Duck\"}"
 decl_stmt|;
 try|try
 block|{
@@ -237,7 +252,8 @@ name|sendBody
 argument_list|(
 literal|"http://localhost:"
 operator|+
-name|portNum
+name|getPort
+argument_list|()
 operator|+
 literal|"/users/new"
 argument_list|,
@@ -291,7 +307,7 @@ argument_list|()
 operator|.
 name|component
 argument_list|(
-literal|"restlet"
+literal|"jetty"
 argument_list|)
 operator|.
 name|host
@@ -301,14 +317,15 @@ argument_list|)
 operator|.
 name|port
 argument_list|(
-name|portNum
+name|getPort
+argument_list|()
 argument_list|)
 operator|.
 name|bindingMode
 argument_list|(
 name|RestBindingMode
 operator|.
-name|json
+name|xml
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services
