@@ -59,7 +59,7 @@ name|ClientPipelineFactory
 implements|implements
 name|ChannelPipelineFactory
 block|{
-comment|/**      * Creates a new {@link ClientPipelineFactory} using the given {@link NettyProducer}      *      * @param producer the associated producers      * @return the {@link ClientPipelineFactory} associated to ghe given producer.      */
+comment|/**      * Creates a new {@link ClientPipelineFactory} using the given {@link NettyProducer}      *      * @param producer the associated producers      * @return the {@link ClientPipelineFactory} associated to the given producer.      */
 DECL|method|createPipelineFactory (NettyProducer producer)
 specifier|public
 specifier|abstract

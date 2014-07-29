@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Client handler which cannot be shared  */
+comment|/**  * Server handler which cannot be shared  */
 end_comment
 
 begin_class
