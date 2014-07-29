@@ -222,6 +222,8 @@ argument_list|(
 operator|new
 name|OsgiClassResolver
 argument_list|(
+name|camelContext
+argument_list|,
 name|bundleContext
 argument_list|)
 argument_list|)

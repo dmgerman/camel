@@ -149,6 +149,8 @@ init|=
 operator|new
 name|OsgiClassResolver
 argument_list|(
+literal|null
+argument_list|,
 name|bundleContext
 argument_list|)
 decl_stmt|;
