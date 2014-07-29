@@ -783,7 +783,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"HttpServerChannelHandler is not found as attachment for exception {}, send 404 back to the client."
+literal|"HttpServerChannelHandler is not found as attachment to handle exception, send 404 back to the client."
 argument_list|,
 name|e
 operator|.
