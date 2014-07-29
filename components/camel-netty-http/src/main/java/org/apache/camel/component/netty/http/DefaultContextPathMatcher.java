@@ -134,6 +134,16 @@ argument_list|)
 return|;
 block|}
 block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|equals (Object o)
