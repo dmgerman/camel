@@ -197,6 +197,34 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
+comment|// and there should also only be 2 if browsing as the selector was configured in the route builder
+name|JmsQueueEndpoint
+name|endpoint
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"activemq:queue:foo"
+argument_list|,
+name|JmsQueueEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|endpoint
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createCamelContext ()
 specifier|protected
@@ -287,6 +315,11 @@ expr_stmt|;
 name|from
 argument_list|(
 name|endpoint
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:drink"
 argument_list|)
 operator|.
 name|to

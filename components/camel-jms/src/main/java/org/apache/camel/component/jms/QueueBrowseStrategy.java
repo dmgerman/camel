@@ -81,6 +81,26 @@ name|JmsQueueEndpoint
 name|endpoint
 parameter_list|)
 function_decl|;
+DECL|method|browseSelected (String selector, JmsOperations template, String queue, JmsQueueEndpoint endpoint)
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|browseSelected
+parameter_list|(
+name|String
+name|selector
+parameter_list|,
+name|JmsOperations
+name|template
+parameter_list|,
+name|String
+name|queue
+parameter_list|,
+name|JmsQueueEndpoint
+name|endpoint
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
