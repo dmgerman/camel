@@ -52,6 +52,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestBindingMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -207,6 +223,7 @@ throws|throws
 name|Exception
 block|{
 comment|// configure to use restlet on localhost with the given port
+comment|// and enable auto binding mode
 name|restConfiguration
 argument_list|()
 operator|.
@@ -223,6 +240,13 @@ operator|.
 name|port
 argument_list|(
 name|portNum
+argument_list|)
+operator|.
+name|bindingMode
+argument_list|(
+name|RestBindingMode
+operator|.
+name|auto
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services

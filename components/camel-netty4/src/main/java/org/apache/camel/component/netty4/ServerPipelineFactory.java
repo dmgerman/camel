@@ -70,7 +70,7 @@ argument_list|<
 name|Channel
 argument_list|>
 block|{
-comment|/**      * Creates a new {@link ClientPipelineFactory} using the given {@link NettyConsumer}      *      * @param consumer the associated consumer      * @return the {@link ClientPipelineFactory} associated to ghe given consumer.      */
+comment|/**      * Creates a new {@link ServerPipelineFactory} using the given {@link NettyConsumer}      *      * @param consumer the associated consumer      * @return the {@link ServerPipelineFactory} associated to the given consumer.      */
 DECL|method|createPipelineFactory (NettyConsumer consumer)
 specifier|public
 specifier|abstract

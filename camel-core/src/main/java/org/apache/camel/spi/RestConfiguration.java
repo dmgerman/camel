@@ -83,7 +83,17 @@ name|bindingMode
 init|=
 name|RestBindingMode
 operator|.
-name|auto
+name|off
+decl_stmt|;
+DECL|field|jsonDataFormat
+specifier|private
+name|String
+name|jsonDataFormat
+decl_stmt|;
+DECL|field|xmlDataFormat
+specifier|private
+name|String
+name|xmlDataFormat
 decl_stmt|;
 DECL|field|componentProperties
 specifier|private
@@ -114,6 +124,16 @@ argument_list|,
 name|Object
 argument_list|>
 name|consumerProperties
+decl_stmt|;
+DECL|field|dataFormatProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|dataFormatProperties
 decl_stmt|;
 comment|/**      * Gets the name of the Camel component to use as the REST consumer      *      * @return the component name, or<tt>null</tt> to let Camel search the {@link Registry} to find suitable implementation      */
 DECL|method|getComponent ()
@@ -277,6 +297,62 @@ name|bindingMode
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Gets the name of the json data format.      *      * @return the name, or<tt>null</tt> to use default      */
+DECL|method|getJsonDataFormat ()
+specifier|public
+name|String
+name|getJsonDataFormat
+parameter_list|()
+block|{
+return|return
+name|jsonDataFormat
+return|;
+block|}
+comment|/**      * Sets a custom json data format to be used      *      * @param name name of the data format      */
+DECL|method|setJsonDataFormat (String name)
+specifier|public
+name|void
+name|setJsonDataFormat
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jsonDataFormat
+operator|=
+name|name
+expr_stmt|;
+block|}
+comment|/**      * Gets the name of the xml data format.      *      * @return the name, or<tt>null</tt> to use default      */
+DECL|method|getXmlDataFormat ()
+specifier|public
+name|String
+name|getXmlDataFormat
+parameter_list|()
+block|{
+return|return
+name|xmlDataFormat
+return|;
+block|}
+comment|/**      * Sets a custom xml data format to be used      *      * @param name name of the data format      */
+DECL|method|setXmlDataFormat (String name)
+specifier|public
+name|void
+name|setXmlDataFormat
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlDataFormat
+operator|=
+name|name
+expr_stmt|;
+block|}
 comment|/**      * Gets additional options on component level      *      * @return additional options      */
 DECL|method|getComponentProperties ()
 specifier|public
@@ -389,6 +465,44 @@ operator|.
 name|consumerProperties
 operator|=
 name|consumerProperties
+expr_stmt|;
+block|}
+comment|/**      * Gets additional options on data format level      *      * @return additional options      */
+DECL|method|getDataFormatProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getDataFormatProperties
+parameter_list|()
+block|{
+return|return
+name|dataFormatProperties
+return|;
+block|}
+comment|/**      * Sets additional options on data format level      *      * @param dataFormatProperties the options      */
+DECL|method|setDataFormatProperties (Map<String, Object> dataFormatProperties)
+specifier|public
+name|void
+name|setDataFormatProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|dataFormatProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataFormatProperties
+operator|=
+name|dataFormatProperties
 expr_stmt|;
 block|}
 block|}

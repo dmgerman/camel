@@ -368,11 +368,6 @@ specifier|private
 name|NetworkInterface
 name|multicastNetworkInterface
 decl_stmt|;
-DECL|field|datagramChannel
-specifier|private
-name|DatagramChannel
-name|datagramChannel
-decl_stmt|;
 DECL|field|channel
 specifier|private
 name|Channel

@@ -1918,6 +1918,10 @@ DECL|field|restConfiguration
 specifier|private
 name|RestConfiguration
 name|restConfiguration
+init|=
+operator|new
+name|RestConfiguration
+argument_list|()
 decl_stmt|;
 DECL|field|interceptStrategies
 specifier|private

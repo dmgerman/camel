@@ -231,6 +231,14 @@ specifier|private
 name|SplunkConnectionFactory
 name|connectionFactory
 decl_stmt|;
+comment|/**      * Streaming mode sends exchanges as they are received, rather than in a batch      */
+annotation|@
+name|UriParam
+DECL|field|streaming
+specifier|private
+name|Boolean
+name|streaming
+decl_stmt|;
 DECL|method|getInitEarliestTime ()
 specifier|public
 name|String
@@ -645,6 +653,40 @@ operator|.
 name|password
 operator|=
 name|password
+expr_stmt|;
+block|}
+comment|/**      * Returns streaming mode.      *<p>      * Streaming mode sends exchanges as they are received, rather than in a batch.      */
+DECL|method|isStreaming ()
+specifier|public
+name|boolean
+name|isStreaming
+parameter_list|()
+block|{
+return|return
+name|streaming
+operator|!=
+literal|null
+condition|?
+name|streaming
+else|:
+literal|false
+return|;
+block|}
+comment|/**      * Sets streaming mode.      *<p>      * Streaming mode sends exchanges as they are received, rather than in a batch.      *        * @param streaming      */
+DECL|method|setStreaming (boolean streaming)
+specifier|public
+name|void
+name|setStreaming
+parameter_list|(
+name|boolean
+name|streaming
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streaming
+operator|=
+name|streaming
 expr_stmt|;
 block|}
 DECL|method|getConnectionTimeout ()

@@ -192,6 +192,13 @@ name|consumes
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|produces
+specifier|private
+name|String
+name|produces
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|componentName
 specifier|private
 name|String
@@ -320,6 +327,32 @@ operator|.
 name|consumes
 operator|=
 name|consumes
+expr_stmt|;
+block|}
+DECL|method|getProduces ()
+specifier|public
+name|String
+name|getProduces
+parameter_list|()
+block|{
+return|return
+name|produces
+return|;
+block|}
+DECL|method|setProduces (String produces)
+specifier|public
+name|void
+name|setProduces
+parameter_list|(
+name|String
+name|produces
+parameter_list|)
+block|{
+name|this
+operator|.
+name|produces
+operator|=
+name|produces
 expr_stmt|;
 block|}
 DECL|method|getComponentName ()
@@ -674,6 +707,9 @@ name|getPath
 argument_list|()
 argument_list|,
 name|getConsumes
+argument_list|()
+argument_list|,
+name|getProduces
 argument_list|()
 argument_list|,
 name|getParameters

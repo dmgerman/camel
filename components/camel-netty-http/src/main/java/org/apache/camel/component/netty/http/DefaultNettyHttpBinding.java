@@ -1007,7 +1007,10 @@ name|name
 range|:
 name|request
 operator|.
-name|getHeaderNames
+name|headers
+argument_list|()
+operator|.
+name|names
 argument_list|()
 control|)
 block|{
@@ -1058,7 +1061,10 @@ name|value
 init|=
 name|request
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 name|name
 argument_list|)
@@ -1127,7 +1133,10 @@ name|values
 init|=
 name|request
 operator|.
-name|getHeaders
+name|headers
+argument_list|()
+operator|.
+name|getAll
 argument_list|(
 name|name
 argument_list|)
@@ -1400,7 +1409,10 @@ argument_list|)
 operator|&&
 name|request
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 name|Exchange
 operator|.
@@ -1411,7 +1423,10 @@ literal|null
 operator|&&
 name|request
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 name|Exchange
 operator|.
@@ -1818,7 +1833,10 @@ name|name
 range|:
 name|response
 operator|.
-name|getHeaderNames
+name|headers
+argument_list|()
+operator|.
+name|names
 argument_list|()
 control|)
 block|{
@@ -1852,7 +1870,10 @@ name|values
 init|=
 name|response
 operator|.
-name|getHeaders
+name|headers
+argument_list|()
+operator|.
+name|getAll
 argument_list|(
 name|name
 argument_list|)
@@ -2175,7 +2196,10 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|addHeader
+name|headers
+argument_list|()
+operator|.
+name|add
 argument_list|(
 name|key
 argument_list|,
@@ -2525,7 +2549,10 @@ decl_stmt|;
 comment|// set content-length
 name|response
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.
@@ -2567,7 +2594,10 @@ block|{
 comment|// set content-type
 name|response
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.
@@ -2647,7 +2677,10 @@ block|}
 block|}
 name|response
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.
@@ -2957,7 +2990,10 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|addHeader
+name|headers
+argument_list|()
+operator|.
+name|add
 argument_list|(
 name|key
 argument_list|,
@@ -3073,7 +3109,10 @@ decl_stmt|;
 comment|// set content-length
 name|request
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.
@@ -3153,7 +3192,10 @@ block|{
 comment|// set content-type
 name|request
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.
@@ -3195,7 +3237,10 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.
@@ -3274,7 +3319,10 @@ block|}
 block|}
 name|request
 operator|.
-name|setHeader
+name|headers
+argument_list|()
+operator|.
+name|set
 argument_list|(
 name|HttpHeaders
 operator|.

@@ -1240,6 +1240,14 @@ argument_list|(
 name|str
 argument_list|)
 expr_stmt|;
+comment|// and must set body to the response body as Spark otherwise may output something else
+name|message
+operator|.
+name|setBody
+argument_list|(
+name|str
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Decodes the header if needed to, or returns the header value as is.      *      * @param configuration the configuration      * @param headerName    the header name      * @param value         the current header value      * @param charset       the charset to use for decoding      * @return the decoded value (if decoded was needed) or a<tt>toString</tt> representation of the value.      * @throws java.io.UnsupportedEncodingException is thrown if error decoding.      */
