@@ -350,6 +350,14 @@ operator|.
 name|getProduces
 argument_list|()
 decl_stmt|;
+name|String
+name|state
+init|=
+name|entry
+operator|.
+name|getState
+argument_list|()
+decl_stmt|;
 name|CompositeData
 name|data
 init|=
@@ -371,6 +379,8 @@ block|,
 literal|"consumes"
 block|,
 literal|"produces"
+block|,
+literal|"state"
 block|}
 argument_list|,
 operator|new
@@ -386,6 +396,8 @@ block|,
 name|consumes
 block|,
 name|produces
+block|,
+name|state
 block|}
 argument_list|)
 decl_stmt|;

@@ -220,6 +220,8 @@ block|,
 literal|"consumes"
 block|,
 literal|"produces"
+block|,
+literal|"state"
 block|}
 argument_list|)
 return|;
@@ -254,6 +256,8 @@ block|,
 literal|"consumes"
 block|,
 literal|"produces"
+block|,
+literal|"state"
 block|}
 argument_list|,
 operator|new
@@ -269,12 +273,18 @@ block|,
 literal|"Consumes"
 block|,
 literal|"Produces"
+block|,
+literal|"State"
 block|}
 argument_list|,
 operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

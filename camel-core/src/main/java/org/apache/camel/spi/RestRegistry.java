@@ -92,6 +92,11 @@ name|String
 name|getProduces
 parameter_list|()
 function_decl|;
+DECL|method|getState ()
+name|String
+name|getState
+parameter_list|()
+function_decl|;
 block|}
 DECL|method|addRestService (Consumer consumer, String url, String path, String verb, String consumes, String produces)
 name|void
