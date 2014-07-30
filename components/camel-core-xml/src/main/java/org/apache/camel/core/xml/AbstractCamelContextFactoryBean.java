@@ -486,6 +486,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|RestContextRefDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|RouteBuilderDefinition
 import|;
 end_import
@@ -941,20 +955,6 @@ operator|.
 name|spi
 operator|.
 name|ProcessorFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RestConfiguration
 import|;
 end_import
 
@@ -2257,6 +2257,10 @@ name|findRouteBuilders
 argument_list|()
 expr_stmt|;
 name|installRoutes
+argument_list|()
+expr_stmt|;
+comment|// must init rest refs before we add the rests
+name|initRestRefs
 argument_list|()
 expr_stmt|;
 comment|// and add the rests
@@ -3693,6 +3697,81 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|initRestRefs ()
+specifier|protected
+name|void
+name|initRestRefs
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// add rest refs to existing rests
+if|if
+condition|(
+name|getRestRefs
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|RestContextRefDefinition
+name|ref
+range|:
+name|getRestRefs
+argument_list|()
+control|)
+block|{
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|defs
+init|=
+name|ref
+operator|.
+name|lookupRests
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|RestDefinition
+name|def
+range|:
+name|defs
+control|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Adding rest from {} -> {}"
+argument_list|,
+name|ref
+argument_list|,
+name|def
+argument_list|)
+expr_stmt|;
+comment|// add in top as they are most likely to be common/shared
+comment|// which you may want to start first
+name|getRests
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|,
+name|def
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
 DECL|method|getBeanForType (Class<S> clazz)
 specifier|protected
 specifier|abstract
@@ -4026,6 +4105,16 @@ argument_list|<
 name|RouteContextRefDefinition
 argument_list|>
 name|getRouteRefs
+parameter_list|()
+function_decl|;
+DECL|method|getRestRefs ()
+specifier|public
+specifier|abstract
+name|List
+argument_list|<
+name|RestContextRefDefinition
+argument_list|>
+name|getRestRefs
 parameter_list|()
 function_decl|;
 DECL|method|getErrorHandlerRef ()

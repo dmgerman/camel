@@ -170,6 +170,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|VerbDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -191,15 +223,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper for {@link RouteContextRefDefinition}.  */
+comment|/**  * Helper for {@link org.apache.camel.model.RestContextRefDefinition}.  */
 end_comment
 
 begin_class
-DECL|class|RouteContextRefDefinitionHelper
+DECL|class|RestContextRefDefinitionHelper
 specifier|public
 specifier|final
 class|class
-name|RouteContextRefDefinitionHelper
+name|RestContextRefDefinitionHelper
 block|{
 DECL|field|jaxbContext
 specifier|private
@@ -207,26 +239,26 @@ specifier|static
 name|JAXBContext
 name|jaxbContext
 decl_stmt|;
-DECL|method|RouteContextRefDefinitionHelper ()
+DECL|method|RestContextRefDefinitionHelper ()
 specifier|private
-name|RouteContextRefDefinitionHelper
+name|RestContextRefDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Lookup the routes from the {@link RouteContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the routes as it performs a deep clone of the routes      * as a {@link RouteContextRefDefinition} can be re-used with multiple {@link CamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link CamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link RouteContextRefDefinition} to lookup and get the routes.      * @return the routes.      */
+comment|/**      * Lookup the rests from the {@link org.apache.camel.model.RestContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the rests as it performs a deep clone of the rests      * as a {@link org.apache.camel.model.RestContextRefDefinition} can be re-used with multiple {@link org.apache.camel.CamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link org.apache.camel.CamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link org.apache.camel.model.RestContextRefDefinition} to lookup and get the routes.      * @return the rests.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|lookupRoutes (CamelContext camelContext, String ref)
+DECL|method|lookupRests (CamelContext camelContext, String ref)
 specifier|public
 specifier|static
 specifier|synchronized
 name|List
 argument_list|<
-name|RouteDefinition
+name|RestDefinition
 argument_list|>
-name|lookupRoutes
+name|lookupRests
 parameter_list|(
 name|CamelContext
 name|camelContext
@@ -255,7 +287,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|RouteDefinition
+name|RestDefinition
 argument_list|>
 name|answer
 init|=
@@ -283,25 +315,25 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot find RouteContext with id "
+literal|"Cannot find RestContext with id "
 operator|+
 name|ref
 argument_list|)
 throw|;
 block|}
-comment|// must clone the route definitions as they can be reused with multiple CamelContexts
+comment|// must clone the rest definitions as they can be reused with multiple CamelContexts
 comment|// and they would need their own instances of the definitions to not have side effects among
 comment|// the CamelContext - for example property placeholder resolutions etc.
 name|List
 argument_list|<
-name|RouteDefinition
+name|RestDefinition
 argument_list|>
 name|clones
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|RouteDefinition
+name|RestDefinition
 argument_list|>
 argument_list|(
 name|answer
@@ -320,16 +352,16 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|RouteDefinition
+name|RestDefinition
 name|def
 range|:
 name|answer
 control|)
 block|{
-name|RouteDefinition
+name|RestDefinition
 name|clone
 init|=
-name|cloneRouteDefinition
+name|cloneRestDefinition
 argument_list|(
 name|jaxb
 argument_list|,
@@ -413,16 +445,16 @@ return|return
 name|jaxbContext
 return|;
 block|}
-DECL|method|cloneRouteDefinition (JAXBContext jaxbContext, RouteDefinition def)
+DECL|method|cloneRestDefinition (JAXBContext jaxbContext, RestDefinition def)
 specifier|private
 specifier|static
-name|RouteDefinition
-name|cloneRouteDefinition
+name|RestDefinition
+name|cloneRestDefinition
 parameter_list|(
 name|JAXBContext
 name|jaxbContext
 parameter_list|,
-name|RouteDefinition
+name|RestDefinition
 name|def
 parameter_list|)
 throws|throws
@@ -490,16 +522,112 @@ literal|null
 operator|&&
 name|clone
 operator|instanceof
+name|RestDefinition
+condition|)
+block|{
+name|RestDefinition
+name|def2
+init|=
+operator|(
+name|RestDefinition
+operator|)
+name|clone
+decl_stmt|;
+name|Iterator
+argument_list|<
+name|VerbDefinition
+argument_list|>
+name|verbit1
+init|=
+name|def
+operator|.
+name|getVerbs
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+name|Iterator
+argument_list|<
+name|VerbDefinition
+argument_list|>
+name|verbit2
+init|=
+name|def2
+operator|.
+name|getVerbs
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|verbit1
+operator|.
+name|hasNext
+argument_list|()
+operator|&&
+name|verbit2
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|VerbDefinition
+name|verb1
+init|=
+name|verbit1
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|VerbDefinition
+name|verb2
+init|=
+name|verbit2
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|verb1
+operator|.
+name|getToOrRoute
+argument_list|()
+operator|instanceof
+name|RouteDefinition
+operator|&&
+name|verb2
+operator|.
+name|getToOrRoute
+argument_list|()
+operator|instanceof
 name|RouteDefinition
 condition|)
 block|{
 name|RouteDefinition
-name|def2
+name|route1
 init|=
 operator|(
 name|RouteDefinition
 operator|)
-name|clone
+name|verb1
+operator|.
+name|getToOrRoute
+argument_list|()
+decl_stmt|;
+name|RouteDefinition
+name|route2
+init|=
+operator|(
+name|RouteDefinition
+operator|)
+name|verb2
+operator|.
+name|getToOrRoute
+argument_list|()
 decl_stmt|;
 comment|// need to clone the namespaces also as they are not JAXB marshalled (as they are transient)
 name|Iterator
@@ -512,7 +640,7 @@ name|ProcessorDefinitionHelper
 operator|.
 name|filterTypeInOutputs
 argument_list|(
-name|def
+name|route1
 operator|.
 name|getOutputs
 argument_list|()
@@ -532,7 +660,7 @@ name|ProcessorDefinitionHelper
 operator|.
 name|filterTypeInOutputs
 argument_list|(
-name|def2
+name|route2
 operator|.
 name|getOutputs
 argument_list|()
@@ -684,6 +812,8 @@ argument_list|(
 name|map
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 return|return
