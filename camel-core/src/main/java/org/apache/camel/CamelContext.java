@@ -488,6 +488,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteStartupOrder
 import|;
 end_import
@@ -2002,6 +2016,23 @@ name|setRuntimeEndpointRegistry
 parameter_list|(
 name|RuntimeEndpointRegistry
 name|runtimeEndpointRegistry
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.spi.RestRegistry} to use      */
+DECL|method|getRestRegistry ()
+specifier|public
+name|RestRegistry
+name|getRestRegistry
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestRegistry} to use.      */
+DECL|method|setRestRegistry (RestRegistry restRegistry)
+specifier|public
+name|void
+name|setRestRegistry
+parameter_list|(
+name|RestRegistry
+name|restRegistry
 parameter_list|)
 function_decl|;
 block|}
