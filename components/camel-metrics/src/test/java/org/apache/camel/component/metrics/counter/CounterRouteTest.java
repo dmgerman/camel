@@ -312,6 +312,24 @@ name|metrics
 operator|.
 name|MetricsComponent
 operator|.
+name|METRIC_REGISTRY_NAME
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|metrics
+operator|.
+name|MetricsConstants
+operator|.
 name|HEADER_COUNTER_DECREMENT
 import|;
 end_import
@@ -328,7 +346,7 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_COUNTER_INCREMENT
 import|;
@@ -346,27 +364,9 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_METRIC_NAME
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|metrics
-operator|.
-name|MetricsComponent
-operator|.
-name|METRIC_REGISTRY_NAME
 import|;
 end_import
 

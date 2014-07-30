@@ -154,7 +154,7 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_COUNTER_DECREMENT
 import|;
@@ -172,7 +172,7 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_COUNTER_INCREMENT
 import|;

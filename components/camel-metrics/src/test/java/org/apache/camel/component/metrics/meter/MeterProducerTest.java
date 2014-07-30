@@ -154,7 +154,7 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_METER_MARK
 import|;

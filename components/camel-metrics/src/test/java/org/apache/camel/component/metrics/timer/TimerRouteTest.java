@@ -104,9 +104,13 @@ name|camel
 operator|.
 name|component
 operator|.
-name|mock
+name|metrics
 operator|.
-name|MockEndpoint
+name|timer
+operator|.
+name|TimerEndpoint
+operator|.
+name|TimerAction
 import|;
 end_import
 
@@ -120,13 +124,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|metrics
+name|mock
 operator|.
-name|timer
-operator|.
-name|TimerEndpoint
-operator|.
-name|TimerAction
+name|MockEndpoint
 import|;
 end_import
 
@@ -312,6 +312,24 @@ name|metrics
 operator|.
 name|MetricsComponent
 operator|.
+name|METRIC_REGISTRY_NAME
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|metrics
+operator|.
+name|MetricsConstants
+operator|.
 name|HEADER_METRIC_NAME
 import|;
 end_import
@@ -328,27 +346,9 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_TIMER_ACTION
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|metrics
-operator|.
-name|MetricsComponent
-operator|.
-name|METRIC_REGISTRY_NAME
 import|;
 end_import
 

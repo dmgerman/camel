@@ -123,7 +123,7 @@ specifier|final
 name|String
 name|HEADER_PATTERN
 init|=
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_PERFIX
 operator|+
@@ -310,7 +310,7 @@ name|getStringHeader
 argument_list|(
 name|in
 argument_list|,
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_METRIC_NAME
 argument_list|,

@@ -116,7 +116,7 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_HISTOGRAM_VALUE
 import|;

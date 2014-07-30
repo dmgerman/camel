@@ -174,7 +174,7 @@ name|component
 operator|.
 name|metrics
 operator|.
-name|MetricsComponent
+name|MetricsConstants
 operator|.
 name|HEADER_TIMER_ACTION
 import|;
