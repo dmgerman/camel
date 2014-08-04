@@ -286,6 +286,17 @@ operator|.
 name|CLIENT_ERROR_METHOD_NOT_ALLOWED
 argument_list|)
 expr_stmt|;
+comment|// must include list of allowed methods
+name|response
+operator|.
+name|setAllowedMethods
+argument_list|(
+name|routes
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|addRoute (Method method, Restlet target)
