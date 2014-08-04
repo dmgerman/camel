@@ -924,7 +924,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// register routeContext parser
-comment|//        registerParser("routeContext", new RouteContextDefinitionParser());
+name|registerParser
+argument_list|(
+literal|"routeContext"
+argument_list|,
+operator|new
+name|RouteContextDefinitionParser
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|addBeanDefinitionParser
 argument_list|(
 literal|"keyStoreParameters"
