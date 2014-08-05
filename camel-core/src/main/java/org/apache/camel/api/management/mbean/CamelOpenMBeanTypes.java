@@ -212,6 +212,8 @@ name|String
 index|[]
 block|{
 literal|"url"
+block|,
+literal|"method"
 block|}
 argument_list|)
 return|;
@@ -241,7 +243,7 @@ literal|"url"
 block|,
 literal|"method"
 block|,
-literal|"uri template"
+literal|"uriTemplate"
 block|,
 literal|"consumes"
 block|,
