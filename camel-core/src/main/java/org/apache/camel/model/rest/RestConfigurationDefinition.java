@@ -222,6 +222,13 @@ name|port
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|hostNameResolver
+specifier|private
+name|RestHostNameResolver
+name|hostNameResolver
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|bindingMode
 specifier|private
 name|RestBindingMode
@@ -431,6 +438,32 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+DECL|method|getHostNameResolver ()
+specifier|public
+name|RestHostNameResolver
+name|getHostNameResolver
+parameter_list|()
+block|{
+return|return
+name|hostNameResolver
+return|;
+block|}
+DECL|method|setHostNameResolver (RestHostNameResolver hostNameResolver)
+specifier|public
+name|void
+name|setHostNameResolver
+parameter_list|(
+name|RestHostNameResolver
+name|hostNameResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostNameResolver
+operator|=
+name|hostNameResolver
 expr_stmt|;
 block|}
 DECL|method|getBindingMode ()
@@ -732,6 +765,25 @@ block|{
 name|setPort
 argument_list|(
 name|port
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To specify the hostname resolver      */
+DECL|method|hostNameResolver (RestHostNameResolver hostNameResolver)
+specifier|public
+name|RestConfigurationDefinition
+name|hostNameResolver
+parameter_list|(
+name|RestHostNameResolver
+name|hostNameResolver
+parameter_list|)
+block|{
+name|setHostNameResolver
+argument_list|(
+name|hostNameResolver
 argument_list|)
 expr_stmt|;
 return|return
@@ -1085,6 +1137,24 @@ name|context
 argument_list|,
 name|port
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|hostNameResolver
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setRestHostNameResolver
+argument_list|(
+name|hostNameResolver
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

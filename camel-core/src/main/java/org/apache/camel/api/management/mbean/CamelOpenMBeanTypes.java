@@ -213,9 +213,9 @@ index|[]
 block|{
 literal|"url"
 block|,
-literal|"path"
+literal|"method"
 block|,
-literal|"verb"
+literal|"uri template"
 block|,
 literal|"consumes"
 block|,
@@ -249,9 +249,9 @@ index|[]
 block|{
 literal|"url"
 block|,
-literal|"path"
+literal|"method"
 block|,
-literal|"verb"
+literal|"uri template"
 block|,
 literal|"consumes"
 block|,
@@ -266,9 +266,9 @@ index|[]
 block|{
 literal|"Url"
 block|,
-literal|"Path"
+literal|"Method"
 block|,
-literal|"Verb"
+literal|"Uri Template"
 block|,
 literal|"Consumes"
 block|,
