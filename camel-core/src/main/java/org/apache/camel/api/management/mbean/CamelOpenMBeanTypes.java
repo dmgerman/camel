@@ -212,16 +212,6 @@ name|String
 index|[]
 block|{
 literal|"url"
-block|,
-literal|"method"
-block|,
-literal|"uri template"
-block|,
-literal|"consumes"
-block|,
-literal|"produces"
-block|,
-literal|"state"
 block|}
 argument_list|)
 return|;
@@ -239,9 +229,9 @@ return|return
 operator|new
 name|CompositeType
 argument_list|(
-literal|"types"
+literal|"rests"
 argument_list|,
-literal|"types"
+literal|"Rest Services"
 argument_list|,
 operator|new
 name|String
