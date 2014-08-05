@@ -722,6 +722,8 @@ name|consumer
 argument_list|)
 expr_stmt|;
 comment|// add to rest registry so we can keep track of them, we will remove from the registry when the consumer is removed
+comment|// TODO: need to get the absolute url of the service
+comment|// TODO: need to be able to unregister from the registry
 name|getCamelContext
 argument_list|()
 operator|.
@@ -734,10 +736,10 @@ name|consumer
 argument_list|,
 literal|null
 argument_list|,
-name|getPath
+name|getVerb
 argument_list|()
 argument_list|,
-name|getVerb
+name|getPath
 argument_list|()
 argument_list|,
 name|getConsumes

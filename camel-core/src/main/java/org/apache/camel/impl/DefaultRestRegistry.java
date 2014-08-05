@@ -150,7 +150,7 @@ name|RestService
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|addRestService (Consumer consumer, String url, String path, String verb, String consumes, String produces)
+DECL|method|addRestService (Consumer consumer, String url, String method, String uriTemplate, String consumes, String produces)
 specifier|public
 name|void
 name|addRestService
@@ -162,10 +162,10 @@ name|String
 name|url
 parameter_list|,
 name|String
-name|path
+name|method
 parameter_list|,
 name|String
-name|verb
+name|uriTemplate
 parameter_list|,
 name|String
 name|consumes
@@ -184,9 +184,9 @@ name|consumer
 argument_list|,
 name|url
 argument_list|,
-name|path
+name|uriTemplate
 argument_list|,
-name|verb
+name|method
 argument_list|,
 name|consumes
 argument_list|,
@@ -415,20 +415,20 @@ return|return
 name|url
 return|;
 block|}
-DECL|method|getPath ()
+DECL|method|getUriTemplate ()
 specifier|public
 name|String
-name|getPath
+name|getUriTemplate
 parameter_list|()
 block|{
 return|return
 name|path
 return|;
 block|}
-DECL|method|getVerb ()
+DECL|method|getMethod ()
 specifier|public
 name|String
-name|getVerb
+name|getMethod
 parameter_list|()
 block|{
 return|return

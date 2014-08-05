@@ -323,7 +323,7 @@ name|path
 init|=
 name|entry
 operator|.
-name|getPath
+name|getUriTemplate
 argument_list|()
 decl_stmt|;
 name|String
@@ -331,7 +331,7 @@ name|verb
 init|=
 name|entry
 operator|.
-name|getVerb
+name|getMethod
 argument_list|()
 decl_stmt|;
 name|String

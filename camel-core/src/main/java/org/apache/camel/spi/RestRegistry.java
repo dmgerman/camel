@@ -50,6 +50,10 @@ name|Service
 import|;
 end_import
 
+begin_comment
+comment|/**  * A registry of all REST services running within the {@link org.apache.camel.CamelContext} which have been defined and created  * using the<a href="http://camel.apache.org/rest-dsl">Rest DSL</a>.  */
+end_comment
+
 begin_interface
 DECL|interface|RestRegistry
 specifier|public
@@ -58,47 +62,56 @@ name|RestRegistry
 extends|extends
 name|Service
 block|{
+comment|/**      * Details about the REST service      */
 DECL|interface|RestService
 interface|interface
 name|RestService
 block|{
+comment|/**          * Gets the consumer of the REST service          */
 DECL|method|getConsumer ()
 name|Consumer
 name|getConsumer
 parameter_list|()
 function_decl|;
-DECL|method|getUrl ()
-name|String
-name|getUrl
-parameter_list|()
-function_decl|;
-DECL|method|getPath ()
-name|String
-name|getPath
-parameter_list|()
-function_decl|;
-DECL|method|getVerb ()
-name|String
-name|getVerb
-parameter_list|()
-function_decl|;
-DECL|method|getConsumes ()
-name|String
-name|getConsumes
-parameter_list|()
-function_decl|;
-DECL|method|getProduces ()
-name|String
-name|getProduces
-parameter_list|()
-function_decl|;
+comment|/**          * Gets the state of the REST service (started, stopped, etc)          */
 DECL|method|getState ()
 name|String
 name|getState
 parameter_list|()
 function_decl|;
+comment|/**          * Gets the absolute url to the REST service          */
+DECL|method|getUrl ()
+name|String
+name|getUrl
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the uri template (context path)          */
+DECL|method|getUriTemplate ()
+name|String
+name|getUriTemplate
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the HTTP method (GET, POST, PUT etc)          */
+DECL|method|getMethod ()
+name|String
+name|getMethod
+parameter_list|()
+function_decl|;
+comment|/**          * Optional details about what media-types the REST service accepts          */
+DECL|method|getConsumes ()
+name|String
+name|getConsumes
+parameter_list|()
+function_decl|;
+comment|/**          * Optional details about what media-types the REST service returns          */
+DECL|method|getProduces ()
+name|String
+name|getProduces
+parameter_list|()
+function_decl|;
 block|}
-DECL|method|addRestService (Consumer consumer, String url, String path, String verb, String consumes, String produces)
+comment|/**      * Adds a new REST service to the registry.      *      * @param consumer    the consumer      * @param url         the absolute url of the REST service      * @param method      the HTTP method      * @param uriTemplate the uri template (context-path)      * @param consumes    optional details about what media-types the REST service accepts      * @param produces    optional details about what media-types the REST service returns      */
+DECL|method|addRestService (Consumer consumer, String url, String method, String uriTemplate, String consumes, String produces)
 name|void
 name|addRestService
 parameter_list|(
@@ -109,10 +122,10 @@ name|String
 name|url
 parameter_list|,
 name|String
-name|path
+name|method
 parameter_list|,
 name|String
-name|verb
+name|uriTemplate
 parameter_list|,
 name|String
 name|consumes
@@ -121,6 +134,7 @@ name|String
 name|produces
 parameter_list|)
 function_decl|;
+comment|/**      * Removes the REST service from the registry      *      * @param consumer  the consumer      */
 DECL|method|removeRestService (Consumer consumer)
 name|void
 name|removeRestService
@@ -129,6 +143,7 @@ name|Consumer
 name|consumer
 parameter_list|)
 function_decl|;
+comment|/**      * List all REST services from this registry.      *      * @return all the REST services      */
 DECL|method|listAllRestServices ()
 name|List
 argument_list|<
