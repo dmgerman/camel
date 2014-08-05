@@ -70,22 +70,6 @@ name|SolverFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|optaplanner
-operator|.
-name|core
-operator|.
-name|config
-operator|.
-name|solver
-operator|.
-name|XmlSolverFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * OptaPlanner component for Camel  */
 end_comment
@@ -136,8 +120,9 @@ block|{
 name|SolverFactory
 name|solverFactory
 init|=
-operator|new
-name|XmlSolverFactory
+name|SolverFactory
+operator|.
+name|createFromXmlResource
 argument_list|(
 name|remaining
 argument_list|)
