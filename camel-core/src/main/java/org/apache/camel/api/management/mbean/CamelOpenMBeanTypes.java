@@ -241,9 +241,13 @@ index|[]
 block|{
 literal|"url"
 block|,
-literal|"method"
+literal|"baseUrl"
+block|,
+literal|"basePath"
 block|,
 literal|"uriTemplate"
+block|,
+literal|"method"
 block|,
 literal|"consumes"
 block|,
@@ -262,9 +266,13 @@ index|[]
 block|{
 literal|"Url"
 block|,
-literal|"Method"
+literal|"Base Url"
+block|,
+literal|"Base Path"
 block|,
 literal|"Uri Template"
+block|,
+literal|"Method"
 block|,
 literal|"Consumes"
 block|,
@@ -281,6 +289,14 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

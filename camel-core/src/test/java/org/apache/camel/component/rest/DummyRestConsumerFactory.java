@@ -118,7 +118,7 @@ name|RestConsumerFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String path, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Consumer
 name|createConsumer
@@ -133,7 +133,10 @@ name|String
 name|verb
 parameter_list|,
 name|String
-name|path
+name|basePath
+parameter_list|,
+name|String
+name|uriTemplate
 parameter_list|,
 name|String
 name|consumes
@@ -155,14 +158,38 @@ block|{
 comment|// just use a seda endpoint for testing purpose
 name|String
 name|id
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|uriTemplate
+operator|!=
+literal|null
+condition|)
+block|{
+name|id
+operator|=
 name|ActiveMQUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(
-name|path
+name|basePath
+operator|+
+name|uriTemplate
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|id
+operator|=
+name|ActiveMQUuidGenerator
+operator|.
+name|generateSanitizedId
+argument_list|(
+name|basePath
+argument_list|)
+expr_stmt|;
+block|}
 comment|// remove leading dash as we add that ourselves
 if|if
 condition|(

@@ -79,13 +79,25 @@ name|String
 name|getState
 parameter_list|()
 function_decl|;
-comment|/**          * Gets the absolute url to the REST service          */
+comment|/**          * Gets the absolute url to the REST service (baseUrl + uriTemplate)          */
 DECL|method|getUrl ()
 name|String
 name|getUrl
 parameter_list|()
 function_decl|;
-comment|/**          * Gets the uri template (context path)          */
+comment|/**          * Gets the base url to the REST service          */
+DECL|method|getBaseUrl ()
+name|String
+name|getBaseUrl
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the base path to the REST service          */
+DECL|method|getBasePath ()
+name|String
+name|getBasePath
+parameter_list|()
+function_decl|;
+comment|/**          * Gets the uri template          */
 DECL|method|getUriTemplate ()
 name|String
 name|getUriTemplate
@@ -122,8 +134,8 @@ name|getOutType
 parameter_list|()
 function_decl|;
 block|}
-comment|/**      * Adds a new REST service to the registry.      *      * @param consumer    the consumer      * @param url         the absolute url of the REST service      * @param method      the HTTP method      * @param uriTemplate the uri template (context-path)      * @param consumes    optional details about what media-types the REST service accepts      * @param produces    optional details about what media-types the REST service returns      */
-DECL|method|addRestService (Consumer consumer, String url, String method, String uriTemplate, String consumes, String produces, String inType, String outType)
+comment|/**      * Adds a new REST service to the registry.      *      * @param consumer    the consumer      * @param url         the absolute url of the REST service      * @param baseUrl     the base url of the REST service      * @param basePath    the base path      * @param uriTemplate the uri template      * @param method      the HTTP method      * @param consumes    optional details about what media-types the REST service accepts      * @param produces    optional details about what media-types the REST service returns      * @param inType      optional detail input binding to a FQN class name      * @param outType     optional detail output binding to a FQN class name      */
+DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType)
 name|void
 name|addRestService
 parameter_list|(
@@ -134,10 +146,16 @@ name|String
 name|url
 parameter_list|,
 name|String
-name|method
+name|baseUrl
+parameter_list|,
+name|String
+name|basePath
 parameter_list|,
 name|String
 name|uriTemplate
+parameter_list|,
+name|String
+name|method
 parameter_list|,
 name|String
 name|consumes

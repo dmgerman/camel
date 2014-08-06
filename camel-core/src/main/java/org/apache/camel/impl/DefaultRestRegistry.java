@@ -233,7 +233,7 @@ name|RestService
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|addRestService (Consumer consumer, String url, String method, String uriTemplate, String consumes, String produces, String inType, String outType)
+DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType)
 specifier|public
 name|void
 name|addRestService
@@ -245,10 +245,16 @@ name|String
 name|url
 parameter_list|,
 name|String
-name|method
+name|baseUrl
+parameter_list|,
+name|String
+name|basePath
 parameter_list|,
 name|String
 name|uriTemplate
+parameter_list|,
+name|String
+name|method
 parameter_list|,
 name|String
 name|consumes
@@ -272,6 +278,10 @@ argument_list|(
 name|consumer
 argument_list|,
 name|url
+argument_list|,
+name|baseUrl
+argument_list|,
+name|basePath
 argument_list|,
 name|uriTemplate
 argument_list|,
@@ -450,11 +460,23 @@ specifier|final
 name|String
 name|url
 decl_stmt|;
-DECL|field|path
+DECL|field|baseUrl
 specifier|private
 specifier|final
 name|String
-name|path
+name|baseUrl
+decl_stmt|;
+DECL|field|basePath
+specifier|private
+specifier|final
+name|String
+name|basePath
+decl_stmt|;
+DECL|field|uriTemplate
+specifier|private
+specifier|final
+name|String
+name|uriTemplate
 decl_stmt|;
 DECL|field|method
 specifier|private
@@ -486,7 +508,7 @@ specifier|final
 name|String
 name|outType
 decl_stmt|;
-DECL|method|RestServiceEntry (Consumer consumer, String url, String path, String method, String consumes, String produces, String inType, String outType)
+DECL|method|RestServiceEntry (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType)
 specifier|private
 name|RestServiceEntry
 parameter_list|(
@@ -497,7 +519,13 @@ name|String
 name|url
 parameter_list|,
 name|String
-name|path
+name|baseUrl
+parameter_list|,
+name|String
+name|basePath
+parameter_list|,
+name|String
+name|uriTemplate
 parameter_list|,
 name|String
 name|method
@@ -529,9 +557,21 @@ name|url
 expr_stmt|;
 name|this
 operator|.
-name|path
+name|baseUrl
 operator|=
-name|path
+name|baseUrl
+expr_stmt|;
+name|this
+operator|.
+name|basePath
+operator|=
+name|basePath
+expr_stmt|;
+name|this
+operator|.
+name|uriTemplate
+operator|=
+name|uriTemplate
 expr_stmt|;
 name|this
 operator|.
@@ -584,6 +624,26 @@ return|return
 name|url
 return|;
 block|}
+DECL|method|getBaseUrl ()
+specifier|public
+name|String
+name|getBaseUrl
+parameter_list|()
+block|{
+return|return
+name|baseUrl
+return|;
+block|}
+DECL|method|getBasePath ()
+specifier|public
+name|String
+name|getBasePath
+parameter_list|()
+block|{
+return|return
+name|basePath
+return|;
+block|}
 DECL|method|getUriTemplate ()
 specifier|public
 name|String
@@ -591,7 +651,7 @@ name|getUriTemplate
 parameter_list|()
 block|{
 return|return
-name|path
+name|uriTemplate
 return|;
 block|}
 DECL|method|getMethod ()
