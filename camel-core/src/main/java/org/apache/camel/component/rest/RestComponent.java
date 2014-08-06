@@ -167,12 +167,12 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid syntax. Must be rest:verb:path"
+literal|"Invalid syntax. Must be rest:method:path[:uriTemplate] where uriTemplate is optional"
 argument_list|)
 throw|;
 block|}
 name|String
-name|verb
+name|method
 init|=
 name|ObjectHelper
 operator|.
@@ -270,9 +270,9 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setVerb
+name|setMethod
 argument_list|(
-name|verb
+name|method
 argument_list|)
 expr_stmt|;
 name|answer

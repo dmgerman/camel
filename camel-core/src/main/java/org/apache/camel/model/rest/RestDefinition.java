@@ -178,20 +178,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|FileUtil
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|URISupport
 import|;
 end_import
@@ -222,10 +208,10 @@ name|RestDefinition
 block|{
 annotation|@
 name|XmlAttribute
-DECL|field|uri
+DECL|field|path
 specifier|private
 name|String
-name|uri
+name|path
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -265,30 +251,30 @@ name|VerbDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|getUri ()
+DECL|method|getPath ()
 specifier|public
 name|String
-name|getUri
+name|getPath
 parameter_list|()
 block|{
 return|return
-name|uri
+name|path
 return|;
 block|}
-DECL|method|setUri (String uri)
+DECL|method|setPath (String path)
 specifier|public
 name|void
-name|setUri
+name|setPath
 parameter_list|(
 name|String
-name|uri
+name|path
 parameter_list|)
 block|{
 name|this
 operator|.
-name|uri
+name|path
 operator|=
-name|uri
+name|path
 expr_stmt|;
 block|}
 DECL|method|getConsumes ()
@@ -403,19 +389,19 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * To set the uri      */
-DECL|method|uri (String uri)
+comment|/**      * To set the base path of this REST service      */
+DECL|method|path (String path)
 specifier|public
 name|RestDefinition
-name|uri
+name|path
 parameter_list|(
 name|String
-name|uri
+name|path
 parameter_list|)
 block|{
-name|setUri
+name|setPath
 argument_list|(
-name|uri
+name|path
 argument_list|)
 expr_stmt|;
 return|return
@@ -1855,7 +1841,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|uri
+name|path
 operator|!=
 literal|null
 operator|&&
@@ -1868,7 +1854,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|uri
+name|path
 operator|+
 literal|":"
 operator|+
@@ -1881,13 +1867,13 @@ block|}
 elseif|else
 if|if
 condition|(
-name|uri
+name|path
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|uri
+name|path
 return|;
 block|}
 elseif|else

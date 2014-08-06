@@ -335,7 +335,7 @@ argument_list|()
 decl_stmt|;
 name|rest
 operator|.
-name|setUri
+name|setPath
 argument_list|(
 name|uri
 argument_list|)

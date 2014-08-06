@@ -162,7 +162,7 @@ literal|"/say/hello"
 argument_list|,
 name|rest
 operator|.
-name|getUri
+name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -235,7 +235,7 @@ literal|"/say/bye"
 argument_list|,
 name|rest
 operator|.
-name|getUri
+name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;

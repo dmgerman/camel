@@ -446,14 +446,14 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Creates a new REST service      *      * @param uri  the path      * @return the builder      */
-DECL|method|rest (String uri)
+comment|/**      * Creates a new REST service      *      * @param path  the base path      * @return the builder      */
+DECL|method|rest (String path)
 specifier|public
 name|RestDefinition
 name|rest
 parameter_list|(
 name|String
-name|uri
+name|path
 parameter_list|)
 block|{
 name|getRestCollection
@@ -473,7 +473,7 @@ argument_list|()
 operator|.
 name|rest
 argument_list|(
-name|uri
+name|path
 argument_list|)
 decl_stmt|;
 name|configureRest

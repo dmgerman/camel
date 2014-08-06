@@ -213,10 +213,10 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriParam
-DECL|field|verb
+DECL|field|method
 specifier|private
 name|String
-name|verb
+name|method
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -300,30 +300,30 @@ name|getComponent
 argument_list|()
 return|;
 block|}
-DECL|method|getVerb ()
+DECL|method|getMethod ()
 specifier|public
 name|String
-name|getVerb
+name|getMethod
 parameter_list|()
 block|{
 return|return
-name|verb
+name|method
 return|;
 block|}
-DECL|method|setVerb (String verb)
+DECL|method|setMethod (String method)
 specifier|public
 name|void
-name|setVerb
+name|setMethod
 parameter_list|(
 name|String
-name|verb
+name|method
 parameter_list|)
 block|{
 name|this
 operator|.
-name|verb
+name|method
 operator|=
-name|verb
+name|method
 expr_stmt|;
 block|}
 DECL|method|getPath ()
@@ -775,7 +775,7 @@ argument_list|()
 argument_list|,
 name|processor
 argument_list|,
-name|getVerb
+name|getMethod
 argument_list|()
 argument_list|,
 name|getPath
@@ -1079,7 +1079,7 @@ argument_list|,
 name|getUriTemplate
 argument_list|()
 argument_list|,
-name|getVerb
+name|getMethod
 argument_list|()
 argument_list|,
 name|getConsumes
