@@ -949,6 +949,35 @@ operator|)
 operator|+
 name|path
 decl_stmt|;
+comment|// optional binding type information
+name|String
+name|inType
+init|=
+operator|(
+name|String
+operator|)
+name|getParameters
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"inType"
+argument_list|)
+decl_stmt|;
+name|String
+name|outType
+init|=
+operator|(
+name|String
+operator|)
+name|getParameters
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"outType"
+argument_list|)
+decl_stmt|;
 comment|// add to rest registry so we can keep track of them, we will remove from the registry when the consumer is removed
 comment|// the rest registry will automatic keep track when the consumer is removed,
 comment|// and un-register the REST service from the registry
@@ -975,6 +1004,10 @@ argument_list|()
 argument_list|,
 name|getProduces
 argument_list|()
+argument_list|,
+name|inType
+argument_list|,
+name|outType
 argument_list|)
 expr_stmt|;
 return|return
@@ -998,6 +1031,18 @@ DECL|method|isSingleton ()
 specifier|public
 name|boolean
 name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
 parameter_list|()
 block|{
 return|return

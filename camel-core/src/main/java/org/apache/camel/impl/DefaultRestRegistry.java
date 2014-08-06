@@ -233,7 +233,7 @@ name|RestService
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|addRestService (Consumer consumer, String url, String method, String uriTemplate, String consumes, String produces)
+DECL|method|addRestService (Consumer consumer, String url, String method, String uriTemplate, String consumes, String produces, String inType, String outType)
 specifier|public
 name|void
 name|addRestService
@@ -255,6 +255,12 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|String
+name|inType
+parameter_list|,
+name|String
+name|outType
 parameter_list|)
 block|{
 name|RestServiceEntry
@@ -274,6 +280,10 @@ argument_list|,
 name|consumes
 argument_list|,
 name|produces
+argument_list|,
+name|inType
+argument_list|,
+name|outType
 argument_list|)
 decl_stmt|;
 name|registry
@@ -446,11 +456,11 @@ specifier|final
 name|String
 name|path
 decl_stmt|;
-DECL|field|verb
+DECL|field|method
 specifier|private
 specifier|final
 name|String
-name|verb
+name|method
 decl_stmt|;
 DECL|field|consumes
 specifier|private
@@ -464,7 +474,19 @@ specifier|final
 name|String
 name|produces
 decl_stmt|;
-DECL|method|RestServiceEntry (Consumer consumer, String url, String path, String verb, String consumes, String produces)
+DECL|field|inType
+specifier|private
+specifier|final
+name|String
+name|inType
+decl_stmt|;
+DECL|field|outType
+specifier|private
+specifier|final
+name|String
+name|outType
+decl_stmt|;
+DECL|method|RestServiceEntry (Consumer consumer, String url, String path, String method, String consumes, String produces, String inType, String outType)
 specifier|private
 name|RestServiceEntry
 parameter_list|(
@@ -478,13 +500,19 @@ name|String
 name|path
 parameter_list|,
 name|String
-name|verb
+name|method
 parameter_list|,
 name|String
 name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|String
+name|inType
+parameter_list|,
+name|String
+name|outType
 parameter_list|)
 block|{
 name|this
@@ -507,9 +535,9 @@ name|path
 expr_stmt|;
 name|this
 operator|.
-name|verb
+name|method
 operator|=
-name|verb
+name|method
 expr_stmt|;
 name|this
 operator|.
@@ -522,6 +550,18 @@ operator|.
 name|produces
 operator|=
 name|produces
+expr_stmt|;
+name|this
+operator|.
+name|inType
+operator|=
+name|inType
+expr_stmt|;
+name|this
+operator|.
+name|outType
+operator|=
+name|outType
 expr_stmt|;
 block|}
 DECL|method|getConsumer ()
@@ -561,7 +601,7 @@ name|getMethod
 parameter_list|()
 block|{
 return|return
-name|verb
+name|method
 return|;
 block|}
 DECL|method|getConsumes ()
@@ -582,6 +622,26 @@ parameter_list|()
 block|{
 return|return
 name|produces
+return|;
+block|}
+DECL|method|getInType ()
+specifier|public
+name|String
+name|getInType
+parameter_list|()
+block|{
+return|return
+name|inType
+return|;
+block|}
+DECL|method|getOutType ()
+specifier|public
+name|String
+name|getOutType
+parameter_list|()
+block|{
+return|return
+name|outType
 return|;
 block|}
 DECL|method|getState ()
