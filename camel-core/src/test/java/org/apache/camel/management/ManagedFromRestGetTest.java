@@ -232,7 +232,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<rest uri=\"/say/hello\">"
+literal|"<rest path=\"/say/hello\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -242,7 +242,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<rest uri=\"/say/bye\">"
+literal|"<rest path=\"/say/bye\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
