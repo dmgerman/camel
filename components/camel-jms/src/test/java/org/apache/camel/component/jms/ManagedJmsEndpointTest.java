@@ -176,7 +176,7 @@ name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
-name|createConnectionFactory
+name|createPersistentConnectionFactory
 argument_list|()
 decl_stmt|;
 name|context
