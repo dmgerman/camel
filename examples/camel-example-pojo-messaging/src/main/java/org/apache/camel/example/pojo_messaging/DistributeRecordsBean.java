@@ -56,6 +56,26 @@ name|XPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|//START SNIPPET: ex
 end_comment
@@ -66,6 +86,22 @@ specifier|public
 class|class
 name|DistributeRecordsBean
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|DistributeRecordsBean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Consume
 argument_list|(
@@ -100,6 +136,13 @@ literal|"London"
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Person is from EMEA region"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|String
@@ -113,6 +156,13 @@ return|;
 block|}
 else|else
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Person is from AMER region"
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|String
