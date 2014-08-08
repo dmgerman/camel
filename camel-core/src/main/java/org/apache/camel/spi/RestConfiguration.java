@@ -56,6 +56,17 @@ name|xml
 block|,
 name|json_xml
 block|}
+DECL|enum|RestHostNameResolver
+specifier|public
+enum|enum
+name|RestHostNameResolver
+block|{
+DECL|enumConstant|localIp
+DECL|enumConstant|localHostName
+name|localIp
+block|,
+name|localHostName
+block|}
 DECL|field|component
 specifier|private
 name|String
@@ -75,6 +86,20 @@ DECL|field|port
 specifier|private
 name|int
 name|port
+decl_stmt|;
+DECL|field|contextPath
+specifier|private
+name|String
+name|contextPath
+decl_stmt|;
+DECL|field|restHostNameResolver
+specifier|private
+name|RestHostNameResolver
+name|restHostNameResolver
+init|=
+name|RestHostNameResolver
+operator|.
+name|localHostName
 decl_stmt|;
 DECL|field|bindingMode
 specifier|private
@@ -245,6 +270,84 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+comment|/**      * Gets the configured context-path      *      * @return the context path, or<tt>null</tt> if none configured.      */
+DECL|method|getContextPath ()
+specifier|public
+name|String
+name|getContextPath
+parameter_list|()
+block|{
+return|return
+name|contextPath
+return|;
+block|}
+comment|/**      * Sets a leading context-path the REST services will be using.      *<p/>      * This can be used when using components such as<tt>camel-servlet</tt> where the deployed web application      * is deployed using a context-path.      *      * @param contextPath the context path      */
+DECL|method|setContextPath (String contextPath)
+specifier|public
+name|void
+name|setContextPath
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contextPath
+operator|=
+name|contextPath
+expr_stmt|;
+block|}
+comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */
+DECL|method|getRestHostNameResolver ()
+specifier|public
+name|RestHostNameResolver
+name|getRestHostNameResolver
+parameter_list|()
+block|{
+return|return
+name|restHostNameResolver
+return|;
+block|}
+comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      */
+DECL|method|setRestHostNameResolver (RestHostNameResolver restHostNameResolver)
+specifier|public
+name|void
+name|setRestHostNameResolver
+parameter_list|(
+name|RestHostNameResolver
+name|restHostNameResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|restHostNameResolver
+operator|=
+name|restHostNameResolver
+expr_stmt|;
+block|}
+comment|/**      * Sets the resolver to use for resolving hostname      *      * @param restHostNameResolver the resolver      */
+DECL|method|setRestHostNameResolver (String restHostNameResolver)
+specifier|public
+name|void
+name|setRestHostNameResolver
+parameter_list|(
+name|String
+name|restHostNameResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|restHostNameResolver
+operator|=
+name|RestHostNameResolver
+operator|.
+name|valueOf
+argument_list|(
+name|restHostNameResolver
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Gets the binding mode used by the REST consumer      *      * @return the binding mode      */

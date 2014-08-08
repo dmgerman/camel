@@ -270,7 +270,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No route for request method: {}"
+literal|"MethodRouter ({}) method not allowed: {}"
+argument_list|,
+name|uriPattern
 argument_list|,
 name|method
 argument_list|)
@@ -281,7 +283,18 @@ name|setStatus
 argument_list|(
 name|Status
 operator|.
-name|CLIENT_ERROR_NOT_FOUND
+name|CLIENT_ERROR_METHOD_NOT_ALLOWED
+argument_list|)
+expr_stmt|;
+comment|// must include list of allowed methods
+name|response
+operator|.
+name|setAllowedMethods
+argument_list|(
+name|routes
+operator|.
+name|keySet
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

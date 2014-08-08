@@ -91,7 +91,7 @@ argument_list|(
 literal|"dummy-rest"
 argument_list|)
 operator|.
-name|uri
+name|path
 argument_list|(
 literal|"/say/bye"
 argument_list|)

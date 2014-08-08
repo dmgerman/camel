@@ -171,7 +171,7 @@ literal|"/say/"
 argument_list|,
 name|rest
 operator|.
-name|getUri
+name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -208,7 +208,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"bye"
+literal|"/bye"
 argument_list|,
 name|rest
 operator|.
@@ -226,7 +226,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"/bye"
+literal|"/hi"
 argument_list|,
 name|rest
 operator|.
@@ -322,7 +322,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:post-say-bye"
+literal|"seda:post-say-hi"
 argument_list|,
 literal|"I was here"
 argument_list|)

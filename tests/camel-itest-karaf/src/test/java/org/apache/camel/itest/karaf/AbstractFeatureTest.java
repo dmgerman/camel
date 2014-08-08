@@ -976,7 +976,7 @@ argument_list|)
 operator|.
 name|karafVersion
 argument_list|(
-literal|"2.3.5"
+literal|"2.3.6"
 argument_list|)
 operator|.
 name|name

@@ -197,6 +197,15 @@ name|NON_BREAKING_SPACE
 init|=
 literal|"\u00A0"
 decl_stmt|;
+DECL|field|JAVA6_NON_BREAKING_SPACE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|JAVA6_NON_BREAKING_SPACE
+init|=
+literal|"&nbsp"
+decl_stmt|;
 DECL|field|hrefPattern
 specifier|private
 specifier|final
@@ -749,6 +758,13 @@ operator|.
 name|replaceAll
 argument_list|(
 name|NON_BREAKING_SPACE
+argument_list|,
+literal|" "
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+name|JAVA6_NON_BREAKING_SPACE
 argument_list|,
 literal|" "
 argument_list|)

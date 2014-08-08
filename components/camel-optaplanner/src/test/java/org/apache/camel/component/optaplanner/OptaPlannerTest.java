@@ -258,7 +258,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"optaplanner:/org/apache/camel/component/optaplanner/solverConfig.xml"
+literal|"optaplanner:org/apache/camel/component/optaplanner/solverConfig.xml"
 argument_list|)
 expr_stmt|;
 block|}

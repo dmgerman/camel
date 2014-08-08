@@ -653,7 +653,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"${in.body} = 'beSlow'"
+literal|"${in.body} == 'beSlow'"
 argument_list|)
 operator|.
 name|delay

@@ -76,6 +76,12 @@ name|GROUP_PROPERTY
 init|=
 literal|"group"
 decl_stmt|;
+DECL|field|REST_PROPERTY
+name|String
+name|REST_PROPERTY
+init|=
+literal|"rest"
+decl_stmt|;
 comment|/**      * Gets the route id      *      * @return the route id      */
 DECL|method|getId ()
 name|String

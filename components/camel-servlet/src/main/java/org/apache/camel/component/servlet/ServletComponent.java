@@ -999,7 +999,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String path, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Consumer
 name|createConsumer
@@ -1014,7 +1014,10 @@ name|String
 name|verb
 parameter_list|,
 name|String
-name|path
+name|basePath
+parameter_list|,
+name|String
+name|uriTemplate
 parameter_list|,
 name|String
 name|consumes
@@ -1033,6 +1036,48 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|path
+init|=
+name|basePath
+decl_stmt|;
+if|if
+condition|(
+name|uriTemplate
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// make sure to avoid double slashes
+if|if
+condition|(
+name|uriTemplate
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+name|path
+operator|=
+name|path
+operator|+
+name|uriTemplate
+expr_stmt|;
+block|}
+else|else
+block|{
+name|path
+operator|=
+name|path
+operator|+
+literal|"/"
+operator|+
+name|uriTemplate
+expr_stmt|;
+block|}
+block|}
 name|path
 operator|=
 name|FileUtil
@@ -1073,11 +1118,6 @@ comment|// build query string, and append any endpoint configuration properties
 if|if
 condition|(
 name|config
-operator|!=
-literal|null
-operator|&&
-operator|(
-name|config
 operator|.
 name|getComponent
 argument_list|()
@@ -1093,7 +1133,6 @@ name|equals
 argument_list|(
 literal|"servlet"
 argument_list|)
-operator|)
 condition|)
 block|{
 comment|// setup endpoint options
@@ -1138,7 +1177,6 @@ argument_list|(
 name|map
 argument_list|)
 decl_stmt|;
-comment|// servlet:///hello
 name|String
 name|url
 init|=

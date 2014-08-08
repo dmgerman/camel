@@ -94,6 +94,23 @@ literal|"prettyPrint"
 argument_list|,
 literal|"true"
 argument_list|)
+comment|// setup context path and port number that Apache Tomcat will deploy
+comment|// this application with, as we use the servlet component, then we
+comment|// need to aid Camel to tell it these details so Camel knows the url
+comment|// to the REST services.
+comment|// Notice: This is optional, but needed if the RestRegistry should
+comment|// enlist accurate information. You can access the RestRegistry
+comment|// from JMX at runtime
+operator|.
+name|contextPath
+argument_list|(
+literal|"camel-example-servlet-rest-tomcat/rest"
+argument_list|)
+operator|.
+name|port
+argument_list|(
+literal|8080
+argument_list|)
 expr_stmt|;
 comment|// this user REST service is json only
 name|rest
@@ -113,7 +130,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"/view/{id}"
+literal|"/{id}"
 argument_list|)
 operator|.
 name|outType
@@ -128,27 +145,8 @@ argument_list|(
 literal|"bean:userService?method=getUser(${header.id})"
 argument_list|)
 operator|.
-name|get
-argument_list|(
-literal|"/list"
-argument_list|)
-operator|.
-name|outTypeList
-argument_list|(
-name|User
-operator|.
-name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"bean:userService?method=listUsers"
-argument_list|)
-operator|.
 name|put
-argument_list|(
-literal|"/update"
-argument_list|)
+argument_list|()
 operator|.
 name|type
 argument_list|(
@@ -167,6 +165,23 @@ operator|.
 name|to
 argument_list|(
 literal|"bean:userService?method=updateUser"
+argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|"/findAll"
+argument_list|)
+operator|.
+name|outTypeList
+argument_list|(
+name|User
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"bean:userService?method=listUsers"
 argument_list|)
 expr_stmt|;
 block|}

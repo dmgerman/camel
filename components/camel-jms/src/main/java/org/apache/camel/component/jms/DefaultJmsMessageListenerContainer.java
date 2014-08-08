@@ -120,6 +120,12 @@ specifier|final
 name|JmsEndpoint
 name|endpoint
 decl_stmt|;
+DECL|field|allowQuickStop
+specifier|private
+specifier|final
+name|boolean
+name|allowQuickStop
+decl_stmt|;
 DECL|method|DefaultJmsMessageListenerContainer (JmsEndpoint endpoint)
 specifier|public
 name|DefaultJmsMessageListenerContainer
@@ -129,11 +135,47 @@ name|endpoint
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|endpoint
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|DefaultJmsMessageListenerContainer (JmsEndpoint endpoint, boolean allowQuickStop)
+specifier|public
+name|DefaultJmsMessageListenerContainer
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|,
+name|boolean
+name|allowQuickStop
+parameter_list|)
+block|{
+name|this
 operator|.
 name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
+name|this
+operator|.
+name|allowQuickStop
+operator|=
+name|allowQuickStop
+expr_stmt|;
+block|}
+comment|/**      * Whether this {@link DefaultMessageListenerContainer} allows the {@link #runningAllowed()} to quick stop      * in case {@link JmsConfiguration#isAcceptMessagesWhileStopping()} is enabled, and {@link org.apache.camel.CamelContext}      * is currently being stopped.      */
+DECL|method|isAllowQuickStop ()
+specifier|protected
+name|boolean
+name|isAllowQuickStop
+parameter_list|()
+block|{
+return|return
+name|allowQuickStop
+return|;
 block|}
 annotation|@
 name|Override
@@ -143,13 +185,90 @@ name|boolean
 name|runningAllowed
 parameter_list|()
 block|{
-comment|// do not run if we have been stopped
+comment|// we can stop quickly if CamelContext is being stopped, and we do not accept messages while stopping
+comment|// this allows a more cleanly shutdown of the message listener
+name|boolean
+name|quickStop
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|isAllowQuickStop
+argument_list|()
+operator|&&
+operator|!
+name|endpoint
+operator|.
+name|isAcceptMessagesWhileStopping
+argument_list|()
+condition|)
+block|{
+name|quickStop
+operator|=
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStopping
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|quickStop
+condition|)
+block|{
+comment|// log at debug level so its quicker to see we are stopping quicker from the logs
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"runningAllowed() -> false due CamelContext is stopping and endpoint configured to not accept messages while stopping"
+argument_list|)
+expr_stmt|;
 return|return
+literal|false
+return|;
+block|}
+else|else
+block|{
+comment|// otherwise we only run if the endpoint is running
+name|boolean
+name|answer
+init|=
 name|endpoint
 operator|.
 name|isRunning
 argument_list|()
+decl_stmt|;
+comment|// log at trace level as otherwise this can be noisy during normal operation
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"runningAllowed() -> "
+operator|+
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
+block|}
 block|}
 comment|/**      * Create a default TaskExecutor. Called if no explicit TaskExecutor has been specified.      *<p />      * The type of {@link TaskExecutor} will depend on the value of      * {@link JmsConfiguration#getDefaultTaskExecutorType()}. For more details, refer to the Javadoc of      * {@link DefaultTaskExecutorType}.      *<p />      * In all cases, it uses the specified bean name and Camel's {@link org.apache.camel.spi.ExecutorServiceManager}      * to resolve the thread name.      * @see JmsConfiguration#setDefaultTaskExecutorType(DefaultTaskExecutorType)      * @see ThreadPoolTaskExecutor#setBeanName(String)      */
 annotation|@
