@@ -94,6 +94,23 @@ literal|"prettyPrint"
 argument_list|,
 literal|"true"
 argument_list|)
+comment|// setup context path and port number that Apache Tomcat will deploy
+comment|// this application with, as we use the servlet component, then we
+comment|// need to aid Camel to tell it these details so Camel knows the url
+comment|// to the REST services.
+comment|// Notice: This is optional, but needed if the RestRegistry should
+comment|// enlist accurate information. You can access the RestRegistry
+comment|// from JMX at runtime
+operator|.
+name|contextPath
+argument_list|(
+literal|"camel-example-servlet-rest-tomcat/rest"
+argument_list|)
+operator|.
+name|port
+argument_list|(
+literal|8080
+argument_list|)
 expr_stmt|;
 comment|// this user REST service is json only
 name|rest

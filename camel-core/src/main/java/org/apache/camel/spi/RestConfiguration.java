@@ -87,6 +87,11 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
+DECL|field|contextPath
+specifier|private
+name|String
+name|contextPath
+decl_stmt|;
 DECL|field|restHostNameResolver
 specifier|private
 name|RestHostNameResolver
@@ -265,6 +270,34 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+comment|/**      * Gets the configured context-path      *      * @return the context path, or<tt>null</tt> if none configured.      */
+DECL|method|getContextPath ()
+specifier|public
+name|String
+name|getContextPath
+parameter_list|()
+block|{
+return|return
+name|contextPath
+return|;
+block|}
+comment|/**      * Sets a leading context-path the REST services will be using.      *<p/>      * This can be used when using components such as<tt>camel-servlet</tt> where the deployed web application      * is deployed using a context-path.      *      * @param contextPath the context path      */
+DECL|method|setContextPath (String contextPath)
+specifier|public
+name|void
+name|setContextPath
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contextPath
+operator|=
+name|contextPath
 expr_stmt|;
 block|}
 comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */
