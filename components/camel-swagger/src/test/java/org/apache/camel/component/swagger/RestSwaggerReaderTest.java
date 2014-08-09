@@ -48,16 +48,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -141,14 +131,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|scala
+import|import static
+name|org
 operator|.
-name|collection
+name|junit
 operator|.
-name|immutable
+name|Assert
 operator|.
-name|Map
+name|assertNotNull
 import|;
 end_import
 
@@ -157,8 +147,6 @@ DECL|class|RestSwaggerReaderTest
 specifier|public
 class|class
 name|RestSwaggerReaderTest
-extends|extends
-name|TestCase
 block|{
 annotation|@
 name|Test
