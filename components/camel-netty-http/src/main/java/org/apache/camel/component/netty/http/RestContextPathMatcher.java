@@ -38,6 +38,7 @@ specifier|final
 name|String
 name|rawPath
 decl_stmt|;
+comment|// TODO: improve matching like we have done in camel-servlet
 DECL|method|RestContextPathMatcher (String rawPath, String path, boolean matchOnUriPrefix)
 specifier|public
 name|RestContextPathMatcher

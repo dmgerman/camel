@@ -223,13 +223,6 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|outType
-argument_list|(
-name|User
-operator|.
-name|class
-argument_list|)
-operator|.
 name|to
 argument_list|(
 literal|"bean:userService?method=updateUser"

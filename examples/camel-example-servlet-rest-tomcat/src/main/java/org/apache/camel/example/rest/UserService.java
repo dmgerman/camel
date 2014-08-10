@@ -151,17 +151,16 @@ name|values
 argument_list|()
 return|;
 block|}
-comment|/**      * Updates or creates the given user      *      * @param user the user      * @return the old user before it was updated, or<tt>null</tt> if creating a new user      */
+comment|/**      * Updates or creates the given user      *      * @param user the user      */
 DECL|method|updateUser (User user)
 specifier|public
-name|User
+name|void
 name|updateUser
 parameter_list|(
 name|User
 name|user
 parameter_list|)
 block|{
-return|return
 name|users
 operator|.
 name|put
@@ -175,7 +174,7 @@ argument_list|()
 argument_list|,
 name|user
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 block|}
 end_class

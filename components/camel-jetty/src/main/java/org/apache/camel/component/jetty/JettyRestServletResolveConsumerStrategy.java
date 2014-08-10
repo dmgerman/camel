@@ -665,8 +665,23 @@ return|return
 literal|true
 return|;
 block|}
-return|return
+comment|// always match OPTIONS as some REST clients uses that prior to calling the service
+if|if
+condition|(
+literal|"OPTIONS"
+operator|.
+name|equals
+argument_list|(
 name|method
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|restrict
 operator|.
 name|toLowerCase
 argument_list|(
@@ -675,9 +690,9 @@ operator|.
 name|US
 argument_list|)
 operator|.
-name|endsWith
+name|contains
 argument_list|(
-name|restrict
+name|method
 operator|.
 name|toLowerCase
 argument_list|(
