@@ -227,20 +227,6 @@ specifier|private
 name|String
 name|outType
 decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|list
-specifier|private
-name|Boolean
-name|list
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|outList
-specifier|private
-name|Boolean
-name|outList
-decl_stmt|;
 comment|// used by XML DSL to either select a<to> or<route>
 comment|// so we need to use the common type OptionalIdentifiedDefinition
 annotation|@
@@ -491,58 +477,6 @@ operator|.
 name|outType
 operator|=
 name|outType
-expr_stmt|;
-block|}
-DECL|method|getList ()
-specifier|public
-name|Boolean
-name|getList
-parameter_list|()
-block|{
-return|return
-name|list
-return|;
-block|}
-DECL|method|setList (Boolean list)
-specifier|public
-name|void
-name|setList
-parameter_list|(
-name|Boolean
-name|list
-parameter_list|)
-block|{
-name|this
-operator|.
-name|list
-operator|=
-name|list
-expr_stmt|;
-block|}
-DECL|method|getOutList ()
-specifier|public
-name|Boolean
-name|getOutList
-parameter_list|()
-block|{
-return|return
-name|outList
-return|;
-block|}
-DECL|method|setOutList (Boolean outList)
-specifier|public
-name|void
-name|setOutList
-parameter_list|(
-name|Boolean
-name|outList
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outList
-operator|=
-name|outList
 expr_stmt|;
 block|}
 DECL|method|getRest ()
