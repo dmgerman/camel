@@ -69,13 +69,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|matches (String target)
+DECL|method|matches (String method, String path)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
 name|String
-name|target
+name|method
+parameter_list|,
+name|String
+name|path
 parameter_list|)
 block|{
 if|if
@@ -89,7 +92,7 @@ block|{
 return|return
 name|matchRestPath
 argument_list|(
-name|target
+name|path
 argument_list|,
 name|rawPath
 argument_list|)
@@ -102,7 +105,9 @@ name|super
 operator|.
 name|matches
 argument_list|(
-name|target
+name|method
+argument_list|,
+name|path
 argument_list|)
 return|;
 block|}

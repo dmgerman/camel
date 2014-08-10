@@ -30,13 +30,16 @@ specifier|public
 interface|interface
 name|ContextPathMatcher
 block|{
-comment|/**      * Whether the target context-path matches.      *      * @param target  the context-path from the incoming HTTP request      * @return<tt>true</tt> to match,<tt>false</tt> if not.      */
-DECL|method|matches (String target)
+comment|/**      * Whether the target context-path matches.      *      * @param method the HTTP method such as GET, POST      * @param path  the context-path from the incoming HTTP request      * @return<tt>true</tt> to match,<tt>false</tt> if not.      */
+DECL|method|matches (String method, String path)
 name|boolean
 name|matches
 parameter_list|(
 name|String
-name|target
+name|method
+parameter_list|,
+name|String
+name|path
 parameter_list|)
 function_decl|;
 block|}

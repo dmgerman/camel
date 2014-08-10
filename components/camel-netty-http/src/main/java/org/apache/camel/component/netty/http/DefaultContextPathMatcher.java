@@ -85,18 +85,21 @@ operator|=
 name|matchOnUriPrefix
 expr_stmt|;
 block|}
-DECL|method|matches (String target)
+DECL|method|matches (String method, String path)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
 name|String
-name|target
+name|method
+parameter_list|,
+name|String
+name|path
 parameter_list|)
 block|{
-name|target
+name|path
 operator|=
-name|target
+name|path
 operator|.
 name|toLowerCase
 argument_list|(
@@ -113,10 +116,12 @@ condition|)
 block|{
 comment|// exact match
 return|return
-name|target
+name|path
 operator|.
 name|equals
 argument_list|(
+name|this
+operator|.
 name|path
 argument_list|)
 return|;
@@ -125,10 +130,12 @@ else|else
 block|{
 comment|// match on prefix, then we just need to match the start of the context-path
 return|return
-name|target
+name|path
 operator|.
 name|startsWith
 argument_list|(
+name|this
+operator|.
 name|path
 argument_list|)
 return|;

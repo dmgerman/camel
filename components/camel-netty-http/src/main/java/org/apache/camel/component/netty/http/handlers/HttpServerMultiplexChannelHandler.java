@@ -916,6 +916,17 @@ parameter_list|)
 block|{
 comment|// need to strip out host and port etc, as we only need the context-path for matching
 name|String
+name|method
+init|=
+name|request
+operator|.
+name|getMethod
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+name|String
 name|path
 init|=
 name|request
@@ -961,6 +972,7 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+comment|// TODO: improve matching like we have done in camel-servlet, eg using candidates
 comment|// find the one that matches
 for|for
 control|(
@@ -989,6 +1001,8 @@ argument_list|()
 operator|.
 name|matches
 argument_list|(
+name|method
+argument_list|,
 name|path
 argument_list|)
 condition|)
