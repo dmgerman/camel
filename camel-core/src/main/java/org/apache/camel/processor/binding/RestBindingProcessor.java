@@ -216,6 +216,8 @@ name|ServiceSupport
 implements|implements
 name|AsyncProcessor
 block|{
+comment|// TODO: consumes/produces can be a list of media types, and prioritized 1st to last. (eg the q=weight option)
+comment|// TODO: use content-type from produces/consumes if possible to set as Content-Type if missing
 DECL|field|jsonUnmarshal
 specifier|private
 specifier|final
@@ -472,7 +474,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: consumes/produces can be a list of media types, and prioritized 1st to last.
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange, final AsyncCallback callback)
@@ -1491,6 +1492,39 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// make sure there is a content-type with xml
+name|String
+name|type
+init|=
+name|ExchangeHelper
+operator|.
+name|getContentType
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"application/xml"
+argument_list|)
+expr_stmt|;
+block|}
 name|xmlMarshal
 operator|.
 name|process
@@ -1509,6 +1543,39 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// make sure there is a content-type with json
+name|String
+name|type
+init|=
+name|ExchangeHelper
+operator|.
+name|getContentType
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"application/json"
+argument_list|)
+expr_stmt|;
+block|}
 name|jsonMarshal
 operator|.
 name|process
@@ -1531,7 +1598,6 @@ argument_list|)
 condition|)
 block|{
 comment|// okay for auto we do not mind if we could not bind
-return|return;
 block|}
 else|else
 block|{
@@ -1576,7 +1642,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return;
 block|}
 block|}
 catch|catch

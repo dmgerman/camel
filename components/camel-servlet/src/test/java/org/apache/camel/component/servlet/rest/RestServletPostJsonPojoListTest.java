@@ -253,6 +253,16 @@ name|getResponseCode
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"application/json"
+argument_list|,
+name|response
+operator|.
+name|getContentType
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
