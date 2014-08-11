@@ -186,6 +186,11 @@ argument_list|(
 literal|"/user"
 argument_list|)
 operator|.
+name|description
+argument_list|(
+literal|"User rest service"
+argument_list|)
+operator|.
 name|consumes
 argument_list|(
 literal|"application/json"
@@ -199,6 +204,11 @@ operator|.
 name|get
 argument_list|(
 literal|"/{id}"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"Find user by id"
 argument_list|)
 operator|.
 name|outType
@@ -216,6 +226,11 @@ operator|.
 name|put
 argument_list|()
 operator|.
+name|description
+argument_list|(
+literal|"Updates or create a user"
+argument_list|)
+operator|.
 name|type
 argument_list|(
 name|User
@@ -231,6 +246,11 @@ operator|.
 name|get
 argument_list|(
 literal|"/findAll"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"Find all users"
 argument_list|)
 operator|.
 name|outTypeList

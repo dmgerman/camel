@@ -241,6 +241,57 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the description of this node      *      * @param text  sets the text description, use null to not set a text      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|description (String text)
+specifier|public
+name|T
+name|description
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+if|if
+condition|(
+name|text
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|description
+operator|==
+literal|null
+condition|)
+block|{
+name|description
+operator|=
+operator|new
+name|DescriptionDefinition
+argument_list|()
+expr_stmt|;
+block|}
+name|description
+operator|.
+name|setText
+argument_list|(
+name|text
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Sets the description of this node      *      * @param id  sets the id, use null to not set an id      * @param text  sets the text description, use null to not set a text      * @param lang  sets the language for the description, use null to not set a language      * @return the builder      */
 annotation|@
 name|SuppressWarnings

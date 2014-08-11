@@ -177,6 +177,11 @@ DECL|class|VerbDefinition
 specifier|public
 class|class
 name|VerbDefinition
+extends|extends
+name|OptionalIdentifiedDefinition
+argument_list|<
+name|VerbDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
@@ -297,6 +302,32 @@ specifier|private
 name|RestDefinition
 name|rest
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+if|if
+condition|(
+name|method
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|method
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"verb"
+return|;
+block|}
+block|}
 DECL|method|getMethod ()
 specifier|public
 name|String
