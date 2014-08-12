@@ -2609,6 +2609,40 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|multiParameterArray
+condition|)
+block|{
+comment|// Just change the message body to an Object array
+if|if
+condition|(
+operator|!
+operator|(
+name|body
+operator|instanceof
+name|Object
+index|[]
+operator|)
+condition|)
+block|{
+name|body
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|Object
+index|[]
+operator|.
+expr|class
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|// if there was an explicit method name to invoke, then we should support using
 comment|// any provided parameter values in the method name
