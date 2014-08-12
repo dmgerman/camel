@@ -50,6 +50,10 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base class to control lifecycle for a set of child {@link org.apache.camel.Service}s.  */
+end_comment
+
 begin_class
 DECL|class|ChildServiceSupport
 specifier|public

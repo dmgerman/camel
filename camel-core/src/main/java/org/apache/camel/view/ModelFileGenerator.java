@@ -355,6 +355,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ModelFileGenerator
 specifier|public
 class|class

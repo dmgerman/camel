@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.spi.UuidGenerator} which is a fast implementation based on  * how<a href="http://activemq.apache.org/>Apache ActiveMQ</a> generates its UUID.  *<p/>  * This implementation is not synchronized but it leverages API which may not be accessible  * in the cloud (such as Google App Engine).  *<p/>  * The JVM system property {@link #PROPERTY_IDGENERATOR_PORT} can be used to set a specific port  * number to be used as part of the initialization process to generate unique UUID.  */
+comment|/**  * {@link org.apache.camel.spi.UuidGenerator} which is a fast implementation based on  * how<a href="http://activemq.apache.org/">Apache ActiveMQ</a> generates its UUID.  *<p/>  * This implementation is not synchronized but it leverages API which may not be accessible  * in the cloud (such as Google App Engine).  *<p/>  * The JVM system property {@link #PROPERTY_IDGENERATOR_PORT} can be used to set a specific port  * number to be used as part of the initialization process to generate unique UUID.  */
 end_comment
 
 begin_class

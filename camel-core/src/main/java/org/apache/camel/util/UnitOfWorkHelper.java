@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Utility methods for {@link org.apache.camel.spi.UnitOfWork}  *  * @version   */
 end_comment
 
 begin_class

@@ -685,7 +685,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Default {@link org.apache.camel.spi.ManagementObjectStrategy}.  */
 end_comment
 
 begin_class

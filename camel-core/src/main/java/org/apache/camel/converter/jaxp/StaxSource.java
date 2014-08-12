@@ -228,6 +228,10 @@ name|AttributesImpl
 import|;
 end_import
 
+begin_comment
+comment|/**  * A streaming {@link javax.xml.transform.sax.SAXSource}  */
+end_comment
+
 begin_class
 DECL|class|StaxSource
 specifier|public

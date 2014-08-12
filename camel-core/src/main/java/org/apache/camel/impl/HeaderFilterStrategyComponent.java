@@ -68,6 +68,10 @@ name|HeaderFilterStrategyAware
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base class for components to support configuring a {@link org.apache.camel.spi.HeaderFilterStrategy}.  */
+end_comment
+
 begin_class
 DECL|class|HeaderFilterStrategyComponent
 specifier|public

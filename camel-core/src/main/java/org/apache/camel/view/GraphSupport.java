@@ -209,6 +209,8 @@ comment|/**  * A base class for Graph processing code of Camel EIPs containing a
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GraphSupport
 specifier|public
 class|class

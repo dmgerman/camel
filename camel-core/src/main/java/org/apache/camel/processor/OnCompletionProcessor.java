@@ -279,7 +279,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Processor implementing<a href="http://camel.apache.org/oncompletion.html">onCompletion</a>.  *  * @version   */
 end_comment
 
 begin_class

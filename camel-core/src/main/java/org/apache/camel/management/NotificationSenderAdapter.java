@@ -54,6 +54,10 @@ name|NotificationSender
 import|;
 end_import
 
+begin_comment
+comment|/**  * Can be used to broadcast JMX notifications.  */
+end_comment
+
 begin_class
 DECL|class|NotificationSenderAdapter
 specifier|public

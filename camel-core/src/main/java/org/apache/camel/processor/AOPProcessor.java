@@ -43,6 +43,8 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|AOPProcessor
 specifier|public
 class|class

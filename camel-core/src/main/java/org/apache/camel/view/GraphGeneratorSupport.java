@@ -151,6 +151,8 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GraphGeneratorSupport
 specifier|public
 specifier|abstract

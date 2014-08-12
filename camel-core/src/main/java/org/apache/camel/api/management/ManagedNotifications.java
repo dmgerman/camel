@@ -90,6 +90,10 @@ name|Target
 import|;
 end_import
 
+begin_comment
+comment|/**  * A class level annotation to define the mbean emits a set of JMX notifications  */
+end_comment
+
 begin_annotation_defn
 annotation|@
 name|Target

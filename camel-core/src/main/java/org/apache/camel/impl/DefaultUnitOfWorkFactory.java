@@ -56,6 +56,10 @@ name|UnitOfWorkFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default {@link org.apache.camel.spi.UnitOfWorkFactory}  */
+end_comment
+
 begin_class
 DECL|class|DefaultUnitOfWorkFactory
 specifier|public

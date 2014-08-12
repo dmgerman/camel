@@ -317,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Base class for main implementations to allow starting up a JVM with Camel embedded.  *  * @version   */
 end_comment
 
 begin_class

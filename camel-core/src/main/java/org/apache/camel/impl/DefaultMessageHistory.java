@@ -64,6 +64,10 @@ name|StopWatch
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default {@link org.apache.camel.MessageHistory}.  */
+end_comment
+
 begin_class
 DECL|class|DefaultMessageHistory
 specifier|public

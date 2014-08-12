@@ -62,6 +62,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * A {@link javax.xml.transform.ErrorListener} that logs the errors.  */
+end_comment
+
 begin_class
 DECL|class|XmlErrorListener
 specifier|public
