@@ -74,6 +74,7 @@ specifier|public
 interface|interface
 name|Breakpoint
 block|{
+comment|/**      * State of the breakpoint as either active or suspended.      */
 DECL|enum|State
 enum|enum
 name|State

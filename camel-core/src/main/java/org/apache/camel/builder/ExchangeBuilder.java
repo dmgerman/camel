@@ -98,6 +98,10 @@ name|DefaultExchange
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builder to create {@link Exchange} and add headers and set body on the Exchange {@link Message}.  *<p/>  * Use the {@link #build()} method when done setting up the exchange.  */
+end_comment
+
 begin_class
 DECL|class|ExchangeBuilder
 specifier|public
@@ -173,7 +177,7 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-comment|/**      * Create the exchange by setting the camel context      * @param context the camel context       * @return exchange builder      */
+comment|/**      * Create the exchange by setting the camel context      *      * @param context the camel context       * @return exchange builder      */
 DECL|method|anExchange (CamelContext context)
 specifier|public
 specifier|static
@@ -192,7 +196,7 @@ name|context
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the in message body on the exchange      * @param body      * @return exchange builder      */
+comment|/**      * Set the in message body on the exchange      *      * @param body the body      * @return exchange builder      */
 DECL|method|withBody (Object body)
 specifier|public
 name|ExchangeBuilder
@@ -212,7 +216,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message header of the in message on the exchange      * @param key the key of the header      * @param value the value of the header      * @return exchange builder      */
+comment|/**      * Set the message header of the in message on the exchange      *      * @param key the key of the header      * @param value the value of the header      * @return exchange builder      */
 DECL|method|withHeader (String key, Object value)
 specifier|public
 name|ExchangeBuilder
@@ -238,7 +242,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message exchange pattern on the exchange      * @param pattern exchange pattern      * @return exchange builder      */
+comment|/**      * Set the message exchange pattern on the exchange      *      * @param pattern exchange pattern      * @return exchange builder      */
 DECL|method|withPattern (ExchangePattern pattern)
 specifier|public
 name|ExchangeBuilder
@@ -258,7 +262,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the exchange property      * @param key the key of the exchange property      * @param value the value of the exchange property      * @return exchange builder      */
+comment|/**      * Set the exchange property      *      * @param key the key of the exchange property      * @param value the value of the exchange property      * @return exchange builder      */
 DECL|method|withProperty (String key, Object value)
 specifier|public
 name|ExchangeBuilder
@@ -284,7 +288,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Build up the exchange from the exchange builder      * @return exchange       */
+comment|/**      * Build up the exchange from the exchange builder      *      * @return exchange       */
 DECL|method|build ()
 specifier|public
 name|Exchange
