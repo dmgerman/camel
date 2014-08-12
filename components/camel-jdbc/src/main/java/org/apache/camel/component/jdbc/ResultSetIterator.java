@@ -611,10 +611,17 @@ expr_stmt|;
 name|safeCloseStatement
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+DECL|method|closeConnection ()
+specifier|public
+name|void
+name|closeConnection
+parameter_list|()
+block|{
 name|safeCloseConnection
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 DECL|method|loadNext ()
 specifier|private

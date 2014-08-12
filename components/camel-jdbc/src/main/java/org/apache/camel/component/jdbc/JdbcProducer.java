@@ -2243,6 +2243,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|iterator
+operator|.
+name|closeConnection
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2258,6 +2263,11 @@ block|{
 name|iterator
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+name|iterator
+operator|.
+name|closeConnection
 argument_list|()
 expr_stmt|;
 block|}
