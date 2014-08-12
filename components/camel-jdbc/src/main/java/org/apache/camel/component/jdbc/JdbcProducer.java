@@ -925,16 +925,14 @@ operator|.
 name|getResultSet
 argument_list|()
 expr_stmt|;
+name|shouldCloseResources
+operator|=
 name|setResultSet
 argument_list|(
 name|exchange
 argument_list|,
 name|rs
 argument_list|)
-expr_stmt|;
-name|shouldCloseResources
-operator|=
-literal|false
 expr_stmt|;
 block|}
 else|else
@@ -1251,16 +1249,14 @@ operator|.
 name|getResultSet
 argument_list|()
 expr_stmt|;
+name|shouldCloseResources
+operator|=
 name|setResultSet
 argument_list|(
 name|exchange
 argument_list|,
 name|rs
 argument_list|)
-expr_stmt|;
-name|shouldCloseResources
-operator|=
-literal|false
 expr_stmt|;
 block|}
 else|else
@@ -1599,10 +1595,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets the result from the ResultSet to the Exchange as its OUT body.      */
+comment|/**      * Sets the result from the ResultSet to the Exchange as its OUT body.      *      * @return whether to close resources      */
 DECL|method|setResultSet (Exchange exchange, ResultSet rs)
 specifier|protected
-name|void
+name|boolean
 name|setResultSet
 parameter_list|(
 name|Exchange
@@ -1614,6 +1610,11 @@ parameter_list|)
 throws|throws
 name|SQLException
 block|{
+name|boolean
+name|answer
+init|=
+literal|true
+decl_stmt|;
 name|ResultSetIterator
 name|iterator
 init|=
@@ -1705,6 +1706,11 @@ name|iterator
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// do not close resources as we are in streaming mode
+name|answer
+operator|=
+literal|false
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1779,6 +1785,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 annotation|@
 name|SuppressWarnings
@@ -1795,8 +1804,6 @@ name|iterator
 parameter_list|)
 throws|throws
 name|SQLException
-block|{
-try|try
 block|{
 name|List
 name|result
@@ -1892,15 +1899,6 @@ return|return
 name|result
 return|;
 block|}
-finally|finally
-block|{
-name|iterator
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 DECL|method|extractSingleRow (ResultSetIterator iterator)
 specifier|private
 name|Object
@@ -1911,8 +1909,6 @@ name|iterator
 parameter_list|)
 throws|throws
 name|SQLException
-block|{
-try|try
 block|{
 if|if
 condition|(
@@ -2004,15 +2000,6 @@ block|{
 return|return
 name|row
 return|;
-block|}
-block|}
-finally|finally
-block|{
-name|iterator
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|newBeanInstance (Map<String, Object> row)
