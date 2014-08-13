@@ -216,9 +216,6 @@ name|ServiceSupport
 implements|implements
 name|AsyncProcessor
 block|{
-comment|// TODO: consumes/produces can be a list of media types, and prioritized 1st to last. (eg the q=weight option)
-comment|// TODO: use content-type from produces/consumes if possible to set as Content-Type if missing
-comment|// text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 DECL|field|jsonUnmarshal
 specifier|private
 specifier|final
