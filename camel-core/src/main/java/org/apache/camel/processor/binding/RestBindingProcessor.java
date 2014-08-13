@@ -218,6 +218,7 @@ name|AsyncProcessor
 block|{
 comment|// TODO: consumes/produces can be a list of media types, and prioritized 1st to last. (eg the q=weight option)
 comment|// TODO: use content-type from produces/consumes if possible to set as Content-Type if missing
+comment|// text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 DECL|field|jsonUnmarshal
 specifier|private
 specifier|final
@@ -548,7 +549,23 @@ name|isJson
 init|=
 literal|false
 decl_stmt|;
-comment|// content type takes precedence, over consumes
+name|String
+name|accept
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"Accept"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|String
 name|contentType
 init|=
@@ -838,6 +855,8 @@ argument_list|,
 name|xmlMarshal
 argument_list|,
 literal|true
+argument_list|,
+name|accept
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -904,6 +923,8 @@ argument_list|,
 name|xmlMarshal
 argument_list|,
 literal|false
+argument_list|,
+name|accept
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -971,6 +992,8 @@ argument_list|,
 name|xmlMarshal
 argument_list|,
 literal|false
+argument_list|,
+name|accept
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1107,7 +1130,12 @@ specifier|private
 name|boolean
 name|wasXml
 decl_stmt|;
-DECL|method|RestBindingMarshalOnCompletion (String routeId, AsyncProcessor jsonMarshal, AsyncProcessor xmlMarshal, boolean wasXml)
+DECL|field|accept
+specifier|private
+name|String
+name|accept
+decl_stmt|;
+DECL|method|RestBindingMarshalOnCompletion (String routeId, AsyncProcessor jsonMarshal, AsyncProcessor xmlMarshal, boolean wasXml, String accept)
 specifier|private
 name|RestBindingMarshalOnCompletion
 parameter_list|(
@@ -1122,6 +1150,9 @@ name|xmlMarshal
 parameter_list|,
 name|boolean
 name|wasXml
+parameter_list|,
+name|String
+name|accept
 parameter_list|)
 block|{
 name|this
@@ -1147,6 +1178,12 @@ operator|.
 name|wasXml
 operator|=
 name|wasXml
+expr_stmt|;
+name|this
+operator|.
+name|accept
+operator|=
+name|accept
 expr_stmt|;
 block|}
 annotation|@
@@ -1277,6 +1314,57 @@ name|isJson
 init|=
 literal|false
 decl_stmt|;
+comment|// accept takes precedence
+if|if
+condition|(
+name|accept
+operator|!=
+literal|null
+condition|)
+block|{
+name|isXml
+operator|=
+name|accept
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"xml"
+argument_list|)
+expr_stmt|;
+name|isJson
+operator|=
+name|accept
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"json"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// fallback to content type if still undecided
+if|if
+condition|(
+operator|!
+name|isXml
+operator|&&
+operator|!
+name|isJson
+condition|)
+block|{
 name|String
 name|contentType
 init|=
@@ -1326,6 +1414,7 @@ argument_list|(
 literal|"json"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// if content type could not tell us if it was json or xml, then fallback to if the binding was configured with
 comment|// that information in the consumes
