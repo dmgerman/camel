@@ -638,11 +638,13 @@ name|boolean
 name|isCreateCopy
 parameter_list|()
 block|{
-comment|// we need to create a correlated copy if we run in parallel mode
+comment|// we need to create a correlated copy if we run in parallel mode or is in after consumer mode (as the UoW would be done on the original exchange otherwise)
 return|return
 name|executorService
 operator|!=
 literal|null
+operator|||
+name|afterConsumer
 return|;
 block|}
 comment|/**      * Processes the exchange by the processors      *      * @param processor the processor      * @param exchange the exchange      */
