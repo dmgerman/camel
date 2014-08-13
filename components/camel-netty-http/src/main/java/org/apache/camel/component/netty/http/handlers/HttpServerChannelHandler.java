@@ -670,6 +670,16 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
+DECL|method|getConsumer ()
+specifier|public
+name|NettyHttpConsumer
+name|getConsumer
+parameter_list|()
+block|{
+return|return
+name|consumer
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|messageReceived (ChannelHandlerContext ctx, MessageEvent messageEvent)

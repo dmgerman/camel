@@ -85,14 +85,13 @@ operator|=
 name|matchOnUriPrefix
 expr_stmt|;
 block|}
-DECL|method|matches (String method, String path)
+annotation|@
+name|Override
+DECL|method|matches (String path)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
-name|String
-name|method
-parameter_list|,
 name|String
 name|path
 parameter_list|)
@@ -140,6 +139,43 @@ name|path
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|matchesRest (String path, boolean wildcard)
+specifier|public
+name|boolean
+name|matchesRest
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|boolean
+name|wildcard
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|matchMethod (String method, String restrict)
+specifier|public
+name|boolean
+name|matchMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|,
+name|String
+name|restrict
+parameter_list|)
+block|{
+comment|// always match as HttpServerChannelHandler will deal with HTTP method restrictions
+return|return
+literal|true
+return|;
 block|}
 DECL|method|getPath ()
 specifier|public

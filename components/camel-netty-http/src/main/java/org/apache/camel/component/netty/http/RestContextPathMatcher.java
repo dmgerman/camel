@@ -20,6 +20,16 @@ name|http
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link org.apache.camel.component.netty.http.ContextPathMatcher} that supports the Rest DSL.  */
 end_comment
@@ -38,7 +48,6 @@ specifier|final
 name|String
 name|rawPath
 decl_stmt|;
-comment|// TODO: improve matching like we have done in camel-servlet
 DECL|method|RestContextPathMatcher (String rawPath, String path, boolean matchOnUriPrefix)
 specifier|public
 name|RestContextPathMatcher
@@ -69,25 +78,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|matches (String method, String path)
+DECL|method|matchesRest (String path, boolean wildcard)
 specifier|public
 name|boolean
-name|matches
+name|matchesRest
 parameter_list|(
 name|String
-name|method
-parameter_list|,
-name|String
 name|path
+parameter_list|,
+name|boolean
+name|wildcard
 parameter_list|)
-block|{
-if|if
-condition|(
-name|useRestMatching
-argument_list|(
-name|rawPath
-argument_list|)
-condition|)
 block|{
 return|return
 name|matchRestPath
@@ -95,47 +96,76 @@ argument_list|(
 name|path
 argument_list|,
 name|rawPath
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
-name|super
-operator|.
-name|matches
-argument_list|(
-name|method
 argument_list|,
-name|path
+name|wildcard
 argument_list|)
 return|;
 block|}
-block|}
-DECL|method|useRestMatching (String path)
-specifier|private
+annotation|@
+name|Override
+DECL|method|matchMethod (String method, String restrict)
+specifier|public
 name|boolean
-name|useRestMatching
+name|matchMethod
 parameter_list|(
 name|String
-name|path
+name|method
+parameter_list|,
+name|String
+name|restrict
 parameter_list|)
 block|{
-comment|// only need to do rest matching if using { } placeholders
+if|if
+condition|(
+name|restrict
+operator|==
+literal|null
+condition|)
+block|{
 return|return
-name|path
+literal|true
+return|;
+block|}
+comment|// always match OPTIONS as some REST clients uses that prior to calling the service
+if|if
+condition|(
+literal|"OPTIONS"
 operator|.
-name|indexOf
+name|equals
 argument_list|(
-literal|'{'
+name|method
 argument_list|)
-operator|>
-operator|-
-literal|1
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|restrict
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+name|method
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * Matches the given request path with the configured consumer path      *      * @param requestPath   the request path      * @param consumerPath  the consumer path which may use { } tokens      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
-DECL|method|matchRestPath (String requestPath, String consumerPath)
+DECL|method|matchRestPath (String requestPath, String consumerPath, boolean wildcard)
 specifier|public
 name|boolean
 name|matchRestPath
@@ -145,6 +175,9 @@ name|requestPath
 parameter_list|,
 name|String
 name|consumerPath
+parameter_list|,
+name|boolean
+name|wildcard
 parameter_list|)
 block|{
 comment|// remove starting/ending slashes
@@ -317,6 +350,8 @@ index|]
 decl_stmt|;
 if|if
 condition|(
+name|wildcard
+operator|&&
 name|p2
 operator|.
 name|startsWith
