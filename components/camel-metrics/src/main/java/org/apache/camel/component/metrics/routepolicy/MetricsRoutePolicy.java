@@ -180,8 +180,8 @@ name|route
 decl_stmt|;
 DECL|class|MetricsStatistics
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 class|class
 name|MetricsStatistics
 block|{

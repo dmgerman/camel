@@ -765,6 +765,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -1175,6 +1178,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -1604,6 +1610,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -2046,6 +2055,9 @@ block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=
@@ -2161,21 +2173,22 @@ block|}
 return|;
 block|}
 comment|/**      * Gets the outputs from the given parent.      *<p/>      * This implementation deals with that outputs can be abstract and retrieves the<i>correct</i> parent output.      *      * @param parent the parent      * @return<tt>null</tt> if no parent      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|getParentOutputs (ProcessorDefinition parent)
+DECL|method|getParentOutputs (ProcessorDefinition<?> parent)
 specifier|private
 specifier|static
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getParentOutputs
 parameter_list|(
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 name|parent
 parameter_list|)
 block|{
@@ -2193,6 +2206,9 @@ block|}
 name|List
 argument_list|<
 name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|outputs
 init|=

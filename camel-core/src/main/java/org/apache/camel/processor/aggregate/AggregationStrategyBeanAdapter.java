@@ -901,9 +901,6 @@ init|=
 operator|new
 name|AggregationStrategyBeanInfo
 argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
 name|type
 argument_list|,
 name|found

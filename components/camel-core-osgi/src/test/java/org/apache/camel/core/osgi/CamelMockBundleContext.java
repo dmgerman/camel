@@ -252,11 +252,16 @@ name|bundle
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getService (ServiceReference reference)
+DECL|method|getService (@uppressWarningsR) ServiceReference reference)
 specifier|public
 name|Object
 name|getService
 parameter_list|(
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 name|ServiceReference
 name|reference
 parameter_list|)
@@ -422,6 +427,11 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
 DECL|method|getServiceReferences (String clazz, String filter)
 specifier|public
 name|ServiceReference

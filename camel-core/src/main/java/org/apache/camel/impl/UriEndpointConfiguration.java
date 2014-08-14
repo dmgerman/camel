@@ -354,13 +354,16 @@ decl_stmt|;
 comment|// lets try get the property regardless of if this maps to a valid property name
 comment|// then if the introspection fails we will get a valid error otherwise
 comment|// lets raise a warning afterwards that we should update the metadata on the endpoint class
-name|T
-name|answer
-decl_stmt|;
 try|try
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+name|T
 name|answer
-operator|=
+init|=
 operator|(
 name|T
 operator|)
@@ -372,7 +375,23 @@ name|endpoint
 argument_list|,
 name|name
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|config
+operator|==
+literal|null
+condition|)
+block|{
+name|warnMissingUriParamOnProperty
+argument_list|(
+name|name
+argument_list|)
 expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -403,22 +422,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|config
-operator|==
-literal|null
-condition|)
-block|{
-name|warnMissingUriParamOnProperty
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|answer
-return|;
 block|}
 DECL|method|warnMissingUriParamOnProperty (String name)
 specifier|protected

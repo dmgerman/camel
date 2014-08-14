@@ -274,6 +274,9 @@ argument_list|<
 name|CamelContext
 argument_list|,
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|registrations
 init|=
@@ -283,6 +286,9 @@ argument_list|<
 name|CamelContext
 argument_list|,
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -360,6 +366,9 @@ name|getContext
 argument_list|()
 decl_stmt|;
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 name|reg
 init|=
 name|registrations
@@ -496,6 +505,9 @@ block|}
 DECL|method|registerCamelContext (CamelContext camelContext)
 specifier|public
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 name|registerCamelContext
 parameter_list|(
 name|CamelContext
@@ -641,6 +653,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|ServiceRegistration
+argument_list|<
+name|?
+argument_list|>
 name|reg
 init|=
 name|bundleContext
@@ -775,6 +790,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|refs
 init|=

@@ -278,6 +278,9 @@ argument_list|)
 DECL|field|toOrRoute
 specifier|private
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|?
+argument_list|>
 name|toOrRoute
 decl_stmt|;
 comment|// the Java DSL uses the to or route definition directory
@@ -661,6 +664,9 @@ block|}
 DECL|method|getToOrRoute ()
 specifier|public
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|?
+argument_list|>
 name|getToOrRoute
 parameter_list|()
 block|{
@@ -668,12 +674,15 @@ return|return
 name|toOrRoute
 return|;
 block|}
-DECL|method|setToOrRoute (OptionalIdentifiedDefinition toOrRoute)
+DECL|method|setToOrRoute (OptionalIdentifiedDefinition<?> toOrRoute)
 specifier|public
 name|void
 name|setToOrRoute
 parameter_list|(
 name|OptionalIdentifiedDefinition
+argument_list|<
+name|?
+argument_list|>
 name|toOrRoute
 parameter_list|)
 block|{

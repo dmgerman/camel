@@ -164,6 +164,9 @@ decl_stmt|;
 try|try
 block|{
 name|Enumeration
+argument_list|<
+name|NetworkInterface
+argument_list|>
 name|ifaces
 init|=
 name|NetworkInterface
@@ -182,9 +185,6 @@ block|{
 name|NetworkInterface
 name|iface
 init|=
-operator|(
-name|NetworkInterface
-operator|)
 name|ifaces
 operator|.
 name|nextElement

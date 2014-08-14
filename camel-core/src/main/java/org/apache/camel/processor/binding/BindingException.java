@@ -54,6 +54,16 @@ name|BindingException
 extends|extends
 name|CamelExchangeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+operator|-
+literal|3495429794010365522L
+decl_stmt|;
 DECL|method|BindingException (String message, Exchange exchange)
 specifier|public
 name|BindingException

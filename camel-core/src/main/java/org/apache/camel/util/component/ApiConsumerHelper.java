@@ -258,6 +258,11 @@ argument_list|()
 condition|)
 block|{
 name|ApiMethodHelper
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
 name|methodHelper
 init|=
 name|endpoint

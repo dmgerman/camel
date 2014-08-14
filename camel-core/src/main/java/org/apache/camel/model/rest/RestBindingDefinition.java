@@ -223,6 +223,9 @@ class|class
 name|RestBindingDefinition
 extends|extends
 name|NoOutputDefinition
+argument_list|<
+name|RestBindingDefinition
+argument_list|>
 block|{
 annotation|@
 name|XmlAttribute

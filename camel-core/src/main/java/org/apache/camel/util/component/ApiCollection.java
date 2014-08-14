@@ -73,11 +73,6 @@ comment|/**  * Base class for a collection of ApiMethods. Meant to be extended b
 end_comment
 
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|class|ApiCollection
 specifier|public
 specifier|abstract

@@ -409,12 +409,13 @@ argument_list|(
 literal|1000
 argument_list|)
 decl_stmt|;
-DECL|field|camelContext
-specifier|private
-specifier|final
-name|CamelContext
-name|camelContext
-decl_stmt|;
+DECL|method|MBeanInfoAssembler ()
+specifier|public
+name|MBeanInfoAssembler
+parameter_list|()
+block|{     }
+annotation|@
+name|Deprecated
 DECL|method|MBeanInfoAssembler (CamelContext camelContext)
 specifier|public
 name|MBeanInfoAssembler
@@ -422,14 +423,7 @@ parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|)
-block|{
-name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|start ()

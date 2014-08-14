@@ -141,6 +141,8 @@ name|pattern
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|createExchange (Exchange exchange)
 specifier|public
 name|Exchange

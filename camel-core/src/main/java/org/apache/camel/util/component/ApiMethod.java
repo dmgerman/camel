@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface for proxy methods.  */
+comment|/**  * Interface for proxy methods.  * @param<T>  */
 end_comment
 
 begin_interface

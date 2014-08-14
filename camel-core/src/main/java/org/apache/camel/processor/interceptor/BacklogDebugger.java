@@ -1516,6 +1516,9 @@ block|}
 else|else
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|oldType
 decl_stmt|;
 if|if
@@ -1607,7 +1610,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|setMessageBodyOnBreakpoint (String nodeId, Object body, Class type)
+DECL|method|setMessageBodyOnBreakpoint (String nodeId, Object body, Class<?> type)
 specifier|public
 name|void
 name|setMessageBodyOnBreakpoint
@@ -1619,6 +1622,9 @@ name|Object
 name|body
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 block|{
@@ -1902,6 +1908,9 @@ literal|null
 condition|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|oldType
 decl_stmt|;
 if|if
@@ -2002,7 +2011,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, Object value, Class type)
+DECL|method|setMessageHeaderOnBreakpoint (String nodeId, String headerName, Object value, Class<?> type)
 specifier|public
 name|void
 name|setMessageHeaderOnBreakpoint
@@ -2017,6 +2026,9 @@ name|Object
 name|value
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|type
 parameter_list|)
 throws|throws
@@ -2979,16 +2991,6 @@ name|condition
 operator|=
 name|condition
 expr_stmt|;
-block|}
-DECL|method|getNodeId ()
-specifier|public
-name|String
-name|getNodeId
-parameter_list|()
-block|{
-return|return
-name|nodeId
-return|;
 block|}
 DECL|method|getCondition ()
 specifier|public

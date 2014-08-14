@@ -200,6 +200,9 @@ DECL|field|propertiesHelper
 specifier|protected
 specifier|final
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|T
+argument_list|>
 name|propertiesHelper
 decl_stmt|;
 comment|// method helper
@@ -228,13 +231,7 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// cached Endpoint executor service
-DECL|field|executorService
-specifier|private
-name|ExecutorService
-name|executorService
-decl_stmt|;
-DECL|method|AbstractApiProducer (AbstractApiEndpoint<E, T> endpoint, ApiMethodPropertiesHelper propertiesHelper)
+DECL|method|AbstractApiProducer (AbstractApiEndpoint<E, T> endpoint, ApiMethodPropertiesHelper<T> propertiesHelper)
 specifier|public
 name|AbstractApiProducer
 parameter_list|(
@@ -247,6 +244,9 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|T
+argument_list|>
 name|propertiesHelper
 parameter_list|)
 block|{

@@ -262,9 +262,7 @@ name|assembler
 operator|=
 operator|new
 name|MBeanInfoAssembler
-argument_list|(
-name|camelContext
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|assemble (MBeanServer mBeanServer, Object obj, ObjectName name)

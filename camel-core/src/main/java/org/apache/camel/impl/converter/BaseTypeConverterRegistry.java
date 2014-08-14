@@ -2925,6 +2925,9 @@ specifier|public
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 argument_list|>
 name|listAllTypeConvertersFromTo
@@ -2933,6 +2936,9 @@ block|{
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 argument_list|>
 name|answer
@@ -2941,6 +2947,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 argument_list|>
 argument_list|(
@@ -2967,26 +2976,35 @@ name|add
 argument_list|(
 operator|new
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 block|{
 name|mapping
 operator|.
 name|getFromType
 argument_list|()
-block|,
+operator|,
 name|mapping
 operator|.
 name|getToType
 argument_list|()
 block|}
-argument_list|)
-expr_stmt|;
+block|)
+empty_stmt|;
 block|}
 return|return
 name|answer
 return|;
 block|}
+end_class
+
+begin_comment
 comment|/**      * Loads the core type converters which is mandatory to use Camel      */
+end_comment
+
+begin_function
 DECL|method|loadCoreTypeConverters ()
 specifier|public
 name|void
@@ -3011,7 +3029,13 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Checks if the registry is loaded and if not lazily load it      */
+end_comment
+
+begin_function
 DECL|method|loadTypeConverters ()
 specifier|protected
 name|void
@@ -3053,6 +3077,9 @@ block|{
 comment|// ignore its fine to have none
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|loadFallbackTypeConverters ()
 specifier|protected
 name|void
@@ -3100,6 +3127,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|createTypeConversionException (Exchange exchange, Class<?> type, Object value, Throwable cause)
 specifier|protected
 name|TypeConversionException
@@ -3167,6 +3197,9 @@ name|cause
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|getStatistics ()
@@ -3179,6 +3212,9 @@ return|return
 name|statistics
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|size ()
@@ -3194,6 +3230,9 @@ name|size
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -3206,6 +3245,9 @@ name|Exception
 block|{
 comment|// noop
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -3276,7 +3318,13 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Represents utilization statistics      */
+end_comment
+
+begin_class
 DECL|class|UtilizationStatistics
 specifier|private
 specifier|final
@@ -3447,7 +3495,13 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Represents a mapping from one type (which can be null) to another      */
+end_comment
+
+begin_class
 DECL|class|TypeMapping
 specifier|protected
 specifier|static
@@ -3664,7 +3718,13 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Represents a fallback type converter      */
+end_comment
+
+begin_class
 DECL|class|FallbackTypeConverter
 specifier|protected
 specifier|static
@@ -3727,8 +3787,8 @@ name|fallbackTypeConverter
 return|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
