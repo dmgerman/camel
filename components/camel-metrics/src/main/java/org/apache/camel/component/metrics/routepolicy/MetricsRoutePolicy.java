@@ -374,7 +374,7 @@ operator|.
 name|getCamelContext
 argument_list|()
 operator|.
-name|hasServiceByType
+name|hasService
 argument_list|(
 name|MetricsRegistryService
 operator|.
