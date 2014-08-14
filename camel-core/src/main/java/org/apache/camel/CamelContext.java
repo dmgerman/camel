@@ -757,7 +757,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Has the given service type already been added to this context?      *      * @param type the class type      * @return the service instance or<tt>null</tt> if not already added.      */
 DECL|method|hasService (Class<T> type)
-specifier|public
 parameter_list|<
 name|T
 parameter_list|>
