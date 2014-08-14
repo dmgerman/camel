@@ -3122,7 +3122,7 @@ return|;
 block|}
 DECL|method|getSslSocketConnector (JettyHttpEndpoint endpoint)
 specifier|protected
-name|SslSelectChannelConnector
+name|Connector
 name|getSslSocketConnector
 parameter_list|(
 name|JettyHttpEndpoint
@@ -3131,7 +3131,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|SslSelectChannelConnector
+name|Connector
 name|answer
 init|=
 literal|null
@@ -3177,7 +3177,7 @@ return|;
 block|}
 DECL|method|createSslSocketConnector (JettyHttpEndpoint endpoint)
 specifier|protected
-name|SslSelectChannelConnector
+name|Connector
 name|createSslSocketConnector
 parameter_list|(
 name|JettyHttpEndpoint
@@ -3910,7 +3910,7 @@ expr_stmt|;
 block|}
 DECL|method|getSocketConnector (int port)
 specifier|public
-name|SelectChannelConnector
+name|Connector
 name|getSocketConnector
 parameter_list|(
 name|int
@@ -3919,7 +3919,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|SelectChannelConnector
+name|Connector
 name|answer
 init|=
 literal|null
@@ -3960,7 +3960,7 @@ return|;
 block|}
 DECL|method|createSocketConnector ()
 specifier|protected
-name|SelectChannelConnector
+name|Connector
 name|createSocketConnector
 parameter_list|()
 throws|throws
