@@ -755,6 +755,22 @@ name|Object
 name|object
 parameter_list|)
 function_decl|;
+comment|/**      * Has the given service type already been added to this context?      *      * @param type the class type      * @return the service instance or<tt>null</tt> if not already added.      */
+DECL|method|hasService (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|hasService
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Adds the given listener to be invoked when {@link CamelContext} have just been started.      *<p/>      * This allows listeners to do any custom work after the routes and other services have been started and are running.      *<p/><b>Important:</b> The listener will always be invoked, also if the {@link CamelContext} has already been      * started, see the {@link org.apache.camel.StartupListener#onCamelContextStarted(CamelContext, boolean)} method.      *      * @param listener the listener      * @throws Exception can be thrown if {@link CamelContext} is already started and the listener is invoked      *                   and cause an exception to be thrown      */
 DECL|method|addStartupListener (StartupListener listener)
 name|void
