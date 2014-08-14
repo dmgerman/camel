@@ -232,10 +232,6 @@ name|PreparedStatementCallback
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SqlConsumer
 specifier|public
@@ -886,7 +882,7 @@ operator|>
 literal|0
 operator|&&
 name|total
-operator|>
+operator|==
 name|maxMessagesPerPoll
 condition|)
 block|{
@@ -898,16 +894,8 @@ literal|"Limiting to maximum messages to poll "
 operator|+
 name|maxMessagesPerPoll
 operator|+
-literal|" as there was "
-operator|+
-name|total
-operator|+
-literal|" messages in this poll."
+literal|" as there was more messages in this poll."
 argument_list|)
-expr_stmt|;
-name|total
-operator|=
-name|maxMessagesPerPoll
 expr_stmt|;
 block|}
 for|for
@@ -1401,6 +1389,40 @@ name|breakBatchOnConsumeFail
 operator|=
 name|breakBatchOnConsumeFail
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
+specifier|public
+name|void
+name|setMaxMessagesPerPoll
+parameter_list|(
+name|int
+name|maxMessagesPerPoll
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setMaxMessagesPerPoll
+argument_list|(
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|jdbcTemplate
+operator|!=
+literal|null
+condition|)
+block|{
+name|jdbcTemplate
+operator|.
+name|setMaxRows
+argument_list|(
+name|maxMessagesPerPoll
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
