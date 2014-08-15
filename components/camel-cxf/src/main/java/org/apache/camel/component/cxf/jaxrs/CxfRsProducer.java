@@ -1944,7 +1944,9 @@ argument_list|(
 name|methodName
 argument_list|)
 condition|)
+block|{
 continue|continue;
+block|}
 name|Class
 argument_list|<
 name|?
@@ -1967,7 +1969,9 @@ name|parameterTypes
 operator|.
 name|length
 condition|)
+block|{
 continue|continue;
+block|}
 for|for
 control|(
 name|int

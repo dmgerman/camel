@@ -288,7 +288,7 @@ name|CxfRsRelayTest
 extends|extends
 name|TestSupport
 block|{
-comment|/** 	 * A sample service "interface" (technically, it is a class since we will 	 * use proxy-client. That interface exposes three methods over-loading each 	 * other : we are testing the appropriate one will be chosen at runtime. 	 *  	 */
+comment|/**      * A sample service "interface" (technically, it is a class since we will      * use proxy-client. That interface exposes three methods over-loading each      * other : we are testing the appropriate one will be chosen at runtime.      *       */
 annotation|@
 name|WebService
 annotation|@
@@ -326,7 +326,7 @@ name|Consumes
 argument_list|(
 literal|"multipart/form-data"
 argument_list|)
-DECL|method|upload ( @ultipartvalue = R, type = R) java.lang.Number content, @Multipart(value = R, type = R) String name)
+DECL|method|upload (@ultipartvalue = R, type = R) java.lang.Number content, @Multipart(value = R, type = R) String name)
 specifier|public
 name|void
 name|upload
@@ -363,7 +363,7 @@ argument_list|)
 name|String
 name|name
 parameter_list|)
-block|{ 		}
+block|{         }
 annotation|@
 name|WebMethod
 annotation|@
@@ -383,7 +383,7 @@ specifier|private
 name|void
 name|upload
 parameter_list|()
-block|{ 		}
+block|{         }
 annotation|@
 name|WebMethod
 annotation|@
@@ -398,7 +398,7 @@ name|Consumes
 argument_list|(
 literal|"multipart/form-data"
 argument_list|)
-DECL|method|upload ( @ultipartvalue = R, type = R) InputStream content, @Multipart(value = R, type = R) String name)
+DECL|method|upload (@ultipartvalue = R, type = R) InputStream content, @Multipart(value = R, type = R) String name)
 specifier|public
 name|void
 name|upload
@@ -431,7 +431,7 @@ argument_list|)
 name|String
 name|name
 parameter_list|)
-block|{ 		}
+block|{         }
 block|}
 DECL|field|SAMPLE_CONTENT_PATH
 specifier|private
@@ -451,12 +451,12 @@ name|SAMPLE_NAME
 init|=
 literal|"CxfRsSpringRelay.xml"
 decl_stmt|;
-DECL|field|latch
+DECL|field|LATCH
 specifier|private
 specifier|static
 specifier|final
 name|CountDownLatch
-name|latch
+name|LATCH
 init|=
 operator|new
 name|CountDownLatch
@@ -476,13 +476,13 @@ specifier|static
 name|String
 name|name
 decl_stmt|;
-comment|/** 	 * That test builds a route chaining two cxfrs endpoints. It shows a request 	 * sent to the first one will be correctly transferred and consumed by the 	 * other one. 	 */
+comment|/**      * That test builds a route chaining two cxfrs endpoints. It shows a request      * sent to the first one will be correctly transferred and consumed by the      * other one.      */
 annotation|@
 name|Test
-DECL|method|test ()
+DECL|method|testJaxrsRelayRoute ()
 specifier|public
 name|void
-name|test
+name|testJaxrsRelayRoute
 parameter_list|()
 throws|throws
 name|Exception
@@ -509,7 +509,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|latch
+name|LATCH
 operator|.
 name|await
 argument_list|(
@@ -574,7 +574,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Route builder to be used with 	 * org/apache/camel/component/cxf/jaxrs/CxfRsSpringRelay.xml 	 *  	 */
+comment|/**      * Route builder to be used with      * org/apache/camel/component/cxf/jaxrs/CxfRsSpringRelay.xml      *       */
 DECL|class|CamelRouteBuilder
 specifier|public
 specifier|static
@@ -598,27 +598,11 @@ argument_list|(
 literal|"upload1"
 argument_list|)
 operator|.
-name|process
+name|removeHeader
 argument_list|(
-operator|new
-name|Processor
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|process
-parameter_list|(
 name|Exchange
-name|arg0
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// arg0.getIn().removeHeader(Exchange.CONTENT_TYPE);
-block|}
-block|}
+operator|.
+name|CONTENT_TYPE
 argument_list|)
 operator|.
 name|to
@@ -653,7 +637,6 @@ comment|// once the message arrives in the second endpoint, stores
 comment|// the message components and warns results can be compared
 name|content
 operator|=
-operator|(
 name|exchange
 operator|.
 name|getIn
@@ -667,11 +650,9 @@ name|String
 operator|.
 name|class
 argument_list|)
-operator|)
 expr_stmt|;
 name|name
 operator|=
-operator|(
 name|exchange
 operator|.
 name|getIn
@@ -685,9 +666,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-operator|)
 expr_stmt|;
-name|latch
+name|LATCH
 operator|.
 name|countDown
 argument_list|()
@@ -706,7 +686,7 @@ operator|new
 name|Runnable
 argument_list|()
 block|{
-comment|/** 				 * Sends a request to the first endpoint in the route 				 */
+comment|/**                  * Sends a request to the first endpoint in the route                  */
 specifier|public
 name|void
 name|run
