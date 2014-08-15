@@ -506,6 +506,9 @@ comment|// for proxy class and super classes not matching excluded packages or c
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aClass
 init|=
 name|getProxyType
