@@ -502,6 +502,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RoutePolicyFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteStartupOrder
 import|;
 end_import
@@ -2047,6 +2061,24 @@ parameter_list|(
 name|RestRegistry
 name|restRegistry
 parameter_list|)
+function_decl|;
+comment|/**      * Adds the given route policy factory      *      * @param routePolicyFactory the factory      */
+DECL|method|addRoutePolicyFactory (RoutePolicyFactory routePolicyFactory)
+name|void
+name|addRoutePolicyFactory
+parameter_list|(
+name|RoutePolicyFactory
+name|routePolicyFactory
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the route policy factories      *      * @return the list of current route policy factories      */
+DECL|method|getRoutePolicyFactories ()
+name|List
+argument_list|<
+name|RoutePolicyFactory
+argument_list|>
+name|getRoutePolicyFactories
+parameter_list|()
 function_decl|;
 block|}
 end_interface
