@@ -785,11 +785,6 @@ block|}
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|interceptPropertyNames (Set<String> propertyNames)
 specifier|public
 name|void
@@ -806,11 +801,6 @@ comment|// do nothing by default
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|interceptProperties (Map<String, Object> properties)
 specifier|public
 name|void

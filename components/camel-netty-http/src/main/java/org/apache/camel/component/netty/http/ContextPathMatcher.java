@@ -20,16 +20,6 @@ name|http
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
 begin_comment
 comment|/**  * A matcher used for selecting the correct {@link org.apache.camel.component.netty.http.handlers.HttpServerChannelHandler}  * to handle an incoming {@link org.jboss.netty.handler.codec.http.HttpRequest} when you use multiple routes on the same  * port.  *<p/>  * As when we do that, we need to multiplex and select the correct consumer route to process the HTTP request.  * To do that we need to match on the incoming HTTP request context-path from the request.  */
 end_comment
