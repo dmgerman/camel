@@ -84,6 +84,12 @@ specifier|final
 name|CamelJGroupsReceiver
 name|receiver
 decl_stmt|;
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|JGroupsEndpoint
+name|endpoint
+decl_stmt|;
 DECL|method|JGroupsConsumer (JGroupsEndpoint endpoint, Processor processor, Channel channel, String clusterName)
 specifier|public
 name|JGroupsConsumer
@@ -107,6 +113,12 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -166,12 +178,10 @@ argument_list|(
 name|receiver
 argument_list|)
 expr_stmt|;
-name|channel
+name|endpoint
 operator|.
 name|connect
-argument_list|(
-name|clusterName
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -196,6 +206,13 @@ name|receiver
 argument_list|)
 expr_stmt|;
 name|channel
+operator|.
+name|setReceiver
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|endpoint
 operator|.
 name|disconnect
 argument_list|()
