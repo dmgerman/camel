@@ -649,14 +649,14 @@ decl_stmt|;
 return|return
 name|name
 operator|+
-literal|"-"
+literal|":"
 operator|+
 name|route
 operator|.
 name|getId
 argument_list|()
 operator|+
-literal|"-"
+literal|":"
 operator|+
 name|type
 return|;
