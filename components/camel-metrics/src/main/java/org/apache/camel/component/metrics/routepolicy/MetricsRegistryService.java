@@ -126,10 +126,10 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|registry
+DECL|field|metricsRegistry
 specifier|private
 name|MetricRegistry
-name|registry
+name|metricsRegistry
 decl_stmt|;
 DECL|field|reporter
 specifier|private
@@ -148,30 +148,30 @@ name|jmxDomain
 init|=
 literal|"org.apache.camel.metrics"
 decl_stmt|;
-DECL|method|getRegistry ()
+DECL|method|getMetricsRegistry ()
 specifier|public
 name|MetricRegistry
-name|getRegistry
+name|getMetricsRegistry
 parameter_list|()
 block|{
 return|return
-name|registry
+name|metricsRegistry
 return|;
 block|}
-DECL|method|setRegistry (MetricRegistry registry)
+DECL|method|setMetricsRegistry (MetricRegistry metricsRegistry)
 specifier|public
 name|void
-name|setRegistry
+name|setMetricsRegistry
 parameter_list|(
 name|MetricRegistry
-name|registry
+name|metricsRegistry
 parameter_list|)
 block|{
 name|this
 operator|.
-name|registry
+name|metricsRegistry
 operator|=
-name|registry
+name|metricsRegistry
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
@@ -264,12 +264,12 @@ name|Exception
 block|{
 if|if
 condition|(
-name|registry
+name|metricsRegistry
 operator|==
 literal|null
 condition|)
 block|{
-name|registry
+name|metricsRegistry
 operator|=
 operator|new
 name|MetricRegistry
@@ -321,7 +321,7 @@ name|JmxReporter
 operator|.
 name|forRegistry
 argument_list|(
-name|registry
+name|metricsRegistry
 argument_list|)
 operator|.
 name|registerWith

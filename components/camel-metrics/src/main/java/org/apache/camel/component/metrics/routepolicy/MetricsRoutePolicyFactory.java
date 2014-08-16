@@ -98,10 +98,10 @@ name|MetricsRoutePolicyFactory
 implements|implements
 name|RoutePolicyFactory
 block|{
-DECL|field|registry
+DECL|field|metricsRegistry
 specifier|private
 name|MetricRegistry
-name|registry
+name|metricsRegistry
 decl_stmt|;
 DECL|field|useJmx
 specifier|private
@@ -118,30 +118,30 @@ init|=
 literal|"org.apache.camel.metrics"
 decl_stmt|;
 comment|/**      * To use a specific {@link com.codahale.metrics.MetricRegistry} instance.      *<p/>      * If no instance has been configured, then Camel will create a shared instance to be used.      */
-DECL|method|setRegistry (MetricRegistry registry)
+DECL|method|setMetricsRegistry (MetricRegistry metricsRegistry)
 specifier|public
 name|void
-name|setRegistry
+name|setMetricsRegistry
 parameter_list|(
 name|MetricRegistry
-name|registry
+name|metricsRegistry
 parameter_list|)
 block|{
 name|this
 operator|.
-name|registry
+name|metricsRegistry
 operator|=
-name|registry
+name|metricsRegistry
 expr_stmt|;
 block|}
-DECL|method|getRegistry ()
+DECL|method|getMetricsRegistry ()
 specifier|public
 name|MetricRegistry
-name|getRegistry
+name|getMetricsRegistry
 parameter_list|()
 block|{
 return|return
-name|registry
+name|metricsRegistry
 return|;
 block|}
 DECL|method|isUseJmx ()
@@ -224,9 +224,9 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setRegistry
+name|setMetricsRegistry
 argument_list|(
-name|getRegistry
+name|getMetricsRegistry
 argument_list|()
 argument_list|)
 expr_stmt|;

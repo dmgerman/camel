@@ -144,10 +144,10 @@ name|MetricsRoutePolicy
 extends|extends
 name|RoutePolicySupport
 block|{
-DECL|field|registry
+DECL|field|metricsRegistry
 specifier|private
 name|MetricRegistry
-name|registry
+name|metricsRegistry
 decl_stmt|;
 DECL|field|registryService
 specifier|private
@@ -338,30 +338,30 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|getRegistry ()
+DECL|method|getMetricsRegistry ()
 specifier|public
 name|MetricRegistry
-name|getRegistry
+name|getMetricsRegistry
 parameter_list|()
 block|{
 return|return
-name|registry
+name|metricsRegistry
 return|;
 block|}
-DECL|method|setRegistry (MetricRegistry registry)
+DECL|method|setMetricsRegistry (MetricRegistry metricsRegistry)
 specifier|public
 name|void
-name|setRegistry
+name|setMetricsRegistry
 parameter_list|(
 name|MetricRegistry
-name|registry
+name|metricsRegistry
 parameter_list|)
 block|{
 name|this
 operator|.
-name|registry
+name|metricsRegistry
 operator|=
-name|registry
+name|metricsRegistry
 expr_stmt|;
 block|}
 DECL|method|isUseJmx ()
@@ -474,9 +474,9 @@ argument_list|()
 expr_stmt|;
 name|registryService
 operator|.
-name|setRegistry
+name|setMetricsRegistry
 argument_list|(
-name|getRegistry
+name|getMetricsRegistry
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -532,7 +532,7 @@ name|total
 init|=
 name|registryService
 operator|.
-name|getRegistry
+name|getMetricsRegistry
 argument_list|()
 operator|.
 name|counter
@@ -548,7 +548,7 @@ name|inflight
 init|=
 name|registryService
 operator|.
-name|getRegistry
+name|getMetricsRegistry
 argument_list|()
 operator|.
 name|counter
@@ -564,7 +564,7 @@ name|requests
 init|=
 name|registryService
 operator|.
-name|getRegistry
+name|getMetricsRegistry
 argument_list|()
 operator|.
 name|meter
@@ -580,7 +580,7 @@ name|responses
 init|=
 name|registryService
 operator|.
-name|getRegistry
+name|getMetricsRegistry
 argument_list|()
 operator|.
 name|timer
@@ -646,6 +646,7 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+comment|// use colon to separate context from route, and dot for the type name
 return|return
 name|name
 operator|+
@@ -656,7 +657,7 @@ operator|.
 name|getId
 argument_list|()
 operator|+
-literal|":"
+literal|"."
 operator|+
 name|type
 return|;

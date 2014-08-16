@@ -196,7 +196,7 @@ argument_list|)
 expr_stmt|;
 name|factory
 operator|.
-name|setRegistry
+name|setMetricsRegistry
 argument_list|(
 name|registry
 argument_list|)
