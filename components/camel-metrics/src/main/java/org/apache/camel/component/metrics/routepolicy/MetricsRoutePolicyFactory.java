@@ -107,8 +107,6 @@ DECL|field|useJmx
 specifier|private
 name|boolean
 name|useJmx
-init|=
-literal|true
 decl_stmt|;
 DECL|field|jmxDomain
 specifier|private
@@ -116,6 +114,11 @@ name|String
 name|jmxDomain
 init|=
 literal|"org.apache.camel.metrics"
+decl_stmt|;
+DECL|field|prettyPrint
+specifier|private
+name|boolean
+name|prettyPrint
 decl_stmt|;
 comment|/**      * To use a specific {@link com.codahale.metrics.MetricRegistry} instance.      *<p/>      * If no instance has been configured, then Camel will create a shared instance to be used.      */
 DECL|method|setMetricsRegistry (MetricRegistry metricsRegistry)
@@ -198,6 +201,33 @@ operator|=
 name|jmxDomain
 expr_stmt|;
 block|}
+DECL|method|isPrettyPrint ()
+specifier|public
+name|boolean
+name|isPrettyPrint
+parameter_list|()
+block|{
+return|return
+name|prettyPrint
+return|;
+block|}
+comment|/**      * Whether to use pretty print when outputting JSon      */
+DECL|method|setPrettyPrint (boolean prettyPrint)
+specifier|public
+name|void
+name|setPrettyPrint
+parameter_list|(
+name|boolean
+name|prettyPrint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prettyPrint
+operator|=
+name|prettyPrint
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition routeDefinition)
@@ -243,6 +273,14 @@ operator|.
 name|setJmxDomain
 argument_list|(
 name|getJmxDomain
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setPrettyPrint
+argument_list|(
+name|isPrettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;

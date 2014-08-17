@@ -168,6 +168,11 @@ name|jmxDomain
 init|=
 literal|"org.apache.camel.metrics"
 decl_stmt|;
+DECL|field|prettyPrint
+specifier|private
+name|boolean
+name|prettyPrint
+decl_stmt|;
 DECL|field|statistics
 specifier|private
 name|MetricsStatistics
@@ -416,6 +421,32 @@ operator|=
 name|jmxDomain
 expr_stmt|;
 block|}
+DECL|method|isPrettyPrint ()
+specifier|public
+name|boolean
+name|isPrettyPrint
+parameter_list|()
+block|{
+return|return
+name|prettyPrint
+return|;
+block|}
+DECL|method|setPrettyPrint (boolean prettyPrint)
+specifier|public
+name|void
+name|setPrettyPrint
+parameter_list|(
+name|boolean
+name|prettyPrint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prettyPrint
+operator|=
+name|prettyPrint
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|onInit (Route route)
@@ -493,6 +524,14 @@ operator|.
 name|setJmxDomain
 argument_list|(
 name|getJmxDomain
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|registryService
+operator|.
+name|setPrettyPrint
+argument_list|(
+name|isPrettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
