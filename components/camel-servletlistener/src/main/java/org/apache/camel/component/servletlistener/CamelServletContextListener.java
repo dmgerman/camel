@@ -447,6 +447,16 @@ specifier|static
 name|ServletCamelContext
 name|instance
 decl_stmt|;
+comment|/**      * Key to store the created {@link org.apache.camel.CamelContext} as an attribute on the {@link javax.servlet.ServletContext}.      */
+DECL|field|CAMEL_CONTEXT_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CAMEL_CONTEXT_KEY
+init|=
+literal|"CamelContext"
+decl_stmt|;
 DECL|field|LOG
 specifier|protected
 specifier|static
@@ -1152,6 +1162,19 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+comment|// store the CamelContext as an attribute
+name|sce
+operator|.
+name|getServletContext
+argument_list|()
+operator|.
+name|setAttribute
+argument_list|(
+name|CAMEL_CONTEXT_KEY
+argument_list|,
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|info
@@ -1255,6 +1278,17 @@ expr_stmt|;
 name|instance
 operator|=
 literal|null
+expr_stmt|;
+comment|// store the CamelContext as an attribute
+name|sce
+operator|.
+name|getServletContext
+argument_list|()
+operator|.
+name|removeAttribute
+argument_list|(
+name|CAMEL_CONTEXT_KEY
+argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
