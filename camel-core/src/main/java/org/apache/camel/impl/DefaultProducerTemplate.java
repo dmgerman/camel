@@ -1405,6 +1405,13 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|headers
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -1438,6 +1445,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|in
 operator|.
@@ -1556,6 +1564,13 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|headers
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Map
@@ -1589,6 +1604,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|in
 operator|.

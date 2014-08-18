@@ -1117,6 +1117,24 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+name|out
+operator|=
+name|producer
+operator|.
+name|requestBodyAndHeaders
+argument_list|(
+literal|"Hello"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye Bye World"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
 name|producer
 operator|.
 name|stop
