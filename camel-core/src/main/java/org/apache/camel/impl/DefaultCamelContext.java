@@ -5080,6 +5080,28 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|startAllRoutes ()
+specifier|public
+name|void
+name|startAllRoutes
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doStartOrResumeRoutes
+argument_list|(
+name|routeServices
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|startRoute (String routeId)
 specifier|public
 specifier|synchronized
@@ -11504,6 +11526,11 @@ name|isAutoStartup
 argument_list|(
 name|this
 argument_list|)
+operator|&&
+name|this
+operator|.
+name|isAutoStartup
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -12474,6 +12501,11 @@ name|isAutoStartup
 argument_list|(
 name|this
 argument_list|)
+operator|&&
+name|this
+operator|.
+name|isAutoStartup
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

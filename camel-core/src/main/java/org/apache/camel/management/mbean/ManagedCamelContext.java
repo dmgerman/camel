@@ -1250,6 +1250,20 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|startAllRoutes ()
+specifier|public
+name|void
+name|startAllRoutes
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|context
+operator|.
+name|startAllRoutes
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|sendBody (String endpointUri, Object body)
 specifier|public
 name|void

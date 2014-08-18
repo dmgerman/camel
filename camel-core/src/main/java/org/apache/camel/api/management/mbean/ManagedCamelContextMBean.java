@@ -567,6 +567,20 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Starts all the routes which currently is not started"
+argument_list|)
+DECL|method|startAllRoutes ()
+name|void
+name|startAllRoutes
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Send body (in only)"
 argument_list|)
 DECL|method|sendBody (String endpointUri, Object body)

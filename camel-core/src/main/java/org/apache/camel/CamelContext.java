@@ -1162,6 +1162,14 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Starts all the routes which currently is not started.      *      * @throws Exception is thrown if a route could not be started for whatever reason      */
+DECL|method|startAllRoutes ()
+name|void
+name|startAllRoutes
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Starts the given route if it has been previously stopped      *      * @param routeId the route id      * @throws Exception is thrown if the route could not be started for whatever reason      */
 DECL|method|startRoute (String routeId)
 name|void
