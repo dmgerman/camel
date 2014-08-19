@@ -205,11 +205,16 @@ name|Processor
 name|processor
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
-comment|// new ScpConsumer(this, processor, createRemoteFileOperations());
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"This component does not support consuming from this endpoint"
+argument_list|)
+throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildProducer ()
 specifier|protected
 name|GenericFileProducer
@@ -230,6 +235,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createRemoteFileOperations ()
 specifier|public
 name|RemoteFileOperations
