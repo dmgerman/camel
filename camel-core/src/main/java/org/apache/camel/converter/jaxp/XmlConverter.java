@@ -534,22 +534,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|IOHelper
@@ -591,7 +575,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class to transform to and from various JAXB types such as {@link Source} and {@link Document}  *  * @version   */
+comment|/**  * A helper class to transform to and from various JAXB types such as {@link Source} and {@link Document}  *  * @version  */
 end_comment
 
 begin_class
@@ -660,7 +644,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|XPathBuilder
+name|XmlConverter
 operator|.
 name|class
 argument_list|)
@@ -908,7 +892,7 @@ name|document
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Node to a Source      * @throws TransformerException       * @throws ParserConfigurationException       * @deprecated  use toDOMSource instead      */
+comment|/**      * Converts the given Node to a Source      * @throws TransformerException      * @throws ParserConfigurationException      * @deprecated  use toDOMSource instead      */
 annotation|@
 name|Deprecated
 DECL|method|toSource (Node node)
@@ -931,7 +915,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Node to a Source      * @throws TransformerException       * @throws ParserConfigurationException       */
+comment|/**      * Converts the given Node to a Source      * @throws TransformerException      * @throws ParserConfigurationException      */
 annotation|@
 name|Converter
 DECL|method|toDOMSource (Node node)
@@ -1621,7 +1605,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException       */
+comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException      */
 annotation|@
 name|Converter
 DECL|method|toStAXSource (String source, Exchange exchange)
@@ -1802,7 +1786,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException       */
+comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException      */
 annotation|@
 name|Converter
 DECL|method|toStAXSource (InputStream source, Exchange exchange)
@@ -1885,7 +1869,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws FileNotFoundException       * @throws XMLStreamException       */
+comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws FileNotFoundException      * @throws XMLStreamException      */
 annotation|@
 name|Converter
 DECL|method|toStAXSource (File file, Exchange exchange)
