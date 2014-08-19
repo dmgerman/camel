@@ -620,6 +620,12 @@ name|ROUTE_STOP
 init|=
 literal|"CamelRouteStop"
 decl_stmt|;
+DECL|field|SAXPARSER_FACTORY
+name|String
+name|SAXPARSER_FACTORY
+init|=
+literal|"CamelSAXParserFactory"
+decl_stmt|;
 DECL|field|SOAP_ACTION
 name|String
 name|SOAP_ACTION
