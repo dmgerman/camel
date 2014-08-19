@@ -248,6 +248,12 @@ name|DUPLICATE_MESSAGE
 init|=
 literal|"CamelDuplicateMessage"
 decl_stmt|;
+DECL|field|DOCUMENT_BUILDER_FACTORY
+name|String
+name|DOCUMENT_BUILDER_FACTORY
+init|=
+literal|"CamelDocumentBuilderFactory"
+decl_stmt|;
 DECL|field|EXCEPTION_CAUGHT
 name|String
 name|EXCEPTION_CAUGHT
