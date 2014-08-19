@@ -260,7 +260,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** 	 * Test that only 2 thread pools are created on start 	 *  	 * @throws Exception 	 */
+comment|/**      * Test that only 2 thread pools are created on start      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testContextStart ()
@@ -282,7 +282,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Test that ThreadPool is removed when producer is removed 	 * @throws Exception 	 */
+comment|/**      * Test that ThreadPool is removed when producer is removed      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testProducerThreadThreadPoolRemoved ()
@@ -306,7 +306,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Test that ThreadPool is removed when consumer is removed 	 * @throws Exception 	 */
+comment|/**      * Test that ThreadPool is removed when consumer is removed      * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testConsumerThreadThreadPoolRemoved ()
