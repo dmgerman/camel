@@ -148,7 +148,7 @@ operator|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"vm://broker?broker.persistent=false"
+literal|"vm://broker?broker.persistent=false&broker.useJmx=false"
 argument_list|)
 expr_stmt|;
 block|}
