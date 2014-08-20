@@ -158,7 +158,7 @@ specifier|final
 name|String
 name|BROKER_URI
 init|=
-literal|"vm://durable.broker?broker.persistent=false&broker.useJmx=true"
+literal|"vm://durable.broker?broker.persistent=false&broker.useJmx=false"
 decl_stmt|;
 annotation|@
 name|Override

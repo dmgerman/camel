@@ -65,7 +65,7 @@ specifier|final
 name|String
 name|BROKER_URI
 init|=
-literal|"vm://btqpt_test_broker?broker.persistent=false&broker.useJmx=true"
+literal|"vm://btqpt_test_broker?broker.persistent=false&broker.useJmx=false"
 decl_stmt|;
 comment|/**      * Verify that after processing a {@link BatchMessage} twice with 30      * messages in for a total of 60 delivery attempts that we only see 30      * messages end up at the final consumer. This is due to an exception being      * thrown during the processing of the first 30 messages which causes a      * redelivery.      *       * @throws Exception      */
 annotation|@
