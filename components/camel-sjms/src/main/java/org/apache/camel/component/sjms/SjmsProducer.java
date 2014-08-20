@@ -821,10 +821,7 @@ name|getProducers
 argument_list|()
 operator|.
 name|borrowObject
-argument_list|(
-name|getResponseTimeOut
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
