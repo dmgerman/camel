@@ -754,7 +754,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|sendMessage (Exchange exchange, final AsyncCallback callback)
+DECL|method|sendMessage (Exchange exchange, final AsyncCallback callback, final MessageProducerResources producer)
 specifier|public
 specifier|abstract
 name|void
@@ -766,6 +766,10 @@ parameter_list|,
 specifier|final
 name|AsyncCallback
 name|callback
+parameter_list|,
+specifier|final
+name|MessageProducerResources
+name|producer
 parameter_list|)
 throws|throws
 name|Exception
@@ -808,6 +812,40 @@ argument_list|)
 expr_stmt|;
 block|}
 try|try
+block|{
+specifier|final
+name|MessageProducerResources
+name|producer
+init|=
+name|getProducers
+argument_list|()
+operator|.
+name|borrowObject
+argument_list|(
+name|getResponseTimeOut
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|producer
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|Exception
+argument_list|(
+literal|"Unable to send message: connection not available"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 if|if
 condition|(
@@ -863,6 +901,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|callback
+argument_list|,
+name|producer
 argument_list|)
 expr_stmt|;
 block|}
@@ -916,8 +956,11 @@ argument_list|(
 name|exchange
 argument_list|,
 name|callback
+argument_list|,
+name|producer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch

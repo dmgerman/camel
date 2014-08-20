@@ -1334,7 +1334,7 @@ block|}
 comment|/**      * TODO time out is actually double as it waits for the producer and then      * waits for the response. Use an atomic long to manage the countdown      *       * @see org.apache.camel.component.sjms.SjmsProducer#sendMessage(org.apache.camel.Exchange,      *      org.apache.camel.AsyncCallback)      * @param exchange      * @param callback      * @throws Exception      */
 annotation|@
 name|Override
-DECL|method|sendMessage (final Exchange exchange, final AsyncCallback callback)
+DECL|method|sendMessage (final Exchange exchange, final AsyncCallback callback, final MessageProducerResources producer)
 specifier|public
 name|void
 name|sendMessage
@@ -1346,68 +1346,13 @@ parameter_list|,
 specifier|final
 name|AsyncCallback
 name|callback
+parameter_list|,
+specifier|final
+name|MessageProducerResources
+name|producer
 parameter_list|)
 throws|throws
 name|Exception
-block|{
-if|if
-condition|(
-name|getProducers
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|MessageProducerResources
-name|producer
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|producer
-operator|=
-name|getProducers
-argument_list|()
-operator|.
-name|borrowObject
-argument_list|(
-name|getResponseTimeOut
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e1
-parameter_list|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"The producer pool is exhausted.  Consider setting producerCount to a higher value or disable the fixed size of the pool by setting fixedResourcePool=false."
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-operator|new
-name|Exception
-argument_list|(
-literal|"Producer Resource Pool is exhausted"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|producer
-operator|!=
-literal|null
-condition|)
 block|{
 if|if
 condition|(
@@ -1807,7 +1752,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 name|callback
 operator|.
 name|done
@@ -1816,7 +1760,6 @@ name|isSynchronous
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|setConsumers (MessageConsumerPool consumers)
 specifier|public
