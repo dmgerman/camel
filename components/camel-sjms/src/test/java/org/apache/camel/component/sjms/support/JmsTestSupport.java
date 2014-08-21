@@ -276,21 +276,12 @@ literal|"tcp://localhost:"
 operator|+
 name|port
 expr_stmt|;
+comment|//Disable the JMX by default
 name|broker
 operator|.
-name|getManagementContext
-argument_list|()
-operator|.
-name|setConnectorPort
+name|setUseJmx
 argument_list|(
-name|AvailablePortFinder
-operator|.
-name|getNextAvailable
-argument_list|(
-name|port
-operator|+
-literal|1
-argument_list|)
+literal|false
 argument_list|)
 expr_stmt|;
 name|configureBroker
