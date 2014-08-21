@@ -111,7 +111,7 @@ name|upper
 init|=
 name|Character
 operator|.
-name|toLowerCase
+name|toUpperCase
 argument_list|(
 name|ch
 argument_list|)
