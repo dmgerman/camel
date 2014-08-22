@@ -222,6 +222,8 @@ name|getCache
 argument_list|(
 name|exchange
 argument_list|)
+argument_list|,
+name|configuration
 argument_list|)
 operator|.
 name|process

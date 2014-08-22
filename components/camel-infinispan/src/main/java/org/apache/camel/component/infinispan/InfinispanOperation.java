@@ -98,7 +98,13 @@ name|Object
 argument_list|>
 name|cache
 decl_stmt|;
-DECL|method|InfinispanOperation (BasicCache<Object, Object> cache)
+DECL|field|configuration
+specifier|private
+specifier|final
+name|InfinispanConfiguration
+name|configuration
+decl_stmt|;
+DECL|method|InfinispanOperation (BasicCache<Object, Object> cache, InfinispanConfiguration configuration)
 specifier|public
 name|InfinispanOperation
 parameter_list|(
@@ -109,6 +115,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|cache
+parameter_list|,
+name|InfinispanConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|this
@@ -116,6 +125,12 @@ operator|.
 name|cache
 operator|=
 name|cache
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -180,12 +195,37 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|configuration
+operator|.
+name|getCommand
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|operation
+operator|=
+name|InfinispanConstants
+operator|.
+name|OPERATION
+operator|+
+name|configuration
+operator|.
+name|getCommand
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|operation
 operator|=
 name|InfinispanConstants
 operator|.
 name|PUT
 expr_stmt|;
+block|}
 block|}
 name|LOGGER
 operator|.
