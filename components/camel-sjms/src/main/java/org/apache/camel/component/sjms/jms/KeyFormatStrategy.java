@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Strategy for applying encoding and decoding of JMS headers so they apply to  * the JMS spec.  *   * @version  */
+comment|/**  * Strategy for applying encoding and decoding of JMS headers so they apply to  * the JMS spec.  */
 end_comment
 
 begin_interface
@@ -30,7 +30,7 @@ specifier|public
 interface|interface
 name|KeyFormatStrategy
 block|{
-comment|/**      * Encodes the key before its sent as a {@link javax.jms.Message} message.      *       * @param key the original key      * @return the encoded key      */
+comment|/**      * Encodes the key before its sent as a {@link javax.jms.Message} message.      *      * @param key the original key      * @return the encoded key      */
 DECL|method|encodeKey (String key)
 name|String
 name|encodeKey
@@ -39,7 +39,7 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Decodes the key after its received from a {@link javax.jms.Message}      * message.      *       * @param key the encoded key      * @return the decoded key as the original key      */
+comment|/**      * Decodes the key after its received from a {@link javax.jms.Message}      * message.      *      * @param key the encoded key      * @return the decoded key as the original key      */
 DECL|method|decodeKey (String key)
 name|String
 name|decodeKey

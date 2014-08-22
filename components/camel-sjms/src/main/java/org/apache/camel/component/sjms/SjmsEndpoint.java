@@ -776,7 +776,7 @@ name|getKeyFormatStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Use to determine whether or not to process exchanges synchronously.      *       * @return true if endoint is synchronous, otherwise false      */
+comment|/**      * Use to determine whether or not to process exchanges synchronously.      *      * @return true if endoint is synchronous, otherwise false      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -787,7 +787,7 @@ return|return
 name|synchronous
 return|;
 block|}
-comment|/**      * Flag can be set to enable/disable synchronous exchange processing.      *       * @param synchronous true to process synchronously, default is true      */
+comment|/**      * Flag can be set to enable/disable synchronous exchange processing.      *      * @param synchronous true to process synchronously, default is true      */
 DECL|method|setSynchronous (boolean synchronous)
 specifier|public
 name|void
@@ -804,7 +804,7 @@ operator|=
 name|synchronous
 expr_stmt|;
 block|}
-comment|/**      * Returns the configured acknowledgementMode.      *       * @return the acknowledgementMode      */
+comment|/**      * Returns the configured acknowledgementMode.      *      * @return the acknowledgementMode      */
 DECL|method|getAcknowledgementMode ()
 specifier|public
 name|SessionAcknowledgementType
@@ -815,7 +815,7 @@ return|return
 name|acknowledgementMode
 return|;
 block|}
-comment|/**      * Sets the acknowledgementMode configured on this endpoint.      *       * @param acknowledgementMode default is      *            SessionAcknowledgementType.AUTO_ACKNOWLEDGE      */
+comment|/**      * Sets the acknowledgementMode configured on this endpoint.      *      * @param acknowledgementMode default is      *                            SessionAcknowledgementType.AUTO_ACKNOWLEDGE      */
 DECL|method|setAcknowledgementMode (SessionAcknowledgementType acknowledgementMode)
 specifier|public
 name|void
@@ -832,7 +832,7 @@ operator|=
 name|acknowledgementMode
 expr_stmt|;
 block|}
-comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the endpoint is a JMS Topic.      *       * @return the topic true if endpoint is a JMS Topic, default is false      */
+comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the endpoint is a JMS Topic.      *      * @return the topic true if endpoint is a JMS Topic, default is false      */
 DECL|method|isTopic ()
 specifier|public
 name|boolean
@@ -843,7 +843,7 @@ return|return
 name|topic
 return|;
 block|}
-comment|/**      * Returns the number of Session instances expected on this endpoint.      *       * @return the sessionCount      */
+comment|/**      * Returns the number of Session instances expected on this endpoint.      *      * @return the sessionCount      */
 annotation|@
 name|Deprecated
 DECL|method|getSessionCount ()
@@ -856,7 +856,7 @@ return|return
 name|sessionCount
 return|;
 block|}
-comment|/**      * Sets the number of Session instances used for this endpoint. Value is      * ignored for endpoints that require a dedicated session such as a      * transacted or InOut endpoint.      *       * @param sessionCount the number of Session instances, default is 1      */
+comment|/**      * Sets the number of Session instances used for this endpoint. Value is      * ignored for endpoints that require a dedicated session such as a      * transacted or InOut endpoint.      *      * @param sessionCount the number of Session instances, default is 1      */
 annotation|@
 name|Deprecated
 DECL|method|setSessionCount (int sessionCount)
@@ -875,7 +875,7 @@ operator|=
 name|sessionCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of consumer listeners for this endpoint.      *       * @return the producerCount      */
+comment|/**      * Returns the number of consumer listeners for this endpoint.      *      * @return the producerCount      */
 DECL|method|getProducerCount ()
 specifier|public
 name|int
@@ -886,7 +886,7 @@ return|return
 name|producerCount
 return|;
 block|}
-comment|/**      * Sets the number of producers used for this endpoint.      *       * @param producerCount the number of producers for this endpoint, default      *            is 1      */
+comment|/**      * Sets the number of producers used for this endpoint.      *      * @param producerCount the number of producers for this endpoint, default      *                      is 1      */
 DECL|method|setProducerCount (int producerCount)
 specifier|public
 name|void
@@ -903,7 +903,7 @@ operator|=
 name|producerCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of consumer listeners for this endpoint.      *       * @return the consumerCount      */
+comment|/**      * Returns the number of consumer listeners for this endpoint.      *      * @return the consumerCount      */
 DECL|method|getConsumerCount ()
 specifier|public
 name|int
@@ -914,7 +914,7 @@ return|return
 name|consumerCount
 return|;
 block|}
-comment|/**      * Sets the number of consumer listeners used for this endpoint.      *       * @param consumerCount the number of consumers for this endpoint, default      *            is 1      */
+comment|/**      * Sets the number of consumer listeners used for this endpoint.      *      * @param consumerCount the number of consumers for this endpoint, default      *                      is 1      */
 DECL|method|setConsumerCount (int consumerCount)
 specifier|public
 name|void
@@ -931,7 +931,7 @@ operator|=
 name|consumerCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the Time To Live set on this endpoint.      *       * @return the ttl      */
+comment|/**      * Returns the Time To Live set on this endpoint.      *      * @return the ttl      */
 DECL|method|getTtl ()
 specifier|public
 name|long
@@ -942,7 +942,7 @@ return|return
 name|ttl
 return|;
 block|}
-comment|/**      * Flag used to adjust the Time To Live value of produced messages.      *       * @param ttl a new TTL, default is -1 (disabled)      */
+comment|/**      * Flag used to adjust the Time To Live value of produced messages.      *      * @param ttl a new TTL, default is -1 (disabled)      */
 DECL|method|setTtl (long ttl)
 specifier|public
 name|void
@@ -959,7 +959,7 @@ operator|=
 name|ttl
 expr_stmt|;
 block|}
-comment|/**      * Use to determine if the enpoint has message persistence enabled or      * disabled.      *       * @return true if persistent, otherwise false      */
+comment|/**      * Use to determine if the enpoint has message persistence enabled or      * disabled.      *      * @return true if persistent, otherwise false      */
 DECL|method|isPersistent ()
 specifier|public
 name|boolean
@@ -970,7 +970,7 @@ return|return
 name|persistent
 return|;
 block|}
-comment|/**      * Flag used to enable/disable message persistence.      *       * @param persistent true if persistent, default is true      */
+comment|/**      * Flag used to enable/disable message persistence.      *      * @param persistent true if persistent, default is true      */
 DECL|method|setPersistent (boolean persistent)
 specifier|public
 name|void
@@ -987,7 +987,7 @@ operator|=
 name|persistent
 expr_stmt|;
 block|}
-comment|/**      * Gets the durable subscription Id.      *       * @return the durableSubscriptionId      */
+comment|/**      * Gets the durable subscription Id.      *      * @return the durableSubscriptionId      */
 DECL|method|getDurableSubscriptionId ()
 specifier|public
 name|String
@@ -998,7 +998,7 @@ return|return
 name|durableSubscriptionId
 return|;
 block|}
-comment|/**      * Sets the durable subscription Id required for durable topics.      *       * @param durableSubscriptionId durable subscription Id or null      */
+comment|/**      * Sets the durable subscription Id required for durable topics.      *      * @param durableSubscriptionId durable subscription Id or null      */
 DECL|method|setDurableSubscriptionId (String durableSubscriptionId)
 specifier|public
 name|void
@@ -1015,7 +1015,7 @@ operator|=
 name|durableSubscriptionId
 expr_stmt|;
 block|}
-comment|/**      * Returns the InOut response timeout.      *       * @return the responseTimeOut      */
+comment|/**      * Returns the InOut response timeout.      *      * @return the responseTimeOut      */
 DECL|method|getResponseTimeOut ()
 specifier|public
 name|long
@@ -1026,7 +1026,7 @@ return|return
 name|responseTimeOut
 return|;
 block|}
-comment|/**      * Sets the amount of time we should wait before timing out a InOut      * response.      *       * @param responseTimeOut response timeout      */
+comment|/**      * Sets the amount of time we should wait before timing out a InOut      * response.      *      * @param responseTimeOut response timeout      */
 DECL|method|setResponseTimeOut (long responseTimeOut)
 specifier|public
 name|void
@@ -1043,7 +1043,7 @@ operator|=
 name|responseTimeOut
 expr_stmt|;
 block|}
-comment|/**      * Returns the JMS Message selector syntax used to refine the messages being      * consumed.      *       * @return the messageSelector      */
+comment|/**      * Returns the JMS Message selector syntax used to refine the messages being      * consumed.      *      * @return the messageSelector      */
 DECL|method|getMessageSelector ()
 specifier|public
 name|String
@@ -1054,7 +1054,7 @@ return|return
 name|messageSelector
 return|;
 block|}
-comment|/**      * Sets the JMS Message selector syntax.      *       * @param messageSelector Message selector syntax or null      */
+comment|/**      * Sets the JMS Message selector syntax.      *      * @param messageSelector Message selector syntax or null      */
 DECL|method|setMessageSelector (String messageSelector)
 specifier|public
 name|void
@@ -1071,7 +1071,7 @@ operator|=
 name|messageSelector
 expr_stmt|;
 block|}
-comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *       * @return the transactionBatchCount      */
+comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *      * @return the transactionBatchCount      */
 DECL|method|getTransactionBatchCount ()
 specifier|public
 name|int
@@ -1082,7 +1082,7 @@ return|return
 name|transactionBatchCount
 return|;
 block|}
-comment|/**      * If transacted sets the number of messages to process before committing a      * transaction.      *       * @param transactionBatchCount number of messages to process before      *            committing, default is 1      */
+comment|/**      * If transacted sets the number of messages to process before committing a      * transaction.      *      * @param transactionBatchCount number of messages to process before      *                              committing, default is 1      */
 DECL|method|setTransactionBatchCount (int transactionBatchCount)
 specifier|public
 name|void
@@ -1099,7 +1099,7 @@ operator|=
 name|transactionBatchCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the timeout value for batch transactions.      *       * @return long      */
+comment|/**      * Returns the timeout value for batch transactions.      *      * @return long      */
 DECL|method|getTransactionBatchTimeout ()
 specifier|public
 name|long
@@ -1110,7 +1110,7 @@ return|return
 name|transactionBatchTimeout
 return|;
 block|}
-comment|/**      * Sets timeout value for batch transactions.      *       * @param transactionBatchTimeout      */
+comment|/**      * Sets timeout value for batch transactions.      *      * @param transactionBatchTimeout      */
 DECL|method|setTransactionBatchTimeout (long transactionBatchTimeout)
 specifier|public
 name|void
@@ -1135,7 +1135,7 @@ name|transactionBatchTimeout
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the commit strategy.      *       * @return the transactionCommitStrategy      */
+comment|/**      * Gets the commit strategy.      *      * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
@@ -1146,7 +1146,7 @@ return|return
 name|transactionCommitStrategy
 return|;
 block|}
-comment|/**      * Sets the commit strategy.      *       * @param transactionCommitStrategy commit strategy to use when processing      *            transacted messages      */
+comment|/**      * Sets the commit strategy.      *      * @param transactionCommitStrategy commit strategy to use when processing      *                                  transacted messages      */
 DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy transactionCommitStrategy)
 specifier|public
 name|void
@@ -1163,7 +1163,7 @@ operator|=
 name|transactionCommitStrategy
 expr_stmt|;
 block|}
-comment|/**      * Use to determine if transactions are enabled or disabled.      *       * @return true if transacted, otherwise false      */
+comment|/**      * Use to determine if transactions are enabled or disabled.      *      * @return true if transacted, otherwise false      */
 DECL|method|isTransacted ()
 specifier|public
 name|boolean
@@ -1174,7 +1174,7 @@ return|return
 name|transacted
 return|;
 block|}
-comment|/**      * Enable/disable flag for transactions      *       * @param transacted true if transacted, otherwise false      */
+comment|/**      * Enable/disable flag for transactions      *      * @param transacted true if transacted, otherwise false      */
 DECL|method|setTransacted (boolean transacted)
 specifier|public
 name|void
@@ -1204,7 +1204,7 @@ operator|=
 name|transacted
 expr_stmt|;
 block|}
-comment|/**      * Returns the reply to destination name used for InOut producer endpoints.      *       * @return the namedReplyTo      */
+comment|/**      * Returns the reply to destination name used for InOut producer endpoints.      *      * @return the namedReplyTo      */
 DECL|method|getNamedReplyTo ()
 specifier|public
 name|String
@@ -1215,7 +1215,7 @@ return|return
 name|namedReplyTo
 return|;
 block|}
-comment|/**      * Sets the reply to destination name used for InOut producer endpoints.      *       * @param the namedReplyTo the JMS reply to destination name      */
+comment|/**      * Sets the reply to destination name used for InOut producer endpoints.      *      * @param the namedReplyTo the JMS reply to destination name      */
 DECL|method|setNamedReplyTo (String namedReplyTo)
 specifier|public
 name|void

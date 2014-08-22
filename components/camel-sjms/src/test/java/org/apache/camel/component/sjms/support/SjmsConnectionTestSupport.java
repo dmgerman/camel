@@ -120,10 +120,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * TODO Add Class documentation for SjmsConnectionTestSupport  *   */
-end_comment
-
 begin_class
 DECL|class|SjmsConnectionTestSupport
 specifier|public
@@ -201,7 +197,6 @@ name|String
 name|getConnectionUri
 parameter_list|()
 function_decl|;
-comment|/**      * @throws java.lang.Exception      */
 annotation|@
 name|BeforeClass
 DECL|method|setUpBeforeClass ()
@@ -213,7 +208,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{     }
-comment|/**      * @throws java.lang.Exception      */
 annotation|@
 name|AfterClass
 DECL|method|tearDownAfterClass ()
@@ -316,7 +310,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the ActiveMQConnectionFactory value of testConnectionFactory for      * this instance of SjmsConnectionTestSupport.      *       * @return the testConnectionFactory      */
 DECL|method|createTestConnectionFactory (String uri)
 specifier|public
 name|ActiveMQConnectionFactory
@@ -453,7 +446,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets the ActiveMQConnectionFactory value of testConnectionFactory for      * this instance of SjmsConnectionTestSupport.      *       * @param testConnectionFactory      *            Sets ActiveMQConnectionFactory, default is TODO add default      */
 DECL|method|setTestConnectionFactory ( ActiveMQConnectionFactory testConnectionFactory)
 specifier|public
 name|void
@@ -470,7 +462,6 @@ operator|=
 name|testConnectionFactory
 expr_stmt|;
 block|}
-comment|/**      * Gets the ActiveMQConnectionFactory value of testConnectionFactory for      * this instance of SjmsConnectionTestSupport.      *       * @return the testConnectionFactory      */
 DECL|method|getTestConnectionFactory ()
 specifier|public
 name|ActiveMQConnectionFactory
@@ -481,7 +472,6 @@ return|return
 name|testConnectionFactory
 return|;
 block|}
-comment|/**      * Sets the boolean value of persistenceEnabled for this instance of      * SjmsConnectionTestSupport.      *       * @param persistenceEnabled      *            Sets boolean, default is false      */
 DECL|method|setPersistenceEnabled (boolean persistenceEnabled)
 specifier|public
 name|void
@@ -498,7 +488,6 @@ operator|=
 name|persistenceEnabled
 expr_stmt|;
 block|}
-comment|/**      * Gets the boolean value of persistenceEnabled for this instance of      * SjmsConnectionTestSupport.      *       * @return the persistenceEnabled      */
 DECL|method|isPersistenceEnabled ()
 specifier|public
 name|boolean

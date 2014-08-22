@@ -21,30 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -108,9 +84,29 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * TODO Add Class documentation for ConnectionFactoryResourceTest  */
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
 
 begin_class
 DECL|class|ConnectionFactoryResourceTest
@@ -153,7 +149,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource#makeObject()}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testCreateObject ()
@@ -215,7 +210,6 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResource#destroyObject()}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testDestroyObject ()
@@ -287,7 +281,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ConnectionResource#borrowConnection()}.      *       * @throws Exception      */
 annotation|@
 name|Test
 argument_list|(
@@ -356,7 +349,6 @@ name|borrowConnection
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ConnectionResource#returnConnection(java.lang.Object)}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testReturnObject ()

@@ -536,12 +536,11 @@ name|asyncStart
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|asyncStart
 operator|.
 name|isDone
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 name|asyncStart
@@ -1031,7 +1030,7 @@ name|getConnectionResource
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the acknowledgment mode for this instance of DestinationProducer.      *       * @return int      */
+comment|/**      * Gets the acknowledgment mode for this instance of DestinationProducer.      *      * @return int      */
 DECL|method|getAcknowledgeMode ()
 specifier|public
 name|int
@@ -1049,7 +1048,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the synchronous value for this instance of DestinationProducer.      *       * @return true if synchronous, otherwise false      */
+comment|/**      * Gets the synchronous value for this instance of DestinationProducer.      *      * @return true if synchronous, otherwise false      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -1064,7 +1063,7 @@ name|isSynchronous
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the replyTo for this instance of DestinationProducer.      *       * @return String      */
+comment|/**      * Gets the replyTo for this instance of DestinationProducer.      *      * @return String      */
 DECL|method|getReplyTo ()
 specifier|public
 name|String
@@ -1079,7 +1078,7 @@ name|getNamedReplyTo
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the destinationName for this instance of DestinationProducer.      *       * @return String      */
+comment|/**      * Gets the destinationName for this instance of DestinationProducer.      *      * @return String      */
 DECL|method|getDestinationName ()
 specifier|public
 name|String
@@ -1094,7 +1093,7 @@ name|getDestinationName
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the producer pool for this instance of SjmsProducer.      *       * @param producers A MessageProducerPool      */
+comment|/**      * Sets the producer pool for this instance of SjmsProducer.      *      * @param producers A MessageProducerPool      */
 DECL|method|setProducers (GenericObjectPool<MessageProducerResources> producers)
 specifier|public
 name|void
@@ -1114,7 +1113,7 @@ operator|=
 name|producers
 expr_stmt|;
 block|}
-comment|/**      * Gets the MessageProducerPool value of producers for this instance of      * SjmsProducer.      *       * @return the producers      */
+comment|/**      * Gets the MessageProducerPool value of producers for this instance of      * SjmsProducer.      *      * @return the producers      */
 DECL|method|getProducers ()
 specifier|public
 name|GenericObjectPool
@@ -1128,7 +1127,7 @@ return|return
 name|producers
 return|;
 block|}
-comment|/**      * Test to verify if this endpoint is a JMS Topic or Queue.      *       * @return true if it is a Topic, otherwise it is a Queue      */
+comment|/**      * Test to verify if this endpoint is a JMS Topic or Queue.      *      * @return true if it is a Topic, otherwise it is a Queue      */
 DECL|method|isTopic ()
 specifier|public
 name|boolean
@@ -1143,7 +1142,7 @@ name|isTopic
 argument_list|()
 return|;
 block|}
-comment|/**      * Test to determine if this endpoint should use a JMS Transaction.      *       * @return true if transacted, otherwise false      */
+comment|/**      * Test to determine if this endpoint should use a JMS Transaction.      *      * @return true if transacted, otherwise false      */
 DECL|method|isEndpointTransacted ()
 specifier|public
 name|boolean
@@ -1158,7 +1157,7 @@ name|isTransacted
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the named reply to value for this producer      *       * @return true if it is a Topic, otherwise it is a Queue      */
+comment|/**      * Returns the named reply to value for this producer      *      * @return true if it is a Topic, otherwise it is a Queue      */
 DECL|method|getNamedReplyTo ()
 specifier|public
 name|String
@@ -1173,7 +1172,7 @@ name|getNamedReplyTo
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the producerCount for this instance of SjmsProducer.      *       * @return int      */
+comment|/**      * Gets the producerCount for this instance of SjmsProducer.      *      * @return int      */
 DECL|method|getProducerCount ()
 specifier|public
 name|int
@@ -1188,7 +1187,7 @@ name|getProducerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets consumerCount for this instance of SjmsProducer.      *       * @return int      */
+comment|/**      * Gets consumerCount for this instance of SjmsProducer.      *      * @return int      */
 DECL|method|getConsumerCount ()
 specifier|public
 name|int
@@ -1203,7 +1202,7 @@ name|getConsumerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the executor for this instance of SjmsProducer.      *       * @return ExecutorService      */
+comment|/**      * Gets the executor for this instance of SjmsProducer.      *      * @return ExecutorService      */
 DECL|method|getExecutor ()
 specifier|public
 name|ExecutorService
@@ -1214,7 +1213,7 @@ return|return
 name|executor
 return|;
 block|}
-comment|/**      * Gets the ttl for this instance of SjmsProducer.      *       * @return long      */
+comment|/**      * Gets the ttl for this instance of SjmsProducer.      *      * @return long      */
 DECL|method|getTtl ()
 specifier|public
 name|long
@@ -1229,7 +1228,7 @@ name|getTtl
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the boolean value of persistent for this instance of SjmsProducer.      *       * @return true if persistent, otherwise false      */
+comment|/**      * Gets the boolean value of persistent for this instance of SjmsProducer.      *      * @return true if persistent, otherwise false      */
 DECL|method|isPersistent ()
 specifier|public
 name|boolean
@@ -1244,7 +1243,7 @@ name|isPersistent
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets responseTimeOut for this instance of SjmsProducer.      *       * @return long      */
+comment|/**      * Gets responseTimeOut for this instance of SjmsProducer.      *      * @return long      */
 DECL|method|getResponseTimeOut ()
 specifier|public
 name|long
@@ -1259,7 +1258,7 @@ name|getResponseTimeOut
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets commitStrategy for this instance of SjmsProducer.      *       * @return TransactionCommitStrategy      */
+comment|/**      * Gets commitStrategy for this instance of SjmsProducer.      *      * @return TransactionCommitStrategy      */
 DECL|method|getCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy

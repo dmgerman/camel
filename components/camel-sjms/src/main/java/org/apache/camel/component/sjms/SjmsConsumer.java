@@ -369,7 +369,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The SjmsConsumer is the base class for the SJMS MessageListener pool.  *   */
+comment|/**  * The SjmsConsumer is the base class for the SJMS MessageListener pool.  */
 end_comment
 
 begin_class
@@ -412,7 +412,7 @@ argument_list|<
 name|MessageConsumerResources
 argument_list|>
 block|{
-comment|/**           * Creates a new MessageConsumerResources instance.          *          * @see org.apache.commons.pool.PoolableObjectFactory#makeObject()          */
+comment|/**          * Creates a new MessageConsumerResources instance.          *          * @see org.apache.commons.pool.PoolableObjectFactory#makeObject()          */
 annotation|@
 name|Override
 DECL|method|makeObject ()
@@ -428,7 +428,7 @@ name|createConsumer
 argument_list|()
 return|;
 block|}
-comment|/**           * Cleans up the MessageConsumerResources.          *          * @see org.apache.commons.pool.PoolableObjectFactory#destroyObject(java.lang.Object)          */
+comment|/**          * Cleans up the MessageConsumerResources.          *          * @see org.apache.commons.pool.PoolableObjectFactory#destroyObject(java.lang.Object)          */
 annotation|@
 name|Override
 DECL|method|destroyObject (MessageConsumerResources model)
@@ -769,12 +769,11 @@ name|asyncStart
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|asyncStart
 operator|.
 name|isDone
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 name|asyncStart
@@ -1116,7 +1115,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *       * @param session a session is only required if we are a transacted consumer      * @return the listener      */
+comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *      * @param session a session is only required if we are a transacted consumer      * @return the listener      */
 DECL|method|createMessageHandler (Session session)
 specifier|protected
 name|MessageListener
@@ -1389,7 +1388,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Use to determine if transactions are enabled or disabled.      *       * @return true if transacted, otherwise false      */
+comment|/**      * Use to determine if transactions are enabled or disabled.      *      * @return true if transacted, otherwise false      */
 DECL|method|isTransacted ()
 specifier|public
 name|boolean
@@ -1404,7 +1403,7 @@ name|isTransacted
 argument_list|()
 return|;
 block|}
-comment|/**      * Use to determine whether or not to process exchanges synchronously.      *       * @return true if synchronous      */
+comment|/**      * Use to determine whether or not to process exchanges synchronously.      *      * @return true if synchronous      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -1419,7 +1418,7 @@ name|isSynchronous
 argument_list|()
 return|;
 block|}
-comment|/**      * The destination name for this consumer.      *       * @return String      */
+comment|/**      * The destination name for this consumer.      *      * @return String      */
 DECL|method|getDestinationName ()
 specifier|public
 name|String
@@ -1434,7 +1433,7 @@ name|getDestinationName
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the number of consumer listeners.      *       * @return the consumerCount      */
+comment|/**      * Returns the number of consumer listeners.      *      * @return the consumerCount      */
 DECL|method|getConsumerCount ()
 specifier|public
 name|int
@@ -1449,7 +1448,7 @@ name|getConsumerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the consumer is a JMS Topic.      *       * @return the topic true if consumer is a JMS Topic, default is false      */
+comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the consumer is a JMS Topic.      *      * @return the topic true if consumer is a JMS Topic, default is false      */
 DECL|method|isTopic ()
 specifier|public
 name|boolean
@@ -1479,7 +1478,7 @@ name|getMessageSelector
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the durable subscription Id.      *       * @return the durableSubscriptionId      */
+comment|/**      * Gets the durable subscription Id.      *      * @return the durableSubscriptionId      */
 DECL|method|getDurableSubscriptionId ()
 specifier|public
 name|String
@@ -1494,7 +1493,7 @@ name|getDurableSubscriptionId
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the commit strategy.      *       * @return the transactionCommitStrategy      */
+comment|/**      * Gets the commit strategy.      *      * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
@@ -1509,7 +1508,7 @@ name|getTransactionCommitStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *       * @return the transactionBatchCount      */
+comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *      * @return the transactionBatchCount      */
 DECL|method|getTransactionBatchCount ()
 specifier|public
 name|int
@@ -1524,7 +1523,7 @@ name|getTransactionBatchCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the timeout value for batch transactions.      *       * @return long      */
+comment|/**      * Returns the timeout value for batch transactions.      *      * @return long      */
 DECL|method|getTransactionBatchTimeout ()
 specifier|public
 name|long

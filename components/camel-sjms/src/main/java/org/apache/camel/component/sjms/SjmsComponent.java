@@ -412,7 +412,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Helper method used to detect the type of endpoint and add the "queue"      * protocol if it is a default endpoint URI.      *       * @param uri The value passed into our call to create an endpoint      * @return String      * @throws Exception      */
+comment|/**      * Helper method used to detect the type of endpoint and add the "queue"      * protocol if it is a default endpoint URI.      *      * @param uri The value passed into our call to create an endpoint      * @return String      * @throws Exception      */
 DECL|method|normalizeUri (String uri)
 specifier|private
 specifier|static
@@ -600,7 +600,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Helper method used to verify that when there is a namedReplyTo value we      * are using the InOut MEP. If namedReplyTo is defined and the MEP is InOnly      * the endpoint won't be expecting a reply so throw an error to alert the      * user.      *       * @param parameters {@link Endpoint} parameters      * @throws Exception throws a {@link CamelException} when MEP equals InOnly      *             and namedReplyTo is defined.      */
+comment|/**      * Helper method used to verify that when there is a namedReplyTo value we      * are using the InOut MEP. If namedReplyTo is defined and the MEP is InOnly      * the endpoint won't be expecting a reply so throw an error to alert the      * user.      *      * @param parameters {@link Endpoint} parameters      * @throws Exception throws a {@link CamelException} when MEP equals InOnly      *                   and namedReplyTo is defined.      */
 DECL|method|validateMepAndReplyTo (Map<String, Object> parameters)
 specifier|private
 specifier|static
@@ -953,7 +953,7 @@ operator|=
 name|connectionFactory
 expr_stmt|;
 block|}
-comment|/**      * Gets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *       * @return the connectionFactory      */
+comment|/**      * Gets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *      * @return the connectionFactory      */
 DECL|method|getConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -1074,7 +1074,7 @@ return|return
 name|keyFormatStrategy
 return|;
 block|}
-comment|/**      * Gets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *       * @return the transactionCommitStrategy      */
+comment|/**      * Gets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *      * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy

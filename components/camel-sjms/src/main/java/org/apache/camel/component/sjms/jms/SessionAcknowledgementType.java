@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Session acknowledge enum keys  *   */
+comment|/**  * Session acknowledge enum keys  */
 end_comment
 
 begin_enum

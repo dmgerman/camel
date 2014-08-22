@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO Add Class documentation for AbstractMessageHandler   * TODO Create a producer  * cache manager to store and purge unused cashed producers or we will have a  * memory leak  */
+comment|/**  * cache manager to store and purge unused cashed producers or we will have a  * memory leak  */
 end_comment
 
 begin_class
@@ -312,7 +312,6 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-comment|/**      *       * @param endpoint      * @param executor      */
 DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor)
 specifier|public
 name|InOutMessageHandler
@@ -332,7 +331,6 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *      * @param endpoint      * @param executor      * @param synchronization      */
 DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|InOutMessageHandler
@@ -357,7 +355,6 @@ name|synchronization
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param message      */
 annotation|@
 name|Override
 DECL|method|handleMessage (final Exchange exchange)

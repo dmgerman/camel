@@ -424,7 +424,7 @@ name|InOutProducer
 extends|extends
 name|SjmsProducer
 block|{
-comment|/**      * We use the {@link ReadWriteLock} to manage the {@link TreeMap} in place      * of a {@link ConcurrentMap} because due to significant performance gains.      * TODO Externalize the Exchanger Map to a store object      */
+comment|/**      * We use the {@link ReadWriteLock} to manage the {@link TreeMap} in place      * of a {@link ConcurrentMap} because due to significant performance gains.      */
 DECL|field|exchangerMap
 specifier|private
 specifier|static
@@ -460,7 +460,7 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-comment|/**      * A pool of {@link MessageConsumerResource} objects that are the reply      * consumers.       * TODO Add Class documentation for MessageProducerPool       * TODO Externalize      */
+comment|/**      * A pool of {@link MessageConsumerResource} objects that are the reply      * consumers.      */
 DECL|class|MessageConsumerResourcesFactory
 specifier|protected
 class|class
@@ -872,7 +872,6 @@ name|Object
 argument_list|>
 name|exchanger
 decl_stmt|;
-comment|/**          * TODO Add Constructor Javadoc          *           * @param exchanger          */
 DECL|method|InternalTempDestinationListener (Exchanger<Object> exchanger)
 specifier|public
 name|InternalTempDestinationListener
@@ -1312,7 +1311,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * TODO time out is actually double as it waits for the producer and then      * waits for the response. Use an atomic long to manage the countdown      *       * @see org.apache.camel.component.sjms.SjmsProducer#sendMessage(org.apache.camel.Exchange,      *      org.apache.camel.AsyncCallback)      * @param exchange      * @param callback      * @throws Exception      */
+comment|/**      * TODO time out is actually double as it waits for the producer and then      * waits for the response. Use an atomic long to manage the countdown      */
 annotation|@
 name|Override
 DECL|method|sendMessage (final Exchange exchange, final AsyncCallback callback, final MessageProducerResources producer)

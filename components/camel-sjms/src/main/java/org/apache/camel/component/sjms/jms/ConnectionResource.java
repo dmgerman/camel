@@ -50,7 +50,7 @@ specifier|public
 interface|interface
 name|ConnectionResource
 block|{
-comment|/**      * Borrows a {@link Connection} from the connection pool. An exception      * should be thrown if no resource is available.      *       * @return {@link Connection}      * @throws Exception when no resource is available      */
+comment|/**      * Borrows a {@link Connection} from the connection pool. An exception      * should be thrown if no resource is available.      *      * @return {@link Connection}      * @throws Exception when no resource is available      */
 DECL|method|borrowConnection ()
 name|Connection
 name|borrowConnection
@@ -58,7 +58,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Returns the {@link Connection} to the connection pool.      *       * @param connection the borrowed {@link Connection}      * @throws Exception      */
+comment|/**      * Returns the {@link Connection} to the connection pool.      *      * @param connection the borrowed {@link Connection}      * @throws Exception      */
 DECL|method|returnConnection (Connection connection)
 name|void
 name|returnConnection

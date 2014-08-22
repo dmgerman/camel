@@ -163,7 +163,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * TODO Add Constructor Javadoc      *       * @param poolSize      * @param connectionFactory      */
 DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory)
 specifier|public
 name|ConnectionFactoryResource
@@ -187,7 +186,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param poolSize      * @param connectionFactory      * @param username      * @param password      */
 DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory, String username, String password)
 specifier|public
 name|ConnectionFactoryResource
@@ -219,7 +217,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param poolSize      * @param connectionFactory      * @param username      * @param password      * @param connectionId      */
 DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory, String username, String password, String connectionId)
 specifier|public
 name|ConnectionFactoryResource
@@ -256,7 +253,6 @@ name|DEFAULT_WAIT_TIMEOUT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param poolSize      * @param connectionFactory      * @param username      * @param password      * @param connectionId      * @param maxWait      */
 DECL|method|ConnectionFactoryResource (int poolSize, ConnectionFactory connectionFactory, String username, String password, String connectionId, long maxWait)
 specifier|public
 name|ConnectionFactoryResource
