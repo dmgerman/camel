@@ -90,6 +90,20 @@ name|pax
 operator|.
 name|exam
 operator|.
+name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
 name|Option
 import|;
 end_import
@@ -106,23 +120,7 @@ name|exam
 operator|.
 name|junit
 operator|.
-name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|junit
-operator|.
-name|JUnit4TestRunner
+name|PaxExam
 import|;
 end_import
 
@@ -139,22 +137,6 @@ operator|.
 name|support
 operator|.
 name|OsgiBundleXmlApplicationContext
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|equinox
 import|;
 end_import
 
@@ -194,7 +176,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|JUnit4TestRunner
+name|PaxExam
 operator|.
 name|class
 argument_list|)
