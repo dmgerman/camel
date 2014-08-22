@@ -1597,11 +1597,6 @@ block|{
 name|initFields
 argument_list|()
 expr_stmt|;
-name|int
-name|mutable_bitField0_
-init|=
-literal|0
-decl_stmt|;
 name|com
 operator|.
 name|google
@@ -12181,11 +12176,6 @@ name|AddressBook
 argument_list|(
 name|this
 argument_list|)
-decl_stmt|;
-name|int
-name|from_bitField0_
-init|=
-name|bitField0_
 decl_stmt|;
 if|if
 condition|(

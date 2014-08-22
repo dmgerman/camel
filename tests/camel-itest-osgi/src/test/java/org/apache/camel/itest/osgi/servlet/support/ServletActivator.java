@@ -197,6 +197,9 @@ comment|/**      * HttpService reference.      */
 DECL|field|httpServiceRef
 specifier|private
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 name|httpServiceRef
 decl_stmt|;
 comment|/**      * Called when the OSGi framework starts our bundle      */

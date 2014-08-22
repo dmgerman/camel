@@ -326,6 +326,11 @@ name|timeout
 parameter_list|)
 block|{
 name|ServiceTracker
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|tracker
 init|=
 literal|null
@@ -433,6 +438,11 @@ name|tracker
 operator|=
 operator|new
 name|ServiceTracker
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|bundleContext
 argument_list|,
@@ -503,6 +513,9 @@ expr_stmt|;
 for|for
 control|(
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 name|ref
 range|:
 name|asCollection
@@ -531,6 +544,9 @@ block|}
 for|for
 control|(
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 name|ref
 range|:
 name|asCollection
@@ -812,21 +828,37 @@ argument_list|()
 return|;
 block|}
 comment|/*      * Provides an iterable collection of references, even if the original array is null      */
-DECL|method|asCollection (ServiceReference[] references)
+DECL|method|asCollection (ServiceReference<?>[] references)
 specifier|private
 specifier|static
 name|Collection
 argument_list|<
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|asCollection
 parameter_list|(
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|references
 parameter_list|)
 block|{
 return|return
+call|(
+name|Collection
+argument_list|<
+name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+call|)
+argument_list|(
 name|references
 operator|!=
 literal|null
@@ -842,9 +874,13 @@ name|Collections
 operator|.
 expr|<
 name|ServiceReference
+argument_list|<
+name|?
+argument_list|>
 operator|>
 name|emptyList
 argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      *  Create an provisioning option for the specified maven artifact      * (groupId and artifactId), using the version found in the list      * of dependencies of this maven project.      *      * @param groupId the groupId of the maven bundle      * @param artifactId the artifactId of the maven bundle      * @return the provisioning option for the given bundle      */
