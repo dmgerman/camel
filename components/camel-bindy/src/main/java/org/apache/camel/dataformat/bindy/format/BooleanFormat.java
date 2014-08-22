@@ -77,8 +77,9 @@ throws|throws
 name|Exception
 block|{
 return|return
-operator|new
 name|Boolean
+operator|.
+name|valueOf
 argument_list|(
 name|string
 argument_list|)
