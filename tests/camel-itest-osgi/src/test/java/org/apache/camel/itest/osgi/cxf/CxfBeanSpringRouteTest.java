@@ -518,6 +518,13 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|set
+argument_list|(
+literal|"Export-Package"
+argument_list|,
+literal|"org.apache.camel.itest.osgi.cxf.jaxrs.testbean"
+argument_list|)
+operator|.
 name|build
 argument_list|(
 name|TinyBundles
