@@ -274,6 +274,12 @@ decl_stmt|;
 name|assertTrue
 argument_list|(
 name|name1
+operator|+
+literal|" does not start with "
+operator|+
+name|id
+argument_list|,
+name|name1
 operator|.
 name|startsWith
 argument_list|(
@@ -283,6 +289,12 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+name|name2
+operator|+
+literal|" does not start with "
+operator|+
+name|id
+argument_list|,
 name|name2
 operator|.
 name|startsWith
