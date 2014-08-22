@@ -118,6 +118,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|tinybundles
+operator|.
+name|core
+operator|.
+name|TinyBundles
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -155,26 +171,6 @@ operator|.
 name|OptionUtils
 operator|.
 name|combine
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|swissbox
-operator|.
-name|tinybundles
-operator|.
-name|core
-operator|.
-name|TinyBundles
-operator|.
-name|newBundle
 import|;
 end_import
 
@@ -375,7 +371,9 @@ argument_list|,
 comment|//set up the camel context bundle1
 name|provision
 argument_list|(
-name|newBundle
+name|TinyBundles
+operator|.
+name|bundle
 argument_list|()
 operator|.
 name|add
@@ -433,7 +431,9 @@ argument_list|,
 comment|//set up the camel context bundle1
 name|provision
 argument_list|(
-name|newBundle
+name|TinyBundles
+operator|.
+name|bundle
 argument_list|()
 operator|.
 name|add
