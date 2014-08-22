@@ -58,17 +58,6 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Borrows a {@link Connection} from the connection pool.      *       * @param timeout the amount of time to wait before throwing an      *            {@link Exception}      * @return {@link Connection}      * @throws Exception when no resource is available      */
-DECL|method|borrowConnection (long timeout)
-name|Connection
-name|borrowConnection
-parameter_list|(
-name|long
-name|timeout
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Returns the {@link Connection} to the connection pool.      *       * @param connection the borrowed {@link Connection}      * @throws Exception      */
 DECL|method|returnConnection (Connection connection)
 name|void
