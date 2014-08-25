@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cron\": { \"type\": \"java.lang.String\" }"
+literal|"\"cron\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

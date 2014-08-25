@@ -213,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"initialDelay\": { \"type\": \"long\" }"
+literal|"\"initialDelay\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -223,7 +223,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"checkIdleInterval\": { \"type\": \"int\" }"
+literal|"\"checkIdleInterval\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

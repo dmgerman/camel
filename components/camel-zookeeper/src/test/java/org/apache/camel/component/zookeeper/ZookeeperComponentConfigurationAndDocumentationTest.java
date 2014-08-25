@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"createMode\": { \"type\": \"java.lang.String\" }"
+literal|"\"createMode\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -209,7 +209,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"backoff\": { \"type\": \"long\" }"
+literal|"\"backoff\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

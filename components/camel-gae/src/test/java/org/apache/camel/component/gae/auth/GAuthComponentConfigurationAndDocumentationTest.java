@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"consumerKey\": { \"type\": \"java.lang.String\" }"
+literal|"\"consumerKey\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"scope\": { \"type\": \"java.lang.String\" }"
+literal|"\"scope\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

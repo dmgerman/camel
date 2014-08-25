@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"producerPoolMinEvictableIdle\": { \"type\": \"long\" }"
+literal|"\"producerPoolMinEvictableIdle\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

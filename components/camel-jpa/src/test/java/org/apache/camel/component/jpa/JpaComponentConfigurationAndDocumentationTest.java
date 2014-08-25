@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"persistenceUnit\": { \"type\": \"java.lang.String\" }"
+literal|"\"persistenceUnit\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

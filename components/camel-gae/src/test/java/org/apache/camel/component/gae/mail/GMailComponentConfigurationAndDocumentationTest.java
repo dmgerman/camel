@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"sender\": { \"type\": \"java.lang.String\" }"
+literal|"\"sender\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"bcc\": { \"type\": \"java.lang.String\" }"
+literal|"\"bcc\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

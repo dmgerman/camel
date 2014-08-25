@@ -226,7 +226,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"eventTypes\": { \"type\": \"int\" }"
+literal|"\"eventTypes\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

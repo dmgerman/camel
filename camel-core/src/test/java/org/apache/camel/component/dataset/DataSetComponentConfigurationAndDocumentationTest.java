@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"preloadSize\": { \"type\": \"long\" }"
+literal|"\"preloadSize\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"minRate\": { \"type\": \"int\" }"
+literal|"\"minRate\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

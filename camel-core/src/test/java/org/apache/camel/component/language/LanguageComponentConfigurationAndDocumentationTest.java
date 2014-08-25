@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"script\": { \"type\": \"java.lang.String\" }"
+literal|"\"script\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

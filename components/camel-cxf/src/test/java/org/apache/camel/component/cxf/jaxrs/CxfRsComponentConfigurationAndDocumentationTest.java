@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"address\": { \"type\": \"java.lang.String\" }"
+literal|"\"address\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"maxClientCacheSize\": { \"type\": \"int\" }"
+literal|"\"maxClientCacheSize\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

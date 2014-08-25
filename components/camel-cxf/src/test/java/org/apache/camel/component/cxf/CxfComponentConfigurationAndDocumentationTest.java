@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"serviceNameString\": { \"type\": \"java.lang.String\" }"
+literal|"\"serviceNameString\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

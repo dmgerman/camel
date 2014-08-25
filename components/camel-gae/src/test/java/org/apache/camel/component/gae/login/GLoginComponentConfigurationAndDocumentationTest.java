@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"clientName\": { \"type\": \"java.lang.String\" }"
+literal|"\"clientName\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

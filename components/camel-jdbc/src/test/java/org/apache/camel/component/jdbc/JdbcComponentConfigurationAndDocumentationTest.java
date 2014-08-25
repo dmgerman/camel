@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"outputClass\": { \"type\": \"java.lang.String\" }"
+literal|"\"outputClass\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -210,6 +210,26 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"allowNamedParameters\": { \"type\": \"boolean\" }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"beanRowMapper\": { \"type\": \"object\","
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"javaType\": { \"description\": \"org.apache.camel.component.jdbc.BeanRowMapper\", \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -203,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"GHTTP_SCHEME\": { \"type\": \"java.lang.String\" }"
+literal|"\"GHTTP_SCHEME\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -213,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"HTTPS_SCHEME\": { \"type\": \"java.lang.String\" }"
+literal|"\"HTTPS_SCHEME\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

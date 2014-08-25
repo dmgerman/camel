@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"httpMethodRestrict\": { \"type\": \"java.lang.String\" }"
+literal|"\"httpMethodRestrict\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

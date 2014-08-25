@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"method\": { \"type\": \"java.lang.String\" }"
+literal|"\"method\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

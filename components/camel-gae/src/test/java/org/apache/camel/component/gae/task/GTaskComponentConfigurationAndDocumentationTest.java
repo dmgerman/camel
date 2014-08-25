@@ -189,7 +189,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"workerRoot\": { \"type\": \"java.lang.String\" }"
+literal|"\"workerRoot\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

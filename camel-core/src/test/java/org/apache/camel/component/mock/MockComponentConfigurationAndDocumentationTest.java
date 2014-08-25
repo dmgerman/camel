@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"expectedCount\": { \"type\": \"int\" }"
+literal|"\"expectedCount\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"retainFirst\": { \"type\": \"int\" }"
+literal|"\"retainFirst\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

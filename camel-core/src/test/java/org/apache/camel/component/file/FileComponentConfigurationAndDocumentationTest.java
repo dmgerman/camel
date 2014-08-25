@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exclude\": { \"type\": \"java.lang.String\" }"
+literal|"\"exclude\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

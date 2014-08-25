@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"httpClientMaxThreads\": { \"type\": \"java.lang.Integer\" }"
+literal|"\"httpClientMaxThreads\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

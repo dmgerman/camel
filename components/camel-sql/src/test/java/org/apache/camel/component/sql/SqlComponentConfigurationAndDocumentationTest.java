@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"onConsumeBatchComplete\": { \"type\": \"java.lang.String\" }"
+literal|"\"onConsumeBatchComplete\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -209,7 +209,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"parametersCount\": { \"type\": \"int\" }"
+literal|"\"parametersCount\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

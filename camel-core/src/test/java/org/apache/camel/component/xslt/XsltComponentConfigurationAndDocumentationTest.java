@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"resourceUri\": { \"type\": \"java.lang.String\" }"
+literal|"\"resourceUri\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

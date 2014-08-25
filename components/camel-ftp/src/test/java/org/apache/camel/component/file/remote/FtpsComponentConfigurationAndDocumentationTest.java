@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"maximumReconnectAttempts\": { \"type\": \"int\" }"
+literal|"\"maximumReconnectAttempts\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"dataTimeout\": { \"type\": \"int\" }"
+literal|"\"dataTimeout\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -208,7 +208,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"maxMessagesPerPoll\": { \"type\": \"int\" }"
+literal|"\"maxMessagesPerPoll\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -218,7 +218,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"statement\": { \"type\": \"java.lang.String\" }"
+literal|"\"statement\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -461,6 +461,8 @@ name|allowDefaultCodec
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|clientPipelineFactory
 specifier|private
 name|ClientPipelineFactory

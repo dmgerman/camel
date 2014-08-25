@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"level\": { \"type\": \"java.lang.String\" }"
+literal|"\"level\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupInterval\": { \"type\": \"java.lang.Long\" }"
+literal|"\"groupInterval\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
