@@ -26,7 +26,31 @@ name|uhn
 operator|.
 name|hl7v2
 operator|.
+name|AcknowledgmentCode
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
 name|ErrorCode
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
+name|HapiContext
 import|;
 end_import
 
@@ -232,7 +256,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * @deprecated Use {@link #ack(AckCode, String, ErrorCode)}      */
+comment|/**      * @deprecated Use {@link #ack(ca.uhn.hl7v2.AcknowledgmentCode, String, ErrorCode)}      */
 annotation|@
 name|Deprecated
 DECL|method|ack (AckCode code, String errorMessage, int errorCode)
@@ -255,6 +279,9 @@ return|return
 name|ack
 argument_list|(
 name|code
+operator|.
+name|toAcknowledgmentCode
+argument_list|()
 argument_list|,
 name|errorMessage
 argument_list|,
@@ -267,6 +294,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #ack(ca.uhn.hl7v2.AcknowledgmentCode, String, ErrorCode)}      */
+annotation|@
+name|Deprecated
 DECL|method|ack (AckCode code, String errorMessage, ErrorCode errorCode)
 specifier|public
 specifier|static
@@ -274,6 +304,36 @@ name|Expression
 name|ack
 parameter_list|(
 name|AckCode
+name|code
+parameter_list|,
+name|String
+name|errorMessage
+parameter_list|,
+name|ErrorCode
+name|errorCode
+parameter_list|)
+block|{
+return|return
+name|ack
+argument_list|(
+name|code
+operator|.
+name|toAcknowledgmentCode
+argument_list|()
+argument_list|,
+name|errorMessage
+argument_list|,
+name|errorCode
+argument_list|)
+return|;
+block|}
+DECL|method|ack (AcknowledgmentCode code, String errorMessage, ErrorCode errorCode)
+specifier|public
+specifier|static
+name|Expression
+name|ack
+parameter_list|(
+name|AcknowledgmentCode
 name|code
 parameter_list|,
 name|String
@@ -292,6 +352,37 @@ argument_list|,
 name|errorMessage
 argument_list|,
 name|errorCode
+argument_list|)
+return|;
+block|}
+DECL|method|messageConforms ()
+specifier|public
+specifier|static
+name|Predicate
+name|messageConforms
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ValidationContextPredicate
+argument_list|()
+return|;
+block|}
+DECL|method|messageConformsTo (HapiContext hapiContext)
+specifier|public
+specifier|static
+name|Predicate
+name|messageConformsTo
+parameter_list|(
+name|HapiContext
+name|hapiContext
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ValidationContextPredicate
+argument_list|(
+name|hapiContext
 argument_list|)
 return|;
 block|}
