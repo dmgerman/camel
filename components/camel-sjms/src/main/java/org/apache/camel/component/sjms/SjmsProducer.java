@@ -403,6 +403,15 @@ condition|(
 name|getEndpoint
 argument_list|()
 operator|.
+name|isPrefillPool
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
 name|isAsyncStartListener
 argument_list|()
 condition|)
@@ -484,6 +493,7 @@ block|{
 name|fillProducersPool
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
