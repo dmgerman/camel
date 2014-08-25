@@ -217,7 +217,7 @@ name|ExpressionBuilder
 operator|.
 name|languageExpression
 argument_list|(
-literal|"JsonPath"
+literal|"jsonpath"
 argument_list|,
 literal|"$.store.bicycle.price"
 argument_list|)
