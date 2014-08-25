@@ -743,7 +743,7 @@ expr_stmt|;
 name|ErrorListener
 name|errorListener
 init|=
-name|getAndRemoveParameter
+name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
