@@ -143,11 +143,7 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"This is a manual test, start Apache ActiveMQ broker manually first, using bin/activemq console"
-argument_list|)
+comment|//@Ignore("This is a manual test, start Apache ActiveMQ broker manually first, using bin/activemq console")
 comment|// and make sure to setup tcp transport connector on the remote AMQ broker in the conf/activemq.xml file
 comment|//<transportConnectors>
 comment|//<transportConnector name="openwire" uri="tcp://0.0.0.0:61616"/>

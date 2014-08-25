@@ -109,11 +109,8 @@ argument_list|,
 name|precision
 operator|=
 literal|2
-argument_list|,
-name|pattern
-operator|=
-literal|"00.00"
 argument_list|)
+comment|/*        Pattern is not yet supported by BigDecimal.        FormatFactory class -->                 } else if (clazz == BigDecimal.class) {             return new BigDecimalFormat(impliedDecimalSeparator, precision, getLocale(locale));          So we should remove it from the model pattern = "00.00"       */
 DECL|field|bigDecimal
 specifier|private
 name|BigDecimal
