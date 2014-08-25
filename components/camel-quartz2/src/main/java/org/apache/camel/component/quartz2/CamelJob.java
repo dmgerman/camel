@@ -349,7 +349,7 @@ throw|;
 block|}
 block|}
 DECL|method|getCamelContext (JobExecutionContext context)
-specifier|private
+specifier|protected
 name|CamelContext
 name|getCamelContext
 parameter_list|(
@@ -423,7 +423,7 @@ name|result
 return|;
 block|}
 DECL|method|getSchedulerContext (JobExecutionContext context)
-specifier|private
+specifier|protected
 name|SchedulerContext
 name|getSchedulerContext
 parameter_list|(
@@ -469,7 +469,7 @@ throw|;
 block|}
 block|}
 DECL|method|lookupQuartzEndpoint (CamelContext camelContext, JobExecutionContext quartzContext)
-specifier|private
+specifier|protected
 name|QuartzEndpoint
 name|lookupQuartzEndpoint
 parameter_list|(
