@@ -1234,6 +1234,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Used for caching {@link Transformer}s.      *<p/>      * By default no caching is in use.      *      * @param numberToCache  the maximum number of transformers to cache      */
 DECL|method|transformerCacheSize (int numberToCache)
 specifier|public
 name|XsltBuilder
@@ -1269,6 +1270,25 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Uses a custom {@link javax.xml.transform.ErrorListener}.      */
+DECL|method|errorListener (ErrorListener errorListener)
+specifier|public
+name|XsltBuilder
+name|errorListener
+parameter_list|(
+name|ErrorListener
+name|errorListener
+parameter_list|)
+block|{
+name|setErrorListener
+argument_list|(
+name|errorListener
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 return|;
