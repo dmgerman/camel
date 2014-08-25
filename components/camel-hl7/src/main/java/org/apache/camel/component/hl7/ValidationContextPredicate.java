@@ -38,6 +38,18 @@ name|uhn
 operator|.
 name|hl7v2
 operator|.
+name|HapiContext
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
 name|model
 operator|.
 name|Message
@@ -149,6 +161,23 @@ specifier|private
 name|Expression
 name|validatorExpression
 decl_stmt|;
+DECL|method|ValidationContextPredicate (HapiContext hapiContext)
+specifier|public
+name|ValidationContextPredicate
+parameter_list|(
+name|HapiContext
+name|hapiContext
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|hapiContext
+operator|.
+name|getValidationContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|ValidationContextPredicate (ValidationContext validationContext)
 specifier|public
 name|ValidationContextPredicate

@@ -66,6 +66,30 @@ name|uhn
 operator|.
 name|hl7v2
 operator|.
+name|DefaultHapiContext
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
+name|HapiContext
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
 name|model
 operator|.
 name|Message
@@ -415,13 +439,23 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|hapiContext
+specifier|private
+name|HapiContext
+name|hapiContext
+init|=
+operator|new
+name|DefaultHapiContext
+argument_list|()
+decl_stmt|;
 DECL|field|parser
 specifier|private
 name|Parser
 name|parser
 init|=
-operator|new
-name|GenericParser
+name|hapiContext
+operator|.
+name|getGenericParser
 argument_list|()
 decl_stmt|;
 static|static
@@ -692,6 +726,7 @@ return|return
 name|message
 return|;
 block|}
+comment|/**      * @deprecated configure validation by means of {@link ca.uhn.hl7v2.HapiContext}      */
 DECL|method|isValidate ()
 specifier|public
 name|boolean
@@ -699,6 +734,14 @@ name|isValidate
 parameter_list|()
 block|{
 return|return
+operator|(
+name|parser
+operator|.
+name|getValidationContext
+argument_list|()
+operator|!=
+literal|null
+operator|&&
 operator|!
 operator|(
 name|parser
@@ -708,8 +751,10 @@ argument_list|()
 operator|instanceof
 name|NoValidation
 operator|)
+operator|)
 return|;
 block|}
+comment|/**      * @deprecated configure validation by means of {@link ca.uhn.hl7v2.HapiContext}      */
 DECL|method|setValidate (boolean validate)
 specifier|public
 name|void
@@ -736,6 +781,41 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getHapiContext ()
+specifier|public
+name|HapiContext
+name|getHapiContext
+parameter_list|()
+block|{
+return|return
+name|hapiContext
+return|;
+block|}
+DECL|method|setHapiContext (HapiContext context)
+specifier|public
+name|void
+name|setHapiContext
+parameter_list|(
+name|HapiContext
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hapiContext
+operator|=
+name|context
+expr_stmt|;
+name|this
+operator|.
+name|parser
+operator|=
+name|context
+operator|.
+name|getGenericParser
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|getParser ()
 specifier|public
 name|Parser
@@ -746,6 +826,7 @@ return|return
 name|parser
 return|;
 block|}
+comment|/**      * @deprecated configure the parser by means of {@link ca.uhn.hl7v2.HapiContext}      */
 DECL|method|setParser (Parser parser)
 specifier|public
 name|void
