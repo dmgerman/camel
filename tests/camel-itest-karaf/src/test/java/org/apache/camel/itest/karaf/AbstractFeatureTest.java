@@ -995,6 +995,40 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getKarafVersion ()
+specifier|private
+specifier|static
+name|String
+name|getKarafVersion
+parameter_list|()
+block|{
+name|String
+name|karafVersion
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"karafVersion"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|karafVersion
+operator|==
+literal|null
+condition|)
+block|{
+comment|// setup the default version of it
+name|karafVersion
+operator|=
+literal|"2.3.6"
+expr_stmt|;
+block|}
+return|return
+name|karafVersion
+return|;
+block|}
 DECL|method|configure (String feature)
 specifier|public
 specifier|static
@@ -1008,6 +1042,23 @@ parameter_list|)
 block|{
 name|switchPlatformEncodingToUTF8
 argument_list|()
+expr_stmt|;
+name|String
+name|karafVersion
+init|=
+name|getKarafVersion
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"*** The karaf version is "
+operator|+
+name|karafVersion
+operator|+
+literal|" ***"
+argument_list|)
 expr_stmt|;
 name|Option
 index|[]
@@ -1048,7 +1099,7 @@ argument_list|)
 operator|.
 name|karafVersion
 argument_list|(
-literal|"2.3.6"
+name|karafVersion
 argument_list|)
 operator|.
 name|name
