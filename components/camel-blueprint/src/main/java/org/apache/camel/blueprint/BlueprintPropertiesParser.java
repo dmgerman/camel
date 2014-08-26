@@ -802,7 +802,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"delegate property parser parsed the property key:{} as value: {}"
+literal|"Delegate property parser parsed the property key: {} as value: {}"
 argument_list|,
 name|key
 argument_list|,
@@ -822,13 +822,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot parser the property key: "
+literal|"Property placeholder key: "
 operator|+
 name|key
 operator|+
-literal|" with value: "
-operator|+
-name|value
+literal|" not found"
 argument_list|)
 throw|;
 block|}
