@@ -213,6 +213,30 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Decimal Separator to be used with BigDecimal number      */
+DECL|method|decimalSeparator ()
+name|String
+name|decimalSeparator
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * Grouping Separator to be used with BigDecimal number      * when we would like to format/parse to number with grouping      * e.g. 123,456.789      */
+DECL|method|groupingSeparator ()
+name|String
+name|groupingSeparator
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * Round mode to be used to round/scale a BigDecimal      * Values : UP, DOWN, CEILING, FLOOR, HALF_UP, HALF_DOWN,HALF_EVEN, UNNECESSARY      * e.g : Number = 123456.789, Precision = 2, Rounding =  CEILING      * Result : 123456.79      */
+DECL|method|rounding ()
+name|String
+name|rounding
+parameter_list|()
+default|default
+literal|"CEILING"
+function_decl|;
 block|}
 end_annotation_defn
 
