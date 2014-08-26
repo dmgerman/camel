@@ -244,7 +244,7 @@ name|name
 operator|+
 literal|")"
 argument_list|,
-literal|10000
+literal|30000
 argument_list|)
 decl_stmt|;
 name|ProducerTemplate
@@ -540,6 +540,13 @@ operator|.
 name|DYNAMICIMPORT_PACKAGE
 argument_list|,
 literal|"*"
+argument_list|)
+operator|.
+name|add
+argument_list|(
+name|MyTraceEventHandler
+operator|.
+name|class
 argument_list|)
 operator|.
 name|build
