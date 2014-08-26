@@ -416,6 +416,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|maximumRequestsPerPeriod
+operator|==
+literal|0
+operator|&&
 name|result
 operator|==
 literal|null

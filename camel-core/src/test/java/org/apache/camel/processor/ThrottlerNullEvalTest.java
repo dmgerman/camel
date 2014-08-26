@@ -54,10 +54,10 @@ name|ThrottlerNullEvalTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testNullEvalTest ()
+DECL|method|testFirstNullEvalTest ()
 specifier|public
 name|void
-name|testNullEvalTest
+name|testFirstNullEvalTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -82,6 +82,140 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Kaboom"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Kaboom"
+argument_list|,
+literal|"max"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"max"
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Bye World"
+argument_list|,
+literal|"max"
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testFirstNoHeaderTest ()
+specifier|public
+name|void
+name|testFirstNoHeaderTest
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:dead"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Kaboom"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Kaboom"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+literal|"max"
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"seda:a"
+argument_list|,
+literal|"Bye World"
+argument_list|,
+literal|"max"
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testNullEvalTest ()
+specifier|public
+name|void
+name|testNullEvalTest
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|,
+literal|"Kaboom"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -144,17 +278,9 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World"
 argument_list|,
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|getMockEndpoint
-argument_list|(
-literal|"mock:dead"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
 literal|"Kaboom"
+argument_list|,
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
