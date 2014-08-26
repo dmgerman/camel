@@ -1019,19 +1019,7 @@ name|keepRuntimeFolder
 argument_list|()
 block|,
 comment|// override the config.properties (to fix pax-exam bug)
-name|KarafDistributionOption
-operator|.
-name|replaceConfigurationFile
-argument_list|(
-literal|"etc/config.properties"
-argument_list|,
-operator|new
-name|File
-argument_list|(
-literal|"src/test/resources/org/apache/camel/itest/karaf/config.properties"
-argument_list|)
-argument_list|)
-block|,
+comment|// KarafDistributionOption.replaceConfigurationFile("etc/config.properties", new File("src/test/resources/org/apache/camel/itest/karaf/config.properties")),
 name|KarafDistributionOption
 operator|.
 name|replaceConfigurationFile
