@@ -96,13 +96,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|ops4j
 operator|.
-name|karaf
-operator|.
-name|tooling
+name|pax
 operator|.
 name|exam
+operator|.
+name|karaf
 operator|.
 name|options
 operator|.
@@ -114,13 +114,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|ops4j
 operator|.
-name|karaf
-operator|.
-name|tooling
+name|pax
 operator|.
 name|exam
+operator|.
+name|karaf
 operator|.
 name|options
 operator|.
@@ -214,86 +214,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|tooling
-operator|.
-name|exam
-operator|.
-name|options
-operator|.
-name|KarafDistributionOption
-operator|.
-name|editConfigurationFilePut
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|tooling
-operator|.
-name|exam
-operator|.
-name|options
-operator|.
-name|KarafDistributionOption
-operator|.
-name|karafDistributionConfiguration
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|tooling
-operator|.
-name|exam
-operator|.
-name|options
-operator|.
-name|KarafDistributionOption
-operator|.
-name|logLevel
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|tooling
-operator|.
-name|exam
-operator|.
-name|options
-operator|.
-name|KarafDistributionOption
-operator|.
-name|replaceConfigurationFile
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -331,22 +251,6 @@ operator|.
 name|CoreOptions
 operator|.
 name|mavenBundle
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
-name|scanFeatures
 import|;
 end_import
 
@@ -947,6 +851,8 @@ operator|new
 name|Option
 index|[]
 block|{
+name|KarafDistributionOption
+operator|.
 name|karafDistributionConfiguration
 argument_list|()
 operator|.
@@ -999,6 +905,8 @@ name|keepRuntimeFolder
 argument_list|()
 block|,
 comment|// override the config.properties (to fix pax-exam bug)
+name|KarafDistributionOption
+operator|.
 name|replaceConfigurationFile
 argument_list|(
 literal|"etc/config.properties"
@@ -1010,6 +918,8 @@ literal|"src/test/resources/org/apache/camel/itest/karaf/config.properties"
 argument_list|)
 argument_list|)
 block|,
+name|KarafDistributionOption
+operator|.
 name|replaceConfigurationFile
 argument_list|(
 literal|"etc/custom.properties"
@@ -1021,6 +931,8 @@ literal|"src/test/resources/org/apache/camel/itest/karaf/custom.properties"
 argument_list|)
 argument_list|)
 block|,
+name|KarafDistributionOption
+operator|.
 name|replaceConfigurationFile
 argument_list|(
 literal|"etc/jre.properties"
@@ -1033,6 +945,8 @@ argument_list|)
 argument_list|)
 block|,
 comment|// Add apache-snapshots repository
+name|KarafDistributionOption
+operator|.
 name|editConfigurationFilePut
 argument_list|(
 literal|"etc/org.ops4j.pax.url.mvn.cfg"
@@ -1053,6 +967,8 @@ literal|"http://repository.apache.org/content/groups/snapshots-group@snapshots@n
 argument_list|)
 block|,
 comment|// we need INFO logging otherwise we cannot see what happens
+name|KarafDistributionOption
+operator|.
 name|logLevel
 argument_list|(
 name|LogLevelOption
@@ -1063,7 +979,9 @@ name|INFO
 argument_list|)
 block|,
 comment|// install the cxf jaxb spec as the karaf doesn't provide it by default
-name|scanFeatures
+name|KarafDistributionOption
+operator|.
+name|features
 argument_list|(
 name|getCamelKarafFeatureUrl
 argument_list|()
