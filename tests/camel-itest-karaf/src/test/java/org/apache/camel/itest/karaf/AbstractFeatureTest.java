@@ -30,6 +30,30 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Field
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|Charset
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|inject
@@ -89,6 +113,22 @@ operator|.
 name|osgi
 operator|.
 name|CamelContextFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|vmOption
 import|;
 end_import
 
@@ -293,7 +333,31 @@ name|setUp
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Calling the setUp method "
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"The BundleContext is "
+operator|+
+name|bundleContext
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|After
 DECL|method|tearDown ()
@@ -303,7 +367,15 @@ name|tearDown
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Calling the tearDown method "
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testComponent (String component)
 specifier|protected
 name|void
@@ -586,6 +658,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Creating the CamelContext ..."
+argument_list|)
+expr_stmt|;
+name|setThreadContextClassLoader
+argument_list|()
+expr_stmt|;
 name|CamelContextFactory
 name|factory
 init|=
@@ -615,6 +697,30 @@ operator|.
 name|createContext
 argument_list|()
 return|;
+block|}
+DECL|method|setThreadContextClassLoader ()
+specifier|protected
+name|void
+name|setThreadContextClassLoader
+parameter_list|()
+block|{
+comment|// set the thread context classloader current bundle classloader
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|extractName (Class<?> clazz)
 specifier|public
@@ -760,18 +866,13 @@ argument_list|(
 literal|"apache-camel"
 argument_list|)
 operator|.
-name|classifier
-argument_list|(
-literal|"features"
-argument_list|)
+name|versionAsInProject
+argument_list|()
 operator|.
 name|type
 argument_list|(
-literal|"xml"
+literal|"xml/features"
 argument_list|)
-operator|.
-name|versionAsInProject
-argument_list|()
 return|;
 block|}
 DECL|method|getKarafFeatureUrl ()
@@ -832,6 +933,68 @@ name|type
 argument_list|)
 return|;
 block|}
+DECL|method|switchPlatformEncodingToUTF8 ()
+specifier|private
+specifier|static
+name|void
+name|switchPlatformEncodingToUTF8
+parameter_list|()
+block|{
+try|try
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"file.encoding"
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
+name|Field
+name|charset
+init|=
+name|Charset
+operator|.
+name|class
+operator|.
+name|getDeclaredField
+argument_list|(
+literal|"defaultCharset"
+argument_list|)
+decl_stmt|;
+name|charset
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|charset
+operator|.
+name|set
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|configure (String feature)
 specifier|public
 specifier|static
@@ -843,6 +1006,9 @@ name|String
 name|feature
 parameter_list|)
 block|{
+name|switchPlatformEncodingToUTF8
+argument_list|()
+expr_stmt|;
 name|Option
 index|[]
 name|options
@@ -890,6 +1056,11 @@ argument_list|(
 literal|"Apache Karaf"
 argument_list|)
 operator|.
+name|useDeployFolder
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|unpackDirectory
 argument_list|(
 operator|new
@@ -897,6 +1068,11 @@ name|File
 argument_list|(
 literal|"target/paxexam/unpack/"
 argument_list|)
+argument_list|)
+block|,
+name|vmOption
+argument_list|(
+literal|"-Dfile.encoding=UTF-8"
 argument_list|)
 block|,
 name|KarafDistributionOption
@@ -935,41 +1111,18 @@ name|KarafDistributionOption
 operator|.
 name|replaceConfigurationFile
 argument_list|(
-literal|"etc/jre.properties"
+literal|"etc/org.ops4j.pax.url.mvn.cfg"
 argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"../../platforms/karaf/features/src/main/resources/config.properties"
+literal|"src/test/resources/org/apache/camel/itest/karaf/org.ops4j.pax.url.mvn.cfg"
 argument_list|)
-argument_list|)
-block|,
-comment|// Add apache-snapshots repository
-name|KarafDistributionOption
-operator|.
-name|editConfigurationFilePut
-argument_list|(
-literal|"etc/org.ops4j.pax.url.mvn.cfg"
-argument_list|,
-literal|"org.ops4j.pax.url.mvn.repositories"
-argument_list|,
-literal|"http://repo1.maven.org/maven2@id=central, "
-operator|+
-literal|"http://svn.apache.org/repos/asf/servicemix/m2-repo@id=servicemix, "
-operator|+
-literal|"http://repository.springsource.com/maven/bundles/release@id=springsource.release, "
-operator|+
-literal|"http://repository.springsource.com/maven/bundles/external@id=springsource.external, "
-operator|+
-literal|"http://oss.sonatype.org/content/repositories/releases/@id=sonatype, "
-operator|+
-literal|"http://repository.apache.org/content/groups/snapshots-group@snapshots@noreleases@id=apache"
 argument_list|)
 block|,
 comment|// we need INFO logging otherwise we cannot see what happens
-name|KarafDistributionOption
-operator|.
-name|logLevel
+operator|new
+name|LogLevelOption
 argument_list|(
 name|LogLevelOption
 operator|.
