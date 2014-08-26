@@ -4615,6 +4615,20 @@ return|return
 literal|true
 return|;
 block|}
+comment|// always register if we are setting up routes
+if|if
+condition|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|isSetupRoutes
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|// register if always is enabled
 if|if
 condition|(

@@ -2329,6 +2329,15 @@ argument_list|(
 literal|"Setting up routes"
 argument_list|)
 expr_stmt|;
+comment|// mark that we are setting up routes
+name|getContext
+argument_list|()
+operator|.
+name|setupRoutes
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// must init route refs before we prepare the routes below
 name|initRouteRefs
 argument_list|()
@@ -2377,6 +2386,15 @@ name|addRestDefinitions
 argument_list|(
 name|getRests
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and we are now finished setting up the routes
+name|getContext
+argument_list|()
+operator|.
+name|setupRoutes
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

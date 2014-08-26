@@ -976,6 +976,15 @@ parameter_list|)
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
+comment|/**      * Method to signal to {@link CamelContext} that the process to initialize setup routes is in progress.      *      * @param done<tt>false</tt> to start the process, call again with<tt>true</tt> to signal its done.      * @see #isSetupRoutes()      */
+DECL|method|setupRoutes (boolean done)
+name|void
+name|setupRoutes
+parameter_list|(
+name|boolean
+name|done
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getRouteDefinitions()}      */
 annotation|@
 name|Deprecated
@@ -1337,6 +1346,12 @@ comment|/**      * Indicates whether current thread is starting route(s).      *
 DECL|method|isStartingRoutes ()
 name|boolean
 name|isStartingRoutes
+parameter_list|()
+function_decl|;
+comment|/**      * Indicates whether current thread is setting up route(s) as part of starting Camel from spring/blueprint.      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *<p/>      * As the startup procedure of {@link CamelContext} is slightly different when using plain Java versus      * Spring or Blueprint, then we need to know when Spring/Blueprint is setting up the routes, which      * can happen after the {@link CamelContext} itself is in started state, due the asynchronous event nature      * of especially Blueprint.      *      * @return<tt>true</tt> if current thread is setting up route(s), or<tt>false</tt> if not.      */
+DECL|method|isSetupRoutes ()
+name|boolean
+name|isSetupRoutes
 parameter_list|()
 function_decl|;
 comment|// Properties
