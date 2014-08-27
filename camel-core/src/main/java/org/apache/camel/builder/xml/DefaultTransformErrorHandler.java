@@ -46,18 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|xml
 operator|.
 name|sax
@@ -90,8 +78,20 @@ name|SAXParseException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
-comment|/**  * {@link ErrorHandler} and {@link ErrorListener} which will ignore warnings,  * and throws error and fatal as exception, which ensures those can be caught by Camel and dealt-with.  *<p/>  * Also any warning, error or fatal error is stored on the {@link Exchange} as a property with the keys  * {@link Exchange#XSLT_WARNING}, {@link Exchange#XSLT_ERROR}, and {@link Exchange#XSLT_FATAL_ERROR} which  * allows end users to access those information form the exchange.  */
+comment|/**  * {@link ErrorHandler} and {@link ErrorListener} which will ignore warnings,  * and throws error and fatal as exception, which ensures those can be caught by Camel and dealt-with.  *<p/>  * Also any warning, error or fatal error is stored on the {@link Exchange} as a property with the keys  *<tt>CamelXsltWarning</tt>,<tt>CamelXsltError</tt>, and<tt>CamelXsltFatalError</tt> which  * allows end users to access those information form the exchange.  */
 end_comment
 
 begin_class
