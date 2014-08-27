@@ -761,6 +761,24 @@ name|XSLT_FILE_NAME
 init|=
 literal|"CamelXsltFileName"
 decl_stmt|;
+DECL|field|XSLT_ERROR
+name|String
+name|XSLT_ERROR
+init|=
+literal|"CamelXsltError"
+decl_stmt|;
+DECL|field|XSLT_FATAL_ERROR
+name|String
+name|XSLT_FATAL_ERROR
+init|=
+literal|"CamelXsltFatalError"
+decl_stmt|;
+DECL|field|XSLT_WARNING
+name|String
+name|XSLT_WARNING
+init|=
+literal|"CamelXsltWarning"
+decl_stmt|;
 comment|/**      * Returns the {@link ExchangePattern} (MEP) of this exchange.      *      * @return the message exchange pattern of this exchange      */
 DECL|method|getPattern ()
 name|ExchangePattern

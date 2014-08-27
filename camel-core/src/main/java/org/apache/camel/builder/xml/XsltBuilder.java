@@ -735,7 +735,9 @@ name|setErrorListener
 argument_list|(
 operator|new
 name|DefaultTransformErrorHandler
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ResultHandler
@@ -891,7 +893,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// clean up the setting on the exchange
 name|releaseTransformer
 argument_list|(
 name|transformer
@@ -1742,6 +1743,13 @@ name|transformer
 operator|.
 name|reset
 argument_list|()
+expr_stmt|;
+name|transformer
+operator|.
+name|setErrorListener
+argument_list|(
+name|errorListener
+argument_list|)
 expr_stmt|;
 name|transformers
 operator|.
