@@ -186,6 +186,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -497,7 +511,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Loads the resource.      *      * @param resourceUri  the resource to load      *      * @throws TransformerException is thrown if error loading resource      * @throws IOException is thrown if error loading resource      */
+comment|/**      * Loads the resource.      *      * @param resourceUri  the resource to load      * @throws TransformerException is thrown if error loading resource      * @throws IOException is thrown if error loading resource      */
 DECL|method|loadResource (String resourceUri)
 specifier|protected
 name|void
@@ -585,9 +599,26 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+comment|// must load resource first which sets a template and do a stylesheet compilation to catch errors early
 name|loadResource
 argument_list|(
 name|resourceUri
+argument_list|)
+expr_stmt|;
+comment|// and then inject camel context and start service
+name|xslt
+operator|.
+name|setCamelContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|xslt
 argument_list|)
 expr_stmt|;
 block|}
@@ -605,6 +636,13 @@ name|super
 operator|.
 name|doStop
 argument_list|()
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|xslt
+argument_list|)
 expr_stmt|;
 block|}
 block|}
