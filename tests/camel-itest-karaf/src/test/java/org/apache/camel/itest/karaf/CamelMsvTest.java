@@ -60,7 +60,7 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|Option
+name|Configuration
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|Configuration
+name|Option
 import|;
 end_import
 

@@ -117,7 +117,27 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|ops4j
@@ -126,9 +146,7 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
-operator|.
-name|vmOption
+name|Option
 import|;
 end_import
 
@@ -165,40 +183,6 @@ operator|.
 name|options
 operator|.
 name|LogLevelOption
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|Option
 import|;
 end_import
 
@@ -291,6 +275,22 @@ operator|.
 name|CoreOptions
 operator|.
 name|mavenBundle
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|CoreOptions
+operator|.
+name|vmOption
 import|;
 end_import
 
