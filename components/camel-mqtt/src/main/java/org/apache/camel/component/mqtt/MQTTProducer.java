@@ -252,6 +252,7 @@ operator|.
 name|getPublishTopicName
 argument_list|()
 decl_stmt|;
+comment|// get the topic name by using the header of MQTT_PUBLISH_TOPIC
 name|Object
 name|topicValue
 init|=
@@ -261,8 +262,7 @@ name|getProperty
 argument_list|(
 name|configuration
 operator|.
-name|getMqttTopicPropertyName
-argument_list|()
+name|MQTT_PUBLISH_TOPIC
 argument_list|)
 decl_stmt|;
 if|if

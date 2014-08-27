@@ -498,10 +498,9 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-name|configuration
+name|MQTTConfiguration
 operator|.
-name|getMqttTopicPropertyName
-argument_list|()
+name|MQTT_SUBSCRIBE_TOPIC
 argument_list|,
 name|topic
 operator|.
