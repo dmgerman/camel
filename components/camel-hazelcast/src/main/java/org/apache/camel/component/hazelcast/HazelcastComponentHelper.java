@@ -573,6 +573,16 @@ operator|.
 name|POLL_OPERATION
 argument_list|)
 expr_stmt|;
+comment|// topic
+name|addMapping
+argument_list|(
+literal|"publish"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|PUBLISH_OPERATION
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|addMapping (String operationName, int operationNumber)
 specifier|private

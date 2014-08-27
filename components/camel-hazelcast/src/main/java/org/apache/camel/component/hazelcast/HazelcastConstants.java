@@ -71,6 +71,15 @@ name|QUEUE_PREFIX
 init|=
 literal|"queue:"
 decl_stmt|;
+DECL|field|TOPIC_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TOPIC_PREFIX
+init|=
+literal|"topic:"
+decl_stmt|;
 DECL|field|SEDA_PREFIX
 specifier|public
 specifier|static
@@ -319,6 +328,16 @@ name|int
 name|POLL_OPERATION
 init|=
 literal|34
+decl_stmt|;
+comment|// topic
+DECL|field|PUBLISH_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|PUBLISH_OPERATION
+init|=
+literal|35
 decl_stmt|;
 comment|/*      * header values      */
 comment|// listener actions
