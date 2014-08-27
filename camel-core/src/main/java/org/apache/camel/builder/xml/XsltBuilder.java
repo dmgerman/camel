@@ -1558,6 +1558,23 @@ operator|.
 name|getTransformerFactory
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|errorListener
+operator|!=
+literal|null
+condition|)
+block|{
+name|factory
+operator|.
+name|setErrorListener
+argument_list|(
+name|errorListener
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// use a logger error listener so users can see from the logs what the error may be
 name|factory
 operator|.
@@ -1568,6 +1585,7 @@ name|XsltErrorListener
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|getUriResolver
