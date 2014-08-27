@@ -155,7 +155,7 @@ comment|// must use end to denote the end of the onCompletion route
 operator|.
 name|end
 argument_list|()
-comment|// here the original route contiues
+comment|// here the original route continues
 operator|.
 name|process
 argument_list|(
