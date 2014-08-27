@@ -99,7 +99,7 @@ argument_list|)
 decl_stmt|;
 name|complete
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"finish"
 argument_list|,
