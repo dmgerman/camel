@@ -1065,7 +1065,7 @@ name|this
 operator|.
 name|traceHandlers
 operator|.
-name|add
+name|remove
 argument_list|(
 name|traceHandler
 argument_list|)
