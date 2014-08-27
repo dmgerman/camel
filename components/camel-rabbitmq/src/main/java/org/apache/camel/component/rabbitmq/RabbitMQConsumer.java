@@ -390,6 +390,15 @@ init|=
 name|openChannel
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDeclare
+argument_list|()
+condition|)
+block|{
 name|endpoint
 operator|.
 name|declareExchangeAndQueue
@@ -397,6 +406,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+block|}
 name|startConsumer
 argument_list|(
 name|channel

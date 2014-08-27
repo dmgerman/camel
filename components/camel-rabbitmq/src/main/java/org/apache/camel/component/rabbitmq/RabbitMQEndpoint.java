@@ -539,6 +539,14 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
+comment|//Declares a queue and exchange in RabbitMQ, then binds both.
+DECL|field|declare
+specifier|private
+name|boolean
+name|declare
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RabbitMQEndpoint ()
 specifier|public
 name|RabbitMQEndpoint
@@ -2124,6 +2132,32 @@ operator|.
 name|concurrentConsumers
 operator|=
 name|concurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|isDeclare ()
+specifier|public
+name|boolean
+name|isDeclare
+parameter_list|()
+block|{
+return|return
+name|declare
+return|;
+block|}
+DECL|method|setDeclare (boolean declare)
+specifier|public
+name|void
+name|setDeclare
+parameter_list|(
+name|boolean
+name|declare
+parameter_list|)
+block|{
+name|this
+operator|.
+name|declare
+operator|=
+name|declare
 expr_stmt|;
 block|}
 block|}

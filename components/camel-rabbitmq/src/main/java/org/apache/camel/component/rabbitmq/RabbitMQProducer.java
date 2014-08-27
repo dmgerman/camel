@@ -284,6 +284,15 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDeclare
+argument_list|()
+condition|)
+block|{
 name|getEndpoint
 argument_list|()
 operator|.
@@ -294,6 +303,7 @@ operator|.
 name|channel
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
