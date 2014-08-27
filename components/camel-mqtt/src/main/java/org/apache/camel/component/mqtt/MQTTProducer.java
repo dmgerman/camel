@@ -260,7 +260,7 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
-name|configuration
+name|MQTTConfiguration
 operator|.
 name|MQTT_PUBLISH_TOPIC
 argument_list|)
