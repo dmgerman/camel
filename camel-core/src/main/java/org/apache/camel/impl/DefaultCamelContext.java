@@ -9799,9 +9799,28 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// Using the TCCL as the default value of ApplicationClassLoader
+name|ClassLoader
+name|cl
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cl
+operator|==
+literal|null
+condition|)
+block|{
 comment|// use the classloader that loaded this class
-name|setApplicationContextClassLoader
-argument_list|(
+name|cl
+operator|=
 name|this
 operator|.
 name|getClass
@@ -9809,6 +9828,11 @@ argument_list|()
 operator|.
 name|getClassLoader
 argument_list|()
+expr_stmt|;
+block|}
+name|setApplicationContextClassLoader
+argument_list|(
+name|cl
 argument_list|)
 expr_stmt|;
 block|}
