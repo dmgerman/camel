@@ -2242,6 +2242,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Setting the Content-Type to be {}"
+argument_list|,
+name|mediaType
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|exchange
 operator|.
 name|getOut
@@ -2260,6 +2272,41 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|mediaType
+operator|!=
+literal|null
+operator|&&
+name|mediaType
+operator|.
+name|equals
+argument_list|(
+name|MediaType
+operator|.
+name|APPLICATION_OCTET_STREAM
+argument_list|)
+condition|)
+block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|response
+operator|.
+name|getEntity
+argument_list|()
+operator|.
+name|getStream
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// get content text
 name|String
 name|text
@@ -2291,6 +2338,7 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// preserve headers from in by copying any non existing headers
 comment|// to avoid overriding existing headers with old values
