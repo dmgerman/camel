@@ -317,6 +317,17 @@ argument_list|(
 name|defaultValidationContext
 argument_list|)
 expr_stmt|;
+comment|// we validate separately, not during parsing or rendering
+name|defaultContext
+operator|.
+name|getParserConfiguration
+argument_list|()
+operator|.
+name|setValidating
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|ValidationRuleBuilder
 name|builder
 init|=
@@ -374,6 +385,17 @@ operator|new
 name|DefaultHapiContext
 argument_list|(
 name|customValidationContext
+argument_list|)
+expr_stmt|;
+comment|// we validate separately, not during parsing or rendering
+name|customContext
+operator|.
+name|getParserConfiguration
+argument_list|()
+operator|.
+name|setValidating
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -678,8 +700,6 @@ name|CamelExecutionException
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
 DECL|method|testDynamicCustomHapiContext ()
 specifier|public
 name|void
@@ -700,7 +720,7 @@ name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|Message
