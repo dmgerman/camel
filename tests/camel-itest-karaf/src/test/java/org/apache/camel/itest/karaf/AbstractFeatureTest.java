@@ -1126,11 +1126,7 @@ argument_list|(
 literal|"-Dfile.encoding=UTF-8"
 argument_list|)
 block|,
-name|KarafDistributionOption
-operator|.
-name|keepRuntimeFolder
-argument_list|()
-block|,
+comment|//KarafDistributionOption.keepRuntimeFolder(),
 comment|// override the config.properties (to fix pax-exam bug)
 comment|//KarafDistributionOption.replaceConfigurationFile("etc/config.properties", new File("src/test/resources/org/apache/camel/itest/karaf/config.properties")),
 name|KarafDistributionOption
