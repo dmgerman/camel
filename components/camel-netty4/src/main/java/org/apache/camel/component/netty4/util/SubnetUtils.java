@@ -706,6 +706,11 @@ return|return
 name|addresses
 return|;
 block|}
+name|int
+name|j
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -713,10 +718,6 @@ name|add
 init|=
 name|low
 argument_list|()
-init|,
-name|j
-init|=
-literal|0
 init|;
 name|add
 operator|<=
@@ -725,9 +726,6 @@ argument_list|()
 condition|;
 operator|++
 name|add
-operator|,
-operator|++
-name|j
 control|)
 block|{
 name|addresses
@@ -742,6 +740,9 @@ argument_list|(
 name|add
 argument_list|)
 argument_list|)
+expr_stmt|;
+operator|++
+name|j
 expr_stmt|;
 block|}
 return|return
