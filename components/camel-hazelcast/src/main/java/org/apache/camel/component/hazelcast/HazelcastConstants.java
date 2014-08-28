@@ -377,6 +377,16 @@ name|ADDED
 init|=
 literal|"added"
 decl_stmt|;
+comment|// message listener actions (topic)
+DECL|field|RECEIVED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RECEIVED
+init|=
+literal|"received"
+decl_stmt|;
 comment|// storage types (map, queue, topic, multimap)
 DECL|field|MAP
 specifier|public
