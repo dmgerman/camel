@@ -268,11 +268,15 @@ DECL|field|keyStoreFormat
 specifier|protected
 name|String
 name|keyStoreFormat
+init|=
+literal|"JKS"
 decl_stmt|;
 DECL|field|securityProvider
 specifier|protected
 name|String
 name|securityProvider
+init|=
+literal|"SunX509"
 decl_stmt|;
 DECL|field|passphrase
 specifier|protected
