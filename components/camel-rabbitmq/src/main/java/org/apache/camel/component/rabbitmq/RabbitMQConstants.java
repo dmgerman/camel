@@ -169,6 +169,24 @@ name|APP_ID
 init|=
 literal|"rabbitmq.APP_ID"
 decl_stmt|;
+DECL|field|RABBITMQ_DEAD_LETTER_EXCHANGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RABBITMQ_DEAD_LETTER_EXCHANGE
+init|=
+literal|"x-dead-letter-exchange"
+decl_stmt|;
+DECL|field|RABBITMQ_DEAD_LETTER_ROUTING_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RABBITMQ_DEAD_LETTER_ROUTING_KEY
+init|=
+literal|"x-dead-letter-routing-key"
+decl_stmt|;
 DECL|method|RabbitMQConstants ()
 specifier|private
 name|RabbitMQConstants
