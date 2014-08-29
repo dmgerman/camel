@@ -88,6 +88,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|hazelcast
@@ -107,6 +119,8 @@ class|class
 name|HazelcastTopicEndpoint
 extends|extends
 name|HazelcastDefaultEndpoint
+implements|implements
+name|MultipleConsumersSupport
 block|{
 DECL|method|HazelcastTopicEndpoint (HazelcastInstance hazelcastInstance, String endpointUri, Component component, String cacheName)
 specifier|public
@@ -194,6 +208,18 @@ name|this
 argument_list|,
 name|cacheName
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 block|}
