@@ -258,7 +258,10 @@ name|topicValue
 init|=
 name|exchange
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|MQTTConfiguration
 operator|.

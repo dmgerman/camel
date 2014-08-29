@@ -496,7 +496,10 @@ argument_list|)
 expr_stmt|;
 name|exchange
 operator|.
-name|setProperty
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
 argument_list|(
 name|MQTTConfiguration
 operator|.
