@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|codahale
@@ -119,6 +131,24 @@ DECL|field|prettyPrint
 specifier|private
 name|boolean
 name|prettyPrint
+decl_stmt|;
+DECL|field|rateUnit
+specifier|private
+name|TimeUnit
+name|rateUnit
+init|=
+name|TimeUnit
+operator|.
+name|SECONDS
+decl_stmt|;
+DECL|field|durationUnit
+specifier|private
+name|TimeUnit
+name|durationUnit
+init|=
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 decl_stmt|;
 comment|/**      * To use a specific {@link com.codahale.metrics.MetricRegistry} instance.      *<p/>      * If no instance has been configured, then Camel will create a shared instance to be used.      */
 DECL|method|setMetricsRegistry (MetricRegistry metricsRegistry)
@@ -228,6 +258,60 @@ operator|=
 name|prettyPrint
 expr_stmt|;
 block|}
+DECL|method|getRateUnit ()
+specifier|public
+name|TimeUnit
+name|getRateUnit
+parameter_list|()
+block|{
+return|return
+name|rateUnit
+return|;
+block|}
+comment|/**      * Sets the time unit to use for requests per unit (eg requests per second)      */
+DECL|method|setRateUnit (TimeUnit rateUnit)
+specifier|public
+name|void
+name|setRateUnit
+parameter_list|(
+name|TimeUnit
+name|rateUnit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rateUnit
+operator|=
+name|rateUnit
+expr_stmt|;
+block|}
+DECL|method|getDurationUnit ()
+specifier|public
+name|TimeUnit
+name|getDurationUnit
+parameter_list|()
+block|{
+return|return
+name|durationUnit
+return|;
+block|}
+comment|/**      * Sets the time unit to use for timing the duration of processing a message in the route      */
+DECL|method|setDurationUnit (TimeUnit durationUnit)
+specifier|public
+name|void
+name|setDurationUnit
+parameter_list|(
+name|TimeUnit
+name|durationUnit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|durationUnit
+operator|=
+name|durationUnit
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRoutePolicy (CamelContext camelContext, String routeId, RouteDefinition routeDefinition)
@@ -281,6 +365,22 @@ operator|.
 name|setPrettyPrint
 argument_list|(
 name|isPrettyPrint
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setRateUnit
+argument_list|(
+name|getRateUnit
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setDurationUnit
+argument_list|(
+name|getDurationUnit
 argument_list|()
 argument_list|)
 expr_stmt|;
