@@ -159,14 +159,12 @@ operator|.
 name|EXCEPTION_CAUGHT
 argument_list|)
 operator|.
-name|convertTo
+name|method
 argument_list|(
-name|String
-operator|.
-name|class
+literal|"getMessage"
 argument_list|)
 operator|.
-name|contains
+name|isEqualTo
 argument_list|(
 literal|"Forced"
 argument_list|)

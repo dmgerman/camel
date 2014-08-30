@@ -1222,6 +1222,35 @@ name|newExp
 argument_list|)
 return|;
 block|}
+comment|/**      * Invokes the method with the given name (supports OGNL syntax).      *      * @param methodName  name of method to invoke.      * @return the current builder      */
+DECL|method|method (String methodName)
+specifier|public
+name|ValueBuilder
+name|method
+parameter_list|(
+name|String
+name|methodName
+parameter_list|)
+block|{
+name|Expression
+name|newExp
+init|=
+name|ExpressionBuilder
+operator|.
+name|ognlExpression
+argument_list|(
+name|expression
+argument_list|,
+name|methodName
+argument_list|)
+decl_stmt|;
+return|return
+name|onNewValueBuilder
+argument_list|(
+name|newExp
+argument_list|)
+return|;
+block|}
 comment|/**      * Negates the built expression.      *      * @return the current builder      */
 DECL|method|not ()
 specifier|public

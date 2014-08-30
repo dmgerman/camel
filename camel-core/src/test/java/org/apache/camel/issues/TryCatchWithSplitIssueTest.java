@@ -150,14 +150,12 @@ operator|.
 name|EXCEPTION_CAUGHT
 argument_list|)
 operator|.
-name|convertTo
+name|method
 argument_list|(
-name|String
-operator|.
-name|class
+literal|"getMessage"
 argument_list|)
 operator|.
-name|contains
+name|isEqualTo
 argument_list|(
 literal|"This is a dummy error James!"
 argument_list|)
@@ -246,14 +244,12 @@ operator|.
 name|EXCEPTION_CAUGHT
 argument_list|)
 operator|.
-name|convertTo
+name|method
 argument_list|(
-name|String
-operator|.
-name|class
+literal|"getMessage"
 argument_list|)
 operator|.
-name|contains
+name|isEqualTo
 argument_list|(
 literal|"This is a dummy error James!"
 argument_list|)
