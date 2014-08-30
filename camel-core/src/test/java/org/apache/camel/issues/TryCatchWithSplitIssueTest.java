@@ -157,7 +157,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|isEqualTo
+name|contains
 argument_list|(
 literal|"This is a dummy error James!"
 argument_list|)
@@ -253,7 +253,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|isEqualTo
+name|contains
 argument_list|(
 literal|"This is a dummy error James!"
 argument_list|)

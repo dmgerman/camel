@@ -166,7 +166,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|isEqualTo
+name|contains
 argument_list|(
 literal|"Forced"
 argument_list|)
