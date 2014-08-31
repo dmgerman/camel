@@ -104,7 +104,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -167,7 +167,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()

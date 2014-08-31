@@ -242,6 +242,11 @@ name|SparkBase
 operator|.
 name|SPARK_DEFAULT_PORT
 decl_stmt|;
+DECL|field|ipAddress
+specifier|private
+name|String
+name|ipAddress
+decl_stmt|;
 DECL|field|sparkConfiguration
 specifier|private
 name|SparkConfiguration
@@ -297,6 +302,32 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+DECL|method|getIpAddress ()
+specifier|public
+name|String
+name|getIpAddress
+parameter_list|()
+block|{
+return|return
+name|ipAddress
+return|;
+block|}
+DECL|method|setIpAddress (String ipAddress)
+specifier|public
+name|void
+name|setIpAddress
+parameter_list|(
+name|String
+name|ipAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ipAddress
+operator|=
+name|ipAddress
 expr_stmt|;
 block|}
 DECL|method|getSparkConfiguration ()
@@ -560,6 +591,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|getIpAddress
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|Spark
+operator|.
+name|setIpAddress
+argument_list|(
+name|getIpAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// configure component options
 name|RestConfiguration

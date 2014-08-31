@@ -102,7 +102,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|port
 operator|+
@@ -140,7 +140,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|port
 operator|+
@@ -185,7 +185,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|port
 operator|+
@@ -232,7 +232,7 @@ name|AvailablePortFinder
 operator|.
 name|getNextAvailable
 argument_list|(
-literal|24500
+literal|4510
 argument_list|)
 expr_stmt|;
 comment|// configure port on rest configuration which spark-rest will pickup and use
