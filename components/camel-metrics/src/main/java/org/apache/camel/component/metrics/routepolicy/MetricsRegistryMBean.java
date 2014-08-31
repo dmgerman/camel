@@ -54,6 +54,18 @@ name|String
 name|dumpStatisticsAsJson
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the statistics as json using seconds for time units"
+argument_list|)
+DECL|method|dumpStatisticsAsJsonTimeUnitSeconds ()
+name|String
+name|dumpStatisticsAsJsonTimeUnitSeconds
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
