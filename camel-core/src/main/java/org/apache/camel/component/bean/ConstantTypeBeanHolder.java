@@ -189,6 +189,31 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a cached and constant {@link org.apache.camel.component.bean.BeanHolder} from this holder.      *      * @return a new {@link org.apache.camel.component.bean.BeanHolder} that has cached the lookup of the bean.      */
+DECL|method|createCacheHolder ()
+specifier|public
+name|ConstantBeanHolder
+name|createCacheHolder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Object
+name|bean
+init|=
+name|getBean
+argument_list|()
+decl_stmt|;
+return|return
+operator|new
+name|ConstantBeanHolder
+argument_list|(
+name|bean
+argument_list|,
+name|beanInfo
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -210,9 +235,39 @@ name|Object
 name|getBean
 parameter_list|()
 block|{
+comment|// create a new bean
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|hasDefaultPublicNoArgConstructor
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|getBeanInfo
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getInjector
+argument_list|()
+operator|.
+name|newInstance
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|null
 return|;
+block|}
 block|}
 DECL|method|getProcessor ()
 specifier|public
