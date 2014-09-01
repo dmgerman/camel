@@ -10620,6 +10620,30 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// stop consumers from the services to close first, such as POJO consumer (eg @Consumer)
+comment|// which we need to stop after the routes, as a POJO consumer is essentially a route also
+for|for
+control|(
+name|Service
+name|service
+range|:
+name|servicesToClose
+control|)
+block|{
+if|if
+condition|(
+name|service
+operator|instanceof
+name|Consumer
+condition|)
+block|{
+name|shutdownServices
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// the stop order is important
 comment|// shutdown default error handler thread pool
 if|if
