@@ -218,8 +218,6 @@ specifier|public
 name|ConstantBeanHolder
 name|createCacheHolder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|Object
 name|bean

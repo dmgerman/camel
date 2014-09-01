@@ -448,7 +448,7 @@ name|beanInfo
 argument_list|)
 condition|)
 block|{
-comment|// see if there is a processor for the given bean
+comment|// so if there is a custom type converter for the bean to processor
 name|Processor
 name|processor
 init|=
@@ -460,7 +460,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|Processor
 operator|.

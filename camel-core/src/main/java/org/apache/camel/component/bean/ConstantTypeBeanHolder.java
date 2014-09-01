@@ -235,17 +235,6 @@ name|Object
 name|getBean
 parameter_list|()
 block|{
-comment|// create a new bean
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|hasDefaultPublicNoArgConstructor
-argument_list|(
-name|type
-argument_list|)
-condition|)
-block|{
 return|return
 name|getBeanInfo
 argument_list|()
@@ -261,13 +250,6 @@ argument_list|(
 name|type
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 DECL|method|getProcessor ()
 specifier|public

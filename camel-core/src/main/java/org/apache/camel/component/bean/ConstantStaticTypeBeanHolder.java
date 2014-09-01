@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A constant (singleton) bean implementation of {@link BeanTypeHolder}  *  * @version  */
+comment|/**  * A constant {@link org.apache.camel.component.bean.BeanHolder} for a class or static class  * where the intention is to only invoke static methods, without the need for creating an instance of the type.  *  * @version  */
 end_comment
 
 begin_class
@@ -68,28 +68,6 @@ name|ConstantStaticTypeBeanHolder
 extends|extends
 name|ConstantTypeBeanHolder
 block|{
-DECL|method|ConstantStaticTypeBeanHolder (Class<?> type, BeanInfo beanInfo)
-specifier|public
-name|ConstantStaticTypeBeanHolder
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|,
-name|BeanInfo
-name|beanInfo
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|type
-argument_list|,
-name|beanInfo
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|ConstantStaticTypeBeanHolder (Class<?> type, CamelContext context)
 specifier|public
 name|ConstantStaticTypeBeanHolder
@@ -109,33 +87,6 @@ argument_list|(
 name|type
 argument_list|,
 name|context
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ConstantStaticTypeBeanHolder (Class<?> type, CamelContext context, ParameterMappingStrategy parameterMappingStrategy)
-specifier|public
-name|ConstantStaticTypeBeanHolder
-parameter_list|(
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|type
-parameter_list|,
-name|CamelContext
-name|context
-parameter_list|,
-name|ParameterMappingStrategy
-name|parameterMappingStrategy
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|type
-argument_list|,
-name|context
-argument_list|,
-name|parameterMappingStrategy
 argument_list|)
 expr_stmt|;
 block|}
