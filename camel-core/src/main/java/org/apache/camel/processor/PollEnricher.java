@@ -229,6 +229,11 @@ specifier|private
 name|long
 name|timeout
 decl_stmt|;
+DECL|field|aggregateOnException
+specifier|private
+name|boolean
+name|aggregateOnException
+decl_stmt|;
 comment|/**      * Creates a new {@link PollEnricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *      * @param consumer consumer to resource endpoint.      */
 DECL|method|PollEnricher (PollingConsumer consumer)
 specifier|public
@@ -283,6 +288,16 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+DECL|method|getAggregationStrategy ()
+specifier|public
+name|AggregationStrategy
+name|getAggregationStrategy
+parameter_list|()
+block|{
+return|return
+name|aggregationStrategy
+return|;
+block|}
 comment|/**      * Sets the aggregation strategy for this poll enricher.      *      * @param aggregationStrategy the aggregationStrategy to set      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
@@ -300,20 +315,15 @@ operator|=
 name|aggregationStrategy
 expr_stmt|;
 block|}
-comment|/**      * Sets the default aggregation strategy for this poll enricher.      */
-DECL|method|setDefaultAggregationStrategy ()
+DECL|method|getTimeout ()
 specifier|public
-name|void
-name|setDefaultAggregationStrategy
+name|long
+name|getTimeout
 parameter_list|()
 block|{
-name|this
-operator|.
-name|aggregationStrategy
-operator|=
-name|defaultAggregationStrategy
-argument_list|()
-expr_stmt|;
+return|return
+name|timeout
+return|;
 block|}
 comment|/**      * Sets the timeout to use when polling.      *<p/>      * Use 0 to use receiveNoWait,      * Use -1 to use receive with no timeout (which will block until data is available).      *      * @param timeout timeout in millis.      */
 DECL|method|setTimeout (long timeout)
@@ -330,6 +340,47 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|isAggregateOnException ()
+specifier|public
+name|boolean
+name|isAggregateOnException
+parameter_list|()
+block|{
+return|return
+name|aggregateOnException
+return|;
+block|}
+DECL|method|setAggregateOnException (boolean aggregateOnException)
+specifier|public
+name|void
+name|setAggregateOnException
+parameter_list|(
+name|boolean
+name|aggregateOnException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|aggregateOnException
+operator|=
+name|aggregateOnException
+expr_stmt|;
+block|}
+comment|/**      * Sets the default aggregation strategy for this poll enricher.      */
+DECL|method|setDefaultAggregationStrategy ()
+specifier|public
+name|void
+name|setDefaultAggregationStrategy
+parameter_list|()
+block|{
+name|this
+operator|.
+name|aggregationStrategy
+operator|=
+name|defaultAggregationStrategy
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -512,6 +563,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|isAggregateOnException
+argument_list|()
+operator|&&
+operator|(
 name|resourceExchange
 operator|!=
 literal|null
@@ -520,6 +576,7 @@ name|resourceExchange
 operator|.
 name|isFailed
 argument_list|()
+operator|)
 condition|)
 block|{
 comment|// copy resource exchange onto original exchange (preserving pattern)
