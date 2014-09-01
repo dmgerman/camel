@@ -591,7 +591,7 @@ block|{
 comment|// do nothing by default
 block|}
 DECL|method|findMethod (Exchange exchange, Map<String, Object> properties)
-specifier|private
+specifier|protected
 name|ApiMethod
 name|findMethod
 parameter_list|(
