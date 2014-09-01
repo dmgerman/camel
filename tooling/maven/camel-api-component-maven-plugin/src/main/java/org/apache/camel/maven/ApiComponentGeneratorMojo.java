@@ -280,6 +280,37 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// fix apiName for single API use-case since Maven configurator sets empty parameters as null!!!
+if|if
+condition|(
+name|apis
+operator|.
+name|length
+operator|==
+literal|1
+operator|&&
+name|apis
+index|[
+literal|0
+index|]
+operator|.
+name|getApiName
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|apis
+index|[
+literal|0
+index|]
+operator|.
+name|setApiName
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
 comment|// generate API methods for each API proxy
 for|for
 control|(
