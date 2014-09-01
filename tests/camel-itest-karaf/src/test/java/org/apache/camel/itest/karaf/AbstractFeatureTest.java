@@ -1264,6 +1264,20 @@ block|,
 comment|//KarafDistributionOption.keepRuntimeFolder(),
 comment|// override the config.properties (to fix pax-exam bug)
 comment|//KarafDistributionOption.replaceConfigurationFile("etc/config.properties", new File("src/test/resources/org/apache/camel/itest/karaf/config.properties")),
+comment|// Update the jre.properties to export the sun.misc package
+name|KarafDistributionOption
+operator|.
+name|replaceConfigurationFile
+argument_list|(
+literal|"etc/jre.properties"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"src/test/resources/org/apache/camel/itest/karaf/jre.properties"
+argument_list|)
+argument_list|)
+block|,
 name|KarafDistributionOption
 operator|.
 name|replaceConfigurationFile
