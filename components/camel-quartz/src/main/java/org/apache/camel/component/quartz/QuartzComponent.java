@@ -884,7 +884,7 @@ name|interval
 init|=
 name|EndpointHelper
 operator|.
-name|resloveStringParameter
+name|resolveParameter
 argument_list|(
 name|getCamelContext
 argument_list|()
@@ -983,7 +983,7 @@ name|timeZone
 init|=
 name|EndpointHelper
 operator|.
-name|resloveStringParameter
+name|resolveParameter
 argument_list|(
 name|getCamelContext
 argument_list|()
@@ -1053,7 +1053,7 @@ name|interval
 init|=
 name|EndpointHelper
 operator|.
-name|resloveStringParameter
+name|resolveParameter
 argument_list|(
 name|getCamelContext
 argument_list|()
@@ -1112,7 +1112,7 @@ name|counter
 init|=
 name|EndpointHelper
 operator|.
-name|resloveStringParameter
+name|resolveParameter
 argument_list|(
 name|getCamelContext
 argument_list|()

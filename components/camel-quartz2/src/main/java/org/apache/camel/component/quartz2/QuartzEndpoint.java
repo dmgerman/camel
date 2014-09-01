@@ -1553,7 +1553,7 @@ name|repeat
 operator|=
 name|EndpointHelper
 operator|.
-name|resloveStringParameter
+name|resolveParameter
 argument_list|(
 name|getCamelContext
 argument_list|()
@@ -1606,7 +1606,7 @@ name|interval
 operator|=
 name|EndpointHelper
 operator|.
-name|resloveStringParameter
+name|resolveParameter
 argument_list|(
 name|getCamelContext
 argument_list|()
