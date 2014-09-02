@@ -70,12 +70,12 @@ name|BeanRefNoCacheTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|counter
+DECL|field|COUNTER
 specifier|private
 specifier|static
 specifier|final
 name|AtomicInteger
-name|counter
+name|COUNTER
 init|=
 operator|new
 name|AtomicInteger
@@ -205,7 +205,7 @@ parameter_list|()
 block|{
 name|count
 operator|=
-name|counter
+name|COUNTER
 operator|.
 name|incrementAndGet
 argument_list|()
