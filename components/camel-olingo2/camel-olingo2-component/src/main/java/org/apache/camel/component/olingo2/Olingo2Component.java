@@ -78,24 +78,6 @@ name|olingo2
 operator|.
 name|api
 operator|.
-name|Olingo2App
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|olingo2
-operator|.
-name|api
-operator|.
 name|impl
 operator|.
 name|Olingo2AppImpl
@@ -253,7 +235,7 @@ block|{
 comment|// component level shared proxy
 DECL|field|apiProxy
 specifier|private
-name|Olingo2App
+name|Olingo2AppWrapper
 name|apiProxy
 decl_stmt|;
 DECL|method|Olingo2Component ()
@@ -544,7 +526,7 @@ return|;
 block|}
 DECL|method|createApiProxy (Olingo2Configuration endpointConfiguration)
 specifier|public
-name|Olingo2App
+name|Olingo2AppWrapper
 name|createApiProxy
 parameter_list|(
 name|Olingo2Configuration
@@ -552,7 +534,7 @@ name|endpointConfiguration
 parameter_list|)
 block|{
 specifier|final
-name|Olingo2App
+name|Olingo2AppWrapper
 name|result
 decl_stmt|;
 if|if
@@ -611,7 +593,7 @@ return|;
 block|}
 DECL|method|createOlingo2App (Olingo2Configuration configuration)
 specifier|private
-name|Olingo2App
+name|Olingo2AppWrapper
 name|createOlingo2App
 parameter_list|(
 name|Olingo2Configuration
@@ -735,6 +717,9 @@ block|}
 name|apiProxy
 operator|=
 operator|new
+name|Olingo2AppWrapper
+argument_list|(
+operator|new
 name|Olingo2AppImpl
 argument_list|(
 name|configuration
@@ -744,8 +729,12 @@ argument_list|()
 argument_list|,
 name|clientBuilder
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|apiProxy
+operator|.
+name|getOlingo2App
+argument_list|()
 operator|.
 name|setContentType
 argument_list|(
@@ -759,12 +748,12 @@ return|return
 name|apiProxy
 return|;
 block|}
-DECL|method|closeApiProxy (Olingo2App apiProxy)
+DECL|method|closeApiProxy (Olingo2AppWrapper apiProxy)
 specifier|public
 name|void
 name|closeApiProxy
 parameter_list|(
-name|Olingo2App
+name|Olingo2AppWrapper
 name|apiProxy
 parameter_list|)
 block|{
