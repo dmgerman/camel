@@ -29,6 +29,18 @@ specifier|final
 class|class
 name|JpaConstants
 block|{
+DECL|field|ENTITY_MANAGER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ENTITY_MANAGER
+init|=
+literal|"CamelEntityManager"
+decl_stmt|;
+comment|/**      * @deprecated use {@link #ENTITY_MANAGER}      */
+annotation|@
+name|Deprecated
 DECL|field|ENTITYMANAGER
 specifier|public
 specifier|static
@@ -36,7 +48,7 @@ specifier|final
 name|String
 name|ENTITYMANAGER
 init|=
-literal|"CamelEntityManager"
+name|ENTITY_MANAGER
 decl_stmt|;
 DECL|method|JpaConstants ()
 specifier|private

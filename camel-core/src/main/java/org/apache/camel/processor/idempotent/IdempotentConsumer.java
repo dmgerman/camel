@@ -134,6 +134,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExchangeIdempotentRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|IdempotentRepository
 import|;
 end_import
@@ -215,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  */
+comment|/**  * An implementation of the<a  * href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * This implementation supports idempotent repositories implemented as  *<ul>  *<li>IdempotentRepository</li>  *<li>ExchangeIdempotentRepository</li>  *</ul>  *  * @see org.apache.camel.spi.IdempotentRepository  * @see org.apache.camel.spi.ExchangeIdempotentRepository  */
 end_comment
 
 begin_class
@@ -460,6 +474,35 @@ name|eager
 condition|)
 block|{
 comment|// add the key to the repository
+if|if
+condition|(
+name|idempotentRepository
+operator|instanceof
+name|ExchangeIdempotentRepository
+condition|)
+block|{
+name|newKey
+operator|=
+operator|(
+operator|(
+name|ExchangeIdempotentRepository
+argument_list|<
+name|String
+argument_list|>
+operator|)
+name|idempotentRepository
+operator|)
+operator|.
+name|add
+argument_list|(
+name|exchange
+argument_list|,
+name|messageId
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|newKey
 operator|=
 name|idempotentRepository
@@ -470,9 +513,39 @@ name|messageId
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
 block|{
 comment|// check if we already have the key
+if|if
+condition|(
+name|idempotentRepository
+operator|instanceof
+name|ExchangeIdempotentRepository
+condition|)
+block|{
+name|newKey
+operator|=
+operator|(
+operator|(
+name|ExchangeIdempotentRepository
+argument_list|<
+name|String
+argument_list|>
+operator|)
+name|idempotentRepository
+operator|)
+operator|.
+name|contains
+argument_list|(
+name|exchange
+argument_list|,
+name|messageId
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|newKey
 operator|=
 operator|!
@@ -483,6 +556,7 @@ argument_list|(
 name|messageId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

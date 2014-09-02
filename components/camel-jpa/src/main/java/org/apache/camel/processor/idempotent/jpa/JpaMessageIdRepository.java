@@ -88,6 +88,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|api
 operator|.
 name|management
@@ -138,7 +150,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|IdempotentRepository
+name|ExchangeIdempotentRepository
 import|;
 end_import
 
@@ -153,6 +165,26 @@ operator|.
 name|support
 operator|.
 name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 
@@ -222,8 +254,26 @@ name|TransactionTemplate
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jpa
+operator|.
+name|JpaHelper
+operator|.
+name|getTargetEntityManager
+import|;
+end_import
+
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -241,7 +291,7 @@ name|JpaMessageIdRepository
 extends|extends
 name|ServiceSupport
 implements|implements
-name|IdempotentRepository
+name|ExchangeIdempotentRepository
 argument_list|<
 name|String
 argument_list|>
@@ -264,17 +314,33 @@ argument_list|()
 operator|+
 literal|" x where x.processorName = ?1 and x.messageId = ?2"
 decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|JpaMessageIdRepository
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|processorName
 specifier|private
 specifier|final
 name|String
 name|processorName
 decl_stmt|;
-DECL|field|entityManager
+DECL|field|entityManagerFactory
 specifier|private
 specifier|final
-name|EntityManager
-name|entityManager
+name|EntityManagerFactory
+name|entityManagerFactory
 decl_stmt|;
 DECL|field|transactionTemplate
 specifier|private
@@ -329,12 +395,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|entityManager
+name|entityManagerFactory
 operator|=
 name|entityManagerFactory
-operator|.
-name|createEntityManager
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -447,16 +510,53 @@ name|description
 operator|=
 literal|"Adds the key to the store"
 argument_list|)
-DECL|method|add (final String messageId)
+DECL|method|add (String messageId)
+specifier|public
+name|boolean
+name|add
+parameter_list|(
+name|String
+name|messageId
+parameter_list|)
+block|{
+return|return
+name|add
+argument_list|(
+literal|null
+argument_list|,
+name|messageId
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|add (final Exchange exchange, final String messageId)
 specifier|public
 name|boolean
 name|add
 parameter_list|(
 specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
 name|String
 name|messageId
 parameter_list|)
 block|{
+specifier|final
+name|EntityManager
+name|entityManager
+init|=
+name|getTargetEntityManager
+argument_list|(
+name|exchange
+argument_list|,
+name|entityManagerFactory
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 comment|// Run this in single transaction.
 name|Boolean
 name|rc
@@ -477,7 +577,7 @@ name|Boolean
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
-name|arg0
+name|status
 parameter_list|)
 block|{
 if|if
@@ -500,6 +600,8 @@ name|list
 init|=
 name|query
 argument_list|(
+name|entityManager
+argument_list|,
 name|messageId
 argument_list|)
 decl_stmt|;
@@ -571,11 +673,19 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"add {} -> {}"
+argument_list|,
+name|messageId
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
 return|return
 name|rc
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -585,16 +695,53 @@ name|description
 operator|=
 literal|"Does the store contain the given key"
 argument_list|)
-DECL|method|contains (final String messageId)
+DECL|method|contains (String messageId)
+specifier|public
+name|boolean
+name|contains
+parameter_list|(
+name|String
+name|messageId
+parameter_list|)
+block|{
+return|return
+name|contains
+argument_list|(
+literal|null
+argument_list|,
+name|messageId
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|contains (final Exchange exchange, final String messageId)
 specifier|public
 name|boolean
 name|contains
 parameter_list|(
 specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
 name|String
 name|messageId
 parameter_list|)
 block|{
+specifier|final
+name|EntityManager
+name|entityManager
+init|=
+name|getTargetEntityManager
+argument_list|(
+name|exchange
+argument_list|,
+name|entityManagerFactory
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 comment|// Run this in single transaction.
 name|Boolean
 name|rc
@@ -615,7 +762,7 @@ name|Boolean
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
-name|arg0
+name|status
 parameter_list|)
 block|{
 if|if
@@ -638,6 +785,8 @@ name|list
 init|=
 name|query
 argument_list|(
+name|entityManager
+argument_list|,
 name|messageId
 argument_list|)
 decl_stmt|;
@@ -667,11 +816,19 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"contains {} -> {}"
+argument_list|,
+name|messageId
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
 return|return
 name|rc
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -681,16 +838,53 @@ name|description
 operator|=
 literal|"Remove the key from the store"
 argument_list|)
-DECL|method|remove (final String messageId)
+DECL|method|remove (String messageId)
+specifier|public
+name|boolean
+name|remove
+parameter_list|(
+name|String
+name|messageId
+parameter_list|)
+block|{
+return|return
+name|remove
+argument_list|(
+literal|null
+argument_list|,
+name|messageId
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|remove (final Exchange exchange, final String messageId)
 specifier|public
 name|boolean
 name|remove
 parameter_list|(
 specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
 name|String
 name|messageId
 parameter_list|)
 block|{
+specifier|final
+name|EntityManager
+name|entityManager
+init|=
+name|getTargetEntityManager
+argument_list|(
+name|exchange
+argument_list|,
+name|entityManagerFactory
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 name|Boolean
 name|rc
 init|=
@@ -710,7 +904,7 @@ name|Boolean
 name|doInTransaction
 parameter_list|(
 name|TransactionStatus
-name|arg0
+name|status
 parameter_list|)
 block|{
 if|if
@@ -733,6 +927,8 @@ name|list
 init|=
 name|query
 argument_list|(
+name|entityManager
+argument_list|,
 name|messageId
 argument_list|)
 decl_stmt|;
@@ -787,14 +983,68 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"remove {}"
+argument_list|,
+name|messageId
+argument_list|)
+expr_stmt|;
 return|return
 name|rc
-operator|.
-name|booleanValue
-argument_list|()
 return|;
 block|}
-DECL|method|query (final String messageId)
+annotation|@
+name|Override
+DECL|method|confirm (String messageId)
+specifier|public
+name|boolean
+name|confirm
+parameter_list|(
+name|String
+name|messageId
+parameter_list|)
+block|{
+return|return
+name|confirm
+argument_list|(
+literal|null
+argument_list|,
+name|messageId
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|confirm (final Exchange exchange, String messageId)
+specifier|public
+name|boolean
+name|confirm
+parameter_list|(
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|messageId
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"confirm {} -> true"
+argument_list|,
+name|messageId
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+DECL|method|query (final EntityManager entityManager, final String messageId)
 specifier|private
 name|List
 argument_list|<
@@ -802,6 +1052,10 @@ name|?
 argument_list|>
 name|query
 parameter_list|(
+specifier|final
+name|EntityManager
+name|entityManager
+parameter_list|,
 specifier|final
 name|String
 name|messageId
@@ -842,20 +1096,6 @@ name|getResultList
 argument_list|()
 return|;
 block|}
-DECL|method|confirm (String s)
-specifier|public
-name|boolean
-name|confirm
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-comment|// noop
-return|return
-literal|true
-return|;
-block|}
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -873,6 +1113,13 @@ return|return
 name|processorName
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to join existing transaction"
+argument_list|)
 DECL|method|isJoinTransaction ()
 specifier|public
 name|boolean
@@ -908,7 +1155,9 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// noop
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -919,11 +1168,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|entityManager
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+comment|// noop
 block|}
 block|}
 end_class

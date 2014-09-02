@@ -24,57 +24,72 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|Exchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *<p/>  * The repository supports eager (default) and non-eager mode.  *<ul>  *<li>eager: calls<tt>add</tt> and<tt>confirm</tt> if complete, or<tt>remove</tt> if failed</li>  *<li>non-eager: calls<tt>contains</tt> and<tt>add</tt> if complete, or<tt>remove</tt> if failed</li>  *</ul>  * Notice the remove callback, can be configured to be disabled.  *<p/>  * Implementations for the<a href="http://camel.apache.org/idempotent-consumer.html">idempotent consumer EIP</a>  * should favor using {@link org.apache.camel.spi.ExchangeIdempotentRepository} instead.  *  * @version  * @see org.apache.camel.spi.ExchangeIdempotentRepository  */
+comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *<p/>  * The repository supports eager (default) and non-eager mode.  *<ul>  *<li>eager: calls<tt>add</tt> and<tt>confirm</tt> if complete, or<tt>remove</tt> if failed</li>  *<li>non-eager: calls<tt>contains</tt> and<tt>add</tt> if complete, or<tt>remove</tt> if failed</li>  *</ul>  * Notice the remove callback, can be configured to be disabled.  *<p/>  * This repository supports the operations to pass in the current exchange, which can be needed by some implementations  * such as the JPA idempotent consumer.  *  * @version   */
 end_comment
 
 begin_interface
-DECL|interface|IdempotentRepository
+DECL|interface|ExchangeIdempotentRepository
 specifier|public
 interface|interface
-name|IdempotentRepository
+name|ExchangeIdempotentRepository
 parameter_list|<
 name|E
 parameter_list|>
 extends|extends
-name|Service
+name|IdempotentRepository
+argument_list|<
+name|E
+argument_list|>
 block|{
 comment|/**      * Adds the key to the repository.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if this repository did<b>not</b> already contain the specified element      */
-DECL|method|add (E key)
+DECL|method|add (Exchange exchange, E key)
 name|boolean
 name|add
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|E
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if this repository contains the specified element.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message      * @return<tt>true</tt> if this repository contains the specified element      */
-DECL|method|contains (E key)
+DECL|method|contains (Exchange exchange, E key)
 name|boolean
 name|contains
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|E
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Removes the key from the repository.      *<p/>      * Is usually invoked if the exchange failed.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was removed      */
-DECL|method|remove (E key)
+DECL|method|remove (Exchange exchange, E key)
 name|boolean
 name|remove
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|E
 name|key
 parameter_list|)
 function_decl|;
 comment|/**      * Confirms the key, after the exchange has been processed successfully.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      * @param key the key of the message for duplicate test      * @return<tt>true</tt> if the key was confirmed      */
-DECL|method|confirm (E key)
+DECL|method|confirm (Exchange exchange, E key)
 name|boolean
 name|confirm
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|E
 name|key
 parameter_list|)

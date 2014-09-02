@@ -118,6 +118,16 @@ name|javax
 operator|.
 name|persistence
 operator|.
+name|EntityManagerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|persistence
+operator|.
 name|LockModeType
 import|;
 end_import
@@ -328,17 +338,22 @@ name|Object
 argument_list|>
 name|NOWAIT
 decl_stmt|;
-DECL|field|entityManager
+DECL|field|entityManagerFactory
 specifier|private
 specifier|final
-name|EntityManager
-name|entityManager
+name|EntityManagerFactory
+name|entityManagerFactory
 decl_stmt|;
 DECL|field|transactionTemplate
 specifier|private
 specifier|final
 name|TransactionTemplate
 name|transactionTemplate
+decl_stmt|;
+DECL|field|entityManager
+specifier|private
+name|EntityManager
+name|entityManager
 decl_stmt|;
 DECL|field|queryFactory
 specifier|private
@@ -484,11 +499,11 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|entityManager
+name|entityManagerFactory
 operator|=
 name|endpoint
 operator|.
-name|createEntityManager
+name|getEntityManagerFactory
 argument_list|()
 expr_stmt|;
 name|this
@@ -2282,6 +2297,54 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|entityManager
+operator|=
+name|entityManagerFactory
+operator|.
+name|createEntityManager
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Created EntityManager {} on {}"
+argument_list|,
+name|entityManager
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
 DECL|method|doShutdown ()
 specifier|protected
 name|void
@@ -2295,6 +2358,8 @@ operator|.
 name|doShutdown
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
 name|entityManager
 operator|.
 name|close
@@ -2304,7 +2369,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"closed the EntityManager {} on {}"
+literal|"Closed EntityManager {} on {}"
 argument_list|,
 name|entityManager
 argument_list|,
