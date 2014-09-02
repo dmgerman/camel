@@ -1317,7 +1317,7 @@ operator|=
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"OData HTTP request cancelled"
+literal|"OData HTTP request cancelled!"
 argument_list|)
 expr_stmt|;
 name|latch
@@ -1369,16 +1369,37 @@ throw|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Error reading EDM "
-operator|+
+specifier|final
+name|String
+name|message
+init|=
 name|ex
 operator|.
 name|getMessage
 argument_list|()
+operator|!=
+literal|null
+condition|?
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+else|:
+name|ex
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Error reading EDM: "
+operator|+
+name|message
 argument_list|,
 name|ex
 argument_list|)

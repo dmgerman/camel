@@ -421,12 +421,7 @@ argument_list|(
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"HTTP Request cancelled for "
-operator|+
-name|endpoint
-operator|.
-name|getEndpointUri
-argument_list|()
+literal|"OData HTTP Request cancelled!"
 argument_list|)
 argument_list|)
 expr_stmt|;

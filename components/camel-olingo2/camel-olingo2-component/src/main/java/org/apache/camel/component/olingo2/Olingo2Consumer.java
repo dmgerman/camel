@@ -355,7 +355,7 @@ operator|=
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Http Request cancelled"
+literal|"OData HTTP Request cancelled"
 argument_list|)
 expr_stmt|;
 name|latch

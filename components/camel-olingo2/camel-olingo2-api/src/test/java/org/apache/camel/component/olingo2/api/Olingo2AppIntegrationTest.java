@@ -864,8 +864,8 @@ name|TEST_SERVICE_URL
 init|=
 literal|"http://localhost:8080/MyFormula.svc"
 decl_stmt|;
-comment|//    private static String TEST_SERVICE_URL = "http://localhost:8080/cars-annotations-sample/MyFormula.svc";
-comment|//    private static ContentType TEST_FORMAT = ContentType.APPLICATION_XML_CS_UTF_8;
+comment|//    private static final String TEST_SERVICE_URL = "http://localhost:8080/cars-annotations-sample/MyFormula.svc";
+comment|//    private static final ContentType TEST_FORMAT = ContentType.APPLICATION_XML_CS_UTF_8;
 DECL|field|TEST_FORMAT
 specifier|private
 specifier|static
@@ -1007,6 +1007,14 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// wait for generated data to be registered in server
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
 argument_list|)
 expr_stmt|;
 block|}
