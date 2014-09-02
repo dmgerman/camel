@@ -135,66 +135,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -644,6 +584,66 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_comment
 comment|/**  * Integration test for {@link org.apache.camel.component.olingo2.api.impl.Olingo2AppImpl}.  * To test run the sample Olingo2 Server as outlined at  * http://olingo.apache.org/doc/tutorials/Olingo2V2BasicClientSample.html  */
 end_comment
@@ -858,6 +858,7 @@ decl_stmt|;
 DECL|field|TEST_SERVICE_URL
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|TEST_SERVICE_URL
 init|=
@@ -868,6 +869,7 @@ comment|//    private static ContentType TEST_FORMAT = ContentType.APPLICATION_X
 DECL|field|TEST_FORMAT
 specifier|private
 specifier|static
+specifier|final
 name|ContentType
 name|TEST_FORMAT
 init|=
