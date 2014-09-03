@@ -763,7 +763,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO have to support setting patch parameters before callinfg execute like:
+comment|// TODO have to support setting patch parameters before calling execute like:
 comment|/*       File file = new File();       file.setTitle(newTitle);        // Rename the file using a patch request.       Files.Patch patchRequest = service.files().patch(fileId, file);       patchRequest.setFields("title");        File updatedFile = patchRequest.execute();          */
 specifier|final
 name|Map
@@ -1089,13 +1089,6 @@ argument_list|(
 literal|"camel.png"
 argument_list|)
 expr_stmt|;
-name|file
-operator|.
-name|setMimeType
-argument_list|(
-literal|"application/vnd.google-apps.photo"
-argument_list|)
-expr_stmt|;
 comment|// File's new content.
 name|java
 operator|.
@@ -1120,7 +1113,7 @@ init|=
 operator|new
 name|FileContent
 argument_list|(
-literal|"application/vnd.google-apps.photo"
+literal|null
 argument_list|,
 name|fileContent
 argument_list|)
