@@ -2466,7 +2466,7 @@ argument_list|()
 operator|.
 name|containsKey
 argument_list|(
-literal|"!deltaToken"
+literal|"!deltatoken"
 argument_list|)
 condition|)
 block|{
