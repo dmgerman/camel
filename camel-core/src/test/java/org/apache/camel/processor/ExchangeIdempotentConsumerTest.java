@@ -476,6 +476,7 @@ expr_stmt|;
 block|}
 DECL|class|MyIdempotentRepo
 specifier|private
+specifier|final
 class|class
 name|MyIdempotentRepo
 implements|implements
