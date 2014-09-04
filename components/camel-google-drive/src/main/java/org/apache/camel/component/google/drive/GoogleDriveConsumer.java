@@ -201,7 +201,6 @@ argument_list|(
 name|properties
 argument_list|)
 decl_stmt|;
-comment|// TODO set any generic params, like OAuth token, etc.
 try|try
 block|{
 return|return
@@ -217,16 +216,14 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// TODO Auto-generated catch block
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+argument_list|)
+throw|;
 block|}
-return|return
-literal|null
-return|;
 block|}
 block|}
 end_class
