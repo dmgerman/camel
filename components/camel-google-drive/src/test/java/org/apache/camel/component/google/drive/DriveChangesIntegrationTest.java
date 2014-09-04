@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for com.google.api.services.drive.Drive$Changes APIs.  * TODO Move the file to src/test/java, populate parameter values, and remove @Ignore annotations.  * The class source won't be generated again if the generator MOJO finds it under src/test/java.  */
+comment|/**  * Test class for com.google.api.services.drive.Drive$Changes APIs.  */
 end_comment
 
 begin_class
@@ -241,8 +241,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-annotation|@
 name|Test
 DECL|method|testList ()
 specifier|public
@@ -263,11 +261,9 @@ name|services
 operator|.
 name|drive
 operator|.
-name|Drive
+name|model
 operator|.
-name|Changes
-operator|.
-name|List
+name|ChangeList
 name|result
 init|=
 name|requestBody

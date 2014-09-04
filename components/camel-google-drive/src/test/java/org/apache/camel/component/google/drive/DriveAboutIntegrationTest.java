@@ -22,26 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -51,16 +31,6 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -135,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for com.google.api.services.drive.Drive$About APIs.  * TODO Move the file to src/test/java, populate parameter values, and remove @Ignore annotations.  * The class source won't be generated again if the generator MOJO finds it under src/test/java.  */
+comment|/**  * Test class for com.google.api.services.drive.Drive$About APIs.  */
 end_comment
 
 begin_class
@@ -185,8 +155,6 @@ name|getName
 argument_list|()
 decl_stmt|;
 annotation|@
-name|Ignore
-annotation|@
 name|Test
 DECL|method|testGet ()
 specifier|public
@@ -207,11 +175,9 @@ name|services
 operator|.
 name|drive
 operator|.
-name|Drive
+name|model
 operator|.
 name|About
-operator|.
-name|Get
 name|result
 init|=
 name|requestBody

@@ -22,26 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -135,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for com.google.api.services.drive.Drive$Apps APIs.  * TODO Move the file to src/test/java, populate parameter values, and remove @Ignore annotations.  * The class source won't be generated again if the generator MOJO finds it under src/test/java.  */
+comment|/**  * Test class for com.google.api.services.drive.Drive$Apps APIs.  */
 end_comment
 
 begin_class
@@ -240,8 +220,7 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
+comment|// TODO getting permission errors for this one
 annotation|@
 name|Test
 DECL|method|testList ()
@@ -263,11 +242,9 @@ name|services
 operator|.
 name|drive
 operator|.
-name|Drive
+name|model
 operator|.
-name|Apps
-operator|.
-name|List
+name|App
 name|result
 init|=
 name|requestBody

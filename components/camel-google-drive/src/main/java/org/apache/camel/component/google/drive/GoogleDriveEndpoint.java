@@ -22,7 +22,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -450,7 +470,7 @@ specifier|private
 name|FileDataStoreFactory
 name|dataStoreFactory
 decl_stmt|;
-comment|// Directory to store user credentials
+comment|// TODO Directory to store user credentials
 DECL|field|DATA_STORE_DIR
 specifier|private
 specifier|static
@@ -477,6 +497,37 @@ literal|"user.home"
 argument_list|)
 argument_list|,
 literal|".store/drive_sample"
+argument_list|)
+decl_stmt|;
+DECL|field|DEFAULT_SCOPES
+specifier|private
+specifier|static
+specifier|final
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|DEFAULT_SCOPES
+init|=
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|DriveScopes
+operator|.
+name|DRIVE_FILE
+argument_list|,
+name|DriveScopes
+operator|.
+name|DRIVE_APPS_READONLY
+argument_list|,
+name|DriveScopes
+operator|.
+name|DRIVE_METADATA_READONLY
+argument_list|,
+name|DriveScopes
+operator|.
+name|DRIVE
 argument_list|)
 decl_stmt|;
 DECL|method|GoogleDriveEndpoint (String uri, GoogleDriveComponent component, GoogleDriveApiName apiName, String methodName, GoogleDriveConfiguration endpointConfiguration)
@@ -659,14 +710,7 @@ operator|.
 name|getClientSecret
 argument_list|()
 argument_list|,
-name|Collections
-operator|.
-name|singleton
-argument_list|(
-name|DriveScopes
-operator|.
-name|DRIVE_FILE
-argument_list|)
+name|DEFAULT_SCOPES
 argument_list|)
 operator|.
 name|setDataStoreFactory
@@ -724,7 +768,115 @@ name|files
 argument_list|()
 expr_stmt|;
 break|break;
-comment|// TODO add extra APIs here
+case|case
+name|DRIVE_ABOUT
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|about
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|DRIVE_APPS
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|apps
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|DRIVE_CHANGES
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|changes
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|DRIVE_COMMENTS
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|comments
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|DRIVE_PERMISSIONS
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|permissions
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|DRIVE_PROPERTIES
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|properties
+argument_list|()
+expr_stmt|;
+break|break;
+comment|// Still need to support these drive APIs
+comment|//              case DRIVE_CHANNELS:
+comment|//              apiProxy = getClient().channels();
+comment|//              break;
+comment|//          case DRIVE_CHILDREN:
+comment|//              apiProxy = getClient().children();
+comment|//              break;
+comment|//              case DRIVE_PARENTS:
+comment|//              apiProxy = getClient().parents();
+comment|//              break;
+comment|//            case DRIVE_REALTIME:
+comment|//                apiProxy = getClient().realtime();
+comment|//                break;
+case|case
+name|DRIVE_REPLIES
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|replies
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|DRIVE_REVISIONS
+case|:
+name|apiProxy
+operator|=
+name|getClient
+argument_list|()
+operator|.
+name|revisions
+argument_list|()
+expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new
