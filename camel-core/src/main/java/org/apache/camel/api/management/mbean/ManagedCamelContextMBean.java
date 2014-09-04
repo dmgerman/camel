@@ -581,6 +581,21 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Whether its possible to send to the endpoint (eg the endpoint has a producer)"
+argument_list|)
+DECL|method|canSendToEndpoint (String endpointUri)
+name|boolean
+name|canSendToEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Send body (in only)"
 argument_list|)
 DECL|method|sendBody (String endpointUri, Object body)
