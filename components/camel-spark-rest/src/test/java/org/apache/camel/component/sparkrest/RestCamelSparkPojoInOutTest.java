@@ -88,7 +88,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://127.0.0.1:"
+literal|"http://localhost:"
 operator|+
 name|getPort
 argument_list|()
@@ -151,7 +151,7 @@ argument_list|)
 operator|.
 name|host
 argument_list|(
-literal|"127.0.0.1"
+literal|"localhost"
 argument_list|)
 operator|.
 name|port

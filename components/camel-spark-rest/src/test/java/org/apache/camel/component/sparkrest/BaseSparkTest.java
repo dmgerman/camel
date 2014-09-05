@@ -69,7 +69,6 @@ name|BaseSparkTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|//static int count;
 DECL|field|port
 specifier|protected
 name|int
@@ -95,14 +94,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//count++;
 name|port
 operator|=
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
 argument_list|(
-literal|4500
+literal|25500
 argument_list|)
 expr_stmt|;
 name|super
@@ -148,13 +146,6 @@ operator|.
 name|setPort
 argument_list|(
 name|port
-argument_list|)
-expr_stmt|;
-name|spark
-operator|.
-name|setIpAddress
-argument_list|(
-literal|"127.0.0.1"
 argument_list|)
 expr_stmt|;
 return|return

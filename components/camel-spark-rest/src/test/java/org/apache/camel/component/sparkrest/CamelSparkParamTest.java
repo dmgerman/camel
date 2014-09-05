@@ -89,7 +89,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://localhost:"
 operator|+
 name|getPort
 argument_list|()
