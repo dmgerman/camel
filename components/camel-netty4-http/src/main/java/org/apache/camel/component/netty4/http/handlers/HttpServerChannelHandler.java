@@ -1438,6 +1438,15 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
+comment|// close the channel
+name|ctx
+operator|.
+name|channel
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return;
 block|}
 else|else
