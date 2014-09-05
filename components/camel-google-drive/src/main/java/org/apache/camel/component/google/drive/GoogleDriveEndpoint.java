@@ -628,6 +628,8 @@ operator|==
 literal|null
 condition|)
 block|{
+name|client
+operator|=
 name|getClientFactory
 argument_list|()
 operator|.
