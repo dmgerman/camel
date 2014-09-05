@@ -995,18 +995,6 @@ operator|=
 name|shouldCacheAddress
 expr_stmt|;
 block|}
-DECL|method|getCachedAddress ()
-specifier|public
-name|boolean
-name|getCachedAddress
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|cachedAddress
-return|;
-block|}
 DECL|method|isCachedAddress ()
 specifier|public
 name|boolean
@@ -1014,10 +1002,7 @@ name|isCachedAddress
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|getCachedAddress
-argument_list|()
+name|cachedAddress
 return|;
 block|}
 comment|// here we just shows the option setting of host, port, protocol
