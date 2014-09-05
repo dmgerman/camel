@@ -393,7 +393,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toByteBuffer (byte[] bytes, Exchange exchange)
+DECL|method|toByteBuffer (byte[] bytes)
 specifier|public
 specifier|static
 name|ByteBuf
@@ -402,9 +402,6 @@ parameter_list|(
 name|byte
 index|[]
 name|bytes
-parameter_list|,
-name|Exchange
-name|exchange
 parameter_list|)
 block|{
 name|ByteBuf
@@ -496,8 +493,6 @@ return|return
 name|toByteBuffer
 argument_list|(
 name|bytes
-argument_list|,
-name|exchange
 argument_list|)
 return|;
 block|}
