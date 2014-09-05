@@ -259,7 +259,7 @@ block|}
 comment|/*      * (non-Javadoc)      *       * @see      * org.apache.camel.component.google.drive.GoogleDriveClientFactory#makeClient      * (java.lang.String, java.lang.String, java.util.Collection)      */
 annotation|@
 name|Override
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes)
+DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName)
 specifier|public
 name|Drive
 name|makeClient
@@ -275,6 +275,9 @@ argument_list|<
 name|String
 argument_list|>
 name|scopes
+parameter_list|,
+name|String
+name|applicationName
 parameter_list|)
 block|{
 name|Credential
@@ -304,6 +307,11 @@ argument_list|,
 name|jsonFactory
 argument_list|,
 name|credential
+argument_list|)
+operator|.
+name|setApplicationName
+argument_list|(
+name|applicationName
 argument_list|)
 operator|.
 name|build

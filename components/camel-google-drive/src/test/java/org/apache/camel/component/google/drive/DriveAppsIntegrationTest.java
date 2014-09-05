@@ -164,63 +164,8 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-comment|// TODO provide parameter values for get
-annotation|@
-name|Ignore
-annotation|@
-name|Test
-DECL|method|testGet ()
-specifier|public
-name|void
-name|testGet
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// using String message body for single parameter "appId"
-specifier|final
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|services
-operator|.
-name|drive
-operator|.
-name|Drive
-operator|.
-name|Apps
-operator|.
-name|Get
-name|result
-init|=
-name|requestBody
-argument_list|(
-literal|"direct://GET"
-argument_list|,
-literal|null
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"get result"
-argument_list|,
-name|result
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"get: "
-operator|+
-name|result
-argument_list|)
-expr_stmt|;
-block|}
 comment|// TODO getting permission errors for this one
+comment|// May have to adjust scopes used
 annotation|@
 name|Ignore
 annotation|@

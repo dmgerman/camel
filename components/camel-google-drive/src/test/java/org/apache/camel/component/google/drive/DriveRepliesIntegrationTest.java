@@ -60,16 +60,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -191,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test class for com.google.api.services.drive.Drive$Replies APIs.  * TODO Move the file to src/test/java, populate parameter values, and remove @Ignore annotations.  * The class source won't be generated again if the generator MOJO finds it under src/test/java.  */
+comment|/**  * Test class for com.google.api.services.drive.Drive$Replies APIs.  */
 end_comment
 
 begin_class

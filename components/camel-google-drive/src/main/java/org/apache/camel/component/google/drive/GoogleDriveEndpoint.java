@@ -646,6 +646,11 @@ name|getClientSecret
 argument_list|()
 argument_list|,
 name|DEFAULT_SCOPES
+argument_list|,
+name|configuration
+operator|.
+name|getApplicationName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
