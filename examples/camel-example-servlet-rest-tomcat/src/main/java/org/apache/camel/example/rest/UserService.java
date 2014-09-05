@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|TreeMap
 import|;
 end_import
@@ -77,6 +87,15 @@ name|String
 argument_list|,
 name|User
 argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|ran
+specifier|private
+name|Random
+name|ran
+init|=
+operator|new
+name|Random
 argument_list|()
 decl_stmt|;
 DECL|method|UserService ()
@@ -114,6 +133,21 @@ literal|"Donald Duck"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|users
+operator|.
+name|put
+argument_list|(
+literal|"789"
+argument_list|,
+operator|new
+name|User
+argument_list|(
+literal|789
+argument_list|,
+literal|"Slow Turtle"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Gets a user by the given id      *      * @param id  the id of the user      * @return the user, or<tt>null</tt> if no user exists      */
 DECL|method|getUser (String id)
@@ -125,6 +159,48 @@ name|String
 name|id
 parameter_list|)
 block|{
+if|if
+condition|(
+literal|"789"
+operator|.
+name|equals
+argument_list|(
+name|id
+argument_list|)
+condition|)
+block|{
+comment|// simulate some cpu processing time when returning the slow turtle
+name|int
+name|delay
+init|=
+literal|500
+operator|+
+name|ran
+operator|.
+name|nextInt
+argument_list|(
+literal|1500
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 return|return
 name|users
 operator|.
