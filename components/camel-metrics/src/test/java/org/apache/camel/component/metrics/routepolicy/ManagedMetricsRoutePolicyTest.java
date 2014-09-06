@@ -293,10 +293,10 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be 2x4 names
+comment|// there should be 2 names
 name|assertEquals
 argument_list|(
-literal|8
+literal|2
 argument_list|,
 name|registry
 operator|.
@@ -307,7 +307,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// there should be 8 mbeans
+comment|// there should be 2 mbeans
 name|Set
 argument_list|<
 name|ObjectName
@@ -330,7 +330,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|8
+literal|2
 argument_list|,
 name|set
 operator|.
@@ -401,7 +401,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"foo.total"
+literal|"bar.responses"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -411,27 +411,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"bar.total"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"bar.requests"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"foo.requests"
+literal|"foo.responses"
 argument_list|)
 argument_list|)
 expr_stmt|;

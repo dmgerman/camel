@@ -225,10 +225,10 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be 2x4 names
+comment|// there should be 2 names
 name|assertEquals
 argument_list|(
-literal|8
+literal|2
 argument_list|,
 name|registry
 operator|.
