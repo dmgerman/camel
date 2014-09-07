@@ -126,7 +126,7 @@ name|component
 operator|.
 name|syslog
 operator|.
-name|Rfc3164SyslogDataFormat
+name|SyslogDataFormat
 import|;
 end_import
 
@@ -463,7 +463,7 @@ name|DataFormat
 name|syslogDataFormat
 init|=
 operator|new
-name|Rfc3164SyslogDataFormat
+name|SyslogDataFormat
 argument_list|()
 decl_stmt|;
 comment|// we setup a Syslog  listener on a random port.
@@ -552,6 +552,8 @@ comment|// using the features to install the other camel components
 name|loadCamelFeatures
 argument_list|(
 literal|"camel-mina"
+argument_list|,
+literal|"camel-netty"
 argument_list|,
 literal|"camel-syslog"
 argument_list|)
