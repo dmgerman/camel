@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -75,6 +85,36 @@ operator|.
 name|model
 operator|.
 name|RouteDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RestRegistry
 import|;
 end_import
 
@@ -164,6 +204,37 @@ argument_list|<
 name|Endpoint
 argument_list|>
 name|getEndpoints
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+function_decl|;
+comment|/**      * Return the definition of the REST services for the given Camel context.      *      * @param camelContextName the Camel context.      * @return the<code>RouteDefinition</code>.      */
+DECL|method|getRestDefinitions (String camelContextName)
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRestDefinitions
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+function_decl|;
+comment|/**      * Return the REST services      *      * @param camelContextName the Camel context.      * @return the REST services      */
+DECL|method|getRestServices (String camelContextName)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|RestRegistry
+operator|.
+name|RestService
+argument_list|>
+argument_list|>
+name|getRestServices
 parameter_list|(
 name|String
 name|camelContextName
