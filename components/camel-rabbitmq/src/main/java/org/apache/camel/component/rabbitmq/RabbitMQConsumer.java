@@ -136,6 +136,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|ShutdownSignalException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -169,18 +181,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|ShutdownSignalException
 import|;
 end_import
 
@@ -386,7 +386,7 @@ return|return
 name|channel
 return|;
 block|}
-comment|/**      * Add a consummer thread for given channel      */
+comment|/**      * Add a consumer thread for given channel      */
 DECL|method|startConsumers ()
 specifier|private
 name|void
@@ -455,7 +455,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Add a consummer thread for given channel      */
+comment|/**      * Add a consumer thread for given channel      */
 DECL|method|startConsumer (Channel channel)
 specifier|private
 name|void
