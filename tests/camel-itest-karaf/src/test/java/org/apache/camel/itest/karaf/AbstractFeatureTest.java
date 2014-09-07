@@ -1112,7 +1112,7 @@ block|{
 comment|// setup the default version of it
 name|karafVersion
 operator|=
-literal|"2.3.6"
+literal|"2.3.7"
 expr_stmt|;
 block|}
 return|return
