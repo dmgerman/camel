@@ -397,7 +397,7 @@ name|DataFormat
 name|syslogDataFormat
 init|=
 operator|new
-name|Rfc3164SyslogDataFormat
+name|SyslogDataFormat
 argument_list|()
 decl_stmt|;
 comment|// we setup a Syslog  listener on a random port.
