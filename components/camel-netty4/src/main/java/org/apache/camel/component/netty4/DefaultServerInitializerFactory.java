@@ -199,12 +199,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|DefaultServerPipelineFactory
+DECL|class|DefaultServerInitializerFactory
 specifier|public
 class|class
-name|DefaultServerPipelineFactory
+name|DefaultServerInitializerFactory
 extends|extends
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 block|{
 DECL|field|LOG
 specifier|private
@@ -217,7 +217,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DefaultServerPipelineFactory
+name|DefaultServerInitializerFactory
 operator|.
 name|class
 argument_list|)
@@ -234,9 +234,9 @@ name|sslContext
 decl_stmt|;
 annotation|@
 name|Deprecated
-DECL|method|DefaultServerPipelineFactory (NettyServerBootstrapConfiguration configuration)
+DECL|method|DefaultServerInitializerFactory (NettyServerBootstrapConfiguration configuration)
 specifier|public
-name|DefaultServerPipelineFactory
+name|DefaultServerInitializerFactory
 parameter_list|(
 name|NettyServerBootstrapConfiguration
 name|configuration
@@ -295,9 +295,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|DefaultServerPipelineFactory (NettyConsumer consumer)
+DECL|method|DefaultServerInitializerFactory (NettyConsumer consumer)
 specifier|public
-name|DefaultServerPipelineFactory
+name|DefaultServerInitializerFactory
 parameter_list|(
 name|NettyConsumer
 name|consumer
@@ -1047,7 +1047,7 @@ annotation|@
 name|Override
 DECL|method|createPipelineFactory (NettyConsumer consumer)
 specifier|public
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|createPipelineFactory
 parameter_list|(
 name|NettyConsumer
@@ -1056,7 +1056,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|DefaultServerPipelineFactory
+name|DefaultServerInitializerFactory
 argument_list|(
 name|consumer
 argument_list|)

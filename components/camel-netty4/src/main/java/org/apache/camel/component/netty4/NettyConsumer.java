@@ -239,10 +239,10 @@ literal|null
 condition|)
 block|{
 comment|// setup pipeline factory
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|pipelineFactory
 decl_stmt|;
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|factory
 init|=
 name|configuration
@@ -272,7 +272,7 @@ block|{
 name|pipelineFactory
 operator|=
 operator|new
-name|DefaultServerPipelineFactory
+name|DefaultServerInitializerFactory
 argument_list|(
 name|this
 argument_list|)

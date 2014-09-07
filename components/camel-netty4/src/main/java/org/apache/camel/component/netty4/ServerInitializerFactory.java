@@ -59,22 +59,22 @@ comment|/**  * Factory to create {@link ChannelPipeline} for servers, eg {@link 
 end_comment
 
 begin_class
-DECL|class|ServerPipelineFactory
+DECL|class|ServerInitializerFactory
 specifier|public
 specifier|abstract
 class|class
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 extends|extends
 name|ChannelInitializer
 argument_list|<
 name|Channel
 argument_list|>
 block|{
-comment|/**      * Creates a new {@link ServerPipelineFactory} using the given {@link NettyConsumer}      *      * @param consumer the associated consumer      * @return the {@link ServerPipelineFactory} associated to the given consumer.      */
+comment|/**      * Creates a new {@link ServerInitializerFactory} using the given {@link NettyConsumer}      *      * @param consumer the associated consumer      * @return the {@link ServerInitializerFactory} associated to the given consumer.      */
 DECL|method|createPipelineFactory (NettyConsumer consumer)
 specifier|public
 specifier|abstract
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|createPipelineFactory
 parameter_list|(
 name|NettyConsumer

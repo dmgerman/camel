@@ -1292,7 +1292,7 @@ name|getConfiguration
 argument_list|()
 argument_list|,
 operator|new
-name|HttpServerPipelineFactory
+name|HttpServerInitializerFactory
 argument_list|(
 name|consumer
 argument_list|)

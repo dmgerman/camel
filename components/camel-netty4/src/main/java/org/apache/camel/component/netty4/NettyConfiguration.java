@@ -453,7 +453,7 @@ annotation|@
 name|UriParam
 DECL|field|clientPipelineFactory
 specifier|private
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 name|clientPipelineFactory
 decl_stmt|;
 annotation|@
@@ -1038,7 +1038,7 @@ name|parameters
 argument_list|,
 literal|"clientPipelineFactory"
 argument_list|,
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 operator|.
 name|class
 argument_list|,
@@ -1055,7 +1055,7 @@ name|parameters
 argument_list|,
 literal|"serverPipelineFactory"
 argument_list|,
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 operator|.
 name|class
 argument_list|,
@@ -2031,12 +2031,12 @@ operator|=
 name|allowDefaultCodec
 expr_stmt|;
 block|}
-DECL|method|setClientPipelineFactory (ClientPipelineFactory clientPipelineFactory)
+DECL|method|setClientPipelineFactory (ClientInitializerFactory clientPipelineFactory)
 specifier|public
 name|void
 name|setClientPipelineFactory
 parameter_list|(
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 name|clientPipelineFactory
 parameter_list|)
 block|{
@@ -2049,7 +2049,7 @@ expr_stmt|;
 block|}
 DECL|method|getClientPipelineFactory ()
 specifier|public
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 name|getClientPipelineFactory
 parameter_list|()
 block|{

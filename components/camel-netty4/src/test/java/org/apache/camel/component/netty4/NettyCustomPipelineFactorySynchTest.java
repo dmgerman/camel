@@ -395,7 +395,7 @@ specifier|public
 class|class
 name|TestClientChannelPipelineFactory
 extends|extends
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 block|{
 DECL|field|maxLineSize
 specifier|private
@@ -517,7 +517,7 @@ annotation|@
 name|Override
 DECL|method|createPipelineFactory (NettyProducer producer)
 specifier|public
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 name|createPipelineFactory
 parameter_list|(
 name|NettyProducer
@@ -538,7 +538,7 @@ specifier|public
 class|class
 name|TestServerChannelPipelineFactory
 extends|extends
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 block|{
 DECL|field|maxLineSize
 specifier|private
@@ -660,7 +660,7 @@ annotation|@
 name|Override
 DECL|method|createPipelineFactory (NettyConsumer consumer)
 specifier|public
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|createPipelineFactory
 parameter_list|(
 name|NettyConsumer

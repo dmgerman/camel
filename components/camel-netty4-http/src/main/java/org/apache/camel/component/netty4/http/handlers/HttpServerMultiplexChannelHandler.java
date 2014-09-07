@@ -148,39 +148,7 @@ name|codec
 operator|.
 name|http
 operator|.
-name|DefaultFullHttpResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
 name|DefaultHttpResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|FullHttpRequest
 import|;
 end_import
 
@@ -411,7 +379,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A multiplex {@link org.apache.camel.component.netty4.http.HttpServerPipelineFactory} which keeps a list of handlers, and delegates to the  * target handler based on the http context path in the incoming request. This is used to allow to reuse  * the same Netty consumer, allowing to have multiple routes on the same netty {@link io.netty.bootstrap.ServerBootstrap}  */
+comment|/**  * A multiplex {@link org.apache.camel.component.netty4.http.HttpServerInitializerFactory} which keeps a list of handlers, and delegates to the  * target handler based on the http context path in the incoming request. This is used to allow to reuse  * the same Netty consumer, allowing to have multiple routes on the same netty {@link io.netty.bootstrap.ServerBootstrap}  */
 end_comment
 
 begin_class

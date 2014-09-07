@@ -183,14 +183,14 @@ expr_stmt|;
 name|setServerPipelineFactory
 argument_list|(
 operator|new
-name|HttpServerPipelineFactory
+name|HttpServerInitializerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|setClientPipelineFactory
 argument_list|(
 operator|new
-name|HttpClientPipelineFactory
+name|HttpClientInitializerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;

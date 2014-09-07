@@ -512,7 +512,7 @@ name|configuration
 decl_stmt|;
 DECL|field|pipelineFactory
 specifier|private
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 name|pipelineFactory
 decl_stmt|;
 DECL|field|noReplyLogger
@@ -863,7 +863,7 @@ name|HashedWheelTimer
 argument_list|()
 expr_stmt|;
 comment|// setup pipeline factory
-name|ClientPipelineFactory
+name|ClientInitializerFactory
 name|factory
 init|=
 name|configuration
@@ -893,7 +893,7 @@ block|{
 name|pipelineFactory
 operator|=
 operator|new
-name|DefaultClientPipelineFactory
+name|DefaultClientInitializerFactory
 argument_list|(
 name|this
 argument_list|)

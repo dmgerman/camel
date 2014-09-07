@@ -174,7 +174,7 @@ name|backlog
 decl_stmt|;
 DECL|field|serverPipelineFactory
 specifier|protected
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|serverPipelineFactory
 decl_stmt|;
 DECL|field|nettyServerBootstrapFactory
@@ -983,7 +983,7 @@ expr_stmt|;
 block|}
 DECL|method|getServerPipelineFactory ()
 specifier|public
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|getServerPipelineFactory
 parameter_list|()
 block|{
@@ -991,12 +991,12 @@ return|return
 name|serverPipelineFactory
 return|;
 block|}
-DECL|method|setServerPipelineFactory (ServerPipelineFactory serverPipelineFactory)
+DECL|method|setServerPipelineFactory (ServerInitializerFactory serverPipelineFactory)
 specifier|public
 name|void
 name|setServerPipelineFactory
 parameter_list|(
-name|ServerPipelineFactory
+name|ServerInitializerFactory
 name|serverPipelineFactory
 parameter_list|)
 block|{

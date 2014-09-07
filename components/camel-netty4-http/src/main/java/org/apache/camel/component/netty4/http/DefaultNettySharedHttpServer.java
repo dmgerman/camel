@@ -506,7 +506,7 @@ argument_list|>
 name|pipelineFactory
 init|=
 operator|new
-name|HttpServerSharedPipelineFactory
+name|HttpServerSharedInitializerFactory
 argument_list|(
 name|configuration
 argument_list|,
