@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_package
@@ -17,10 +17,6 @@ operator|.
 name|syslog
 package|;
 end_package
-
-begin_comment
-comment|/**  * @author svenrienstra  *   */
-end_comment
 
 begin_class
 DECL|class|Rfc5424SyslogMessage
@@ -69,7 +65,7 @@ return|return
 name|appName
 return|;
 block|}
-comment|/**      * @param appName      *            the appName to set      */
+comment|/**      * @param appName the appName to set      */
 DECL|method|setAppName (String appName)
 specifier|public
 name|void
@@ -97,7 +93,7 @@ return|return
 name|procId
 return|;
 block|}
-comment|/**      * @param procId      *            the procId to set      */
+comment|/**      * @param procId the procId to set      */
 DECL|method|setProcId (String procId)
 specifier|public
 name|void
@@ -125,7 +121,7 @@ return|return
 name|msgId
 return|;
 block|}
-comment|/**      * @param msgId      *            the msgId to set      */
+comment|/**      * @param msgId the msgId to set      */
 DECL|method|setMsgId (String msgId)
 specifier|public
 name|void
@@ -153,7 +149,7 @@ return|return
 name|structuredData
 return|;
 block|}
-comment|/**      * @param structuredData      *            the structuredData to set      */
+comment|/**      * @param structuredData the structuredData to set      */
 DECL|method|setStructuredData (String structuredData)
 specifier|public
 name|void

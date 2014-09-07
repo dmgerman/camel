@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_package
@@ -124,10 +124,6 @@ name|FrameDecoder
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author svenrienstra  */
-end_comment
-
 begin_class
 DECL|class|Rfc5425FrameDecoder
 specifier|public
@@ -143,7 +139,6 @@ specifier|private
 name|Integer
 name|currentFramelength
 decl_stmt|;
-comment|/**      * @see org.jboss.netty.handler.codec.frame.FrameDecoder#decode(org.jboss.netty.channel.ChannelHandlerContext,      *      org.jboss.netty.channel.Channel,      *      org.jboss.netty.buffer.ChannelBuffer)      */
 annotation|@
 name|Override
 DECL|method|decode (ChannelHandlerContext ctx, Channel channel, ChannelBuffer buffer)
@@ -170,8 +165,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// find index of the first space, it should be after the length
-comment|// field
+comment|// find index of the first space, it should be after the length field
 name|int
 name|index
 init|=

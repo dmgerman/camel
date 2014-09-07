@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  *   */
+comment|/**  *  */
 end_comment
 
 begin_package
@@ -19,22 +19,6 @@ operator|.
 name|netty
 package|;
 end_package
-
-begin_import
-import|import static
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|buffer
-operator|.
-name|ChannelBuffers
-operator|.
-name|wrappedBuffer
-import|;
-end_import
 
 begin_import
 import|import
@@ -124,9 +108,21 @@ name|OneToOneEncoder
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author svenrienstra  */
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|ChannelBuffers
+operator|.
+name|wrappedBuffer
+import|;
+end_import
 
 begin_class
 annotation|@
