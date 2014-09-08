@@ -53,8 +53,6 @@ interface|interface
 name|GoogleDriveClientFactory
 block|{
 DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken)
-specifier|public
-specifier|abstract
 name|Drive
 name|makeClient
 parameter_list|(

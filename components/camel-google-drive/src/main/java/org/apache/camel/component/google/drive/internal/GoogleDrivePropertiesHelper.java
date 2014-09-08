@@ -30,11 +30,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
 name|component
 operator|.
-name|ApiMethodPropertiesHelper
+name|google
+operator|.
+name|drive
+operator|.
+name|GoogleDriveConfiguration
 import|;
 end_import
 
@@ -46,13 +48,11 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
 name|component
 operator|.
-name|google
-operator|.
-name|drive
-operator|.
-name|GoogleDriveConfiguration
+name|ApiMethodPropertiesHelper
 import|;
 end_import
 
