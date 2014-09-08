@@ -403,7 +403,7 @@ name|result
 init|=
 name|requestBodyAndHeaders
 argument_list|(
-literal|"direct://INSERT_1"
+literal|"google-drive://drive-files/insert"
 argument_list|,
 literal|null
 argument_list|,

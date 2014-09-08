@@ -205,7 +205,6 @@ specifier|private
 name|FileDataStoreFactory
 name|dataStoreFactory
 decl_stmt|;
-comment|// TODO Directory to store user credentials
 DECL|field|DATA_STORE_DIR
 specifier|private
 specifier|static
@@ -224,14 +223,7 @@ name|io
 operator|.
 name|File
 argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"user.home"
-argument_list|)
-argument_list|,
-literal|".store/drive_sample"
+literal|".google_drive"
 argument_list|)
 decl_stmt|;
 DECL|method|DefaultGoogleDriveClientFactory ()
@@ -256,7 +248,6 @@ name|JacksonFactory
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see      * org.apache.camel.component.google.drive.GoogleDriveClientFactory#makeClient      * (java.lang.String, java.lang.String, java.util.Collection)      */
 annotation|@
 name|Override
 DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName)
