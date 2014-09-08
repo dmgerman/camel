@@ -191,6 +191,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Converter
 DECL|class|GoogleDriveFilesConverter
 specifier|public
 specifier|final
