@@ -651,6 +651,11 @@ name|configuration
 operator|.
 name|getApplicationName
 argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getRefreshToken
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -697,7 +702,7 @@ block|{
 name|clientFactory
 operator|=
 operator|new
-name|DefaultGoogleDriveClientFactory
+name|InteractiveGoogleDriveClientFactory
 argument_list|()
 expr_stmt|;
 block|}

@@ -52,7 +52,7 @@ specifier|public
 interface|interface
 name|GoogleDriveClientFactory
 block|{
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName)
+DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken)
 specifier|public
 specifier|abstract
 name|Drive
@@ -72,6 +72,9 @@ name|scopes
 parameter_list|,
 name|String
 name|applicationName
+parameter_list|,
+name|String
+name|refreshToken
 parameter_list|)
 function_decl|;
 block|}
