@@ -1767,7 +1767,7 @@ if|if
 condition|(
 name|headerFilterStrategy
 operator|.
-name|applyFilterToCamelHeaders
+name|applyFilterToExternalHeaders
 argument_list|(
 name|entry
 operator|.
