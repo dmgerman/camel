@@ -365,6 +365,11 @@ name|configuration
 operator|.
 name|getRefreshToken
 argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getAccessToken
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

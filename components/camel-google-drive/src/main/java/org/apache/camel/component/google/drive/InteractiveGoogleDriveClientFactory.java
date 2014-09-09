@@ -286,7 +286,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken)
+DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken)
 specifier|public
 name|Drive
 name|makeClient
@@ -308,6 +308,9 @@ name|applicationName
 parameter_list|,
 name|String
 name|refreshToken
+parameter_list|,
+name|String
+name|accessToken
 parameter_list|)
 block|{
 name|Credential

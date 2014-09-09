@@ -198,7 +198,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken)
+DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken)
 specifier|public
 name|Drive
 name|makeClient
@@ -220,6 +220,9 @@ name|applicationName
 parameter_list|,
 name|String
 name|refreshToken
+parameter_list|,
+name|String
+name|accessToken
 parameter_list|)
 block|{
 name|Credential
@@ -236,10 +239,54 @@ argument_list|,
 name|clientSecret
 argument_list|,
 name|scopes
-argument_list|,
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|refreshToken
+operator|!=
+literal|null
+operator|&&
+operator|!
+literal|""
+operator|.
+name|equals
+argument_list|(
+name|refreshToken
+argument_list|)
+condition|)
+block|{
+name|credential
+operator|.
+name|setRefreshToken
+argument_list|(
 name|refreshToken
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|accessToken
+operator|!=
+literal|null
+operator|&&
+operator|!
+literal|""
+operator|.
+name|equals
+argument_list|(
+name|accessToken
+argument_list|)
+condition|)
+block|{
+name|credential
+operator|.
+name|setAccessToken
+argument_list|(
+name|accessToken
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|Drive
@@ -283,7 +330,7 @@ literal|null
 return|;
 block|}
 comment|// Authorizes the installed application to access user's protected data.
-DECL|method|authorize (String clientId, String clientSecret, Collection<String> scopes, String refreshToken)
+DECL|method|authorize (String clientId, String clientSecret, Collection<String> scopes)
 specifier|private
 name|Credential
 name|authorize
@@ -299,9 +346,6 @@ argument_list|<
 name|String
 argument_list|>
 name|scopes
-parameter_list|,
-name|String
-name|refreshToken
 parameter_list|)
 throws|throws
 name|Exception
@@ -333,11 +377,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-operator|.
-name|setRefreshToken
-argument_list|(
-name|refreshToken
-argument_list|)
 return|;
 block|}
 block|}
