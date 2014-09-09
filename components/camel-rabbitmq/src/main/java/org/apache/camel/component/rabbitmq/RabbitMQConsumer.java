@@ -834,17 +834,13 @@ expr_stmt|;
 name|long
 name|deliveryTag
 init|=
-literal|0
-decl_stmt|;
-try|try
-block|{
-name|deliveryTag
-operator|=
 name|envelope
 operator|.
 name|getDeliveryTag
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+try|try
+block|{
 name|consumer
 operator|.
 name|getProcessor
@@ -855,6 +851,31 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|exchange
+operator|.
+name|isFailed
+argument_list|()
+condition|)
+block|{
+comment|// processing success
 if|if
 condition|(
 operator|!
@@ -864,16 +885,6 @@ name|endpoint
 operator|.
 name|isAutoAck
 argument_list|()
-condition|)
-block|{
-if|if
-condition|(
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|==
-literal|null
 condition|)
 block|{
 name|log
@@ -895,36 +906,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
 block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Unacknowledging receipt [delivery_tag={}]"
-argument_list|,
-name|deliveryTag
-argument_list|)
-expr_stmt|;
-name|rejectQuicly
-argument_list|(
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|deliveryTag
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
+comment|// processing failed, then reject and handle the exception
 if|if
 condition|(
 name|deliveryTag
@@ -950,6 +935,16 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|getExceptionHandler
 argument_list|()
 operator|.
@@ -959,16 +954,20 @@ literal|"Error processing exchange"
 argument_list|,
 name|exchange
 argument_list|,
-name|e
+name|exchange
+operator|.
+name|getException
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**          * Reject a message without throw exceptions.          * @param deliveryTagString Message tag to reject.          */
-DECL|method|rejectQuicly (String deliveryTagString)
+block|}
+comment|/**          * Reject a message without throw exceptions.          *          * @param deliveryTagString Message tag to reject.          */
+DECL|method|rejectQuietly (String deliveryTagString)
 specifier|protected
 name|void
-name|rejectQuicly
+name|rejectQuietly
 parameter_list|(
 name|String
 name|deliveryTagString
@@ -1042,7 +1041,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|rejectQuicly
+name|rejectQuietly
 argument_list|(
 name|consumerTag
 argument_list|)
@@ -1059,7 +1058,7 @@ name|String
 name|consumerTag
 parameter_list|)
 block|{
-name|rejectQuicly
+name|rejectQuietly
 argument_list|(
 name|consumerTag
 argument_list|)
@@ -1076,7 +1075,7 @@ name|String
 name|consumerTag
 parameter_list|)
 block|{
-name|rejectQuicly
+name|rejectQuietly
 argument_list|(
 name|consumerTag
 argument_list|)
@@ -1096,7 +1095,7 @@ name|ShutdownSignalException
 name|sig
 parameter_list|)
 block|{
-name|rejectQuicly
+name|rejectQuietly
 argument_list|(
 name|consumerTag
 argument_list|)
@@ -1626,7 +1625,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Connection failed, will retry in "
+literal|"Connection failed, will retry in {}"
 operator|+
 name|connectionRetryInterval
 operator|+
