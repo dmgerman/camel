@@ -366,22 +366,10 @@ name|providedLogger
 argument_list|)
 expr_stmt|;
 block|}
-comment|// first, try to use the user-specified formatter (or the one picked up from the Registry and transferred to
-comment|// the property by a previous endpoint initialisation); if null, try to pick it up from the Registry now
+comment|// first, try to pick up the ExchangeFormatter from the registry
 name|ExchangeFormatter
 name|localFormatter
 init|=
-name|exchangeFormatter
-decl_stmt|;
-if|if
-condition|(
-name|localFormatter
-operator|==
-literal|null
-condition|)
-block|{
-name|localFormatter
-operator|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -396,7 +384,7 @@ name|ExchangeFormatter
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|localFormatter
@@ -404,27 +392,36 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|exchangeFormatter
-operator|=
-name|localFormatter
-expr_stmt|;
 name|setProperties
 argument_list|(
-name|exchangeFormatter
+name|localFormatter
 argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|// if no formatter is available in the Registry, create a local one of the default type, for a single use
+elseif|else
 if|if
 condition|(
 name|localFormatter
 operator|==
 literal|null
+operator|&&
+name|exchangeFormatter
+operator|!=
+literal|null
 condition|)
 block|{
+comment|// do not set properties, the exchangeFormatter is explicitly set, thefore the
+comment|// user would have set its properties explicitly too
+name|localFormatter
+operator|=
+name|exchangeFormatter
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if no formatter is available in the Registry, create a local one of the default type, for a single use
 name|localFormatter
 operator|=
 operator|new
