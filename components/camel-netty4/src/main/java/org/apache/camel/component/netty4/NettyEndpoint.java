@@ -270,12 +270,6 @@ specifier|private
 name|NettyConfiguration
 name|configuration
 decl_stmt|;
-comment|// TODO do we really need this time in netty4
-DECL|field|timer
-specifier|private
-name|Timer
-name|timer
-decl_stmt|;
 DECL|method|NettyEndpoint (String endpointUri, NettyComponent component, NettyConfiguration configuration)
 specifier|public
 name|NettyEndpoint
@@ -474,32 +468,6 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|setTimer (Timer timer)
-specifier|public
-name|void
-name|setTimer
-parameter_list|(
-name|Timer
-name|timer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|timer
-operator|=
-name|timer
-expr_stmt|;
-block|}
-DECL|method|getTimer ()
-specifier|public
-name|Timer
-name|getTimer
-parameter_list|()
-block|{
-return|return
-name|timer
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|createEndpointUri ()
@@ -542,26 +510,6 @@ operator|.
 name|getPort
 argument_list|()
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|timer
-argument_list|,
-literal|"timer"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getSSLSession (ChannelHandlerContext ctx)
 specifier|protected

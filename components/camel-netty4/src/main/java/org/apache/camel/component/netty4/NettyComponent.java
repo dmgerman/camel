@@ -188,14 +188,6 @@ name|NettyComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-comment|// use a shared timer for Netty (see javadoc for HashedWheelTimer)
-DECL|field|timer
-specifier|private
-specifier|static
-specifier|volatile
-name|Timer
-name|timer
-decl_stmt|;
 DECL|field|configuration
 specifier|private
 name|NettyConfiguration
@@ -410,14 +402,6 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
-name|nettyEndpoint
-operator|.
-name|setTimer
-argument_list|(
-name|getTimer
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|setProperties
 argument_list|(
 name|nettyEndpoint
@@ -504,17 +488,6 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|getTimer ()
-specifier|public
-specifier|static
-name|Timer
-name|getTimer
-parameter_list|()
-block|{
-return|return
-name|timer
-return|;
-block|}
 DECL|method|setExecutorService (EventExecutorGroup executorServcie)
 specifier|public
 name|void
@@ -565,20 +538,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|timer
-operator|==
-literal|null
-condition|)
-block|{
-name|timer
-operator|=
-operator|new
-name|HashedWheelTimer
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|configuration
@@ -674,15 +633,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|timer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|timer
-operator|=
-literal|null
-expr_stmt|;
 if|if
 condition|(
 name|executorService

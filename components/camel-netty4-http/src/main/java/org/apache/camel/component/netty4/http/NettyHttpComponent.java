@@ -763,14 +763,6 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
-name|answer
-operator|.
-name|setTimer
-argument_list|(
-name|getTimer
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// must use a copy of the binding on the endpoint to avoid sharing same instance that can cause side-effects
 if|if
 condition|(

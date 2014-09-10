@@ -345,16 +345,6 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setTimer
-argument_list|(
-name|NettyComponent
-operator|.
-name|getTimer
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
 name|start
 argument_list|()
 expr_stmt|;
