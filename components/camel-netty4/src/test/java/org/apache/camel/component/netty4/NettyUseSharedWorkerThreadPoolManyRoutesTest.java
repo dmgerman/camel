@@ -305,7 +305,7 @@ operator|+
 name|getNextPort
 argument_list|()
 operator|+
-literal|"?textline=true&sync=true&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&usingExecutorService=false"
 operator|+
 literal|"&bossGroup=#sharedBoss&workerGroup=#sharedWorker"
 argument_list|)

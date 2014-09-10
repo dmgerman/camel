@@ -581,7 +581,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isOrderedThreadPoolExecutor
+name|isUsingExecutorService
 argument_list|()
 condition|)
 block|{

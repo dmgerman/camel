@@ -386,7 +386,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port
 operator|+
-literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&usingExecutorService=false"
 argument_list|)
 operator|.
 name|validate
@@ -431,7 +431,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port2
 operator|+
-literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&usingExecutorService=false"
 argument_list|)
 operator|.
 name|validate
@@ -476,7 +476,7 @@ literal|"netty4:tcp://localhost:"
 operator|+
 name|port3
 operator|+
-literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&orderedThreadPoolExecutor=false"
+literal|"?textline=true&sync=true&workerGroup=#sharedServerPool&usingExecutorService=false"
 argument_list|)
 operator|.
 name|validate

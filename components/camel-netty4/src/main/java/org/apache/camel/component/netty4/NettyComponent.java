@@ -515,6 +515,22 @@ return|return
 name|timer
 return|;
 block|}
+DECL|method|setExecutorService (EventExecutorGroup executorServcie)
+specifier|public
+name|void
+name|setExecutorService
+parameter_list|(
+name|EventExecutorGroup
+name|executorServcie
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
+expr_stmt|;
+block|}
 DECL|method|getExecutorService ()
 specifier|public
 specifier|synchronized
@@ -581,8 +597,12 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|isOrderedThreadPoolExecutor
+name|isUsingExecutorService
 argument_list|()
+operator|&&
+name|executorService
+operator|==
+literal|null
 condition|)
 block|{
 name|executorService

@@ -467,11 +467,10 @@ literal|16
 decl_stmt|;
 annotation|@
 name|UriParam
-comment|// TODO we need to rename this property
-DECL|field|orderedThreadPoolExecutor
+DECL|field|usingExecutorService
 specifier|private
 name|boolean
-name|orderedThreadPoolExecutor
+name|usingExecutorService
 init|=
 literal|true
 decl_stmt|;
@@ -2083,30 +2082,30 @@ operator|=
 name|maximumPoolSize
 expr_stmt|;
 block|}
-DECL|method|isOrderedThreadPoolExecutor ()
+DECL|method|isUsingExecutorService ()
 specifier|public
 name|boolean
-name|isOrderedThreadPoolExecutor
+name|isUsingExecutorService
 parameter_list|()
 block|{
 return|return
-name|orderedThreadPoolExecutor
+name|usingExecutorService
 return|;
 block|}
-DECL|method|setOrderedThreadPoolExecutor (boolean orderedThreadPoolExecutor)
+DECL|method|setUsingExecutorService (boolean usingExecutorService)
 specifier|public
 name|void
-name|setOrderedThreadPoolExecutor
+name|setUsingExecutorService
 parameter_list|(
 name|boolean
-name|orderedThreadPoolExecutor
+name|usingExecutorService
 parameter_list|)
 block|{
 name|this
 operator|.
-name|orderedThreadPoolExecutor
+name|usingExecutorService
 operator|=
-name|orderedThreadPoolExecutor
+name|usingExecutorService
 expr_stmt|;
 block|}
 DECL|method|getProducerPoolMaxActive ()
