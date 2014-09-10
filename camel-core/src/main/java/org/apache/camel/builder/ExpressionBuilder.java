@@ -4512,6 +4512,43 @@ name|mode
 argument_list|)
 return|;
 block|}
+DECL|method|tokenizeXMLAwareExpression (String path, char mode, int group)
+specifier|public
+specifier|static
+name|Expression
+name|tokenizeXMLAwareExpression
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|char
+name|mode
+parameter_list|,
+name|int
+name|group
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|path
+argument_list|,
+literal|"path"
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|XMLTokenExpressionIterator
+argument_list|(
+name|path
+argument_list|,
+name|mode
+argument_list|,
+name|group
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a tokenize expression which will tokenize the string with the      * given regex      */
 DECL|method|regexTokenizeExpression (final Expression expression, final String regexTokenizer)
 specifier|public

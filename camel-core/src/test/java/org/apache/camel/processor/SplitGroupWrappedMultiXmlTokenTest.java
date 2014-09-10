@@ -91,10 +91,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SplitGroupMultiXmlTokenTest
+DECL|class|SplitGroupWrappedMultiXmlTokenTest
 specifier|public
 class|class
-name|SplitGroupMultiXmlTokenTest
+name|SplitGroupWrappedMultiXmlTokenTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -154,7 +154,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<group><order id=\"1\" xmlns=\"http:acme.com\">Camel in Action</order><order id=\"2\" xmlns=\"http:acme.com\">ActiveMQ in Action</order></group>"
+literal|"<?xml version=\"1.0\"?>\n<orders xmlns=\"http:acme.com\">\n<order id=\"1\">Camel in Action</order><order id=\"2\">ActiveMQ in Action</order></orders>"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -169,7 +169,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<group><order id=\"3\" xmlns=\"http:acme.com\">Spring in Action</order><order id=\"4\" xmlns=\"http:acme.com\">Scala in Action</order></group>"
+literal|"<?xml version=\"1.0\"?>\n<orders xmlns=\"http:acme.com\">\n<order id=\"3\">Spring in Action</order><order id=\"4\">Scala in Action</order></orders>"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -184,7 +184,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<group><order id=\"5\" xmlns=\"http:acme.com\">Groovy in Action</order></group>"
+literal|"<?xml version=\"1.0\"?>\n<orders xmlns=\"http:acme.com\">\n<order id=\"5\">Groovy in Action</order></orders>"
 argument_list|)
 expr_stmt|;
 name|String
@@ -332,7 +332,7 @@ name|xtokenize
 argument_list|(
 literal|"//order"
 argument_list|,
-literal|'i'
+literal|'w'
 argument_list|,
 name|ns
 argument_list|,
