@@ -1213,7 +1213,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|String
 operator|.
@@ -1230,7 +1230,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1244,6 +1244,8 @@ operator|==
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|body
 operator|=
 name|obj
@@ -1251,6 +1253,15 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore as the body is for logging purpose
+block|}
 block|}
 comment|// reset stream cache after use
 if|if
@@ -1696,7 +1707,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|String
 operator|.
@@ -1734,7 +1745,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -2018,10 +2029,11 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// ignore as the body is for logging purpose
 return|return
 literal|""
 return|;
@@ -2285,7 +2297,7 @@ operator|.
 name|getId
 argument_list|()
 expr_stmt|;
-comment|// we need to avoid leak the sensibale information here
+comment|// we need to avoid leak the sensible information here
 name|label
 operator|=
 name|URISupport
