@@ -688,6 +688,15 @@ name|MANUFACTURERS
 init|=
 literal|"Manufacturers"
 decl_stmt|;
+DECL|field|FQN_MANUFACTURERS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|FQN_MANUFACTURERS
+init|=
+literal|"DefaultContainer.Manufacturers"
+decl_stmt|;
 DECL|field|ADDRESS
 specifier|private
 specifier|static
@@ -731,7 +740,7 @@ specifier|final
 name|String
 name|TEST_MANUFACTURER
 init|=
-name|MANUFACTURERS
+name|FQN_MANUFACTURERS
 operator|+
 literal|"("
 operator|+

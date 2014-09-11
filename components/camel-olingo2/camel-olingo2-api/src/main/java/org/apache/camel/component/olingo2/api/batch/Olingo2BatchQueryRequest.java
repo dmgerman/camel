@@ -175,6 +175,24 @@ name|Olingo2BatchQueryRequest
 name|build
 parameter_list|()
 block|{
+comment|// avoid later NPEs
+if|if
+condition|(
+name|request
+operator|.
+name|resourcePath
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Null resourcePath"
+argument_list|)
+throw|;
+block|}
 return|return
 name|request
 return|;

@@ -453,6 +453,17 @@ name|TEST_RESOURCE
 init|=
 literal|"$1"
 decl_stmt|;
+DECL|field|TEST_RESOURCE_ADDRESS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TEST_RESOURCE_ADDRESS
+init|=
+name|TEST_RESOURCE
+operator|+
+literal|"/Address"
+decl_stmt|;
 DECL|field|TEST_CREATE_MANUFACTURER
 specifier|private
 specifier|static
@@ -460,7 +471,7 @@ specifier|final
 name|String
 name|TEST_CREATE_MANUFACTURER
 init|=
-literal|"Manufacturers('123')"
+literal|"DefaultContainer.Manufacturers('123')"
 decl_stmt|;
 annotation|@
 name|Test
@@ -1214,7 +1225,12 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// 6. update
+comment|// 6. update address in created entry
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|final
 name|Map
 argument_list|<
@@ -1235,11 +1251,6 @@ argument_list|(
 name|data
 argument_list|)
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|Map
 argument_list|<
 name|String
@@ -1263,15 +1274,6 @@ argument_list|(
 name|ADDRESS
 argument_list|)
 decl_stmt|;
-name|updateData
-operator|.
-name|put
-argument_list|(
-literal|"Name"
-argument_list|,
-literal|"MyCarManufacturer Renamed"
-argument_list|)
-expr_stmt|;
 name|address
 operator|.
 name|put
@@ -1279,6 +1281,43 @@ argument_list|(
 literal|"Street"
 argument_list|,
 literal|"Main Street"
+argument_list|)
+expr_stmt|;
+name|batchParts
+operator|.
+name|add
+argument_list|(
+name|Olingo2BatchChangeRequest
+operator|.
+name|resourcePath
+argument_list|(
+name|TEST_RESOURCE_ADDRESS
+argument_list|)
+operator|.
+name|operation
+argument_list|(
+name|Operation
+operator|.
+name|UPDATE
+argument_list|)
+operator|.
+name|body
+argument_list|(
+name|address
+argument_list|)
+operator|.
+name|build
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// 7. update
+name|updateData
+operator|.
+name|put
+argument_list|(
+literal|"Name"
+argument_list|,
+literal|"MyCarManufacturer Renamed"
 argument_list|)
 expr_stmt|;
 name|batchParts
@@ -1308,7 +1347,7 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// 7. delete
+comment|// 8. delete
 name|batchParts
 operator|.
 name|add
@@ -1331,7 +1370,7 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// 8. read to verify delete
+comment|// 9. read to verify delete
 name|batchParts
 operator|.
 name|add
@@ -1373,7 +1412,7 @@ name|assertEquals
 argument_list|(
 literal|"Batch responses expected"
 argument_list|,
-literal|8
+literal|9
 argument_list|,
 name|responseParts
 operator|.
@@ -1571,6 +1610,15 @@ argument_list|,
 name|statusCode
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Update address status: {}"
+argument_list|,
+name|statusCode
+argument_list|)
+expr_stmt|;
 name|statusCode
 operator|=
 name|responseParts
@@ -1583,14 +1631,38 @@ operator|.
 name|getStatusCode
 argument_list|()
 expr_stmt|;
+name|assertEquals
+argument_list|(
+name|HttpStatusCodes
+operator|.
+name|NO_CONTENT
+operator|.
+name|getStatusCode
+argument_list|()
+argument_list|,
+name|statusCode
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Update status: {}"
+literal|"Update entry status: {}"
 argument_list|,
 name|statusCode
 argument_list|)
+expr_stmt|;
+name|statusCode
+operator|=
+name|responseParts
+operator|.
+name|get
+argument_list|(
+literal|7
+argument_list|)
+operator|.
+name|getStatusCode
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -1626,7 +1698,7 @@ name|responseParts
 operator|.
 name|get
 argument_list|(
-literal|7
+literal|8
 argument_list|)
 operator|.
 name|getStatusCode
@@ -1644,7 +1716,7 @@ name|responseParts
 operator|.
 name|get
 argument_list|(
-literal|7
+literal|8
 argument_list|)
 operator|.
 name|getBody
@@ -1713,7 +1785,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"olingo2://read/Manufacturers"
+literal|"olingo2://read/DefaultContainer.Manufacturers"
 argument_list|)
 expr_stmt|;
 comment|// test route for create
