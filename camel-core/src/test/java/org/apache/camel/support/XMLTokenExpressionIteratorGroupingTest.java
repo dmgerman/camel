@@ -118,6 +118,7 @@ name|XMLTokenExpressionIteratorGroupingTest
 extends|extends
 name|TestCase
 block|{
+comment|// the input containing multiple Cs
 DECL|field|TEST_BODY
 specifier|private
 specifier|static
@@ -161,6 +162,7 @@ operator|.
 name|getBytes
 argument_list|()
 decl_stmt|;
+comment|// one extracted C in its wrapped context per token
 DECL|field|RESULTS_WRAPPED_SIZE1
 specifier|private
 specifier|static
@@ -267,6 +269,7 @@ operator|+
 literal|"</g:A>"
 block|}
 decl_stmt|;
+comment|// two extracted Cs in their wrapped context per token
 DECL|field|RESULTS_WRAPPED_SIZE2
 specifier|private
 specifier|static
@@ -333,6 +336,7 @@ operator|+
 literal|"</g:A>"
 block|}
 decl_stmt|;
+comment|// at most three extracted Cs in their common wrapped context per token
 DECL|field|RESULTS_WRAPPED_SIZE3L
 specifier|private
 specifier|static
@@ -399,6 +403,7 @@ operator|+
 literal|"</g:A>"
 block|}
 decl_stmt|;
+comment|// three extracted Cs in their corresponding wrapped contexts per token
 DECL|field|RESULTS_WRAPPED_SIZE3U
 specifier|private
 specifier|static
@@ -459,6 +464,7 @@ operator|+
 literal|"</g:A>"
 block|}
 decl_stmt|;
+comment|// four extracted Cs in their wrapped context per token
 DECL|field|RESULTS_WRAPPED_SIZE4
 specifier|private
 specifier|static
@@ -505,6 +511,7 @@ operator|+
 literal|"</g:A>"
 block|}
 decl_stmt|;
+comment|// at most five extracted Cs in their common wrapped context per token
 DECL|field|RESULTS_WRAPPED_SIZE5L
 specifier|private
 specifier|static
@@ -515,6 +522,7 @@ name|RESULTS_WRAPPED_SIZE5L
 init|=
 name|RESULTS_WRAPPED_SIZE4
 decl_stmt|;
+comment|// five extracted Cs in their corresponding wrapped contexts per token
 DECL|field|RESULTS_WRAPPED_SIZE5U
 specifier|private
 specifier|static
