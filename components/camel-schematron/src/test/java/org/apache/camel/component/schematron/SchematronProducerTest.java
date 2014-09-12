@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|Templates
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -128,20 +140,8 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|Templates
-import|;
-end_import
-
 begin_comment
-comment|/**  * Schematron Producer Unit Test.  *<p/>  */
+comment|/**  * Schematron Producer Unit Test.  *   */
 end_comment
 
 begin_class

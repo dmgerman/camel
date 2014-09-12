@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|Templates
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -83,22 +95,10 @@ import|;
 end_import
 
 begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|transform
-operator|.
-name|Templates
-import|;
-end_import
-
-begin_import
 import|import static
-name|junit
+name|org
 operator|.
-name|framework
+name|junit
 operator|.
 name|Assert
 operator|.
@@ -164,21 +164,6 @@ argument_list|,
 name|payload
 argument_list|)
 expr_stmt|;
-name|String
-name|expected
-init|=
-name|IOUtils
-operator|.
-name|toString
-argument_list|(
-name|ClassLoader
-operator|.
-name|getSystemResourceAsStream
-argument_list|(
-literal|"report/article-1-report.xml"
-argument_list|)
-argument_list|)
-decl_stmt|;
 comment|// validate
 name|String
 name|result

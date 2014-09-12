@@ -78,9 +78,9 @@ name|component
 operator|.
 name|schematron
 operator|.
-name|exception
+name|constant
 operator|.
-name|SchematronValidationException
+name|Constants
 import|;
 end_import
 
@@ -96,9 +96,9 @@ name|component
 operator|.
 name|schematron
 operator|.
-name|constant
+name|exception
 operator|.
-name|Constants
+name|SchematronValidationException
 import|;
 end_import
 
