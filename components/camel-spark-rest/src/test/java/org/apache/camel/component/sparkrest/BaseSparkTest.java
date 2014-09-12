@@ -108,6 +108,13 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
