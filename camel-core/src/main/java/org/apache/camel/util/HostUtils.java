@@ -120,7 +120,7 @@ parameter_list|()
 block|{
 comment|//Utility Class
 block|}
-comment|/**      * Returns a {@link} of {@link InetAddress} per {@link NetworkInterface} as a {@link Map}.      */
+comment|/**      * Returns a {@link Map} of {@link InetAddress} per {@link NetworkInterface}.      */
 DECL|method|getNetworkInterfaceAddresses ()
 specifier|public
 specifier|static

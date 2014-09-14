@@ -1704,7 +1704,7 @@ name|resultType
 argument_list|)
 return|;
 block|}
-comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
+comment|/**      * Evaluates an<a      * href="http://camel.apache.org/xquery.html">XQuery expression</a>      * with the specified result type      *       * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @param headerName the name of the header to apply the expression to      * @return the builder to continue processing the DSL      */
 DECL|method|xquery (String text, Class<?> resultType, String headerName)
 specifier|public
 name|T

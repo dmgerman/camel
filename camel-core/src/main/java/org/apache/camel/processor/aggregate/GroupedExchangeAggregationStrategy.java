@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregate all exchanges into a single combined Exchange holding all the aggregated exchanges  * in a {@link java.util.List<Exchange>} as the message body.  *  * @version   */
+comment|/**  * Aggregate all exchanges into a single combined Exchange holding all the aggregated exchanges  * in a {@link List} of {@link Exchange} as the message body.  *  * @version   */
 end_comment
 
 begin_class

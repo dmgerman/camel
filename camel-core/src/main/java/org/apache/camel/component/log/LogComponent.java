@@ -494,7 +494,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets optional {@link Logger} instance from parameters. If non-null, the provided instance will be used as      * {@link Logger} in {@link CamelLogger}      *       * @param parameters      * @return      */
+comment|/**      * Gets optional {@link Logger} instance from parameters. If non-null, the provided instance will be used as      * {@link Logger} in {@link CamelLogger}      *       * @param parameters      * @return the Logger object from the parameter      */
 DECL|method|getLogger (Map<String, Object> parameters)
 specifier|protected
 name|Logger

@@ -2439,7 +2439,7 @@ name|xsdf
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated Use {@link #secureXML(String, Map, boolean, String, String, String, String) instead.      * Uses the XML Security data format      */
+comment|/**      * @deprecated Use {@link #secureXML(String, Map, boolean, String, String, String, String)} instead.      * Uses the XML Security data format      */
 annotation|@
 name|Deprecated
 DECL|method|secureXML (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm)
