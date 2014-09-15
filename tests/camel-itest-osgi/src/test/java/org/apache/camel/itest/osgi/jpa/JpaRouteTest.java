@@ -574,9 +574,6 @@ name|refresh
 argument_list|()
 expr_stmt|;
 block|}
-name|cleanupRepository
-argument_list|()
-expr_stmt|;
 return|return
 name|SpringCamelContext
 operator|.
