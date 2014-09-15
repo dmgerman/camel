@@ -303,7 +303,7 @@ name|notNull
 argument_list|(
 name|path
 argument_list|,
-literal|"token"
+literal|"path"
 argument_list|)
 expr_stmt|;
 name|Expression
