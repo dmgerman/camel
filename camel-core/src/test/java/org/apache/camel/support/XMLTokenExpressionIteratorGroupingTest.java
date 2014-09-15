@@ -852,10 +852,10 @@ name|RESULTS_WRAPPED_SIZE2
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|disabledtestExtractWrappedSize3L ()
+DECL|method|testExtractWrappedSize3L ()
 specifier|public
 name|void
-name|disabledtestExtractWrappedSize3L
+name|testExtractWrappedSize3L
 parameter_list|()
 throws|throws
 name|Exception
@@ -937,10 +937,10 @@ name|RESULTS_WRAPPED_SIZE4
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|disabledtestExtractWrappedSize5L ()
+DECL|method|testExtractWrappedSize5L ()
 specifier|public
 name|void
-name|disabledtestExtractWrappedSize5L
+name|testExtractWrappedSize5L
 parameter_list|()
 throws|throws
 name|Exception
