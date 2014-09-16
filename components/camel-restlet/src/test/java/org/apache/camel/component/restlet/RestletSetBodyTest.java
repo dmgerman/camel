@@ -74,20 +74,6 @@ name|http
 operator|.
 name|client
 operator|.
-name|HttpClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|client
-operator|.
 name|methods
 operator|.
 name|HttpGet
@@ -106,7 +92,7 @@ name|impl
 operator|.
 name|client
 operator|.
-name|DefaultHttpClient
+name|CloseableHttpClient
 import|;
 end_import
 
@@ -114,9 +100,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|apache
 operator|.
-name|Ignore
+name|http
+operator|.
+name|impl
+operator|.
+name|client
+operator|.
+name|HttpClientBuilder
 import|;
 end_import
 
@@ -206,8 +198,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testSetBodyRepresentation ()
 specifier|public
 name|void
@@ -224,16 +214,20 @@ name|HttpGet
 argument_list|(
 literal|"http://0.0.0.0:"
 operator|+
-name|portNum
+literal|"1234"
 operator|+
 literal|"/images/123"
 argument_list|)
 decl_stmt|;
-name|HttpClient
+name|CloseableHttpClient
 name|httpclient
 init|=
-operator|new
-name|DefaultHttpClient
+name|HttpClientBuilder
+operator|.
+name|create
+argument_list|()
+operator|.
+name|build
 argument_list|()
 decl_stmt|;
 name|InputStream
@@ -298,9 +292,12 @@ literal|"Get wrong available size"
 argument_list|,
 literal|10
 argument_list|,
-name|is
+name|response
 operator|.
-name|available
+name|getEntity
+argument_list|()
+operator|.
+name|getContentLength
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -354,10 +351,7 @@ finally|finally
 block|{
 name|httpclient
 operator|.
-name|getConnectionManager
-argument_list|()
-operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 if|if
@@ -470,7 +464,7 @@ name|from
 argument_list|(
 literal|"restlet:http://0.0.0.0:"
 operator|+
-name|portNum
+literal|"1234"
 operator|+
 literal|"/images/{symbol}?restletMethods=get"
 argument_list|)
