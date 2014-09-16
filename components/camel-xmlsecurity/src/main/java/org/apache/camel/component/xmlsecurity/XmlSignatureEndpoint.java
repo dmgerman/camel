@@ -418,6 +418,38 @@ name|schemaResourceUri
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getOutputXmlEncoding ()
+specifier|public
+name|String
+name|getOutputXmlEncoding
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getOutputXmlEncoding
+argument_list|()
+return|;
+block|}
+DECL|method|setOutputXmlEncoding (String encoding)
+specifier|public
+name|void
+name|setOutputXmlEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setOutputXmlEncoding
+argument_list|(
+name|encoding
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

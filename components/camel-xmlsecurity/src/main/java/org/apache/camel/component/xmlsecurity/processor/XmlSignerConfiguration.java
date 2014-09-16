@@ -370,6 +370,11 @@ operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
+DECL|field|parentXpath
+specifier|private
+name|XPathFilterParameterSpec
+name|parentXpath
+decl_stmt|;
 comment|/* references that should be resolved when the context changes */
 DECL|field|keyAccessorName
 specifier|private
@@ -883,7 +888,7 @@ return|return
 name|parentLocalName
 return|;
 block|}
-comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * This parameter for enveloped signature and the parameter      * {@link #setXpathsToIdAttributes(List)} for detached signature must not be      * set in the same configuration.      *       * @param parentLocalName      *            local name      */
+comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Alternatively you can       * also use {@link #setParentXpath(XPathFilterParameterSpec)}.      *       *<p> Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * This parameter or the parameter {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and the parameter {@link #setXpathsToIdAttributes(List)}       * for detached signature must not be set in the same configuration.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentLocalName      *            local name      */
 DECL|method|setParentLocalName (String parentLocalName)
 specifier|public
 name|void
@@ -1319,7 +1324,7 @@ return|return
 name|xpathsToIdAttributes
 return|;
 block|}
-comment|/**      * Define the elements which are signed in the detached case via XPATH      * expressions to ID attributes (attributes of type ID). For each element      * found via the XPATH expression a detached signature is created whose      * reference URI contains the corresponding attribute value (preceded by      * '#'). The signature becomes the last sibling of the signed element.      * Elements with deeper hierarchy level are signed first.      *<p>      * You can also set the XPATH list dynamically via the header      * {@link XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES}.      *<p>      * The parameter {@link #setParentLocalName(String)} for enveloped signature      * and this parameter for detached signature must not be set in the same      * configuration.      *       * @param xpathsToIdAttributes      */
+comment|/**      * Define the elements which are signed in the detached case via XPATH      * expressions to ID attributes (attributes of type ID). For each element      * found via the XPATH expression a detached signature is created whose      * reference URI contains the corresponding attribute value (preceded by      * '#'). The signature becomes the last sibling of the signed element.      * Elements with deeper hierarchy level are signed first.      *<p>      * You can also set the XPATH list dynamically via the header      * {@link XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES}.      *<p>      * The parameter {@link #setParentLocalName(String)} or {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and this parameter for detached signature must not      * be set in the same configuration.      *       * @param xpathsToIdAttributes      */
 DECL|method|setXpathsToIdAttributes (List<XPathFilterParameterSpec> xpathsToIdAttributes)
 specifier|public
 name|void
@@ -1363,6 +1368,33 @@ name|xpathsToIdAttributes
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getParentXpath ()
+specifier|public
+name|XPathFilterParameterSpec
+name|getParentXpath
+parameter_list|()
+block|{
+return|return
+name|parentXpath
+return|;
+block|}
+comment|/** Sets the XPath to find the parent node in the enveloped case.       * Either you specify the parent node via this method or the local name and namespace of the parent       * with the methods {@link #setParentLocalName(String)} and {@link #setParentNamespace(String)}.       *<p>      * Default value is<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentXpath xpath to the parent node, if the xpath returns several values then the first Element node is used      */
+DECL|method|setParentXpath (XPathFilterParameterSpec parentXpath)
+specifier|public
+name|void
+name|setParentXpath
+parameter_list|(
+name|XPathFilterParameterSpec
+name|parentXpath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentXpath
+operator|=
+name|parentXpath
+expr_stmt|;
 block|}
 block|}
 end_class

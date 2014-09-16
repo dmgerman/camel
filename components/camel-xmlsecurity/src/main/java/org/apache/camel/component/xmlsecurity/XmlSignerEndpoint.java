@@ -779,6 +779,38 @@ name|signatureId
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getParentXpath ()
+specifier|public
+name|XPathFilterParameterSpec
+name|getParentXpath
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getParentXpath
+argument_list|()
+return|;
+block|}
+DECL|method|setParentXpath (XPathFilterParameterSpec parentXpath)
+specifier|public
+name|void
+name|setParentXpath
+parameter_list|(
+name|XPathFilterParameterSpec
+name|parentXpath
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setParentXpath
+argument_list|(
+name|parentXpath
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

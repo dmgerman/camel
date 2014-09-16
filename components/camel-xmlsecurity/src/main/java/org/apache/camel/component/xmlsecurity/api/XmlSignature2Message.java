@@ -159,6 +159,12 @@ name|Boolean
 name|getRemoveSignatureElements
 parameter_list|()
 function_decl|;
+comment|/**          * The character encoding of the resulting XML document. Can be          *<code>null</code>. If<code>null</code> then the encoding of the          * original XML document is used.          *           */
+DECL|method|getOutputXmlEncoding ()
+name|String
+name|getOutputXmlEncoding
+parameter_list|()
+function_decl|;
 block|}
 block|}
 end_interface

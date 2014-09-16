@@ -194,6 +194,11 @@ specifier|private
 name|String
 name|schemaResourceUri
 decl_stmt|;
+DECL|field|outputXmlEncoding
+specifier|private
+name|String
+name|outputXmlEncoding
+decl_stmt|;
 DECL|method|XmlSignatureConfiguration ()
 specifier|public
 name|XmlSignatureConfiguration
@@ -427,6 +432,33 @@ operator|.
 name|schemaResourceUri
 operator|=
 name|schemaResourceUri
+expr_stmt|;
+block|}
+DECL|method|getOutputXmlEncoding ()
+specifier|public
+name|String
+name|getOutputXmlEncoding
+parameter_list|()
+block|{
+return|return
+name|outputXmlEncoding
+return|;
+block|}
+comment|/**      * The character encoding of the resulting signed XML document. If      *<code>null</code> then the encoding of the original XML document is used.      *       * @param outputXmlEncoding      *            character encoding      */
+DECL|method|setOutputXmlEncoding (String outputXmlEncoding)
+specifier|public
+name|void
+name|setOutputXmlEncoding
+parameter_list|(
+name|String
+name|outputXmlEncoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputXmlEncoding
+operator|=
+name|outputXmlEncoding
 expr_stmt|;
 block|}
 block|}

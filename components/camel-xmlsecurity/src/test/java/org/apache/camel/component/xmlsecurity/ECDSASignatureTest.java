@@ -306,7 +306,7 @@ specifier|static
 name|String
 name|payload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 operator|+
 literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
 decl_stmt|;

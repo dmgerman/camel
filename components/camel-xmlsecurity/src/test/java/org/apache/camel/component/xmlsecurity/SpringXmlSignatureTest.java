@@ -297,6 +297,76 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getSignatureEncpointForSignException ()
+name|XmlSignerEndpoint
+name|getSignatureEncpointForSignException
+parameter_list|()
+block|{
+name|XmlSignerEndpoint
+name|endpoint
+init|=
+operator|(
+name|XmlSignerEndpoint
+operator|)
+name|context
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|(
+comment|//
+literal|"xmlsecurity:sign://signexceptioninvalidkey?keyAccessor=#accessorRsa"
+argument_list|)
+decl_stmt|;
+return|return
+name|endpoint
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getVerifierEndpointURIEnveloped ()
+name|String
+name|getVerifierEndpointURIEnveloped
+parameter_list|()
+block|{
+return|return
+literal|"xmlsecurity:verify://enveloped?keySelector=#selectorRsa"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getSignerEndpointURIEnveloped ()
+name|String
+name|getSignerEndpointURIEnveloped
+parameter_list|()
+block|{
+return|return
+literal|"xmlsecurity:sign://enveloped?keyAccessor=#accessorRsa&parentLocalName=root&parentNamespace=http://test/test"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getVerifierEncpointURIEnveloping ()
+name|String
+name|getVerifierEncpointURIEnveloping
+parameter_list|()
+block|{
+return|return
+literal|"xmlsecurity:verify://enveloping?keySelector=#selectorRsa"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getSignerEndpointURIEnveloping ()
+name|String
+name|getSignerEndpointURIEnveloping
+parameter_list|()
+block|{
+return|return
+literal|"xmlsecurity:sign://enveloping?keyAccessor=#accessorRsa"
+return|;
+block|}
 block|}
 end_class
 
