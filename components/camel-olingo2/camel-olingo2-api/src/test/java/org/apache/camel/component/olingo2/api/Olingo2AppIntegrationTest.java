@@ -136,6 +136,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -895,6 +907,29 @@ name|INDEX
 init|=
 literal|"/index.jsp"
 decl_stmt|;
+DECL|field|LINK_PATTERN
+specifier|private
+specifier|static
+specifier|final
+name|Pattern
+name|LINK_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"[^(]+\\('([^']+)'\\)"
+argument_list|)
+decl_stmt|;
+DECL|field|ID_PROPERTY
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ID_PROPERTY
+init|=
+literal|"Id"
+decl_stmt|;
 DECL|field|olingoApp
 specifier|private
 specifier|static
@@ -933,6 +968,8 @@ operator|new
 name|Olingo2AppImpl
 argument_list|(
 name|TEST_SERVICE_URL
+operator|+
+literal|"/"
 argument_list|)
 expr_stmt|;
 name|olingoApp
@@ -1756,10 +1793,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testReadLinks ()
+DECL|method|testReadDeleteCreateLinks ()
 specifier|public
 name|void
-name|testReadLinks
+name|testReadDeleteCreateLinks
 parameter_list|()
 throws|throws
 name|Exception
@@ -1871,6 +1908,8 @@ argument_list|,
 name|link
 argument_list|)
 expr_stmt|;
+comment|//Deleting relationships through links is not supported in Olingo2 at the time of writing this test
+comment|/*         final TestOlingo2ResponseHandler<HttpStatusCodes> statusHandler =             new TestOlingo2ResponseHandler<HttpStatusCodes>();          final ArrayList<Map<String, Object>> carKeys = new ArrayList<Map<String, Object>>();         for (String carLink : links) {             final Matcher matcher = LINK_PATTERN.matcher(carLink);             assertTrue("Link pattern " + carLink, matcher.matches());             final String carId = matcher.group(1);              final HashMap<String, Object> keys = new HashMap<String, Object>();             keys.put(ID_PROPERTY, carId);             carKeys.add(keys);              // delete manufacturer->car link             statusHandler.reset();             final String resourcePath = TEST_MANUFACTURER_LINKS_CARS + "('" + carId + "')";             olingoApp.delete(resourcePath, statusHandler);              assertEquals("Delete car link " + resourcePath, HttpStatusCodes.OK.getStatusCode(),                 statusHandler.await().getStatusCode());         }          // add links to all Cars         statusHandler.reset();         olingoApp.create(edm, TEST_MANUFACTURER_LINKS_CARS, carKeys, statusHandler);          assertEquals("Links update", HttpStatusCodes.ACCEPTED.getStatusCode(), statusHandler.await().getStatusCode());          // delete car->manufacturer link         statusHandler.reset();         olingoApp.delete(TEST_CAR_LINK_MANUFACTURER, statusHandler);          assertEquals("Delete manufacturer link " + TEST_CAR_LINK_MANUFACTURER, HttpStatusCodes.OK.getStatusCode(),             statusHandler.await().getStatusCode());          // add link to Manufacturer         statusHandler.reset();         final HashMap<String, Object> manufacturerKey = new HashMap<String, Object>();         manufacturerKey.put(ID_PROPERTY, "1");          olingoApp.create(edm, TEST_CAR_LINK_MANUFACTURER, manufacturerKey, statusHandler);          assertEquals("Link update", HttpStatusCodes.ACCEPTED.getStatusCode(), statusHandler.await().getStatusCode()); */
 block|}
 annotation|@
 name|Test
@@ -2969,7 +3008,7 @@ name|data
 operator|.
 name|put
 argument_list|(
-literal|"Id"
+name|ID_PROPERTY
 argument_list|,
 literal|"123"
 argument_list|)
