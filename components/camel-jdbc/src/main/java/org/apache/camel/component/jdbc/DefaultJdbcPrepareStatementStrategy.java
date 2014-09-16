@@ -368,14 +368,10 @@ decl_stmt|;
 specifier|private
 name|boolean
 name|done
-init|=
-literal|false
 decl_stmt|;
 specifier|private
 name|boolean
 name|preFetched
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|Override
@@ -402,10 +398,8 @@ literal|true
 expr_stmt|;
 block|}
 return|return
-operator|(
 operator|!
 name|done
-operator|)
 return|;
 block|}
 annotation|@
