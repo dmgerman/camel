@@ -96,6 +96,23 @@ operator|.
 name|ACCEPT_CONTENT_TYPE
 argument_list|)
 expr_stmt|;
+comment|// As we don't set the transfer_encoding protocol header for the restlet service
+comment|// we need to remove the transfer_encoding which could let the client wait forever
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|Exchange
+operator|.
+name|TRANSFER_ENCODING
+argument_list|)
+expr_stmt|;
+name|setCaseInsensitive
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
