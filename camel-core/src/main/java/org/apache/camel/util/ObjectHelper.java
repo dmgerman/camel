@@ -4807,6 +4807,10 @@ block|{
 if|if
 condition|(
 name|clazz
+operator|!=
+literal|null
+operator|&&
+name|clazz
 operator|.
 name|isArray
 argument_list|()
