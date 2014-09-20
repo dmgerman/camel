@@ -951,8 +951,6 @@ name|dataFormat
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Bindy data format      *      * @param type     the type of bindy data format to use      * @param packages packages to scan for Bindy annotated POJO classes      */
-comment|/*     public T bindy(BindyType type, String... packages) {         BindyDataFormat bindy = new BindyDataFormat();         bindy.setType(type);         bindy.setPackages(packages);         return dataFormat(bindy);     }     */
 comment|/**      * Uses the Bindy data format      *      * @param type      the type of bindy data format to use      * @param classType the POJO class type      */
 DECL|method|bindy (BindyType type, Class<?> classType)
 specifier|public
