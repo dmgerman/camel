@@ -4319,6 +4319,7 @@ return|;
 block|}
 DECL|method|getRoutes ()
 specifier|public
+specifier|synchronized
 name|List
 argument_list|<
 name|Route
