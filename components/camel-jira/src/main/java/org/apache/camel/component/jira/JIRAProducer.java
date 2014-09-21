@@ -56,10 +56,11 @@ name|JIRAProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|method|JIRAProducer (JIRAEndpoint endpoint)
+DECL|method|JIRAProducer (final JIRAEndpoint endpoint)
 specifier|public
 name|JIRAProducer
 parameter_list|(
+specifier|final
 name|JIRAEndpoint
 name|endpoint
 parameter_list|)
@@ -70,11 +71,12 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
+DECL|method|process (final Exchange exchange)
 specifier|public
 name|void
 name|process
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
