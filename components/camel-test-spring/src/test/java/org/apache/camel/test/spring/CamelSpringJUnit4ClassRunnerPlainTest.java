@@ -212,6 +212,20 @@ name|test
 operator|.
 name|context
 operator|.
+name|BootstrapWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|test
+operator|.
+name|context
+operator|.
 name|ContextConfiguration
 import|;
 end_import
@@ -276,8 +290,17 @@ name|CamelSpringJUnit4ClassRunner
 operator|.
 name|class
 argument_list|)
+comment|// must tell Spring to bootstrap with Camel
+annotation|@
+name|BootstrapWith
+argument_list|(
+name|CamelTestContextBootstrapper
+operator|.
+name|class
+argument_list|)
 annotation|@
 name|ContextConfiguration
+argument_list|()
 comment|// Put here to prevent Spring context caching across tests and test methods since some tests inherit
 comment|// from this test and therefore use the same Spring context.  Also because we want to reset the
 comment|// Camel context and mock endpoints between test methods automatically.
