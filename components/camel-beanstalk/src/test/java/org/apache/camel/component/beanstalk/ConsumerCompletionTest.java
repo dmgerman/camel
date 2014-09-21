@@ -357,7 +357,7 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|expectedPropertyReceived
+name|expectedHeaderReceived
 argument_list|(
 name|Headers
 operator|.
@@ -692,7 +692,7 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|expectedPropertyReceived
+name|expectedHeaderReceived
 argument_list|(
 name|Headers
 operator|.
