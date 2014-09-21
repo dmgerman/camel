@@ -94,7 +94,7 @@ name|mockito
 operator|.
 name|Mockito
 operator|.
-name|*
+name|reset
 import|;
 end_import
 
@@ -106,9 +106,9 @@ name|BeanstalkMockTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|client
 annotation|@
 name|Mock
+DECL|field|client
 name|Client
 name|client
 decl_stmt|;

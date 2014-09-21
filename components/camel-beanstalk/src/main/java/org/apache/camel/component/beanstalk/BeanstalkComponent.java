@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Beanstalk Camel component.  *  * URI is<code>beanstalk://[host[:port]][/tube]?query</code>  *<p>  * Parameters:<ul>  *<li><code>command</code> - one of "put", "release", "bury", "touch", "delete", "kick".  * "put" is the default for Producers.</li>  *<li><code>jobPriority</code></li>  *<li><code>jobDelay</code></li>  *<li><code>jobTimeToRun</code></li>  *<li><code>consumer.onFailure</code></li>  *<li><code>consumer.awaitJob</code></li>  *</ul>  *  * @author<a href="mailto:azarov@osinka.com">Alexander Azarov</a>  * @see BeanstalkEndpoint  * @see ConnectionSettingsFactory  */
+comment|/**  * Beanstalk Camel component.  *<p/>  * URI is<code>beanstalk://[host[:port]][/tube]?query</code>  *<p/>  * Parameters:<ul>  *<li><code>command</code> - one of "put", "release", "bury", "touch", "delete", "kick".  * "put" is the default for Producers.</li>  *<li><code>jobPriority</code></li>  *<li><code>jobDelay</code></li>  *<li><code>jobTimeToRun</code></li>  *<li><code>consumer.onFailure</code></li>  *<li><code>consumer.awaitJob</code></li>  *</ul>  *  * @see BeanstalkEndpoint  * @see ConnectionSettingsFactory  */
 end_comment
 
 begin_class
@@ -89,8 +89,8 @@ literal|"default"
 decl_stmt|;
 DECL|field|COMMAND_BURY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|COMMAND_BURY
 init|=
@@ -98,8 +98,8 @@ literal|"bury"
 decl_stmt|;
 DECL|field|COMMAND_RELEASE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|COMMAND_RELEASE
 init|=
@@ -107,8 +107,8 @@ literal|"release"
 decl_stmt|;
 DECL|field|COMMAND_PUT
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|COMMAND_PUT
 init|=
@@ -116,8 +116,8 @@ literal|"put"
 decl_stmt|;
 DECL|field|COMMAND_TOUCH
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|COMMAND_TOUCH
 init|=
@@ -125,8 +125,8 @@ literal|"touch"
 decl_stmt|;
 DECL|field|COMMAND_DELETE
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|COMMAND_DELETE
 init|=
@@ -134,8 +134,8 @@ literal|"delete"
 decl_stmt|;
 DECL|field|COMMAND_KICK
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|COMMAND_KICK
 init|=
@@ -143,8 +143,8 @@ literal|"kick"
 decl_stmt|;
 DECL|field|DEFAULT_PRIORITY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|long
 name|DEFAULT_PRIORITY
 init|=
@@ -153,8 +153,8 @@ decl_stmt|;
 comment|// 0 is highest
 DECL|field|DEFAULT_DELAY
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|DEFAULT_DELAY
 init|=
@@ -162,18 +162,19 @@ literal|0
 decl_stmt|;
 DECL|field|DEFAULT_TIME_TO_RUN
 specifier|public
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|DEFAULT_TIME_TO_RUN
 init|=
 literal|60
 decl_stmt|;
 comment|// if 0 the daemon sets 1.
-DECL|field|connFactory
+DECL|field|connectionSettingsFactory
+specifier|private
 specifier|static
 name|ConnectionSettingsFactory
-name|connFactory
+name|connectionSettingsFactory
 init|=
 name|ConnectionSettingsFactory
 operator|.
@@ -213,7 +214,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (final String uri, final String remaining, final Map<String,Object> parameters)
+DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -246,7 +247,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|connFactory
+name|connectionSettingsFactory
 operator|.
 name|parseUri
 argument_list|(
@@ -255,7 +256,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Custom ConnectionSettingsFactory.      *<p>      * Specify which {@link ConnectionSettingsFactory} to use to make connections to Beanstalkd. Especially      * useful for unit testing without beanstalkd daemon (you can mock {@link ConnectionSettings})      *       * @param connFactory      * @see ConnectionSettingsFactory      */
+comment|/**      * Custom {@link ConnectionSettingsFactory}.      *<p/>      * Specify which {@link ConnectionSettingsFactory} to use to make connections to Beanstalkd. Especially      * useful for unit testing without beanstalkd daemon (you can mock {@link ConnectionSettings})      *      * @param connFactory the connection factory      * @see ConnectionSettingsFactory      */
 DECL|method|setConnectionSettingsFactory (ConnectionSettingsFactory connFactory)
 specifier|public
 specifier|static
@@ -268,10 +269,21 @@ parameter_list|)
 block|{
 name|BeanstalkComponent
 operator|.
-name|connFactory
+name|connectionSettingsFactory
 operator|=
 name|connFactory
 expr_stmt|;
+block|}
+DECL|method|getConnectionSettingsFactory ()
+specifier|public
+specifier|static
+name|ConnectionSettingsFactory
+name|getConnectionSettingsFactory
+parameter_list|()
+block|{
+return|return
+name|connectionSettingsFactory
+return|;
 block|}
 block|}
 end_class

@@ -44,24 +44,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|beanstalk
-operator|.
-name|processors
-operator|.
-name|Command
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|surftools
@@ -92,7 +74,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|AsyncCallback
 import|;
 end_import
 
@@ -116,7 +98,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|beanstalk
+operator|.
+name|processors
+operator|.
+name|Command
 import|;
 end_import
 
@@ -134,10 +134,6 @@ name|DefaultProducer
 import|;
 end_import
 
-begin_comment
-comment|/**  *  * @author<a href="mailto:azarov@osinka.com">Alexander Azarov</a>  */
-end_comment
-
 begin_class
 DECL|class|BeanstalkProducer
 specifier|public
@@ -152,16 +148,14 @@ DECL|field|executor
 specifier|private
 name|ExecutorService
 name|executor
-init|=
-literal|null
 decl_stmt|;
 DECL|field|client
+specifier|private
 name|Client
 name|client
-init|=
-literal|null
 decl_stmt|;
 DECL|field|command
+specifier|private
 specifier|final
 name|Command
 name|command
@@ -191,6 +185,16 @@ name|command
 operator|=
 name|command
 expr_stmt|;
+block|}
+DECL|method|getCommand ()
+specifier|public
+name|Command
+name|getCommand
+parameter_list|()
+block|{
+return|return
+name|command
+return|;
 block|}
 annotation|@
 name|Override
@@ -311,11 +315,13 @@ name|client
 operator|!=
 literal|null
 condition|)
+block|{
 name|client
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|initClient ()
 specifier|protected
@@ -401,10 +407,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|executor
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
 operator|.
 name|shutdown
-argument_list|()
+argument_list|(
+name|executor
+argument_list|)
 expr_stmt|;
 name|closeClient
 argument_list|()
@@ -559,6 +574,7 @@ name|callback
 operator|!=
 literal|null
 condition|)
+block|{
 name|callback
 operator|.
 name|done
@@ -566,6 +582,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

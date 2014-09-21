@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|surftools
-operator|.
-name|BeanstalkClient
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -62,6 +50,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|surftools
+operator|.
+name|BeanstalkClient
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -79,6 +79,11 @@ specifier|final
 class|class
 name|Helper
 block|{
+DECL|method|Helper ()
+specifier|private
+name|Helper
+parameter_list|()
+block|{     }
 DECL|method|mockConn (final Client client)
 specifier|public
 specifier|static

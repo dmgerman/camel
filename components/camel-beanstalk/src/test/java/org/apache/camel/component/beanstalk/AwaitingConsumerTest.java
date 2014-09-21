@@ -26,7 +26,7 @@ name|surftools
 operator|.
 name|BeanstalkClient
 operator|.
-name|Job
+name|BeanstalkException
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|surftools
 operator|.
 name|BeanstalkClient
 operator|.
-name|BeanstalkException
+name|Job
 import|;
 end_import
 
@@ -102,7 +102,67 @@ name|mockito
 operator|.
 name|Mockito
 operator|.
-name|*
+name|anyInt
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|atLeast
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|times
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 
@@ -114,13 +174,6 @@ name|AwaitingConsumerTest
 extends|extends
 name|BeanstalkMockTestSupport
 block|{
-DECL|field|testMessage
-specifier|final
-name|String
-name|testMessage
-init|=
-literal|"hello, world"
-decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -132,6 +185,13 @@ DECL|field|endpoint
 specifier|protected
 name|BeanstalkEndpoint
 name|endpoint
+decl_stmt|;
+DECL|field|testMessage
+specifier|private
+name|String
+name|testMessage
+init|=
+literal|"hello, world"
 decl_stmt|;
 annotation|@
 name|Test

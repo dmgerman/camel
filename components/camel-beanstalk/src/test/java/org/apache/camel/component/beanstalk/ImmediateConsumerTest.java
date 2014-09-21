@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointInject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -114,7 +102,67 @@ name|mockito
 operator|.
 name|Mockito
 operator|.
-name|*
+name|anyInt
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|atLeast
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|atLeastOnce
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|when
 import|;
 end_import
 
@@ -127,7 +175,6 @@ extends|extends
 name|BeanstalkMockTestSupport
 block|{
 DECL|field|testMessage
-specifier|final
 name|String
 name|testMessage
 init|=
@@ -136,11 +183,8 @@ decl_stmt|;
 DECL|field|shouldIdie
 name|boolean
 name|shouldIdie
-init|=
-literal|false
 decl_stmt|;
 DECL|field|processor
-specifier|final
 name|Processor
 name|processor
 init|=
@@ -164,6 +208,7 @@ if|if
 condition|(
 name|shouldIdie
 condition|)
+block|{
 throw|throw
 operator|new
 name|InterruptedException
@@ -171,6 +216,7 @@ argument_list|(
 literal|"die"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 decl_stmt|;

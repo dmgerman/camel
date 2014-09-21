@@ -68,10 +68,6 @@ name|ExchangeHelper
 import|;
 end_import
 
-begin_comment
-comment|/**  *  * @author<a href="mailto:azarov@osinka.com">Alexander Azarov</a>  */
-end_comment
-
 begin_class
 DECL|class|BeanstalkExchangeHelper
 specifier|public
@@ -79,6 +75,11 @@ specifier|final
 class|class
 name|BeanstalkExchangeHelper
 block|{
+DECL|method|BeanstalkExchangeHelper ()
+specifier|private
+name|BeanstalkExchangeHelper
+parameter_list|()
+block|{     }
 DECL|method|getPriority (final BeanstalkEndpoint endpoint, final Message in)
 specifier|public
 specifier|static
@@ -103,23 +104,15 @@ name|Headers
 operator|.
 name|PRIORITY
 argument_list|,
-name|Long
-operator|.
-name|valueOf
-argument_list|(
 name|endpoint
 operator|.
 name|getJobPriority
 argument_list|()
-argument_list|)
 argument_list|,
 name|Long
 operator|.
 name|class
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 return|;
 block|}
 DECL|method|getDelay (final BeanstalkEndpoint endpoint, final Message in)
@@ -146,23 +139,15 @@ name|Headers
 operator|.
 name|DELAY
 argument_list|,
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 name|endpoint
 operator|.
 name|getJobDelay
 argument_list|()
-argument_list|)
 argument_list|,
 name|Integer
 operator|.
 name|class
 argument_list|)
-operator|.
-name|intValue
-argument_list|()
 return|;
 block|}
 DECL|method|getTimeToRun (final BeanstalkEndpoint endpoint, final Message in)
@@ -189,23 +174,15 @@ name|Headers
 operator|.
 name|TIME_TO_RUN
 argument_list|,
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 name|endpoint
 operator|.
 name|getJobTimeToRun
 argument_list|()
-argument_list|)
 argument_list|,
 name|Integer
 operator|.
 name|class
 argument_list|)
-operator|.
-name|intValue
-argument_list|()
 return|;
 block|}
 DECL|method|getJobID (final Exchange exchange)
@@ -243,9 +220,11 @@ name|jobId
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|jobId
 return|;
+block|}
 return|return
 name|ExchangeHelper
 operator|.

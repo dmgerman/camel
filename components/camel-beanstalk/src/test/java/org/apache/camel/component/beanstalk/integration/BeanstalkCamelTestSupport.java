@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|surftools
+operator|.
+name|BeanstalkClient
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -49,18 +61,6 @@ operator|.
 name|beanstalk
 operator|.
 name|ConnectionSettingsFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|surftools
-operator|.
-name|BeanstalkClient
-operator|.
-name|Client
 import|;
 end_import
 
@@ -100,6 +100,7 @@ extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|connFactory
+specifier|protected
 specifier|final
 name|ConnectionSettingsFactory
 name|connFactory
@@ -109,6 +110,7 @@ operator|.
 name|DEFAULT
 decl_stmt|;
 DECL|field|tubeName
+specifier|protected
 specifier|final
 name|String
 name|tubeName
@@ -129,15 +131,11 @@ DECL|field|reader
 specifier|protected
 name|Client
 name|reader
-init|=
-literal|null
 decl_stmt|;
 DECL|field|writer
 specifier|protected
 name|Client
 name|writer
-init|=
-literal|null
 decl_stmt|;
 annotation|@
 name|Before

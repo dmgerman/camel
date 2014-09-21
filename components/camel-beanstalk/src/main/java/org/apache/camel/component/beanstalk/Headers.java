@@ -18,10 +18,6 @@ name|beanstalk
 package|;
 end_package
 
-begin_comment
-comment|/**  *  * @author<a href="mailto:azarov@osinka.com">Alexander Azarov</a>  */
-end_comment
-
 begin_class
 DECL|class|Headers
 specifier|public
@@ -185,6 +181,11 @@ name|PREFIX
 operator|+
 literal|"kicks"
 decl_stmt|;
+DECL|method|Headers ()
+specifier|private
+name|Headers
+parameter_list|()
+block|{     }
 block|}
 end_class
 

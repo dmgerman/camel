@@ -22,9 +22,19 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Arrays
+name|UnsupportedEncodingException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URLDecoder
 import|;
 end_import
 
@@ -44,7 +54,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Scanner
+name|Arrays
 import|;
 end_import
 
@@ -52,9 +62,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
+name|util
 operator|.
-name|URLDecoder
+name|Scanner
 import|;
 end_import
 
@@ -82,18 +92,8 @@ name|ClientImpl
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|UnsupportedEncodingException
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents the connection to Beanstalk.  *<p>  * Along with the list of tubes it may watch.  *  * @author<a href="mailto:azarov@osinka.com">Alexander Azarov</a>  */
+comment|/**  * Represents the connection to Beanstalk.  *<p/>  * Along with the list of tubes it may watch.  */
 end_comment
 
 begin_class
@@ -286,7 +286,10 @@ argument_list|(
 operator|new
 name|String
 index|[
-literal|0
+name|buffer
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 expr_stmt|;
@@ -296,7 +299,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Returns the {@link Client} instance ready for writing      * operations, e.g. "put".      *<p>      *<code>use(tube)</code> is applied during this call.      *      * @return {@link Client} instance      * @throws IllegalArgumentException the exception is raised when this ConnectionSettings      * has more than one tube.      */
+comment|/**      * Returns the {@link Client} instance ready for writing      * operations, e.g. "put".      *<p/>      *<code>use(tube)</code> is applied during this call.      *      * @return {@link Client} instance      * @throws IllegalArgumentException the exception is raised when this ConnectionSettings      *                                  has more than one tube.      */
 DECL|method|newWritingClient ()
 specifier|public
 name|Client
@@ -366,7 +369,7 @@ return|return
 name|client
 return|;
 block|}
-comment|/**      * Returns the {@link Client} instance for reading operations with all      * the tubes aleady watched      *<p>      *<code>watch(tube)</code> is applied for every tube during this call.      *      * @param useBlockIO configuration param to {@link Client}      * @return {@link Client} instance      */
+comment|/**      * Returns the {@link Client} instance for reading operations with all      * the tubes aleady watched      *<p/>      *<code>watch(tube)</code> is applied for every tube during this call.      *      * @param useBlockIO configuration param to {@link Client}      * @return {@link Client} instance      */
 DECL|method|newReadingClient (boolean useBlockIO)
 specifier|public
 name|Client
@@ -399,6 +402,7 @@ name|tube
 range|:
 name|tubes
 control|)
+block|{
 name|client
 operator|.
 name|watch
@@ -406,6 +410,7 @@ argument_list|(
 name|tube
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|client
 return|;

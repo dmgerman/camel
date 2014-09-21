@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|surftools
-operator|.
-name|BeanstalkClient
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -54,9 +42,17 @@ name|Pattern
 import|;
 end_import
 
-begin_comment
-comment|/**  *  * @author<a href="mailto:azarov@osinka.com">Alexander Azarov</a>  */
-end_comment
+begin_import
+import|import
+name|com
+operator|.
+name|surftools
+operator|.
+name|BeanstalkClient
+operator|.
+name|Client
+import|;
+end_import
 
 begin_class
 DECL|class|ConnectionSettingsFactory
@@ -75,10 +71,12 @@ operator|new
 name|ConnectionSettingsFactory
 argument_list|()
 decl_stmt|;
-DECL|field|HostPortTubeRE
+DECL|field|HOST_PORT_TUBE_RE
+specifier|private
+specifier|static
 specifier|final
 name|Pattern
-name|HostPortTubeRE
+name|HOST_PORT_TUBE_RE
 init|=
 name|Pattern
 operator|.
@@ -87,6 +85,11 @@ argument_list|(
 literal|"^(([\\w.-]+)(:([\\d]+))?/)?([\\w%+]*)$"
 argument_list|)
 decl_stmt|;
+DECL|method|ConnectionSettingsFactory ()
+specifier|public
+name|ConnectionSettingsFactory
+parameter_list|()
+block|{     }
 DECL|method|parseUri (final String remaining)
 specifier|public
 name|ConnectionSettings
@@ -103,7 +106,7 @@ specifier|final
 name|Matcher
 name|m
 init|=
-name|HostPortTubeRE
+name|HOST_PORT_TUBE_RE
 operator|.
 name|matcher
 argument_list|(
@@ -118,6 +121,7 @@ operator|.
 name|matches
 argument_list|()
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -132,6 +136,7 @@ name|remaining
 argument_list|)
 argument_list|)
 throw|;
+block|}
 specifier|final
 name|String
 name|host

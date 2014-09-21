@@ -20,28 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|surftools
@@ -59,6 +37,52 @@ operator|.
 name|junit
 operator|.
 name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertArrayEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -82,7 +106,8 @@ name|factory
 init|=
 name|BeanstalkComponent
 operator|.
-name|connFactory
+name|getConnectionSettingsFactory
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -171,7 +196,8 @@ name|factory
 init|=
 name|BeanstalkComponent
 operator|.
-name|connFactory
+name|getConnectionSettingsFactory
+argument_list|()
 decl_stmt|;
 name|assertArrayEquals
 argument_list|(
@@ -284,7 +310,8 @@ name|factory
 init|=
 name|BeanstalkComponent
 operator|.
-name|connFactory
+name|getConnectionSettingsFactory
+argument_list|()
 decl_stmt|;
 name|fail
 argument_list|(
@@ -314,11 +341,12 @@ parameter_list|()
 block|{
 name|BeanstalkComponent
 operator|.
-name|connFactory
-operator|=
+name|setConnectionSettingsFactory
+argument_list|(
 operator|new
 name|ConnectionSettingsFactory
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

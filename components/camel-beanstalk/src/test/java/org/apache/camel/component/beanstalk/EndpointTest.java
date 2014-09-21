@@ -81,18 +81,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -113,12 +101,38 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|Assert
+operator|.
+name|assertArrayEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
 import|;
 end_import
 
@@ -131,8 +145,6 @@ block|{
 DECL|field|context
 name|CamelContext
 name|context
-init|=
-literal|null
 decl_stmt|;
 annotation|@
 name|Before
@@ -326,7 +338,8 @@ name|COMMAND_RELEASE
 argument_list|,
 name|endpoint
 operator|.
-name|command
+name|getCommand
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -369,7 +382,8 @@ name|COMMAND_KICK
 argument_list|,
 name|endpoint
 operator|.
-name|command
+name|getCommand
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals

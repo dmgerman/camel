@@ -51,7 +51,6 @@ interface|interface
 name|Command
 block|{
 DECL|method|act (Client client, Exchange exchange)
-specifier|public
 name|void
 name|act
 parameter_list|(
