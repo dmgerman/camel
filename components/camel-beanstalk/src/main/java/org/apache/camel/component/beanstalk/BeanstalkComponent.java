@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -62,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -76,7 +64,7 @@ specifier|public
 class|class
 name|BeanstalkComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|DEFAULT_TUBE
 specifier|public
@@ -184,19 +172,12 @@ DECL|method|BeanstalkComponent ()
 specifier|public
 name|BeanstalkComponent
 parameter_list|()
-block|{     }
-DECL|method|BeanstalkComponent (final CamelContext context)
-specifier|public
-name|BeanstalkComponent
-parameter_list|(
-specifier|final
-name|CamelContext
-name|context
-parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|BeanstalkEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
