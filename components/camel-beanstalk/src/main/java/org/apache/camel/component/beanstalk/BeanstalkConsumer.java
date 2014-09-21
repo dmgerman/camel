@@ -330,22 +330,16 @@ DECL|field|onFailure
 specifier|private
 name|String
 name|onFailure
-init|=
-name|BeanstalkComponent
-operator|.
-name|COMMAND_BURY
 decl_stmt|;
 DECL|field|useBlockIO
 specifier|private
 name|boolean
 name|useBlockIO
-init|=
-literal|true
 decl_stmt|;
-DECL|field|deleteImmediately
+DECL|field|awaitJob
 specifier|private
 name|boolean
-name|deleteImmediately
+name|awaitJob
 decl_stmt|;
 DECL|field|client
 specifier|private
@@ -712,7 +706,8 @@ block|}
 block|}
 if|if
 condition|(
-name|deleteImmediately
+operator|!
+name|awaitJob
 condition|)
 block|{
 name|client
@@ -873,10 +868,10 @@ operator|=
 name|onFailure
 expr_stmt|;
 block|}
-DECL|method|getUseBlockIO ()
+DECL|method|isUseBlockIO ()
 specifier|public
 name|boolean
-name|getUseBlockIO
+name|isUseBlockIO
 parameter_list|()
 block|{
 return|return
@@ -899,32 +894,30 @@ operator|=
 name|useBlockIO
 expr_stmt|;
 block|}
-DECL|method|getAwaitJob ()
+DECL|method|isAwaitJob ()
 specifier|public
 name|boolean
-name|getAwaitJob
+name|isAwaitJob
 parameter_list|()
 block|{
 return|return
-operator|!
-name|deleteImmediately
+name|awaitJob
 return|;
 block|}
-DECL|method|setAwaitJob (boolean awaitingCompletion)
+DECL|method|setAwaitJob (boolean awaitJob)
 specifier|public
 name|void
 name|setAwaitJob
 parameter_list|(
 name|boolean
-name|awaitingCompletion
+name|awaitJob
 parameter_list|)
 block|{
 name|this
 operator|.
-name|deleteImmediately
+name|awaitJob
 operator|=
-operator|!
-name|awaitingCompletion
+name|awaitJob
 expr_stmt|;
 block|}
 annotation|@
