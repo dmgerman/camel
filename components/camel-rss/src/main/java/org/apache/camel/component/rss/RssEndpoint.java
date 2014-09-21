@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|feed
@@ -202,6 +214,24 @@ argument_list|,
 name|feedUri
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createProducer ()
+specifier|public
+name|Producer
+name|createProducer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"RssProducer is not implemented"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
