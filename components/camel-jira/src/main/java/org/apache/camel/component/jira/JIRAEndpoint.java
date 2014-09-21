@@ -193,13 +193,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
+throw|throw
 operator|new
-name|JIRAProducer
+name|UnsupportedOperationException
 argument_list|(
-name|this
+literal|"JIRAProducer is not implemented"
 argument_list|)
-return|;
+throw|;
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
