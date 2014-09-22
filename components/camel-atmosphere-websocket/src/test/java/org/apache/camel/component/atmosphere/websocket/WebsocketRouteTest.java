@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.wsservlet
+DECL|package|org.apache.camel.component.atmosphere.websocket
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|wsservlet
+name|atmosphere
+operator|.
+name|websocket
 package|;
 end_package
 
