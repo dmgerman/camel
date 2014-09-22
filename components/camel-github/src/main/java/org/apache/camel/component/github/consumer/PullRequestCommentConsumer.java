@@ -223,15 +223,11 @@ DECL|field|pullRequestService
 specifier|private
 name|PullRequestService
 name|pullRequestService
-init|=
-literal|null
 decl_stmt|;
 DECL|field|issueService
 specifier|private
 name|IssueService
 name|issueService
-init|=
-literal|null
 decl_stmt|;
 DECL|field|commentIds
 specifier|private

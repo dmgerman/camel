@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Producer endpoint that adds one of two types of comments on a GitHub pullrequest:  *   * 1.) Response to an in-line comment made on a pull request commit review.  To use, include the  *     "GitHubInResponseTo" header, identifying the comment ID (integer) that you're responding to.  * 2.) General comment on the pull request issue itself.  *   * Both endpoints require the "GitHubPullRequest" header, identifying the pull request number (integer).  */
+comment|/**  * Producer endpoint that adds one of two types of comments on a GitHub pull request:  *   * 1.) Response to an in-line comment made on a pull request commit review.  To use, include the  *     "GitHubInResponseTo" header, identifying the comment ID (integer) that you're responding to.  * 2.) General comment on the pull request issue itself.  *   * Both endpoints require the "GitHubPullRequest" header, identifying the pull request number (integer).  */
 end_comment
 
 begin_class
@@ -116,15 +116,11 @@ DECL|field|pullRequestService
 specifier|private
 name|PullRequestService
 name|pullRequestService
-init|=
-literal|null
 decl_stmt|;
 DECL|field|issueService
 specifier|private
 name|IssueService
 name|issueService
-init|=
-literal|null
 decl_stmt|;
 DECL|method|PullRequestCommentProducer (GitHubEndpoint endpoint)
 specifier|public

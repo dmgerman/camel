@@ -173,8 +173,6 @@ DECL|field|commitService
 specifier|private
 name|CommitService
 name|commitService
-init|=
-literal|null
 decl_stmt|;
 DECL|field|commitHashes
 specifier|private

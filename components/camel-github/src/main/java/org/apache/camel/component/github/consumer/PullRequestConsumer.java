@@ -163,15 +163,11 @@ DECL|field|pullRequestService
 specifier|private
 name|PullRequestService
 name|pullRequestService
-init|=
-literal|null
 decl_stmt|;
 DECL|field|lastOpenPullRequest
 specifier|private
 name|int
 name|lastOpenPullRequest
-init|=
-literal|0
 decl_stmt|;
 DECL|method|PullRequestConsumer (GitHubEndpoint endpoint, Processor processor)
 specifier|public
