@@ -88,7 +88,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|QuartzEndpoint
+name|QuartzHelper
 operator|.
 name|class
 argument_list|)
@@ -97,7 +97,9 @@ DECL|method|QuartzHelper ()
 specifier|private
 name|QuartzHelper
 parameter_list|()
-block|{     }
+block|{
+comment|// prevent instantiation
+block|}
 DECL|method|getQuartzContextName (CamelContext camelContext)
 specifier|public
 specifier|static
@@ -139,6 +141,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**      * Adds the current CamelContext name and endpoint URI to the Job's jobData      * map.      *       * @param camelContext The currently active camelContext      * @param jobDetail The job for which the jobData map shall be updated      * @param endpointUri URI of the endpoint name, if any. May be {@code null}      */
 DECL|method|updateJobDataMap (CamelContext camelContext, JobDetail jobDetail, String endpointUri)
 specifier|public
 specifier|static
