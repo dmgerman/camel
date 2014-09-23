@@ -102,11 +102,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fails for some unknown reason"
-argument_list|)
 DECL|class|CamelMsvTest
 specifier|public
 class|class
@@ -138,6 +133,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|testComponent
 argument_list|(
 name|COMPONENT
