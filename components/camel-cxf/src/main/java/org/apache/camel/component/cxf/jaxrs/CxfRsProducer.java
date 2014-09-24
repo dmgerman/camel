@@ -1079,9 +1079,17 @@ name|equals
 argument_list|(
 name|httpMethod
 argument_list|)
+operator|&&
+operator|!
+literal|"DELETE"
+operator|.
+name|equals
+argument_list|(
+name|httpMethod
+argument_list|)
 condition|)
 block|{
-comment|// need to check the request object.
+comment|// need to check the request object if the http Method is not GET or DELETE
 name|body
 operator|=
 name|binding
