@@ -219,6 +219,11 @@ name|SortTerm
 index|[]
 name|sortTerm
 decl_stmt|;
+DECL|field|postProcessAction
+specifier|private
+name|MailBoxPostProcessAction
+name|postProcessAction
+decl_stmt|;
 DECL|method|MailEndpoint ()
 specifier|public
 name|MailEndpoint
@@ -799,6 +804,34 @@ operator|.
 name|clone
 argument_list|()
 operator|)
+expr_stmt|;
+block|}
+comment|/**      * @return Post processor that can e.g. delete old email. Gets called once the messages have been polled and      * processed.      */
+DECL|method|getPostProcessAction ()
+specifier|public
+name|MailBoxPostProcessAction
+name|getPostProcessAction
+parameter_list|()
+block|{
+return|return
+name|postProcessAction
+return|;
+block|}
+comment|/**      * @param postProcessAction {@link #getPostProcessAction()}      */
+DECL|method|setPostProcessAction (MailBoxPostProcessAction postProcessAction)
+specifier|public
+name|void
+name|setPostProcessAction
+parameter_list|(
+name|MailBoxPostProcessAction
+name|postProcessAction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|postProcessAction
+operator|=
+name|postProcessAction
 expr_stmt|;
 block|}
 block|}
