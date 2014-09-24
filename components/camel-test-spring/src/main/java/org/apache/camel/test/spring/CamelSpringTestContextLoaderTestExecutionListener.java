@@ -24,6 +24,18 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|core
+operator|.
+name|Ordered
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|test
 operator|.
 name|context
@@ -60,6 +72,22 @@ name|CamelSpringTestContextLoaderTestExecutionListener
 extends|extends
 name|AbstractTestExecutionListener
 block|{
+comment|/**      * The default implementation returns {@link org.springframework.core.Ordered#LOWEST_PRECEDENCE},      * thereby ensuring that custom listeners are ordered after default      * listeners supplied by the framework. Can be overridden by subclasses      * as necessary.      */
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|//set Camel first
+return|return
+name|Ordered
+operator|.
+name|HIGHEST_PRECEDENCE
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|prepareTestInstance (TestContext testContext)
