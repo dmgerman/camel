@@ -282,6 +282,13 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|binary
+specifier|private
+name|boolean
+name|binary
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|contentResolvedFromResource
 specifier|private
 name|boolean
@@ -663,6 +670,33 @@ operator|.
 name|transform
 operator|=
 name|transform
+expr_stmt|;
+block|}
+DECL|method|isBinary ()
+specifier|public
+name|boolean
+name|isBinary
+parameter_list|()
+block|{
+return|return
+name|binary
+return|;
+block|}
+comment|/**      * Whether the script is binary content or text content.      *<p/>      * By default the script is read as text content (eg<tt>java.lang.String</tt>)      *      * @param binary<tt>true</tt> to read the script as binary, instead of text based.      */
+DECL|method|setBinary (boolean binary)
+specifier|public
+name|void
+name|setBinary
+parameter_list|(
+name|boolean
+name|binary
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binary
+operator|=
+name|binary
 expr_stmt|;
 block|}
 comment|/**      * Sets the name of the language to use      *      * @param languageName the name of the language      */

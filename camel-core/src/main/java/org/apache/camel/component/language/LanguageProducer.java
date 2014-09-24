@@ -171,6 +171,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|script
+init|=
+literal|null
+decl_stmt|;
 comment|// is there a custom expression in the header?
 name|Expression
 name|exp
@@ -198,9 +203,8 @@ operator|==
 literal|null
 condition|)
 block|{
-name|String
 name|script
-init|=
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -216,7 +220,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|script
@@ -273,6 +277,14 @@ name|getExpression
 argument_list|()
 expr_stmt|;
 block|}
+comment|// the script can be a resource from the endpoint,
+comment|// or refer to a resource itself
+comment|// or just be a plain string
+name|InputStream
+name|is
+init|=
+literal|null
+decl_stmt|;
 comment|// fallback and use resource uri from endpoint
 if|if
 condition|(
@@ -281,15 +293,14 @@ operator|==
 literal|null
 condition|)
 block|{
-name|String
 name|script
-init|=
+operator|=
 name|getEndpoint
 argument_list|()
 operator|.
 name|getScript
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|script
@@ -316,14 +327,6 @@ name|exchange
 argument_list|)
 throw|;
 block|}
-comment|// the script can be a resource from the endpoint,
-comment|// or refer to a resource itself
-comment|// or just be a plain string
-name|InputStream
-name|is
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|script
@@ -375,6 +378,13 @@ condition|(
 name|is
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|getEndpoint
+argument_list|()
+operator|.
+name|isBinary
+argument_list|()
 condition|)
 block|{
 try|try
@@ -413,6 +423,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// if we have a text based script then use and evaluate it
 if|if
 condition|(
 name|script
@@ -463,32 +475,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
-comment|// no script to execute
-throw|throw
-operator|new
-name|CamelExchangeException
-argument_list|(
-literal|"No script to evaluate"
-argument_list|,
-name|exchange
-argument_list|)
-throw|;
-block|}
-block|}
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|exp
-argument_list|,
-literal|"expression"
-argument_list|)
-expr_stmt|;
+comment|// the result is either the result of the expression or the input stream as-is because its binary content
 name|Object
 name|result
 decl_stmt|;
+if|if
+condition|(
+name|exp
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|result
@@ -548,6 +545,15 @@ name|exp
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+else|else
+block|{
+comment|// use the result as-is
+name|result
+operator|=
+name|is
+expr_stmt|;
 block|}
 comment|// set message body if transform is enabled
 if|if
