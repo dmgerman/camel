@@ -311,6 +311,37 @@ name|jsonView
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|unmarshalType
+argument_list|,
+name|jsonView
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Use the default Jackson {@link ObjectMapper} and with a custom      * unmarshal type and JSON view      *      * @param unmarshalType the custom unmarshal type      * @param jsonView marker class to specify properties to be included during marshalling.      *                 See also http://wiki.fasterxml.com/JacksonJsonViews      * @param enableJaxbAnnotationModule if it is true, will enable the JaxbAnnotationModule.      */
+DECL|method|JacksonDataFormat (Class<?> unmarshalType, Class<?> jsonView, boolean enableJaxbAnnotationModule)
+specifier|public
+name|JacksonDataFormat
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|unmarshalType
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|jsonView
+parameter_list|,
+name|boolean
+name|enableJaxbAnnotationModule
+parameter_list|)
+block|{
+name|this
 operator|.
 name|objectMapper
 operator|=
@@ -330,6 +361,11 @@ name|jsonView
 operator|=
 name|jsonView
 expr_stmt|;
+if|if
+condition|(
+name|enableJaxbAnnotationModule
+condition|)
+block|{
 comment|// Enables JAXB processing
 name|JaxbAnnotationModule
 name|module
@@ -347,6 +383,7 @@ argument_list|(
 name|module
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Use a custom Jackson mapper and and unmarshal type      *      * @param mapper        the custom mapper      * @param unmarshalType the custom unmarshal type      */
 DECL|method|JacksonDataFormat (ObjectMapper mapper, Class<?> unmarshalType)
