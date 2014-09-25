@@ -102,6 +102,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|BeforeClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -146,6 +156,21 @@ name|SpringXmlJsonDataFormatTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
+annotation|@
+name|BeforeClass
+DECL|method|checkXomInClasspath ()
+specifier|public
+specifier|static
+name|void
+name|checkXomInClasspath
+parameter_list|()
+block|{
+name|AbstractJsonTestSupport
+operator|.
+name|checkXomInClasspath
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testMarshalAndUnmarshal ()
