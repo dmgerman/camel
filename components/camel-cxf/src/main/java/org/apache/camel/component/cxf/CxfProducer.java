@@ -1929,9 +1929,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"CxfProducer cannot find the {} from message header, try to use the defaultOperationName"
+literal|"CxfProducer cannot find the {} from message header, trying with defaultOperationName"
 argument_list|,
 name|CxfConstants
 operator|.
@@ -1955,7 +1955,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"CxfProducer cannot find the {} from message header and there is no DefaultOperationName setting, CxfProducer will pick up the first available operation."
 argument_list|,
