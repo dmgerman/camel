@@ -643,12 +643,11 @@ name|LOGGER
 operator|.
 name|error
 argument_list|(
-literal|"Error creating a message of type: "
-operator|+
+literal|"Error creating a message of type: {}"
+argument_list|,
 name|messageType
-operator|.
-name|toString
-argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -1509,14 +1508,6 @@ name|JMSException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOGGER
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOGGER
 operator|.
 name|debug
@@ -1524,9 +1515,10 @@ argument_list|(
 literal|"Error setting the message type: {}"
 argument_list|,
 name|type
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *      * @param message       the JMS message      * @param correlationId the correlation id      */
@@ -1559,14 +1551,6 @@ name|JMSException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOGGER
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOGGER
 operator|.
 name|debug
@@ -1574,9 +1558,10 @@ argument_list|(
 literal|"Error setting the correlationId: {}"
 argument_list|,
 name|correlationId
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Sets the property on the given JMS message.      *      * @param jmsMessage the JMS message      * @param name       name of the property to set      * @param value      the value      * @throws JMSException can be thrown      */
