@@ -258,6 +258,11 @@ specifier|private
 name|boolean
 name|useList
 decl_stmt|;
+DECL|field|enableJaxbAnnotationModule
+specifier|private
+name|boolean
+name|enableJaxbAnnotationModule
+decl_stmt|;
 comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Map}      */
 DECL|method|JacksonDataFormat ()
 specifier|public
@@ -361,29 +366,12 @@ name|jsonView
 operator|=
 name|jsonView
 expr_stmt|;
-if|if
-condition|(
-name|enableJaxbAnnotationModule
-condition|)
-block|{
-comment|// Enables JAXB processing
-name|JaxbAnnotationModule
-name|module
-init|=
-operator|new
-name|JaxbAnnotationModule
-argument_list|()
-decl_stmt|;
 name|this
 operator|.
-name|objectMapper
-operator|.
-name|registerModule
-argument_list|(
-name|module
-argument_list|)
+name|enableJaxbAnnotationModule
+operator|=
+name|enableJaxbAnnotationModule
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Use a custom Jackson mapper and and unmarshal type      *      * @param mapper        the custom mapper      * @param unmarshalType the custom unmarshal type      */
 DECL|method|JacksonDataFormat (ObjectMapper mapper, Class<?> unmarshalType)
@@ -831,6 +819,32 @@ operator|=
 name|useList
 expr_stmt|;
 block|}
+DECL|method|isEnableJaxbAnnotationModule ()
+specifier|public
+name|boolean
+name|isEnableJaxbAnnotationModule
+parameter_list|()
+block|{
+return|return
+name|enableJaxbAnnotationModule
+return|;
+block|}
+DECL|method|setEnableJaxbAnnotationModule (boolean enableJaxbAnnotationModule)
+specifier|public
+name|void
+name|setEnableJaxbAnnotationModule
+parameter_list|(
+name|boolean
+name|enableJaxbAnnotationModule
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJaxbAnnotationModule
+operator|=
+name|enableJaxbAnnotationModule
+expr_stmt|;
+block|}
 comment|/**      * Uses {@link java.util.ArrayList} when unmarshalling.      */
 DECL|method|useList ()
 specifier|public
@@ -893,6 +907,27 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|enableJaxbAnnotationModule
+condition|)
+block|{
+comment|// Enables JAXB processing
+name|JaxbAnnotationModule
+name|module
+init|=
+operator|new
+name|JaxbAnnotationModule
+argument_list|()
+decl_stmt|;
+name|objectMapper
+operator|.
+name|registerModule
+argument_list|(
+name|module
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|useList
