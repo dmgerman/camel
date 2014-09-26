@@ -319,6 +319,10 @@ name|PNG
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|BarcodeFormat
+operator|.
+name|QR_CODE
 argument_list|)
 expr_stmt|;
 block|}
@@ -381,6 +385,10 @@ name|PNG
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|BarcodeFormat
+operator|.
+name|QR_CODE
 argument_list|)
 expr_stmt|;
 block|}
@@ -438,6 +446,10 @@ argument_list|,
 literal|100
 argument_list|,
 literal|"JPEG"
+argument_list|,
+name|BarcodeFormat
+operator|.
+name|QR_CODE
 argument_list|)
 expr_stmt|;
 block|}
@@ -491,6 +503,10 @@ argument_list|(
 name|image
 argument_list|,
 literal|"JPEG"
+argument_list|,
+name|BarcodeFormat
+operator|.
+name|PDF_417
 argument_list|)
 expr_stmt|;
 block|}
