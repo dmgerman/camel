@@ -578,6 +578,13 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|ignoreDeleteMethodMessageBody
+specifier|private
+name|boolean
+name|ignoreDeleteMethodMessageBody
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|address
 specifier|private
 name|String
@@ -1937,6 +1944,32 @@ block|{
 return|return
 name|isSetDefaultBus
 return|;
+block|}
+DECL|method|isIgnoreDeleteMethodMessageBody ()
+specifier|public
+name|boolean
+name|isIgnoreDeleteMethodMessageBody
+parameter_list|()
+block|{
+return|return
+name|ignoreDeleteMethodMessageBody
+return|;
+block|}
+DECL|method|setIgnoreDELETEMethodMessageBody (boolean ignoreDELETEMethodMessageBody)
+specifier|public
+name|void
+name|setIgnoreDELETEMethodMessageBody
+parameter_list|(
+name|boolean
+name|ignoreDELETEMethodMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreDeleteMethodMessageBody
+operator|=
+name|ignoreDELETEMethodMessageBody
+expr_stmt|;
 block|}
 DECL|method|getBindingStyle ()
 specifier|public

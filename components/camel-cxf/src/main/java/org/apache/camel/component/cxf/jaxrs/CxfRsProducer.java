@@ -411,6 +411,11 @@ specifier|private
 name|boolean
 name|throwException
 decl_stmt|;
+DECL|field|cxfRsEndpoint
+specifier|private
+name|CxfRsEndpoint
+name|cxfRsEndpoint
+decl_stmt|;
 comment|// using a cache of factory beans instead of setting the address of a single cfb
 comment|// to avoid concurrent issues
 DECL|field|clientFactoryBeanCache
@@ -430,6 +435,10 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
+expr_stmt|;
+name|cxfRsEndpoint
+operator|=
+name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -1079,17 +1088,28 @@ name|equals
 argument_list|(
 name|httpMethod
 argument_list|)
-operator|&&
-operator|!
+condition|)
+block|{
+comment|// need to check the request object if the http Method is not GET
+if|if
+condition|(
 literal|"DELETE"
 operator|.
 name|equals
 argument_list|(
 name|httpMethod
 argument_list|)
+operator|&&
+name|cxfRsEndpoint
+operator|.
+name|isIgnoreDeleteMethodMessageBody
+argument_list|()
 condition|)
 block|{
-comment|// need to check the request object if the http Method is not GET or DELETE
+comment|// just ignore the message body if the ignoreDeleteMethodMessageBody is true
+block|}
+else|else
+block|{
 name|body
 operator|=
 name|binding
@@ -1118,6 +1138,7 @@ operator|+
 name|body
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|setupClientQueryAndHeaders
