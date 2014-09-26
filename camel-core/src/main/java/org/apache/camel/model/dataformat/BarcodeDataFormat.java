@@ -302,7 +302,7 @@ name|camelContext
 argument_list|,
 name|dataFormat
 argument_list|,
-literal|"barcodeDataFormat"
+literal|"barcodeFormat"
 argument_list|,
 name|barcodeFormat
 argument_list|)
