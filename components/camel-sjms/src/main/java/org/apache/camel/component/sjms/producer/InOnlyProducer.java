@@ -430,12 +430,9 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to create the MessageProducer: "
-operator|+
+literal|"Unable to create the MessageProducer"
+argument_list|,
 name|e
-operator|.
-name|getLocalizedMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -770,11 +767,8 @@ operator|new
 name|Exception
 argument_list|(
 literal|"Unable to complete sending the message: "
-operator|+
+argument_list|,
 name|e
-operator|.
-name|getLocalizedMessage
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
