@@ -1875,7 +1875,7 @@ return|return
 name|params
 return|;
 block|}
-comment|/**      * Get operation name from header and use it to lookup and return a       * {@link BindingOperationInfo}.      */
+comment|/**      *<p>Get operation name from header and use it to lookup and return a       * {@link BindingOperationInfo}.</p>      *<p>CxfProducer lookups the operation name lookup with below order, and it uses the first found one which is not null:</p>      *<ul>      *<li> Using the in message header "operationName".</li>      *<li> Using the defaultOperationName option value from the CxfEndpoint.</li>      *<li> Using the first operation which is find from the CxfEndpoint Operations list.</li>      *<ul>      */
 DECL|method|getBindingOperationInfo (Exchange ex)
 specifier|private
 name|BindingOperationInfo
