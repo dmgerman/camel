@@ -762,7 +762,7 @@ name|dataFormat
 argument_list|,
 literal|"prettyPrint"
 argument_list|,
-name|unmarshalType
+name|prettyPrint
 argument_list|)
 expr_stmt|;
 block|}
