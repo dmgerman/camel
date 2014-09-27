@@ -734,6 +734,21 @@ name|void
 name|optimizeHints
 parameter_list|()
 block|{
+comment|// clear hints for re-optimization
+name|this
+operator|.
+name|writerHintMap
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|readerHintMap
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 comment|// writer hints
 name|this
 operator|.
@@ -1344,6 +1359,11 @@ name|setFormat
 argument_list|(
 name|format
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|optimizeHints
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|setWidth (Integer width)
