@@ -5513,7 +5513,7 @@ name|url
 operator|=
 name|url
 operator|+
-literal|"?"
+literal|"&"
 operator|+
 name|query
 expr_stmt|;
