@@ -4723,9 +4723,6 @@ operator|new
 name|GroupIterator
 argument_list|(
 name|exchange
-operator|.
-name|getContext
-argument_list|()
 argument_list|,
 name|it
 argument_list|,

@@ -84,7 +84,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|Exchange
 import|;
 end_import
 
@@ -118,11 +118,11 @@ argument_list|>
 implements|,
 name|Closeable
 block|{
-DECL|field|camelContext
+DECL|field|exchange
 specifier|private
 specifier|final
-name|CamelContext
-name|camelContext
+name|Exchange
+name|exchange
 decl_stmt|;
 DECL|field|it
 specifier|private
@@ -161,12 +161,12 @@ name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new group iterator      *      * @param camelContext  the camel context      * @param it            the iterator to group      * @param token         then token used to separate between the parts, use<tt>null</tt> to not add the token      * @param group         number of parts to group together      * @throws IllegalArgumentException is thrown if group is not a positive number      */
-DECL|method|GroupIterator (CamelContext camelContext, Iterator<?> it, String token, int group)
+DECL|method|GroupIterator (Exchange exchange, Iterator<?> it, String token, int group)
 specifier|public
 name|GroupIterator
 parameter_list|(
-name|CamelContext
-name|camelContext
+name|Exchange
+name|exchange
 parameter_list|,
 name|Iterator
 argument_list|<
@@ -183,9 +183,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|camelContext
+name|exchange
 operator|=
-name|camelContext
+name|exchange
 expr_stmt|;
 name|this
 operator|.
@@ -523,7 +523,10 @@ comment|// convert to input stream
 name|InputStream
 name|is
 init|=
-name|camelContext
+name|exchange
+operator|.
+name|getContext
+argument_list|()
 operator|.
 name|getTypeConverter
 argument_list|()
@@ -551,14 +554,21 @@ name|count
 operator|++
 expr_stmt|;
 block|}
-comment|// prepare and return answer as String
+comment|// prepare and return answer as String using exchange's charset
 name|String
 name|answer
 init|=
 name|bos
 operator|.
 name|toString
-argument_list|()
+argument_list|(
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|)
+argument_list|)
 decl_stmt|;
 name|bos
 operator|.
