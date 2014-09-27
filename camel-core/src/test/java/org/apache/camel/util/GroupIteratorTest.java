@@ -56,16 +56,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Scanner
 import|;
 end_import
@@ -337,7 +327,7 @@ name|byte
 index|[]
 name|buf
 init|=
-literal|"ÃÂ£1\nÃÂ£2\n"
+literal|"Â£1\nÂ£2\n"
 operator|.
 name|getBytes
 argument_list|(
@@ -419,7 +409,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ÃÂ£1"
+literal|"Â£1"
 argument_list|,
 name|gi
 operator|.
@@ -429,7 +419,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ÃÂ£2"
+literal|"Â£2"
 argument_list|,
 name|gi
 operator|.
