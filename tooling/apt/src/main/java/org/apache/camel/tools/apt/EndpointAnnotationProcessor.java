@@ -464,10 +464,6 @@ begin_comment
 comment|/**  * Processes all Camel endpoints  */
 end_comment
 
-begin_comment
-comment|//@SupportedOptions({"foo"})
-end_comment
-
 begin_class
 annotation|@
 name|SupportedAnnotationTypes
@@ -481,7 +477,7 @@ name|SupportedSourceVersion
 argument_list|(
 name|SourceVersion
 operator|.
-name|RELEASE_6
+name|RELEASE_7
 argument_list|)
 DECL|class|EndpointAnnotationProcessor
 specifier|public
@@ -1935,7 +1931,6 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|//resource = filer.createResource(StandardLocation.CLASS_OUTPUT, "org.apache.camel", "CamelAPT2.txt", rootElements.toArray(new Element[rootElements.size()]));
 name|resource
 operator|=
 name|filer
