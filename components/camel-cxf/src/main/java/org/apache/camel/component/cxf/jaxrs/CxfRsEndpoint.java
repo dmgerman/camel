@@ -1955,20 +1955,20 @@ return|return
 name|ignoreDeleteMethodMessageBody
 return|;
 block|}
-DECL|method|setIgnoreDELETEMethodMessageBody (boolean ignoreDELETEMethodMessageBody)
+DECL|method|setIgnoreDeleteMethodMessageBody (boolean ignoreDeleteMethodMessageBody)
 specifier|public
 name|void
-name|setIgnoreDELETEMethodMessageBody
+name|setIgnoreDeleteMethodMessageBody
 parameter_list|(
 name|boolean
-name|ignoreDELETEMethodMessageBody
+name|ignoreDeleteMethodMessageBody
 parameter_list|)
 block|{
 name|this
 operator|.
 name|ignoreDeleteMethodMessageBody
 operator|=
-name|ignoreDELETEMethodMessageBody
+name|ignoreDeleteMethodMessageBody
 expr_stmt|;
 block|}
 DECL|method|getBindingStyle ()
