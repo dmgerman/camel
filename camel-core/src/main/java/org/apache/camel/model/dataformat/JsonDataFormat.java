@@ -538,6 +538,32 @@ operator|=
 name|useList
 expr_stmt|;
 block|}
+DECL|method|getEnableJaxbAnnotationModule ()
+specifier|public
+name|Boolean
+name|getEnableJaxbAnnotationModule
+parameter_list|()
+block|{
+return|return
+name|enableJaxbAnnotationModule
+return|;
+block|}
+DECL|method|setEnableJaxbAnnotationModule (Boolean enableJaxbAnnotationModule)
+specifier|public
+name|void
+name|setEnableJaxbAnnotationModule
+parameter_list|(
+name|Boolean
+name|enableJaxbAnnotationModule
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJaxbAnnotationModule
+operator|=
+name|enableJaxbAnnotationModule
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createDataFormat (RouteContext routeContext)
