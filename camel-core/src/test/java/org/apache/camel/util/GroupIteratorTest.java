@@ -327,7 +327,7 @@ name|byte
 index|[]
 name|buf
 init|=
-literal|"Â£1\nÂ£2\n"
+literal|"\u00A31\n\u00A32\n"
 operator|.
 name|getBytes
 argument_list|(
@@ -409,7 +409,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Â£1"
+literal|"\u00A31"
 argument_list|,
 name|gi
 operator|.
@@ -419,7 +419,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Â£2"
+literal|"\u00A32"
 argument_list|,
 name|gi
 operator|.

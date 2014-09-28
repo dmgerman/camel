@@ -621,7 +621,7 @@ comment|// convert to input stream
 name|InputStream
 name|is
 init|=
-name|context
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
