@@ -1200,7 +1200,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|allowDefaultCodec
+name|isAllowDefaultCodec
+argument_list|()
 condition|)
 block|{
 if|if
