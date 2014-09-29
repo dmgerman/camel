@@ -1212,7 +1212,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|allowDefaultCodec
+name|isAllowDefaultCodec
+argument_list|()
 condition|)
 block|{
 comment|// are we textline or object?
