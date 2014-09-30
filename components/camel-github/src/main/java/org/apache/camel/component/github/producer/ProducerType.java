@@ -26,8 +26,11 @@ specifier|public
 enum|enum
 name|ProducerType
 block|{
+DECL|enumConstant|CLOSEPULLREQUEST
 DECL|enumConstant|PULLREQUESTCOMMENT
 DECL|enumConstant|UNKNOWN
+name|CLOSEPULLREQUEST
+block|,
 name|PULLREQUESTCOMMENT
 block|,
 name|UNKNOWN

@@ -445,6 +445,22 @@ argument_list|(
 name|newPullRequest
 argument_list|)
 expr_stmt|;
+comment|// Required by the producers.  Set it here for convenience.
+name|e
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"GitHubPullRequest"
+argument_list|,
+name|newPullRequest
+operator|.
+name|getNumber
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|getProcessor
 argument_list|()
 operator|.
