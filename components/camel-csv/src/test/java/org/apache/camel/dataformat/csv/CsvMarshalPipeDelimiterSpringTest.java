@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  * @version   */
+comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  */
 end_comment
 
 begin_class
@@ -211,7 +211,10 @@ name|body
 operator|.
 name|split
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -271,14 +274,7 @@ name|data
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -291,11 +287,7 @@ name|row1
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|row1
@@ -342,11 +334,7 @@ name|row2
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|row2

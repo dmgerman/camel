@@ -111,10 +111,10 @@ comment|/**  * Spring based test for the<code>CsvDataFormat</code> demonstrating
 end_comment
 
 begin_class
-DECL|class|CsvUnmarshalMapLineTest
+DECL|class|CsvUnmarshalMapLineSpringTest
 specifier|public
 class|class
-name|CsvUnmarshalMapLineTest
+name|CsvUnmarshalMapLineSpringTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -383,10 +383,10 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Test
-DECL|method|testCsvSkipFirstLineWithHeaderUnMarshal ()
+DECL|method|shouldUseExplicitHeadersInMap ()
 specifier|public
 name|void
-name|testCsvSkipFirstLineWithHeaderUnMarshal
+name|shouldUseExplicitHeadersInMap
 parameter_list|()
 throws|throws
 name|Exception
@@ -398,14 +398,13 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// the first line contains the column names which we intend to skip
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start2"
+literal|"direct:explicitHeader"
 argument_list|,
-literal|"Camel CSV test\nOrderId|Item|Amount\n123|Camel in Action|1\n124|ActiveMQ in Action|2"
+literal|"123|Camel in Action|1\n124|ActiveMQ in Action|2"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -465,7 +464,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"OrderId"
+literal|"MyOrderId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -482,7 +481,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"Item"
+literal|"MyItem"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -499,7 +498,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"Amount"
+literal|"MyAmount"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -516,7 +515,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"OrderId"
+literal|"MyOrderId"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -533,7 +532,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"Item"
+literal|"MyItem"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -550,7 +549,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"Amount"
+literal|"MyAmount"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -562,10 +561,10 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Test
-DECL|method|testCsvSkipFirstLineWithoutHeaderUnMarshalWithoutHeader ()
+DECL|method|shouldReplaceHeaderInMap ()
 specifier|public
 name|void
-name|testCsvSkipFirstLineWithoutHeaderUnMarshalWithoutHeader
+name|shouldReplaceHeaderInMap
 parameter_list|()
 throws|throws
 name|Exception
@@ -577,14 +576,13 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// the first line contains the column names which we intend to skip
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start3"
+literal|"direct:replaceHeader"
 argument_list|,
-literal|"123|Camel in Action|1\n124|ActiveMQ in Action|2"
+literal|"a|b|c\n123|Camel in Action|1\n124|ActiveMQ in Action|2"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  * @version   */
+comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  */
 end_comment
 
 begin_class
@@ -127,10 +127,10 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Test
-DECL|method|testCsvMarshal ()
+DECL|method|testCsvUnmarshal ()
 specifier|public
 name|void
-name|testCsvMarshal
+name|testCsvUnmarshal
 parameter_list|()
 throws|throws
 name|Exception

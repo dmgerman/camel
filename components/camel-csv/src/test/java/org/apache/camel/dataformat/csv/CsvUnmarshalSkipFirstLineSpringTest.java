@@ -101,10 +101,10 @@ comment|/**  * Spring based test for the<code>CsvDataFormat</code> demonstrating
 end_comment
 
 begin_class
-DECL|class|CsvUnmarshalSkipFirstLineTest
+DECL|class|CsvUnmarshalSkipFirstLineSpringTest
 specifier|public
 class|class
-name|CsvUnmarshalSkipFirstLineTest
+name|CsvUnmarshalSkipFirstLineSpringTest
 extends|extends
 name|CamelSpringTestSupport
 block|{
@@ -149,7 +149,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"OrderId,Item,Amount\n123|Camel in Action|1\n124|ActiveMQ in Action|2"
+literal|"OrderId|Item|Amount\n123|Camel in Action|1\n124|ActiveMQ in Action|2"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

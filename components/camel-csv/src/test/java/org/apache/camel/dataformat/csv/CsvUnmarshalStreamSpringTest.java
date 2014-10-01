@@ -216,12 +216,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|CsvIterator
+name|Iterator
 name|iterator
 init|=
 name|assertIsInstanceOf
 argument_list|(
-name|CsvIterator
+name|Iterator
 operator|.
 name|class
 argument_list|,

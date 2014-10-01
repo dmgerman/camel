@@ -447,14 +447,12 @@ init|=
 operator|new
 name|CsvDataFormat
 argument_list|()
-decl_stmt|;
-name|csv
 operator|.
 name|setDelimiter
 argument_list|(
-literal|"\t"
+literal|'\t'
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"

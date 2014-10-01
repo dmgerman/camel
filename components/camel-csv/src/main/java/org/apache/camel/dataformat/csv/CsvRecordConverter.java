@@ -18,27 +18,39 @@ name|csv
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|csv
+operator|.
+name|CSVRecord
+import|;
+end_import
+
 begin_comment
-comment|/**  * This interface helps converting a single CSV line into another representation.  *  * @param<T> Class for representing a single line  */
+comment|/**  * This interface is used to define a converter that transform a {@link org.apache.commons.csv.CSVRecord} into another  * type.  *<p/>  * The {@link org.apache.camel.dataformat.csv.CsvRecordConverters} class defines common converters.  *  * @param<T> Conversion type  * @see org.apache.camel.dataformat.csv.CsvRecordConverters  */
 end_comment
 
 begin_interface
-DECL|interface|CsvLineConverter
-specifier|public
+DECL|interface|CsvRecordConverter
 interface|interface
-name|CsvLineConverter
+name|CsvRecordConverter
 parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Converts a single CSV line.      *      * @param line CSV line      * @return Another representation of the CSV line      */
-DECL|method|convertLine (String[] line)
+comment|/**      * Converts the CSV record into another type.      *      * @param record CSV record to convert      * @return converted CSV record      */
+DECL|method|convertRecord (CSVRecord record)
 name|T
-name|convertLine
+name|convertRecord
 parameter_list|(
-name|String
-index|[]
-name|line
+name|CSVRecord
+name|record
 parameter_list|)
 function_decl|;
 block|}

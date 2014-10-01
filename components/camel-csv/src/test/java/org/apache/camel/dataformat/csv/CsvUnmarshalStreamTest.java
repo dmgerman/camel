@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  * @version   */
+comment|/**  * Spring based integration test for the<code>CsvDataFormat</code>  */
 end_comment
 
 begin_class
@@ -540,21 +540,17 @@ init|=
 operator|new
 name|CsvDataFormat
 argument_list|()
-decl_stmt|;
-name|csv
 operator|.
 name|setLazyLoad
 argument_list|(
 literal|true
 argument_list|)
-expr_stmt|;
-name|csv
 operator|.
 name|setDelimiter
 argument_list|(
-literal|"|"
+literal|'|'
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
