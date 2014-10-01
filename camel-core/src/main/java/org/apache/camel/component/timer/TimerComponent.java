@@ -163,7 +163,11 @@ name|refCounts
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|AtomicInteger
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|TimerComponent ()
@@ -323,11 +327,19 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|counter
+operator|!=
+literal|null
+condition|)
+block|{
 name|counter
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -391,6 +403,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|counter
+operator|!=
+literal|null
+operator|&&
 name|counter
 operator|.
 name|decrementAndGet
