@@ -354,6 +354,11 @@ name|suffixToken
 init|=
 name|DEFAULT_SUFFIX_TOKEN
 decl_stmt|;
+DECL|field|initialProperties
+specifier|private
+name|Properties
+name|initialProperties
+decl_stmt|;
 DECL|field|overrideProperties
 specifier|private
 name|Properties
@@ -557,8 +562,27 @@ block|{
 name|Properties
 name|prop
 init|=
-literal|null
+operator|new
+name|Properties
+argument_list|()
 decl_stmt|;
+comment|// use initial properties
+if|if
+condition|(
+literal|null
+operator|!=
+name|initialProperties
+condition|)
+block|{
+name|prop
+operator|.
+name|putAll
+argument_list|(
+name|initialProperties
+argument_list|)
+expr_stmt|;
+block|}
+comment|// use locations
 if|if
 condition|(
 name|paths
@@ -587,8 +611,9 @@ argument_list|(
 name|locations
 argument_list|)
 decl_stmt|;
-name|prop
-operator|=
+name|Properties
+name|locationsProp
+init|=
 name|cache
 condition|?
 name|cacheMap
@@ -599,15 +624,15 @@ name|key
 argument_list|)
 else|:
 literal|null
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|prop
+name|locationsProp
 operator|==
 literal|null
 condition|)
 block|{
-name|prop
+name|locationsProp
 operator|=
 name|propertiesResolver
 operator|.
@@ -632,19 +657,22 @@ name|put
 argument_list|(
 name|key
 argument_list|,
-name|prop
+name|locationsProp
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|prop
+operator|.
+name|putAll
+argument_list|(
+name|locationsProp
+argument_list|)
+expr_stmt|;
 block|}
 comment|// use override properties
 if|if
 condition|(
-name|prop
-operator|!=
-literal|null
-operator|&&
 name|overrideProperties
 operator|!=
 literal|null
@@ -1173,6 +1201,33 @@ operator|=
 name|suffixToken
 expr_stmt|;
 block|}
+block|}
+DECL|method|getInitialProperties ()
+specifier|public
+name|Properties
+name|getInitialProperties
+parameter_list|()
+block|{
+return|return
+name|initialProperties
+return|;
+block|}
+comment|/**      * Sets initial properties which will be used before any locations are resolved.      *      * @param initialProperties properties that are added first      */
+DECL|method|setInitialProperties (Properties initialProperties)
+specifier|public
+name|void
+name|setInitialProperties
+parameter_list|(
+name|Properties
+name|initialProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialProperties
+operator|=
+name|initialProperties
+expr_stmt|;
 block|}
 DECL|method|getOverrideProperties ()
 specifier|public
