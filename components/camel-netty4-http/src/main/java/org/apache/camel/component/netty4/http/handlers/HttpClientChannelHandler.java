@@ -52,6 +52,22 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpHeaders
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -71,6 +87,22 @@ operator|.
 name|camel
 operator|.
 name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty4
+operator|.
+name|NettyConstants
 import|;
 end_import
 
@@ -175,6 +207,30 @@ name|FullHttpResponse
 operator|)
 name|message
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|HttpHeaders
+operator|.
+name|isKeepAlive
+argument_list|(
+name|response
+argument_list|)
+condition|)
+block|{
+comment|// just want to make sure we close the channel if the keepAlive is not true
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|NettyConstants
+operator|.
+name|NETTY_CLOSE_CHANNEL_WHEN_COMPLETE
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|// use the binding
 return|return
 name|producer
