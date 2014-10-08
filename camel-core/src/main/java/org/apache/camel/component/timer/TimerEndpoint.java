@@ -313,6 +313,25 @@ operator|=
 name|timerName
 expr_stmt|;
 block|}
+DECL|method|TimerEndpoint (String endpointUri, Component component)
+specifier|protected
+name|TimerEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|,
+name|Component
+name|component
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointUri
+argument_list|,
+name|component
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|getComponent ()
@@ -813,25 +832,6 @@ operator|.
 name|name
 argument_list|()
 return|;
-block|}
-DECL|method|TimerEndpoint (String endpointUri, Component component)
-specifier|protected
-name|TimerEndpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|,
-name|Component
-name|component
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpointUri
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getTimer (TimerConsumer consumer)
 specifier|public
