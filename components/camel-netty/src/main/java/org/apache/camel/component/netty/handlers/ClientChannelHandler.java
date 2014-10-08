@@ -1145,7 +1145,7 @@ return|;
 block|}
 block|}
 DECL|method|getExchange (ChannelHandlerContext ctx)
-specifier|private
+specifier|protected
 name|Exchange
 name|getExchange
 parameter_list|(
