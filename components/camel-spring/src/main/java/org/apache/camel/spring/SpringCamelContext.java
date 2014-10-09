@@ -460,6 +460,13 @@ argument_list|(
 name|applicationContext
 argument_list|)
 expr_stmt|;
+name|setModelJAXBContextFactory
+argument_list|(
+operator|new
+name|SpringModelJAXBContextFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|setNoStart (boolean b)
 specifier|public

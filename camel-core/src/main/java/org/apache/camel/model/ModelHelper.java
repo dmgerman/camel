@@ -18,31 +18,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringWriter
+name|NamedNode
 import|;
 end_import
 
@@ -96,25 +78,31 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|CamelContext
+name|InputStream
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|NamedNode
+name|io
+operator|.
+name|StringWriter
 import|;
 end_import
 
@@ -137,12 +125,15 @@ block|{
 comment|// utility class
 block|}
 comment|/**      * Dumps the definition as XML      *      * @param definition  the definition, such as a {@link org.apache.camel.NamedNode}      * @return            the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
-DECL|method|dumpModelAsXml (NamedNode definition)
+DECL|method|dumpModelAsXml (ModelCamelContext modelCamelContext, NamedNode definition)
 specifier|public
 specifier|static
 name|String
 name|dumpModelAsXml
 parameter_list|(
+name|ModelCamelContext
+name|modelCamelContext
+parameter_list|,
 name|NamedNode
 name|definition
 parameter_list|)
@@ -152,7 +143,12 @@ block|{
 name|JAXBContext
 name|jaxbContext
 init|=
-name|createJaxbContext
+name|modelCamelContext
+operator|.
+name|getModelJAXBContextFactory
+argument_list|()
+operator|.
+name|newJAXBContext
 argument_list|()
 decl_stmt|;
 name|Marshaller
@@ -200,7 +196,7 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Marshal the xml to the model definition      *      * @param xml the xml      * @param type the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
-DECL|method|createModelFromXml (String xml, Class<T> type)
+DECL|method|createModelFromXml (ModelCamelContext modelCamelContext, String xml, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -211,6 +207,9 @@ parameter_list|>
 name|T
 name|createModelFromXml
 parameter_list|(
+name|ModelCamelContext
+name|modelCamelContext
+parameter_list|,
 name|String
 name|xml
 parameter_list|,
@@ -226,7 +225,12 @@ block|{
 name|JAXBContext
 name|jaxbContext
 init|=
-name|createJaxbContext
+name|modelCamelContext
+operator|.
+name|getModelJAXBContextFactory
+argument_list|()
+operator|.
+name|newJAXBContext
 argument_list|()
 decl_stmt|;
 name|StringReader
@@ -292,7 +296,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Marshal the xml to the model definition      *      * @param stream the xml stream      * @param type the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
-DECL|method|createModelFromXml (InputStream stream, Class<T> type)
+DECL|method|createModelFromXml (ModelCamelContext modelCamelContext, InputStream stream, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -303,6 +307,9 @@ parameter_list|>
 name|T
 name|createModelFromXml
 parameter_list|(
+name|ModelCamelContext
+name|modelCamelContext
+parameter_list|,
 name|InputStream
 name|stream
 parameter_list|,
@@ -318,7 +325,12 @@ block|{
 name|JAXBContext
 name|jaxbContext
 init|=
-name|createJaxbContext
+name|modelCamelContext
+operator|.
+name|getModelJAXBContextFactory
+argument_list|()
+operator|.
+name|newJAXBContext
 argument_list|()
 decl_stmt|;
 name|Unmarshaller
@@ -345,34 +357,6 @@ operator|.
 name|cast
 argument_list|(
 name|result
-argument_list|)
-return|;
-block|}
-DECL|method|createJaxbContext ()
-specifier|public
-specifier|static
-name|JAXBContext
-name|createJaxbContext
-parameter_list|()
-throws|throws
-name|JAXBException
-block|{
-comment|// must use classloader from CamelContext to have JAXB working
-return|return
-name|JAXBContext
-operator|.
-name|newInstance
-argument_list|(
-name|Constants
-operator|.
-name|JAXB_CONTEXT_PACKAGES
-argument_list|,
-name|CamelContext
-operator|.
-name|class
-operator|.
-name|getClassLoader
-argument_list|()
 argument_list|)
 return|;
 block|}

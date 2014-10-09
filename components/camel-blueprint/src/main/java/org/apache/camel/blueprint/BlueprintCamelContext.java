@@ -472,6 +472,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|setModelJAXBContextFactory
+argument_list|(
+operator|new
+name|BlueprintModelJAXBContextFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getBundleContext ()
 specifier|public

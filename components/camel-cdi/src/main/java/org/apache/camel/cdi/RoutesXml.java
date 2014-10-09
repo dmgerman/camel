@@ -98,6 +98,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ModelCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|ModelHelper
 import|;
 end_import
@@ -149,12 +163,15 @@ block|{
 comment|//The helper class
 block|}
 comment|/**      * Loads the routes from the given XML content      */
-DECL|method|loadRoutesFromXML (String xml)
+DECL|method|loadRoutesFromXML (ModelCamelContext camelContext, String xml)
 specifier|public
 specifier|static
 name|RoutesDefinition
 name|loadRoutesFromXML
 parameter_list|(
+name|ModelCamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|xml
 parameter_list|)
@@ -166,6 +183,8 @@ name|ModelHelper
 operator|.
 name|createModelFromXml
 argument_list|(
+name|camelContext
+argument_list|,
 name|xml
 argument_list|,
 name|RoutesDefinition
@@ -175,12 +194,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Loads the routes from the classpath      */
-DECL|method|loadRoutesFromClasspath (String uri)
+DECL|method|loadRoutesFromClasspath (ModelCamelContext camelContext, String uri)
 specifier|public
 specifier|static
 name|RoutesDefinition
 name|loadRoutesFromClasspath
 parameter_list|(
+name|ModelCamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|uri
 parameter_list|)
@@ -215,6 +237,8 @@ name|ModelHelper
 operator|.
 name|createModelFromXml
 argument_list|(
+name|camelContext
+argument_list|,
 name|stream
 argument_list|,
 name|RoutesDefinition
@@ -224,12 +248,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Loads the routes from a {@link URL}      */
-DECL|method|loadRoutesFromURL (URL url)
+DECL|method|loadRoutesFromURL (ModelCamelContext camelContext, URL url)
 specifier|public
 specifier|static
 name|RoutesDefinition
 name|loadRoutesFromURL
 parameter_list|(
+name|ModelCamelContext
+name|camelContext
+parameter_list|,
 name|URL
 name|url
 parameter_list|)
@@ -252,6 +279,8 @@ name|ModelHelper
 operator|.
 name|createModelFromXml
 argument_list|(
+name|camelContext
+argument_list|,
 name|url
 operator|.
 name|openStream
@@ -264,12 +293,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Loads the routes from a {@link URL}      */
-DECL|method|loadRoutesFromURL (String url)
+DECL|method|loadRoutesFromURL (ModelCamelContext camelContext, String url)
 specifier|public
 specifier|static
 name|RoutesDefinition
 name|loadRoutesFromURL
 parameter_list|(
+name|ModelCamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|url
 parameter_list|)
@@ -281,6 +313,8 @@ block|{
 return|return
 name|loadRoutesFromURL
 argument_list|(
+name|camelContext
+argument_list|,
 operator|new
 name|URL
 argument_list|(
@@ -290,12 +324,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Loads the routes from a {@link File}      */
-DECL|method|loadRoutesFromFile (File file)
+DECL|method|loadRoutesFromFile (ModelCamelContext camelContext, File file)
 specifier|public
 specifier|static
 name|RoutesDefinition
 name|loadRoutesFromFile
 parameter_list|(
+name|ModelCamelContext
+name|camelContext
+parameter_list|,
 name|File
 name|file
 parameter_list|)
@@ -318,6 +355,8 @@ name|ModelHelper
 operator|.
 name|createModelFromXml
 argument_list|(
+name|camelContext
+argument_list|,
 operator|new
 name|FileInputStream
 argument_list|(
@@ -331,12 +370,15 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Loads the routes from a {@link File}      */
-DECL|method|loadRoutesFromFile (String fileName)
+DECL|method|loadRoutesFromFile (ModelCamelContext camelContext, String fileName)
 specifier|public
 specifier|static
 name|RoutesDefinition
 name|loadRoutesFromFile
 parameter_list|(
+name|ModelCamelContext
+name|camelContext
+parameter_list|,
 name|String
 name|fileName
 parameter_list|)
@@ -348,6 +390,8 @@ block|{
 return|return
 name|loadRoutesFromFile
 argument_list|(
+name|camelContext
+argument_list|,
 operator|new
 name|File
 argument_list|(

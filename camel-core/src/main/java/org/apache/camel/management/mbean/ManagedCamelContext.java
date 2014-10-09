@@ -1769,6 +1769,8 @@ name|ModelHelper
 operator|.
 name|dumpModelAsXml
 argument_list|(
+name|context
+argument_list|,
 name|def
 argument_list|)
 return|;
@@ -1824,6 +1826,8 @@ name|ModelHelper
 operator|.
 name|dumpModelAsXml
 argument_list|(
+name|context
+argument_list|,
 name|def
 argument_list|)
 return|;

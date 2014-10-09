@@ -912,29 +912,6 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|createModelFileGenerator ()
-specifier|protected
-name|ModelFileGenerator
-name|createModelFileGenerator
-parameter_list|()
-throws|throws
-name|JAXBException
-block|{
-return|return
-operator|new
-name|ModelFileGenerator
-argument_list|(
-name|JAXBContext
-operator|.
-name|newInstance
-argument_list|(
-name|Constants
-operator|.
-name|JAXB_CONTEXT_PACKAGES
-argument_list|)
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 

@@ -66,9 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|impl
 operator|.
-name|Constants
+name|DefaultModelJAXBContextFactory
 import|;
 end_import
 
@@ -265,14 +265,12 @@ comment|// load bar route from classpath using JAXB
 name|JAXBContext
 name|jaxb
 init|=
-name|JAXBContext
+operator|new
+name|DefaultModelJAXBContextFactory
+argument_list|()
 operator|.
-name|newInstance
-argument_list|(
-name|Constants
-operator|.
-name|JAXB_CONTEXT_PACKAGES
-argument_list|)
+name|newJAXBContext
+argument_list|()
 decl_stmt|;
 name|Unmarshaller
 name|unmarshaller

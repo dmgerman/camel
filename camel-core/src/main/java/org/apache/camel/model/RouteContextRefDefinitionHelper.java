@@ -142,18 +142,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|language
@@ -212,13 +200,13 @@ specifier|private
 name|RouteContextRefDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Lookup the routes from the {@link RouteContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the routes as it performs a deep clone of the routes      * as a {@link RouteContextRefDefinition} can be re-used with multiple {@link CamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link CamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link RouteContextRefDefinition} to lookup and get the routes.      * @return the routes.      */
+comment|/**      * Lookup the routes from the {@link RouteContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the routes as it performs a deep clone of the routes      * as a {@link RouteContextRefDefinition} can be re-used with multiple {@link ModelCamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link ModelCamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link RouteContextRefDefinition} to lookup and get the routes.      * @return the routes.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|lookupRoutes (CamelContext camelContext, String ref)
+DECL|method|lookupRoutes (ModelCamelContext camelContext, String ref)
 specifier|public
 specifier|static
 specifier|synchronized
@@ -228,7 +216,7 @@ name|RouteDefinition
 argument_list|>
 name|lookupRoutes
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 parameter_list|,
 name|String
@@ -316,7 +304,9 @@ name|JAXBContext
 name|jaxb
 init|=
 name|getOrCreateJAXBContext
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -372,13 +362,17 @@ return|return
 name|clones
 return|;
 block|}
-DECL|method|getOrCreateJAXBContext ()
+DECL|method|getOrCreateJAXBContext (final ModelCamelContext camelContext)
 specifier|private
 specifier|static
 specifier|synchronized
 name|JAXBContext
 name|getOrCreateJAXBContext
-parameter_list|()
+parameter_list|(
+specifier|final
+name|ModelCamelContext
+name|camelContext
+parameter_list|)
 throws|throws
 name|JAXBException
 block|{
@@ -389,24 +383,15 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// must use classloader from CamelContext to have JAXB working
 name|jaxbContext
 operator|=
-name|JAXBContext
+name|camelContext
 operator|.
-name|newInstance
-argument_list|(
-name|Constants
-operator|.
-name|JAXB_CONTEXT_PACKAGES
-argument_list|,
-name|CamelContext
-operator|.
-name|class
-operator|.
-name|getClassLoader
+name|getModelJAXBContextFactory
 argument_list|()
-argument_list|)
+operator|.
+name|newJAXBContext
+argument_list|()
 expr_stmt|;
 block|}
 return|return

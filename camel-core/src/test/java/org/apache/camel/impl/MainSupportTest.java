@@ -28,18 +28,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -88,20 +76,6 @@ name|MainSupport
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|view
-operator|.
-name|ModelFileGenerator
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -144,18 +118,6 @@ name|CamelContext
 argument_list|>
 name|getCamelContextMap
 parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-DECL|method|createModelFileGenerator ()
-specifier|protected
-name|ModelFileGenerator
-name|createModelFileGenerator
-parameter_list|()
-throws|throws
-name|JAXBException
 block|{
 return|return
 literal|null

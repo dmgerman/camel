@@ -161,6 +161,10 @@ name|RoutesXml
 operator|.
 name|loadRoutesFromURL
 argument_list|(
+operator|new
+name|CdiCamelContext
+argument_list|()
+argument_list|,
 name|url
 argument_list|)
 return|;

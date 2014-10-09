@@ -149,6 +149,10 @@ name|RoutesXml
 operator|.
 name|loadRoutesFromClasspath
 argument_list|(
+operator|new
+name|CdiCamelContext
+argument_list|()
+argument_list|,
 literal|"routes.xml"
 argument_list|)
 return|;

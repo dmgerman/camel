@@ -142,18 +142,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|language
@@ -244,13 +232,13 @@ specifier|private
 name|RestContextRefDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Lookup the rests from the {@link org.apache.camel.model.RestContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the rests as it performs a deep clone of the rests      * as a {@link org.apache.camel.model.RestContextRefDefinition} can be re-used with multiple {@link org.apache.camel.CamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link org.apache.camel.CamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link org.apache.camel.model.RestContextRefDefinition} to lookup and get the routes.      * @return the rests.      */
+comment|/**      * Lookup the rests from the {@link org.apache.camel.model.RestContextRefDefinition}.      *<p/>      * This implementation must be used to lookup the rests as it performs a deep clone of the rests      * as a {@link org.apache.camel.model.RestContextRefDefinition} can be re-used with multiple {@link org.apache.camel.model.ModelCamelContext} and each      * context should have their own instances of the routes. This is to ensure no side-effects and sharing      * of instances between the contexts. For example such as property placeholders may be context specific      * so the routes should not use placeholders from another {@link org.apache.camel.model.ModelCamelContext}.      *      * @param camelContext the CamelContext      * @param ref          the id of the {@link org.apache.camel.model.RestContextRefDefinition} to lookup and get the routes.      * @return the rests.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|lookupRests (CamelContext camelContext, String ref)
+DECL|method|lookupRests (ModelCamelContext camelContext, String ref)
 specifier|public
 specifier|static
 specifier|synchronized
@@ -260,7 +248,7 @@ name|RestDefinition
 argument_list|>
 name|lookupRests
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 parameter_list|,
 name|String
@@ -348,7 +336,9 @@ name|JAXBContext
 name|jaxb
 init|=
 name|getOrCreateJAXBContext
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -404,13 +394,17 @@ return|return
 name|clones
 return|;
 block|}
-DECL|method|getOrCreateJAXBContext ()
+DECL|method|getOrCreateJAXBContext (final ModelCamelContext camelContext)
 specifier|private
 specifier|static
 specifier|synchronized
 name|JAXBContext
 name|getOrCreateJAXBContext
-parameter_list|()
+parameter_list|(
+specifier|final
+name|ModelCamelContext
+name|camelContext
+parameter_list|)
 throws|throws
 name|JAXBException
 block|{
@@ -424,21 +418,13 @@ block|{
 comment|// must use classloader from CamelContext to have JAXB working
 name|jaxbContext
 operator|=
-name|JAXBContext
+name|camelContext
 operator|.
-name|newInstance
-argument_list|(
-name|Constants
-operator|.
-name|JAXB_CONTEXT_PACKAGES
-argument_list|,
-name|CamelContext
-operator|.
-name|class
-operator|.
-name|getClassLoader
+name|getModelJAXBContextFactory
 argument_list|()
-argument_list|)
+operator|.
+name|newJAXBContext
+argument_list|()
 expr_stmt|;
 block|}
 return|return

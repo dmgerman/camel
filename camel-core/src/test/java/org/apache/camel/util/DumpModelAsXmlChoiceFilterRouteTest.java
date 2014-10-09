@@ -84,6 +84,8 @@ operator|.
 name|dumpModelAsXml
 argument_list|(
 name|context
+argument_list|,
+name|context
 operator|.
 name|getRouteDefinition
 argument_list|(
@@ -149,6 +151,8 @@ name|ModelHelper
 operator|.
 name|dumpModelAsXml
 argument_list|(
+name|context
+argument_list|,
 name|context
 operator|.
 name|getRouteDefinition

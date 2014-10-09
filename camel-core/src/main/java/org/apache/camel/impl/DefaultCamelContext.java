@@ -788,20 +788,6 @@ name|camel
 operator|.
 name|model
 operator|.
-name|Constants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
 name|DataFormatDefinition
 import|;
 end_import
@@ -1351,6 +1337,20 @@ operator|.
 name|spi
 operator|.
 name|ManagementStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ModelJAXBContextFactory
 import|;
 end_import
 
@@ -2664,6 +2664,11 @@ DECL|field|startDate
 specifier|private
 name|Date
 name|startDate
+decl_stmt|;
+DECL|field|modelJAXBContextFactory
+specifier|private
+name|ModelJAXBContextFactory
+name|modelJAXBContextFactory
 decl_stmt|;
 comment|/**      * Creates the {@link CamelContext} using {@link JndiRegistry} as registry,      * but will silently fallback and use {@link SimpleRegistry} if JNDI cannot be used.      *<p/>      * Use one of the other constructors to force use an explicit registry / JNDI.      */
 DECL|method|DefaultCamelContext ()
@@ -4786,21 +4791,11 @@ block|{
 comment|// must use classloader from CamelContext to have JAXB working
 name|jaxbContext
 operator|=
-name|JAXBContext
-operator|.
-name|newInstance
-argument_list|(
-name|Constants
-operator|.
-name|JAXB_CONTEXT_PACKAGES
-argument_list|,
-name|CamelContext
-operator|.
-name|class
-operator|.
-name|getClassLoader
+name|getModelJAXBContextFactory
 argument_list|()
-argument_list|)
+operator|.
+name|newJAXBContext
+argument_list|()
 expr_stmt|;
 block|}
 name|Unmarshaller
@@ -17874,6 +17869,47 @@ return|return
 name|answer
 return|;
 block|}
+block|}
+DECL|method|getModelJAXBContextFactory ()
+specifier|public
+name|ModelJAXBContextFactory
+name|getModelJAXBContextFactory
+parameter_list|()
+block|{
+if|if
+condition|(
+name|modelJAXBContextFactory
+operator|==
+literal|null
+condition|)
+block|{
+name|modelJAXBContextFactory
+operator|=
+operator|new
+name|DefaultModelJAXBContextFactory
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|modelJAXBContextFactory
+return|;
+block|}
+DECL|method|setModelJAXBContextFactory (final ModelJAXBContextFactory modelJAXBContextFactory)
+specifier|public
+name|void
+name|setModelJAXBContextFactory
+parameter_list|(
+specifier|final
+name|ModelJAXBContextFactory
+name|modelJAXBContextFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|modelJAXBContextFactory
+operator|=
+name|modelJAXBContextFactory
+expr_stmt|;
 block|}
 DECL|method|getNodeIdFactory ()
 specifier|public

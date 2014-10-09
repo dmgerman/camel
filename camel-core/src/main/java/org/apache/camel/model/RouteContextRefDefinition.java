@@ -200,7 +200,7 @@ operator|=
 name|ref
 expr_stmt|;
 block|}
-DECL|method|lookupRoutes (CamelContext camelContext)
+DECL|method|lookupRoutes (ModelCamelContext camelContext)
 specifier|public
 name|List
 argument_list|<
@@ -208,7 +208,7 @@ name|RouteDefinition
 argument_list|>
 name|lookupRoutes
 parameter_list|(
-name|CamelContext
+name|ModelCamelContext
 name|camelContext
 parameter_list|)
 block|{
