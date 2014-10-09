@@ -1310,20 +1310,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|String
-name|httpMethodRestrict
-init|=
-name|getAndRemoveParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"httpMethodRestrict"
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 init|=
@@ -1513,6 +1499,21 @@ argument_list|(
 name|addressUri
 argument_list|,
 name|parameters
+argument_list|)
+decl_stmt|;
+comment|// need to keep the httpMethodRestrict parameter for the endpointUri
+name|String
+name|httpMethodRestrict
+init|=
+name|getAndRemoveParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"httpMethodRestrict"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options

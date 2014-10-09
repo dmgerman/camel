@@ -1000,7 +1000,10 @@ name|put
 argument_list|(
 name|consumer
 operator|.
-name|getPath
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
 argument_list|()
 argument_list|,
 name|consumer
@@ -1031,7 +1034,10 @@ name|remove
 argument_list|(
 name|consumer
 operator|.
-name|getPath
+name|getEndpoint
+argument_list|()
+operator|.
+name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
