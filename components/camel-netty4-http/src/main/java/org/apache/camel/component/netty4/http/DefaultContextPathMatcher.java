@@ -43,13 +43,13 @@ implements|implements
 name|ContextPathMatcher
 block|{
 DECL|field|path
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|path
 decl_stmt|;
 DECL|field|matchOnUriPrefix
-specifier|private
+specifier|protected
 specifier|final
 name|boolean
 name|matchOnUriPrefix
