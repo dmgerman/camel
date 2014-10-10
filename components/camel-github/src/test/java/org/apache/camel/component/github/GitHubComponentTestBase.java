@@ -201,6 +201,8 @@ name|CamelTestSupport
 block|{
 DECL|field|USERNAME
 specifier|public
+specifier|static
+specifier|final
 name|String
 name|USERNAME
 init|=
@@ -208,6 +210,8 @@ literal|"someguy"
 decl_stmt|;
 DECL|field|PASSWORD
 specifier|public
+specifier|static
+specifier|final
 name|String
 name|PASSWORD
 init|=
@@ -215,6 +219,8 @@ literal|"apassword"
 decl_stmt|;
 DECL|field|REPO_OWNER
 specifier|public
+specifier|static
+specifier|final
 name|String
 name|REPO_OWNER
 init|=
@@ -222,6 +228,8 @@ literal|"anotherguy"
 decl_stmt|;
 DECL|field|REPO_NAME
 specifier|public
+specifier|static
+specifier|final
 name|String
 name|REPO_NAME
 init|=
@@ -229,6 +237,8 @@ literal|"somerepo"
 decl_stmt|;
 DECL|field|GITHUB_CREDENTIALS_STRING
 specifier|public
+specifier|static
+specifier|final
 name|String
 name|GITHUB_CREDENTIALS_STRING
 init|=
