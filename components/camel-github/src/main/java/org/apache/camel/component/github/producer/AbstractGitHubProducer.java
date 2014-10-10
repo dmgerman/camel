@@ -219,6 +219,11 @@ name|RepositoryService
 argument_list|()
 expr_stmt|;
 block|}
+name|initService
+argument_list|(
+name|repositoryService
+argument_list|)
+expr_stmt|;
 name|repository
 operator|=
 name|repositoryService
