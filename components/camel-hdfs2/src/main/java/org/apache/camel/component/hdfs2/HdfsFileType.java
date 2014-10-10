@@ -643,9 +643,10 @@ init|=
 operator|new
 name|byte
 index|[
-name|HdfsConstants
+name|hdfsistr
 operator|.
-name|DEFAULT_BUFFERSIZE
+name|getChunkSize
+argument_list|()
 index|]
 decl_stmt|;
 name|int
