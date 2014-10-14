@@ -1917,63 +1917,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createResponseFutureListener (NettyConsumer consumer, Exchange exchange, SocketAddress remoteAddress)
-specifier|protected
-name|ChannelFutureListener
-name|createResponseFutureListener
-parameter_list|(
-name|NettyConsumer
-name|consumer
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|,
-name|SocketAddress
-name|remoteAddress
-parameter_list|)
-block|{
-comment|// make sure to close channel if not keep-alive
-if|if
-condition|(
-name|request
-operator|!=
-literal|null
-operator|&&
-name|isKeepAlive
-argument_list|(
-name|request
-argument_list|)
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Request has Connection: keep-alive so Channel is not being closed"
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Request is not Connection: close so Channel is being closed"
-argument_list|)
-expr_stmt|;
-return|return
-name|ChannelFutureListener
-operator|.
-name|CLOSE
-return|;
-block|}
-block|}
-annotation|@
-name|Override
 DECL|method|getResponseBody (Exchange exchange)
 specifier|protected
 name|Object

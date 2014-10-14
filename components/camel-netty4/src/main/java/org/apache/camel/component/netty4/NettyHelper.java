@@ -487,6 +487,9 @@ name|channel
 operator|.
 name|close
 argument_list|()
+operator|.
+name|syncUninterruptibly
+argument_list|()
 expr_stmt|;
 block|}
 block|}
