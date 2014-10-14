@@ -379,6 +379,16 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// make sure the event can be processed by other handlers
+name|super
+operator|.
+name|channelOpen
+argument_list|(
+name|ctx
+argument_list|,
+name|channelStateEvent
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -673,6 +683,16 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|// make sure the event can be processed by other handlers
+name|super
+operator|.
+name|channelClosed
+argument_list|(
+name|ctx
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
