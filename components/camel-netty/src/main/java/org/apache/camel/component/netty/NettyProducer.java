@@ -2735,6 +2735,15 @@ block|{
 comment|// put back in pool
 try|try
 block|{
+comment|// Only put the connected channel back to the pool
+if|if
+condition|(
+name|channel
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -2751,6 +2760,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2852,6 +2862,14 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|channel
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
 name|NettyHelper
 operator|.
 name|close
@@ -2859,6 +2877,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+block|}
 name|allChannels
 operator|.
 name|remove
@@ -2916,6 +2935,15 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"activateObject channel: {} -> {}"
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2931,6 +2959,15 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"passivateObject channel: {} -> {}"
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

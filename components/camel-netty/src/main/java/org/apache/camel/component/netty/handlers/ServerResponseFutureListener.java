@@ -334,6 +334,30 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+comment|// check the setting on the exchange property
+if|if
+condition|(
+name|close
+operator|==
+literal|null
+condition|)
+block|{
+name|close
+operator|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|NettyConstants
+operator|.
+name|NETTY_CLOSE_CHANNEL_WHEN_COMPLETE
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|// should we disconnect, the header can override the configuration
 name|boolean
 name|disconnect
