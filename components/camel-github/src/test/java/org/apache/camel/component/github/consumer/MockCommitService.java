@@ -184,7 +184,9 @@ name|commitsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|RepositoryCommit
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|fakeSha

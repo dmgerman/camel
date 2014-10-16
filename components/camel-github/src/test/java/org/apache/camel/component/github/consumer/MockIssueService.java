@@ -118,7 +118,9 @@ name|comments
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Comment
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|mockPullRequestService
