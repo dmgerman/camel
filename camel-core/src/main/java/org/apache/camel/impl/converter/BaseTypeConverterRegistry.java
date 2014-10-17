@@ -2211,6 +2211,7 @@ name|canPromote
 argument_list|)
 expr_stmt|;
 comment|// add in top of fallback as the toString() fallback will nearly always be able to convert
+comment|// the last one which is add to the FallbackTypeConverter will be called at the first place
 name|fallbackConverters
 operator|.
 name|add

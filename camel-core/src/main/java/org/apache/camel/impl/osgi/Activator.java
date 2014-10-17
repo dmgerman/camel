@@ -566,6 +566,18 @@ name|osgi
 operator|.
 name|framework
 operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
 name|ServiceRegistration
 import|;
 end_import
@@ -1535,6 +1547,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found TypeConverter in bundle {}"
+argument_list|,
+name|bundle
+operator|.
+name|getSymbolicName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|resolvers
 operator|.
 name|add
@@ -1543,6 +1567,10 @@ operator|new
 name|BundleTypeConverterLoader
 argument_list|(
 name|bundle
+argument_list|,
+name|url2
+operator|!=
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2031,12 +2059,21 @@ specifier|final
 name|Bundle
 name|bundle
 decl_stmt|;
-DECL|method|BundleTypeConverterLoader (Bundle bundle)
+DECL|field|hasFallbackTypeConverter
+specifier|private
+specifier|final
+name|boolean
+name|hasFallbackTypeConverter
+decl_stmt|;
+DECL|method|BundleTypeConverterLoader (Bundle bundle, boolean hasFallbackTypeConverter)
 specifier|public
 name|BundleTypeConverterLoader
 parameter_list|(
 name|Bundle
 name|bundle
+parameter_list|,
+name|boolean
+name|hasFallbackTypeConverter
 parameter_list|)
 block|{
 name|super
@@ -2062,6 +2099,12 @@ operator|.
 name|bundle
 operator|=
 name|bundle
+expr_stmt|;
+name|this
+operator|.
+name|hasFallbackTypeConverter
+operator|=
+name|hasFallbackTypeConverter
 expr_stmt|;
 block|}
 DECL|method|load (TypeConverterRegistry registry)
@@ -2116,6 +2159,33 @@ name|void
 name|register
 parameter_list|()
 block|{
+if|if
+condition|(
+name|hasFallbackTypeConverter
+condition|)
+block|{
+comment|// The FallbackTypeConverter should have a higher ranking
+name|doRegister
+argument_list|(
+name|TypeConverterLoader
+operator|.
+name|class
+argument_list|,
+name|Constants
+operator|.
+name|SERVICE_RANKING
+argument_list|,
+operator|new
+name|Integer
+argument_list|(
+literal|100
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// The default service ranking is Integer(0);
 name|doRegister
 argument_list|(
 name|TypeConverterLoader
@@ -2123,6 +2193,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|class|Loader
 class|class
@@ -2598,6 +2669,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found {} to load the FallbackTypeConverter"
+argument_list|,
+name|META_INF_FALLBACK_TYPE_CONVERTER
+argument_list|)
+expr_stmt|;
 name|TypeConverter
 name|tc
 init|=
