@@ -50,31 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|LoggingLevel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ValidationException
 import|;
 end_import
 
@@ -162,7 +138,7 @@ name|body
 init|=
 literal|"<t:text xmlns:t=\"org.text\">\n"
 operator|+
-literal|"<t:sentence>J'aime les camÃ©lidÃ©s</t:sentence>\n"
+literal|"<t:sentence>J'aime les cam\u00E9lid\u00E9s</t:sentence>\n"
 operator|+
 literal|"</t:text>"
 decl_stmt|;
