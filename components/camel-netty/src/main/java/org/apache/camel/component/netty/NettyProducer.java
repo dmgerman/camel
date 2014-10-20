@@ -1025,20 +1025,7 @@ operator|.
 name|awaitUninterruptibly
 argument_list|()
 expr_stmt|;
-comment|// and then release other resources
-if|if
-condition|(
-name|channelFactory
-operator|!=
-literal|null
-condition|)
-block|{
-name|channelFactory
-operator|.
-name|releaseExternalResources
-argument_list|()
-expr_stmt|;
-block|}
+comment|// release the external resource here and we keep the timer open
 comment|// and then shutdown the thread pools
 if|if
 condition|(
