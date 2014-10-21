@@ -1914,6 +1914,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|dsc
+operator|.
+name|putNamespacePrefix
+argument_list|(
+literal|"http://www.w3.org/2001/10/xml-exc-c14n#"
+argument_list|,
+literal|"ec"
+argument_list|)
+expr_stmt|;
 name|setCryptoContextProperties
 argument_list|(
 name|dsc
