@@ -22,6 +22,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|github
@@ -703,26 +723,6 @@ operator|.
 name|model
 operator|.
 name|Volumes
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
 import|;
 end_import
 
@@ -6380,7 +6380,9 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{}
+block|{
+comment|// Do nothing here
+block|}
 return|return
 name|authConfig
 return|;

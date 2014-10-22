@@ -20,36 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|DockerClientException
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|model
-operator|.
-name|AuthConfig
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -77,6 +47,36 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|DockerClientException
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|AuthConfig
 import|;
 end_import
 
@@ -127,6 +127,7 @@ end_comment
 begin_class
 DECL|class|DockerHelper
 specifier|public
+specifier|final
 class|class
 name|DockerHelper
 block|{
@@ -139,8 +140,15 @@ name|STRING_DELIMITER
 init|=
 literal|";"
 decl_stmt|;
+DECL|method|DockerHelper ()
+specifier|private
+name|DockerHelper
+parameter_list|()
+block|{
+comment|//Helpser class
+block|}
 comment|/**      * Validates the URI parameters for a given {@link DockerOperation}      *       * @param dockerOperation      * @param parameters      */
-DECL|method|validateParameters (DockerOperation dockerOperation, Map<String,Object> parameters)
+DECL|method|validateParameters (DockerOperation dockerOperation, Map<String, Object> parameters)
 specifier|public
 specifier|static
 name|void
@@ -1032,12 +1040,10 @@ condition|)
 block|{
 return|return
 operator|(
-operator|(
 name|String
 index|[]
 operator|)
 name|header
-operator|)
 return|;
 block|}
 block|}

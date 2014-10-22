@@ -22,22 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|command
-operator|.
-name|CreateImageCmd
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -53,6 +37,22 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|command
+operator|.
+name|CreateImageCmd
 import|;
 end_import
 

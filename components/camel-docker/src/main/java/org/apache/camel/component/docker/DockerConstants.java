@@ -45,6 +45,7 @@ end_comment
 begin_class
 DECL|class|DockerConstants
 specifier|public
+specifier|final
 class|class
 name|DockerConstants
 block|{
@@ -895,6 +896,13 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|DockerConstants ()
+specifier|private
+name|DockerConstants
+parameter_list|()
+block|{
+comment|// Helper class
 block|}
 block|}
 end_class

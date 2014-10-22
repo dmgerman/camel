@@ -111,9 +111,17 @@ end_comment
 begin_class
 DECL|class|DockerClientFactory
 specifier|public
+specifier|final
 class|class
 name|DockerClientFactory
 block|{
+DECL|method|DockerClientFactory ()
+specifier|private
+name|DockerClientFactory
+parameter_list|()
+block|{
+comment|//Helper class
+block|}
 comment|/**      * Produces a {@link DockerClient} to communicate with Docker      *       * @param dockerConfiguration      * @param message the Camel message      * @return a DockerClient      * @throws DockerException      */
 DECL|method|getDockerClient (DockerConfiguration dockerConfiguration, Message message)
 specifier|public
