@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create {@link ChannelPipeline} for servers, eg {@link NettyConsumer}.  *<p/>  * Implementators must support creating a new instance of this factory which is associated  * to the given {@link NettyConsumer} using the {@link #createPipelineFactory(NettyConsumer)}  * method.  *  * @see ChannelPipelineFactory  */
+comment|/**  * Factory to create {@link ChannelPipeline} for servers, eg {@link NettyConsumer}.  *<p/>  * Implementators must support creating a new instance of this factory which is associated  * to the given {@link NettyConsumer} using the {@link #createPipelineFactory(NettyConsumer)}  * method.  *  * @see ChannelInitializer  */
 end_comment
 
 begin_class
