@@ -906,6 +906,11 @@ specifier|private
 name|String
 name|replyToDestinationSelectorName
 decl_stmt|;
+DECL|field|replyToOverride
+specifier|private
+name|String
+name|replyToOverride
+decl_stmt|;
 DECL|field|jmsMessageType
 specifier|private
 name|JmsMessageType
@@ -4834,6 +4839,35 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getReplyToOverride ()
+specifier|public
+name|String
+name|getReplyToOverride
+parameter_list|()
+block|{
+return|return
+name|replyToOverride
+return|;
+block|}
+DECL|method|setReplyToOverride (String replyToDestination)
+specifier|public
+name|void
+name|setReplyToOverride
+parameter_list|(
+name|String
+name|replyToDestination
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToOverride
+operator|=
+name|normalizeDestinationName
+argument_list|(
+name|replyToDestination
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getJmsMessageType ()
 specifier|public
