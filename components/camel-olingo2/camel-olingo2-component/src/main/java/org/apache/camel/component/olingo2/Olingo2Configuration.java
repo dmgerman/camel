@@ -30,18 +30,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|SSLContext
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -65,6 +53,22 @@ operator|.
 name|spi
 operator|.
 name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -225,10 +229,10 @@ name|proxy
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|sslContext
+DECL|field|sslContextParameters
 specifier|private
-name|SSLContext
-name|sslContext
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|// for more complex configuration, use a client builder
 annotation|@
@@ -404,30 +408,30 @@ operator|=
 name|proxy
 expr_stmt|;
 block|}
-DECL|method|getSslContext ()
+DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContext
-name|getSslContext
+name|SSLContextParameters
+name|getSslContextParameters
 parameter_list|()
 block|{
 return|return
-name|sslContext
+name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContext (SSLContext sslContext)
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
-name|setSslContext
+name|setSslContextParameters
 parameter_list|(
-name|SSLContext
-name|sslContext
+name|SSLContextParameters
+name|sslContextParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sslContext
+name|sslContextParameters
 operator|=
-name|sslContext
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getHttpAsyncClientBuilder ()
@@ -501,7 +505,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|sslContext
+name|sslContextParameters
 argument_list|)
 operator|.
 name|append
@@ -628,23 +632,23 @@ operator|.
 name|proxy
 argument_list|)
 operator|&&
-name|sslContext
+name|sslContextParameters
 operator|==
 literal|null
 condition|?
 name|other
 operator|.
-name|sslContext
+name|sslContextParameters
 operator|==
 literal|null
 else|:
-name|sslContext
+name|sslContextParameters
 operator|.
 name|equals
 argument_list|(
 name|other
 operator|.
-name|sslContext
+name|sslContextParameters
 argument_list|)
 operator|&&
 name|httpAsyncClientBuilder
